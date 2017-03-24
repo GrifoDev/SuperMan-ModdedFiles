@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Сканаванне...</item>
+        <item>Падлучэнне...</item>
+        <item>Аўтэнтыфікацыя...</item>
+        <item>Атрыманне IP-адраса...</item>
+        <item>Падлучана</item>
+        <item>Прыпынена</item>
+        <item>Адлучэнне...</item>
+        <item>Адключана</item>
+        <item>Няўдала</item>
+        <item>Заблакiравана</item>
+        <item>Дрэнная сувязь часова пазбегнута</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Сканаванне...</item>
+        <item>Падключэнне да сеткі %1$s...</item>
+        <item>Аўтэнтыфікацыя ў сетцы %1$s...</item>
+        <item>Атрыманне IP-адраса ў сетцы %1$s...</item>
+        <item>Падключаны да сеткi %1$s</item>
+        <item>Прыпынена</item>
+        <item>Адключэнне ад сеткі %1$s...</item>
+        <item>Адключана</item>
+        <item>Няўдала</item>
+        <item>Заблакiравана</item>
+        <item>Дрэнная сувязь часова пазбегнута</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Ніколі не правяраць</item>
+        <item>Праверка толькi для змесціва, абароненага DRM</item>
+        <item>Заўсёды правяраць</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Ніколі не выкарыстоўваць праверку HDCP</item>
+        <item>Выкарыстанне праверкі HDCP только для змесціва, абароненага DRM</item>
+        <item>Заўсёды выкарыстоўваць праверку HDCP</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Выкл.</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Выкл.</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Выкл.</item>
+        <item>64K на буфер журнала</item>
+        <item>256K на буфер журнала</item>
+        <item>1M на буфер журнала</item>
+        <item>4M на буфер журнала</item>
+        <item>16M на буфер журнала</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Анімацыя выключаная</item>
+        <item>Маштаб анімацыі 0.5x</item>
+        <item>Маштаб анімацыі 1x</item>
+        <item>Маштаб анімацыі 1,5x</item>
+        <item>Маштаб анімацыі 2x</item>
+        <item>Маштаб анімацыі 5x</item>
+        <item>Маштаб анімацыі 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Анімацыя выключана</item>
+        <item>Маштаб анімацыі 0.5x</item>
+        <item>Маштаб анімацыі 1x</item>
+        <item>Маштаб анімацыі 1,5x</item>
+        <item>Маштаб анімацыі 2x</item>
+        <item>Маштаб анімацыі 5x</item>
+        <item>Маштаб анімацыі 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Анімацыя выключана</item>
+        <item>Маштаб анімацыі 0.5x</item>
+        <item>Маштаб анімацыі 1x</item>
+        <item>Маштаб анімацыі 1.5x</item>
+        <item>Маштаб анімацыі 2x</item>
+        <item>Маштаб анімацыі 5x</item>
+        <item>Маштаб анімацыі 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Няма</item>
+        <item>480p</item>
+        <item>480p (бяспечны)</item>
+        <item>720p</item>
+        <item>720p (бяспечны)</item>
+        <item>1080p</item>
+        <item>1080p (бяспечны)</item>
+        <item>4K</item>
+        <item>4K (бяспечны)</item>
+        <item>4K (шырокамаштабны)</item>
+        <item>4K (шырокамаштабны, бяспечны)</item>
+        <item>720p, 1080p (два экраны)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Няма</item>
+        <item>Logcat</item>
+        <item>Systrace (Graphics)</item>
+        <item>Выклікаць стэк на glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Адключана</item>
+        <item>Намаляваць непрамавугольную вобласць кліпа сінім колерам</item>
+        <item>Вылучыце выпрабаваныя каманды малявання зялёным колерам</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Адключана</item>
+        <item>На экране ў выглядзе слупкоў</item>
+        <item>У абалонцы adb dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Адключаны</item>
+        <item>Паказаць вобласці з перабольшваннем</item>
+        <item>Паказаць вобласці для дэйтэранамаліі</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Стандартны ліміт</item>
+        <item>Няма фонавых працэсаў</item>
+        <item>"Не больш за 1  працэс"</item>
+        <item>Не больш за 2 працэсы</item>
+        <item>Не больш за 3 працэсы</item>
+        <item>Не больш за 4 працэсы</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Зарадка</item>
+        <item>MTP (пратакол перадачы медыя)</item>
+        <item>PTP (пратакол перадачы відарысаў)</item>
+        <item>RNDIS (USB-Ethernet)</item>
+        <item>Крыніца аўдыя</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Вельмі павольна</item>
+        <item>Павольна</item>
+        <item>Звычайна</item>
+        <item>Хутка</item>
+        <item>Хутчэй</item>
+        <item>Вельмі хутка</item>
+        <item>Шпарка</item>
+        <item>Вельмі шпарка</item>
+        <item>Максімальна хутка</item>
+    </string-array>
+    <string-array name="color_mode_names">
+        <item>Сочны (па змаўчанні)</item>
+        <item>Натуральны</item>
+        <item>Стандартны</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Палепшаныя колеры</item>
+        <item>Натуральныя колеры (такія, як яны ўспрымаюцца вокам)</item>
+        <item>Колеры, аптымізаваныя для лічбавага змесціва</item>
+    </string-array>
+    <string-array name="clock_options">
+        <item>Паказваць гадзіны, хвіліны і секунды</item>
+        <item>Паказваць гадзіны і хвіліны (стандартна)</item>
+        <item>Не паказваць гэты значок</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Заўсёды паказваць у працэнтах</item>
+        <item>Паказваць працэнты падчас зарадкі (стандартна)</item>
+        <item>Не паказваць гэты значок</item>
+    </string-array>
+    <array name="recents_tv_blacklist_array" />
+</resources>

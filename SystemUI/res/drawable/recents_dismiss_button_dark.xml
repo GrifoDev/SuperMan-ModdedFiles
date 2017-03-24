@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <bitmap android:src="@drawable/taskmanager_ic_close_split_mtrl" android:tint="@color/recents_task_bar_dark_icon_color" />
+    </item>
+    <item android:state_enabled="false">
+        <bitmap android:src="@drawable/taskmanager_ic_close_split_mtrl" android:tint="@color/recents_task_bar_disabled_dark_icon_color" />
+    </item>
+</animated-selector>

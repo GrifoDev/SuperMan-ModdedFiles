@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="10" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_001" />
+    <item android:duration="17" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_002" />
+    <item android:duration="23" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_003" />
+    <item android:duration="30" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_004" />
+    <item android:duration="36" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_005" />
+    <item android:duration="43" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_006" />
+    <item android:duration="49" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_007" />
+    <item android:duration="56" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_008" />
+    <item android:duration="56" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_009" />
+    <item android:duration="50" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_010" />
+    <item android:duration="43" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_011" />
+    <item android:duration="37" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_012" />
+    <item android:duration="30" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_013" />
+    <item android:duration="24" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_014" />
+    <item android:duration="18" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_015" />
+    <item android:duration="11" android:drawable="@drawable/quick_panel_icon_rotation_lock_auto_to_portrait_016" />
+</animation-list>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textSize="@dimen/recents_empty_text_size" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/recents_empty_message" android:fontFamily="sans-serif"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">Համատեսքում ցուցադրված է %d էկրան</item>
+        <item quantity="one">Համատեսքում ցուցադրված է %d էկրան</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM PIN կոդը սխալ է: Մնաց %d փորձ:</item>
+        <item quantity="one">SIM PIN կոդը սխալ է: Մնաց %d փորձ:</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK կոդը սխալ է: Մնաց %d փորձ, որից հետո SIM քարտն այլևս հնարավոր չի լինի օգտագործել:</item>
+        <item quantity="one">SIM PUK կոդը սխալ է: Մնաց %d փորձ, որից հետո SIM քարտն այլևս հնարավոր չի լինի օգտագործել:</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք նախշը:</item>
+        <item quantity="one">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք նախշը:</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք PIN կոդը:</item>
+        <item quantity="one">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք PIN կոդը:</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք գաղտնաբառը:</item>
+        <item quantity="one">Սարքը չի ապակողպվել %d ժամվա ընթացքում: Հաստատեք գաղտնաբառը:</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d փորձ է մնացել)</item>
+        <item quantity="one">(1 փորձ է մնացել)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Մնացել է %d փորձ</item>
+        <item quantity="one">%d փորձ է մնացել</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Նորից փորձեք %d րոպեից</item>
+        <item quantity="one">Նորից փորձեք %d րոպեից</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Նորից փորձեք %d վայրկյանից</item>
+        <item quantity="one">Նորից փորձեք %d վայրկյանից</item>
+    </plurals>
+</resources>

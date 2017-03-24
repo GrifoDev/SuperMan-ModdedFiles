@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">এটা অশুদ্ধ PIN প্ৰৱিষ্ট কৰিলে৷ আপোনাৰ %d টা প্ৰয়াস বাকী আছে৷</item>
+        <item quantity="one">এটা অশুদ্ধ PIN প্ৰৱিষ্ট কৰিলে৷ যদি এটা অশুদ্ধ PIN %d বাৰ প্ৰৱেশ কৰে, আপুনি আপোনাৰ ডিভাইচ আনলক কৰিবলৈ আপোনাৰ সেৱা প্ৰদানকাৰীৰ লগত যোগাযোগ কৰিব লাগিব৷</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">"এটা অশুদ্ধ PUK প্ৰৱিষ্ট কৰিলে৷ যদি এটা অশুদ্ধ PUK %d বাৰৰ অধিক প্ৰৱিষ্ট কৰে, SIM কাৰ্ডটো স্থায়ীভাৱে লক হ'ব৷"</item>
+        <item quantity="one">"এটা অশুদ্ধ PUK প্ৰৱিষ্ট কৰিলে৷ যদি এটা অশুদ্ধ PUK %d বাৰ প্ৰৱেশ কৰে, SIM স্থায়ীভাৱে লক কৰা হ'ব৷"</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d টা প্ৰয়াস অৱশিষ্ট)</item>
+        <item quantity="one">(1 টা প্ৰয়াস অৱশিষ্ট)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d টা প্ৰয়াস বাকী</item>
+        <item quantity="one">%d টা প্ৰয়াস বাকী আছে</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d মি. পিছত পুনঃচেষ্টা কৰক</item>
+        <item quantity="one">%d মিনিটৰ ভিতৰত পুনঃচেষ্টা কৰক</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d ছে. পিছত পুনঃচেষ্টা কৰক</item>
+        <item quantity="one">%d ছেকেণ্ডৰ ভিতৰত পুনঃচেষ্টা কৰক</item>
+    </plurals>
+</resources>

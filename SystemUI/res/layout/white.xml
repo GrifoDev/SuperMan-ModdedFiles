@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+    <layer>
+        <type>0</type>
+        <id_path_color>keyguard_default_wallpaper_white_1</id_path_color>
+    </layer>
+    <layer>
+        <type>0</type>
+        <id_path_color>keyguard_default_wallpaper_white</id_path_color>
+    </layer>
+    <layer>
+        <type>0</type>
+        <id_path_color>keyguard_default_wallpaper_white_2</id_path_color>
+    </layer>
+</layers>

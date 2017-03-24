@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="@color/notification_panel_theme_ripple_color"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="2.0dip" />
+            <padding android:left="1.0dip" android:right="1.0dip" />
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+</ripple>

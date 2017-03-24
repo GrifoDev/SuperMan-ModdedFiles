@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/quickpanel_mum_add" android:tint="@color/qs_user_detail_icon_muted" />
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="1.0dip" android:color="@color/qs_user_detail_icon_muted" />
+            <size android:height="@dimen/max_avatar_size" android:width="@dimen/max_avatar_size" />
+        </shape>
+    </item>
+</layer-list>

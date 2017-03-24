@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.servicebox.pages.calendar.TodayDateView android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/servicebox_today_clock_day_size" android:textColor="@color/theme_todays_title_text_color" android:id="@id/servicebox_today_clock_day" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" style="@style/keyguard_headline_text_shadow" />
+    <TextView android:textSize="@dimen/servicebox_today_clock_week_day_size" android:textColor="@color/theme_todays_title_text_color" android:id="@id/servicebox_today_clock_week_day" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/keyguard_headline_text_shadow" />
+</com.android.keyguard.servicebox.pages.calendar.TodayDateView>

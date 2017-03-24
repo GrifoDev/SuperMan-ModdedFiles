@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.NotificationPanelView android:id="@id/notification_panel" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui">
+    <com.android.systemui.statusbar.phone.PhoneStatusBarBlurImageView android:id="@id/backgroundImageView" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+    <FrameLayout android:id="@id/cover_holder_for_notification" android:background="@android:color/black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:statusBarColor="@android:color/transparent" />
+    <ViewStub android:id="@id/keyguard_status_view_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <ViewStub android:id="@id/keyguard_iris_text_preview_stub" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <FrameLayout android:id="@id/notification_contents_root" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:id="@id/gear_bottom_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.android.wubydax.CustomBg android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.android.wubydax.GearDeviceInfo android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <TextView android:textAppearance="@style/TextAppearance.StatusBar.Expanded.CarrierLabel" android:gravity="center" android:layout_gravity="bottom" android:id="@id/notification_panel_carrier_label" android:focusable="false" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/notification_panel_carrier_label_height" />
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/gif_animation" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.ther.statusbar.GifPlayer android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+        </FrameLayout>
+        <com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer android:layout_gravity="@integer/notification_panel_layout_gravity" android:id="@id/notification_container_parent" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.android.systemui.AutoReinflateContainer android:layout_gravity="@integer/notification_panel_layout_gravity" android:id="@id/qs_auto_reinflate_container" android:clipChildren="false" android:clipToPadding="false" android:layout="@layout/qs_panel" android:layout_width="@dimen/notification_panel_width" android:layout_height="fill_parent" android:elevation="1.0dip" />
+            <com.android.systemui.statusbar.stack.NotificationStackScrollLayout android:layout_gravity="@integer/notification_panel_layout_gravity" android:id="@id/notification_stack_scroller" android:layout_width="@dimen/notification_panel_width" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/close_handle_underlap" android:importantForAccessibility="no" />
+            <ViewStub android:id="@id/keyguard_user_switcher" android:layout="@layout/keyguard_user_switcher" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <include android:visibility="invisible" layout="@layout/keyguard_status_bar" />
+        </com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer>
+        <FrameLayout android:id="@id/keyguard_bouncer_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ViewStub android:id="@id/keyguard_bottom_area_switcher" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.android.systemui.statusbar.AlphaOptimizedView android:layout_gravity="bottom" android:id="@id/qs_navbar_scrim" android:background="@drawable/qs_navbar_scrim" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="96.0dip" />
+        <ViewStub android:id="@id/notification_preview_icon_layout_stub" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/cover_preview_conatiner_root" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr" />
+    <com.android.systemui.statusbar.policy.BatteryBarController android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" systemui:viewLocation="1" />
+    <com.android.systemui.statusbar.policy.BatteryBarController android:layout_gravity="bottom|center" android:id="@id/battbar_no_pulldown_below" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" systemui:viewLocation2="1" />
+</com.android.systemui.statusbar.phone.NotificationPanelView>

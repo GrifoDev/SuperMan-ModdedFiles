@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">ਰੂਪ-ਰੇਖਾ ਵਿੱਚ %d ਸਕ੍ਰੀਨਾਂ</item>
+        <item quantity="one">ਰੂਪ-ਰੇਖਾ ਵਿੱਚ %d ਸਕ੍ਰੀਨਾਂ</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ਗ਼ਲਤ SIM PIN ਕੋਡ, ਤੁਹਾਡੇ ਕੋਲ %d ਕੋਸ਼ਿਸ਼ਾਂ ਬਾਕੀ ਹਨ।</item>
+        <item quantity="one">ਗ਼ਲਤ SIM PIN ਕੋਡ, ਤੁਹਾਡੇ ਕੋਲ %d ਕੋਸ਼ਿਸ਼ਾਂ ਬਾਕੀ ਹਨ।</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ਗ਼ਲਤ SIM PUK ਕੋਡ, ਇਸਤੋਂ ਪਹਿਲਾਂ ਕਿ SIM ਸਥਾਈ ਤੌਰ ਤੇ ਨਾਵਰਤਣਯੋਗ ਬਣੇ, ਤੁਹਾਡੇ ਕੋਲ %d ਕੋਸ਼ਿਸ਼ਾਂ ਬਾਕੀ ਹਨ।</item>
+        <item quantity="one">ਗ਼ਲਤ SIM PUK ਕੋਡ, ਇਸਤੋਂ ਪਹਿਲਾਂ ਕਿ SIM ਸਥਾਈ ਤੌਰ ਤੇ ਨਾਵਰਤਣਯੋਗ ਬਣੇ, ਤੁਹਾਡੇ ਕੋਲ %d ਕੋਸ਼ਿਸ਼ਾਂ ਬਾਕੀ ਹਨ।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। ਪੈਟਰਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।</item>
+        <item quantity="one">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। ਪੈਟਰਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। PIN ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।</item>
+        <item quantity="one">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। PIN ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</item>
+        <item quantity="one">ਡਿਵਾਈਸ %d ਘੰਟਿਆਂ ਤੋਂ ਅਨਲੌਕ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। ਪਾਸਵਰਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d ਯਤਨ ਬਾਕੀ)</item>
+        <item quantity="one">(1 ਯਤਨ ਬਾਕੀ)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d ਯਤਨ ਬਾਕੀ</item>
+        <item quantity="one">%d ਯਤਨ ਬਾਕੀ ਹਨ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d ਮਿੰਟ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</item>
+        <item quantity="one">%d ਮਿੰਟ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d ਸਕਿੰਟ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</item>
+        <item quantity="one">%d ਸਕਿੰਟ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</item>
+    </plurals>
+</resources>

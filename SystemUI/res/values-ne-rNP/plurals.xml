@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">अवलोकनमा 1 स्क्रिन</item>
+        <item quantity="one">अवलोकनमा %d स्क्रिनहरू</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">गलत SIM PIN कोड, तपाईँ सँग %d पटक प्रयास बाँकी छ।</item>
+        <item quantity="one">SIM PIN कोड गलत छ, तपाईँले अाफ्नो यन्त्र खोल्नलाई तपाईँको वाहकसँग सम्पर्क गर्नै पर्न अघि तपाईँसँग %d पटक प्रयास बाँकी छ।</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK कोड गलत छ, तपाईंसँग SIM स्थायी रूपमा काम नलाग्ने हुनु अघि %d पटक प्रयास बाँकी छ।</item>
+        <item quantity="one">SIM PUK कोड गलत छ, तपाईंसँग SIM स्थायी रूपमा काम नलाग्ने हुनु अघि %d पटक प्रयास बाँकी छ।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। ढाँचा पुष्टि गर्नुहोस्।</item>
+        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। ढाँचा पुष्टि गर्नुहोस्।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। PIN पुष्टि गर्नुहोस्।</item>
+        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। PIN पुष्टि गर्नुहोस्।</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। पासवर्ड पुष्टि गर्नुहोस्।</item>
+        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। पासवर्ड पुष्टि गर्नुहोस्।</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d प्रयासहरू बाँकी)</item>
+        <item quantity="one">(1 प्रयास बाँकी)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d प्रयासहरू बाँकी छन्</item>
+        <item quantity="one">%d प्रयास बाँकी छ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d मिनटमा फेरि प्रयास गर्नुहोस्</item>
+        <item quantity="one">%d मिनटमा फेरि प्रयास गर्नुहोस्</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d सेकेण्डमा फेरि प्रयास गर्नुहोस्</item>
+        <item quantity="one">%d सेकेन्डमा फेरि प्रयास गर्नुहोस्</item>
+    </plurals>
+</resources>

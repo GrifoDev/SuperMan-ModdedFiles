@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/multiwindow_snapview_buttons_bg_height" android:width="@dimen/multiwindow_snapview_buttons_bg_width" />
+    <corners android:radius="@dimen/multiwindow_snapview_buttons_bg_raduis" />
+    <solid android:color="@color/multiwindow_snapview_buttons_bg_color" />
+    <stroke android:width="@dimen/multiwindow_snapview_buttons_bg_inner_line_thickness" android:color="@color/multiwindow_snapview_buttons_bg_inner_line_color" />
+</shape>

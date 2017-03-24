@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/recents_pref_flags_category">
+        <PreferenceScreen android:persistent="false" android:title="@string/recents_pref_debug_flag_title" android:orderingFromXml="false" android:key="pref_key_debug_flags" />
+        <PreferenceScreen android:persistent="false" android:title="@string/recents_pref_config_title" android:orderingFromXml="false" android:key="pref_key_config_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/recents_pref_animation_category">
+        <PreferenceScreen android:persistent="false" android:title="@string/recents_pref_system_animation_scale_title" android:orderingFromXml="true" android:key="pref_key_system_animation_scales">
+            <ListPreference android:entries="@array/window_animation_scale_entries" android:title="@string/window_animation_scale_title" android:key="pref_key_window_animation_scale" android:entryValues="@array/window_animation_scale_values" />
+            <ListPreference android:entries="@array/transition_animation_scale_entries" android:title="@string/transition_animation_scale_title" android:key="pref_key_transition_animation_scale" android:entryValues="@array/transition_animation_scale_values" />
+            <ListPreference android:entries="@array/animator_duration_scale_entries" android:title="@string/animator_duration_scale_title" android:key="pref_key_animator_duration_scale" android:entryValues="@array/animator_duration_scale_values" />
+        </PreferenceScreen>
+        <PreferenceScreen android:persistent="false" android:title="@string/recents_pref_task_animation_title" android:orderingFromXml="true" android:key="pref_key_task_animation_values" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/recents_pref_etc_category">
+        <Preference android:persistent="false" android:title="@string/recents_pref_systemui_title" android:key="pref_key_systemui_tuner" />
+        <Preference android:persistent="false" android:title="@string/recents_pref_show_help_popup_title" android:key="pref_key_show_help" />
+        <Preference android:persistent="false" android:title="@string/recents_pref_finish_recents_activity_title" android:key="pref_key_finish_recents_activity" android:summary="@string/recents_pref_finish_recents_activity_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">‏%d מסכים ב’סקירה‘</item>
+        <item quantity="one">‏%d מסכים ב’סקירה‘</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">‏קוד PIN שגוי של כרטיס SIM. נותרו לך %d ניסיונות.</item>
+        <item quantity="one">‏קוד PIN שגוי של כרטיס SIM. נותר לך ניסיון %d לפני שיהיה עליך ליצור קשר עם הספק כדי לבטל את נעילת המכשיר.</item>
+        <item quantity="two">‏קוד PIN שגוי של כרטיס SIM. נותרו לך %d ניסיונות.</item>
+        <item quantity="many">‏קוד PIN שגוי של כרטיס SIM. נותרו לך %d ניסיונות.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">‏קוד PUK שגוי של כרטיס SIM. נותרו לך %d ניסיונות לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
+        <item quantity="one">‏קוד PUK שגוי של כרטיס SIM. נותר לך ניסיון %d לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
+        <item quantity="two">‏קוד PUK שגוי של כרטיס SIM. נותרו לך %d ניסיונות לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
+        <item quantity="many">‏קוד PUK שגוי של כרטיס SIM. נותרו לך %d ניסיונות לפני שכרטיס ה-SIM יינעל לצמיתות.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את קו ביטול הנעילה.</item>
+        <item quantity="one">נעילת המכשיר לא בוטלה במשך שעה %d. אשר את קו ביטול הנעילה.</item>
+        <item quantity="two">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את קו ביטול הנעילה.</item>
+        <item quantity="many">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את קו ביטול הנעילה.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">‏נעילת המכשיר לא בוטלה במשך %d שעות. אשר את ה-PIN.</item>
+        <item quantity="one">‏נעילת המכשיר לא בוטלה במשך שעה %d. אשר את ה-PIN.</item>
+        <item quantity="two">‏נעילת המכשיר לא בוטלה במשך %d שעות. אשר את ה-PIN.</item>
+        <item quantity="many">‏נעילת המכשיר לא בוטלה במשך %d שעות. אשר את ה-PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את הסיסמה.</item>
+        <item quantity="one">נעילת המכשיר לא בוטלה במשך שעה %d. אשר את הסיסמה.</item>
+        <item quantity="two">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את הסיסמה.</item>
+        <item quantity="many">נעילת המכשיר לא בוטלה במשך %d שעות. אשר את הסיסמה.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(לרשותך עוד %d ניסיונות)</item>
+        <item quantity="one">(לרשותך עוד ניסיון אחד)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">נותרו %d ניסיונות</item>
+        <item quantity="one">נותר %d ניסיון</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">נסה שוב בעוד ‎%d‏ דקות</item>
+        <item quantity="one">נסה שוב בעוד ‎%d דקה</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">נסה שוב בעוד ‎%d‏ שניות</item>
+        <item quantity="one">נסה שוב בעוד %d שנייה</item>
+    </plurals>
+</resources>

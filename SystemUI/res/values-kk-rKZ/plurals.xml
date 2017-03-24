@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">«Шолу» ішінде 1 экран</item>
+        <item quantity="one">«Шолу» ішінде %d экран</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">SIM PIN коды дұрыс емес, %d әрекет қалды.</item>
+        <item quantity="one">SIM PIN коды дұрыс емес, операторға құрылғы бекітпесін ашуы үшін хабарласуға дейін %d әрекет қалды.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">SIM PUK коды дұрыс емес, SIM біржола пайдалануға жарамсыз болуына %d әрекет қалды.</item>
+        <item quantity="one">SIM PUK коды дұрыс емес, SIM біржола пайдалануға жарамсыз болуына %d әрекет қалды.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Құрылғы құлпы %d сағат бойы ашылмады. Өрнекті растаңыз.</item>
+        <item quantity="one">Құрылғы құлпы %d сағат бойы ашылмады. Өрнекті растаңыз.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Құрылғы құлпы %d сағат бойы ашылмады. PIN кодын растаңыз.</item>
+        <item quantity="one">Құрылғы құлпы %d сағат бойы ашылмады. PIN кодын растаңыз.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Құрылғы құлпы %d сағат бойы ашылмады. Құпия сөзді растаңыз.</item>
+        <item quantity="one">Құрылғы құлпы %d сағат бойы ашылмады. Құпия сөзді растаңыз.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d әрекет қалды)</item>
+        <item quantity="one">(1 әрекет қалды)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d әрекет қалды</item>
+        <item quantity="one">%d әрекет қалды</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d минуттан кейін қайталау</item>
+        <item quantity="one">%d минуттан кейін әрекетті қайталау</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d секундтан кейін қайталау</item>
+        <item quantity="one">%d секундтан кейін әрекетті қайталау</item>
+    </plurals>
+</resources>

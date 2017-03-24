@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">Cancel</string>
+    <string name="snapview_done">Done</string>
+    <string name="mw_divider_button_snap">Snap window</string>
+    <string name="mw_divider_button_switch">Switch windows</string>
+    <string name="mw_divider_button_freeform">Open in pop-up view</string>
+    <string name="mw_divider_button_close">Close app</string>
+    <string name="multi_window_title_text">Multi window</string>
+    <string name="dock_minimized_notification_text">%s minimized</string>
+    <string name="dock_minimized_notification_dimiss_text">Close</string>
+    <string name="dock_minimized_notification_content_text">Tap here to open.</string>
+    <string name="cancel">Cancel</string>
+    <string name="clearcover_1_missed_call">You have 1 missed call.</string>
+    <string name="clearcover_1_unread_message">You have 1 unread message.</string>
+    <string name="clearcover_n_missed_calls">You have %d missed calls.</string>
+    <string name="clearcover_n_unread_messages">You have %1$d unread messages.</string>
+    <string name="s_view_screen_roaming">Roaming</string>
+    <string name="s_view_screen_home">Home</string>
+    <string name="clock_roaming">Roaming</string>
+    <string name="clock_home">Home</string>
+    <string name="battery_charging_percent">Charging: %d%%</string>
+    <string name="battery_wireless_charging_percent">Charging wirelessly: %d%%</string>
+    <string name="battery_wireless_fast_charging_percent">Fast charging wirelessly: %d%%</string>
+    <string name="battery_charged">Charged.</string>
+    <string name="battery_charging_remaining_time">(Approx. %s until fully charged)</string>
+    <string name="time_format_hour_minute">%1$d h %2$d m</string>
+    <string name="time_format_hour">%d h</string>
+    <string name="time_format_minute">%d m</string>
+    <string name="s_view_cover_missed_event_secured_popup">Device locked. Open cover to view more details.</string>
+    <string name="s_view_cover_open_cover_popup_view_detail">Open cover to view details.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">Open cover to view message details.</string>
+    <string name="s_view_cover_open_cover_popup_view_notification_details">Open cover to view notification details.</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">Open cover to view call details.</string>
+    <string name="s_view_cover_camera_button_accessibiliy">Double tap and drag to open Camera.</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">Double tap and drag to open Favorite contacts.</string>
+    <string name="s_view_cover_open_popup_favorite">Device locked. Open cover to view favourite contacts.</string>
+    <string name="pinwindowcover_warning_content">To use the pinned app, open the cover.</string>
+    <string name="battery_fast_charging_percent">Fast charging: %d%%</string>
+    <string name="permission_sviewcover_access_description">This app can show information through the S View window.</string>
+    <string name="tts_previous">Previous</string>
+    <string name="tts_next">Next</string>
+    <string name="tts_pause">Pause</string>
+    <string name="tts_play">Play</string>
+    <string name="sview_led_cover_download_feature_title">Download additional features</string>
+    <string name="sview_led_cover_download_feature_summary">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Advanced features > Accessories > LED view cover, then select Download additional features.</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="monotype_dialog_button">Download</string>
+    <string name="minimized_notification_talkback_description_open">Double tap to open notification from %s.</string>
+    <string name="minimized_notification_talkback_description_open_more">Double tap to open notification panel.</string>
+    <string name="ok">OK</string>
+    <string name="battery_history_hours_no_seconds">%1$dh %2$dm</string>
+    <string name="battery_history_minutes_no_seconds">%dm</string>
+    <string name="wifi_failed_to_obtain_IP">Failed to obtain IP address.</string>
+    <string name="wifi_disabled_no_internet">Internet not available</string>
+    <string name="wifi_disabled_password_failure">Authentication error occurred</string>
+    <string name="wifi_auto_reconnect_disabled">Auto reconnect disabled</string>
+    <string name="wifi_reconnecting">Ready to connect when network quality improves</string>
+    <string name="wifi_connected_checking_quality">Checking the quality of your Internet connection…</string>
+    <string name="wifi_setup_title_connected_network">Connected to Wi-Fi network %s.</string>
+    <string name="wifi_sign_in_to_the_network">Sign in to the network.</string>
+    <string name="wifi_disabled_captive_portal">Sign-in is required.</string>
+    <string name="bluetooth_disconnect_message">Bluetooth connection with %s ended.</string>
+    <string name="bluetooth_disconnecting">Disconnecting…</string>
+    <string name="bluetooth_connecting">Connecting…</string>
+    <string name="bluetooth_connected">Connected</string>
+    <string name="bluetooth_pairing">Pairing…</string>
+    <string name="bluetooth_profile_a2dp">Media audio</string>
+    <string name="bluetooth_profile_headset">Call audio</string>
+    <string name="bluetooth_profile_hid">Input device</string>
+    <string name="bluetooth_profile_pan">Internet access</string>
+    <string name="bluetooth_profile_pbap">Contact access</string>
+    <string name="bluetooth_profile_pan_nap">Internet connection sharing</string>
+    <string name="bluetooth_profile_map">Message access</string>
+    <string name="bluetooth_profile_sap">SIM card access</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Connected for media audio</string>
+    <string name="bluetooth_headset_profile_summary_connected">Connected for call audio</string>
+    <string name="bluetooth_hid_profile_summary_connected">Connected as input device</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Connected to device for Internet access.</string>
+    <string name="bluetooth_spp_profile_summary_connected">Connected via Serial Port Profile</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Enable Bluetooth tethering on the paired device to access the Internet on this device.</string>
+    <string name="bluetooth_profile_textinput">Text input</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">Connected for call and media audio</string>
+    <string name="bluetooth_pan_nap_connected">Connected to provide Internet connection</string>
+    <string name="bluetooth_pan_panu_connected">Connected to access Internet connection</string>
+    <string name="bluetooth_pairing_error_message">Unable to communicate with %1$s.</string>
+    <string name="bluetooth_pairing_pin_error_message">Unable to pair with %1$s. Make sure %2$s is ready to pair.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by %s.</string>
+    <string name="tether_settings_title_all">Mobile hotspot and tethering</string>
+    <string name="tts_settings_title">Text-to-speech</string>
+    <string name="tts_default_rate_title">Speech rate</string>
+    <string name="tts_default_rate_summary">Speed at which the text is spoken.</string>
+    <string name="tts_default_pitch_title">Pitch</string>
+    <string name="tts_default_lang_title">Language</string>
+    <string name="tts_lang_use_system">Use system language</string>
+    <string name="tts_lang_not_selected">No language is selected</string>
+    <string name="tts_default_lang_summary">Set language-specific voice for spoken text.</string>
+    <string name="tts_play_example_title">Listen to an example</string>
+    <string name="tts_play_example_summary">Play short demonstration of speech synthesis.</string>
+    <string name="tts_install_data_title">Install voice data</string>
+    <string name="tts_install_data_summary">Install voice data required for speech synthesis.</string>
+    <string name="tts_engine_security_warning">This speech synthesis engine may collect all speech, including passwords, credit card numbers, and other personal data. Continue?</string>
+    <string name="tts_default_sample_string">Example of speech synthesis</string>
+    <string name="tts_status_title">Default language status</string>
+    <string name="tts_status_ok">%s is fully supported</string>
+    <string name="tts_status_requires_network">A network connection is required to support %s</string>
+    <string name="tts_status_not_supported">%s is not supported.</string>
+    <string name="tts_status_checking">Checking…</string>
+    <string name="tts_engine_settings_title">Settings for %s</string>
+    <string name="tts_engine_settings_button">Open Text-to-speech engine settings.</string>
+    <string name="tts_engine_preference_section_title">Preferred TTS engine</string>
+    <string name="tts_general_section_title">General</string>
+    <string name="tts_reset_speech_pitch_title">Reset pitch</string>
+    <string name="tts_reset_speech_pitch_summary">Reset the pitch at which text is read out to the default setting.</string>
+    <string name="choose_profile">Select profile</string>
+    <string name="power_charging_duration">%1$s: %2$s left until fully charged</string>
+    <string name="power_charging_duration_ac">%1$s: %2$s left until fully charged via AC</string>
+    <string name="power_charging_duration_usb">%1$s: %2$s left until fully charged via USB</string>
+    <string name="power_charging_duration_wireless">%1$s: %2$s left until fully charged (charging wirelessly)</string>
+    <string name="battery_info_status_charging">Charging</string>
+    <string name="battery_info_status_adaptive_fast_charging">Fast charging</string>
+    <string name="battery_info_power_ac">AC</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">Wireless</string>
+    <string name="charge_length_format">%s ago</string>
+    <string name="remaining_length_format">%s left</string>
+    <string name="battery_discharging_duration">Estimated usage time remaining: %s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Unable to use Bluetooth tethering while connected to Wi-Fi network.</string>
+    <string name="app_label">System UI</string>
+    <string name="status_bar_clear_all_button">Clear all</string>
+    <string name="brightness_controller_label_text">Auto</string>
+    <string name="quick_settings_brightness_controller_hbm">Maximized for best viewing in sunlight</string>
+    <string name="tw_recents_lock_to_app_button_label">Pin app</string>
+    <string name="tw_lock_to_app_title">Enable Pin windows</string>
+    <string name="tw_lock_to_app_description_1">This function allows you to pin an app on your device screen so that you cannot navigate away from it.</string>
+    <string name="tw_lock_to_app_description_2">While an app is pinned, notifications from other apps will be blocked and other functions, such as calling and messaging, may not be available.</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">While an app is pinned, notifications will be blocked and other functions may not be available.</string>
+    <string name="tw_lock_to_app_description_recents_and_back">To unpin an app, press and hold the Recents and Back keys at the same time.</string>
+    <string name="tw_lock_to_app_description_menu_and_back">To unpin an app, press and hold the Menu and Back keys at the same time.</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">To unpin application, press and hold the recents key.</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">To unpin application, press and hold the menu key.</string>
+    <string name="tw_unable_to_pin_title">Cannot pin %s</string>
+    <string name="tw_unable_to_pin_description">This app does not support Pin windows.</string>
+    <string name="tw_unable_to_pin_description_toast">Unable to pin app. %s closed. Unknown error occurred.</string>
+    <string name="tw_screen_pinning_positive">Start</string>
+    <string name="tw_screen_pinning_negative">No, THANKS</string>
+    <string name="accessibility_recents_item_pin">Pin</string>
+    <string name="accessibility_recents_item_unpin">Unpin</string>
+    <string name="memory_full_dialog_title">Unable to capture screen</string>
+    <string name="memory_full_dialog_msg">There is not enough space in your device storage. Delete some files and try again.</string>
+    <string name="screen_capture_fail_for_storage_capacity">Not enough space in device storage. Delete some files and try again.</string>
+    <string name="screen_capture_fail_for_security_policy">Unable to capture screenshot. Prevented by security policy.</string>
+    <string name="screen_capture_edit">Edit</string>
+    <string name="screen_capture_share">Share</string>
+    <string name="screen_capture_delete">Delete</string>
+    <string name="qs_detail_capture_screen">Capture screen</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">Unable to open %s in Emergency mode.</string>
+    <string name="unable_to_open_ps_in_upsm">Unable to open %s in Ultra power saving mode.</string>
+    <string name="unable_to_open_ps_in_mpsm">Unable to open %s in Maximum power saving mode.</string>
+    <string name="image_viewer">Image viewer</string>
+    <string name="photo_editor">Photo Editor</string>
+    <string name="to_use_this_function_download_the_following_application">"To use this function, download the following application:
+
+%s"</string>
+    <string name="accessibility_desc_recent_apps">Recent apps</string>
+    <string name="wifi_not_found_hidden_ap">Unable to connect to network. No network found with the name %s.</string>
+    <string name="it_policy_not_allow_wifi">Security policy prevents use of Wi-Fi.</string>
+    <string name="it_policy_not_allow_wifiap">Security policy restricts the use of Internet sharing.</string>
+    <string name="wifi_authentication_succeed_kt">Wi-Fi AP authenticated.</string>
+    <string name="wifi_authentication_failed_kt">Failed to authenticate Wi-Fi AP.</string>
+    <string name="wifi_authentication_no_response">Failed to connect to Wi-Fi AP.</string>
+    <string name="wifi_authentication_invalid_value">Authentication failed. Check validity of certificates.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">Warning</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">The AP names for over %1$d networks have been saved. We recommend you delete the oldest %2$d AP names for a smoother Wi-Fi experience.</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">Delete oldest %d AP names</string>
+    <string name="quick_settings_bluetooth_label">Bluetooth</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">No nearby Bluetooth devices found</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">Paired devices</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">Available devices</string>
+    <string name="quick_settings_bluetooth_detail_off_text">Turn on Bluetooth to see a list of devices you can pair with or have already paired with.</string>
+    <string name="quick_settings_sound_mode_detail_label">Sound mode</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">Temporary mute</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">Select how long to keep the device muted before returning to the previous sound mode (%s).</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">Mute duration</string>
+    <string name="quick_settings_rotation_unlocked_label">"Auto
+rotate"</string>
+    <string name="quick_settings_rotation_locked_portrait_label">Portrait</string>
+    <string name="quick_settings_location_label">Location</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_detail_scanning_text">Scanning for Wi-Fi networks…</string>
+    <string name="quick_settings_wifi_detail_off_text">To see available networks, turn on Wi-Fi.</string>
+    <string name="quick_settings_brightness_strain_warning">"Using high brightness levels for long periods may cause eye strain and increase battery consumption.
+Tap OK to allow the brightness to be increased above safe levels."</string>
+    <string name="quick_settings_more_settings">Details</string>
+    <string name="quick_settings_done">DONE</string>
+    <string name="quick_settings_flashlight_label">Torch</string>
+    <string name="quick_settings_sound_mode_sound_label">Sound</string>
+    <string name="quick_settings_sound_mode_vibrate_label">Vibrate</string>
+    <string name="quick_settings_sound_mode_mute_label">Mute</string>
+    <string name="quick_settings_nfc_card_mode_label">"NFC
+card mode"</string>
+    <string name="quick_settings_nfc_p2p_label">"R/W
+P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"Device
+visibility"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+Mirroring"</string>
+    <string name="quick_settings_power_saving_label">"Power
+saving"</string>
+    <string name="quick_settings_sec_dnd_label">"Do not
+disturb"</string>
+    <string name="quick_settings_mobile_hotspot_label">"Mobile
+hotspot"</string>
+    <string name="quick_settings_airplane_mode_label">"Flight
+mode"</string>
+    <string name="quick_settings_bluelightfilter_label">"Blue light
+filter"</string>
+    <string name="quick_settings_mobile_data_label">"Mobile
+data"</string>
+    <string name="quick_settings_wificalling_label">"Wi-Fi
+calling"</string>
+    <string name="quick_settings_personal_mode_label">"Private
+mode"</string>
+    <string name="quick_settings_data_roaming_label">"Data
+roaming"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">Sync</string>
+    <string name="quick_settings_ultra_power_saving_label">"U. power
+saving"</string>
+    <string name="quick_settings_data_monitor_label">"Ultra data
+saving"</string>
+    <string name="uds_toast_flight_mode_enabled">Unable to enable Ultra data saving mode while in Flight mode. Disable Flight mode and try again.</string>
+    <string name="qs_detail_flashlight_title">Torch</string>
+    <string name="quick_settings_reading_mode_label">"Reading
+mode"</string>
+    <string name="quick_settings_bike_mode_label">"S bike
+mode"</string>
+    <string name="qs_detail_bike_mode_title">S bike mode</string>
+    <string name="qs_detail_bike_mode_text">Enable this mode to filter all incoming calls. You will only be notified about the urgent calls while you are driving. You will not be able to use your device while driving. You can also view calls that were missed while S bike mode was enabled, send automatic text messages containing your estimated journey time to selected contacts when they call, view travel information and earn badges.</string>
+    <string name="qs_edit_summary">Drag the quick setting buttons to the area above to add them to the quick settings panel.</string>
+    <string name="notification_panel_unable_remove_minimum">Unable to remove button. Minimum number of buttons (%d) reached.</string>
+    <string name="disable">Disable</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
+    <string name="quick_settings_it_policy_prevents">Security policy prevents use of %s.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">Insert a SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">Mobile hotspot</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">Unable to connect to mobile networks while Flight mode is enabled. Disable Flight mode and try again</string>
+    <string name="mobile_hotspot_toast_internet_sharing">Internet sharing</string>
+    <string name="mobile_hotspot_detail_title">Mobile hotspot</string>
+    <string name="mobile_hotspot_detail_title_vzw">Mobile Hotspot</string>
+    <string name="mobile_hotspot_detail_title_jpn">Wi-Fi tethering</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">Allowed devices only</string>
+    <string name="mobile_hotspot_detail_connected_devices">Connected devices</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">Allow all devices to connect</string>
+    <string name="insert_sim_card">Insert SIM card</string>
+    <string name="insert_sim_card_message">Insert SIM card to access network services.</string>
+    <string name="mobile_data_show_toast_airplane_mode">Unable to connect to mobile networks while Flight mode is enabled. Disable Flight mode and try again</string>
+    <string name="volte_show_toast_airplane_mode">Unable to use VoLTE while Flight mode enabled. Disable Flight mode and try again.</string>
+    <string name="volte_show_toast_impossible_during_volte_call">Unable to disable Use VoLTE when available during VoLTE call.</string>
+    <string name="volte_show_toast_disable_not_allowed">Service provider not allowed to disable VoLTE</string>
+    <string name="volte_show_toast_not_support_operator">VoLTE is not supported by your current software version. Contact customer services for more details.</string>
+    <string name="volte_show_toast_enable_message">To use the VoLTE service, subscribe to VoLTE. Contact your service provider for details.</string>
+    <string name="unable_to_turn_on_being_used_by_camera">Unable to turn on %s. Camera light being used by Camera.</string>
+    <string name="aod_title">Always on display</string>
+    <string name="aod_power_saving_mode">Power saving mode</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">Magnification gestures</string>
+    <string name="aod_magnifier_window">Magnifier window</string>
+    <string name="aod_magnifier_assistant_menu">Magnifier window</string>
+    <string name="aod_talkback">TalkBack</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">%1$s and %2$s cannot be enabled at same time.</string>
+    <string name="aod_show_popup_title">Enable %s</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">%1$s and %2$s cannot be enabled at the same time. %3$s will be disabled.</string>
+    <string name="aod_show_popup_description">%s and the options below cannot be enabled at the same time. The options below will be disabled.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi calling needs to use your location information. Anonymous location data will be collected and sent to Google and your service provider. Contact your service provider for details.</string>
+    <string name="wificalling_show_popup_use_location_inform_ftm">Your location-related information can be sent to Google and your operator in order to establish Wi-Fi calls, whether you have activated or not the location feature.</string>
+    <string name="wificalling_show_popup_enable_location_title">Enable Location</string>
+    <string name="wificalling_show_popup_enable_location_message">Wi-Fi calling needs to use your location information. Location will be enabled. Anonymous location data will be collected and sent to Google and your service provider. Contact your service provider for details.</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">Private mode not available in work profile.</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">Unable to disable Private mode while moving items to Private.</string>
+    <string name="mobile_data_title">Mobile data</string>
+    <string name="mobile_data_show_popup_disable">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email, or other apps that require a data connection.
+
+Mobile data will be disabled."</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email, or other apps that require a data connection.
+
+Mobile data will be turned on."</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"Unless you use Wi-Fi, you will no longer be able to use Internet, Email or other apps that require a data connection.
+
+Mobile data will be turned off."</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">Mobile data will be turned on. Connecting to mobile networks may result in additional charges depending on your payment plan.</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">Mobile data will be turned on. Connecting to mobile networks may result in additional charges depending on your payment plan.</string>
+    <string name="mobile_data_roaming_title">Data roaming</string>
+    <string name="mobile_data_show_popup_roaming_enable">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for Email or applications may also incur additional charges. Using large-data services such as video or Email may incur charges over 20,000 won per minute.</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">Torch turned on</string>
+    <string name="flash_light_notification_button">Turn off</string>
+    <string name="flash_light_disabled_by_low_battery">Unable to turn on Torch. Battery power low.</string>
+    <string name="flash_light_turn_off_by_low_battery">Battery power low. Torch will be turned off.</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">Data roaming disabled.</string>
+    <string name="location_show_enable_popup_title_vzw">Location consent</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">User consent</string>
+    <string name="location_show_enable_popup_message_dcm">GPS location and use of your location data are controlled by the applications you use.</string>
+    <string name="location_show_popup_disable_wificalling_title">Disable Location</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">Enable auto sync</string>
+    <string name="sync_show_popup_title_disable">Disable auto sync</string>
+    <string name="sync_show_popup_message_enable">"Any changes you make to your accounts on the web will be automatically copied to your device.
+
+Some accounts may also automatically copy any changes you make on the device to the web. Auto sync will be enabled."</string>
+    <string name="sync_show_popup_message_disable">This will reduce data usage and conserve battery power, but you need to sync accounts manually to collect the most recent information. While this is enabled, you will not receive notifications about updates</string>
+    <string name="airplane_mode">Flight mode</string>
+    <string name="airplane_mode_show_popup_title">Enable Flight mode</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">Flight mode allows you to turn off calling, messaging and data network features. It also turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or on the notification panel</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">Flight mode allows you to turn off network features, including Wi-Fi. To use Wi-Fi, turn it on in Settings or the notification panel.</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">Flight mode allows you to disable calling, messaging, and mobile networks functions.</string>
+    <string name="airplane_mode_show_popup_message_wifi">Flight mode allows you to turn off network features, including Wi-Fi and Blutooth. To use Wi-Fi and Bluetooth, turn them on in Settings or the notification panel.</string>
+    <string name="airplane_mode_show_popup_message_cmcc">Flight mode allows you to turn off calling, messaging and data network features. It also turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or on the notification panel</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">Unable to enable Flight mode while Block power off while locked enabled. Try again after unlocking screen.</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">Flight mode disabled on demo devices.</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">Turn on Wi-Fi to use Wi-Fi calling.</string>
+    <string name="rotation_lock_auto_rotate">Auto rotate</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">To enable %s, detach keyboard cover from device.</string>
+    <string name="quick_settings_location_detail_high_accuracy">High accuracy</string>
+    <string name="quick_settings_location_detail_battery_saving">Battery saving</string>
+    <string name="quick_settings_location_detail_device_only">Device only</string>
+    <string name="quick_settings_location_detail_subtitle">Locating method</string>
+    <string name="quick_settings_location_detail_summary">Uses GPS, Wi-Fi and mobile networks to estimate your location</string>
+    <string name="quick_settings_flight_mode_detail_title">Flight mode</string>
+    <string name="quick_settings_flight_mode_detail_summary">"Disable calling and messaging functions, and turn off Mobile data.
+
+Wi-Fi and Bluetooth will also be turned off, but can be turned on again in Settings or in the quick settings panel."</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">Mobile data</string>
+    <string name="quick_settings_data_roaming_detail_title">Data roaming</string>
+    <string name="quick_settings_mobile_data_detail_summary">If Mobile data is turned off, your device must be connected to a Wi-Fi network to use services that require a network connection.</string>
+    <string name="quick_settings_dnd_detail_title">Do not disturb</string>
+    <string name="quick_settings_dnd_summary">Set your device to mute all calls, alerts, and media, except for your selected exceptions.</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">Auto rotate</string>
+    <string name="quick_settings_rotation_lock_detail_title">Screen rotation</string>
+    <string name="quick_settings_rotation_lock_detail_summary">Select the orientation of the display.</string>
+    <string name="quick_settings_flashlight_detail_level">Level</string>
+    <string name="quick_settings_flashlight_detail_title">Brightness</string>
+    <string name="quick_settings_flashlight_detail_warning">The camera light may cause low temperature burns when in prolonged contact with the skin. Avoid leaving %s turned on for an extended period.</string>
+    <string name="quick_settings_reading_mode_summary">The screen is optimized for reading. This mode is only available for selected applications</string>
+    <string name="quick_settings_volte_summary">Use VoLTE when available</string>
+    <string name="quick_settings_blf_detail_title">Blue light filter</string>
+    <string name="quick_settings_blf_detail_summary">Reduce eye strain by limiting the amount of blue light emitted by the screen.</string>
+    <string name="quick_settings_blf_detail_seekbar">Opacity</string>
+    <string name="quick_settings_wificalling_summary">"Use Wi-Fi networks to make and receive calls anywhere, without connecting to a mobile network.
+
+The Wi-Fi calling icon will appear in the notification panel as shown below while the service is available."</string>
+    <string name="quick_settings_wificalling_wifi_preferred">Wi-Fi preferred</string>
+    <string name="quick_settings_wificalling_cs_preferred">Mobile network preferred</string>
+    <string name="quick_settings_wificalling_wifi_only">Wi-Fi only</string>
+    <string name="quick_settings_dual_label_content_description">%s, Button label, Double tap to view relevant quick settings.</string>
+    <string name="accessibility_button">Button</string>
+    <string name="quick_settings_brightness_auto_brightness">Auto brightness</string>
+    <string name="quick_settings_brightness_quick_access">Show control on top</string>
+    <string name="quick_settings_brightness_quick_access_summary">Show the brightness control above the notification panel.</string>
+    <string name="quick_settings_brightness_detail_level">Level</string>
+    <string name="recents_empty_message">No recently used apps</string>
+    <string name="recents_drag_hint_message">Open in split screen view</string>
+    <string name="recents_drag_freeform_hint_message">Open in pop-up view</string>
+    <string name="user_add_user">Add user</string>
+    <string name="guest_nickname">Guest</string>
+    <string name="guest_exit_guest">Delete guest</string>
+    <string name="sanitized_content_text">Tap here to enter %s.</string>
+    <string name="secure_folder_title">Secure Folder</string>
+    <string name="tw_safe_media_volume_warning">Listening at a high volume for a long time may damage your hearing. Tap OK to allow the volume to be increased above safe levels.</string>
+    <string name="tw_cover_volume_warning_message">Listening at high volumes for a long time may damage hearing. To increase volume, open cover.</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">Volume cannot exceed recommended safety limit (%s) while earphones are connected in Kids Mode.</string>
+    <string name="yes">OK</string>
+    <string name="no">Cancel</string>
+    <string name="volume_limiter_notice_toast">To increase the volume, tap SETTINGS, then disable Media volume limiter or change your volume limit.</string>
+    <string name="volume_limiter_open_cover_toast">Open cover to continue.</string>
+    <string name="quick_settings_settings">SETTINGS</string>
+    <string name="mobileap">Mobile hotspot</string>
+    <string name="mobile_hotspot_wifi_off_warning">Enabling Mobile hotspot will turn off Wi-Fi.</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">Attention</string>
+    <string name="mobile_data_enable_toast_text">Unable to connect to mobile networks while Flight mode is enabled. Disable Flight mode and try again</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">Enabling Mobile hotspot will disconnect any devices currently connected via Wi-Fi Direct.</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">Mobile hotspot will be enabled. This will increase battery consumption and data usage.</string>
+    <string name="keyboard_shortcut_group_applications_email">Email</string>
+    <string name="qs_edit">EDIT</string>
+    <string name="sec_qs_edit">Edit</string>
+    <string name="screen_grid">Button layout</string>
+    <string name="brightness_control_on_top">Brightness control on top</string>
+    <string name="screen_grid_popup_title">Button layout</string>
+    <string name="screen_grid_popup_apply">Apply</string>
+    <string name="screen_grid_popup_ok">OK</string>
+    <string name="qs_contact_us">Contact us</string>
+    <string name="multiwindow_forced_resizable">This app may not work properly in Multi window view.</string>
+    <string name="accessibility_quick_settings_more_option">More options</string>
+    <string name="accessibility_quick_settings_voice_search">Voice search</string>
+    <string name="recents_close_all_button_text">Close all</string>
+    <string name="recents_split_button_description">Open in split screen view</string>
+    <string name="recents_lock_button_description">Pin this app to or unpin it from recent apps screen</string>
+    <string name="recents_menu_more">More</string>
+    <string name="recents_menu_contact_us">Contact us</string>
+    <string name="recents_help_dlg_full_page1">Tap %s on the title bar of the app window to open apps in split screen view. This icon is shown when the app supports Multi window.</string>
+    <string name="recents_help_dlg_full_page1_desc">Tap the Split screen icon on the title bar of the app window to open apps in split screen view. This icon is shown when the app supports Multi window.</string>
+    <string name="recents_help_dlg_full_page2_hardkey">Press and hold the Recents key while using an app in full screen view to change to split screen view.</string>
+    <string name="recents_help_dlg_next_button_text">Next</string>
+    <string name="recents_help_dlg_split_page1">Select a recent app to open on the bottom half of the screen, or go to the Home screen and open a new app in split screen view.</string>
+    <string name="recents_help_dlg_split_page2_hardkey">Press the Home key to minimize the app on the top half of the screen in split screen view. If you open another app from the Home screen while an app is minimized, it will be opened on the bottom half of the screen in split screen view.</string>
+    <string name="recents_help_dlg_split_page2_softkey">Tap the Home button to minimize the app on the top half of the screen in split screen view. If you open another app from the Home screen while an app is minimized, it will be opened on the bottom half of the screen in split screen view.</string>
+    <string name="recents_app_list_more_apps">More apps</string>
+    <string name="recents_app_list_recommendations">Recommendations</string>
+    <string name="recents_app_list_multi_window_apps">Multi window apps</string>
+    <string name="data_connection_error_toast_notification">Wi-Fi connection required. Connect to Wi-Fi network and try again</string>
+    <string name="data_connection_error_no_network_connection">No network connection</string>
+    <string name="data_connection_error_flight_mode_on">Unable to connect to mobile network while Flight mode is enabled. Connect to Wi-Fi network instead or disable Flight mode and try again.</string>
+    <string name="data_connection_error_mobile_data_off">Mobile data is disabled. Connect to Wi-Fi network instead or enable mobile data and try again</string>
+    <string name="data_connection_error_data_roaming_off">Data roaming is disabled. Connect to Wi-Fi network instead, or enable data roaming and try again</string>
+    <string name="data_connection_error_no_signal_no_sim">Wi-Fi connection required. Connect to Wi-Fi network and try again</string>
+    <string name="data_connection_error_no_signal">No signal found for mobile networks.</string>
+    <string name="retry">Retry</string>
+    <string name="later">Later</string>
+    <string name="mobile_device_warning_toast_notification">The use of mobile device while you are walking or driving has a risk of accident.</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">Notification</string>
+    <string name="mcc_setting_dialog_body">Network does not provide date and time information. Go to Date and time settings to set manually</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">Select time zone before setting time.</string>
+    <string name="sim_card_tray_water_protection_dialog_title">Check SIM/SD card tray</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"Unable to detect a SIM card. Your device will be unable to perform actions such as making calls and connecting to mobile networks.
+
+To protect against water damage, make sure the SIM/SD card tray is firmly sealed."</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">To protect against water damage, make sure the SIM/SD card tray is firmly sealed.</string>
+    <string name="water_protection_notification_title">Check port</string>
+    <string name="water_protection_notification_body">Moisture has been detected. To charge your device, make sure your charger/USB port is dry.</string>
+    <string name="full_battery_title">Info</string>
+    <string name="full_battery_noti_text">Battery fully charged.</string>
+    <string name="cooling_title">Device overheating</string>
+    <string name="cooling_noti_text">Tap here to see details.</string>
+    <string name="cooling_body">"Your device is overheating. Steps will be taken to cool it down.
+
+You can still use your device, but:
+- The screen may be dimmed.
+- The device may slow down.
+- Charging may be paused.
+
+After the device cools down, performance will return to normal automatically."</string>
+    <string name="colling_high_level_noti_text">Unable to open applications. You can only use the Phone and Contacts applications.</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">Tap here to learn more.</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">Device cooling down</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">Power off device</string>
+    <string name="overheat_poweroff_warning_text">Your device is overheating. It will now power off to cool down.</string>
+    <string name="overheat_poweroff_warning_text_new">Your device is overheating. To cool down, it will power off in %d seconds.</string>
+    <string name="overheat_poweroff_warning_text_append">You will not be able to power on the device again until after it has cooled down.</string>
+    <string name="overheat_poweroff_warning_button_text">Do not power off</string>
+    <string name="overheat_poweroff_notice_title">Device powered off automatically</string>
+    <string name="overheat_poweroff_notice_text">"Your device overheated. It powered off to prevent damage.
+
+Overheating can be caused by:
+- Using graphics-intensive apps, such as games and navigation apps, for long periods of time.
+- Transferring large files.
+- Using your device in a hot environment."</string>
+    <string name="safe_mode_noti_title">Safe mode enabled</string>
+    <string name="safe_mode_noti_body">Tap here to disable Safe mode.</string>
+    <string name="safe_mode_alert_title">Restart device</string>
+    <string name="safe_mode_alert_body">To disable Safe mode, your device will restart. All your apps will then be available.</string>
+    <string name="safe_mode_alert_positive_button">Restart now</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">Battery power %d%%</string>
+    <string name="battery_low_sec_body_in_normal_mode">Charge your device or tap here to enable Power saving mode.</string>
+    <string name="battery_low_sec_body_in_ups_mode">Connect your device to a charger.</string>
+    <string name="battery_cable_charging_title">Cable charging</string>
+    <string name="battery_charging_title">Charging</string>
+    <string name="battery_fast_charging_title">Fast charging</string>
+    <string name="battery_wireless_charging_title">Wireless charging</string>
+    <string name="battery_fast_wireless_charging_title">Fast wireless charging</string>
+    <string name="battery_wireless_charging_disconnect_text">Wireless charging paused.</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">Switching from cable charging to wireless charging</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">Switching from wireless charging to cable charging</string>
+    <string name="battery_slow_charging_title">Device charging slowly</string>
+    <string name="battery_slow_charging_text">To charge faster, use the original charger.</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"Charging: %1$d%%
+(Approximately %2$s until fully charged)"</string>
+    <string name="battery_charging_level_text">Charging: %d%%</string>
+    <string name="medium_power_saving_mode_notification_title">Medium power saving mode enabled</string>
+    <string name="battery_saver_notification_text_time_extend">Your battery life has been extended.</string>
+    <string name="button_detail">Detail</string>
+    <string name="battery_saver_recommend_notification_title">Battery power %d%%</string>
+    <string name="battery_saver_recommend_notification_text">Charge your device or tap here to enable Power saving mode.</string>
+    <string name="button_close">Close</string>
+    <string name="battery_health_interruption_title">Unable to charge</string>
+    <string name="battery_health_interruption_by_terminal_open_text">Unable to charge your device. Make sure you are using a Samsung compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">Charging paused. Battery temperature too high</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">Charging paused. Battery temperature too low</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"The device has stopped charging. The battery temperature is too high. Be careful when disconnecting the charger. It may be very hot.
+
+Disconnecting and reconnecting the charger may allow charging to continue normally. If overheating persists, contact customer services as there may be a risk of fire or injury."</string>
+    <string name="incompatible_charger_title">Not charging.</string>
+    <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
+    <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
+    <string name="incompatible_charger_ticker">Not charging.</string>
+    <string name="warning_alert_check">Do not show again</string>
+    <string name="power_supplying_low_battery_alert_title">Battery power low</string>
+    <string name="power_supplying_low_battery_alert_body">This device is charging another device that is connected via USB. This increases the battery consumption of this device. Disconnect the USB cable to stop charging the connected device.</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">Use fingerprint to open or swipe screen to use iris instead</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">Use fingerprint to unlock or swipe screen to use iris instead</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">Use fingerprint or swipe screen to open</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">Use fingerprint or swipe screen to unlock</string>
+    <string name="kg_iris_unlock_instructions">Swipe screen to use iris to unlock</string>
+    <string name="kg_voice_assistant_active_instructions">Swipe screen with two fingers to open.</string>
+    <string name="kg_voice_assistant_unlock_instructions">Swipe with two fingers to unlock the screen.</string>
+    <string name="kg_swipe_active_instructions">Swipe screen to open</string>
+    <string name="kg_swipe_unlock_instructions">Swipe screen to unlock</string>
+    <string name="kg_power_connect_charger">Connect charger</string>
+    <string name="kg_power_fully_charged">Fully charged</string>
+    <string name="kg_power_fast_charging">Fast charging: %d%%</string>
+    <string name="kg_power_charging_wirelessly">Charging wirelessly: %d%%</string>
+    <string name="kg_power_fast_charging_wirelessly">Fast charging wirelessly: %d%%</string>
+    <string name="kg_power_charging">Charging: %d%%</string>
+    <string name="kg_power_charging_remaining_time">(Approx. %s until fully charged)</string>
+    <string name="kg_power_time_format_hour_minute">%1$d h %2$d m</string>
+    <string name="kg_power_time_format_hour">%d h</string>
+    <string name="kg_power_time_format_minute">%d m</string>
+    <string name="kg_smart_lock_content_description">Double tap and drag to lock device.</string>
+    <string name="keyguard_skt_usim_unregistered">Unable to use USIM card. Download USIM card information.</string>
+    <string name="keyguard_missing_sim_message">Insert USIM card, then restart device</string>
+    <string name="keyguard_usim_not_used">Cannot use USIM card. Incorrect PIN unlock (PUK) code entered %d times. Purchase new USIM card.</string>
+    <string name="lockscreen_nosim_text_kor_only">"USIM card not detected
+Emergency calls only"</string>
+    <string name="qs_sfinder_search_phone">Search phone and scan for nearby devices</string>
+    <string name="noti_setting_text">Noti. settings</string>
+    <string name="dnd_noti_title">Do not disturb enabled</string>
+    <string name="dnd_noti_message">Alarms muted</string>
+    <string name="dnd_noti_action_disable">Disable</string>
+    <string name="do_not_show_again">Do not show again</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">No SIM</string>
+    <string name="no_sim_notification_title_tmo">No SIM card inserted</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">Insert SIM card.</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">Four bars of phone signal</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">Flight mode</string>
+    <string name="default_carrier_text_searching">Searching</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">Mobile data disabled</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">Specified data usage limit reached. Additional data use may incur charges from service provider</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off. 
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">Turn on Mobile data</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">Calls</string>
+    <string name="qs_multisim_sms_preffered_btn_title">Text messages</string>
+    <string name="qs_multisim_data_preffered_btn_title">Mobile data</string>
+    <string name="qs_multisim_voice_ask_always">Always ask</string>
+    <string name="qs_multisim_data_turned_off">Turned off</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ
+upscaler"</string>
+    <string name="uhq_mode_noti_title">UHQ upscaler</string>
+    <string name="uhq_mode_noti_text">Enhance the sound resolution of music and videos for a clearer listening experience.</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">None</string>
+    <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
+    <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
+Please read the description of the service provided by your operator:"</string>
+    <string name="wfc_enable_dialog_opv_body1">Wi-Fi Calling service enables you to make and receive voice calls over any Wi-Fi internet connection, even in a situation where you are outside any mobile network’s coverage. Once the service is active for your mobile number, every time you connect to a Wi-Fi network, your voice calls will be performed using Wi-Fi Calling. This will be indicated to you by a dedicated icon on the notification bar.</string>
+    <string name="wfc_enable_dialog_opv_body2">"If your Wi-Fi connection is of poor quality or your device is outside a Wi-Fi network’s coverage, your phone will make calls using an available mobile network.
+
+Calls you make with Wi-Fi Calling in Poland are charged in the same way as your regular mobile calls in your mobile tariff plan. Incoming calls in Poland are free of charge. If you make Wi-Fi Calling calls outside Poland your calls may be charged a price specified in your mobile tariff plan’s price list.
+
+Notwithstanding, your Wi-Fi connections may be charged independently by the provider of your Wi-Fi connection."</string>
+    <string name="wfc_enable_dialog_opv_body3">"Once you press the [I ACCEPT] button and your phone connects to a Wi-Fi network, your Wi-Fi Calling service will be activated. You can disable Wi-Fi Calling at any time using the phone menu.
+
+Detailed information about your Wi-Fi Calling service can be found at www.orange.pl/wificalling.
+
+Please note that in order to enable your emergency calls (e.g., such as 112 calls) to be routed to the closest emergency centre suitable for your actual location, your emergency calls made while the Wi-Fi Calling service is enabled will be carried by your device through any mobile network available at a given moment. Only in cases where no mobile network is available will an emergency call be routed via the Wi-Fi Calling service. Unfortunately, in such cases we will not know your precise location and therefore your emergency call may not be routed to the emergency centre closest to your actual location."</string>
+    <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
+    <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
+    <string name="wfc_enable_dialog_opv_btn">I accept</string>
+    <string name="keyguard_password_enter_pin_code">Type PIN code.</string>
+    <string name="keyguard_password_wrong_pin_code">Incorrect PIN code.</string>
+    <string name="keyguard_charged">Fully charged</string>
+    <string name="keyguard_plugged_in">Charging: %d%%</string>
+    <string name="keyguard_low_battery">Connect your charger.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Press Menu to unlock.</string>
+    <string name="keyguard_network_locked_message">Network locked.</string>
+    <string name="keyguard_missing_sim_message_short">No SIM card</string>
+    <string name="keyguard_sim_locked_message">SIM card locked</string>
+    <string name="keyguard_sim_puk_locked_message">SIM card locked with PUK</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="keyguard_accessibility_pattern_unlock">Pattern unlock</string>
+    <string name="keyboardview_keycode_enter">Enter</string>
+    <string name="kg_forgot_pattern_button_text">Forgot pattern?</string>
+    <string name="kg_wrong_pattern">Incorrect pattern drawn</string>
+    <string name="kg_wrong_password">Incorrect password entered</string>
+    <string name="kg_wrong_pin">Incorrect PIN entered</string>
+    <string name="kg_too_many_failed_attempts_countdown">Try again in %d seconds</string>
+    <string name="kg_pattern_instructions">Draw your unlock pattern.</string>
+    <string name="kg_sim_pin_instructions">Enter SIM card unlock PIN</string>
+    <string name="kg_pin_instructions">Enter PIN</string>
+    <string name="kg_password_instructions">Enter password</string>
+    <string name="kg_puk_enter_puk_hint">SIM locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_puk_enter_pin_hint">Enter a new PIN.</string>
+    <string name="kg_enter_confirm_pin_hint">Confirm your new PIN.</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Unlocking SIM card…</string>
+    <string name="kg_invalid_sim_pin_hint">Type a PIN that is 4 to 8 digits</string>
+    <string name="kg_invalid_sim_puk_hint">Your PUK should contain 8 digits or more.</string>
+    <string name="kg_invalid_confirm_pin_hint">The PINs you have entered do not match.</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">"You have entered an incorrect PIN %1$d times.
+
+Try again in %2$d seconds."</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">You have entered an incorrect password %1$d times. Try again in %2$d seconds.</string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">You have made %1$d unsuccessful attempts to unlock your device. Try again in %2$d seconds.</string>
+    <string name="kg_failed_attempts_almost_at_wipe">An incorrect password has been entered. You have %d attempts left before the device is reset to factory default settings and all data is erased.</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">An attempt to unlock the device has been made. You have %d attempts left before the device is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">An attempt to unlock the device has been made %1$d times. You have %2$d attempts left before the device is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">An attempt to unlock the device has been made %d times. You have 1 attempt left before the device is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_pin_accepted">Code accepted.</string>
+    <string name="keyguard_carrier_default">No service</string>
+    <string name="kg_sim_locked_message">SIM card locked</string>
+    <string name="kg_missing_sim_message_short">No SIM card</string>
+    <string name="kg_default_carrier_text_searching">Searching</string>
+    <string name="kg_perso_locked_message">Block other USIM</string>
+    <string name="kg_pin_locked_message">Enter PIN</string>
+    <string name="kg_puk_locked_message">Enter PUK</string>
+    <string name="kg_flight_mode">Flight mode</string>
+    <string name="kg_lockscreen_emergency_call_button_text">Emergency call</string>
+    <string name="keyguard_dualclock_locale_view_home">Home</string>
+    <string name="keyguard_dualclock_locale_view_roaming">Roaming</string>
+    <string name="keyguard_dualclock_locale_view_seoul">Seoul</string>
+    <string name="keyguard_dualclock_locale_view_korea">Roaming</string>
+    <string name="kg_wrong_direction_lock">Incorrect direction drawn</string>
+    <string name="kg_direction_lock_instructions_normal_mode">Draw series of directions to unlock screen</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">Direction lock</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">Try again in %d seconds</string>
+    <string name="kg_iris_direction_instructions">Use iris or draw series of directions</string>
+    <string name="kg_1_attempt_remaining">(1 attempt remaining)</string>
+    <string name="kg_n_attempts_remaining">(%d attempts remaining)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">Draw series of directions instead of using biometric recognition because of security policy</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">Draw series of directions instead of using iris recognition because of security policy</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (Email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (Email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (Email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (Email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (Email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">Use fingerprint or iris or enter PIN</string>
+    <string name="kg_multi_pin_active_instructions">Use fingerprint or iris or enter PIN, to open</string>
+    <string name="kg_multi_pin_shutdown_instructions">Use fingerprint or irises, or enter PIN, to power off</string>
+    <string name="kg_fingerprint_pin_none_instructions">Use fingerprint or enter PIN</string>
+    <string name="kg_fingerprint_pin_active_instructions">Use fingerprint or enter PIN to open</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">Use fingerprint or enter PIN to power off</string>
+    <string name="kg_iris_pin_none_instructions">Use iris or enter PIN</string>
+    <string name="kg_iris_pin_active_instructions">Use iris or enter PIN to open</string>
+    <string name="kg_iris_pin_shutdown_instructions">Use iris or enter PIN to power off</string>
+    <string name="kg_none_pin_none_instructions">Enter PIN</string>
+    <string name="kg_none_pin_active_instructions">Enter PIN to open</string>
+    <string name="kg_none_pin_shutdown_instructions">Enter PIN to power off</string>
+    <string name="kg_multi_pattern_none_instructions">Use fingerprint or iris, or draw pattern</string>
+    <string name="kg_multi_pattern_active_instructions">Use fingerprint or iris or draw pattern to open</string>
+    <string name="kg_multi_pattern_shutdown_instructions">Use fingerprint or irises, or draw pattern, to power off</string>
+    <string name="kg_fingerprint_pattern_none_instructions">Use fingerprint or draw unlock pattern</string>
+    <string name="kg_fingerprint_pattern_active_instructions">Use fingerprint or draw pattern to open</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">Use fingerprint or draw pattern to power off</string>
+    <string name="kg_iris_pattern_none_instructions">Use iris or draw pattern</string>
+    <string name="kg_iris_pattern_active_instructions">Use iris or draw pattern to open</string>
+    <string name="kg_iris_pattern_shutdown_instructions">Use iris or draw pattern to power off</string>
+    <string name="kg_none_pattern_none_instructions">Draw unlock pattern</string>
+    <string name="kg_none_pattern_active_instructions">Draw unlock pattern to open</string>
+    <string name="kg_none_pattern_shutdown_instructions">Draw pattern to power off</string>
+    <string name="kg_multi_password_none_instructions">Use fingerprint or iris or enter password</string>
+    <string name="kg_multi_password_active_instructions">Use fingerprint or iris or enter password to open</string>
+    <string name="kg_multi_password_shutdown_instructions">Use fingerprint or irises, or enter password, to power off</string>
+    <string name="kg_fingerprint_password_none_instructions">Use fingerprint or enter password</string>
+    <string name="kg_fingerprint_password_active_instructions">Use fingerprint or enter password to open</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">Use fingerprint or enter password to power off</string>
+    <string name="kg_iris_password_none_instructions">Use iris or enter password</string>
+    <string name="kg_iris_password_active_instructions">Use iris or enter password to open</string>
+    <string name="kg_iris_password_shutdown_instructions">Use iris or enter password to power off</string>
+    <string name="kg_none_password_none_instructions">Enter password</string>
+    <string name="kg_none_password_active_instructions">Enter password to open</string>
+    <string name="kg_none_password_shutdown_instructions">Enter password to power off</string>
+    <string name="kg_multi_direction_none_instructions">Use fingerprint or iris, or draw series of directions</string>
+    <string name="kg_multi_direction_active_instructions">Use fingerprint or iris, or draw series of directions to open</string>
+    <string name="kg_multi_direction_shutdown_instructions">Use fingerprint or irises, or draw series of directions, to power off</string>
+    <string name="kg_fingerprint_direction_none_instructions">Use fingerprint or draw series of directions</string>
+    <string name="kg_fingerprint_direction_active_instructions">Use fingerprint or draw series of directions to open</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">Use fingerprint or draw series of directions to power off</string>
+    <string name="kg_iris_direction_none_instructions">Use iris or draw series of directions</string>
+    <string name="kg_iris_direction_active_instructions">Use iris or draw series of directions to open</string>
+    <string name="kg_iris_direction_shutdown_instructions">Use iris or draw series of directions to power off</string>
+    <string name="kg_none_direction_none_instructions">Draw series of directions to unlock screen</string>
+    <string name="kg_none_direction_active_instructions">Draw series of directions to open</string>
+    <string name="kg_none_direction_shutdown_instructions">Draw series of directions to power off</string>
+    <string name="kg_none_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">Your device was restarted and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your PIN. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">Enter PIN instead of using biometric recognition because of security policy</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">Enter PIN instead of using fingerprint recognition because of security policy</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">Enter PIN instead of using iris recognition because of security policy</string>
+    <string name="kg_none_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">Draw pattern instead of using biometric recognition because of security policy</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">Draw pattern instead of using fingerprint recognition because of security policy</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">Draw pattern instead of using iris recognition because of security policy</string>
+    <string name="kg_none_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_password_restart_instructions">Your device was restarted and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your password. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">Enter password instead of using biometric recognition because of security policy</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">Enter password instead of using fingerprint recognition because of security policy</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">Enter password instead of using iris recognition because of security policy</string>
+    <string name="kg_none_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your biometrics next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_iris_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your irises next time you unlock your device.</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">Draw series of directions instead of using biometric recognition because of security policy</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">Draw series of directions instead of using fingerprint recognition because of security policy</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">Draw series of directions instead of using iris recognition because of security policy</string>
+    <string name="kg_none_recovery_none_instructions">Enter the recovery password to unlock.</string>
+    <string name="kg_incorrect_pattern">Incorrect pattern drawn</string>
+    <string name="kg_incorrect_password">Incorrect password entered</string>
+    <string name="kg_incorrect_pin">Incorrect PIN entered</string>
+    <string name="kg_pin_sub_instructions">Your PIN must contain at least %d numbers.</string>
+    <string name="kg_password_sub_instructions">Your password must contain at least %d characters, including at least one letter.</string>
+    <string name="card_crash">SIM card crash</string>
+    <string name="kg_unlock_sim_pin_instructions">Enter SIM card unlock PIN</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">Enter SIM card unlock PIN. 1 attempt left.</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">Enter SIM card unlock PIN. %d attempts left.</string>
+    <string name="kg_password_wrong_pin_code_one">An incorrect SIM card PIN has been entered. You have 1 attempt left.</string>
+    <string name="kg_password_wrong_pin_code_other">An incorrect SIM card PIN has been entered. You have %d attempts left.</string>
+    <string name="kg_sim_puk_instructions">SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_sim_puk_remaining_1_attempt">If you enter incorrect PUK 1 more time, SIM will be locked.</string>
+    <string name="kg_sim_puk_remaining_attempts">If you enter incorrect PUK %d more times, SIM will be locked.</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">Unlocking SIM card…</string>
+    <string name="kg_skt_sim_perso_instructions">Enter USIM card unlock PIN (4 digits)</string>
+    <string name="kg_ktt_sim_perso_instructions">Enter 4- to 8-digit password (PIN)</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">Unlocking SIM card</string>
+    <string name="kg_empty_sim_perso_hint">No password entered. Enter password (PIN).</string>
+    <string name="kg_password_perso_failed">Incorrect PIN. Check PIN and try again.</string>
+    <string name="kg_password_perso_max_failed">Incorrect PIN entered for USIM card lock. Maximum number of retries reached. Restart device or visit CS center.</string>
+    <string name="kg_sim_pin_remaining_1_attempt">You have 1 attempt left.</string>
+    <string name="kg_sim_pin_remaining_attempts">You have %d attempts left.</string>
+    <string name="kg_kor_sim_pin_instructions">Enter USIM card unlock PIN (4 to 8 digits)</string>
+    <string name="kg_kor_password_wrong_pin_code">An incorrect PIN has been entered. %d attempts are remaining. Contact customer services.</string>
+    <string name="kg_kor_sim_puk_instructions">Enter the PUK.</string>
+    <string name="kg_kor_invalid_sim_puk_hint">Enter 8-digit PIN unlock (PUK) code</string>
+    <string name="kg_kor_empty_sim_puk_hint">No PIN unlock (PUK) code entered. Try again.</string>
+    <string name="kg_kor_puk_enter_pin_hint">"Create a new USIM card PIN.
+The PIN must be 4 to 8 digits long."</string>
+    <string name="kg_kor_enter_confirm_pin_hint">Enter the USIM card PIN again to confirm it.</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">The new PINs do not match.</string>
+    <string name="kg_kor_wrong_puk_code">Unlock code input error</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"An incorrect PUK has been entered %1$d times. If an incorrect PUK is entered %2$d more times, the USIM card will be permanently blocked.
+
+If you do not know your PUK, visit a customer service centre."</string>
+    <string name="kg_kor_success_pin_message">New password (PIN) saved successfully.</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">PIN has been blocked. Enter PUK to continue.</string>
+    <string name="kg_sim_lock_accepted">Code accepted.</string>
+    <string name="kg_carrier_lock_wrong_password">Incorrect password entered.</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">Incorrect password entered 5 times. Try again in 10 minutes.</string>
+    <string name="keyguard_fmm_phone_locked_title">Phone locked.</string>
+    <string name="keyguard_fmm_owner_phone">"Owner's number"</string>
+    <string name="keyguard_accessibility_call">Call</string>
+    <string name="kg_fingerprint_no_match">No match</string>
+    <string name="kg_finger_print_not_responding_error_message">The fingerprint sensor is not responding. Try again later.</string>
+    <string name="kg_finger_print_database_error_message">The fingerprint data has been corrupted. Reset Fingerprint as the screen lock type and then add your fingerprints again or change the screen lock type.</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">Make sure that the Home key is clean and dry, then try again.</string>
+    <string name="kg_finger_print_sensor_changed_error_message">The fingerprint sensor has not been changed properly. Contact customer services.</string>
+    <string name="kg_fingerprints_direction_instructions">Use fingerprint or draw series of directions</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">Use fingerprint or draw series of directions to open</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">Draw series of directions instead of using fingerprint recognition because of security policy</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">Your device has not been used for more than 24 hours and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">Your device was restarted and needs to be unlocked using your series of directions. You can use your fingerprints next time you unlock your device.</string>
+    <string name="keyguard_progress_erasing_all">Deleting all data…</string>
+    <string name="iris_guide_str_enable_toggle">Tap here to use iris</string>
+    <string name="kg_login_username_hint">Username (Email)</string>
+    <string name="kg_login_password_hint">Password</string>
+    <string name="kg_login_submit_button">Sign in</string>
+    <string name="kg_login_invalid_input">Invalid username or password.</string>
+    <string name="no_network_connection">No network connection</string>
+    <string name="kg_forgot_spass_button_text">Samsung account</string>
+    <string name="kg_login_checking_password">Checking account…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have %2$d attempts left before the device is reset to factory default settings and all data is erased.
+
+Try again in %3$d minutes"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have %2$d attempts left before the device is reset to factory default settings and all data is erased.
+
+Try again in %3$d seconds"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have %2$d attempts left before the device is reset to factory default settings and all data is erased.
+
+Try again in 1 minute"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have %2$d attempts left before the device is reset to factory default settings and all data is erased.
+
+Try again in 1 second"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">Try again in 1 second</string>
+    <string name="kg_too_many_failed_attempt_countdown">Try again in 1 second</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have 1 attempt left before the device is reset to factory default settings and all data is erased.
+
+Try again in %2$d minutes"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"An attempt to unlock the device has been made %1$d times. You have 1 attempt left before the device is reset to factory default settings and all data is erased.
+
+Try again in %2$d seconds"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"An attempt to unlock the device has been made %d times. You have 1 attempt left before the device is reset to factory default settings and all data is erased.
+
+Try again in 1 minute"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"An attempt to unlock the device has been made %d times. You have 1 attempt left before the device is reset to factory default settings and all data is erased.
+
+Try again in 1 second"</string>
+    <string name="clear_cover_wday_day">E</string>
+    <string name="clear_cover_month_day_no_year">MMM d</string>
+    <string name="clear_cover_day_month_no_year">d MMM</string>
+    <string name="volumepanel_notification">Notification</string>
+    <string name="recents_help_dlg_split_icon_text">Tap %s on the title bar of the app window to open apps in split screen view. This icon is shown when the app supports Multi window.</string>
+    <string name="recents_help_dlg_split_icon_desc">Tap the Split screen icon on the title bar of the app window to open apps in split screen view. This icon is shown when the app supports Multi window.</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">Press and hold the Recents key while using an app in full screen view to change to split screen view.</string>
+    <string name="recents_help_dlg_home_key_in_split_text">If you press the Home key while using split screen view, the app shown on the top half of the screen will be minimized. If you open an app from the home screen while the status bar is colored blue, the app will open in split screen view on the bottom half of the screen.</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (Email address and password) associated with this phone to be able to use it again."</string>
+</resources>

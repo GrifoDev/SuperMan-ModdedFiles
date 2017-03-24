@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ଏକ ଭୁଲ୍ PIN ପ୍ରବେଶ କରାଯାଇଛି। ଆପଣଙ୍କ %d ଉଦ୍ୟମ ଅବଶିଷ୍ଟ ରହିଛି।</item>
+        <item quantity="one">ଏକ ଭୁଲ୍ PIN ପ୍ରବେଶ କରାଯାଇଛି। ଯଦି ଏକ ଭୁଲ୍ PIN %dରୁ ଅଧିକ ଥର ପ୍ରବେଶ କରାଯାଇଛି, ତେବେ ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ଅନଲକ୍‌ କରିବାକୁ ଆପଣଙ୍କ ସେବା ପ୍ରଦାନକାରୀଙ୍କ ସହ ସମ୍ପର୍କ କରିବାକୁ ହେବ।</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ଏକ ଭୁଲ୍ PUK ପ୍ରବେଶ କରାଯାଇଛି। ଯଦି ଏକ ଭୁଲ୍ PUK %d ଅଧିକ ସମୟ ପ୍ରବେଶ କରାଯିବ, SIM କାର୍ଡ୍ ସ୍ଥାୟୀଭାବେ ଲକ୍ ହେବ।</item>
+        <item quantity="one">ଏକ ଭୁଲ୍ PUK ପ୍ରବେଶ କରାଯାଇଛି। ଯଦି ଏକ ଭୁଲ୍ PUK %dରୁ ଅଧିକ ଥର ପ୍ରବେଶ କରାଯାଇଛି, ତେବେ SIM କାର୍ଡ୍‍ ସ୍ଥାୟୀଭାବେ ଲକ୍ ହେବ।</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d ଉଦ୍ୟମ ବାକି ରହିଛି)</item>
+        <item quantity="one">(1 ଉଦ୍ୟମ ବାକି ରହିଛି)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%dଟି ଉଦ୍ୟମ ବାକି ଅଛି</item>
+        <item quantity="one">%dଟି ଉଦ୍ୟମ ବାକି ଅଛି</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d ମିନିଟରେ ପୁନଃଚେଷ୍ଟା</item>
+        <item quantity="one">%d ମିନିଟରେ ପୁନଃଚେଷ୍ଟା</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d ସେକେଣ୍ଡରେ ପୁନଃଚେଷ୍ଟା</item>
+        <item quantity="one">%d ସେକେଣ୍ଡରେ ପୁନଃଚେଷ୍ଟା</item>
+    </plurals>
+</resources>

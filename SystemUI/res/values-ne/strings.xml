@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snapview_cancel">रद्द गर्नुहोस्</string>
+    <string name="snapview_done">भयो</string>
+    <string name="mw_divider_button_snap">स्न्याप विन्डो</string>
+    <string name="mw_divider_button_switch">विंडोहरू स्विच गर्नुहोस्</string>
+    <string name="mw_divider_button_freeform">पप-अप दृश्यमा खोल्नुहोस्</string>
+    <string name="mw_divider_button_close">एप बन्द गर्नुहोस्</string>
+    <string name="multi_window_title_text">मल्टी विंडो</string>
+    <string name="dock_minimized_notification_text">%s लाई सानो बानाइयो</string>
+    <string name="dock_minimized_notification_dimiss_text">बन्द गर्नुहोस्</string>
+    <string name="dock_minimized_notification_content_text">खोल्नको लागि यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="cancel">रद्द गर्नुहोस्</string>
+    <string name="clearcover_1_missed_call">तपाईको 1 छुटेको कल छ।</string>
+    <string name="clearcover_1_unread_message">तपाईसंग 1 नपढेको संदेश छ।</string>
+    <string name="clearcover_n_missed_calls">तपाईसंग %d छुटेको कलहरू छ।</string>
+    <string name="clearcover_n_unread_messages">तपाईसंग %1$d नपढेको संदेश छ।</string>
+    <string name="s_view_screen_roaming">रोमिङ</string>
+    <string name="s_view_screen_home">गृह</string>
+    <string name="clock_roaming">रोमिङ</string>
+    <string name="clock_home">गृह</string>
+    <string name="battery_charging_percent">चार्ज गरिँदै: %d%%</string>
+    <string name="battery_wireless_charging_percent">वायरलेस रूपमा चार्ज गर्दै: %d%%</string>
+    <string name="battery_wireless_fast_charging_percent">वायरलेस रूपमा शीघ्र चार्ज हुँदै: %d%%</string>
+    <string name="battery_charged">चार्ज गरियो।</string>
+    <string name="battery_charging_remaining_time">(पूर्ण चार्ज हुनको लागि लगभग %s)</string>
+    <string name="time_format_hour_minute">%1$d घण्टा %2$d मिनट</string>
+    <string name="time_format_hour">%d घण्टा</string>
+    <string name="time_format_minute">%d मिनट</string>
+    <string name="s_view_cover_missed_event_secured_popup">यन्त्र लक गरिएको छ। थप कल विवरणहरू हेर्न कभर खोल्नुहोस्।</string>
+    <string name="s_view_cover_open_cover_popup_view_detail">विवरणहरू हेर्न कभर खोल्नुहोस्।</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_message">संदेश विवरणहरू हेर्न कभर खोल्नुहोस्।</string>
+    <string name="s_view_cover_open_cover_popup_for_detail_call">कल विवरणहरू हेर्न कभर खोल्नुहोस्।</string>
+    <string name="s_view_cover_camera_button_accessibiliy">क्यामेरा खोल्न दुई पटक ट्याप गरेर तान्नुहोस्।</string>
+    <string name="s_view_cover_favourite_button_accessibiliy">मनपर्ने सम्पर्कहरू खोल्नलाई दुईपटक ट्याप गरेर तान्नुहोस्।</string>
+    <string name="s_view_cover_open_popup_favorite">यन्त्र लक गरिएको छ। मनपर्ने सम्पर्कहरू हेर्न कभर खोल्नुहोस्।</string>
+    <string name="pinwindowcover_warning_content">पिन गरिएको एपलाई प्रयोग गर्न, कभर खोल्नुहोस्।</string>
+    <string name="battery_fast_charging_percent">शीघ्र चार्ज हुँदै: %d%%</string>
+    <string name="permission_sviewcover_access_description">यो एपले S View विन्डोमार्फत जानकारी देखाउन सक्छ।</string>
+    <string name="tts_previous">अघिल्लो</string>
+    <string name="tts_next">अर्को</string>
+    <string name="tts_pause">पज गर्नुहोस्</string>
+    <string name="tts_play">चलाउनुहोस्</string>
+    <string name="sview_led_cover_download_feature_title">अतिरिक्त सुविधाहरू डाउनलोड गर्नुहोस्</string>
+    <string name="sview_led_cover_download_feature_summary">LED भ्यु कभरका अतिरिक्त सुविधाहरू डाउनलोड गरेर स्थापना गर्नुहोस्। तपाईले आफ्ना LED प्रतिमाहरू सिर्जना गर्न र तिनीहरूलाई आफ्नो सूचना प्रतिमाहरूका रूपमा सेट गर्न सक्नुहुन्छ। तिनीहरूलाई पछि डाउनलोड गर्न, सेटिङहरू > उन्नत सुविधाहरू > सहायक उपकरणहरू > LED भ्यु कभरमा जानुहोस्, त्यसपछि “अतिरिक्त सुविधाहरू डाउनलोड गर्नुहोस्” चयन गर्नुहोस्।</string>
+    <string name="sview_led_cover_download_feature_summary_vzw">Download and install additional features for LED View Cover. You can create your own LED icons and set them as your notification icons. To download them later, go to Settings > Accessories > LED View Cover, then select Download additional features.</string>
+    <string name="monotype_dialog_button">डाउनलोड</string>
+    <string name="ok">ठीक छ</string>
+    <string name="battery_history_hours_no_seconds">%1$dघ %2$dमि</string>
+    <string name="battery_history_minutes_no_seconds">%dमिनट</string>
+    <string name="wifi_failed_to_obtain_IP">IP ठेगाना प्राप्त गर्न असफल।</string>
+    <string name="wifi_disabled_no_internet">इन्टरनेट उपलब्ध छैन</string>
+    <string name="wifi_disabled_password_failure">प्रमाणीकरण त्रुटि भयो</string>
+    <string name="wifi_auto_reconnect_disabled">स्वतः पुनःजडानलाई असक्षम गरियो</string>
+    <string name="wifi_reconnecting">नेटवर्क गुणस्तर सुधार जडान गर्नको लागि तयार।</string>
+    <string name="wifi_connected_checking_quality">तपाईको इन्टरनेट जडानको गुणस्तर जाँच गर्दै…</string>
+    <string name="wifi_setup_title_connected_network">Wi-Fi नेटवर्क %s मा जडान गरिएको।</string>
+    <string name="wifi_sign_in_to_the_network">नेटवर्कमा साइन इन गर्नुहोस्।</string>
+    <string name="wifi_disabled_captive_portal">साइन-इन गर्न आवश्‍यक छ।</string>
+    <string name="bluetooth_disconnect_message">%s संग ब्लुटूथ जडान समाप्त भयो।</string>
+    <string name="bluetooth_disconnecting">जोडन विच्छेद हुँदै छ…</string>
+    <string name="bluetooth_connecting">जोडिँदै छ…</string>
+    <string name="bluetooth_connected">जडान गरिएको छ</string>
+    <string name="bluetooth_pairing">जोडा मिलाउँदै…</string>
+    <string name="bluetooth_profile_a2dp">मिडिया अडियो</string>
+    <string name="bluetooth_profile_headset">अडियो कल गर</string>
+    <string name="bluetooth_profile_hid">इन्पुट यन्त्र</string>
+    <string name="bluetooth_profile_pan">इन्टरनेट पहुँच</string>
+    <string name="bluetooth_profile_pbap">सम्पर्कमा पहुँच</string>
+    <string name="bluetooth_profile_pan_nap">इन्टरनेट जडान साझा गरिनु</string>
+    <string name="bluetooth_profile_map">संदेश पहुँच</string>
+    <string name="bluetooth_profile_sap">SIM कार्ड पहुँच</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">मिडिया अडियोको लागि जडान भयो</string>
+    <string name="bluetooth_headset_profile_summary_connected">कल अडियोको लागि जडान भयो</string>
+    <string name="bluetooth_hid_profile_summary_connected">इन्पुट यन्त्रको रूपमा जडान गरिएको छ</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">इन्टरनेटमा पहुँच बनाउनका लागि डिभाइसमा जोडिएकोछ।</string>
+    <string name="bluetooth_spp_profile_summary_connected">सिरियल पोर्ट प्रोफाइल मार्फत जडान गरिएको छ</string>
+    <string name="bluetooth_pan_profile_summary_use_for">यस यन्त्रमा इन्टरनेट पहुँच गर्नलाई जोडा बनाइएको यन्त्रमा ब्लुटूथ टेथरिङ सक्षम गर्नुहोस्।</string>
+    <string name="bluetooth_profile_textinput">पाठ इन्पुट</string>
+    <string name="bluetooth_summary_connected_to_a2dp_headset">कल र मिडिया अडियोको लागि जडान भयो</string>
+    <string name="bluetooth_pan_nap_connected">इन्टरनेट जडान प्रदान गर्न जडान गरियो</string>
+    <string name="bluetooth_pan_panu_connected">इन्टरनेट जडान पहुँच गर्न जडान गरियो</string>
+    <string name="bluetooth_pairing_error_message">%1$s संग कुराकानी गर्न सकिएन।</string>
+    <string name="bluetooth_pairing_pin_error_message">%1$s सँग जोडा बनाउन असमर्थ। %2$s जोडा बनाउन तयार छ भनेर सुनिश्चित गर्नुहोस्।</string>
+    <string name="bluetooth_pairing_rejected_error_message">%s ले जोडी मिलाउनु अस्वीकार गरे।</string>
+    <string name="tether_settings_title_all">मोबाइल हटस्पट र टेथरिङ</string>
+    <string name="tts_settings_title">टेक्‍स्‍ट-टू-स्पीच</string>
+    <string name="tts_default_rate_title">ध्वनि दर</string>
+    <string name="tts_default_rate_summary">गति जसमा पाठ बोलिन्छ।</string>
+    <string name="tts_default_pitch_title">पिच</string>
+    <string name="tts_default_lang_title">भाषा</string>
+    <string name="tts_lang_use_system">प्रणाली भाषा प्रयोग गर्नुहोस्</string>
+    <string name="tts_lang_not_selected">कुनैपनि भाषा चयन गरिएको छैन</string>
+    <string name="tts_default_lang_summary">बोलिने अक्षरका लागि भाषा-विशेष भ्वाइस कायम गर्नुहोस्।</string>
+    <string name="tts_play_example_title">एउटा उदाहरण सुन्नुहोस्</string>
+    <string name="tts_play_example_summary">भाषण मिश्रणको छोटो प्रदर्शन प्ले गर्नुहोस्।</string>
+    <string name="tts_install_data_title">भ्वाइस डाटा प्रतिस्थापन गर्नुहोस्</string>
+    <string name="tts_install_data_summary">वाचन रचनाको लागि भ्वाइस डाटा स्थापना गर्न आवश्यक हुन्छ।</string>
+    <string name="tts_engine_security_warning">यो वाक संश्लेषण इन्जिनले सबै वाकहरू पासवर्ड, क्रेडिट कार्ड नंबर, अनि अरू व्यक्तिगत जानकारीहरूसगैं जम्मा गर्छ। जारी राख्ने?</string>
+    <string name="tts_default_sample_string">वाचन संश्लेषण को उदाहरण</string>
+    <string name="tts_status_title">पूर्वनिर्धारित भाषाको स्थिति</string>
+    <string name="tts_status_ok">%s पूर्ण रूपमा समर्थित छ।</string>
+    <string name="tts_status_requires_network">%s समर्थन गर्न नेटवर्क जडान आवश्‍यक छ।</string>
+    <string name="tts_status_not_supported">%s समर्थित छैन।</string>
+    <string name="tts_status_checking">जाँच भइरहेको छ…</string>
+    <string name="tts_engine_settings_title">%s का लागि सेटिङहरु</string>
+    <string name="tts_engine_settings_button">टेक्‍स्‍ट-टू-स्पीच इन्जिन सेटिङहररू खोल्नुहोस्।</string>
+    <string name="tts_engine_preference_section_title">मनपरेको TTS इन्जन</string>
+    <string name="tts_general_section_title">सामान्य</string>
+    <string name="tts_reset_speech_pitch_title">पिच रिसेट गर्नुहोस्</string>
+    <string name="tts_reset_speech_pitch_summary">पाठ पढेर सुनाइने पिचलाई पूर्वनिर्धारित सेटिङमा रिसेट गर्नुहोस्।</string>
+    <string name="choose_profile">प्रोफाइल चयन गर्नुहोस्</string>
+    <string name="power_charging_duration">%1$s: पूर्ण रूपमा चार्ज हुन %2$s बाँकी छ</string>
+    <string name="power_charging_duration_ac">%1$s: AC मार्फत पूर्ण रूपमा चार्ज हुन %2$s बाँकी छ</string>
+    <string name="power_charging_duration_usb">%1$s: USB मार्फत पूर्ण रूपमा चार्ज हुन %2$s बाँकी छ</string>
+    <string name="power_charging_duration_wireless">%1$s: पूर्ण रूपमा चार्ज हुन %2$s बाँकी (वायरलेस रूपमा चार्ज गर्दै)</string>
+    <string name="battery_info_status_charging">चार्ज भइरहेछ</string>
+    <string name="battery_info_status_adaptive_fast_charging">शीघ्र चार्जिङ</string>
+    <string name="battery_info_power_ac">AC</string>
+    <string name="battery_info_power_usb">USB</string>
+    <string name="battery_info_power_wireless">वायरलेस</string>
+    <string name="charge_length_format">%s अघि</string>
+    <string name="remaining_length_format">%s बाँकि</string>
+    <string name="battery_discharging_duration">अनुमानित प्रयोग बाँकी रहेको समय: %s</string>
+    <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Wi-Fi नेटवर्कमा जडान भएको बेला ब्लुटूथ टेथरिङ प्रयोग गर्न सकिएन।</string>
+    <string name="app_label">प्रणाली UI</string>
+    <string name="status_bar_clear_all_button">सबै खाली</string>
+    <string name="brightness_controller_label_text">स्‍वचालित</string>
+    <string name="quick_settings_brightness_controller_hbm">सूर्यको उज्यालोमा सबभन्दा राम्रो दृश्यको लागि विस्तार गरिएको</string>
+    <string name="tw_recents_lock_to_app_button_label">एप पिन गर्नुहोस्</string>
+    <string name="tw_lock_to_app_title">पिन विंडोहरूलाई सक्षम गर्नुहोस्</string>
+    <string name="tw_lock_to_app_description_1">यस फंक्शनले कुनै एपलाई तपाईको यन्त्रको स्क्रीनमा पिन गर्न अनुमति दिन्छ जसले गर्दा तपाई त्योदेखि टाढा हुनुहुने छैन।</string>
+    <string name="tw_lock_to_app_description_2">जब कुनै एप पिन गरिन्छ, तब अन्य एपहरूबाट प्राप्त सूचनाहरू ब्लक हुनेछन् र कलिङ र मेसेजिङ जस्ता अन्य फंक्शनहरू उपलब्ध नहुन सक्छन्।</string>
+    <string name="tw_lock_to_app_description_tablet_wifi">जब कुनै एप पिन गरिन्छ, तब सूचनाहरू ब्लक हुनेछन् र अन्य फंक्शनहरू उपलब्ध नहुन सक्छन्।</string>
+    <string name="tw_lock_to_app_description_recents_and_back">एप अनपिन गर्नको लागि, हालैको र पछाडि कुञ्जीलाई एकै पटक थिचेर होल्ड गर्नुहोस्।</string>
+    <string name="tw_lock_to_app_description_menu_and_back">एप अनपिन गर्नको लागि, मेनु र पछाडि कुञ्जीलाई एकै पटक थिचेर होल्ड गर्नुहोस्।</string>
+    <string name="tw_lock_to_app_description_recents_and_back_accessible">अनुप्रयोगलाई अनपिन गर्न, हालैको कुञ्जीलाई थिचेर राख्नुहोस्।</string>
+    <string name="tw_lock_to_app_description_menu_and_back_accessible">अनुप्रयोगलाई अनपिन गर्न, मेनु कुञ्जीलाई थिचेर होल्ड गर्नुहोस्।</string>
+    <string name="tw_unable_to_pin_title">%s लाई पिन गर्न सकिँदैन।</string>
+    <string name="tw_unable_to_pin_description">यस एपले पिन विन्डोजहरू समर्थन गर्दैन।</string>
+    <string name="tw_unable_to_pin_description_toast">एप पिन गर्न असमर्थ। %s बन्द गरियो। अज्ञात त्रुटि देखियो।</string>
+    <string name="tw_screen_pinning_positive">सुरु</string>
+    <string name="tw_screen_pinning_negative">चाहिँदैन, धन्यवाद</string>
+    <string name="accessibility_recents_item_pin">पिन</string>
+    <string name="accessibility_recents_item_unpin">अनपिन गर्नुहोस्</string>
+    <string name="memory_full_dialog_title">स्क्रीन क्याप्चर गर्न असमर्थ</string>
+    <string name="memory_full_dialog_msg">तपाईको यन्त्र भण्डारणमा पर्याप्त स्थान छैन। केही फाइलहरू हटाउनुहोस् र पुन: प्रयास गर्नुहोस्।</string>
+    <string name="screen_capture_fail_for_storage_capacity">यन्त्र भण्डारणमा पर्याप्त खाली ठाउँ छैन। केही फाइल मेटाएर फेरि प्रयास गर्नुहोस्।</string>
+    <string name="screen_capture_fail_for_security_policy">स्क्रीनशट क्याप्‍चर गर्न असमर्थ। सुरक्षा नीतिद्वारा रोकियो।</string>
+    <string name="screen_capture_edit">सम्‍पादन</string>
+    <string name="screen_capture_share">बाड्नुहोस्</string>
+    <string name="screen_capture_delete">मेटाउनुहोस्</string>
+    <string name="qs_detail_capture_screen">स्क्रीन क्याप्चर गर्नु</string>
+    <string name="qs_detail_recorder_screen">Record screen</string>
+    <string name="qs_detail_capture_mode">Screen capture mode</string>
+    <string name="qs_detail_capture_mode_text">Select the function you want to add to the quick settings panel.</string>
+    <string name="unable_to_open_ps_in_emergency_mode">%s लाई आपतकालीन मोडमा खोल्न सकिएन।</string>
+    <string name="unable_to_open_ps_in_upsm">अल्ट्रा पावर बचत मोडमा %s खोल्न असमर्थ।</string>
+    <string name="unable_to_open_ps_in_mpsm">अधिकतम पावर बचत मोडमा %s खोल्न असमर्थ।</string>
+    <string name="image_viewer">छवि भ्यूअर</string>
+    <string name="photo_editor">फोटो सम्पादक</string>
+    <string name="to_use_this_function_download_the_following_application">"यो फंक्शन प्रयोग गर्न, तल दिइएको अनुप्रयोग डाउनलोड गर्नुहोस्:
+
+%s"</string>
+    <string name="accessibility_desc_recent_apps">हालको अनुप्रयोगहरू</string>
+    <string name="wifi_not_found_hidden_ap">नेटवर्कमा जडान गर्न असमर्थ। %s नामको कुनै नेटवर्क फेला परेन।</string>
+    <string name="it_policy_not_allow_wifi">सुरक्षा नीतिले Wi-Fi प्रयोग गर्न रोक्दछ।</string>
+    <string name="it_policy_not_allow_wifiap">सुरक्षा नितीले इन्टरनेट साझा गर्ने माथि प्रतिबन्ध लगाउँछ।</string>
+    <string name="wifi_authentication_succeed_kt">Wi-Fi AP प्रमाणित गरियो।</string>
+    <string name="wifi_authentication_failed_kt">Wi-Fi AP मा प्रमाणित गर्न असफल भयो।</string>
+    <string name="wifi_authentication_no_response">Wi-Fi AP मा जडान गर्न असफल भयो।</string>
+    <string name="wifi_authentication_invalid_value">प्रमाणीकरण रद्द ID र पासवर्ड जाच्नुहोस्।</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_title">चेतावनी</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_message">%1$d भन्दा धेरै नेटवर्कहरूका AP नामहरूलाई सेव गरिएको छ। Wi-Fi को सहज अनुभवका लागि हामी तपाईलाई सबैभन्दा पुराना %2$d AP नामहरू मेटाउन सिफारिस गर्छौं।</string>
+    <string name="wifi_exceeded_max_configured_networks_dialog_ok">सबैभन्दा पुराना %d AP नामहरू मेटाउनु</string>
+    <string name="quick_settings_bluetooth_label">ब्लुटूथ</string>
+    <string name="quick_settings_bluetooth_detail_empty_text_available">कुनै नजिकैको ब्लुटूथ यन्त्रहरू फेला परेनन्</string>
+    <string name="quick_settings_bluetooth_detail_paired_devices_title">जोडा बनाइएका यन्त्रहरू</string>
+    <string name="quick_settings_bluetooth_detail_available_devices_title">उपलब्ध यन्त्रहरू</string>
+    <string name="quick_settings_bluetooth_detail_off_text">तपाईले जोडा बनाउन सक्ने वा पहिले नै जोडा बनाइएका यन्त्रहरूको सूची हेर्न ब्लुटूथ अन गर्नुहोस्।</string>
+    <string name="quick_settings_sound_mode_detail_label">ध्वनि मोड</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_title">अस्थायी म्यूट</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_summary">पछिल्लो ध्वनि मोडमा फर्कनुभन्दा पहिले यन्त्रलाई कति समयसम्म म्यूट (%s) राख्ने भनेर चयन गर्नुहोस्।</string>
+    <string name="quick_settings_sound_mode_detail_temporary_mute_duration">म्यूट गर्ने अवधि</string>
+    <string name="quick_settings_rotation_unlocked_label">"स्वतः
+घुम्ने"</string>
+    <string name="quick_settings_rotation_locked_portrait_label">पोर्ट्रेट</string>
+    <string name="quick_settings_location_label">स्थान</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_detail_scanning_text">Wi-Fi नेटवर्कहरूको लागि स्क्यान गर्दै…</string>
+    <string name="quick_settings_wifi_detail_off_text">उपलब्ध नेटवर्कहरू हेर्नको लागि, Wi-Fi खोल्नुहोस्।</string>
+    <string name="quick_settings_brightness_strain_warning">"लामो अवधिको लागि उच्च चम्किलोपना स्तरहरू प्रयोग गर्नाले आँखामा दबाव पर्न सक्छ र बैटरी खपत घटाउन सक्छ।
+चम्किलोपनालाई सुरक्षित स्तरहरू माथि बढाउनको लागि “ठीक छ” ट्याप गर्नुहोस्।"</string>
+    <string name="quick_settings_more_settings">विवरणहरू</string>
+    <string name="quick_settings_done">भयो</string>
+    <string name="quick_settings_flashlight_label">टर्च</string>
+    <string name="quick_settings_sound_mode_sound_label">ध्‍वनि</string>
+    <string name="quick_settings_sound_mode_vibrate_label">कम्पन</string>
+    <string name="quick_settings_sound_mode_mute_label">म्यूट</string>
+    <string name="quick_settings_nfc_card_mode_label">"NFC
+कार्ड मोड"</string>
+    <string name="quick_settings_nfc_p2p_label">"R/W
+P2P"</string>
+    <string name="quick_settings_my_device_visibility_label">"यन्त्रको
+दृश्‍यता"</string>
+    <string name="quick_settings_aod_label">"Always On
+Display"</string>
+    <string name="quick_settings_screen_mirroring_label">"Screen
+Mirroring"</string>
+    <string name="quick_settings_power_saving_label">"पावर
+बचत"</string>
+    <string name="quick_settings_sec_dnd_label">"बाधा नपुर्याउनु
+होस्"</string>
+    <string name="quick_settings_mobile_hotspot_label">"मोबाइल
+हटस्पट"</string>
+    <string name="quick_settings_airplane_mode_label">"उडान
+मोड"</string>
+    <string name="quick_settings_bluelightfilter_label">"ब्लु लाइट
+फिल्टर"</string>
+    <string name="quick_settings_mobile_data_label">"मोबाइल
+डाटा"</string>
+    <string name="quick_settings_wificalling_label">"Wi-Fi
+कलिङ"</string>
+    <string name="quick_settings_personal_mode_label">"निजी
+मोड"</string>
+    <string name="quick_settings_data_roaming_label">"डाटा
+रोमिङ"</string>
+    <string name="quick_settings_gps_label">GPS</string>
+    <string name="quick_settings_sync_label">समक्रमण</string>
+    <string name="quick_settings_ultra_power_saving_label">"U. पावर
+बचत"</string>
+    <string name="quick_settings_data_monitor_label">"अल्ट्रा
+डाटा बचत"</string>
+    <string name="uds_toast_flight_mode_enabled">उडान मोडमा हुँदा अल्ट्रा डाटा बचत मोड सक्षम गर्न असमर्थ। उडान मोडलाई असक्षम गरेर फेरि प्रयास गर्नुहोस्।</string>
+    <string name="qs_detail_flashlight_title">टर्च</string>
+    <string name="quick_settings_reading_mode_label">"पढाइ
+मोड"</string>
+    <string name="quick_settings_bike_mode_label">"S bike
+मोड"</string>
+    <string name="qs_detail_bike_mode_title">S बाइक मोड</string>
+    <string name="qs_detail_bike_mode_text">सबै इनकमिङ कलहरू फिल्टर गर्न यो मोडलाई सक्षम गर्नुहोस्। तपाईलाई ड्राइभिङको बेलामा जरुरी कलहरू बारे मात्र सूचित गराइनेछ। तपाई ड्राइभिङको बेलामा आफ्नो यन्त्रको प्रयोग गर्न सक्नुहुने छैन। तपाई S bike मोड सक्षम भएको बेला छुटेका कल‍हरू हेर्न, चयन गरिएका सम्पर्कहरूले कल गर्दा तिनीहरूलाई आफ्नो अनुमानित यात्राको समय सहितका स्वचालित पाठ संदेशहरू पठाउन, यात्राको जानकारी हेर्न र ब्याजहरू आर्जन गर्न पनि सक्नुहुन्छ।</string>
+    <string name="qs_edit_summary">द्रुत सेटिङको बटनलाई द्रुत सेटिङहरूको प्यानलमा थप्न त्यसलाई माथिको क्षेत्रमा तान्नुहोस्।</string>
+    <string name="notification_panel_unable_remove_minimum">बटन हटाउन सकेन। बटनहरूको न्यूनतम संख्या (%d) पुग्यो।</string>
+    <string name="disable">असक्षम छ</string>
+    <string name="agree">स्वीकार्नु</string>
+    <string name="disagree">असहमत</string>
+    <string name="quick_settings_it_policy_prevents">सुरक्षा नीतिले %s को प्रयोग गर्न रोक्दछ।</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message">मोबाइल हटस्पट तथा अन्य टेथरिङ फंक्शनहरू प्रयोग गर्न SIM कार्ड घुसाउनुहोस्।</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title">मोबाइल हटस्पट</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_title_jpn">Unable to enable Wi-Fi tethering</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_vzw">Insert a SIM card to use Mobile Hotspot and other tethering options.</string>
+    <string name="mobile_hotspot_dialog_nosim_warning_message_jpn">Insert a SIM card to use Wi-Fi tethering.</string>
+    <string name="mobile_hotspot_dialog_nousim_or_nosim_warning">Insert a UIM/SIM card to use Mobile hotspot and other tethering functions.</string>
+    <string name="mobile_hotspot_toast_disable_airplne_mode">उडान मोड सक्षम गरिएको बेला मोबाइल नेटवर्कहरूमा जडान गर्न सकिँदैन। उडान मोड असक्षम गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="mobile_hotspot_toast_internet_sharing">इन्टर्नेट साझा गरिँदैछ</string>
+    <string name="mobile_hotspot_detail_title">मोबाइल हटस्पट</string>
+    <string name="mobile_hotspot_detail_title_vzw">मोबाइल हटस्पट</string>
+    <string name="mobile_hotspot_detail_title_jpn">Wi-Fi टेथरिङ</string>
+    <string name="mobile_hotspot_detail_connection_mode_allowed_device">अनुमति दिइएका यन्त्रहरू मात्र</string>
+    <string name="mobile_hotspot_detail_connected_devices">जडान गरिएका यन्त्रहरू</string>
+    <string name="mobile_hotspot_detail_connection_mode_allow_all">सबै यन्त्रहरूलाई जोड्ने अनुमति दिनुहोस्</string>
+    <string name="insert_sim_card">SIM कार्ड हाल</string>
+    <string name="insert_sim_card_message">नेटवर्क सेवाहरु पहुँच गर्न SIM कार्ड घुसाउनुहोस्।</string>
+    <string name="mobile_data_show_toast_airplane_mode">उडान मोड सक्षम गरिएको बेला मोबाइल नेटवर्कहरूमा जडान गर्न सकिँदैन। उडान मोड असक्षम गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="volte_show_toast_airplane_mode">उडान मोड सक्षम हुँदा VoLTE प्रयोग गर्न असक्षम। उडान मोडलाई असक्षम गरि पुन: प्रयास गर्नुहोस्।</string>
+    <string name="volte_show_toast_impossible_during_volte_call">VoLTE कलको बेला उपलब्ध छ भने VoLTE प्रयोग गर्नुहोस् लाई असक्षम गर्न असमर्थ।</string>
+    <string name="volte_show_toast_disable_not_allowed">सेवा प्रदायकलाई VoLTE असक्षम गर्न अनुमति दिइएको छैन।</string>
+    <string name="volte_show_toast_not_support_operator">तपाईको हालको सफ्टवेयर संस्करणले VoLTE लाई समर्थित छैन। थप विवरणहरूका लागि ग्राहक सेवाहरूमा सम्पर्क गर्नुहोस्।</string>
+    <string name="volte_show_toast_enable_message">VoLTE सेवा प्रयोग गर्न, VoLTE मा सदस्यता लिनुहोस्। विस्तृत विवरणका लागि तपाईको सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="unable_to_turn_on_being_used_by_camera">%s अन गर्न असमर्थ। क्यामेरा लाइट क्यामेरा द्वारा प्रयोग गरिँदै छ।</string>
+    <string name="aod_title">Always On Display</string>
+    <string name="aod_power_saving_mode">पावर बचत मोड</string>
+    <string name="aod_voice_assistant_title">Voice Assistant</string>
+    <string name="aod_magnification_gesture">आवर्धन जेस्चरहरू</string>
+    <string name="aod_magnifier_window">म्याग्निफायर विंडो</string>
+    <string name="aod_magnifier_assistant_menu">म्याग्निफायर विंडो</string>
+    <string name="aod_talkback">TalkBack</string>
+    <string name="aod_show_toast_unavailable_with_at_same_time">%1$s र %2$s एकै सयममा सक्षम गर्न सकिन्न।</string>
+    <string name="aod_show_popup_title">%s सक्षम गर्नुहोस्</string>
+    <string name="aod_show_popup_unavailable_with_at_same_time">%1$s र %2$s एकै समयमा सक्षम गर्न सकिन्न। %3$s असक्षम गरिनेछ।</string>
+    <string name="aod_show_popup_description">%s र तलका विकल्पहरूलाई एकै समयमा सक्षम गर्न सकिँदैन। तलका विकल्पहरूलाई असक्षम गरिनेछ।</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi कलिङले तपाईको स्थान जानकारी प्रयोग गर्नु पर्ने हुन्छ। अज्ञात स्थान डाटा संकलन गरी गुगल र तपाईको सेवा प्रदायकलाई पठाइनेछ। विवरणहरूका लागि तपाईको सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="wificalling_show_popup_use_location_inform_ftm">तपाईले स्थानको सुविधा सक्रिय गरे वा नगरे पनि Wi-Fi को जडान स्थापना गर्न तपाईको स्थान सम्बन्धी जानकारी गूगल वा तपाईको अपरेटरलाई पठाइन सक्छ।</string>
+    <string name="wificalling_show_popup_enable_location_title">स्थान सक्षम गर्नुहोस्</string>
+    <string name="wificalling_show_popup_enable_location_message">Wi-Fi कलिङले तपाईको स्थान जानकारी प्रयोग गर्नु पर्ने हुन्छ। स्थानलाई सक्षम गरिनेछ। अज्ञात स्थान डाटा संकलन गरी गुगल र तपाईको सेवा प्रदायकलाई पठाइनेछ। विवरणका लागि तपाईको सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="personal_mode_popup_diable_msg_while_afw_profile">कार्य प्रोफाइलमा निजी मोड उपलब्ध छैन।</string>
+    <string name="personal_mode_popup_diable_msg_while_moving_item">वस्तुहरू निजीमा सारिरहेको बेला निजी मोड असक्षम सार्न असक्षम।</string>
+    <string name="mobile_data_title">मोबाइल डाटा</string>
+    <string name="mobile_data_show_popup_disable">"तपाईले Wi-Fi प्रयोग नगरेसम्म, तपाई उप्रान्त डाटा जडान आवश्यक हुने इन्टरनेट, ईमेल, वा अन्य एप्स प्रयोग गर्न सक्नुहुन्न।
+
+मोबाइल डाटा असक्षम हुनेछ।"</string>
+    <string name="mobile_data_show_popup_disable_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Mobile data is off.
+Turn off Mobile data?"</string>
+    <string name="mobile_data_show_popup_disable_kor_skt_kt">"तपाईले Wi-Fi प्रयोग नगरेसम्म, तपाई अबदेखि डाटा जडान आवश्यक हुने इन्टरनेट, ईमेल, वा अन्य एप्स प्रयोग गर्न सक्नुहुन्न।
+
+मोबाइल डाटा अफ हुनेछ।"</string>
+    <string name="mobile_data_show_popup_disable_kor_lgt">"तपाईले Wi-Fi प्रयोग नगरेसम्म, तपाई अबदेखि डाटा जडान आवश्यक हुने इन्टरनेट, ईमेल, वा अन्य एप्स प्रयोग गर्न सक्नुहुन्न।
+
+मोबाइल डाटा अफ हुनेछ।"</string>
+    <string name="mobile_data_show_popup_enable_kor_skt_kt">मोबाइल डाटा अन हुनेछ। मोबाइल नेटवर्कहरूमा जडान गर्नाले तपाईको भुक्तानी योजनाको आधारमा अतिरिक्त शुल्कहरू लाग्न सक्छ।</string>
+    <string name="mobile_data_show_popup_enable_kor_lgt">मोबाइल डाटा अन हुनेछ। मोबाइल नेटवर्कहरूमा जडान गर्नाले तपाईको भुक्तानी योजनाको आधारमा अतिरिक्त शुल्कहरू लाग्न सक्छ।</string>
+    <string name="mobile_data_roaming_title">डाटा रोमिङ</string>
+    <string name="mobile_data_show_popup_roaming_enable">Data roaming may incur additional charges in addition to your domestic flat rate plan. Automatic updates for email or applications may also incur additional charges. Using large-data services such as video or email may incur charges over 20,000 won per minute.</string>
+    <string name="mobile_data_show_toast_not_disable_during_voltecall">Unable to turn Mobile data on or off while Advanced calling enabled.</string>
+    <string name="flash_light_notification_title">टर्च अन गरिएको छ</string>
+    <string name="flash_light_notification_button">अफ गर्नुहोस्</string>
+    <string name="flash_light_disabled_by_low_battery">टर्च अन गर्न असमर्थ भयो। बैटरी पावर कम छ।</string>
+    <string name="flash_light_turn_off_by_low_battery">बैटरी पावर कम छ। टर्च अफ हुनेछ।</string>
+    <string name="mobile_data_roaming_disable_toast_lgt">डाटा रोमिङ असक्षम गरिएको छ।</string>
+    <string name="location_show_enable_popup_title_vzw">स्थान सहमति</string>
+    <string name="location_show_enable_popup_message_vzw">"Your phone can share its approximate location with apps and services like maps, shopping and weather. Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you are considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_message_tablet_vzw">"Your tablet can share its approximate location with apps and services like maps, shopping and weather.
+
+Apps and services that use your location should inform you. Read the privacy policy of any app or service provider you’re considering to understand how they collect, use and share your location information before you use them.
+
+Determining your location will use the mobile network. Data usage will apply."</string>
+    <string name="location_show_enable_popup_title_dcm">उपयोगकर्ताको सहमति</string>
+    <string name="location_show_enable_popup_message_dcm">GPS स्थान अनि तपाईले प्रयोग गरेको स्थान डाटालाई तपाईले प्रयोग गरेको अनुप्रयोगले नियन्त्रण गर्छ।</string>
+    <string name="location_show_popup_disable_wificalling_title">स्थानलाई असक्षम गर्नुहोस्</string>
+    <string name="location_show_popup_disable_wificalling_when_disable_location">Disabling Location will disable Wi-Fi calling.</string>
+    <string name="sync_show_popup_title_enable">स्वत: समक्रमण सक्षम गर्नुहोस्</string>
+    <string name="sync_show_popup_title_disable">स्वत: समक्रमण असक्षम गर्नुहोस्</string>
+    <string name="sync_show_popup_message_enable">"तपाईले वेबमा आफ्ना एकाउंटहरूमा गर्नुभएको कुनै पनि परिवर्तनहरूलाई स्वचालित रूपमा तपाईको यन्त्रमा प्रतिलिपि बनाइनेछ।
+
+केही एकाउंटहरूले तपाईले आफ्नो यन्त्रमा गर्नुभएको कुनै पनि परिवर्तनहरूलाई स्वचालित रूपमा वेबमा प्रतिलिपि बनाउन पनि सक्छन्। स्वतः सिंकलाई सक्षम गरिनेछ।"</string>
+    <string name="sync_show_popup_message_disable">यसले डाटा प्रयोग घटाउँदछ र बैटरी शक्ति बचत गर्दछ, तर तपाईले सबैभन्दा नयाँ जानकारी सङ्कलन गर्नको लागि मानवचलितरूपमा एकाउंटहरू समक्रमण गर्न आवश्यक छ। यो सक्षम गरिएको बेला, तपाईले अपडेटहरू बारे सूचनाहरू पाउनु हुनेछैन।</string>
+    <string name="airplane_mode">उडान मोड</string>
+    <string name="airplane_mode_show_popup_title">उडान मोड सक्षम गर्नुहोस्</string>
+    <string name="airplane_mode_show_popup_title_vzw">Turn on Airplane mode</string>
+    <string name="airplane_mode_show_popup_message">उडान मोडले तपाईलाई कलिङ, मेसिजिंग र डाटा नेटवर्क सुविधाहरू बन्द गर्न अनुमति दिन्छ। यसले जडान सुविधाहरू पनि बन्द गर्छ जस्तै Wi-Fi र ब्लुटूथ। Wi-Fi र ब्लुटूथ प्रयोग गर्न, तिनीहरूलाई सेटिङमा वा सूचना प्यानलमा चालू गर्नुहोस्।</string>
+    <string name="airplane_mode_show_popup_message_wifi_without_bluetooth">उडान मोडले तपाईलाई Wi-Fi सहित नेटवर्क सुविधाहरूलाई अफ गर्न अनुमति दिन्छ। Wi-Fi को प्रयोग गर्न, सेटिङहरू वा सूचना प्यानलमा यसलाई अन गर्नुहोस्।</string>
+    <string name="airplane_mode_show_popup_message_without_bluetooth">उडान मोडले तपाईलाई कलिङ, मेसेजिङ र मोबाइल नेटवर्क कार्य गर्न दिदैंन।</string>
+    <string name="airplane_mode_show_popup_message_wifi">उडान मोडले तपाईलाई Wi-Fi र ब्लुटूथ जस्ता नेटवर्क सुविधाहरू बन्द गर्न दिन्छ। Wi-Fi र ब्लुटूथको प्रयोग गर्न सेटिङहरू या सूचना प्यानलमा तिनीहरूलाई अन गर्नुहोस्।</string>
+    <string name="airplane_mode_show_popup_message_cmcc">उडान मोडले तपाईलाई कलिङ, मेसिजिंग र डाटा नेटवर्क सुविधाहरू बन्द गर्न अनुमति दिन्छ। यसले जडान सुविधाहरू पनि बन्द गर्छ जस्तै Wi-Fi र ब्लुटूथ। Wi-Fi र ब्लुटूथ प्रयोग गर्न, तिनीहरूलाई सेटिङमा वा सूचना प्यानलमा चालू गर्नुहोस्।</string>
+    <string name="airplane_mode_show_popup_message_vzw">"Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_message_vzw_volte">"Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.
+Turn on Airplane mode?"</string>
+    <string name="airplane_mode_show_popup_safelock">लक हुँदा पावर अफ ब्लक गर्नु सक्षम गरिएको बेलामा उडान मोडलाई सक्षम गर्न असमर्थ। स्क्रीन अनलक गरेपछि फेरि प्रयास गर्नुहोस्।</string>
+    <string name="airplane_mode_show_popup_disabled_on_demo_devices">डेमो यन्त्र‍हरूमा उडान मोड असक्षम गरियो।</string>
+    <string name="airplane_mode_show_toast_turn_on_wifi_for_wificalling">Wi-Fi कलिङलाई अन गर्न Wi-Fi लाई अन गर्नुहोस्।</string>
+    <string name="rotation_lock_auto_rotate">स्वत: घुमाउनुहोस्</string>
+    <string name="rotation_lock_show_toast_mobile_keyboard_message">%s सक्षम गर्न, यन्त्रबाट कीबोर्ड कभर अलग गर्नुहोस्।</string>
+    <string name="quick_settings_location_detail_high_accuracy">उच्च शुद्धता स्तर</string>
+    <string name="quick_settings_location_detail_battery_saving">बैटरी बचत</string>
+    <string name="quick_settings_location_detail_device_only">यन्त्र मात्र</string>
+    <string name="quick_settings_location_detail_subtitle">पत्ता लगाउने पद्धति</string>
+    <string name="quick_settings_location_detail_summary">तपाईको स्थानको अनुमान लगाउन GPS, Wi-Fi र मोबाइल नेर्टव‍क प्रयोग गर्नुहोस्।</string>
+    <string name="quick_settings_flight_mode_detail_title">उडान मोड</string>
+    <string name="quick_settings_flight_mode_detail_summary">"कलिङ र मेसेजिङ फंक्शनहरू असक्षम गर्नुहोस्, र मोबाइल डाटा अफ गर्नुहोस्।
+
+Wi-Fi र ब्लुटूथ पनि अफ हुनेछ, तर सेटिङहरूमा वा द्रुत सेटिङ प्यानलमा गएर फेरि अन गर्न सकिन्छ।"</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Your phone will not be able to use Video Calling while Airplane mode is on. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_volte_vzw">Unless you use Wi-Fi, you will not be able to use Internet, Email, or other apps that require a data connection. Your phone will not be able to use Video Calling while Airplane mode is on.</string>
+    <string name="quick_settings_flight_mode_detail_off_summary_non_volte_vzw">Airplane mode turns off all network connections, including mobile data and Wi-Fi. Turn on Wi-Fi to use apps that require a data connection.</string>
+    <string name="quick_settings_flight_mode_detail_on_summary_non_volte_vzw">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="quick_settings_mobile_data_detail_title">मोबाइल डाटा</string>
+    <string name="quick_settings_data_roaming_detail_title">डाटा रोमिङ</string>
+    <string name="quick_settings_mobile_data_detail_summary">यदि मोबाइल डाटा अफ गरियो भने, नेटवर्क जडानको आवश्‍यकता पर्ने सेवाहरू प्रयोग गर्न तपाईको यन्त्र Wi-Fi नेटवर्कमा जडान भएको हुनुपर्छ।</string>
+    <string name="quick_settings_dnd_detail_title">बाधा नपुर्‍याउनुहोला</string>
+    <string name="quick_settings_dnd_summary">तपाईका चयन गरिएका अपवादहरू बाहेकका सबै कलहरू, सतर्कताहरू र मिडियालाई म्यूट गर्न तपाईको यन्त्र सेट गर्नुहोस्।</string>
+    <string name="quick_settings_dnd_summary_vzw">Silence all calls, alerts and media sound. You can allow exceptions.</string>
+    <string name="quick_settings_rotation_lock_auto_rotate">स्वतः घुम्ने</string>
+    <string name="quick_settings_rotation_lock_detail_title">स्क्रीन परिक्रमण</string>
+    <string name="quick_settings_rotation_lock_detail_summary">प्रदर्शनको ओरिएन्टेशन चयन गर्नुहोस्।</string>
+    <string name="quick_settings_flashlight_detail_level">स्तर</string>
+    <string name="quick_settings_flashlight_detail_title">चम्किलोपना</string>
+    <string name="quick_settings_flashlight_detail_warning">लामो समयसम्म छालाको सम्पर्कमा रहँदा क्यामेराको प्रकाशको कारण न्यून तापक्रम सम्बन्धी जलन हुन सक्छन्। %s लाई विस्तारित अवधिसम्म अन गर्न छोड्नुहोस्।</string>
+    <string name="quick_settings_reading_mode_summary">पढ्नको लागि स्क्रीन बढाइएको छ। चयन गरिएको अनुप्रयोगहरूको लागि मात्र यो मोड उपलब्ध छ।</string>
+    <string name="quick_settings_volte_summary">उपलब्ध भएको बेला VoLTE प्रयोग गर्नुहोस्</string>
+    <string name="quick_settings_blf_detail_title">ब्लु लाइट फिल्टर</string>
+    <string name="quick_settings_blf_detail_summary">स्क्रीनद्वारा उत्सर्जित नीलो प्रकाशको मात्रालाई कम गरेर आँखाको तनावलाई कम गर्नुहोस्।</string>
+    <string name="quick_settings_blf_detail_seekbar">अपारदर्शिता</string>
+    <string name="quick_settings_wificalling_summary">"मोबाइल नेटवर्कमा जडान नगरीकन कहीँपनि कलहरू गर्न र प्राप्त गर्न Wi-Fi नेटवर्कहरूको प्रयोग गर्नुहोस्।
+
+सेवा उपलब्ध हुँदा सूचना प्यानलमा तल देखाए जस्तै Wi-Fi कलिङको प्रतिमा देखा पर्नेछ।"</string>
+    <string name="quick_settings_wificalling_wifi_preferred">Wi-Fi प्राथमिक</string>
+    <string name="quick_settings_wificalling_cs_preferred">मोबाइल नेटवर्क प्राथमिक</string>
+    <string name="quick_settings_wificalling_wifi_only">Wi-Fi मात्र</string>
+    <string name="quick_settings_dual_label_content_description">%s, बटन लेबल, सान्दर्भिक द्रुत सेटिङहरूलाई हेर्न दुई पटक ट्याप गर्नुहोस्।</string>
+    <string name="accessibility_button">बटन</string>
+    <string name="quick_settings_brightness_auto_brightness">स्वतः चम्किलोपना</string>
+    <string name="quick_settings_brightness_quick_access">शीर्षमा नियन्त्रण देखाउनुहोस्</string>
+    <string name="quick_settings_brightness_quick_access_summary">सूचना प्यानलमाथि चम्किलोपनाको नियन्त्रण देखाउनुहोस्।</string>
+    <string name="quick_settings_brightness_detail_level">स्तर</string>
+    <string name="recents_empty_message">हालै प्रयोग गरिएका एप्स छैनन्</string>
+    <string name="recents_drag_hint_message">विभाजित स्क्रीनको दृश्यमा खोल्नुहोस्</string>
+    <string name="recents_drag_freeform_hint_message">पप-अप दृश्यमा खोल्नुहोस्</string>
+    <string name="user_add_user">प्रयोगकर्ता थप्नुहोस्</string>
+    <string name="guest_nickname">पहुना</string>
+    <string name="guest_exit_guest">पाहुना मेटाउनुहोस्</string>
+    <string name="sanitized_content_text">%s प्रविष्‍ट गर्न यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="secure_folder_title">सुरक्षित फोल्डर</string>
+    <string name="tw_safe_media_volume_warning">लामो समयसम्म उच्च भोल्यूममा सुन्नाले तपाईको सुन्ने क्षमतामा क्षति पुग्न सक्छ। भोल्यूमलाई सुरक्षित स्तरहरू भन्दा माथि वृद्धि हुन दिनको लागि “ठीक छ” ट्याप गर्नुहोस्।</string>
+    <string name="tw_cover_volume_warning_message">लामो समयको लागि उच्च भोल्युममा सुन्नाले सुन्ने क्षमतामा हानी पर्न सक्छ। भोल्युम बढाउन, कभर खोल्नुहोस्।</string>
+    <string name="tw_safe_media_volume_warning_kids_mode">किड्स मोडमा इयरफोनहरू जडान गरेको बेला भोल्यूम सिफारिस गरिएको सुरक्षित सीमा (%s) नाघ्‍न सक्दैन।</string>
+    <string name="yes">ठीक छ</string>
+    <string name="no">रद्द</string>
+    <string name="volume_limiter_notice_toast">भोल्युम बढाउन “सेटिङहरू” मा ट्याप गर्नुहोस्, त्यसपछि मिडियो भोल्युम लिमिटरलाई असक्षम गर्नुहोस् वा आफ्नो भोल्युम सीमालाई परिवर्तन गर्नुहोस्।</string>
+    <string name="volume_limiter_open_cover_toast">जारी राख्न कभर खोल्नुहोस्।</string>
+    <string name="quick_settings_settings">सेटिङहरू</string>
+    <string name="mobileap">मोबाइल हटस्पट</string>
+    <string name="mobile_hotspot_wifi_off_warning">मोबाइल हटस्पट सक्षम गराउनाले Wi-Fi बन्द गर्नेछ।</string>
+    <string name="mobile_hotspot_wifi_off_warning_vzw">Mobile Hotspot uses your mobile data connection. Your Wi-Fi connection will be turned off.</string>
+    <string name="mobile_hotspot_wifi_off_warning_china">Enabling Mobile hotspot will turn off WLAN.</string>
+    <string name="mobile_hotspot_wifi_off_warning_jpn">Enabling Wi-Fi tethering will turn off Wi-Fi.</string>
+    <string name="tethering_attention_title">ध्‍यान दिनुहोस्</string>
+    <string name="mobile_data_enable_toast_text">उडान मोड सक्षम गरिएको बेला मोबाइल नेटवर्कहरूमा जडान गर्न सकिँदैन। उडान मोड असक्षम गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="wifi_ap_wifi_p2p_off_warn">मोबाइल हटस्पट सक्षम गर्नाले Wi-Fi Direct मार्फत हालै जडान गरिएको कुनै पनि यन्त्रहरू जडान विच्छेद हुनेछन्।</string>
+    <string name="wifi_ap_wifi_p2p_off_warn_china">Enabling Portable WLAN hotspot will disconnect device connected via WLAN Direct.</string>
+    <string name="dialog_battery_data_warning">मोबाइल हटस्पट सक्षम गरिनेछ। यसले बैटरी खपत र डाटा प्रयोगलाई बढाउनेछ।</string>
+    <string name="keyboard_shortcut_group_applications_email">ईमेल</string>
+    <string name="qs_edit">सम्पादन</string>
+    <string name="sec_qs_edit">सम्‍पादन</string>
+    <string name="screen_grid">बटनको लेआउट</string>
+    <string name="brightness_control_on_top">चम्किलोपनाको नियन्त्रण शीर्षमा</string>
+    <string name="screen_grid_popup_title">बटनको लेआउट</string>
+    <string name="screen_grid_popup_apply">लागू गर्नु</string>
+    <string name="screen_grid_popup_ok">ठीक छ</string>
+    <string name="qs_contact_us">हामीलाई सम्पर्क गर्नुहोस्</string>
+    <string name="multiwindow_forced_resizable">यस एप मल्टी विंडोमा राम्रोसँग काम नगर्न सक्छ।</string>
+    <string name="accessibility_quick_settings_more_option">थप विकल्पहरू</string>
+    <string name="accessibility_quick_settings_voice_search">भ्वाइस खोज</string>
+    <string name="recents_close_all_button_text">सबै बन्द गर्नुहोस्</string>
+    <string name="recents_split_button_description">विभाजित स्क्रीन दृश्यमा खोल्नुहोस्</string>
+    <string name="recents_lock_button_description">यस एपलाई हालैका एपहरूको स्क्रिनमा पिन गर्नुहोस् वा त्यहाँबाट अनपिन गर्नुहोस्</string>
+    <string name="recents_menu_more">थप</string>
+    <string name="recents_menu_contact_us">हामीलाई सम्पर्क गर्नुहोस्</string>
+    <string name="recents_help_dlg_full_page1">विभाजित स्क्रीनको दृश्यमा एप्स खोल्न एप विंडोको शीर्षक पट्टीमा रहेको %s मा ट्याप गर्नुहोस्। एपले मल्टी विंडोलाई समर्थन गर्छ भने यो प्रतिमा देखाइन्छ।</string>
+    <string name="recents_help_dlg_full_page1_desc">विभाजित स्क्रीनको दृश्यमा एप्स खोल्न एप विंडोको शीर्षक पट्टीमा रहेको विभाजित स्क्रीनको प्रतिमामा ट्याप गर्नुहोस्। एपले मल्टी विंडोलाई समर्थन गर्छ भने यो प्रतिमा देखाइन्छ।</string>
+    <string name="recents_help_dlg_full_page2_hardkey">विभाजित स्क्रीन दृश्‍यलाई परिवर्तन गर्न पूर्ण स्क्रीन दृश्‍यमा एप प्रयोग गरिरहेको बेला हालैको कुञ्जीलाई थिचेर होल्ड गर्नुहोस्।</string>
+    <string name="recents_help_dlg_next_button_text">अर्को</string>
+    <string name="recents_help_dlg_split_page1">स्क्रीनको तल्लो आधा भागमा खोल्नको लागि एउटा हालैको एप चयन गर्नुहोस् वा गृह स्क्रीनमा जानुहोस् र विभाजित स्क्रीन दृश्यमा एउटा नयाँ एप खोल्नुहोस्।</string>
+    <string name="recents_help_dlg_split_page2_hardkey">विभाजित स्क्रीनमा हुँदा स्क्रीनको माथिल्लो आधा भागमा रहेको एपलाई सानो बनाउन गृह कुञ्जी थिच्नुहोस्। कुनै एपलाई सानो बनाइएको बेला तपाईले गृह स्क्रीनबाट अर्को एप खोल्नुभयो भने यसलाई विभाजित स्क्रीन दृश्यमा स्क्रीनको तल्लो आधा भागमा खोलिनेछ।</string>
+    <string name="recents_help_dlg_split_page2_softkey">तपाई स्क्रीनको माथिल्लो आधा भागमा रहेको एपलाई सानो बनाउन गृह बटनमा ट्याप गर्न सक्नुहुन्छ। कुनै एपलाई सानो बनाइएको बेला तपाईले गृह स्क्रीनबाट अर्को एप खोल्नुभयो भने यसलाई विभाजित स्क्रीनको दृश्यमा स्क्रीनको तल्लो आधा भागमा खोलिनेछ।</string>
+    <string name="recents_app_list_more_apps">थप एप्स</string>
+    <string name="recents_app_list_recommendations">सिफारिसहरू</string>
+    <string name="recents_app_list_multi_window_apps">मल्टी विंडो एप्‍स</string>
+    <string name="data_connection_error_toast_notification">Wi-Fi जडान आवश्यक छ। Wi-Fi नेटवर्कमा जडान गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="data_connection_error_no_network_connection">नेटवर्क जडान छैन</string>
+    <string name="data_connection_error_flight_mode_on">उडान मोड सक्षम गरिएको बेला मोबाइल नेटवर्कमा जडान गर्न असक्षम भयो। त्यसको सट्टा Wi-Fi नेटवर्कमा जडान गर्नुहोस्, वा उडान मोड असक्षम गरि फेरि प्रयास गर्नुहोस्।</string>
+    <string name="data_connection_error_mobile_data_off">मोबाइल डाटा असक्षम गरियो। त्यसको सट्टा Wi-Fi नेटवर्कमा जडान गर्नुहोस्, वा मोबाइल डाटा सक्षम गरि फेरि प्रयास गर्नुहोस्।</string>
+    <string name="data_connection_error_data_roaming_off">डाटा रोमिङ असक्षम गरिएको छ। Wi-Fi नेटवर्कमा जडान गर्नुहोस्, वा डाटा रोमिङलाई सक्षम गर्नुहोस् पुनः प्रयास गर्नुहोस्।</string>
+    <string name="data_connection_error_no_signal_no_sim">Wi-Fi जडान आवश्यक छ। Wi-Fi नेटवर्कमा जडान गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="data_connection_error_no_signal">मोबाइल नेटवर्कको लागि सिग्नल पत्ता लगाइएन।</string>
+    <string name="retry">पुनः प्रयास गर्नुहोस्</string>
+    <string name="later">पछि</string>
+    <string name="mobile_device_warning_toast_notification">तपाई हिँड्दा वा गाडी चलाउँदा मोबाइल यन्त्रको प्रयोग गर्दा दुर्घटनाको जोखिम हुन्छ।</string>
+    <string name="flight_mode_enabled_dialog_title">Airplane mode turned on</string>
+    <string name="flight_mode_enabled_dialog_body">Unless you use Wi-Fi, you will not be able to use the Internet, Email, or other apps that require a data connection.</string>
+    <string name="flight_mode_enabled_dialog_body_volte_and_vowifi">Unless you use Wi-Fi, you will not be able to use Internet, Email, Wi-Fi Calling or other apps that require a data connection.</string>
+    <string name="popup_notification_title">सूचना</string>
+    <string name="mcc_setting_dialog_body">नेटवर्कले मिति र समयको जानकारी दिँदैन। मेनुअली सेट गर्न मिति र समय सेटिङमा जानुहोस्।</string>
+    <string name="mcc_setting_dialog_body_vzw">Date and time information is not updating automatically. Go to Settings > Date and time to set manually.</string>
+    <string name="popup_set_manually_button_vzw">Set manually</string>
+    <string name="mcc_setting_toast_notification">सयम सेट गर्न अघि समय क्षेत्र चयन गर्नुहोस्।</string>
+    <string name="sim_card_tray_water_protection_dialog_title">SIM/SD कार्ड ट्रे जाँच्नुहोस्</string>
+    <string name="sim_card_tray_water_protection_dialog_body">"SIM कार्ड फेला पार्न असमर्थ। तपाईको यन्त्र कलहरू गर्ने र मोबाइल नेटवर्कहरूमा जडान गर्ने जस्ता कार्यप्रदर्शन गर्न असमर्थ हुनेछ।
+
+पानीबाट हुन सक्ने क्षतिदेखि जोगाउन, SIM/SD कार्ड ट्रे राम्रोसँग बन्द गरिएको छ भनी सुनिश्चित गर्नुहोस्।"</string>
+    <string name="sim_card_tray_empty_water_protection_dialog_body">पानीबाट हुन सक्ने क्षतिदेखि जोगाउन, SIM/SD कार्ड ट्रे राम्रोसँग बन्द गरिएको छ भनी सुनिश्चित गर्नुहोस्।</string>
+    <string name="water_protection_notification_title">पोर्ट जाँच्‍नुहोस्</string>
+    <string name="water_protection_notification_body">ओसिलो पत्ता लगाइएको छ। तपाईको यन्त्र चार्ज गर्न, तपाईको चार्जर/USB पोर्ट सुख्खा छ भन्ने सुनिश्चित गर्नुहोस्।</string>
+    <string name="full_battery_title">जानकारी</string>
+    <string name="full_battery_noti_text">बैटरी पूर्णतः चार्ज भएको।</string>
+    <string name="cooling_title">यन्त्र धेरै तातो भइरहेको छ</string>
+    <string name="cooling_noti_text">विवरणहरू हेर्न यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="cooling_body">"तपाईको यन्त्र धेरै तातो भइरहेको छ। यसलाई चिसो पार्नको लागि कदम उठाइनेछ।
+
+तपाई अझै पनि यन्त्र प्रयोग गर्न सक्नुहुन्छ, तर:
+- स्क्रीन मधुरो हुन सक्छ।
+- यन्त्रको गति कम हुन सक्छ।
+- चार्जिङ पज हुन सक्छ।
+
+यन्त्र चिसो भएपछि, कार्यप्रदर्शन स्वचालित रूपमा सामान्यमा फर्किनेछ।"</string>
+    <string name="colling_high_level_noti_text">अनुप्रयोगहरू खोल्न असक्षम। तपाईले फोन र सम्पर्कहरू अनुप्रयोगहरू मात्र प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="cooling_title_vzw">Cooling down</string>
+    <string name="cooling_noti_text_vzw">थप जान्नको लागि यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="cooling_body_vzw">"Your phone is getting hot, so it's taking steps to cool itself down.
+
+You can still use it, but you may notice:
+- The screen might dim.
+- The phone might slow down.
+- Charging might pause.
+
+Your phone will return to normal once it cools down."</string>
+    <string name="cooling_body_tablet_vzw">"Your tablet is getting too hot, so it’s taking steps to cool itself down.
+
+You can still use your tablet, but you may notice:
+The screen might dim.
+The tablet might slow down.
+Charging might pause.
+
+After the tablet cools down, performance willAutomatically go back to normal."</string>
+    <string name="cooling_popup_title">यन्त्र चिसो हुँदैछ</string>
+    <string name="overheat_shutdown_warning_title">Turning off</string>
+    <string name="overheat_shutdown_warning_text">"Your phone is getting hot.
+It will now turn off to cool down."</string>
+    <string name="overheat_shutdown_warning_text_tablet">Your tablet is getting too hot. It will now turn off to cool down.</string>
+    <string name="overheat_shutdown_warning_button_text">"Don't turn off"</string>
+    <string name="overheat_shutdown_notice_title">Why did my phone turn off by itself?</string>
+    <string name="overheat_shutdown_notice_title_tablet">Why did my tablet turn off by itself?</string>
+    <string name="overheat_shutdown_notice_text">"Your phone got hot. It turned off to prevent damage to the phone.
+
+This can be caused by:
+Using graphics-intensive apps, like video games and navigation apps, for long periods of time.
+Downloading or uploading large files.
+Using your phone in a very hot location."</string>
+    <string name="overheat_shutdown_notice_text_tablet">"Your tablet got too hot. It turned off to prevent damage to the tablet.
+
+Overheating can be caused by:
+Using graphics intensive apps like video games and navigation apps for long periods of time.
+Downloading or uploading large files.
+Using your tablet in a very hot location."</string>
+    <string name="overheat_poweroff_warning_title">यन्त्रलाई पावर अफ गर्नुहोस्</string>
+    <string name="overheat_poweroff_warning_text">तपाईको यन्त्र धेरै तातो भइरहेको छ। चिसो हुनको लागि अहिले यसको पावर बन्द हुनेछ।</string>
+    <string name="overheat_poweroff_warning_text_new">तपाईको यन्त्र धेरै तातो भइरहेको छ। चिसो हुनका लागि यो %d सेकेन्डमा पावर अफ हुनेछ।</string>
+    <string name="overheat_poweroff_warning_text_append">तपाई यो यन्त्र चिसो नभएसम्म यसलाई फेरि पावर अन गर्न सक्नुहुने छैन।</string>
+    <string name="overheat_poweroff_warning_button_text">पावर बन्द नगर्नुहोस्</string>
+    <string name="overheat_poweroff_notice_title">यन्त्रको पावर स्वचालित रूपमा बन्द गरिएको छ</string>
+    <string name="overheat_poweroff_notice_text">"तपाईको यन्त्र धेरै तातेको छ। क्षति रोक्नका लागि यसलाई पावर अफ गरिएको छ।
+
+निम्न कारणले धेरै तातेको हुन सक्छ:
+- लामो समयसम्म गेमहरू र नेभिगेशन अनुप्रयोगहरू जस्ता अत्यधिक ग्राफिक प्रयोग गर्ने अनुप्रयोगहरू प्रयोग गर्नाले।
+- ठूला फाइलहरू स्थानान्तरण गर्नाले।
+- गर्मी भएको वातावरणमा यन्त्र प्रयोग गर्नाले।"</string>
+    <string name="safe_mode_noti_title">सुरक्षित मोड सक्षम भयो</string>
+    <string name="safe_mode_noti_body">सुरक्षित मोड असक्षम गर्न यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="safe_mode_alert_title">यन्त्र पुन: सुरू गर्नुहोस्</string>
+    <string name="safe_mode_alert_body">सुरक्षित मोड असक्षम गर्न, तपाईको यन्त्र पुन: सुरु हुनेछ। त्यसपछि तपाईका सबै अनुप्रयोगहरु उपलब्ध हुनेछन्।</string>
+    <string name="safe_mode_alert_positive_button">अहिले पुनः आरम्भ गर्नुहोस्</string>
+    <string name="safe_mode_noti_title_vzw">Safe Mode Is On</string>
+    <string name="safe_mode_noti_body_vzw">Tap to turn off Safe Mode.</string>
+    <string name="safe_mode_alert_title_vzw">Turn Off Safe Mode</string>
+    <string name="safe_mode_alert_body_vzw">Do you want to restart your phone to turn off Safe Mode? All of your apps will be restored.</string>
+    <string name="safe_mode_alert_positive_button_vzw">Turn Off Safe Mode</string>
+    <string name="battery_low_sec_title">बैटरी पावर %d%%</string>
+    <string name="battery_low_sec_body_in_normal_mode">आफ्नो यन्त्रलाई चार्ज गर्नुहोस् वा “पावर बचत मोड” लाई सक्षम गर्न यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="battery_low_sec_body_in_ups_mode">तपाईको यन्त्र चार्जरमा जडान गर्नुहोस्।</string>
+    <string name="battery_cable_charging_title">केबल चार्ज हुँदै</string>
+    <string name="battery_charging_title">चार्जिङ</string>
+    <string name="battery_fast_charging_title">शीघ्र चार्जिङ</string>
+    <string name="battery_wireless_charging_title">वायरलेस चार्जिङ</string>
+    <string name="battery_fast_wireless_charging_title">द्रुत वायरलेस चार्जिङ</string>
+    <string name="battery_wireless_charging_disconnect_text">वायरलेस चार्जिङ पज भयो।</string>
+    <string name="battery_wireless_charging_from_cable_to_wireless_text">केबल चार्जिङबाट वायरलेस चार्जिङमा स्विच गर्दै</string>
+    <string name="battery_cable_charging_from_wireless_to_cable_text">वायरलेस चार्जिङबाट केबल चार्जिङमा स्विच गर्दै</string>
+    <string name="battery_slow_charging_title">यन्त्र बिस्तारै चार्ज हुँदैछ</string>
+    <string name="battery_slow_charging_text">अझ छिटो चार्ज गर्नका लागि, ओरिजिनल चार्जर प्रयोग गर्नुहोस्।</string>
+    <string name="battery_slow_charging_toast_text">To charge faster, use the charger and cable that were provided with this phone</string>
+    <string name="battery_charging_level_and_time_text">"चार्ज हुँदैछ: %1$d%%
+(पूर्ण रूपमा चार्ज हुन लगभग %2$s)"</string>
+    <string name="battery_charging_level_text">चार्ज गरिँदै: %d%%</string>
+    <string name="medium_power_saving_mode_notification_title">मध्यम पावर बचत मोडलाई सक्षम गरियो</string>
+    <string name="battery_saver_notification_text_time_extend">बैटरीको क्षमता बढेको छ।</string>
+    <string name="button_detail">विवरण</string>
+    <string name="battery_saver_recommend_notification_title">बैटरी पावर %d%%</string>
+    <string name="battery_saver_recommend_notification_text">आफ्नो यन्त्रलाई चार्ज गर्नुहोस् वा “पावर बचत मोड” लाई सक्षम गर्न यहाँ ट्याप गर्नुहोस्।</string>
+    <string name="button_close">बन्द गर्नुहोस्</string>
+    <string name="battery_health_interruption_title">चार्ज गर्न असक्षम भयो</string>
+    <string name="battery_health_interruption_by_terminal_open_text">तपाईको यन्त्रलाई चार्ज गर्न सकिएन। निश्चित गर्नुहोस् कि तपाई सैमसंग अनुकूल बैटरी र चार्जर प्रयोग गर्दै हुनुहुन्छ र तपाईको यन्त्र चार्जरसँग राम्री जडित छ।</string>
+    <string name="battery_health_interruption_by_terminal_open_galaxy_text">Unable to charge your device. Make sure you are using a Galaxy compatible battery and charger and that your device is properly connected to the charger.</string>
+    <string name="battery_health_interruption_by_too_high_temperature_text">चार्जिंग रोकियो। बैटरीको तापमान धेरै छ।</string>
+    <string name="battery_health_interruption_by_too_low_temperature_text">चार्जिंग रोकियो। बैटरीको तापमान सारै कम्ति छ।</string>
+    <string name="battery_health_interruption_by_limit_high_temperature_text">"यन्त्र चार्ज हुन रोकियो। बैटरीको तापक्रम अति उच्च छ। चार्जर विच्छेद गर्दा होसियार रहनुहोस्। यो निकै तातो हुन सक्छ।
+
+चार्जर विच्छेद गरी पुनः जोड्नाले सामान्य रूपमा चार्ज निरन्तर हुन सक्छ। यदि धेरै तातो भएमा, ग्राहक सेवामा सम्पर्क राख्नुहोस् किनभने त्यहाँ अग्नि वा चोटपटकको जोखिम हुन सक्छ।"</string>
+    <string name="incompatible_charger_title">चार्ज भइरहेको छैन।</string>
+    <string name="incompatible_charger_dialog_text">The connected charger is incompatible with this phone. To prevent damage to your phone, charging has been stopped. To continue charging, use the original charger and cable that were provided with this phone.</string>
+    <string name="incompatible_charger_notification_text">Unable to charge. Use the original charger.</string>
+    <string name="incompatible_charger_ticker">चार्ज भइरहेको छैन।</string>
+    <string name="warning_alert_check">फेरि नदेखाउनुहोस्।</string>
+    <string name="power_supplying_low_battery_alert_title">बैटरी पावर कम छ</string>
+    <string name="power_supplying_low_battery_alert_body">यो यन्त्रले USB मार्फत जडान गरिएको अर्को यन्त्रलाई चार्ज गर्दैछ। यसले यो यन्त्रको बैटरी खपत बढाउँछ। जडान गरिएको यन्त्रलाई चार्ज गर्नबाट रोक्न USB केबललाई विच्छेद गर्नुहोस्।</string>
+    <string name="kg_iris_or_fingerprint_active_instructions">अनलक गर्न फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा यसको सट्टामा आइरिसको प्रयोग गर्न स्क्रीनमा स्वाइप गर्नुहोस्</string>
+    <string name="kg_iris_or_fingerprint_unlock_instructions">अनलक गर्न फिंगरप्रिन्टको प्रयोग गर्नु वा आइरिसको प्रयोग गर्न स्क्रीनलाई स्वाइप गर्नु</string>
+    <string name="kg_fingerprint_or_swipe_active_instructions">अनलक गर्न फिंगरप्रिन्ट प्रयोग गर्नु वा स्क्रीन स्वाइप गर्नु</string>
+    <string name="kg_fingerprint_or_swipe_unlock_instructions">अनलक गर्न फिंगरप्रिन्ट प्रयोग गर्नु वा स्क्रीन स्वाइप गर्नु</string>
+    <string name="kg_iris_unlock_instructions">अनलक गर्न आइरिसको प्रयोग गर्न स्क्रीनलाई स्वाइप गर्नुहोस्</string>
+    <string name="kg_voice_assistant_active_instructions">खोल्नको लागि स्क्रीनलाई दुई औंलाले स्वाइप गर्नुहोस्।</string>
+    <string name="kg_voice_assistant_unlock_instructions">स्क्रीन अनलक गर्न दुई औंलाले स्वाइप गर्नुहोस्।</string>
+    <string name="kg_swipe_active_instructions">खोल्नको लागि स्क्रीन स्वाइप गर्नुहोस्</string>
+    <string name="kg_swipe_unlock_instructions">अनलक गर्न स्क्रीन स्वाइप गर्नुहोस्</string>
+    <string name="kg_power_connect_charger">चार्जर जडान गर्नुहोस्</string>
+    <string name="kg_power_fully_charged">पूरा चार्ज भयो</string>
+    <string name="kg_power_fast_charging">शीघ्र चार्ज हुँदै: %d%%</string>
+    <string name="kg_power_charging_wirelessly">वायरलेस रूपमा चार्ज गर्दै: %d%%</string>
+    <string name="kg_power_fast_charging_wirelessly">वायरलेस रूपमा शीघ्र चार्ज हुँदै: %d%%</string>
+    <string name="kg_power_charging">चार्ज गरिँदै: %d%%</string>
+    <string name="kg_power_charging_remaining_time">(पूर्ण चार्ज हुनको लागि लगभग %s)</string>
+    <string name="kg_power_time_format_hour_minute">%1$d घण्टा %2$d मिनट</string>
+    <string name="kg_power_time_format_hour">%d घण्टा</string>
+    <string name="kg_power_time_format_minute">%d मिनट</string>
+    <string name="kg_smart_lock_content_description">यन्त्र लक गर्न दुईपटक ट्याप गरेर तान्नुहोस्।</string>
+    <string name="keyguard_skt_usim_unregistered">USIM कार्ड प्रयोग गर्न सक्षम भएन। USIM कार्ड जानकारी डाउनलोड गर्नुहोस्।</string>
+    <string name="keyguard_missing_sim_message">USIM कार्ड घुसाउनुहोस्, त्यसपछि यन्त्र फेरि सुरु गर्नुहोस्</string>
+    <string name="keyguard_usim_not_used">USIM कार्ड प्रयोग गर्न सक्दैन। %d पटक गलत PIN अनलक (PUK) कोड प्रविष्ट गरियो। नयाँ USIM कार्ड खरीद गर्नुहोस्।</string>
+    <string name="lockscreen_nosim_text_kor_only">"USIM कार्ड फेला परेन
+आपतकालीन कलहरू मात्र"</string>
+    <string name="qs_sfinder_search_phone">फोन खोज्नुहोस् र नजिकैका यन्त्रहरूलाई स्क्यान गर्नुहोस्</string>
+    <string name="noti_setting_text">सूचना सेटिङहरू</string>
+    <string name="dnd_noti_title">अवरोध नगर्नुहोस् सक्षम गरियो</string>
+    <string name="dnd_noti_message">अलार्महरू म्यूट गरियो</string>
+    <string name="dnd_noti_action_disable">असक्षम गर्नुहोस्</string>
+    <string name="do_not_show_again">फेरि नदेखाउनुहोस्</string>
+    <string name="quick_settings_hongbao_assistant_label">"Hongbao
+assistant"</string>
+    <string name="hongbao_assistant_dialog_message">"Hongbao assistant will be enabled. This function will allow you to receive WeChat red envelopes more quickly and get notifications when they are received.
+A network connection is required.
+You can enable and disable this function via the quick settings panel."</string>
+    <string name="hongbao_assistant_noti_title">Hongbao assistant</string>
+    <string name="hongbao_assistant_noti_text">Receive WeChat red envelopes more quickly and get notifications when they are received. Tap here to enable this function.</string>
+    <string name="no_sim_notification_title">SIM छैन</string>
+    <string name="no_sim_notification_title_tmo">कुनै SIM कार्ड हालिएको छैन</string>
+    <string name="no_sim_notification_title_vzw">No SIM found</string>
+    <string name="no_sim_notification_text">SIM कार्ड हाल्नुहोस्।</string>
+    <string name="no_sim_notification_text_vzw">Tap for more information.</string>
+    <string name="accessibility_phone_four_bars">फोन सङ्केतको चार पट्टिहरू</string>
+    <string name="quick_settings_screen_capture_label">"Capture
+screen"</string>
+    <string name="quick_settings_screen_recorder_label">"Record
+screen"</string>
+    <string name="airplane_mode_plmn">उडान मोड</string>
+    <string name="default_carrier_text_searching">खोज्‍दैछ</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title">मोबाइल डाटा असक्षम बनाइयो</string>
+    <string name="sec_data_usage_disabled_dialog_mobile_title_vzw">Mobile data is now off</string>
+    <string name="sec_data_usage_disabled_dialog_body">तोकिएको डाटा प्रयोग सीमा पुग्यो। अतिरिक्त डाटा प्रयोगको सेवा प्रदायकबाट शूल्क लागू हुन सक्छ।</string>
+    <string name="sec_data_usage_disabled_dialog_body_vzw">"You've reached your specified data usage limit, so mobile data has been turned off.
+
+If you turn mobile data back on, you may be charged for data usage by your carrier."</string>
+    <string name="sec_data_usage_disabled_dialog_enable">मोबाइल डाटा अन</string>
+    <string name="sec_data_usage_disabled_dialog_enable_vzw">Turn on data</string>
+    <string name="quick_panel_data_usage">Data usage</string>
+    <string name="qs_multisim_voice_preffered_btn_title">कलहरू</string>
+    <string name="qs_multisim_sms_preffered_btn_title">पाठ संदेश</string>
+    <string name="qs_multisim_data_preffered_btn_title">मोबाइल डाटा</string>
+    <string name="qs_multisim_voice_ask_always">सधैं सोध्नुहोस्</string>
+    <string name="qs_multisim_data_turned_off">अफ गरियो</string>
+    <string name="app_locked">App locked</string>
+    <string name="uhq_toast_earphone_connect_request">Connect earphones to use UHQ upscaler.</string>
+    <string name="quick_settings_uhq_mode_label">"UHQ
+upscaler"</string>
+    <string name="uhq_mode_noti_title">UHQ upscaler</string>
+    <string name="uhq_mode_noti_text">स्पष्ट सुन्ने अनुभवको लागि संगीत र भिडियोहरूको ध्वनि सम्बन्धी रिजोल्युशन बढाउनुहोस्।</string>
+    <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
+    <string name="assistance_app_setting_item_none">शून्‍य</string>
+    <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
+    <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
+Please read the description of the service provided by your operator:"</string>
+    <string name="wfc_enable_dialog_opv_body1">Wi-Fi Calling service enables you to make and receive voice calls over any Wi-Fi internet connection, even in a situation where you are outside any mobile network’s coverage. Once the service is active for your mobile number, every time you connect to a Wi-Fi network, your voice calls will be performed using Wi-Fi Calling. This will be indicated to you by a dedicated icon on the notification bar.</string>
+    <string name="wfc_enable_dialog_opv_body2">"If your Wi-Fi connection is of poor quality or your device is outside a Wi-Fi network’s coverage, your phone will make calls using an available mobile network.
+
+Calls you make with Wi-Fi Calling in Poland are charged in the same way as your regular mobile calls in your mobile tariff plan. Incoming calls in Poland are free of charge. If you make Wi-Fi Calling calls outside Poland your calls may be charged a price specified in your mobile tariff plan’s price list.
+
+Notwithstanding, your Wi-Fi connections may be charged independently by the provider of your Wi-Fi connection."</string>
+    <string name="wfc_enable_dialog_opv_body3">"Once you press the [I ACCEPT] button and your phone connects to a Wi-Fi network, your Wi-Fi Calling service will be activated. You can disable Wi-Fi Calling at any time using the phone menu.
+
+Detailed information about your Wi-Fi Calling service can be found at www.orange.pl/wificalling.
+
+Please note that in order to enable your emergency calls (e.g., such as 112 calls) to be routed to the closest emergency centre suitable for your actual location, your emergency calls made while the Wi-Fi Calling service is enabled will be carried by your device through any mobile network available at a given moment. Only in cases where no mobile network is available will an emergency call be routed via the Wi-Fi Calling service. Unfortunately, in such cases we will not know your precise location and therefore your emergency call may not be routed to the emergency centre closest to your actual location."</string>
+    <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
+    <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
+    <string name="wfc_enable_dialog_opv_btn">म स्वीकार गर्छु</string>
+    <string name="keyguard_sim_locked_message">SIM कार्ड लक भयो</string>
+    <string name="keyguard_sim_puk_locked_message">SIM कार्डलाई PUK मार्फत लक गरियो</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">SIM कार्ड अनलक गर्दै</string>
+    <string name="kg_wrong_pin">गलत PIN प्रविष्ट भयो</string>
+    <string name="kg_pin_instructions">PIN प्रविष्‍ट गर्नुहोस्</string>
+    <string name="kg_sec_1_failed_attempt_almost_at_wipe">एक पटक यन्त्र अनलक गर्ने प्रयास गरिएको छ। यन्त्रलाई फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट गरिनु र फाइलहरू तथा डाउनलोड गरिएका एप्स सहित सबै डाटा मेटाइनुअघि तपाईसँग %d प्रयासहरू बाँकी छन्।</string>
+    <string name="kg_sec_failed_attempts_almost_at_wipe">%1$d पटक यन्त्र अनलक गर्ने प्रयास गरिएको छ। यन्त्रलाई फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट गरिनु र फाइलहरू तथा डाउनलोड गरिएका एप्स सहित सबै डाटा मेटाइनुअघि तपाईसँग %2$d प्रयासहरू बाँकी छन्।</string>
+    <string name="kg_sec_1_remaing_count_almost_at_wipe">%d पटक यन्त्र अनलक गर्ने प्रयास गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट हुनु र फाइलहरू तथा डाउनलोड गरिएका एप्स सहित सबै डाटा मेटाइनुअघि तपाईसँग 1 प्रयास बाँकी छ।</string>
+    <string name="kg_sim_locked_message">SIM कार्ड लक भयो</string>
+    <string name="kg_missing_sim_message_short">SIM कार्ड छैन</string>
+    <string name="kg_default_carrier_text_searching">खोज्‍दैछ</string>
+    <string name="kg_perso_locked_message">Block other USIM</string>
+    <string name="kg_pin_locked_message">PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_puk_locked_message">PUK प्रविष्‍ट गर्नुहोस्</string>
+    <string name="kg_flight_mode">उडान मोड</string>
+    <string name="kg_lockscreen_emergency_call_button_text">आपातकालिन कल</string>
+    <string name="keyguard_dualclock_locale_view_home">गृह</string>
+    <string name="keyguard_dualclock_locale_view_roaming">रोमिङ</string>
+    <string name="keyguard_dualclock_locale_view_seoul">सिओल</string>
+    <string name="keyguard_dualclock_locale_view_korea">रोमिङ</string>
+    <string name="kg_wrong_direction_lock">गलत दिशा कोरियो</string>
+    <string name="kg_direction_lock_instructions_normal_mode">स्क्रीन अनलक गर्नको लागि दिशानिर्देशहरूको श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="keyguard_accessibility_direction_lock_unlock">दिशा लक गर्नुहोस्</string>
+    <string name="kg_wrong_direction_lock_vzw">Incorrect directions (%d attempts remaining)</string>
+    <string name="direction_lock_too_many_failed_attempts_countdown">%d सेकेण्डमा फेरि प्रयास गर्नु</string>
+    <string name="kg_iris_direction_instructions">आइरिस प्रयोग गर्नुहोस् वा दिशाहरूका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_1_attempt_remaining">(1 प्रयास बाँकी)</string>
+    <string name="kg_n_attempts_remaining">(%d प्रयासहरू बाँकी)</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_restarting_universal_lock">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_iris_strong_auth_prompt_reason_restarting_universal_lock">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_multi_biometrics_prompt_reason_timeout_universal_lock_strong_auth">सुरक्षा नीतिका कारणले गर्दा, बायोमेट्रिक पहिचानको प्रयोग गर्नुको दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_iris_strong_auth_prompt_reason_universal_lock_security_policy">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_multi_biometrics_strong_auth_prompt_reason_24_timeout_universal_lock">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_iris_strong_auth_prompt_reason_24_timeout_universal_lock">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरूको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pin_none_frp">"If you do not enter the correct PIN within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pin_1_frp">"If you do not enter the correct PIN in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_pattern_none_frp">"If you do not enter the correct pattern within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_pattern_1_frp">"If you do not enter the correct pattern in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_pattern_none_frp">"If you do not draw the correct pattern within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_pattern_1_frp">"If you do not draw the correct pattern in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_password_none_frp">"If you do not enter the correct password within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_password_1_frp">"If you do not enter the correct password in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_password_none_frp">"If you do not enter the correct password within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_password_1_frp">"If you do not enter the correct password in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_none_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_none_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+    <string name="kg_tablet_direction_none_frp">"If you do not draw the correct series of directions within the next %d attempts, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_tablet_direction_1_frp">"If you do not draw the correct series of directions in the next attempt, your tablet will automatically be reset to factory settings and all information on the tablet will be erased.
+
+If your tablet is reset, you may need to enter the Google account information (email address and password) associated with this tablet to be able to use it again."</string>
+    <string name="kg_warning_none_1_none_auto_wipe">There has been 1 attempt to unlock this phone. You have %d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_1_none_auto_wipe">There has been 1 attempt to unlock this tablet. You have %d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_none_auto_wipe">There have been %1$d attempts to unlock this phone. You have %2$d attempts left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_none_auto_wipe">There have been %1$d attempts to unlock this tablet. You have %2$d attempts left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_none_none_1_auto_wipe">There have been %d attempts to unlock this phone. You have 1 attempt left before the phone is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_warning_tablet_none_1_auto_wipe">There have been %d attempts to unlock this tablet. You have 1 attempt left before the tablet is reset to factory default settings and all data is erased, including files and downloaded apps.</string>
+    <string name="kg_multi_pin_none_instructions">फिंगरप्रिन्ट वा आइरिसको प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_pin_active_instructions">खोल्नको लागि फिंगरप्रिन्ट वा आइरिसको प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_pin_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट वा इन्द्रधनुष प्रयोग गर्नुहोस्, वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_pin_none_instructions">फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_pin_active_instructions">खोल्नको लागि फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_pin_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_pin_none_instructions">आइरिसको प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_pin_active_instructions">खोल्नको लागि आइरिसको प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_pin_shutdown_instructions">पावर अफ गर्न इन्द्रधनुष प्रयोग गर्नुहोस् वा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_pin_none_instructions">PIN प्रविष्‍ट गर्नुहोस्</string>
+    <string name="kg_none_pin_active_instructions">खोल्नको लागि PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_pin_shutdown_instructions">पावर अफ गर्न PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_pattern_none_instructions">फिंगरप्रिन्ट वा आइरिसको प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_multi_pattern_active_instructions">खोल्नको लागि फिंगरप्रिन्ट वा आइरिसको प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_multi_pattern_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट वा इन्द्रधनुष प्रयोग गर्नुहोस्, वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_fingerprint_pattern_none_instructions">फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा अनलक ढाँचा कोर्नुहोस्</string>
+    <string name="kg_fingerprint_pattern_active_instructions">खोल्नको लागि फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_fingerprint_pattern_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_iris_pattern_none_instructions">आइरिसको प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_iris_pattern_active_instructions">खोल्नको लागि आइरिसको प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_iris_pattern_shutdown_instructions">पावर अफ गर्न इन्द्रधनुष प्रयोग गर्नुहोस् वा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_pattern_none_instructions">अनलक ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_pattern_active_instructions">खोल्नको लागि अनलक ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_pattern_shutdown_instructions">पावर अफ गर्न ढाँचा कोर्नुहोस्</string>
+    <string name="kg_multi_password_none_instructions">फिंगरप्रिन्ट वा आइरिसको प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_password_active_instructions">खोल्नको लागि फिंगरप्रिन्ट वा आइरिस प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_password_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट वा इन्द्रधनुष प्रयोग गर्नुहोस्, वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_password_none_instructions">फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_password_active_instructions">खोल्नको लागि फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_fingerprint_password_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_password_none_instructions">आइरिसको प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_password_active_instructions">खोल्नको लागि आइरिसको प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_iris_password_shutdown_instructions">पावर अफ गर्न इन्द्रधनुष प्रयोग गर्नुहोस् वा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_password_none_instructions">पासवर्ड प्रविष्‍ट गर्नुहोस्</string>
+    <string name="kg_none_password_active_instructions">खोल्नको लागि पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_password_shutdown_instructions">पावर अफ गर्न पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_multi_direction_none_instructions">फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_multi_direction_active_instructions">खोल्नका लागि फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_multi_direction_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट वा इन्द्रधनुष प्रयोग गर्नुहोस्, वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_fingerprint_direction_none_instructions">फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_fingerprint_direction_active_instructions">खोल्नका लागि फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_fingerprint_direction_shutdown_instructions">पावर अफ गर्न फिंगरप्रिन्ट प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_iris_direction_none_instructions">आइरिस प्रयोग गर्नुहोस् वा दिशाहरूका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_iris_direction_active_instructions">खोल्नका लागि आइरिसको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_iris_direction_shutdown_instructions">पावर अफ गर्न इन्द्रधनुष प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_direction_none_instructions">स्क्रीन अनलक गर्नको लागि दिशानिर्देशहरूको श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_direction_active_instructions">खोल्नका लागि दिशानिर्देशहरूको श्रृंखला कोर्नुहोस्</string>
+    <string name="kg_none_direction_shutdown_instructions">पावर अफ गर्न दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_multi_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_pin_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_pin_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_pin_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_pin_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_pin_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको PIN प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_pin_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको PIN को प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_pin_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको PIN को प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_pin_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, बायोमेट्रिक पहिचानको प्रयोग गर्नुको सट्टा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_fingerprint_pin_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, फिंगरप्रिन्ट पहिचान प्रयोग गर्नुको सट्टा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_iris_pin_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा PIN प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_multi_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_pattern_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_pattern_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_pattern_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_pattern_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_pattern_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको ढाँचाको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_pattern_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको ढाँचाको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_pattern_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, बायोमेट्रिक पहिचानको प्रयोग गर्नुको सट्टा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_fingerprint_pattern_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, फिंगरप्रिन्ट पहिचान प्रयोग गर्नुको सट्टा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_iris_pattern_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा ढाँचा कोर्नुहोस्</string>
+    <string name="kg_none_multi_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरिएको छ र यसलाई तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरिएको छ र यसलाई तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_password_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_password_timeout_instructions">तपाईको यन्त्र 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_password_timeout_instructions">तपाईको यन्त्र 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_password_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_password_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको पासवर्ड प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_password_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको पासवर्डको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_password_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको पासवर्डको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_password_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, बायोमेट्रिक पहिचानको प्रयोग गर्नुको सट्टा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_fingerprint_password_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, फिंगरप्रिन्ट पहिचान प्रयोग गर्नुको सट्टा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_iris_password_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_none_multi_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_direction_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_direction_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_multi_direction_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_direction_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprint_direction_timeout_instructions">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_iris_direction_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरूको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_iris_direction_timeout_instructions">तपाईको यन्त्रलाई 24 घण्टा भन्दा धेरै समयदेखि प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरूको प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना आइरिसहरूको प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_multi_direction_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, बायोमेट्रिक पहिचानको प्रयोग गर्नुको दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_fingerprint_direction_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, फिंगरप्रिन्ट पहिचानको प्रयोग गर्नुको सट्टा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_iris_direction_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_none_recovery_none_instructions">अनलक गर्न पुन: प्राप्ति पासवर्ड प्रविष्ट गर्नुहोस्।</string>
+    <string name="kg_incorrect_pattern">गलत ढाँचा कोरियो</string>
+    <string name="kg_incorrect_password">गलत पासवर्ड प्रविष्ट गरियो</string>
+    <string name="kg_incorrect_pin">गलत PIN प्रविष्ट भयो</string>
+    <string name="kg_pin_sub_instructions">तपाईको PIN मा कम्तिमा %d वटा नम्बर हुनुपर्छ।</string>
+    <string name="kg_password_sub_instructions">तपाईको पासवर्डमा कम्तिमा %d वर्ण हुनुपर्छ, जसमा कम्तिमा एउटा अक्षर समावेश हुनुपर्छ।</string>
+    <string name="card_crash">SIM कार्ड बिग्रियो</string>
+    <string name="kg_unlock_sim_pin_instructions">SIM कार्ड अनलक PIN प्रविष्ट गर्नुहोस्।</string>
+    <string name="kg_unlock_sim_pin_remaining_1_attempt">SIM कार्ड अनलक PIN प्रविष्ट गर्नुहोस्। 1 प्रयास बाँकी छ।</string>
+    <string name="kg_unlock_sim_pin_remaining_attempts">SIM कार्ड अनलक PIN प्रविष्ट गर्नुहोस्। %d प्रयासहरू बाँकी छन्।</string>
+    <string name="kg_password_wrong_pin_code_one">गलत SIM कार्ड PIN प्रविष्ट गरिएको छ। तपाईसँग 1 प्रयास बाँकी छ।</string>
+    <string name="kg_password_wrong_pin_code_other">एउटा गलत SIM कार्ड PIN प्रविष्ट गरियो। तपाईसँग %d प्रयासहरू बाँकी छन्।</string>
+    <string name="kg_sim_puk_instructions">SIM कार्ड लक भयो। PUK प्रविष्‍ट गर्नुहोस्। विवरणहरूको लागि सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="kg_sim_puk_remaining_1_attempt">यदि तपाईले थप 1 पटक गलत PUK प्रविष्ट गर्नुभयो भने, SIM लक हुनेछ।</string>
+    <string name="kg_sim_puk_remaining_attempts">यदि तपाईले थप %d पटक गलत PUK प्रविष्ट गर्नुभयो भने, SIM लक हुनेछ।</string>
+    <string name="kg_sec_sim_unlock_progress_dialog_message">SIM कार्ड अनलक गर्दै…</string>
+    <string name="kg_skt_sim_perso_instructions">USIM कार्ड अनलक गर्ने PIN (4 अंक) प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_ktt_sim_perso_instructions">Enter 4- to 8-digit password (PIN)</string>
+    <string name="kg_kor_sim_unlock_progress_dialog_message">SIM कार्ड अनलक गर्दै</string>
+    <string name="kg_empty_sim_perso_hint">No password entered. Enter password (PIN).</string>
+    <string name="kg_password_perso_failed">Incorrect PIN. Check PIN and try again.</string>
+    <string name="kg_password_perso_max_failed">Incorrect PIN entered for USIM card lock. Maximum number of retries reached. Restart device or visit CS centre.</string>
+    <string name="kg_sim_pin_remaining_1_attempt">तपाईसंग 1 प्रयास बाँकी छ।</string>
+    <string name="kg_sim_pin_remaining_attempts">तपाईसंग %d प्रयासहरू बाँकी छन्।</string>
+    <string name="kg_kor_sim_pin_instructions">USIM कार्ड अनलक PIN (4 देखि 8 अंकसम्म) प्रविष्ट गर्नुहोस्</string>
+    <string name="kg_kor_password_wrong_pin_code">गलत PIN प्रविष्ट गरिएको छ। %d प्रयासहरू बाँकी छन्। ग्राहक सेवाहरूमा सम्पर्क गर्नुहोस्।</string>
+    <string name="kg_kor_sim_puk_instructions">PUK प्रविष्ट गर्नुहोस्।</string>
+    <string name="kg_kor_invalid_sim_puk_hint">Enter 8-digit PIN unlock (PUK) code</string>
+    <string name="kg_kor_empty_sim_puk_hint">कुनै PIN अनलक (PUK) कोड प्रविष्ट गरिएको छैन। फेरि प्रयास गर्नुहोस्।</string>
+    <string name="kg_kor_puk_enter_pin_hint">"नयाँ USIM कार्ड PIN सिर्जना गर्नुहोस्।
+PIN 4 देखि 8 अंकहरूसम्म लामो हुनैपर्छ।"</string>
+    <string name="kg_kor_enter_confirm_pin_hint">पुष्टि गर्नको लागि USIM कार्ड PIN फेरि प्रविष्ट गर्नुहोस्।</string>
+    <string name="kg_kor_invalid_confirm_pin_hint">नयाँ PIN हरू मेल खाँदैनन्।</string>
+    <string name="kg_kor_wrong_puk_code">Unlock code input error</string>
+    <string name="kg_kor_sim_puk_remaining_attempts">"%1$d पटक गलत PUK प्रविष्‍ट गरिएको छ। यदि थप %2$d पटक गलत PUK प्रविष्ट गरियो भने, USIM कार्ड स्थायी रूपमा ब्लक हुनेछ।
+
+यदि तपाईलाई आफ्नो PUK थाहा छैन भने, ग्राहक सेवा केन्द्रमा जानुहोस्।"</string>
+    <string name="kg_kor_success_pin_message">New password (PIN) saved successfully.</string>
+    <string name="kg_ctc_unlock_sim_pin_instructions">Enter UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_sim_puk_instructions">UIM/SIM card locked. Enter PUK. Contact service provider for details.</string>
+    <string name="kg_ctc_puk_enter_pin_hint">Enter new UIM/SIM card unlock PIN</string>
+    <string name="kg_ctc_enter_confirm_pin_hint">Enter new UIM/SIM card unlock PIN again to confirm it</string>
+    <string name="kg_ctc_sim_unlock_progress_dialog_message">Unlocking UIM/SIM card…</string>
+    <string name="kg_ctc_password_wrong_pin_code_one">Incorrect UIM/SIM card PIN entered. 1 attempt left.</string>
+    <string name="kg_ctc_password_wrong_pin_code_other">Incorrect UIM/SIM card PIN entered. %d attempts left.</string>
+    <string name="kg_ctc_sim_puk_remaining_1_attempt">Incorrect PUK entered. If incorrect PUK is entered 1 more time, UIM/SIM card will be locked.</string>
+    <string name="kg_ctc_sim_puk_remaining_attempts">Incorrect PUK entered. If incorrect PUK is entered %d more times, UIM/SIM card will be permanently locked.</string>
+    <string name="kg_dcm_sim_puk_instructions">PIN ब्लक गरिएको छ। जारी राख्‍न PUK प्रविष्‍ट गर्नुहोस्।</string>
+    <string name="kg_sim_lock_accepted">कोड स्वीकारियो।</string>
+    <string name="kg_carrier_lock_wrong_password">लगत पासवर्ड प्रविष्ट गरियो।</string>
+    <string name="kg_carrier_lock_too_many_failed_attempts">5 पटक गलत पासवर्ड प्रविष्ट भयो। 10 मिनटमा फेरि प्रयास गर्नुहोस्।</string>
+    <string name="keyguard_fmm_phone_locked_title">फोन लक भयो।</string>
+    <string name="keyguard_fmm_owner_phone">मालिकको नम्बर</string>
+    <string name="keyguard_accessibility_call">कल</string>
+    <string name="kg_fingerprint_no_match">कुनै मिलान छैन</string>
+    <string name="kg_finger_print_not_responding_error_message">फिंगरप्रिन्ट सेन्सरले प्रातिक्रिया दिइरहेको छैन। पछि पुन: प्रयास गर्नुहोस्।</string>
+    <string name="kg_finger_print_database_error_message">फिंगरप्रिन्ट डाटा दूषित भएको छ। फिंगरप्रिन्टलाई स्क्रीन लक प्रकारको रूपमा रिसेट गर्नुहोस् र त्यसपछि तपाईका फिंगरप्रिन्टहरू फेरि थप्नुहोस् वा स्क्रीन लक प्रकार परिवर्तन गर्नुहोस्।</string>
+    <string name="kg_finger_print_sensor_with_recalibration_error_message">गृह कुञ्जी सफा तथा सुख्खा भएको निश्चित गर्नुहोस्, त्यसपछि फेरि प्रयास गर्नुहोस्।</string>
+    <string name="kg_finger_print_sensor_changed_error_message">फिंगरप्रिन्ट सेन्सर राम्रोसँग परिवर्तन गरिएको छैन। ग्राहक सेवामा सम्पर्क गर्नुहोस्।</string>
+    <string name="kg_fingerprints_direction_instructions">फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_fingerprints_direction_bouncer_instructions">खोल्नका लागि फिंगरप्रिन्टको प्रयोग गर्नुहोस् वा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_strong_auth_prompt_reason_timeout_direction_lock">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_fingerprints_direction_unabled_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_prompt_reason_timeout_universal_lock_strong_auth">सुरक्षा नीतिका कारणले गर्दा, फिंगरप्रिन्ट पहिचानको प्रयोग गर्नुको सट्टा दिशानिर्देशका श्रृंखलाहरू कोर्नुहोस्</string>
+    <string name="kg_tablet_strong_auth_prompt_reason_timeout_direction_lock">तपाईको यन्त्रलासई 24 घण्टा भन्दा धेरै प्रयोग गरिएको छैन र तपाईको दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_tablet_fingerprints_direction_unabled_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईका दिशानिर्देशका श्रृंखलाहरू प्रयोग गरेर अनलक गर्नुपर्छ। तपाईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="keyguard_progress_erasing_all">सबै डाटा मेटाइँदैछ…</string>
+    <string name="iris_guide_str_enable_toggle">आइरिसको प्रयोग गर्न यहाँ ट्याप गर्नु</string>
+    <string name="kg_login_username_hint">प्रयोगकर्ता नाम (ईमेल)</string>
+    <string name="kg_login_password_hint">पासवर्ड</string>
+    <string name="kg_login_submit_button">साइन इन</string>
+    <string name="kg_login_invalid_input">अवैध प्रयोगकर्ता नाम वा पासवर्ड।</string>
+    <string name="no_network_connection">कुनैपनि नेटवर्क जडान छैन</string>
+    <string name="kg_forgot_spass_button_text">Samsung account</string>
+    <string name="kg_login_checking_password">एकाउंट जाँच गर्दै…</string>
+    <string name="kg_too_many_failed_attempts_countdown_mins_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %1$d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारितमा रिसेट हुनु र सबै डाटा मेटिनु अघि तपाईसँग %2$d प्रयास बाँकी छ।
+
+%3$d मिनटमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_too_many_failed_attempts_countdown_secs_with_auto_wipe">"%1$d पटक यन्त्रलाई अनलक गर्ने प्रयास गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट हुनु र सबै डाटा मेटाइनु अघि तपाईसँग %2$d प्रयासहरू बाँकी छन्।
+
+%3$d सेकेन्डमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_min_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %1$d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारितमा रिसेट हुनु र सबै डाटा मेटिनु अघि तपाईसँग %2$d प्रयास बाँकी छ।
+
+1 मिनटमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_too_many_failed_attempts_countdown_1_sec_with_auto_wipe">"%1$d पटक यन्त्रलाई अनलक गर्ने प्रयास गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारितमा रिसेट हुनु र सबै डाटा मेटाइनु अघि तपाईसँग %2$d प्रयासहरू बाँकी छन्।
+
+1 सेकेन्डमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_too_many_failed_countdown_1_sec_with_auto_wipe">1 सेकेन्डमा फेरि प्रयास गर्नुहोस्</string>
+    <string name="kg_too_many_failed_attempt_countdown">1 सेकेन्डमा फेरि प्रयास गर्नुहोस्</string>
+    <string name="kg_remained_1_attempt_countdown_mins_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %1$d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारितमा रिसेट हुनु र सबै डाटा मेटिनु अघि तपाईसँग 1 प्रयास बाँकी छ।
+
+%2$d मिनटमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_remained_1_attempt_countdown_secs_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %1$d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट हुनु र सबै डाटा मेटाइनु अघि तपाईसँग 1 प्रयास बाँकी छ।
+
+%2$d सेकेन्डमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_remained_1_attempt_countdown_1_min_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारितमा रिसेट हुनु र सबै डाटा मेटिनु अघि तपाईसँग 1 प्रयास बाँकी छ।
+
+1 मिनटमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="kg_remained_1_attempt_countdown_1_sec_with_auto_wipe">"यन्त्रलाई अनलक गर्ने प्रयास %d पटक गरिएको छ। यन्त्र फ्याक्ट्री पूर्वनिर्धारित सेटिङहरूमा रिसेट हुनु र सबै डाटा मेटाइनु अघि तपाईसँग 1 प्रयास बाँकी छ।
+
+1 सेकेन्डमा फेरि प्रयास गर्नुहोस्"</string>
+    <string name="volumepanel_notification">सूचना</string>
+    <string name="recents_help_dlg_split_icon_text">विभाजित स्क्रीनको दृश्यमा एप्स खोल्न एप विंडोको शीर्षक पट्टीमा रहेको %s मा ट्याप गर्नुहोस्। एपले मल्टी विंडोलाई समर्थन गर्छ भने यो प्रतिमा देखाइन्छ।</string>
+    <string name="recents_help_dlg_split_icon_desc">विभाजित स्क्रीनको दृश्यमा एप्स खोल्न एप विंडोको शीर्षक पट्टीमा रहेको विभाजित स्क्रीनको प्रतिमामा ट्याप गर्नुहोस्। एपले मल्टी विंडोलाई समर्थन गर्छ भने यो प्रतिमा देखाइन्छ।</string>
+    <string name="recents_help_dlg_long_click_recents_key_text">विभाजित स्क्रीन दृश्‍यलाई परिवर्तन गर्न पूर्ण स्क्रीन दृश्‍यमा एप प्रयोग गरिरहेको बेला हालैको कुञ्जीलाई थिचेर होल्ड गर्नुहोस्।</string>
+    <string name="recents_help_dlg_home_key_in_split_text">यदि तपाईले विभाजित स्क्रीनको प्रयोग गरिरहेको बेला गृह कुञ्जी थिच्नुभयो भने स्क्रीनको माथिल्लो आधा भागमा देखाइएको एपलाई सानो पारिनेछ। यदि तपाईले स्थिति पट्टी नीलो हुँदा गृह स्क्रीनबाट कुनै एप खोल्नुभयो भने त्यो एप विभाजित स्क्रीनको दृश्यमा स्क्रीनको तल्लो आधा भागमा खुल्नेछ।</string>
+    <string name="kg_none_direction_1_frpt">"If you do not draw the correct series of directions in the next attempt, your phone will automatically be reset to factory settings and all information on the phone will be erased.
+
+If your phone is reset, you may need to enter the Google account information (email address and password) associated with this phone to be able to use it again."</string>
+</resources>

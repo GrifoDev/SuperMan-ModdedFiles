@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 οθόνη στην Επισκόπηση</item>
+        <item quantity="one">%d οθόνες στην Επισκόπηση</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένουν άλλες %d προσπάθειες.</item>
+        <item quantity="one">Λανθασμένος κωδικός PIN κάρτας SIM. Απομένει άλλη %d προσπάθεια. Στη συνέχεια, θα πρέπει να επικοινωνήσετε με τον πάροχο κινητής τηλεφωνίας σας για να ξεκλειδώσετε τη συσκευή σας.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένουν άλλες %d προσπάθειες προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
+        <item quantity="one">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένει άλλη %d προσπάθεια προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαιώστε το μοτίβο.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαιώστε το μοτίβο.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαιώστε τον αριθμό PIN.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαιώστε τον αριθμό PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρες. Επιβεβαίωση κωδικού πρόσβασης.</item>
+        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί για %d ώρα. Επιβεβαίωση κωδικού πρόσβασης.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(Απομένουν %d προσπάθειες)</item>
+        <item quantity="one">(Απομένει 1 προσπάθεια)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Απομένουν %d προσπάθειες</item>
+        <item quantity="one">Απομένει %d προσπάθεια</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Δοκιμάστε ξανά σε %d λεπτά</item>
+        <item quantity="one">Δοκιμάστε ξανά σε %d λεπτό</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Δοκιμάστε ξανά σε %d δευτερόλεπτα</item>
+        <item quantity="one">Δοκιμάστε ξανά σε %d δευτερόλεπτο</item>
+    </plurals>
+</resources>

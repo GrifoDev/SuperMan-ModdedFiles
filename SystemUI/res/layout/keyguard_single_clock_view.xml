@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.servicebox.pages.clock.KeyguardSingleClockView android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/keyguard_single_clock_view" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_time_view_text_size" android:textColor="@color/theme_textclock_color" android:id="@id/keyguard_single_time_view" android:layout_width="0.0dip" android:layout_height="0.0dip" android:minHeight="@dimen/keyguard_single_time_view_min_height" android:fontFamily="clock2016" style="@style/keyguard_headline_text_shadow" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/custom_clock_hour" android:layout_marginTop="20.0dip" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_time_view_text_size" android:textColor="@color/theme_textclock_color" android:gravity="center" android:id="@id/keyguard_single_time_view" android:focusable="false" android:visibility="gone" android:clickable="false" android:layout_width="300.0dip" android:layout_height="wrap_content" android:fontFamily="clock2016" android:format12Hour="@string/status_view_12_hours_format" android:format24Hour="@string/status_view_24_hours_format" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_time_view_text_size" android:textColor="@color/theme_textclock_color" android:gravity="center" android:id="@id/hour_clock" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="clock2016" android:format12Hour="h" android:format24Hour="kk" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_time_view_text_size" android:textColor="@color/theme_textclock_color" android:gravity="center" android:id="@id/minute_clock" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="clock2016" android:format12Hour=":mm" android:format24Hour=":mm" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextClock android:textSize="37.0dip" android:textColor="@color/theme_textclock_color" android:id="@id/seconds_clock" android:focusable="false" android:clickable="false" android:layout_width="47.0dip" android:layout_height="wrap_content" android:fontFamily="clock2016" android:layout_marginStart="1.0dip" android:format12Hour=":ss" android:format24Hour=":ss" style="@style/keyguard_headline_text_shadow" />
+    </LinearLayout>
+	<LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+        <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_enable">
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip" layout="@layout/analog_clock_lockscreen" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen1" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen1">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_1" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen2">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_2" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen3" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen3">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_3" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen4" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen4">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_4" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen5" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen5">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_5" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen6">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_6" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen7" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen7">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_7" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen8">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_8" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen9" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen9">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_9" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen10" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen10">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_10" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen11" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen11">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_11" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen12" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen12">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_12" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen13" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen13">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_13" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen14" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen14">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_14" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen15" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen15">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_15" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen16" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen16">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_16" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="bottom|center" android:id="@id/analog_clock_lockscreen17" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="analog_clock_lockscreen17">
+                    <include android:gravity="center|top" android:layout_marginTop="1.0dip"  layout="@layout/analog_clock_lockscreen_17" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+        </com.android.systemui.rz.LeftLayout>
+	</LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_date_view_text_size" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_date_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_single_date_view_min_height" android:fontFamily="sans-serif" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextView android:textSize="@dimen/keyguard_single_date_view_text_size" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_shamsi_date_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_single_date_view_min_height" android:fontFamily="sans-serif" style="@style/keyguard_headline_text_shadow" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/pedometr" key="pedo" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    </LinearLayout>
+	<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/lockweather" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip">
+        <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_weather">
+			<mickles.app.mAccuWeatherS7.mWeatherIcon android:gravity="start|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="2.0dip" />
+			<mickles.app.mAccuWeatherS7.mWeatherCurrentTemp android:textSize="30.0dip" android:textColor="#ffffffff" android:gravity="start|center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="1.0dip" android:fontFamily="samsung-neo-num3L" />
+			<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.5dip" android:layout_marginEnd="1.0dip">
+				<com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_weather">
+					<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.5dip">
+						<com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_weather">
+							<mickles.app.mAccuWeatherS7.mWeatherHighTemp android:textSize="15.0dip" android:textColor="#ffffffff" android:gravity="end|center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="samsung-neo-num3L" android:layout_marginStart="6.0dip" android:layout_marginEnd="3.0dip" />
+						</com.android.systemui.rz.LeftLayout>
+					</LinearLayout>
+					<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.5dip">
+						<com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_weather">
+							<mickles.app.mAccuWeatherS7.mWeatherLowTemp android:textSize="15.0dip" android:textColor="#ffffffff" android:gravity="end|center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="samsung-neo-num3L" android:layout_marginStart="6.0dip" android:layout_marginEnd="3.0dip" />
+						</com.android.systemui.rz.LeftLayout>
+					</LinearLayout>
+				</com.android.systemui.rz.LeftLayout>
+			</LinearLayout>
+		</com.android.systemui.rz.LeftLayout>
+			<LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/barometr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-55.0dip" android:layout_marginStart="8.0dip">
+                <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="barometr_in_lockscreen">
+                    <mickles.app.mpressure.mPressure android:textSize="33.0dip" android:gravity="start|center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="samsung-neo-num3L" />
+                </com.android.systemui.rz.LeftLayout>
+            </LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_gravity="center_horizontal" android:id="@id/lockweather1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip">
+		<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="18.0dip" android:layout_marginTop="4.0dip" key="hide_weather1">
+			<com.android.settings.rz.Text android:textSize="12.0dip" android:textColor="#fff5f5f5" android:textAllCaps="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/voshod" key="text3" />
+			<mickles.app.mAccuWeatherS7.mWeatherSunRise android:textSize="12.0dip" android:textColor="#ffffffff" android:tag="HH:mm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:layout_marginStart="6.0dip" style="@style/keyguard_headline_text_shadow" />
+			<ImageView android:layout_width="13.0dip" android:layout_height="13.0dip" android:src="@drawable/weather_edge_ic_location_mtrl" android:layout_marginTop="0.0dip" android:layout_marginStart="11.0dip" />
+			<mickles.app.mAccuWeatherS7.mWeatherLocation android:textSize="12.0dip" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:layout_marginStart="1.0dip" style="@style/keyguard_headline_text_shadow" />
+		</LinearLayout>
+		<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="18.0dip" android:layout_marginTop="2.0dip" android:layout_marginEnd="0.0dip" key="hide_weather1">
+			<com.android.settings.rz.Text android:textSize="12.0dip" android:textColor="#fff5f5f5" android:textAllCaps="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/zakat" key="text4" />
+			<mickles.app.mAccuWeatherS7.mWeatherSunSet android:textSize="12.0dip" android:textColor="#ffffffff" android:tag="HH:mm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:layout_marginStart="6.0dip" style="@style/keyguard_headline_text_shadow" />
+			<mickles.app.mAccuWeatherS7.mWeatherText android:textSize="12.0dip" android:textColor="#ffffffff" android:ellipsize="marquee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:singleLine="true" android:layout_marginStart="12.0dip" style="@style/keyguard_headline_text_shadow" />
+		</LinearLayout>
+	</LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.android.systemui.rz.LeftLayout android:layout_width="wrap_content" android:layout_height="wrap_content" key="hide_nextalarm">
+            <com.android.keyguard.nextalarm.GetNextAlarmTimeText android:gravity="left" android:id="@id/next_alarm_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </com.android.systemui.rz.LeftLayout>
+    </LinearLayout>
+</com.android.keyguard.servicebox.pages.clock.KeyguardSingleClockView>

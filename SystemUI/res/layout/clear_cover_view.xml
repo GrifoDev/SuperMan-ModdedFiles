@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.clearcover.ClearCoverView android:id="@id/clear_cover_root" android:background="@color/clear_cover_wallpapaer_hero_color_black" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.sec.android.cover.clearcover.ClearCoverPage android:id="@id/clear_cover_main_page" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/clear_cover_home_widget" />
+        </FrameLayout>
+        <com.sec.android.cover.widget.RemoteViewContainerView android:layout_gravity="bottom" android:id="@id/clear_voice_recorder_remoteview_contatiner" android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_voice_recorder_height" android:layout_marginBottom="@dimen/clear_cover_voice_recorder_remote_view_bottom_padding" />
+        <include layout="@layout/clear_cover_music_widget" />
+        <com.sec.android.cover.widget.RemoteViewContainerView android:layout_gravity="bottom" android:id="@id/clear_video_remoteview_contatiner" android:layout_width="fill_parent" android:layout_height="@dimen/clear_cover_video_widget_height" android:layout_marginBottom="@dimen/clear_cover_video_widget_bottom_padding" />
+        <com.sec.android.cover.widget.RemoteViewContainerView android:layout_gravity="center" android:id="@id/clear_sound_warning_remoteview_contatiner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/clear_cover_dialog_margin" android:paddingEnd="@dimen/clear_cover_dialog_margin" />
+    </com.sec.android.cover.clearcover.ClearCoverPage>
+    <com.sec.android.cover.widget.MaxLargeTextView android:textSize="@dimen/clear_cover_charging_text_font_size" android:textColor="@color/clear_cover_font_color" android:gravity="center_horizontal" android:layout_gravity="bottom|center" android:id="@id/clear_cover_battery_charging" android:focusable="false" android:focusableInTouchMode="false" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/clear_cover_charging_bottom_padding" android:fontFamily="sec-roboto-light" android:paddingStart="@dimen/clear_cover_page_margin" android:paddingEnd="@dimen/clear_cover_page_margin" style="@style/clear_cover_text_shadow" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/locked_root" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/clear_cover_lock_window_icon_top_padding">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/locked_image" android:layout_width="@dimen/clear_cover_lock_window_icon_size" android:layout_height="@dimen/clear_cover_lock_window_icon_size" />
+        <TextView android:textSize="@dimen/clear_cover_lock_window_text_font_size" android:textColor="@color/clear_cover_font_color" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/locked_text" android:paddingTop="@dimen/clear_cover_lock_window_icon_bottom_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingExtra="2.0dip" android:fontFamily="sec-roboto-light" android:paddingStart="@dimen/clear_cover_page_margin" android:paddingEnd="@dimen/clear_cover_page_margin" />
+    </LinearLayout>
+</com.sec.android.cover.clearcover.ClearCoverView>

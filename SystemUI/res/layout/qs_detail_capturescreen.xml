@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.AlphaOptimizedLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RadioGroup android:theme="@android:style/Theme.DeviceDefault.Light" android:id="@id/capture_radiogroup" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RadioButton android:id="@id/capture_radioButton1" android:text="@string/qs_detail_capture_screen" style="@style/QSDetailRadioButton" />
+        <RadioButton android:id="@id/capture_radioButton2" android:text="@string/qs_detail_recorder_screen" style="@style/QSDetailRadioButton" />
+    </RadioGroup>
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/qs_detail_items_summary_padding_top" android:text="@string/qs_detail_capture_mode_text" />
+</com.android.keyguard.AlphaOptimizedLinearLayout>

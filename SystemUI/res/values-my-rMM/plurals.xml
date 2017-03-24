@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">ခြုံကြည့်မှုထဲမှ မျက်နှာပြင် 1 ခု</item>
+        <item quantity="one">ခြုံကြည့်မှုထဲမှ မျက်နှာပြင် %d ခု</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">ဆင်းမ်ကဒ်၏ ပင်နံပါတ် မှားနေပါသည်၊ သင့်တွင်%d ခါ ကြိုးစားခွင့် ကျန်ပါသေးသည်။</item>
+        <item quantity="one">ဆင်းမ်ကဒ်၏ ပင်နံပါတ် မှားနေပါသည်၊ သင့်ကိရိယာကို ဖွင့်ရန် မိုဘိုင်းဖုန်းဆက်သွယ်ရေးဝန်ဆောင်မှုဌာနသို့ မဆက်သွယ်မီ သင့်တွင် %d ခါ ကြိုးစားခွင့် ကျန်ပါသေးသည်။</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">ဆင်းမ်ကဒ်၏ ပင်နံပါတ်ပြန်ဖွင့်သည့် ကုဒ် (PUK) မမှန်ပါ၊ ဆင်းမ်ကဒ်သည် ဆက်လက်အသုံးမပြုနိုင်အောင် မဖြစ်လာခင် သင့်တွင် %dခါ ကြိုးစားခွင့်များကျန်ပါသေးသည်။</item>
+        <item quantity="one">ဆင်းမ်ကဒ်၏ ပင်နံပါတ်ပြန်ဖွင့်သည့် ကုဒ် (PUK) မမှန်ပါ၊ ဆင်းမ်ကဒ်သည် ဆက်လက်အသုံးမပြုနိုင်အောင် မဖြစ်လာခင် သင့်တွင် %d ခါ ကြိုးစားခွင့်ကျန်ပါသေးသည်။</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ ပုံစံအား အတည်ပြုပါ။</item>
+        <item quantity="one">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ ပုံစံအား အတည်ပြုပါ။</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ PIN အား အတည်ပြုပါ။</item>
+        <item quantity="one">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ PIN အား အတည်ပြုပါ။</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ စကားဝှက်အား အတည်ပြုပါ။</item>
+        <item quantity="one">စက်ကိရိယာအား %d နာရီကြာ သော့ပိတ်ထား၏။ စကားဝှက်အား အတည်ပြုပါ။</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(ကြိုးစားခွင့် %d ကြိမ် ကျန်သေးသည်)</item>
+        <item quantity="one">(ကြိုးစားခွင့် ၁ ကြိမ် ကျန်သေးသည်)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">ကြိုးစားခွင့် %d ကြိမ်ကျန်သေးသည်</item>
+        <item quantity="one">ကြိုးစားရန် %d ကြိမ်ကျန်သည်</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">%d မိနစ်အတွင်း ထပ်မံကြိုးစားပါ</item>
+        <item quantity="one">%d မိနစ့်အတွင်း ထပ်မံကြိုးစားပါ</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">%d စက္ကန့်အတွင်း ထပ်မံကြိုးစားပါ</item>
+        <item quantity="one">%d စက္ကန့်အတွင်း ထပ်မံကြိုးစားပါ</item>
+    </plurals>
+</resources>

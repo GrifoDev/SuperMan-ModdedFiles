@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.KeyguardPatternView android:gravity="bottom|center" android:orientation="vertical" android:id="@id/keyguard_pattern_view" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <include android:gravity="center" android:layout_gravity="bottom|center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/kg_pattern_message_area_margin_bottom" layout="@layout/keyguard_message_area" />
+    <LinearLayout android:layout_gravity="bottom|center" android:orientation="vertical" android:id="@id/container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.android.keyguard.LockDecoPatternView android:gravity="center" android:layout_gravity="bottom|center" android:id="@id/lockPatternView" android:layout_width="@dimen/kg_pattern_lock_pattern_view_width" android:layout_height="@dimen/kg_pattern_lock_pattern_view_hieight" android:layout_marginBottom="@dimen/kg_pattern_lock_pattern_view_margin_bottom" style="@style/deco_pattern_view_style" />
+        <include android:gravity="center_horizontal" android:layout_gravity="bottom|center" android:id="@id/keyguard_selector_fade_container" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/kg_pattern_eca_margin_bottom" layout="@layout/keyguard_eca" />
+    </LinearLayout>
+</com.android.keyguard.KeyguardPatternView>

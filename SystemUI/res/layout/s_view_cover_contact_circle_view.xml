@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sec.android.cover.sviewcover.effect.CoverCircleLeftView android:id="@id/sec_cover_contact_circle" android:layout_width="@dimen/sview_cover_unlock_area_shortcut_icon_size" android:layout_height="@dimen/sview_cover_unlock_area_shortcut_icon_size"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/s_view_cover_contact_button" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/s_view_cover_favourite_button_accessibiliy" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/s_view_cover_swipearrow_contact" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="60.0dip" android:src="@drawable/lock_swipearrow_left" />
+</com.sec.android.cover.sviewcover.effect.CoverCircleLeftView>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 màn hình trong Tổng quan</item>
+        <item quantity="one">%d màn hình trong Tổng quan</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Mã PIN của SIM không chính xác, bạn còn %d lần thử.</item>
+        <item quantity="one">Mã PIN của SIM không chính xác, bạn còn %d lần thử trước khi bạn phải liên hệ với nhà cung cấp dịch vụ để mở khóa thiết bị của mình.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không sử dụng được.</item>
+        <item quantity="one">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không thể sử dụng được.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận hình.</item>
+        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận hình.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mã PIN.</item>
+        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mã PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mật khẩu.</item>
+        <item quantity="one">Thiết bị đã không được mở khóa trong %d giờ. Xác nhận mật khẩu.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(Còn %d lần thử)</item>
+        <item quantity="one">(Còn 1 lần thử)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">Còn %d lần thử</item>
+        <item quantity="one">Còn %d lần thử</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Hãy thử lại sau %d phút</item>
+        <item quantity="one">Hãy thử lại sau %d phút</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Hãy thử lại sau %d giây</item>
+        <item quantity="one">Hãy thử lại sau %d giây</item>
+    </plurals>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="?android:listPreferredItemHeight">
+        <CheckedTextView android:theme="@style/DualToneLightTheme" android:textAppearance="?android:textAppearanceLarge" android:textColor="?android:textColorAlertDialogListItem" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/check_box" android:layout_width="wrap_content" android:layout_height="fill_parent" android:checkMark="?android:listChoiceIndicatorSingle" android:minHeight="?android:listPreferredItemHeight" />
+        <ImageView android:id="@id/app_icon" android:layout_width="40.0dip" android:layout_height="40.0dip" />
+        <TextView android:textAppearance="?android:textAppearanceListItem" android:ellipsize="marquee" android:gravity="center_vertical" android:id="@id/app_name" android:layout_width="wrap_content" android:layout_height="fill_parent" android:minHeight="?android:listPreferredItemHeight" android:singleLine="true" android:paddingStart="16.0dip" />
+    </LinearLayout>
+</LinearLayout>

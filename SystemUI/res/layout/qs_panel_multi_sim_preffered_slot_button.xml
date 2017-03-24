@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="start|center" android:orientation="vertical" android:id="@id/preffered_slot_button" android:layout_width="wrap_content" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/qs_multisim_preffered_slot_text_line1_text_size" android:gravity="start|center" android:id="@id/slot_button_text_line1" android:layout_width="wrap_content" android:layout_height="@dimen/qs_multisim_preffered_slot_text_line1_height" android:singleLine="true" android:includeFontPadding="false" android:fontFamily="roboto-regular" />
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="@dimen/qs_multisim_preffered_slot_text_line2_height">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/slot_button_line2_with_image" android:layout_width="wrap_content" android:layout_height="@dimen/qs_multisim_preffered_slot_text_line2_height">
+            <ImageView android:id="@id/slot_button_image" android:layout_width="@dimen/qs_multisim_preffered_slot_image_width" android:layout_height="fill_parent" />
+            <TextView android:textSize="@dimen/qs_multisim_preffered_slot_text_line2_text_size" android:gravity="start|center" android:id="@id/slot_button_text_line2" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:fontFamily="roboto-regular" android:paddingStart="@dimen/qs_multisim_preffered_slot_text_line_padding_start" />
+        </LinearLayout>
+        <TextView android:textSize="@dimen/qs_multisim_preffered_slot_text_line2_text_size" android:gravity="start|center" android:id="@id/slot_button_line2_only_text" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:fontFamily="roboto-regular" />
+    </FrameLayout>
+</LinearLayout>

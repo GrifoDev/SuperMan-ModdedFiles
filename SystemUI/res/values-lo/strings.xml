@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cancel">ຍົກເລີກ</string>
+    <string name="clearcover_1_missed_call">ທ່ານມີ 1 ສາຍບໍ່ໄດ້ຮັບ.</string>
+    <string name="clearcover_1_unread_message">ທ່ານມີ 1 ຂໍ້ຄວາມບໍ່ໄດ້ອ່ານ.</string>
+    <string name="clearcover_n_missed_calls">ທ່ານມີ %d ສາຍບໍ່ໄດ້ຮັບ.</string>
+    <string name="clearcover_n_unread_messages">ທ່ານມີ %1$d ຂໍ້ຄວາມບໍ່ໄດ້ອ່ານ.</string>
+    <string name="s_view_screen_roaming">ໂຣມມິງ</string>
+    <string name="s_view_screen_home">ບ້ານ</string>
+    <string name="battery_charging_percent">ກໍາລັງສາກ: %d%%</string>
+    <string name="battery_wireless_charging_percent">ກໍາລັງສາກແບບໄຮ້ສາຍ: %d%%</string>
+    <string name="battery_charged">ສາກແລ້ວ</string>
+    <string name="s_view_cover_missed_event_secured_popup">ລັອກເຄື່ອງແລ້ວ. ເປີດໜ້າປົກເພື່ອເບິ່ງລາຍລະອຽດເພີ່ມເຕີມ.</string>
+    <string name="s_view_cover_camera_button_accessibiliy">ແຕະສອງເທື່ອຊ້ອນ ແລະລາກເພື່ອປ່ຽນກ້ອງຖ່າຍຮູບ.</string>
+    <string name="s_view_cover_open_popup_favorite">ລັອກເຄື່ອງແລ້ວ. ເປີດໜ້າປົກເພື່ອເບິ່ງຜູ້ຕິດຕໍ່ທີ່ມັກ.</string>
+    <string name="save">ບັນທຶກ</string>
+    <string name="ok">ຕົກລົງ</string>
+    <string name="volumepanel_notification">ແຈ້ງເຕືອນ</string>
+    <string name="close">ປິດ</string>
+    <string name="back">ກັບຄືນ</string>
+    <string name="set">ຕັ້ງຄ່າ</string>
+    <string name="s_view_cover_set_wallpaper">ຕັ້ງ​ເປັນວອລເປເປີ</string>
+    <string name="clearcover_no_missed_event">ທ່ານບໍ່ໄດ້ພາດເຫດການອັນໃດ.</string>
+    <string name="clearcover_calls_and_messages">ທ່ານມີ %1$d ສາຍບໍ່ໄດ້ອ່ານ ແລະ %2$d ຂໍ້ຄວາມບໍ່ໄດ້ອ່ານ.</string>
+    <string name="zzz_tts_temp_celsius">ເຊລຊຽດ</string>
+    <string name="zzz_tts_temp_fahrenheit">ຟາເຣັນຮາຍ</string>
+    <string name="zzz_tts_temperature">ອົງສາ</string>
+    <string name="s_view_cover_shortcuts_title_text">ທາງລັດ</string>
+    <string name="s_view_cover_shortcuts_camera_text">ກ້ອງຖ່າຍຮູບ</string>
+    <string name="s_view_cover_shortcuts_settings_text">ຕັ້ງຄ່າ</string>
+    <string name="s_view_cover_shortcuts_favorite_text">ຜູ້ຕິດຕໍ່ທີ່ມັກ</string>
+    <string name="s_view_cover_shortcuts_light_text">ໄຟສາຍ</string>
+    <string name="s_view_cover_shortcuts_heart_text">ອັດຕາຫົວໃຈ</string>
+    <string name="s_view_cover_shortcuts_quick_memo_text">"ບັນທຶກ
+ການກະທຳ"</string>
+    <string name="select_background_color">ຕັ້ງວອລເປເປີວິນໂດ S View</string>
+    <string name="select_background_color_title">ຕັ້ງວອລເປເປີ</string>
+    <string name="s_view_stylized_clock_theme">ຕັ້ງໂມງຕາມຮູບແບບແລ້ວ</string>
+    <string name="s_view_window_theme">ວອລເປເປີຂອງວິນໂດ S View</string>
+    <string name="s_view_info_cover">ເລືອກລາຍການທີ່ຈະສະແດງ</string>
+    <string name="s_view_cover_transport_prev_description">ຜ່ານມາ</string>
+    <string name="s_view_cover_transport_next_description">ຕໍ່ໄປ</string>
+    <string name="s_view_cover_transport_pause_description">ຢຸດຊົ່ວຄາວ</string>
+    <string name="s_view_cover_transport_play_description">ຫຼິ້ນ</string>
+    <string name="s_view_cover_transport_stop_description">ຢຸດ</string>
+    <string name="s_view_cover_transport_volume_description">ລະດັບສຽງ</string>
+    <string name="s_view_cover_transport_playlist_description">ລາຍການຫຼິ້ນ</string>
+    <string name="s_view_cover_open_cover_popup">ເປີດໜ້າປົກ ເພື່ອຕັ້ງວອລເປເປີ.</string>
+    <string name="s_view_cover_missed_event_button_accessibiliy">ເລື່ອນດ້ວຍນີ້ວມືສອງນີ້ວ ເພື່ອຍ້າຍໜ້າເຫດການທີ່ບໍ່ໄດ້ຮັບ.</string>
+    <string name="s_view_cover_settings_button_accessibiliy">ເລື່ອນດ້ວຍນີ້ວມືສອງນີ້ວ ເພື່ອໄປຫາການຕັ້ງຄ່າ.</string>
+    <string name="mini_view_cover_settings_description">ເປີດຝາປົກເພື່ອໄປທີ່ການຕັ້ງຄ່າ S View Cover.</string>
+    <string name="s_view_cover_warn_popup_stylized_clock">ວອລເປເປີ, ຂໍ້ມູນເຄື່ອງນັບກ້າວຍ່າງ, ແລະຂໍ້ມູນສະພາບອາກາດບໍ່ສາມາດສະແດງຂຶ້ນໄດ້ ໃນຂະນະທີ່ໂມງຕາມຮູບແບບສະແດງຂຶ້ນຢູ່ໃນວິນໂດ S View.</string>
+    <string name="s_view_wallpaper_selected_tts">ວອລເປເປີ %1$d ໃນ %2$d</string>
+    <string name="popup_do_not_show_gain">ບໍ່ຕ້ອງສະແດງອີກ</string>
+</resources>

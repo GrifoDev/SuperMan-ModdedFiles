@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="top" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/qs_detail_items_side_padding" android:paddingEnd="@dimen/qs_detail_items_side_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:ellipsize="end" android:id="@id/text1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textDirection="locale" />
+    <TextView android:textAppearance="@style/TextAppearance.QS.DetailEmpty" android:ellipsize="end" android:id="@id/text2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:textDirection="locale" />
+</LinearLayout>

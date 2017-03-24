@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">%d pantallas en Visión general</item>
+        <item quantity="one">1 pantalla en Visión general</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Código PIN de la tarjeta SIM incorrecto. Te quedan %d intentos.</item>
+        <item quantity="one">Código PIN de la tarjeta SIM incorrecto. Te queda %d intento para tener que ponerte en contacto con tu operador para desbloquear el dispositivo.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Código PUK de la tarjeta SIM incorrecto. Te quedan %d intentos para que la tarjeta SIM no se pueda utilizar de forma permanente.</item>
+        <item quantity="one">Código PUK de la tarjeta SIM incorrecto. Te queda %d intento para que la tarjeta SIM no se pueda utilizar de forma permanente.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">El dispositivo no se ha desbloqueado durante %d horas. Confirma el patrón.</item>
+        <item quantity="one">El dispositivo no se ha desbloqueado durante %d hora. Confirma el patrón.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">El dispositivo no se ha desbloqueado durante %d horas. Confirma el PIN.</item>
+        <item quantity="one">El dispositivo no se ha desbloqueado durante %d hora. Confirma el PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">El dispositivo no se ha desbloqueado durante %d horas. Confirma la contraseña.</item>
+        <item quantity="one">El dispositivo no se ha desbloqueado durante %d hora. Confirma la contraseña.</item>
+    </plurals>
+</resources>

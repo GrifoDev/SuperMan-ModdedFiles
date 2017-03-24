@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.keyguard.servicebox.pages.clock.KeyguardSingleImageClockView android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/keyguard_single_image_clock_view" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/keyguard_single_time_image_view_set" android:focusable="false" android:clickable="false" android:layout_width="320.0dip" android:layout_height="wrap_content" android:minHeight="@dimen/theme_single_imageclock_digit_height">
+        <ImageView android:id="@id/keyguard_single_time_image_hour_10th" android:layout_width="42.0dip" android:layout_height="60.0dip" android:scaleType="fitXY" />
+        <ImageView android:id="@id/keyguard_single_time_image_hour_1th" android:layout_width="42.0dip" android:layout_height="60.0dip" android:scaleType="fitXY" />
+        <ImageView android:id="@id/keyguard_single_time_image_split_hour_time" android:layout_width="16.0dip" android:layout_height="60.0dip" android:scaleType="fitXY" />
+        <ImageView android:id="@id/keyguard_single_time_image_minute_10th" android:layout_width="42.0dip" android:layout_height="60.0dip" android:scaleType="fitXY" />
+        <ImageView android:id="@id/keyguard_single_time_image_minute_1th" android:layout_width="42.0dip" android:layout_height="60.0dip" android:scaleType="fitXY" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.android.keyguard.KeyguardTextClock android:textSize="@dimen/keyguard_single_date_view_text_size" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_date_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_single_date_view_min_height" android:fontFamily="sans-serif" style="@style/keyguard_headline_text_shadow" />
+        <com.android.keyguard.KeyguardTextView android:textSize="@dimen/keyguard_single_date_view_text_size" android:textColor="@color/theme_clock_date_color" android:id="@id/keyguard_single_shamsi_date_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/keyguard_single_date_view_min_height" android:fontFamily="sans-serif" style="@style/keyguard_headline_text_shadow" />
+    </LinearLayout>
+</com.android.keyguard.servicebox.pages.clock.KeyguardSingleImageClockView>

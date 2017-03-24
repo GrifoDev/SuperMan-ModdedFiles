@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="oval"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="@dimen/multiwindow_snapview_handle_point_size" android:width="@dimen/multiwindow_snapview_handle_point_size" />
+    <solid android:color="@color/multiwindow_snapview_frame_color" />
+</shape>

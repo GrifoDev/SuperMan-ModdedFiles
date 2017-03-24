@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.NotificationOverflowContainer android:paddingTop="@dimen/overflow_container_top_padding" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/notification_summary_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.NotificationBackgroundView android:id="@id/backgroundNormal" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.android.systemui.statusbar.NotificationBackgroundView android:id="@id/backgroundDimmed" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.android.keyguard.AlphaOptimizedLinearLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/over_flow_container_more_text_size" android:textStyle="normal" android:textColor="#fffafafa" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/more_text" android:layout_width="wrap_content" android:layout_height="@dimen/over_flow_container_more_text_height" android:minWidth="@dimen/over_flow_container_more_text_width" android:includeFontPadding="false" android:layout_marginStart="@dimen/over_flow_container_more_text_margin_start" android:layout_marginEnd="@dimen/over_flow_container_more_text_margin_end" />
+        <com.android.systemui.statusbar.StatusBarIconView android:id="@id/more_icon_overflow" android:visibility="gone" android:layout_width="@dimen/status_bar_icon_size" android:layout_height="fill_parent" android:src="@drawable/stat_notify_more" android:tint="@color/keyguard_overflow_content_color" />
+        <com.android.systemui.statusbar.NotificationOverflowIconsView android:layout_gravity="center_vertical" android:id="@id/overflow_icons_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginEnd="8.0dip" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
+    <com.android.systemui.statusbar.notification.FakeShadowView android:id="@id/fake_shadow" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</com.android.systemui.statusbar.NotificationOverflowContainer>

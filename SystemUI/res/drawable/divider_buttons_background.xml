@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">\
+<corners android:radius="@dimen/mw_buttons_radius" />
+    <size android:height="@dimen/mw_buttons_short_len" android:width="@dimen/mw_buttons_long_len" />
+    <solid android:color="@color/multiwindow_divider_button_color_bg" />
+</shape>

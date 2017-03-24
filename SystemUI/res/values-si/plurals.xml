@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(ප්‍රයත්න %d ක් ඉතිරියි)</item>
+        <item quantity="one">(ප්‍රයත්න 1 ක් ඉතිරියි)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">ප්‍රයත්න %d ක් ඉතිරියි</item>
+        <item quantity="one">ප්‍රයත්නයන් %dක් ඉතිරියි</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">විනාඩි %d කින් නැවත උත්සාහ කරන්න</item>
+        <item quantity="one">විනාඩි %d කින් නැවත උත්සාහ කරන්න</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">තත්පර %d කින් නැවත උත්සාහ කරන්න</item>
+        <item quantity="one">තත්පර %d කින් නැවත උත්සාහ කරන්න</item>
+    </plurals>
+</resources>

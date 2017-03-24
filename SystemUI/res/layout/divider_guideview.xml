@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/multiwindow_guideview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="ltr"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/multiwindow_divider_guideview_dim" android:background="@color/multiwindow_divider_guideview_dim_color" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/multiwindow_divider_guideview_rect" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ImageView android:id="@id/multiwindow_divider_guideview" android:background="@color/multiwindow_divider_guideview_guide_color" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</FrameLayout>

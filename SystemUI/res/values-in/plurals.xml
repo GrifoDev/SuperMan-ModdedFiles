@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="status_bar_accessibility_recent_apps">
+        <item quantity="other">1 layar dalam Ringkasan</item>
+        <item quantity="one">%d layar dalam Ringkasan</item>
+    </plurals>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="other">Kode PIN SIM salah, sisa %d percobaan.</item>
+        <item quantity="one">Kode PIN SIM salah, sisa %d percobaan sebelum Anda harus menghubungi operator untuk membuka kunci perangkat.</item>
+    </plurals>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="other">Kode PUK SIM salah, sisa %d percobaan sebelum SIM tidak dapat digunakan selamanya.</item>
+        <item quantity="one">Kode PUK SIM salah, sisa %d percobaan sebelum SIM tidak dapat digunakan selamanya.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="other">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi pola.</item>
+        <item quantity="one">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi pola.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="other">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi PIN.</item>
+        <item quantity="one">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="other">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi sandi.</item>
+        <item quantity="one">Perangkat belum dibuka kuncinya selama %d jam. Konfirmasi sandi.</item>
+    </plurals>
+    <plurals name="kg_attempt_remaining">
+        <item quantity="other">(%d upaya tersisa)</item>
+        <item quantity="one">(1 upaya tersisa)</item>
+    </plurals>
+    <plurals name="kg_attempt_left">
+        <item quantity="other">%d upaya tersisa</item>
+        <item quantity="one">%d percobaan tersisa</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_min">
+        <item quantity="other">Coba lagi dalam %d menit</item>
+        <item quantity="one">Coba lagi dalam %d menit</item>
+    </plurals>
+    <plurals name="kg_too_many_failed_attempts_countdown_sec">
+        <item quantity="other">Coba lagi dalam %d detik</item>
+        <item quantity="one">Coba lagi dalam %d detik</item>
+    </plurals>
+</resources>

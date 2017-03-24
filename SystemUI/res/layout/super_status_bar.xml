@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.StatusBarWindowView android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:sysui="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/hided_by_cover_group1" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.android.systemui.statusbar.BackDropView android:id="@id/backdrop" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" sysui:ignoreRightInset="true">
+            <ImageView android:id="@id/backdrop_back" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+            <ImageView android:id="@id/backdrop_front" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
+        </com.android.systemui.statusbar.BackDropView>
+        <com.android.systemui.statusbar.ScrimView android:id="@id/scrim_behind" android:layout_width="fill_parent" android:layout_height="fill_parent" android:importantForAccessibility="no" sysui:ignoreRightInset="true" />
+        <com.android.systemui.statusbar.AlphaOptimizedView android:id="@id/heads_up_scrim" android:background="@drawable/heads_up_scrim" android:layout_width="fill_parent" android:layout_height="@dimen/heads_up_scrim_height" android:importantForAccessibility="no" sysui:ignoreRightInset="true" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/cover_holder" android:background="#00000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:statusBarColor="@android:color/transparent" />
+    <include android:layout_width="fill_parent" android:layout_height="@dimen/status_bar_height" layout="@layout/status_bar" />
+    <FrameLayout android:id="@id/hided_by_cover_group3" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/brightness_mirror" />
+        <ViewStub android:id="@id/fullscreen_user_switcher_stub" android:layout="@layout/car_fullscreen_user_switcher" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <include android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/status_bar_expanded" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/hided_by_cover_group2" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:id="@id/keyguard_mdm_overlay_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.android.systemui.statusbar.ScrimView android:id="@id/scrim_in_front" android:layout_width="fill_parent" android:layout_height="fill_parent" android:importantForAccessibility="no" sysui:ignoreRightInset="true" />
+    </FrameLayout>
+</com.android.systemui.statusbar.phone.StatusBarWindowView>

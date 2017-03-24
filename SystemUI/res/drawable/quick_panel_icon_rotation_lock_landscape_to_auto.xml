@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="10" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_001" />
+    <item android:duration="17" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_002" />
+    <item android:duration="23" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_003" />
+    <item android:duration="30" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_004" />
+    <item android:duration="36" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_005" />
+    <item android:duration="43" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_006" />
+    <item android:duration="49" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_007" />
+    <item android:duration="56" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_008" />
+    <item android:duration="56" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_009" />
+    <item android:duration="50" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_010" />
+    <item android:duration="43" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_011" />
+    <item android:duration="37" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_012" />
+    <item android:duration="30" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_013" />
+    <item android:duration="24" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_014" />
+    <item android:duration="18" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_015" />
+    <item android:duration="11" android:drawable="@drawable/quick_panel_icon_rotation_lock_landscape_to_auto_016" />
+</animation-list>
