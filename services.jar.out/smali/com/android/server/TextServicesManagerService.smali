@@ -1965,78 +1965,92 @@
 .end method
 
 .method public getCurrentSpellCheckerSubtype(Ljava/lang/String;Z)Landroid/view/textservice/SpellCheckerSubtype;
-    .locals 13
+    .locals 14
 
     invoke-direct {p0}, Lcom/android/server/TextServicesManagerService;->calledFromValidUser()Z
 
-    move-result v10
+    move-result v11
 
-    if-nez v10, :cond_0
+    if-nez v11, :cond_0
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    return-object v10
+    return-object v11
 
     :cond_0
-    iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+    iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
-    monitor-enter v11
+    const-class v12, Landroid/view/inputmethod/InputMethodManager;
 
-    :try_start_0
-    iget-object v10, p0, Lcom/android/server/TextServicesManagerService;->mSettings:Lcom/android/server/TextServicesManagerService$TextServicesSettings;
+    invoke-virtual {v11, v12}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    const/4 v12, 0x0
+    move-result-object v4
 
-    invoke-virtual {v10, v12}, Lcom/android/server/TextServicesManagerService$TextServicesSettings;->getSelectedSpellCheckerSubtype(I)I
+    check-cast v4, Landroid/view/inputmethod/InputMethodManager;
 
-    move-result v9
-
-    const/4 v10, 0x0
-
-    invoke-virtual {p0, v10}, Lcom/android/server/TextServicesManagerService;->getCurrentSpellChecker(Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
+    invoke-virtual {v4}, Landroid/view/inputmethod/InputMethodManager;->getKnoxLockObject()Ljava/lang/Object;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    monitor-enter v6
 
-    invoke-virtual {v6}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
+    :try_start_0
+    iget-object v12, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
+
+    monitor-enter v12
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mSettings:Lcom/android/server/TextServicesManagerService$TextServicesSettings;
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v11, v13}, Lcom/android/server/TextServicesManagerService$TextServicesSettings;->getSelectedSpellCheckerSubtype(I)I
 
     move-result v10
 
-    if-nez v10, :cond_2
+    const/4 v11, 0x0
+
+    invoke-virtual {p0, v11}, Lcom/android/server/TextServicesManagerService;->getCurrentSpellChecker(Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_1
+
+    invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v11
+
+    if-nez v11, :cond_2
 
     :cond_1
-    const/4 v10, 0x0
+    :try_start_2
+    monitor-exit v12
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    monitor-exit v11
+    const/4 v11, 0x0
 
-    return-object v10
+    monitor-exit v6
+
+    return-object v11
 
     :cond_2
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
     if-eqz p2, :cond_6
 
     :cond_3
     const/4 v1, 0x0
 
-    if-nez v9, :cond_5
-
-    :try_start_1
-    iget-object v10, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
-
-    const-class v12, Landroid/view/inputmethod/InputMethodManager;
-
-    invoke-virtual {v10, v12}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/view/inputmethod/InputMethodManager;
+    if-nez v10, :cond_5
 
     if-eqz v4, :cond_4
 
+    :try_start_3
     invoke-virtual {v4}, Landroid/view/inputmethod/InputMethodManager;->getCurrentInputMethodSubtype()Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v2
@@ -2049,28 +2063,28 @@
 
     invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v10
+    move-result v11
 
-    if-nez v10, :cond_4
+    if-nez v11, :cond_4
 
     move-object v1, v5
 
     :cond_4
     if-nez v1, :cond_5
 
-    iget-object v10, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
+    iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v11}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v10
+    move-result-object v11
 
-    iget-object v10, v10, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    iget-object v11, v11, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    invoke-virtual {v10}, Ljava/util/Locale;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -2080,68 +2094,78 @@
     const/4 v3, 0x0
 
     :goto_0
-    invoke-virtual {v6}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
+    invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
 
-    move-result v10
+    move-result v11
 
-    if-ge v3, v10, :cond_a
+    if-ge v3, v11, :cond_a
 
-    invoke-virtual {v6, v3}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
-
-    move-result-object v7
-
-    if-nez v9, :cond_9
-
-    invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerSubtype;->getLocale()Ljava/lang/String;
+    invoke-virtual {v7, v3}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
 
     move-result-object v8
 
-    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    if-nez v10, :cond_9
 
-    move-result v10
+    invoke-virtual {v8}, Landroid/view/textservice/SpellCheckerSubtype;->getLocale()Ljava/lang/String;
 
-    if-eqz v10, :cond_7
+    move-result-object v9
 
-    monitor-exit v11
+    invoke-virtual {v1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    return-object v7
+    move-result v11
+
+    if-eqz v11, :cond_7
+
+    :try_start_4
+    monitor-exit v12
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    monitor-exit v6
+
+    return-object v8
 
     :cond_6
-    const/4 v10, 0x0
+    :try_start_5
+    monitor-exit v12
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    monitor-exit v11
+    const/4 v11, 0x0
 
-    return-object v10
+    monitor-exit v6
+
+    return-object v11
 
     :cond_7
     if-nez v0, :cond_8
 
-    :try_start_2
+    :try_start_6
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v10
+    move-result v11
 
-    const/4 v12, 0x2
+    const/4 v13, 0x2
 
-    if-lt v10, v12, :cond_8
+    if-lt v11, v13, :cond_8
 
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    invoke-virtual {v9}, Ljava/lang/String;->length()I
 
-    move-result v10
+    move-result v11
 
-    const/4 v12, 0x2
+    const/4 v13, 0x2
 
-    if-lt v10, v12, :cond_8
+    if-lt v11, v13, :cond_8
 
-    invoke-virtual {v1, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_8
+    if-eqz v11, :cond_8
 
-    move-object v0, v7
+    move-object v0, v8
 
     :cond_8
     add-int/lit8 v3, v3, 0x1
@@ -2149,29 +2173,49 @@
     goto :goto_0
 
     :cond_9
-    invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerSubtype;->hashCode()I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v8}, Landroid/view/textservice/SpellCheckerSubtype;->hashCode()I
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    move-result v10
+    move-result v11
 
-    if-ne v10, v9, :cond_8
+    if-ne v11, v10, :cond_8
 
-    monitor-exit v11
+    :try_start_7
+    monitor-exit v12
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    return-object v7
+    monitor-exit v6
+
+    return-object v8
 
     :cond_a
-    monitor-exit v11
+    :try_start_8
+    monitor-exit v12
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+
+    monitor-exit v6
 
     return-object v0
 
     :catchall_0
-    move-exception v10
+    move-exception v11
 
-    monitor-exit v11
+    :try_start_9
+    monitor-exit v12
 
-    throw v10
+    throw v11
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+
+    :catchall_1
+    move-exception v11
+
+    monitor-exit v6
+
+    throw v11
 .end method
 
 .method public getEnabledSpellCheckers()[Landroid/view/textservice/SpellCheckerInfo;

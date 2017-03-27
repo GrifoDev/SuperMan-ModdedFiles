@@ -2300,11 +2300,26 @@
 
     const/4 v0, 0x2
 
+    iget-object v1, p0, Landroid/net/dhcp/DhcpClient;->mDhcpLease:Landroid/net/DhcpResults;
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v0, "DhcpClient"
+
+    const-string/jumbo v1, "mDhcpLease is null, Skip sendReleasePacket"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
     const-string/jumbo v1, "DhcpClient"
 
     const-string/jumbo v2, "sendReleasePacket"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget v1, p0, Landroid/net/dhcp/DhcpClient;->mTransactionId:I
 
@@ -2336,7 +2351,7 @@
 
     iget-object v1, v1, Landroid/net/DhcpResults;->serverAddress:Ljava/net/Inet4Address;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/net/dhcp/DhcpClient;->mDhcpLease:Landroid/net/DhcpResults;
 
@@ -2351,7 +2366,7 @@
 
     return v0
 
-    :cond_0
+    :cond_1
     sget-object v7, Landroid/net/dhcp/DhcpPacket;->INADDR_BROADCAST:Ljava/net/Inet4Address;
 
     goto :goto_0

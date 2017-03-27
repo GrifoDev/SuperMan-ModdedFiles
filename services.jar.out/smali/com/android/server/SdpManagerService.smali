@@ -1804,7 +1804,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
@@ -1878,31 +1878,15 @@
 
     move-result v5
 
-    if-eqz v5, :cond_c
-
-    if-eqz p2, :cond_5
-
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7
-
-    :cond_5
-    const-string/jumbo v5, "SdpManagerService"
-
-    const-string/jumbo v8, "no password given. #1"
-
-    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v5, :cond_a
 
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
-    invoke-virtual {v5, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateCMK(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateCMK()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
-    if-nez v1, :cond_8
+    if-nez v1, :cond_6
 
     const-string/jumbo v5, "SdpManagerService"
 
@@ -1914,7 +1898,7 @@
 
     return-object v5
 
-    :cond_6
+    :cond_5
     if-nez p3, :cond_4
 
     const-string/jumbo v5, "SdpManagerService"
@@ -1927,32 +1911,23 @@
 
     return-object v5
 
-    :cond_7
-    iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
-
-    invoke-virtual {v5, p2}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateCMK(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_8
-    if-eqz p2, :cond_9
+    :cond_6
+    if-eqz p2, :cond_7
 
     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_9
 
-    :cond_9
+    :cond_7
     const-string/jumbo v5, "SdpManagerService"
 
     const-string/jumbo v8, "no password given. #2"
 
     invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_8
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
@@ -1965,7 +1940,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_b
 
     const-string/jumbo v5, "SdpManagerService"
 
@@ -1977,7 +1952,7 @@
 
     return-object v5
 
-    :cond_b
+    :cond_9
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
@@ -1990,7 +1965,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_a
+    if-nez v5, :cond_8
 
     const-string/jumbo v5, "SdpManagerService"
 
@@ -2002,7 +1977,7 @@
 
     return-object v5
 
-    :cond_c
+    :cond_a
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
@@ -2011,10 +1986,10 @@
 
     invoke-virtual {v5, v8, p2, p3}, Lcom/sec/knox/container/util/KeyManagementUtil;->generateAndStoreCMK(ILjava/lang/String;Ljava/lang/String;)Z
 
-    :cond_d
+    :cond_b
     const/4 v3, 0x0
 
-    if-nez p2, :cond_e
+    if-nez p2, :cond_c
 
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
@@ -2030,8 +2005,8 @@
 
     move-result-object v3
 
-    :goto_1
-    if-nez v3, :cond_f
+    :goto_0
+    if-nez v3, :cond_d
 
     const-string/jumbo v5, "SdpManagerService"
 
@@ -2043,7 +2018,7 @@
 
     return-object v5
 
-    :cond_e
+    :cond_c
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
     invoke-virtual {p1}, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->getId()I
@@ -2058,9 +2033,9 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_f
+    :cond_d
     iget-object v5, p0, Lcom/android/server/SdpManagerService;->mKeyManagementUtil:Lcom/sec/knox/container/util/KeyManagementUtil;
 
     invoke-virtual {v5, v3}, Lcom/sec/knox/container/util/KeyManagementUtil;->cmkToByte(Ljava/lang/String;)[B
@@ -8150,11 +8125,28 @@
 
     const/4 v8, 0x0
 
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const/16 v2, 0x3e8
+
+    if-eq v1, v2, :cond_0
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "Permission denied"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v8
+
+    :cond_0
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8164,7 +8156,7 @@
 
     return v8
 
-    :cond_0
+    :cond_1
     new-array v4, v5, [Ljava/lang/String;
 
     const-string/jumbo v1, "cache"
@@ -8197,7 +8189,7 @@
 
     move-result v7
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8207,8 +8199,8 @@
 
     return v8
 
-    :cond_1
-    if-nez v7, :cond_2
+    :cond_2
+    if-nez v7, :cond_3
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8218,7 +8210,7 @@
 
     return v8
 
-    :cond_2
+    :cond_3
     return v5
 .end method
 
@@ -8229,11 +8221,28 @@
 
     const/4 v5, 0x0
 
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const/16 v2, 0x3e8
+
+    if-eq v1, v2, :cond_0
+
+    const-string/jumbo v1, "SdpManagerService"
+
+    const-string/jumbo v2, "Permission denied"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v5
+
+    :cond_0
     invoke-direct {p0}, Lcom/android/server/SdpManagerService;->isSupportedDevice()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8243,7 +8252,7 @@
 
     return v5
 
-    :cond_0
+    :cond_1
     new-array v4, v8, [Ljava/lang/String;
 
     const-string/jumbo v1, "/"
@@ -8276,7 +8285,7 @@
 
     move-result v7
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8286,8 +8295,8 @@
 
     return v5
 
-    :cond_1
-    if-nez v7, :cond_2
+    :cond_2
+    if-nez v7, :cond_3
 
     const-string/jumbo v1, "SdpManagerService"
 
@@ -8297,7 +8306,7 @@
 
     return v5
 
-    :cond_2
+    :cond_3
     return v8
 .end method
 

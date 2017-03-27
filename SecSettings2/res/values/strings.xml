@@ -7246,7 +7246,7 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_ver">Rom Version</string>
     <string name="rom_ver_details">V2.4</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">25.03.17</string>
+    <string name="rom_date_details">29.03.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

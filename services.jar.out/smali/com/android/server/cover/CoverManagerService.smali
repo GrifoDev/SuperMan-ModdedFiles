@@ -42,6 +42,8 @@
 
 .field private static final SCREEN_UPDATE_DELAY:I = 0x1388
 
+.field private static final SERIAL_NUMBER_CUT_LENGTH:I = 0x4
+
 .field private static final SERVICE_VERSION:I = 0x1090000
 
 .field private static final SYSTEM_UI_PACKAGE:Ljava/lang/String; = "com.android.systemui"
@@ -862,17 +864,19 @@
 .end method
 
 .method private sendCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
-    .locals 9
+    .locals 11
 
-    const/4 v8, 0x1
+    const/4 v10, 0x4
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v6, 0x0
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
-
-    invoke-virtual {v2}, Lcom/android/server/cover/CoverVerifier;->isCoverAttached()Z
+    invoke-virtual {v4}, Lcom/android/server/cover/CoverVerifier;->isCoverAttached()Z
 
     move-result v0
 
@@ -880,37 +884,37 @@
 
     invoke-virtual {p0}, Lcom/android/server/cover/CoverManagerService;->getCoverSwitchStateFromInputManager()I
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
     const/4 v1, 0x1
 
     :goto_0
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2, v3, p2}, Lcom/android/server/cover/CoverVerifier;->updateCoverPropertiesLocked(Lcom/samsung/android/cover/CoverState;Lcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v4, v5, p2}, Lcom/android/server/cover/CoverVerifier;->updateCoverPropertiesLocked(Lcom/samsung/android/cover/CoverState;Lcom/samsung/android/cover/CoverState;)V
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    if-nez v2, :cond_3
+    if-nez v4, :cond_3
 
-    const-string/jumbo v2, "CoverManager"
+    const-string/jumbo v4, "CoverManager"
 
-    const-string/jumbo v3, "sendCoverAttachStateLocked : CoverState is null"
+    const-string/jumbo v5, "sendCoverAttachStateLocked : CoverState is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -925,86 +929,86 @@
     goto :goto_0
 
     :cond_3
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
+    invoke-static {v4}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/android/server/cover/Feature;->isMobileKeyboardFeatureEnabled()Z
+    invoke-virtual {v4}, Lcom/android/server/cover/Feature;->isMobileKeyboardFeatureEnabled()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_5
+    if-eqz v4, :cond_5
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    iget v2, v2, Lcom/samsung/android/cover/CoverState;->type:I
+    iget v4, v4, Lcom/samsung/android/cover/CoverState;->type:I
 
-    const/16 v3, 0x9
+    const/16 v5, 0x9
 
-    if-eq v2, v3, :cond_4
+    if-eq v4, v5, :cond_4
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    iget v2, v2, Lcom/samsung/android/cover/CoverState;->type:I
+    iget v4, v4, Lcom/samsung/android/cover/CoverState;->type:I
 
-    const/16 v3, 0xa
+    const/16 v5, 0xa
 
-    if-ne v2, v3, :cond_5
+    if-ne v4, v5, :cond_5
 
     :cond_4
     const/4 v1, 0x1
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowManagerService;->getBridge()Lcom/android/server/wm/IWindowManagerServiceBridge;
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowManagerService;->getBridge()Lcom/android/server/wm/IWindowManagerServiceBridge;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-interface {v2, v3}, Lcom/android/server/wm/IWindowManagerServiceBridge;->updateCoverSwitchState(Lcom/samsung/android/cover/CoverState;)V
+    invoke-interface {v4, v5}, Lcom/android/server/wm/IWindowManagerServiceBridge;->updateCoverSwitchState(Lcom/samsung/android/cover/CoverState;)V
 
     :cond_5
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getType()I
+    invoke-virtual {v4}, Lcom/samsung/android/cover/CoverState;->getType()I
 
-    move-result v2
+    move-result v4
 
-    const/4 v3, 0x7
+    const/4 v5, 0x7
 
-    if-ne v2, v3, :cond_d
+    if-ne v4, v5, :cond_d
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
+    invoke-static {v4}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/android/server/cover/Feature;->isNfcAuthEnabled()Z
+    invoke-virtual {v4}, Lcom/android/server/cover/Feature;->isNfcAuthEnabled()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_b
+    if-eqz v4, :cond_b
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
 
-    if-nez v2, :cond_6
+    if-nez v4, :cond_6
 
     invoke-direct {p0}, Lcom/android/server/cover/CoverManagerService;->initializeLedCoverController()V
 
     :cond_6
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
 
-    if-eqz v2, :cond_7
+    if-eqz v4, :cond_7
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mNfcLedCoverController:Lcom/android/server/cover/BaseNfcLedCoverController;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2, v0, v3}, Lcom/android/server/cover/BaseNfcLedCoverController;->updateNfcLedCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v4, v0, v5}, Lcom/android/server/cover/BaseNfcLedCoverController;->updateNfcLedCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
 
     :cond_7
     :goto_1
@@ -1016,194 +1020,204 @@
     :goto_2
     if-eqz v0, :cond_f
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getSerialNumber()Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_e
-
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v3, "CM03-%s"
-
-    new-array v4, v8, [Ljava/lang/Object;
-
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
-
-    invoke-virtual {v5}, Lcom/samsung/android/cover/CoverState;->getSerialNumber()Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v4, v7
-
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/samsung/android/cover/CoverState;->getSerialNumber()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/cover/CoverManagerUtils;->reportContextualSurvey(Landroid/content/Context;Ljava/lang/String;)V
+    if-eqz v3, :cond_e
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-le v4, v10, :cond_e
+
+    invoke-virtual {v3, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v4, v2}, Lcom/android/server/cover/CoverManagerUtils;->reportContextualSurveyCoverSerial(Landroid/content/Context;Ljava/lang/String;)V
 
     :goto_3
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mStateNotifier:Lcom/android/server/cover/StateNotifier;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mStateNotifier:Lcom/android/server/cover/StateNotifier;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2, v0, v3, p1}, Lcom/android/server/cover/StateNotifier;->updateCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;Z)V
+    invoke-virtual {v4, v0, v5, p1}, Lcom/android/server/cover/StateNotifier;->updateCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;Z)V
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverDisabler:Lcom/android/server/cover/CoverDisabler;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverDisabler:Lcom/android/server/cover/CoverDisabler;
 
-    invoke-virtual {v2}, Lcom/android/server/cover/CoverDisabler;->isCoverManagerDisabled()Z
+    invoke-virtual {v4}, Lcom/android/server/cover/CoverDisabler;->isCoverManagerDisabled()Z
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_9
+    if-nez v4, :cond_9
 
-    invoke-direct {p0, v1, p1, v8, v7}, Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
+    invoke-direct {p0, v1, p1, v9, v8}, Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
 
     :cond_9
-    iput-boolean v8, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
+    iput-boolean v9, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
 
     :goto_4
     if-nez v0, :cond_a
 
-    iget-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceBound:Z
+    iget-boolean v4, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceBound:Z
 
-    if-eqz v2, :cond_a
+    if-eqz v4, :cond_a
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceConnection:Landroid/content/ServiceConnection;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceConnection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v4, v5}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    iput-boolean v7, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceBound:Z
+    iput-boolean v8, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverServiceBound:Z
 
-    iput-object v6, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverService:Lcom/samsung/android/cover/ISViewCoverBaseService;
+    iput-object v7, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverService:Lcom/samsung/android/cover/ISViewCoverBaseService;
 
     :cond_a
-    const-string/jumbo v2, "CoverManager"
+    const-string/jumbo v4, "CoverManager"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "sendCoverAttachStateLocked : coverAttached = "
+    const-string/jumbo v6, "sendCoverAttachStateLocked : coverAttached = "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    const-string/jumbo v4, ", coverSwitchState="
+    const-string/jumbo v6, ", coverSwitchState="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_b
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
 
-    if-nez v2, :cond_c
+    if-nez v4, :cond_c
 
-    new-instance v2, Lcom/android/server/cover/LedCoverController;
+    new-instance v4, Lcom/android/server/cover/LedCoverController;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mThread:Landroid/os/HandlerThread;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v3}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v5}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v3
+    move-result-object v5
 
-    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, v3, v4}, Lcom/android/server/cover/LedCoverController;-><init>(Landroid/os/Looper;Landroid/content/Context;)V
+    invoke-direct {v4, v5, v6}, Lcom/android/server/cover/LedCoverController;-><init>(Landroid/os/Looper;Landroid/content/Context;)V
 
-    iput-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
+    iput-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
 
     :cond_c
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mLedCoverController:Lcom/android/server/cover/LedCoverController;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2, v0, v3}, Lcom/android/server/cover/LedCoverController;->updateLedCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v4, v0, v5}, Lcom/android/server/cover/LedCoverController;->updateLedCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
 
     goto/16 :goto_1
 
     :cond_d
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getType()I
+    invoke-virtual {v4}, Lcom/samsung/android/cover/CoverState;->getType()I
 
-    move-result v2
+    move-result v4
 
-    const/16 v3, 0xb
+    const/16 v5, 0xb
 
-    if-ne v2, v3, :cond_8
-
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/server/cover/Feature;->isSupportNeonCover()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeonCoverController:Lcom/android/server/cover/NeonCoverServiceController;
-
-    if-nez v2, :cond_8
-
-    new-instance v2, Lcom/android/server/cover/NeonCoverServiceController;
-
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v3}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v3
+    if-ne v4, v5, :cond_8
 
     iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, v3, v4}, Lcom/android/server/cover/NeonCoverServiceController;-><init>(Landroid/os/Looper;Landroid/content/Context;)V
+    invoke-static {v4}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
 
-    iput-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeonCoverController:Lcom/android/server/cover/NeonCoverServiceController;
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/cover/Feature;->isSupportNeonCover()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mNeonCoverController:Lcom/android/server/cover/NeonCoverServiceController;
+
+    if-nez v4, :cond_8
+
+    new-instance v4, Lcom/android/server/cover/NeonCoverServiceController;
+
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v5}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+
+    invoke-direct {v4, v5, v6}, Lcom/android/server/cover/NeonCoverServiceController;-><init>(Landroid/os/Looper;Landroid/content/Context;)V
+
+    iput-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mNeonCoverController:Lcom/android/server/cover/NeonCoverServiceController;
 
     goto/16 :goto_2
 
     :cond_e
-    const-string/jumbo v2, "CoverManager"
+    const-string/jumbo v4, "CoverManager"
 
-    const-string/jumbo v3, "Cover serial number is null, wtf?"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Cover serial number is null or too short, wtf? "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_3
 
     :cond_f
-    invoke-direct {p0, v1, p1, v8, v7}, Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
+    invoke-direct {p0, v1, p1, v9, v8}, Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
 
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mStateNotifier:Lcom/android/server/cover/StateNotifier;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mStateNotifier:Lcom/android/server/cover/StateNotifier;
 
-    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    invoke-virtual {v2, v0, v3, p1}, Lcom/android/server/cover/StateNotifier;->updateCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;Z)V
+    invoke-virtual {v4, v0, v5, p1}, Lcom/android/server/cover/StateNotifier;->updateCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;Z)V
 
     goto/16 :goto_4
 .end method

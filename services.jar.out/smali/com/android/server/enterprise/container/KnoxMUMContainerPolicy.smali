@@ -1125,7 +1125,9 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->mContainerReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v0, v1, v9}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_CONTAINER"
+
+    invoke-virtual {v0, v1, v9, v2, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     new-instance v3, Landroid/content/IntentFilter;
 

@@ -121,7 +121,7 @@
 
     const/4 v3, 0x0
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap53(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
+    invoke-static {v1, v2, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
 
     return-void
 .end method

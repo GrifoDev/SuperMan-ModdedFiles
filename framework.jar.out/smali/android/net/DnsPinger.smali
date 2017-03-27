@@ -426,6 +426,8 @@
     return-void
 
     :cond_3
+    if-eqz v10, :cond_4
+
     invoke-virtual {v10}, Ljava/net/InetAddress;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -438,13 +440,14 @@
 
     move-result-object v5
 
+    :cond_4
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     const/4 v11, 0x0
 
-    :cond_4
+    :cond_5
     :goto_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -454,7 +457,7 @@
 
     cmp-long v14, v14, p1
 
-    if-gez v14, :cond_7
+    if-gez v14, :cond_8
 
     const/4 v7, 0x0
 
@@ -469,7 +472,7 @@
 
     const/4 v15, 0x1
 
-    if-ne v14, v15, :cond_5
+    if-ne v14, v15, :cond_6
 
     move-object/from16 v0, p0
 
@@ -492,7 +495,7 @@
     invoke-virtual {v0, v1, v14, v6, v15}, Landroid/net/DnsPinger;->sendArp(ILjava/net/InetAddress;Ljava/net/InetAddress;Ljava/lang/String;)[B
 
     :goto_1
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_7
 
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -532,7 +535,7 @@
 
     return-void
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/net/DnsPinger;->mGateway:Ljava/net/InetAddress;
@@ -545,7 +548,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v14
@@ -556,13 +559,13 @@
 
     cmp-long v14, v12, v14
 
-    if-lez v14, :cond_4
+    if-lez v14, :cond_5
 
     const-wide/16 v14, 0x64
 
     cmp-long v14, v12, v14
 
-    if-gez v14, :cond_4
+    if-gez v14, :cond_5
 
     long-to-int v14, v12
 
@@ -607,10 +610,10 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     sget-boolean v14, Landroid/net/DnsPinger;->DBG:Z
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_9
 
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -648,7 +651,7 @@
 
     invoke-direct {v0, v14}, Landroid/net/DnsPinger;->log(Ljava/lang/String;)V
 
-    :cond_8
+    :cond_9
     return-void
 .end method
 

@@ -63,7 +63,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService$11;->val$info:Lcom/samsung/android/knox/SemPersonaInfo;
 
-    invoke-static {v0, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap62(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v0, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -111,7 +111,7 @@
 
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$11;->val$info:Lcom/samsung/android/knox/SemPersonaInfo;
 
-    invoke-static {v2, v4}, Lcom/android/server/pm/PersonaManagerService;->-wrap62(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v2, v4}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -435,7 +435,7 @@
 
     iget-object v12, v0, Lcom/android/server/InputMethodManagerService$MyPackageMonitor;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    const/4 v14, 0x1
+    const/4 v14, 0x0
 
     invoke-virtual {v12, v14}, Lcom/android/server/InputMethodManagerService;->buildInputMethodListLocked(Z)V
 

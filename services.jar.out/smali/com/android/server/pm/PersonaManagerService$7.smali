@@ -121,7 +121,7 @@
 
     iget v9, p0, Lcom/android/server/pm/PersonaManagerService$7;->val$personaId:I
 
-    invoke-static {v8, v3, v9, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v8, v3, v9, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap51(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
 
     add-int/lit8 v5, v5, 0x1
 
@@ -132,7 +132,7 @@
 
     iget v7, p0, Lcom/android/server/pm/PersonaManagerService$7;->val$personaId:I
 
-    invoke-static {v5, v9, v7, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v5, v9, v7, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap51(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
 
     :cond_1
     iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService$7;->this$0:Lcom/android/server/pm/PersonaManagerService;

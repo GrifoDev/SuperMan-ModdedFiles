@@ -6995,7 +6995,7 @@
 .end method
 
 .method private windowGainedFocus(ILcom/android/internal/view/IInputMethodClient;Landroid/os/IBinder;IIILandroid/view/inputmethod/EditorInfo;Lcom/android/internal/view/IInputContext;I)Lcom/android/internal/view/InputBindResult;
-    .locals 32
+    .locals 33
 
     const/16 v25, 0x1
 
@@ -7062,6 +7062,8 @@
     iput-boolean v2, v0, Lcom/android/server/InputMethodManagerService;->mSecureKeypadEnabled:Z
 
     :cond_0
+    const/16 v30, 0x0
+
     if-nez v10, :cond_1
 
     move-object/from16 v0, p0
@@ -7089,8 +7091,10 @@
 
     invoke-direct {v0, v12}, Lcom/android/server/InputMethodManagerService;->switchSpellChecker(I)V
 
+    const/16 v30, 0x1
+
     :cond_3
-    const/16 v30, 0x0
+    const/16 v31, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -7268,20 +7272,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    const/16 v30, 0x1
+    const/16 v31, 0x1
 
     :cond_6
     monitor-exit v4
 
     invoke-static/range {v22 .. v23}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-nez v30, :cond_7
+    if-eqz v30, :cond_7
 
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v10}, Lcom/android/server/InputMethodManagerService;->switchSpellChecker(I)V
+    if-eqz v31, :cond_a
 
     :cond_7
+    :goto_2
     const-string/jumbo v2, "InputMethodManagerService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7337,9 +7340,9 @@
 
     iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    monitor-enter v31
+    monitor-enter v32
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -7358,7 +7361,7 @@
 
     check-cast v3, Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_b
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -7394,7 +7397,7 @@
     move-exception v2
 
     :try_start_3
-    monitor-exit v31
+    monitor-exit v32
 
     throw v2
     :try_end_3
@@ -7460,6 +7463,13 @@
     throw v2
 
     :cond_a
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v10}, Lcom/android/server/InputMethodManagerService;->switchSpellChecker(I)V
+
+    goto/16 :goto_2
+
+    :cond_b
     :try_start_5
     move-object/from16 v0, p0
 
@@ -7471,7 +7481,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_11
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -7555,11 +7565,11 @@
 
     move-object/from16 v0, p3
 
-    if-ne v2, v0, :cond_b
+    if-ne v2, v0, :cond_c
 
     const/4 v2, 0x1
 
-    :goto_2
+    :goto_3
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -7570,11 +7580,11 @@
 
     move-result-object v5
 
-    if-eqz p7, :cond_c
+    if-eqz p7, :cond_d
 
     const/4 v2, 0x1
 
-    :goto_3
+    :goto_4
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -7601,11 +7611,11 @@
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-eq v2, v3, :cond_d
+    if-eq v2, v3, :cond_e
 
     const/4 v2, 0x1
 
-    :goto_4
+    :goto_5
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -7642,7 +7652,7 @@
 
     invoke-static {v4, v2}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_f
 
     move-object/from16 v0, p0
 
@@ -7650,9 +7660,9 @@
 
     move-object/from16 v0, p3
 
-    if-ne v2, v0, :cond_e
+    if-ne v2, v0, :cond_f
 
-    if-eqz p7, :cond_e
+    if-eqz p7, :cond_f
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -7678,18 +7688,13 @@
     move-result-object v2
 
     :try_start_6
-    monitor-exit v31
+    monitor-exit v32
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     invoke-static/range {v20 .. v21}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-object v2
-
-    :cond_b
-    const/4 v2, 0x0
-
-    goto :goto_2
 
     :cond_c
     const/4 v2, 0x0
@@ -7702,12 +7707,17 @@
     goto :goto_4
 
     :cond_e
+    const/4 v2, 0x0
+
+    goto :goto_5
+
+    :cond_f
     :try_start_7
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-eq v2, v3, :cond_f
+    if-eq v2, v3, :cond_10
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -7744,9 +7754,9 @@
     .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    :cond_f
+    :cond_10
     :try_start_8
-    monitor-exit v31
+    monitor-exit v32
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
@@ -7759,8 +7769,8 @@
     :catch_0
     move-exception v16
 
-    :cond_10
-    if-nez v8, :cond_11
+    :cond_11
+    if-nez v8, :cond_12
 
     :try_start_9
     const-string/jumbo v2, "InputMethodManagerService"
@@ -7786,7 +7796,7 @@
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     :try_start_a
-    monitor-exit v31
+    monitor-exit v32
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
@@ -7796,7 +7806,7 @@
 
     return-object v2
 
-    :cond_11
+    :cond_12
     :try_start_b
     move-object/from16 v0, p0
 
@@ -7804,7 +7814,7 @@
 
     move-object/from16 v0, p3
 
-    if-ne v2, v0, :cond_15
+    if-ne v2, v0, :cond_16
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -7854,7 +7864,7 @@
 
     invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p7, :cond_12
+    if-eqz p7, :cond_13
 
     move-object/from16 v2, p0
 
@@ -7873,7 +7883,7 @@
     move-result-object v2
 
     :try_start_c
-    monitor-exit v31
+    monitor-exit v32
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_1
 
@@ -7881,13 +7891,13 @@
 
     return-object v2
 
-    :cond_12
+    :cond_13
     :try_start_d
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/InputMethodManagerService;->mIsScreenPinnedState:Z
 
-    if-nez v2, :cond_13
+    if-nez v2, :cond_14
 
     move-object/from16 v0, p0
 
@@ -7895,12 +7905,12 @@
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_0
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_15
 
-    :cond_13
-    :goto_5
+    :cond_14
+    :goto_6
     :try_start_e
-    monitor-exit v31
+    monitor-exit v32
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_1
 
@@ -7910,23 +7920,23 @@
 
     return-object v2
 
-    :cond_14
+    :cond_15
     :try_start_f
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/InputMethodManagerService;->isInputMethodShown()Z
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_14
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/InputMethodManagerService;->isHWAccessoryKeyboard()Z
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_14
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_15
+    :cond_16
     move-object/from16 v0, p3
 
     move-object/from16 v1, p0
@@ -7941,19 +7951,19 @@
 
     iget-boolean v2, v0, Lcom/android/server/InputMethodManagerService;->knoxV2Enabled:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_17
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/InputMethodManagerService;->mIsPersona:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_17
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/server/InputMethodManagerService;->mSecureKeypadEnabled:Z
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -7969,13 +7979,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_17
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/InputMethodManagerService;->getSecureDefaultIMELocked()Landroid/view/inputmethod/InputMethodInfo;
 
     move-result-object v24
 
-    if-eqz v24, :cond_16
+    if-eqz v24, :cond_17
 
     invoke-virtual/range {v24 .. v24}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
@@ -7985,17 +7995,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_1d
 
-    :cond_16
-    :goto_6
+    :cond_17
+    :goto_7
     move/from16 v0, p5
 
     and-int/lit16 v2, v0, 0xf0
 
     const/16 v4, 0x10
 
-    if-eq v2, v4, :cond_20
+    if-eq v2, v4, :cond_21
 
     move-object/from16 v0, p0
 
@@ -8011,30 +8021,30 @@
 
     move-result v15
 
-    :goto_7
+    :goto_8
     and-int/lit8 v2, p4, 0x2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_22
 
     const/16 v26, 0x1
 
-    :goto_8
+    :goto_9
     const/high16 v2, 0x10000
 
     and-int v2, v2, p4
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_23
 
     const/16 v27, 0x1
 
-    :goto_9
+    :goto_a
     const-string/jumbo v2, "ro.build.characteristics"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v13
 
-    if-eqz v13, :cond_17
+    if-eqz v13, :cond_18
 
     const-string/jumbo v2, "phone"
 
@@ -8042,7 +8052,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_18
 
     move/from16 v0, p5
 
@@ -8050,7 +8060,7 @@
 
     const/16 v4, 0x10
 
-    if-eq v2, v4, :cond_23
+    if-eq v2, v4, :cond_24
 
     move-object/from16 v0, p0
 
@@ -8066,8 +8076,8 @@
 
     move-result v15
 
-    :cond_17
-    :goto_a
+    :cond_18
+    :goto_b
     const/4 v14, 0x0
 
     const-string/jumbo v4, "InputMethodManagerService"
@@ -8148,13 +8158,13 @@
 
     move-result-object v5
 
-    if-eqz p7, :cond_24
+    if-eqz p7, :cond_25
 
     move-object/from16 v0, p7
 
     iget-object v2, v0, Landroid/view/inputmethod/EditorInfo;->packageName:Ljava/lang/String;
 
-    :goto_b
+    :goto_c
     invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -8211,27 +8221,27 @@
 
     packed-switch v2, :pswitch_data_0
 
-    :cond_18
-    :goto_c
-    if-nez v14, :cond_1a
+    :cond_19
+    :goto_d
+    if-nez v14, :cond_1b
 
-    if-eqz p7, :cond_1a
+    if-eqz p7, :cond_1b
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurMethodId:Ljava/lang/String;
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1a
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-eq v2, v3, :cond_19
+    if-eq v2, v3, :cond_1a
 
     const/16 v25, 0x0
 
-    :cond_19
+    :cond_1a
     move-object/from16 v2, p0
 
     move-object/from16 v4, p8
@@ -8246,18 +8256,18 @@
 
     move-result-object v29
 
-    :cond_1a
+    :cond_1b
     sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1c
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1c
 
-    if-eqz v25, :cond_1b
+    if-eqz v25, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -8271,9 +8281,9 @@
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_0
 
-    :cond_1b
+    :cond_1c
     :try_start_10
-    monitor-exit v31
+    monitor-exit v32
     :try_end_10
     .catchall {:try_start_10 .. :try_end_10} :catchall_1
 
@@ -8281,7 +8291,7 @@
 
     return-object v29
 
-    :cond_1c
+    :cond_1d
     :try_start_11
     invoke-virtual/range {v24 .. v24}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
@@ -8323,9 +8333,9 @@
 
     invoke-static {v2, v4, v9, v5}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
-    :cond_1d
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -8352,7 +8362,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_17
 
     move-object/from16 v0, p0
 
@@ -8362,24 +8372,24 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_1f
+    if-eqz v18, :cond_20
 
     invoke-interface/range {v18 .. v18}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_1f
+    if-lez v2, :cond_20
 
     const/16 v19, 0x0
 
-    :goto_d
+    :goto_e
     invoke-interface/range {v18 .. v18}, Ljava/util/List;->size()I
 
     move-result v2
 
     move/from16 v0, v19
 
-    if-ge v0, v2, :cond_1f
+    if-ge v0, v2, :cond_20
 
     invoke-interface/range {v18 .. v19}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -8387,7 +8397,7 @@
 
     check-cast v24, Landroid/view/inputmethod/InputMethodInfo;
 
-    if-eqz v24, :cond_1e
+    if-eqz v24, :cond_1f
 
     invoke-virtual/range {v24 .. v24}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
@@ -8399,7 +8409,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1f
 
     invoke-virtual/range {v24 .. v24}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
 
@@ -8421,12 +8431,12 @@
 
     invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->setInputMethodLocked(Ljava/lang/String;I)V
 
-    :cond_1e
+    :cond_1f
     add-int/lit8 v19, v19, 0x1
 
-    goto :goto_d
+    goto :goto_e
 
-    :cond_1f
+    :cond_20
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -8449,51 +8459,51 @@
 
     invoke-static {v2, v4, v5, v6}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    goto/16 :goto_6
-
-    :cond_20
-    const/4 v15, 0x1
-
     goto/16 :goto_7
 
     :cond_21
-    const/16 v26, 0x0
+    const/4 v15, 0x1
 
     goto/16 :goto_8
 
     :cond_22
-    const/16 v27, 0x0
+    const/16 v26, 0x0
 
     goto/16 :goto_9
 
     :cond_23
-    const/4 v15, 0x1
+    const/16 v27, 0x0
 
     goto/16 :goto_a
 
     :cond_24
+    const/4 v15, 0x1
+
+    goto/16 :goto_b
+
+    :cond_25
     const/4 v2, 0x0
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    goto/16 :goto_b
+    goto/16 :goto_c
 
     :pswitch_0
-    if-eqz v26, :cond_27
+    if-eqz v26, :cond_28
 
-    if-eqz v15, :cond_27
+    if-eqz v15, :cond_28
 
-    if-eqz v26, :cond_18
+    if-eqz v26, :cond_19
 
-    if-eqz v15, :cond_18
+    if-eqz v15, :cond_19
 
     move/from16 v0, p5
 
     and-int/lit16 v2, v0, 0x100
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -8501,23 +8511,23 @@
 
     invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p7, :cond_26
+    if-eqz p7, :cond_27
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurMethodId:Ljava/lang/String;
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_26
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/InputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    if-eq v2, v3, :cond_25
+    if-eq v2, v3, :cond_26
 
     const/16 v25, 0x0
 
-    :cond_25
+    :cond_26
     move-object/from16 v2, p0
 
     move-object/from16 v4, p8
@@ -8534,8 +8544,8 @@
 
     const/4 v14, 0x1
 
-    :cond_26
-    if-nez v27, :cond_18
+    :cond_27
+    if-nez v27, :cond_19
 
     const/4 v2, 0x1
 
@@ -8545,14 +8555,14 @@
 
     invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->showCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
-    :cond_27
+    :cond_28
     invoke-static/range {p6 .. p6}, Landroid/view/WindowManager$LayoutParams;->mayUseInputMethod(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -8570,7 +8580,7 @@
 
     invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :pswitch_1
     const-string/jumbo v2, "InputMethodManagerService"
@@ -8579,14 +8589,14 @@
 
     invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :pswitch_2
     move/from16 v0, p5
 
     and-int/lit16 v2, v0, 0x100
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     const-string/jumbo v2, "InputMethodManagerService"
 
@@ -8602,7 +8612,7 @@
 
     invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :pswitch_3
     const-string/jumbo v2, "InputMethodManagerService"
@@ -8619,56 +8629,18 @@
 
     invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :pswitch_4
     move/from16 v0, p5
 
     and-int/lit16 v2, v0, 0x100
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     const-string/jumbo v2, "InputMethodManagerService"
 
     const-string/jumbo v4, "Window asks to show input going forward"
-
-    invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p7, :cond_28
-
-    move-object/from16 v2, p0
-
-    move-object/from16 v4, p8
-
-    move/from16 v5, p9
-
-    move-object/from16 v6, p7
-
-    move/from16 v7, p4
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/InputMethodManagerService;->startInputUncheckedLocked(Lcom/android/server/InputMethodManagerService$ClientState;Lcom/android/internal/view/IInputContext;ILandroid/view/inputmethod/EditorInfo;I)Lcom/android/internal/view/InputBindResult;
-
-    move-result-object v29
-
-    const/4 v14, 0x1
-
-    :cond_28
-    if-nez v27, :cond_18
-
-    const/4 v2, 0x1
-
-    const/4 v4, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->showCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
-
-    goto/16 :goto_c
-
-    :pswitch_5
-    const-string/jumbo v2, "InputMethodManagerService"
-
-    const-string/jumbo v4, "Window asks to always show input"
 
     invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -8691,7 +8663,45 @@
     const/4 v14, 0x1
 
     :cond_29
-    if-nez v27, :cond_18
+    if-nez v27, :cond_19
+
+    const/4 v2, 0x1
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2, v4}, Lcom/android/server/InputMethodManagerService;->showCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
+
+    goto/16 :goto_d
+
+    :pswitch_5
+    const-string/jumbo v2, "InputMethodManagerService"
+
+    const-string/jumbo v4, "Window asks to always show input"
+
+    invoke-static {v2, v4}, Lcom/samsung/android/util/SemLog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p7, :cond_2a
+
+    move-object/from16 v2, p0
+
+    move-object/from16 v4, p8
+
+    move/from16 v5, p9
+
+    move-object/from16 v6, p7
+
+    move/from16 v7, p4
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/InputMethodManagerService;->startInputUncheckedLocked(Lcom/android/server/InputMethodManagerService$ClientState;Lcom/android/internal/view/IInputContext;ILandroid/view/inputmethod/EditorInfo;I)Lcom/android/internal/view/InputBindResult;
+
+    move-result-object v29
+
+    const/4 v14, 0x1
+
+    :cond_2a
+    if-nez v27, :cond_19
 
     const/4 v2, 0x1
 
@@ -8703,7 +8713,7 @@
     :try_end_11
     .catchall {:try_start_11 .. :try_end_11} :catchall_0
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     nop
 
@@ -11083,26 +11093,6 @@
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
     invoke-virtual {v0}, Landroid/view/WindowManagerInternal;->getInputMethodWindowVisibleHeight()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getKeyboardSwitcherTweak()Z
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo p0, "hide_keyboard_switcher"
-
-    const/4 v0, 0x0
-
-    invoke-static {v1, p0, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
@@ -13714,18 +13704,18 @@
 .method onUnlockUser(I)V
     .locals 6
 
-    const/4 v2, 0x1
-
     const/4 v1, 0x0
 
-    iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
+    const/4 v2, 0x1
 
-    monitor-enter v3
+    iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
+
+    monitor-enter v4
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
+    iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
 
-    invoke-virtual {v4}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->getCurrentUserId()I
+    invoke-virtual {v3}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->getCurrentUserId()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -13733,23 +13723,28 @@
 
     if-eq p1, v0, :cond_0
 
-    monitor-exit v3
+    monitor-exit v4
 
     return-void
 
     :cond_0
     :try_start_1
-    iget-object v4, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
+    iget-object v5, p0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
 
-    iget-boolean v5, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
+    iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
+
+    move v3, v1
 
     :goto_0
-    invoke-virtual {v4, v0, v1}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->switchCurrentUser(IZ)V
+    invoke-virtual {v5, v0, v3}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->switchCurrentUser(IZ)V
 
-    const/4 v1, 0x0
+    iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mImeSelectedOnBoot:Z
 
+    if-eqz v3, :cond_2
+
+    :goto_1
     invoke-virtual {p0, v1}, Lcom/android/server/InputMethodManagerService;->buildInputMethodListLocked(Z)V
 
     const/4 v1, 0x1
@@ -13758,19 +13753,24 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v3
+    monitor-exit v4
 
     return-void
 
     :cond_1
-    move v1, v2
+    move v3, v2
 
     goto :goto_0
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_1
 
     :catchall_0
     move-exception v1
 
-    monitor-exit v3
+    monitor-exit v4
 
     throw v1
 .end method
@@ -17575,7 +17575,7 @@
 .end method
 
 .method public systemRunning(Lcom/android/server/statusbar/StatusBarManagerService;)V
-    .locals 10
+    .locals 9
 
     const/4 v4, 0x0
 
@@ -17588,7 +17588,7 @@
     :try_start_0
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mSystemReady:Z
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
     const/4 v3, 0x1
 
@@ -17608,7 +17608,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     move v3, v4
 
@@ -17662,25 +17662,19 @@
 
     invoke-direct {p0, v3, v7, v8}, Lcom/android/server/InputMethodManagerService;->updateSystemUiLocked(Landroid/os/IBinder;II)V
 
-    invoke-virtual {p0}, Lcom/android/server/InputMethodManagerService;->getKeyboardSwitcherTweak()Z
+    iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
-    move-result v2
+    const v7, 0x1120006
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    const/4 p1, 0x0
+    move-result v3
 
-    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
+    iput-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
 
-    goto :goto_1
+    iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
 
-    :cond_1
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/server/InputMethodManagerService;->mShowOngoingImeSwitcherForPhones:Z
-
-    :goto_1
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
@@ -17688,19 +17682,19 @@
 
     invoke-virtual {v3, v7}, Landroid/view/WindowManagerInternal;->setOnHardKeyboardStatusChangeListener(Landroid/view/WindowManagerInternal$OnHardKeyboardStatusChangeListener;)V
 
-    :cond_2
+    :cond_1
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mImeSelectedOnBoot:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     move v3, v4
 
-    :goto_2
+    :goto_1
     invoke-virtual {p0, v3}, Lcom/android/server/InputMethodManagerService;->buildInputMethodListLocked(Z)V
 
     iget-boolean v3, p0, Lcom/android/server/InputMethodManagerService;->mImeSelectedOnBoot:Z
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     const-string/jumbo v3, "InputMethodManagerService"
 
@@ -17732,7 +17726,7 @@
 
     invoke-static {v3, v4, v5, v7}, Lcom/android/internal/inputmethod/InputMethodUtils;->setNonSelectedSystemImesDisabledUntilUsed(Landroid/content/pm/IPackageManager;Ljava/util/List;ILjava/lang/String;)V
 
-    :cond_3
+    :cond_2
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService;->mRes:Landroid/content/res/Resources;
 
     invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
@@ -17771,7 +17765,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     :try_start_1
     new-instance v3, Lcom/android/server/InputMethodManagerService$4;
@@ -17783,21 +17777,21 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_4
-    :goto_3
+    :cond_3
+    :goto_2
     monitor-exit v6
 
     return-void
 
-    :cond_5
+    :cond_4
     move v3, v5
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_5
     move v3, v5
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v1
@@ -17811,7 +17805,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_0
     move-exception v3
