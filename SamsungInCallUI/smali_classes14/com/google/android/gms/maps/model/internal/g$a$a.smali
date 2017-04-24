@@ -43,16 +43,12 @@
 
 .method public getTile(III)Lcom/google/android/gms/maps/model/Tile;
     .locals 5
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "zoom"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

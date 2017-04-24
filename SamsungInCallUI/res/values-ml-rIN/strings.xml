@@ -121,22 +121,22 @@
     <string name="agree">സമ്മതിക്കുക</string>
     <string name="am_cover_toggle_string">കോളിന് മറുപടി നൽകാനോ നിരസിക്കാനോ കവർ തുറക്കുക.</string>
     <string name="am_device_memory_full_warning">സന്ദേശ സഹിതം സ്വയം മറുപടി നൽകുക ഉപയോഗിക്കാനാവില്ല. ശബ്ദ സന്ദേശങ്ങൾ സംരക്ഷിക്കുന്നതിന് നിങ്ങളുടെ ഉപകരണ സംഭരണത്തിൽ മതിയായ സ്ഥലമില്ല. ഏതാനും ഇനങ്ങൾ ഇല്ലാതാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="another_device_pickup_message">Another device picked up this call.</string>
+    <string name="another_device_pickup_message">ഈ കോൾ മറ്റൊരു ഉപകരണം എടുത്തു.</string>
     <string name="answering_memo_Playing_text">മറുപടി നല്‍കല്‍ സന്ദേശം പ്ലേ ചെയ്യുന്നു…</string>
     <string name="answering_memo_Recording_text">സന്ദേശം റെക്കോര്‍ഡ് ചെയ്യുന്നു…</string>
     <string name="answering_memo_sliding_button_text">മറുപടി നല്‍കുന്ന സന്ദേശം</string>
     <string name="application_not_found">ആപ്ലിക്കേഷന്‍ കണ്ടെത്തിയില്ല.</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
-    <string name="banner_calls_have_been_merged">Calls have been merged.</string>
-    <string name="banner_conferenc_call_with">In conference call with %s</string>
+    <string name="banner_calls_have_been_merged">കോളുകൾ ലയിപ്പിച്ചു.</string>
+    <string name="banner_conferenc_call_with">%s എന്നയാളുമായുള്ള കോൺഫറൻസ് കോൾ</string>
     <string name="bluetooth_popup_title">ഓഡിയോ ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
     <string name="button">ബട്ടണ്‍</string>
     <string name="call_accept_reject_tip1">ഇൻകമിംഗ് കോളുകൾക്കായി റിംഗ്‌ടോൾ നിശബ്ദമാക്കുന്നതിന് വോളിയം കീയുടെ ഏതെങ്കിലുമൊരു വശം അമർത്തുക.</string>
     <string name="call_drug_up_panel_for_kk">ഒരു ദ്രുത സന്ദേശം അയച്ച് ഒരു ഇൻകമിംഗ് കോൾ നിരസിക്കുന്നതിന് സന്ദേശം അയയ്ക്കുക എന്ന ബട്ടൺ മുകളിലേക്ക് ഇഴയ്ക്കുക.</string>
     <string name="call_drug_up_panel_for_kk_tts">നിങ്ങൾ ഒരു ഇൻകമിംഗ് കോൾ നിരസിക്കുമ്പോൾ ഒരു കോൾ നിരസിക്കൽ സന്ദേശം അയയ്ക്കാനായി കോൾ നിരസിക്കുക എന്നതിനെ സന്ദേശ പാനലിനോടൊപ്പം മേലോട്ട് ഇഴയ്ക്കുക.</string>
     <string name="call_ended_toast">കോള്‍ അവസാനിച്ചു.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">കോൾ ഫോർവേഡ് ചെയ്തത് ഇവിടേക്ക്:</string>
+    <string name="call_forwarding_from">കോൾ ഫോർവേഡ് ചെയ്തത് ഇവിടെ നിന്ന്:</string>
     <string name="call_incoming_voice_call2">ഒരു കോളിന് മറുപടി നൽകുന്നതിന് %s-ൽ സ്പർശിക്കുക.</string>
     <string name="call_incoming_voice_call2_tts">ഒരു കോളിന് മറുപടി നൽകുന്നതിന് കോളിന് മറുപടി നൽകുക എന്ന ബട്ടണിൽ സ്പർശിക്കുക.</string>
     <string name="call_incoming_voice_call3">ഒരു കോൾ നിരസിക്കുന്നതിന് %s-ൽ സ്പർശിക്കുക.</string>
@@ -161,13 +161,13 @@
     <string name="call_menu_during_call_list6_tts">വോളിയം വർദ്ധിപ്പിക്കുന്നതിന് അധിക വോളിയം ബട്ടണിൽ സ്പർശിക്കുക.</string>
     <string name="call_menu_during_call_list7">മറ്റൊരു വ്യക്തിയെ വിളിക്കുന്നതിനും അവരെ നിലവിലെ കോളിൽ ചേർക്കുന്നതിനും %s-ൽ സ്പർശിക്കുക.</string>
     <string name="call_menu_during_call_list7_tts">മറ്റൊരു വ്യക്തിയെ വിളിക്കുന്നതിനും അവരെ നിലവിലെ കോളിൽ ചേർക്കുന്നതിനും കോൾ ചേർക്കുക എന്ന ബട്ടണിൽ സ്പർശിക്കുക.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">കോൾ ചെയ്ത ദൈർഘ്യം</string>
     <string name="call_twophone_one_phone">യഥാർത്ഥ നമ്പർ</string>
     <string name="call_twophone_two_phone">രണ്ടാമത്തെ നമ്പർ</string>
     <string name="caller_info_card_last_call_log_title">ഏറ്റവും സമീപകാല കോൾ</string>
     <string name="caller_info_card_last_message_title">ഏറ്റവും സമീപകാല സന്ദേശം</string>
     <string name="caller_info_card_memo_title">കോൾ സമയത്ത് സൃഷ്ടിക്കപ്പെട്ട മെമ്മോ</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">റെക്കോർഡിംഗ് ആരംഭിക്കുന്നതിന് അല്ലെങ്കിൽ നിർത്തുന്നതിന് ഹോൾഡ് കീ അമർത്തിപ്പിടിക്കുക</string>
     <string name="callsettings_rejectmessage_list1">ക്ഷമിക്കണം, ഇപ്പോൾ എനിക്ക് സംസാരിക്കാനാവില്ല. പിന്നീട് തിരിച്ചുവിളിക്കാം.</string>
     <string name="callsettings_rejectmessage_list2">ഞാന്‍ ഒരു മീറ്റിംഗില്‍ ആണ്.</string>
     <string name="callsettings_rejectmessage_list3">ഞാന്‍ ക്ലാസ്സിലാണ്.</string>
@@ -182,7 +182,7 @@
     <string name="captured">ക്യാപ്‌ചര്‍ ചെയ്‌‌തു.</string>
     <string name="card_title_dialing_for_quick_panel">ഡയല്‍ ചെയ്യുന്നു…</string>
     <string name="card_title_dialing_to_korea">ദക്ഷിണ കൊറിയയിലേക്ക് കോൾ ചെയ്യൽ</string>
-    <string name="card_title_wifi_call_ended">Wi-Fi Call Ended</string>
+    <string name="card_title_wifi_call_ended">Wi-Fi കോൾ അവസാനിച്ചു</string>
     <string name="cdnip_service_prefix">എന്‍റെ നമ്പര്‍</string>
     <string name="chat">ചാറ്റ്</string>
     <string name="chat_aim">AIM ഉപയോഗിച്ച് ചാറ്റ് ചെയ്യുക</string>
@@ -193,10 +193,10 @@
     <string name="chat_qq">QQ ഉപയോഗിച്ച് ചാറ്റ് ചെയ്യുക</string>
     <string name="chat_skype">സ്കൈപ് ഉപയോഗിച്ച് ചാറ്റ് ചെയ്യുക</string>
     <string name="chat_yahoo">യാഹൂ! മെസ്സെ‍ഞ്ചര്‍ ഉപയോഗിച്ച് ചാറ്റ് ചെയ്യുക</string>
-    <string name="chunghwa_operator_name">Chunghwa</string>
+    <string name="chunghwa_operator_name">ചുങ്ഗ്വ</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">പങ്കാളികളുടെ പരമാവധി എണ്ണം (%d) തികഞ്ഞു.</string>
-    <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
+    <string name="conferencing_dialog_Available_for_VoiceCalls">കോൺഫറൻസിംഗ് വോയ്‌സ് കോളുകൾക്ക് മാത്രം ലഭ്യമാണ്.</string>
     <string name="contact_device_owner">ഉപകരണ ഉടമയുമായി ബന്ധപ്പെടുക</string>
     <string name="conversation_duration">സംഭാഷണ ദൈര്‍ഘ്യം</string>
     <string name="cover_endcall_image_widget_description">കോൾ അവസാനിപ്പിക്കുന്നതിന് രണ്ട് വിരലുകളുപയോഗിച്ച് ഇടത്തോട്ട് സ്വൈപ് ചെയ്യുക.</string>
@@ -204,16 +204,16 @@
     <string name="cover_incoming_call_reject_widget_description">കോൾ നിരസിക്കാനായി രണ്ട് വിരലുകളുപയോഗിച്ച് ഇടത്തേക്ക് സ്വൈപ്പുചെയ്യുക.</string>
     <string name="cover_redial_call_image_widget_description">കോൾ ചെയ്യുന്നതിന് രണ്ട് വിരലുകളുപയോഗിച്ച് ഇടത്തോട്ടോ വലത്തോട്ടോ സ്വൈപ് ചെയ്യുക.</string>
     <string name="cover_third_call_incoming">കോളിന് മറുപടി നൽകുന്നത് സജീവ കോളിനെ അവസാനിപ്പിക്കും.</string>
-    <string name="ctc_full_operator_name">China Telecom</string>
+    <string name="ctc_full_operator_name">ചൈന ടെലികോം</string>
     <string name="cu_operator_name">ചൈന യൂണികോം</string>
     <string name="current_call_with_held_call">%s-മായുള്ള നിങ്ങളുടെ കോള്‍ ഹോള്‍ഡിലാണ്.</string>
-    <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
-    <string name="data_usage_limit_dialog_continue_call">Continue call</string>
+    <string name="data_usage_charge_alert">വീഡിയോ കോളിംഗ് മൊബൈൽ നെറ്റ്‌വർക്കിൽ ഡാറ്റയും വോയ്‌സ് മിനിറ്റുകളും ഉപയോഗിക്കുന്നത് ആവശ്യപ്പെടുന്നു. നിരക്കുകൾ ബാധകമാകാം.</string>
+    <string name="data_usage_limit_dialog_continue_call">കോൾ തുടരുക</string>
     <string name="data_usage_limit_dialog_end_current_call">നിലവിലെ കോള്‍ അവസാനിപ്പിക്കുക</string>
-    <string name="data_usage_limit_dialog_message">"The data limit you had set for your phone has been reached. To check your data usage, go to Settings > Data usage.
-This video call is now using data and Mobile data will be turned off when the call has ended. Do you want to continue your call?"</string>
-    <string name="data_usage_limit_dialog_message_default">The data usage that you set on your phone is about to reach its limit. This video call requires data.</string>
-    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available Wi-Fi network.</string>
+    <string name="data_usage_limit_dialog_message">"നിങ്ങളുടെ ഫോണിനായി ക്രമീകരിച്ച ഡാറ്റ പരിധിയിലെത്തി. നിങ്ങളുടെ ഡാറ്റ ഉപയോഗം പരിശോധിക്കാൻ, ക്രമീകരണങ്ങൾ > ഡാറ്റ ഉപയോഗം എന്നതിലേക്ക് പോകുക.
+ഈ വീഡിയോ കോൾ ഇപ്പോൾ ഡാറ്റ ഉപയോഗിക്കുന്നു, കോൾ അവസാനിക്കുമ്പോൾ മൊബൈൽ ഡാറ്റ ഓഫാക്കപ്പെടും. നിങ്ങളുടെ കോൾ തുടരണോ?"</string>
+    <string name="data_usage_limit_dialog_message_default">നിങ്ങളുടെ ഫോണിൽ ക്രമീകരിച്ച ഡാറ്റ ഉപയോഗം അതിന്‍റെ പരിധിയിൽ എത്താറായിരിക്കുന്നു. ഈ വീഡിയോ കോളിന് ഡാറ്റ ആവശ്യമാണ്.</string>
+    <string name="data_usage_limit_dialog_message_tmo">നിങ്ങളുടെ ഫോണിൽ ക്രമീകരിച്ചിട്ടുള്ള ഡാറ്റ പരിധിയിലെത്തി, ഡാറ്റ ഓഫായി. വീഡിയോ കോളിന് ഒരു ഡാറ്റ കണക്ഷൻ ആവശ്യമാണ്. മൊബൈൽ ഡാറ്റ ഓണാക്കുക അല്ലെങ്കിൽ ലഭ്യമായ ഏതെങ്കിലും Wi-Fi നെറ്റ്‌വർക്കിലേക്ക് ബന്ധിപ്പിക്കുക.</string>
     <string name="date_day">ദിവസം</string>
     <string name="decline">നിരാകരിക്കുക</string>
     <string name="description_create_message">പുതിയ സന്ദേശം രചിക്കുക</string>
@@ -261,7 +261,8 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="eventLabelsGroup">ഇവന്‍റ്</string>
     <string name="extra_vol_off">അധിക വോളിയം അപ്രാപ്തമാക്കപ്പെട്ടു.</string>
     <string name="extra_vol_on">അധിക വോളിയം പ്രാപ്തമാക്കപ്പെട്ടു.</string>
-    <string name="far_end_stopped_share_video">%s stopped sharing video.</string>
+    <string name="far_end_stopped_share_video">%s വീഡിയോ പങ്കിടുന്നത് നിർത്തി.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">ഫയലിന് പിന്തുണയില്ല.</string>
     <string name="full_name">പേര്</string>
@@ -274,12 +275,12 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="high_quality_sound">HD</string>
     <string name="imLabelsGroup">IM അക്കൗണ്ട്</string>
     <string name="inCallLabel_Sec">കോള്‍</string>
-    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
-    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
-    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
-    <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
-    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
-    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
+    <string name="incall_decline_emergency_wifi_not_allow">Wi-Fi-യിലുള്ള എമർജൻസി കോളുകൾ ഈ ലൊക്കേഷനിൽ അനുവദിച്ചിട്ടില്ല.</string>
+    <string name="incall_decline_other_secondary_device">ഇതര സെക്കന്‍ററി ഉപകരണം ഉപയോഗത്തിൽ.</string>
+    <string name="incall_decline_service_not_allowed">ഈ ലൊക്കേഷനിൽ സേവനം അനുവദിച്ചിട്ടില്ല.</string>
+    <string name="incall_decline_simultaneous_call_limit_vzw">(MDN) എന്നതിനുള്ള ലഭ്യമായ എല്ലാ ലൈനുകളും ഉപയോഗത്തിലാണ്. ഒരു കോൾ ചെയ്യാൻ, നിങ്ങളുടെ മൊബൈൽ ഫോണിലെ അല്ലെങ്കിൽ ടാബ്‌ലറ്റിലെ കോളുകളിൽ ഒന്നിൽ തുടരുക.</string>
+    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">%s എന്നതിനുള്ള ലഭ്യമായ എല്ലാ ലൈനുകളും ഉപയോഗത്തിലാണ്. ഒരു കോൾ ചെയ്യാൻ, നിങ്ങളുടെ മൊബൈൽ ഫോണിലെ അല്ലെങ്കിൽ ടാബ്‌ലറ്റിലെ കോളുകളിൽ ഒന്നിൽ തുടരുക.</string>
+    <string name="incall_decline_transferred_to_another_device">കോൾ മറ്റൊരു ഉപകരണത്തിലേക്ക് കൈമാറി.</string>
     <string name="incall_error_supp_service_switch">കോളുകള്‍ക്കിടയില്‍ മാറ്റാനാവില്ല.</string>
     <string name="incall_extra_volume_disabled_BT">ബ്ലൂടൂത്ത് ഹെഡ്സെറ്റ് ബന്ധിപ്പിച്ചിരിക്കുമ്പോള്‍ അധിക ശബ്ദ പരിധി ഉപയോഗിക്കാന്‍ കഴിയില്ല.</string>
     <string name="incall_extra_volume_disabled_HAC">കേൾവി സഹായികൾ പ്രാപ്തമാക്കിയിരിക്കുമ്പോൾ അധിക വോളിയം പ്രാപ്തമാക്കാനാകില്ല.</string>
@@ -287,10 +288,10 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_extra_volume_disabled_headset">ഇയര്‍ഫോണുകള്‍ ബന്ധിപ്പിച്ചിരിക്കുമ്പോള്‍ അധിക ശബ്ദ പരിധി ഉപയോഗിക്കാന്‍ കഴിയില്ല.</string>
     <string name="incall_popup_call_remove_message">കോൾ സ്ക്രീൻ കുറുക്കുവഴി ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="incall_popup_call_remove_title">കുറുക്കുവഴി ഇല്ലാതാക്കുക</string>
-    <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
+    <string name="incall_popup_call_remove_title_vzw">എളുപ്പവഴി മറയ്ക്കുക</string>
     <string name="incall_popup_ended">അവസാനിച്ചു</string>
     <string name="incall_spam_call_block">നമ്പറിനെ തടയുക</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">കരിമ്പട്ടികയിൽ ചേർക്കുക</string>
     <string name="incall_spam_call_reject_toast">തടയൽ പട്ടികയിലേക്ക് ഫോൺ നമ്പർ ചേർത്തു.</string>
     <string name="incall_spam_call_report">നമ്പർ റിപ്പോർട്ട് ചെയ്യുക</string>
     <string name="incall_transfer_call">കോൾ കൈമാറുക</string>
@@ -306,7 +307,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="interactive_tutorial_message_send">പട്ടികയിൽ നിന്ന് ഒരു സന്ദേശം തിരഞ്ഞെടുക്കുക അല്ലെങ്കിൽ ഒരെണ്ണം രചിക്കുക.</string>
     <string name="interactive_tutorial_reject">കോൾ നിരസിക്കുന്നതിന് ഇടത്തുനിന്ന് വലത്തോട്ട് സ്വൈപ് ചെയ്യുക.</string>
     <string name="interactive_tutorial_reject_with_msg_complete">സന്ദേശങ്ങളുപയോഗിച്ച് കോളുകൾ എങ്ങനെ നിരസിക്കാമെന്ന് ഇപ്പോൾ നിങ്ങൾക്കറിയാം.</string>
-    <string name="item_call_accept_reject_for_kk">Answering and declining calls</string>
+    <string name="item_call_accept_reject_for_kk">കോളുകൾക്ക് മറുപടി നൽകലും നിരസിക്കലും</string>
     <string name="item_call_decline_with_message_for_kk">സന്ദേശങ്ങളുപയോഗിച്ച് കോളുകൾ നിരസിക്കൽ</string>
     <string name="item_phone_using_menu">കോളുകൾക്കിടയിൽ മറ്റ് പ്രവൃത്തികൾ നിർവഹിക്കൽ</string>
     <string name="kor_psvt_data_connection_lost">നെറ്റ്‌വർക്ക് കണക്ഷൻ പിശക്. കോൾ അവസാനിച്ചു.</string>
@@ -461,7 +462,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="modify_to_video_start">വീഡിയോ കോളിലേയ്ക്ക് ഒരു സ്വിച്ചുചെയ്യല്‍ അഭ്യര്‍ത്ഥിക്കുന്നു…</string>
     <string name="modify_to_voice_start">ശബ്ദ കോളിലേക്ക് സ്വിച്ചുചെയ്യുന്നു…</string>
     <string name="msg_for_video_show_never_again">ചില ഫയല്‍ ഫോര്‍മാറ്റുകള്‍ പിന്തുണയ്ക്കുന്നില്ല. പിന്തുണയ്ക്കുന്ന ഫയലുകള്‍ മാത്രമെ ഗാലറിയില്‍ കാണിക്കപ്പെടൂ.</string>
-    <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
+    <string name="mt_vt_not_possible">%s-ന് ഇപ്പോൾ വീഡിയോ കോളുകൾ സ്വീകരിക്കാനാവില്ല. ഒരു ശബ്ദ കോൾ വഴി നിങ്ങളെ ബന്ധിപ്പിക്കപ്പെടും.</string>
     <string name="nameLabelsGroup">പേര്</string>
     <string name="name_family">അവസാന നാമം</string>
     <string name="name_given">ആദ്യ നാമം</string>
@@ -486,7 +487,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="onscreenBluetoothTextOn_att">ഫോണിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
     <string name="onscreenBluetoothTextOn_tmo">ഫോണിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">സ്പീക്കർഫോൺ ഓൺ ചെയ്യുന്നതിന്, ഫ്ലിപ് ഫോൺ തുറക്കുക.</string>
     <string name="open_the_cover">കവര്‍ തുറക്കുക.</string>
     <string name="open_the_cover_incoming">വീഡിയോ കോളിന് മറുപടി പറയുന്നതിനോ നിരസിക്കുന്നതിനോ കവർ തുറക്കുക.</string>
     <string name="open_the_cover_modify_call">വിളിച്ചയാൾ വീഡിയോ കോളിലേക്ക് മാറാൻ ആഗ്രഹിക്കുന്നു. അഭ്യർത്ഥന സ്വീകരിക്കുന്നതിന്/നിരസിക്കുന്നതിന് കവർ തുറക്കുക.</string>
@@ -522,7 +523,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="quick_panel_title_voice_call">ശബ്ദ കോള്‍</string>
     <string name="quick_panel_title_volte_call">VoLTE കോള്‍</string>
     <string name="quick_panel_title_volte_call_skt">HD ശബ്ദ കോള്‍</string>
-    <string name="quick_panel_title_volte_call_vzw">Advanced Calling</string>
+    <string name="quick_panel_title_volte_call_vzw">നൂതനമായ കോൾ ചെയ്യൽ</string>
     <string name="rcs_share">പങ്കിടുക</string>
     <string name="rcs_share_donot_send_my_video">എന്നെ മറയ്ക്കുക</string>
     <string name="rcs_share_image">അഭ്യര്‍ത്ഥന സ്വീകരിക്കണമോ?</string>
@@ -579,7 +580,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="secOnscreenArrowLeftText">ഇടത് കൈയ്യന്‍</string>
     <string name="secOnscreenArrowRightText">വലത് കൈയ്യന്‍</string>
     <string name="secOnscreenCalendarText">കലണ്ടർ</string>
-    <string name="secOnscreenCallTypeText">Call type</string>
+    <string name="secOnscreenCallTypeText">കോൾ തരം</string>
     <string name="secOnscreenCameraText">ക്യാമറ</string>
     <string name="secOnscreenContactText">കോൺടാക്ടുകള്‍</string>
     <string name="secOnscreenCreateContactText">കോണ്‍‌ടാക്ട് സൃഷ്‌ടിക്കുക</string>
@@ -616,7 +617,7 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="secOnscreenMenuStopRecordText">നിര്‍ത്തുക</string>
     <string name="secOnscreenMenuSwitchCameraText">ക്യാമറ സ്വിച്ച് ചെയ്യുക</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">ഹെഡ്‌സെറ്റിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
-    <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Switch to Bluetooth</string>
+    <string name="secOnscreenMenuSwitchToHeadsetText_vzw">ബ്ലൂടൂത്തിലേക്ക് മാറുക</string>
     <string name="secOnscreenMenuSwitchToPhoneText">ഫോണിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
     <string name="secOnscreenMenuSwitchToPhoneText_att">ഫോണിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ഫോണിലേക്ക് സ്വിച്ചുചെയ്യുക</string>
@@ -632,8 +633,8 @@ IVR കോൾ സ്ക്രീൻ മെനു ഉപയോഗിക്കു�
     <string name="secOnscreenMinimiseWindowText">വിൻഡോ ചുരുക്കുക</string>
     <string name="secOnscreenMoreButton">കൂടുതല്‍</string>
     <string name="secOnscreenMoreText">കൂടുതല്‍ ഓപ്ഷനുകള്‍</string>
-    <string name="secOnscreenOneWayCamera">"One-way
-Camera"</string>
+    <string name="secOnscreenOneWayCamera">"വൺ-വേ
+ക്യാമറ"</string>
     <string name="secOnscreenPlannerText">S Planner</string>
     <string name="secOnscreenPopupAccept">മറുപടി</string>
     <string name="secOnscreenPopupEnd">നിര്‍ത്തുക</string>
@@ -644,7 +645,7 @@ Camera"</string>
     <string name="secOnscreenResumeCallText">പുനഃരാരംഭിക്കുക</string>
     <string name="secOnscreenShowCallOption">കോൾ ഐച്ഛികങ്ങൾ കാണിക്കുക</string>
     <string name="secOnscreenSpeaker">സ്‌പീക്കര്‍</string>
-    <string name="secOnscreenStopText">നിർത്തുക</string>
+    <string name="secOnscreenStopText">റെക്കോർഡിംഗ് നിർത്തുക</string>
     <string name="secOnscreenSwapText">സ്വാപ്</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">ക്യാമറ സ്വിച്ച് ചെയ്യുക</string>
@@ -663,7 +664,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">ലിസ്റ്റ് തുറക്കാന്‍ രണ്ടുതവണ ടാപ്പുചെയ്യുക.</string>
     <string name="sec_showme_text">എന്നെ കാണിക്കുക</string>
     <string name="second_screen_hold_text">%d ഹോൾഡ് ചെയ്തു</string>
-    <string name="section_contacts_only_summary">Create and manage contacts.</string>
+    <string name="section_contacts_only_summary">കോൺടാക്ടുകൾ സൃഷ്ടിക്കുക, മാനേജ് ചെയ്യുക.</string>
     <string name="select_callback_sim_card">കോൾബാക്ക് SIM കാർഡ് തിരഞ്ഞെടുക്കുക</string>
     <string name="select_callback_sim_card_content">ഈ നമ്പറിൽ നിന്നുള്ള അല്ലെങ്കിൽ അതിലേക്കുള്ള അവസാനത്തെ കോൾ അല്ലെങ്കിൽ സന്ദേശം കോളുകൾക്കായി അഭിലഷണീയമായ SIM കാർഡ് ഉപയോഗിച്ചില്ല. ഏത് SIM കാർഡ് ഉപയോഗിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="select_from_gallery">ഗ്യാലറിയില്‍ നിന്നും തിരഞ്ഞെടുക്കുക</string>
@@ -703,7 +704,7 @@ Camera"</string>
     <string name="spam_call_report_dialog_spam">സ്പാം</string>
     <string name="spam_call_report_dialog_taxis">ടാക്സിസ്</string>
     <string name="spam_call_reported_as">%s ആണെന്ന് റിപ്പോർട്ട് ചെയ്തു</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">%s ആണെന്ന് നിങ്ങൾ റിപ്പോർട്ട് ചെയ്തു</string>
     <string name="spam_call_resported_count">(%d തവണ)</string>
     <string name="spam_call_type_and_count">%1$s എന്ന് %2$d തവണ റിപ്പോർട്ട് ചെയ്തു</string>
     <string name="sub_number_item">ഇതര %d</string>
@@ -715,11 +716,12 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_without_video">വീഡിയോ ഇല്ലാതെ കോളിന് മറുപടി നൽകുന്നതിന് വലത്തോട്ട് സ്വൈപ് ചെയ്യുക.</string>
     <string name="switch_rejected_by_mt">വീഡിയോ കോളിലേക്ക് സ്വിച്ച് ചെയ്യുന്നതിനുള്ള അഭ്യര്‍ത്ഥന നിരസിച്ചു.</string>
     <string name="switch_to_video_call_failed">വീഡിയോ കോളിലേക്ക് മാറുന്നതിനുള്ള അഭ്യർത്ഥന പരാജയപ്പെട്ടു.</string>
-    <string name="switch_to_video_call_failed_tmo">Request to switch to video call was declined.</string>
+    <string name="switch_to_video_call_failed_tmo">വീഡിയോ കോളിലേക്ക് സ്വിച്ചുചെയ്യുന്നതിനുള്ള അഭ്യർത്ഥന നിരസിച്ചു.</string>
     <string name="switch_to_voice_call_failed">ശബ്ദ കോളിലേക്ക് മാറുന്നതിനുള്ള അഭ്യർത്ഥന പരാജയപ്പെട്ടു.</string>
     <string name="switched_to_voip_mo">ശബ്ദ കോളിലേക്ക് മാറുക.</string>
     <string name="switched_to_voip_mt">വിളിച്ച കക്ഷിയുടെ അഭ്യര്‍ത്ഥന കാരണം ശബ്ദ കോളിലേക്ക് മാറുക.</string>
-    <string name="switched_to_voip_mt_att_tmo">%s turned off video.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
+    <string name="switched_to_voip_mt_att_tmo">%s വീഡിയോ ഓഫാക്കി.</string>
     <string name="switching_camera_failed">ക്യാമറകൾ മാറുന്നത് പരാജയപ്പെട്ടു.</string>
     <string name="switching_to_voice_call">ശബ്ദ കോളിലേക്ക് സ്വിച്ചുചെയ്യുന്നു…</string>
     <string name="tts_hours">%d മണിക്കൂര്‍</string>
@@ -731,73 +733,78 @@ Camera"</string>
     <string name="tutorial_incoming_call_app_reject">കോൾ നിരസിക്കുന്നതിന് സ്പർശിക്കുക.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unknown_cdma">ലഭ്യമല്ല</string>
-    <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
-    <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
-    <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
-    <string name="usa_att_modify_receive_to_video">Select video mode</string>
-    <string name="usa_att_select_call_type_incoming_video_call">Tap below to select call type.</string>
-    <string name="usa_gsm_cannot_be_changed_during_conference">Call type cannot be changed during conference calls.</string>
+    <string name="usa_att_connected_as_voice">ശബ്ദമായി മാത്രം കോൾ ബന്ധിപ്പിച്ചു.</string>
+    <string name="usa_att_data_usage_charge_alert">നിങ്ങളുടെ ഉപകരണത്തിൽ സജ്ജമാക്കിയിട്ടുള്ള ഡാറ്റ ഉപയോഗം അതിന്‍റെ പരിധിയിലെത്തുകയാണ്. നിങ്ങളുടെ വീഡിയോ കോളിന് ഡാറ്റ ആവശ്യമാണ്.</string>
+    <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-യിൽ കോൾ ചെയ്യാനാകുന്നില്ല, സെല്ലുലാർ നെറ്റ്‌വർക്കിൽ ബന്ധിപ്പിക്കുന്നു. ശബ്ദ, ഡാറ്റാ നിരക്കുകൾ ബാധകമാകും.</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Wi-Fi-യിൽ കോൾ ചെയ്യാനാകുന്നില്ല, സെല്ലുലാർ നെറ്റ്‌വർക്കിൽ ബന്ധിപ്പിക്കുന്നു. ശബ്ദ, ഡാറ്റാ നിരക്കുകൾ ബാധകമാകും.</string>
+    <string name="usa_att_select_call_type_incoming_video_call">കോൾ തരം തിരഞ്ഞെടുക്കുന്നതിന് താഴെ സ്പർശിക്കുക.</string>
+    <string name="usa_gsm_cannot_be_changed_during_conference">കോൺഫറൻസ് കോളുകളുടെ സമയത്ത് കോൾ തരം മാറ്റാനാകില്ല.</string>
     <string name="usa_gsm_modify_receive_to_video">വീഡിയോ കോളിലേക്ക് സ്വിച്ചുചെയ്യാൻ %s ആഗ്രഹിക്കുന്നു.</string>
-    <string name="usa_gsm_modify_receive_to_video_share">%s wants to share video.</string>
+    <string name="usa_gsm_modify_receive_to_video_share">വീഡിയോ പങ്കിടാൻ %s ആഗ്രഹിക്കുന്നു.</string>
     <string name="usa_gsm_modify_requested_wait_for_response">പ്രതികരണത്തിനായി കാക്കുന്നു</string>
-    <string name="usa_gsm_modify_select_call_type">Select call type</string>
-    <string name="usa_gsm_switching_to_voice_call">Switching to voice only.</string>
+    <string name="usa_gsm_modify_select_call_type">കോൾ തരം തിരഞ്ഞെടുക്കുക</string>
+    <string name="usa_gsm_switching_to_voice_call">ശബ്ദം മാത്രം എന്നതിലേക്ക് സ്വിച്ചുചെയ്യൽ.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">മൊബൈൽ ഡാറ്റ ലഭ്യമല്ലാത്തതിനാൽ വീഡിയോ ഓഫ് ചെയ്തു.</string>
     <string name="usa_volte_reject_upgrade_request">%s-ന് ഇപ്പോൾ വീഡിയോ കോളുകൾ സ്വീകരിക്കാൻ കഴിയില്ല.</string>
-    <string name="usa_volte_reject_upgrade_request_tmo">Video calling is unavailable.</string>
-    <string name="usa_vzw_change_to_oneway_video">"Change to
-one-way video"</string>
-    <string name="usa_vzw_change_to_video">Change to Video</string>
-    <string name="usa_vzw_far_end_paused_video">%s’s video has been paused.</string>
-    <string name="usa_vzw_far_end_resumed_call">%s has resumed the call.</string>
-    <string name="usa_vzw_far_end_resumed_video">"%s's video has been resumed."</string>
-    <string name="usa_vzw_far_end_turned_camera_on">%s turned camera on.</string>
-    <string name="usa_vzw_far_end_turned_off_camera">%s turned camera off.</string>
-    <string name="usa_vzw_modify_receive_to_video">%s asked to change to Video Call.</string>
-    <string name="usa_vzw_modify_receive_to_video_share">%s asked to change to One-way Video.</string>
-    <string name="usa_vzw_modify_request_to_receive_oneway_video">Asking %s to receive One-way Video</string>
-    <string name="usa_vzw_modify_requesting_video_calling">Asking %s for Video Calling…</string>
-    <string name="usa_vzw_near_end_turned_camera_on">Camera has been turned back on.</string>
-    <string name="usa_vzw_notify_continue_call_with_wifi">Continuing call using Wi-Fi.</string>
-    <string name="usa_vzw_reject_upgrade_request">%s cannot receive video calls at this time.</string>
-    <string name="usa_vzw_reject_upgrade_request_cs_call">The call cannot switch to Video at this time.</string>
-    <string name="usa_vzw_reject_upgrade_request_data_setting_off">Unable to switch to Video when Mobile data is turned off.</string>
-    <string name="usa_vzw_reject_upgrade_request_video_setting_off">Unable to switch to Video when Video calling is turned off.</string>
-    <string name="usa_vzw_reject_upgrade_request_volte_setting_off">Unable to switch to Video when Advanced Calling is turned off.</string>
+    <string name="usa_volte_reject_upgrade_request_tmo">വീഡിയോ കോളിംഗ് ലഭ്യമല്ല.</string>
+    <string name="usa_vzw_change_to_oneway_video">"വൺ-വേ വീഡിയോയിലേക്ക്
+മാറ്റുക"</string>
+    <string name="usa_vzw_change_to_video">വീഡിയോയിലേക്ക് മാറ്റുക</string>
+    <string name="usa_vzw_far_end_paused_video">%s-ന്‍റെ വീഡിയോ അല്‍പംനിര്‍ത്തി.</string>
+    <string name="usa_vzw_far_end_resumed_call">%s കോൾ പുനരാരംഭിച്ചു.</string>
+    <string name="usa_vzw_far_end_resumed_video">%s-ന്‍റെ വീഡിയോ പുനരാരംഭിച്ചു.</string>
+    <string name="usa_vzw_far_end_turned_camera_on">%s ക്യാമറ ഓൺ ചെയ്തു.</string>
+    <string name="usa_vzw_far_end_turned_off_camera">%s ക്യാമറ ഓഫ് ചെയ്തു.</string>
+    <string name="usa_vzw_modify_receive_to_video">വീഡിയോ കോളിലേക്ക് മാറ്റട്ടേയെന്ന് %s ചോദിക്കുന്നു.</string>
+    <string name="usa_vzw_modify_receive_to_video_share">വൺ-വേ വീഡിയോയിലേക്ക് മാറ്റാൻ %s അഭ്യർത്ഥിച്ചു.</string>
+    <string name="usa_vzw_modify_request_to_receive_oneway_video">വൺ-വേ വീഡിയോ സ്വീകരിക്കാൻ %s ചോദിക്കൽ</string>
+    <string name="usa_vzw_modify_requesting_video_calling">വീഡിയോ കോളിംഗിനായി %s ചോദിക്കുന്നു…</string>
+    <string name="usa_vzw_near_end_turned_camera_on">ക്യാമറ തിരികെ ഓണാക്കി.</string>
+    <string name="usa_vzw_notify_continue_call_with_wifi">Wi-Fi ഉപയോഗിച്ച് കോൾ തുടരൽ.</string>
+    <string name="usa_vzw_reject_upgrade_request">%s-ന് ഇപ്പോൾ വീഡിയോ കോളുകൾ സ്വീകരിക്കാനാവില്ല.</string>
+    <string name="usa_vzw_reject_upgrade_request_cs_call">കോൾ ഇപ്പോൾ വീഡിയോയിലേക്ക് മാറാനാകില്ല.</string>
+    <string name="usa_vzw_reject_upgrade_request_data_setting_off">മൊബൈൽ ഡാറ്റ ഓഫായിരിക്കുമ്പോൾ വീഡിയോയിലേക്ക് മാറാനാകില്ല.</string>
+    <string name="usa_vzw_reject_upgrade_request_video_setting_off">വീഡിയോ കോളിംഗ് ഓഫായിരിക്കുമ്പോൾ വീഡിയോയിലേക്ക് മാറാനാകില്ല.</string>
+    <string name="usa_vzw_reject_upgrade_request_volte_setting_off">നൂതന കോളിംഗ് ഓഫായിരിക്കുമ്പോൾ വീഡിയോയിലേക്ക് മാറാനാകില്ല.</string>
     <string name="usa_vzw_secondary_is_hold">%s ഹോൾഡിലാണ്.</string>
-    <string name="usa_vzw_stay_on_voice">Stay on Voice</string>
-    <string name="usa_vzw_switched_to_voice_call">%s switched to Voice Call.</string>
+    <string name="usa_vzw_stay_on_voice">വോയ്‌സിൽ തുടരുക</string>
+    <string name="usa_vzw_switched_to_voice_call">ശബ്ദ കോളിലേക്ക് %s സ്വിച്ചുചെയ്തു.</string>
     <string name="usa_vzw_switched_to_voice_call_rx">ശബ്ദ കോളിലേക്ക് മാറുക.</string>
     <string name="usa_vzw_switching_to_voice_call">ശബ്ദ കോളിലേക്ക് സ്വിച്ചുചെയ്യുന്നു…</string>
-    <string name="usa_vzw_ugrade_request_rejected_by_caller">%s wants to stay on Voice.</string>
-    <string name="usa_vzw_upgrade_receive_reject">Call will stay on Voice.</string>
-    <string name="usa_vzw_video_call_hold_from_other_party">%s has put the call on hold.</string>
-    <string name="usa_vzw_video_incoming_during_wifi_video">Answering as a voice call will end current call.</string>
-    <string name="usa_vzw_voice_incoming_during_wifi_video">Answering incoming call will end current call.</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">The Wi-Fi signal is not strong enough to continue the call. Using mobile networks to continue your call will use your data plan.</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Use Mobile Data</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+    <string name="usa_vzw_ugrade_request_rejected_by_caller">വോയ്‌സിൽ തുടരാൻ %s ആഗ്രഹിക്കുന്നു.</string>
+    <string name="usa_vzw_upgrade_receive_reject">കോൾ വോയ്‌സിൽ തുടരും.</string>
+    <string name="usa_vzw_video_call_hold_from_other_party">കോളിനെ %s ഹോൾഡ് ചെയ്തു.</string>
+    <string name="usa_vzw_video_incoming_during_wifi_video">ഒരു ശബ്ദ കോളായി മറുപടി നൽകുന്നത് നിലവിലെ കോൾ അവസാനിപ്പിക്കും.</string>
+    <string name="usa_vzw_voice_incoming_during_wifi_video">ഇൻകമിംഗ് കോളിന് മറുപടി നൽകുന്നത് നിലവിലെ കോളിനെ അവസാനിപ്പിക്കും.</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">കോൾ തുടരുന്നതിന് Wi-Fi സിഗ്നൽ ആവശ്യത്തിന് ശക്തമല്ല. നിങ്ങളുടെ കോൾ തുടരുന്നതിന് മൊബൈൽ നെറ്റ്‌വർക്കുകൾ ഉപയോഗിക്കുന്നത് നിങ്ങളുടെ ഡാറ്റ പ്ലാൻ ഉപയോഗിക്കും.</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_title">മൊബൈല്‍ ഡാറ്റ ഉപയോഗിക്കുക</string>
+    <string name="usa_vzw_volte_weak_wifi_text">"ഞങ്ങൾ ശ്രമിച്ചു, എന്നാൽ ഇപ്പോൾ Wi-Fi-യിലേക്ക് വീഡിയോ കോൾ മാറാനാകില്ല.
 
-Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">Your video call is still running on the mobile network. (Data usage applies.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
+നിങ്ങളുടെ വീഡിയോ കോൾ ഇപ്പോഴും മൊബൈൽ നെറ്റ്‌വർക്കിൽ പ്രവർത്തിക്കുന്നു. (നിങ്ങൾ തുടരാൻ തീരുമാനിക്കുകയാണെങ്കിൽ ഡാറ്റ ഉപയോഗം ബാധകമാകും.)"</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">വീഡിയോ കോൾ ഇപ്പോഴും മൊബൈൽ നെറ്റ്‌വർക്കിൽ പ്രവർത്തിക്കുന്നു. (ഡാറ്റ ഉപയോഗം ബാധകം.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi സിഗ്നലിന് നിങ്ങളുടെ വീഡിയോ കോൾ തുടരുന്നതിന് ആവശ്യമായ ശേഷിയില്ല.
 
-Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
-    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi connection lost. Call ended.</string>
+നിങ്ങളുടെ വീഡിയോ കോൾ ഇപ്പോൾ മൊബൈൽ നെറ്റ്‌വർക്കിലാണ് പ്രവർത്തിക്കുന്നത്. (നിങ്ങൾ തുടരാൻ തീരുമാനിക്കുകയാണെങ്കിൽ ഡാറ്റ ഉപയോഗം ബാധകമാകും.)"</string>
+    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi കണക്ഷൻ നഷ്ടമായി. കോൾ അവസാനിച്ചു.</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">ഇന്ന് വീണ്ടും കാണിക്കരുത്</string>
-    <string name="video_calling_incoming">Video calling</string>
+    <string name="video_calling_incoming">വീഡിയോ കോളിംഗ്</string>
+    <string name="video_calls_quality_poor_tmo">കണക്ഷൻ മേന്മ മോശം. ശബ്ദ കോളിലേക്ക് വീഡിയോ കോള്‍ സ്വിച്ചുചെയ്തേക്കാം.</string>
     <string name="video_calls_temporarily_not_available">വീഡിയോ കോളുകൾ താൽക്കാലികമായി ലഭ്യമല്ല. ശബ്ദ കോളിലേക്ക് കോള്‍ സ്വിച്ചുചെയ്തു.</string>
-    <string name="video_calls_temporarily_not_available_tmo">Video calling is unavailable.</string>
-    <string name="video_paused_info_text">Video paused</string>
+    <string name="video_calls_temporarily_not_available_att">നിങ്ങൾ വിളിക്കുന്ന നമ്പറിന് ഇപ്പോൾ വീഡിയോ കോളുകൾ സ്വീകരിക്കാനാകില്ല. കോൾ ഒരു വോയ്‌സ് കോളായി കണക്ട് ചെയ്തു.</string>
+    <string name="video_calls_temporarily_not_available_tmo">വീഡിയോ കോളിംഗ് ലഭ്യമല്ല.</string>
+    <string name="video_paused_info_text">വീഡിയോ പോസ് ചെയ്തു</string>
     <string name="video_saved">വീഡിയോയെ %s-ൽ സംരക്ഷിച്ചു.</string>
     <string name="video_saved_by_memory_full">മതിയായ ഉപകരണ സംഭരണശേഷിയില്ല. വീഡിയോയെ %s-ൽ സംരക്ഷിച്ചു.</string>
-    <string name="voiceonly">Voice only</string>
+    <string name="voiceonly">ശബ്ദം മാത്രം</string>
     <string name="waiting_call_dialog_Ending">%s-മൊത്തുള്ള കോൾ അവസാനിപ്പിക്കുക</string>
     <string name="waiting_call_dialog_Holding">%s-നെ ഹോൾഡിൽ വയ്ക്കുക</string>
     <string name="waiting_call_dialog_Merging">%s-മായി ലയിപ്പിക്കുക</string>
-    <string name="waiting_call_dialog_Merging_not_possible">Conference calling not available for video calls</string>
+    <string name="waiting_call_dialog_Merging_not_possible">വീഡിയോ കോളുകൾക്കായി കോൺഫറൻസ് കോളിംഗ് ലഭ്യമല്ല</string>
     <string name="waiting_call_dialog_dismiss_toast">%1$s കോൾ അവസാനിപ്പിച്ചു. %2$s-മൊത്തുള്ള കോൾ പുനരാരംഭിക്കുന്നു…</string>
     <string name="waiting_call_dialog_message">കോൾ എടുക്കുക</string>
     <string name="websiteLabelsGroup">വെബ് വിലാസം</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">യെല്ലോ പേജുകൾ</string>
 </resources>

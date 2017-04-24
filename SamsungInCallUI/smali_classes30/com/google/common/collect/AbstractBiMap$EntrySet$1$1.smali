@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/AbstractBiMap$EntrySet$1;Ljava/util/Map$Entry;)V
     .locals 0
 
-    .prologue
-    .line 327
-    .local p0, "this":Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;, "Lcom/google/common/collect/AbstractBiMap$EntrySet$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/AbstractBiMap$EntrySet$1;
 
     iput-object p2, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->val$finalEntry:Ljava/util/Map$Entry;
@@ -48,9 +45,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 327
-    .local p0, "this":Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;, "Lcom/google/common/collect/AbstractBiMap$EntrySet$1.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -68,9 +62,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 330
-    .local p0, "this":Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;, "Lcom/google/common/collect/AbstractBiMap$EntrySet$1.1;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->val$finalEntry:Ljava/util/Map$Entry;
 
     return-object v0
@@ -84,14 +75,10 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;, "Lcom/google/common/collect/AbstractBiMap$EntrySet$1.1;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
-    .line 336
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/AbstractBiMap$EntrySet$1;
 
     iget-object v1, v1, Lcom/google/common/collect/AbstractBiMap$EntrySet$1;->this$1:Lcom/google/common/collect/AbstractBiMap$EntrySet;
@@ -104,7 +91,6 @@
 
     invoke-static {v1, v4}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    .line 338
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -115,13 +101,9 @@
 
     if-eqz v1, :cond_0
 
-    .line 345
-    .end local p1    # "value":Ljava/lang/Object;, "TV;"
     :goto_0
     return-object p1
 
-    .line 341
-    .restart local p1    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/AbstractBiMap$EntrySet$1;
 
@@ -146,15 +128,12 @@
 
     invoke-static {v1, v4, v5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 342
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->val$finalEntry:Ljava/util/Map$Entry;
 
     invoke-interface {v1, p1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 343
-    .local v0, "oldValue":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/AbstractBiMap$EntrySet$1;
 
     iget-object v1, v1, Lcom/google/common/collect/AbstractBiMap$EntrySet$1;->this$1:Lcom/google/common/collect/AbstractBiMap$EntrySet;
@@ -177,7 +156,6 @@
 
     invoke-static {v1, v3}, Lcom/google/common/base/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    .line 344
     iget-object v1, p0, Lcom/google/common/collect/AbstractBiMap$EntrySet$1$1;->this$2:Lcom/google/common/collect/AbstractBiMap$EntrySet$1;
 
     iget-object v1, v1, Lcom/google/common/collect/AbstractBiMap$EntrySet$1;->this$1:Lcom/google/common/collect/AbstractBiMap$EntrySet;
@@ -193,13 +171,10 @@
 
     move-object p1, v0
 
-    .line 345
     goto :goto_0
 
-    .end local v0    # "oldValue":Ljava/lang/Object;, "TV;"
     :cond_1
     move v1, v3
 
-    .line 341
     goto :goto_1
 .end method

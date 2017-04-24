@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;
 
-    .prologue
-    .line 156
     iput-object p1, p0, Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager$2;->this$0:Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +36,9 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
     const/4 v5, 0x1
 
-    .line 160
     iget-object v2, p0, Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager$2;->this$0:Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;
 
     iget-object v2, v2, Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager;->tvDeviceInfo:Landroid/widget/TextView;
@@ -56,8 +49,6 @@
 
     check-cast v1, Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager$DeviceInfo;
 
-    .line 161
-    .local v1, "info":Lcom/android/incallui/operator/usa/softphone/SoftPhoneTransferManager$DeviceInfo;
     const-string v2, "SoftPhoneTransferManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -84,7 +75,6 @@
 
     invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 163
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -93,11 +83,8 @@
 
     move-result-object v0
 
-    .line 165
-    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_0
 
-    .line 166
     const-string v2, "SoftPhoneTransferManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -124,7 +111,6 @@
 
     invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 167
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v2
@@ -139,14 +125,11 @@
 
     invoke-virtual {v2, v0, v3, v4}, Lcom/android/incallui/TelecomAdapter;->requestJanskyTransfer(Lcom/android/incallui/Call;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 171
     :goto_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 172
     return-void
 
-    .line 169
     :cond_0
     const-string v2, "SoftPhoneTransferManager"
 

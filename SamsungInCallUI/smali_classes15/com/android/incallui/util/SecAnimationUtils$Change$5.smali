@@ -24,8 +24,6 @@
 .method constructor <init>(Landroid/view/View;I)V
     .locals 0
 
-    .prologue
-    .line 805
     iput-object p1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$5;->val$targetView:Landroid/view/View;
 
     iput p2, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$5;->val$newHeight:I
@@ -39,10 +37,7 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 813
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$5;->val$targetView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -53,27 +48,21 @@
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 814
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$5;->val$targetView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
-    .line 815
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 808
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$5;->val$targetView:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 809
     return-void
 .end method

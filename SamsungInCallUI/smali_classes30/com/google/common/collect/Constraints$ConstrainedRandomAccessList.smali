@@ -41,13 +41,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 268
-    .local p0, "this":Lcom/google/common/collect/Constraints$ConstrainedRandomAccessList;, "Lcom/google/common/collect/Constraints$ConstrainedRandomAccessList<TE;>;"
-    .local p1, "delegate":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    .local p2, "constraint":Lcom/google/common/collect/Constraint;, "Lcom/google/common/collect/Constraint<-TE;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Constraints$ConstrainedList;-><init>(Ljava/util/List;Lcom/google/common/collect/Constraint;)V
 
-    .line 269
     return-void
 .end method

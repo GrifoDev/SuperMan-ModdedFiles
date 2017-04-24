@@ -23,6 +23,8 @@
 
 .field public isLivePreview:Z
 
+.field public isLowQuality:Z
+
 .field public isNeedResizeAnimation:Z
 
 .field public isScreenResized:Z
@@ -37,45 +39,35 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/service/vt/VideoCallManager;)V
     .locals 2
-    .param p1, "this$0"    # Lcom/android/incallui/service/vt/VideoCallManager;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 563
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 554
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isLivePreview:Z
 
-    .line 555
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isSwitchCameraClicked:Z
 
-    .line 556
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isScreenResized:Z
 
-    .line 557
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isNeedResizeAnimation:Z
 
-    .line 558
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isExchangedViews:Z
 
-    .line 559
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->capturedHideMeImage:Ljava/lang/String;
 
-    .line 560
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isEnoughSpaceForAnswer:Z
 
-    .line 561
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isSwapProgressing:Z
 
-    .line 564
+    iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isLowQuality:Z
+
     return-void
 .end method
 
@@ -84,46 +76,36 @@
 .method public clear()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 567
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isLivePreview:Z
 
-    .line 568
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isSwitchCameraClicked:Z
 
-    .line 569
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isScreenResized:Z
 
-    .line 570
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isNeedResizeAnimation:Z
 
-    .line 571
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isExchangedViews:Z
 
-    .line 572
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->capturedHideMeImage:Ljava/lang/String;
 
-    .line 573
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isEnoughSpaceForAnswer:Z
 
-    .line 574
     iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isSwapProgressing:Z
 
-    .line 575
+    iput-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isLowQuality:Z
+
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 578
     const-string v0, " VideoDetails {LivePreview=%s, CameraSwitching=%s, ExchangedView=%s}"
 
     const/4 v1, 0x3
@@ -134,7 +116,6 @@
 
     iget-boolean v3, p0, Lcom/android/incallui/service/vt/VideoCallManager$VideoDetails;->isLivePreview:Z
 
-    .line 579
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
@@ -161,7 +142,6 @@
 
     aput-object v3, v1, v2
 
-    .line 578
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

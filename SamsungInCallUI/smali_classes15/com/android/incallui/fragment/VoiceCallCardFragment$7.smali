@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;Landroid/graphics/Point;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    .prologue
-    .line 1839
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iput-object p2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->val$startPoint:Landroid/graphics/Point;
@@ -44,8 +41,6 @@
 .method public onGlobalLayout()V
     .locals 7
 
-    .prologue
-    .line 1842
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-virtual {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getView()Landroid/view/View;
@@ -56,37 +51,30 @@
 
     move-result-object v1
 
-    .line 1843
-    .local v1, "observer":Landroid/view/ViewTreeObserver;
     invoke-virtual {v1}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v4
 
     if-nez v4, :cond_1
 
-    .line 1870
     :cond_0
     :goto_0
     return-void
 
-    .line 1846
     :cond_1
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 1847
     const-string v4, "VoiceCallCardFragment"
 
     const-string v5, "onGlobalLayout..."
 
     invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1849
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->setViewStateBeforeOutgoingAnimation()V
     invoke-static {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->access$200(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 
-    .line 1851
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     new-instance v5, Landroid/animation/AnimatorSet;
@@ -95,7 +83,6 @@
 
     iput-object v5, v4, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOutgoingAnimatorSet:Landroid/animation/AnimatorSet;
 
-    .line 1852
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v5, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->val$startPoint:Landroid/graphics/Point;
@@ -105,8 +92,6 @@
 
     move-result-object v3
 
-    .line 1853
-    .local v3, "revealWindowAnimator":Landroid/animation/Animator;
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     # invokes: Lcom/android/incallui/fragment/VoiceCallCardFragment;->getRevealViewsAnimator()Landroid/animation/Animator;
@@ -114,8 +99,6 @@
 
     move-result-object v2
 
-    .line 1855
-    .local v2, "revealViewsAnimator":Landroid/animation/Animator;
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v4, v4, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOutgoingAnimatorSet:Landroid/animation/AnimatorSet;
@@ -134,7 +117,6 @@
 
     invoke-virtual {v4, v5}, Landroid/animation/AnimatorSet;->playSequentially([Landroid/animation/Animator;)V
 
-    .line 1856
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v4, v4, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOutgoingAnimatorSet:Landroid/animation/AnimatorSet;
@@ -145,14 +127,12 @@
 
     invoke-virtual {v4, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 1863
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v4, v4, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOutgoingAnimatorSet:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v4}, Landroid/animation/AnimatorSet;->start()V
 
-    .line 1864
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-virtual {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
@@ -161,7 +141,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 1865
     iget-object v4, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-virtual {v4}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getActivity()Landroid/app/Activity;
@@ -170,15 +149,12 @@
 
     check-cast v0, Lcom/android/incallui/InCallActivity;
 
-    .line 1866
-    .local v0, "activity":Lcom/android/incallui/InCallActivity;
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
-    .line 1867
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
 
     move-result-object v4

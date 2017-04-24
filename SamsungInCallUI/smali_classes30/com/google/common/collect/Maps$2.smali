@@ -29,8 +29,6 @@
 .method constructor <init>(Ljava/util/Set;)V
     .locals 0
 
-    .prologue
-    .line 982
     iput-object p1, p0, Lcom/google/common/collect/Maps$2;->val$set:Ljava/util/Set;
 
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSet;-><init>()V
@@ -48,9 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 990
-    .local p1, "element":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -68,9 +63,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 995
-    .local p1, "es":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -81,8 +73,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 982
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$2;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -93,8 +83,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 982
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$2;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -112,8 +100,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 985
     iget-object v0, p0, Lcom/google/common/collect/Maps$2;->val$set:Ljava/util/Set;
 
     return-object v0

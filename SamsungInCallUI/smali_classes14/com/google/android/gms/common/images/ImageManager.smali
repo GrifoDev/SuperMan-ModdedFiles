@@ -91,10 +91,7 @@
 
 .method private constructor <init>(Landroid/content/Context;Z)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "withMemoryCache"    # Z
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -329,9 +326,7 @@
 
 .method public static create(Landroid/content/Context;)Lcom/google/android/gms/common/images/ImageManager;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Lcom/google/android/gms/common/images/ImageManager;->a(Landroid/content/Context;Z)Lcom/google/android/gms/common/images/ImageManager;
@@ -431,10 +426,7 @@
 
 .method public loadImage(Landroid/widget/ImageView;I)V
     .locals 1
-    .param p1, "imageView"    # Landroid/widget/ImageView;
-    .param p2, "resId"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/common/images/a;
 
     invoke-direct {v0, p2}, Lcom/google/android/gms/common/images/a;-><init>(I)V
@@ -448,10 +440,7 @@
 
 .method public loadImage(Landroid/widget/ImageView;Landroid/net/Uri;)V
     .locals 1
-    .param p1, "imageView"    # Landroid/widget/ImageView;
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/common/images/a;
 
     invoke-direct {v0, p2}, Lcom/google/android/gms/common/images/a;-><init>(Landroid/net/Uri;)V
@@ -465,11 +454,7 @@
 
 .method public loadImage(Landroid/widget/ImageView;Landroid/net/Uri;I)V
     .locals 1
-    .param p1, "imageView"    # Landroid/widget/ImageView;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "defaultResId"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/common/images/a;
 
     invoke-direct {v0, p2}, Lcom/google/android/gms/common/images/a;-><init>(Landroid/net/Uri;)V
@@ -485,10 +470,7 @@
 
 .method public loadImage(Lcom/google/android/gms/common/images/ImageManager$OnImageLoadedListener;Landroid/net/Uri;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/images/ImageManager$OnImageLoadedListener;
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/common/images/a;
 
     invoke-direct {v0, p2}, Lcom/google/android/gms/common/images/a;-><init>(Landroid/net/Uri;)V
@@ -502,11 +484,7 @@
 
 .method public loadImage(Lcom/google/android/gms/common/images/ImageManager$OnImageLoadedListener;Landroid/net/Uri;I)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/images/ImageManager$OnImageLoadedListener;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "defaultResId"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/common/images/a;
 
     invoke-direct {v0, p2}, Lcom/google/android/gms/common/images/a;-><init>(Landroid/net/Uri;)V

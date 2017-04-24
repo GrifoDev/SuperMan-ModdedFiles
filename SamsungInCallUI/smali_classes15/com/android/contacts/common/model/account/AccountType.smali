@@ -74,8 +74,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 305
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$1;
 
     invoke-direct {v0}, Lcom/android/contacts/common/model/account/AccountType$1;-><init>()V
@@ -88,26 +86,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     iput-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->accountType:Ljava/lang/String;
 
-    .line 62
     iput-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->dataSet:Ljava/lang/String;
 
-    .line 91
     invoke-static {}, Lcom/google/common/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mKinds:Ljava/util/ArrayList;
 
-    .line 96
     invoke-static {}, Lcom/google/common/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
@@ -119,43 +111,30 @@
 
 .method public static getDisplayIcon(Landroid/content/Context;IILjava/lang/String;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "titleRes"    # I
-    .param p2, "iconRes"    # I
-    .param p3, "syncAdapterPackageName"    # Ljava/lang/String;
 
-    .prologue
     const/4 v1, 0x0
 
     const/4 v2, -0x1
 
-    .line 287
     if-eq p1, v2, :cond_1
 
     if-eqz p3, :cond_1
 
-    .line 288
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
-    .line 289
-    .local v0, "pm":Landroid/content/pm/PackageManager;
     invoke-virtual {v0, p3, p2, v1}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 293
-    .end local v0    # "pm":Landroid/content/pm/PackageManager;
     :cond_0
     :goto_0
     return-object v1
 
-    .line 290
     :cond_1
     if-eq p1, v2, :cond_0
 
-    .line 291
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -169,47 +148,32 @@
 
 .method static getResourceText(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)Ljava/lang/CharSequence;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "resId"    # I
-    .param p3, "defaultValue"    # Ljava/lang/String;
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
-    .prologue
     const/4 v1, -0x1
 
-    .line 271
     if-eq p2, v1, :cond_1
 
     if-eqz p1, :cond_1
 
-    .line 272
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
-    .line 273
-    .local v0, "pm":Landroid/content/pm/PackageManager;
     const/4 v1, 0x0
 
     invoke-virtual {v0, p1, p2, v1}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object p3
 
-    .line 277
-    .end local v0    # "pm":Landroid/content/pm/PackageManager;
-    .end local p3    # "defaultValue":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object p3
 
-    .line 274
-    .restart local p3    # "defaultValue":Ljava/lang/String;
     :cond_1
     if-eq p2, v1, :cond_0
 
-    .line 275
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p3
@@ -221,20 +185,16 @@
 # virtual methods
 .method public addKind(Lcom/android/contacts/common/model/dataitem/DataKind;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 3
-    .param p1, "kind"    # Lcom/android/contacts/common/model/dataitem/DataKind;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
         }
     .end annotation
 
-    .prologue
-    .line 334
     iget-object v0, p1, Lcom/android/contacts/common/model/dataitem/DataKind;->mimeType:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 335
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     const-string v1, "null is not a valid mime type"
@@ -243,7 +203,6 @@
 
     throw v0
 
-    .line 337
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mMimeKinds:Ljava/util/HashMap;
 
@@ -255,7 +214,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 338
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$DefinitionException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -288,25 +246,21 @@
 
     throw v0
 
-    .line 342
     :cond_1
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->resourcePackageName:Ljava/lang/String;
 
     iput-object v0, p1, Lcom/android/contacts/common/model/dataitem/DataKind;->resourcePackageName:Ljava/lang/String;
 
-    .line 343
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mKinds:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 344
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mMimeKinds:Ljava/util/HashMap;
 
     iget-object v1, p1, Lcom/android/contacts/common/model/dataitem/DataKind;->mimeType:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 345
     return-object p1
 .end method
 
@@ -316,8 +270,6 @@
 .method public getAccountTypeAndDataSet()Lcom/android/contacts/common/model/account/AccountTypeWithDataSet;
     .locals 2
 
-    .prologue
-    .line 225
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->accountType:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/contacts/common/model/account/AccountType;->dataSet:Ljava/lang/String;
@@ -332,8 +284,6 @@
 .method public getCreateContactActivityClassName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 161
     const/4 v0, 0x0
 
     return-object v0
@@ -341,10 +291,7 @@
 
 .method public getDisplayIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 282
     iget v0, p0, Lcom/android/contacts/common/model/account/AccountType;->titleRes:I
 
     iget v1, p0, Lcom/android/contacts/common/model/account/AccountType;->iconRes:I
@@ -360,10 +307,7 @@
 
 .method public getDisplayLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 204
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->syncAdapterPackageName:Ljava/lang/String;
 
     iget v1, p0, Lcom/android/contacts/common/model/account/AccountType;->titleRes:I
@@ -380,8 +324,6 @@
 .method public getEditContactActivityClassName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 150
     const/4 v0, 0x0
 
     return-object v0
@@ -399,8 +341,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 235
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -410,10 +350,7 @@
 
 .method public getInviteContactActionLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 244
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->syncAdapterPackageName:Ljava/lang/String;
 
     invoke-virtual {p0}, Lcom/android/contacts/common/model/account/AccountType;->getInviteContactActionResId()I
@@ -432,8 +369,6 @@
 .method protected getInviteContactActionResId()I
     .locals 1
 
-    .prologue
-    .line 211
     const/4 v0, -0x1
 
     return v0
@@ -442,8 +377,6 @@
 .method public getInviteContactActivityClassName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 172
     const/4 v0, 0x0
 
     return-object v0
@@ -451,10 +384,7 @@
 
 .method public getKindForMimetype(Ljava/lang/String;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 1
-    .param p1, "mimeType"    # Ljava/lang/String;
 
-    .prologue
-    .line 327
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mMimeKinds:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -478,15 +408,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 318
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mKinds:Ljava/util/ArrayList;
 
     sget-object v1, Lcom/android/contacts/common/model/account/AccountType;->sWeightComparator:Ljava/util/Comparator;
 
     invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 319
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mKinds:Ljava/util/ArrayList;
 
     return-object v0
@@ -495,8 +422,6 @@
 .method public getViewContactNotifyServiceClassName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 183
     const/4 v0, 0x0
 
     return-object v0
@@ -505,8 +430,6 @@
 .method public getViewContactNotifyServicePackageName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 194
     iget-object v0, p0, Lcom/android/contacts/common/model/account/AccountType;->syncAdapterPackageName:Ljava/lang/String;
 
     return-object v0
@@ -515,8 +438,6 @@
 .method public getViewGroupActivity()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 199
     const/4 v0, 0x0
 
     return-object v0
@@ -524,13 +445,9 @@
 
 .method public getViewGroupLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 253
     iget-object v1, p0, Lcom/android/contacts/common/model/account/AccountType;->syncAdapterPackageName:Ljava/lang/String;
 
-    .line 254
     invoke-virtual {p0}, Lcom/android/contacts/common/model/account/AccountType;->getViewGroupLabelResId()I
 
     move-result v2
@@ -541,18 +458,14 @@
 
     move-result-object v0
 
-    .line 256
-    .local v0, "customTitle":Ljava/lang/CharSequence;
     if-nez v0, :cond_0
 
-    const v1, 0x7f0905be
+    const v1, 0x7f0905c4
 
-    .line 257
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .end local v0    # "customTitle":Ljava/lang/CharSequence;
     :cond_0
     return-object v0
 .end method
@@ -560,8 +473,6 @@
 .method protected getViewGroupLabelResId()I
     .locals 1
 
-    .prologue
-    .line 218
     const/4 v0, -0x1
 
     return v0
@@ -570,8 +481,6 @@
 .method public isEmbedded()Z
     .locals 1
 
-    .prologue
-    .line 128
     const/4 v0, 0x1
 
     return v0
@@ -580,8 +489,6 @@
 .method public isExtension()Z
     .locals 1
 
-    .prologue
-    .line 132
     const/4 v0, 0x0
 
     return v0
@@ -593,8 +500,6 @@
 .method public final isInitialized()Z
     .locals 1
 
-    .prologue
-    .line 116
     iget-boolean v0, p0, Lcom/android/contacts/common/model/account/AccountType;->mIsInitialized:Z
 
     return v0

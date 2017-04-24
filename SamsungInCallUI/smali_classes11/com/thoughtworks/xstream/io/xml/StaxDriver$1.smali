@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
     .locals 0
-    .param p2, "x0"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
-    .prologue
-    .line 112
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;->this$0:Lcom/thoughtworks/xstream/io/xml/StaxDriver;
 
     iput-object p3, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;->val$stream:Ljava/io/InputStream;
@@ -41,11 +38,8 @@
 .method public close()V
     .locals 1
 
-    .prologue
-    .line 115
     invoke-super {p0}, Lcom/thoughtworks/xstream/io/ReaderWrapper;->close()V
 
-    .line 117
     :try_start_0
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;->val$stream:Ljava/io/InputStream;
 
@@ -53,11 +47,9 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 121
     :goto_0
     return-void
 
-    .line 118
     :catch_0
     move-exception v0
 

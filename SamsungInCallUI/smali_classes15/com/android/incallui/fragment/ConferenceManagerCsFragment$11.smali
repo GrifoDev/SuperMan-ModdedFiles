@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    .prologue
-    .line 807
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,15 +36,11 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 3
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 819
     const-string v0, "mAnimationFadeOutListener onAnimationEnd!!"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 820
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -74,7 +67,6 @@
     # setter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
     invoke-static {v1, v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$502(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    .line 821
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->conferenceRowCallStateLabel:Landroid/widget/TextView;
@@ -86,7 +78,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 822
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -97,7 +88,6 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/ConferenceManagerPresenter;->manageConferenceUpdateAfterAnim()V
 
-    .line 823
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$11;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -111,29 +101,21 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->setConferenceListAlpha(IF)V
 
-    .line 824
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 815
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 1
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 810
     const-string v0, "mAnimationFadeOutListener onAnimationStart!!"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 811
     return-void
 .end method

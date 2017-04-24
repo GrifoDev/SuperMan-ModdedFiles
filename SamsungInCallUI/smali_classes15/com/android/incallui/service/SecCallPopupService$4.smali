@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupService;Lcom/android/incallui/Call;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupService;
 
-    .prologue
-    .line 368
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iput-object p2, p0, Lcom/android/incallui/service/SecCallPopupService$4;->val$call:Lcom/android/incallui/Call;
@@ -43,11 +40,7 @@
 # virtual methods
 .method public onContactInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 3
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    .prologue
-    .line 371
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -73,15 +66,12 @@
     # invokes: Lcom/android/incallui/service/SecCallPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;Ljava/lang/String;Z)V
 
-    .line 372
     if-eqz p2, :cond_1
 
-    .line 373
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iput-object p2, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    .line 374
     const-string v0, "feature_dcm"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -102,7 +92,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 375
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -116,7 +105,6 @@
 
     iput-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->hide_status:Z
 
-    .line 377
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -127,7 +115,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 378
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -139,28 +126,19 @@
 
     invoke-virtual {v0, v1, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->updatePrimaryDisplayInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
-    .line 380
     :cond_1
     return-void
 .end method
 
 .method public onContactInteractionsInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 0
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    .prologue
-    .line 398
     return-void
 .end method
 
 .method public onImageLoadComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
     .locals 3
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    .prologue
-    .line 384
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     const-string v1, "onImageLoadComplete"
@@ -170,21 +148,18 @@
     # invokes: Lcom/android/incallui/service/SecCallPopupService;->log(Ljava/lang/String;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/service/SecCallPopupService;->access$300(Lcom/android/incallui/service/SecCallPopupService;Ljava/lang/String;Z)V
 
-    .line 385
     if-eqz p2, :cond_0
 
     iget-object v0, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->photo:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 386
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
     if-eqz v0, :cond_0
 
-    .line 387
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -193,7 +168,6 @@
 
     iput-object v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->photo:Landroid/graphics/drawable/Drawable;
 
-    .line 388
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v0, v0, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -202,7 +176,6 @@
 
     iput-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isPersonalPhotoAvailable:Z
 
-    .line 389
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -212,7 +185,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 390
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService$4;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
@@ -226,7 +198,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryImage(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
-    .line 393
     :cond_0
     return-void
 .end method

@@ -47,17 +47,12 @@
 .method constructor <init>(Lcom/google/common/cache/LocalCache$WriteQueue;)V
     .locals 0
 
-    .prologue
-    .line 3611
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->this$0:Lcom/google/common/cache/LocalCache$WriteQueue;
 
     invoke-direct {p0}, Lcom/google/common/cache/LocalCache$AbstractReferenceEntry;-><init>()V
 
-    .line 3621
     iput-object p0, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->nextWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
-    .line 3633
     iput-object p0, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->previousWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     return-void
@@ -75,9 +70,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3625
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->nextWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     return-object v0
@@ -93,9 +85,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3637
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->previousWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     return-object v0
@@ -104,9 +93,6 @@
 .method public getWriteTime()J
     .locals 2
 
-    .prologue
-    .line 3615
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
     const-wide v0, 0x7fffffffffffffffL
 
     return-wide v0
@@ -122,13 +108,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 3630
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
-    .local p1, "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->nextWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
-    .line 3631
     return-void
 .end method
 
@@ -142,22 +123,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 3642
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
-    .local p1, "previous":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$WriteQueue$1;->previousWrite:Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
-    .line 3643
     return-void
 .end method
 
 .method public setWriteTime(J)V
     .locals 0
-    .param p1, "time"    # J
 
-    .prologue
-    .line 3619
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$1;, "Lcom/google/common/cache/LocalCache$WriteQueue.1;"
     return-void
 .end method

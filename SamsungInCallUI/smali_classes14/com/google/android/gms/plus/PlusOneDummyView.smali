@@ -21,10 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "size"    # I
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Landroid/widget/Button;

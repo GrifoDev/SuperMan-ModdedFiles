@@ -37,14 +37,10 @@
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
     .locals 0
 
-    .prologue
-    .line 468
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1;, "Lcom/google/common/collect/HashBiMap.1;"
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$1;->this$0:Lcom/google/common/collect/HashBiMap;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/HashBiMap$Itr;-><init>(Lcom/google/common/collect/HashBiMap;)V
 
-    .line 474
     return-void
 .end method
 
@@ -52,11 +48,7 @@
 # virtual methods
 .method bridge synthetic output(Lcom/google/common/collect/HashBiMap$BiEntry;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .prologue
-    .line 468
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1;, "Lcom/google/common/collect/HashBiMap.1;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/HashBiMap$1;->output(Lcom/google/common/collect/HashBiMap$BiEntry;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -76,10 +68,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 471
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1;, "Lcom/google/common/collect/HashBiMap.1;"
-    .local p1, "entry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/HashBiMap$1$MapEntry;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/collect/HashBiMap$1$MapEntry;-><init>(Lcom/google/common/collect/HashBiMap$1;Lcom/google/common/collect/HashBiMap$BiEntry;)V

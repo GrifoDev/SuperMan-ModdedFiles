@@ -27,23 +27,17 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .param p1, "seed"    # I
 
-    .prologue
-    .line 161
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Lcom/google/common/hash/AbstractStreamingHashFunction$AbstractStreamingHasher;-><init>(I)V
 
-    .line 162
     iput p1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
-    .line 163
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
 
-    .line 164
     return-void
 .end method
 
@@ -52,8 +46,6 @@
 .method public makeHash()Lcom/google/common/hash/HashCode;
     .locals 2
 
-    .prologue
-    .line 185
     iget v0, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
     iget v1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
@@ -68,10 +60,7 @@
 
 .method protected process(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 168
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v1
@@ -81,8 +70,6 @@
 
     move-result v0
 
-    .line 169
-    .local v0, "k1":I
     iget v1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
     # invokes: Lcom/google/common/hash/Murmur3_32HashFunction;->mixH1(II)I
@@ -92,23 +79,18 @@
 
     iput v1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
-    .line 170
     iget v1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
 
     add-int/lit8 v1, v1, 0x4
 
     iput v1, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
 
-    .line 171
     return-void
 .end method
 
 .method protected processRemaining(Ljava/nio/ByteBuffer;)V
     .locals 4
-    .param p1, "bb"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 175
     iget v2, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
@@ -119,14 +101,10 @@
 
     iput v2, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->length:I
 
-    .line 176
     const/4 v1, 0x0
 
-    .line 177
-    .local v1, "k1":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
@@ -134,7 +112,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 178
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v2
@@ -147,12 +124,10 @@
 
     xor-int/2addr v1, v2
 
-    .line 177
     add-int/lit8 v0, v0, 0x8
 
     goto :goto_0
 
-    .line 180
     :cond_0
     iget v2, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
@@ -165,6 +140,5 @@
 
     iput v2, p0, Lcom/google/common/hash/Murmur3_32HashFunction$Murmur3_32Hasher;->h1:I
 
-    .line 181
     return-void
 .end method

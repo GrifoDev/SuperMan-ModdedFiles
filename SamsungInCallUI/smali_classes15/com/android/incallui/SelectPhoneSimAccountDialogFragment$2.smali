@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    .prologue
-    .line 136
     iput-object p1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +36,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 4
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "which"    # I
-    .param p4, "arg3"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,11 +46,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "arg0":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const/4 v3, 0x0
 
-    .line 139
     invoke-static {p3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->isBoltSIM(I)Z
 
     move-result v1
@@ -75,14 +66,13 @@
 
     if-nez v1, :cond_0
 
-    .line 140
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v1}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    const v2, 0x7f09059d
+    const v2, 0x7f0905a4
 
     invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -90,11 +80,9 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 146
     :goto_0
     return-void
 
-    .line 142
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
@@ -103,7 +91,6 @@
     # setter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
     invoke-static {v1, v2}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->access$002(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;Z)Z
 
-    .line 143
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;->this$0:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     # getter for: Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
@@ -117,8 +104,6 @@
 
     check-cast v0, Landroid/telecom/PhoneAccountHandle;
 
-    .line 144
-    .local v0, "selectedAccountHandle":Landroid/telecom/PhoneAccountHandle;
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v1

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
-    .prologue
-    .line 349
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService$3;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -37,8 +34,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 352
     iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService$3;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;
 
     iget-object v0, v0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mHandler:Landroid/os/Handler;
@@ -53,7 +48,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 353
     :cond_0
     return-void
 .end method

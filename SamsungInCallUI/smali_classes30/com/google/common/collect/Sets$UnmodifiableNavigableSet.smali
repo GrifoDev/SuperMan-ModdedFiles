@@ -70,13 +70,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1451
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "delegate":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedSet;-><init>()V
 
-    .line 1452
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -85,7 +80,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
-    .line 1453
     return-void
 .end method
 
@@ -99,10 +93,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1472
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->ceiling(Ljava/lang/Object;)Ljava/lang/Object;
@@ -115,9 +105,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 1446
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -128,9 +115,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 1446
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -141,9 +125,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 1446
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -161,9 +142,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1457
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;
@@ -183,9 +161,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1504
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0}, Ljava/util/NavigableSet;->descendingIterator()Ljava/util/Iterator;
@@ -209,19 +184,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 1494
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    .line 1495
-    .local v0, "result":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     if-nez v0, :cond_0
 
-    .line 1496
     new-instance v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    .end local v0    # "result":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     iget-object v1, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v1}, Ljava/util/NavigableSet;->descendingSet()Ljava/util/NavigableSet;
@@ -232,11 +200,8 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    .line 1497
-    .restart local v0    # "result":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     iput-object p0, v0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->descendingSet:Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;
 
-    .line 1499
     :cond_0
     return-object v0
 .end method
@@ -249,10 +214,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1467
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->floor(Ljava/lang/Object;)Ljava/lang/Object;
@@ -264,7 +225,6 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -273,10 +233,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1516
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -298,10 +254,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1477
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->higher(Ljava/lang/Object;)Ljava/lang/Object;
@@ -319,10 +271,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1462
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->lower(Ljava/lang/Object;)Ljava/lang/Object;
@@ -340,9 +288,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1482
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -358,9 +303,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1487
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -370,8 +312,6 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -380,11 +320,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1510
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/NavigableSet;->subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -400,7 +335,6 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -409,10 +343,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1521
-    .local p0, "this":Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;, "Lcom/google/common/collect/Sets$UnmodifiableNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$UnmodifiableNavigableSet;->delegate:Ljava/util/NavigableSet;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;

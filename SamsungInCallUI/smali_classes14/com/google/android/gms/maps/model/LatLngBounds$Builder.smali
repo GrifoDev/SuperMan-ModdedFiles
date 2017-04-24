@@ -153,9 +153,7 @@
 
 .method public include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
     .locals 6
-    .param p1, "point"    # Lcom/google/android/gms/maps/model/LatLng;
 
-    .prologue
     iget-wide v0, p0, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->hm:D
 
     iget-wide v2, p1, Lcom/google/android/gms/maps/model/LatLng;->latitude:D

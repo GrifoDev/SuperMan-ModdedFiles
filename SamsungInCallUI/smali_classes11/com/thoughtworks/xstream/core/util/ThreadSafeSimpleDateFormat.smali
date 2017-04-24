@@ -14,14 +14,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/util/TimeZone;IIZ)V
     .locals 7
-    .param p1, "format"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "initialPoolSize"    # I
-    .param p4, "maxPoolSize"    # I
-    .param p5, "lenient"    # Z
 
-    .prologue
-    .line 45
     sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     move-object v0, p0
@@ -38,30 +31,18 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;IIZ)V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;IIZ)V
     .locals 2
-    .param p1, "format"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
-    .param p4, "initialPoolSize"    # I
-    .param p5, "maxPoolSize"    # I
-    .param p6, "lenient"    # Z
 
-    .prologue
-    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->formatString:Ljava/lang/String;
 
-    .line 52
     iput-object p2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->timeZone:Ljava/util/TimeZone;
 
-    .line 53
     new-instance v0, Lcom/thoughtworks/xstream/core/util/Pool;
 
     new-instance v1, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat$1;
@@ -72,16 +53,12 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    .line 61
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;)Ljava/lang/String;
     .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
 
-    .prologue
-    .line 36
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->formatString:Ljava/lang/String;
 
     return-object v0
@@ -90,8 +67,6 @@
 .method private fetchFromPool()Ljava/text/DateFormat;
     .locals 3
 
-    .prologue
-    .line 82
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v2}, Lcom/thoughtworks/xstream/core/util/Pool;->fetchFromPool()Ljava/lang/Object;
@@ -100,16 +75,12 @@
 
     check-cast v0, Ljava/text/DateFormat;
 
-    .line 83
-    .local v0, "format":Ljava/text/DateFormat;
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->timeZone:Ljava/util/TimeZone;
 
     if-eqz v2, :cond_1
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->timeZone:Ljava/util/TimeZone;
 
-    .line 84
-    .local v1, "tz":Ljava/util/TimeZone;
     :goto_0
     invoke-virtual {v0}, Ljava/text/DateFormat;->getTimeZone()Ljava/util/TimeZone;
 
@@ -121,15 +92,11 @@
 
     if-nez v2, :cond_0
 
-    .line 85
     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
-    .line 87
     :cond_0
     return-object v0
 
-    .line 83
-    .end local v1    # "tz":Ljava/util/TimeZone;
     :cond_1
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
@@ -142,16 +109,11 @@
 # virtual methods
 .method public format(Ljava/util/Date;)Ljava/lang/String;
     .locals 3
-    .param p1, "date"    # Ljava/util/Date;
 
-    .prologue
-    .line 64
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->fetchFromPool()Ljava/text/DateFormat;
 
     move-result-object v0
 
-    .line 66
-    .local v0, "format":Ljava/text/DateFormat;
     :try_start_0
     invoke-virtual {v0, p1}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
     :try_end_0
@@ -159,7 +121,6 @@
 
     move-result-object v1
 
-    .line 68
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
@@ -178,21 +139,16 @@
 
 .method public parse(Ljava/lang/String;)Ljava/util/Date;
     .locals 3
-    .param p1, "date"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/text/ParseException;
         }
     .end annotation
 
-    .prologue
-    .line 73
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->fetchFromPool()Ljava/text/DateFormat;
 
     move-result-object v0
 
-    .line 75
-    .local v0, "format":Ljava/text/DateFormat;
     :try_start_0
     invoke-virtual {v0, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
     :try_end_0
@@ -200,7 +156,6 @@
 
     move-result-object v1
 
-    .line 77
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
@@ -220,8 +175,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 91
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->formatString:Ljava/lang/String;
 
     return-object v0

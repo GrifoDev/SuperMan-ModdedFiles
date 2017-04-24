@@ -121,14 +121,14 @@
     <string name="agree">Հմձայն եմ</string>
     <string name="am_cover_toggle_string">Բացեք շապիկը՝ կանչին պատասխ. կամ մերժ. հր:</string>
     <string name="am_device_memory_full_warning">Անհնար է օգտագործել Ինքնապատասխան՝ հաղորդագրությամբ: Ձեր սարքի պահոցում բավարար տեղ չկա ձայնահաղորդագրությունները պահպանելու համար: Վերացրեք որոշ տարրեր և նորից փորձեք:</string>
-    <string name="another_device_pickup_message">Another device picked up this call.</string>
+    <string name="another_device_pickup_message">Մեկ այլ սարք որսաց այս կանչը:</string>
     <string name="answering_memo_Playing_text">Նվագարկվում է պատասխանի հաղորդագրությունը…</string>
     <string name="answering_memo_Recording_text">Գրանցվում է հաղորդագրությունը…</string>
     <string name="answering_memo_sliding_button_text">Պատասխանի հաղորդագրություն</string>
     <string name="application_not_found">Ծրագիրը չի գտնվել:</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
-    <string name="banner_calls_have_been_merged">Calls have been merged.</string>
-    <string name="banner_conferenc_call_with">In conference call with %s</string>
+    <string name="banner_calls_have_been_merged">Կանչերը միավորվել են:</string>
+    <string name="banner_conferenc_call_with">%s-ի հետ կոնֆերենց-կապի մեջ</string>
     <string name="bluetooth_popup_title">Ընտրել ձայնասարք</string>
     <string name="button">Կոճակ</string>
     <string name="call_accept_reject_tip1">Սեղմեք ձայնի ուժգնության ստեղնի մեկ կամ մյուս ծայրը՝ մտից կանչերի զանգի հնչերանգը խլացնելու համար:</string>
@@ -182,7 +182,7 @@
     <string name="captured">Նկարահանված է:</string>
     <string name="card_title_dialing_for_quick_panel">Համարհավաքում…</string>
     <string name="card_title_dialing_to_korea">Կանչ՝ Հարավային Կորեա</string>
-    <string name="card_title_wifi_call_ended">Wi-Fi Call Ended</string>
+    <string name="card_title_wifi_call_ended">Wi-Fi կանչն ավարտվեց</string>
     <string name="cdnip_service_prefix">Իմ համարը</string>
     <string name="chat">Զրույց</string>
     <string name="chat_aim">Զրուցել AIM-ի միջոցով</string>
@@ -196,7 +196,7 @@
     <string name="chunghwa_operator_name">Chunghwa</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Հասել է մասնակիցների առավելագույն քանակին (%d):</string>
-    <string name="conferencing_dialog_Available_for_VoiceCalls">Conferencing is only available for voice calls.</string>
+    <string name="conferencing_dialog_Available_for_VoiceCalls">Կոնֆերենց-կապը մատչելի է միայն ձայնականչերի համար:</string>
     <string name="contact_device_owner">Դիմեք սարքի տիրոջը</string>
     <string name="conversation_duration">Խոսակցության տևողություն</string>
     <string name="cover_endcall_image_widget_description">Կանչն ավարտելու համար երկու մատը սահեցրեք ձախ:</string>
@@ -207,13 +207,13 @@
     <string name="ctc_full_operator_name">China Telecom</string>
     <string name="cu_operator_name">China Unicom</string>
     <string name="current_call_with_held_call">Ձեր զանգը %sի հետ հետաձգված է:</string>
-    <string name="data_usage_charge_alert">Video calling requires the use of both data and voice minutes over the mobile network. Charges may apply.</string>
-    <string name="data_usage_limit_dialog_continue_call">Continue call</string>
+    <string name="data_usage_charge_alert">Տեսականչ կատարելու համար պահանջվում է և՛ տվյալների, և՛ ձայնային րոպեների օգտագործում շարժական կապի ցանցի միջոցով: Կարող են վճարներ գանձվել:</string>
+    <string name="data_usage_limit_dialog_continue_call">Շարունակել կանչը</string>
     <string name="data_usage_limit_dialog_end_current_call">Ավարտել ընթացիկ կանչը</string>
-    <string name="data_usage_limit_dialog_message">"The data limit you had set for your phone has been reached. To check your data usage, go to Settings > Data usage.
-This video call is now using data and Mobile data will be turned off when the call has ended. Do you want to continue your call?"</string>
-    <string name="data_usage_limit_dialog_message_default">The data usage that you set on your phone is about to reach its limit. This video call requires data.</string>
-    <string name="data_usage_limit_dialog_message_tmo">Data limit that you have set on your phone has reached and data is turned off. Video call requires a data connection. Turn on mobile data or connect to any available Wi-Fi network.</string>
+    <string name="data_usage_limit_dialog_message">"Հասել է տվյալների սահմանաչափին, որը նախադրել էիք Ձեր հեռախոսի համար: Տվյալների օգտագործումը ստուգելու համար գնացեք Դրվածքներ > Տվյալների օգտագործում:
+Այս տեսականչն այժմ տվյալներ է օգտագործում, և Շարժական տվյալները կանջատվեն, երբ կանչն ավարտվի: Ուզու՞մ եք շարունակել կանչը:"</string>
+    <string name="data_usage_limit_dialog_message_default">Տվյալների օգտագործումը, որը նախադրել եք հեռախոսում, մոտենում է իր սահմանաչափին: Այս տեսականչը պահանջում է տվյալներ:</string>
+    <string name="data_usage_limit_dialog_message_tmo">Տվյալների սահմանաչափը, որը նախադրել եք Ձեր հեռախոսում, լրացել է, և տվյալներն անջատվել են: Տեսականչը պահանջում է տվյալների միացում: Միացրեք շարժական տվյալները կամ միացեք որևէ հասանելի Wi-Fi ցանցի:</string>
     <string name="date_day">Օր</string>
     <string name="decline">Մերժել</string>
     <string name="description_create_message">Գրել նոր հաղորդագրություն</string>
@@ -261,7 +261,8 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="eventLabelsGroup">Իրադարձություն</string>
     <string name="extra_vol_off">Ձայնի լրացուցիչ ուժգնությունը կասեցված է:</string>
     <string name="extra_vol_on">Ձայնի լրացուցիչ ուժգնությունն ընձեռված է:</string>
-    <string name="far_end_stopped_share_video">%s stopped sharing video.</string>
+    <string name="far_end_stopped_share_video">%s-ը կանգնեցրել է տեսականչի համօգտագործումը:</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Ֆայլ չի ապահովվում:</string>
     <string name="full_name">Անուն</string>
@@ -274,12 +275,12 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="high_quality_sound">HD</string>
     <string name="imLabelsGroup">IM հաշիվ</string>
     <string name="inCallLabel_Sec">Զանգ</string>
-    <string name="incall_decline_emergency_wifi_not_allow">Emergency calls over Wi-Fi not allowed in this location.</string>
-    <string name="incall_decline_other_secondary_device">Other secondary device in use.</string>
-    <string name="incall_decline_service_not_allowed">Service not allowed in this location.</string>
-    <string name="incall_decline_simultaneous_call_limit_vzw">All available lines for (MDN) are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
-    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">All available lines for %s are in use. To make a call, hang up one of the calls on your mobile phone or tablet.</string>
-    <string name="incall_decline_transferred_to_another_device">Call has been transferred to another device.</string>
+    <string name="incall_decline_emergency_wifi_not_allow">Wi-Fi-ով կատարվող արտակարգ իրավիճակի կանչեր չեն թույլատրվում այս վայրում:</string>
+    <string name="incall_decline_other_secondary_device">Ուրիշ երկրորդական սարք է գործածվում:</string>
+    <string name="incall_decline_service_not_allowed">Ծառայությունը չի թույլատրվում այս վայրում:</string>
+    <string name="incall_decline_simultaneous_call_limit_vzw">Գործածվում են բոլոր մատչելի գծերը շարժական սարքի համարի (MDN) համար: Կանչ կատարելու համար ավարտեք կանչերից մեկը Ձեր շարժական հեռախոսում կամ պլանշետում:</string>
+    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Գործածվում են բոլոր մատչելի գծերը %s-ի համար: Կանչ կատարելու համար ավարտեք կանչերից մեկը Ձեր շարժական հեռախոսում կամ պլանշետում:</string>
+    <string name="incall_decline_transferred_to_another_device">Կանչը փոխանցվել է մեկ այլ սարքի:</string>
     <string name="incall_error_supp_service_switch">Անհնար է փոխանջատել կանչերը:</string>
     <string name="incall_extra_volume_disabled_BT">Անհնար է օգտագործել ձայնի լրացուցիչ ուժգնության տիրույթը, երբ Bluetooth գլխային հեռախոսը միացված է:</string>
     <string name="incall_extra_volume_disabled_HAC">Անհնար է ընձեռել Ձայնի լրացուցիչ ուժգնություն, երբ Լսողական ապարատներն ընձեռված են:</string>
@@ -287,7 +288,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incall_extra_volume_disabled_headset">Անհնար է օգտագործել ձայնի լրացուցիչ ուժգնության տիրույթը, երբ ականջակալները միացված են:</string>
     <string name="incall_popup_call_remove_message">Կանչի էկրանի դյուրանցումը կվերացվի:</string>
     <string name="incall_popup_call_remove_title">Վերացնել դյուրանցումը</string>
-    <string name="incall_popup_call_remove_title_vzw">Hide shortcut</string>
+    <string name="incall_popup_call_remove_title_vzw">Թաքցնել դյուրանցումը</string>
     <string name="incall_popup_ended">Ավարտվեց</string>
     <string name="incall_spam_call_block">Արգլփակել համարը</string>
     <string name="incall_spam_call_reject">Ավելացնել Սև ցուցակին</string>
@@ -306,7 +307,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="interactive_tutorial_message_send">Ընտրեք հաղորդագրություն ցուցակից կամ գրեք հաղորդագրություն:</string>
     <string name="interactive_tutorial_reject">Մատը սահեցրեք աջից ձախ՝ կանչը մերժելու համար:</string>
     <string name="interactive_tutorial_reject_with_msg_complete">Հիմա գիտեք՝ ինչպես մերժել կանչերը հաղորդագրություններով:</string>
-    <string name="item_call_accept_reject_for_kk">Answering and declining calls</string>
+    <string name="item_call_accept_reject_for_kk">Կանչերի պատասխանում և մերժում</string>
     <string name="item_call_decline_with_message_for_kk">Կանչերի մերժում հաղորդագրթյուններով</string>
     <string name="item_phone_using_menu">Կանչերի ընթացքում այլ գործող. կատարելը</string>
     <string name="kor_psvt_data_connection_lost">Ցանցի միացման սխալ: Կանչն ավարտված է:</string>
@@ -461,7 +462,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="modify_to_video_start">Կատարվում է տեսազանգի փոխելու հարցում…</string>
     <string name="modify_to_voice_start">Փոխվում է ձայնականչի…</string>
     <string name="msg_for_video_show_never_again">Ֆայլի որոշ ձևաչափեր ապահովված չեն: Միայն ապահովվող ֆայլերը կցուցադրվեն Պատկերասրահում:</string>
-    <string name="mt_vt_not_possible">%s cannot receive video calls at this time. You will now be connected through a voice call.</string>
+    <string name="mt_vt_not_possible">%s-ն այս պահին չի կարող տեսականչեր ստանալ: Հիմա կմիանաք ձայնականչի միջոցով:</string>
     <string name="nameLabelsGroup">Անուն</string>
     <string name="name_family">Ազգանուն</string>
     <string name="name_given">Անուն</string>
@@ -522,7 +523,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="quick_panel_title_voice_call">Ձայնային զանգ</string>
     <string name="quick_panel_title_volte_call">VoLTE զանգ</string>
     <string name="quick_panel_title_volte_call_skt">HD Voice զանգ</string>
-    <string name="quick_panel_title_volte_call_vzw">Advanced Calling</string>
+    <string name="quick_panel_title_volte_call_vzw">Կանչերի ընդլայնված հնարավորություններ</string>
     <string name="rcs_share">Համատեղ օգտգրծմ</string>
     <string name="rcs_share_donot_send_my_video">Թաքցնել ինձ</string>
     <string name="rcs_share_image">Ընդունե՞լ հարցումը:</string>
@@ -580,7 +581,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenArrowLeftText">Ձախլիկ</string>
     <string name="secOnscreenArrowRightText">Աջլիկ</string>
     <string name="secOnscreenCalendarText">Օրացույց</string>
-    <string name="secOnscreenCallTypeText">Call type</string>
+    <string name="secOnscreenCallTypeText">Կանչի տեսակ</string>
     <string name="secOnscreenCameraText">Խցիկ</string>
     <string name="secOnscreenContactText">Կոնտակտներ</string>
     <string name="secOnscreenCreateContactText">Ստեղծել կոնտակտ</string>
@@ -617,7 +618,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenMenuStopRecordText">Կանգնել</string>
     <string name="secOnscreenMenuSwitchCameraText">Փոխարկել խցիկը</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">Փոխարկել ականջակալի</string>
-    <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Switch to Bluetooth</string>
+    <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Փոխել Bluetooth-ի</string>
     <string name="secOnscreenMenuSwitchToPhoneText">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToPhoneText_att">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Փոխարկել հեռախոսի</string>
@@ -633,8 +634,8 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenMinimiseWindowText">Ծալել պատուհանը</string>
     <string name="secOnscreenMoreButton">Ավելին</string>
     <string name="secOnscreenMoreText">Այլ ընտրանքներ</string>
-    <string name="secOnscreenOneWayCamera">"One-way
-Camera"</string>
+    <string name="secOnscreenOneWayCamera">"Միակողմանի
+Խցիկ"</string>
     <string name="secOnscreenPlannerText">S Planner</string>
     <string name="secOnscreenPopupAccept">Պատասխան</string>
     <string name="secOnscreenPopupEnd">Ավարտ</string>
@@ -645,7 +646,7 @@ Camera"</string>
     <string name="secOnscreenResumeCallText">Վերսկսել</string>
     <string name="secOnscreenShowCallOption">Ցույց տալ բոլոր ընտրանքները</string>
     <string name="secOnscreenSpeaker">Բրձրխոս</string>
-    <string name="secOnscreenStopText">Կանգնեցնել</string>
+    <string name="secOnscreenStopText">Կանգնեց. ձայնագրումը</string>
     <string name="secOnscreenSwapText">Փոխարկում</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Փոխարկել խցիկը</string>
@@ -664,7 +665,7 @@ Camera"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Կրկնակի թակեք՝ ցանկը բացելու համար:</string>
     <string name="sec_showme_text">Ցուցադրել ինձ</string>
     <string name="second_screen_hold_text">%d` սպասող</string>
-    <string name="section_contacts_only_summary">Create and manage contacts.</string>
+    <string name="section_contacts_only_summary">Ստեղծեք և կառավարեք կոնտակտներ:</string>
     <string name="select_callback_sim_card">Ընտրել հետկանչի SIM քարտ</string>
     <string name="select_callback_sim_card_content">Այս համարից կամ համարին կատարված վերջին կանչը կամ հաղորդագրությունը չի օգտագործել կանչերի համար նախընտրելի SIM քարտ: Ընտրեք, թե որ SIM քարտն օգտագործվի:</string>
     <string name="select_from_gallery">Ընտրել Պատկերասրահից</string>
@@ -716,11 +717,12 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_without_video">Մատը սահեցրեք աջ՝ կանչին առանց տեսանյութի պատասխանելու համար:</string>
     <string name="switch_rejected_by_mt">Տեսականչի փոխելու խնդրանքը մերժվեց:</string>
     <string name="switch_to_video_call_failed">Տեսականչի փոխելու խնդրանքը ձախողվեց:</string>
-    <string name="switch_to_video_call_failed_tmo">Request to switch to video call was declined.</string>
+    <string name="switch_to_video_call_failed_tmo">Տեսականչի փոխելու խնդրանքը մերժվեց:</string>
     <string name="switch_to_voice_call_failed">Ձայնականչի փոխելու խնդրանքը ձախողվեց:</string>
     <string name="switched_to_voip_mo">Անցել է ձայնազանգի:</string>
     <string name="switched_to_voip_mt">Զանգվող կողմի խնդրանքով անցել է ձայնազանգի:</string>
-    <string name="switched_to_voip_mt_att_tmo">%s turned off video.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
+    <string name="switched_to_voip_mt_att_tmo">%s-ն անջատել է տեսականչը:</string>
     <string name="switching_camera_failed">Չհաջողվեց փոխարկել խցիկները:</string>
     <string name="switching_to_voice_call">Փոխվում է ձայնականչի…</string>
     <string name="tts_hours">%d ժամ</string>
@@ -732,71 +734,76 @@ Camera"</string>
     <string name="tutorial_incoming_call_app_reject">Թակեք՝ կանչը մերժելու համար:</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unknown_cdma">Անհասանելի</string>
-    <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
-    <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
-    <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
-    <string name="usa_att_modify_receive_to_video">Select video mode</string>
-    <string name="usa_att_select_call_type_incoming_video_call">Tap below to select call type.</string>
-    <string name="usa_gsm_cannot_be_changed_during_conference">Call type cannot be changed during conference calls.</string>
+    <string name="usa_att_connected_as_voice">Կանչը միացվեց որպես միայն ձայնականչ:</string>
+    <string name="usa_att_data_usage_charge_alert">Ձեր Տվյալների օգտագործումը, որը նախադրել եք սարքում, մոտենում է իր սահմանաչափին: Ձեր Տեսականչը պահանջում է տվյալներ:</string>
+    <string name="usa_att_lte_to_wifi_handover_fail_toast">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
+    <string name="usa_att_select_call_type_incoming_video_call">Թակեք ստորև՝ կանչի տեսակն ընտրելու համար:</string>
+    <string name="usa_gsm_cannot_be_changed_during_conference">Կանչի տեսակը չի կարող փոխվել կոնֆերենց-կապի ընթացքում:</string>
     <string name="usa_gsm_modify_receive_to_video">%s-ն ուզում է փոխել տեսականչի:</string>
-    <string name="usa_gsm_modify_receive_to_video_share">%s wants to share video.</string>
+    <string name="usa_gsm_modify_receive_to_video_share">%s-ն ուզում է համօգտագործել տեսականչը:</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Սպասում է պատասխանի</string>
-    <string name="usa_gsm_modify_select_call_type">Select call type</string>
-    <string name="usa_gsm_switching_to_voice_call">Switching to voice only.</string>
+    <string name="usa_gsm_modify_select_call_type">Ընտրել կանչի տեսակ</string>
+    <string name="usa_gsm_switching_to_voice_call">Անցում միայն ձայնականչի:</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Տեսանյութն անջատվեց, քանի որ շարժական տվյալներն անմատչելի են:</string>
     <string name="usa_volte_reject_upgrade_request">%sն այս անգամ չի կարող տեսականչեր ստանալ:</string>
-    <string name="usa_volte_reject_upgrade_request_tmo">Video calling is unavailable.</string>
-    <string name="usa_vzw_change_to_oneway_video">"Change to
-one-way video"</string>
-    <string name="usa_vzw_change_to_video">Change to Video</string>
-    <string name="usa_vzw_far_end_paused_video">%s’s video has been paused.</string>
-    <string name="usa_vzw_far_end_resumed_call">%s has resumed the call.</string>
-    <string name="usa_vzw_far_end_resumed_video">"%s's video has been resumed."</string>
-    <string name="usa_vzw_far_end_turned_camera_on">%s turned camera on.</string>
-    <string name="usa_vzw_far_end_turned_off_camera">%s turned camera off.</string>
-    <string name="usa_vzw_modify_receive_to_video">%s asked to change to Video Call.</string>
-    <string name="usa_vzw_modify_receive_to_video_share">%s asked to change to One-way Video.</string>
-    <string name="usa_vzw_modify_request_to_receive_oneway_video">Asking %s to receive One-way Video</string>
-    <string name="usa_vzw_modify_requesting_video_calling">Asking %s for Video Calling…</string>
-    <string name="usa_vzw_near_end_turned_camera_on">Camera has been turned back on.</string>
-    <string name="usa_vzw_notify_continue_call_with_wifi">Continuing call using Wi-Fi.</string>
-    <string name="usa_vzw_reject_upgrade_request">%s cannot receive video calls at this time.</string>
-    <string name="usa_vzw_reject_upgrade_request_cs_call">The call cannot switch to Video at this time.</string>
-    <string name="usa_vzw_reject_upgrade_request_data_setting_off">Unable to switch to Video when Mobile data is turned off.</string>
-    <string name="usa_vzw_reject_upgrade_request_video_setting_off">Unable to switch to Video when Video calling is turned off.</string>
-    <string name="usa_vzw_reject_upgrade_request_volte_setting_off">Unable to switch to Video when Advanced Calling is turned off.</string>
+    <string name="usa_volte_reject_upgrade_request_tmo">Տեսականչի հնարավորությունն անմատչելի է:</string>
+    <string name="usa_vzw_change_to_oneway_video">"Փոխել միակողմանի
+տեսականչի"</string>
+    <string name="usa_vzw_change_to_video">Փոխել Տեսականչի</string>
+    <string name="usa_vzw_far_end_paused_video">%s-ի տեսականչն ընդմիջվել է:</string>
+    <string name="usa_vzw_far_end_resumed_call">%s-ը վերսկսել է կանչը:</string>
+    <string name="usa_vzw_far_end_resumed_video">%s-ի տեսականչը վերսկսվել է:</string>
+    <string name="usa_vzw_far_end_turned_camera_on">%s-ը միացրել է խցիկը:</string>
+    <string name="usa_vzw_far_end_turned_off_camera">%s-ն անջատել է խցիկը:</string>
+    <string name="usa_vzw_modify_receive_to_video">%s-ը խնդրել է փոխել Տեսականչի:</string>
+    <string name="usa_vzw_modify_receive_to_video_share">%s-ը խնդրել է փոխել Միակողմանի տեսականչի:</string>
+    <string name="usa_vzw_modify_request_to_receive_oneway_video">Խնդրանք %s-ին՝ ստանալ Միակողմանի տեսականչ</string>
+    <string name="usa_vzw_modify_requesting_video_calling">Տեսականչի հնարավորության պահանջ %s-ից…</string>
+    <string name="usa_vzw_near_end_turned_camera_on">Խցիկը դարձյալ միացվել է:</string>
+    <string name="usa_vzw_notify_continue_call_with_wifi">Կանչի շարունակում Wi-Fi-ով:</string>
+    <string name="usa_vzw_reject_upgrade_request">%s-ն այս պահին չի կարող տեսականչեր ստանալ:</string>
+    <string name="usa_vzw_reject_upgrade_request_cs_call">Այս պահին հնարավոր չէ կանչը փոխել Տեսականչի:</string>
+    <string name="usa_vzw_reject_upgrade_request_data_setting_off">Անհնար է փոխել Տեսականչի, երբ Շարժական տվյալներն անջատված են:</string>
+    <string name="usa_vzw_reject_upgrade_request_video_setting_off">Անհնար է փոխել Տեսականչի, երբ Տեսականչի հնարավորությունն անջատված է:</string>
+    <string name="usa_vzw_reject_upgrade_request_volte_setting_off">Անհնար է փոխել Տեսականչի, երբ Կանչերի ընդլայնված հնարավորություններն անջատված են:</string>
     <string name="usa_vzw_secondary_is_hold">%s-ը հետաձգված է.</string>
-    <string name="usa_vzw_stay_on_voice">Stay on Voice</string>
-    <string name="usa_vzw_switched_to_voice_call">%s switched to Voice Call.</string>
+    <string name="usa_vzw_stay_on_voice">Մնալ Ձայնականչ</string>
+    <string name="usa_vzw_switched_to_voice_call">%s-ը փոխել է Ձայնականչի:</string>
     <string name="usa_vzw_switched_to_voice_call_rx">Անցել է ձայնազանգի:</string>
     <string name="usa_vzw_switching_to_voice_call">Փոխվում է ձայնականչի…</string>
-    <string name="usa_vzw_ugrade_request_rejected_by_caller">%s wants to stay on Voice.</string>
-    <string name="usa_vzw_upgrade_receive_reject">Call will stay on Voice.</string>
-    <string name="usa_vzw_video_call_hold_from_other_party">%s has put the call on hold.</string>
-    <string name="usa_vzw_video_incoming_during_wifi_video">Answering as a voice call will end current call.</string>
-    <string name="usa_vzw_voice_incoming_during_wifi_video">Answering incoming call will end current call.</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">The Wi-Fi signal is not strong enough to continue the call. Using mobile networks to continue your call will use your data plan.</string>
-    <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Use Mobile Data</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+    <string name="usa_vzw_ugrade_request_rejected_by_caller">%s-ն ուզում է մնալ Ձայնականչում:</string>
+    <string name="usa_vzw_upgrade_receive_reject">Կանչը կմնա Ձայնականչ:</string>
+    <string name="usa_vzw_video_call_hold_from_other_party">%s-ը հետաձգել է կանչը:</string>
+    <string name="usa_vzw_video_incoming_during_wifi_video">Որպես ձայնականչ պատասխանելու դեպքում ընթացիկ կանչը կավարտվի:</string>
+    <string name="usa_vzw_voice_incoming_during_wifi_video">Մտից կանչին պատասխանելը կավարտի ընթացիկ կանչը:</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi ազդանշանը բավականաչափ ուժեղ չէ կանչը շարունակելու համար: Կանչը շարունակելու համար շարժական կապի ցանցերից օգտվելու դեպքում կօգտագործվի Ձեր տվյալների հաղորդման պլանը:</string>
+    <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Օգտագործել Շարժական տվյալներ</string>
+    <string name="usa_vzw_volte_weak_wifi_text">"Մենք փորձեցինք, բայց այս պահին հնարավոր չէ Ձեր տեսականչը փոխել Wi-Fi-ի:
 
-Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">Your video call is still running on the mobile network. (Data usage applies.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
+Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար, եթե որոշեք շարունակել):"</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար):</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi ազդանշանը բավականաչափ ուժեղ չէր ձեր տեսականչը շարունակելու համար:
 
-Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
-    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi connection lost. Call ended.</string>
+Տեսականչն այժմ կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար, եթե որոշեք շարունակել):"</string>
+    <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi կապը կորավ: Կանչն ավարտվեց:</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Այլևս ցույց չտալ</string>
-    <string name="video_calling_incoming">Video calling</string>
+    <string name="video_calling_incoming">Տեսականչի հնարավորություն</string>
+    <string name="video_calls_quality_poor_tmo">Կապի որակը ցածր է: Տեսականչը կարող է փոխվել ձայնականչի:</string>
     <string name="video_calls_temporarily_not_available">Տեսականչերը ժամանակավորապես հասանելի չեն: Կանչը փոխվել է ձայնականչի:</string>
-    <string name="video_calls_temporarily_not_available_tmo">Video calling is unavailable.</string>
-    <string name="video_paused_info_text">Video paused</string>
+    <string name="video_calls_temporarily_not_available_att">Համարը, որին զանգում եք, այս պահին չի կարող տեսականչեր ստանալ: Կանչը միացվել է որպես ձայնականչ:</string>
+    <string name="video_calls_temporarily_not_available_tmo">Տեսականչի հնարավորությունն անմատչելի է:</string>
+    <string name="video_paused_info_text">Տսկնչ ընդմջ.</string>
     <string name="video_saved">Տեսանյութը պահպանվեց %s-ում:</string>
     <string name="video_saved_by_memory_full">Սարքի պահոցը բավարար չէ: Տեսանյութը պահպանվեց %s-ում:</string>
-    <string name="voiceonly">Voice only</string>
+    <string name="voiceonly">Միայն ձայն</string>
     <string name="waiting_call_dialog_Ending">Ավարտել կանչը %sի հետ</string>
     <string name="waiting_call_dialog_Holding">Հետաձգել %sի կանչը</string>
     <string name="waiting_call_dialog_Merging">Միախառնել %s-ի հետ</string>
-    <string name="waiting_call_dialog_Merging_not_possible">Conference calling not available for video calls</string>
+    <string name="waiting_call_dialog_Merging_not_possible">Կոնֆերենց-կապ հնարավոր չէ տեսականչերի դեպքում</string>
     <string name="waiting_call_dialog_dismiss_toast">%1$sն ավարտեց կանչը: Վերսկսվում է կանչը %2$sի հետ…</string>
     <string name="waiting_call_dialog_message">Պատասխանել կանչին</string>
     <string name="websiteLabelsGroup">Կայքի հասցեն</string>

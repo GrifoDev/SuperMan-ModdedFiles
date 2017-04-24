@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
 
-    .prologue
-    .line 163
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$1;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,15 +36,11 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
-    .line 166
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$1;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # invokes: Lcom/android/incallui/help/RejectCallsWithMessage;->showToast()V
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$000(Lcom/android/incallui/help/RejectCallsWithMessage;)V
 
-    .line 167
     return-void
 .end method

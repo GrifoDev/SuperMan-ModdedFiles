@@ -64,9 +64,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3413
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
     return-void
@@ -96,9 +93,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3438
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$KeySet;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$KeySet;-><init>(Ljava/util/Map;)V
@@ -116,9 +110,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3450
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$Values;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$Values;-><init>(Ljava/util/Map;)V
@@ -138,20 +129,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 3425
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->entrySet:Ljava/util/Set;
 
-    .line 3426
-    .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->createEntrySet()Ljava/util/Set;
 
     move-result-object v0
 
-    .end local v0    # "result":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     iput-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->entrySet:Ljava/util/Set;
 
     :cond_0
@@ -168,20 +153,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 3433
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->keySet:Ljava/util/Set;
 
-    .line 3434
-    .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->createKeySet()Ljava/util/Set;
 
     move-result-object v0
 
-    .end local v0    # "result":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     iput-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->keySet:Ljava/util/Set;
 
     :cond_0
@@ -198,20 +177,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 3445
-    .local p0, "this":Lcom/google/common/collect/Maps$ViewCachingAbstractMap;, "Lcom/google/common/collect/Maps$ViewCachingAbstractMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->values:Ljava/util/Collection;
 
-    .line 3446
-    .local v0, "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->createValues()Ljava/util/Collection;
 
     move-result-object v0
 
-    .end local v0    # "result":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     iput-object v0, p0, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;->values:Ljava/util/Collection;
 
     :cond_0

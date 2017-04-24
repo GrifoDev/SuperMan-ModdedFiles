@@ -43,8 +43,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 59
     new-instance v0, Lcom/android/contacts/common/list/ContactEntry;
 
     invoke-direct {v0}, Lcom/android/contacts/common/list/ContactEntry;-><init>()V
@@ -57,24 +55,18 @@
 .method public constructor <init>()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/contacts/common/list/ContactEntry;->nameDisplayOrder:I
 
-    .line 55
     iput v1, p0, Lcom/android/contacts/common/list/ContactEntry;->pinned:I
 
-    .line 56
     iput-boolean v1, p0, Lcom/android/contacts/common/list/ContactEntry;->isFavorite:Z
 
-    .line 57
     iput-boolean v1, p0, Lcom/android/contacts/common/list/ContactEntry;->isDefaultNumber:Z
 
     return-void
@@ -85,8 +77,6 @@
 .method public getPreferredDisplayName()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 62
     iget v0, p0, Lcom/android/contacts/common/list/ContactEntry;->nameDisplayOrder:I
 
     const/4 v1, -0x1
@@ -101,18 +91,15 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactEntry;->nameAlternative:Ljava/lang/String;
 
-    .line 64
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 65
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactEntry;->namePrimary:Ljava/lang/String;
 
-    .line 67
     :goto_0
     return-object v0
 

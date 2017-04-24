@@ -29,15 +29,10 @@
 .method constructor <init>(Lcom/google/common/collect/HashBiMap;)V
     .locals 0
 
-    .prologue
-    .line 433
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$KeySet;, "Lcom/google/common/collect/HashBiMap<TK;TV;>.KeySet;"
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$KeySet;->this$0:Lcom/google/common/collect/HashBiMap;
 
-    .line 434
     invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$KeySet;-><init>(Ljava/util/Map;)V
 
-    .line 435
     return-void
 .end method
 
@@ -53,9 +48,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 439
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$KeySet;, "Lcom/google/common/collect/HashBiMap<TK;TV;>.KeySet;"
     new-instance v0, Lcom/google/common/collect/HashBiMap$KeySet$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/HashBiMap$KeySet$1;-><init>(Lcom/google/common/collect/HashBiMap$KeySet;)V
@@ -65,16 +57,13 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$KeySet;, "Lcom/google/common/collect/HashBiMap<TK;TV;>.KeySet;"
     const/4 v3, 0x0
 
-    .line 449
     iget-object v1, p0, Lcom/google/common/collect/HashBiMap$KeySet;->this$0:Lcom/google/common/collect/HashBiMap;
 
     invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
@@ -86,31 +75,23 @@
 
     move-result-object v0
 
-    .line 450
-    .local v0, "entry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     if-nez v0, :cond_0
 
-    .line 451
     const/4 v1, 0x0
 
-    .line 456
     :goto_0
     return v1
 
-    .line 453
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/HashBiMap$KeySet;->this$0:Lcom/google/common/collect/HashBiMap;
 
     # invokes: Lcom/google/common/collect/HashBiMap;->delete(Lcom/google/common/collect/HashBiMap$BiEntry;)V
     invoke-static {v1, v0}, Lcom/google/common/collect/HashBiMap;->access$200(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/HashBiMap$BiEntry;)V
 
-    .line 454
     iput-object v3, v0, Lcom/google/common/collect/HashBiMap$BiEntry;->prevInKeyInsertionOrder:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 455
     iput-object v3, v0, Lcom/google/common/collect/HashBiMap$BiEntry;->nextInKeyInsertionOrder:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 456
     const/4 v1, 0x1
 
     goto :goto_0

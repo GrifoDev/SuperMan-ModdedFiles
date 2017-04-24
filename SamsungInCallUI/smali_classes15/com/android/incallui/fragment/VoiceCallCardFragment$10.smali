@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    .prologue
-    .line 2087
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$10;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
-    .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 2090
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -53,8 +47,6 @@
 
     move-result v0
 
-    .line 2091
-    .local v0, "height":I
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$10;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v2, v2, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
@@ -65,17 +57,13 @@
 
     check-cast v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 2092
-    .local v1, "lp":Landroid/widget/LinearLayout$LayoutParams;
     iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
-    .line 2093
     iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$10;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v2, v2, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPrimaryCallInfo:Landroid/view/ViewGroup;
 
     invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2094
     return-void
 .end method

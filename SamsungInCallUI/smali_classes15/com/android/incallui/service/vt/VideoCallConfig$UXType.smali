@@ -30,8 +30,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,8 +38,6 @@
 .method public static getString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 69
     # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
 
@@ -51,14 +47,11 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 70
     const-string v0, " UXType : KOR "
 
-    .line 78
     :goto_0
     return-object v0
 
-    .line 71
     :cond_0
     # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
@@ -69,12 +62,10 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 72
     const-string v0, " UXType : USA "
 
     goto :goto_0
 
-    .line 73
     :cond_1
     # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
@@ -85,12 +76,10 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 74
     const-string v0, " UXType : CHN "
 
     goto :goto_0
 
-    .line 75
     :cond_2
     # getter for: Lcom/android/incallui/service/vt/VideoCallConfig;->mUXType:I
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->access$000()I
@@ -101,12 +90,10 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 76
     const-string v0, " UXType : JPN "
 
     goto :goto_0
 
-    .line 78
     :cond_3
     const-string v0, " UXType : GLOBAL "
 

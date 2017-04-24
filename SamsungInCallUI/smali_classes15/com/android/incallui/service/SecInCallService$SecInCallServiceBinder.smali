@@ -22,8 +22,6 @@
 .method private constructor <init>(Lcom/android/incallui/service/SecInCallService;)V
     .locals 0
 
-    .prologue
-    .line 91
     iput-object p1, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     invoke-direct {p0}, Lcom/android/server/telecom/ISecInCallInterface$Stub;-><init>()V
@@ -33,11 +31,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/service/SecInCallService;Lcom/android/incallui/service/SecInCallService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/service/SecInCallService;
-    .param p2, "x1"    # Lcom/android/incallui/service/SecInCallService$1;
 
-    .prologue
-    .line 91
     invoke-direct {p0, p1}, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;-><init>(Lcom/android/incallui/service/SecInCallService;)V
 
     return-void
@@ -47,11 +41,7 @@
 # virtual methods
 .method public invoke(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 15
-    .param p1, "command"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 95
     const-string v12, "SecInCallService"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -76,13 +66,10 @@
 
     invoke-static {v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 96
     new-instance v8, Landroid/os/Bundle;
 
     invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
 
-    .line 98
-    .local v8, "retValue":Landroid/os/Bundle;
     const/4 v12, -0x1
 
     :try_start_0
@@ -96,18 +83,15 @@
     :goto_0
     packed-switch v12, :pswitch_data_0
 
-    .line 133
     const-string v12, "SecInCallService"
 
     const-string v13, "invoke: unknown command"
 
     invoke-static {v12, v13}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 139
     :goto_1
     return-object v8
 
-    .line 98
     :sswitch_0
     const-string v13, "setSecInCallAdapter"
 
@@ -228,7 +212,21 @@
 
     goto :goto_0
 
-    .line 100
+    :sswitch_8
+    const-string v13, "stopAnswerMemo"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    const/16 v12, 0x8
+
+    goto :goto_0
+
     :pswitch_0
     const-string v12, "secInCallAdapter"
 
@@ -242,8 +240,6 @@
 
     move-result-object v9
 
-    .line 101
-    .local v9, "secInCallAdapter":Lcom/android/server/telecom/ISecInCallInterface;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -261,15 +257,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 136
-    .end local v9    # "secInCallAdapter":Lcom/android/server/telecom/ISecInCallInterface;
     :catch_0
     move-exception v2
 
-    .line 137
-    .local v2, "e":Ljava/lang/Exception;
     const-string v12, "SecInCallService"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -294,8 +286,6 @@
 
     goto/16 :goto_1
 
-    .line 104
-    .end local v2    # "e":Ljava/lang/Exception;
     :pswitch_1
     :try_start_1
     const-string v12, "isIncoming"
@@ -306,8 +296,6 @@
 
     move-result v3
 
-    .line 105
-    .local v3, "isIncoming":Z
     const-string v12, "callType"
 
     move-object/from16 v0, p2
@@ -316,8 +304,6 @@
 
     move-result v1
 
-    .line 106
-    .local v1, "callType":I
     const/4 v12, 0x2
 
     new-array v5, v12, [Ljava/lang/String;
@@ -346,8 +332,6 @@
 
     aput-object v13, v5, v12
 
-    .line 107
-    .local v5, "onModifyCallArgs":[Ljava/lang/String;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -375,10 +359,6 @@
 
     goto :goto_2
 
-    .line 110
-    .end local v1    # "callType":I
-    .end local v3    # "isIncoming":Z
-    .end local v5    # "onModifyCallArgs":[Ljava/lang/String;
     :pswitch_2
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
@@ -393,7 +373,6 @@
 
     goto/16 :goto_1
 
-    .line 113
     :pswitch_3
     const/4 v12, 0x2
 
@@ -423,8 +402,6 @@
 
     aput-object v13, v6, v12
 
-    .line 114
-    .local v6, "onPostDialPauseArgs":[Ljava/lang/String;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -442,8 +419,6 @@
 
     goto/16 :goto_1
 
-    .line 117
-    .end local v6    # "onPostDialPauseArgs":[Ljava/lang/String;
     :pswitch_4
     const/4 v12, 0x2
 
@@ -473,8 +448,6 @@
 
     aput-object v13, v7, v12
 
-    .line 118
-    .local v7, "onPostDialPauseCompleteArgs":[Ljava/lang/String;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -492,8 +465,6 @@
 
     goto/16 :goto_1
 
-    .line 121
-    .end local v7    # "onPostDialPauseCompleteArgs":[Ljava/lang/String;
     :pswitch_5
     const/4 v12, 0x2
 
@@ -523,8 +494,6 @@
 
     aput-object v13, v10, v12
 
-    .line 122
-    .local v10, "sendMessageToUIArgs":[Ljava/lang/String;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -542,23 +511,17 @@
 
     goto/16 :goto_1
 
-    .line 125
-    .end local v10    # "sendMessageToUIArgs":[Ljava/lang/String;
     :pswitch_6
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->needToShowAsFullScreen()Z
 
     move-result v11
 
-    .line 126
-    .local v11, "value":Z
     const-string v12, "retValue"
 
     invoke-virtual {v8, v12, v11}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto/16 :goto_1
 
-    .line 129
-    .end local v11    # "value":Z
     :pswitch_7
     const/4 v12, 0x2
 
@@ -588,8 +551,6 @@
 
     aput-object v13, v4, v12
 
-    .line 130
-    .local v4, "mediaSessionMessage":[Ljava/lang/String;
     iget-object v12, p0, Lcom/android/incallui/service/SecInCallService$SecInCallServiceBinder;->this$0:Lcom/android/incallui/service/SecInCallService;
 
     # getter for: Lcom/android/incallui/service/SecInCallService;->mHandler:Landroid/os/Handler;
@@ -604,19 +565,22 @@
     move-result-object v12
 
     invoke-virtual {v12}, Landroid/os/Message;->sendToTarget()V
+
+    goto/16 :goto_1
+
+    :pswitch_8
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->stopGuidance()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_1
-
-    .line 98
-    nop
 
     :sswitch_data_0
     .sparse-switch
         -0x7825a2e5 -> :sswitch_6
         -0x71642529 -> :sswitch_7
         -0x4edf71a0 -> :sswitch_4
+        -0x4bebfc46 -> :sswitch_8
         -0x3b6ae7a3 -> :sswitch_0
         0x248882b -> :sswitch_2
         0xf49d977 -> :sswitch_1
@@ -634,5 +598,6 @@
         :pswitch_5
         :pswitch_6
         :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method

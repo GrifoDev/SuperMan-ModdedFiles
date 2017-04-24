@@ -6,10 +6,7 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;)V
     .locals 7
-    .param p1, "token"    # I
-    .param p2, "cookie"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v3, 0x3
 
     const/4 v6, 0x2
@@ -18,10 +15,8 @@
 
     const/4 v4, 0x1
 
-    .line 30
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/callerinfocard/queryargs/CallerInfoCardQueryArgs;-><init>(ILjava/lang/Object;)V
 
-    .line 31
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -44,7 +39,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/AnniversaryQueryArgs;->mUri:Landroid/net/Uri;
 
-    .line 32
     const-string v0, "support_lunar_birthday"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -53,7 +47,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 33
     new-array v0, v3, [Ljava/lang/String;
 
     const-string v1, "data1"
@@ -70,18 +63,15 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/AnniversaryQueryArgs;->mProjection:[Ljava/lang/String;
 
-    .line 37
     :goto_0
     const-string v0, "contact_id=? AND mimetype=? AND data2=?"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/AnniversaryQueryArgs;->mSelection:Ljava/lang/String;
 
-    .line 38
     new-array v1, v3, [Ljava/lang/String;
 
     check-cast p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
-    .end local p2    # "cookie":Ljava/lang/Object;
     iget-object v0, p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -98,7 +88,6 @@
 
     aput-object v0, v1, v4
 
-    .line 40
     invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -107,11 +96,8 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/queryargs/AnniversaryQueryArgs;->mSelectionArgs:[Ljava/lang/String;
 
-    .line 42
     return-void
 
-    .line 35
-    .restart local p2    # "cookie":Ljava/lang/Object;
     :cond_0
     new-array v0, v6, [Ljava/lang/String;
 

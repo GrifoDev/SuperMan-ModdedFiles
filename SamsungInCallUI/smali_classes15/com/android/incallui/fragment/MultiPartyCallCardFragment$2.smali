@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    .prologue
-    .line 1840
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,21 +33,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 8
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
     const/high16 v7, 0x3f800000    # 1.0f
 
     const/4 v6, 0x1
 
-    .line 1848
     const-string v3, "MultiPartyCallCardFragment"
 
     const-string v4, "swap animation end..."
 
     invoke-static {v3, v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 1849
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -63,8 +56,6 @@
 
     move-result-object v2
 
-    .line 1850
-    .local v2, "call":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -73,8 +64,6 @@
 
     move-result-object v0
 
-    .line 1851
-    .local v0, "activeCall":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v3
@@ -83,15 +72,12 @@
 
     move-result-object v1
 
-    .line 1853
-    .local v1, "bgCall":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->needToShowSwapButton()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    .line 1854
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v3
@@ -102,7 +88,6 @@
 
     invoke-virtual {v3, v4}, Lcom/android/incallui/TelecomAdapter;->holdCall(Ljava/lang/String;)V
 
-    .line 1855
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v3
@@ -113,7 +98,6 @@
 
     invoke-virtual {v3, v4}, Lcom/android/incallui/TelecomAdapter;->unholdCall(Ljava/lang/String;)V
 
-    .line 1868
     :cond_0
     :goto_0
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
@@ -122,14 +106,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 1869
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v3, v3, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mPrimaryCallInfoContainer:Landroid/view/View;
 
     invoke-virtual {v3, v7}, Landroid/view/View;->setAlpha(F)V
 
-    .line 1871
     :cond_1
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -137,14 +119,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 1872
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     iget-object v3, v3, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->mSecondaryCallInfoContainer:Landroid/view/View;
 
     invoke-virtual {v3, v7}, Landroid/view/View;->setAlpha(F)V
 
-    .line 1874
     :cond_2
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -156,10 +136,8 @@
 
     invoke-virtual {v3, v4, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 1875
     return-void
 
-    .line 1856
     :cond_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -171,7 +149,6 @@
 
     if-nez v3, :cond_4
 
-    .line 1857
     const-string v3, "MultiPartyCallCardFragment"
 
     const-string v4, "syh there is no hold call"
@@ -180,7 +157,6 @@
 
     goto :goto_0
 
-    .line 1859
     :cond_4
     if-eqz v2, :cond_5
 
@@ -210,7 +186,6 @@
 
     if-eqz v3, :cond_5
 
-    .line 1860
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v3
@@ -223,7 +198,6 @@
 
     goto :goto_0
 
-    .line 1862
     :cond_5
     iget-object v3, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$2;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -234,7 +208,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 1863
     const-string v3, "MultiPartyCallCardFragment"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -283,10 +256,7 @@
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 3
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 1843
     const-string v0, "MultiPartyCallCardFragment"
 
     const-string v1, "swap animation start..."
@@ -295,6 +265,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 1844
     return-void
 .end method

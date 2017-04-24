@@ -21,13 +21,9 @@
 # direct methods
 .method private constructor <init>(Ljava/io/File;)V
     .locals 1
-    .param p1, "file"    # Ljava/io/File;
 
-    .prologue
-    .line 120
     invoke-direct {p0}, Lcom/google/common/io/ByteSource;-><init>()V
 
-    .line 121
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -36,17 +32,12 @@
 
     iput-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
 
-    .line 122
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;Lcom/google/common/io/Files$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/io/File;
-    .param p2, "x1"    # Lcom/google/common/io/Files$1;
 
-    .prologue
-    .line 116
     invoke-direct {p0, p1}, Lcom/google/common/io/Files$FileByteSource;-><init>(Ljava/io/File;)V
 
     return-void
@@ -62,8 +53,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 126
     new-instance v0, Ljava/io/FileInputStream;
 
     iget-object v1, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
@@ -81,8 +70,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 116
     invoke-virtual {p0}, Lcom/google/common/io/Files$FileByteSource;->openStream()Ljava/io/FileInputStream;
 
     move-result-object v0
@@ -98,14 +85,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 148
     invoke-static {}, Lcom/google/common/io/Closer;->create()Lcom/google/common/io/Closer;
 
     move-result-object v0
 
-    .line 150
-    .local v0, "closer":Lcom/google/common/io/Closer;
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/io/Files$FileByteSource;->openStream()Ljava/io/FileInputStream;
 
@@ -117,8 +100,6 @@
 
     check-cast v2, Ljava/io/FileInputStream;
 
-    .line 151
-    .local v2, "in":Ljava/io/FileInputStream;
     invoke-virtual {v2}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
 
     move-result-object v3
@@ -134,18 +115,13 @@
 
     move-result-object v3
 
-    .line 155
     invoke-virtual {v0}, Lcom/google/common/io/Closer;->close()V
 
     return-object v3
 
-    .line 152
-    .end local v2    # "in":Ljava/io/FileInputStream;
     :catch_0
     move-exception v1
 
-    .line 153
-    .local v1, "e":Ljava/lang/Throwable;
     :try_start_1
     invoke-virtual {v0, v1}, Lcom/google/common/io/Closer;->rethrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
@@ -155,8 +131,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 155
-    .end local v1    # "e":Ljava/lang/Throwable;
     :catchall_0
     move-exception v3
 
@@ -173,8 +147,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 140
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
@@ -183,7 +155,6 @@
 
     if-nez v0, :cond_0
 
-    .line 141
     new-instance v0, Ljava/io/FileNotFoundException;
 
     iget-object v1, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
@@ -196,7 +167,6 @@
 
     throw v0
 
-    .line 143
     :cond_0
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
 
@@ -219,8 +189,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 131
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
@@ -229,7 +197,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 132
     iget-object v0, p0, Lcom/google/common/io/Files$FileByteSource;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
@@ -244,7 +211,6 @@
 
     move-result-object v0
 
-    .line 134
     :goto_0
     return-object v0
 
@@ -259,8 +225,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 161
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

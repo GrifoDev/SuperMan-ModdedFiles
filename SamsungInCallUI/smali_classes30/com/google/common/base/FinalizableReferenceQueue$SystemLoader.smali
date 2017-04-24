@@ -28,8 +28,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 245
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,20 +45,16 @@
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 252
     sget-boolean v3, Lcom/google/common/base/FinalizableReferenceQueue$SystemLoader;->disabled:Z
 
     if-eqz v3, :cond_1
 
-    .line 270
     :cond_0
     :goto_0
     return-object v2
 
-    .line 257
     :cond_1
     :try_start_0
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
@@ -69,11 +63,8 @@
 
     move-result-object v1
 
-    .line 262
-    .local v1, "systemLoader":Ljava/lang/ClassLoader;
     if-eqz v1, :cond_0
 
-    .line 264
     :try_start_1
     const-string v3, "com.google.common.base.internal.Finalizer"
 
@@ -85,13 +76,9 @@
 
     goto :goto_0
 
-    .line 258
-    .end local v1    # "systemLoader":Ljava/lang/ClassLoader;
     :catch_0
     move-exception v0
 
-    .line 259
-    .local v0, "e":Ljava/lang/SecurityException;
     # getter for: Lcom/google/common/base/FinalizableReferenceQueue;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/google/common/base/FinalizableReferenceQueue;->access$000()Ljava/util/logging/Logger;
 
@@ -103,13 +90,8 @@
 
     goto :goto_0
 
-    .line 265
-    .end local v0    # "e":Ljava/lang/SecurityException;
-    .restart local v1    # "systemLoader":Ljava/lang/ClassLoader;
     :catch_1
     move-exception v0
 
-    .line 267
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
     goto :goto_0
 .end method

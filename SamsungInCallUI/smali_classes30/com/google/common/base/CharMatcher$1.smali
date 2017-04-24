@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CharMatcher;Lcom/google/common/base/CharMatcher;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x0"    # Lcom/google/common/base/CharMatcher;
 
-    .prologue
-    .line 455
     iput-object p1, p0, Lcom/google/common/base/CharMatcher$1;->this$0:Lcom/google/common/base/CharMatcher;
 
     iput-object p3, p0, Lcom/google/common/base/CharMatcher$1;->val$description:Ljava/lang/String;
@@ -41,8 +38,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 458
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$1;->val$description:Ljava/lang/String;
 
     return-object v0

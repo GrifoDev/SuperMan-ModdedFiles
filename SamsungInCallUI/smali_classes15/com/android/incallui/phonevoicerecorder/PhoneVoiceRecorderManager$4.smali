@@ -3,12 +3,12 @@
 .source "PhoneVoiceRecorderManager.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/incallui/InCallVideoCallCallbackNotifier$SessionModificationListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->showRecordToast(Ljava/lang/String;)V
+    value = Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->createSessionModificationListener()Lcom/android/incallui/InCallVideoCallCallbackNotifier$SessionModificationListener;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,19 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-.field final synthetic val$message:Ljava/lang/String;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
-    .prologue
-    .line 486
     iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
-
-    iput-object p2, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->val$message:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,29 +34,56 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public onChangeToVideoRequest(Lcom/android/incallui/Call;I)V
+    .locals 0
 
-    .prologue
-    .line 489
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+    return-void
+.end method
 
-    move-result-object v0
+.method public onDowngradeToAudio(Lcom/android/incallui/Call;)V
+    .locals 0
 
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+    return-void
+.end method
 
-    move-result-object v0
+.method public onDowngradeToAudioRequest(Lcom/android/incallui/Call;I)V
+    .locals 0
 
-    iget-object v1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->val$message:Ljava/lang/String;
+    return-void
+.end method
 
-    const/4 v2, 0x1
+.method public onUpgradeToVideoFail(ILcom/android/incallui/Call;)V
+    .locals 0
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    return-void
+.end method
 
-    move-result-object v0
+.method public onUpgradeToVideoRequest(Lcom/android/incallui/Call;I)V
+    .locals 0
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    return-void
+.end method
 
-    .line 490
+.method public onUpgradeToVideoSuccess(Lcom/android/incallui/Call;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->isRecording()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->stopRecord()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$4;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
+
+    # invokes: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->resetRecordedCallInfo()V
+    invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$100(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)V
+
     return-void
 .end method

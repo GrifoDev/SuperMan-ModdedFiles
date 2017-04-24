@@ -262,6 +262,7 @@
     <string name="extra_vol_off">បាន​បិទ​កម្រិត​សំឡេង​បន្ថែម។</string>
     <string name="extra_vol_on">បាន​បើកប្រើ​កម្រិត​សំឡេង​បន្ថែម។</string>
     <string name="far_end_stopped_share_video">%s បាន​បញ្ឈប់​ការចែករំលែក​វីដេអូ។</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">ឯកសារ​មិន​ទទួល​ការគាំទ្រ។</string>
     <string name="full_name">ឈ្មោះ</string>
@@ -644,7 +645,7 @@
     <string name="secOnscreenResumeCallText">ចាប់ផ្ដើម​បន្ត</string>
     <string name="secOnscreenShowCallOption">បង្ហាញ​ជម្រើស​ហៅ</string>
     <string name="secOnscreenSpeaker">ឧបល័រ</string>
-    <string name="secOnscreenStopText">ឈប់</string>
+    <string name="secOnscreenStopText">បញ្ឈប់​ការថត</string>
     <string name="secOnscreenSwapText">ដូរ</string>
     <string name="secOnscreenSwisText">ឃើញ​អ្វី​ខ្ញុំ​ឃើញ</string>
     <string name="secOnscreenSwitchCameraText">ប្តូរ​កាមេរ៉ា</string>
@@ -719,6 +720,7 @@
     <string name="switch_to_voice_call_failed">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​សំឡេង​បាន​បរាជ័យ។</string>
     <string name="switched_to_voip_mo">បាន​ប្ដូរ​ទៅ​ជា​ការហៅ​សំឡេង។</string>
     <string name="switched_to_voip_mt">បាន​ប្ដូរ​ទៅ​ជា​ការ​ហៅ​សំឡេង ដោយ​សារ​មាន​សំណើ​ពី​ភាគី​ដែល​បាន​ហៅ។</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s បាន​បិទ​វីដេអូ។</string>
     <string name="switching_camera_failed">បាន​បរាជ័យ​ក្នុង​ការ​ប្ដូរ​កាមេរ៉ា។</string>
     <string name="switching_to_voice_call">កំពុង​ប្ដូរ​ទៅ​ការហៅ​សំឡេង…</string>
@@ -734,7 +736,9 @@
     <string name="usa_att_connected_as_voice">ការហៅ​ត្រូវ​បាន​ភ្ជាប់​ជា​សំឡេង​ប៉ុណ្ណោះ។</string>
     <string name="usa_att_data_usage_charge_alert">ការប្រើប្រាស់​ទិន្នន័យ​របស់​អ្នក​ដែល​អ្នក​កំណត់​លើ​ឧបករណ៍​របស់​អ្នក​ជិត​ដល់​ដែនកំណត់​របស់​វា។ ការហៅ​វីដេអូ​របស់​អ្នក​ត្រូវការ​ទិន្នន័យ។</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ការហៅ​មិន​អាច​ធ្វើ​តាម Wi-Fi, កំពុង​ភ្ជាប់​តាម​បណ្ដាញ​ចល័ត។ នឹង​គិត​ថ្លៃ​សំឡេង​និង​ទិន្នន័យ។</string>
-    <string name="usa_att_modify_receive_to_video">ជ្រើស​ទម្រង់​វីដេអូ</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">ការហៅ​មិន​អាច​ធ្វើ​តាម Wi-Fi, កំពុង​ភ្ជាប់​តាម​បណ្ដាញ​ចល័ត។ នឹង​គិត​ថ្លៃ​សំឡេង​និង​ទិន្នន័យ។</string>
     <string name="usa_att_select_call_type_incoming_video_call">ប៉ះ​ខាងក្រោម ដើម្បី​ជ្រើស​ប្រភេទ​ការហៅ។</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">ប្រភេទ​ការហៅ​មិន​អាច​ប្ដូរ​បាន​ឡើយ ក្នុង​អំឡុងពេល​ហៅ​ប្រជុំ។</string>
     <string name="usa_gsm_modify_receive_to_video">%s ចង់​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ។</string>
@@ -742,6 +746,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">កំពុង​រង់ចាំ​ការឆ្លើយតប</string>
     <string name="usa_gsm_modify_select_call_type">ជ្រើស​ប្រភេទ​ហៅ</string>
     <string name="usa_gsm_switching_to_voice_call">នឹង​ប្ដូរ​ទៅ​សំឡេង​ប៉ុណ្ណោះ។</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">បាន​បិទ​វីដេអូ ដោយសារ​ទិន្នន័យ​ចល័ត​មិន​អាច​ប្រើ​បាន។</string>
     <string name="usa_volte_reject_upgrade_request">%s មិន​អាច​ទទួល​ការហៅ​វីដេអូ​នៅ​ពេល​នេះ។</string>
     <string name="usa_volte_reject_upgrade_request_tmo">ការហៅ​វីដេអូ​មិន​អាច​ប្រើ​បាន។</string>
     <string name="usa_vzw_change_to_oneway_video">"ប្ដូរ​ទៅ
@@ -786,7 +791,9 @@
     <string name="vibo_operator_name">ផ្កាយ T</string>
     <string name="video_alert_show_never_again">កុំ​បង្ហាញ​ម្តងទៀត</string>
     <string name="video_calling_incoming">ការហៅ​វីដេអូ</string>
+    <string name="video_calls_quality_poor_tmo">គុណភាព​ការភ្ជាប់​អន់។ ការហៅ​វីដេអូ​អាច​ប្ដូរ​ទៅ​ការហៅ​សំឡេង។</string>
     <string name="video_calls_temporarily_not_available">ការហៅ​វីដេអូ​មិន​អាច​ធ្វើ​បាន​ជា​បណ្ដោះអាសន្ន។ បាន​ប្ដូរ​ការហៅ​ទៅ​ការហៅ​សំឡេង។</string>
+    <string name="video_calls_temporarily_not_available_att">លេខ​ដែល​អ្នក​កំពុង​ហៅ​មិន​អាច​ទទួល​ការហៅ​វីដេអូ​ទេ នៅ​ពេល​នេះ។ ការហៅ​ត្រូវ​បាន​ភ្ជាប់​ជា​ការហៅ​សំឡេង។</string>
     <string name="video_calls_temporarily_not_available_tmo">ការហៅ​វីដេអូ​មិន​អាច​ប្រើ​បាន។</string>
     <string name="video_paused_info_text">បាន​ផ្អាក​វីដេអូ</string>
     <string name="video_saved">បាន​រក្សាទុក​វីដេអូ​ក្នុង %s។</string>

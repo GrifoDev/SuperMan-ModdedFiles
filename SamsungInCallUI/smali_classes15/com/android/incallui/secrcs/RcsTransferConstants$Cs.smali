@@ -36,26 +36,20 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 178
     const-string v0, "content://com.samsung.rcs.cs/active_sessions"
 
-    .line 179
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsTransferConstants$Cs;->ACTIVE_SESSIONS_URI:Landroid/net/Uri;
 
-    .line 178
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

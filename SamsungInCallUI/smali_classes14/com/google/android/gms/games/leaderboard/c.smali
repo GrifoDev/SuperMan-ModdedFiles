@@ -528,9 +528,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/leaderboard/c;->a(Lcom/google/android/gms/games/leaderboard/LeaderboardScore;Ljava/lang/Object;)Z
 
     move-result v0
@@ -558,9 +556,7 @@
 
 .method public getDisplayRank(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/c;->es:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -578,9 +574,7 @@
 
 .method public getDisplayScore(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/c;->et:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -636,9 +630,7 @@
 
 .method public getScoreHolderDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/leaderboard/c;->ez:Lcom/google/android/gms/games/PlayerEntity;
 
     if-nez v0, :cond_0

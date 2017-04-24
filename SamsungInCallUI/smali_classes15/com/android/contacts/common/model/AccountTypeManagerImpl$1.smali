@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
-    .prologue
-    .line 231
     iput-object p1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 234
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;->this$0:Lcom/android/contacts/common/model/AccountTypeManagerImpl;
 
     # getter for: Lcom/android/contacts/common/model/AccountTypeManagerImpl;->mContext:Landroid/content/Context;
@@ -57,6 +52,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/contacts/common/list/ContactListFilterController;->checkFilterValidity(Z)V
 
-    .line 235
     return-void
 .end method

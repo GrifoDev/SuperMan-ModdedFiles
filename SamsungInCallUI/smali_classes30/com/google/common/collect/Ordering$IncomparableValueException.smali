@@ -28,10 +28,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 958
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -52,9 +49,7 @@
 
     invoke-direct {p0, v0}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
 
-    .line 959
     iput-object p1, p0, Lcom/google/common/collect/Ordering$IncomparableValueException;->value:Ljava/lang/Object;
 
-    .line 960
     return-void
 .end method

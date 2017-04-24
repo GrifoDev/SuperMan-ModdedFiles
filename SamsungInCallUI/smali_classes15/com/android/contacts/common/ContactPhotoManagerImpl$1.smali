@@ -31,11 +31,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/ContactPhotoManagerImpl;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/ContactPhotoManagerImpl;
-    .param p2, "x0"    # I
 
-    .prologue
-    .line 725
     iput-object p1, p0, Lcom/android/contacts/common/ContactPhotoManagerImpl$1;->this$0:Lcom/android/contacts/common/ContactPhotoManagerImpl;
 
     invoke-direct {p0, p2}, Landroid/util/LruCache;-><init>(I)V
@@ -47,21 +43,13 @@
 # virtual methods
 .method protected entryRemoved(ZLjava/lang/Object;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "evicted"    # Z
-    .param p2, "key"    # Ljava/lang/Object;
-    .param p3, "oldValue"    # Landroid/graphics/Bitmap;
-    .param p4, "newValue"    # Landroid/graphics/Bitmap;
 
-    .prologue
-    .line 735
     return-void
 .end method
 
 .method protected bridge synthetic entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    .prologue
-    .line 725
     check-cast p3, Landroid/graphics/Bitmap;
 
     check-cast p4, Landroid/graphics/Bitmap;
@@ -73,11 +61,7 @@
 
 .method protected sizeOf(Ljava/lang/Object;Landroid/graphics/Bitmap;)I
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Landroid/graphics/Bitmap;
 
-    .prologue
-    .line 728
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getByteCount()I
 
     move-result v0
@@ -88,8 +72,6 @@
 .method protected bridge synthetic sizeOf(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
-    .prologue
-    .line 725
     check-cast p2, Landroid/graphics/Bitmap;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/contacts/common/ContactPhotoManagerImpl$1;->sizeOf(Ljava/lang/Object;Landroid/graphics/Bitmap;)I

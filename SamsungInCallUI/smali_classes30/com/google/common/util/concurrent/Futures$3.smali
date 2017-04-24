@@ -35,8 +35,6 @@
 .method constructor <init>(Ljava/util/concurrent/Future;Lcom/google/common/base/Function;)V
     .locals 0
 
-    .prologue
-    .line 1313
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$3;->val$function:Lcom/google/common/base/Function;
@@ -60,9 +58,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1343
-    .local p1, "input":Ljava/lang/Object;, "TI;"
     :try_start_0
     iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$3;->val$function:Lcom/google/common/base/Function;
 
@@ -74,12 +69,9 @@
 
     return-object v1
 
-    .line 1344
     :catch_0
     move-exception v0
 
-    .line 1345
-    .local v0, "t":Ljava/lang/Throwable;
     new-instance v1, Ljava/util/concurrent/ExecutionException;
 
     invoke-direct {v1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
@@ -91,10 +83,7 @@
 # virtual methods
 .method public cancel(Z)Z
     .locals 1
-    .param p1, "mayInterruptIfRunning"    # Z
 
-    .prologue
-    .line 1317
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/Future;->cancel(Z)Z
@@ -119,8 +108,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1332
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
@@ -136,8 +123,6 @@
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -154,8 +139,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1338
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     invoke-interface {v0, p1, p2, p3}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
@@ -172,8 +155,6 @@
 .method public isCancelled()Z
     .locals 1
 
-    .prologue
-    .line 1322
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->isCancelled()Z
@@ -186,8 +167,6 @@
 .method public isDone()Z
     .locals 1
 
-    .prologue
-    .line 1327
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$3;->val$input:Ljava/util/concurrent/Future;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->isDone()Z

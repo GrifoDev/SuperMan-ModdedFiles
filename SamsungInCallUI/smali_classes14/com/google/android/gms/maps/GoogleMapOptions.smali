@@ -64,19 +64,7 @@
 
 .method constructor <init>(IBBILcom/google/android/gms/maps/model/CameraPosition;BBBBBB)V
     .locals 1
-    .param p1, "versionCode"    # I
-    .param p2, "zOrderOnTop"    # B
-    .param p3, "useViewLifecycleInFragment"    # B
-    .param p4, "mapType"    # I
-    .param p5, "camera"    # Lcom/google/android/gms/maps/model/CameraPosition;
-    .param p6, "zoomControlsEnabled"    # B
-    .param p7, "compassEnabled"    # B
-    .param p8, "scrollGesturesEnabled"    # B
-    .param p9, "zoomGesturesEnabled"    # B
-    .param p10, "tiltGesturesEnabled"    # B
-    .param p11, "rotateGesturesEnabled"    # B
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, -0x1
@@ -142,10 +130,7 @@
 
 .method public static createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     const/16 v7, 0x8
 
     const/4 v6, 0x7
@@ -428,9 +413,7 @@
 
 .method public camera(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 0
-    .param p1, "camera"    # Lcom/google/android/gms/maps/model/CameraPosition;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->gr:Lcom/google/android/gms/maps/model/CameraPosition;
 
     return-object p0
@@ -438,9 +421,7 @@
 
 .method public compassEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -548,9 +529,7 @@
 
 .method public mapType(I)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 0
-    .param p1, "mapType"    # I
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->gq:I
 
     return-object p0
@@ -558,9 +537,7 @@
 
 .method public rotateGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -572,9 +549,7 @@
 
 .method public scrollGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -586,9 +561,7 @@
 
 .method public tiltGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -600,9 +573,7 @@
 
 .method public useViewLifecycleInFragment(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "useViewLifecycleInFragment"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -614,10 +585,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0
@@ -637,9 +605,7 @@
 
 .method public zOrderOnTop(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "zOrderOnTop"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -651,9 +617,7 @@
 
 .method public zoomControlsEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -665,9 +629,7 @@
 
 .method public zoomGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0

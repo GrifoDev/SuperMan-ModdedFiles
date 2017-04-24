@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
     return-void
@@ -18,10 +16,7 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 27
     const-class v0, Ljava/io/File;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -33,10 +28,7 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "str"    # Ljava/lang/String;
 
-    .prologue
-    .line 31
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -46,13 +38,9 @@
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 35
     check-cast p1, Ljava/io/File;
 
-    .end local p1    # "obj":Ljava/lang/Object;
     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v0

@@ -29,9 +29,6 @@
 .method constructor <init>(Ljava/util/Iterator;Lcom/google/common/base/Function;)V
     .locals 0
 
-    .prologue
-    .line 814
-    .local p1, "x0":Ljava/util/Iterator;, "Ljava/util/Iterator<+TF;>;"
     iput-object p2, p0, Lcom/google/common/collect/Iterators$8;->val$function:Lcom/google/common/base/Function;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/TransformedIterator;-><init>(Ljava/util/Iterator;)V
@@ -49,9 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 817
-    .local p1, "from":Ljava/lang/Object;, "TF;"
     iget-object v0, p0, Lcom/google/common/collect/Iterators$8;->val$function:Lcom/google/common/base/Function;
 
     invoke-interface {v0, p1}, Lcom/google/common/base/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;

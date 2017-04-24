@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupContainer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupContainer;
 
-    .prologue
-    .line 2055
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupContainer$6;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     invoke-direct {p0}, Landroid/view/View$AccessibilityDelegate;-><init>()V
@@ -36,11 +33,7 @@
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
-    .prologue
-    .line 2058
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer$6;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
@@ -50,7 +43,6 @@
 
     invoke-virtual {v0, p2}, Lcom/android/incallui/service/SecCallPopupService;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 2059
     const/4 v0, 0x1
 
     return v0

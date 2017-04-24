@@ -19,6 +19,10 @@
 
 .field public static final EPDG:Ljava/lang/String; = "epdg"
 
+.field public static final PIP_PEERVIEW:Ljava/lang/String; = "pip_peerview"
+
+.field public static final PIP_PREVIEW:Ljava/lang/String; = "pip_preview"
+
 .field public static final RX_HELD:Ljava/lang/String; = "rx_held"
 
 .field public static final THREE_WIDGET:Ljava/lang/String; = "three_widget"
@@ -30,8 +34,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 418
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

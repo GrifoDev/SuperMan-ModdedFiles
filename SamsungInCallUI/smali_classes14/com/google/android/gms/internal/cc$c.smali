@@ -281,9 +281,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
@@ -294,11 +292,9 @@
 
     move v0, v1
 
-    .end local p1    # "obj":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_0
     if-ne p0, p1, :cond_1
 
@@ -309,7 +305,6 @@
     :cond_1
     check-cast p1, Lcom/google/android/gms/internal/cc$c;
 
-    .end local p1    # "obj":Ljava/lang/Object;
     sget-object v0, Lcom/google/android/gms/internal/cc$c;->iC:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -521,10 +516,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     sget-object v0, Lcom/google/android/gms/internal/cc$c;->CREATOR:Lcom/google/android/gms/internal/ci;
 
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/internal/ci;->a(Lcom/google/android/gms/internal/cc$c;Landroid/os/Parcel;I)V

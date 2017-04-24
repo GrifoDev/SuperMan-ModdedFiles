@@ -67,13 +67,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 902
-    .local p0, "this":Lcom/google/common/util/concurrent/Futures$TimeoutFuture;, "Lcom/google/common/util/concurrent/Futures$TimeoutFuture<TV;>;"
-    .local p1, "delegate":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;-><init>()V
 
-    .line 903
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -82,7 +77,6 @@
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 904
     return-void
 .end method
 
@@ -91,34 +85,24 @@
 .method done()V
     .locals 3
 
-    .prologue
-    .local p0, "this":Lcom/google/common/util/concurrent/Futures$TimeoutFuture;, "Lcom/google/common/util/concurrent/Futures$TimeoutFuture<TV;>;"
     const/4 v2, 0x0
 
-    .line 954
     iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-virtual {p0, v1}, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->maybePropagateCancellation(Ljava/util/concurrent/Future;)V
 
-    .line 956
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->timer:Ljava/util/concurrent/Future;
 
-    .line 960
-    .local v0, "localTimer":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     if-eqz v0, :cond_0
 
-    .line 961
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 964
     :cond_0
     iput-object v2, p0, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->delegateRef:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 965
     iput-object v2, p0, Lcom/google/common/util/concurrent/Futures$TimeoutFuture;->timer:Ljava/util/concurrent/Future;
 
-    .line 966
     return-void
 .end method

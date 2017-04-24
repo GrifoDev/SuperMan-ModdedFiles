@@ -27,18 +27,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     new-instance v0, Lcom/cmdm/control/bean/BusinessPackageList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/BusinessPackageList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/BusinessPackageResult;->businessPackageList:Lcom/cmdm/control/bean/BusinessPackageList;
 
-    .line 22
     return-void
 .end method
 
@@ -47,8 +43,6 @@
 .method public getBusinessPackageList()Lcom/cmdm/control/bean/BusinessPackageList;
     .locals 1
 
-    .prologue
-    .line 37
     iget-object v0, p0, Lcom/cmdm/control/bean/BusinessPackageResult;->businessPackageList:Lcom/cmdm/control/bean/BusinessPackageList;
 
     return-object v0
@@ -56,12 +50,8 @@
 
 .method public setBusinessPackageList(Lcom/cmdm/control/bean/BusinessPackageList;)V
     .locals 0
-    .param p1, "businessPackageList"    # Lcom/cmdm/control/bean/BusinessPackageList;
 
-    .prologue
-    .line 45
     iput-object p1, p0, Lcom/cmdm/control/bean/BusinessPackageResult;->businessPackageList:Lcom/cmdm/control/bean/BusinessPackageList;
 
-    .line 46
     return-void
 .end method

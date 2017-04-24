@@ -29,9 +29,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 37
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingMap;-><init>()V
 
     return-void
@@ -42,9 +39,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 32
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -55,9 +49,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Map;
     .locals 1
 
-    .prologue
-    .line 32
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -83,11 +74,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -101,12 +87,7 @@
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 49
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -126,11 +107,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 54
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
@@ -150,12 +126,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/collect/ForwardingConcurrentMap;, "Lcom/google/common/collect/ForwardingConcurrentMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "oldValue":Ljava/lang/Object;, "TV;"
-    .local p3, "newValue":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingConcurrentMap;->delegate()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0

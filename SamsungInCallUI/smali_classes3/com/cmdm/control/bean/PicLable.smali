@@ -45,8 +45,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -57,8 +55,6 @@
 .method public getSelectStatus()Z
     .locals 2
 
-    .prologue
-    .line 47
     iget-object v0, p0, Lcom/cmdm/control/bean/PicLable;->isSelect:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -83,10 +79,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 48
     const/4 v0, 0x1
 
-    .line 50
     :goto_0
     return v0
 
@@ -98,26 +92,20 @@
 
 .method public setSelectStatus(Ljava/lang/Boolean;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Boolean;
 
-    .prologue
-    .line 54
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 55
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/cmdm/control/bean/PicLable;->isSelect:Ljava/lang/String;
 
-    .line 59
     :goto_0
     return-void
 
-    .line 57
     :cond_0
     const-string v0, "0"
 

@@ -191,8 +191,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 130
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/incallui/util/AppLogging;->mIsMiniCallEnd:Z
@@ -203,8 +201,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -213,27 +209,20 @@
 .method public static getCallTypeString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 262
     const-string v0, "CS"
 
-    .line 263
-    .local v0, "retVal":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isEpdgCall()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 264
     const-string v0, "WiFi"
 
-    .line 268
     :cond_0
     :goto_0
     return-object v0
 
-    .line 265
     :cond_1
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isPSDomain()Z
 
@@ -241,7 +230,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 266
     const-string v0, "LTE"
 
     goto :goto_0
@@ -250,12 +238,8 @@
 .method public static getScreenTypeString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 243
     const-string v0, "Other"
 
-    .line 244
-    .local v0, "retVal":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v1
@@ -266,10 +250,8 @@
 
     if-eqz v1, :cond_0
 
-    .line 245
     const-string v0, "Pop-up"
 
-    .line 247
     :cond_0
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -295,116 +277,76 @@
 
     if-eqz v1, :cond_1
 
-    .line 248
     const-string v0, "Full"
 
-    .line 250
     :cond_1
     sget-boolean v1, Lcom/android/incallui/util/AppLogging;->mIsMiniCallEnd:Z
 
     if-eqz v1, :cond_2
 
-    .line 251
     const-string v0, "Mini call"
 
-    .line 252
     const/4 v1, 0x0
 
     sput-boolean v1, Lcom/android/incallui/util/AppLogging;->mIsMiniCallEnd:Z
 
-    .line 254
     :cond_2
     return-object v0
 .end method
 
 .method public static insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "appId"    # Ljava/lang/String;
-    .param p2, "feature"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 133
     sput-object p0, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
-    .line 134
     sput-object v0, Lcom/android/incallui/util/AppLogging;->mExtra:Ljava/lang/String;
 
-    .line 135
     sput-object v0, Lcom/android/incallui/util/AppLogging;->mValue:Ljava/lang/String;
 
-    .line 136
     invoke-static {p1, p2}, Lcom/android/incallui/util/AppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 137
     return-void
 .end method
 
 .method public static insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "appId"    # Ljava/lang/String;
-    .param p2, "feature"    # Ljava/lang/String;
-    .param p3, "extra"    # Ljava/lang/String;
 
-    .prologue
-    .line 140
     sput-object p0, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
-    .line 141
     sput-object p3, Lcom/android/incallui/util/AppLogging;->mExtra:Ljava/lang/String;
 
-    .line 142
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/util/AppLogging;->mValue:Ljava/lang/String;
 
-    .line 143
     invoke-static {p1, p2}, Lcom/android/incallui/util/AppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 144
     return-void
 .end method
 
 .method public static insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "appId"    # Ljava/lang/String;
-    .param p2, "feature"    # Ljava/lang/String;
-    .param p3, "extra"    # Ljava/lang/String;
-    .param p4, "value"    # Ljava/lang/String;
 
-    .prologue
-    .line 147
     sput-object p0, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
-    .line 148
     sput-object p3, Lcom/android/incallui/util/AppLogging;->mExtra:Ljava/lang/String;
 
-    .line 149
     sput-object p4, Lcom/android/incallui/util/AppLogging;->mValue:Ljava/lang/String;
 
-    .line 150
     invoke-static {p1, p2}, Lcom/android/incallui/util/AppLogging;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 151
     return-void
 .end method
 
 .method static insertLog(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .param p0, "appId"    # Ljava/lang/String;
-    .param p1, "feature"    # Ljava/lang/String;
 
-    .prologue
-    .line 155
     sget-object v2, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
     if-nez v2, :cond_0
 
-    .line 158
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v2
@@ -415,7 +357,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 159
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v2
@@ -426,7 +367,6 @@
 
     sput-object v2, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
-    .line 163
     :cond_0
     const-string v2, "contextservice_enable_survey_mode"
 
@@ -436,78 +376,60 @@
 
     if-eqz v2, :cond_3
 
-    .line 164
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    .line 165
-    .local v1, "row":Landroid/content/ContentValues;
     const-string v2, "app_id"
 
     invoke-virtual {v1, v2, p0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 166
     const-string v2, "feature"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 168
     sget-object v2, Lcom/android/incallui/util/AppLogging;->mExtra:Ljava/lang/String;
 
     if-eqz v2, :cond_1
 
-    .line 169
     const-string v2, "extra"
 
     sget-object v3, Lcom/android/incallui/util/AppLogging;->mExtra:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 172
     :cond_1
     sget-object v2, Lcom/android/incallui/util/AppLogging;->mValue:Ljava/lang/String;
 
     if-eqz v2, :cond_2
 
-    .line 173
     const-string v2, "value"
 
     sget-object v3, Lcom/android/incallui/util/AppLogging;->mValue:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 176
     :cond_2
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 178
-    .local v0, "broadcastIntent":Landroid/content/Intent;
     const-string v2, "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
 
-    .line 179
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 180
     const-string v2, "data"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 182
     const-string v2, "com.samsung.android.providers.context"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 183
     sget-object v2, Lcom/android/incallui/util/AppLogging;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 185
-    .end local v0    # "broadcastIntent":Landroid/content/Intent;
-    .end local v1    # "row":Landroid/content/ContentValues;
     :cond_3
     const-string v2, "AppLogging"
 
@@ -565,61 +487,43 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 186
     return-void
 .end method
 
 .method public static insertLogOnCallDisconnect(Landroid/content/Context;Lcom/android/incallui/Call;)V
     .locals 12
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "call"    # Lcom/android/incallui/Call;
 
-    .prologue
-    .line 189
     const-wide/16 v2, 0x0
 
-    .line 190
-    .local v2, "callStart":J
     const-wide/16 v4, 0x0
 
-    .line 191
-    .local v4, "duration":J
     const-string v0, "/"
 
-    .line 192
-    .local v0, "DELIMITER":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 196
-    .local v1, "audioMode":I
     if-nez p1, :cond_1
 
-    .line 197
     const-string v9, "AppLogging"
 
     const-string v10, "call is not valid"
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 240
     :cond_0
     :goto_0
     return-void
 
-    .line 201
     :cond_1
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getConnectTimeMillis()J
 
     move-result-wide v2
 
-    .line 202
     const-wide/16 v10, 0x0
 
     cmp-long v9, v2, v10
 
     if-gtz v9, :cond_2
 
-    .line 203
     const-string v9, "AppLogging"
 
     const-string v10, "call is not started"
@@ -628,7 +532,6 @@
 
     goto :goto_0
 
-    .line 207
     :cond_2
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -636,13 +539,10 @@
 
     sub-long v4, v10, v2
 
-    .line 209
     invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 211
-    .local v8, "value":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/AudioModeProvider;->getInstance()Lcom/android/incallui/AudioModeProvider;
 
     move-result-object v9
@@ -651,7 +551,6 @@
 
     move-result v1
 
-    .line 214
     and-int/lit8 v9, v1, 0x8
 
     shr-int/lit8 v9, v9, 0x3
@@ -660,8 +559,6 @@
 
     move-result-object v6
 
-    .line 217
-    .local v6, "extra":Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -680,7 +577,6 @@
 
     move-result-object v6
 
-    .line 218
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -701,7 +597,6 @@
 
     move-result-object v6
 
-    .line 221
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -720,7 +615,6 @@
 
     move-result-object v6
 
-    .line 222
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -741,7 +635,6 @@
 
     move-result-object v6
 
-    .line 225
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -760,13 +653,10 @@
 
     move-result-object v6
 
-    .line 227
     invoke-static {}, Lcom/android/incallui/util/AppLogging;->getScreenTypeString()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 228
-    .local v7, "screenType":Ljava/lang/String;
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -783,7 +673,6 @@
 
     move-result-object v6
 
-    .line 230
     const-string v9, "AppLogging"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -806,7 +695,6 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
     const-string v9, "AppLogging"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -829,21 +717,18 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
     const-string v9, "com.android.incallui"
 
     const-string v10, "CALL"
 
     invoke-static {p0, v9, v10, v6, v8}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 236
     invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall(Lcom/android/incallui/Call;)Z
 
     move-result v9
 
     if-eqz v9, :cond_0
 
-    .line 237
     const-string v9, "com.android.incallui"
 
     const-string v10, "DVIE"
@@ -855,12 +740,8 @@
 
 .method public static setMiniCallEnd(Z)V
     .locals 0
-    .param p0, "isMini"    # Z
 
-    .prologue
-    .line 258
     sput-boolean p0, Lcom/android/incallui/util/AppLogging;->mIsMiniCallEnd:Z
 
-    .line 259
     return-void
 .end method

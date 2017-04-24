@@ -23,15 +23,11 @@
 # direct methods
 .method private constructor <init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;)V
     .locals 1
-    .param p2, "charset"    # Ljava/nio/charset/Charset;
 
-    .prologue
-    .line 142
     iput-object p1, p0, Lcom/google/common/io/ByteSink$AsCharSink;->this$0:Lcom/google/common/io/ByteSink;
 
     invoke-direct {p0}, Lcom/google/common/io/CharSink;-><init>()V
 
-    .line 143
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -40,18 +36,12 @@
 
     iput-object v0, p0, Lcom/google/common/io/ByteSink$AsCharSink;->charset:Ljava/nio/charset/Charset;
 
-    .line 144
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;Lcom/google/common/io/ByteSink$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/io/ByteSink;
-    .param p2, "x1"    # Ljava/nio/charset/Charset;
-    .param p3, "x2"    # Lcom/google/common/io/ByteSink$1;
 
-    .prologue
-    .line 138
     invoke-direct {p0, p1, p2}, Lcom/google/common/io/ByteSink$AsCharSink;-><init>(Lcom/google/common/io/ByteSink;Ljava/nio/charset/Charset;)V
 
     return-void
@@ -67,8 +57,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 148
     new-instance v0, Ljava/io/OutputStreamWriter;
 
     iget-object v1, p0, Lcom/google/common/io/ByteSink$AsCharSink;->this$0:Lcom/google/common/io/ByteSink;
@@ -87,8 +75,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 153
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

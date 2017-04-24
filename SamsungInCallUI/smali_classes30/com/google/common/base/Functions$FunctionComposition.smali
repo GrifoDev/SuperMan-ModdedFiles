@@ -71,14 +71,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 220
-    .local p0, "this":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<TA;TB;TC;>;"
-    .local p1, "g":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<TB;TC;>;"
-    .local p2, "f":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<TA;+TB;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 221
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -87,7 +81,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/Functions$FunctionComposition;->g:Lcom/google/common/base/Function;
 
-    .line 222
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -96,7 +89,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/Functions$FunctionComposition;->f:Lcom/google/common/base/Function;
 
-    .line 223
     return-void
 .end method
 
@@ -114,10 +106,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 227
-    .local p0, "this":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<TA;TB;TC;>;"
-    .local p1, "a":Ljava/lang/Object;, "TA;"
     iget-object v0, p0, Lcom/google/common/base/Functions$FunctionComposition;->g:Lcom/google/common/base/Function;
 
     iget-object v1, p0, Lcom/google/common/base/Functions$FunctionComposition;->f:Lcom/google/common/base/Function;
@@ -135,27 +123,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<TA;TB;TC;>;"
     const/4 v1, 0x0
 
-    .line 232
     instance-of v2, p1, Lcom/google/common/base/Functions$FunctionComposition;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 233
     check-cast v0, Lcom/google/common/base/Functions$FunctionComposition;
 
-    .line 234
-    .local v0, "that":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<***>;"
     iget-object v2, p0, Lcom/google/common/base/Functions$FunctionComposition;->f:Lcom/google/common/base/Function;
 
     iget-object v3, v0, Lcom/google/common/base/Functions$FunctionComposition;->f:Lcom/google/common/base/Function;
@@ -178,8 +160,6 @@
 
     const/4 v1, 0x1
 
-    .line 236
-    .end local v0    # "that":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<***>;"
     :cond_0
     return v1
 .end method
@@ -187,9 +167,6 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 241
-    .local p0, "this":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<TA;TB;TC;>;"
     iget-object v0, p0, Lcom/google/common/base/Functions$FunctionComposition;->f:Lcom/google/common/base/Function;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -210,9 +187,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 247
-    .local p0, "this":Lcom/google/common/base/Functions$FunctionComposition;, "Lcom/google/common/base/Functions$FunctionComposition<TA;TB;TC;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

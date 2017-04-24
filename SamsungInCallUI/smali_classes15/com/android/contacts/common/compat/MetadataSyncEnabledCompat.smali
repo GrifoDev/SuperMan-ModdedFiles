@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,22 +14,17 @@
 
 .method public static isMetadataSyncEnabled(Landroid/content/Context;)Z
     .locals 4
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    .line 25
-    .line 26
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
     const-string v3, "contact_metadata_sync_enabled"
 
-    .line 25
     invoke-static {v2, v3, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2

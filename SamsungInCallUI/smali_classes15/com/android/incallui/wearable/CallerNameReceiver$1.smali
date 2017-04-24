@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/wearable/CallerNameReceiver;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/wearable/CallerNameReceiver;
 
-    .prologue
-    .line 48
     iput-object p1, p0, Lcom/android/incallui/wearable/CallerNameReceiver$1;->this$0:Lcom/android/incallui/wearable/CallerNameReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 51
     iget-object v0, p0, Lcom/android/incallui/wearable/CallerNameReceiver$1;->this$0:Lcom/android/incallui/wearable/CallerNameReceiver;
 
     iget-object v1, p0, Lcom/android/incallui/wearable/CallerNameReceiver$1;->this$0:Lcom/android/incallui/wearable/CallerNameReceiver;
@@ -50,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/wearable/CallerNameReceiver;->broadcastCallName(Landroid/content/Context;)V
 
-    .line 52
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/view/CallCardMcidView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/view/CallCardMcidView;
 
-    .prologue
-    .line 523
     iput-object p1, p0, Lcom/android/incallui/fragment/view/CallCardMcidView$5;->this$0:Lcom/android/incallui/fragment/view/CallCardMcidView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,22 +36,15 @@
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
     .locals 1
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
-    .param p2, "what"    # I
-    .param p3, "extra"    # I
 
-    .prologue
-    .line 525
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->isPlaying()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 526
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
 
-    .line 528
     :cond_0
     const/4 v0, 0x1
 

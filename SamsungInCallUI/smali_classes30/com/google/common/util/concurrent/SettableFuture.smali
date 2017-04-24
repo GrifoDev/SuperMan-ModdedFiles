@@ -22,9 +22,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 46
-    .local p0, "this":Lcom/google/common/util/concurrent/SettableFuture;, "Lcom/google/common/util/concurrent/SettableFuture<TV;>;"
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;-><init>()V
 
     return-void
@@ -42,8 +39,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 39
     new-instance v0, Lcom/google/common/util/concurrent/SettableFuture;
 
     invoke-direct {v0}, Lcom/google/common/util/concurrent/SettableFuture;-><init>()V
@@ -65,10 +60,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 49
-    .local p0, "this":Lcom/google/common/util/concurrent/SettableFuture;, "Lcom/google/common/util/concurrent/SettableFuture<TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-super {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;->set(Ljava/lang/Object;)Z
 
     move-result v0
@@ -78,11 +69,7 @@
 
 .method public setException(Ljava/lang/Throwable;)Z
     .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 53
-    .local p0, "this":Lcom/google/common/util/concurrent/SettableFuture;, "Lcom/google/common/util/concurrent/SettableFuture<TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;->setException(Ljava/lang/Throwable;)Z
 
     move-result v0
@@ -103,10 +90,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/util/concurrent/SettableFuture;, "Lcom/google/common/util/concurrent/SettableFuture<TV;>;"
-    .local p1, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/util/concurrent/AbstractFuture$TrustedFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
     move-result v0

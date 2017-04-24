@@ -57,14 +57,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 296
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
-    .local p1, "unfiltered":Lcom/google/common/collect/Multiset;, "Lcom/google/common/collect/Multiset<TE;>;"
-    .local p2, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMultiset;-><init>()V
 
-    .line 297
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -73,7 +67,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
-    .line 298
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -82,7 +75,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->predicate:Lcom/google/common/base/Predicate;
 
-    .line 299
     return-void
 .end method
 
@@ -94,17 +86,12 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "occurrences"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)I"
         }
     .end annotation
 
-    .prologue
-    .line 346
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
-    .local p1, "element":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
@@ -129,7 +116,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 348
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0, p1, p2}, Lcom/google/common/collect/Multiset;->add(Ljava/lang/Object;I)I
@@ -142,46 +128,34 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 363
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$FilteredMultiset;->elementSet()Ljava/util/Set;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
-    .line 364
     return-void
 .end method
 
 .method public count(Ljava/lang/Object;)I
     .locals 4
-    .param p1, "element"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     const/4 v2, 0x0
 
-    .line 335
     iget-object v3, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v3, p1}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 336
-    .local v0, "count":I
     if-lez v0, :cond_1
 
-    .line 338
     move-object v1, p1
 
-    .line 339
-    .local v1, "e":Ljava/lang/Object;, "TE;"
     iget-object v3, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {v3, v1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
@@ -190,25 +164,17 @@
 
     if-eqz v3, :cond_0
 
-    .line 341
-    .end local v0    # "count":I
-    .end local v1    # "e":Ljava/lang/Object;, "TE;"
     :goto_0
     return v0
 
-    .restart local v0    # "count":I
-    .restart local v1    # "e":Ljava/lang/Object;, "TE;"
     :cond_0
     move v0, v2
 
-    .line 339
     goto :goto_0
 
-    .end local v1    # "e":Ljava/lang/Object;, "TE;"
     :cond_1
     move v0, v2
 
-    .line 341
     goto :goto_0
 .end method
 
@@ -222,9 +188,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 308
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->elementSet()Ljava/util/Set;
@@ -252,9 +215,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 313
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
@@ -275,9 +235,6 @@
 .method distinctElements()I
     .locals 1
 
-    .prologue
-    .line 330
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$FilteredMultiset;->elementSet()Ljava/util/Set;
 
     move-result-object v0
@@ -301,9 +258,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 325
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "should never be called"
@@ -323,9 +277,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 303
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multisets$FilteredMultiset;->unfiltered:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->iterator()Ljava/util/Iterator;
@@ -344,9 +295,6 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    .prologue
-    .line 292
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$FilteredMultiset;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
@@ -356,28 +304,21 @@
 
 .method public remove(Ljava/lang/Object;I)I
     .locals 1
-    .param p1, "element"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "occurrences"    # I
 
-    .prologue
-    .line 353
-    .local p0, "this":Lcom/google/common/collect/Multisets$FilteredMultiset;, "Lcom/google/common/collect/Multisets$FilteredMultiset<TE;>;"
     const-string v0, "occurrences"
 
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    .line 354
     if-nez p2, :cond_0
 
-    .line 355
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multisets$FilteredMultiset;->count(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 357
     :goto_0
     return v0
 

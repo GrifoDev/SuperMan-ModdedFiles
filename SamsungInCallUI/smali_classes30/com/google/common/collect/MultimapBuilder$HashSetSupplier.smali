@@ -39,14 +39,9 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .param p1, "expectedValuesPerKey"    # I
 
-    .prologue
-    .line 226
-    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$HashSetSupplier<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 227
     const-string v0, "expectedValuesPerKey"
 
     invoke-static {p1, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
@@ -55,7 +50,6 @@
 
     iput v0, p0, Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;->expectedValuesPerKey:I
 
-    .line 228
     return-void
 .end method
 
@@ -64,9 +58,6 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 223
-    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$HashSetSupplier<TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;->get()Ljava/util/Set;
 
     move-result-object v0
@@ -84,9 +75,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 232
-    .local p0, "this":Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;, "Lcom/google/common/collect/MultimapBuilder$HashSetSupplier<TV;>;"
     iget v0, p0, Lcom/google/common/collect/MultimapBuilder$HashSetSupplier;->expectedValuesPerKey:I
 
     invoke-static {v0}, Lcom/google/common/collect/Sets;->newHashSetWithExpectedSize(I)Ljava/util/HashSet;

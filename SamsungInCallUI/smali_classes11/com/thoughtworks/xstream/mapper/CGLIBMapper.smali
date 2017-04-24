@@ -23,8 +23,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 28
     const-string v0, "$$EnhancerByCGLIB$$"
 
     sput-object v0, Lcom/thoughtworks/xstream/mapper/CGLIBMapper;->DEFAULT_NAMING_MARKER:Ljava/lang/String;
@@ -34,31 +32,21 @@
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 1
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    .prologue
-    .line 35
     const-string v0, "CGLIB-enhanced-proxy"
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/mapper/CGLIBMapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;)V
 
-    .line 36
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "alias"    # Ljava/lang/String;
 
-    .prologue
-    .line 39
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
-    .line 40
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/CGLIBMapper;->alias:Ljava/lang/String;
 
-    .line 41
     return-void
 .end method
 
@@ -66,10 +54,7 @@
 # virtual methods
 .method public realClass(Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
-    .param p1, "elementName"    # Ljava/lang/String;
 
-    .prologue
-    .line 55
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/CGLIBMapper;->alias:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -93,33 +78,22 @@
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
     .locals 3
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 44
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 45
-    .local v0, "serializedName":Ljava/lang/String;
     if-nez p1, :cond_1
 
-    .line 49
-    .end local v0    # "serializedName":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v0
 
-    .line 48
-    .restart local v0    # "serializedName":Ljava/lang/String;
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 49
-    .local v1, "typeName":Ljava/lang/String;
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2

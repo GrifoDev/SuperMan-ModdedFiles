@@ -30,10 +30,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;Lcom/android/incallui/Call;Lcom/android/incallui/Call;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
-    .prologue
-    .line 309
     iput-object p1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -51,11 +48,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 8
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 312
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -82,11 +75,8 @@
 
     if-eqz v4, :cond_2
 
-    .line 313
     iget-object v2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
-    .line 314
-    .local v2, "requestCall":Lcom/android/incallui/Call;
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
     if-nez v4, :cond_0
@@ -95,10 +85,8 @@
 
     if-eqz v4, :cond_0
 
-    .line 315
     iget-object v2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$bgCall:Lcom/android/incallui/Call;
 
-    .line 317
     :cond_0
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
@@ -123,7 +111,6 @@
 
     if-nez v4, :cond_1
 
-    .line 318
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v4
@@ -149,8 +136,6 @@
 
     invoke-virtual {v4, v2, v5, v6}, Lcom/android/incallui/TelecomAdapter;->requestJanskyTransfer(Lcom/android/incallui/Call;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 356
-    .end local v2    # "requestCall":Lcom/android/incallui/Call;
     :goto_0
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
@@ -158,11 +143,8 @@
 
     invoke-virtual {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->finish()V
 
-    .line 357
     return-void
 
-    .line 321
-    .restart local v2    # "requestCall":Lcom/android/incallui/Call;
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
@@ -183,18 +165,13 @@
 
     goto :goto_0
 
-    .line 324
-    .end local v2    # "requestCall":Lcom/android/incallui/Call;
     :cond_2
     const/4 v1, 0x0
 
-    .line 325
-    .local v1, "isECT":Z
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
     if-eqz v4, :cond_3
 
-    .line 326
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
     const/high16 v5, 0x40000000    # 2.0f
@@ -203,12 +180,9 @@
 
     move-result v1
 
-    .line 328
     :cond_3
     const/4 v3, 0x0
 
-    .line 329
-    .local v3, "secondaryName":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v4
@@ -217,16 +191,12 @@
 
     move-result-object v0
 
-    .line 330
-    .local v0, "cardPresenter":Lcom/android/incallui/CallCardPresenter;
     if-eqz v0, :cond_4
 
-    .line 331
     invoke-virtual {v0}, Lcom/android/incallui/CallCardPresenter;->getSecondaryNameForCall()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 333
     :cond_4
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
@@ -258,7 +228,6 @@
 
     if-eqz v1, :cond_5
 
-    .line 334
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v4
@@ -271,7 +240,6 @@
 
     invoke-virtual {v4, v5}, Lcom/android/incallui/TelecomAdapter;->explicitCallTransfer(Ljava/lang/String;)V
 
-    .line 335
     const-string v4, "JanskyTransferManager"
 
     const-string v5, "onClick ECT"
@@ -280,7 +248,6 @@
 
     goto :goto_0
 
-    .line 337
     :cond_5
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
@@ -297,7 +264,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    .line 338
     # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mDeviceEntry:Ljava/util/ArrayList;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$000(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
@@ -309,7 +275,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    .line 339
     # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mSelectedIndex:I
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$1400(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)I
 
@@ -336,7 +301,6 @@
 
     iget-object v4, v4, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    .line 341
     # getter for: Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->mDeviceEntry:Ljava/util/ArrayList;
     invoke-static {v4}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$000(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
@@ -365,14 +329,12 @@
 
     if-eqz v4, :cond_6
 
-    .line 342
     const-string v4, "JanskyTransferManager"
 
     const-string v5, "onClick Consultative jansky transfer"
 
     invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 343
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v4
@@ -398,12 +360,9 @@
 
     goto/16 :goto_0
 
-    .line 346
     :cond_6
     iget-object v2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
-    .line 347
-    .restart local v2    # "requestCall":Lcom/android/incallui/Call;
     iget-object v4, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$fgCall:Lcom/android/incallui/Call;
 
     if-nez v4, :cond_7
@@ -412,10 +371,8 @@
 
     if-eqz v4, :cond_7
 
-    .line 348
     iget-object v2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$4;->val$bgCall:Lcom/android/incallui/Call;
 
-    .line 350
     :cond_7
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
@@ -441,7 +398,6 @@
 
     invoke-virtual {v4, v2, v5, v6}, Lcom/android/incallui/TelecomAdapter;->requestJanskyTransfer(Lcom/android/incallui/Call;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 351
     const-string v4, "JanskyTransferManager"
 
     const-string v5, "onClick jansky transfer"

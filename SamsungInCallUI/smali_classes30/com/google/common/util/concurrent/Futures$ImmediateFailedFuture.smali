@@ -31,19 +31,13 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "thrown"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 234
-    .local p0, "this":Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture;, "Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture<TV;>;"
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/Futures$ImmediateFuture;-><init>(Lcom/google/common/util/concurrent/Futures$1;)V
 
-    .line 235
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture;->thrown:Ljava/lang/Throwable;
 
-    .line 236
     return-void
 .end method
 
@@ -63,9 +57,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 240
-    .local p0, "this":Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture;, "Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture<TV;>;"
     new-instance v0, Ljava/util/concurrent/ExecutionException;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/Futures$ImmediateFailedFuture;->thrown:Ljava/lang/Throwable;

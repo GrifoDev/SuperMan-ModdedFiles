@@ -243,10 +243,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     sget-object v0, Lcom/google/android/gms/internal/ah$a;->CREATOR:Lcom/google/android/gms/internal/aj;
 
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/internal/aj;->a(Lcom/google/android/gms/internal/ah$a;Landroid/os/Parcel;I)V

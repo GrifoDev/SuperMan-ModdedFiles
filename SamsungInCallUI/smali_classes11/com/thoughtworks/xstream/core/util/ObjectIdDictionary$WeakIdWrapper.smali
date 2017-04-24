@@ -26,13 +26,9 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;Ljava/lang/Object;)V
     .locals 1
-    .param p2, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 71
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;->this$0:Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
 
-    .line 72
     # getter for: Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->queue:Ljava/lang/ref/ReferenceQueue;
     invoke-static {p1}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->access$000(Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;)Ljava/lang/ref/ReferenceQueue;
 
@@ -40,14 +36,12 @@
 
     invoke-direct {p0, p2, v0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    .line 73
     invoke-static {p2}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v0
 
     iput v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;->hashCode:I
 
-    .line 74
     return-void
 .end method
 
@@ -55,17 +49,13 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
-    .line 81
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;->get()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast p1, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$Wrapper;
 
-    .end local p1    # "other":Ljava/lang/Object;
     invoke-interface {p1}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$Wrapper;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -86,8 +76,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 77
     iget v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;->hashCode:I
 
     return v0
@@ -96,14 +84,10 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 85
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 86
-    .local v0, "obj":Ljava/lang/Object;
     if-nez v0, :cond_0
 
     const-string v1, "(null)"

@@ -44,10 +44,7 @@
 # virtual methods
 .method public onAchievementUpdated(ILjava/lang/String;)V
     .locals 4
-    .param p1, "statusCode"    # I
-    .param p2, "achievementId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/au$d;->dJ:Lcom/google/android/gms/internal/au;
 
     new-instance v1, Lcom/google/android/gms/internal/au$e;

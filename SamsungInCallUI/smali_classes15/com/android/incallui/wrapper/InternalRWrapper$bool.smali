@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 32
     const-string v0, "com.android.internal.R$bool"
 
     const-string v1, "config_showNavigationBar"
@@ -35,15 +33,12 @@
 
     sput v0, Lcom/android/incallui/wrapper/InternalRWrapper$bool;->config_showNavigationBar:I
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

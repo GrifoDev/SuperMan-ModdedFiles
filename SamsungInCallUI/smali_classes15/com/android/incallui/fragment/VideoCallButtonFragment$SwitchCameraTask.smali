@@ -33,8 +33,6 @@
 .method private constructor <init>(Lcom/android/incallui/fragment/VideoCallButtonFragment;)V
     .locals 0
 
-    .prologue
-    .line 79
     iput-object p1, p0, Lcom/android/incallui/fragment/VideoCallButtonFragment$SwitchCameraTask;->this$0:Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,11 +42,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/fragment/VideoCallButtonFragment;Lcom/android/incallui/fragment/VideoCallButtonFragment$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/fragment/VideoCallButtonFragment;
-    .param p2, "x1"    # Lcom/android/incallui/fragment/VideoCallButtonFragment$1;
 
-    .prologue
-    .line 79
     invoke-direct {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonFragment$SwitchCameraTask;-><init>(Lcom/android/incallui/fragment/VideoCallButtonFragment;)V
 
     return-void
@@ -59,8 +53,6 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 79
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonFragment$SwitchCameraTask;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
@@ -72,13 +64,9 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 1
-    .param p1, "params"    # [Ljava/lang/Void;
 
-    .prologue
-    .line 83
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallControl;->switchCamera()V
 
-    .line 84
     const/4 v0, 0x0
 
     return-object v0
@@ -87,8 +75,6 @@
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
-    .prologue
-    .line 79
     check-cast p1, Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonFragment$SwitchCameraTask;->onPostExecute(Ljava/lang/Void;)V
@@ -98,9 +84,6 @@
 
 .method protected onPostExecute(Ljava/lang/Void;)V
     .locals 0
-    .param p1, "result"    # Ljava/lang/Void;
 
-    .prologue
-    .line 89
     return-void
 .end method

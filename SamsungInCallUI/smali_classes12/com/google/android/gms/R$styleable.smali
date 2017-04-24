@@ -50,8 +50,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 313
     const/16 v0, 0xe
 
     new-array v0, v0, [I
@@ -60,10 +58,8 @@
 
     sput-object v0, Lcom/google/android/gms/R$styleable;->MapAttrs:[I
 
-    .line 520
     return-void
 
-    .line 313
     :array_0
     .array-data 4
         0x7f010000
@@ -86,8 +82,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 276
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

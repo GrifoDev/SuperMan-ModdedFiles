@@ -49,14 +49,10 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableRangeSet$AsSet;)V
     .locals 1
 
-    .prologue
-    .line 440
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;, "Lcom/google/common/collect/ImmutableRangeSet$AsSet.2;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->this$1:Lcom/google/common/collect/ImmutableRangeSet$AsSet;
 
     invoke-direct {p0}, Lcom/google/common/collect/AbstractIterator;-><init>()V
 
-    .line 441
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->this$1:Lcom/google/common/collect/ImmutableRangeSet$AsSet;
 
     iget-object v0, v0, Lcom/google/common/collect/ImmutableRangeSet$AsSet;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
@@ -76,7 +72,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->rangeItr:Ljava/util/Iterator;
 
-    .line 442
     invoke-static {}, Lcom/google/common/collect/Iterators;->emptyIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
@@ -96,9 +91,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 446
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;, "Lcom/google/common/collect/ImmutableRangeSet$AsSet.2;"
     :goto_0
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->elemItr:Ljava/util/Iterator;
 
@@ -108,7 +100,6 @@
 
     if-nez v0, :cond_1
 
-    .line 447
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->rangeItr:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -117,7 +108,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 448
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->rangeItr:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -145,7 +135,6 @@
 
     goto :goto_0
 
-    .line 450
     :cond_0
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->endOfData()Ljava/lang/Object;
 
@@ -153,7 +142,6 @@
 
     check-cast v0, Ljava/lang/Comparable;
 
-    .line 453
     :goto_1
     return-object v0
 
@@ -172,9 +160,6 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 440
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;, "Lcom/google/common/collect/ImmutableRangeSet$AsSet.2;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableRangeSet$AsSet$2;->computeNext()Ljava/lang/Comparable;
 
     move-result-object v0

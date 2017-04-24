@@ -32,9 +32,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 801
-    .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,27 +41,21 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
     const/4 v1, 0x0
 
-    .line 808
     instance-of v2, p1, Lcom/google/common/collect/Multiset$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 809
     check-cast v0, Lcom/google/common/collect/Multiset$Entry;
 
-    .line 810
-    .local v0, "that":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getCount()I
 
     move-result v2
@@ -91,8 +82,6 @@
 
     const/4 v1, 0x1
 
-    .line 813
-    .end local v0    # "that":Lcom/google/common/collect/Multiset$Entry;, "Lcom/google/common/collect/Multiset$Entry<*>;"
     :cond_0
     return v1
 .end method
@@ -100,15 +89,10 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 822
-    .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getElement()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 823
-    .local v0, "e":Ljava/lang/Object;, "TE;"
     if-nez v0, :cond_0
 
     const/4 v1, 0x0
@@ -133,9 +117,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 835
-    .local p0, "this":Lcom/google/common/collect/Multisets$AbstractEntry;, "Lcom/google/common/collect/Multisets$AbstractEntry<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getElement()Ljava/lang/Object;
 
     move-result-object v2
@@ -144,23 +125,17 @@
 
     move-result-object v1
 
-    .line 836
-    .local v1, "text":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;->getCount()I
 
     move-result v0
 
-    .line 837
-    .local v0, "n":I
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_0
 
-    .end local v1    # "text":Ljava/lang/String;
     :goto_0
     return-object v1
 
-    .restart local v1    # "text":Ljava/lang/String;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 

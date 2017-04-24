@@ -23,21 +23,13 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/AnswerPresenter;JJI)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "interval"    # J
-    .param p6, "audioMode"    # I
 
-    .prologue
-    .line 417
     iput-object p1, p0, Lcom/android/incallui/AnswerPresenter$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/AnswerPresenter;
 
-    .line 418
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
-    .line 419
     iput p6, p0, Lcom/android/incallui/AnswerPresenter$KnoxCustomAutoAnswerTimer;->mAudioMode:I
 
-    .line 420
     return-void
 .end method
 
@@ -46,8 +38,6 @@
 .method public onFinish()V
     .locals 2
 
-    .prologue
-    .line 424
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -58,7 +48,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 425
     # getter for: Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/AnswerPresenter;->access$100()Ljava/lang/String;
 
@@ -68,7 +57,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 426
     iget-object v0, p0, Lcom/android/incallui/AnswerPresenter$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/AnswerPresenter;
 
     iget-object v1, p0, Lcom/android/incallui/AnswerPresenter$KnoxCustomAutoAnswerTimer;->this$0:Lcom/android/incallui/AnswerPresenter;
@@ -80,7 +68,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/AnswerPresenter;->onAnswer(I)V
 
-    .line 427
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v0
@@ -89,17 +76,13 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/TelecomAdapter;->setAudioRoute(I)V
 
-    .line 429
     :cond_0
     return-void
 .end method
 
 .method public onTick(J)V
     .locals 3
-    .param p1, "time"    # J
 
-    .prologue
-    .line 433
     # getter for: Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/AnswerPresenter;->access$100()Ljava/lang/String;
 
@@ -125,6 +108,5 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 434
     return-void
 .end method

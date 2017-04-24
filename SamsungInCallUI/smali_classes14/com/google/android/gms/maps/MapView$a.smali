@@ -61,9 +61,7 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/MapView$a;->gF:Lcom/google/android/gms/maps/internal/IMapViewDelegate;
 
@@ -109,11 +107,7 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
-    .param p1, "inflater"    # Landroid/view/LayoutInflater;
-    .param p2, "container"    # Landroid/view/ViewGroup;
-    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "onCreateView not allowed on MapViewDelegate"
@@ -159,11 +153,7 @@
 
 .method public onInflate(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "attrs"    # Landroid/os/Bundle;
-    .param p3, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "onInflate not allowed on MapViewDelegate"
@@ -241,9 +231,7 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/MapView$a;->gF:Lcom/google/android/gms/maps/internal/IMapViewDelegate;
 

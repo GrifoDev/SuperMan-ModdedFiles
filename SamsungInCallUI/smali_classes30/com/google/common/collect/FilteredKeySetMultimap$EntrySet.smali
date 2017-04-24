@@ -36,9 +36,6 @@
 .method constructor <init>(Lcom/google/common/collect/FilteredKeySetMultimap;)V
     .locals 0
 
-    .prologue
-    .line 70
-    .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap$EntrySet;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lcom/google/common/collect/FilteredKeySetMultimap$EntrySet;->this$0:Lcom/google/common/collect/FilteredKeySetMultimap;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/FilteredKeyMultimap$Entries;-><init>(Lcom/google/common/collect/FilteredKeyMultimap;)V
@@ -50,14 +47,11 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 78
-    .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap$EntrySet;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>.EntrySet;"
     invoke-static {p0, p1}, Lcom/google/common/collect/Sets;->equalsImpl(Ljava/util/Set;Ljava/lang/Object;)Z
 
     move-result v0
@@ -68,9 +62,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 73
-    .local p0, "this":Lcom/google/common/collect/FilteredKeySetMultimap$EntrySet;, "Lcom/google/common/collect/FilteredKeySetMultimap<TK;TV;>.EntrySet;"
     invoke-static {p0}, Lcom/google/common/collect/Sets;->hashCodeImpl(Ljava/util/Set;)I
 
     move-result v0

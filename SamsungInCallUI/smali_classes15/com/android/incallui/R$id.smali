@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final Bluetooth:I = 0x7f100464
+.field public static final Bluetooth:I = 0x7f10046a
 
 .field public static final ForthPriority_layout:I = 0x7f100322
 
@@ -23,7 +23,7 @@
 
 .field public static final JanskyIcon:I = 0x7f10033e
 
-.field public static final VideoConfCallButton:I = 0x7f100465
+.field public static final VideoConfCallButton:I = 0x7f10046b
 
 .field public static final acceptButton:I = 0x7f1003d2
 
@@ -87,17 +87,17 @@
 
 .field public static final addButton:I = 0x7f10009e
 
-.field public static final addCall:I = 0x7f100452
+.field public static final addCall:I = 0x7f100458
 
 .field public static final addCallButton:I = 0x7f10038a
 
 .field public static final addCallMenuText:I = 0x7f100419
 
-.field public static final addContactsButton:I = 0x7f10046c
+.field public static final addContactsButton:I = 0x7f100473
 
 .field public static final addReminderButton:I = 0x7f100284
 
-.field public static final addVoiceUserButton:I = 0x7f10046e
+.field public static final addVoiceUserButton:I = 0x7f100475
 
 .field public static final agreement_dialog:I = 0x7f100433
 
@@ -149,19 +149,19 @@
 
 .field public static final audioButton:I = 0x7f100095
 
-.field public static final audio_mode_bluetooth:I = 0x7f100477
+.field public static final audio_mode_bluetooth:I = 0x7f10047e
 
-.field public static final audio_mode_earpiece:I = 0x7f100475
+.field public static final audio_mode_earpiece:I = 0x7f10047c
 
-.field public static final audio_mode_speaker:I = 0x7f100474
+.field public static final audio_mode_speaker:I = 0x7f10047b
 
-.field public static final audio_mode_wired_headset:I = 0x7f100476
+.field public static final audio_mode_wired_headset:I = 0x7f10047d
 
 .field public static final auto_update_database_via_wlan:I = 0x7f100436
 
 .field public static final backgroundContainer:I = 0x7f10027b
 
-.field public static final backgroundItem:I = 0x7f10044c
+.field public static final backgroundItem:I = 0x7f100452
 
 .field public static final beginning:I = 0x7f10002f
 
@@ -175,7 +175,7 @@
 
 .field public static final bluetoothButton:I = 0x7f1003f9
 
-.field public static final bluetoothItem:I = 0x7f10044f
+.field public static final bluetoothItem:I = 0x7f100455
 
 .field public static final bottom:I = 0x7f100029
 
@@ -183,9 +183,9 @@
 
 .field public static final bottom_area:I = 0x7f1003e4
 
-.field public static final bt_headset_off:I = 0x7f100472
+.field public static final bt_headset_off:I = 0x7f100479
 
-.field public static final bt_headset_on:I = 0x7f100471
+.field public static final bt_headset_on:I = 0x7f100478
 
 .field public static final btn_arrow_left:I = 0x7f100381
 
@@ -201,29 +201,29 @@
 
 .field public static final btn_yes:I = 0x7f1001a2
 
-.field public static final button1:I = 0x7f10043f
+.field public static final button1:I = 0x7f100445
 
-.field public static final button2:I = 0x7f100440
+.field public static final button2:I = 0x7f100446
 
-.field public static final button3:I = 0x7f100441
+.field public static final button3:I = 0x7f100447
 
-.field public static final button4:I = 0x7f100442
+.field public static final button4:I = 0x7f100448
 
-.field public static final button5:I = 0x7f100444
+.field public static final button5:I = 0x7f10044a
 
-.field public static final button6:I = 0x7f100445
+.field public static final button6:I = 0x7f10044b
 
-.field public static final button7:I = 0x7f100446
+.field public static final button7:I = 0x7f10044c
 
-.field public static final button8:I = 0x7f100447
+.field public static final button8:I = 0x7f10044d
 
 .field public static final buttonPanel:I = 0x7f100041
 
 .field public static final buttonWrapper:I = 0x7f100386
 
-.field public static final button_line1:I = 0x7f10043e
+.field public static final button_line1:I = 0x7f100444
 
-.field public static final button_line2:I = 0x7f100443
+.field public static final button_line2:I = 0x7f100449
 
 .field public static final callBannerContainer:I = 0x7f100333
 
@@ -293,7 +293,7 @@
 
 .field public static final callTime:I = 0x7f1001d9
 
-.field public static final callTransfer:I = 0x7f100467
+.field public static final callTransfer:I = 0x7f10046e
 
 .field public static final callTypeLabel:I = 0x7f10019a
 
@@ -369,7 +369,7 @@
 
 .field public static final cancel_action:I = 0x7f100140
 
-.field public static final captureImage:I = 0x7f100457
+.field public static final captureImage:I = 0x7f10045d
 
 .field public static final cardSubscriber:I = 0x7f10023a
 
@@ -437,7 +437,7 @@
 
 .field public static final collapseActionView:I = 0x7f100033
 
-.field public static final compoundBackgroundItem:I = 0x7f10044d
+.field public static final compoundBackgroundItem:I = 0x7f100453
 
 .field public static final confPanelEndLine:I = 0x7f100257
 
@@ -667,9 +667,9 @@
 
 .field public static final dtmf_twelve_key_dialer_view:I = 0x7f100111
 
-.field public static final dualCameraOffButton:I = 0x7f100461
+.field public static final dualCameraOffButton:I = 0x7f100467
 
-.field public static final dualCameraOnButton:I = 0x7f100460
+.field public static final dualCameraOnButton:I = 0x7f100466
 
 .field public static final dummy_navigation_bar_area:I = 0x7f100113
 
@@ -809,9 +809,9 @@
 
 .field public static final extraVolumeButton:I = 0x7f1003f6
 
-.field public static final extraVolumeButtonDisable:I = 0x7f10046a
+.field public static final extraVolumeButtonDisable:I = 0x7f100471
 
-.field public static final extraVolumeButtonEnable:I = 0x7f100469
+.field public static final extraVolumeButtonEnable:I = 0x7f100470
 
 .field public static final extraVolumeIcon:I = 0x7f10028d
 
@@ -877,7 +877,7 @@
 
 .field public static final handleImageViewForAnim:I = 0x7f10029f
 
-.field public static final handsetItem:I = 0x7f100450
+.field public static final handsetItem:I = 0x7f100456
 
 .field public static final hdAudioIcon:I = 0x7f100195
 
@@ -993,7 +993,7 @@
 
 .field public static final hideButton:I = 0x7f100277
 
-.field public static final hideMe:I = 0x7f100454
+.field public static final hideMe:I = 0x7f10045a
 
 .field public static final hideMeButton:I = 0x7f1003cd
 
@@ -1005,7 +1005,7 @@
 
 .field public static final hideShowMeButtonStub:I = 0x7f100387
 
-.field public static final hideShowMeFloatingButton:I = 0x7f10044b
+.field public static final hideShowMeFloatingButton:I = 0x7f100451
 
 .field public static final hideShowMeFloatingButtonStub:I = 0x7f1001f2
 
@@ -1047,7 +1047,7 @@
 
 .field public static final image:I = 0x7f10003c
 
-.field public static final imageEffect:I = 0x7f100453
+.field public static final imageEffect:I = 0x7f100459
 
 .field public static final image_layout:I = 0x7f100235
 
@@ -1153,7 +1153,7 @@
 
 .field public static final jansky_line_icon_container:I = 0x7f100204
 
-.field public static final keypadButton:I = 0x7f10045b
+.field public static final keypadButton:I = 0x7f100461
 
 .field public static final kt_business:I = 0x7f100130
 
@@ -1207,7 +1207,7 @@
 
 .field public static final main:I = 0x7f100119
 
-.field public static final main_button:I = 0x7f10043d
+.field public static final main_button:I = 0x7f100443
 
 .field public static final manageButton:I = 0x7f1002de
 
@@ -1275,7 +1275,7 @@
 
 .field public static final moreButtonContainer:I = 0x7f100337
 
-.field public static final moreIndicatorItem:I = 0x7f10044e
+.field public static final moreIndicatorItem:I = 0x7f100454
 
 .field public static final more_info_text_1:I = 0x7f100088
 
@@ -1357,21 +1357,21 @@
 
 .field public static final onhold_stub:I = 0x7f1002fb
 
-.field public static final outgoingImage:I = 0x7f100456
+.field public static final outgoingImage:I = 0x7f10045c
 
 .field public static final outgoing_call_animation_circle:I = 0x7f10014c
 
 .field public static final overflowButton:I = 0x7f1000a0
 
-.field public static final overflow_add_menu_item:I = 0x7f100479
+.field public static final overflow_add_menu_item:I = 0x7f100480
 
-.field public static final overflow_hold_menu_item:I = 0x7f10047a
+.field public static final overflow_hold_menu_item:I = 0x7f100481
 
-.field public static final overflow_merge_menu_item:I = 0x7f100478
+.field public static final overflow_merge_menu_item:I = 0x7f10047f
 
-.field public static final overflow_resume_menu_item:I = 0x7f10047b
+.field public static final overflow_resume_menu_item:I = 0x7f100482
 
-.field public static final overflow_swap_menu_item:I = 0x7f10047c
+.field public static final overflow_swap_menu_item:I = 0x7f100483
 
 .field public static final overlay_call_image:I = 0x7f10039b
 
@@ -1471,6 +1471,18 @@
 
 .field public static final pinned_header_list_layout:I = 0x7f1000d0
 
+.field public static final pip_call_info_container:I = 0x7f10043f
+
+.field public static final pip_call_time:I = 0x7f100441
+
+.field public static final pip_icon_image:I = 0x7f100440
+
+.field public static final pip_image:I = 0x7f10043d
+
+.field public static final pip_video:I = 0x7f10043e
+
+.field public static final pip_video_container:I = 0x7f10043c
+
 .field public static final popup_call_accept:I = 0x7f100174
 
 .field public static final popup_call_end:I = 0x7f10017d
@@ -1531,17 +1543,17 @@
 
 .field public static final previewBorder:I = 0x7f1003ab
 
-.field public static final previewCameraOff:I = 0x7f10044a
+.field public static final previewCameraOff:I = 0x7f100450
 
 .field public static final previewContainer:I = 0x7f10036b
 
 .field public static final previewImage:I = 0x7f1003aa
 
-.field public static final previewProfilePhoto:I = 0x7f100449
+.field public static final previewProfilePhoto:I = 0x7f10044f
 
 .field public static final previewVideo:I = 0x7f10036c
 
-.field public static final previewVideoContainer:I = 0x7f100448
+.field public static final previewVideoContainer:I = 0x7f10044e
 
 .field public static final primaryMtConfBanner:I = 0x7f1002e6
 
@@ -1577,7 +1589,7 @@
 
 .field public static final progress_horizontal:I = 0x7f100011
 
-.field public static final pushSoftPhone:I = 0x7f100468
+.field public static final pushSoftPhone:I = 0x7f10046f
 
 .field public static final radio:I = 0x7f100051
 
@@ -1921,11 +1933,11 @@
 
 .field public static final select_sim_account_list_content:I = 0x7f100427
 
-.field public static final sendMessagesButton:I = 0x7f10046d
+.field public static final sendMessagesButton:I = 0x7f100474
 
 .field public static final send_and_call_button:I = 0x7f1000ee
 
-.field public static final send_file_via_filetransfer:I = 0x7f100470
+.field public static final send_file_via_filetransfer:I = 0x7f100477
 
 .field public static final seven:I = 0x7f1000f9
 
@@ -1943,7 +1955,7 @@
 
 .field public static final showHome:I = 0x7f10001f
 
-.field public static final showMe:I = 0x7f100455
+.field public static final showMe:I = 0x7f10045b
 
 .field public static final showMeButton:I = 0x7f1003cb
 
@@ -1951,7 +1963,7 @@
 
 .field public static final showTitle:I = 0x7f100020
 
-.field public static final show_screen_layout:I = 0x7f10043c
+.field public static final show_screen_layout:I = 0x7f100442
 
 .field public static final simIconLabel:I = 0x7f10042b
 
@@ -2025,13 +2037,13 @@
 
 .field public static final speakerButton:I = 0x7f10037e
 
-.field public static final speakerOffButton:I = 0x7f10045d
+.field public static final speakerOffButton:I = 0x7f100463
 
-.field public static final speakerOnButton:I = 0x7f10045c
+.field public static final speakerOnButton:I = 0x7f100462
 
 .field public static final speaker_off:I = 0x7f1000cd
 
-.field public static final speakerphoneItem:I = 0x7f100451
+.field public static final speakerphoneItem:I = 0x7f100457
 
 .field public static final split_action_bar:I = 0x7f100012
 
@@ -2045,7 +2057,7 @@
 
 .field public static final star:I = 0x7f100101
 
-.field public static final startRecordFarEnd:I = 0x7f100458
+.field public static final startRecordFarEnd:I = 0x7f10045e
 
 .field public static final status_bar_latest_event_content:I = 0x7f100141
 
@@ -2055,7 +2067,7 @@
 
 .field public static final stayOnVoiceButtonContainer:I = 0x7f1003df
 
-.field public static final stopRecordFarEnd:I = 0x7f100459
+.field public static final stopRecordFarEnd:I = 0x7f10045f
 
 .field public static final stopRecordingButton:I = 0x7f10037b
 
@@ -2085,13 +2097,13 @@
 
 .field public static final swapButton:I = 0x7f100099
 
-.field public static final switchCamera:I = 0x7f10045a
+.field public static final switchCamera:I = 0x7f100460
 
 .field public static final switchCameraButton:I = 0x7f10009b
 
-.field public static final switchToHeadsetButton:I = 0x7f10045e
+.field public static final switchToHeadsetButton:I = 0x7f100464
 
-.field public static final switchToPhoneButton:I = 0x7f10045f
+.field public static final switchToPhoneButton:I = 0x7f100465
 
 .field public static final switchToVTButton:I = 0x7f10035f
 
@@ -2099,9 +2111,11 @@
 
 .field public static final switchToVideoButtonStub:I = 0x7f10030d
 
-.field public static final switchToVideoCallButton:I = 0x7f10046f
+.field public static final switchToVideoCallButton:I = 0x7f100476
 
-.field public static final switchVideoDisplay:I = 0x7f100466
+.field public static final switchVideoDisplay:I = 0x7f10046d
+
+.field public static final swtichToVoiceCall:I = 0x7f10046c
 
 .field public static final tabCircle:I = 0x7f10029c
 
@@ -2203,7 +2217,7 @@
 
 .field public static final unlock_image:I = 0x7f100138
 
-.field public static final unmuteButton:I = 0x7f100473
+.field public static final unmuteButton:I = 0x7f10047a
 
 .field public static final up:I = 0x7f100016
 
@@ -2257,11 +2271,11 @@
 
 .field public static final videocall_container:I = 0x7f100292
 
-.field public static final viewContactsButton:I = 0x7f10046b
+.field public static final viewContactsButton:I = 0x7f100472
 
-.field public static final viewInFullScreen:I = 0x7f100463
+.field public static final viewInFullScreen:I = 0x7f100469
 
-.field public static final viewInOriginalSize:I = 0x7f100462
+.field public static final viewInOriginalSize:I = 0x7f100468
 
 .field public static final view_tag_callcard_actual_height:I = 0x7f100017
 
@@ -2318,8 +2332,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 5501
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

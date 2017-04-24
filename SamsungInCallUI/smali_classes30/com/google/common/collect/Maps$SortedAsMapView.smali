@@ -44,14 +44,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 858
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
-    .local p1, "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TK;>;"
-    .local p2, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<-TK;TV;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$AsMapView;-><init>(Ljava/util/Set;Lcom/google/common/base/Function;)V
 
-    .line 859
     return-void
 .end method
 
@@ -60,9 +54,6 @@
 .method bridge synthetic backingSet()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 855
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -80,9 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 863
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Maps$AsMapView;->backingSet()Ljava/util/Set;
 
     move-result-object v0
@@ -102,9 +90,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 868
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -124,9 +109,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 893
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -148,10 +130,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 883
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -179,9 +157,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 873
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -202,9 +177,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 898
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -226,11 +198,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 878
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -258,10 +225,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 888
-    .local p0, "this":Lcom/google/common/collect/Maps$SortedAsMapView;, "Lcom/google/common/collect/Maps$SortedAsMapView<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$SortedAsMapView;->backingSet()Ljava/util/SortedSet;
 
     move-result-object v0

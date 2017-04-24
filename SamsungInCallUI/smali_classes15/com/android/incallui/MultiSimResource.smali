@@ -124,23 +124,23 @@
 
 .field public static final MULTISIM_SIM_ICON_MMS:I = 0x7f020292
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_GSM_01:I = 0x7f020380
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_GSM_01:I = 0x7f02038a
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_GSM_02:I = 0x7f020381
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_GSM_02:I = 0x7f02038b
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_HEART:I = 0x7f020383
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_HEART:I = 0x7f02038d
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_HOME:I = 0x7f020382
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_HOME:I = 0x7f02038c
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_INTERNET:I = 0x7f020388
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_INTERNET:I = 0x7f020392
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_MMS:I = 0x7f020386
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_MMS:I = 0x7f020390
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_OFFICE:I = 0x7f020384
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_OFFICE:I = 0x7f02038e
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_PHONE:I = 0x7f020387
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_PHONE:I = 0x7f020391
 
-.field public static final MULTISIM_SIM_ICON_MULTITASKING_SMS:I = 0x7f020385
+.field public static final MULTISIM_SIM_ICON_MULTITASKING_SMS:I = 0x7f02038f
 
 .field public static final MULTISIM_SIM_ICON_OFFICE:I = 0x7f020297
 
@@ -189,8 +189,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

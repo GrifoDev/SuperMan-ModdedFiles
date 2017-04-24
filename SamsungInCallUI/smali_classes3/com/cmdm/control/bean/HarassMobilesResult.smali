@@ -21,17 +21,13 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
-    .line 17
     new-instance v0, Lcom/cmdm/control/bean/MobileList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/MobileList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/HarassMobilesResult;->mobileList:Lcom/cmdm/control/bean/MobileList;
 
-    .line 14
     return-void
 .end method

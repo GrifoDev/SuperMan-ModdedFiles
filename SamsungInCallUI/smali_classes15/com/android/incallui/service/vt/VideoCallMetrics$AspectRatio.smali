@@ -28,8 +28,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 654
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,24 +35,18 @@
 
 .method public static toString(F)Ljava/lang/String;
     .locals 2
-    .param p0, "ratio"    # F
 
-    .prologue
     const/high16 v1, 0x3f400000    # 0.75f
 
-    .line 661
     cmpl-float v0, p0, v1
 
     if-nez v0, :cond_0
 
-    .line 662
     const-string v0, "VGA"
 
-    .line 672
     :goto_0
     return-object v0
 
-    .line 663
     :cond_0
     const v0, 0x3faaaaab
 
@@ -62,23 +54,19 @@
 
     if-nez v0, :cond_1
 
-    .line 664
     const-string v0, "VGA_LAND"
 
     goto :goto_0
 
-    .line 665
     :cond_1
     cmpl-float v0, p0, v1
 
     if-nez v0, :cond_2
 
-    .line 666
     const-string v0, "VGA"
 
     goto :goto_0
 
-    .line 667
     :cond_2
     const/high16 v0, 0x3f100000    # 0.5625f
 
@@ -86,12 +74,10 @@
 
     if-nez v0, :cond_3
 
-    .line 668
     const-string v0, "HD"
 
     goto :goto_0
 
-    .line 669
     :cond_3
     const v0, 0x3fe38e39
 
@@ -99,12 +85,10 @@
 
     if-nez v0, :cond_4
 
-    .line 670
     const-string v0, "HD_LAND"
 
     goto :goto_0
 
-    .line 672
     :cond_4
     invoke-static {p0}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 

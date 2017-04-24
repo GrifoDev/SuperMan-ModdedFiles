@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;Landroid/os/Handler;Lcom/android/incallui/Call;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
-    .param p2, "x0"    # Landroid/os/Handler;
 
-    .prologue
-    .line 77
     iput-object p1, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
     iput-object p3, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->val$call:Lcom/android/incallui/Call;
@@ -41,14 +37,9 @@
 # virtual methods
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
     .locals 4
-    .param p1, "resultCode"    # I
-    .param p2, "resultData"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 80
     invoke-super {p0, p1, p2}, Landroid/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
 
-    .line 81
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -69,10 +60,8 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 82
     packed-switch p1, :pswitch_data_0
 
-    .line 102
     :cond_0
     :goto_0
     :pswitch_0
@@ -88,11 +77,9 @@
     # invokes: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->handleQueryComplete(Lcom/android/incallui/CallerInfo;)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$400(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;Lcom/android/incallui/CallerInfo;)V
 
-    .line 104
     :goto_1
     return-void
 
-    .line 87
     :pswitch_1
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
@@ -106,7 +93,6 @@
     # invokes: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->clearContactInfo(Lcom/android/incallui/CallerInfo;)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$100(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;Lcom/android/incallui/CallerInfo;)V
 
-    .line 88
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
     # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
@@ -126,7 +112,6 @@
 
     iput-object v1, v0, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
-    .line 89
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
     # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
@@ -145,7 +130,6 @@
 
     iput-object v1, v0, Lcom/android/incallui/CallerInfo;->name:Ljava/lang/String;
 
-    .line 90
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
     # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
@@ -161,7 +145,6 @@
 
     if-nez v0, :cond_0
 
-    .line 91
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
     # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_callerInfo:Lcom/android/incallui/CallerInfo;
@@ -182,7 +165,6 @@
 
     iget-object v3, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
-    .line 92
     # getter for: Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->_ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;->access$200(Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;)Landroid/content/Context;
 
@@ -192,7 +174,6 @@
 
     move-result-object v3
 
-    .line 91
     invoke-static {v1, v2, v3}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -201,7 +182,6 @@
 
     goto :goto_0
 
-    .line 96
     :pswitch_2
     iget-object v0, p0, Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback$1;->this$0:Lcom/whitepages/nameid/InCallUIHelper$NameIDFindInfoCallback;
 
@@ -223,7 +203,6 @@
 
     goto :goto_1
 
-    .line 82
     nop
 
     :pswitch_data_0

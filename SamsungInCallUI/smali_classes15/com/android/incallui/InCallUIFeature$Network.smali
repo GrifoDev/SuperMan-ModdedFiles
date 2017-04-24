@@ -27,6 +27,8 @@
 
 .field public static final SUPPORT_CALL_TRANSFER_BLIND_ECT:Ljava/lang/String; = "support_call_transfer_blind_ect"
 
+.field public static final SUPPORT_CALL_TRANSFER_PS_DOMAIN:Ljava/lang/String; = "support_call_transfer_ps_domain"
+
 .field public static final SUPPORT_CONFERENCE_CALL:Ljava/lang/String; = "support_conference_call"
 
 .field public static final SUPPORT_MERGE_CALL:Ljava/lang/String; = "support_merge_call"
@@ -38,8 +40,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 481
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

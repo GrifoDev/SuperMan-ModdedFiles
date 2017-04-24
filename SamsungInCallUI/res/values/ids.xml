@@ -1053,6 +1053,12 @@
     <item type="id" name="do_not_show_again_view">false</item>
     <item type="id" name="checkbox_text_show">false</item>
     <item type="id" name="videoCallViewsStub">false</item>
+    <item type="id" name="pip_video_container">false</item>
+    <item type="id" name="pip_image">false</item>
+    <item type="id" name="pip_video">false</item>
+    <item type="id" name="pip_call_info_container">false</item>
+    <item type="id" name="pip_icon_image">false</item>
+    <item type="id" name="pip_call_time">false</item>
     <item type="id" name="show_screen_layout">false</item>
     <item type="id" name="main_button">false</item>
     <item type="id" name="button_line1">false</item>
@@ -1095,6 +1101,7 @@
     <item type="id" name="viewInFullScreen">false</item>
     <item type="id" name="Bluetooth">false</item>
     <item type="id" name="VideoConfCallButton">false</item>
+    <item type="id" name="swtichToVoiceCall">false</item>
     <item type="id" name="switchVideoDisplay">false</item>
     <item type="id" name="callTransfer">false</item>
     <item type="id" name="pushSoftPhone">false</item>

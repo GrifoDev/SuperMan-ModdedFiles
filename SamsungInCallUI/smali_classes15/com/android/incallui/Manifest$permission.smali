@@ -19,8 +19,6 @@
 
 .field public static final MCIDService:Ljava/lang/String; = "com.android.incallui.service.MCIDService"
 
-.field public static final PHONE_VOICE_RECORDER_TOGGLE:Ljava/lang/String; = "com.samsung.android.phone.permission.PHONE_VOICE_RECORDER_TOGGLE"
-
 .field public static final QUICK_REPLY_NOTIFICATION:Ljava/lang/String; = "com.samsung.android.incallui.edge.QUICK_REPLY_NOTIFICATION"
 
 .field public static final RemoteCallIntentService:Ljava/lang/String; = "com.android.incallui.remotecall.RemoteCallIntentService"
@@ -38,8 +36,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

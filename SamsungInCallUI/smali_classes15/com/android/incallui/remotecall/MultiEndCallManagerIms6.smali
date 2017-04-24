@@ -39,8 +39,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 42
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->sInstance:Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
@@ -51,16 +49,12 @@
 .method constructor <init>()V
     .locals 4
 
-    .prologue
-    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
-    .line 55
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     const/16 v1, 0x8
@@ -77,23 +71,18 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
-    .line 153
     new-instance v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6$1;
 
     invoke-direct {v0, p0}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6$1;-><init>(Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;)V
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mImsDialogEventListener:Lcom/sec/ims/IDialogEventListener;
 
-    .line 58
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;)Ljava/lang/String;
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
-    .prologue
-    .line 38
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->msisdn:Ljava/lang/String;
 
     return-object v0
@@ -101,11 +90,7 @@
 
 .method static synthetic access$002(Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p0, "x0"    # Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
-    .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
-    .line 38
     iput-object p1, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->msisdn:Ljava/lang/String;
 
     return-object p1
@@ -114,20 +99,16 @@
 .method public static getInstance()Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
     .locals 1
 
-    .prologue
-    .line 80
     sget-object v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->sInstance:Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
     if-nez v0, :cond_0
 
-    .line 81
     new-instance v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
     invoke-direct {v0}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;-><init>()V
 
     sput-object v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->sInstance:Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
-    .line 83
     :cond_0
     sget-object v0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->sInstance:Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;
 
@@ -137,15 +118,12 @@
 .method private registerDialogEventListener()V
     .locals 3
 
-    .prologue
-    .line 143
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     iget-object v1, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mImsDialogEventListener:Lcom/sec/ims/IDialogEventListener;
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/ims/IMSManagerWrapper;->registerDialogEventListener(Lcom/sec/ims/IDialogEventListener;)V
 
-    .line 144
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/ims/IMSManagerWrapper;->getLastDialogEvent()Lcom/sec/ims/DialogEvent;
@@ -154,7 +132,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
-    .line 145
     const-string v0, "MultiEndCallManagerIms6"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -179,7 +156,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 146
     return-void
 .end method
 
@@ -187,25 +163,19 @@
 # virtual methods
 .method public addListener(Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;
 
-    .prologue
-    .line 125
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 126
     return-void
 .end method
 
 .method public clear()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 69
     const-string v0, "MultiEndCallManagerIms6"
 
     const-string v1, "clear()..."
@@ -214,47 +184,36 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 70
     iput-object v3, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mContext:Landroid/content/Context;
 
-    .line 72
     invoke-virtual {p0}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->unregisterDialogEventListener()V
 
-    .line 73
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
     if-eqz v0, :cond_0
 
-    .line 74
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
-    .line 76
     :cond_0
     iput-object v3, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
-    .line 77
     return-void
 .end method
 
 .method public getDialogEvent()Lcom/sec/ims/DialogEvent;
     .locals 3
 
-    .prologue
-    .line 114
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     if-nez v0, :cond_0
 
-    .line 115
     const/4 v0, 0x0
 
-    .line 120
     :goto_0
     return-object v0
 
-    .line 116
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
@@ -264,7 +223,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
-    .line 118
     const-string v0, "MultiEndCallManagerIms6"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -289,7 +247,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 120
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
     goto :goto_0
@@ -298,8 +255,6 @@
 .method public getMSISDN()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 176
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->msisdn:Ljava/lang/String;
 
     return-object v0
@@ -317,35 +272,27 @@
         }
     .end annotation
 
-    .prologue
-    .line 101
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 102
-    .local v1, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/incallui/remotecall/data/IRemoteCallAdapter;>;"
     iget-object v2, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
     if-nez v2, :cond_1
 
-    .line 103
     invoke-virtual {p0}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->getDialogEvent()Lcom/sec/ims/DialogEvent;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
-    .line 104
     iget-object v2, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
     if-nez v2, :cond_1
 
-    .line 111
     :cond_0
     return-object v1
 
-    .line 107
     :cond_1
     iget-object v2, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mDialogEvent:Lcom/sec/ims/DialogEvent;
 
@@ -371,11 +318,8 @@
 
     check-cast v0, Lcom/sec/ims/Dialog;
 
-    .line 108
-    .local v0, "info":Lcom/sec/ims/Dialog;
     if-eqz v0, :cond_2
 
-    .line 109
     new-instance v3, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;
 
     invoke-direct {v3, v0}, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;-><init>(Lcom/sec/ims/Dialog;)V
@@ -388,8 +332,6 @@
 .method public init()V
     .locals 3
 
-    .prologue
-    .line 61
     const-string v0, "MultiEndCallManagerIms6"
 
     const-string v1, "init()..."
@@ -398,7 +340,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 62
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v0
@@ -409,7 +350,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mContext:Landroid/content/Context;
 
-    .line 63
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v0
@@ -420,10 +360,8 @@
 
     iput-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
-    .line 65
     invoke-direct {p0}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->registerDialogEventListener()V
 
-    .line 66
     return-void
 .end method
 
@@ -439,9 +377,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 136
-    .local p1, "remoteCallAdapterList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/incallui/remotecall/data/IRemoteCallAdapter;>;"
     const-string v2, "MultiEndCallManagerIms6"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -471,7 +406,6 @@
 
     invoke-static {v2, v1}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 137
     iget-object v1, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -491,48 +425,35 @@
 
     check-cast v0, Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;
 
-    .line 138
-    .local v0, "listener":Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;
     invoke-interface {v0, p1}, Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;->onNotifyRemoteCallStateChanged(Ljava/util/ArrayList;)V
 
     goto :goto_1
 
-    .line 136
-    .end local v0    # "listener":Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;
     :cond_0
     const-string v1, "not null"
 
     goto :goto_0
 
-    .line 140
     :cond_1
     return-void
 .end method
 
 .method public removeListener(Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/android/incallui/remotecall/data/IRemoteCallManager$Listener;
 
-    .prologue
-    .line 129
     if-eqz p1, :cond_0
 
-    .line 130
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mListeners:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 132
     :cond_0
     return-void
 .end method
 
 .method public requestCallPulling(Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
     .locals 2
-    .param p1, "call"    # Lcom/android/incallui/remotecall/remotecall/RemoteCall;
 
-    .prologue
-    .line 96
     invoke-virtual {p1}, Lcom/android/incallui/remotecall/remotecall/RemoteCall;->getNumber()Ljava/lang/String;
 
     move-result-object v0
@@ -543,17 +464,12 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->requestCallPulling(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 97
     return-void
 .end method
 
 .method public requestCallPulling(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "msisdn"    # Ljava/lang/String;
-    .param p2, "dialogId"    # Ljava/lang/String;
 
-    .prologue
-    .line 87
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -584,17 +500,14 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/remotecall/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 89
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     if-eqz v0, :cond_0
 
-    .line 90
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/incallui/service/ims/IMSManagerWrapper;->transferCall(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 92
     :cond_0
     return-void
 .end method
@@ -602,19 +515,15 @@
 .method public unregisterDialogEventListener()V
     .locals 2
 
-    .prologue
-    .line 149
     const-string v0, "ims service : unregisterDialogEventListener"
 
     invoke-static {p0, v0}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 150
     iget-object v0, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mIMSManagerWrapper:Lcom/android/incallui/service/ims/IMSManagerWrapper;
 
     iget-object v1, p0, Lcom/android/incallui/remotecall/MultiEndCallManagerIms6;->mImsDialogEventListener:Lcom/sec/ims/IDialogEventListener;
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/ims/IMSManagerWrapper;->unregisterDialogEventListener(Lcom/sec/ims/IDialogEventListener;)V
 
-    .line 151
     return-void
 .end method

@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 230
     invoke-static {}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$FragmentMode;->values()[Lcom/android/incallui/fragment/manager/DialpadFragmentManager$FragmentMode;
 
     move-result-object v0

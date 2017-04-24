@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
-    .prologue
-    .line 161
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$3;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 164
     sget-object v0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     const/16 v1, 0x8
@@ -53,7 +48,6 @@
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$902(Lcom/cmdm/control/util/client/ResultEntity;)Lcom/cmdm/control/util/client/ResultEntity;
 
-    .line 165
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$900()Lcom/cmdm/control/util/client/ResultEntity;
 
@@ -61,7 +55,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 166
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$900()Lcom/cmdm/control/util/client/ResultEntity;
 
@@ -74,7 +67,6 @@
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bInitSuccess:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$1002(Z)Z
 
-    .line 167
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$3;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -103,7 +95,6 @@
     # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
-    .line 169
     :cond_0
     return-void
 .end method

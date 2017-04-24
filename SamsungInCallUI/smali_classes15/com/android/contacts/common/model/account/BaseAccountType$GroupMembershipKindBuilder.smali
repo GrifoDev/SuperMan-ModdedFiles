@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1403
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1403
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$GroupMembershipKindBuilder;-><init>()V
 
     return-void
@@ -43,8 +38,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1407
     const-string v0, "group_membership"
 
     return-object v0
@@ -52,9 +45,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,15 +67,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 1414
     const/4 v4, 0x0
 
     const-string v5, "vnd.android.cursor.item/group_membership"
 
     const/4 v6, 0x0
 
-    const v7, 0x7f090120
+    const v7, 0x7f090121
 
     const/16 v8, 0x96
 
@@ -105,8 +93,6 @@
 
     move-result-object v11
 
-    .line 1418
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -121,15 +107,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1419
     const/16 v0, 0xa
 
     iput v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->maxLinesForDisplay:I
 
-    .line 1421
     invoke-virtual {p0, v11}, Lcom/android/contacts/common/model/account/BaseAccountType$GroupMembershipKindBuilder;->throwIfList(Lcom/android/contacts/common/model/dataitem/DataKind;)V
 
-    .line 1423
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

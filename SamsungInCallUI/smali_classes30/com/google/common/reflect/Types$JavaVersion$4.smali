@@ -25,8 +25,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 586
     invoke-direct {p0}, Lcom/google/common/reflect/TypeCapture;-><init>()V
 
     return-void

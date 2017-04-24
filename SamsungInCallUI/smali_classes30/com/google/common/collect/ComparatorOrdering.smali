@@ -49,13 +49,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 33
-    .local p0, "this":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
-    .line 34
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -64,7 +59,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
 
-    .line 35
     return-void
 .end method
 
@@ -78,11 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 39
-    .local p0, "this":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TT;"
-    .local p2, "b":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -94,24 +83,18 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<TT;>;"
     if-ne p1, p0, :cond_0
 
-    .line 45
     const/4 v1, 0x1
 
-    .line 51
     :goto_0
     return v1
 
-    .line 47
     :cond_0
     instance-of v1, p1, Lcom/google/common/collect/ComparatorOrdering;
 
@@ -119,11 +102,8 @@
 
     move-object v0, p1
 
-    .line 48
     check-cast v0, Lcom/google/common/collect/ComparatorOrdering;
 
-    .line 49
-    .local v0, "that":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<*>;"
     iget-object v1, p0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
 
     iget-object v2, v0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
@@ -134,8 +114,6 @@
 
     goto :goto_0
 
-    .line 51
-    .end local v0    # "that":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<*>;"
     :cond_1
     const/4 v1, 0x0
 
@@ -145,9 +123,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 56
-    .local p0, "this":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -160,9 +135,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 61
-    .local p0, "this":Lcom/google/common/collect/ComparatorOrdering;, "Lcom/google/common/collect/ComparatorOrdering<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ComparatorOrdering;->comparator:Ljava/util/Comparator;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

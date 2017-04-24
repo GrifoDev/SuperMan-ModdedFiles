@@ -50,21 +50,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     const-string v0, "2"
 
     iput-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->type:Ljava/lang/String;
 
-    .line 60
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->photoType:Ljava/lang/String;
 
-    .line 78
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -73,7 +68,6 @@
 
     iput-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->h:Ljava/lang/Boolean;
 
-    .line 19
     return-void
 .end method
 
@@ -81,10 +75,7 @@
 # virtual methods
 .method public compareTo(Lcom/cmdm/control/bean/ContactInfo;)I
     .locals 2
-    .param p1, "another"    # Lcom/cmdm/control/bean/ContactInfo;
 
-    .prologue
-    .line 109
     invoke-virtual {p0}, Lcom/cmdm/control/bean/ContactInfo;->getNamePinyin()Ljava/lang/String;
 
     move-result-object v0
@@ -103,8 +94,6 @@
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
 
-    .prologue
-    .line 1
     check-cast p1, Lcom/cmdm/control/bean/ContactInfo;
 
     invoke-virtual {p0, p1}, Lcom/cmdm/control/bean/ContactInfo;->compareTo(Lcom/cmdm/control/bean/ContactInfo;)I
@@ -117,8 +106,6 @@
 .method public getBindingShortNum()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->X:Ljava/lang/String;
 
     return-object v0
@@ -126,10 +113,7 @@
 
 .method public getContactAddress(Landroid/content/Context;)Ljava/lang/String;
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 122
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->contactnum:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -144,14 +128,12 @@
 
     if-nez v0, :cond_0
 
-    .line 123
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->contactnum:Ljava/lang/String;
 
     invoke-static {p1, v0}, Lcom/cmdm/control/util/mobile/CallNumberHandleUtils;->getNumberType(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 125
     :goto_0
     return-object v0
 
@@ -164,8 +146,6 @@
 .method public getIsCheck()Ljava/lang/Boolean;
     .locals 1
 
-    .prologue
-    .line 99
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->h:Ljava/lang/Boolean;
 
     return-object v0
@@ -174,8 +154,6 @@
 .method public getNamePinyin()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 85
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->Y:Ljava/lang/String;
 
     return-object v0
@@ -184,8 +162,6 @@
 .method public getPhotoUri()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 71
     iget-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->photoUri:Ljava/lang/String;
 
     return-object v0
@@ -193,34 +169,23 @@
 
 .method public setBindingShortNum(Ljava/lang/String;)V
     .locals 0
-    .param p1, "bindingShortNum"    # Ljava/lang/String;
 
-    .prologue
-    .line 67
     iput-object p1, p0, Lcom/cmdm/control/bean/ContactInfo;->X:Ljava/lang/String;
 
-    .line 68
     return-void
 .end method
 
 .method public setIsCheck(Ljava/lang/Boolean;)V
     .locals 0
-    .param p1, "isCheck"    # Ljava/lang/Boolean;
 
-    .prologue
-    .line 103
     iput-object p1, p0, Lcom/cmdm/control/bean/ContactInfo;->h:Ljava/lang/Boolean;
 
-    .line 104
     return-void
 .end method
 
 .method public setNamePinyin(Ljava/lang/String;)V
     .locals 1
-    .param p1, "contactname"    # Ljava/lang/String;
 
-    .prologue
-    .line 89
     if-eqz p1, :cond_0
 
     const-string v0, ""
@@ -231,25 +196,19 @@
 
     if-eqz v0, :cond_1
 
-    .line 93
     :cond_0
     const-string v0, ""
 
     iput-object v0, p0, Lcom/cmdm/control/bean/ContactInfo;->Y:Ljava/lang/String;
 
-    .line 96
     :cond_1
     return-void
 .end method
 
 .method public setPhotoUri(Ljava/lang/String;)V
     .locals 0
-    .param p1, "photoUri"    # Ljava/lang/String;
 
-    .prologue
-    .line 75
     iput-object p1, p0, Lcom/cmdm/control/bean/ContactInfo;->photoUri:Ljava/lang/String;
 
-    .line 76
     return-void
 .end method

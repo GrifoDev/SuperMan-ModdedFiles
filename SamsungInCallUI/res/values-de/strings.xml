@@ -138,7 +138,7 @@
     <string name="RAD_roaming_customer_center">T Roaming call center</string>
     <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">Senden von Inhalten angehalten. Akku zu schwach.</string>
     <string name="SS_UNABLE_TO_RECEIVE_FILE_IT_EXCEEDS_MAXIMUM_FILE_SIZE">Empfangen der Datei nicht möglich. Die maximale Dateigröße wurde überschritten.</string>
-    <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Info hzfg.</string>
+    <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Grund hzfg.</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">Wichtiger Anruf</string>
     <string name="TS_SHARING_INVITATION_DECLINED_TPOP_VODA">Freigabeeinladung abgelehnt.</string>
     <string name="accept">Annehmen</string>
@@ -147,7 +147,7 @@
     <string name="add_reminder">Neue Erinnerung</string>
     <string name="agree">Zustimmen</string>
     <string name="am_cover_toggle_string">Cover zum Annehmen oder Ablehnen öffnen.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Automatische Antwort mit Nachricht kann nicht verwendet werden. Der Speicherplatz auf Ihrem Gerät reicht nicht aus, um Sprachnachrichten zu speichern. Löschen Sie einige Elemente und versuchen Sie es erneut.</string>
     <string name="another_device_pickup_message">Ein anderes Gerät hat diesen Anruf entgegengenommen.</string>
     <string name="answering_memo_Playing_text">Ansage wiedergeben…</string>
     <string name="answering_memo_Recording_text">Nachricht wird aufgenommen…</string>
@@ -200,8 +200,8 @@
     <string name="callsettings_rejectmessage_list3">Ich bin im Unterricht.</string>
     <string name="callsettings_rejectmessage_list4">Ich bin im Kino.</string>
     <string name="callsettings_rejectmessage_list5">Ich fahre gerade.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Kamera ausgeschaltet.</string>
+    <string name="camera_on">Kamera eingeschaltet.</string>
     <string name="camera_security_enter">Sicherheitsrichtlinie schränkt die Verwendung der Kamera ein.</string>
     <string name="camera_start_failed">Kamerafehler</string>
     <string name="cancel">Abbruch</string>
@@ -249,7 +249,7 @@ Dieser Videoanruf verwendet jetzt Daten und mobile Daten werden ausgeschaltet, s
     <string name="description_secOnscreenVideoCallText">Videoanruf</string>
     <string name="description_secOnscreenViewContactText">Kontaktdetails anzeigen</string>
     <string name="device_info_not_available">Nicht verfügbar</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Wählen nicht möglich.</string>
     <string name="dialling_video_call">Videoanruf wird gewählt</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -289,6 +289,7 @@ Dieser Videoanruf verwendet jetzt Daten und mobile Daten werden ausgeschaltet, s
     <string name="extra_vol_off">Extralautstärke deaktiviert</string>
     <string name="extra_vol_on">Extralautstärke aktiviert</string>
     <string name="far_end_stopped_share_video">%s hat die Freigabe des Videos beendet.</string>
+    <string name="far_end_stopped_share_video_att">%s hat die Videoübertragung beendet.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Datei n. unterstützt</string>
     <string name="full_name">Name</string>
@@ -486,7 +487,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="memory_full_msg">Nicht genüg. Speicher</string>
     <string name="message_greeting">Ansage</string>
     <string name="modify_to_video_start">Wechsel zu Videoanruf wird angefordert…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Zu Sprachanruf wechseln…</string>
     <string name="msg_for_video_show_never_again">Einige Dateiformate werden nicht unterstützt. Es werden nur unterstützte Dateien in der Galerie angezeigt.</string>
     <string name="mt_vt_not_possible">%s kann aktuell keine Videoanrufe empfangen. Sie werden jetzt über einen Sprachanruf verbunden.</string>
     <string name="nameLabelsGroup">Name</string>
@@ -503,7 +504,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="name_suffix">Namenssuffix</string>
     <string name="network_message_no_answer">Antwortet nicht</string>
     <string name="nicknameLabelsGroup">Spitzname</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Videoanrufe sind bei aktiviertem Notfallmodus nicht verfügbar.</string>
     <string name="not_enable_to_video_emergencymode">Videoanrufe können nicht getätigt oder entgegengenommen werden, wenn der Notfallmodus aktiviert ist.</string>
     <string name="notification_action_answer">Antworten</string>
     <string name="notification_of_sub_number_empty_body">Um alternative Nummern anzuzeigen, abonnieren Sie einen SIM-Kartendienst mit mehreren Nummern, und versuchen Sie es erneut.</string>
@@ -544,22 +545,22 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="prepareOtherVideo">Videobild wird vorbereitet…</string>
     <string name="previous_call_is_held_when_you_accept_call">Der aktuelle Anruf wird unterbrochen, wenn Sie den neuen Anruf annehmen.</string>
     <string name="private_num_cdma">Eingeschränkt</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Nummer unterdrückt</string>
     <string name="quick_panel_title_video_call">Videoanruf</string>
     <string name="quick_panel_title_voice_call">Sprachanruf</string>
     <string name="quick_panel_title_volte_call">VoLTE-Anruf</string>
     <string name="quick_panel_title_volte_call_skt">HD Voice-Anruf</string>
     <string name="quick_panel_title_volte_call_vzw">Erweiterte Anrufe</string>
     <string name="rcs_share">Senden</string>
-    <string name="rcs_share_donot_send_my_video">Ausblenden</string>
+    <string name="rcs_share_donot_send_my_video">Mich ausblenden</string>
     <string name="rcs_share_image">Anfrage akzeptieren?</string>
     <string name="rcs_share_image_sharing">Bildfreigabe (%s)</string>
     <string name="rcs_share_image_sharing_new">Bildfreigabe</string>
     <string name="rcs_share_live">Anfrage akzeptieren?</string>
     <string name="rcs_share_live_video">Live-Video</string>
-    <string name="rcs_share_live_video_sharing">Live-Video-Sharing</string>
+    <string name="rcs_share_live_video_sharing">Live-Video-Freigabe</string>
     <string name="rcs_share_requesting">Anforderung läuft…</string>
-    <string name="rcs_share_send_my_video">Anzeigen</string>
+    <string name="rcs_share_send_my_video">Mich anzeigen</string>
     <string name="rcs_share_toast_canceled">Senden abgebrochen</string>
     <string name="rcs_share_toast_endremoteuser">Senden abgebrochen</string>
     <string name="rcs_share_toast_endsystem">Senden abgebrochen</string>
@@ -649,7 +650,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Auf Telefon umschalten</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Zu Videoanruf wechseln</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Zu Sprachanruf</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Videoanzeigen wechseln</string>
     <string name="secOnscreenMenuUnmuteText">Stumm aus</string>
     <string name="secOnscreenMenuVideoConfCallText">Neuen Teilnehmer einladen</string>
     <string name="secOnscreenMenuViewInFullScreenText">In Vollbildmodus anzeigen</string>
@@ -671,7 +672,7 @@ Kamera"</string>
     <string name="secOnscreenResumeCallText">Fortsetzen</string>
     <string name="secOnscreenShowCallOption">Anrufoptionen anzeigen</string>
     <string name="secOnscreenSpeaker">Lautsprecher</string>
-    <string name="secOnscreenStopText">Stopp</string>
+    <string name="secOnscreenStopText">Aufnahme anhalten</string>
     <string name="secOnscreenSwapText">Tauschen</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Kamera wechseln</string>
@@ -734,8 +735,8 @@ Kamera"</string>
     <string name="spam_call_resported_count">(%d Mal)</string>
     <string name="spam_call_type_and_count">%2$d-mal als %1$s gemeldet</string>
     <string name="sub_number_item">Alternative %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Nicht erneut anzeigen</string>
+    <string name="suguden_guide_main_text_dcm">Nehmen Sie den Anruf an, indem Sie das Gerät nahe an Ihr Ohr halten.</string>
     <string name="swipe_left">Nach li. streich.</string>
     <string name="swipe_right">Nach rechts streichen.</string>
     <string name="swipe_right_to_answer_call_with_video">Nach rechts streichen, um einen Anruf mit Video anzunehmen.</string>
@@ -746,6 +747,7 @@ Kamera"</string>
     <string name="switch_to_voice_call_failed">Anfrage nach Wechsel zu Sprachanruf fehlgeschlagen.</string>
     <string name="switched_to_voip_mo">Auf Sprachanruf umgeschaltet</string>
     <string name="switched_to_voip_mt">Auf Sprachanruf umgeschaltet, wie vom Anrufer erbeten</string>
+    <string name="switched_to_voip_mt_att">Anruf auf Sprache umgeschaltet.</string>
     <string name="switched_to_voip_mt_att_tmo">%s hat Video deaktiviert.</string>
     <string name="switching_camera_failed">Kamerawechsel nicht möglich.</string>
     <string name="switching_to_voice_call">Auf Sprachanruf wird umschaltet…</string>
@@ -761,7 +763,9 @@ Kamera"</string>
     <string name="usa_att_connected_as_voice">Anruf als Sprachanruf verbunden.</string>
     <string name="usa_att_data_usage_charge_alert">Die von Ihnen auf Ihrem Gerät festgelegte maximale Datennutzung ist bald erreicht. Der Videoanruf erfordert Datennutzung.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Anruf kann nicht über WLAN getätigt werden. Mobilnetzverbindung wird hergestellt. Es fallen Kosten für Sprache und Daten an.</string>
-    <string name="usa_att_modify_receive_to_video">Auswahl von Videomodus</string>
+    <string name="usa_att_modify_receive_to_video">%s möchte zu einem Videoanruf wechseln.</string>
+    <string name="usa_att_modify_receive_to_video_share">Videoübertragungsanfrage von %s erhalten.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Anruf kann nicht über WLAN getätigt werden. Mobilnetzverbindung wird hergestellt. Es fallen Kosten für Sprache und Daten an.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Tippen Sie unten, um den Anruftyp auszuwählen.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Anruftyp kann nicht während Telefonkonferenzen geändert werden.</string>
     <string name="usa_gsm_modify_receive_to_video">%s möchte zu Videoanruf wechseln.</string>
@@ -769,6 +773,7 @@ Kamera"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Warten auf Antwort</string>
     <string name="usa_gsm_modify_select_call_type">Auswahl des Anruftyps</string>
     <string name="usa_gsm_switching_to_voice_call">Wird auf Sprachanruf umgeschaltet.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Video ausgeschaltet, da keine mobilen Daten verfügbar sind.</string>
     <string name="usa_volte_reject_upgrade_request">%s kann derzeit keine Videoanrufe entgegennehmen.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Videoanruf ist nicht verfügbar.</string>
     <string name="usa_vzw_change_to_oneway_video">"Zu One-Way-Video
@@ -813,7 +818,9 @@ Ihr Videoanruf wird jetzt über das Mobilnetz durchgeführt. (Datennutzung fäll
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Nicht erneut anzeigen</string>
     <string name="video_calling_incoming">Videoanruf</string>
+    <string name="video_calls_quality_poor_tmo">Schlechte Verbindung. Videoanruf wird möglicherweise auf Sprachanruf gewechselt.</string>
     <string name="video_calls_temporarily_not_available">Videoanrufe vorübergehend nicht verfügbar. Anruf wird auf Sprachanruf umgeschaltet.</string>
+    <string name="video_calls_temporarily_not_available_att">Die von Ihnen angerufene Nummer kann aktuell keine Videoanrufe empfangen. Anruf als Sprachanruf verbunden.</string>
     <string name="video_calls_temporarily_not_available_tmo">Videoanruf ist nicht verfügbar.</string>
     <string name="video_paused_info_text">Video angeh.</string>
     <string name="video_saved">Video in %s gespeichert.</string>

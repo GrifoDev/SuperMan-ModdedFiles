@@ -32,7 +32,6 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,29 +43,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 133
-    .local p2, "subscribers":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/eventbus/Subscriber;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 134
     iput-object p1, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->event:Ljava/lang/Object;
 
-    .line 135
     iput-object p2, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->subscribers:Ljava/util/Iterator;
 
-    .line 136
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Ljava/util/Iterator;Lcom/google/common/eventbus/Dispatcher$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/util/Iterator;
-    .param p3, "x2"    # Lcom/google/common/eventbus/Dispatcher$1;
 
-    .prologue
-    .line 129
     invoke-direct {p0, p1, p2}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;-><init>(Ljava/lang/Object;Ljava/util/Iterator;)V
 
     return-void
@@ -74,10 +62,7 @@
 
 .method static synthetic access$400(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
 
-    .prologue
-    .line 129
     iget-object v0, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->subscribers:Ljava/util/Iterator;
 
     return-object v0
@@ -85,10 +70,7 @@
 
 .method static synthetic access$500(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;)Ljava/lang/Object;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;
 
-    .prologue
-    .line 129
     iget-object v0, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$Event;->event:Ljava/lang/Object;
 
     return-object v0

@@ -25,13 +25,9 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ExecutorService;)V
     .locals 1
-    .param p1, "delegate"    # Ljava/util/concurrent/ExecutorService;
 
-    .prologue
-    .line 524
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractListeningExecutorService;-><init>()V
 
-    .line 525
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -40,7 +36,6 @@
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
-    .line 526
     return-void
 .end method
 
@@ -48,16 +43,12 @@
 # virtual methods
 .method public final awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
         }
     .end annotation
 
-    .prologue
-    .line 531
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1, p2, p3}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
@@ -69,23 +60,17 @@
 
 .method public final execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 556
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 557
     return-void
 .end method
 
 .method public final isShutdown()Z
     .locals 1
 
-    .prologue
-    .line 536
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isShutdown()Z
@@ -98,8 +83,6 @@
 .method public final isTerminated()Z
     .locals 1
 
-    .prologue
-    .line 541
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isTerminated()Z
@@ -112,13 +95,10 @@
 .method public final shutdown()V
     .locals 1
 
-    .prologue
-    .line 546
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
-    .line 547
     return-void
 .end method
 
@@ -134,8 +114,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 551
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$ListeningDecorator;->delegate:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;

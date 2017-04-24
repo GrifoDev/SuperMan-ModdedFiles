@@ -45,18 +45,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 4522
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
-    .local p2, "map":Ljava/util/concurrent/ConcurrentMap;, "Ljava/util/concurrent/ConcurrentMap<**>;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$Values;->this$0:Lcom/google/common/cache/LocalCache;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
-    .line 4523
     iput-object p2, p0, Lcom/google/common/cache/LocalCache$Values;->map:Ljava/util/concurrent/ConcurrentMap;
 
-    .line 4524
     return-void
 .end method
 
@@ -65,24 +59,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 4535
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$Values;->map:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0}, Ljava/util/concurrent/ConcurrentMap;->clear()V
 
-    .line 4536
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 4545
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$Values;->map:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ConcurrentMap;->containsValue(Ljava/lang/Object;)Z
@@ -95,9 +81,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 4531
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$Values;->map:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0}, Ljava/util/concurrent/ConcurrentMap;->isEmpty()Z
@@ -117,9 +100,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4540
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     new-instance v0, Lcom/google/common/cache/LocalCache$ValueIterator;
 
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$Values;->this$0:Lcom/google/common/cache/LocalCache;
@@ -132,9 +112,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 4527
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$Values;->map:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0}, Ljava/util/concurrent/ConcurrentMap;->size()I
@@ -147,9 +124,6 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 4553
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
     # invokes: Lcom/google/common/cache/LocalCache;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/cache/LocalCache;->access$200(Ljava/util/Collection;)Ljava/util/ArrayList;
 
@@ -172,10 +146,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4558
-    .local p0, "this":Lcom/google/common/cache/LocalCache$Values;, "Lcom/google/common/cache/LocalCache<TK;TV;>.Values;"
-    .local p1, "a":[Ljava/lang/Object;, "[TE;"
     # invokes: Lcom/google/common/cache/LocalCache;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/cache/LocalCache;->access$200(Ljava/util/Collection;)Ljava/util/ArrayList;
 

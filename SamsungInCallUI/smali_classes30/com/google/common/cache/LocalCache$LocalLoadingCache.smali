@@ -48,11 +48,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4868
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "builder":Lcom/google/common/cache/CacheBuilder;, "Lcom/google/common/cache/CacheBuilder<-TK;-TV;>;"
-    .local p2, "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<-TK;TV;>;"
     new-instance v1, Lcom/google/common/cache/LocalCache;
 
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -67,7 +62,6 @@
 
     invoke-direct {p0, v1, v0}, Lcom/google/common/cache/LocalCache$LocalManualCache;-><init>(Lcom/google/common/cache/LocalCache;Lcom/google/common/cache/LocalCache$1;)V
 
-    .line 4869
     return-void
 .end method
 
@@ -81,10 +75,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4899
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -106,10 +96,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4875
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->localCache:Lcom/google/common/cache/LocalCache;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/LocalCache;->getOrLoad(Ljava/lang/Object;)Ljava/lang/Object;
@@ -137,10 +123,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4889
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->localCache:Lcom/google/common/cache/LocalCache;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/LocalCache;->getAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap;
@@ -158,10 +140,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4881
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -171,12 +149,9 @@
 
     return-object v1
 
-    .line 4882
     :catch_0
     move-exception v0
 
-    .line 4883
-    .local v0, "e":Ljava/util/concurrent/ExecutionException;
     new-instance v1, Lcom/google/common/util/concurrent/UncheckedExecutionException;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
@@ -196,24 +171,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 4894
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->localCache:Lcom/google/common/cache/LocalCache;
 
     invoke-virtual {v0, p1}, Lcom/google/common/cache/LocalCache;->refresh(Ljava/lang/Object;)V
 
-    .line 4895
     return-void
 .end method
 
 .method writeReplace()Ljava/lang/Object;
     .locals 2
 
-    .prologue
-    .line 4908
-    .local p0, "this":Lcom/google/common/cache/LocalCache$LocalLoadingCache;, "Lcom/google/common/cache/LocalCache$LocalLoadingCache<TK;TV;>;"
     new-instance v0, Lcom/google/common/cache/LocalCache$LoadingSerializationProxy;
 
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$LocalLoadingCache;->localCache:Lcom/google/common/cache/LocalCache;

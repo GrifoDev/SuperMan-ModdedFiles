@@ -21,11 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "connectionCallbacks"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/google/android/gms/internal/bn;
@@ -85,9 +81,7 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
@@ -99,9 +93,7 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
@@ -113,10 +105,7 @@
 
 .method public loadPanoramaInfo(Lcom/google/android/gms/panorama/PanoramaClient$OnPanoramaInfoLoadedListener;Landroid/net/Uri;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/panorama/PanoramaClient$OnPanoramaInfoLoadedListener;
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     const/4 v1, 0x0
@@ -128,10 +117,7 @@
 
 .method public loadPanoramaInfoAndGrantAccess(Lcom/google/android/gms/panorama/PanoramaClient$OnPanoramaInfoLoadedListener;Landroid/net/Uri;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/panorama/PanoramaClient$OnPanoramaInfoLoadedListener;
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     const/4 v1, 0x1
@@ -143,9 +129,7 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -155,9 +139,7 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -167,9 +149,7 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -179,9 +159,7 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/panorama/PanoramaClient;->hN:Lcom/google/android/gms/internal/bn;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bn;->unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V

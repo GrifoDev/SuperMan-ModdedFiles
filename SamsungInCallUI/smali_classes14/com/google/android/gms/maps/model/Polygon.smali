@@ -9,9 +9,7 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/maps/model/internal/e;)V
     .locals 1
-    .param p1, "delegate"    # Lcom/google/android/gms/maps/model/internal/e;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
@@ -29,27 +27,22 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
     instance-of v0, p1, Lcom/google/android/gms/maps/model/Polygon;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    .end local p1    # "other":Ljava/lang/Object;
     :goto_0
     return v0
 
-    .restart local p1    # "other":Ljava/lang/Object;
     :cond_0
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
     check-cast p1, Lcom/google/android/gms/maps/model/Polygon;
 
-    .end local p1    # "other":Ljava/lang/Object;
     iget-object v1, p1, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
     invoke-interface {v0, v1}, Lcom/google/android/gms/maps/model/internal/e;->a(Lcom/google/android/gms/maps/model/internal/e;)Z
@@ -354,9 +347,7 @@
 
 .method public setFillColor(I)V
     .locals 2
-    .param p1, "color"    # I
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -378,9 +369,7 @@
 
 .method public setGeodesic(Z)V
     .locals 2
-    .param p1, "geodesic"    # Z
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -414,8 +403,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "holes":Ljava/util/List;, "Ljava/util/List<+Ljava/util/List<Lcom/google/android/gms/maps/model/LatLng;>;>;"
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -447,8 +434,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "points":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/maps/model/LatLng;>;"
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -470,9 +455,7 @@
 
 .method public setStrokeColor(I)V
     .locals 2
-    .param p1, "color"    # I
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -494,9 +477,7 @@
 
 .method public setStrokeWidth(F)V
     .locals 2
-    .param p1, "width"    # F
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -518,9 +499,7 @@
 
 .method public setVisible(Z)V
     .locals 2
-    .param p1, "visible"    # Z
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 
@@ -542,9 +521,7 @@
 
 .method public setZIndex(F)V
     .locals 2
-    .param p1, "zIndex"    # F
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/maps/model/Polygon;->hA:Lcom/google/android/gms/maps/model/internal/e;
 

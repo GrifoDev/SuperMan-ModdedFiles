@@ -80,17 +80,12 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 4
-    .param p1, "code"    # I
-    .param p2, "data"    # Landroid/os/Parcel;
-    .param p3, "reply"    # Landroid/os/Parcel;
-    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v1, 0x1
 
     sparse-switch p1, :sswitch_data_0

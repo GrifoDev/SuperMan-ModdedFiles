@@ -45,16 +45,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 115
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSet;-><init>()V
 
-    .line 116
     iput-object p1, p0, Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;->key:Ljava/lang/Object;
 
-    .line 117
     return-void
 .end method
 
@@ -68,10 +62,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 121
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
-    .local p1, "element":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -109,13 +99,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 126
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
-    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<+TV;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 127
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -146,9 +131,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 112
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -159,9 +141,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 112
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -179,9 +158,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 132
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet;, "Lcom/google/common/collect/FilteredKeyMultimap$AddRejectingSet<TK;TV;>;"
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v0

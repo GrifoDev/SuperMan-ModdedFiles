@@ -36,7 +36,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)V
     .locals 18
-    .param p3, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,11 +48,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/nineoldandroids/util/ReflectiveProperty;, "Lcom/nineoldandroids/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, "propertyHolder":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p2, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -62,7 +56,6 @@
 
     invoke-direct {v0, v1, v2}, Lcom/nineoldandroids/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 48
     const/4 v15, 0x0
 
     move-object/from16 v0, p3
@@ -75,8 +68,6 @@
 
     move-result v10
 
-    .line 49
-    .local v10, "firstLetter":C
     const/4 v15, 0x1
 
     move-object/from16 v0, p3
@@ -85,8 +76,6 @@
 
     move-result-object v14
 
-    .line 50
-    .local v14, "theRest":Ljava/lang/String;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-static {v10}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
@@ -103,8 +92,6 @@
 
     move-result-object v3
 
-    .line 51
-    .local v3, "capitalizedName":Ljava/lang/String;
     new-instance v15, Ljava/lang/StringBuilder;
 
     const-string v16, "get"
@@ -119,8 +106,6 @@
 
     move-result-object v11
 
-    .line 53
-    .local v11, "getterName":Ljava/lang/String;
     const/4 v15, 0x0
 
     :try_start_0
@@ -136,7 +121,6 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 92
     :goto_0
     move-object/from16 v0, p0
 
@@ -146,8 +130,6 @@
 
     move-result-object v12
 
-    .line 94
-    .local v12, "getterType":Ljava/lang/Class;
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -158,7 +140,6 @@
 
     if-nez v15, :cond_0
 
-    .line 95
     new-instance v15, Lcom/nineoldandroids/util/NoSuchPropertyException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -179,7 +160,6 @@
 
     move-result-object v16
 
-    .line 96
     const-string v17, "does not match Property type ("
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -204,18 +184,13 @@
 
     move-result-object v16
 
-    .line 95
     invoke-direct/range {v15 .. v16}, Lcom/nineoldandroids/util/NoSuchPropertyException;-><init>(Ljava/lang/String;)V
 
     throw v15
 
-    .line 54
-    .end local v12    # "getterType":Ljava/lang/Class;
     :catch_0
     move-exception v4
 
-    .line 59
-    .local v4, "e":Ljava/lang/NoSuchMethodException;
     const/4 v15, 0x0
 
     :try_start_1
@@ -229,7 +204,6 @@
 
     iput-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
 
-    .line 60
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
@@ -242,12 +216,9 @@
 
     goto :goto_0
 
-    .line 61
     :catch_1
     move-exception v5
 
-    .line 63
-    .local v5, "e2":Ljava/lang/NoSuchMethodException;
     new-instance v15, Ljava/lang/StringBuilder;
 
     const-string v16, "is"
@@ -262,7 +233,6 @@
 
     move-result-object v11
 
-    .line 65
     const/4 v15, 0x0
 
     :try_start_2
@@ -280,12 +250,9 @@
 
     goto :goto_0
 
-    .line 66
     :catch_2
     move-exception v6
 
-    .line 71
-    .local v6, "e3":Ljava/lang/NoSuchMethodException;
     const/4 v15, 0x0
 
     :try_start_3
@@ -299,7 +266,6 @@
 
     iput-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
 
-    .line 72
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
@@ -312,12 +278,9 @@
 
     goto/16 :goto_0
 
-    .line 73
     :catch_3
     move-exception v7
 
-    .line 76
-    .local v7, "e4":Ljava/lang/NoSuchMethodException;
     :try_start_4
     move-object/from16 v0, p1
 
@@ -331,7 +294,6 @@
 
     iput-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
-    .line 77
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
@@ -340,8 +302,6 @@
 
     move-result-object v9
 
-    .line 78
-    .local v9, "fieldType":Ljava/lang/Class;
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -352,7 +312,6 @@
 
     if-nez v15, :cond_1
 
-    .line 79
     new-instance v15, Lcom/nineoldandroids/util/NoSuchPropertyException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -373,7 +332,6 @@
 
     move-result-object v16
 
-    .line 80
     const-string v17, "does not match Property type ("
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -398,20 +356,15 @@
 
     move-result-object v16
 
-    .line 79
     invoke-direct/range {v15 .. v16}, Lcom/nineoldandroids/util/NoSuchPropertyException;-><init>(Ljava/lang/String;)V
 
     throw v15
     :try_end_4
     .catch Ljava/lang/NoSuchFieldException; {:try_start_4 .. :try_end_4} :catch_4
 
-    .line 83
-    .end local v9    # "fieldType":Ljava/lang/Class;
     :catch_4
     move-exception v8
 
-    .line 85
-    .local v8, "e5":Ljava/lang/NoSuchFieldException;
     new-instance v15, Lcom/nineoldandroids/util/NoSuchPropertyException;
 
     new-instance v16, Ljava/lang/StringBuilder;
@@ -420,7 +373,6 @@
 
     invoke-direct/range {v16 .. v17}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 86
     move-object/from16 v0, v16
 
     move-object/from16 v1, p3
@@ -433,18 +385,10 @@
 
     move-result-object v16
 
-    .line 85
     invoke-direct/range {v15 .. v16}, Lcom/nineoldandroids/util/NoSuchPropertyException;-><init>(Ljava/lang/String;)V
 
     throw v15
 
-    .line 98
-    .end local v4    # "e":Ljava/lang/NoSuchMethodException;
-    .end local v5    # "e2":Ljava/lang/NoSuchMethodException;
-    .end local v6    # "e3":Ljava/lang/NoSuchMethodException;
-    .end local v7    # "e4":Ljava/lang/NoSuchMethodException;
-    .end local v8    # "e5":Ljava/lang/NoSuchFieldException;
-    .restart local v12    # "getterType":Ljava/lang/Class;
     :cond_0
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -460,8 +404,6 @@
 
     move-result-object v13
 
-    .line 102
-    .local v13, "setterName":Ljava/lang/String;
     const/4 v15, 0x1
 
     :try_start_5
@@ -481,7 +423,6 @@
 
     iput-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
-    .line 103
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/nineoldandroids/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
@@ -492,16 +433,10 @@
     :try_end_5
     .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_5} :catch_5
 
-    .line 107
-    .end local v12    # "getterType":Ljava/lang/Class;
-    .end local v13    # "setterName":Ljava/lang/String;
     :cond_1
     :goto_1
     return-void
 
-    .line 104
-    .restart local v12    # "getterType":Ljava/lang/Class;
-    .restart local v13    # "setterName":Ljava/lang/String;
     :catch_5
     move-exception v15
 
@@ -510,7 +445,6 @@
 
 .method private typesMatch(Ljava/lang/Class;Ljava/lang/Class;)Z
     .locals 3
-    .param p2, "getterType"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -521,24 +455,18 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/nineoldandroids/util/ReflectiveProperty;, "Lcom/nineoldandroids/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
-    .line 117
     if-eq p2, p1, :cond_9
 
-    .line 118
     invoke-virtual {p2}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v2
 
     if-eqz v2, :cond_7
 
-    .line 119
     sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     if-ne p2, v2, :cond_0
@@ -547,7 +475,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 120
     :cond_0
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
@@ -557,7 +484,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 121
     :cond_1
     sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
@@ -567,7 +493,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 122
     :cond_2
     sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
@@ -577,7 +502,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 123
     :cond_3
     sget-object v2, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
@@ -587,7 +511,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 124
     :cond_4
     sget-object v2, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
@@ -597,7 +520,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 125
     :cond_5
     sget-object v2, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
@@ -607,7 +529,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 126
     :cond_6
     sget-object v2, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
@@ -617,7 +538,6 @@
 
     if-eq p1, v2, :cond_8
 
-    .line 130
     :cond_7
     :goto_0
     return v0
@@ -625,13 +545,11 @@
     :cond_8
     move v0, v1
 
-    .line 119
     goto :goto_0
 
     :cond_9
     move v0, v1
 
-    .line 130
     goto :goto_0
 .end method
 
@@ -645,15 +563,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 156
-    .local p0, "this":Lcom/nineoldandroids/util/ReflectiveProperty;, "Lcom/nineoldandroids/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
-    .line 158
     :try_start_0
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mGetter:Ljava/lang/reflect/Method;
 
@@ -666,29 +579,21 @@
 
     move-result-object v1
 
-    .line 166
     :goto_0
     return-object v1
 
-    .line 159
     :catch_0
     move-exception v0
 
-    .line 160
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
     throw v1
 
-    .line 161
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
-    .line 162
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
@@ -699,14 +604,11 @@
 
     throw v1
 
-    .line 164
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :cond_0
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
     if-eqz v1, :cond_1
 
-    .line 166
     :try_start_1
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
@@ -718,20 +620,15 @@
 
     goto :goto_0
 
-    .line 167
     :catch_2
     move-exception v0
 
-    .line 168
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
     throw v1
 
-    .line 172
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_1
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -743,9 +640,6 @@
 .method public isReadOnly()Z
     .locals 1
 
-    .prologue
-    .line 180
-    .local p0, "this":Lcom/nineoldandroids/util/ReflectiveProperty;, "Lcom/nineoldandroids/util/ReflectiveProperty<TT;TV;>;"
     iget-object v0, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
     if-nez v0, :cond_0
@@ -773,16 +667,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 135
-    .local p0, "this":Lcom/nineoldandroids/util/ReflectiveProperty;, "Lcom/nineoldandroids/util/ReflectiveProperty<TT;TV;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
-    .line 137
     :try_start_0
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mSetter:Ljava/lang/reflect/Method;
 
@@ -799,29 +687,21 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 152
     :goto_0
     return-void
 
-    .line 138
     :catch_0
     move-exception v0
 
-    .line 139
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
     throw v1
 
-    .line 140
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
-    .line 141
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
@@ -832,14 +712,11 @@
 
     throw v1
 
-    .line 143
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :cond_0
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
     if-eqz v1, :cond_1
 
-    .line 145
     :try_start_1
     iget-object v1, p0, Lcom/nineoldandroids/util/ReflectiveProperty;->mField:Ljava/lang/reflect/Field;
 
@@ -849,20 +726,15 @@
 
     goto :goto_0
 
-    .line 146
     :catch_2
     move-exception v0
 
-    .line 147
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
     throw v1
 
-    .line 150
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_1
     new-instance v1, Ljava/lang/UnsupportedOperationException;
 

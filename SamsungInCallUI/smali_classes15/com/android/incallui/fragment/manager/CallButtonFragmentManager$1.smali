@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
-    .prologue
-    .line 99
     iput-object p1, p0, Lcom/android/incallui/fragment/manager/CallButtonFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/CallButtonFragmentManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,20 +33,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 102
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 112
     :cond_0
     :goto_0
     return-void
 
-    .line 104
     :pswitch_0
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isGuidancePlaying()Z
 
@@ -57,7 +49,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 105
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
     move-result-object v1
@@ -66,8 +57,6 @@
 
     move-result-object v0
 
-    .line 106
-    .local v0, "callCardUi":Lcom/android/incallui/CallCardUi;
     if-eqz v0, :cond_0
 
     const/4 v1, 0x0
@@ -76,7 +65,6 @@
 
     goto :goto_0
 
-    .line 102
     nop
 
     :pswitch_data_0

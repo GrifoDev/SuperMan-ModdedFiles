@@ -37,9 +37,6 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableRangeSet;IILcom/google/common/collect/Range;)V
     .locals 0
 
-    .prologue
-    .line 308
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$1;, "Lcom/google/common/collect/ImmutableRangeSet.1;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
     iput p2, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->val$length:I
@@ -57,7 +54,6 @@
 # virtual methods
 .method public get(I)Lcom/google/common/collect/Range;
     .locals 2
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -66,14 +62,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 316
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$1;, "Lcom/google/common/collect/ImmutableRangeSet.1;"
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->val$length:I
 
     invoke-static {p1, v0}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
-    .line 317
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->val$length:I
@@ -82,7 +74,6 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 318
     :cond_0
     iget-object v0, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
@@ -107,7 +98,6 @@
 
     move-result-object v0
 
-    .line 320
     :goto_0
     return-object v0
 
@@ -134,11 +124,7 @@
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
-    .line 308
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$1;, "Lcom/google/common/collect/ImmutableRangeSet.1;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableRangeSet$1;->get(I)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -149,9 +135,6 @@
 .method isPartialView()Z
     .locals 1
 
-    .prologue
-    .line 326
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$1;, "Lcom/google/common/collect/ImmutableRangeSet.1;"
     const/4 v0, 0x1
 
     return v0
@@ -160,9 +143,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 311
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$1;, "Lcom/google/common/collect/ImmutableRangeSet.1;"
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeSet$1;->val$length:I
 
     return v0

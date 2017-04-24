@@ -47,11 +47,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "connectionCallbacks"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusClient$Builder;->mContext:Landroid/content/Context;
@@ -166,9 +162,7 @@
 
 .method public setAccountName(Ljava/lang/String;)Lcom/google/android/gms/plus/PlusClient$Builder;
     .locals 0
-    .param p1, "accountName"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusClient$Builder;->g:Ljava/lang/String;
 
     return-object p0
@@ -176,9 +170,7 @@
 
 .method public varargs setActions([Ljava/lang/String;)Lcom/google/android/gms/plus/PlusClient$Builder;
     .locals 0
-    .param p1, "actions"    # [Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/PlusClient$Builder;->hX:[Ljava/lang/String;
 
     return-object p0
@@ -186,9 +178,7 @@
 
 .method public varargs setScopes([Ljava/lang/String;)Lcom/google/android/gms/plus/PlusClient$Builder;
     .locals 2
-    .param p1, "scopes"    # [Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusClient$Builder;->hW:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -206,11 +196,9 @@
 
 .method public varargs setVisibleActivities([Ljava/lang/String;)Lcom/google/android/gms/plus/PlusClient$Builder;
     .locals 0
-    .param p1, "actions"    # [Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/plus/PlusClient$Builder;->setActions([Ljava/lang/String;)Lcom/google/android/gms/plus/PlusClient$Builder;
 
     return-object p0

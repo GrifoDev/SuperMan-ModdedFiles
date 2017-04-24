@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/lang/Iterable;I)V
     .locals 0
 
-    .prologue
-    .line 854
     iput-object p1, p0, Lcom/google/common/collect/Iterables$10;->val$iterable:Ljava/lang/Iterable;
 
     iput p2, p0, Lcom/google/common/collect/Iterables$10;->val$numberToSkip:I
@@ -54,21 +52,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 857
     iget-object v1, p0, Lcom/google/common/collect/Iterables$10;->val$iterable:Ljava/lang/Iterable;
 
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 859
-    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
     iget v1, p0, Lcom/google/common/collect/Iterables$10;->val$numberToSkip:I
 
     invoke-static {v0, v1}, Lcom/google/common/collect/Iterators;->advance(Ljava/util/Iterator;I)I
 
-    .line 866
     new-instance v1, Lcom/google/common/collect/Iterables$10$1;
 
     invoke-direct {v1, p0, v0}, Lcom/google/common/collect/Iterables$10$1;-><init>(Lcom/google/common/collect/Iterables$10;Ljava/util/Iterator;)V

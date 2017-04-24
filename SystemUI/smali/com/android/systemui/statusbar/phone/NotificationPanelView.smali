@@ -1885,21 +1885,14 @@
     :cond_6
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mTwoFingerQsExpandPossible:Z
 
-    if-eqz v1, :cond_8
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->twoFingersInjection(Landroid/view/MotionEvent;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_7
+    if-eqz v1, :cond_7
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isOpenQsEvent(Landroid/view/MotionEvent;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
-    :cond_7
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v1
@@ -1914,7 +1907,7 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_8
+    if-gez v1, :cond_7
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mContext:Landroid/content/Context;
 
@@ -1928,7 +1921,7 @@
 
     invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->setListening(Z)V
 
-    :cond_8
+    :cond_7
     return v4
 .end method
 
@@ -2224,6 +2217,12 @@
     .locals 7
 
     const/4 v6, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->twoFingersInjection(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 

@@ -28,8 +28,6 @@
 .method private constructor <init>(Lcom/cmdm/control/download/a;)V
     .locals 0
 
-    .prologue
-    .line 659
     iput-object p1, p0, Lcom/cmdm/control/download/a$d;->br:Lcom/cmdm/control/download/a;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +38,6 @@
 .method synthetic constructor <init>(Lcom/cmdm/control/download/a;Lcom/cmdm/control/download/a$d;)V
     .locals 0
 
-    .prologue
-    .line 659
     invoke-direct {p0, p1}, Lcom/cmdm/control/download/a$d;-><init>(Lcom/cmdm/control/download/a;)V
 
     return-void

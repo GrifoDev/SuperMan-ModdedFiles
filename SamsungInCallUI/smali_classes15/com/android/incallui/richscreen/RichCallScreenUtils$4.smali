@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichCallScreenUtils;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
-    .prologue
-    .line 145
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$4;->this$0:Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,21 +36,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 149
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 154
     :goto_0
     return v2
 
-    .line 151
     :pswitch_0
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
@@ -75,7 +67,6 @@
 
     goto :goto_0
 
-    .line 149
     nop
 
     :pswitch_data_0

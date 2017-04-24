@@ -1,122 +1,87 @@
 .class public Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;
-.super Lcom/android/incallui/widget/SecVoiceButton;
+.super Landroid/support/v7/widget/AppCompatButton;
 .source "PhoneVoiceRecorderNotiButton.java"
+
+
+# instance fields
+.field mDefaultBackground:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
-    .prologue
-    .line 13
-    invoke-direct {p0, p1}, Lcom/android/incallui/widget/SecVoiceButton;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatButton;-><init>(Landroid/content/Context;)V
 
-    .line 14
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
+    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result v0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
+    iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->mDefaultBackground:Landroid/graphics/drawable/Drawable;
 
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setMeasuredSizeForRipple(II)V
-
-    .line 15
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setRippleEffectSize(II)V
-
-    .line 16
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 1
 
-    .prologue
-    .line 19
-    invoke-direct {p0, p1, p2}, Lcom/android/incallui/widget/SecVoiceButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AppCompatButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 20
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
+    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result v0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
+    iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->mDefaultBackground:Landroid/graphics/drawable/Drawable;
 
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setMeasuredSizeForRipple(II)V
-
-    .line 21
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setRippleEffectSize(II)V
-
-    .line 22
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyleAttr"    # I
+    .locals 1
 
-    .prologue
-    .line 25
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/incallui/widget/SecVoiceButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/widget/AppCompatButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 26
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
+    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result v0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
+    iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->mDefaultBackground:Landroid/graphics/drawable/Drawable;
 
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setMeasuredSizeForRipple(II)V
-
-    .line 27
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->getMeasuredHeight()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setRippleEffectSize(II)V
-
-    .line 28
     return-void
+.end method
+
+.method private updateButtonBackground(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    const v0, 0x7f0202da
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setBackgroundResource(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->mDefaultBackground:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method protected isInMultiWindowMode()Z
+.method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 1
 
-    .prologue
-    .line 32
-    const/4 v0, 0x0
+    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isEnabledShowButtonBackground()Z
 
-    return v0
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotiButton;->updateButtonBackground(Z)V
+
+    invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatButton;->onDraw(Landroid/graphics/Canvas;)V
+
+    return-void
 .end method

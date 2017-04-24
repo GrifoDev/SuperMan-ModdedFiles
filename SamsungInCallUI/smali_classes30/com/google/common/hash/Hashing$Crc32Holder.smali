@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 275
     sget-object v0, Lcom/google/common/hash/Hashing$ChecksumType;->CRC_32:Lcom/google/common/hash/Hashing$ChecksumType;
 
     const-string v1, "Hashing.crc32()"
@@ -41,8 +39,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 274
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

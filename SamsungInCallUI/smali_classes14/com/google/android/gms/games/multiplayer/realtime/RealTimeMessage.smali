@@ -45,9 +45,7 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .param p1, "parcel"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -67,10 +65,7 @@
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/os/Parcel;
-    .param p2, "x1"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -78,11 +73,7 @@
 
 .method public constructor <init>(Ljava/lang/String;[BI)V
     .locals 1
-    .param p1, "senderParticipantId"    # Ljava/lang/String;
-    .param p2, "messageData"    # [B
-    .param p3, "isReliable"    # I
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
@@ -158,10 +149,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "parcel"    # Landroid/os/Parcel;
-    .param p2, "flag"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;->eT:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V

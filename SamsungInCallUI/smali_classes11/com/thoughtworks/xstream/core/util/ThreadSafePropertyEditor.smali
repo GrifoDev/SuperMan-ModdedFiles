@@ -12,15 +12,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;II)V
     .locals 3
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "initialPoolSize"    # I
-    .param p3, "maxPoolSize"    # I
 
-    .prologue
-    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     const-class v0, Ljava/beans/PropertyEditor;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
@@ -29,7 +23,6 @@
 
     if-nez v0, :cond_0
 
-    .line 40
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -68,11 +61,9 @@
 
     throw v0
 
-    .line 44
     :cond_0
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->editorType:Ljava/lang/Class;
 
-    .line 45
     new-instance v0, Lcom/thoughtworks/xstream/core/util/Pool;
 
     new-instance v1, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;
@@ -83,16 +74,12 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    .line 59
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;)Ljava/lang/Class;
     .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;
 
-    .prologue
-    .line 33
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->editorType:Ljava/lang/Class;
 
     return-object v0
@@ -101,8 +88,6 @@
 .method private fetchFromPool()Ljava/beans/PropertyEditor;
     .locals 2
 
-    .prologue
-    .line 82
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v1}, Lcom/thoughtworks/xstream/core/util/Pool;->fetchFromPool()Ljava/lang/Object;
@@ -111,8 +96,6 @@
 
     check-cast v0, Ljava/beans/PropertyEditor;
 
-    .line 83
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     return-object v0
 .end method
 
@@ -120,27 +103,20 @@
 # virtual methods
 .method public getAsText(Ljava/lang/Object;)Ljava/lang/String;
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .prologue
-    .line 62
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->fetchFromPool()Ljava/beans/PropertyEditor;
 
     move-result-object v0
 
-    .line 64
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     :try_start_0
     invoke-interface {v0, p1}, Ljava/beans/PropertyEditor;->setValue(Ljava/lang/Object;)V
 
-    .line 65
     invoke-interface {v0}, Ljava/beans/PropertyEditor;->getAsText()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
-    .line 67
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
@@ -159,27 +135,20 @@
 
 .method public setAsText(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
-    .param p1, "str"    # Ljava/lang/String;
 
-    .prologue
-    .line 72
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->fetchFromPool()Ljava/beans/PropertyEditor;
 
     move-result-object v0
 
-    .line 74
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     :try_start_0
     invoke-interface {v0, p1}, Ljava/beans/PropertyEditor;->setAsText(Ljava/lang/String;)V
 
-    .line 75
     invoke-interface {v0}, Ljava/beans/PropertyEditor;->getValue()Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
-    .line 77
     iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
     invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V

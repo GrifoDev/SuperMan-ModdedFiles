@@ -27,13 +27,10 @@
 .method private constructor <init>(Lcom/android/vcard/VCardEntry;)V
     .locals 1
 
-    .prologue
-    .line 2062
     iput-object p1, p0, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;->this$0:Lcom/android/vcard/VCardEntry;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2063
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;->mEmpty:Z
@@ -43,11 +40,7 @@
 
 .method synthetic constructor <init>(Lcom/android/vcard/VCardEntry;Lcom/android/vcard/VCardEntry$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/vcard/VCardEntry;
-    .param p2, "x1"    # Lcom/android/vcard/VCardEntry$1;
 
-    .prologue
-    .line 2062
     invoke-direct {p0, p1}, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;-><init>(Lcom/android/vcard/VCardEntry;)V
 
     return-void
@@ -58,8 +51,6 @@
 .method public getResult()Z
     .locals 1
 
-    .prologue
-    .line 2093
     iget-boolean v0, p0, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;->mEmpty:Z
 
     return v0
@@ -67,22 +58,17 @@
 
 .method public onElement(Lcom/android/vcard/VCardEntry$EntryElement;)Z
     .locals 2
-    .param p1, "elem"    # Lcom/android/vcard/VCardEntry$EntryElement;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 2083
     invoke-interface {p1}, Lcom/android/vcard/VCardEntry$EntryElement;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 2084
     iput-boolean v0, p0, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;->mEmpty:Z
 
-    .line 2088
     :goto_0
     return v0
 
@@ -95,32 +81,23 @@
 .method public onElementGroupEnded()V
     .locals 0
 
-    .prologue
-    .line 2079
     return-void
 .end method
 
 .method public onElementGroupStarted(Lcom/android/vcard/VCardEntry$EntryLabel;)V
     .locals 0
-    .param p1, "label"    # Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .prologue
-    .line 2075
     return-void
 .end method
 
 .method public onIterationEnded()V
     .locals 0
 
-    .prologue
-    .line 2071
     return-void
 .end method
 
 .method public onIterationStarted()V
     .locals 0
 
-    .prologue
-    .line 2067
     return-void
 .end method

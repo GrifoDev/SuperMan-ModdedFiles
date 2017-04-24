@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/VideoPauseController;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/VideoPauseController;
 
-    .prologue
-    .line 175
     iput-object p1, p0, Lcom/android/incallui/VideoPauseController$1;->this$0:Lcom/android/incallui/VideoPauseController;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 178
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 186
     :goto_0
     return-void
 
-    .line 180
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/VideoPauseController$1;->this$0:Lcom/android/incallui/VideoPauseController;
 
@@ -57,7 +49,6 @@
 
     goto :goto_0
 
-    .line 178
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

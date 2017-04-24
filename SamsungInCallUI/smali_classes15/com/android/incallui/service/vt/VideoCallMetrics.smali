@@ -58,44 +58,35 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 3
-    .param p1, "activity"    # Lcom/android/incallui/InCallActivity;
 
-    .prologue
-    .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mIsLeftHandRotation:Z
 
-    .line 53
     const/4 v2, 0x1
 
     iput v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
 
-    .line 57
     new-instance v2, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
     invoke-direct {v2, p0}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;-><init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
 
     iput-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
-    .line 58
     new-instance v2, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     invoke-direct {v2, p0}, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;-><init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
 
     iput-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
-    .line 59
     new-instance v2, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
 
     invoke-direct {v2, p0}, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;-><init>(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
 
     iput-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
 
-    .line 62
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v2
@@ -104,11 +95,8 @@
 
     move-result-object v0
 
-    .line 63
-    .local v0, "context":Landroid/content/Context;
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    .line 64
     const-string v2, "window"
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -123,13 +111,10 @@
 
     iput-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
 
-    .line 65
     new-instance v1, Landroid/util/DisplayMetrics;
 
     invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 66
-    .local v1, "displayMetrics":Landroid/util/DisplayMetrics;
     iget-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v2}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
@@ -142,43 +127,34 @@
 
     invoke-virtual {v2, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 67
     iget v2, v1, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iput v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    .line 68
     iget v2, v1, Landroid/util/DisplayMetrics;->heightPixels:I
 
     iput v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    .line 69
     iget v2, v1, Landroid/util/DisplayMetrics;->density:F
 
     iput v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->density:F
 
-    .line 70
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
 
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mIsLeftHandRotation:Z
 
-    .line 71
     const/4 v2, 0x0
 
     invoke-direct {p0, v2}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update(Lcom/android/incallui/Call;)V
 
-    .line 72
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/android/incallui/service/vt/VideoCallMetrics;)Landroid/content/Context;
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/service/vt/VideoCallMetrics;
 
-    .prologue
-    .line 37
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
 
     move-result-object v0
@@ -188,11 +164,7 @@
 
 .method static synthetic access$200(Lcom/android/incallui/service/vt/VideoCallMetrics;I)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/service/vt/VideoCallMetrics;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 37
     invoke-direct {p0, p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getResizeWidth(I)I
 
     move-result v0
@@ -202,11 +174,7 @@
 
 .method static synthetic access$300(Lcom/android/incallui/service/vt/VideoCallMetrics;I)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/service/vt/VideoCallMetrics;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 37
     invoke-direct {p0, p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getResizeHeight(I)I
 
     move-result v0
@@ -217,20 +185,16 @@
 .method private getActivityContext()Landroid/content/Context;
     .locals 1
 
-    .prologue
-    .line 270
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
     if-eqz v0, :cond_0
 
-    .line 271
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 273
     :goto_0
     return-object v0
 
@@ -242,79 +206,55 @@
 
 .method private getResizeHeight(I)I
     .locals 3
-    .param p1, "beforeHeight"    # I
 
-    .prologue
-    .line 246
     const/16 v0, 0x280
 
-    .line 247
-    .local v0, "height":I
     iget v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_0
 
-    .line 248
     const/16 v0, 0x500
 
-    .line 250
     :cond_0
     if-ge p1, v0, :cond_1
 
-    .line 251
     move v0, p1
 
-    .line 253
     :cond_1
     return v0
 .end method
 
 .method private getResizeWidth(I)I
     .locals 3
-    .param p1, "beforeWidth"    # I
 
-    .prologue
-    .line 235
     const/16 v0, 0x1e0
 
-    .line 236
-    .local v0, "width":I
     iget v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_0
 
-    .line 237
     const/16 v0, 0x2d0
 
-    .line 239
     :cond_0
     if-ge p1, v0, :cond_1
 
-    .line 240
     move v0, p1
 
-    .line 242
     :cond_1
     return v0
 .end method
 
 .method private getVideoResolution(Lcom/android/incallui/Call;)I
     .locals 3
-    .param p1, "call"    # Lcom/android/incallui/Call;
 
-    .prologue
-    .line 155
     const/4 v0, 0x1
 
-    .line 156
-    .local v0, "type":I
     if-eqz p1, :cond_0
 
-    .line 157
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v1
@@ -327,425 +267,587 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 158
     const/4 v0, 0x2
 
-    .line 161
     :cond_0
     return v0
 .end method
 
 .method private makeButtonMetrics()V
-    .locals 13
+    .locals 18
 
-    .prologue
-    const/4 v12, 0x1
+    invoke-direct/range {p0 .. p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
 
-    const/4 v11, 0x0
+    move-result-object v3
 
-    .line 181
-    invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
 
-    move-result-object v1
+    move-result v6
 
-    .line 182
-    .local v1, "context":Landroid/content/Context;
-    invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isDeviceLandScape()Z
-
-    move-result v4
-
-    .line 183
-    .local v4, "isDeviceLandScape":Z
-    invoke-static {v1}, Lcom/android/incallui/util/ScreenControlUtils;->hasNavigationBar(Landroid/content/Context;)Z
-
-    move-result v3
-
-    .line 184
-    .local v3, "hasNavigationBar":Z
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput-boolean v12, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
-
-    .line 185
-    invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
-
-    move-result v8
-
-    if-nez v8, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    .line 186
-    :cond_0
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v9}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0a05b6
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    .line 187
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput v11, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
-
-    .line 188
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
-
-    iget-object v10, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget v10, v10, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    sub-int/2addr v9, v10
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
-
-    .line 189
-    iget v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
-
-    iget v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
-
-    if-gt v8, v9, :cond_1
-
-    .line 190
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput-boolean v12, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
-
-    .line 194
-    :goto_0
-    sget v8, Lcom/android/incallui/service/vt/VideoCallCapability;->THREE_WIDGET:I
-
-    invoke-static {v8}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    .line 195
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v9}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0a05b7
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
-
-    .line 227
-    :goto_1
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget v9, v9, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    iget-object v10, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget v10, v10, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
-
-    add-int/2addr v9, v10
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height_with_offset:I
-
-    .line 228
-    return-void
-
-    .line 192
-    :cond_1
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput-boolean v11, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
-
-    goto :goto_0
-
-    .line 197
-    :cond_2
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v9}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0a0062
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
-
-    goto :goto_1
-
-    .line 200
-    :cond_3
-    invoke-static {v1}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarHeight(Landroid/content/Context;)I
+    invoke-static {v3}, Lcom/android/incallui/util/ScreenControlUtils;->hasNavigationBar(Landroid/content/Context;)Z
 
     move-result v5
 
-    .line 201
-    .local v5, "softKeyHeight":I
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
-    invoke-virtual {v8}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+    move-result v14
 
-    move-result-object v8
+    if-nez v14, :cond_0
 
-    const v9, 0x7f0a039b
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
+    move-result v14
 
-    move-result v8
+    if-eqz v14, :cond_3
 
-    float-to-int v2, v8
+    :cond_0
+    const/4 v8, 0x1
 
-    .line 202
-    .local v2, "endCallSize":I
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
+    :goto_0
+    if-nez v8, :cond_4
 
-    invoke-virtual {v8}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;->getBigDefaultTemplete()Lcom/android/incallui/util/VideoTemplate;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    .line 203
-    .local v0, "bigDefaultTemplete":Lcom/android/incallui/util/VideoTemplate;
-    invoke-virtual {v0}, Lcom/android/incallui/util/VideoTemplate;->getY()F
+    move-object/from16 v0, p0
 
-    move-result v8
+    iget v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    float-to-int v8, v8
+    if-ge v14, v15, :cond_4
 
-    invoke-virtual {v0}, Lcom/android/incallui/util/VideoTemplate;->getHeight()I
+    const/4 v9, 0x1
 
-    move-result v9
+    :goto_1
+    if-eqz v9, :cond_5
 
-    add-int v7, v8, v9
+    move-object/from16 v0, p0
 
-    .line 204
-    .local v7, "videoBottom":I
-    iget v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    sub-int v6, v8, v7
+    invoke-virtual {v14}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
 
-    .line 205
-    .local v6, "variableHeight":I
-    if-nez v4, :cond_5
+    move-result-object v14
 
-    iget v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
+    const v15, 0x7f0d005f
 
-    if-ne v8, v12, :cond_5
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
-    if-gt v2, v6, :cond_5
+    move-result v2
 
-    .line 206
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput v6, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    .line 207
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput-boolean v11, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
-
-    .line 208
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput v11, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
-
-    .line 209
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput v7, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
-
-    .line 216
     :goto_2
-    if-eqz v3, :cond_4
+    move-object/from16 v0, p0
 
-    if-nez v4, :cond_4
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    .line 217
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+    mul-int/2addr v14, v2
 
-    iget v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+    div-int/lit16 v13, v14, 0x3e8
 
-    add-int/2addr v9, v5
+    move-object/from16 v0, p0
 
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    .line 219
+    invoke-virtual {v14}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    const v15, 0x7f0a05c2
+
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v14
+
+    float-to-int v7, v14
+
+    if-le v13, v7, :cond_1
+
+    move v13, v7
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iput v13, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->width:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x1
+
+    iput-boolean v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_8
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v15}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v15
+
+    const v16, 0x7f0a0061
+
+    invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v15
+
+    float-to-int v15, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x0
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    move/from16 v16, v0
+
+    sub-int v15, v15, v16
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
+
+    if-gt v14, v15, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x1
+
+    iput-boolean v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
+
+    :goto_3
+    sget v14, Lcom/android/incallui/service/vt/VideoCallCapability;->THREE_WIDGET:I
+
+    invoke-static {v14}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v15}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v15
+
+    const v16, 0x7f0a05c3
+
+    invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v15
+
+    float-to-int v15, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iget v15, v15, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    move/from16 v16, v0
+
+    add-int v15, v15, v16
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height_with_offset:I
+
+    return-void
+
+    :cond_3
+    const/4 v8, 0x0
+
+    goto/16 :goto_0
+
     :cond_4
-    sget v8, Lcom/android/incallui/service/vt/VideoCallCapability;->THREE_WIDGET:I
-
-    invoke-static {v8}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_6
-
-    .line 220
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
-
-    invoke-virtual {v9}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x7f0a002a
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+    const/4 v9, 0x0
 
     goto/16 :goto_1
 
-    .line 211
     :cond_5
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+    move-object/from16 v0, p0
 
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    invoke-virtual {v9}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v14}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v14
 
-    const v10, 0x7f0a0061
+    const v15, 0x7f0d005e
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v9
+    move-result v2
 
-    float-to-int v9, v9
+    goto/16 :goto_2
 
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    .line 212
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput-boolean v12, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
-
-    .line 213
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iput v6, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
-
-    .line 214
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
-
-    iget v9, v9, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
-
-    sub-int v9, v7, v9
-
-    iput v9, v8, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
-
-    goto :goto_2
-
-    .line 222
     :cond_6
-    iget-object v9, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+    move-object/from16 v0, p0
 
-    if-eqz v4, :cond_7
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
 
-    iget v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+    const/4 v15, 0x0
 
-    iget-object v10, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+    iput-boolean v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
 
-    .line 223
-    invoke-virtual {v10}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+    goto :goto_3
 
-    move-result-object v10
+    :cond_7
+    move-object/from16 v0, p0
 
-    const/high16 v11, 0x7f0d0000
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
 
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getInteger(I)I
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v15}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v15
+
+    const v16, 0x7f0a0062
+
+    invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v15
+
+    float-to-int v15, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+
+    goto :goto_4
+
+    :cond_8
+    invoke-static {v3}, Lcom/android/incallui/util/ScreenControlUtils;->getNavigationBarHeight(Landroid/content/Context;)I
 
     move-result v10
 
-    mul-int/2addr v8, v10
+    move-object/from16 v0, p0
 
-    div-int/lit16 v8, v8, 0x3e8
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    .line 224
-    :goto_3
-    iput v8, v9, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+    invoke-virtual {v14}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
 
-    goto/16 :goto_1
+    move-result-object v14
 
-    .line 223
-    :cond_7
-    iget-object v8, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+    const v15, 0x7f0a039b
 
-    .line 224
-    invoke-virtual {v8}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result-object v8
+    move-result v14
 
-    const v10, 0x7f0a0500
+    float-to-int v4, v14
 
-    invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getDimension(I)F
+    move-object/from16 v0, p0
 
-    move-result v8
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
-    float-to-int v8, v8
+    invoke-virtual {v14}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;->getBigDefaultTemplete()Lcom/android/incallui/util/VideoTemplate;
 
-    goto :goto_3
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/util/VideoTemplate;->getY()F
+
+    move-result v14
+
+    float-to-int v14, v14
+
+    invoke-virtual {v1}, Lcom/android/incallui/util/VideoTemplate;->getHeight()I
+
+    move-result v15
+
+    add-int v12, v14, v15
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    sub-int v11, v14, v12
+
+    if-nez v6, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
+
+    const/4 v15, 0x1
+
+    if-ne v14, v15, :cond_a
+
+    if-gt v4, v11, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iput v11, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x0
+
+    iput-boolean v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x0
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iput v12, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
+
+    :goto_5
+    if-eqz v5, :cond_9
+
+    if-nez v6, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iget v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    add-int/2addr v15, v10
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    :cond_9
+    sget v14, Lcom/android/incallui/service/vt/VideoCallCapability;->THREE_WIDGET:I
+
+    invoke-static {v14}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v15}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v15
+
+    const v16, 0x7f0a0506
+
+    invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v15
+
+    float-to-int v15, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+
+    goto/16 :goto_4
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v15}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v15
+
+    const v16, 0x7f0a0061
+
+    invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v15
+
+    float-to-int v15, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    const/4 v15, 0x1
+
+    iput-boolean v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->button_on_video:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iput v11, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->bottom_offset:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    iget v15, v15, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->height:I
+
+    sub-int v15, v12, v15
+
+    iput v15, v14, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->top:I
+
+    goto :goto_5
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->button:Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;
+
+    if-eqz v6, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v16
+
+    const/high16 v17, 0x7f0d0000
+
+    invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v16
+
+    mul-int v14, v14, v16
+
+    div-int/lit16 v14, v14, 0x3e8
+
+    :goto_6
+    iput v14, v15, Lcom/android/incallui/service/vt/VideoCallMetrics$ButtonMetrics;->answer_bg_height:I
+
+    goto/16 :goto_4
+
+    :cond_c
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v14}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    const v16, 0x7f0a0507
+
+    move/from16 v0, v16
+
+    invoke-virtual {v14, v0}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v14
+
+    float-to-int v14, v14
+
+    goto :goto_6
 .end method
 
 .method private makeCallCardMetrics()V
     .locals 3
 
-    .prologue
-    .line 165
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     const/4 v1, 0x0
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->indicator_area:I
 
-    .line 166
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isHidingIndicatorArea()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 167
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
@@ -760,7 +862,6 @@
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->indicator_area:I
 
-    .line 169
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
@@ -772,7 +873,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a057a
+    const v2, 0x7f0a0583
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -782,7 +883,6 @@
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->call_state_area:I
 
-    .line 170
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
@@ -803,7 +903,6 @@
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->video_banner_area:I
 
-    .line 171
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
@@ -824,7 +923,6 @@
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->outgoing_info_area:I
 
-    .line 172
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
@@ -845,22 +943,18 @@
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->camera_effect_area:I
 
-    .line 173
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     const/4 v1, 0x2
 
     iput v1, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->call_state_divider:I
 
-    .line 174
     return-void
 .end method
 
 .method private makeVideoMetrics()V
     .locals 3
 
-    .prologue
-    .line 177
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
     iget v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
@@ -870,57 +964,44 @@
     # invokes: Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;->update(II)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;->access$000(Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;II)V
 
-    .line 178
     return-void
 .end method
 
 .method private update()V
     .locals 1
 
-    .prologue
-    .line 146
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isLeftHandRotation()Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mIsLeftHandRotation:Z
 
-    .line 147
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->makeCallCardMetrics()V
 
-    .line 148
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->makeVideoMetrics()V
 
-    .line 149
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->makeButtonMetrics()V
 
-    .line 150
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallNotifier;->getInstance()Lcom/android/incallui/service/vt/VideoCallNotifier;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Lcom/android/incallui/service/vt/VideoCallNotifier;->notifyVideoMetricsChange(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
 
-    .line 152
     return-void
 .end method
 
 .method private update(Lcom/android/incallui/Call;)V
     .locals 1
-    .param p1, "call"    # Lcom/android/incallui/Call;
 
-    .prologue
-    .line 141
     invoke-direct {p0, p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getVideoResolution(Lcom/android/incallui/Call;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
 
-    .line 142
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update()V
 
-    .line 143
     return-void
 .end method
 
@@ -928,21 +1009,15 @@
 # virtual methods
 .method public checkForVideoResolution(Lcom/android/incallui/Call;)V
     .locals 3
-    .param p1, "call"    # Lcom/android/incallui/Call;
 
-    .prologue
-    .line 112
     invoke-direct {p0, p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getVideoResolution(Lcom/android/incallui/Call;)I
 
     move-result v0
 
-    .line 113
-    .local v0, "resolutionType":I
     iget v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mResolutionType:I
 
     if-eq v0, v1, :cond_0
 
-    .line 114
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -967,7 +1042,6 @@
 
     move-result-object v1
 
-    .line 115
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v2
@@ -980,13 +1054,10 @@
 
     move-result-object v1
 
-    .line 114
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 116
     invoke-direct {p0, p1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update(Lcom/android/incallui/Call;)V
 
-    .line 118
     :cond_0
     return-void
 .end method
@@ -994,8 +1065,6 @@
 .method public dump()V
     .locals 2
 
-    .prologue
-    .line 289
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1030,7 +1099,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
-    .line 290
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1073,7 +1141,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
-    .line 291
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1112,7 +1179,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
-    .line 292
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1139,7 +1205,6 @@
 
     move-result-object v0
 
-    .line 293
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getActivityContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1174,23 +1239,18 @@
 
     move-result-object v0
 
-    .line 292
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->debug(Ljava/lang/String;)V
 
-    .line 294
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;->dump()V
 
-    .line 295
     return-void
 .end method
 
 .method public getDefaultCallCardHeight()I
     .locals 2
 
-    .prologue
-    .line 281
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->indicator_area:I
@@ -1207,8 +1267,6 @@
 .method public getIndicatorHeight()I
     .locals 1
 
-    .prologue
-    .line 285
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->callcard:Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;
 
     iget v0, v0, Lcom/android/incallui/service/vt/VideoCallMetrics$CallCardMetrics;->indicator_area:I
@@ -1219,18 +1277,14 @@
 .method public isDeviceLandScape()Z
     .locals 3
 
-    .prologue
     const/4 v1, 0x1
 
-    .line 257
     iget-object v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v2}, Landroid/view/Display;->getRotation()I
 
     move-result v0
 
-    .line 258
-    .local v0, "deviceRotatoin":I
     if-eq v0, v1, :cond_0
 
     const/4 v2, 0x3
@@ -1250,8 +1304,6 @@
 .method public isHeightSmallerThanWidth()Z
     .locals 2
 
-    .prologue
-    .line 231
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v0
@@ -1285,8 +1337,6 @@
 .method public isHidingIndicatorArea()Z
     .locals 1
 
-    .prologue
-    .line 277
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v0
@@ -1314,8 +1364,6 @@
 .method public isInMultiWindowMode()Z
     .locals 2
 
-    .prologue
-    .line 80
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
@@ -1351,8 +1399,6 @@
 .method public isLeftHandRotation()Z
     .locals 2
 
-    .prologue
-    .line 262
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
@@ -1377,10 +1423,8 @@
 .method public isRightHandRotation()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 266
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
@@ -1400,11 +1444,7 @@
 
 .method public onContentsViewChanged(II)V
     .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
-    .line 98
     if-lez p1, :cond_0
 
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mDisplay:Landroid/view/Display;
@@ -1425,18 +1465,15 @@
 
     if-le p2, v0, :cond_2
 
-    .line 99
     :cond_0
     const-string v0, "VideoCallMetrics - onContentsViewChanged  error. "
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 109
     :cond_1
     :goto_0
     return-void
 
-    .line 102
     :cond_2
     iget v0, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
@@ -1446,14 +1483,11 @@
 
     if-eq p2, v0, :cond_1
 
-    .line 103
     :cond_3
     iput p1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    .line 104
     iput p2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    .line 105
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1484,7 +1518,6 @@
 
     move-result-object v0
 
-    .line 106
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v1
@@ -1497,10 +1530,8 @@
 
     move-result-object v0
 
-    .line 105
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 107
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update()V
 
     goto :goto_0
@@ -1509,14 +1540,10 @@
 .method public onDisplayMetricsChanged()V
     .locals 5
 
-    .prologue
-    .line 84
     new-instance v0, Landroid/util/DisplayMetrics;
 
     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 85
-    .local v0, "displayMetrics":Landroid/util/DisplayMetrics;
     iget-object v3, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
     invoke-virtual {v3}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
@@ -1529,15 +1556,10 @@
 
     invoke-virtual {v3, v0}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 86
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    .line 87
-    .local v2, "width":I
     iget v1, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    .line 88
-    .local v1, "height":I
     iget v3, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
     if-ne v2, v3, :cond_0
@@ -1546,14 +1568,11 @@
 
     if-eq v1, v3, :cond_1
 
-    .line 89
     :cond_0
     iput v2, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->widthPixels:I
 
-    .line 90
     iput v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->heightPixels:I
 
-    .line 91
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1584,7 +1603,6 @@
 
     move-result-object v3
 
-    .line 92
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v4
@@ -1597,31 +1615,23 @@
 
     move-result-object v3
 
-    .line 91
     invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 93
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update()V
 
-    .line 95
     :cond_1
     return-void
 .end method
 
 .method public onDisplayRotationChanged(I)V
     .locals 3
-    .param p1, "rotation"    # I
 
-    .prologue
-    .line 130
     const/4 v1, 0x3
 
     if-ne p1, v1, :cond_1
 
     const/4 v0, 0x1
 
-    .line 131
-    .local v0, "isLeftHandRotation":Z
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
@@ -1631,12 +1641,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 132
     iget-boolean v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mIsLeftHandRotation:Z
 
     if-eq v1, v0, :cond_0
 
-    .line 133
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1657,7 +1665,6 @@
 
     move-result-object v1
 
-    .line 134
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v2
@@ -1670,18 +1677,13 @@
 
     move-result-object v1
 
-    .line 133
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 135
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update()V
 
-    .line 138
     :cond_0
     return-void
 
-    .line 130
-    .end local v0    # "isLeftHandRotation":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -1690,17 +1692,11 @@
 
 .method public onPeerDimensionChanged(II)V
     .locals 3
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
-    .line 121
     if-le p1, p2, :cond_1
 
     const/4 v0, 0x1
 
-    .line 122
-    .local v0, "isLand":Z
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->video:Lcom/android/incallui/service/vt/VideoCallMetrics$VideoMetrics;
 
@@ -1710,7 +1706,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 123
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1741,7 +1736,6 @@
 
     move-result-object v1
 
-    .line 124
     invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->isInMultiWindowMode()Z
 
     move-result v2
@@ -1754,18 +1748,13 @@
 
     move-result-object v1
 
-    .line 123
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
-    .line 125
     invoke-direct {p0}, Lcom/android/incallui/service/vt/VideoCallMetrics;->update()V
 
-    .line 127
     :cond_0
     return-void
 
-    .line 121
-    .end local v0    # "isLand":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -1775,19 +1764,15 @@
 .method public tearDown()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 75
     iput-object v1, p0, Lcom/android/incallui/service/vt/VideoCallMetrics;->mInCallActivity:Lcom/android/incallui/InCallActivity;
 
-    .line 76
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallNotifier;->getInstance()Lcom/android/incallui/service/vt/VideoCallNotifier;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/vt/VideoCallNotifier;->notifyVideoMetricsChange(Lcom/android/incallui/service/vt/VideoCallMetrics;)V
 
-    .line 77
     return-void
 .end method

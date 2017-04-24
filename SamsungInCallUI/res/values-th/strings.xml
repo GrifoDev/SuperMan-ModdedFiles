@@ -290,6 +290,7 @@
     <string name="extra_vol_off">ปิดใช้งานเสียงดังเป็นพิเศษ</string>
     <string name="extra_vol_on">เปิดใช้งานเสียงดังเป็นพิเศษ</string>
     <string name="far_end_stopped_share_video">%s หยุดการแชร์วิดีโอแล้ว</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">ไม่รองรับไฟล์​</string>
     <string name="full_name">ชื่อ</string>
@@ -317,9 +318,9 @@
     <string name="incall_popup_call_remove_title">ลบทางลัด</string>
     <string name="incall_popup_call_remove_title_vzw">ซ่อนทางลัด</string>
     <string name="incall_popup_ended">จบแล้ว</string>
-    <string name="incall_spam_call_block">บล็อคหมายเลข</string>
+    <string name="incall_spam_call_block">บล็อกหมายเลข</string>
     <string name="incall_spam_call_reject">เพิ่มไปยังบัญชีดำ</string>
-    <string name="incall_spam_call_reject_toast">เพิ่มหมายเลขโทรศัพท์ไปยังรายการบล็อคแล้ว</string>
+    <string name="incall_spam_call_reject_toast">เพิ่มหมายเลขโทรศัพท์ไปยังรายการบล็อกแล้ว</string>
     <string name="incall_spam_call_report">หมายเลขรายงาน</string>
     <string name="incall_transfer_call">โอนสาย</string>
     <string name="incoming_call_while_using_app_complete">ขณะนี้คุณทราบวิธีรับและปฏิเสธสายขณะกำลังใช้แอพอื่นๆ แล้ว</string>
@@ -359,14 +360,14 @@
     <string name="kor_psvt_session_380_divert">การโทรวิดีโอใช้ไม่ได้ ลองใช้การโทรปกติแทน?</string>
     <string name="kor_psvt_session_380_divert_auto">การโทรวิดีโอใช้ไม่ได้ กำลังสลับไปเป็นการโทรปกติ…</string>
     <string name="kor_psvt_session_380_divert_auto_lgt_uicc">การโทรวิดีโอใช้ไม่ได้ชั่วคราว การโทรถูกสลับเป็นการโทรปกติแล้ว</string>
-    <string name="kor_psvt_session_403">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อคไม่ให้โทรออก</string>
+    <string name="kor_psvt_session_403">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อกไม่ให้โทรออก</string>
     <string name="kor_psvt_session_403_cause1107">ไม่สามารถโทรออกได้ สัญญาของคุณหมดอายุแล้ว</string>
     <string name="kor_psvt_session_403_cause2065">ไม่สามารถโทรออกได้ เกิดข้อผิดพลาดในเครือข่ายชั่วคราว ปิดใช้งานเครือข่ายข้อมูล 3G/4G ใน การตั้งค่า แล้วเปิดใช้งานและลองอีกครั้ง</string>
     <string name="kor_psvt_session_403_cause2065_single">ไม่สามารถโทรปกติหรือโทรวิดีโอได้ ถ้ายังมีปัญหาอยู่หลังจากเริ่มอุปกรณ์ใหม่ ให้ติดต่อฝ่ายลูกค้าสัมพันธ์ (%s)</string>
     <string name="kor_psvt_session_403_cause2065_vzw">ไม่สามารถโทรออกได้ เกิดข้อผิดพลาดในเครือข่ายชั่วคราว ปิดใช้งานเครือข่ายข้อมูล 3G/4G ใน การตั้งค่า แล้วเปิดใช้งานและลองอีกครั้ง</string>
     <string name="kor_psvt_session_403_cause4021">การโทรแบบกลุ่มต้องมีการสมัครสมาชิกแผนบริการ ติดต่อศูนย์บริการลูกค้าเพื่อสมัครสมาชิก</string>
     <string name="kor_psvt_session_403_cause4021_single">อุปกรณ์ของคุณไม่ได้ลงทะเบียน ปิดอุปกรณ์ของคุณ แล้วเปิดอีกครั้ง ถ้าข้อความนี้ปรากฏอีกครั้ง ให้ติดต่อศูนย์บริการลูกค้า (%s)</string>
-    <string name="kor_psvt_session_403_cause4053">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อคไม่ให้โทรออก</string>
+    <string name="kor_psvt_session_403_cause4053">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อกไม่ให้โทรออก</string>
     <string name="kor_psvt_session_403_cause4053_single">ไม่สามารถโทรออกได้ ติดต่อศูนย์บริการลูกค้า (%s)</string>
     <string name="kor_psvt_session_403_divert_auto_lgt_uicc">การโทรวิดีโอใช้ไม่ได้ชั่วคราว การโทรถูกสลับเป็นการโทรปกติแล้ว</string>
     <string name="kor_psvt_session_403_divert_lgt_uicc">การโทรวิดีโอใช้ไม่ได้ชั่วคราว การโทรนี้จะสลับเป็นการโทรปกติ</string>
@@ -435,7 +436,7 @@
     <string name="kor_volte_session_403_cause2065_vzw">ไม่สามารถโทรออกได้ เกิดข้อผิดพลาดในเครือข่ายชั่วคราว ปิดใช้งานเครือข่ายข้อมูล 3G/4G ใน การตั้งค่า แล้วเปิดใช้งานและลองอีกครั้ง</string>
     <string name="kor_volte_session_403_cause4021">การโทรแบบกลุ่มต้องมีการสมัครสมาชิกแผนบริการ ติดต่อศูนย์บริการลูกค้าเพื่อสมัครสมาชิก</string>
     <string name="kor_volte_session_403_cause4021_single">อุปกรณ์ของคุณไม่ได้ลงทะเบียน ปิดอุปกรณ์ของคุณ แล้วเปิดอีกครั้ง ถ้าข้อความนี้ปรากฏอีกครั้ง ให้ติดต่อศูนย์บริการลูกค้า (%s)</string>
-    <string name="kor_volte_session_403_cause4053">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อคไม่ให้โทรออก</string>
+    <string name="kor_volte_session_403_cause4053">เครือข่ายไม่พร้อมใช้งาน หรือหมายเลขนี้ถูกบล็อกไม่ให้โทรออก</string>
     <string name="kor_volte_session_403_cause4053_single">ไม่สามารถโทรออกได้ ติดต่อศูนย์บริการลูกค้า (%s)</string>
     <string name="kor_volte_session_403_ktt">ใช้การโทรเสียง HD ไม่ได้ การโทรนี้จะถูกสลับไปเป็น คุณภาพระดับปกติ</string>
     <string name="kor_volte_session_403_lgt">ไม่สามารถโทรปกติหรือโทรวิดีโอได้ ถ้ายังมีปัญหาอยู่หลังจากเริ่มอุปกรณ์ใหม่ ให้ติดต่อฝ่ายลูกค้าสัมพันธ์ (%s)</string>
@@ -471,7 +472,7 @@
 เมนูหน้าจอการโทร IVR จะใช้งานเนื้อหาที่นำเสนอโดย Dianhuabang ซึ่งเป็นผู้ให้บริการบุคคลที่สาม เมื่อคุณใช้เมนูหน้าจอการโทร IVR หมายถึงคุณยอมรับ %1$sข้อกำหนดและเงื่อนไข%2$s ของ Dianhuabang"</string>
     <string name="legal_popup_terms_conditions">ข้อตกลงและเงื่อนไขการใช้งาน</string>
     <string name="legal_pupup_title">ข้อมูลทางกฎหมาย</string>
-    <string name="lock_screen_during_call_double_tab">แตะสองครั้งเพื่อปลดล็อค</string>
+    <string name="lock_screen_during_call_double_tab">แตะสองครั้งเพื่อปลดล็อก</string>
     <string name="long_click_guide">แตะค้างไว้เพื่อเปิด/ปิด</string>
     <string name="low_batt_upgrade_disallowed">ไม่สามารถสลับไปเป็นการโทรวิดีโอ แบตเตอรี่ต่ำ</string>
     <string name="main_number_item">หลัก</string>
@@ -479,9 +480,9 @@
     <string name="map_home">ดูที่อยู่บ้าน</string>
     <string name="map_other">ดู​ที่​อยู่</string>
     <string name="map_work">ดูที่อยู่ที่ทำงาน</string>
-    <string name="mcidshowme_block_toast">รายชื่อถูกบล็อค จากการส่งมีเดียถึงคุณ ผ่าน Show me</string>
+    <string name="mcidshowme_block_toast">รายชื่อถูกบล็อก จากการส่งมีเดียถึงคุณ ผ่าน Show me</string>
     <string name="mcidshowme_toast_mobile_data_off">คุณไม่ได้เชื่อมต่อกับเครือข่ายมือถือ อาจมีคอนเทนท์ที่บุคคลอื่นส่งมาผ่าน Show me ซึ่งคุณไม่สามารถดูได้</string>
-    <string name="mcidshowme_unblock_toast">รายชื่อถูกเลิกบล็อค จากการส่งมีเดียถึงคุณ ผ่าน Show me</string>
+    <string name="mcidshowme_unblock_toast">รายชื่อถูกเลิกบล็อก จากการส่งมีเดียถึงคุณ ผ่าน Show me</string>
     <string name="mcidshowme_unblock_toast_2nd">คุณจะได้รับมีเดียจากผู้ติดต่อรายนี้ เมื่อเขาโทรหาคุณในครั้งถัดไป</string>
     <string name="meetingWith">ประชุมกับ %s</string>
     <string name="memory_full_msg">หน่วย​ความ​จำ​ไม่​พอ</string>
@@ -529,9 +530,9 @@
     <string name="phoneLabelsGroup">โทรศัพท์</string>
     <string name="phone_voice_recording_failed_by_secure_call">ไม่สามารถบันทึกการโทรที่ปลอดภัยได้</string>
     <string name="phonetype_additional">หมายเลขเพิ่มเติม</string>
-    <string name="photoring_block_toast">รายชื่อถูกบล็อค จากการส่งมีเดียถึงคุณ ผ่าน Photo ring</string>
-    <string name="photoring_toast_mobile_data_off">อาจมีคอนเทนท์เป็น รูปถ่ายที่ส่งโดยบุคคลอื่น ซึ่งคุณไม่สามารถเห็นได้ เพราะการเข้าถึงข้อมูลมือถือถูกบล็อค</string>
-    <string name="photoring_unblock_toast">รายชื่อถูกเลิกบล็อค จากการส่งมีเดียถึงคุณ ผ่าน Photo ring</string>
+    <string name="photoring_block_toast">รายชื่อถูกบล็อก จากการส่งมีเดียถึงคุณ ผ่าน Photo ring</string>
+    <string name="photoring_toast_mobile_data_off">อาจมีคอนเทนท์เป็น รูปถ่ายที่ส่งโดยบุคคลอื่น ซึ่งคุณไม่สามารถเห็นได้ เพราะการเข้าถึงข้อมูลมือถือถูกบล็อก</string>
+    <string name="photoring_unblock_toast">รายชื่อถูกเลิกบล็อก จากการส่งมีเดียถึงคุณ ผ่าน Photo ring</string>
     <string name="photoring_unblock_toast_2nd">คุณจะได้รับมีเดียจากผู้ติดต่อรายนี้ เมื่อเขาโทรหาคุณในครั้งถัดไป</string>
     <string name="popup_start_record_during_alerting">การบันทึกจะเริ่มต้น หลังจากเชื่อมต่อการโทรแล้ว</string>
     <string name="postalLabelsGroup">ที่อยู่</string>
@@ -672,7 +673,7 @@
     <string name="secOnscreenResumeCallText">กลับ</string>
     <string name="secOnscreenShowCallOption">แสดงตัวเลือกการโทร</string>
     <string name="secOnscreenSpeaker">ลำโพง​</string>
-    <string name="secOnscreenStopText">หยุด</string>
+    <string name="secOnscreenStopText">หยุดการบันทึก</string>
     <string name="secOnscreenSwapText">สลับ</string>
     <string name="secOnscreenSwisText">แชร์ภาพจากกล้อง</string>
     <string name="secOnscreenSwitchCameraText">สลับกล้อง</string>
@@ -708,9 +709,9 @@
     <string name="settings_subappbar_switch_on">เปิด</string>
     <string name="slide_left_to_reject_content_description">กวาด​ไป​ทาง​ซ้าย​เพื่อ​ปฏิเสธ</string>
     <string name="slide_right_to_answer_content_description">กวาด​ไป​ทาง​ขวา​เพื่อ​รับ​สาย</string>
-    <string name="smart_call_block_button">บล็อค</string>
-    <string name="smart_call_block_msg">บล็อคหมายเลข</string>
-    <string name="smart_call_block_report_number">บล็อค/รายงานหมายเลข</string>
+    <string name="smart_call_block_button">บล็อก</string>
+    <string name="smart_call_block_msg">บล็อกหมายเลข</string>
+    <string name="smart_call_block_report_number">บล็อก/รายงานหมายเลข</string>
     <string name="smart_call_probably">อาจจะ:</string>
     <string name="smart_call_reminder_title">%s โทรหาคุณ</string>
     <string name="smart_call_report_button">รายงาน</string>
@@ -720,7 +721,7 @@
     <string name="smart_call_spam_level_1">ไม่มีกิจกรรมสแปม</string>
     <string name="smart_call_spam_level_2">สงสัยว่าเป็นสแปม</string>
     <string name="smart_call_spam_level_3">หลอกลวงหรือทุจริต</string>
-    <string name="smart_call_unblock_button">ปลดบล็อค</string>
+    <string name="smart_call_unblock_button">ปลดบล็อก</string>
     <string name="sms">ข้อ​ความ​ปกติ</string>
     <string name="spam_call_report_dialog_advertisement">การโฆษณา</string>
     <string name="spam_call_report_dialog_delivery">การส่ง</string>
@@ -747,6 +748,7 @@
     <string name="switch_to_voice_call_failed">คำขอสลับไปยังการโทรปกติล้มเหลว</string>
     <string name="switched_to_voip_mo">สลับไปยังโทรปกติ</string>
     <string name="switched_to_voip_mt">สลับไปยังโทรปกติเพราะคำขอจากฝ่ายรับโทรศัพท์</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s ปิดวิดีโอแล้ว</string>
     <string name="switching_camera_failed">ไม่สามารถสลับกล้องได้</string>
     <string name="switching_to_voice_call">กำลังสลับไปเป็นการโทรปกติ…</string>
@@ -762,7 +764,9 @@
     <string name="usa_att_connected_as_voice">การโทรเชื่อมต่อในฐานะการโทรปกติเท่านั้น</string>
     <string name="usa_att_data_usage_charge_alert">ปริมาณการใช้ข้อมูลที่คุณกำหนดไว้บนอุปกรณ์ของคุณกำลังจะถึงขีดจำกัด การโทรวิดีโอจำเป็นต้องใช้ข้อมูล</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ไม่สามารถส่งการโทรผ่าน Wi-Fi กำลังเชื่อมต่อผ่านเครือข่ายมือถือ จะมีค่าใช้จ่ายการโทรปกติและข้อมูล</string>
-    <string name="usa_att_modify_receive_to_video">เลือกโหมดวิดีโอ</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">ไม่สามารถส่งการโทรผ่าน Wi-Fi กำลังเชื่อมต่อผ่านเครือข่ายมือถือ จะมีค่าใช้จ่ายการโทรปกติและข้อมูล</string>
     <string name="usa_att_select_call_type_incoming_video_call">แตะที่ด้านล่างเพื่อเลือกประเภทการโทร</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">ไม่สามารถเปลี่ยนประเภทการโทรระหว่างการประชุมสาย</string>
     <string name="usa_gsm_modify_receive_to_video">%s ต้องการสลับเป็นการโทรวิดีโอ</string>
@@ -770,6 +774,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">กำลังรอการตอบสนอง</string>
     <string name="usa_gsm_modify_select_call_type">เลือกชนิดการโทรออก</string>
     <string name="usa_gsm_switching_to_voice_call">การสลับไปเป็นการโทรปกติเท่านั้น</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">วิดีโอถูกปิด เนื่องจากข้อมูลมือถือไม่พร้อมใช้งาน</string>
     <string name="usa_volte_reject_upgrade_request">%s ไม่สามารถรับการโทรวิดีโอได้ในตอนนี้</string>
     <string name="usa_volte_reject_upgrade_request_tmo">การโทรวิดีโอไม่พร้อมใช้งาน</string>
     <string name="usa_vzw_change_to_oneway_video">"เปลี่ยนเป็น
@@ -814,7 +819,9 @@
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">อย่าแสดงอีก</string>
     <string name="video_calling_incoming">การโทรวิดีโอ</string>
+    <string name="video_calls_quality_poor_tmo">คุณภาพการเชื่อมต่อต่ำ การโทรวิดีโออาจถูกสลับเป็นการโทรปกติ</string>
     <string name="video_calls_temporarily_not_available">การโทรวิดีโอใช้ไม่ได้ชั่วคราว สลับการโทรไปยังการโทรปกติแล้ว</string>
+    <string name="video_calls_temporarily_not_available_att">หมายเลขที่คุณกำลังโทรหาไม่สามารถรับการโทรวิดีโอได้ในตอนนี้ การโทรเชื่อมต่อเป็นการโทรปกติ</string>
     <string name="video_calls_temporarily_not_available_tmo">การโทรวิดีโอไม่พร้อมใช้งาน</string>
     <string name="video_paused_info_text">วิดีโอถูกหยุดชั่วคราว</string>
     <string name="video_saved">บันทึกวิดีโอไปยัง %s แล้ว</string>

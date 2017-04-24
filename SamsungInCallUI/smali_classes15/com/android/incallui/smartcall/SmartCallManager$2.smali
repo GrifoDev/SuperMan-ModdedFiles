@@ -27,10 +27,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/smartcall/SmartCallManager;Ljava/lang/String;Lcom/android/incallui/smartcall/SmartCallerInfoListener;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/smartcall/SmartCallManager;
 
-    .prologue
-    .line 94
     iput-object p1, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->this$0:Lcom/android/incallui/smartcall/SmartCallManager;
 
     iput-object p2, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->val$srcUrl:Ljava/lang/String;
@@ -49,11 +46,8 @@
 .method public run()V
     .locals 9
 
-    .prologue
-    .line 97
     invoke-super {p0}, Ljava/lang/Thread;->run()V
 
-    .line 99
     :try_start_0
     iget-object v0, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->this$0:Lcom/android/incallui/smartcall/SmartCallManager;
 
@@ -84,8 +78,6 @@
 
     move-result-object v6
 
-    .line 100
-    .local v6, "cursor":Landroid/database/Cursor;
     iget-object v0, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->val$listener:Lcom/android/incallui/smartcall/SmartCallerInfoListener;
 
     iget-object v1, p0, Lcom/android/incallui/smartcall/SmartCallManager$2;->val$callId:Ljava/lang/String;
@@ -94,17 +86,12 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 104
-    .end local v6    # "cursor":Landroid/database/Cursor;
     :goto_0
     return-void
 
-    .line 101
     :catch_0
     move-exception v7
 
-    .line 102
-    .local v7, "e":Ljava/lang/IllegalArgumentException;
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0

@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 1453
     new-instance v0, Lcom/google/common/base/CharMatcher$JavaIsoControl;
 
     invoke-direct {v0}, Lcom/google/common/base/CharMatcher$JavaIsoControl;-><init>()V
@@ -36,13 +34,10 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1456
     const-string v0, "CharMatcher.javaIsoControl()"
 
     invoke-direct {p0, v0}, Lcom/google/common/base/CharMatcher$NamedFastMatcher;-><init>(Ljava/lang/String;)V
 
-    .line 1457
     return-void
 .end method
 
@@ -50,10 +45,7 @@
 # virtual methods
 .method public matches(C)Z
     .locals 1
-    .param p1, "c"    # C
 
-    .prologue
-    .line 1461
     const/16 v0, 0x1f
 
     if-le p1, v0, :cond_0

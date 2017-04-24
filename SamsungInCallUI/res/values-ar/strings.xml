@@ -289,6 +289,7 @@
     <string name="extra_vol_off">تم إلغاء تفعيل مستوى الصوت الإضافي.</string>
     <string name="extra_vol_on">تم تفعيل مستوى الصوت الإضافي.</string>
     <string name="far_end_stopped_share_video">قام %s بإيقاف مشاركة الفيديو.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">إن الملف غير مدعوم.</string>
     <string name="full_name">الاسم</string>
@@ -671,7 +672,7 @@
     <string name="secOnscreenResumeCallText">استئناف</string>
     <string name="secOnscreenShowCallOption">إظهار خيارات المكالمات</string>
     <string name="secOnscreenSpeaker">مكبر الصوت</string>
-    <string name="secOnscreenStopText">إيقاف</string>
+    <string name="secOnscreenStopText">إيقاف التسجيل</string>
     <string name="secOnscreenSwapText">انتقال</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">تبديل الكاميرا</string>
@@ -746,6 +747,7 @@
     <string name="switch_to_voice_call_failed">فشل طلب التبديل إلى المكالمة الصوتية.</string>
     <string name="switched_to_voip_mo">تم التبديل إلى مكالمة صوتية.</string>
     <string name="switched_to_voip_mt">تم التبديل إلى مكالمة صوتية‬ بناء على طلب الطرف الذي يتم الاتصال به.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">قام %s بإيقاف تشغيل الفيديو.</string>
     <string name="switching_camera_failed">فشل تشغيل الكاميرات.</string>
     <string name="switching_to_voice_call">جارٍ التبديل إلى المكالمة الصوتية…</string>
@@ -761,7 +763,9 @@
     <string name="usa_att_connected_as_voice">تم توصيل المكالمة كمكالمة صوتية فقط.</string>
     <string name="usa_att_data_usage_charge_alert">يوشك الجهاز على بلوغ حد استخدام البيانات المضبوط. تتطلب مكالمة الفيديو توفر بيانات.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">لا يمكن إجراء المكالمة عبر شبكة Wi-Fi، جارٍ الاتصال عبر شبكة خلوية. سيتم تطبيق رسوم المكالمات الصوتية والبيانات.</string>
-    <string name="usa_att_modify_receive_to_video">تحديد وضع الفيديو</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">لا يمكن إجراء المكالمة عبر شبكة Wi-Fi، جارٍ الاتصال عبر شبكة خلوية. سيتم تطبيق رسوم المكالمات الصوتية والبيانات.</string>
     <string name="usa_att_select_call_type_incoming_video_call">انقر أدناه لتحديد نوع المكالمة.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">لا يمكن تغيير نوع المكالمة خلال المكالمات الجماعية.</string>
     <string name="usa_gsm_modify_receive_to_video">لديك طلب من %s للتبديل إلى مكالمة فيديو.</string>
@@ -769,6 +773,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">في انتظار الاستجابة</string>
     <string name="usa_gsm_modify_select_call_type">تحديد نوع المكالمة</string>
     <string name="usa_gsm_switching_to_voice_call">التبديل إلى مكالمة صوتية فقط.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">تم إيقاف تشغيل الفيديو لعدم توفر بيانات الهاتف المحمول.</string>
     <string name="usa_volte_reject_upgrade_request">لا يمكن لـ %s استلام مقاطع فيديو في هذا الوقت.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">مكالمات الفيديو غير متوفرة.</string>
     <string name="usa_vzw_change_to_oneway_video">"تغيير إلى 
@@ -813,7 +818,9 @@
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">عدم العرض مرة أخرى</string>
     <string name="video_calling_incoming">مكالمة الفيديو</string>
+    <string name="video_calls_quality_poor_tmo">جودة الاتصال ضعيفة. قد يتم تبديل مكالمة الفيديو إلى مكالمة صوتية.</string>
     <string name="video_calls_temporarily_not_available">مكالمات الفيديو غير متوفرة بشكل مؤقت. تم تبديل المكالمة إلى مكالمة فيديو.</string>
+    <string name="video_calls_temporarily_not_available_att">يتعذر على الرقم الذي تتصل به أن يتلقى مكالمات فيديو في هذا الوقت. تم توصيل المكالمة كمكالمة صوتية.</string>
     <string name="video_calls_temporarily_not_available_tmo">مكالمات الفيديو غير متوفرة.</string>
     <string name="video_paused_info_text">تم إيقاف الفيديو مؤقتاً</string>
     <string name="video_saved">تم حفظ الفيديو في %s.</string>

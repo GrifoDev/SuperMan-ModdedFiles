@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/MultiPartyCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
-    .prologue
-    .line 2352
     iput-object p1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public onGlobalLayout()V
     .locals 2
 
-    .prologue
-    .line 2355
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     invoke-virtual {v1}, Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->getView()Landroid/view/View;
@@ -50,12 +45,10 @@
 
     if-nez v1, :cond_1
 
-    .line 2360
     :cond_0
     :goto_0
     return-void
 
-    .line 2356
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
@@ -67,18 +60,14 @@
 
     move-result-object v0
 
-    .line 2357
-    .local v0, "observer":Landroid/view/ViewTreeObserver;
     invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 2358
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 2359
     iget-object v1, p0, Lcom/android/incallui/fragment/MultiPartyCallCardFragment$6;->this$0:Lcom/android/incallui/fragment/MultiPartyCallCardFragment;
 
     # invokes: Lcom/android/incallui/fragment/MultiPartyCallCardFragment;->updateContainerLayout()V

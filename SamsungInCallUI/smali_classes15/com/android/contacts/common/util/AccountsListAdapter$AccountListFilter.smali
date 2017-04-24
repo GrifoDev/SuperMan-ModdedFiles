@@ -37,14 +37,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 51
     new-instance v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
     const-string v1, "ALL_ACCOUNTS"
@@ -53,7 +51,6 @@
 
     sput-object v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->ALL_ACCOUNTS:Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
-    .line 52
     new-instance v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
     const-string v1, "ACCOUNTS_CONTACT_WRITABLE"
@@ -62,7 +59,6 @@
 
     sput-object v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->ACCOUNTS_CONTACT_WRITABLE:Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
-    .line 53
     new-instance v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
     const-string v1, "ACCOUNTS_GROUP_WRITABLE"
@@ -71,7 +67,6 @@
 
     sput-object v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->ACCOUNTS_GROUP_WRITABLE:Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
-    .line 50
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
@@ -101,8 +96,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 50
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -110,10 +103,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 50
     const-class v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -128,8 +118,6 @@
 .method public static values()[Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
     .locals 1
 
-    .prologue
-    .line 50
     sget-object v0, Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->$VALUES:[Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;
 
     invoke-virtual {v0}, [Lcom/android/contacts/common/util/AccountsListAdapter$AccountListFilter;->clone()Ljava/lang/Object;

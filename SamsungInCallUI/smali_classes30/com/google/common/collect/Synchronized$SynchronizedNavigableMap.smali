@@ -74,7 +74,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/NavigableMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "mutex"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -88,13 +88,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1412
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "delegate":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;-><init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
 
-    .line 1413
     return-void
 .end method
 
@@ -110,15 +105,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1422
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1423
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -139,7 +129,6 @@
 
     return-object v0
 
-    .line 1424
     :catchall_0
     move-exception v0
 
@@ -158,15 +147,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1429
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1430
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -180,7 +164,6 @@
 
     return-object v0
 
-    .line 1431
     :catchall_0
     move-exception v0
 
@@ -194,9 +177,6 @@
 .method bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 1406
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -207,9 +187,6 @@
 .method bridge synthetic delegate()Ljava/util/Map;
     .locals 1
 
-    .prologue
-    .line 1406
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -227,9 +204,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1417
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -242,9 +216,6 @@
 .method bridge synthetic delegate()Ljava/util/SortedMap;
     .locals 1
 
-    .prologue
-    .line 1406
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -262,20 +233,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1438
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1439
     :try_start_0
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingKeySet:Ljava/util/NavigableSet;
 
     if-nez v0, :cond_0
 
-    .line 1440
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -294,7 +260,6 @@
 
     monitor-exit v1
 
-    .line 1442
     :goto_0
     return-object v0
 
@@ -305,7 +270,6 @@
 
     goto :goto_0
 
-    .line 1443
     :catchall_0
     move-exception v0
 
@@ -326,20 +290,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1450
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1451
     :try_start_0
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->descendingMap:Ljava/util/NavigableMap;
 
     if-nez v0, :cond_0
 
-    .line 1452
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -358,7 +317,6 @@
 
     monitor-exit v1
 
-    .line 1454
     :goto_0
     return-object v0
 
@@ -369,7 +327,6 @@
 
     goto :goto_0
 
-    .line 1455
     :catchall_0
     move-exception v0
 
@@ -390,14 +347,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1460
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1461
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -418,7 +371,6 @@
 
     return-object v0
 
-    .line 1462
     :catchall_0
     move-exception v0
 
@@ -439,15 +391,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1467
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1468
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -468,7 +415,6 @@
 
     return-object v0
 
-    .line 1469
     :catchall_0
     move-exception v0
 
@@ -487,15 +433,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1474
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1475
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -509,7 +450,6 @@
 
     return-object v0
 
-    .line 1476
     :catchall_0
     move-exception v0
 
@@ -522,7 +462,6 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -531,15 +470,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1481
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1482
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -559,7 +493,6 @@
 
     return-object v0
 
-    .line 1483
     :catchall_0
     move-exception v0
 
@@ -580,10 +513,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1569
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -603,15 +532,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1488
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1489
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -632,7 +556,6 @@
 
     return-object v0
 
-    .line 1490
     :catchall_0
     move-exception v0
 
@@ -651,15 +574,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1495
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1496
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -673,7 +591,6 @@
 
     return-object v0
 
-    .line 1497
     :catchall_0
     move-exception v0
 
@@ -694,9 +611,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1523
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -714,14 +628,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1502
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1503
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -742,7 +652,6 @@
 
     return-object v0
 
-    .line 1504
     :catchall_0
     move-exception v0
 
@@ -763,15 +672,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1509
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1510
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -792,7 +696,6 @@
 
     return-object v0
 
-    .line 1511
     :catchall_0
     move-exception v0
 
@@ -811,15 +714,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1516
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1517
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -833,7 +731,6 @@
 
     return-object v0
 
-    .line 1518
     :catchall_0
     move-exception v0
 
@@ -854,20 +751,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1530
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1531
     :try_start_0
     iget-object v0, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->navigableKeySet:Ljava/util/NavigableSet;
 
     if-nez v0, :cond_0
 
-    .line 1532
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -886,7 +778,6 @@
 
     monitor-exit v1
 
-    .line 1534
     :goto_0
     return-object v0
 
@@ -897,7 +788,6 @@
 
     goto :goto_0
 
-    .line 1535
     :catchall_0
     move-exception v0
 
@@ -918,14 +808,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1540
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1541
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -946,7 +832,6 @@
 
     return-object v0
 
-    .line 1542
     :catchall_0
     move-exception v0
 
@@ -967,14 +852,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1547
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1548
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -995,7 +876,6 @@
 
     return-object v0
 
-    .line 1549
     :catchall_0
     move-exception v0
 
@@ -1008,8 +888,6 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -1018,16 +896,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1555
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1556
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -1047,7 +919,6 @@
 
     return-object v0
 
-    .line 1557
     :catchall_0
     move-exception v0
 
@@ -1068,11 +939,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1574
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -1086,7 +952,6 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 3
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -1095,15 +960,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1562
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1563
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->delegate()Ljava/util/NavigableMap;
 
@@ -1123,7 +983,6 @@
 
     return-object v0
 
-    .line 1564
     :catchall_0
     move-exception v0
 
@@ -1144,10 +1003,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1579
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;, "Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Synchronized$SynchronizedNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;

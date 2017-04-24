@@ -21,13 +21,9 @@
 # direct methods
 .method private constructor <init>(Ljava/net/URL;)V
     .locals 1
-    .param p1, "url"    # Ljava/net/URL;
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Lcom/google/common/io/ByteSource;-><init>()V
 
-    .line 67
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -36,17 +32,12 @@
 
     iput-object v0, p0, Lcom/google/common/io/Resources$UrlByteSource;->url:Ljava/net/URL;
 
-    .line 68
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/net/URL;Lcom/google/common/io/Resources$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/net/URL;
-    .param p2, "x1"    # Lcom/google/common/io/Resources$1;
 
-    .prologue
-    .line 62
     invoke-direct {p0, p1}, Lcom/google/common/io/Resources$UrlByteSource;-><init>(Ljava/net/URL;)V
 
     return-void
@@ -62,8 +53,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
     iget-object v0, p0, Lcom/google/common/io/Resources$UrlByteSource;->url:Ljava/net/URL;
 
     invoke-virtual {v0}, Ljava/net/URL;->openStream()Ljava/io/InputStream;
@@ -76,8 +65,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 77
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

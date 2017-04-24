@@ -521,12 +521,9 @@
 
 .method public setAbout(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "about"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "about":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iE:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -555,8 +552,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "additionalName":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iF:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -574,12 +569,9 @@
 
 .method public setAddress(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "address"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "address":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iG:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -597,9 +589,7 @@
 
 .method public setAddressCountry(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "addressCountry"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iH:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -617,9 +607,7 @@
 
 .method public setAddressLocality(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "addressLocality"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iI:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -637,9 +625,7 @@
 
 .method public setAddressRegion(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "addressRegion"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iJ:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -668,8 +654,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "associated_media":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/moments/ItemScope;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iK:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -687,9 +671,7 @@
 
 .method public setAttendeeCount(I)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "attendeeCount"    # I
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iL:I
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -718,8 +700,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "attendees":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/moments/ItemScope;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iM:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -737,12 +717,9 @@
 
 .method public setAudio(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "audio"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "audio":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iN:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -771,8 +748,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "author":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/moments/ItemScope;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iO:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -790,9 +765,7 @@
 
 .method public setBestRating(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "bestRating"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iP:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -810,9 +783,7 @@
 
 .method public setBirthDate(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "birthDate"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iQ:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -830,12 +801,9 @@
 
 .method public setByArtist(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "byArtist"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "byArtist":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iR:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -853,9 +821,7 @@
 
 .method public setCaption(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "caption"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iS:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -873,9 +839,7 @@
 
 .method public setContentSize(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "contentSize"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iT:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -893,9 +857,7 @@
 
 .method public setContentUrl(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "contentUrl"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iU:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -924,8 +886,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "contributor":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/moments/ItemScope;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iV:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -943,9 +903,7 @@
 
 .method public setDateCreated(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "dateCreated"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iW:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -963,9 +921,7 @@
 
 .method public setDateModified(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "dateModified"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iX:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -983,9 +939,7 @@
 
 .method public setDatePublished(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "datePublished"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iY:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1003,9 +957,7 @@
 
 .method public setDescription(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "description"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->di:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1023,9 +975,7 @@
 
 .method public setDuration(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "duration"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iZ:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1043,9 +993,7 @@
 
 .method public setEmbedUrl(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "embedUrl"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->ja:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1063,9 +1011,7 @@
 
 .method public setEndDate(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "endDate"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jb:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1083,9 +1029,7 @@
 
 .method public setFamilyName(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "familyName"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jc:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1103,9 +1047,7 @@
 
 .method public setGender(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "gender"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jd:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1123,12 +1065,9 @@
 
 .method public setGeo(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "geo"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "geo":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->je:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1146,9 +1085,7 @@
 
 .method public setGivenName(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "givenName"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jf:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1166,9 +1103,7 @@
 
 .method public setHeight(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "height"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jg:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1186,9 +1121,7 @@
 
 .method public setId(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jh:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1206,9 +1139,7 @@
 
 .method public setImage(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "image"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->ji:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1226,12 +1157,9 @@
 
 .method public setInAlbum(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "inAlbum"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "inAlbum":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jj:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1249,9 +1177,7 @@
 
 .method public setLatitude(D)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 3
-    .param p1, "latitude"    # D
 
-    .prologue
     iput-wide p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->fy:D
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1269,12 +1195,9 @@
 
 .method public setLocation(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "location"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "location":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jk:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1292,9 +1215,7 @@
 
 .method public setLongitude(D)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 3
-    .param p1, "longitude"    # D
 
-    .prologue
     iput-wide p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->fz:D
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1312,9 +1233,7 @@
 
 .method public setName(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->mName:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1332,12 +1251,9 @@
 
 .method public setPartOfTVSeries(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "partOfTVSeries"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "partOfTVSeries":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jl:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1366,8 +1282,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "performers":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/plus/model/moments/ItemScope;>;"
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jm:Ljava/util/List;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1385,9 +1299,7 @@
 
 .method public setPlayerType(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "playerType"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jn:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1405,9 +1317,7 @@
 
 .method public setPostOfficeBoxNumber(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "postOfficeBoxNumber"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jo:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1425,9 +1335,7 @@
 
 .method public setPostalCode(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "postalCode"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jp:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1445,9 +1353,7 @@
 
 .method public setRatingValue(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "ratingValue"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jq:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1465,12 +1371,9 @@
 
 .method public setReviewRating(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "reviewRating"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "reviewRating":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jr:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1488,9 +1391,7 @@
 
 .method public setStartDate(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "startDate"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->js:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1508,9 +1409,7 @@
 
 .method public setStreetAddress(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "streetAddress"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jt:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1528,9 +1427,7 @@
 
 .method public setText(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "text"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->ju:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1548,12 +1445,9 @@
 
 .method public setThumbnail(Lcom/google/android/gms/plus/model/moments/ItemScope;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "thumbnail"    # Lcom/google/android/gms/plus/model/moments/ItemScope;
 
-    .prologue
     check-cast p1, Lcom/google/android/gms/internal/bx;
 
-    .end local p1    # "thumbnail":Lcom/google/android/gms/plus/model/moments/ItemScope;
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jv:Lcom/google/android/gms/internal/bx;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1571,9 +1465,7 @@
 
 .method public setThumbnailUrl(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "thumbnailUrl"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jw:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1591,9 +1483,7 @@
 
 .method public setTickerSymbol(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "tickerSymbol"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jx:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1611,9 +1501,7 @@
 
 .method public setType(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "type"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jy:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1631,9 +1519,7 @@
 
 .method public setUrl(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "url"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->ie:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1651,9 +1537,7 @@
 
 .method public setWidth(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "width"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jz:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;
@@ -1671,9 +1555,7 @@
 
 .method public setWorstRating(Ljava/lang/String;)Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;
     .locals 2
-    .param p1, "worstRating"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->jA:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/google/android/gms/plus/model/moments/ItemScope$Builder;->iD:Ljava/util/Set;

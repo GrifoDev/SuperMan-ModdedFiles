@@ -50,8 +50,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,26 +57,20 @@
 
 .method public static isConnectingOrConnected(I)Z
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 86
     packed-switch p0, :pswitch_data_0
 
-    .line 98
     :pswitch_0
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 95
     :pswitch_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 86
     nop
 
     :pswitch_data_0
@@ -99,10 +91,7 @@
 
 .method public static isDialing(I)Z
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 102
     const/4 v0, 0x6
 
     if-eq p0, v0, :cond_0
@@ -125,10 +114,7 @@
 
 .method public static isIncoming(I)Z
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 106
     const/4 v0, 0x4
 
     if-eq p0, v0, :cond_0
@@ -151,109 +137,89 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 110
     packed-switch p0, :pswitch_data_0
 
-    .line 142
     const-string v0, "UNKNOWN"
 
     :goto_0
     return-object v0
 
-    .line 112
     :pswitch_0
     const-string v0, "INVALID"
 
     goto :goto_0
 
-    .line 114
     :pswitch_1
     const-string v0, "NEW"
 
     goto :goto_0
 
-    .line 116
     :pswitch_2
     const-string v0, "IDLE"
 
     goto :goto_0
 
-    .line 118
     :pswitch_3
     const-string v0, "ACTIVE"
 
     goto :goto_0
 
-    .line 120
     :pswitch_4
     const-string v0, "INCOMING"
 
     goto :goto_0
 
-    .line 122
     :pswitch_5
     const-string v0, "CALL_WAITING"
 
     goto :goto_0
 
-    .line 124
     :pswitch_6
     const-string v0, "DIALING"
 
     goto :goto_0
 
-    .line 126
     :pswitch_7
     const-string v0, "REDIALING"
 
     goto :goto_0
 
-    .line 128
     :pswitch_8
     const-string v0, "ONHOLD"
 
     goto :goto_0
 
-    .line 130
     :pswitch_9
     const-string v0, "DISCONNECTING"
 
     goto :goto_0
 
-    .line 132
     :pswitch_a
     const-string v0, "DISCONNECTED"
 
     goto :goto_0
 
-    .line 134
     :pswitch_b
     const-string v0, "CONFERENCED"
 
     goto :goto_0
 
-    .line 136
     :pswitch_c
     const-string v0, "SELECT_PHONE_ACCOUNT"
 
     goto :goto_0
 
-    .line 138
     :pswitch_d
     const-string v0, "CONNECTING"
 
     goto :goto_0
 
-    .line 140
     :pswitch_e
     const-string v0, "BLOCKED"
 
     goto :goto_0
 
-    .line 110
     nop
 
     :pswitch_data_0

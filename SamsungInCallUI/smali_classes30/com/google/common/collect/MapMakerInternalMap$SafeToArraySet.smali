@@ -28,9 +28,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3912
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     return-void
@@ -38,11 +35,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/MapMakerInternalMap$1;
 
-    .prologue
-    .line 3912
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;-><init>()V
 
     return-void
@@ -53,9 +46,6 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 3918
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
     # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$300(Ljava/util/Collection;)Ljava/util/ArrayList;
 
@@ -78,10 +68,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3923
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet;, "Lcom/google/common/collect/MapMakerInternalMap$SafeToArraySet<TE;>;"
-    .local p1, "a":[Ljava/lang/Object;, "[TE;"
     # invokes: Lcom/google/common/collect/MapMakerInternalMap;->toArrayList(Ljava/util/Collection;)Ljava/util/ArrayList;
     invoke-static {p0}, Lcom/google/common/collect/MapMakerInternalMap;->access$300(Ljava/util/Collection;)Ljava/util/ArrayList;
 

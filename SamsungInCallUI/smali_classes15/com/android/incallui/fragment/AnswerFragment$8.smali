@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerFragment;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerFragment;
 
-    .prologue
-    .line 339
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerFragment$8;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     iput p2, p0, Lcom/android/incallui/fragment/AnswerFragment$8;->val$VIDEO_STATE:I
@@ -43,24 +40,17 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1, "di"    # Landroid/content/DialogInterface;
-    .param p2, "pos"    # I
 
-    .prologue
-    .line 341
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$8;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->dismissWaitingCallPopup()V
 
-    .line 342
     packed-switch p2, :pswitch_data_0
 
-    .line 362
     :cond_0
     :goto_0
     return-void
 
-    .line 344
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$8;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
@@ -80,7 +70,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/AnswerPresenter;->onAnswer(ILandroid/content/Context;)V
 
-    .line 345
     const-string v0, "ims_rcs"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -89,7 +78,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 346
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -100,7 +88,6 @@
 
     move-result-object v0
 
-    .line 347
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v1
@@ -125,10 +112,8 @@
 
     const/4 v1, 0x1
 
-    .line 346
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    .line 348
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v0
@@ -145,7 +130,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 349
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v0
@@ -160,7 +144,6 @@
 
     goto :goto_0
 
-    .line 355
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$8;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
@@ -178,7 +161,6 @@
 
     goto :goto_0
 
-    .line 342
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

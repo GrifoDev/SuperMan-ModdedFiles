@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/VideoBanner;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/VideoBanner;
 
-    .prologue
-    .line 264
     iput-object p1, p0, Lcom/android/incallui/VideoBanner$1;->this$0:Lcom/android/incallui/VideoBanner;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 267
     const-string v0, "VideoBanner"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -64,16 +58,13 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 268
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 276
     :goto_0
     return-void
 
-    .line 270
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/VideoBanner$1;->this$0:Lcom/android/incallui/VideoBanner;
 
@@ -81,7 +72,6 @@
 
     goto :goto_0
 
-    .line 273
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/VideoBanner$1;->this$0:Lcom/android/incallui/VideoBanner;
 
@@ -89,7 +79,6 @@
 
     goto :goto_0
 
-    .line 268
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

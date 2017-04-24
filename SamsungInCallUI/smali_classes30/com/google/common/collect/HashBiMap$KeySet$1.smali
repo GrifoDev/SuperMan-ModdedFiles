@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/HashBiMap$KeySet;)V
     .locals 1
 
-    .prologue
-    .line 439
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$KeySet$1;, "Lcom/google/common/collect/HashBiMap$KeySet.1;"
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$KeySet$1;->this$1:Lcom/google/common/collect/HashBiMap$KeySet;
 
     iget-object v0, p1, Lcom/google/common/collect/HashBiMap$KeySet;->this$0:Lcom/google/common/collect/HashBiMap;
@@ -53,10 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 442
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$KeySet$1;, "Lcom/google/common/collect/HashBiMap$KeySet.1;"
-    .local p1, "entry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     iget-object v0, p1, Lcom/google/common/collect/HashBiMap$BiEntry;->key:Ljava/lang/Object;
 
     return-object v0

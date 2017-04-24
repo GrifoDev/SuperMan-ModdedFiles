@@ -135,13 +135,6 @@
 
 .method public static newChooseAccountIntent(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
     .locals 9
-    .param p0, "selectedAccount"    # Landroid/accounts/Account;
-    .param p2, "allowableAccountTypes"    # [Ljava/lang/String;
-    .param p3, "alwaysPromptForAccount"    # Z
-    .param p4, "descriptionOverrideText"    # Ljava/lang/String;
-    .param p5, "addAccountAuthTokenType"    # Ljava/lang/String;
-    .param p6, "addAccountRequiredFeatures"    # [Ljava/lang/String;
-    .param p7, "addAccountOptions"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,8 +155,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "allowableAccounts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/accounts/Account;>;"
     const/4 v8, 0x0
 
     move-object v0, p0

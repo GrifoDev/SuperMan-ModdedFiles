@@ -46,7 +46,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -57,7 +56,6 @@
 
     const/4 v3, 0x0
 
-    .line 53
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/String;
@@ -96,7 +94,6 @@
 
     sput-object v0, Lcom/android/contacts/common/ContactTileLoaderFactory;->COLUMNS:[Ljava/lang/String;
 
-    .line 70
     const/16 v0, 0xc
 
     new-array v0, v0, [Ljava/lang/String;
@@ -171,8 +168,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -180,10 +175,7 @@
 
 .method public static createFrequentLoader(Landroid/content/Context;)Landroid/content/CursorLoader;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 105
     new-instance v0, Landroid/content/CursorLoader;
 
     sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_FREQUENT_URI:Landroid/net/Uri;
@@ -213,10 +205,7 @@
 
 .method public static createStarredLoader(Landroid/content/Context;)Landroid/content/CursorLoader;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 100
     new-instance v0, Landroid/content/CursorLoader;
 
     sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
@@ -246,12 +235,9 @@
 
 .method public static createStrequentLoader(Landroid/content/Context;)Landroid/content/CursorLoader;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 88
     new-instance v0, Landroid/content/CursorLoader;
 
     sget-object v2, Landroid/provider/ContactsContract$Contacts;->CONTENT_STREQUENT_URI:Landroid/net/Uri;
@@ -271,12 +257,9 @@
 
 .method public static createStrequentPhoneOnlyLoader(Landroid/content/Context;)Landroid/content/CursorLoader;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 93
     sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_STREQUENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -287,7 +270,6 @@
 
     const-string v3, "true"
 
-    .line 94
     invoke-virtual {v0, v1, v3}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
@@ -296,8 +278,6 @@
 
     move-result-object v2
 
-    .line 96
-    .local v2, "uri":Landroid/net/Uri;
     new-instance v0, Landroid/content/CursorLoader;
 
     sget-object v3, Lcom/android/contacts/common/ContactTileLoaderFactory;->COLUMNS_PHONE_ONLY:[Ljava/lang/String;

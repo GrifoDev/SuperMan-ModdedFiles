@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1068
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1068
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneKindBuilder;-><init>()V
 
     return-void
@@ -40,11 +35,7 @@
 
 .method protected static build(IZ)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 2
-    .param p0, "type"    # I
-    .param p1, "secondary"    # Z
 
-    .prologue
-    .line 1094
     new-instance v0, Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     invoke-static {p0}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabelResource(I)I
@@ -64,15 +55,11 @@
 # virtual methods
 .method protected buildEditTypeForTypeTag(Landroid/util/AttributeSet;Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 3
-    .param p1, "attrs"    # Landroid/util/AttributeSet;
-    .param p2, "type"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v1, 0x1
 
-    .line 1099
     const-string v0, "home"
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -85,11 +72,9 @@
 
     move-result-object v0
 
-    .line 1124
     :goto_0
     return-object v0
 
-    .line 1100
     :cond_0
     const-string v0, "mobile"
 
@@ -107,7 +92,6 @@
 
     goto :goto_0
 
-    .line 1101
     :cond_1
     const-string v0, "work"
 
@@ -125,7 +109,6 @@
 
     goto :goto_0
 
-    .line 1102
     :cond_2
     const-string v0, "fax_work"
 
@@ -143,7 +126,6 @@
 
     goto :goto_0
 
-    .line 1103
     :cond_3
     const-string v0, "fax_home"
 
@@ -161,7 +143,6 @@
 
     goto :goto_0
 
-    .line 1104
     :cond_4
     const-string v0, "pager"
 
@@ -179,7 +160,6 @@
 
     goto :goto_0
 
-    .line 1105
     :cond_5
     const-string v0, "other"
 
@@ -197,7 +177,6 @@
 
     goto :goto_0
 
-    .line 1106
     :cond_6
     const-string v0, "callback"
 
@@ -215,7 +194,6 @@
 
     goto :goto_0
 
-    .line 1107
     :cond_7
     const-string v0, "car"
 
@@ -233,7 +211,6 @@
 
     goto :goto_0
 
-    .line 1108
     :cond_8
     const-string v0, "company_main"
 
@@ -251,7 +228,6 @@
 
     goto/16 :goto_0
 
-    .line 1109
     :cond_9
     const-string v0, "isdn"
 
@@ -269,7 +245,6 @@
 
     goto/16 :goto_0
 
-    .line 1110
     :cond_a
     const-string v0, "main"
 
@@ -287,7 +262,6 @@
 
     goto/16 :goto_0
 
-    .line 1111
     :cond_b
     const-string v0, "other_fax"
 
@@ -305,7 +279,6 @@
 
     goto/16 :goto_0
 
-    .line 1112
     :cond_c
     const-string v0, "radio"
 
@@ -323,7 +296,6 @@
 
     goto/16 :goto_0
 
-    .line 1113
     :cond_d
     const-string v0, "telex"
 
@@ -341,7 +313,6 @@
 
     goto/16 :goto_0
 
-    .line 1114
     :cond_e
     const-string v0, "tty_tdd"
 
@@ -359,7 +330,6 @@
 
     goto/16 :goto_0
 
-    .line 1115
     :cond_f
     const-string v0, "work_mobile"
 
@@ -377,7 +347,6 @@
 
     goto/16 :goto_0
 
-    .line 1116
     :cond_10
     const-string v0, "work_pager"
 
@@ -395,7 +364,6 @@
 
     goto/16 :goto_0
 
-    .line 1119
     :cond_11
     const-string v0, "assistant"
 
@@ -413,7 +381,6 @@
 
     goto/16 :goto_0
 
-    .line 1120
     :cond_12
     const-string v0, "mms"
 
@@ -431,7 +398,6 @@
 
     goto/16 :goto_0
 
-    .line 1121
     :cond_13
     const-string v0, "custom"
 
@@ -441,7 +407,6 @@
 
     if-eqz v0, :cond_14
 
-    .line 1122
     invoke-static {v2, v1}, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneKindBuilder;->build(IZ)Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     move-result-object v0
@@ -454,7 +419,6 @@
 
     goto/16 :goto_0
 
-    .line 1124
     :cond_14
     const/4 v0, 0x0
 
@@ -464,8 +428,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1072
     const-string v0, "phone"
 
     return-object v0
@@ -473,9 +435,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -498,12 +457,10 @@
         }
     .end annotation
 
-    .prologue
-    const v7, 0x7f090204
+    const v7, 0x7f090205
 
     const/4 v4, 0x0
 
-    .line 1079
     const-string v5, "vnd.android.cursor.item/phone_v2"
 
     const-string v6, "data2"
@@ -532,25 +489,20 @@
 
     move-result-object v11
 
-    .line 1083
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     const v0, 0x7f020110
 
     iput v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltRes:I
 
-    .line 1084
-    const v0, 0x7f0902c6
+    const v0, 0x7f0902c7
 
     iput v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->iconAltDescriptionRes:I
 
-    .line 1085
     new-instance v0, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneActionAltInflater;
 
     invoke-direct {v0}, Lcom/android/contacts/common/model/account/BaseAccountType$PhoneActionAltInflater;-><init>()V
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->actionAltHeader:Lcom/android/contacts/common/model/account/AccountType$StringInflater;
 
-    .line 1087
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -563,7 +515,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1089
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

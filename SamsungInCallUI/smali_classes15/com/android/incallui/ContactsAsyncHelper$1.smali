@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/ContactsAsyncHelper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/ContactsAsyncHelper;
 
-    .prologue
-    .line 61
     iput-object p1, p0, Lcom/android/incallui/ContactsAsyncHelper$1;->this$0:Lcom/android/incallui/ContactsAsyncHelper;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,32 +33,24 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 65
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactsAsyncHelper$WorkerArgs;
 
-    .line 66
-    .local v0, "args":Lcom/android/incallui/ContactsAsyncHelper$WorkerArgs;
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 77
     :cond_0
     :goto_0
     return-void
 
-    .line 68
     :pswitch_0
     iget-object v1, v0, Lcom/android/incallui/ContactsAsyncHelper$WorkerArgs;->listener:Lcom/android/incallui/ContactsAsyncHelper$OnImageLoadCompleteListener;
 
     if-eqz v1, :cond_0
 
-    .line 69
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -106,7 +95,6 @@
 
     invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 71
     iget-object v1, v0, Lcom/android/incallui/ContactsAsyncHelper$WorkerArgs;->listener:Lcom/android/incallui/ContactsAsyncHelper$OnImageLoadCompleteListener;
 
     iget v2, p1, Landroid/os/Message;->what:I
@@ -121,7 +109,6 @@
 
     goto :goto_0
 
-    .line 66
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

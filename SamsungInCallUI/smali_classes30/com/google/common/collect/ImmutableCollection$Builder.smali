@@ -31,9 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 344
-    .local p0, "this":Lcom/google/common/collect/ImmutableCollection$Builder;, "Lcom/google/common/collect/ImmutableCollection$Builder<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,14 +38,9 @@
 
 .method static expandedCapacity(II)I
     .locals 3
-    .param p0, "oldCapacity"    # I
-    .param p1, "minCapacity"    # I
 
-    .prologue
-    .line 329
     if-gez p1, :cond_0
 
-    .line 330
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string v2, "cannot store more than MAX_VALUE elements"
@@ -57,7 +49,6 @@
 
     throw v1
 
-    .line 333
     :cond_0
     shr-int/lit8 v1, p0, 0x1
 
@@ -65,11 +56,8 @@
 
     add-int/lit8 v0, v1, 0x1
 
-    .line 334
-    .local v0, "newCapacity":I
     if-ge v0, p1, :cond_1
 
-    .line 335
     add-int/lit8 v1, p1, -0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->highestOneBit(I)I
@@ -78,14 +66,11 @@
 
     shl-int/lit8 v0, v1, 0x1
 
-    .line 337
     :cond_1
     if-gez v0, :cond_2
 
-    .line 338
     const v0, 0x7fffffff
 
-    .line 341
     :cond_2
     return v0
 .end method
@@ -112,35 +97,23 @@
         }
     .end annotation
 
-    .prologue
-    .line 371
-    .local p0, "this":Lcom/google/common/collect/ImmutableCollection$Builder;, "Lcom/google/common/collect/ImmutableCollection$Builder<TE;>;"
-    .local p1, "elements":[Ljava/lang/Object;, "[TE;"
     move-object v0, p1
 
-    .local v0, "arr$":[Ljava/lang/Object;
     array-length v3, v0
 
-    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-object v1, v0, v2
 
-    .line 372
-    .local v1, "element":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, v1}, Lcom/google/common/collect/ImmutableCollection$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
 
-    .line 371
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 374
-    .end local v1    # "element":Ljava/lang/Object;, "TE;"
     :cond_0
     return-object p0
 .end method
@@ -157,15 +130,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 390
-    .local p0, "this":Lcom/google/common/collect/ImmutableCollection$Builder;, "Lcom/google/common/collect/ImmutableCollection$Builder<TE;>;"
-    .local p1, "elements":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -177,14 +145,10 @@
 
     move-result-object v0
 
-    .line 391
-    .local v0, "element":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, v0}, Lcom/google/common/collect/ImmutableCollection$Builder;->add(Ljava/lang/Object;)Lcom/google/common/collect/ImmutableCollection$Builder;
 
     goto :goto_0
 
-    .line 393
-    .end local v0    # "element":Ljava/lang/Object;, "TE;"
     :cond_0
     return-object p0
 .end method
@@ -201,10 +165,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 409
-    .local p0, "this":Lcom/google/common/collect/ImmutableCollection$Builder;, "Lcom/google/common/collect/ImmutableCollection$Builder<TE;>;"
-    .local p1, "elements":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -212,7 +172,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 410
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -221,7 +180,6 @@
 
     goto :goto_0
 
-    .line 412
     :cond_0
     return-object p0
 .end method

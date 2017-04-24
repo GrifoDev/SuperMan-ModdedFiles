@@ -25,11 +25,8 @@
 .method constructor <init>(Lcom/cmdm/control/download/a;)V
     .locals 0
 
-    .prologue
-    .line 1
     iput-object p1, p0, Lcom/cmdm/control/download/a$3;->br:Lcom/cmdm/control/download/a;
 
-    .line 362
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,10 +37,7 @@
 .method public run()V
     .locals 0
 
-    .prologue
-    .line 366
     invoke-static {}, Lcom/cmdm/control/download/a;->bc()V
 
-    .line 367
     return-void
 .end method

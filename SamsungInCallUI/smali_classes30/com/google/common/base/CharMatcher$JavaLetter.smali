@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 1389
     new-instance v0, Lcom/google/common/base/CharMatcher$JavaLetter;
 
     invoke-direct {v0}, Lcom/google/common/base/CharMatcher$JavaLetter;-><init>()V
@@ -36,8 +34,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1387
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher;-><init>()V
 
     return-void
@@ -47,13 +43,9 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1387
     check-cast p1, Ljava/lang/Character;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-super {p0, p1}, Lcom/google/common/base/CharMatcher;->apply(Ljava/lang/Character;)Z
 
     move-result v0
@@ -63,10 +55,7 @@
 
 .method public matches(C)Z
     .locals 1
-    .param p1, "c"    # C
 
-    .prologue
-    .line 1393
     invoke-static {p1}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v0
@@ -77,8 +66,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1398
     const-string v0, "CharMatcher.javaLetter()"
 
     return-object v0

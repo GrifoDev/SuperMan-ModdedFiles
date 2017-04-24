@@ -30,8 +30,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 670
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,55 +37,43 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 678
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
-    .line 679
     const-string v0, "STARTED"
 
-    .line 687
     :goto_0
     return-object v0
 
-    .line 680
     :cond_0
     const/4 v0, 0x3
 
     if-ne p0, v0, :cond_1
 
-    .line 681
     const-string v0, "RESUMED"
 
     goto :goto_0
 
-    .line 682
     :cond_1
     const/4 v0, 0x4
 
     if-ne p0, v0, :cond_2
 
-    .line 683
     const-string v0, "PAUSED"
 
     goto :goto_0
 
-    .line 684
     :cond_2
     const/4 v0, 0x5
 
     if-ne p0, v0, :cond_3
 
-    .line 685
     const-string v0, "STOPPED"
 
     goto :goto_0
 
-    .line 687
     :cond_3
     const-string v0, "NONE"
 

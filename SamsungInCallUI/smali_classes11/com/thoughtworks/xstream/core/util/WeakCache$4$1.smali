@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/WeakCache$4;Ljava/util/Map$Entry;)V
     .locals 0
 
-    .prologue
-    .line 127
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->this$1:Lcom/thoughtworks/xstream/core/util/WeakCache$4;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->val$entry:Ljava/util/Map$Entry;
@@ -43,8 +41,6 @@
 .method public getKey()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 130
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -57,8 +53,6 @@
 .method public getValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 134
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -76,10 +70,7 @@
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 138
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->val$entry:Ljava/util/Map$Entry;
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->this$1:Lcom/thoughtworks/xstream/core/util/WeakCache$4;

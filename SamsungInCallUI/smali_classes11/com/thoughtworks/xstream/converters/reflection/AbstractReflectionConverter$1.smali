@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;Ljava/util/Map;Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/util/List;)V
     .locals 1
 
-    .prologue
-    .line 93
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$defaultFieldDefinition:Ljava/util/Map;
@@ -49,7 +47,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 94
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
@@ -63,13 +60,7 @@
 # virtual methods
 .method public visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 7
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
-    .param p4, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 97
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;
 
     iget-object v4, v4, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -80,11 +71,9 @@
 
     if-nez v4, :cond_0
 
-    .line 132
     :goto_0
     return-void
 
-    .line 100
     :cond_0
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$defaultFieldDefinition:Ljava/util/Map;
 
@@ -94,15 +83,12 @@
 
     if-nez v4, :cond_2
 
-    .line 101
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$source:Ljava/lang/Object;
 
     invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    .line 103
-    .local v2, "lookupType":Ljava/lang/Class;
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$source:Ljava/lang/Object;
 
     invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -121,10 +107,8 @@
 
     if-nez v4, :cond_1
 
-    .line 105
     move-object v2, p3
 
-    .line 107
     :cond_1
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$defaultFieldDefinition:Ljava/util/Map;
 
@@ -138,8 +122,6 @@
 
     invoke-interface {v4, p1, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 111
-    .end local v2    # "lookupType":Ljava/lang/Class;
     :cond_2
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;
 
@@ -149,11 +131,8 @@
 
     move-result-object v1
 
-    .line 113
-    .local v1, "converter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     if-eqz v1, :cond_5
 
-    .line 114
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;
 
     iget-object v4, v4, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -170,11 +149,8 @@
 
     move-result-object v0
 
-    .line 116
-    .local v0, "attribute":Ljava/lang/String;
     if-eqz p4, :cond_4
 
-    .line 117
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->writtenAttributes:Ljava/util/Set;
 
     invoke-interface {v4, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -183,7 +159,6 @@
 
     if-eqz v4, :cond_3
 
-    .line 118
     new-instance v4, Lcom/thoughtworks/xstream/converters/ConversionException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -228,23 +203,17 @@
 
     throw v4
 
-    .line 123
     :cond_3
     invoke-interface {v1, p4}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 124
-    .local v3, "str":Ljava/lang/String;
     if-eqz v3, :cond_4
 
-    .line 125
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     invoke-interface {v4, v0, v3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 128
-    .end local v3    # "str":Ljava/lang/String;
     :cond_4
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->writtenAttributes:Ljava/util/Set;
 
@@ -252,8 +221,6 @@
 
     goto/16 :goto_0
 
-    .line 130
-    .end local v0    # "attribute":Ljava/lang/String;
     :cond_5
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter$1;->val$fields:Ljava/util/List;
 

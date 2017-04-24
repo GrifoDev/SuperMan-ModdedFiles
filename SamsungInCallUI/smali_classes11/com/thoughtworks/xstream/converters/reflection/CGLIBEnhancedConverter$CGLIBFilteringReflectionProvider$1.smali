@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;)V
     .locals 0
 
-    .prologue
-    .line 453
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider$1;->val$visitor:Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;
@@ -42,13 +40,7 @@
 # virtual methods
 .method public visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
-    .param p4, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 455
     const-string v0, "CGLIB$"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -57,12 +49,10 @@
 
     if-nez v0, :cond_0
 
-    .line 456
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider$1;->val$visitor:Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;->visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
 
-    .line 458
     :cond_0
     return-void
 .end method

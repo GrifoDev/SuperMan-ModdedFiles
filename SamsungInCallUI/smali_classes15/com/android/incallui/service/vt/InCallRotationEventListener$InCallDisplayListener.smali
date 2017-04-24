@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/vt/InCallRotationEventListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
-    .prologue
-    .line 179
     iput-object p1, p0, Lcom/android/incallui/service/vt/InCallRotationEventListener$InCallDisplayListener;->this$0:Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,19 +36,13 @@
 # virtual methods
 .method public onDisplayAdded(I)V
     .locals 0
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 184
     return-void
 .end method
 
 .method public onDisplayChanged(I)V
     .locals 2
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 193
     iget-object v0, p0, Lcom/android/incallui/service/vt/InCallRotationEventListener$InCallDisplayListener;->this$0:Lcom/android/incallui/service/vt/InCallRotationEventListener;
 
     iget-object v1, p0, Lcom/android/incallui/service/vt/InCallRotationEventListener$InCallDisplayListener;->this$0:Lcom/android/incallui/service/vt/InCallRotationEventListener;
@@ -61,18 +52,13 @@
 
     move-result v1
 
-    # invokes: Lcom/android/incallui/service/vt/InCallRotationEventListener;->notifyRotationChanged(I)V
-    invoke-static {v0, v1}, Lcom/android/incallui/service/vt/InCallRotationEventListener;->access$200(Lcom/android/incallui/service/vt/InCallRotationEventListener;I)V
+    invoke-virtual {v0, v1}, Lcom/android/incallui/service/vt/InCallRotationEventListener;->notifyRotationChanged(I)V
 
-    .line 194
     return-void
 .end method
 
 .method public onDisplayRemoved(I)V
     .locals 0
-    .param p1, "displayId"    # I
 
-    .prologue
-    .line 189
     return-void
 .end method

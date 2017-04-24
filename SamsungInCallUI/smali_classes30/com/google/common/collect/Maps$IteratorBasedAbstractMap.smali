@@ -30,9 +30,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3454
-    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
     return-void
@@ -43,16 +40,12 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 3477
-    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;->entryIterator()Ljava/util/Iterator;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/google/common/collect/Iterators;->clear(Ljava/util/Iterator;)V
 
-    .line 3478
     return-void
 .end method
 
@@ -80,9 +73,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3462
-    .local p0, "this":Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;, "Lcom/google/common/collect/Maps$IteratorBasedAbstractMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/Maps$IteratorBasedAbstractMap$1;-><init>(Lcom/google/common/collect/Maps$IteratorBasedAbstractMap;)V

@@ -34,12 +34,7 @@
 
 .method constructor <init>(III[B)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "data"    # [B
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/maps/model/Tile;->ab:I
@@ -55,11 +50,7 @@
 
 .method public constructor <init>(II[B)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "data"    # [B
 
-    .prologue
     const/4 v0, 0x1
 
     invoke-direct {p0, v0, p1, p2, p3}, Lcom/google/android/gms/maps/model/Tile;-><init>(III[B)V
@@ -87,10 +78,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

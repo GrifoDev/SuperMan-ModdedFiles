@@ -51,25 +51,17 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 59
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 52
     iput-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mTextResponsesAdapter:Landroid/widget/ArrayAdapter;
 
-    .line 54
     iput-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mTextResponses:Ljava/util/List;
 
-    .line 60
     iput-object p1, p0, Lcom/android/incallui/BaseRejectMsgContent;->mContext:Landroid/content/Context;
 
-    .line 61
     return-void
 .end method
 
@@ -87,17 +79,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 77
-    .local p1, "textResponses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     return-void
 .end method
 
 .method public getOnItemClickListener()Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
     .locals 1
 
-    .prologue
-    .line 204
     iget-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
 
     return-object v0
@@ -106,8 +93,6 @@
 .method public getRejectMsgList()Landroid/widget/ListView;
     .locals 1
 
-    .prologue
-    .line 73
     iget-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mRejectMsgList:Landroid/widget/ListView;
 
     return-object v0
@@ -116,11 +101,8 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    .prologue
-    .line 65
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    .line 67
     const v0, 0x7f1001ad
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
@@ -131,7 +113,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderCheckBox:Landroid/widget/CheckBox;
 
-    .line 68
     const v0, 0x7f1001ae
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
@@ -140,7 +121,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderDivider:Landroid/view/View;
 
-    .line 69
     const v0, 0x7f1001af
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
@@ -151,32 +131,24 @@
 
     iput-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mRejectMsgList:Landroid/widget/ListView;
 
-    .line 70
     return-void
 .end method
 
 .method public setOnItemClickListener(Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
 
-    .prologue
-    .line 200
     iput-object p1, p0, Lcom/android/incallui/BaseRejectMsgContent;->mOnItemClickListener:Lcom/android/incallui/BaseRejectMsgContent$OnItemClickListener;
 
-    .line 201
     return-void
 .end method
 
 .method public showAddReminderCheckBox(Ljava/lang/Boolean;)V
     .locals 4
-    .param p1, "show"    # Ljava/lang/Boolean;
 
-    .prologue
     const/16 v2, 0x8
 
     const/4 v1, 0x0
 
-    .line 80
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -203,12 +175,10 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 81
     iget-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderCheckBox:Landroid/widget/CheckBox;
 
     if-eqz v0, :cond_0
 
-    .line 82
     iget-object v3, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderCheckBox:Landroid/widget/CheckBox;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -222,13 +192,11 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    .line 84
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderDivider:Landroid/view/View;
 
     if-eqz v0, :cond_1
 
-    .line 85
     iget-object v0, p0, Lcom/android/incallui/BaseRejectMsgContent;->mReminderDivider:Landroid/view/View;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -240,19 +208,16 @@
     :goto_1
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 87
     :cond_1
     return-void
 
     :cond_2
     move v0, v2
 
-    .line 82
     goto :goto_0
 
     :cond_3
     move v1, v2
 
-    .line 85
     goto :goto_1
 .end method

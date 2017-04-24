@@ -32,9 +32,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -45,18 +43,15 @@
 
     move v0, v1
 
-    .end local p1    # "obj":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_1
     if-eq p0, p1, :cond_0
 
     check-cast p1, Lcom/google/android/gms/common/images/a$a;
 
-    .end local p1    # "obj":Ljava/lang/Object;
     invoke-virtual {p1}, Lcom/google/android/gms/common/images/a$a;->hashCode()I
 
     move-result v2

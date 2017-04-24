@@ -2729,14 +2729,12 @@
 
 .method public removeMoment(Ljava/lang/String;)V
     .locals 5
-    .param p1, "momentId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

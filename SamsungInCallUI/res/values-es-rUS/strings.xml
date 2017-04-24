@@ -147,7 +147,7 @@
     <string name="add_reminder">Recordatorio</string>
     <string name="agree">Acepto</string>
     <string name="am_cover_toggle_string">Abra la cubierta para responder o rechazar.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">No es posible usar respuesta automática con este mensaje. No hay espacio suficiente en el almacenamiento del dispositivo para guardar mensajes de voz. Elimine algunos elementos e inténtelo de nuevo.</string>
     <string name="another_device_pickup_message">Otro dispositivo tomó esta llamada.</string>
     <string name="answering_memo_Playing_text">Reproduciendo mensaje de respuesta…</string>
     <string name="answering_memo_Recording_text">Grabando mensaje…</string>
@@ -162,8 +162,8 @@
     <string name="call_drug_up_panel_for_kk">Arrastre ENVIAR MENSAJE hacia arriba para enviar un mensaje rápido y rechazar la llamada.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastre la llamada rechazada con un panel de mensajes hacia arriba para enviar un mensaje de rechazo de llamada cuando rechace una llamada entrante.</string>
     <string name="call_ended_toast">Llamada finalizada.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Llamada desviada a:</string>
+    <string name="call_forwarding_from">Llamada desviada desde:</string>
     <string name="call_incoming_voice_call2">Pulse %s para responder una llamada.</string>
     <string name="call_incoming_voice_call2_tts">Pulse el botón de contestar llamada para contestar una llamada.</string>
     <string name="call_incoming_voice_call3">Pulse %s para rechazar.</string>
@@ -188,20 +188,20 @@
     <string name="call_menu_during_call_list6_tts">Pulse el botón de volumen extra para subir el volumen.</string>
     <string name="call_menu_during_call_list7">Pulse %s para llamar a otra persona y añadirla a la llamada actual.</string>
     <string name="call_menu_during_call_list7_tts">Pulse el botón de añadir llamada para llamar a otra persona y añadirla a la llamada actual.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Duración de llamada</string>
     <string name="call_twophone_one_phone">Número principal</string>
     <string name="call_twophone_two_phone">Número secundario</string>
     <string name="caller_info_card_last_call_log_title">Más reciente</string>
     <string name="caller_info_card_last_message_title">Mensaje más reciente</string>
     <string name="caller_info_card_memo_title">Nota creada durante llamada</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Mantenga presionada la tecla Retener para iniciar o detener la grabación</string>
     <string name="callsettings_rejectmessage_list1">Lo siento, no puedo hablar ahora. Llame más tarde.</string>
     <string name="callsettings_rejectmessage_list2">Estoy en una reunión.</string>
     <string name="callsettings_rejectmessage_list3">Estoy en clase.</string>
     <string name="callsettings_rejectmessage_list4">Estoy en el cine.</string>
     <string name="callsettings_rejectmessage_list5">Estoy conduciendo.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">Cámara desactivada.</string>
+    <string name="camera_on">Cámara activada.</string>
     <string name="camera_security_enter">La política de seguridad restringe el uso de la cámara.</string>
     <string name="camera_start_failed">Error en Cámara.</string>
     <string name="cancel">Cancelar</string>
@@ -249,7 +249,7 @@ Esta videollamada está ahora utilizando datos y la función Datos móviles se d
     <string name="description_secOnscreenVideoCallText">Videollamada</string>
     <string name="description_secOnscreenViewContactText">Ver detalles del contacto</string>
     <string name="device_info_not_available">No disponible</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">No es posible marcar.</string>
     <string name="dialling_video_call">Marcando videollamada</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -289,6 +289,7 @@ Esta videollamada está ahora utilizando datos y la función Datos móviles se d
     <string name="extra_vol_off">Volumen extra desactivado.</string>
     <string name="extra_vol_on">Volumen extra activado.</string>
     <string name="far_end_stopped_share_video">%s dejó de compartir video.</string>
+    <string name="far_end_stopped_share_video_att">%s detuvo el envío de un video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Archivo no compat.</string>
     <string name="full_name">Nombre</string>
@@ -317,7 +318,7 @@ Esta videollamada está ahora utilizando datos y la función Datos móviles se d
     <string name="incall_popup_call_remove_title_vzw">Ocultar atajo</string>
     <string name="incall_popup_ended">Fin</string>
     <string name="incall_spam_call_block">Bloquear número</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Añadir a Lista negra</string>
     <string name="incall_spam_call_reject_toast">Número de teléfono añadido a Lista de bloqueo.</string>
     <string name="incall_spam_call_report">Denunciar número</string>
     <string name="incall_transfer_call">Transferir llamada</string>
@@ -486,7 +487,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="memory_full_msg">No hay memoria suf.</string>
     <string name="message_greeting">Saludo</string>
     <string name="modify_to_video_start">Solicitando cambio a videollamada…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Cambiando a llamada de voz…</string>
     <string name="msg_for_video_show_never_again">Algunos formatos de archivo no se admiten. Sólo se mostrarán en Galería los tipos de archivo admitidos.</string>
     <string name="mt_vt_not_possible">%s no puede recibir videollamadas en este momento. Ahora va a ser conectado a través de una llamada de voz.</string>
     <string name="nameLabelsGroup">Nombre</string>
@@ -503,7 +504,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="name_suffix">Sufijo del nombre</string>
     <string name="network_message_no_answer">Sin respuesta</string>
     <string name="nicknameLabelsGroup">Alias</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Las videollamadas no están disponibles mientras modo Emergencia está activado.</string>
     <string name="not_enable_to_video_emergencymode">No es posible realizar o recibir videollamadas cuando está activado el modo Emergencia.</string>
     <string name="notification_action_answer">Responder</string>
     <string name="notification_of_sub_number_empty_body">Para ver números alternativos, suscríbase a un servicio de números múltiples en una tarjeta SIM, e inténtelo de nuevo.</string>
@@ -513,7 +514,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="onscreenBluetoothTextOn_att">Cambiar a dispositivo</string>
     <string name="onscreenBluetoothTextOn_tmo">Cambiar a dispositivo</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Para desactivar el altavoz, abra el teléfono plegable.</string>
     <string name="open_the_cover">Abrir la cubierta.</string>
     <string name="open_the_cover_incoming">Abra la cubierta para responder o rechazar la videollamada.</string>
     <string name="open_the_cover_modify_call">El receptor desea cambiar a videollamada. Abra la cubierta para aceptar/rechazar la solicitud.</string>
@@ -544,7 +545,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="prepareOtherVideo">Preparando imagen de video…</string>
     <string name="previous_call_is_held_when_you_accept_call">La llamada actual se pondrá en espera al aceptar una nueva llamada.</string>
     <string name="private_num_cdma">Restringido</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Número oculto</string>
     <string name="quick_panel_title_video_call">Videollamada</string>
     <string name="quick_panel_title_voice_call">Llamada de voz</string>
     <string name="quick_panel_title_volte_call">Llamada VoLTE</string>
@@ -649,7 +650,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Cambiar a dispositivo</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Cambiar a videollamada</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Camb. a llam. de voz</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Cambiar imágenes de video</string>
     <string name="secOnscreenMenuUnmuteText">Desactivar silencio</string>
     <string name="secOnscreenMenuVideoConfCallText">Invitar a nuevo participante</string>
     <string name="secOnscreenMenuViewInFullScreenText">Ver en pantalla completa</string>
@@ -670,7 +671,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="secOnscreenResumeCallText">Reanudar</string>
     <string name="secOnscreenShowCallOption">Mostrar opciones de llamada</string>
     <string name="secOnscreenSpeaker">Altavoz</string>
-    <string name="secOnscreenStopText">Detener</string>
+    <string name="secOnscreenStopText">Detener grabación</string>
     <string name="secOnscreenSwapText">Cambiar</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Cambiar cámara</string>
@@ -729,12 +730,12 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="spam_call_report_dialog_spam">Spam</string>
     <string name="spam_call_report_dialog_taxis">Taxis</string>
     <string name="spam_call_reported_as">Reportado como %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Denunciado como %s por usted</string>
     <string name="spam_call_resported_count">(%d veces)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Denunciado como %1$s %2$d veces</string>
     <string name="sub_number_item">Alternativo %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">No volver a mostrar</string>
+    <string name="suguden_guide_main_text_dcm">Responda la llamada al acercar el dispositivo a su oído.</string>
     <string name="swipe_left">Deslice a la izq.</string>
     <string name="swipe_right">Deslizar a dcha.</string>
     <string name="swipe_right_to_answer_call_with_video">Deslice hacia la derecha para responder la llamada con video.</string>
@@ -745,6 +746,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="switch_to_voice_call_failed">No se pudo cambiar a llamada de voz.</string>
     <string name="switched_to_voip_mo">Cambiado a llamada de voz.</string>
     <string name="switched_to_voip_mt">Cambiado a llamada por solicitud del receptor de la llamada.</string>
+    <string name="switched_to_voip_mt_att">Paso de la llamada a solo voz.</string>
     <string name="switched_to_voip_mt_att_tmo">%s apagó el video.</string>
     <string name="switching_camera_failed">No se pudo cambiar a cámara.</string>
     <string name="switching_to_voice_call">Cambiando a llamada de voz…</string>
@@ -760,7 +762,9 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="usa_att_connected_as_voice">Conexión de llamada solo de voz.</string>
     <string name="usa_att_data_usage_charge_alert">Está por alcanzar el límite de Uso de datos que ha definido en el dispositivo. La videollamada usa datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">No es posible conectar la llamada mediante la red Wi-Fi; conectando mediante la red celular. Se aplicarán costos por datos y voz.</string>
-    <string name="usa_att_modify_receive_to_video">Seleccionar el modo de video</string>
+    <string name="usa_att_modify_receive_to_video">%s está solicitando cambiar a videollamada.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s está solicitando compartir un video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">No es posible conectar la llamada mediante la red Wi-Fi; conectando mediante la red celular. Se aplicarán costos por datos y voz.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Pulse a continuación para seleccionar el tipo de llamada.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">No es posible cambiar el tipo de llamada durante las llamadas de conferencia.</string>
     <string name="usa_gsm_modify_receive_to_video">%s desea cambiar a videollamada.</string>
@@ -768,6 +772,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="usa_gsm_modify_requested_wait_for_response">Esperando respuesta</string>
     <string name="usa_gsm_modify_select_call_type">Seleccionar tipo de llamada</string>
     <string name="usa_gsm_switching_to_voice_call">Cambiando a llamada de voz.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Se desactivó el video ya que datos móviles no están disponibles.</string>
     <string name="usa_volte_reject_upgrade_request">%s no puede recibir videollamadas en este momento.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">La función de videollamadas no está disponible.</string>
     <string name="usa_vzw_change_to_oneway_video">"Cambiar a video
@@ -812,7 +817,9 @@ La videollamada está usando la red móvil. (Si decide continuar, se generarán 
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">No volver a mostrar</string>
     <string name="video_calling_incoming">Videollamada</string>
+    <string name="video_calls_quality_poor_tmo">La calidad de la conexión es mala. Es posible que la videollamada se pase a llamada de voz.</string>
     <string name="video_calls_temporarily_not_available">Las videollamadas no están disponibles en este momento. Se cambió la llamada a una de voz.</string>
+    <string name="video_calls_temporarily_not_available_att">El número al que está llamando no puede recibir videollamada en este momento. La llamada se conectó como llamada de voz.</string>
     <string name="video_calls_temporarily_not_available_tmo">La función de videollamadas no está disponible.</string>
     <string name="video_paused_info_text">En pausa</string>
     <string name="video_saved">Video guardado en %s.</string>
@@ -825,5 +832,5 @@ La videollamada está usando la red móvil. (Si decide continuar, se generarán 
     <string name="waiting_call_dialog_dismiss_toast">Llamada finalizada por %1$s. Reanudando la llamada con %2$s…</string>
     <string name="waiting_call_dialog_message">Responder llamada</string>
     <string name="websiteLabelsGroup">Dirección web</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Páginas amarillas</string>
 </resources>

@@ -21,16 +21,11 @@
 # direct methods
 .method public constructor <init>(J)V
     .locals 1
-    .param p1, "seed"    # J
 
-    .prologue
-    .line 564
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 565
     iput-wide p1, p0, Lcom/google/common/hash/Hashing$LinearCongruentialGenerator;->state:J
 
-    .line 566
     return-void
 .end method
 
@@ -39,8 +34,6 @@
 .method public nextDouble()D
     .locals 4
 
-    .prologue
-    .line 569
     const-wide v0, 0x27bb2ee687b0b0fdL    # 2.694898184339827E-117
 
     iget-wide v2, p0, Lcom/google/common/hash/Hashing$LinearCongruentialGenerator;->state:J
@@ -53,7 +46,6 @@
 
     iput-wide v0, p0, Lcom/google/common/hash/Hashing$LinearCongruentialGenerator;->state:J
 
-    .line 570
     iget-wide v0, p0, Lcom/google/common/hash/Hashing$LinearCongruentialGenerator;->state:J
 
     const/16 v2, 0x21

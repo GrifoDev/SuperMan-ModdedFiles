@@ -249,7 +249,7 @@
     <string name="description_secOnscreenVideoCallText">视频通话</string>
     <string name="description_secOnscreenViewContactText">查看联系人详细信息</string>
     <string name="device_info_not_available">不可用</string>
-    <string name="dial_warning">无法拨号</string>
+    <string name="dial_warning">无法拨号。</string>
     <string name="dialling_video_call">正在拨打视频通话</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -289,6 +289,7 @@
     <string name="extra_vol_off">已禁用【增强音量】。</string>
     <string name="extra_vol_on">已启用【增强音量】。</string>
     <string name="far_end_stopped_share_video">%s已停止分享视频</string>
+    <string name="far_end_stopped_share_video_att">%s 已停止发送视频</string>
     <string name="fareastone_operator_name">远传电信</string>
     <string name="file_not_supp">不支持文件</string>
     <string name="full_name">姓名</string>
@@ -671,7 +672,7 @@
     <string name="secOnscreenResumeCallText">继续</string>
     <string name="secOnscreenShowCallOption">显示通话选项</string>
     <string name="secOnscreenSpeaker">扬声器</string>
-    <string name="secOnscreenStopText">停止</string>
+    <string name="secOnscreenStopText">停止录制</string>
     <string name="secOnscreenSwapText">切换</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">切换相机</string>
@@ -746,6 +747,7 @@
     <string name="switch_to_voice_call_failed">请求切换至语音通话失败</string>
     <string name="switched_to_voip_mo">已切换至语音通话。</string>
     <string name="switched_to_voip_mt">由于对方的请求已切换至语音通话。</string>
+    <string name="switched_to_voip_mt_att">已切换至仅使用语音通话</string>
     <string name="switched_to_voip_mt_att_tmo">%s已关闭视频。</string>
     <string name="switching_camera_failed">切换相机失败</string>
     <string name="switching_to_voice_call">正在切换至语音通话…</string>
@@ -761,7 +763,9 @@
     <string name="usa_att_connected_as_voice">通话仅以语音连接</string>
     <string name="usa_att_data_usage_charge_alert">您在手机上设置的数据使用量即将达到限制。您的视频通话需要使用数据。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">无法通过 <cst>Wi-Fi</cst> 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
-    <string name="usa_att_modify_receive_to_video">选择视频模式</string>
+    <string name="usa_att_modify_receive_to_video">%s 正在请求切换至视频通话</string>
+    <string name="usa_att_modify_receive_to_video_share">%s 正在请求分享其视频</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">无法通过 <cst>Wi-Fi</cst> 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
     <string name="usa_att_select_call_type_incoming_video_call">点击下方以选择通话类型。</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">电话会议期间无法更改通话类型。</string>
     <string name="usa_gsm_modify_receive_to_video">%s 想要切换至视频通话</string>
@@ -769,6 +773,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">正在等待回复</string>
     <string name="usa_gsm_modify_select_call_type">选择通话类型</string>
     <string name="usa_gsm_switching_to_voice_call">正在切换至仅语音通话。</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">由于移动数据不可用，视频已关闭。</string>
     <string name="usa_volte_reject_upgrade_request">%s目前无法接听视频通话</string>
     <string name="usa_volte_reject_upgrade_request_tmo">视频通话不可用。</string>
     <string name="usa_vzw_change_to_oneway_video">"更改为
@@ -805,7 +810,7 @@
     <string name="usa_vzw_volte_weak_wifi_text">我们已尝试将您的视频通话切换至 <cst>Wi-Fi</cst>"，但此时无法完成切换。
 
 您的视频通话仍在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">您的视频通话仍在移动网络上运行。（将产生数据使用量。）</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">您的视频通话仍在移动网络上运行。(将产生数据使用量)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text"><cst>Wi-Fi</cst>" 信号强度不足以继续视频通话。
 
 您的视频通话正在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
@@ -813,7 +818,9 @@
     <string name="vibo_operator_name">台湾之星</string>
     <string name="video_alert_show_never_again">不再显示</string>
     <string name="video_calling_incoming">视频通话</string>
+    <string name="video_calls_quality_poor_tmo">连接质量不佳。视频通话可能切换至语音通话。</string>
     <string name="video_calls_temporarily_not_available">视频通话暂不可用。通话已切换至语音通话。</string>
+    <string name="video_calls_temporarily_not_available_att">您呼叫的号码暂时无法接收视频通话。已改为使用语音通话。</string>
     <string name="video_calls_temporarily_not_available_tmo">视频通话不可用。</string>
     <string name="video_paused_info_text">视频已暂停。</string>
     <string name="video_saved">视频已保存至%s。</string>

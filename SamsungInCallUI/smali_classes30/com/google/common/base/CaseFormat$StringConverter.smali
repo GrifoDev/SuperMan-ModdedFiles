@@ -41,14 +41,9 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/base/CaseFormat;Lcom/google/common/base/CaseFormat;)V
     .locals 1
-    .param p1, "sourceFormat"    # Lcom/google/common/base/CaseFormat;
-    .param p2, "targetFormat"    # Lcom/google/common/base/CaseFormat;
 
-    .prologue
-    .line 181
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
-    .line 182
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -57,7 +52,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
 
-    .line 183
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -66,7 +60,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->targetFormat:Lcom/google/common/base/CaseFormat;
 
-    .line 184
     return-void
 .end method
 
@@ -74,13 +67,9 @@
 # virtual methods
 .method protected bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 175
     check-cast p1, Ljava/lang/String;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/base/CaseFormat$StringConverter;->doBackward(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -90,10 +79,7 @@
 
 .method protected doBackward(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 193
     iget-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->targetFormat:Lcom/google/common/base/CaseFormat;
 
     iget-object v1, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
@@ -107,13 +93,9 @@
 
 .method protected bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 175
     check-cast p1, Ljava/lang/String;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/base/CaseFormat$StringConverter;->doForward(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -123,10 +105,7 @@
 
 .method protected doForward(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 188
     iget-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
 
     iget-object v1, p0, Lcom/google/common/base/CaseFormat$StringConverter;->targetFormat:Lcom/google/common/base/CaseFormat;
@@ -140,26 +119,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 198
     instance-of v2, p1, Lcom/google/common/base/CaseFormat$StringConverter;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 199
     check-cast v0, Lcom/google/common/base/CaseFormat$StringConverter;
 
-    .line 200
-    .local v0, "that":Lcom/google/common/base/CaseFormat$StringConverter;
     iget-object v2, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
 
     iget-object v3, v0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
@@ -182,8 +156,6 @@
 
     const/4 v1, 0x1
 
-    .line 202
-    .end local v0    # "that":Lcom/google/common/base/CaseFormat$StringConverter;
     :cond_0
     return v1
 .end method
@@ -191,8 +163,6 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 207
     iget-object v0, p0, Lcom/google/common/base/CaseFormat$StringConverter;->sourceFormat:Lcom/google/common/base/CaseFormat;
 
     invoke-virtual {v0}, Lcom/google/common/base/CaseFormat;->hashCode()I
@@ -213,8 +183,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 212
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

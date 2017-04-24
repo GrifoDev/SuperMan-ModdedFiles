@@ -30,9 +30,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 51
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedSet;-><init>()V
 
     return-void
@@ -48,10 +45,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 86
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -66,9 +59,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -79,9 +69,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -102,9 +89,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -115,9 +99,6 @@
 .method protected bridge synthetic delegate()Ljava/util/SortedSet;
     .locals 1
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -135,9 +116,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 172
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -159,9 +137,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 150
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -181,10 +156,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -198,7 +169,6 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -207,10 +177,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 205
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -230,10 +196,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 100
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -253,10 +215,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 58
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -276,9 +234,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 114
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -298,9 +253,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 128
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -320,10 +272,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 95
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -351,9 +299,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 141
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -373,10 +318,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 81
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -406,10 +347,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 215
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -427,10 +364,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 109
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -458,9 +391,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 145
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->descendingIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -480,10 +410,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 67
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -511,9 +437,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 123
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -533,9 +456,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 137
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->descendingIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -549,8 +469,6 @@
 
 .method protected standardSubSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation build Lcom/google/common/annotations/Beta;
     .end annotation
 
@@ -562,11 +480,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 189
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ForwardingNavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -588,11 +501,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 200
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -614,10 +522,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 230
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/ForwardingNavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
@@ -629,8 +533,6 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -639,11 +541,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -657,7 +554,6 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -666,10 +562,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 220
-    .local p0, "this":Lcom/google/common/collect/ForwardingNavigableSet;, "Lcom/google/common/collect/ForwardingNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingNavigableSet;->delegate()Ljava/util/NavigableSet;
 
     move-result-object v0

@@ -7,16 +7,13 @@
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     const v2, 0x3f547ae1    # 0.83f
 
-    .line 9
     const v0, 0x3ea8f5c3    # 0.33f
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1, v2, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
-    .line 10
     return-void
 .end method

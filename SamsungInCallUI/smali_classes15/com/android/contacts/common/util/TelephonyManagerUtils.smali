@@ -11,8 +11,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 29
     const-class v0, Lcom/android/contacts/common/util/TelephonyManagerUtils;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -27,8 +25,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,22 +32,15 @@
 
 .method public static getCurrentCountryIso(Landroid/content/Context;Ljava/util/Locale;)Ljava/lang/String;
     .locals 5
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "locale"    # Ljava/util/Locale;
 
-    .prologue
-    .line 52
     const-string v2, "phone"
 
-    .line 53
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/telephony/TelephonyManager;
 
-    .line 54
-    .local v1, "telephonyManager":Landroid/telephony/TelephonyManager;
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
 
     move-result-object v2
@@ -60,16 +49,12 @@
 
     move-result-object v0
 
-    .line 56
-    .local v0, "countryIso":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 57
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 58
     sget-object v2, Lcom/android/contacts/common/util/TelephonyManagerUtils;->LOG_TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -92,43 +77,31 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 61
     :cond_0
     return-object v0
 .end method
 
 .method public static getVoiceMailAlphaTag(Landroid/content/Context;)Ljava/lang/String;
     .locals 3
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 38
     const-string v2, "phone"
 
-    .line 39
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    .line 40
-    .local v0, "telephonyManager":Landroid/telephony/TelephonyManager;
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getVoiceMailAlphaTag()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 41
-    .local v1, "voiceMailLabel":Ljava/lang/String;
     return-object v1
 .end method
 
 .method public static hasVideoCallSubscription(Landroid/content/Context;)Z
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 70
     const/4 v0, 0x1
 
     return v0

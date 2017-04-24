@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
-    .prologue
-    .line 403
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$3;->this$0:Lcom/android/incallui/InCallActivity;
 
     invoke-direct {p0}, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;-><init>()V
@@ -37,31 +34,23 @@
 .method public onDialogDismissed()V
     .locals 1
 
-    .prologue
-    .line 413
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->cancelAccountSelection()V
 
-    .line 414
     return-void
 .end method
 
 .method public onPhoneAccountSelected(Landroid/telecom/PhoneAccountHandle;Z)V
     .locals 1
-    .param p1, "selectedAccountHandle"    # Landroid/telecom/PhoneAccountHandle;
-    .param p2, "setDefault"    # Z
 
-    .prologue
-    .line 407
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Lcom/android/incallui/InCallPresenter;->handleAccountSelection(Landroid/telecom/PhoneAccountHandle;Z)V
 
-    .line 409
     return-void
 .end method

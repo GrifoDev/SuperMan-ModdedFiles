@@ -42,13 +42,10 @@
 .method constructor <init>(Lcom/google/common/io/CharSource$CharSequenceCharSource$1;)V
     .locals 2
 
-    .prologue
-    .line 445
     iput-object p1, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource$1$1;->this$1:Lcom/google/common/io/CharSource$CharSequenceCharSource$1;
 
     invoke-direct {p0}, Lcom/google/common/collect/AbstractIterator;-><init>()V
 
-    .line 446
     # getter for: Lcom/google/common/io/CharSource$CharSequenceCharSource;->LINE_SPLITTER:Lcom/google/common/base/Splitter;
     invoke-static {}, Lcom/google/common/io/CharSource$CharSequenceCharSource;->access$200()Lcom/google/common/base/Splitter;
 
@@ -81,8 +78,6 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 445
     invoke-virtual {p0}, Lcom/google/common/io/CharSource$CharSequenceCharSource$1$1;->computeNext()Ljava/lang/String;
 
     move-result-object v0
@@ -93,8 +88,6 @@
 .method protected computeNext()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 450
     iget-object v1, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource$1$1;->lines:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -103,7 +96,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 451
     iget-object v1, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource$1$1;->lines:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -112,8 +104,6 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 453
-    .local v0, "next":Ljava/lang/String;
     iget-object v1, p0, Lcom/google/common/io/CharSource$CharSequenceCharSource$1$1;->lines:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -128,8 +118,6 @@
 
     if-nez v1, :cond_1
 
-    .line 457
-    .end local v0    # "next":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v0

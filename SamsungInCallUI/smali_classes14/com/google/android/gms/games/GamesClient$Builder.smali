@@ -34,11 +34,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "connectedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-string v0, "<<default account>>"
@@ -108,9 +104,7 @@
 
 .method public setAccountName(Ljava/lang/String;)Lcom/google/android/gms/games/GamesClient$Builder;
     .locals 1
-    .param p1, "accountName"    # Ljava/lang/String;
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -124,9 +118,7 @@
 
 .method public setGravityForPopups(I)Lcom/google/android/gms/games/GamesClient$Builder;
     .locals 0
-    .param p1, "gravity"    # I
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/games/GamesClient$Builder;->dv:I
 
     return-object p0
@@ -134,9 +126,7 @@
 
 .method public varargs setScopes([Ljava/lang/String;)Lcom/google/android/gms/games/GamesClient$Builder;
     .locals 0
-    .param p1, "scopes"    # [Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/games/GamesClient$Builder;->f:[Ljava/lang/String;
 
     return-object p0
@@ -144,9 +134,7 @@
 
 .method public setViewForPopups(Landroid/view/View;)Lcom/google/android/gms/games/GamesClient$Builder;
     .locals 1
-    .param p1, "gamesContentView"    # Landroid/view/View;
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

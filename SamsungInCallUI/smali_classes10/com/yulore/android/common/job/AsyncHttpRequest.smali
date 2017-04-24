@@ -53,78 +53,56 @@
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v1, -0x1
 
-    .line 59
     invoke-direct {p0}, Lcom/yulore/android/common/job/AsyncJob;-><init>()V
 
-    .line 20
     iput-object v2, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqUrl:Ljava/lang/String;
 
-    .line 25
     const-string v0, "GET"
 
     iput-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqType:Ljava/lang/String;
 
-    .line 40
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->soTimeout:I
 
-    .line 45
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->connectionTimeout:I
 
-    .line 50
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->status:I
 
-    .line 55
     iput-object v2, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->mResponseContent:Ljava/lang/String;
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "reqUrl"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v1, -0x1
 
-    .line 63
     invoke-direct {p0}, Lcom/yulore/android/common/job/AsyncJob;-><init>()V
 
-    .line 20
     iput-object v2, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqUrl:Ljava/lang/String;
 
-    .line 25
     const-string v0, "GET"
 
     iput-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqType:Ljava/lang/String;
 
-    .line 40
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->soTimeout:I
 
-    .line 45
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->connectionTimeout:I
 
-    .line 50
     iput v1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->status:I
 
-    .line 55
     iput-object v2, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->mResponseContent:Ljava/lang/String;
 
-    .line 64
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->context:Landroid/content/Context;
 
-    .line 65
     iput-object p2, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqUrl:Ljava/lang/String;
 
-    .line 66
     return-void
 .end method
 
@@ -133,8 +111,6 @@
 .method public getConnectionTimeout()I
     .locals 1
 
-    .prologue
-    .line 126
     iget v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->connectionTimeout:I
 
     return v0
@@ -143,8 +119,6 @@
 .method public getContext()Landroid/content/Context;
     .locals 1
 
-    .prologue
-    .line 78
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->context:Landroid/content/Context;
 
     return-object v0
@@ -163,8 +137,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 110
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->headers:Ljava/util/HashMap;
 
     return-object v0
@@ -173,8 +145,6 @@
 .method public getReqType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 86
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqType:Ljava/lang/String;
 
     return-object v0
@@ -183,8 +153,6 @@
 .method public getReqUrl()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 70
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqUrl:Ljava/lang/String;
 
     return-object v0
@@ -203,8 +171,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 102
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->requestDataMap:Ljava/util/HashMap;
 
     return-object v0
@@ -213,8 +179,6 @@
 .method public getResponseContent()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 142
     iget-object v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->mResponseContent:Ljava/lang/String;
 
     return-object v0
@@ -223,8 +187,6 @@
 .method public getSoTimeout()I
     .locals 1
 
-    .prologue
-    .line 118
     iget v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->soTimeout:I
 
     return v0
@@ -233,8 +195,6 @@
 .method public getStatus()I
     .locals 1
 
-    .prologue
-    .line 134
     iget v0, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->status:I
 
     return v0
@@ -242,25 +202,17 @@
 
 .method public setConnectionTimeout(I)V
     .locals 0
-    .param p1, "connectionTimeout"    # I
 
-    .prologue
-    .line 130
     iput p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->connectionTimeout:I
 
-    .line 131
     return-void
 .end method
 
 .method public setContext(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 82
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->context:Landroid/content/Context;
 
-    .line 83
     return-void
 .end method
 
@@ -277,21 +229,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 114
-    .local p1, "headers":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->headers:Ljava/util/HashMap;
 
-    .line 115
     return-void
 .end method
 
 .method public setReqType(Ljava/lang/String;)V
     .locals 3
-    .param p1, "reqType"    # Ljava/lang/String;
 
-    .prologue
-    .line 94
     const-string v0, "GET"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -308,14 +253,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 95
     :cond_0
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqType:Ljava/lang/String;
 
-    .line 99
     return-void
 
-    .line 97
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -344,13 +286,9 @@
 
 .method public setReqUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "reqUrl"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->reqUrl:Ljava/lang/String;
 
-    .line 75
     return-void
 .end method
 
@@ -367,47 +305,31 @@
         }
     .end annotation
 
-    .prologue
-    .line 106
-    .local p1, "requestDataMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->requestDataMap:Ljava/util/HashMap;
 
-    .line 107
     return-void
 .end method
 
 .method public setResponseContent(Ljava/lang/String;)V
     .locals 0
-    .param p1, "mResponseContent"    # Ljava/lang/String;
 
-    .prologue
-    .line 146
     iput-object p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->mResponseContent:Ljava/lang/String;
 
-    .line 147
     return-void
 .end method
 
 .method public setSoTimeout(I)V
     .locals 0
-    .param p1, "soTimeout"    # I
 
-    .prologue
-    .line 122
     iput p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->soTimeout:I
 
-    .line 123
     return-void
 .end method
 
 .method public setStatus(I)V
     .locals 0
-    .param p1, "status"    # I
 
-    .prologue
-    .line 138
     iput p1, p0, Lcom/yulore/android/common/job/AsyncHttpRequest;->status:I
 
-    .line 139
     return-void
 .end method

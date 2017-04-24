@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Lcom/android/incallui/fragment/VideoCallVGAFragment;-><init>()V
 
     return-void

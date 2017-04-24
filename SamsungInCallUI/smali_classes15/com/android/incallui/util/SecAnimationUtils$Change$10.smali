@@ -31,8 +31,6 @@
 .method constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;IILandroid/view/View;)V
     .locals 0
 
-    .prologue
-    .line 884
     iput-object p1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$10;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     iput p2, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$10;->val$deltaTopMargin:I
@@ -50,18 +48,13 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 887
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Float;
 
-    .line 888
-    .local v0, "value":Ljava/lang/Float;
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$10;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
@@ -84,13 +77,11 @@
 
     iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 889
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$10;->val$targetView:Landroid/view/View;
 
     iget-object v2, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$10;->val$targetLp:Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 890
     return-void
 .end method

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    .prologue
-    .line 162
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,14 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v5, 0x0
 
     const/4 v4, 0x1
 
-    .line 167
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -66,7 +60,6 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 168
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -77,18 +70,14 @@
 
     move-result-object v0
 
-    .line 169
-    .local v0, "call":Lcom/android/incallui/Call;
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 193
     :cond_0
     :goto_0
     return-void
 
-    .line 172
     :sswitch_0
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
@@ -107,7 +96,6 @@
 
     if-nez v2, :cond_0
 
-    .line 173
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mViewPager:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;
@@ -117,7 +105,6 @@
 
     invoke-virtual {v2, v5, v4}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$InCallViewPager;->setCurrentItem(IZ)V
 
-    .line 174
     new-instance v2, Lcom/android/incallui/util/VisualCallCenter$IvrTask;
 
     invoke-direct {v2}, Lcom/android/incallui/util/VisualCallCenter$IvrTask;-><init>()V
@@ -136,13 +123,11 @@
 
     goto :goto_0
 
-    .line 178
     :sswitch_1
     const-string v2, "IVR_PAGE_DIALPAD"
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 179
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v2
@@ -151,7 +136,6 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 180
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -176,7 +160,6 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 181
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getContext()Landroid/content/Context;
@@ -191,8 +174,6 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 182
-    .local v1, "pm":Landroid/os/PowerManager;
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->isDialpadVisible()Z
@@ -219,7 +200,6 @@
 
     if-nez v2, :cond_0
 
-    .line 183
     invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     move-result-object v2
@@ -230,7 +210,6 @@
 
     if-nez v2, :cond_0
 
-    .line 184
     iget-object v2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$1;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-virtual {v2}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -241,14 +220,12 @@
 
     invoke-virtual {v2, v4}, Lcom/android/incallui/CallButtonPresenter;->showDialpadClicked(Z)V
 
-    .line 185
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-static {v4}, Lcom/android/incallui/util/VisualCallCenter;->VCC_setDisplayDailpad(Z)V
 
     goto/16 :goto_0
 
-    .line 169
     nop
 
     :sswitch_data_0

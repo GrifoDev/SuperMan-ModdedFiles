@@ -33,10 +33,6 @@
 .method constructor <init>(Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;Ljava/util/ListIterator;Lcom/google/common/collect/LinkedListMultimap$NodeIterator;)V
     .locals 0
 
-    .prologue
-    .line 752
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;, "Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl.1;"
-    .local p2, "x0":Ljava/util/ListIterator;, "Ljava/util/ListIterator<+Ljava/util/Map$Entry<TK;TV;>;>;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;->this$1:Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl;
 
     iput-object p3, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;->val$nodeItr:Lcom/google/common/collect/LinkedListMultimap$NodeIterator;
@@ -56,28 +52,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 760
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;, "Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl.1;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;->val$nodeItr:Lcom/google/common/collect/LinkedListMultimap$NodeIterator;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/LinkedListMultimap$NodeIterator;->setValue(Ljava/lang/Object;)V
 
-    .line 761
     return-void
 .end method
 
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 752
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;, "Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl.1;"
     check-cast p1, Ljava/util/Map$Entry;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;->transform(Ljava/util/Map$Entry;)Ljava/lang/Object;
 
     move-result-object v0
@@ -95,10 +81,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 755
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl$1;, "Lcom/google/common/collect/LinkedListMultimap$1ValuesImpl.1;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0

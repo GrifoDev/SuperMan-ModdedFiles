@@ -27,8 +27,6 @@
 .method constructor <init>(Landroid/view/View;I)V
     .locals 0
 
-    .prologue
-    .line 797
     iput-object p1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$6;->val$targetView:Landroid/view/View;
 
     iput p2, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$6;->val$deltaHeight:I
@@ -42,18 +40,13 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 800
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Float;
 
-    .line 801
-    .local v0, "value":Ljava/lang/Float;
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$6;->val$targetView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -78,11 +71,9 @@
 
     iput v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 802
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$Change$6;->val$targetView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->requestLayout()V
 
-    .line 803
     return-void
 .end method

@@ -13,7 +13,6 @@
 
 .method public static getParticipantId(Ljava/util/ArrayList;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "playerId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -27,8 +26,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "participants":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/gms/games/multiplayer/Participant;>;"
     const/4 v0, 0x0
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VideoCallButtonFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
-    .prologue
-    .line 96
     iput-object p1, p0, Lcom/android/incallui/fragment/VideoCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 99
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 111
     :goto_0
     return-void
 
-    .line 101
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
@@ -58,14 +50,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 102
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/VideoCallButtonFragment;->toggleVideoButtonContainer()V
 
     goto :goto_0
 
-    .line 104
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonFragment$1;->this$0:Lcom/android/incallui/fragment/VideoCallButtonFragment;
 
@@ -79,7 +69,6 @@
 
     goto :goto_0
 
-    .line 99
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

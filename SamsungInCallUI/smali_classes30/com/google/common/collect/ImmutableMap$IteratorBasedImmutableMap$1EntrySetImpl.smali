@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;)V
     .locals 0
 
-    .prologue
-    .line 375
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap.1EntrySetImpl;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;->this$0:Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMapEntrySet;-><init>()V
@@ -53,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 383
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;->this$0:Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;->entryIterator()Lcom/google/common/collect/UnmodifiableIterator;
@@ -68,9 +62,6 @@
 .method public bridge synthetic iterator()Ljava/util/Iterator;
     .locals 1
 
-    .prologue
-    .line 374
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap.1EntrySetImpl;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;->iterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
@@ -88,9 +79,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 378
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;->this$0:Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;
 
     return-object v0

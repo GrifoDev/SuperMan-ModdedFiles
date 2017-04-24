@@ -59,13 +59,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 466
-    .local p0, "this":Lcom/google/common/hash/BloomFilter$SerialForm;, "Lcom/google/common/hash/BloomFilter$SerialForm<TT;>;"
-    .local p1, "bf":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 467
     # getter for: Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
     invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$000(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
@@ -75,7 +70,6 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->data:[J
 
-    .line 468
     # getter for: Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
     invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$100(Lcom/google/common/hash/BloomFilter;)I
 
@@ -83,7 +77,6 @@
 
     iput v0, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->numHashFunctions:I
 
-    .line 469
     # getter for: Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
     invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$200(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/Funnel;
 
@@ -91,7 +84,6 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->funnel:Lcom/google/common/hash/Funnel;
 
-    .line 470
     # getter for: Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
     invoke-static {p1}, Lcom/google/common/hash/BloomFilter;->access$300(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilter$Strategy;
 
@@ -99,7 +91,6 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter$SerialForm;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
-    .line 471
     return-void
 .end method
 
@@ -108,9 +99,6 @@
 .method readResolve()Ljava/lang/Object;
     .locals 6
 
-    .prologue
-    .line 474
-    .local p0, "this":Lcom/google/common/hash/BloomFilter$SerialForm;, "Lcom/google/common/hash/BloomFilter$SerialForm<TT;>;"
     new-instance v0, Lcom/google/common/hash/BloomFilter;
 
     new-instance v1, Lcom/google/common/hash/BloomFilterStrategies$BitArray;

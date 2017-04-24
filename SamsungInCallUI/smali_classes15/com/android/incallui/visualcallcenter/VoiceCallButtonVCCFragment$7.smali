@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;Landroid/widget/CheckBox;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    .prologue
-    .line 1139
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$7;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     iput-object p2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$7;->val$checkboxupdate:Landroid/widget/CheckBox;
@@ -43,14 +40,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
-    .line 1142
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$7;->val$checkboxupdate:Landroid/widget/CheckBox;
 
     invoke-virtual {v0}, Landroid/widget/CheckBox;->toggle()V
 
-    .line 1143
     return-void
 .end method

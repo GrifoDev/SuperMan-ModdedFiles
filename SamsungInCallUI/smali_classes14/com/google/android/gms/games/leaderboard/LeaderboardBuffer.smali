@@ -16,9 +16,7 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/common/data/d;)V
     .locals 0
-    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/d;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/f;-><init>(Lcom/google/android/gms/common/data/d;)V
 
     return-void
@@ -38,10 +36,7 @@
 
 .method protected getEntry(II)Lcom/google/android/gms/games/leaderboard/Leaderboard;
     .locals 2
-    .param p1, "rowIndex"    # I
-    .param p2, "numChildren"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/games/leaderboard/a;
 
     iget-object v1, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardBuffer;->S:Lcom/google/android/gms/common/data/d;

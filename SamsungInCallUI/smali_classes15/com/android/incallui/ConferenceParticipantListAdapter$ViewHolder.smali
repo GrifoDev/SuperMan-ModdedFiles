@@ -54,8 +54,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 422
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -63,10 +61,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/ConferenceParticipantListAdapter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/ConferenceParticipantListAdapter$1;
 
-    .prologue
-    .line 422
     invoke-direct {p0}, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;-><init>()V
 
     return-void
@@ -76,15 +71,11 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 444
     if-nez p1, :cond_1
 
-    .line 450
     :cond_0
     :goto_0
     return v1
@@ -92,11 +83,8 @@
     :cond_1
     move-object v0, p1
 
-    .line 446
     check-cast v0, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;
 
-    .line 447
-    .local v0, "holder":Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;
     iget-object v2, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->parentView:Landroid/view/View;
 
     iget-object v3, v0, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->parentView:Landroid/view/View;
@@ -113,7 +101,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 448
     const/4 v1, 0x1
 
     goto :goto_0

@@ -167,15 +167,13 @@
 
 .field public static final abc_textfield_search_material:I = 0x7f02004b
 
-.field public static final notification_template_icon_bg:I = 0x7f0203e9
+.field public static final notification_template_icon_bg:I = 0x7f0203f3
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 417
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

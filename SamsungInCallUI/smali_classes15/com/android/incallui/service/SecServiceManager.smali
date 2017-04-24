@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,14 +18,9 @@
 
 .method public static getService(Ljava/lang/String;)Landroid/os/IBinder;
     .locals 9
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 15
     const/4 v4, 0x0
 
-    .line 18
-    .local v4, "ret":Landroid/os/IBinder;
     :try_start_0
     const-string v5, "android.os.ServiceManager"
 
@@ -35,8 +28,6 @@
 
     move-result-object v1
 
-    .line 19
-    .local v1, "classServiceManager":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v5, "getService"
 
     const/4 v6, 0x1
@@ -53,8 +44,6 @@
 
     move-result-object v3
 
-    .line 20
-    .local v3, "methodGetService":Ljava/lang/reflect/Method;
     const/4 v5, 0x1
 
     new-array v5, v5, [Ljava/lang/Object;
@@ -78,18 +67,12 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
 
-    .line 25
-    .end local v1    # "classServiceManager":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v3    # "methodGetService":Ljava/lang/reflect/Method;
     :goto_0
     return-object v4
 
-    .line 21
     :catch_0
     move-exception v2
 
-    .line 22
-    .local v2, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v5, "SecServiceManager"
 
@@ -99,8 +82,6 @@
 
     goto :goto_0
 
-    .line 21
-    .end local v2    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v2
 

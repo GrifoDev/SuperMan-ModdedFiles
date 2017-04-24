@@ -37,27 +37,20 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 143
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher;-><init>()V
 
-    .line 166
     invoke-static {}, Lcom/google/common/collect/Queues;->newConcurrentLinkedQueue()Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;->queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
-    .line 182
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/eventbus/Dispatcher$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/eventbus/Dispatcher$1;
 
-    .prologue
-    .line 143
     invoke-direct {p0}, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;-><init>()V
 
     return-void
@@ -67,7 +60,6 @@
 # virtual methods
 .method dispatch(Ljava/lang/Object;Ljava/util/Iterator;)V
     .locals 5
-    .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,12 +71,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 171
-    .local p2, "subscribers":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/eventbus/Subscriber;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 172
     :goto_0
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -92,7 +80,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 173
     iget-object v2, p0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;->queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     new-instance v3, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
@@ -111,7 +98,6 @@
 
     goto :goto_0
 
-    .line 177
     :cond_0
     :goto_1
     iget-object v1, p0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher;->queue:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -122,10 +108,8 @@
 
     check-cast v0, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
 
-    .local v0, "e":Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;
     if-eqz v0, :cond_1
 
-    .line 178
     # getter for: Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->subscriber:Lcom/google/common/eventbus/Subscriber;
     invoke-static {v0}, Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;->access$800(Lcom/google/common/eventbus/Dispatcher$LegacyAsyncDispatcher$EventWithSubscriber;)Lcom/google/common/eventbus/Subscriber;
 
@@ -140,7 +124,6 @@
 
     goto :goto_1
 
-    .line 180
     :cond_1
     return-void
 .end method

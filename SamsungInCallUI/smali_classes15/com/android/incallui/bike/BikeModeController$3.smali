@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/bike/BikeModeController;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/bike/BikeModeController;
 
-    .prologue
-    .line 86
     iput-object p1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,17 +33,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
-    .line 89
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 90
-    .local v0, "action":Ljava/lang/String;
     const-string v1, "BikeModeController"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -69,10 +60,8 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 91
     if-eqz v0, :cond_0
 
-    .line 92
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -81,7 +70,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 93
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
@@ -91,12 +79,10 @@
 
     invoke-virtual {v1, p2}, Lcom/android/incallui/bike/BikeModeAudioManager;->onScreenOffReceived(Landroid/content/Intent;)V
 
-    .line 102
     :cond_0
     :goto_0
     return-void
 
-    .line 94
     :cond_1
     const-string v1, "android.intent.action.HEADSET_PLUG"
 
@@ -106,7 +92,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 95
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
@@ -118,7 +103,6 @@
 
     goto :goto_0
 
-    .line 96
     :cond_2
     const-string v1, "android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED"
 
@@ -128,7 +112,6 @@
 
     if-eqz v1, :cond_3
 
-    .line 97
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     # getter for: Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
@@ -140,7 +123,6 @@
 
     goto :goto_0
 
-    .line 98
     :cond_3
     const-string v1, "com.samsung.BikeMode.DrawInCallUI"
 
@@ -150,7 +132,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 99
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeController$3;->this$0:Lcom/android/incallui/bike/BikeModeController;
 
     # invokes: Lcom/android/incallui/bike/BikeModeController;->onBikeModeDrawUiReceived(Landroid/content/Intent;)V

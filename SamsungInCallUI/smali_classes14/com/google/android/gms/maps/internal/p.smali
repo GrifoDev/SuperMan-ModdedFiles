@@ -194,9 +194,7 @@
 
 .method private static getRemoteContext(Landroid/content/Context;)Landroid/content/Context;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     sget-object v0, Lcom/google/android/gms/maps/internal/p;->gN:Landroid/content/Context;
 
     if-nez v0, :cond_0

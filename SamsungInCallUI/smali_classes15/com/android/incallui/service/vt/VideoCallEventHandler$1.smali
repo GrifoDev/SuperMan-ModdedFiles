@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/vt/VideoCallEventHandler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/vt/VideoCallEventHandler;
 
-    .prologue
-    .line 36
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallEventHandler$1;->this$0:Lcom/android/incallui/service/vt/VideoCallEventHandler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,48 +32,52 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 2
 
-    .prologue
-    .line 39
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    sparse-switch v0, :sswitch_data_0
 
-    .line 55
     :goto_0
     return-void
 
-    .line 41
-    :pswitch_0
+    :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallEventHandler$1;->this$0:Lcom/android/incallui/service/vt/VideoCallEventHandler;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallEventHandler;->expiredSwapProgressing()V
 
     goto :goto_0
 
-    .line 45
-    :pswitch_1
+    :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallEventHandler$1;->this$0:Lcom/android/incallui/service/vt/VideoCallEventHandler;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallEventHandler;->expiredResumeCameraForActivityState()V
 
     goto :goto_0
 
-    .line 49
-    :pswitch_2
+    :sswitch_2
     iget-object v0, p0, Lcom/android/incallui/service/vt/VideoCallEventHandler$1;->this$0:Lcom/android/incallui/service/vt/VideoCallEventHandler;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallEventHandler;->expiredPauseCameraForActivityState()V
 
     goto :goto_0
 
-    .line 39
-    :pswitch_data_0
-    .packed-switch 0x64
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
+    :sswitch_3
+    iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallEventHandler$1;->this$0:Lcom/android/incallui/service/vt/VideoCallEventHandler;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/incallui/Call;
+
+    invoke-virtual {v1, v0}, Lcom/android/incallui/service/vt/VideoCallEventHandler;->onVideoCallChanged(Lcom/android/incallui/Call;)V
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x64 -> :sswitch_0
+        0x65 -> :sswitch_1
+        0x66 -> :sswitch_2
+        0xc8 -> :sswitch_3
+    .end sparse-switch
 .end method

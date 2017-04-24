@@ -75,24 +75,7 @@
 
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Landroid/net/Uri;Landroid/net/Uri;ZZLjava/lang/String;III)V
     .locals 1
-    .param p1, "versionCode"    # I
-    .param p2, "applicationId"    # Ljava/lang/String;
-    .param p3, "displayName"    # Ljava/lang/String;
-    .param p4, "primaryCategory"    # Ljava/lang/String;
-    .param p5, "secondaryCategory"    # Ljava/lang/String;
-    .param p6, "description"    # Ljava/lang/String;
-    .param p7, "developerName"    # Ljava/lang/String;
-    .param p8, "iconImageUri"    # Landroid/net/Uri;
-    .param p9, "hiResImageUri"    # Landroid/net/Uri;
-    .param p10, "featuredImageUri"    # Landroid/net/Uri;
-    .param p11, "playEnabledGame"    # Z
-    .param p12, "instanceInstalled"    # Z
-    .param p13, "instancePackageName"    # Ljava/lang/String;
-    .param p14, "gameplayAclStatus"    # I
-    .param p15, "achievementTotalCount"    # I
-    .param p16, "leaderboardCount"    # I
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/GameEntity;->ab:I
@@ -136,9 +119,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/games/Game;)V
     .locals 1
-    .param p1, "game"    # Lcom/google/android/gms/games/Game;
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     const/4 v0, 0x1
@@ -896,9 +877,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/GameEntity;->a(Lcom/google/android/gms/games/Game;Ljava/lang/Object;)Z
 
     move-result v0
@@ -948,9 +927,7 @@
 
 .method public getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GameEntity;->di:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -968,9 +945,7 @@
 
 .method public getDeveloperName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GameEntity;->dj:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -988,9 +963,7 @@
 
 .method public getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GameEntity;->cl:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -1116,10 +1089,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0

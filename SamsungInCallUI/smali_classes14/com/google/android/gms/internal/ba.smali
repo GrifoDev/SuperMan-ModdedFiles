@@ -133,9 +133,7 @@
 
 .method public setGravity(I)V
     .locals 1
-    .param p1, "gravity"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/ba;->ej:Lcom/google/android/gms/internal/ba$a;
 
     iput p1, v0, Lcom/google/android/gms/internal/ba$a;->gravity:I

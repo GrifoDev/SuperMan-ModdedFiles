@@ -38,11 +38,7 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
     .locals 3
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
 
-    .prologue
-    .line 99
     new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;
 
     invoke-direct {v0, p2}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;-><init>(Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
@@ -55,58 +51,38 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Lcom/thoughtworks/xstream/core/ClassLoaderReference;)V
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Lcom/thoughtworks/xstream/core/ClassLoaderReference;)V
     .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
-    .param p3, "classLoaderReference"    # Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
-    .prologue
-    .line 84
     new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;
 
     invoke-direct {v0, p2}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;-><init>(Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
-    .line 85
     iput-object p3, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->classLoaderReference:Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
-    .line 86
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Ljava/lang/ClassLoader;)V
     .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
-    .param p3, "classLoader"    # Ljava/lang/ClassLoader;
 
-    .prologue
-    .line 92
     new-instance v0, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
     invoke-direct {v0, p3}, Lcom/thoughtworks/xstream/core/ClassLoaderReference;-><init>(Ljava/lang/ClassLoader;)V
 
     invoke-direct {p0, p1, p2, v0}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Lcom/thoughtworks/xstream/core/ClassLoaderReference;)V
 
-    .line 93
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;Ljava/io/ObjectStreamField;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;
-    .param p1, "x1"    # Ljava/io/ObjectStreamField;
-    .param p2, "x2"    # Ljava/lang/Class;
-    .param p3, "x3"    # Ljava/lang/Object;
 
-    .prologue
-    .line 62
     invoke-direct {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->readField(Ljava/io/ObjectStreamField;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -116,12 +92,9 @@
 
 .method private isSerializable(Ljava/lang/Class;)Z
     .locals 4
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 107
     if-eqz p1, :cond_3
 
     const-class v1, Ljava/io/Serializable;
@@ -154,7 +127,6 @@
 
     if-eqz v1, :cond_3
 
-    .line 112
     :cond_0
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->hierarchyFor(Ljava/lang/Class;)Ljava/util/List;
 
@@ -164,7 +136,6 @@
 
     move-result-object v0
 
-    .local v0, "iter":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -172,7 +143,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 113
     const-class v3, Ljava/io/Serializable;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -187,25 +157,18 @@
 
     if-nez v1, :cond_1
 
-    .line 114
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->canAccess(Ljava/lang/Class;)Z
 
     move-result v1
 
-    .line 119
-    .end local v0    # "iter":Ljava/util/Iterator;
     :goto_0
     return v1
 
-    .restart local v0    # "iter":Ljava/util/Iterator;
     :cond_2
     move v1, v2
 
-    .line 117
     goto :goto_0
 
-    .line 119
-    .end local v0    # "iter":Ljava/util/Iterator;
     :cond_3
     const/4 v1, 0x0
 
@@ -214,12 +177,7 @@
 
 .method private readField(Ljava/io/ObjectStreamField;Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 5
-    .param p1, "field"    # Ljava/io/ObjectStreamField;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "instance"    # Ljava/lang/Object;
 
-    .prologue
-    .line 298
     :try_start_0
     invoke-virtual {p1}, Ljava/io/ObjectStreamField;->getName()Ljava/lang/String;
 
@@ -229,20 +187,16 @@
 
     move-result-object v1
 
-    .line 299
-    .local v1, "javaField":Ljava/lang/reflect/Field;
     invoke-virtual {v1}, Ljava/lang/reflect/Field;->isAccessible()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 300
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 302
     :cond_0
     invoke-virtual {v1, p3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -255,13 +209,9 @@
 
     return-object v2
 
-    .line 303
-    .end local v1    # "javaField":Ljava/lang/reflect/Field;
     :catch_0
     move-exception v0
 
-    .line 304
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -304,13 +254,9 @@
 
     throw v2
 
-    .line 305
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catch_1
     move-exception v0
 
-    .line 306
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -353,13 +299,9 @@
 
     throw v2
 
-    .line 307
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v0
 
-    .line 308
-    .local v0, "e":Ljava/lang/NoSuchFieldException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -402,13 +344,9 @@
 
     throw v2
 
-    .line 309
-    .end local v0    # "e":Ljava/lang/NoSuchFieldException;
     :catch_3
     move-exception v0
 
-    .line 310
-    .local v0, "e":Ljava/lang/SecurityException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -456,10 +394,7 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 103
     invoke-static {}, Lcom/thoughtworks/xstream/core/JVM;->canCreateDerivedObjectOutputStream()Z
 
     move-result v0
@@ -485,12 +420,7 @@
 
 .method public doMarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 17
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
-    .prologue
-    .line 123
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -501,25 +431,19 @@
 
     move-result-object v11
 
-    .line 124
-    .local v11, "attributeName":Ljava/lang/String;
     if-eqz v11, :cond_0
 
-    .line 125
     const-string v5, "custom"
 
     move-object/from16 v0, p2
 
     invoke-interface {v0, v11, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 129
     :cond_0
     const/4 v5, 0x1
 
     new-array v8, v5, [Ljava/lang/Class;
 
-    .line 130
-    .local v8, "currentType":[Ljava/lang/Class;
     const/4 v5, 0x1
 
     new-array v10, v5, [Z
@@ -530,8 +454,6 @@
 
     aput-boolean v6, v10, v5
 
-    .line 132
-    .local v10, "writtenClassWrapper":[Z
     new-instance v4, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$1;
 
     move-object/from16 v5, p0
@@ -544,12 +466,8 @@
 
     invoke-direct/range {v4 .. v10}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$1;-><init>(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;[Ljava/lang/Class;Ljava/lang/Object;[Z)V
 
-    .line 237
-    .local v4, "callback":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
     const/4 v15, 0x0
 
-    .line 238
-    .local v15, "mustHandleUnserializableParent":Z
     :try_start_0
     invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -565,8 +483,6 @@
 
     move-result-object v13
 
-    .line 239
-    .local v13, "classHieararchy":Ljava/util/Iterator;
     :cond_1
     :goto_0
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
@@ -575,7 +491,6 @@
 
     if-eqz v5, :cond_8
 
-    .line 240
     const/4 v6, 0x0
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -586,7 +501,6 @@
 
     aput-object v5, v8, v6
 
-    .line 241
     const-class v5, Ljava/io/Serializable;
 
     const/4 v6, 0x0
@@ -599,17 +513,13 @@
 
     if-nez v5, :cond_2
 
-    .line 242
     const/4 v15, 0x1
 
-    .line 243
     goto :goto_0
 
-    .line 245
     :cond_2
     if-eqz v15, :cond_3
 
-    .line 246
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -620,10 +530,8 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->marshalUnserializableParent(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;Ljava/lang/Object;)V
 
-    .line 247
     const/4 v15, 0x0
 
-    .line 249
     :cond_3
     move-object/from16 v0, p0
 
@@ -641,14 +549,12 @@
 
     if-eqz v5, :cond_5
 
-    .line 250
     const/4 v5, 0x0
 
     const/4 v6, 0x1
 
     aput-boolean v6, v10, v5
 
-    .line 251
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -665,7 +571,6 @@
 
     invoke-interface {v0, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
-    .line 252
     const/4 v5, 0x0
 
     aget-object v5, v8, v5
@@ -684,7 +589,6 @@
 
     if-eq v5, v6, :cond_4
 
-    .line 253
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -695,11 +599,8 @@
 
     move-result-object v12
 
-    .line 254
-    .local v12, "classAttributeName":Ljava/lang/String;
     if-eqz v12, :cond_4
 
-    .line 255
     const/4 v5, 0x0
 
     aget-object v5, v8, v5
@@ -712,8 +613,6 @@
 
     invoke-interface {v0, v12, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 258
-    .end local v12    # "classAttributeName":Ljava/lang/String;
     :cond_4
     move-object/from16 v0, p3
 
@@ -721,8 +620,6 @@
 
     move-result-object v16
 
-    .line 259
-    .local v16, "objectOutputStream":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->serializationMethodInvoker:Lcom/thoughtworks/xstream/converters/reflection/SerializationMethodInvoker;
@@ -737,24 +634,17 @@
 
     invoke-virtual {v5, v6, v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/SerializationMethodInvoker;->callWriteObject(Ljava/lang/Class;Ljava/lang/Object;Ljava/io/ObjectOutputStream;)V
 
-    .line 260
     invoke-virtual/range {v16 .. v16}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->popCallback()Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
 
-    .line 261
     invoke-interface/range {p2 .. p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
-    .line 285
-    .end local v13    # "classHieararchy":Ljava/util/Iterator;
-    .end local v16    # "objectOutputStream":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
     :catch_0
     move-exception v14
 
-    .line 286
-    .local v14, "e":Ljava/io/IOException;
     new-instance v5, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v6, "Could not call defaultWriteObject()"
@@ -763,9 +653,6 @@
 
     throw v5
 
-    .line 262
-    .end local v14    # "e":Ljava/io/IOException;
-    .restart local v13    # "classHieararchy":Ljava/util/Iterator;
     :cond_5
     :try_start_1
     move-object/from16 v0, p0
@@ -784,14 +671,12 @@
 
     if-eqz v5, :cond_7
 
-    .line 266
     const/4 v5, 0x0
 
     const/4 v6, 0x1
 
     aput-boolean v6, v10, v5
 
-    .line 267
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -808,7 +693,6 @@
 
     invoke-interface {v0, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
-    .line 268
     const/4 v5, 0x0
 
     aget-object v5, v8, v5
@@ -827,7 +711,6 @@
 
     if-eq v5, v6, :cond_6
 
-    .line 269
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -838,11 +721,8 @@
 
     move-result-object v12
 
-    .line 270
-    .restart local v12    # "classAttributeName":Ljava/lang/String;
     if-eqz v12, :cond_6
 
-    .line 271
     const/4 v5, 0x0
 
     aget-object v5, v8, v5
@@ -855,17 +735,13 @@
 
     invoke-interface {v0, v12, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 274
-    .end local v12    # "classAttributeName":Ljava/lang/String;
     :cond_6
     invoke-interface {v4}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->defaultWriteObject()V
 
-    .line 275
     invoke-interface/range {p2 .. p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
     goto/16 :goto_0
 
-    .line 277
     :cond_7
     const/4 v5, 0x0
 
@@ -873,36 +749,27 @@
 
     aput-boolean v6, v10, v5
 
-    .line 278
     invoke-interface {v4}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->defaultWriteObject()V
 
-    .line 279
     const/4 v5, 0x0
 
     aget-boolean v5, v10, v5
 
     if-eqz v5, :cond_1
 
-    .line 280
     invoke-interface/range {p2 .. p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_0
 
-    .line 288
     :cond_8
     return-void
 .end method
 
 .method protected doMarshalConditionally(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
-    .prologue
-    .line 471
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -913,14 +780,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 472
     invoke-virtual {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->doMarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
-    .line 476
     :goto_0
     return-void
 
-    .line 474
     :cond_0
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;->doMarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
@@ -929,20 +793,13 @@
 
 .method public doUnmarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
     .locals 12
-    .param p1, "result"    # Ljava/lang/Object;
-    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
-    .prologue
     const/4 v11, 0x0
 
-    .line 329
     const/4 v1, 0x1
 
     new-array v5, v1, [Ljava/lang/Class;
 
-    .line 331
-    .local v5, "currentType":[Ljava/lang/Class;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     const-string v2, "serialization"
@@ -951,8 +808,6 @@
 
     move-result-object v6
 
-    .line 332
-    .local v6, "attributeName":Ljava/lang/String;
     if-eqz v6, :cond_0
 
     const-string v1, "custom"
@@ -967,7 +822,6 @@
 
     if-nez v1, :cond_0
 
-    .line 333
     new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
     const-string v2, "Cannot deserialize object with new readObject()/writeObject() methods"
@@ -976,7 +830,6 @@
 
     throw v1
 
-    .line 336
     :cond_0
     new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;
 
@@ -990,8 +843,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;-><init>(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/lang/Object;[Ljava/lang/Class;)V
 
-    .line 439
-    .local v0, "callback":Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream$StreamCallback;
     :goto_0
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
@@ -999,16 +850,12 @@
 
     if-eqz v1, :cond_4
 
-    .line 440
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
-    .line 441
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getNodeName()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 442
-    .local v9, "nodeName":Ljava/lang/String;
     const-string v1, "unserializable-parents"
 
     invoke-virtual {v9, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1017,16 +864,13 @@
 
     if-eqz v1, :cond_1
 
-    .line 443
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;->doUnmarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
 
-    .line 464
     :goto_1
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
     goto :goto_0
 
-    .line 445
     :cond_1
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
@@ -1034,11 +878,8 @@
 
     move-result-object v7
 
-    .line 446
-    .local v7, "classAttribute":Ljava/lang/String;
     if-nez v7, :cond_2
 
-    .line 447
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -1053,7 +894,6 @@
 
     aput-object v1, v5, v11
 
-    .line 451
     :goto_2
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->serializationMethodInvoker:Lcom/thoughtworks/xstream/converters/reflection/SerializationMethodInvoker;
 
@@ -1065,28 +905,22 @@
 
     if-eqz v1, :cond_3
 
-    .line 452
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->classLoaderReference:Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
     invoke-static {p3, v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream;->getInstance(Lcom/thoughtworks/xstream/converters/DataHolder;Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream$StreamCallback;Lcom/thoughtworks/xstream/core/ClassLoaderReference;)Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream;
 
     move-result-object v10
 
-    .line 454
-    .local v10, "objectInputStream":Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->serializationMethodInvoker:Lcom/thoughtworks/xstream/converters/reflection/SerializationMethodInvoker;
 
     aget-object v2, v5, v11
 
     invoke-virtual {v1, v2, p1, v10}, Lcom/thoughtworks/xstream/converters/reflection/SerializationMethodInvoker;->callReadObject(Ljava/lang/Class;Ljava/lang/Object;Ljava/io/ObjectInputStream;)V
 
-    .line 455
     invoke-virtual {v10}, Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream;->popCallback()Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream$StreamCallback;
 
     goto :goto_1
 
-    .line 449
-    .end local v10    # "objectInputStream":Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream;
     :cond_2
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
@@ -1098,7 +932,6 @@
 
     goto :goto_2
 
-    .line 458
     :cond_3
     :try_start_0
     invoke-interface {v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectInputStream$StreamCallback;->defaultReadObject()V
@@ -1107,12 +940,9 @@
 
     goto :goto_1
 
-    .line 459
     :catch_0
     move-exception v8
 
-    .line 460
-    .local v8, "e":Ljava/io/IOException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v2, "Could not call defaultWriteObject()"
@@ -1121,22 +951,13 @@
 
     throw v1
 
-    .line 467
-    .end local v7    # "classAttribute":Ljava/lang/String;
-    .end local v8    # "e":Ljava/io/IOException;
-    .end local v9    # "nodeName":Ljava/lang/String;
     :cond_4
     return-object p1
 .end method
 
 .method protected doUnmarshalConditionally(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
     .locals 1
-    .param p1, "result"    # Ljava/lang/Object;
-    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
-    .prologue
-    .line 479
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -1164,16 +985,11 @@
 
 .method protected hierarchyFor(Ljava/lang/Class;)Ljava/util/List;
     .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 315
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 316
-    .local v0, "result":Ljava/util/List;
     :goto_0
     const-class v1, Ljava/lang/Object;
 
@@ -1181,42 +997,30 @@
 
     if-eqz p1, :cond_0
 
-    .line 317
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 318
     invoke-virtual {p1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object p1
 
     goto :goto_0
 
-    .line 322
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
-    .line 324
     return-object v0
 .end method
 
 .method protected marshalUnserializableParent(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
-    .param p3, "replacedSource"    # Ljava/lang/Object;
 
-    .prologue
-    .line 291
     const-string v0, "unserializable-parents"
 
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
-    .line 292
     invoke-super {p0, p3, p1, p2}, Lcom/thoughtworks/xstream/converters/reflection/AbstractReflectionConverter;->doMarshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
-    .line 293
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 294
     return-void
 .end method

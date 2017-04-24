@@ -41,18 +41,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 264
-    .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>.SetFuture;"
-    .local p2, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->this$0:Lcom/google/common/util/concurrent/AbstractFuture;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 265
     iput-object p2, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->future:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 266
     return-void
 .end method
 
@@ -61,9 +55,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 269
-    .local p0, "this":Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;, "Lcom/google/common/util/concurrent/AbstractFuture<TV;>.SetFuture;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->this$0:Lcom/google/common/util/concurrent/AbstractFuture;
 
     # getter for: Lcom/google/common/util/concurrent/AbstractFuture;->value:Ljava/lang/Object;
@@ -73,11 +64,9 @@
 
     if-eq v0, p0, :cond_0
 
-    .line 274
     :goto_0
     return-void
 
-    .line 273
     :cond_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractFuture$SetFuture;->this$0:Lcom/google/common/util/concurrent/AbstractFuture;
 

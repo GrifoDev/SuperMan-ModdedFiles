@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1432
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1432
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$EventKindBuilder;-><init>()V
 
     return-void
@@ -42,15 +37,11 @@
 # virtual methods
 .method protected buildEditTypeForTypeTag(Landroid/util/AttributeSet;Ljava/lang/String;)Lcom/android/contacts/common/model/account/AccountType$EditType;
     .locals 4
-    .param p1, "attrs"    # Landroid/util/AttributeSet;
-    .param p2, "type"    # Ljava/lang/String;
 
-    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
-    .line 1462
     const-string v1, "yearOptional"
 
     # invokes: Lcom/android/contacts/common/model/account/BaseAccountType;->getAttr(Landroid/util/AttributeSet;Ljava/lang/String;Z)Z
@@ -58,8 +49,6 @@
 
     move-result v0
 
-    .line 1464
-    .local v0, "yo":Z
     const-string v1, "birthday"
 
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,7 +57,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 1465
     const/4 v1, 0x3
 
     invoke-static {v1, v0}, Lcom/android/contacts/common/model/account/BaseAccountType;->buildEventType(IZ)Lcom/android/contacts/common/model/account/AccountType$EditType;
@@ -79,11 +67,9 @@
 
     move-result-object v1
 
-    .line 1473
     :goto_0
     return-object v1
 
-    .line 1467
     :cond_0
     const-string v1, "anniversary"
 
@@ -99,7 +85,6 @@
 
     goto :goto_0
 
-    .line 1468
     :cond_1
     const-string v1, "other"
 
@@ -117,7 +102,6 @@
 
     goto :goto_0
 
-    .line 1469
     :cond_2
     const-string v1, "custom"
 
@@ -127,12 +111,10 @@
 
     if-eqz v1, :cond_3
 
-    .line 1470
     invoke-static {v3, v0}, Lcom/android/contacts/common/model/account/BaseAccountType;->buildEventType(IZ)Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     move-result-object v1
 
-    .line 1471
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/model/account/AccountType$EditType;->setSecondary(Z)Lcom/android/contacts/common/model/account/AccountType$EditType;
 
     move-result-object v1
@@ -145,7 +127,6 @@
 
     goto :goto_0
 
-    .line 1473
     :cond_3
     const/4 v1, 0x0
 
@@ -155,8 +136,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1436
     const-string v0, "event"
 
     return-object v0
@@ -164,9 +143,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -189,8 +165,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1443
     const/4 v4, 0x0
 
     const-string v5, "vnd.android.cursor.item/contact_event"
@@ -223,8 +197,6 @@
 
     move-result-object v11
 
-    .line 1447
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -239,7 +211,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1449
     const-string v0, "dateWithTime"
 
     const/4 v1, 0x0
@@ -251,17 +222,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 1450
     sget-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->NO_YEAR_DATE_AND_TIME_FORMAT:Ljava/text/SimpleDateFormat;
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->dateFormatWithoutYear:Ljava/text/SimpleDateFormat;
 
-    .line 1451
     sget-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->DATE_AND_TIME_FORMAT:Ljava/text/SimpleDateFormat;
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->dateFormatWithYear:Ljava/text/SimpleDateFormat;
 
-    .line 1457
     :goto_0
     const/4 v0, 0x1
 
@@ -277,13 +245,11 @@
 
     return-object v0
 
-    .line 1453
     :cond_0
     sget-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->NO_YEAR_DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->dateFormatWithoutYear:Ljava/text/SimpleDateFormat;
 
-    .line 1454
     sget-object v0, Lcom/android/contacts/common/util/CommonDateUtils;->FULL_DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
     iput-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->dateFormatWithYear:Ljava/text/SimpleDateFormat;

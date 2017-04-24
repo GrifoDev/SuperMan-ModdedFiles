@@ -43,8 +43,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 64
     new-instance v0, Lcom/android/dialer/calllog/ContactInfo;
 
     invoke-direct {v0}, Lcom/android/dialer/calllog/ContactInfo;-><init>()V
@@ -57,11 +55,8 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/dialer/calllog/ContactInfo;->sourceType:I
@@ -73,22 +68,17 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 8
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 82
     if-ne p0, p1, :cond_1
 
-    .line 98
     :cond_0
     :goto_0
     return v1
 
-    .line 83
     :cond_1
     if-nez p1, :cond_2
 
@@ -96,7 +86,6 @@
 
     goto :goto_0
 
-    .line 84
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -115,11 +104,8 @@
     :cond_3
     move-object v0, p1
 
-    .line 85
     check-cast v0, Lcom/android/dialer/calllog/ContactInfo;
 
-    .line 86
-    .local v0, "other":Lcom/android/dialer/calllog/ContactInfo;
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->lookupUri:Landroid/net/Uri;
 
     iget-object v4, v0, Lcom/android/dialer/calllog/ContactInfo;->lookupUri:Landroid/net/Uri;
@@ -134,7 +120,6 @@
 
     goto :goto_0
 
-    .line 87
     :cond_4
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->name:Ljava/lang/String;
 
@@ -150,7 +135,6 @@
 
     goto :goto_0
 
-    .line 88
     :cond_5
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->nameAlternative:Ljava/lang/String;
 
@@ -166,7 +150,6 @@
 
     goto :goto_0
 
-    .line 89
     :cond_6
     iget v3, p0, Lcom/android/dialer/calllog/ContactInfo;->type:I
 
@@ -178,7 +161,6 @@
 
     goto :goto_0
 
-    .line 90
     :cond_7
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->label:Ljava/lang/String;
 
@@ -194,7 +176,6 @@
 
     goto :goto_0
 
-    .line 91
     :cond_8
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->number:Ljava/lang/String;
 
@@ -210,7 +191,6 @@
 
     goto :goto_0
 
-    .line 92
     :cond_9
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->formattedNumber:Ljava/lang/String;
 
@@ -226,7 +206,6 @@
 
     goto :goto_0
 
-    .line 93
     :cond_a
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->normalizedNumber:Ljava/lang/String;
 
@@ -242,7 +221,6 @@
 
     goto :goto_0
 
-    .line 94
     :cond_b
     iget-wide v4, p0, Lcom/android/dialer/calllog/ContactInfo;->photoId:J
 
@@ -256,7 +234,6 @@
 
     goto :goto_0
 
-    .line 95
     :cond_c
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->photoUri:Landroid/net/Uri;
 
@@ -272,7 +249,6 @@
 
     goto/16 :goto_0
 
-    .line 96
     :cond_d
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->objectId:Ljava/lang/String;
 
@@ -288,7 +264,6 @@
 
     goto/16 :goto_0
 
-    .line 97
     :cond_e
     iget-wide v4, p0, Lcom/android/dialer/calllog/ContactInfo;->userType:J
 
@@ -306,18 +281,12 @@
 .method public hashCode()I
     .locals 5
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 73
     const/16 v0, 0x1f
 
-    .line 74
-    .local v0, "prime":I
     const/4 v1, 0x1
 
-    .line 75
-    .local v1, "result":I
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->lookupUri:Landroid/net/Uri;
 
     if-nez v2, :cond_0
@@ -327,7 +296,6 @@
     :goto_0
     add-int/lit8 v1, v2, 0x1f
 
-    .line 76
     mul-int/lit8 v2, v1, 0x1f
 
     iget-object v4, p0, Lcom/android/dialer/calllog/ContactInfo;->name:Ljava/lang/String;
@@ -337,10 +305,8 @@
     :goto_1
     add-int v1, v2, v3
 
-    .line 77
     return v1
 
-    .line 75
     :cond_0
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->lookupUri:Landroid/net/Uri;
 
@@ -350,7 +316,6 @@
 
     goto :goto_0
 
-    .line 76
     :cond_1
     iget-object v3, p0, Lcom/android/dialer/calllog/ContactInfo;->name:Ljava/lang/String;
 
@@ -364,8 +329,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 103
     invoke-static {p0}, Lcom/google/common/base/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -390,7 +353,6 @@
 
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->nameAlternative:Ljava/lang/String;
 
-    .line 104
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -399,7 +361,6 @@
 
     iget v2, p0, Lcom/android/dialer/calllog/ContactInfo;->type:I
 
-    .line 105
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;I)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -416,7 +377,6 @@
 
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->number:Ljava/lang/String;
 
-    .line 106
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -433,7 +393,6 @@
 
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->normalizedNumber:Ljava/lang/String;
 
-    .line 107
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -450,7 +409,6 @@
 
     iget-object v2, p0, Lcom/android/dialer/calllog/ContactInfo;->photoUri:Landroid/net/Uri;
 
-    .line 108
     invoke-virtual {v0, v1, v2}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0
@@ -467,7 +425,6 @@
 
     iget-wide v2, p0, Lcom/android/dialer/calllog/ContactInfo;->userType:J
 
-    .line 109
     invoke-virtual {v0, v1, v2, v3}, Lcom/google/common/base/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/google/common/base/Objects$ToStringHelper;
 
     move-result-object v0

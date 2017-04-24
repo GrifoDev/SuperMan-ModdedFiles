@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 300
     invoke-static {}, Lcom/android/incallui/help/IncomingCallWhileUsingApp$IncomingCallTutorialStep;->values()[Lcom/android/incallui/help/IncomingCallWhileUsingApp$IncomingCallTutorialStep;
 
     move-result-object v0

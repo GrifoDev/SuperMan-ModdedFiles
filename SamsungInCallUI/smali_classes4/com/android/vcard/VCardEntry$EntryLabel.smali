@@ -65,7 +65,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -76,7 +75,6 @@
 
     const/4 v3, 0x0
 
-    .line 96
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "NAME"
@@ -85,7 +83,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->NAME:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 97
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "PHONE"
@@ -94,7 +91,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->PHONE:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 98
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "EMAIL"
@@ -103,7 +99,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->EMAIL:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 99
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "POSTAL_ADDRESS"
@@ -112,7 +107,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->POSTAL_ADDRESS:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 100
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "ORGANIZATION"
@@ -121,7 +115,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->ORGANIZATION:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 101
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "IM"
@@ -132,7 +125,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->IM:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 102
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "PHOTO"
@@ -143,7 +135,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->PHOTO:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 103
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "WEBSITE"
@@ -154,7 +145,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->WEBSITE:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 104
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "SIP"
@@ -165,7 +155,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->SIP:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 105
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "NICKNAME"
@@ -176,7 +165,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->NICKNAME:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 106
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "NOTE"
@@ -187,7 +175,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->NOTE:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 107
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "BIRTHDAY"
@@ -198,7 +185,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->BIRTHDAY:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 108
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "ANNIVERSARY"
@@ -209,7 +195,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->ANNIVERSARY:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 109
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "ANDROID_CUSTOM"
@@ -220,7 +205,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->ANDROID_CUSTOM:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 110
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "XGROUPNAME"
@@ -231,7 +215,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->XGROUPNAME:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 111
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "PHOTOSTATE"
@@ -242,7 +225,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->PHOTOSTATE:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 112
     new-instance v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     const-string v1, "NAMECARD"
@@ -253,7 +235,6 @@
 
     sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->NAMECARD:Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    .line 95
     const/16 v0, 0x11
 
     new-array v0, v0, [Lcom/android/vcard/VCardEntry$EntryLabel;
@@ -363,8 +344,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 95
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -372,10 +351,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/vcard/VCardEntry$EntryLabel;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 95
     const-class v0, Lcom/android/vcard/VCardEntry$EntryLabel;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -390,8 +366,6 @@
 .method public static values()[Lcom/android/vcard/VCardEntry$EntryLabel;
     .locals 1
 
-    .prologue
-    .line 95
     sget-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
 
     invoke-virtual {v0}, [Lcom/android/vcard/VCardEntry$EntryLabel;->clone()Ljava/lang/Object;

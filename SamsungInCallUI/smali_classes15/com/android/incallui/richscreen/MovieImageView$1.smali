@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/MovieImageView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/richscreen/MovieImageView;
 
-    .prologue
-    .line 77
     iput-object p1, p0, Lcom/android/incallui/richscreen/MovieImageView$1;->this$0:Lcom/android/incallui/richscreen/MovieImageView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,20 +33,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 80
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 89
     :cond_0
     :goto_0
     return-void
 
-    .line 82
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/richscreen/MovieImageView$1;->this$0:Lcom/android/incallui/richscreen/MovieImageView;
 
@@ -69,14 +61,12 @@
 
     if-nez v0, :cond_0
 
-    .line 83
     iget-object v0, p0, Lcom/android/incallui/richscreen/MovieImageView$1;->this$0:Lcom/android/incallui/richscreen/MovieImageView;
 
     invoke-virtual {v0}, Lcom/android/incallui/richscreen/MovieImageView;->invalidate()V
 
     goto :goto_0
 
-    .line 80
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

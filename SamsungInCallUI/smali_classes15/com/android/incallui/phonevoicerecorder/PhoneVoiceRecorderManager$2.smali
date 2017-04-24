@@ -1,9 +1,9 @@
-.class Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$2;
+.class final Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$2;
 .super Ljava/lang/Object;
 .source "PhoneVoiceRecorderManager.java"
 
 # interfaces
-.implements Landroid/media/MediaPlayer$OnCompletionListener;
+.implements Landroid/media/MediaPlayer$OnErrorListener;
 
 
 # annotations
@@ -12,23 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;)V
+.method constructor <init>()V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
-
-    .prologue
-    .line 423
-    iput-object p1, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager$2;->this$0:Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,53 +28,39 @@
 
 
 # virtual methods
-.method public onCompletion(Landroid/media/MediaPlayer;)V
-    .locals 3
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
+.method public onError(Landroid/media/MediaPlayer;II)Z
+    .locals 2
 
-    .prologue
-    .line 425
-    const-string v1, "makeBeepSound : guidanceBeepSoundPlay : beep sound completed"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 426
-    invoke-virtual {p1}, Landroid/media/MediaPlayer;->isPlaying()Z
+    const-string v1, "makeBeepSound : guidanceBeepSoundPlay : beep sound play error "
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 427
-    invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
-
-    .line 429
-    :cond_0
-    invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
-
-    .line 430
-    const/4 p1, 0x0
-
-    .line 431
-    const/4 v1, 0x0
-
-    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mediaPlayer:Landroid/media/MediaPlayer;
-    invoke-static {v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$102(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
-
-    .line 433
-    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
-
-    move-result-object v1
-
-    const-string v2, "audio"
-
-    invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    check-cast v0, Landroid/media/AudioManager;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 434
-    .local v0, "audioManager":Landroid/media/AudioManager;
-    return-void
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
+
+    invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
+
+    const/4 v0, 0x0
+
+    # setter for: Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->mediaPlayer:Landroid/media/MediaPlayer;
+    invoke-static {v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderManager;->access$002(Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

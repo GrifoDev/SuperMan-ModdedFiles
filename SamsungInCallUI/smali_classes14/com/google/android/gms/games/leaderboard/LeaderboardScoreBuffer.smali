@@ -20,9 +20,7 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/common/data/d;)V
     .locals 2
-    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/d;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/DataBuffer;-><init>(Lcom/google/android/gms/common/data/d;)V
 
     new-instance v0, Lcom/google/android/gms/games/leaderboard/b;
@@ -50,9 +48,7 @@
 
 .method public get(I)Lcom/google/android/gms/games/leaderboard/LeaderboardScore;
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/games/leaderboard/d;
 
     iget-object v1, p0, Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;->S:Lcom/google/android/gms/common/data/d;
@@ -64,9 +60,7 @@
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;->get(I)Lcom/google/android/gms/games/leaderboard/LeaderboardScore;
 
     move-result-object v0

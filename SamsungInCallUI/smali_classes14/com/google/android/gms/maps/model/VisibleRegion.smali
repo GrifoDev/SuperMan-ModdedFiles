@@ -38,14 +38,7 @@
 
 .method constructor <init>(ILcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLngBounds;)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "nearLeft"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p3, "nearRight"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p4, "farLeft"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p5, "farRight"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p6, "latLngBounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/maps/model/VisibleRegion;->ab:I
@@ -65,13 +58,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLngBounds;)V
     .locals 7
-    .param p1, "nearLeft"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p2, "nearRight"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p3, "farLeft"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p4, "farRight"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p5, "latLngBounds"    # Lcom/google/android/gms/maps/model/LatLngBounds;
 
-    .prologue
     const/4 v1, 0x1
 
     move-object v0, p0
@@ -103,21 +90,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
-    .end local p1    # "o":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "o":Ljava/lang/Object;
     :cond_1
     instance-of v2, p1, Lcom/google/android/gms/maps/model/VisibleRegion;
 
@@ -130,7 +113,6 @@
     :cond_2
     check-cast p1, Lcom/google/android/gms/maps/model/VisibleRegion;
 
-    .end local p1    # "o":Ljava/lang/Object;
     iget-object v2, p0, Lcom/google/android/gms/maps/model/VisibleRegion;->nearLeft:Lcom/google/android/gms/maps/model/LatLng;
 
     iget-object v3, p1, Lcom/google/android/gms/maps/model/VisibleRegion;->nearLeft:Lcom/google/android/gms/maps/model/LatLng;
@@ -295,10 +277,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

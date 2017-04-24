@@ -20,8 +20,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,11 +27,7 @@
 
 .method static synthetic access$000(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .param p0, "x0"    # Ljava/lang/String;
-    .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
-    .line 23
     invoke-static {p0, p1}, Lcom/android/incallui/wrapper/InternalRWrapper;->getValue(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -43,15 +37,9 @@
 
 .method private static getValue(Ljava/lang/String;Ljava/lang/String;)I
     .locals 6
-    .param p0, "className"    # Ljava/lang/String;
-    .param p1, "fieldName"    # Ljava/lang/String;
 
-    .prologue
-    .line 46
     const/4 v2, 0x0
 
-    .line 48
-    .local v2, "resId":I
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
@@ -63,11 +51,8 @@
 
     move-result-object v1
 
-    .line 49
-    .local v1, "field":Ljava/lang/reflect/Field;
     if-eqz v1, :cond_0
 
-    .line 50
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -80,7 +65,6 @@
 
     move-result v2
 
-    .line 51
     const-string v3, "InternalRWrapper"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -110,18 +94,13 @@
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 56
-    .end local v1    # "field":Ljava/lang/reflect/Field;
     :cond_0
     :goto_0
     return v2
 
-    .line 53
     :catch_0
     move-exception v0
 
-    .line 54
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v3, "InternalRWrapper"
 
@@ -147,8 +126,6 @@
 
     goto :goto_0
 
-    .line 53
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

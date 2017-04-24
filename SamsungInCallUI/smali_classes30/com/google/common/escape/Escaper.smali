@@ -29,18 +29,14 @@
 .method protected constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 89
     new-instance v0, Lcom/google/common/escape/Escaper$1;
 
     invoke-direct {v0, p0}, Lcom/google/common/escape/Escaper$1;-><init>(Lcom/google/common/escape/Escaper;)V
 
     iput-object v0, p0, Lcom/google/common/escape/Escaper;->asFunction:Lcom/google/common/base/Function;
 
-    .line 64
     return-void
 .end method
 
@@ -59,8 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 101
     iget-object v0, p0, Lcom/google/common/escape/Escaper;->asFunction:Lcom/google/common/base/Function;
 
     return-object v0

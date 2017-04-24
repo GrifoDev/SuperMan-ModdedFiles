@@ -64,14 +64,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 123
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomMultimap;, "Lcom/google/common/collect/Multimaps$CustomMultimap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
-    .local p2, "factory":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<+Ljava/util/Collection<TV;>;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultimap;-><init>(Ljava/util/Map;)V
 
-    .line 124
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -80,13 +74,11 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Multimaps$CustomMultimap;->factory:Lcom/google/common/base/Supplier;
 
-    .line 125
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
-    .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.io.ObjectInputStream"
     .end annotation
@@ -98,12 +90,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 146
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomMultimap;, "Lcom/google/common/collect/Multimaps$CustomMultimap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 147
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v1
@@ -112,24 +100,19 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$CustomMultimap;->factory:Lcom/google/common/base/Supplier;
 
-    .line 148
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Map;
 
-    .line 149
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
     invoke-virtual {p0, v0}, Lcom/google/common/collect/Multimaps$CustomMultimap;->setMap(Ljava/util/Map;)V
 
-    .line 150
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.io.ObjectOutputStream"
     .end annotation
@@ -140,24 +123,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 138
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomMultimap;, "Lcom/google/common/collect/Multimaps$CustomMultimap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 139
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomMultimap;->factory:Lcom/google/common/base/Supplier;
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 140
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$CustomMultimap;->backingMap()Ljava/util/Map;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 141
     return-void
 .end method
 
@@ -173,9 +150,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 129
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomMultimap;, "Lcom/google/common/collect/Multimaps$CustomMultimap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomMultimap;->factory:Lcom/google/common/base/Supplier;
 
     invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;

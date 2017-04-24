@@ -40,14 +40,10 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableMapValues;)V
     .locals 1
 
-    .prologue
-    .line 49
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$1;, "Lcom/google/common/collect/ImmutableMapValues.1;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMapValues$1;->this$0:Lcom/google/common/collect/ImmutableMapValues;
 
     invoke-direct {p0}, Lcom/google/common/collect/UnmodifiableIterator;-><init>()V
 
-    .line 50
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$1;->this$0:Lcom/google/common/collect/ImmutableMapValues;
 
     # getter for: Lcom/google/common/collect/ImmutableMapValues;->map:Lcom/google/common/collect/ImmutableMap;
@@ -73,9 +69,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 54
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$1;, "Lcom/google/common/collect/ImmutableMapValues.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$1;->entryItr:Lcom/google/common/collect/UnmodifiableIterator;
 
     invoke-virtual {v0}, Lcom/google/common/collect/UnmodifiableIterator;->hasNext()Z
@@ -93,9 +86,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$1;, "Lcom/google/common/collect/ImmutableMapValues.1;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$1;->entryItr:Lcom/google/common/collect/UnmodifiableIterator;
 
     invoke-virtual {v0}, Lcom/google/common/collect/UnmodifiableIterator;->next()Ljava/lang/Object;

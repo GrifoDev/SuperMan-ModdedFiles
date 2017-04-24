@@ -104,9 +104,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/gms/maps/model/PolylineOptions;
     .locals 10
-    .param p1, "parcel"    # Landroid/os/Parcel;
 
-    .prologue
     const/4 v5, 0x0
 
     const/4 v7, 0x0
@@ -249,9 +247,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/model/PolylineOptionsCreator;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/gms/maps/model/PolylineOptions;
 
     move-result-object v0
@@ -261,9 +257,7 @@
 
 .method public newArray(I)[Lcom/google/android/gms/maps/model/PolylineOptions;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
     new-array v0, p1, [Lcom/google/android/gms/maps/model/PolylineOptions;
 
     return-object v0
@@ -271,9 +265,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/model/PolylineOptionsCreator;->newArray(I)[Lcom/google/android/gms/maps/model/PolylineOptions;
 
     move-result-object v0

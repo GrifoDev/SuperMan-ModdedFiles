@@ -72,15 +72,6 @@
 
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;JILjava/lang/String;ILandroid/os/Bundle;Ljava/util/ArrayList;I)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "roomId"    # Ljava/lang/String;
-    .param p3, "creatorId"    # Ljava/lang/String;
-    .param p4, "creationTimestamp"    # J
-    .param p6, "roomStatus"    # I
-    .param p7, "description"    # Ljava/lang/String;
-    .param p8, "variant"    # I
-    .param p9, "autoMatchCriteria"    # Landroid/os/Bundle;
-    .param p11, "autoMatchWaitEstimateSeconds"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -97,8 +88,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p10, "participants":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/gms/games/multiplayer/ParticipantEntity;>;"
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->ab:I
@@ -126,9 +115,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/Room;)V
     .locals 5
-    .param p1, "room"    # Lcom/google/android/gms/games/multiplayer/realtime/Room;
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     const/4 v0, 0x2
@@ -680,9 +667,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->a(Lcom/google/android/gms/games/multiplayer/realtime/Room;Ljava/lang/Object;)Z
 
     move-result v0
@@ -748,9 +733,7 @@
 
 .method public getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->di:Ljava/lang/String;
 
     invoke-static {v0, p1}, Lcom/google/android/gms/internal/ao;->b(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -760,9 +743,7 @@
 
 .method public getParticipantId(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-    .param p1, "playerId"    # Ljava/lang/String;
 
-    .prologue
     const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->eJ:Ljava/util/ArrayList;
@@ -877,9 +858,7 @@
 
 .method public getParticipantStatus(Ljava/lang/String;)I
     .locals 4
-    .param p1, "participantId"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->eJ:Ljava/util/ArrayList;
@@ -1047,10 +1026,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/realtime/RoomEntity;->w()Z
 
     move-result v0

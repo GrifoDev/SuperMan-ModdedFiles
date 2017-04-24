@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 591
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$CommonInflater;-><init>()V
 
     return-void
@@ -29,10 +27,7 @@
 # virtual methods
 .method protected getTypeLabelResource(Ljava/lang/Integer;)I
     .locals 1
-    .param p1, "type"    # Ljava/lang/Integer;
 
-    .prologue
-    .line 595
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Event;->getTypeResource(Ljava/lang/Integer;)I
 
     move-result v0

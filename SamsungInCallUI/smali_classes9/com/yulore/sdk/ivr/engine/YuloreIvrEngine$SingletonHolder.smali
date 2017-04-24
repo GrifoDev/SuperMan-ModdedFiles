@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 402
     new-instance v0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
     const/4 v1, 0x0
@@ -38,8 +36,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 401
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,8 +44,6 @@
 .method static synthetic access$000()Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
     .locals 1
 
-    .prologue
-    .line 401
     sget-object v0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$SingletonHolder;->instance:Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
     return-object v0

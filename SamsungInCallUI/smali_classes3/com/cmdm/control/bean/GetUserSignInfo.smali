@@ -69,8 +69,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
     return-void
@@ -81,8 +79,6 @@
 .method public hasCount()Z
     .locals 2
 
-    .prologue
-    .line 41
     iget-object v0, p0, Lcom/cmdm/control/bean/GetUserSignInfo;->count:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -107,10 +103,8 @@
 
     if-nez v0, :cond_0
 
-    .line 42
     const/4 v0, 0x1
 
-    .line 44
     :goto_0
     return v0
 

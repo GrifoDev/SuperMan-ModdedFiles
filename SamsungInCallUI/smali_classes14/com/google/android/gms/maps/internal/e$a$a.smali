@@ -43,14 +43,12 @@
 
 .method public onCameraChange(Lcom/google/android/gms/maps/model/CameraPosition;)V
     .locals 5
-    .param p1, "position"    # Lcom/google/android/gms/maps/model/CameraPosition;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

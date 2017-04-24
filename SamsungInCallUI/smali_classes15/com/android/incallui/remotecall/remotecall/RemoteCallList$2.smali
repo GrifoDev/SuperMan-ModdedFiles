@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/remotecall/remotecall/RemoteCallList;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/remotecall/remotecall/RemoteCallList;
-    .param p2, "x0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 354
     iput-object p1, p0, Lcom/android/incallui/remotecall/remotecall/RemoteCallList$2;->this$0:Lcom/android/incallui/remotecall/remotecall/RemoteCallList;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,15 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 357
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 363
     const-string v0, "RemoteCallList"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -70,11 +62,9 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/remotecall/utils/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 366
     :goto_0
     return-void
 
-    .line 359
     :pswitch_0
     const-string v0, "RemoteCallList"
 
@@ -84,7 +74,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/remotecall/utils/Log;->d(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 360
     iget-object v1, p0, Lcom/android/incallui/remotecall/remotecall/RemoteCallList$2;->this$0:Lcom/android/incallui/remotecall/remotecall/RemoteCallList;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -96,7 +85,6 @@
 
     goto :goto_0
 
-    .line 357
     nop
 
     :pswitch_data_0

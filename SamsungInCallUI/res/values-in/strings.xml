@@ -289,6 +289,7 @@ Panggilan video ini sekarang menggunakan data dan Data seluler akan dimatikan sa
     <string name="extra_vol_off">Volume ekstra dinonaktifkan.</string>
     <string name="extra_vol_on">Volume ekstra diaktifkan.</string>
     <string name="far_end_stopped_share_video">%s menghentikan berbagi video.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">File tdk didukung.</string>
     <string name="full_name">Nama</string>
@@ -593,7 +594,7 @@ Menu layar panggilan IVR menggunakan konten yang disediakan oleh penyedia layana
     <string name="rich_screen_save_fail">Gagal menyimpan gambar/video ID pemanggil.</string>
     <string name="rich_screen_save_success">Gambar/video ID pemanggil disimpan.</string>
     <string name="save_record_msg_myfiles">Rekaman disimpan dalam File Saya.</string>
-    <string name="secConferenceCallDrop">Menurun</string>
+    <string name="secConferenceCallDrop">Akhiri</string>
     <string name="secConferenceCallLabel">Dengan %d orang</string>
     <string name="secConferenceCallLabel_vzw">%d orang</string>
     <string name="secConferenceCallMerged">%s bergabung ke panggilan.</string>
@@ -671,7 +672,7 @@ Satu Arah"</string>
     <string name="secOnscreenResumeCallText">Lanjutkan</string>
     <string name="secOnscreenShowCallOption">Tampilkan opsi panggilan</string>
     <string name="secOnscreenSpeaker">Speaker</string>
-    <string name="secOnscreenStopText">Stop</string>
+    <string name="secOnscreenStopText">Berhenti merekam</string>
     <string name="secOnscreenSwapText">Tukar</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Beralih kamera</string>
@@ -746,6 +747,7 @@ Satu Arah"</string>
     <string name="switch_to_voice_call_failed">Permintaan untuk beralih ke panggilan suara gagal.</string>
     <string name="switched_to_voip_mo">Beralih ke panggilan suara.</string>
     <string name="switched_to_voip_mt">Beralih ke panggilan suara karena permintaan dari pihak yang dipanggil.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s mematikan video.</string>
     <string name="switching_camera_failed">Gagal mengalihkan kamera.</string>
     <string name="switching_to_voice_call">Beralih ke panggilan suara…</string>
@@ -761,7 +763,9 @@ Satu Arah"</string>
     <string name="usa_att_connected_as_voice">Panggilan dihubungkan hanya sebagai suara.</string>
     <string name="usa_att_data_usage_charge_alert">Penggunaan Data yang Anda atur di perangkat hampir mencapai batas. Panggilan video Anda memerlukan data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Panggilan tidak dapat dilakukan melalui Wi-Fi, menyambung lewat jaringan seluler. Biaya suara dan data akan berlaku.</string>
-    <string name="usa_att_modify_receive_to_video">Pilih mode video</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Panggilan tidak dapat dilakukan melalui Wi-Fi, menyambung lewat jaringan seluler. Biaya suara dan data akan berlaku.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Ketuk di bawah ini untuk memilih tipe panggilan.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Jenis panggilan tidak dapat diubah selama panggilan konferensi.</string>
     <string name="usa_gsm_modify_receive_to_video">%s ingin beralih ke panggilan video.</string>
@@ -769,6 +773,7 @@ Satu Arah"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Menunggu respons</string>
     <string name="usa_gsm_modify_select_call_type">Pilih tipe panggilan</string>
     <string name="usa_gsm_switching_to_voice_call">Beralih ke suara saja.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Video dinonaktifkan karena data seluler tidak tersedia.</string>
     <string name="usa_volte_reject_upgrade_request">%s tidak dapat menerima panggilan video saat ini.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Panggilan video tidak tersedia.</string>
     <string name="usa_vzw_change_to_oneway_video">"Ubah ke
@@ -813,7 +818,9 @@ Panggilan video saat ini menggunakan jaringan seluler. (Penggunaan data berlaku 
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Jangan perlihatkan lagi</string>
     <string name="video_calling_incoming">Panggilan video</string>
+    <string name="video_calls_quality_poor_tmo">Kualitas koneksi buruk. Panggilan video mungkin dialihkan ke panggilan suara.</string>
     <string name="video_calls_temporarily_not_available">Panggilan video tidak tersedia sementara waktu. Panggilan dialihkan ke panggilan suara.</string>
+    <string name="video_calls_temporarily_not_available_att">Nomor yang Anda hubungi tidak dapat menerima panggilan video saat ini. Panggilan tersambung sebagai panggilan suara.</string>
     <string name="video_calls_temporarily_not_available_tmo">Panggilan video tidak tersedia.</string>
     <string name="video_paused_info_text">Video dijeda</string>
     <string name="video_saved">Video disimpan ke %s.</string>

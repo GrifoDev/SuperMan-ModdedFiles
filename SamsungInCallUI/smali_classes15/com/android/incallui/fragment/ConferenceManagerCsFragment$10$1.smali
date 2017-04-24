@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;
 
-    .prologue
-    .line 797
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10$1;->this$1:Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,13 +37,10 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 800
     const-string v0, "mAnimationFadeOut after 1000ms"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 801
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10$1;->this$1:Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$10;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -75,6 +69,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 802
     return-void
 .end method

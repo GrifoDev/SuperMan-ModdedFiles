@@ -126,16 +126,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 116
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/cmdm/control/bean/FzTopicTxt;->isExpand:Z
 
-    .line 17
     return-void
 .end method
 
@@ -144,8 +140,6 @@
 .method public getRule()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 109
     iget-object v0, p0, Lcom/cmdm/control/bean/FzTopicTxt;->rule:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -160,7 +154,6 @@
 
     if-nez v0, :cond_0
 
-    .line 110
     iget-object v0, p0, Lcom/cmdm/control/bean/FzTopicTxt;->rule:Ljava/lang/String;
 
     const-string v1, "<br>"
@@ -171,7 +164,6 @@
 
     move-result-object v0
 
-    .line 112
     :goto_0
     return-object v0
 
@@ -184,8 +176,6 @@
 .method public hasTop()Z
     .locals 2
 
-    .prologue
-    .line 135
     iget-object v0, p0, Lcom/cmdm/control/bean/FzTopicTxt;->isTop:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/cmdm/control/util/StringUtil;->isEmpty(Ljava/lang/String;)Z
@@ -204,10 +194,8 @@
 
     if-nez v0, :cond_0
 
-    .line 136
     const/4 v0, 0x1
 
-    .line 138
     :goto_0
     return v0
 

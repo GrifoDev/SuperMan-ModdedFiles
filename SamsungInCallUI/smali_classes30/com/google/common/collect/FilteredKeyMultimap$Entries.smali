@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/FilteredKeyMultimap;)V
     .locals 0
 
-    .prologue
-    .line 185
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
     iput-object p1, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
 
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingCollection;-><init>()V
@@ -46,9 +43,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 184
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
     invoke-virtual {p0}, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->delegate()Ljava/util/Collection;
 
     move-result-object v0
@@ -68,9 +62,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 188
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
 
     iget-object v0, v0, Lcom/google/common/collect/FilteredKeyMultimap;->unfiltered:Lcom/google/common/collect/Multimap;
@@ -94,25 +85,19 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 194
-    .local p0, "this":Lcom/google/common/collect/FilteredKeyMultimap$Entries;, "Lcom/google/common/collect/FilteredKeyMultimap<TK;TV;>.Entries;"
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 195
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 196
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v1, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
 
     iget-object v1, v1, Lcom/google/common/collect/FilteredKeyMultimap;->unfiltered:Lcom/google/common/collect/Multimap;
@@ -141,7 +126,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 199
     iget-object v1, p0, Lcom/google/common/collect/FilteredKeyMultimap$Entries;->this$0:Lcom/google/common/collect/FilteredKeyMultimap;
 
     iget-object v1, v1, Lcom/google/common/collect/FilteredKeyMultimap;->unfiltered:Lcom/google/common/collect/Multimap;
@@ -158,8 +142,6 @@
 
     move-result v1
 
-    .line 202
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :goto_0
     return v1
 

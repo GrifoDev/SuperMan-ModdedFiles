@@ -52,7 +52,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -63,7 +62,6 @@
 
     const/4 v3, 0x0
 
-    .line 43
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -114,7 +112,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_PRIMARY:[Ljava/lang/String;
 
-    .line 55
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -165,7 +162,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_ALTERNATIVE:[Ljava/lang/String;
 
-    .line 67
     const/16 v0, 0xc
 
     new-array v0, v0, [Ljava/lang/String;
@@ -234,7 +230,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->FILTER_PROJECTION_PRIMARY:[Ljava/lang/String;
 
-    .line 82
     const/16 v0, 0xc
 
     new-array v0, v0, [Ljava/lang/String;
@@ -309,8 +304,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -319,8 +312,6 @@
 .method static synthetic access$000()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     sget-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->FILTER_PROJECTION_PRIMARY:[Ljava/lang/String;
 
     return-object v0
@@ -329,8 +320,6 @@
 .method static synthetic access$100()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     sget-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->FILTER_PROJECTION_ALTERNATIVE:[Ljava/lang/String;
 
     return-object v0
@@ -339,8 +328,6 @@
 .method static synthetic access$200()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     sget-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_PRIMARY:[Ljava/lang/String;
 
     return-object v0
@@ -349,8 +336,6 @@
 .method static synthetic access$300()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     sget-object v0, Lcom/android/contacts/common/list/ContactListAdapter$ContactQuery;->CONTACT_PROJECTION_ALTERNATIVE:[Ljava/lang/String;
 
     return-object v0

@@ -27,8 +27,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,8 +37,6 @@
 .method public getBusinessFlag()Z
     .locals 2
 
-    .prologue
-    .line 32
     iget-object v0, p0, Lcom/cmdm/control/bean/CommercialTrialProvinceResult;->businessFlag:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -55,10 +51,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 33
     const/4 v0, 0x1
 
-    .line 35
     :goto_0
     return v0
 
@@ -71,8 +65,6 @@
 .method public getWhetherFlag()Z
     .locals 2
 
-    .prologue
-    .line 40
     iget-object v0, p0, Lcom/cmdm/control/bean/CommercialTrialProvinceResult;->whetherFlag:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -87,10 +79,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 41
     const/4 v0, 0x1
 
-    .line 43
     :goto_0
     return v0
 

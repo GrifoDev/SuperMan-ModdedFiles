@@ -19,13 +19,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 16
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->sMe:Lcom/android/incallui/secutils/YellowPageCallerid;
 
-    .line 18
     const/16 v0, 0xa
 
     new-array v0, v0, [Ljava/lang/String;
@@ -92,7 +89,6 @@
 
     sput-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->CHINA_ECC_LIST:[Ljava/lang/String;
 
-    .line 41
     new-instance v0, Lcom/android/incallui/secutils/YellowPageCallerid$1;
 
     invoke-direct {v0}, Lcom/android/incallui/secutils/YellowPageCallerid$1;-><init>()V
@@ -105,8 +101,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -114,23 +108,18 @@
 
 .method public static Initialize_3rdlib(Landroid/content/Context;)V
     .locals 4
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 106
     :try_start_0
     sget-object v1, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     if-eqz v1, :cond_0
 
-    .line 107
     sget-object v1, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     invoke-interface {v1}, Lcom/sec/android/app/yellowpage/IYellowpageInterface;->initialize_3rdlib()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 111
     :cond_0
     :goto_0
     const-string v1, "YellowPageCallerid_Call"
@@ -139,15 +128,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 112
     return-void
 
-    .line 108
     :catch_0
     move-exception v0
 
-    .line 109
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "YellowPageCallerid_Call"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -175,10 +160,7 @@
 
 .method static synthetic access$002(Lcom/sec/android/app/yellowpage/IYellowpageInterface;)Lcom/sec/android/app/yellowpage/IYellowpageInterface;
     .locals 0
-    .param p0, "x0"    # Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
-    .prologue
-    .line 14
     sput-object p0, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     return-object p0
@@ -186,18 +168,13 @@
 
 .method public static callIntent(Landroid/content/Context;)V
     .locals 4
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 56
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.android.yellowpage.InterceptYellowpageService"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 57
-    .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.yellowpage"
@@ -208,32 +185,26 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 58
     sget-object v1, Lcom/android/incallui/secutils/YellowPageCallerid;->checkserviceConnection:Landroid/content/ServiceConnection;
 
     const/4 v2, 0x1
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 60
     return-void
 .end method
 
 .method public static getInstance()Lcom/android/incallui/secutils/YellowPageCallerid;
     .locals 1
 
-    .prologue
-    .line 34
     sget-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->sMe:Lcom/android/incallui/secutils/YellowPageCallerid;
 
     if-nez v0, :cond_0
 
-    .line 35
     invoke-static {}, Lcom/android/incallui/secutils/YellowPageCallerid;->init()Lcom/android/incallui/secutils/YellowPageCallerid;
 
     move-result-object v0
 
-    .line 37
     :goto_0
     return-object v0
 
@@ -245,14 +216,9 @@
 
 .method public static getYellowPageNameFromNumber(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "cityid"    # Ljava/lang/String;
-    .param p2, "CallNumber"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 63
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v3
@@ -261,11 +227,9 @@
 
     if-lt v3, v4, :cond_0
 
-    .line 89
     :goto_0
     return-object v2
 
-    .line 67
     :cond_0
     sget-object v4, Lcom/android/incallui/secutils/YellowPageCallerid;->CHINA_ECC_LIST:[Ljava/lang/String;
 
@@ -278,15 +242,12 @@
 
     aget-object v1, v4, v3
 
-    .line 68
-    .local v1, "eccNumber":Ljava/lang/String;
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
     if-eqz v6, :cond_1
 
-    .line 69
     const-string v3, "YellowPageCallerid_Call"
 
     const-string v4, "do not support for emergency call numbers"
@@ -295,18 +256,14 @@
 
     goto :goto_0
 
-    .line 67
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 73
-    .end local v1    # "eccNumber":Ljava/lang/String;
     :cond_2
     invoke-static {p0}, Lcom/android/incallui/secutils/YellowPageCallerid;->callIntent(Landroid/content/Context;)V
 
-    .line 74
     new-instance v3, Ljava/lang/Thread;
 
     new-instance v4, Lcom/android/incallui/secutils/YellowPageCallerid$2;
@@ -315,27 +272,21 @@
 
     invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 79
     invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
-    .line 81
     const/4 v2, 0x0
 
-    .line 83
-    .local v2, "ypName":Ljava/lang/String;
     :try_start_0
     sget-object v3, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     if-eqz v3, :cond_3
 
-    .line 84
     sget-object v3, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     invoke-interface {v3, p2}, Lcom/sec/android/app/yellowpage/IYellowpageInterface;->getShopNameFromNumber(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 85
     :cond_3
     const-string v3, "YellowPageCallerid_Call"
 
@@ -363,12 +314,9 @@
 
     goto :goto_0
 
-    .line 86
     :catch_0
     move-exception v0
 
-    .line 87
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v3, "YellowPageCallerid_Call"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -397,26 +345,21 @@
 .method static init()Lcom/android/incallui/secutils/YellowPageCallerid;
     .locals 3
 
-    .prologue
-    .line 23
     const-class v1, Lcom/android/incallui/secutils/YellowPageCallerid;
 
     monitor-enter v1
 
-    .line 24
     :try_start_0
     sget-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->sMe:Lcom/android/incallui/secutils/YellowPageCallerid;
 
     if-nez v0, :cond_0
 
-    .line 25
     new-instance v0, Lcom/android/incallui/secutils/YellowPageCallerid;
 
     invoke-direct {v0}, Lcom/android/incallui/secutils/YellowPageCallerid;-><init>()V
 
     sput-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->sMe:Lcom/android/incallui/secutils/YellowPageCallerid;
 
-    .line 29
     :goto_0
     sget-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->sMe:Lcom/android/incallui/secutils/YellowPageCallerid;
 
@@ -424,7 +367,6 @@
 
     return-object v0
 
-    .line 27
     :cond_0
     const-string v0, "YellowPageCallerid_Call"
 
@@ -434,7 +376,6 @@
 
     goto :goto_0
 
-    .line 30
     :catchall_0
     move-exception v0
 
@@ -447,15 +388,11 @@
 
 .method public static initContactService(Landroid/content/Context;)V
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 94
     sget-object v0, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     if-nez v0, :cond_0
 
-    .line 95
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/android/incallui/secutils/YellowPageCallerid$3;
@@ -464,10 +401,8 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 100
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 102
     :cond_0
     return-void
 .end method
@@ -475,22 +410,17 @@
 .method public static unInitialize_3rdlib()V
     .locals 4
 
-    .prologue
-    .line 116
     :try_start_0
     sget-object v1, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     if-eqz v1, :cond_0
 
-    .line 117
     sget-object v1, Lcom/android/incallui/secutils/YellowPageCallerid;->myService:Lcom/sec/android/app/yellowpage/IYellowpageInterface;
 
     invoke-interface {v1}, Lcom/sec/android/app/yellowpage/IYellowpageInterface;->unInitialize_3rdlib()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 121
-    .local v0, "e":Landroid/os/RemoteException;
     :cond_0
     :goto_0
     const-string v1, "YellowPageCallerid_Call"
@@ -499,16 +429,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 122
     return-void
 
-    .line 118
-    .end local v0    # "e":Landroid/os/RemoteException;
     :catch_0
     move-exception v0
 
-    .line 119
-    .restart local v0    # "e":Landroid/os/RemoteException;
     const-string v1, "YellowPageCallerid_Call"
 
     new-instance v2, Ljava/lang/StringBuilder;

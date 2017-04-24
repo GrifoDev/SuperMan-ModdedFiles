@@ -382,21 +382,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
-    .end local p1    # "obj":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "obj":Ljava/lang/Object;
     :cond_1
     if-nez p1, :cond_2
 
@@ -416,7 +412,6 @@
     :cond_3
     check-cast p1, Lcom/google/android/gms/internal/bi;
 
-    .end local p1    # "obj":Ljava/lang/Object;
     iget v2, p0, Lcom/google/android/gms/internal/bi;->fA:F
 
     iget v3, p1, Lcom/google/android/gms/internal/bi;->fA:F
@@ -651,10 +646,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "parcel"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     sget-object v0, Lcom/google/android/gms/internal/bi;->CREATOR:Lcom/google/android/gms/internal/bj;
 
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/internal/bj;->a(Lcom/google/android/gms/internal/bi;Landroid/os/Parcel;I)V

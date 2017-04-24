@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/remotecall/remotecall/RemoteCallList;Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/remotecall/remotecall/RemoteCallList;
 
-    .prologue
-    .line 90
     iput-object p1, p0, Lcom/android/incallui/remotecall/remotecall/RemoteCallList$1;->this$0:Lcom/android/incallui/remotecall/remotecall/RemoteCallList;
 
     iput-object p2, p0, Lcom/android/incallui/remotecall/remotecall/RemoteCallList$1;->val$call:Lcom/android/incallui/remotecall/remotecall/RemoteCall;
@@ -44,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 93
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v0
@@ -62,6 +57,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/remotecall/contact/RemoteContactInfoCache;->startQuery(Lcom/android/incallui/remotecall/remotecall/RemoteCall;)Lcom/android/incallui/remotecall/contact/RemoteCallerInfo;
 
-    .line 94
     return-void
 .end method

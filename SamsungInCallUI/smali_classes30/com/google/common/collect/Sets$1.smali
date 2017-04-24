@@ -33,8 +33,6 @@
 .method constructor <init>(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)V
     .locals 1
 
-    .prologue
-    .line 583
     iput-object p1, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     iput-object p2, p0, Lcom/google/common/collect/Sets$1;->val$set2minus1:Ljava/util/Set;
@@ -52,10 +50,7 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .prologue
-    .line 602
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -94,19 +89,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 607
-    .local p1, "set":Ljava/util/Set;, "TS;"
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     invoke-interface {p1, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 608
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set2:Ljava/util/Set;
 
     invoke-interface {p1, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 609
     return-object p1
 .end method
 
@@ -120,8 +110,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 614
     new-instance v0, Lcom/google/common/collect/ImmutableSet$Builder;
 
     invoke-direct {v0}, Lcom/google/common/collect/ImmutableSet$Builder;-><init>()V
@@ -148,8 +136,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 591
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
@@ -187,8 +173,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 596
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -215,8 +199,6 @@
 .method public size()I
     .locals 2
 
-    .prologue
-    .line 586
     iget-object v0, p0, Lcom/google/common/collect/Sets$1;->val$set1:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I

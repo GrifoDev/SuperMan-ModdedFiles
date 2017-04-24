@@ -147,7 +147,7 @@
     <string name="add_reminder">Ajouter rappel</string>
     <string name="agree">Accepter</string>
     <string name="am_cover_toggle_string">"Ouvrez le rabat et acceptez/refusez l'appel."</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">"Impossible d'utiliser la fonction Réponse automatique avec message. L'espace de stockage sur votre appareil est insuffisant pour enregistrer les messages vocaux. Supprimez des éléments et réessayez."</string>
     <string name="another_device_pickup_message">Un autre appareil a pris cet appel.</string>
     <string name="answering_memo_Playing_text">Lecture du message vocal…</string>
     <string name="answering_memo_Recording_text">Enregistrement du message…</string>
@@ -200,8 +200,8 @@
     <string name="callsettings_rejectmessage_list3">Je suis en cours.</string>
     <string name="callsettings_rejectmessage_list4">Je suis au cinéma.</string>
     <string name="callsettings_rejectmessage_list5">Je conduis.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">"L'appareil photo a été désactivé."</string>
+    <string name="camera_on">"L'appareil photo a été activé."</string>
     <string name="camera_security_enter">"La politique de sécurité limite l'utilisation de l'appareil photo."</string>
     <string name="camera_start_failed">Échec appareil photo.</string>
     <string name="cancel">Annuler</string>
@@ -249,7 +249,7 @@ Cet appel visio utilise maintenant des données. Les données mobiles seront dé
     <string name="description_secOnscreenVideoCallText">Appel vidéo</string>
     <string name="description_secOnscreenViewContactText">Afficher détails du contact</string>
     <string name="device_info_not_available">Indisponible</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Impossible de composer le numéro.</string>
     <string name="dialling_video_call">"Numérotation de l'appel vidéo"</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -260,7 +260,7 @@ Cet appel visio utilise maintenant des données. Les données mobiles seront dé
     <string name="dialpad_8_sub_letters">TUV</string>
     <string name="dialpad_9_sub_letters">WXYZ</string>
     <string name="disable_app_dialog_message">"Impossible d'ouvrir %s. L'application est désactivée. Pour l'activer, touchez PARAMÈTRES."</string>
-    <string name="disable_app_dialog_settings">Réglages</string>
+    <string name="disable_app_dialog_settings">Paramètres</string>
     <string name="disable_video_call_while_ultra_saving_mode">"Impossible d'effectuer ou de recevoir des appels visio lorsque le mode Ultra économie d'énergie est activé."</string>
     <string name="disagree">Refuser</string>
     <string name="do_not_show_again">Ne plus afficher</string>
@@ -289,6 +289,7 @@ Cet appel visio utilise maintenant des données. Les données mobiles seront dé
     <string name="extra_vol_off">Volume supplémentaire désactivé.</string>
     <string name="extra_vol_on">Volume supplémentaire activé.</string>
     <string name="far_end_stopped_share_video">%s a interrompu le partage vidéo.</string>
+    <string name="far_end_stopped_share_video_att">"%s a interrompu l'envoi de la vidéo."</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Fichier non comp.</string>
     <string name="full_name">Nom</string>
@@ -486,7 +487,7 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="memory_full_msg">Mémoire insuffisante</string>
     <string name="message_greeting">"Message d'accueil"</string>
     <string name="modify_to_video_start">Demande de passage en mode appel vidéo…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Passage en mode appel vocal…</string>
     <string name="msg_for_video_show_never_again">Certains formats de fichier ne sont pas pris en charge. Seuls les fichiers pris en charge seront affichés dans la Galerie.</string>
     <string name="mt_vt_not_possible">"%s ne peut pas recevoir d'appel vidéo pour l'instant. La communication sera acheminée par appel vocal."</string>
     <string name="nameLabelsGroup">Nom</string>
@@ -503,7 +504,7 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="name_suffix">Suffixe</string>
     <string name="network_message_no_answer">Aucune réponse</string>
     <string name="nicknameLabelsGroup">Surnom</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Les appels vidéos ne sont pas disponibles lorsque le mode Urgence est activé.</string>
     <string name="not_enable_to_video_emergencymode">Impossible de passer ou de recevoir des appels vidéos lorsque le mode Urgence est activé.</string>
     <string name="notification_action_answer">Répondre</string>
     <string name="notification_of_sub_number_empty_body">Pour afficher les numéros alternatifs, souscrivez au service Numéros multiples sur la carte SIM, puis réessayez.</string>
@@ -544,7 +545,7 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="prepareOtherVideo">"Préparation de l'image vidéo…"</string>
     <string name="previous_call_is_held_when_you_accept_call">"L'appel en cours sera mis en attente lorsque vous accepterez un nouvel appel."</string>
     <string name="private_num_cdma">Restreint</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Numéro masqué</string>
     <string name="quick_panel_title_video_call">Appel vidéo</string>
     <string name="quick_panel_title_voice_call">Appel vocal</string>
     <string name="quick_panel_title_volte_call">Appel VoLTE</string>
@@ -649,7 +650,7 @@ Le menu d’écran d’appel IVR fait appel aux contenus d’un tiers fournisseu
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Basculer sur le téléphone</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Passer en mode appel vidéo</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Appel vocal</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Permuter les affichages vidéo</string>
     <string name="secOnscreenMenuUnmuteText">Activer micro</string>
     <string name="secOnscreenMenuVideoConfCallText">Inviter un nouveau participant</string>
     <string name="secOnscreenMenuViewInFullScreenText">Afficher en plein écran</string>
@@ -671,7 +672,7 @@ sens uniq."</string>
     <string name="secOnscreenResumeCallText">Reprendre</string>
     <string name="secOnscreenShowCallOption">"Afficher les options d'appel"</string>
     <string name="secOnscreenSpeaker">HP</string>
-    <string name="secOnscreenStopText">Arrêter</string>
+    <string name="secOnscreenStopText">Arrêter enregistrement</string>
     <string name="secOnscreenSwapText">Permuter</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Changer objectif</string>
@@ -734,8 +735,8 @@ sens uniq."</string>
     <string name="spam_call_resported_count">(%d fois)</string>
     <string name="spam_call_type_and_count">Signalé comme %1$s %2$d fois</string>
     <string name="sub_number_item">Alternatif %d</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Ne plus afficher</string>
+    <string name="suguden_guide_main_text_dcm">"Répondez à l'appel en approchant l'appareil de votre oreille."</string>
     <string name="swipe_left">Glissez à gauche.</string>
     <string name="swipe_right">Gliss. vers drte.</string>
     <string name="swipe_right_to_answer_call_with_video">"Glissez un doigt vers la droite pour répondre à l'appel avec vidéo."</string>
@@ -746,6 +747,7 @@ sens uniq."</string>
     <string name="switch_to_voice_call_failed">Échec de la demande de passage en mode appel vocal.</string>
     <string name="switched_to_voip_mo">Mode appel vocal activé.</string>
     <string name="switched_to_voip_mt">Passage en mode appel vocal suite à la demande du contact.</string>
+    <string name="switched_to_voip_mt_att">"L'appel a été basculé en mode Appel vocal uniquement."</string>
     <string name="switched_to_voip_mt_att_tmo">%s a arrêté la vidéo.</string>
     <string name="switching_camera_failed">Impos. de changer app. photo.</string>
     <string name="switching_to_voice_call">Passage en mode appel vocal…</string>
@@ -761,7 +763,9 @@ sens uniq."</string>
     <string name="usa_att_connected_as_voice">Appel connecté en tant que voix uniquement.</string>
     <string name="usa_att_data_usage_charge_alert">"Vous avez presque atteint la limite d'utilisation des données que vous avez définie sur votre appareil. Des données sont nécessaires pour votre appel vidéo."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"L'appel ne peut pas être passé par Wifi. Il sera passé sur le réseau cellulaire. Des frais de voix et de données seront facturés."</string>
-    <string name="usa_att_modify_receive_to_video">Sélection du mode vidéo</string>
+    <string name="usa_att_modify_receive_to_video">%s demande à basculer en mode Appel vidéo.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s demande à partager sa vidéo.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">"L'appel ne peut pas être passé par Wifi. Il sera passé sur le réseau cellulaire. Des frais de voix et de données seront facturés."</string>
     <string name="usa_att_select_call_type_incoming_video_call">"Touchez ci-dessous pour sélectionner un type d'appel."</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">"Vous ne pouvez pas changer le type d'appel pendant les conférences audios."</string>
     <string name="usa_gsm_modify_receive_to_video">%s veut passer en mode appel vidéo.</string>
@@ -769,6 +773,7 @@ sens uniq."</string>
     <string name="usa_gsm_modify_requested_wait_for_response">En attente</string>
     <string name="usa_gsm_modify_select_call_type">"Sélectionner le type d'appel"</string>
     <string name="usa_gsm_switching_to_voice_call">Passage en mode appel vocal uniquement.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">La vidéo est désactivée, car les données mobiles sont indisponibles.</string>
     <string name="usa_volte_reject_upgrade_request">"%s ne peut pas recevoir d'appels visio actuellement."</string>
     <string name="usa_volte_reject_upgrade_request_tmo">"La fonction Appel vidéo n'est pas disponible."</string>
     <string name="usa_vzw_change_to_oneway_video">"Basculer en
@@ -813,7 +818,9 @@ Votre appel vidéo est maintenant effectué par le réseau mobile (l'utilisation
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Ne plus afficher</string>
     <string name="video_calling_incoming">Appel vidéo</string>
+    <string name="video_calls_quality_poor_tmo">"La qualité de la connexion est médiocre. Il se peut que l'appel vidéo soit basculé en appel vocal."</string>
     <string name="video_calls_temporarily_not_available">"Les appels visio sont temporairement indisponibles. L'appel a basculé en mode Appel vocal."</string>
+    <string name="video_calls_temporarily_not_available_att">"Le numéro que vous appelez ne peut pas recevoir d'appels vidéos actuellement. L'appel va être basculé en appel vocal."</string>
     <string name="video_calls_temporarily_not_available_tmo">"La fonction Appel vidéo n'est pas disponible."</string>
     <string name="video_paused_info_text">Vidéo arrêt.</string>
     <string name="video_saved">Vidéo enregistrée dans %s.</string>

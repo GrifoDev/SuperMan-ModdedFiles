@@ -21,12 +21,10 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 38
     const-string v0, "com.android.internal.widget.LockPatternUtils"
 
     invoke-static {v0}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
@@ -35,7 +33,6 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sLockPatternUtilsClass:Ljava/lang/Class;
 
-    .line 39
     sget-object v0, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sLockPatternUtilsClass:Ljava/lang/Class;
 
     const-string v1, "isCarrierLockPlusEnabled"
@@ -52,7 +49,6 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sMethodIsCarrierLockPlusEnabled:Ljava/lang/reflect/Method;
 
-    .line 40
     sget-object v0, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sLockPatternUtilsClass:Ljava/lang/Class;
 
     new-array v1, v5, [Ljava/lang/Class;
@@ -67,15 +63,12 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sLockPatternUtilsConstructor:Ljava/lang/reflect/Constructor;
 
-    .line 41
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -83,18 +76,11 @@
 
 .method public static isCarrierLockPlusEnabled(Landroid/content/Context;)Z
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 46
     const/4 v3, 0x0
 
-    .line 47
-    .local v3, "retValue":Z
     const/4 v2, 0x0
 
-    .line 50
-    .local v2, "instance":Ljava/lang/Object;
     :try_start_0
     sget-object v4, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sLockPatternUtilsConstructor:Ljava/lang/reflect/Constructor;
 
@@ -112,15 +98,11 @@
 
     move-result-object v2
 
-    .line 55
-    .end local v2    # "instance":Ljava/lang/Object;
     :goto_0
     invoke-static {}, Landroid/app/ActivityManager;->semGetCurrentUser()I
 
     move-result v0
 
-    .line 56
-    .local v0, "currentUser":I
     const-string v4, "LockPatternUtilsWrapper"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -143,7 +125,6 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 59
     :try_start_1
     sget-object v4, Lcom/android/incallui/wrapper/LockPatternUtilsWrapper;->sMethodIsCarrierLockPlusEnabled:Ljava/lang/reflect/Method;
 
@@ -171,7 +152,6 @@
 
     move-result v3
 
-    .line 64
     :goto_1
     const-string v4, "LockPatternUtilsWrapper"
 
@@ -195,17 +175,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 66
     return v3
 
-    .line 51
-    .end local v0    # "currentUser":I
-    .restart local v2    # "instance":Ljava/lang/Object;
     :catch_0
     move-exception v1
 
-    .line 52
-    .local v1, "e":Ljava/lang/Exception;
     const-string v4, "LockPatternUtilsWrapper"
 
     const-string v5, "Exception occured, instance was not created."
@@ -214,15 +188,9 @@
 
     goto :goto_0
 
-    .line 60
-    .end local v1    # "e":Ljava/lang/Exception;
-    .end local v2    # "instance":Ljava/lang/Object;
-    .restart local v0    # "currentUser":I
     :catch_1
     move-exception v1
 
-    .line 61
-    .restart local v1    # "e":Ljava/lang/Exception;
     const-string v4, "LockPatternUtilsWrapper"
 
     const-string v5, "Exception occurred, invoking reflection is failed."

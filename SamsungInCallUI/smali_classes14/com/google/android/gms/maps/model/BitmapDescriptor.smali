@@ -9,9 +9,7 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/dynamic/b;)V
     .locals 1
-    .param p1, "remoteObject"    # Lcom/google/android/gms/dynamic/b;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;

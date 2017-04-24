@@ -20,9 +20,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Lcom/google/android/gms/maps/MapView$b;
@@ -38,10 +36,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     new-instance v0, Lcom/google/android/gms/maps/MapView$b;
@@ -59,11 +54,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyle"    # I
 
-    .prologue
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     new-instance v0, Lcom/google/android/gms/maps/MapView$b;
@@ -81,10 +72,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/maps/GoogleMapOptions;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "options"    # Lcom/google/android/gms/maps/GoogleMapOptions;
 
-    .prologue
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     new-instance v0, Lcom/google/android/gms/maps/MapView$b;
@@ -169,9 +157,7 @@
 
 .method public final onCreate(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/MapView;->gD:Lcom/google/android/gms/maps/MapView$b;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/maps/MapView$b;->onCreate(Landroid/os/Bundle;)V
@@ -234,9 +220,7 @@
 
 .method public final onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "outState"    # Landroid/os/Bundle;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/MapView;->gD:Lcom/google/android/gms/maps/MapView$b;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/maps/MapView$b;->onSaveInstanceState(Landroid/os/Bundle;)V

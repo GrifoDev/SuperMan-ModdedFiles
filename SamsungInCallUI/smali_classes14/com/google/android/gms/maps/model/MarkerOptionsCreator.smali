@@ -152,9 +152,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 17
-    .param p1, "parcel"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-static/range {p1 .. p1}, Lcom/google/android/gms/common/internal/safeparcel/a;->c(Landroid/os/Parcel;)I
 
     move-result v15
@@ -391,9 +389,7 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Landroid/os/Parcel;
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/model/MarkerOptionsCreator;->createFromParcel(Landroid/os/Parcel;)Lcom/google/android/gms/maps/model/MarkerOptions;
 
     move-result-object v0
@@ -403,9 +399,7 @@
 
 .method public newArray(I)[Lcom/google/android/gms/maps/model/MarkerOptions;
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
     new-array v0, p1, [Lcom/google/android/gms/maps/model/MarkerOptions;
 
     return-object v0
@@ -413,9 +407,7 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/model/MarkerOptionsCreator;->newArray(I)[Lcom/google/android/gms/maps/model/MarkerOptions;
 
     move-result-object v0

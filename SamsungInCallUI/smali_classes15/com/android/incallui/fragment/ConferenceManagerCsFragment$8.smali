@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    .prologue
-    .line 644
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$8;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
-    .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 647
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$8;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mConferencePanel:Landroid/widget/FrameLayout;
@@ -52,7 +46,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 648
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -63,8 +56,6 @@
 
     move-result v0
 
-    .line 649
-    .local v0, "height":I
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$8;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mConferencePanel:Landroid/widget/FrameLayout;
@@ -78,11 +69,8 @@
 
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 650
-    .local v1, "lp":Landroid/widget/FrameLayout$LayoutParams;
     iput v0, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 651
     iget-object v2, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$8;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mConferencePanel:Landroid/widget/FrameLayout;
@@ -92,9 +80,6 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 653
-    .end local v0    # "height":I
-    .end local v1    # "lp":Landroid/widget/FrameLayout$LayoutParams;
     :cond_0
     return-void
 .end method

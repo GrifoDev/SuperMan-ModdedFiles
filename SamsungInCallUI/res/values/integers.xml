@@ -94,6 +94,8 @@
     <integer name="swap_animation_duration">600</integer>
     <integer name="swap_info_animation_delay">500</integer>
     <integer name="swap_info_animation_duration">200</integer>
+    <integer name="vga_button_area_width_weight">940</integer>
+    <integer name="vga_button_area_width_weight_landscape">600</integer>
     <integer name="vga_button_gradation_background_mkeyboard">290</integer>
     <integer name="video_animation_duration">257</integer>
     <integer name="video_call_auto_fullscreen_timeout">5000</integer>

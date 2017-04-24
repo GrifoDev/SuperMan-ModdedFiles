@@ -17,23 +17,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
 
-    .prologue
-    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->array:Ljava/lang/Object;
 
-    .line 27
     invoke-static {p1}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v0
 
     iput v0, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->length:I
 
-    .line 28
     return-void
 .end method
 
@@ -42,8 +36,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 31
     iget v0, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->idx:I
 
     iget v1, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->length:I
@@ -64,8 +56,6 @@
 .method public next()Ljava/lang/Object;
     .locals 3
 
-    .prologue
-    .line 35
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->array:Ljava/lang/Object;
 
     iget v1, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->idx:I
@@ -84,8 +74,6 @@
 .method public remove()V
     .locals 2
 
-    .prologue
-    .line 39
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Remove from array"

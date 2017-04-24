@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/CallButtonFragment;Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/CallButtonFragment;
 
-    .prologue
-    .line 604
     iput-object p1, p0, Lcom/android/incallui/fragment/CallButtonFragment$4;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
 
     iput-object p2, p0, Lcom/android/incallui/fragment/CallButtonFragment$4;->val$adapter:Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;
@@ -43,34 +40,25 @@
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .locals 3
-    .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
-    .param p2, "keyCode"    # I
-    .param p3, "keyEvent"    # Landroid/view/KeyEvent;
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 607
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
 
     if-eq v1, v0, :cond_0
 
-    .line 608
     const/4 v0, 0x0
 
-    .line 615
     :goto_0
     return v0
 
-    .line 609
     :cond_0
     sparse-switch p2, :sswitch_data_0
 
     goto :goto_0
 
-    .line 613
     :sswitch_0
     iget-object v1, p0, Lcom/android/incallui/fragment/CallButtonFragment$4;->val$adapter:Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;
 
@@ -82,7 +70,6 @@
 
     goto :goto_0
 
-    .line 609
     nop
 
     :sswitch_data_0

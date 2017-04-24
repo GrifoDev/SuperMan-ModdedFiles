@@ -46,9 +46,7 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 2
-    .param p1, "location"    # Landroid/location/Location;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bg$b;->fL:Landroid/os/Handler;
 
     if-nez v0, :cond_0

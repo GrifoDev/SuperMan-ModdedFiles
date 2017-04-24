@@ -1,14 +1,11 @@
 .class Lcom/android/incallui/InCallPresenter$9;
-.super Ljava/lang/Object;
+.super Lcom/sec/ims/IImsRegistrationListener$Stub;
 .source "InCallPresenter.java"
-
-# interfaces
-.implements Lcom/android/incallui/ContactInfoCache$ContactInfoCacheCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/InCallPresenter;->startContactInfoSearch(Lcom/android/incallui/Call;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/incallui/InCallPresenter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,83 +21,86 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
-    .prologue
-    .line 4517
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$9;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/sec/ims/IImsRegistrationListener$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onContactInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+.method public onDeregistered(Lcom/sec/ims/ImsRegistration;Lcom/sec/ims/ImsRegistrationError;)V
     .locals 3
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    .prologue
-    .line 4520
-    const-string v1, "onContactInfoComplete"
+    const/4 v2, 0x1
 
-    invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v1, "onDeregistered mRegListener"
 
-    .line 4521
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Lcom/android/incallui/CallList;->getCallById(Ljava/lang/String;)Lcom/android/incallui/Call;
+    invoke-virtual {v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->setImsServiceDeregistered(Z)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
 
     move-result-object v0
 
-    .line 4522
-    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_0
 
-    .line 4523
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getLogState()Lcom/android/incallui/Call$LogState;
+    invoke-virtual {v0}, Lcom/android/incallui/CallButtonPresenter;->onUiResume()V
 
-    move-result-object v1
-
-    iget v2, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactLookupResult:I
-
-    iput v2, v1, Lcom/android/incallui/Call$LogState;->contactLookupResult:I
-
-    .line 4525
     :cond_0
     return-void
 .end method
 
-.method public onContactInteractionsInfoComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-    .locals 1
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+.method public onRegistered(Lcom/sec/ims/ImsRegistration;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    .prologue
-    .line 4534
-    const-string v0, "onContactInteractionsInfoComplete"
+    const-string v1, "onRegistered mRegListener"
 
-    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v2, 0x1
 
-    .line 4535
-    return-void
-.end method
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-.method public onImageLoadComplete(Ljava/lang/String;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-    .locals 1
-    .param p1, "callId"    # Ljava/lang/String;
-    .param p2, "entry"    # Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
-    .prologue
-    .line 4529
-    const-string v0, "onImageLoadComplete"
+    move-result-object v1
 
-    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v2, 0x0
 
-    .line 4530
+    invoke-virtual {v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->setImsServiceDeregistered(Z)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->getCallButtonPresenter()Lcom/android/incallui/CallButtonPresenter;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallButtonPresenter;->onUiResume()V
+
+    :cond_0
     return-void
 .end method

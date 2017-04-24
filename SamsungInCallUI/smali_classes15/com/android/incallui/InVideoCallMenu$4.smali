@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InVideoCallMenu;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InVideoCallMenu;
 
-    .prologue
-    .line 197
     iput-object p1, p0, Lcom/android/incallui/InVideoCallMenu$4;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "id"    # I
 
-    .prologue
-    .line 199
     iget-object v0, p0, Lcom/android/incallui/InVideoCallMenu$4;->this$0:Lcom/android/incallui/InVideoCallMenu;
 
     # getter for: Lcom/android/incallui/InVideoCallMenu;->mIsSelectedImage:Z
@@ -53,14 +46,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 200
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->requestPickImageToGallery()V
 
-    .line 204
     :goto_0
     return-void
 
-    .line 202
     :cond_0
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->selectVideoFromMyFiles()V
 

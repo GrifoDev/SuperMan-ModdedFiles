@@ -10,8 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,10 +25,7 @@
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 30
     if-nez p1, :cond_0
 
     const/4 v0, 0x0

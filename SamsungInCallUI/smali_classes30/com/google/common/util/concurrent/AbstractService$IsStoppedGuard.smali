@@ -22,11 +22,8 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractService;)V
     .locals 1
 
-    .prologue
-    .line 143
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractService$IsStoppedGuard;->this$0:Lcom/google/common/util/concurrent/AbstractService;
 
-    .line 144
     # getter for: Lcom/google/common/util/concurrent/AbstractService;->monitor:Lcom/google/common/util/concurrent/Monitor;
     invoke-static {p1}, Lcom/google/common/util/concurrent/AbstractService;->access$000(Lcom/google/common/util/concurrent/AbstractService;)Lcom/google/common/util/concurrent/Monitor;
 
@@ -34,7 +31,6 @@
 
     invoke-direct {p0, v0}, Lcom/google/common/util/concurrent/Monitor$Guard;-><init>(Lcom/google/common/util/concurrent/Monitor;)V
 
-    .line 145
     return-void
 .end method
 
@@ -43,8 +39,6 @@
 .method public isSatisfied()Z
     .locals 1
 
-    .prologue
-    .line 148
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractService$IsStoppedGuard;->this$0:Lcom/google/common/util/concurrent/AbstractService;
 
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/AbstractService;->state()Lcom/google/common/util/concurrent/Service$State;

@@ -32,9 +32,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/cache/ForwardingCache;-><init>()V
 
     return-void
@@ -50,10 +47,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 61
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -68,9 +61,6 @@
 .method protected bridge synthetic delegate()Lcom/google/common/cache/Cache;
     .locals 1
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -91,9 +81,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -115,10 +102,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 46
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -148,10 +131,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 56
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
-    .local p1, "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -171,10 +150,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 51
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
@@ -194,16 +169,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 66
-    .local p0, "this":Lcom/google/common/cache/ForwardingLoadingCache;, "Lcom/google/common/cache/ForwardingLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/cache/ForwardingLoadingCache;->delegate()Lcom/google/common/cache/LoadingCache;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lcom/google/common/cache/LoadingCache;->refresh(Ljava/lang/Object;)V
 
-    .line 67
     return-void
 .end method

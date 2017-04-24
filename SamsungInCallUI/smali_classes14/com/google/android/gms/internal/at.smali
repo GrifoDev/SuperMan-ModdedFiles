@@ -183,43 +183,31 @@
 
 .method public onAchievementUpdated(ILjava/lang/String;)V
     .locals 0
-    .param p1, "statusCode"    # I
-    .param p2, "achievementId"    # Ljava/lang/String;
 
-    .prologue
     return-void
 .end method
 
 .method public onLeftRoom(ILjava/lang/String;)V
     .locals 0
-    .param p1, "statusCode"    # I
-    .param p2, "roomId"    # Ljava/lang/String;
 
-    .prologue
     return-void
 .end method
 
 .method public onP2PConnected(Ljava/lang/String;)V
     .locals 0
-    .param p1, "participantId"    # Ljava/lang/String;
 
-    .prologue
     return-void
 .end method
 
 .method public onP2PDisconnected(Ljava/lang/String;)V
     .locals 0
-    .param p1, "participantId"    # Ljava/lang/String;
 
-    .prologue
     return-void
 .end method
 
 .method public onRealTimeMessageReceived(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;)V
     .locals 0
-    .param p1, "message"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessage;
 
-    .prologue
     return-void
 .end method
 

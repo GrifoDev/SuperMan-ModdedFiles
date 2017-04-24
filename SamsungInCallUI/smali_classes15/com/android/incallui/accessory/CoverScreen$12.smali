@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/accessory/CoverScreen;
 
-    .prologue
-    .line 945
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$12;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 948
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$12;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallNumber:Landroid/widget/TextView;
@@ -62,6 +56,5 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 949
     return-void
 .end method

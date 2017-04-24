@@ -289,6 +289,7 @@ Gumagamit ngayon ang video call na ito ng data at io-off ang Mobile data kapag n
     <string name="extra_vol_off">Hindi pinagana ang dagdag na volume.</string>
     <string name="extra_vol_on">Pinagana ang dagdag na volume.</string>
     <string name="far_end_stopped_share_video">Inihinto ni %s ang pagbahagi ng video.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Di suportado ang file.</string>
     <string name="full_name">Pangalan</string>
@@ -671,7 +672,7 @@ Camera"</string>
     <string name="secOnscreenResumeCallText">Ipagpatuloy</string>
     <string name="secOnscreenShowCallOption">Ipakita ang mga opsyon ng tawag</string>
     <string name="secOnscreenSpeaker">Speaker</string>
-    <string name="secOnscreenStopText">Ihinto</string>
+    <string name="secOnscreenStopText">Ihinto ang pag-record</string>
     <string name="secOnscreenSwapText">I-swap</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Magpalit ng camera.</string>
@@ -746,6 +747,7 @@ Camera"</string>
     <string name="switch_to_voice_call_failed">Hindi pinayagan ang hiling na lumipat sa voice call.</string>
     <string name="switched_to_voip_mo">Nilipat sa voice call.</string>
     <string name="switched_to_voip_mt">Nilipat sa voice call dahil sa kahilingan mula sa tinawagang party.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">Ini-off ni %s ang video.</string>
     <string name="switching_camera_failed">Hindi nakapagpalit ng camera.</string>
     <string name="switching_to_voice_call">Lumilipat sa voice call…</string>
@@ -761,7 +763,9 @@ Camera"</string>
     <string name="usa_att_connected_as_voice">Nakakonekta ang tawag bilang voice lang.</string>
     <string name="usa_att_data_usage_charge_alert">Malapit nang maabot ang limit ng Data Usage na nai-set mo sa device mo. Kailangan ng Video call mo ng data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hindi maidadaan ang tawag sa Wi-Fi, kumokonekta sa cellular network. May ilalapat na mga singil sa voice at data.</string>
-    <string name="usa_att_modify_receive_to_video">Pumili ng video mode</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Hindi maidadaan ang tawag sa Wi-Fi, kumokonekta sa cellular network. May ilalapat na mga singil sa voice at data.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Mag-tap sa ibaba para piliin ang uri ng tawag.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Hindi mababago ang uri ng tawag habang may mga conference call.</string>
     <string name="usa_gsm_modify_receive_to_video">Nais ni %s na lumipat sa video call.</string>
@@ -769,6 +773,7 @@ Camera"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Naghihintay ng tugon</string>
     <string name="usa_gsm_modify_select_call_type">Piliin ang uri ng tawag</string>
     <string name="usa_gsm_switching_to_voice_call">Paglipat sa voice lang.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Ini-off ang video dahil hindi magagamit ang mobile data.</string>
     <string name="usa_volte_reject_upgrade_request">%s hindi makatatanggap ng mga video call sa oras na ito.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Hindi magagamit ang Video calling.</string>
     <string name="usa_vzw_change_to_oneway_video">"Lumipat sa 
@@ -813,7 +818,9 @@ Tumatakbo na ngayon ang video call mo sa mobile network. (Iiral ang paggamit sa 
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Huwag ipakitang muli</string>
     <string name="video_calling_incoming">Video calling</string>
+    <string name="video_calls_quality_poor_tmo">Hindi maganda ang kalidad ng koneksiyon. Maaaring lumipat sa voice call ang video call.</string>
     <string name="video_calls_temporarily_not_available">Pansamantalang hindi available ang mga video call. Ang tawag ay lumipat sa voice call.</string>
+    <string name="video_calls_temporarily_not_available_att">Hindi makatanggap ng mga video call sa ngayon ang numerong tinawagan mo. Naikonekta ang tawag bilang isang voice call.</string>
     <string name="video_calls_temporarily_not_available_tmo">Hindi magagamit ang Video calling.</string>
     <string name="video_paused_info_text">Naka-pause ang video</string>
     <string name="video_saved">Na-save ang video sa %s.</string>

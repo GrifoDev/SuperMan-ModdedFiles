@@ -33,8 +33,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -44,13 +42,9 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 124
     check-cast p1, Ljava/util/Map$Entry;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/reflect/MutableTypeToInstanceMap$UnmodifiableEntry$2;->apply(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -70,9 +64,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 126
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     new-instance v0, Lcom/google/common/reflect/MutableTypeToInstanceMap$UnmodifiableEntry;
 
     const/4 v1, 0x0

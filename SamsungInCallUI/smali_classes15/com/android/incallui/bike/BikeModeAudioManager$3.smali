@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/bike/BikeModeAudioManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/bike/BikeModeAudioManager;
 
-    .prologue
-    .line 174
     iput-object p1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$3;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onCompletion(Landroid/media/MediaPlayer;)V
     .locals 4
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
 
-    .prologue
-    .line 176
     const-string v1, "BikeModeAudioManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -72,24 +66,19 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 177
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->isPlaying()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 178
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
 
-    .line 180
     :cond_0
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
 
-    .line 181
     const/4 p1, 0x0
 
-    .line 182
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$3;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     const/4 v2, 0x0
@@ -97,7 +86,6 @@
     # setter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v1, v2}, Lcom/android/incallui/bike/BikeModeAudioManager;->access$002(Lcom/android/incallui/bike/BikeModeAudioManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
-    .line 183
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -106,11 +94,8 @@
 
     move-result-object v0
 
-    .line 184
-    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_1
 
-    .line 185
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$3;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     # getter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mPlayTwice:Z
@@ -122,7 +107,6 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 186
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$3;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 
     # getter for: Lcom/android/incallui/bike/BikeModeAudioManager;->mController:Lcom/android/incallui/bike/BikeModeController;
@@ -136,12 +120,10 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/incallui/bike/BikeModeController;->startBikeModeTimer(II)V
 
-    .line 191
     :cond_1
     :goto_0
     return-void
 
-    .line 188
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/bike/BikeModeAudioManager$3;->this$0:Lcom/android/incallui/bike/BikeModeAudioManager;
 

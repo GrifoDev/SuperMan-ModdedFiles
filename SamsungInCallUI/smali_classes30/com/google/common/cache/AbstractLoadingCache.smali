@@ -26,9 +26,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 46
-    .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/cache/AbstractCache;-><init>()V
 
     return-void
@@ -44,10 +41,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
-    .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lcom/google/common/cache/AbstractLoadingCache;->getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -73,21 +66,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
-    .local p1, "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     invoke-static {}, Lcom/google/common/collect/Maps;->newLinkedHashMap()Ljava/util/LinkedHashMap;
 
     move-result-object v2
 
-    .line 60
-    .local v2, "result":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -100,15 +86,12 @@
 
     move-result-object v1
 
-    .line 61
-    .local v1, "key":Ljava/lang/Object;, "TK;"
     invoke-interface {v2, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 62
     invoke-virtual {p0, v1}, Lcom/google/common/cache/AbstractLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
@@ -117,8 +100,6 @@
 
     goto :goto_0
 
-    .line 65
-    .end local v1    # "key":Ljava/lang/Object;, "TK;"
     :cond_1
     invoke-static {v2}, Lcom/google/common/collect/ImmutableMap;->copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;
 
@@ -135,10 +116,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 51
-    .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/google/common/cache/AbstractLoadingCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -148,12 +125,9 @@
 
     return-object v1
 
-    .line 52
     :catch_0
     move-exception v0
 
-    .line 53
-    .local v0, "e":Ljava/util/concurrent/ExecutionException;
     new-instance v1, Lcom/google/common/util/concurrent/UncheckedExecutionException;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
@@ -173,10 +147,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 75
-    .local p0, "this":Lcom/google/common/cache/AbstractLoadingCache;, "Lcom/google/common/cache/AbstractLoadingCache<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

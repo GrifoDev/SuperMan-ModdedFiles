@@ -32,10 +32,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/internal/k$a;, "Lcom/google/android/gms/internal/k<TT;>.a;"
     const/4 v4, 0x2
 
     const/4 v3, 0x1

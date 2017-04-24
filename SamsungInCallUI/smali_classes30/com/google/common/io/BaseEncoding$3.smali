@@ -24,8 +24,6 @@
 .method constructor <init>(Ljava/io/Reader;Lcom/google/common/base/CharMatcher;)V
     .locals 0
 
-    .prologue
-    .line 901
     iput-object p1, p0, Lcom/google/common/io/BaseEncoding$3;->val$delegate:Ljava/io/Reader;
 
     iput-object p2, p0, Lcom/google/common/io/BaseEncoding$3;->val$toIgnore:Lcom/google/common/base/CharMatcher;
@@ -45,13 +43,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 918
     iget-object v0, p0, Lcom/google/common/io/BaseEncoding$3;->val$delegate:Ljava/io/Reader;
 
     invoke-virtual {v0}, Ljava/io/Reader;->close()V
 
-    .line 919
     return-void
 .end method
 
@@ -63,8 +58,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 906
     :cond_0
     iget-object v1, p0, Lcom/google/common/io/BaseEncoding$3;->val$delegate:Ljava/io/Reader;
 
@@ -72,8 +65,6 @@
 
     move-result v0
 
-    .line 907
-    .local v0, "readChar":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_1
@@ -88,24 +79,18 @@
 
     if-nez v1, :cond_0
 
-    .line 908
     :cond_1
     return v0
 .end method
 
 .method public read([CII)I
     .locals 1
-    .param p1, "cbuf"    # [C
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 913
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 172
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,10 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/contacts/common/model/RawContact;
     .locals 2
-    .param p1, "parcel"    # Landroid/os/Parcel;
 
-    .prologue
-    .line 176
     new-instance v0, Lcom/android/contacts/common/model/RawContact;
 
     const/4 v1, 0x0
@@ -58,8 +53,6 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 172
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/RawContact$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/contacts/common/model/RawContact;
 
     move-result-object v0
@@ -69,10 +62,7 @@
 
 .method public newArray(I)[Lcom/android/contacts/common/model/RawContact;
     .locals 1
-    .param p1, "i"    # I
 
-    .prologue
-    .line 181
     new-array v0, p1, [Lcom/android/contacts/common/model/RawContact;
 
     return-object v0
@@ -81,8 +71,6 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 172
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/model/RawContact$1;->newArray(I)[Lcom/android/contacts/common/model/RawContact;
 
     move-result-object v0

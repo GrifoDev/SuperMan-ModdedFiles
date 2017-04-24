@@ -26,8 +26,6 @@
 .method constructor <init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/widget/ImageView;)V
     .locals 0
 
-    .prologue
-    .line 252
     iput-object p1, p0, Lcom/android/incallui/util/SecAnimationUtils$1;->val$from:Landroid/graphics/drawable/Drawable;
 
     iput-object p2, p0, Lcom/android/incallui/util/SecAnimationUtils$1;->val$to:Landroid/graphics/drawable/Drawable;
@@ -43,28 +41,20 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 269
     invoke-virtual {p1}, Landroid/animation/Animator;->removeAllListeners()V
 
-    .line 272
     iget-object v0, p0, Lcom/android/incallui/util/SecAnimationUtils$1;->val$imageView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/incallui/util/SecAnimationUtils$1;->val$to:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 273
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 260
     return-void
 .end method

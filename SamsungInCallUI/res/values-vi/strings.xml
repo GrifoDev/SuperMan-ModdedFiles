@@ -289,6 +289,7 @@ Cuộc gọi video này đang sử dụng dữ liệu và Dữ liệu di động
     <string name="extra_vol_off">Đã tắt Tăng âm lượng.</string>
     <string name="extra_vol_on">Đã bật Tăng âm lượng.</string>
     <string name="far_end_stopped_share_video">%s đã dừng chia sẻ video.</string>
+    <string name="far_end_stopped_share_video_att">%s đã dừng gửi video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">File không được hỗ trợ.</string>
     <string name="full_name">Tên</string>
@@ -671,7 +672,7 @@ một chiều"</string>
     <string name="secOnscreenResumeCallText">Tiếp tục</string>
     <string name="secOnscreenShowCallOption">Hiển thị tùy chọn cuộc gọi</string>
     <string name="secOnscreenSpeaker">Loa</string>
-    <string name="secOnscreenStopText">Dừng</string>
+    <string name="secOnscreenStopText">Dừng ghi âm</string>
     <string name="secOnscreenSwapText">Cuộc kia</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Chuyển máy ảnh</string>
@@ -703,7 +704,7 @@ một chiều"</string>
     <string name="settings_glance_reply_explain_text_vzw">Từ chối cuộc gọi đến và gửi tin nhắn đặt sẵn đến người gọi bằng cách đặt ngón tay lên cảm biến nhịp tim và giữ trong %d giây trong khi lật úp thiết bị.</string>
     <string name="settings_glance_reply_reached_maximum_text">Đã đạt số ký tự tối đa (%d).</string>
     <string name="settings_glance_reply_text">Tin nhắn Trả lời nhanh</string>
-    <string name="settings_subappbar_switch_off">Tắt</string>
+    <string name="settings_subappbar_switch_off">\"TẮT\"</string>
     <string name="settings_subappbar_switch_on">Bật</string>
     <string name="slide_left_to_reject_content_description">Vuốt sang trái để từ chối.</string>
     <string name="slide_right_to_answer_content_description">Vuốt sang phải để trả lời.</string>
@@ -746,6 +747,7 @@ một chiều"</string>
     <string name="switch_to_voice_call_failed">Yêu cầu chuyển sang cuộc gọi thoại không thành công.</string>
     <string name="switched_to_voip_mo">Đã chuyển sang cuộc gọi thoại.</string>
     <string name="switched_to_voip_mt">Đã chuyển sang cuộc gọi thoại do yêu cầu từ bên được gọi.</string>
+    <string name="switched_to_voip_mt_att">Cuộc gọi đã chuyển qua cuộc gọi thoại đơn thuần.</string>
     <string name="switched_to_voip_mt_att_tmo">%s đã tắt video.</string>
     <string name="switching_camera_failed">Không chuyển đổi máy ảnh được.</string>
     <string name="switching_to_voice_call">Đang chuyển sang cuộc gọi thoại…</string>
@@ -761,7 +763,9 @@ một chiều"</string>
     <string name="usa_att_connected_as_voice">Cuộc gọi được kết nối chỉ ở dạng thoại.</string>
     <string name="usa_att_data_usage_charge_alert">Mức sử dụng dữ liệu mà bạn đặt trên thiết bị sắp đạt đến giới hạn. Cuộc gọi video của bạn cần có dữ liệu.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Không thể thực hiện cuộc gọi qua Wi-Fi, đang kết nối qua mạng di động. Phí dữ liệu và cuộc gọi sẽ áp dụng.</string>
-    <string name="usa_att_modify_receive_to_video">Chọn chế độ video</string>
+    <string name="usa_att_modify_receive_to_video">%s đang yêu cầu chuyển sang cuộc gọi video.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s đang yêu cầu chia sẻ video của họ.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Không thể thực hiện cuộc gọi qua Wi-Fi, đang kết nối qua mạng di động. Phí dữ liệu và cuộc gọi sẽ áp dụng.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Chạm bên dưới để chọn kiểu cuộc gọi.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Không thể đổi kiểu cuộc gọi khi đang gọi hội nghị.</string>
     <string name="usa_gsm_modify_receive_to_video">%s muốn chuyển sang cuộc gọi video.</string>
@@ -769,6 +773,7 @@ một chiều"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Đang chờ phản hồi</string>
     <string name="usa_gsm_modify_select_call_type">Chọn kiểu cuộc gọi</string>
     <string name="usa_gsm_switching_to_voice_call">Đang chuyển sang chỉ thoại.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Video đã tắt vì không có dữ liệu động.</string>
     <string name="usa_volte_reject_upgrade_request">%s không thể nhận cuộc gọi video lúc này.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Cuộc gọi video không hoạt động.</string>
     <string name="usa_vzw_change_to_oneway_video">"Chuyển sang
@@ -813,7 +818,9 @@ Cuộc gọi video của bạn hiện đang chạy trên mạng di động. (Tí
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Không hiện lại</string>
     <string name="video_calling_incoming">Cuộc gọi video</string>
+    <string name="video_calls_quality_poor_tmo">Chất lượng kết nối kém. Cuộc gọi video có thể chuyển sang cuộc gọi thoại.</string>
     <string name="video_calls_temporarily_not_available">Cuộc gọi video tạm thời không dùng được. Cuộc gọi đã chuyển sang cuộc gọi thoại.</string>
+    <string name="video_calls_temporarily_not_available_att">Số bạn đang gọi không thể nhận cuộc gọi video lúc này. Cuộc gọi được kết nối như cuộc gọi thoại.</string>
     <string name="video_calls_temporarily_not_available_tmo">Cuộc gọi video không hoạt động.</string>
     <string name="video_paused_info_text">Video đã tạm dừng</string>
     <string name="video_saved">Video đã được lưu vào %s.</string>

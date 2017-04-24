@@ -39,8 +39,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,14 +46,9 @@
 
 .method public static getSpamCallTagName(I)Ljava/lang/String;
     .locals 4
-    .param p0, "tagType"    # I
 
-    .prologue
-    .line 125
     const/4 v1, 0x0
 
-    .line 127
-    .local v1, "tagName":Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v2
@@ -64,43 +57,9 @@
 
     move-result-object v0
 
-    .line 130
-    .local v0, "context":Landroid/content/Context;
     packed-switch p0, :pswitch_data_0
 
-    .line 190
     :pswitch_0
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902ca
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 196
-    :goto_0
-    return-object v1
-
-    .line 136
-    :pswitch_1
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902cd
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 138
-    goto :goto_0
-
-    .line 144
-    :pswitch_2
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -111,71 +70,10 @@
 
     move-result-object v1
 
-    .line 146
-    goto :goto_0
+    :goto_0
+    return-object v1
 
-    .line 152
-    :pswitch_3
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902c9
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 154
-    goto :goto_0
-
-    .line 160
-    :pswitch_4
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902c7
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 162
-    goto :goto_0
-
-    .line 168
-    :pswitch_5
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902cc
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 170
-    goto :goto_0
-
-    .line 176
-    :pswitch_6
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0902c8
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 178
-    goto :goto_0
-
-    .line 184
-    :pswitch_7
+    :pswitch_1
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -186,10 +84,86 @@
 
     move-result-object v1
 
-    .line 186
     goto :goto_0
 
-    .line 130
+    :pswitch_2
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902cc
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_3
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902ca
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_4
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902c8
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_5
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902cd
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_6
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902c9
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :pswitch_7
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0902cf
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0x32
         :pswitch_1
@@ -215,8 +189,6 @@
 .method public static getSpamCount()I
     .locals 4
 
-    .prologue
-    .line 98
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -229,8 +201,6 @@
 
     move-result-object v0
 
-    .line 100
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getSpamCount(Lcom/android/incallui/Call;)I
 
     move-result v1
@@ -241,8 +211,6 @@
 .method public static getSpamNumber()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 89
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -255,8 +223,6 @@
 
     move-result-object v0
 
-    .line 91
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getSpamNumber(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v1
@@ -267,8 +233,6 @@
 .method public static getSpamReportOwn()I
     .locals 1
 
-    .prologue
-    .line 203
     const/16 v0, 0x3b
 
     return v0
@@ -277,8 +241,6 @@
 .method public static getSpamTagName()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 80
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -291,8 +253,6 @@
 
     move-result-object v0
 
-    .line 82
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getSpamTagName(Lcom/android/incallui/Call;)Ljava/lang/String;
 
     move-result-object v1
@@ -303,8 +263,6 @@
 .method public static getSpamTagType()I
     .locals 4
 
-    .prologue
-    .line 107
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -317,8 +275,6 @@
 
     move-result-object v0
 
-    .line 109
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getSpamTagType(Lcom/android/incallui/Call;)I
 
     move-result v1
@@ -329,8 +285,6 @@
 .method public static getisSpam()Z
     .locals 4
 
-    .prologue
-    .line 116
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -343,8 +297,6 @@
 
     move-result-object v0
 
-    .line 118
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getIsSpam(Lcom/android/incallui/Call;)Z
 
     move-result v1

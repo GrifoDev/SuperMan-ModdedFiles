@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">ລາກປຸ່ມສົ່ງຂໍ້ຄວາມຂຶ້ນເທິງເພື່ອສົ່ງຂໍ້ຄວາມດ່ວນແລະບໍ່ຮັບສາຍໂທເຂົ້າ.</string>
     <string name="call_drug_up_panel_for_kk_tts">ລາກບໍ່ຮັບສາຍດ້ວຍແຜງຂໍ້ຄວາມ ເພື່ອສົ່ງຂໍ້ຄວາມບໍ່ຮັບສາຍ ເມື່ອທ່ານບໍ່ຮັບສາຍໂທເຂົ້າ.</string>
     <string name="call_ended_toast">ການໂທສິ້ນສຸດ.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">ໄດ້ໂອນສາຍໂທຫາ:</string>
+    <string name="call_forwarding_from">ໄດ້ໂອນ​ສາຍ​ໂທ​​ຈາກ:</string>
     <string name="call_incoming_voice_call2">ແຕະ %s ເພື່ອຮັບສາຍ.</string>
     <string name="call_incoming_voice_call2_tts">ແຕະປຸ່ມຮັບສາຍ ເພື່ອຮັບສາຍໂທ.</string>
     <string name="call_incoming_voice_call3">ແຕະ %s ເພື່ອບໍ່ຮັບສາຍໂທ.</string>
@@ -167,7 +167,7 @@
     <string name="caller_info_card_last_call_log_title">ສາຍ​ໂທ​ຫຼ້າ​ສຸດ​ນີ້</string>
     <string name="caller_info_card_last_message_title">ຂໍ້ຄວາມຫຼ້າສຸດ</string>
     <string name="caller_info_card_memo_title">ບັນທຶກຄວາມຈໍາສ້າງຂຶ້ນໃນລະຫວ່າງການໂທ</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">ກົດປຸ່ມພັກສາຍຄ້າງໄວ້ ເພື່ອເລີ່ມຕົ້ນ ຫຼື ຢຸດການບັນທຶກ</string>
     <string name="callsettings_rejectmessage_list1">ຂໍອະໄພ, ຂ້ອຍບໍ່ສາມາດລົມໄດ້ຕອນນີ້. ຈະໂທກັບຄືນພາຍຫຼັງ.</string>
     <string name="callsettings_rejectmessage_list2">ຂ້ອຍປະຊຸມຢູ່.</string>
     <string name="callsettings_rejectmessage_list3">ຂ້ອຍຍັງຮຽນຢູ່.</string>
@@ -262,6 +262,7 @@
     <string name="extra_vol_off">ປິດໃຊ້ງານລະດັບສຽງພິເສດ.</string>
     <string name="extra_vol_on">ເປີດໃຊ້ງານລະດັບສຽງພິເສດ.</string>
     <string name="far_end_stopped_share_video">%s ຢຸດການແຊຣ໌ວິດີໂອແລ້ວ.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">ໄຟລ໌ບໍ່ຮອງຮັບ.</string>
     <string name="full_name">ຊື່</string>
@@ -290,7 +291,7 @@
     <string name="incall_popup_call_remove_title_vzw">ເຊື່ອງທາງລັດ</string>
     <string name="incall_popup_ended">ຈົບແລ້ວ</string>
     <string name="incall_spam_call_block">ບລັອກຕົວເລກ</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">ເພີ່ມໃສ່ບັນຊີດໍາ</string>
     <string name="incall_spam_call_reject_toast">ເບີໂທລະສັບໄດ້ຖືກເພີ່ມໃສ່ບັນຊີດຳແລ້ວ.</string>
     <string name="incall_spam_call_report">ລາຍງານຕົວເລກ</string>
     <string name="incall_transfer_call">ໂອນສາຍໂທ</string>
@@ -486,7 +487,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="onscreenBluetoothTextOn_att">ປ່ຽນ​ເປັນ​ໂທລະສັບ</string>
     <string name="onscreenBluetoothTextOn_tmo">ປ່ຽນ​ເປັນ​ໂທລະສັບ</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">ເພື່ອປິດລຳໂພງໂທລະສັບ, ເປີດຝາປິດໂທລະສັບ.</string>
     <string name="open_the_cover">ເປີດຝາປິດ.</string>
     <string name="open_the_cover_incoming">ເປີດໜ້າປົກ ເພື່ອຮັບບໍ່ຮັບສາຍໂທດ້ວຍວິດີໂອ.</string>
     <string name="open_the_cover_modify_call">ຝ່າຍທີ່ໂທຕ້ອງການປ່ຽນເປັນການໂທດ້ວຍວິດີໂອ. ເປີດໜ້າປົກ ເພື່ອຮັບ/ປະຕິເສດຄໍາຂໍ.</string>
@@ -644,7 +645,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="secOnscreenResumeCallText">ເລີ່ມຕົ້ນໃໝ່</string>
     <string name="secOnscreenShowCallOption">ສະແດງຕົວເລືອກການໂທ</string>
     <string name="secOnscreenSpeaker">ລໍາໂພງ</string>
-    <string name="secOnscreenStopText">ຢຸດ</string>
+    <string name="secOnscreenStopText">ຢຸດການບັນທຶກ</string>
     <string name="secOnscreenSwapText">ສະຫຼັບ</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">ສັບປ່ຽນກ້ອງຖ່າຍຮູບ</string>
@@ -703,7 +704,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="spam_call_report_dialog_spam">ສະແປມ</string>
     <string name="spam_call_report_dialog_taxis">ແທັກຊີ</string>
     <string name="spam_call_reported_as">ລາຍງານເປັນ %s ແລ້ວ</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">ລາຍງານແລ້ວເປັນ %s ໂດຍທ່ານ</string>
     <string name="spam_call_resported_count">(%d ຄັ້ງ)</string>
     <string name="spam_call_type_and_count">ລາຍງານແລ້ວວ່າເປັນ %1$s %2$d ຄັ້ງ</string>
     <string name="sub_number_item">ທາງ​ເລືອກ %d</string>
@@ -719,6 +720,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="switch_to_voice_call_failed">ການສະເໜີຂໍປ່ຽນເປັນການໂທດ້ວຍສຽງບໍ່ສໍາເລັດ.</string>
     <string name="switched_to_voip_mo">ໄດ້ປ່ຽນໄປເປັນການໂທໃຊ້ສຽງ.</string>
     <string name="switched_to_voip_mt">ໄດ້ປ່ຽນໄປເປັນການໂທໃຊ້ສຽງ ເພາະວ່າມີການສະເໜີຈາກຝ່າຍທີ່ໄດ້ໂທມາ.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s ປິດວິດີໂອແລ້ວ.</string>
     <string name="switching_camera_failed">ສັບປ່ຽນກ້ອງຖ່າຍຮູບບໍ່ສໍາເລັດ.</string>
     <string name="switching_to_voice_call">ກຳລັງສັບປ່ຽນໄປຫາໂທດ້ວຍສຽງ…</string>
@@ -734,7 +736,9 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="usa_att_connected_as_voice">ການໂທຖືກເຊື່ອມຕໍ່ເປັນສຽງເທົ່ານັ້ນ.</string>
     <string name="usa_att_data_usage_charge_alert">ການນຳໃຊ້ຂໍ້ມູນຂອງທ່ານທີ່ທ່ານໄດ້ຕັ້ງໃນອຸປະກອນຂອງທ່ານກຳລັງຈະຮອດຂີດຈຳກັດຂອງມັນ. ການໂທວິດີໂອຂອງທ່ານຈຳເປັນຕ້ອງມີຂໍ້ມູນ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ການໂທບໍ່ສາມາດໃຊ້ໄດ້ຜ່ານ Wi-Fi ໄດ້, ການເຊື່ອມຕໍ່ຜ່ານເຄືອຂ່າຍມືຖື. ອາດ​ຈະ​ມີການເກັບ​ຄ່າບໍລິການສຽງແລະ​ຂໍ້​ມູນ.</string>
-    <string name="usa_att_modify_receive_to_video">ເລືອກໂໝດວິດີໂອ</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">ການໂທບໍ່ສາມາດໃຊ້ໄດ້ຜ່ານ Wi-Fi ໄດ້, ການເຊື່ອມຕໍ່ຜ່ານເຄືອຂ່າຍມືຖື. ອາດ​ຈະ​ມີການເກັບ​ຄ່າບໍລິການສຽງແລະ​ຂໍ້​ມູນ.</string>
     <string name="usa_att_select_call_type_incoming_video_call">ແຕະລຸ່ມນີ້ເພື່ອເລືອກປະເພດການໂທ.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">ປະເພດການໂທບໍ່ສາມາດປ່ຽນແປງໄດ້ໃນລະຫວ່າງການປະຊຸມສາຍ.</string>
     <string name="usa_gsm_modify_receive_to_video">%s ຕ້ອງການສັບປ່ຽນເປັນການໂທວິດີໂອ.</string>
@@ -742,6 +746,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="usa_gsm_modify_requested_wait_for_response">ກຳລັງລໍການຕອບຮັບ</string>
     <string name="usa_gsm_modify_select_call_type">ເລືອກປະເພດການໂທ</string>
     <string name="usa_gsm_switching_to_voice_call">ການສັບປ່ຽນເປັນສຽງເທົ່ານັ້ນ.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">ວິດີໂອຖືກ​ປິດ​ແລ້ວ​ເນື່ອງ​ຈາກຂໍ້ມູນມືຖືບໍ່ມີຢູ່.</string>
     <string name="usa_volte_reject_upgrade_request">%s ບໍ່ສາມາດຮັບການໂທວິດີໂອໃນເວລານີ້ໄດ້.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">ການໂທວິດີໂອບໍ່ມີຢູ່.</string>
     <string name="usa_vzw_change_to_oneway_video">"ປ່ຽນເປັນ
@@ -786,7 +791,9 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">ບໍ່ຕ້ອງສະແດງອີກ</string>
     <string name="video_calling_incoming">ການໂທວິ​ດີ​ໂອ</string>
+    <string name="video_calls_quality_poor_tmo">ຄຸນນະພາບການເຊື່ອມຕໍ່ຕ່ຳ. ການໂທວິດີໂອອາດຈະສັບປ່ຽນເປັນການໂທດ້ວຍສຽງ.</string>
     <string name="video_calls_temporarily_not_available">ບໍ່ມີການໂທດ້ວຍວິດີໂອຢູ່ຊົ່ວຄາວ. ປ່ຽນການໂທໄປເປັນການໂທດ້ວຍສຽງແລ້ວ.</string>
+    <string name="video_calls_temporarily_not_available_att">ເບີໂທທີ່ທ່ານກຳລັງໂທຫາບໍ່ສາມາດຮັບການໂທວິດີໂອໄດ້ໃນເວລານີ້. ເຊື່ອມຕໍ່ການໂທເປັນໂທດ້ວຍສຽງແລ້ວ.</string>
     <string name="video_calls_temporarily_not_available_tmo">ການໂທວິດີໂອບໍ່ມີຢູ່.</string>
     <string name="video_paused_info_text">ຢຸດວິດີໂອຊົ່ວຄາວແລ້ວ</string>
     <string name="video_saved">ບັນທຶກວິດີໂອໄປໃສ່ %s ແລ້ວ.</string>
@@ -799,5 +806,5 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="waiting_call_dialog_dismiss_toast">ວາງສາຍແລ້ວໂດຍ %1$s. ກໍາລັງເລີ່ມການໂທໃໝ່ກັບ %2$s…</string>
     <string name="waiting_call_dialog_message">ຮັບສາຍ</string>
     <string name="websiteLabelsGroup">ທີ່ຢູ່ເວັບໄຊທ໌</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">ສະໝຸດໜ້າເຫຼືອງ</string>
 </resources>

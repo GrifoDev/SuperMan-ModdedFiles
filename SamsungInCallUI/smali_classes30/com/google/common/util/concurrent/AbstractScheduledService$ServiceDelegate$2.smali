@@ -25,8 +25,6 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;)V
     .locals 0
 
-    .prologue
-    .line 213
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +37,6 @@
 .method public run()V
     .locals 6
 
-    .prologue
-    .line 215
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     # getter for: Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -50,7 +46,6 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 217
     :try_start_0
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
@@ -58,7 +53,6 @@
 
     invoke-virtual {v1}, Lcom/google/common/util/concurrent/AbstractScheduledService;->startUp()V
 
-    .line 218
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     iget-object v2, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
@@ -99,7 +93,6 @@
     # setter for: Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->runningTask:Ljava/util/concurrent/Future;
     invoke-static {v1, v2}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->access$302(Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
 
-    .line 219
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     invoke-virtual {v1}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->notifyStarted()V
@@ -107,7 +100,6 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 227
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     # getter for: Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -117,22 +109,17 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 229
     :goto_0
     return-void
 
-    .line 220
     :catch_0
     move-exception v0
 
-    .line 221
-    .local v0, "t":Ljava/lang/Throwable;
     :try_start_1
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     invoke-virtual {v1, v0}, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->notifyFailed(Ljava/lang/Throwable;)V
 
-    .line 222
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     # getter for: Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->runningTask:Ljava/util/concurrent/Future;
@@ -142,7 +129,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 224
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
     # getter for: Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;->runningTask:Ljava/util/concurrent/Future;
@@ -156,7 +142,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 227
     :cond_0
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate$2;->this$1:Lcom/google/common/util/concurrent/AbstractScheduledService$ServiceDelegate;
 
@@ -169,7 +154,6 @@
 
     goto :goto_0
 
-    .end local v0    # "t":Ljava/lang/Throwable;
     :catchall_0
     move-exception v1
 

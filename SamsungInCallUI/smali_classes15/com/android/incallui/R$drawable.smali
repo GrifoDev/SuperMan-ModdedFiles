@@ -757,7 +757,7 @@
 
 .field public static final notification_icon_legacy_bg:I = 0x7f020172
 
-.field public static final notification_template_icon_bg:I = 0x7f0203e9
+.field public static final notification_template_icon_bg:I = 0x7f0203f3
 
 .field public static final outgoing_sms_background:I = 0x7f020173
 
@@ -1391,641 +1391,659 @@
 
 .field public static final stat_sys_phone_call_sim2:I = 0x7f0202ae
 
-.field public static final stat_sys_vp_phone_call:I = 0x7f0202af
+.field public static final stat_sys_video_call:I = 0x7f0202af
 
-.field public static final stat_sys_vp_phone_call_on_hold:I = 0x7f0202b0
+.field public static final stat_sys_video_call_anim:I = 0x7f0202b0
 
-.field public static final sub_number_icon_1:I = 0x7f0202b1
+.field public static final stat_sys_video_call_bluetooth:I = 0x7f0202b1
 
-.field public static final sub_number_icon_2:I = 0x7f0202b2
+.field public static final stat_sys_video_call_bluetooth_anim:I = 0x7f0202b2
 
-.field public static final sub_number_icon_3:I = 0x7f0202b3
+.field public static final stat_sys_video_call_hold:I = 0x7f0202b3
 
-.field public static final sub_voicecall_endcall_ic_call:I = 0x7f0202b4
+.field public static final stat_sys_video_call_hold_anim:I = 0x7f0202b4
 
-.field public static final subject_bubble:I = 0x7f0202b5
+.field public static final stat_sys_vp_phone_call:I = 0x7f0202b5
 
-.field public static final tw_action_bar_headset:I = 0x7f0202b6
+.field public static final stat_sys_vp_phone_call_on_hold:I = 0x7f0202b6
 
-.field public static final tw_action_bar_icon_fileshare:I = 0x7f0202b7
+.field public static final stat_sys_vp_video_call:I = 0x7f0202b7
 
-.field public static final tw_btn_default_mtrl:I = 0x7f0202b8
+.field public static final stat_sys_vp_video_call_hold:I = 0x7f0202b8
 
-.field public static final tw_ic_ab_back_mtrl:I = 0x7f0202b9
+.field public static final sub_number_icon_1:I = 0x7f0202b9
 
-.field public static final tw_image_action_menu_btn_background:I = 0x7f0202ba
+.field public static final sub_number_icon_2:I = 0x7f0202ba
 
-.field public static final tw_image_action_menu_btn_material_light:I = 0x7f0202bb
+.field public static final sub_number_icon_3:I = 0x7f0202bb
 
-.field public static final tw_item_background_borderless_material:I = 0x7f0202bc
+.field public static final sub_voicecall_endcall_ic_call:I = 0x7f0202bc
 
-.field public static final tw_label_toast_frame_mtrl:I = 0x7f0202bd
+.field public static final subject_bubble:I = 0x7f0202bd
 
-.field public static final tw_list_icon_circle_mtrl:I = 0x7f0202be
+.field public static final tw_action_bar_headset:I = 0x7f0202be
 
-.field public static final tw_list_icon_create:I = 0x7f0202bf
+.field public static final tw_action_bar_icon_fileshare:I = 0x7f0202bf
 
-.field public static final tw_list_icon_create_mtrl:I = 0x7f0202c0
+.field public static final tw_btn_default_mtrl:I = 0x7f0202c0
 
-.field public static final tw_section_divider_mtrl:I = 0x7f0202c1
+.field public static final tw_ic_ab_back_mtrl:I = 0x7f0202c1
 
-.field public static final tw_sub_action_bar_bg_mtrl:I = 0x7f0202c2
+.field public static final tw_image_action_menu_btn_background:I = 0x7f0202c2
 
-.field public static final tw_text_action_incoming_popup_btn_background:I = 0x7f0202c3
+.field public static final tw_image_action_menu_btn_material_light:I = 0x7f0202c3
 
-.field public static final tw_text_action_incoming_popup_btn_material_light:I = 0x7f0202c4
+.field public static final tw_item_background_borderless_material:I = 0x7f0202c4
 
-.field public static final tw_text_action_menu_btn_background:I = 0x7f0202c5
+.field public static final tw_label_toast_frame_mtrl:I = 0x7f0202c5
 
-.field public static final tw_text_action_menu_btn_material_light:I = 0x7f0202c6
+.field public static final tw_list_icon_circle_mtrl:I = 0x7f0202c6
 
-.field public static final tw_text_action_popup_btn_background:I = 0x7f0202c7
+.field public static final tw_list_icon_create:I = 0x7f0202c7
 
-.field public static final tw_text_action_popup_btn_material_light:I = 0x7f0202c8
+.field public static final tw_list_icon_create_mtrl:I = 0x7f0202c8
 
-.field public static final tw_text_action_qcif_video_btn_background:I = 0x7f0202c9
+.field public static final tw_section_divider_mtrl:I = 0x7f0202c9
 
-.field public static final tw_text_action_qcif_video_btn_material_light:I = 0x7f0202ca
+.field public static final tw_sub_action_bar_bg_mtrl:I = 0x7f0202ca
 
-.field public static final tw_text_action_video_btn_background:I = 0x7f0202cb
+.field public static final tw_text_action_incoming_popup_btn_background:I = 0x7f0202cb
 
-.field public static final tw_text_action_video_btn_material_light:I = 0x7f0202cc
+.field public static final tw_text_action_incoming_popup_btn_material_light:I = 0x7f0202cc
 
-.field public static final tw_text_action_video_menu_btn_background:I = 0x7f0202cd
+.field public static final tw_text_action_menu_btn_background:I = 0x7f0202cd
 
-.field public static final tw_text_action_video_menu_btn_material_light:I = 0x7f0202ce
+.field public static final tw_text_action_menu_btn_material_light:I = 0x7f0202ce
 
-.field public static final tw_text_action_video_qcif_btn_background:I = 0x7f0202cf
+.field public static final tw_text_action_popup_btn_background:I = 0x7f0202cf
 
-.field public static final tw_text_action_video_qcif_btn_material_light:I = 0x7f0202d0
+.field public static final tw_text_action_popup_btn_material_light:I = 0x7f0202d0
 
-.field public static final tw_text_action_voice_btn_background:I = 0x7f0202d1
+.field public static final tw_text_action_qcif_video_btn_background:I = 0x7f0202d1
 
-.field public static final tw_text_action_voice_btn_material_light:I = 0x7f0202d2
+.field public static final tw_text_action_qcif_video_btn_material_light:I = 0x7f0202d2
 
-.field public static final tw_text_action_voice_conf_btn_background:I = 0x7f0202d3
+.field public static final tw_text_action_video_btn_background:I = 0x7f0202d3
 
-.field public static final tw_text_action_voice_conf_btn_material_light:I = 0x7f0202d4
+.field public static final tw_text_action_video_btn_material_light:I = 0x7f0202d4
 
-.field public static final tw_text_action_voice_mw_btn_background:I = 0x7f0202d5
+.field public static final tw_text_action_video_menu_btn_background:I = 0x7f0202d5
 
-.field public static final tw_text_action_voice_mw_btn_material_light:I = 0x7f0202d6
+.field public static final tw_text_action_video_menu_btn_material_light:I = 0x7f0202d6
 
-.field public static final tw_text_action_voice_onehand_btn_background:I = 0x7f0202d7
+.field public static final tw_text_action_video_qcif_btn_background:I = 0x7f0202d7
 
-.field public static final tw_text_action_voice_onehand_btn_material_light:I = 0x7f0202d8
+.field public static final tw_text_action_video_qcif_btn_material_light:I = 0x7f0202d8
 
-.field public static final tw_toast_frame_mtrl:I = 0x7f0202d9
+.field public static final tw_text_action_voice_btn_background:I = 0x7f0202d9
 
-.field public static final unknown_source:I = 0x7f0202da
+.field public static final tw_text_action_voice_btn_material_light:I = 0x7f0202da
 
-.field public static final unlock_right_moving_press:I = 0x7f0202db
+.field public static final tw_text_action_voice_conf_btn_background:I = 0x7f0202db
 
-.field public static final unlock_right_press:I = 0x7f0202dc
+.field public static final tw_text_action_voice_conf_btn_material_light:I = 0x7f0202dc
 
-.field public static final unlock_right_press_theme:I = 0x7f0202dd
+.field public static final tw_text_action_voice_mw_btn_background:I = 0x7f0202dd
 
-.field public static final unlock_right_small:I = 0x7f0202de
+.field public static final tw_text_action_voice_mw_btn_material_light:I = 0x7f0202de
 
-.field public static final unlock_right_small_theme:I = 0x7f0202df
+.field public static final tw_text_action_voice_onehand_btn_background:I = 0x7f0202df
 
-.field public static final unread_count_background:I = 0x7f0202e0
+.field public static final tw_text_action_voice_onehand_btn_material_light:I = 0x7f0202e0
 
-.field public static final video_call_capture_vga:I = 0x7f0202e1
+.field public static final tw_toast_frame_mtrl:I = 0x7f0202e1
 
-.field public static final video_type_icon_global:I = 0x7f0202e2
+.field public static final unknown_source:I = 0x7f0202e2
 
-.field public static final video_type_icon_global_incoming:I = 0x7f0202e3
+.field public static final unlock_right_moving_press:I = 0x7f0202e3
 
-.field public static final video_type_icon_vzw:I = 0x7f0202e4
+.field public static final unlock_right_press:I = 0x7f0202e4
 
-.field public static final video_type_icon_vzw_incoming:I = 0x7f0202e5
+.field public static final unlock_right_press_theme:I = 0x7f0202e5
 
-.field public static final videocall_conference_default_image:I = 0x7f0202e6
+.field public static final unlock_right_small:I = 0x7f0202e6
 
-.field public static final videocall_during_ic_endcall:I = 0x7f0202e7
+.field public static final unlock_right_small_theme:I = 0x7f0202e7
 
-.field public static final videocall_during_onehand_ic_endcall:I = 0x7f0202e8
+.field public static final unread_count_background:I = 0x7f0202e8
 
-.field public static final videocall_effect_cancel_icon:I = 0x7f0202e9
+.field public static final video_call_capture_vga:I = 0x7f0202e9
 
-.field public static final videocall_effect_thumbnail_beauty:I = 0x7f0202ea
+.field public static final video_pip_hold_bg:I = 0x7f0202ea
 
-.field public static final videocall_effect_thumbnail_mono:I = 0x7f0202eb
+.field public static final video_pip_incall_bg:I = 0x7f0202eb
 
-.field public static final videocall_effect_thumbnail_negative:I = 0x7f0202ec
+.field public static final video_type_icon_global:I = 0x7f0202ec
 
-.field public static final videocall_effect_thumbnail_none:I = 0x7f0202ed
+.field public static final video_type_icon_global_incoming:I = 0x7f0202ed
 
-.field public static final videocall_effect_thumbnail_sepia:I = 0x7f0202ee
+.field public static final video_type_icon_vzw:I = 0x7f0202ee
 
-.field public static final videocall_effect_thumbnail_solarise:I = 0x7f0202ef
+.field public static final video_type_icon_vzw_incoming:I = 0x7f0202ef
 
-.field public static final videocall_ic_hide:I = 0x7f0202f0
+.field public static final videocall_conference_default_image:I = 0x7f0202f0
 
-.field public static final videocall_ic_hide_qcif:I = 0x7f0202f1
+.field public static final videocall_during_ic_endcall:I = 0x7f0202f1
 
-.field public static final videocall_ic_hideme:I = 0x7f0202f2
+.field public static final videocall_during_onehand_ic_endcall:I = 0x7f0202f2
 
-.field public static final videocall_ic_mute:I = 0x7f0202f3
+.field public static final videocall_effect_cancel_icon:I = 0x7f0202f3
 
-.field public static final videocall_ic_mute_on:I = 0x7f0202f4
+.field public static final videocall_effect_thumbnail_beauty:I = 0x7f0202f4
 
-.field public static final videocall_ic_mute_qcif:I = 0x7f0202f5
+.field public static final videocall_effect_thumbnail_mono:I = 0x7f0202f5
 
-.field public static final videocall_ic_showme:I = 0x7f0202f6
+.field public static final videocall_effect_thumbnail_negative:I = 0x7f0202f6
 
-.field public static final videocall_ic_speaker:I = 0x7f0202f7
+.field public static final videocall_effect_thumbnail_none:I = 0x7f0202f7
 
-.field public static final videocall_ic_speaker_on:I = 0x7f0202f8
+.field public static final videocall_effect_thumbnail_sepia:I = 0x7f0202f8
 
-.field public static final videocall_ic_stop:I = 0x7f0202f9
+.field public static final videocall_effect_thumbnail_solarise:I = 0x7f0202f9
 
-.field public static final videocall_ic_switch_qcif:I = 0x7f0202fa
+.field public static final videocall_ic_hide:I = 0x7f0202fa
 
-.field public static final videocall_ic_video:I = 0x7f0202fb
+.field public static final videocall_ic_hide_qcif:I = 0x7f0202fb
 
-.field public static final videocall_ic_video_on:I = 0x7f0202fc
+.field public static final videocall_ic_hideme:I = 0x7f0202fc
 
-.field public static final videocall_ic_videocall:I = 0x7f0202fd
+.field public static final videocall_ic_mute:I = 0x7f0202fd
 
-.field public static final videocall_ic_videocall_vzw:I = 0x7f0202fe
+.field public static final videocall_ic_mute_on:I = 0x7f0202fe
 
-.field public static final videocall_ic_voicecall_vzw:I = 0x7f0202ff
+.field public static final videocall_ic_mute_qcif:I = 0x7f0202ff
 
-.field public static final videocall_incoming_bg_message:I = 0x7f020300
+.field public static final videocall_ic_showme:I = 0x7f020300
 
-.field public static final videocall_incoming_ic_hideme_att:I = 0x7f020301
+.field public static final videocall_ic_speaker:I = 0x7f020301
 
-.field public static final videocall_incoming_ic_showme_att:I = 0x7f020302
+.field public static final videocall_ic_speaker_on:I = 0x7f020302
 
-.field public static final videocall_main_ic_hideme:I = 0x7f020303
+.field public static final videocall_ic_stop:I = 0x7f020303
 
-.field public static final videocall_main_ic_nophotoid:I = 0x7f020304
+.field public static final videocall_ic_switch_qcif:I = 0x7f020304
 
-.field public static final videocall_multiparty_btn_merge:I = 0x7f020305
+.field public static final videocall_ic_video:I = 0x7f020305
 
-.field public static final videocall_multiparty_btn_swap:I = 0x7f020306
+.field public static final videocall_ic_video_on:I = 0x7f020306
 
-.field public static final videocall_onehand_ic_arrow_left:I = 0x7f020307
+.field public static final videocall_ic_videocall:I = 0x7f020307
 
-.field public static final videocall_onehand_ic_arrow_right:I = 0x7f020308
+.field public static final videocall_ic_videocall_vzw:I = 0x7f020308
 
-.field public static final videocall_onhold_default_image:I = 0x7f020309
+.field public static final videocall_ic_voicecall_vzw:I = 0x7f020309
 
-.field public static final videocall_onhold_default_image_small:I = 0x7f02030a
+.field public static final videocall_incoming_bg_message:I = 0x7f02030a
 
-.field public static final videocall_vga_ic_video:I = 0x7f02030b
+.field public static final videocall_incoming_ic_hideme_att:I = 0x7f02030b
 
-.field public static final videocall_vga_ic_video_on:I = 0x7f02030c
+.field public static final videocall_incoming_ic_showme_att:I = 0x7f02030c
 
-.field public static final videocall_vga_multiwindow_keypad_hide_btn:I = 0x7f02030d
+.field public static final videocall_main_ic_hideme:I = 0x7f02030d
 
-.field public static final view_pager_tab_background:I = 0x7f02030e
+.field public static final videocall_main_ic_nophotoid:I = 0x7f02030e
 
-.field public static final vodafone_callplus_icon:I = 0x7f02030f
+.field public static final videocall_multiparty_btn_merge:I = 0x7f02030f
 
-.field public static final vodafone_callplus_icon_importance_call:I = 0x7f020310
+.field public static final videocall_multiparty_btn_swap:I = 0x7f020310
 
-.field public static final vodafone_callplus_importance_background:I = 0x7f020311
+.field public static final videocall_onehand_ic_arrow_left:I = 0x7f020311
 
-.field public static final vodafone_callplus_map_icon:I = 0x7f020312
+.field public static final videocall_onehand_ic_arrow_right:I = 0x7f020312
 
-.field public static final vodafone_callplus_popup_image_icon:I = 0x7f020313
+.field public static final videocall_onhold_default_image:I = 0x7f020313
 
-.field public static final vodafone_callplus_popup_map_icon:I = 0x7f020314
+.field public static final videocall_onhold_default_image_small:I = 0x7f020314
 
-.field public static final vodafone_callplus_unanswered_icon:I = 0x7f020315
+.field public static final videocall_vga_ic_video:I = 0x7f020315
 
-.field public static final vodafone_callplus_unanswered_icon_on:I = 0x7f020316
+.field public static final videocall_vga_ic_video_on:I = 0x7f020316
 
-.field public static final voice_onehand_ic_arrow_left:I = 0x7f020317
+.field public static final videocall_vga_multiwindow_keypad_hide_btn:I = 0x7f020317
 
-.field public static final voice_onehand_ic_arrow_right:I = 0x7f020318
+.field public static final view_pager_tab_background:I = 0x7f020318
 
-.field public static final voice_type_icon_global:I = 0x7f020319
+.field public static final vodafone_callplus_icon:I = 0x7f020319
 
-.field public static final voicecall_bizcall_ic_business:I = 0x7f02031a
+.field public static final vodafone_callplus_icon_importance_call:I = 0x7f02031a
 
-.field public static final voicecall_btn_close:I = 0x7f02031b
+.field public static final vodafone_callplus_importance_background:I = 0x7f02031b
 
-.field public static final voicecall_btn_close_white:I = 0x7f02031c
+.field public static final vodafone_callplus_map_icon:I = 0x7f02031c
 
-.field public static final voicecall_btn_expander_close:I = 0x7f02031d
+.field public static final vodafone_callplus_popup_image_icon:I = 0x7f02031d
 
-.field public static final voicecall_btn_expander_open:I = 0x7f02031e
+.field public static final vodafone_callplus_popup_map_icon:I = 0x7f02031e
 
-.field public static final voicecall_btn_open:I = 0x7f02031f
+.field public static final vodafone_callplus_unanswered_icon:I = 0x7f02031f
 
-.field public static final voicecall_btn_open_white:I = 0x7f020320
+.field public static final vodafone_callplus_unanswered_icon_on:I = 0x7f020320
 
-.field public static final voicecall_cu_3ghd_voice:I = 0x7f020321
+.field public static final voice_onehand_ic_arrow_left:I = 0x7f020321
 
-.field public static final voicecall_during_ic_add:I = 0x7f020322
+.field public static final voice_onehand_ic_arrow_right:I = 0x7f020322
 
-.field public static final voicecall_during_ic_bluetooth:I = 0x7f020323
+.field public static final voice_type_icon_global:I = 0x7f020323
 
-.field public static final voicecall_during_ic_bluetooth_on:I = 0x7f020324
+.field public static final voicecall_bizcall_ic_business:I = 0x7f020324
 
-.field public static final voicecall_during_ic_endcall:I = 0x7f020325
+.field public static final voicecall_btn_close:I = 0x7f020325
 
-.field public static final voicecall_during_ic_extravolum_02_off:I = 0x7f020326
+.field public static final voicecall_btn_close_white:I = 0x7f020326
 
-.field public static final voicecall_during_ic_extravolume:I = 0x7f020327
+.field public static final voicecall_btn_expander_close:I = 0x7f020327
 
-.field public static final voicecall_during_ic_extravolume_on:I = 0x7f020328
+.field public static final voicecall_btn_expander_open:I = 0x7f020328
 
-.field public static final voicecall_during_ic_hold:I = 0x7f020329
+.field public static final voicecall_btn_open:I = 0x7f020329
 
-.field public static final voicecall_during_ic_keypad:I = 0x7f02032a
+.field public static final voicecall_btn_open_white:I = 0x7f02032a
 
-.field public static final voicecall_during_ic_lock:I = 0x7f02032b
+.field public static final voicecall_cu_3ghd_voice:I = 0x7f02032b
 
-.field public static final voicecall_during_ic_mute:I = 0x7f02032c
+.field public static final voicecall_during_ic_add:I = 0x7f02032c
 
-.field public static final voicecall_during_ic_mute_on:I = 0x7f02032d
+.field public static final voicecall_during_ic_bluetooth:I = 0x7f02032d
 
-.field public static final voicecall_during_ic_record:I = 0x7f02032e
+.field public static final voicecall_during_ic_bluetooth_on:I = 0x7f02032e
 
-.field public static final voicecall_during_ic_resume:I = 0x7f02032f
+.field public static final voicecall_during_ic_endcall:I = 0x7f02032f
 
-.field public static final voicecall_during_ic_speaker:I = 0x7f020330
+.field public static final voicecall_during_ic_extravolum_02_off:I = 0x7f020330
 
-.field public static final voicecall_during_ic_speaker_on:I = 0x7f020331
+.field public static final voicecall_during_ic_extravolume:I = 0x7f020331
 
-.field public static final voicecall_during_ic_stop:I = 0x7f020332
+.field public static final voicecall_during_ic_extravolume_on:I = 0x7f020332
 
-.field public static final voicecall_during_ic_swis:I = 0x7f020333
+.field public static final voicecall_during_ic_hold:I = 0x7f020333
 
-.field public static final voicecall_during_ic_video:I = 0x7f020334
+.field public static final voicecall_during_ic_keypad:I = 0x7f020334
 
-.field public static final voicecall_during_vzw_btn_ic_camera:I = 0x7f020335
+.field public static final voicecall_during_ic_lock:I = 0x7f020335
 
-.field public static final voicecall_during_vzw_btn_ic_one_way_camera:I = 0x7f020336
+.field public static final voicecall_during_ic_mute:I = 0x7f020336
 
-.field public static final voicecall_endcall_ic_add_reminder:I = 0x7f020337
+.field public static final voicecall_during_ic_mute_on:I = 0x7f020337
 
-.field public static final voicecall_endcall_ic_block:I = 0x7f020338
+.field public static final voicecall_during_ic_record:I = 0x7f020338
 
-.field public static final voicecall_endcall_ic_call:I = 0x7f020339
+.field public static final voicecall_during_ic_resume:I = 0x7f020339
 
-.field public static final voicecall_endcall_ic_create:I = 0x7f02033a
+.field public static final voicecall_during_ic_speaker:I = 0x7f02033a
 
-.field public static final voicecall_endcall_ic_message:I = 0x7f02033b
+.field public static final voicecall_during_ic_speaker_on:I = 0x7f02033b
 
-.field public static final voicecall_endcall_ic_report:I = 0x7f02033c
+.field public static final voicecall_during_ic_stop:I = 0x7f02033c
 
-.field public static final voicecall_endcall_ic_unblock:I = 0x7f02033d
+.field public static final voicecall_during_ic_swis:I = 0x7f02033d
 
-.field public static final voicecall_endcall_ic_update:I = 0x7f02033e
+.field public static final voicecall_during_ic_video:I = 0x7f02033e
 
-.field public static final voicecall_endcall_ic_videocall:I = 0x7f02033f
+.field public static final voicecall_during_vzw_btn_ic_camera:I = 0x7f02033f
 
-.field public static final voicecall_endcall_ic_videocall_att_dim:I = 0x7f020340
+.field public static final voicecall_during_vzw_btn_ic_one_way_camera:I = 0x7f020340
 
-.field public static final voicecall_endcall_ic_viewcontact:I = 0x7f020341
+.field public static final voicecall_endcall_ic_add_reminder:I = 0x7f020341
 
-.field public static final voicecall_hd_common:I = 0x7f020342
+.field public static final voicecall_endcall_ic_block:I = 0x7f020342
 
-.field public static final voicecall_hd_common_video:I = 0x7f020343
+.field public static final voicecall_endcall_ic_call:I = 0x7f020343
 
-.field public static final voicecall_hd_cu:I = 0x7f020344
+.field public static final voicecall_endcall_ic_create:I = 0x7f020344
 
-.field public static final voicecall_hd_dcm:I = 0x7f020345
+.field public static final voicecall_endcall_ic_message:I = 0x7f020345
 
-.field public static final voicecall_hd_dcm_plus:I = 0x7f020346
+.field public static final voicecall_endcall_ic_report:I = 0x7f020346
 
-.field public static final voicecall_hd_kor:I = 0x7f020347
+.field public static final voicecall_endcall_ic_unblock:I = 0x7f020347
 
-.field public static final voicecall_hd_lgt:I = 0x7f020348
+.field public static final voicecall_endcall_ic_update:I = 0x7f020348
 
-.field public static final voicecall_hd_skt:I = 0x7f020349
+.field public static final voicecall_endcall_ic_videocall:I = 0x7f020349
 
-.field public static final voicecall_hd_spr:I = 0x7f02034a
+.field public static final voicecall_endcall_ic_videocall_att_dim:I = 0x7f02034a
 
-.field public static final voicecall_hd_ufn:I = 0x7f02034b
+.field public static final voicecall_endcall_ic_viewcontact:I = 0x7f02034b
 
-.field public static final voicecall_ic_conversion:I = 0x7f02034c
+.field public static final voicecall_hd_common:I = 0x7f02034c
 
-.field public static final voicecall_ic_hd_plus_voice_black:I = 0x7f02034d
+.field public static final voicecall_hd_common_video:I = 0x7f02034d
 
-.field public static final voicecall_ic_hd_voice_black:I = 0x7f02034e
+.field public static final voicecall_hd_cu:I = 0x7f02034e
 
-.field public static final voicecall_ic_hide:I = 0x7f02034f
+.field public static final voicecall_hd_dcm:I = 0x7f02034f
 
-.field public static final voicecall_incoming_arrow_accept:I = 0x7f020350
+.field public static final voicecall_hd_dcm_plus:I = 0x7f020350
 
-.field public static final voicecall_incoming_arrow_reject:I = 0x7f020351
+.field public static final voicecall_hd_kor:I = 0x7f020351
 
-.field public static final voicecall_incoming_bg_message:I = 0x7f020352
+.field public static final voicecall_hd_lgt:I = 0x7f020352
 
-.field public static final voicecall_incoming_ic_accept:I = 0x7f020353
+.field public static final voicecall_hd_skt:I = 0x7f020353
 
-.field public static final voicecall_incoming_ic_reject:I = 0x7f020354
+.field public static final voicecall_hd_spr:I = 0x7f020354
 
-.field public static final voicecall_incoming_ic_remind:I = 0x7f020355
+.field public static final voicecall_hd_ufn:I = 0x7f020355
 
-.field public static final voicecall_incoming_left:I = 0x7f020356
+.field public static final voicecall_ic_conversion:I = 0x7f020356
 
-.field public static final voicecall_incoming_left_01:I = 0x7f020357
+.field public static final voicecall_ic_hd_plus_voice_black:I = 0x7f020357
 
-.field public static final voicecall_incoming_left_02:I = 0x7f020358
+.field public static final voicecall_ic_hd_voice_black:I = 0x7f020358
 
-.field public static final voicecall_incoming_left_03:I = 0x7f020359
+.field public static final voicecall_ic_hide:I = 0x7f020359
 
-.field public static final voicecall_incoming_right:I = 0x7f02035a
+.field public static final voicecall_incoming_arrow_accept:I = 0x7f02035a
 
-.field public static final voicecall_incoming_right_01:I = 0x7f02035b
+.field public static final voicecall_incoming_arrow_reject:I = 0x7f02035b
 
-.field public static final voicecall_incoming_right_02:I = 0x7f02035c
+.field public static final voicecall_incoming_bg_message:I = 0x7f02035c
 
-.field public static final voicecall_incoming_right_03:I = 0x7f02035d
+.field public static final voicecall_incoming_ic_accept:I = 0x7f02035d
 
-.field public static final voicecall_info_ic_call:I = 0x7f02035e
+.field public static final voicecall_incoming_ic_reject:I = 0x7f02035e
 
-.field public static final voicecall_info_ic_call_fowarding:I = 0x7f02035f
+.field public static final voicecall_incoming_ic_remind:I = 0x7f02035f
 
-.field public static final voicecall_info_ic_email:I = 0x7f020360
+.field public static final voicecall_incoming_left:I = 0x7f020360
 
-.field public static final voicecall_info_ic_goggle:I = 0x7f020361
+.field public static final voicecall_incoming_left_01:I = 0x7f020361
 
-.field public static final voicecall_info_ic_knox:I = 0x7f020362
+.field public static final voicecall_incoming_left_02:I = 0x7f020362
 
-.field public static final voicecall_info_ic_memo:I = 0x7f020363
+.field public static final voicecall_incoming_left_03:I = 0x7f020363
 
-.field public static final voicecall_info_ic_message:I = 0x7f020364
+.field public static final voicecall_incoming_right:I = 0x7f020364
 
-.field public static final voicecall_info_ic_planner:I = 0x7f020365
+.field public static final voicecall_incoming_right_01:I = 0x7f020365
 
-.field public static final voicecall_info_ic_secure_folder:I = 0x7f020366
+.field public static final voicecall_incoming_right_02:I = 0x7f020366
 
-.field public static final voicecall_info_ic_status:I = 0x7f020367
+.field public static final voicecall_incoming_right_03:I = 0x7f020367
 
-.field public static final voicecall_info_ic_work:I = 0x7f020368
+.field public static final voicecall_info_ic_call:I = 0x7f020368
 
-.field public static final voicecall_kt_twophone_1:I = 0x7f020369
+.field public static final voicecall_info_ic_call_fowarding:I = 0x7f020369
 
-.field public static final voicecall_kt_twophone_2:I = 0x7f02036a
+.field public static final voicecall_info_ic_email:I = 0x7f02036a
 
-.field public static final voicecall_linkedin_ic:I = 0x7f02036b
+.field public static final voicecall_info_ic_goggle:I = 0x7f02036b
 
-.field public static final voicecall_mini_controller_accept:I = 0x7f02036c
+.field public static final voicecall_info_ic_knox:I = 0x7f02036c
 
-.field public static final voicecall_mini_controller_call_on_hold:I = 0x7f02036d
+.field public static final voicecall_info_ic_memo:I = 0x7f02036d
 
-.field public static final voicecall_mini_controller_endcall:I = 0x7f02036e
+.field public static final voicecall_info_ic_message:I = 0x7f02036e
 
-.field public static final voicecall_mini_controller_ic_unsaved_safe:I = 0x7f02036f
+.field public static final voicecall_info_ic_planner:I = 0x7f02036f
 
-.field public static final voicecall_mini_controller_ic_unsaved_spam:I = 0x7f020370
+.field public static final voicecall_info_ic_secure_folder:I = 0x7f020370
 
-.field public static final voicecall_mini_controller_ic_unsaved_unclear:I = 0x7f020371
+.field public static final voicecall_info_ic_status:I = 0x7f020371
 
-.field public static final voicecall_mini_controller_kt_1:I = 0x7f020372
+.field public static final voicecall_info_ic_work:I = 0x7f020372
 
-.field public static final voicecall_mini_controller_kt_2:I = 0x7f020373
+.field public static final voicecall_kt_twophone_1:I = 0x7f020373
 
-.field public static final voicecall_mini_controller_mute:I = 0x7f020374
+.field public static final voicecall_kt_twophone_2:I = 0x7f020374
 
-.field public static final voicecall_mini_controller_mute_dim:I = 0x7f020375
+.field public static final voicecall_linkedin_ic:I = 0x7f020375
 
-.field public static final voicecall_mini_controller_mute_off:I = 0x7f020376
+.field public static final voicecall_mini_controller_accept:I = 0x7f020376
 
-.field public static final voicecall_mini_controller_mute_on:I = 0x7f020377
+.field public static final voicecall_mini_controller_call_on_hold:I = 0x7f020377
 
-.field public static final voicecall_mini_controller_reject:I = 0x7f020378
+.field public static final voicecall_mini_controller_endcall:I = 0x7f020378
 
-.field public static final voicecall_mini_controller_resume:I = 0x7f020379
+.field public static final voicecall_mini_controller_ic_unsaved_safe:I = 0x7f020379
 
-.field public static final voicecall_mini_controller_speaker:I = 0x7f02037a
+.field public static final voicecall_mini_controller_ic_unsaved_spam:I = 0x7f02037a
 
-.field public static final voicecall_mini_controller_speaker_off:I = 0x7f02037b
+.field public static final voicecall_mini_controller_ic_unsaved_unclear:I = 0x7f02037b
 
-.field public static final voicecall_mini_controller_speaker_on:I = 0x7f02037c
+.field public static final voicecall_mini_controller_kt_1:I = 0x7f02037c
 
-.field public static final voicecall_mini_controller_videocall:I = 0x7f02037d
+.field public static final voicecall_mini_controller_kt_2:I = 0x7f02037d
 
-.field public static final voicecall_mini_controller_videocall_no_lte:I = 0x7f02037e
+.field public static final voicecall_mini_controller_mute:I = 0x7f02037e
 
-.field public static final voicecall_mini_controller_voicecall:I = 0x7f02037f
+.field public static final voicecall_mini_controller_mute_dim:I = 0x7f02037f
 
-.field public static final voicecall_mini_multisim_01:I = 0x7f020380
+.field public static final voicecall_mini_controller_mute_off:I = 0x7f020380
 
-.field public static final voicecall_mini_multisim_02:I = 0x7f020381
+.field public static final voicecall_mini_controller_mute_on:I = 0x7f020381
 
-.field public static final voicecall_mini_multisim_04:I = 0x7f020382
+.field public static final voicecall_mini_controller_reject:I = 0x7f020382
 
-.field public static final voicecall_mini_multisim_05:I = 0x7f020383
+.field public static final voicecall_mini_controller_resume:I = 0x7f020383
 
-.field public static final voicecall_mini_multisim_06:I = 0x7f020384
+.field public static final voicecall_mini_controller_speaker:I = 0x7f020384
 
-.field public static final voicecall_mini_multisim_07:I = 0x7f020385
+.field public static final voicecall_mini_controller_speaker_off:I = 0x7f020385
 
-.field public static final voicecall_mini_multisim_08:I = 0x7f020386
+.field public static final voicecall_mini_controller_speaker_on:I = 0x7f020386
 
-.field public static final voicecall_mini_multisim_09:I = 0x7f020387
+.field public static final voicecall_mini_controller_videocall:I = 0x7f020387
 
-.field public static final voicecall_mini_multisim_10:I = 0x7f020388
+.field public static final voicecall_mini_controller_videocall_no_lte:I = 0x7f020388
 
-.field public static final voicecall_mini_multisim_call:I = 0x7f020389
+.field public static final voicecall_mini_controller_voicecall:I = 0x7f020389
 
-.field public static final voicecall_multiparty_btn_conneting:I = 0x7f02038a
+.field public static final voicecall_mini_multisim_01:I = 0x7f02038a
 
-.field public static final voicecall_multiparty_btn_delete:I = 0x7f02038b
+.field public static final voicecall_mini_multisim_02:I = 0x7f02038b
 
-.field public static final voicecall_multiparty_btn_endcall:I = 0x7f02038c
+.field public static final voicecall_mini_multisim_04:I = 0x7f02038c
 
-.field public static final voicecall_multiparty_btn_hide:I = 0x7f02038d
+.field public static final voicecall_mini_multisim_05:I = 0x7f02038d
 
-.field public static final voicecall_multiparty_btn_hide_icon:I = 0x7f02038e
+.field public static final voicecall_mini_multisim_06:I = 0x7f02038e
 
-.field public static final voicecall_multiparty_btn_hidemerge:I = 0x7f02038f
+.field public static final voicecall_mini_multisim_07:I = 0x7f02038f
 
-.field public static final voicecall_multiparty_btn_hidemerge_icon:I = 0x7f020390
+.field public static final voicecall_mini_multisim_08:I = 0x7f020390
 
-.field public static final voicecall_multiparty_btn_manage:I = 0x7f020391
+.field public static final voicecall_mini_multisim_09:I = 0x7f020391
 
-.field public static final voicecall_multiparty_btn_manage_icon:I = 0x7f020392
+.field public static final voicecall_mini_multisim_10:I = 0x7f020392
 
-.field public static final voicecall_multiparty_btn_merge:I = 0x7f020393
+.field public static final voicecall_mini_multisim_call:I = 0x7f020393
 
-.field public static final voicecall_multiparty_btn_merge_icon:I = 0x7f020394
+.field public static final voicecall_multiparty_btn_conneting:I = 0x7f020394
 
-.field public static final voicecall_multiparty_btn_swap:I = 0x7f020395
+.field public static final voicecall_multiparty_btn_delete:I = 0x7f020395
 
-.field public static final voicecall_multiparty_btn_swap_icon:I = 0x7f020396
+.field public static final voicecall_multiparty_btn_endcall:I = 0x7f020396
 
-.field public static final voicecall_multiparty_group_img:I = 0x7f020397
+.field public static final voicecall_multiparty_btn_hide:I = 0x7f020397
 
-.field public static final voicecall_multiparty_group_img_disconnected:I = 0x7f020398
+.field public static final voicecall_multiparty_btn_hide_icon:I = 0x7f020398
 
-.field public static final voicecall_multiparty_single_img:I = 0x7f020399
+.field public static final voicecall_multiparty_btn_hidemerge:I = 0x7f020399
 
-.field public static final voicecall_multiparty_single_img_disconnected:I = 0x7f02039a
+.field public static final voicecall_multiparty_btn_hidemerge_icon:I = 0x7f02039a
 
-.field public static final voicecall_multitasking_ic_email:I = 0x7f02039b
+.field public static final voicecall_multiparty_btn_manage:I = 0x7f02039b
 
-.field public static final voicecall_multitasking_ic_gallery:I = 0x7f02039c
+.field public static final voicecall_multiparty_btn_manage_icon:I = 0x7f02039c
 
-.field public static final voicecall_multitasking_ic_internet:I = 0x7f02039d
+.field public static final voicecall_multiparty_btn_merge:I = 0x7f02039d
 
-.field public static final voicecall_multitasking_ic_memo:I = 0x7f02039e
+.field public static final voicecall_multiparty_btn_merge_icon:I = 0x7f02039e
 
-.field public static final voicecall_multitasking_ic_message:I = 0x7f02039f
+.field public static final voicecall_multiparty_btn_swap:I = 0x7f02039f
 
-.field public static final voicecall_multitasking_ic_splanner:I = 0x7f0203a0
+.field public static final voicecall_multiparty_btn_swap_icon:I = 0x7f0203a0
 
-.field public static final voicecall_noti_ic_unsaved_safe:I = 0x7f0203a1
+.field public static final voicecall_multiparty_group_img:I = 0x7f0203a1
 
-.field public static final voicecall_noti_ic_unsaved_spam:I = 0x7f0203a2
+.field public static final voicecall_multiparty_group_img_disconnected:I = 0x7f0203a2
 
-.field public static final voicecall_noti_ic_unsaved_unclear:I = 0x7f0203a3
+.field public static final voicecall_multiparty_single_img:I = 0x7f0203a3
 
-.field public static final voicecall_onhold_btn_resume:I = 0x7f0203a4
+.field public static final voicecall_multiparty_single_img_disconnected:I = 0x7f0203a4
 
-.field public static final voicecall_popup_accept:I = 0x7f0203a5
+.field public static final voicecall_multitasking_ic_email:I = 0x7f0203a5
 
-.field public static final voicecall_popup_default:I = 0x7f0203a6
+.field public static final voicecall_multitasking_ic_gallery:I = 0x7f0203a6
 
-.field public static final voicecall_popup_end:I = 0x7f0203a7
+.field public static final voicecall_multitasking_ic_internet:I = 0x7f0203a7
 
-.field public static final voicecall_popup_group_img:I = 0x7f0203a8
+.field public static final voicecall_multitasking_ic_memo:I = 0x7f0203a8
 
-.field public static final voicecall_popup_ic_safe_s:I = 0x7f0203a9
+.field public static final voicecall_multitasking_ic_message:I = 0x7f0203a9
 
-.field public static final voicecall_popup_ic_unsaved_safe:I = 0x7f0203aa
+.field public static final voicecall_multitasking_ic_splanner:I = 0x7f0203aa
 
-.field public static final voicecall_popup_ic_unsaved_spam:I = 0x7f0203ab
+.field public static final voicecall_noti_ic_unsaved_safe:I = 0x7f0203ab
 
-.field public static final voicecall_popup_ic_unsaved_unclear:I = 0x7f0203ac
+.field public static final voicecall_noti_ic_unsaved_spam:I = 0x7f0203ac
 
-.field public static final voicecall_popup_message:I = 0x7f0203ad
+.field public static final voicecall_noti_ic_unsaved_unclear:I = 0x7f0203ad
 
-.field public static final voicecall_popup_mute:I = 0x7f0203ae
+.field public static final voicecall_onhold_btn_resume:I = 0x7f0203ae
 
-.field public static final voicecall_popup_reject:I = 0x7f0203af
+.field public static final voicecall_popup_accept:I = 0x7f0203af
 
-.field public static final voicecall_popup_resume:I = 0x7f0203b0
+.field public static final voicecall_popup_default:I = 0x7f0203b0
 
-.field public static final voicecall_popup_single_img:I = 0x7f0203b1
+.field public static final voicecall_popup_end:I = 0x7f0203b1
 
-.field public static final voicecall_popup_speaker:I = 0x7f0203b2
+.field public static final voicecall_popup_group_img:I = 0x7f0203b2
 
-.field public static final voicecall_rcs_popup_cancel:I = 0x7f0203b3
+.field public static final voicecall_popup_ic_safe_s:I = 0x7f0203b3
 
-.field public static final voicecall_rcs_popup_cancel_focus:I = 0x7f0203b4
+.field public static final voicecall_popup_ic_unsaved_safe:I = 0x7f0203b4
 
-.field public static final voicecall_rcs_popup_cancel_press:I = 0x7f0203b5
+.field public static final voicecall_popup_ic_unsaved_spam:I = 0x7f0203b5
 
-.field public static final voicecall_rcs_popup_check:I = 0x7f0203b6
+.field public static final voicecall_popup_ic_unsaved_unclear:I = 0x7f0203b6
 
-.field public static final voicecall_rcs_popup_check_focus:I = 0x7f0203b7
+.field public static final voicecall_popup_message:I = 0x7f0203b7
 
-.field public static final voicecall_rcs_popup_check_press:I = 0x7f0203b8
+.field public static final voicecall_popup_mute:I = 0x7f0203b8
 
-.field public static final voicecall_recording_ic_pause:I = 0x7f0203b9
+.field public static final voicecall_popup_reject:I = 0x7f0203b9
 
-.field public static final voicecall_recording_ic_stop:I = 0x7f0203ba
+.field public static final voicecall_popup_resume:I = 0x7f0203ba
 
-.field public static final voicecall_sendmesage_bg:I = 0x7f0203bb
+.field public static final voicecall_popup_single_img:I = 0x7f0203bb
 
-.field public static final voicecall_smartcall_ic_unsaved_safe:I = 0x7f0203bc
+.field public static final voicecall_popup_speaker:I = 0x7f0203bc
 
-.field public static final voicecall_smartcall_ic_unsaved_safe_s:I = 0x7f0203bd
+.field public static final voicecall_rcs_popup_cancel:I = 0x7f0203bd
 
-.field public static final voicecall_smartcall_ic_unsaved_spam:I = 0x7f0203be
+.field public static final voicecall_rcs_popup_cancel_focus:I = 0x7f0203be
 
-.field public static final voicecall_smartcall_ic_unsaved_unclear:I = 0x7f0203bf
+.field public static final voicecall_rcs_popup_cancel_press:I = 0x7f0203bf
 
-.field public static final voicecall_sview_during_ic_mute_off:I = 0x7f0203c0
+.field public static final voicecall_rcs_popup_check:I = 0x7f0203c0
 
-.field public static final voicecall_sview_during_ic_speaker_off:I = 0x7f0203c1
+.field public static final voicecall_rcs_popup_check_focus:I = 0x7f0203c1
 
-.field public static final voicecall_sview_ic_unsaved_yellow:I = 0x7f0203c2
+.field public static final voicecall_rcs_popup_check_press:I = 0x7f0203c2
 
-.field public static final voicecall_vodafone_ic_subject:I = 0x7f0203c3
+.field public static final voicecall_recording_ic_pause:I = 0x7f0203c3
 
-.field public static final voicecall_wifi_common:I = 0x7f0203c4
+.field public static final voicecall_recording_ic_stop:I = 0x7f0203c4
 
-.field public static final voicecall_wifi_common_white:I = 0x7f0203c5
+.field public static final voicecall_sendmesage_bg:I = 0x7f0203c5
 
-.field public static final voicecall_wifi_vzw:I = 0x7f0203c6
+.field public static final voicecall_smartcall_ic_unsaved_safe:I = 0x7f0203c6
 
-.field public static final voicecall_wifi_vzw_video:I = 0x7f0203c7
+.field public static final voicecall_smartcall_ic_unsaved_safe_s:I = 0x7f0203c7
 
-.field public static final voicecall_wifi_vzw_white:I = 0x7f0203c8
+.field public static final voicecall_smartcall_ic_unsaved_spam:I = 0x7f0203c8
 
-.field public static final volte_end_onehand_ic_video:I = 0x7f0203c9
+.field public static final voicecall_smartcall_ic_unsaved_unclear:I = 0x7f0203c9
 
-.field public static final volte_incoming_ic_videocall:I = 0x7f0203ca
+.field public static final voicecall_sview_during_ic_mute_off:I = 0x7f0203ca
 
-.field public static final volte_popup_ic_wifi_voice:I = 0x7f0203cb
+.field public static final voicecall_sview_during_ic_speaker_off:I = 0x7f0203cb
 
-.field public static final volte_popup_videocall:I = 0x7f0203cc
+.field public static final voicecall_sview_ic_unsaved_yellow:I = 0x7f0203cc
 
-.field public static final volte_popup_videocall_dim:I = 0x7f0203cd
+.field public static final voicecall_vodafone_ic_subject:I = 0x7f0203cd
 
-.field public static final volte_video_call_ic:I = 0x7f0203ce
+.field public static final voicecall_wifi_common:I = 0x7f0203ce
 
-.field public static final volte_video_ic_pip_novideo:I = 0x7f0203cf
+.field public static final voicecall_wifi_common_white:I = 0x7f0203cf
 
-.field public static final volte_video_ic_pip_novideo_l:I = 0x7f0203d0
+.field public static final voicecall_wifi_vzw:I = 0x7f0203d0
 
-.field public static final volte_video_ic_video_02:I = 0x7f0203d1
+.field public static final voicecall_wifi_vzw_video:I = 0x7f0203d1
 
-.field public static final volte_videocall_ic_call:I = 0x7f0203d2
+.field public static final voicecall_wifi_vzw_white:I = 0x7f0203d2
 
-.field public static final volte_videocall_ic_hide_white:I = 0x7f0203d3
+.field public static final volte_end_onehand_ic_video:I = 0x7f0203d3
 
-.field public static final volte_videocall_ic_mute:I = 0x7f0203d4
+.field public static final volte_incoming_ic_videocall:I = 0x7f0203d4
 
-.field public static final volte_videocall_ic_mute_on:I = 0x7f0203d5
+.field public static final volte_popup_ic_wifi_voice:I = 0x7f0203d5
 
-.field public static final volte_videocall_ic_novideo:I = 0x7f0203d6
+.field public static final volte_popup_videocall:I = 0x7f0203d6
 
-.field public static final volte_videocall_ic_speaker:I = 0x7f0203d7
+.field public static final volte_popup_videocall_dim:I = 0x7f0203d7
 
-.field public static final volte_videocall_ic_speaker_on:I = 0x7f0203d8
+.field public static final volte_video_call_ic:I = 0x7f0203d8
 
-.field public static final volte_videocall_ic_switch:I = 0x7f0203d9
+.field public static final volte_video_ic_pip_novideo:I = 0x7f0203d9
 
-.field public static final volte_videocall_ic_video:I = 0x7f0203da
+.field public static final volte_video_ic_pip_novideo_l:I = 0x7f0203da
 
-.field public static final volte_videocall_ic_video_off:I = 0x7f0203db
+.field public static final volte_video_ic_video_02:I = 0x7f0203db
 
-.field public static final volte_videocall_title_ic_call:I = 0x7f0203dc
+.field public static final volte_videocall_ic_call:I = 0x7f0203dc
 
-.field public static final vowifi_callback_call_icon:I = 0x7f0203dd
+.field public static final volte_videocall_ic_hide_white:I = 0x7f0203dd
 
-.field public static final vowifi_end_call_icon:I = 0x7f0203de
+.field public static final volte_videocall_ic_mute:I = 0x7f0203de
 
-.field public static final vzw_help:I = 0x7f0203df
+.field public static final volte_videocall_ic_mute_on:I = 0x7f0203df
 
-.field public static final vzw_manage_ic_delete:I = 0x7f0203e0
+.field public static final volte_videocall_ic_novideo:I = 0x7f0203e0
 
-.field public static final vzw_mini_controller_ic_hd_video:I = 0x7f0203e1
+.field public static final volte_videocall_ic_speaker:I = 0x7f0203e1
 
-.field public static final vzw_mini_controller_ic_wifi_video:I = 0x7f0203e2
+.field public static final volte_videocall_ic_speaker_on:I = 0x7f0203e2
 
-.field public static final vzw_multi_end_point_bt_pull:I = 0x7f0203e3
+.field public static final volte_videocall_ic_switch:I = 0x7f0203e3
 
-.field public static final vzw_remote_call_ic_pull:I = 0x7f0203e4
+.field public static final volte_videocall_ic_video:I = 0x7f0203e4
 
-.field public static final vzw_remote_call_ic_pull_res:I = 0x7f0203e5
+.field public static final volte_videocall_ic_video_off:I = 0x7f0203e5
 
-.field public static final vzw_videocall_ic_switch:I = 0x7f0203e6
+.field public static final volte_videocall_title_ic_call:I = 0x7f0203e6
 
-.field public static final yellowpage_ic_01:I = 0x7f0203e7
+.field public static final vowifi_callback_call_icon:I = 0x7f0203e7
 
-.field public static final yulore_superyellowpage_icon_arrow:I = 0x7f0203e8
+.field public static final vowifi_end_call_icon:I = 0x7f0203e8
+
+.field public static final vzw_help:I = 0x7f0203e9
+
+.field public static final vzw_manage_ic_delete:I = 0x7f0203ea
+
+.field public static final vzw_mini_controller_ic_hd_video:I = 0x7f0203eb
+
+.field public static final vzw_mini_controller_ic_wifi_video:I = 0x7f0203ec
+
+.field public static final vzw_multi_end_point_bt_pull:I = 0x7f0203ed
+
+.field public static final vzw_remote_call_ic_pull:I = 0x7f0203ee
+
+.field public static final vzw_remote_call_ic_pull_res:I = 0x7f0203ef
+
+.field public static final vzw_videocall_ic_switch:I = 0x7f0203f0
+
+.field public static final yellowpage_ic_01:I = 0x7f0203f1
+
+.field public static final yulore_superyellowpage_icon_arrow:I = 0x7f0203f2
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 4497
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -39,18 +39,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     new-instance v0, Lcom/cmdm/control/bean/MoodLableList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/MoodLableList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/MyMoodResult;->moodLableList:Lcom/cmdm/control/bean/MoodLableList;
 
-    .line 14
     return-void
 .end method
 
@@ -59,8 +55,6 @@
 .method public getSetMood()Z
     .locals 2
 
-    .prologue
-    .line 35
     iget-object v0, p0, Lcom/cmdm/control/bean/MyMoodResult;->isSetMood:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -85,10 +79,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 36
     const/4 v0, 0x1
 
-    .line 38
     :goto_0
     return v0
 

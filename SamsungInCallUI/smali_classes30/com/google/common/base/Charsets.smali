@@ -47,8 +47,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 49
     const-string v0, "US-ASCII"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -57,7 +55,6 @@
 
     sput-object v0, Lcom/google/common/base/Charsets;->US_ASCII:Ljava/nio/charset/Charset;
 
-    .line 59
     const-string v0, "ISO-8859-1"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -66,7 +63,6 @@
 
     sput-object v0, Lcom/google/common/base/Charsets;->ISO_8859_1:Ljava/nio/charset/Charset;
 
-    .line 68
     const-string v0, "UTF-8"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -75,7 +71,6 @@
 
     sput-object v0, Lcom/google/common/base/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    .line 78
     const-string v0, "UTF-16BE"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -84,7 +79,6 @@
 
     sput-object v0, Lcom/google/common/base/Charsets;->UTF_16BE:Ljava/nio/charset/Charset;
 
-    .line 88
     const-string v0, "UTF-16LE"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -93,7 +87,6 @@
 
     sput-object v0, Lcom/google/common/base/Charsets;->UTF_16LE:Ljava/nio/charset/Charset;
 
-    .line 99
     const-string v0, "UTF-16"
 
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -108,8 +101,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

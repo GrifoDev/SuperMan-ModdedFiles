@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerFragment;
 
-    .prologue
-    .line 174
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,23 +36,16 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
-    .param p1, "di"    # Landroid/content/DialogInterface;
-    .param p2, "pos"    # I
 
-    .prologue
-    .line 176
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/AnswerFragment;->dismissWaitingCallPopup()V
 
-    .line 177
     packed-switch p2, :pswitch_data_0
 
-    .line 196
     :goto_0
     return-void
 
-    .line 179
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
@@ -71,7 +61,6 @@
 
     goto :goto_0
 
-    .line 184
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
@@ -87,7 +76,6 @@
 
     goto :goto_0
 
-    .line 189
     :pswitch_2
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerFragment;
 
@@ -103,7 +91,6 @@
 
     goto :goto_0
 
-    .line 177
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

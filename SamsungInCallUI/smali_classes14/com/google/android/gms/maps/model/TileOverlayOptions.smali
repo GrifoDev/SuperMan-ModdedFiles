@@ -50,12 +50,7 @@
 
 .method constructor <init>(ILandroid/os/IBinder;ZF)V
     .locals 1
-    .param p1, "versionCode"    # I
-    .param p2, "delegate"    # Landroid/os/IBinder;
-    .param p3, "visible"    # Z
-    .param p4, "zIndex"    # F
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x1
@@ -157,9 +152,7 @@
 
 .method public tileProvider(Lcom/google/android/gms/maps/model/TileProvider;)Lcom/google/android/gms/maps/model/TileOverlayOptions;
     .locals 1
-    .param p1, "tileProvider"    # Lcom/google/android/gms/maps/model/TileProvider;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/maps/model/TileOverlayOptions;->hH:Lcom/google/android/gms/maps/model/TileProvider;
 
     iget-object v0, p0, Lcom/google/android/gms/maps/model/TileOverlayOptions;->hH:Lcom/google/android/gms/maps/model/TileProvider;
@@ -183,9 +176,7 @@
 
 .method public visible(Z)Lcom/google/android/gms/maps/model/TileOverlayOptions;
     .locals 0
-    .param p1, "visible"    # Z
 
-    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/maps/model/TileOverlayOptions;->hc:Z
 
     return-object p0
@@ -193,10 +184,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0
@@ -216,9 +204,7 @@
 
 .method public zIndex(F)Lcom/google/android/gms/maps/model/TileOverlayOptions;
     .locals 0
-    .param p1, "zIndex"    # F
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/maps/model/TileOverlayOptions;->hb:F
 
     return-object p0

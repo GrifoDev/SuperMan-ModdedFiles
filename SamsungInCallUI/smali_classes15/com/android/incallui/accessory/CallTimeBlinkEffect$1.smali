@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CallTimeBlinkEffect;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
-    .prologue
-    .line 53
     iput-object p1, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$1;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,15 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 56
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 61
     const-string v0, "CallTimeBlinkEffect"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,11 +60,9 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 64
     :goto_0
     return-void
 
-    .line 58
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/accessory/CallTimeBlinkEffect$1;->this$0:Lcom/android/incallui/accessory/CallTimeBlinkEffect;
 
@@ -80,7 +71,6 @@
 
     goto :goto_0
 
-    .line 56
     :pswitch_data_0
     .packed-switch 0x69
         :pswitch_0

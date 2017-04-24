@@ -6,23 +6,17 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;)V
     .locals 6
-    .param p1, "token"    # I
-    .param p2, "cookie"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 27
     invoke-direct {p0, p1, p2}, Lcom/android/incallui/callerinfocard/queryargs/CallerInfoCardQueryArgs;-><init>(ILjava/lang/Object;)V
 
-    .line 28
     sget-object v0, Landroid/provider/ContactsContract$RawContacts;->CONTENT_URI:Landroid/net/Uri;
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/ProfileQueryArgs;->mUri:Landroid/net/Uri;
 
-    .line 29
     new-array v0, v5, [Ljava/lang/String;
 
     const-string v1, "sync4"
@@ -31,19 +25,16 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/ProfileQueryArgs;->mProjection:[Ljava/lang/String;
 
-    .line 30
     const-string v0, "contact_id = ? AND account_type = ?"
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/queryargs/ProfileQueryArgs;->mSelection:Ljava/lang/String;
 
-    .line 31
     const/4 v0, 0x2
 
     new-array v1, v0, [Ljava/lang/String;
 
     check-cast p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
-    .end local p2    # "cookie":Ljava/lang/Object;
     iget-object v0, p2, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;->cookie:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
@@ -62,6 +53,5 @@
 
     iput-object v1, p0, Lcom/android/incallui/callerinfocard/queryargs/ProfileQueryArgs;->mSelectionArgs:[Ljava/lang/String;
 
-    .line 32
     return-void
 .end method

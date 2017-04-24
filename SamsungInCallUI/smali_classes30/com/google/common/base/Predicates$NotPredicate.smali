@@ -56,13 +56,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 329
-    .local p0, "this":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<TT;>;"
-    .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 330
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -71,7 +66,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
 
-    .line 331
     return-void
 .end method
 
@@ -89,10 +83,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 335
-    .local p0, "this":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {v0, p1}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
@@ -114,25 +104,19 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 345
-    .local p0, "this":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<TT;>;"
     instance-of v1, p1, Lcom/google/common/base/Predicates$NotPredicate;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 346
     check-cast v0, Lcom/google/common/base/Predicates$NotPredicate;
 
-    .line 347
-    .local v0, "that":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<*>;"
     iget-object v1, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
 
     iget-object v2, v0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
@@ -141,8 +125,6 @@
 
     move-result v1
 
-    .line 349
-    .end local v0    # "that":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<*>;"
     :goto_0
     return v1
 
@@ -155,9 +137,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 340
-    .local p0, "this":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Predicates$NotPredicate;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -172,9 +151,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 354
-    .local p0, "this":Lcom/google/common/base/Predicates$NotPredicate;, "Lcom/google/common/base/Predicates$NotPredicate<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -21,10 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/android/contacts/common/vcard/VCardService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/vcard/VCardService;
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/android/contacts/common/vcard/VCardService$MyBinder;->this$0:Lcom/android/contacts/common/vcard/VCardService;
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -37,8 +34,6 @@
 .method public getService()Lcom/android/contacts/common/vcard/VCardService;
     .locals 1
 
-    .prologue
-    .line 120
     iget-object v0, p0, Lcom/android/contacts/common/vcard/VCardService$MyBinder;->this$0:Lcom/android/contacts/common/vcard/VCardService;
 
     return-object v0

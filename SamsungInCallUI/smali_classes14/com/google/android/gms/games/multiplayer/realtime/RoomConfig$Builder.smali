@@ -43,9 +43,7 @@
 # direct methods
 .method private constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)V
     .locals 1
-    .param p1, "updateListener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
@@ -81,10 +79,7 @@
 
 .method synthetic constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
-    .param p2, "x1"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)V
 
     return-void
@@ -105,8 +100,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "playerIds":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->fd:Ljava/util/ArrayList;
@@ -118,9 +111,7 @@
 
 .method public varargs addPlayersToInvite([Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 2
-    .param p1, "playerIds"    # [Ljava/lang/String;
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->fd:Ljava/util/ArrayList;
@@ -148,9 +139,7 @@
 
 .method public setAutoMatchCriteria(Landroid/os/Bundle;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "autoMatchCriteria"    # Landroid/os/Bundle;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->fa:Landroid/os/Bundle;
 
     return-object p0
@@ -158,9 +147,7 @@
 
 .method public setInvitationIdToAccept(Ljava/lang/String;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "invitationId"    # Ljava/lang/String;
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->fc:Ljava/lang/String;
@@ -170,9 +157,7 @@
 
 .method public setMessageReceivedListener(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->eY:Lcom/google/android/gms/games/multiplayer/realtime/RealTimeMessageReceivedListener;
 
     return-object p0
@@ -180,9 +165,7 @@
 
 .method public setRoomStatusUpdateListener(Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->eX:Lcom/google/android/gms/games/multiplayer/realtime/RoomStatusUpdateListener;
 
     return-object p0
@@ -190,9 +173,7 @@
 
 .method public setSocketCommunicationEnabled(Z)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "enableSockets"    # Z
 
-    .prologue
     iput-boolean p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->fb:Z
 
     return-object p0
@@ -200,9 +181,7 @@
 
 .method public setVariant(I)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 0
-    .param p1, "variant"    # I
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->eK:I
 
     return-object p0

@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/google/common/collect/Maps$EntryTransformer;Ljava/lang/Object;)V
     .locals 0
 
-    .prologue
-    .line 1876
     iput-object p1, p0, Lcom/google/common/collect/Maps$8;->val$transformer:Lcom/google/common/collect/Maps$EntryTransformer;
 
     iput-object p2, p0, Lcom/google/common/collect/Maps$8;->val$key:Ljava/lang/Object;
@@ -60,9 +58,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1879
-    .local p1, "v1":Ljava/lang/Object;, "TV1;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$8;->val$transformer:Lcom/google/common/collect/Maps$EntryTransformer;
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$8;->val$key:Ljava/lang/Object;

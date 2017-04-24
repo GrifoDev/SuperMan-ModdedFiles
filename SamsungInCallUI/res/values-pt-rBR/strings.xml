@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">Arraste o botão ENVIAR MENSAGEM p/ cima p/ enviar uma mens. ráp. e recusar uma cham. rec.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastar a chamada recusada com o painel de mensagem para cima para enviar uma mensagem de recusa de chamada para recusar uma chamada recebida.</string>
     <string name="call_ended_toast">Chamada encerrada.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Chamada encaminhada para:</string>
+    <string name="call_forwarding_from">Chamada encaminhada de:</string>
     <string name="call_incoming_voice_call2">Tocar em %s para atender uma chamada.</string>
     <string name="call_incoming_voice_call2_tts">Tocar no botão atender chamada para atender uma chamada.</string>
     <string name="call_incoming_voice_call3">Toq. em %s p/ recus. uma cham.</string>
@@ -161,13 +161,13 @@
     <string name="call_menu_during_call_list6_tts">Toque no botão de volume extra para aumentar o volume.</string>
     <string name="call_menu_during_call_list7">Toque em %s para ligar para outra pessoa e adicioná-la à chamada atual.</string>
     <string name="call_menu_during_call_list7_tts">Tocar no botão adicionar chamada para chamar outra pessoa e adicioná-la à chamada atual.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Duração da chamada</string>
     <string name="call_twophone_one_phone">Número original</string>
     <string name="call_twophone_two_phone">Segundo número</string>
     <string name="caller_info_card_last_call_log_title">Cham. recentes</string>
     <string name="caller_info_card_last_message_title">Mensagem mais recente</string>
     <string name="caller_info_card_memo_title">Lembrete criado durante chamada</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Mantenha pressionada a Tecla de suspensão para iniciar ou parar a gravação</string>
     <string name="callsettings_rejectmessage_list1">Desculpe, não posso falar agora. Ligue mais tarde.</string>
     <string name="callsettings_rejectmessage_list2">Estou em uma reunião.</string>
     <string name="callsettings_rejectmessage_list3">Estou em aula.</string>
@@ -262,6 +262,7 @@ Agora esta videochamada está usando dados, e os Dados móveis serão desativado
     <string name="extra_vol_off">Volume Extra desativado.</string>
     <string name="extra_vol_on">Volume Extra ativado.</string>
     <string name="far_end_stopped_share_video">%s interrompeu o compartilhamento de vídeo.</string>
+    <string name="far_end_stopped_share_video_att">%s interrompeu o envio de vídeo.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Arq. não suportado.</string>
     <string name="full_name">Nome</string>
@@ -290,7 +291,7 @@ Agora esta videochamada está usando dados, e os Dados móveis serão desativado
     <string name="incall_popup_call_remove_title_vzw">Ocultar atalho</string>
     <string name="incall_popup_ended">Encer.</string>
     <string name="incall_spam_call_block">Bloquear número</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Adicionar à Lista negra</string>
     <string name="incall_spam_call_reject_toast">Número de telefone adicionado à Lista de bloqueio.</string>
     <string name="incall_spam_call_report">Informar número</string>
     <string name="incall_transfer_call">Transferir chamada</string>
@@ -486,7 +487,7 @@ Esse recurso usa conteúdos fornecidos por uma operadora de terceiros chamada Di
     <string name="onscreenBluetoothTextOn_att">Mudar para telefone</string>
     <string name="onscreenBluetoothTextOn_tmo">Mudar para telefone</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Para desativar o alto-falante, abra o flip fone.</string>
     <string name="open_the_cover">Abra a capa.</string>
     <string name="open_the_cover_incoming">Abra a tampa para atender ou recusar chamada com vídeo.</string>
     <string name="open_the_cover_modify_call">A parte chamada deseja alternar para videochamada. Abra a capa para aceitar/recusar a solicitação.</string>
@@ -644,7 +645,7 @@ unidirec."</string>
     <string name="secOnscreenResumeCallText">Continuar</string>
     <string name="secOnscreenShowCallOption">Exibir opções de chamada</string>
     <string name="secOnscreenSpeaker">Viva-voz</string>
-    <string name="secOnscreenStopText">Parar</string>
+    <string name="secOnscreenStopText">Parar gravação</string>
     <string name="secOnscreenSwapText">Alternar</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Alternar Câmera</string>
@@ -703,9 +704,9 @@ unidirec."</string>
     <string name="spam_call_report_dialog_spam">Spam</string>
     <string name="spam_call_report_dialog_taxis">Táxis</string>
     <string name="spam_call_reported_as">Informado como %s</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Denunciado como %s por você</string>
     <string name="spam_call_resported_count">(%d vezes)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">Denunciado como %1$s %2$d vezes</string>
     <string name="sub_number_item">Alternativo %d</string>
     <string name="suguden_guide_do_not_show_again_dcm">Não exibir novamente</string>
     <string name="suguden_guide_main_text_dcm">Atenda à chamada aproximando o aparelho do ouvido.</string>
@@ -719,6 +720,7 @@ unidirec."</string>
     <string name="switch_to_voice_call_failed">Falha na solicitação de mudança para chamada com voz.</string>
     <string name="switched_to_voip_mo">Alternado para chamada de voz.</string>
     <string name="switched_to_voip_mt">Alternado para chamada de voz devido a solicitação da parte chamada.</string>
+    <string name="switched_to_voip_mt_att">A chamada alternou para somente voz.</string>
     <string name="switched_to_voip_mt_att_tmo">%s desativou o vídeo.</string>
     <string name="switching_camera_failed">Falha ao alternar câmeras.</string>
     <string name="switching_to_voice_call">Alternando para chamada de voz…</string>
@@ -734,7 +736,9 @@ unidirec."</string>
     <string name="usa_att_connected_as_voice">Chamada conectada como voz apenas.</string>
     <string name="usa_att_data_usage_charge_alert">O seu Uso de dados definido no aparelho está prestes a atingir o limite. Sua videochamada requer dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">A chamada não pode ser colocada em Wi-Fi. Conectando à rede celular. As cobranças de voz e dados serão aplicadas.</string>
-    <string name="usa_att_modify_receive_to_video">Selecionar modo de vídeo</string>
+    <string name="usa_att_modify_receive_to_video">%s está solicitando alternar para videochamada.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s está solicitando o compartilhamento de vídeo.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">A chamada não pode ser colocada em Wi-Fi. Conectando à rede celular. As cobranças de voz e dados serão aplicadas.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Toque abaixo para selecionar o tipo de chamada.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Não é possível alterar o tipo de chamada durante as chamadas em conferência.</string>
     <string name="usa_gsm_modify_receive_to_video">%s quer alternar para uma videochamada.</string>
@@ -742,6 +746,7 @@ unidirec."</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Aguardando resposta</string>
     <string name="usa_gsm_modify_select_call_type">Selecionar tipo de chamada</string>
     <string name="usa_gsm_switching_to_voice_call">Alternando para somente voz.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">O vídeo foi desativado porque os dados móveis não estão disponíveis.</string>
     <string name="usa_volte_reject_upgrade_request">%s não pode receber videochamadas no momento.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">A videochamada não está disponível.</string>
     <string name="usa_vzw_change_to_oneway_video">"Alterar p/ vídeo
@@ -786,7 +791,9 @@ Sua videochamada agora está em execução na rede móvel. (O uso de dados será
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Não exibir novamente</string>
     <string name="video_calling_incoming">Videochamada</string>
+    <string name="video_calls_quality_poor_tmo">A qualidade da conexão está ruim. A videochamada pode alternar para chamada de voz.</string>
     <string name="video_calls_temporarily_not_available">As videochamadas não estão disponíveis temporariamente. Chamada alterada para chamada de voz.</string>
+    <string name="video_calls_temporarily_not_available_att">O número que você está chamando não recebe videochamadas no momento. Chamada conectada como chamada de voz.</string>
     <string name="video_calls_temporarily_not_available_tmo">A videochamada não está disponível.</string>
     <string name="video_paused_info_text">Víd. pausado</string>
     <string name="video_saved">Vídeo salvo para %s.</string>
@@ -799,5 +806,5 @@ Sua videochamada agora está em execução na rede móvel. (O uso de dados será
     <string name="waiting_call_dialog_dismiss_toast">Chamada encerrada por %1$s. Continuando a chamada com %2$s…</string>
     <string name="waiting_call_dialog_message">Atender chamada</string>
     <string name="websiteLabelsGroup">Site da Web</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Páginas amarelas</string>
 </resources>

@@ -31,8 +31,6 @@
 .method constructor <init>(I)V
     .locals 0
 
-    .prologue
-    .line 100
     iput p1, p0, Lcom/google/common/collect/MultimapBuilder$1;->val$expectedKeys:I
 
     invoke-direct {p0}, Lcom/google/common/collect/MultimapBuilder$MultimapBuilderWithKeys;-><init>()V
@@ -58,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 103
     iget v0, p0, Lcom/google/common/collect/MultimapBuilder$1;->val$expectedKeys:I
 
     invoke-static {v0}, Lcom/google/common/collect/Maps;->newHashMapWithExpectedSize(I)Ljava/util/HashMap;

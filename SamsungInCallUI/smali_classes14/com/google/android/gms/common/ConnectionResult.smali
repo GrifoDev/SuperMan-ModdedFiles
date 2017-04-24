@@ -55,10 +55,7 @@
 
 .method public constructor <init>(ILandroid/app/PendingIntent;)V
     .locals 0
-    .param p1, "statusCode"    # I
-    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/common/ConnectionResult;->p:I
@@ -237,15 +234,12 @@
 
 .method public startResolutionForResult(Landroid/app/Activity;I)V
     .locals 7
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "requestCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
     invoke-virtual {p0}, Lcom/google/android/gms/common/ConnectionResult;->hasResolution()Z

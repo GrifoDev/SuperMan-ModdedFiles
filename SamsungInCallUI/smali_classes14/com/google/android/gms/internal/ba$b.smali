@@ -362,9 +362,7 @@
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ba$b;->b(Landroid/view/View;)V
 
     return-void
@@ -372,9 +370,7 @@
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/ba$b;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0}, Lcom/google/android/gms/internal/au;->ax()V

@@ -141,15 +141,12 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 23
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
-    .line 105
     const/4 v0, 0x0
 
     sput v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
@@ -160,8 +157,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -170,7 +165,6 @@
 .method private static createSalesCodeList()V
     .locals 7
 
-    .prologue
     const/16 v6, 0x64
 
     const/16 v5, 0x67
@@ -179,7 +173,6 @@
 
     const/16 v3, 0x65
 
-    .line 249
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
@@ -188,7 +181,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 250
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "OPEN"
@@ -201,7 +193,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 252
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "SKT"
@@ -212,7 +203,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 253
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "SKC"
@@ -223,7 +213,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 254
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "SKO"
@@ -234,7 +223,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 256
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "KTT"
@@ -245,7 +233,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 257
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "KTC"
@@ -256,7 +243,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 258
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "KTO"
@@ -267,7 +253,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 260
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "LGT"
@@ -278,7 +263,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 261
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "LUC"
@@ -289,7 +273,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 262
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "LUO"
@@ -300,7 +283,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 264
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "ANY"
@@ -311,7 +293,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 265
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "KOO"
@@ -322,7 +303,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 268
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "XAS"
@@ -335,7 +315,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 269
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "SPR"
@@ -348,7 +327,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 270
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VZW"
@@ -361,7 +339,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 271
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VMU"
@@ -374,7 +351,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 272
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "BST"
@@ -387,7 +363,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 273
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "USC"
@@ -400,7 +375,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 274
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "MTR"
@@ -413,7 +387,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 275
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "ACG"
@@ -426,7 +399,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 276
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "XAR"
@@ -439,7 +411,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 277
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CRI"
@@ -452,7 +423,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 278
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TFN"
@@ -465,7 +435,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 279
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CSP"
@@ -478,7 +447,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 280
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "LRA"
@@ -491,7 +459,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 281
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CCT"
@@ -504,7 +471,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 284
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "ATT"
@@ -517,7 +483,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 285
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "AIO"
@@ -530,7 +495,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 286
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TMB"
@@ -543,7 +507,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 287
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TMK"
@@ -556,7 +519,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 290
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VTR"
@@ -569,7 +531,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 291
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "BMA"
@@ -582,7 +543,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 292
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "RWC"
@@ -595,7 +555,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 293
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "FMC"
@@ -608,7 +567,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 294
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "RWA"
@@ -621,7 +579,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 295
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "BMC"
@@ -634,7 +591,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 296
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VMC"
@@ -647,7 +603,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 297
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "BWA"
@@ -660,7 +615,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 298
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TLS"
@@ -673,7 +627,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 299
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "KDO"
@@ -686,7 +639,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 300
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "ESK"
@@ -699,7 +651,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 301
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "GLW"
@@ -712,7 +663,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 304
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CHM"
@@ -725,7 +675,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 305
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CTC"
@@ -738,7 +687,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 306
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CHN"
@@ -751,7 +699,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 307
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CHU"
@@ -764,7 +711,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 308
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CHC"
@@ -777,7 +723,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 311
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TGY"
@@ -790,7 +735,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 312
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "BRI"
@@ -803,7 +747,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 313
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "CWT"
@@ -816,7 +759,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 314
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TWN"
@@ -829,7 +771,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 315
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "FET"
@@ -842,7 +783,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 316
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "ZZH"
@@ -855,7 +795,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 319
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "INU"
@@ -868,7 +807,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 320
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "INS"
@@ -881,7 +819,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 321
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "SWC"
@@ -894,7 +831,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 324
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TEL"
@@ -907,7 +843,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 325
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TLP"
@@ -920,7 +855,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 326
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VAU"
@@ -933,7 +867,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 329
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "DCM"
@@ -946,7 +879,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 332
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "VIA"
@@ -959,7 +891,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 335
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     const-string v1, "TUR"
@@ -972,7 +903,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 337
     :cond_0
     return-void
 .end method
@@ -980,8 +910,6 @@
 .method protected static isAus()Z
     .locals 2
 
-    .prologue
-    .line 155
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x320
@@ -1008,8 +936,6 @@
 .method protected static isCan()Z
     .locals 2
 
-    .prologue
-    .line 131
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x12c
@@ -1036,8 +962,6 @@
 .method protected static isCan_BMA()Z
     .locals 2
 
-    .prologue
-    .line 217
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x12e
@@ -1058,8 +982,6 @@
 .method protected static isCan_BMC()Z
     .locals 2
 
-    .prologue
-    .line 201
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x132
@@ -1080,8 +1002,6 @@
 .method protected static isCan_Cdma()Z
     .locals 2
 
-    .prologue
-    .line 139
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x15e
@@ -1108,8 +1028,6 @@
 .method protected static isCan_FMC()Z
     .locals 2
 
-    .prologue
-    .line 209
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x130
@@ -1130,8 +1048,6 @@
 .method protected static isCan_Gsm()Z
     .locals 2
 
-    .prologue
-    .line 135
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x12c
@@ -1158,8 +1074,6 @@
 .method protected static isCan_RWA()Z
     .locals 2
 
-    .prologue
-    .line 221
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x131
@@ -1180,8 +1094,6 @@
 .method protected static isCan_RWC()Z
     .locals 2
 
-    .prologue
-    .line 213
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x12f
@@ -1202,8 +1114,6 @@
 .method protected static isCan_VMC()Z
     .locals 2
 
-    .prologue
-    .line 205
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x133
@@ -1224,8 +1134,6 @@
 .method protected static isChn()Z
     .locals 2
 
-    .prologue
-    .line 143
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x1f4
@@ -1252,8 +1160,6 @@
 .method protected static isChn_CMCC()Z
     .locals 2
 
-    .prologue
-    .line 225
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x1f5
@@ -1274,8 +1180,6 @@
 .method protected static isHkTw()Z
     .locals 2
 
-    .prologue
-    .line 147
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x258
@@ -1302,8 +1206,6 @@
 .method protected static isInd()Z
     .locals 2
 
-    .prologue
-    .line 151
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x2bc
@@ -1330,8 +1232,6 @@
 .method protected static isInd_INS()Z
     .locals 2
 
-    .prologue
-    .line 237
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x2be
@@ -1352,8 +1252,6 @@
 .method protected static isInd_INU()Z
     .locals 2
 
-    .prologue
-    .line 233
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x2bd
@@ -1374,8 +1272,6 @@
 .method protected static isInd_SWC()Z
     .locals 2
 
-    .prologue
-    .line 241
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x2bf
@@ -1396,8 +1292,6 @@
 .method protected static isJpn()Z
     .locals 2
 
-    .prologue
-    .line 159
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x384
@@ -1424,8 +1318,6 @@
 .method protected static isJpn_DCM()Z
     .locals 2
 
-    .prologue
-    .line 229
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x384
@@ -1446,8 +1338,6 @@
 .method protected static isKor()Z
     .locals 2
 
-    .prologue
-    .line 115
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x64
@@ -1474,8 +1364,6 @@
 .method protected static isKor_KTT()Z
     .locals 2
 
-    .prologue
-    .line 171
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x66
@@ -1496,8 +1384,6 @@
 .method protected static isKor_LGU()Z
     .locals 2
 
-    .prologue
-    .line 175
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x67
@@ -1518,8 +1404,6 @@
 .method protected static isKor_Open()Z
     .locals 2
 
-    .prologue
-    .line 163
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x64
@@ -1540,8 +1424,6 @@
 .method protected static isKor_SKT()Z
     .locals 2
 
-    .prologue
-    .line 167
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x65
@@ -1562,8 +1444,6 @@
 .method protected static isTelstra()Z
     .locals 2
 
-    .prologue
-    .line 245
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x321
@@ -1591,8 +1471,6 @@
 .method protected static isUsa()Z
     .locals 2
 
-    .prologue
-    .line 119
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xc8
@@ -1619,8 +1497,6 @@
 .method protected static isUsa_ATT()Z
     .locals 2
 
-    .prologue
-    .line 189
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0x12b
@@ -1648,8 +1524,6 @@
 .method protected static isUsa_CCT()Z
     .locals 2
 
-    .prologue
-    .line 182
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xd5
@@ -1670,8 +1544,6 @@
 .method protected static isUsa_Cdma()Z
     .locals 2
 
-    .prologue
-    .line 123
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xc8
@@ -1698,8 +1570,6 @@
 .method protected static isUsa_Gsm()Z
     .locals 2
 
-    .prologue
-    .line 127
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xfa
@@ -1726,8 +1596,6 @@
 .method protected static isUsa_MPCS()Z
     .locals 2
 
-    .prologue
-    .line 197
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xcf
@@ -1748,8 +1616,6 @@
 .method protected static isUsa_TMO()Z
     .locals 2
 
-    .prologue
-    .line 193
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xfb
@@ -1777,8 +1643,6 @@
 .method protected static isUsa_USC()Z
     .locals 2
 
-    .prologue
-    .line 185
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xfd
@@ -1799,8 +1663,6 @@
 .method protected static isUsa_VZW()Z
     .locals 2
 
-    .prologue
-    .line 179
     sget v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
     const/16 v1, 0xc9
@@ -1820,13 +1682,9 @@
 
 .method protected static set(Ljava/lang/String;)V
     .locals 1
-    .param p0, "salesCode"    # Ljava/lang/String;
 
-    .prologue
-    .line 108
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->createSalesCodeList()V
 
-    .line 109
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -1835,7 +1693,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 110
     sget-object v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mSalesCodeList:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1850,7 +1707,6 @@
 
     sput v0, Lcom/android/incallui/service/vt/VideoCallOperator;->mOperator:I
 
-    .line 112
     :cond_0
     return-void
 .end method

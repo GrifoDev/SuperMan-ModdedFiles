@@ -80,17 +80,12 @@
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 1
-    .param p1, "code"    # I
-    .param p2, "data"    # Landroid/os/Parcel;
-    .param p3, "reply"    # Landroid/os/Parcel;
-    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     packed-switch p1, :pswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z

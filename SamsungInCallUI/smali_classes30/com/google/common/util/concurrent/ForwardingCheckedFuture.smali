@@ -35,12 +35,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ForwardingListenableFuture;-><init>()V
 
-    .line 64
     return-void
 .end method
 
@@ -60,9 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 46
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCheckedFuture;->delegate()Lcom/google/common/util/concurrent/CheckedFuture;
 
     move-result-object v0
@@ -76,8 +69,6 @@
 
 .method public checkedGet(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -95,9 +86,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 51
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCheckedFuture;->delegate()Lcom/google/common/util/concurrent/CheckedFuture;
 
     move-result-object v0
@@ -122,9 +110,6 @@
 .method protected bridge synthetic delegate()Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
 
-    .prologue
-    .line 40
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCheckedFuture;->delegate()Lcom/google/common/util/concurrent/CheckedFuture;
 
     move-result-object v0
@@ -135,9 +120,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 40
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCheckedFuture;->delegate()Lcom/google/common/util/concurrent/CheckedFuture;
 
     move-result-object v0
@@ -148,9 +130,6 @@
 .method protected bridge synthetic delegate()Ljava/util/concurrent/Future;
     .locals 1
 
-    .prologue
-    .line 40
-    .local p0, "this":Lcom/google/common/util/concurrent/ForwardingCheckedFuture;, "Lcom/google/common/util/concurrent/ForwardingCheckedFuture<TV;TX;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingCheckedFuture;->delegate()Lcom/google/common/util/concurrent/CheckedFuture;
 
     move-result-object v0

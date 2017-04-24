@@ -39,8 +39,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,8 +49,6 @@
 .method public getConsumeCount()I
     .locals 2
 
-    .prologue
-    .line 57
     iget-object v0, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeCount:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -67,7 +63,6 @@
 
     if-nez v0, :cond_0
 
-    .line 58
     iget-object v0, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeCount:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
@@ -78,7 +73,6 @@
 
     move-result v0
 
-    .line 60
     :goto_0
     return v0
 
@@ -91,8 +85,6 @@
 .method public getConsumeDate()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 33
     iget-object v0, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeDate:Ljava/lang/String;
 
     return-object v0
@@ -101,8 +93,6 @@
 .method public getConsumeTypeId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     iget-object v0, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeTypeId:Ljava/lang/String;
 
     return-object v0
@@ -111,8 +101,6 @@
 .method public getConsumeTypeName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 49
     iget-object v0, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeTypeName:Ljava/lang/String;
 
     return-object v0
@@ -120,48 +108,32 @@
 
 .method public setConsumeCount(Ljava/lang/String;)V
     .locals 0
-    .param p1, "consumeCount"    # Ljava/lang/String;
 
-    .prologue
-    .line 65
     iput-object p1, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeCount:Ljava/lang/String;
 
-    .line 66
     return-void
 .end method
 
 .method public setConsumeDate(Ljava/lang/String;)V
     .locals 0
-    .param p1, "consumeDate"    # Ljava/lang/String;
 
-    .prologue
-    .line 37
     iput-object p1, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeDate:Ljava/lang/String;
 
-    .line 38
     return-void
 .end method
 
 .method public setConsumeTypeId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "consumeTypeId"    # Ljava/lang/String;
 
-    .prologue
-    .line 45
     iput-object p1, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeTypeId:Ljava/lang/String;
 
-    .line 46
     return-void
 .end method
 
 .method public setConsumeTypeName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "consumeTypeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 53
     iput-object p1, p0, Lcom/cmdm/control/bean/ConsumeHistory;->consumeTypeName:Ljava/lang/String;
 
-    .line 54
     return-void
 .end method

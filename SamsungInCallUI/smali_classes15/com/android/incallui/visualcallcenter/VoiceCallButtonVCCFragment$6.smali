@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    .prologue
-    .line 923
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$6;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,17 +37,14 @@
 .method public run()V
     .locals 6
 
-    .prologue
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    .line 928
     const-string v2, "run() getIvrList()"
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 929
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -61,8 +55,6 @@
 
     move-result-object v0
 
-    .line 930
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
@@ -80,11 +72,8 @@
 
     move-result v1
 
-    .line 931
-    .local v1, "flag":Z
     if-eqz v1, :cond_1
 
-    .line 932
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getInstance()Lcom/android/incallui/util/VisualCallCenter;
 
     invoke-static {}, Lcom/android/incallui/util/VisualCallCenter;->getMenuPressed()Z
@@ -93,7 +82,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 933
     new-instance v2, Lcom/android/incallui/util/VisualCallCenter$IvrTask;
 
     invoke-direct {v2}, Lcom/android/incallui/util/VisualCallCenter$IvrTask;-><init>()V
@@ -110,11 +98,9 @@
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/util/VisualCallCenter$IvrTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 940
     :goto_0
     return-void
 
-    .line 935
     :cond_0
     new-instance v2, Lcom/android/incallui/util/VisualCallCenter$IvrTask;
 
@@ -134,7 +120,6 @@
 
     goto :goto_0
 
-    .line 938
     :cond_1
     const-string v2, "getIvrList() no data"
 

@@ -6,13 +6,9 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    .prologue
-    .line 46
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 47
     return-void
 .end method
 
@@ -28,10 +24,7 @@
 
 .method public createReader(Ljava/io/InputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
     .locals 2
-    .param p1, "in"    # Ljava/io/InputStream;
 
-    .prologue
-    .line 65
     :try_start_0
     new-instance v1, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;
 
@@ -46,25 +39,18 @@
 
     return-object v1
 
-    .line 66
     :catch_0
     move-exception v0
 
-    .line 67
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 68
-    .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     :catch_1
     move-exception v0
 
-    .line 69
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
@@ -74,10 +60,7 @@
 
 .method public createReader(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
     .locals 4
-    .param p1, "in"    # Ljava/io/Reader;
 
-    .prologue
-    .line 54
     :try_start_0
     new-instance v1, Lcom/thoughtworks/xstream/io/xml/XppReader;
 
@@ -95,12 +78,9 @@
 
     return-object v1
 
-    .line 55
     :catch_0
     move-exception v0
 
-    .line 56
-    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     const-string v2, "Cannot create XmlPullParser"
@@ -112,10 +92,7 @@
 
 .method public createWriter(Ljava/io/OutputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
 
-    .prologue
-    .line 84
     new-instance v0, Ljava/io/OutputStreamWriter;
 
     invoke-direct {v0, p1}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
@@ -129,10 +106,7 @@
 
 .method public createWriter(Ljava/io/Writer;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 2
-    .param p1, "out"    # Ljava/io/Writer;
 
-    .prologue
-    .line 77
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/PrettyPrintWriter;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDriver;->getNameCoder()Lcom/thoughtworks/xstream/io/naming/NameCoder;

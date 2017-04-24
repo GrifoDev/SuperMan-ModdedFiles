@@ -39,7 +39,6 @@
 .method private constructor <init>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -50,10 +49,8 @@
 
     const/4 v3, 0x0
 
-    .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/16 v0, 0x16b
 
     new-array v0, v0, [Ljava/lang/String;
@@ -2228,7 +2225,6 @@
 
     iput-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityNames:[Ljava/lang/String;
 
-    .line 71
     const/16 v0, 0x16b
 
     new-array v0, v0, [Ljava/lang/String;
@@ -4403,7 +4399,6 @@
 
     iput-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityAreas:[Ljava/lang/String;
 
-    .line 113
     const/16 v0, 0x16b
 
     new-array v0, v0, [Ljava/lang/String;
@@ -6578,16 +6573,12 @@
 
     iput-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->provincialAreas:[Ljava/lang/String;
 
-    .line 161
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$1;
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;-><init>()V
 
     return-void
@@ -6595,10 +6586,7 @@
 
 .method static synthetic access$100(Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;)Ljava/io/File;
     .locals 1
-    .param p0, "x0"    # Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
     return-object v0
@@ -6606,10 +6594,7 @@
 
 .method static synthetic access$200(Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;)Ljava/lang/String;
     .locals 1
-    .param p0, "x0"    # Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->mFileName:Ljava/lang/String;
 
     return-object v0
@@ -6617,11 +6602,7 @@
 
 .method static synthetic access$202(Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p0, "x0"    # Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
-    .param p1, "x1"    # Ljava/lang/String;
 
-    .prologue
-    .line 31
     iput-object p1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->mFileName:Ljava/lang/String;
 
     return-object p1
@@ -6629,10 +6610,7 @@
 
 .method static synthetic access$300(Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;)Ljava/io/File;
     .locals 1
-    .param p0, "x0"    # Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->newPacketDir:Ljava/io/File;
 
     return-object v0
@@ -6641,10 +6619,8 @@
 .method private copyOfflinePacket()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 318
     new-instance v3, Lcom/yulore/android/common/util/SharedPreferencesUtility$Builder;
 
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
@@ -6653,7 +6629,6 @@
 
     const-string v4, "yulore_ivr"
 
-    .line 319
     invoke-virtual {v3, v4}, Lcom/yulore/android/common/util/SharedPreferencesUtility$Builder;->name(Ljava/lang/String;)Lcom/yulore/android/common/util/SharedPreferencesUtility$Builder;
 
     move-result-object v3
@@ -6662,21 +6637,16 @@
 
     move-result-object v3
 
-    .line 320
     invoke-virtual {v3}, Lcom/yulore/android/common/util/SharedPreferencesUtility$Builder;->create()Lcom/yulore/android/common/util/SharedPreferencesUtility;
 
     move-result-object v2
 
-    .line 322
-    .local v2, "sp":Lcom/yulore/android/common/util/SharedPreferencesUtility;
     const-string v3, "exists"
 
     invoke-virtual {v2, v3, v7}, Lcom/yulore/android/common/util/SharedPreferencesUtility;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    .line 323
-    .local v0, "exists":Z
     iget-object v3, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
     const-string v4, "version"
@@ -6689,8 +6659,6 @@
 
     move-result v1
 
-    .line 324
-    .local v1, "isNew":Z
     const-string v3, "YuloreIVR"
 
     const/4 v4, 0x2
@@ -6741,7 +6709,6 @@
 
     invoke-static {v3, v4}, Lcom/yulore/android/common/util/Logger;->print(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 327
     iget-object v3, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
     invoke-static {v3}, Lcom/yulore/android/common/util/FileUtils;->isEmptyFolder(Ljava/io/File;)Z
@@ -6754,7 +6721,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 328
     :cond_0
     const-string v3, "YuloreIVR"
 
@@ -6762,7 +6728,6 @@
 
     invoke-static {v3, v4}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 331
     new-instance v3, Ljava/lang/Thread;
 
     new-instance v4, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$1;
@@ -6771,10 +6736,8 @@
 
     invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 368
     invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
-    .line 371
     :cond_1
     return-void
 .end method
@@ -6782,8 +6745,6 @@
 .method public static getInstance()Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
     .locals 1
 
-    .prologue
-    .line 169
     # getter for: Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$SingletonHolder;->instance:Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
     invoke-static {}, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine$SingletonHolder;->access$000()Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;
 
@@ -6795,31 +6756,22 @@
 .method private initAreaCode()V
     .locals 6
 
-    .prologue
-    .line 291
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    .line 292
-    .local v2, "hashMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 293
-    .local v1, "cityMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     const/16 v4, 0x16c
 
     invoke-direct {v0, v4}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 294
-    .local v0, "arrayList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v3, 0x0
 
-    .local v3, "i":I
     :goto_0
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityAreas:[Ljava/lang/String;
 
@@ -6827,7 +6779,6 @@
 
     if-ge v3, v4, :cond_0
 
-    .line 295
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityAreas:[Ljava/lang/String;
 
     aget-object v4, v4, v3
@@ -6838,14 +6789,12 @@
 
     invoke-virtual {v2, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 296
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityAreas:[Ljava/lang/String;
 
     aget-object v4, v4, v3
 
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 297
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->cityNames:[Ljava/lang/String;
 
     aget-object v4, v4, v3
@@ -6856,39 +6805,31 @@
 
     invoke-virtual {v1, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 294
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 300
     :cond_0
     sget-object v4, Lcom/yulore/sdk/ivr/util/Constants;->areaCodeMap:Ljava/util/HashMap;
 
     if-nez v4, :cond_1
 
-    .line 301
     sput-object v2, Lcom/yulore/sdk/ivr/util/Constants;->areaCodeMap:Ljava/util/HashMap;
 
-    .line 304
     :cond_1
     sget-object v4, Lcom/yulore/sdk/ivr/util/Constants;->areaCodeList:Ljava/util/List;
 
     if-nez v4, :cond_2
 
-    .line 305
     sput-object v0, Lcom/yulore/sdk/ivr/util/Constants;->areaCodeList:Ljava/util/List;
 
-    .line 308
     :cond_2
     sget-object v4, Lcom/yulore/sdk/ivr/util/Constants;->cityMap:Ljava/util/HashMap;
 
     if-nez v4, :cond_3
 
-    .line 309
     sput-object v1, Lcom/yulore/sdk/ivr/util/Constants;->cityMap:Ljava/util/HashMap;
 
-    .line 311
     :cond_3
     return-void
 .end method
@@ -6897,13 +6838,7 @@
 # virtual methods
 .method public createIvrApi(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/yulore/sdk/ivr/YuloreIvrApi;
     .locals 7
-    .param p1, "operator"    # I
-    .param p2, "telNum"    # Ljava/lang/String;
-    .param p3, "moArea"    # Ljava/lang/String;
-    .param p4, "mtArea"    # Ljava/lang/String;
 
-    .prologue
-    .line 194
     new-instance v0, Lcom/yulore/sdk/ivr/impl/YuloreIvrApiImpl;
 
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
@@ -6925,12 +6860,7 @@
 
 .method public createIvrApi(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/yulore/sdk/ivr/YuloreIvrApi;
     .locals 7
-    .param p1, "telNum"    # Ljava/lang/String;
-    .param p2, "moArea"    # Ljava/lang/String;
-    .param p3, "mtArea"    # Ljava/lang/String;
 
-    .prologue
-    .line 181
     new-instance v0, Lcom/yulore/sdk/ivr/impl/YuloreIvrApiImpl;
 
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
@@ -6953,8 +6883,6 @@
 .method public getContext()Landroid/content/Context;
     .locals 1
 
-    .prologue
-    .line 374
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
     return-object v0
@@ -6963,8 +6891,6 @@
 .method public getIvrFileDir()Ljava/io/File;
     .locals 1
 
-    .prologue
-    .line 378
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
     return-object v0
@@ -6973,8 +6899,6 @@
 .method public getUpdateIntervalByHour()I
     .locals 1
 
-    .prologue
-    .line 383
     iget v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateIntervalByHour:I
 
     return v0
@@ -6983,8 +6907,6 @@
 .method public getupdateNetworkType()Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
     .locals 1
 
-    .prologue
-    .line 398
     iget-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     return-object v0
@@ -6992,16 +6914,11 @@
 
 .method public declared-synchronized init(Lcom/yulore/sdk/ivr/IvrConfiguration;Z)V
     .locals 2
-    .param p1, "config"    # Lcom/yulore/sdk/ivr/IvrConfiguration;
-    .param p2, "debugModel"    # Z
 
-    .prologue
-    .line 206
     monitor-enter p0
 
     if-eqz p2, :cond_0
 
-    .line 207
     :try_start_0
     const-string v0, "YuloreIvrEngine"
 
@@ -7009,14 +6926,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 208
     const/4 v0, 0x5
 
     const-string v1, "Yulore"
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->setDebugMode(ILjava/lang/String;)V
 
-    .line 214
     :goto_0
     const-string v0, "YuloreIVR"
 
@@ -7024,17 +6939,14 @@
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 216
     if-nez p1, :cond_1
 
-    .line 217
     const-string v0, "YuloreIVR"
 
     const-string v1, "config is null"
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 218
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "config is null"
@@ -7045,7 +6957,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 206
     :catchall_0
     move-exception v0
 
@@ -7053,7 +6964,6 @@
 
     throw v0
 
-    .line 210
     :cond_0
     :try_start_1
     const-string v0, "YuloreIvrEngine"
@@ -7062,7 +6972,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
     const/4 v0, 0x0
 
     const-string v1, "Yulore"
@@ -7071,7 +6980,6 @@
 
     goto :goto_0
 
-    .line 220
     :cond_1
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getContext()Landroid/content/Context;
 
@@ -7079,14 +6987,12 @@
 
     if-nez v0, :cond_2
 
-    .line 221
     const-string v0, "YuloreIVR"
 
     const-string v1, "config context is null"
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 222
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "config context is null"
@@ -7095,7 +7001,6 @@
 
     throw v0
 
-    .line 224
     :cond_2
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getApiKey()Ljava/lang/String;
 
@@ -7107,14 +7012,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 225
     const-string v0, "YuloreIVR"
 
     const-string v1, "config apiKey is empty"
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 226
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "config apiKey is empty"
@@ -7123,7 +7026,6 @@
 
     throw v0
 
-    .line 228
     :cond_3
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getSecret()Ljava/lang/String;
 
@@ -7135,14 +7037,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 229
     const-string v0, "YuloreIVR"
 
     const-string v1, "config secret is empty"
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 230
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "config secret is empty"
@@ -7151,7 +7051,6 @@
 
     throw v0
 
-    .line 233
     :cond_4
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getContext()Landroid/content/Context;
 
@@ -7159,12 +7058,10 @@
 
     iput-object v0, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
-    .line 235
     invoke-virtual {p0, p1}, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->initParams(Lcom/yulore/sdk/ivr/IvrConfiguration;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 237
     monitor-exit p0
 
     return-void
@@ -7172,33 +7069,27 @@
 
 .method protected initParams(Lcom/yulore/sdk/ivr/IvrConfiguration;)V
     .locals 7
-    .param p1, "config"    # Lcom/yulore/sdk/ivr/IvrConfiguration;
 
-    .prologue
     const/4 v6, 0x1
 
-    .line 241
     const-string v1, "YuloreIVR"
 
     const-string v2, "YuloreIvrEngine init params"
 
     invoke-static {v1, v2}, Lcom/yulore/android/common/util/Logger;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 244
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getApiKey()Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/yulore/sdk/ivr/util/Constants;->API_KEY:Ljava/lang/String;
 
-    .line 245
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getSecret()Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/yulore/sdk/ivr/util/Constants;->API_SECRET:Ljava/lang/String;
 
-    .line 247
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -7207,45 +7098,38 @@
 
     sput-object v1, Lcom/yulore/sdk/ivr/util/Constants;->HOST_APP_NAME:Ljava/lang/String;
 
-    .line 248
     const-string v1, ""
 
     sput-object v1, Lcom/yulore/sdk/ivr/util/Constants;->IMEI_ID:Ljava/lang/String;
 
-    .line 250
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getIvrFileDir()Ljava/io/File;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
-    .line 251
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getUpdateIntervalByHour()I
 
     move-result v1
 
     iput v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateIntervalByHour:I
 
-    .line 252
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getUpdateNetworkStrategy()Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
-    .line 254
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
     if-nez v1, :cond_3
 
-    .line 255
     new-instance v1, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v2
 
-    .line 256
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v2
@@ -7256,30 +7140,25 @@
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
-    .line 269
     :cond_0
     :goto_0
     iget v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateIntervalByHour:I
 
     if-ge v1, v6, :cond_1
 
-    .line 270
     const/16 v1, 0x18
 
     iput v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateIntervalByHour:I
 
-    .line 273
     :cond_1
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     if-nez v1, :cond_2
 
-    .line 274
     sget-object v1, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->WIFI:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
-    .line 277
     :cond_2
     const-string v1, "YuloreIVR"
 
@@ -7323,7 +7202,6 @@
 
     iget-object v4, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
-    .line 279
     invoke-virtual {v4}, Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;->getNetworkType()Ljava/lang/String;
 
     move-result-object v4
@@ -7376,7 +7254,6 @@
 
     iget-object v5, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
 
-    .line 281
     invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v5
@@ -7405,7 +7282,6 @@
 
     iget-object v5, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
-    .line 282
     invoke-static {v5}, Lcom/yulore/android/common/util/FileUtils;->getAssetsFileName(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v5
@@ -7420,17 +7296,14 @@
 
     aput-object v4, v2, v3
 
-    .line 277
     invoke-static {v1, v2}, Lcom/yulore/android/common/util/Logger;->print(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 283
     invoke-virtual {p1}, Lcom/yulore/sdk/ivr/IvrConfiguration;->getOfflinePacketDir()Ljava/io/File;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->newPacketDir:Ljava/io/File;
 
-    .line 285
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->context:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/yulore/android/common/util/FileUtils;->getAssetsFileName(Landroid/content/Context;)Ljava/lang/String;
@@ -7439,16 +7312,12 @@
 
     iput-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->mFileName:Ljava/lang/String;
 
-    .line 286
     invoke-direct {p0}, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->copyOfflinePacket()V
 
-    .line 287
     invoke-direct {p0}, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->initAreaCode()V
 
-    .line 288
     return-void
 
-    .line 259
     :cond_3
     :try_start_0
     iget-object v1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->ivrFileDir:Ljava/io/File;
@@ -7469,10 +7338,8 @@
 
     if-nez v1, :cond_0
 
-    .line 260
     new-instance v1, Ljava/io/File;
 
-    .line 261
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v2
@@ -7491,12 +7358,9 @@
 
     goto/16 :goto_0
 
-    .line 264
     :catch_0
     move-exception v0
 
-    .line 265
-    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_0
@@ -7504,24 +7368,16 @@
 
 .method public setUpdateIntervalByHour(I)V
     .locals 0
-    .param p1, "updateIntervalByHour"    # I
 
-    .prologue
-    .line 388
     iput p1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateIntervalByHour:I
 
-    .line 389
     return-void
 .end method
 
 .method public setupdateNetworkType(Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;)V
     .locals 0
-    .param p1, "updateNetworkStrategy"    # Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
-    .prologue
-    .line 393
     iput-object p1, p0, Lcom/yulore/sdk/ivr/engine/YuloreIvrEngine;->updateNetworkStrategy:Lcom/yulore/sdk/ivr/UpdateNetworkStrategy;
 
-    .line 394
     return-void
 .end method

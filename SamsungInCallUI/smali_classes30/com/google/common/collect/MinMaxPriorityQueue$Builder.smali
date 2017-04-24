@@ -56,23 +56,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TB;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 175
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->expectedSize:I
 
-    .line 176
     const v0, 0x7fffffff
 
     iput v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->maximumSize:I
 
-    .line 179
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -81,18 +74,12 @@
 
     iput-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->comparator:Ljava/util/Comparator;
 
-    .line 180
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Comparator;Lcom/google/common/collect/MinMaxPriorityQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/util/Comparator;
-    .param p2, "x1"    # Lcom/google/common/collect/MinMaxPriorityQueue$1;
 
-    .prologue
-    .line 167
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;-><init>(Ljava/util/Comparator;)V
 
     return-void
@@ -100,10 +87,7 @@
 
 .method static synthetic access$200(Lcom/google/common/collect/MinMaxPriorityQueue$Builder;)Lcom/google/common/collect/Ordering;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
 
-    .prologue
-    .line 167
     invoke-direct {p0}, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->ordering()Lcom/google/common/collect/Ordering;
 
     move-result-object v0
@@ -113,10 +97,7 @@
 
 .method static synthetic access$300(Lcom/google/common/collect/MinMaxPriorityQueue$Builder;)I
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
 
-    .prologue
-    .line 167
     iget v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->maximumSize:I
 
     return v0
@@ -132,9 +113,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 228
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
     iget-object v0, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->comparator:Ljava/util/Comparator;
 
     invoke-static {v0}, Lcom/google/common/collect/Ordering;->from(Ljava/util/Comparator;)Lcom/google/common/collect/Ordering;
@@ -156,9 +134,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 209
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v0
@@ -182,10 +157,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 217
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
-    .local p1, "initialContents":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TT;>;"
     new-instance v2, Lcom/google/common/collect/MinMaxPriorityQueue;
 
     iget v3, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->expectedSize:I
@@ -200,13 +171,10 @@
 
     invoke-direct {v2, p0, v3, v4}, Lcom/google/common/collect/MinMaxPriorityQueue;-><init>(Lcom/google/common/collect/MinMaxPriorityQueue$Builder;ILcom/google/common/collect/MinMaxPriorityQueue$1;)V
 
-    .line 220
-    .local v2, "queue":Lcom/google/common/collect/MinMaxPriorityQueue;, "Lcom/google/common/collect/MinMaxPriorityQueue<TT;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -218,21 +186,16 @@
 
     move-result-object v0
 
-    .line 221
-    .local v0, "element":Ljava/lang/Object;, "TT;"
     invoke-virtual {v2, v0}, Lcom/google/common/collect/MinMaxPriorityQueue;->offer(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 223
-    .end local v0    # "element":Ljava/lang/Object;, "TT;"
     :cond_0
     return-object v2
 .end method
 
 .method public expectedSize(I)Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
     .locals 1
-    .param p1, "expectedSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -241,9 +204,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 187
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
     if-ltz p1, :cond_0
 
     const/4 v0, 0x1
@@ -251,13 +211,10 @@
     :goto_0
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
-    .line 188
     iput p1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->expectedSize:I
 
-    .line 189
     return-object p0
 
-    .line 187
     :cond_0
     const/4 v0, 0x0
 
@@ -266,7 +223,6 @@
 
 .method public maximumSize(I)Lcom/google/common/collect/MinMaxPriorityQueue$Builder;
     .locals 1
-    .param p1, "maximumSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -275,9 +231,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 199
-    .local p0, "this":Lcom/google/common/collect/MinMaxPriorityQueue$Builder;, "Lcom/google/common/collect/MinMaxPriorityQueue$Builder<TB;>;"
     if-lez p1, :cond_0
 
     const/4 v0, 0x1
@@ -285,13 +238,10 @@
     :goto_0
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
-    .line 200
     iput p1, p0, Lcom/google/common/collect/MinMaxPriorityQueue$Builder;->maximumSize:I
 
-    .line 201
     return-object p0
 
-    .line 199
     :cond_0
     const/4 v0, 0x0
 

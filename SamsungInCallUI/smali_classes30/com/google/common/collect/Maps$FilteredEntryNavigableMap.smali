@@ -76,14 +76,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 3007
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "unfiltered":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
-    .local p2, "entryPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0}, Lcom/google/common/collect/AbstractNavigableMap;-><init>()V
 
-    .line 3008
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -92,26 +86,20 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
-    .line 3009
     iput-object p2, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->entryPredicate:Lcom/google/common/base/Predicate;
 
-    .line 3010
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryMap;
 
     invoke-direct {v0, p1, p2}, Lcom/google/common/collect/Maps$FilteredEntryMap;-><init>(Ljava/util/Map;Lcom/google/common/base/Predicate;)V
 
     iput-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
-    .line 3011
     return-void
 .end method
 
 .method static synthetic access$600(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;)Lcom/google/common/base/Predicate;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
-    .prologue
-    .line 2995
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->entryPredicate:Lcom/google/common/base/Predicate;
 
     return-object v0
@@ -119,10 +107,7 @@
 
 .method static synthetic access$700(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;)Ljava/util/NavigableMap;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;
 
-    .prologue
-    .line 2995
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     return-object v0
@@ -133,14 +118,10 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 3091
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 3092
     return-void
 .end method
 
@@ -154,9 +135,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3015
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->comparator()Ljava/util/Comparator;
@@ -168,14 +146,11 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 3071
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -197,9 +172,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3050
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->descendingMap()Ljava/util/NavigableMap;
@@ -233,9 +205,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3111
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->descendingMap()Ljava/util/NavigableMap;
@@ -263,9 +232,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3045
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->entrySet()Ljava/util/Set;
@@ -297,9 +263,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3096
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -311,7 +274,7 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -326,9 +289,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 3066
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -340,7 +300,6 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -349,10 +308,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3123
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -371,9 +326,6 @@
 .method public isEmpty()Z
     .locals 2
 
-    .prologue
-    .line 3060
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->entrySet()Ljava/util/Set;
@@ -409,9 +361,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3020
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;
 
     invoke-direct {v0, p0, p0}, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap$1;-><init>(Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;Ljava/util/NavigableMap;)V
@@ -429,9 +378,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3101
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->entrySet()Ljava/util/Set;
@@ -459,9 +405,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3106
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->descendingMap()Ljava/util/NavigableMap;
@@ -491,11 +434,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3076
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -515,21 +453,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 3086
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 3087
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -541,9 +474,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3081
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -556,9 +486,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 3055
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->filteredDelegate:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -570,8 +497,6 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -580,11 +505,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3117
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/NavigableMap;->subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -602,7 +522,6 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -611,10 +530,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3128
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -640,9 +555,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3040
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;, "Lcom/google/common/collect/Maps$FilteredEntryNavigableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredMapValues;
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$FilteredEntryNavigableMap;->unfiltered:Ljava/util/NavigableMap;

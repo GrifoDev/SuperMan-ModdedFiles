@@ -52,13 +52,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 404
-    .local p0, "this":Lcom/google/common/collect/MapConstraints$InverseConstraint;, "Lcom/google/common/collect/MapConstraints$InverseConstraint<TK;TV;>;"
-    .local p1, "constraint":Lcom/google/common/collect/MapConstraint;, "Lcom/google/common/collect/MapConstraint<-TV;-TK;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 405
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -67,7 +62,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/MapConstraints$InverseConstraint;->constraint:Lcom/google/common/collect/MapConstraint;
 
-    .line 406
     return-void
 .end method
 
@@ -81,15 +75,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 410
-    .local p0, "this":Lcom/google/common/collect/MapConstraints$InverseConstraint;, "Lcom/google/common/collect/MapConstraints$InverseConstraint<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/MapConstraints$InverseConstraint;->constraint:Lcom/google/common/collect/MapConstraint;
 
     invoke-interface {v0, p2, p1}, Lcom/google/common/collect/MapConstraint;->checkKeyValue(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 411
     return-void
 .end method

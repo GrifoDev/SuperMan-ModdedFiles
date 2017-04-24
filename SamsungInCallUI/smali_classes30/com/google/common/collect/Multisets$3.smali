@@ -31,8 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/Multiset;Lcom/google/common/collect/Multiset;)V
     .locals 0
 
-    .prologue
-    .line 535
     iput-object p1, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     iput-object p2, p0, Lcom/google/common/collect/Multisets$3;->val$multiset2:Lcom/google/common/collect/Multiset;
@@ -46,13 +44,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "element"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 538
     iget-object v0, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/Multiset;->contains(Ljava/lang/Object;)Z
@@ -83,10 +79,7 @@
 
 .method public count(Ljava/lang/Object;)I
     .locals 2
-    .param p1, "element"    # Ljava/lang/Object;
 
-    .prologue
-    .line 553
     iget-object v0, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/Multiset;->count(Ljava/lang/Object;)I
@@ -114,8 +107,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 558
     iget-object v0, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->elementSet()Ljava/util/Set;
@@ -138,8 +129,6 @@
 .method distinctElements()I
     .locals 1
 
-    .prologue
-    .line 588
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$3;->elementSet()Ljava/util/Set;
 
     move-result-object v0
@@ -163,8 +152,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 563
     iget-object v2, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v2}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
@@ -175,8 +162,6 @@
 
     move-result-object v0
 
-    .line 564
-    .local v0, "iterator1":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lcom/google/common/collect/Multiset$Entry<+TE;>;>;"
     iget-object v2, p0, Lcom/google/common/collect/Multisets$3;->val$multiset2:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v2}, Lcom/google/common/collect/Multiset;->entrySet()Ljava/util/Set;
@@ -187,8 +172,6 @@
 
     move-result-object v1
 
-    .line 565
-    .local v1, "iterator2":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lcom/google/common/collect/Multiset$Entry<+TE;>;>;"
     new-instance v2, Lcom/google/common/collect/Multisets$3$1;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/google/common/collect/Multisets$3$1;-><init>(Lcom/google/common/collect/Multisets$3;Ljava/util/Iterator;Ljava/util/Iterator;)V
@@ -199,8 +182,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 543
     iget-object v0, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->isEmpty()Z
@@ -231,8 +212,6 @@
 .method public size()I
     .locals 2
 
-    .prologue
-    .line 548
     iget-object v0, p0, Lcom/google/common/collect/Multisets$3;->val$multiset1:Lcom/google/common/collect/Multiset;
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->size()I

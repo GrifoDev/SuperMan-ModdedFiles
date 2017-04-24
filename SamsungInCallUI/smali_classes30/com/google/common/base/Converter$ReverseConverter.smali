@@ -56,16 +56,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 242
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
-    .local p1, "original":Lcom/google/common/base/Converter;, "Lcom/google/common/base/Converter<TA;TB;>;"
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
-    .line 243
     iput-object p1, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
-    .line 244
     return-void
 .end method
 
@@ -86,10 +80,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 272
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
-    .local p1, "a":Ljava/lang/Object;, "TA;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
     invoke-virtual {v0, p1}, Lcom/google/common/base/Converter;->correctedDoForward(Ljava/lang/Object;)Ljava/lang/Object;
@@ -114,10 +104,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 266
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
-    .local p1, "b":Ljava/lang/Object;, "TB;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
     invoke-virtual {v0, p1}, Lcom/google/common/base/Converter;->correctedDoBackward(Ljava/lang/Object;)Ljava/lang/Object;
@@ -135,10 +121,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 260
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
-    .local p1, "a":Ljava/lang/Object;, "TA;"
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -154,10 +136,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 255
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
-    .local p1, "b":Ljava/lang/Object;, "TB;"
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -167,25 +145,19 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 282
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
     instance-of v1, p1, Lcom/google/common/base/Converter$ReverseConverter;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 283
     check-cast v0, Lcom/google/common/base/Converter$ReverseConverter;
 
-    .line 284
-    .local v0, "that":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<**>;"
     iget-object v1, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
     iget-object v2, v0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
@@ -194,8 +166,6 @@
 
     move-result v1
 
-    .line 286
-    .end local v0    # "that":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<**>;"
     :goto_0
     return v1
 
@@ -208,9 +178,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 291
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -232,9 +199,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 277
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ReverseConverter;->original:Lcom/google/common/base/Converter;
 
     return-object v0
@@ -243,9 +207,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 296
-    .local p0, "this":Lcom/google/common/base/Converter$ReverseConverter;, "Lcom/google/common/base/Converter$ReverseConverter<TA;TB;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

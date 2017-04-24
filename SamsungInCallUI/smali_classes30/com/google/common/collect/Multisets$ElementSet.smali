@@ -28,9 +28,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 945
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Sets$ImprovedAbstractSet;-><init>()V
 
     return-void
@@ -41,26 +38,18 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 950
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/google/common/collect/Multiset;->clear()V
 
-    .line 951
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 955
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -82,10 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 960
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -100,9 +85,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 965
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -124,9 +106,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 970
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     new-instance v0, Lcom/google/common/collect/Multisets$ElementSet$1;
 
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
@@ -158,11 +137,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 980
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0
@@ -189,9 +164,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 985
-    .local p0, "this":Lcom/google/common/collect/Multisets$ElementSet;, "Lcom/google/common/collect/Multisets$ElementSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multisets$ElementSet;->multiset()Lcom/google/common/collect/Multiset;
 
     move-result-object v0

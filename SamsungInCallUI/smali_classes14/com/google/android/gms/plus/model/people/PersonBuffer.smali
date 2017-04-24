@@ -29,9 +29,7 @@
 # direct methods
 .method public constructor <init>(Lcom/google/android/gms/common/data/d;)V
     .locals 3
-    .param p1, "dataHolder"    # Lcom/google/android/gms/common/data/d;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/common/data/DataBuffer;-><init>(Lcom/google/android/gms/common/data/d;)V
 
     invoke-virtual {p1}, Lcom/google/android/gms/common/data/d;->l()Landroid/os/Bundle;
@@ -77,9 +75,7 @@
 # virtual methods
 .method public get(I)Lcom/google/android/gms/plus/model/people/Person;
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/plus/model/people/PersonBuffer;->kp:Lcom/google/android/gms/common/data/c;
 
     if-eqz v0, :cond_0
@@ -107,9 +103,7 @@
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
     invoke-virtual {p0, p1}, Lcom/google/android/gms/plus/model/people/PersonBuffer;->get(I)Lcom/google/android/gms/plus/model/people/Person;
 
     move-result-object v0

@@ -38,9 +38,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/leaderboard/c;->a(Lcom/google/android/gms/games/leaderboard/LeaderboardScore;Ljava/lang/Object;)Z
 
     move-result v0
@@ -72,9 +70,7 @@
 
 .method public getDisplayRank(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "display_rank"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/leaderboard/d;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -96,9 +92,7 @@
 
 .method public getDisplayScore(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "display_score"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/leaderboard/d;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -184,9 +178,7 @@
 
 .method public getScoreHolderDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "external_player_id"
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/games/leaderboard/d;->e(Ljava/lang/String;)Z

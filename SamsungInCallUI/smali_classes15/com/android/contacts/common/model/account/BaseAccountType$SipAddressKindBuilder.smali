@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1377
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1377
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$SipAddressKindBuilder;-><init>()V
 
     return-void
@@ -43,8 +38,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1381
     const-string v0, "sip_address"
 
     return-object v0
@@ -52,9 +45,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,12 +67,10 @@
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
-    const v7, 0x7f0901c9
+    const v7, 0x7f0901ca
 
-    .line 1388
     const-string v5, "vnd.android.cursor.item/sip_address"
 
     const/4 v6, 0x0
@@ -111,8 +99,6 @@
 
     move-result-object v11
 
-    .line 1394
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -125,10 +111,8 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1397
     invoke-virtual {p0, v11}, Lcom/android/contacts/common/model/account/BaseAccountType$SipAddressKindBuilder;->throwIfList(Lcom/android/contacts/common/model/dataitem/DataKind;)V
 
-    .line 1399
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

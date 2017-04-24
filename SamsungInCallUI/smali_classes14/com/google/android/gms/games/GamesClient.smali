@@ -87,16 +87,7 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;[Ljava/lang/String;ILandroid/view/View;)V
     .locals 10
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "gamePackageName"    # Ljava/lang/String;
-    .param p3, "accountName"    # Ljava/lang/String;
-    .param p4, "connectedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p5, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
-    .param p6, "scopes"    # [Ljava/lang/String;
-    .param p7, "gravity"    # I
-    .param p8, "gamesContentView"    # Landroid/view/View;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/google/android/gms/internal/au;
@@ -128,17 +119,7 @@
 
 .method synthetic constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;[Ljava/lang/String;ILandroid/view/View;Lcom/google/android/gms/games/GamesClient$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/content/Context;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # Ljava/lang/String;
-    .param p4, "x3"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p5, "x4"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
-    .param p6, "x5"    # [Ljava/lang/String;
-    .param p7, "x6"    # I
-    .param p8, "x7"    # Landroid/view/View;
-    .param p9, "x8"    # Lcom/google/android/gms/games/GamesClient$1;
 
-    .prologue
     invoke-direct/range {p0 .. p8}, Lcom/google/android/gms/games/GamesClient;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;[Ljava/lang/String;ILandroid/view/View;)V
 
     return-void
@@ -160,9 +141,7 @@
 
 .method public clearNotifications(I)V
     .locals 1
-    .param p1, "notificationTypes"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->clearNotifications(I)V
@@ -182,9 +161,7 @@
 
 .method public createRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
     .locals 1
-    .param p1, "config"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->createRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
@@ -194,9 +171,7 @@
 
 .method public declineRoomInvitation(Ljava/lang/String;)V
     .locals 2
-    .param p1, "invitationId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -218,9 +193,7 @@
 
 .method public dismissRoomInvitation(Ljava/lang/String;)V
     .locals 2
-    .param p1, "invitationId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -328,9 +301,7 @@
 
 .method public getLeaderboardIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 1
-    .param p1, "leaderboardId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->getLeaderboardIntent(Ljava/lang/String;)Landroid/content/Intent;
@@ -342,10 +313,7 @@
 
 .method public getRealTimeSocketForParticipant(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/games/RealTimeSocket;
     .locals 1
-    .param p1, "roomId"    # Ljava/lang/String;
-    .param p2, "participantId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->getRealTimeSocketForParticipant(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/games/RealTimeSocket;
@@ -357,10 +325,7 @@
 
 .method public getRealTimeWaitingRoomIntent(Lcom/google/android/gms/games/multiplayer/realtime/Room;I)Landroid/content/Intent;
     .locals 1
-    .param p1, "room"    # Lcom/google/android/gms/games/multiplayer/realtime/Room;
-    .param p2, "minParticipantsToStart"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->getRealTimeWaitingRoomIntent(Lcom/google/android/gms/games/multiplayer/realtime/Room;I)Landroid/content/Intent;
@@ -372,10 +337,7 @@
 
 .method public getSelectPlayersIntent(II)Landroid/content/Intent;
     .locals 1
-    .param p1, "minPlayers"    # I
-    .param p2, "maxPlayers"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->getSelectPlayersIntent(II)Landroid/content/Intent;
@@ -399,10 +361,7 @@
 
 .method public incrementAchievement(Ljava/lang/String;I)V
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "numSteps"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -414,11 +373,7 @@
 
 .method public incrementAchievementImmediate(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;I)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;
-    .param p2, "id"    # Ljava/lang/String;
-    .param p3, "numSteps"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/android/gms/internal/au;->a(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;I)V
@@ -452,9 +407,7 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
@@ -466,9 +419,7 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
@@ -480,9 +431,7 @@
 
 .method public joinRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
     .locals 1
-    .param p1, "config"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->joinRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;)V
@@ -492,10 +441,7 @@
 
 .method public leaveRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Ljava/lang/String;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
-    .param p2, "roomId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->leaveRoom(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;Ljava/lang/String;)V
@@ -505,10 +451,7 @@
 
 .method public loadAchievements(Lcom/google/android/gms/games/achievement/OnAchievementsLoadedListener;Z)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/achievement/OnAchievementsLoadedListener;
-    .param p2, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->loadAchievements(Lcom/google/android/gms/games/achievement/OnAchievementsLoadedListener;Z)V
@@ -518,9 +461,7 @@
 
 .method public loadGame(Lcom/google/android/gms/games/OnGamesLoadedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/OnGamesLoadedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->loadGame(Lcom/google/android/gms/games/OnGamesLoadedListener;)V
@@ -530,11 +471,7 @@
 
 .method public loadInvitablePlayers(Lcom/google/android/gms/games/OnPlayersLoadedListener;IZ)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/games/OnPlayersLoadedListener;
-    .param p2, "pageSize"    # I
-    .param p3, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -546,9 +483,7 @@
 
 .method public loadInvitations(Lcom/google/android/gms/games/multiplayer/OnInvitationsLoadedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/OnInvitationsLoadedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->loadInvitations(Lcom/google/android/gms/games/multiplayer/OnInvitationsLoadedListener;)V
@@ -558,11 +493,9 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/android/gms/games/GamesClient;->loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Z)V
@@ -572,12 +505,9 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Ljava/lang/String;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/google/android/gms/games/GamesClient;->loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Ljava/lang/String;Z)V
@@ -587,11 +517,7 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Ljava/lang/String;Z)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/android/gms/internal/au;->loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Ljava/lang/String;Z)V
@@ -601,10 +527,7 @@
 
 .method public loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Z)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;
-    .param p2, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->loadLeaderboardMetadata(Lcom/google/android/gms/games/leaderboard/OnLeaderboardMetadataLoadedListener;Z)V
@@ -614,10 +537,7 @@
 
 .method public loadMoreInvitablePlayers(Lcom/google/android/gms/games/OnPlayersLoadedListener;I)V
     .locals 3
-    .param p1, "listener"    # Lcom/google/android/gms/games/OnPlayersLoadedListener;
-    .param p2, "pageSize"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x1
@@ -631,12 +551,7 @@
 
 .method public loadMoreScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;II)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
-    .param p2, "buffer"    # Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;
-    .param p3, "maxResults"    # I
-    .param p4, "pageDirection"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/au;->loadMoreScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Lcom/google/android/gms/games/leaderboard/LeaderboardScoreBuffer;II)V
@@ -646,10 +561,7 @@
 
 .method public loadPlayer(Lcom/google/android/gms/games/OnPlayersLoadedListener;Ljava/lang/String;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/OnPlayersLoadedListener;
-    .param p2, "playerId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->loadPlayer(Lcom/google/android/gms/games/OnPlayersLoadedListener;Ljava/lang/String;)V
@@ -659,13 +571,7 @@
 
 .method public loadPlayerCenteredScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;III)V
     .locals 7
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "span"    # I
-    .param p4, "leaderboardCollection"    # I
-    .param p5, "maxResults"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v6, 0x0
@@ -687,14 +593,7 @@
 
 .method public loadPlayerCenteredScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;IIIZ)V
     .locals 7
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "span"    # I
-    .param p4, "leaderboardCollection"    # I
-    .param p5, "maxResults"    # I
-    .param p6, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     move-object v1, p1
@@ -716,13 +615,7 @@
 
 .method public loadTopScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;III)V
     .locals 7
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "span"    # I
-    .param p4, "leaderboardCollection"    # I
-    .param p5, "maxResults"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v6, 0x0
@@ -744,14 +637,7 @@
 
 .method public loadTopScores(Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;Ljava/lang/String;IIIZ)V
     .locals 7
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnLeaderboardScoresLoadedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "span"    # I
-    .param p4, "leaderboardCollection"    # I
-    .param p5, "maxResults"    # I
-    .param p6, "forceReload"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     move-object v1, p1
@@ -787,9 +673,7 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -799,9 +683,7 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -811,9 +693,7 @@
 
 .method public registerInvitationListener(Lcom/google/android/gms/games/multiplayer/OnInvitationReceivedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/OnInvitationReceivedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->registerInvitationListener(Lcom/google/android/gms/games/multiplayer/OnInvitationReceivedListener;)V
@@ -823,9 +703,7 @@
 
 .method public revealAchievement(Ljava/lang/String;)V
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -837,10 +715,7 @@
 
 .method public revealAchievementImmediate(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;
-    .param p2, "id"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->a(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;)V
@@ -850,12 +725,7 @@
 
 .method public sendReliableRealTimeMessage(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeReliableMessageSentListener;[BLjava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RealTimeReliableMessageSentListener;
-    .param p2, "messageData"    # [B
-    .param p3, "roomId"    # Ljava/lang/String;
-    .param p4, "recipientParticipantId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/au;->sendReliableRealTimeMessage(Lcom/google/android/gms/games/multiplayer/realtime/RealTimeReliableMessageSentListener;[BLjava/lang/String;Ljava/lang/String;)I
@@ -867,11 +737,7 @@
 
 .method public sendUnreliableRealTimeMessage([BLjava/lang/String;Ljava/lang/String;)I
     .locals 3
-    .param p1, "messageData"    # [B
-    .param p2, "roomId"    # Ljava/lang/String;
-    .param p3, "recipientParticipantId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x1
@@ -891,8 +757,6 @@
 
 .method public sendUnreliableRealTimeMessage([BLjava/lang/String;Ljava/util/List;)I
     .locals 2
-    .param p1, "messageData"    # [B
-    .param p2, "roomId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -904,8 +768,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p3, "recipientParticipantIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v0
@@ -929,10 +791,7 @@
 
 .method public sendUnreliableRealTimeMessageToAll([BLjava/lang/String;)I
     .locals 1
-    .param p1, "messageData"    # [B
-    .param p2, "roomId"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->sendUnreliableRealTimeMessageToAll([BLjava/lang/String;)I
@@ -944,9 +803,7 @@
 
 .method public setGravityForPopups(I)V
     .locals 1
-    .param p1, "gravity"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->setGravityForPopups(I)V
@@ -956,9 +813,7 @@
 
 .method public setUseNewPlayerNotificationsFirstParty(Z)V
     .locals 1
-    .param p1, "newPlayerStyle"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->setUseNewPlayerNotificationsFirstParty(Z)V
@@ -968,9 +823,7 @@
 
 .method public setViewForPopups(Landroid/view/View;)V
     .locals 1
-    .param p1, "gamesContentView"    # Landroid/view/View;
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
@@ -994,9 +847,7 @@
 
 .method public signOut(Lcom/google/android/gms/games/OnSignOutCompleteListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/OnSignOutCompleteListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->signOut(Lcom/google/android/gms/games/OnSignOutCompleteListener;)V
@@ -1006,10 +857,7 @@
 
 .method public submitScore(Ljava/lang/String;J)V
     .locals 2
-    .param p1, "leaderboardId"    # Ljava/lang/String;
-    .param p2, "score"    # J
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -1021,11 +869,7 @@
 
 .method public submitScoreImmediate(Lcom/google/android/gms/games/leaderboard/OnScoreSubmittedListener;Ljava/lang/String;J)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/leaderboard/OnScoreSubmittedListener;
-    .param p2, "leaderboardId"    # Ljava/lang/String;
-    .param p3, "score"    # J
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/au;->a(Lcom/google/android/gms/games/leaderboard/OnScoreSubmittedListener;Ljava/lang/String;J)V
@@ -1035,9 +879,7 @@
 
 .method public unlockAchievement(Ljava/lang/String;)V
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     const/4 v1, 0x0
@@ -1049,10 +891,7 @@
 
 .method public unlockAchievementImmediate(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;
-    .param p2, "id"    # Ljava/lang/String;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/au;->b(Lcom/google/android/gms/games/achievement/OnAchievementUpdatedListener;Ljava/lang/String;)V
@@ -1062,9 +901,7 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -1074,9 +911,7 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/GamesClient;->dt:Lcom/google/android/gms/internal/au;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/au;->unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V

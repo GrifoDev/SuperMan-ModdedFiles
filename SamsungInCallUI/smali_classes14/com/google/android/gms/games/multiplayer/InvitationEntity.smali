@@ -68,13 +68,6 @@
 
 .method constructor <init>(ILcom/google/android/gms/games/GameEntity;Ljava/lang/String;JILcom/google/android/gms/games/multiplayer/ParticipantEntity;Ljava/util/ArrayList;I)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "game"    # Lcom/google/android/gms/games/GameEntity;
-    .param p3, "invitationId"    # Ljava/lang/String;
-    .param p4, "creationTimestamp"    # J
-    .param p6, "invitationType"    # I
-    .param p7, "inviter"    # Lcom/google/android/gms/games/multiplayer/ParticipantEntity;
-    .param p9, "variant"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -89,8 +82,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p8, "participants":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/google/android/gms/games/multiplayer/ParticipantEntity;>;"
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/multiplayer/InvitationEntity;->ab:I
@@ -114,9 +105,7 @@
 
 .method constructor <init>(Lcom/google/android/gms/games/multiplayer/Invitation;)V
     .locals 7
-    .param p1, "invitation"    # Lcom/google/android/gms/games/multiplayer/Invitation;
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     const/4 v0, 0x1
@@ -617,9 +606,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/InvitationEntity;->a(Lcom/google/android/gms/games/multiplayer/Invitation;Ljava/lang/Object;)Z
 
     move-result v0
@@ -742,10 +729,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/games/multiplayer/InvitationEntity;->w()Z
 
     move-result v0

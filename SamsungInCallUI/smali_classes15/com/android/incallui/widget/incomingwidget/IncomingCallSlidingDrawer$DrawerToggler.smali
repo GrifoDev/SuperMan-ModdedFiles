@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
     .locals 0
 
-    .prologue
-    .line 1195
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
-    .param p2, "x1"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$1;
 
-    .prologue
-    .line 1195
     invoke-direct {p0, p1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;-><init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;)V
 
     return-void
@@ -50,10 +44,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 1198
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mLocked:Z
@@ -63,11 +54,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 1210
     :goto_0
     return-void
 
-    .line 1205
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
@@ -78,14 +67,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 1206
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->animateToggle()V
 
     goto :goto_0
 
-    .line 1208
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$DrawerToggler;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 

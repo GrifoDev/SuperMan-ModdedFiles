@@ -28,10 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;Landroid/widget/CheckBox;Landroid/widget/CheckBox;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    .prologue
-    .line 1159
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     iput-object p2, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->val$checkboxupdate:Landroid/widget/CheckBox;
@@ -47,15 +44,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "whichButton"    # I
 
-    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
-    .line 1163
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-virtual {v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->isAdded()Z
@@ -64,11 +57,9 @@
 
     if-nez v1, :cond_0
 
-    .line 1170
     :goto_0
     return-void
 
-    .line 1166
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
@@ -95,7 +86,6 @@
     :goto_1
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1167
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->val$checkbox:Landroid/widget/CheckBox;
 
     invoke-virtual {v1}, Landroid/widget/CheckBox;->isChecked()Z
@@ -106,15 +96,12 @@
 
     move v0, v3
 
-    .line 1168
-    .local v0, "val":I
     :goto_2
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->saveAgreementFlag(I)V
     invoke-static {v1, v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$1900(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;I)V
 
-    .line 1169
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->process(Z)V
@@ -122,16 +109,13 @@
 
     goto :goto_0
 
-    .end local v0    # "val":I
     :cond_1
     move v1, v3
 
-    .line 1166
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 1167
     goto :goto_2
 .end method

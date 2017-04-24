@@ -45,13 +45,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 42
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
-    .local p1, "multimap":Lcom/google/common/collect/FilteredMultimap;, "Lcom/google/common/collect/FilteredMultimap<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
-    .line 43
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -60,7 +55,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
-    .line 44
     return-void
 .end method
 
@@ -69,27 +63,20 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 96
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/FilteredMultimap;->clear()V
 
-    .line 97
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 53
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/FilteredMultimap;->containsValue(Ljava/lang/Object;)Z
@@ -109,9 +96,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 48
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/FilteredMultimap;->entries()Ljava/util/Collection;
@@ -131,22 +115,17 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 63
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
     iget-object v3, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v3}, Lcom/google/common/collect/FilteredMultimap;->entryPredicate()Lcom/google/common/base/Predicate;
 
     move-result-object v1
 
-    .line 64
-    .local v1, "entryPredicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     iget-object v3, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v3}, Lcom/google/common/collect/FilteredMultimap;->unfiltered()Lcom/google/common/collect/Multimap;
@@ -161,8 +140,6 @@
 
     move-result-object v2
 
-    .line 65
-    .local v2, "unfilteredItr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -170,15 +147,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 66
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 67
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {v1, v0}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
 
     move-result v3
@@ -195,14 +169,10 @@
 
     if-eqz v3, :cond_0
 
-    .line 68
     invoke-interface {v2}, Ljava/util/Iterator;->remove()V
 
-    .line 69
     const/4 v3, 0x1
 
-    .line 72
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     :goto_0
     return v3
 
@@ -222,10 +192,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 77
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/FilteredMultimap;->unfiltered()Lcom/google/common/collect/Multimap;
@@ -271,10 +237,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 86
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/FilteredMultimap;->unfiltered()Lcom/google/common/collect/Multimap;
@@ -317,9 +279,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 58
-    .local p0, "this":Lcom/google/common/collect/FilteredMultimapValues;, "Lcom/google/common/collect/FilteredMultimapValues<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/FilteredMultimapValues;->multimap:Lcom/google/common/collect/FilteredMultimap;
 
     invoke-interface {v0}, Lcom/google/common/collect/FilteredMultimap;->size()I

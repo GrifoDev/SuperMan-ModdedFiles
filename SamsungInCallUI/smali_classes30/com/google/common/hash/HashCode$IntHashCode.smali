@@ -28,16 +28,11 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "hash"    # I
 
-    .prologue
-    .line 132
     invoke-direct {p0}, Lcom/google/common/hash/HashCode;-><init>()V
 
-    .line 133
     iput p1, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
 
-    .line 134
     return-void
 .end method
 
@@ -46,8 +41,6 @@
 .method public asBytes()[B
     .locals 3
 
-    .prologue
-    .line 143
     const/4 v0, 0x4
 
     new-array v0, v0, [B
@@ -96,8 +89,6 @@
 .method public asInt()I
     .locals 1
 
-    .prologue
-    .line 153
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
 
     return v0
@@ -106,8 +97,6 @@
 .method public asLong()J
     .locals 2
 
-    .prologue
-    .line 158
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "this HashCode only has 32 bits; cannot create a long"
@@ -120,8 +109,6 @@
 .method public bits()I
     .locals 1
 
-    .prologue
-    .line 138
     const/16 v0, 0x20
 
     return v0
@@ -129,10 +116,7 @@
 
 .method equalsSameBits(Lcom/google/common/hash/HashCode;)Z
     .locals 2
-    .param p1, "that"    # Lcom/google/common/hash/HashCode;
 
-    .prologue
-    .line 175
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
 
     invoke-virtual {p1}, Lcom/google/common/hash/HashCode;->asInt()I
@@ -155,8 +139,6 @@
 .method public padToLong()J
     .locals 2
 
-    .prologue
-    .line 163
     iget v0, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
 
     invoke-static {v0}, Lcom/google/common/primitives/UnsignedInts;->toLong(I)J
@@ -168,19 +150,12 @@
 
 .method writeBytesToImpl([BII)V
     .locals 4
-    .param p1, "dest"    # [B
-    .param p2, "offset"    # I
-    .param p3, "maxLength"    # I
 
-    .prologue
-    .line 168
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, p3, :cond_0
 
-    .line 169
     add-int v1, p2, v0
 
     iget v2, p0, Lcom/google/common/hash/HashCode$IntHashCode;->hash:I
@@ -193,12 +168,10 @@
 
     aput-byte v2, p1, v1
 
-    .line 168
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 171
     :cond_0
     return-void
 .end method

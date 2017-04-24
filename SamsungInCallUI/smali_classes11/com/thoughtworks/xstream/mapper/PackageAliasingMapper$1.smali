@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,17 +30,11 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 34
     check-cast p2, Ljava/lang/String;
 
-    .end local p2    # "o2":Ljava/lang/Object;
     check-cast p1, Ljava/lang/String;
 
-    .end local p1    # "o1":Ljava/lang/Object;
     invoke-virtual {p2, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
     move-result v0

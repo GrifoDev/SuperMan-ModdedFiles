@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 1298
     iput-object p1, p0, Lcom/google/common/collect/Maps$6;->val$entryIterator:Ljava/util/Iterator;
 
     invoke-direct {p0}, Lcom/google/common/collect/UnmodifiableIterator;-><init>()V
@@ -45,8 +43,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 1301
     iget-object v0, p0, Lcom/google/common/collect/Maps$6;->val$entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -59,8 +55,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 1298
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$6;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -78,8 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1306
     iget-object v0, p0, Lcom/google/common/collect/Maps$6;->val$entryIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;

@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,10 +25,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/util/concurrent/AbstractScheduledService$1;
 
-    .prologue
-    .line 112
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler;-><init>()V
 
     return-void
@@ -38,19 +33,13 @@
 
 .method public static newFixedDelaySchedule(JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler;
     .locals 8
-    .param p0, "initialDelay"    # J
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 124
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 125
     const-wide/16 v4, 0x0
 
     cmp-long v0, p2, v4
@@ -72,7 +61,6 @@
 
     invoke-static {v0, v3, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 126
     new-instance v1, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$1;
 
     move-wide v2, p0
@@ -88,25 +76,18 @@
     :cond_0
     move v0, v2
 
-    .line 125
     goto :goto_0
 .end method
 
 .method public static newFixedRateSchedule(JJLjava/util/concurrent/TimeUnit;)Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler;
     .locals 8
-    .param p0, "initialDelay"    # J
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 145
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 146
     const-wide/16 v4, 0x0
 
     cmp-long v0, p2, v4
@@ -128,7 +109,6 @@
 
     invoke-static {v0, v3, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 147
     new-instance v1, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$2;
 
     move-wide v2, p0
@@ -144,7 +124,6 @@
     :cond_0
     move v0, v2
 
-    .line 146
     goto :goto_0
 .end method
 

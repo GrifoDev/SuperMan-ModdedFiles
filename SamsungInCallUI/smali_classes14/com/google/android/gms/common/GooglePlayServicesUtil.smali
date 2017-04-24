@@ -1250,11 +1250,7 @@
 
 .method public static getErrorDialog(ILandroid/app/Activity;I)Landroid/app/Dialog;
     .locals 2
-    .param p0, "errorCode"    # I
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "requestCode"    # I
 
-    .prologue
     const/4 v0, 0x0
 
     const/4 v1, -0x1
@@ -1268,12 +1264,7 @@
 
 .method public static getErrorDialog(ILandroid/app/Activity;ILandroid/content/DialogInterface$OnCancelListener;)Landroid/app/Dialog;
     .locals 1
-    .param p0, "errorCode"    # I
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "requestCode"    # I
-    .param p3, "cancelListener"    # Landroid/content/DialogInterface$OnCancelListener;
 
-    .prologue
     const/4 v0, -0x1
 
     invoke-static {p0, p1, p2, p3, v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->a(ILandroid/app/Activity;ILandroid/content/DialogInterface$OnCancelListener;I)Landroid/app/Dialog;
@@ -1285,11 +1276,7 @@
 
 .method public static getErrorPendingIntent(ILandroid/content/Context;I)Landroid/app/PendingIntent;
     .locals 2
-    .param p0, "errorCode"    # I
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "requestCode"    # I
 
-    .prologue
     const/4 v0, -0x1
 
     invoke-static {p1, p0, v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->a(Landroid/content/Context;II)Landroid/content/Intent;
@@ -1315,9 +1302,7 @@
 
 .method public static getErrorString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "errorCode"    # I
 
-    .prologue
     packed-switch p0, :pswitch_data_0
 
     const-string v0, "UNKNOWN_ERROR_CODE"
@@ -1404,9 +1389,7 @@
 
 .method public static getOpenSourceSoftwareLicenseInfo(Landroid/content/Context;)Ljava/lang/String;
     .locals 4
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v1, 0x0
 
     new-instance v0, Landroid/net/Uri$Builder;
@@ -1513,9 +1496,7 @@
 
 .method public static getRemoteContext(Landroid/content/Context;)Landroid/content/Context;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     :try_start_0
     const-string v0, "com.google.android.gms"
 
@@ -1540,9 +1521,7 @@
 
 .method public static getRemoteResource(Landroid/content/Context;)Landroid/content/res/Resources;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -1569,9 +1548,7 @@
 
 .method public static isGooglePlayServicesAvailable(Landroid/content/Context;)I
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/16 v0, 0x9
 
     const/4 v2, 0x1
@@ -1765,9 +1742,7 @@
 
 .method public static isUserRecoverableError(I)Z
     .locals 1
-    .param p0, "errorCode"    # I
 
-    .prologue
     packed-switch p0, :pswitch_data_0
 
     :pswitch_0

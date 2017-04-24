@@ -14,8 +14,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 24
     new-instance v0, Lcom/thoughtworks/xstream/security/ProxyTypePermission;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/security/ProxyTypePermission;-><init>()V
@@ -28,8 +26,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,10 +35,7 @@
 # virtual methods
 .method public allows(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 27
     if-eqz p1, :cond_1
 
     invoke-static {p1}, Ljava/lang/reflect/Proxy;->isProxyClass(Ljava/lang/Class;)Z
@@ -69,10 +62,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 35
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -97,8 +87,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 31
     const/16 v0, 0x11
 
     return v0

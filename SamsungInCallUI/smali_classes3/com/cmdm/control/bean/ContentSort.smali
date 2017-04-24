@@ -72,16 +72,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/cmdm/control/bean/ContentSort;->Z:Z
 
-    .line 25
     return-void
 .end method
 
@@ -90,8 +86,6 @@
 .method public getContentCount()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 154
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->contentCount:Ljava/lang/String;
 
     return-object v0
@@ -100,8 +94,6 @@
 .method public getExistSubSort()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 124
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->existSubSort:Ljava/lang/String;
 
     return-object v0
@@ -110,8 +102,6 @@
 .method public getSortDec()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 139
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->sortDec:Ljava/lang/String;
 
     return-object v0
@@ -120,8 +110,6 @@
 .method public getSortId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 94
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->sortId:Ljava/lang/String;
 
     return-object v0
@@ -130,8 +118,6 @@
 .method public getSortImage()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 169
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->sortImage:Ljava/lang/String;
 
     return-object v0
@@ -140,8 +126,6 @@
 .method public getSortName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 109
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->sortName:Ljava/lang/String;
 
     return-object v0
@@ -150,8 +134,6 @@
 .method public getSubContentSortList()Lcom/cmdm/control/bean/SubContentSortList;
     .locals 1
 
-    .prologue
-    .line 184
     iget-object v0, p0, Lcom/cmdm/control/bean/ContentSort;->subContentSortList:Lcom/cmdm/control/bean/SubContentSortList;
 
     return-object v0
@@ -160,8 +142,6 @@
 .method public isSelect()Z
     .locals 1
 
-    .prologue
-    .line 83
     iget-boolean v0, p0, Lcom/cmdm/control/bean/ContentSort;->Z:Z
 
     return v0
@@ -169,96 +149,64 @@
 
 .method public setContentCount(Ljava/lang/String;)V
     .locals 0
-    .param p1, "contentCount"    # Ljava/lang/String;
 
-    .prologue
-    .line 162
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->contentCount:Ljava/lang/String;
 
-    .line 163
     return-void
 .end method
 
 .method public setExistSubSort(Ljava/lang/String;)V
     .locals 0
-    .param p1, "existSubSort"    # Ljava/lang/String;
 
-    .prologue
-    .line 132
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->existSubSort:Ljava/lang/String;
 
-    .line 133
     return-void
 .end method
 
 .method public setSelect(Z)V
     .locals 0
-    .param p1, "isSelect"    # Z
 
-    .prologue
-    .line 87
     iput-boolean p1, p0, Lcom/cmdm/control/bean/ContentSort;->Z:Z
 
-    .line 88
     return-void
 .end method
 
 .method public setSortDec(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sortDec"    # Ljava/lang/String;
 
-    .prologue
-    .line 147
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->sortDec:Ljava/lang/String;
 
-    .line 148
     return-void
 .end method
 
 .method public setSortId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sortId"    # Ljava/lang/String;
 
-    .prologue
-    .line 102
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->sortId:Ljava/lang/String;
 
-    .line 103
     return-void
 .end method
 
 .method public setSortImage(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sortImage"    # Ljava/lang/String;
 
-    .prologue
-    .line 177
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->sortImage:Ljava/lang/String;
 
-    .line 178
     return-void
 .end method
 
 .method public setSortName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sortName"    # Ljava/lang/String;
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->sortName:Ljava/lang/String;
 
-    .line 118
     return-void
 .end method
 
 .method public setSubContentSortList(Lcom/cmdm/control/bean/SubContentSortList;)V
     .locals 0
-    .param p1, "subContentSortList"    # Lcom/cmdm/control/bean/SubContentSortList;
 
-    .prologue
-    .line 192
     iput-object p1, p0, Lcom/cmdm/control/bean/ContentSort;->subContentSortList:Lcom/cmdm/control/bean/SubContentSortList;
 
-    .line 193
     return-void
 .end method

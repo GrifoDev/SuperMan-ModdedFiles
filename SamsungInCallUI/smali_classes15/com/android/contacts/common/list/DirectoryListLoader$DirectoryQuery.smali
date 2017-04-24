@@ -34,8 +34,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 49
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
@@ -78,8 +76,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -87,10 +83,7 @@
 
 .method public static getDirectoryUri(I)Landroid/net/Uri;
     .locals 1
-    .param p0, "mode"    # I
 
-    .prologue
-    .line 64
     const/4 v0, 0x3
 
     if-eq p0, v0, :cond_0
@@ -99,11 +92,9 @@
 
     if-ne p0, v0, :cond_1
 
-    .line 65
     :cond_0
     sget-object v0, Landroid/provider/ContactsContract$Directory;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 67
     :goto_0
     return-object v0
 

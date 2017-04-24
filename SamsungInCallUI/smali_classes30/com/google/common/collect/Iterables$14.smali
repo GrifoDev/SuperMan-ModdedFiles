@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/lang/Iterable;Ljava/util/Comparator;)V
     .locals 0
 
-    .prologue
-    .line 1000
     iput-object p1, p0, Lcom/google/common/collect/Iterables$14;->val$iterables:Ljava/lang/Iterable;
 
     iput-object p2, p0, Lcom/google/common/collect/Iterables$14;->val$comparator:Ljava/util/Comparator;
@@ -54,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1003
     iget-object v0, p0, Lcom/google/common/collect/Iterables$14;->val$iterables:Ljava/lang/Iterable;
 
     # invokes: Lcom/google/common/collect/Iterables;->toIterator()Lcom/google/common/base/Function;

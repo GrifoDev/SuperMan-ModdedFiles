@@ -35,7 +35,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -46,7 +45,6 @@
 
     const/4 v3, 0x0
 
-    .line 37
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -97,7 +95,6 @@
 
     sput-object v0, Lcom/android/dialer/calllog/PhoneQuery;->PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
 
-    .line 53
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -148,7 +145,6 @@
 
     sput-object v0, Lcom/android/dialer/calllog/PhoneQuery;->BACKWARD_COMPATIBLE_NON_SIP_PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
 
-    .line 90
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, "display_name_alt"
@@ -163,8 +159,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -172,24 +166,18 @@
 
 .method public static getPhoneLookupProjection(Landroid/net/Uri;)[Ljava/lang/String;
     .locals 3
-    .param p0, "phoneLookupUri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 67
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isNCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 68
     sget-object v1, Lcom/android/dialer/calllog/PhoneQuery;->PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;
 
-    .line 73
     :goto_0
     return-object v1
 
-    .line 71
     :cond_0
     const-string v1, "sip"
 
@@ -199,8 +187,6 @@
 
     move-result v0
 
-    .line 73
-    .local v0, "isSip":Z
     if-eqz v0, :cond_1
 
     sget-object v1, Lcom/android/dialer/calllog/PhoneQuery;->PHONE_LOOKUP_PROJECTION:[Ljava/lang/String;

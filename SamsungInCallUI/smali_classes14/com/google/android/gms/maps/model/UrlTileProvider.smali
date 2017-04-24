@@ -14,10 +14,7 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/maps/model/UrlTileProvider;->hL:I
@@ -89,11 +86,7 @@
 # virtual methods
 .method public final getTile(III)Lcom/google/android/gms/maps/model/Tile;
     .locals 4
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "zoom"    # I
 
-    .prologue
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/android/gms/maps/model/UrlTileProvider;->getTileUrl(III)Ljava/net/URL;
 
     move-result-object v1

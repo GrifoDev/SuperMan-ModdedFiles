@@ -26,8 +26,6 @@
 .method constructor <init>(JJLjava/util/concurrent/TimeUnit;)V
     .locals 1
 
-    .prologue
-    .line 147
     iput-wide p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$2;->val$initialDelay:J
 
     iput-wide p3, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$2;->val$period:J
@@ -45,9 +43,6 @@
 # virtual methods
 .method public schedule(Lcom/google/common/util/concurrent/AbstractService;Ljava/util/concurrent/ScheduledExecutorService;Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
     .locals 7
-    .param p1, "service"    # Lcom/google/common/util/concurrent/AbstractService;
-    .param p2, "executor"    # Ljava/util/concurrent/ScheduledExecutorService;
-    .param p3, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,8 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 151
     iget-wide v2, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$2;->val$initialDelay:J
 
     iget-wide v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$Scheduler$2;->val$period:J

@@ -29,9 +29,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 36
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingMultimap;-><init>()V
 
     return-void
@@ -42,9 +39,6 @@
 .method protected bridge synthetic delegate()Lcom/google/common/collect/Multimap;
     .locals 1
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -65,9 +59,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -78,9 +69,6 @@
 .method public bridge synthetic entries()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->entries()Ljava/util/Set;
 
     move-result-object v0
@@ -100,9 +88,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -116,11 +101,7 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingSetMultimap;->get(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -142,10 +123,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 49
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -159,11 +136,7 @@
 
 .method public bridge synthetic removeAll(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingSetMultimap;->removeAll(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
@@ -173,7 +146,7 @@
 
 .method public removeAll(Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -187,9 +160,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 54
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0
@@ -203,12 +173,7 @@
 
 .method public bridge synthetic replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Collection;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Iterable;
 
-    .prologue
-    .line 35
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ForwardingSetMultimap;->replaceValues(Ljava/lang/Object;Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object v0
@@ -228,11 +193,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/collect/ForwardingSetMultimap;, "Lcom/google/common/collect/ForwardingSetMultimap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingSetMultimap;->delegate()Lcom/google/common/collect/SetMultimap;
 
     move-result-object v0

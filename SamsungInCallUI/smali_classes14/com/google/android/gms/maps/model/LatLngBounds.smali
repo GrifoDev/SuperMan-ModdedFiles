@@ -40,11 +40,7 @@
 
 .method constructor <init>(ILcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)V
     .locals 8
-    .param p1, "versionCode"    # I
-    .param p2, "southwest"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p3, "northeast"    # Lcom/google/android/gms/maps/model/LatLng;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
@@ -110,10 +106,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)V
     .locals 1
-    .param p1, "southwest"    # Lcom/google/android/gms/maps/model/LatLng;
-    .param p2, "northeast"    # Lcom/google/android/gms/maps/model/LatLng;
 
-    .prologue
     const/4 v0, 0x1
 
     invoke-direct {p0, v0, p1, p2}, Lcom/google/android/gms/maps/model/LatLngBounds;-><init>(ILcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)V
@@ -282,9 +275,7 @@
 # virtual methods
 .method public contains(Lcom/google/android/gms/maps/model/LatLng;)Z
     .locals 2
-    .param p1, "point"    # Lcom/google/android/gms/maps/model/LatLng;
 
-    .prologue
     iget-wide v0, p1, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
 
     invoke-direct {p0, v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds;->a(D)Z
@@ -322,21 +313,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
-    .end local p1    # "o":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "o":Ljava/lang/Object;
     :cond_1
     instance-of v2, p1, Lcom/google/android/gms/maps/model/LatLngBounds;
 
@@ -349,7 +336,6 @@
     :cond_2
     check-cast p1, Lcom/google/android/gms/maps/model/LatLngBounds;
 
-    .end local p1    # "o":Ljava/lang/Object;
     iget-object v2, p0, Lcom/google/android/gms/maps/model/LatLngBounds;->southwest:Lcom/google/android/gms/maps/model/LatLng;
 
     iget-object v3, p1, Lcom/google/android/gms/maps/model/LatLngBounds;->southwest:Lcom/google/android/gms/maps/model/LatLng;
@@ -464,9 +450,7 @@
 
 .method public including(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds;
     .locals 18
-    .param p1, "point"    # Lcom/google/android/gms/maps/model/LatLng;
 
-    .prologue
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/google/android/gms/maps/model/LatLngBounds;->southwest:Lcom/google/android/gms/maps/model/LatLng;
@@ -597,10 +581,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/maps/internal/q;->bn()Z
 
     move-result v0

@@ -41,10 +41,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 726
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
 
     const-string v1, "INSTANCE"
@@ -53,7 +51,6 @@
 
     sput-object v0, Lcom/google/common/collect/MapMakerInternalMap$NullEntry;->INSTANCE:Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
 
-    .line 725
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
@@ -75,8 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 725
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -84,10 +79,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 725
     const-class v0, Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -102,8 +94,6 @@
 .method public static values()[Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
     .locals 1
 
-    .prologue
-    .line 725
     sget-object v0, Lcom/google/common/collect/MapMakerInternalMap$NullEntry;->$VALUES:[Lcom/google/common/collect/MapMakerInternalMap$NullEntry;
 
     invoke-virtual {v0}, [Lcom/google/common/collect/MapMakerInternalMap$NullEntry;->clone()Ljava/lang/Object;
@@ -120,8 +110,6 @@
 .method public getExpirationTime()J
     .locals 2
 
-    .prologue
-    .line 753
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -130,8 +118,6 @@
 .method public getHash()I
     .locals 1
 
-    .prologue
-    .line 743
     const/4 v0, 0x0
 
     return v0
@@ -140,8 +126,6 @@
 .method public getKey()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 748
     const/4 v0, 0x0
 
     return-object v0
@@ -160,8 +144,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 738
     const/4 v0, 0x0
 
     return-object v0
@@ -180,8 +162,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 777
     return-object p0
 .end method
 
@@ -198,8 +178,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 761
     return-object p0
 .end method
 
@@ -216,8 +194,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 785
     return-object p0
 .end method
 
@@ -234,8 +210,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 769
     return-object p0
 .end method
 
@@ -252,8 +226,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 730
     const/4 v0, 0x0
 
     return-object v0
@@ -261,10 +233,7 @@
 
 .method public setExpirationTime(J)V
     .locals 0
-    .param p1, "time"    # J
 
-    .prologue
-    .line 757
     return-void
 .end method
 
@@ -281,9 +250,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 781
-    .local p1, "next":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method
 
@@ -300,9 +266,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 765
-    .local p1, "next":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method
 
@@ -319,9 +282,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 789
-    .local p1, "previous":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method
 
@@ -338,9 +298,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 773
-    .local p1, "previous":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method
 
@@ -357,8 +314,5 @@
         }
     .end annotation
 
-    .prologue
-    .line 734
-    .local p1, "valueReference":Lcom/google/common/collect/MapMakerInternalMap$ValueReference;, "Lcom/google/common/collect/MapMakerInternalMap$ValueReference<Ljava/lang/Object;Ljava/lang/Object;>;"
     return-void
 .end method

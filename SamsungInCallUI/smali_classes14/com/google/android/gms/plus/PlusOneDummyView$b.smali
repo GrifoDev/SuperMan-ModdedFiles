@@ -43,9 +43,7 @@
 # virtual methods
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .param p1, "size"    # I
 
-    .prologue
     :try_start_0
     iget-object v0, p0, Lcom/google/android/gms/plus/PlusOneDummyView$b;->mContext:Landroid/content/Context;
 

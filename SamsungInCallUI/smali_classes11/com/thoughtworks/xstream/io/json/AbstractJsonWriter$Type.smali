@@ -28,29 +28,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 140
     new-instance v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;-><init>()V
 
     sput-object v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;->NULL:Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
-    .line 141
     new-instance v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;-><init>()V
 
     sput-object v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;->STRING:Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
-    .line 142
     new-instance v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;-><init>()V
 
     sput-object v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;->NUMBER:Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
-    .line 143
     new-instance v0, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$Type;-><init>()V
@@ -63,8 +58,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 139
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

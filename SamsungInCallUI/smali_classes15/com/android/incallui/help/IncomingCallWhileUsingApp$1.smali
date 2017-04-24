@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
-    .prologue
-    .line 181
     iput-object p1, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,32 +33,25 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 184
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 195
     :goto_0
     return-void
 
-    .line 186
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
     # operator++ for: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->callTimerCount:I
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$008(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)I
 
-    .line 187
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
     # invokes: Lcom/android/incallui/help/IncomingCallWhileUsingApp;->dispCallDuration()V
     invoke-static {v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->access$100(Lcom/android/incallui/help/IncomingCallWhileUsingApp;)V
 
-    .line 188
     const/16 v0, 0x64
 
     const-wide/16 v2, 0x3e8
@@ -70,7 +60,6 @@
 
     goto :goto_0
 
-    .line 192
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp$1;->this$0:Lcom/android/incallui/help/IncomingCallWhileUsingApp;
 
@@ -78,7 +67,6 @@
 
     goto :goto_0
 
-    .line 184
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

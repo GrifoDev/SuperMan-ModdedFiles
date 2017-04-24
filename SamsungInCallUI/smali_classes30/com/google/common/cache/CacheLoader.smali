@@ -33,9 +33,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 57
-    .local p0, "this":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +40,6 @@
 
 .method public static asyncReloading(Lcom/google/common/cache/CacheLoader;Ljava/util/concurrent/Executor;)Lcom/google/common/cache/CacheLoader;
     .locals 1
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "Executor + Futures"
     .end annotation
@@ -64,15 +60,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 180
-    .local p0, "loader":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<TK;TV;>;"
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 181
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 182
     new-instance v0, Lcom/google/common/cache/CacheLoader$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/common/cache/CacheLoader$1;-><init>(Lcom/google/common/cache/CacheLoader;Ljava/util/concurrent/Executor;)V
@@ -96,9 +87,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 136
-    .local p0, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<TK;TV;>;"
     new-instance v0, Lcom/google/common/cache/CacheLoader$FunctionToCacheLoader;
 
     invoke-direct {v0, p0}, Lcom/google/common/cache/CacheLoader$FunctionToCacheLoader;-><init>(Lcom/google/common/base/Function;)V
@@ -122,9 +110,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 165
-    .local p0, "supplier":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TV;>;"
     new-instance v0, Lcom/google/common/cache/CacheLoader$SupplierToCacheLoader;
 
     invoke-direct {v0, p0}, Lcom/google/common/cache/CacheLoader$SupplierToCacheLoader;-><init>(Lcom/google/common/base/Supplier;)V
@@ -166,10 +151,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 124
-    .local p0, "this":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<TK;TV;>;"
-    .local p1, "keys":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TK;>;"
     new-instance v0, Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;
 
     invoke-direct {v0}, Lcom/google/common/cache/CacheLoader$UnsupportedLoadingOperationException;-><init>()V
@@ -197,17 +178,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 94
-    .local p0, "this":Lcom/google/common/cache/CacheLoader;, "Lcom/google/common/cache/CacheLoader<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "oldValue":Ljava/lang/Object;, "TV;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 95
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 96
     invoke-virtual {p0, p1}, Lcom/google/common/cache/CacheLoader;->load(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

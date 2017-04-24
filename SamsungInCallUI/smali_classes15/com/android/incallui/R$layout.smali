@@ -797,21 +797,21 @@
 
 .field public static final video_call_fragment:I = 0x7f040186
 
-.field public static final video_call_simulation:I = 0x7f040187
+.field public static final video_call_pip_layout:I = 0x7f040187
 
-.field public static final video_call_views:I = 0x7f040188
+.field public static final video_call_simulation:I = 0x7f040188
 
-.field public static final video_hide_show_floating_button_layout:I = 0x7f040189
+.field public static final video_call_views:I = 0x7f040189
 
-.field public static final volte_videocall_enable_dialog:I = 0x7f04018a
+.field public static final video_hide_show_floating_button_layout:I = 0x7f04018a
+
+.field public static final volte_videocall_enable_dialog:I = 0x7f04018b
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6809
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

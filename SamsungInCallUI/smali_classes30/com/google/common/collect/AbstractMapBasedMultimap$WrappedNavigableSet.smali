@@ -55,18 +55,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 702
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p2, "key":Ljava/lang/Object;, "TK;"
-    .local p3, "delegate":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TV;>;"
-    .local p4, "ancestor":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedCollection;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
-    .line 703
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/SortedSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
 
-    .line 704
     return-void
 .end method
 
@@ -82,10 +74,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 742
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "wrapped":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TV;>;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;
 
     iget-object v1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
@@ -98,13 +86,11 @@
 
     if-nez v3, :cond_0
 
-    .end local p0    # "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     :goto_0
     invoke-direct {v0, v1, v2, p1, p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;Ljava/lang/Object;Ljava/util/NavigableSet;Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;)V
 
     return-object v0
 
-    .restart local p0    # "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     :cond_0
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getAncestor()Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection;
 
@@ -123,10 +109,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 723
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "v":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -148,9 +130,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 752
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     new-instance v0, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedCollection$WrappedIterator;
 
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
@@ -176,9 +155,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 747
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -202,10 +178,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 718
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "v":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -227,9 +199,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 708
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     invoke-super {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedSortedSet;->getSortedSetDelegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -242,9 +211,6 @@
 .method bridge synthetic getSortedSetDelegate()Ljava/util/SortedSet;
     .locals 1
 
-    .prologue
-    .line 698
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -254,7 +220,6 @@
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;Z)",
@@ -263,10 +228,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 764
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "toElement":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -290,10 +251,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 728
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "v":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -313,10 +270,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 713
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "v":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -336,9 +289,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 733
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -358,9 +308,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 738
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->descendingIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -374,8 +321,6 @@
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;ZTV;Z)",
@@ -384,11 +329,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 758
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TV;"
-    .local p3, "toElement":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -406,7 +346,6 @@
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;Z)",
@@ -415,10 +354,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 769
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;, "Lcom/google/common/collect/AbstractMapBasedMultimap<TK;TV;>.WrappedNavigableSet;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/AbstractMapBasedMultimap$WrappedNavigableSet;->getSortedSetDelegate()Ljava/util/NavigableSet;
 
     move-result-object v0

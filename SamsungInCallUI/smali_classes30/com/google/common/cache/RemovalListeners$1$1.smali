@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/google/common/cache/RemovalListeners$1;Lcom/google/common/cache/RemovalNotification;)V
     .locals 0
 
-    .prologue
-    .line 48
     iput-object p1, p0, Lcom/google/common/cache/RemovalListeners$1$1;->this$0:Lcom/google/common/cache/RemovalListeners$1;
 
     iput-object p2, p0, Lcom/google/common/cache/RemovalListeners$1$1;->val$notification:Lcom/google/common/cache/RemovalNotification;
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 51
     iget-object v0, p0, Lcom/google/common/cache/RemovalListeners$1$1;->this$0:Lcom/google/common/cache/RemovalListeners$1;
 
     iget-object v0, v0, Lcom/google/common/cache/RemovalListeners$1;->val$listener:Lcom/google/common/cache/RemovalListener;
@@ -53,6 +49,5 @@
 
     invoke-interface {v0, v1}, Lcom/google/common/cache/RemovalListener;->onRemoval(Lcom/google/common/cache/RemovalNotification;)V
 
-    .line 52
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/GifUtil$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/util/GifUtil$1;
 
-    .prologue
-    .line 103
     iput-object p1, p0, Lcom/android/incallui/util/GifUtil$1$1;->this$1:Lcom/android/incallui/util/GifUtil$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +37,11 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 105
     iget-object v0, p0, Lcom/android/incallui/util/GifUtil$1$1;->this$1:Lcom/android/incallui/util/GifUtil$1;
 
     iget-object v0, v0, Lcom/android/incallui/util/GifUtil$1;->this$0:Lcom/android/incallui/util/GifUtil;
 
     invoke-virtual {v0}, Lcom/android/incallui/util/GifUtil;->updateView()V
 
-    .line 106
     return-void
 .end method

@@ -161,7 +161,7 @@
     <string name="call_menu_during_call_list6_tts">Үн көлөмүн көбөйтүү үчүн кошумча үн көлөмү баскычын басыңыз.</string>
     <string name="call_menu_during_call_list7">Башка адамга чалууга жана аларды учурдагы чалууга кошуу үчүн %s таптаңыз.</string>
     <string name="call_menu_during_call_list7_tts">Башка адамга чалууга жана аларды учурдагы чалууга кошуу үчүн кошуу баскычын таптаңыз.</string>
-    <string name="call_out_duration">Call out duration</string>
+    <string name="call_out_duration">Чакыруу узактыгы</string>
     <string name="call_twophone_one_phone">Түпнуска номер</string>
     <string name="call_twophone_two_phone">Экинчи номер</string>
     <string name="caller_info_card_last_call_log_title">Эң акыркы чалуу</string>
@@ -262,7 +262,8 @@
     <string name="extra_vol_off">Ашыкча көлөм иштен чыгарылды</string>
     <string name="extra_vol_on">Ашыкча көлөм иштетилди</string>
     <string name="far_end_stopped_share_video">%s видео бөлүшүүнү токтотту.</string>
-    <string name="fareastone_operator_name">FarEasTone</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
+    <string name="fareastone_operator_name">FarEas тону</string>
     <string name="file_not_supp">Файл колдоого алынб.</string>
     <string name="full_name">Аты</string>
     <string name="ghostData_company">Компания</string>
@@ -486,7 +487,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="onscreenBluetoothTextOn_att">Телефонго которуу</string>
     <string name="onscreenBluetoothTextOn_tmo">Телефонго которуу</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Катуу сүйлөгүчтү өчүрүш үчүн, чагылышкан телефонду ачыңыз.</string>
     <string name="open_the_cover">Капкакты ачыңыз</string>
     <string name="open_the_cover_incoming">Видео чалууларына жооп берүү же баш тартуу үчүн, каптаманы ачыңыз.</string>
     <string name="open_the_cover_modify_call">Чакыруучу тарап видео чакырууга которгусу келет. Жапкычты суроону кабыл алууга/четке кагууга ачыңыз.</string>
@@ -644,7 +645,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="secOnscreenResumeCallText">Улантуу</string>
     <string name="secOnscreenShowCallOption">Чалуу тандоолорун көрсөтүү</string>
     <string name="secOnscreenSpeaker">Катуу сүйлөгүч</string>
-    <string name="secOnscreenStopText">Токтот</string>
+    <string name="secOnscreenStopText">Жаздырууну токтотуу</string>
     <string name="secOnscreenSwapText">Алмаштыруу</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Камераны которуу</string>
@@ -719,6 +720,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="switch_to_voice_call_failed">Үн чалууга которуу суроосу кыйрады.</string>
     <string name="switched_to_voip_mo">Үн чалуусуна которулду</string>
     <string name="switched_to_voip_mt">Чалган тараптын суроо-талабынан улам, видео чалуусуна которулду</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s видеону өчүрдү.</string>
     <string name="switching_camera_failed">Камераларды которууга болбоду.</string>
     <string name="switching_to_voice_call">Үн чалууга которулууда…</string>
@@ -734,7 +736,9 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="usa_att_connected_as_voice">Чалуу үн гана катары туташылды.</string>
     <string name="usa_att_data_usage_charge_alert">Түзмөгүңүздөн орноткон Маалымат Керектөөңүз чегине жетээрине аз калды. Видео чалууңуз маалыматтарды талап кылат.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Чалууну Wi-Fi аркылуу жасоого болбойт, уюлдук тармак аркылуу туташууда. Үн жана берилмелер үчүн төлөмдөр алынышы мүмкүн.</string>
-    <string name="usa_att_modify_receive_to_video">Видео режимин тандоо</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Чалууну Wi-Fi аркылуу жасоого болбойт, уюлдук тармак аркылуу туташууда. Үн жана берилмелер үчүн төлөмдөр алынышы мүмкүн.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Чалуу түрүн тандоого төмөндөгү жерди басыңыз.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Конференция чалууларынын учурунда, чалуунун түрүн өзгөртүүгө болбойт.</string>
     <string name="usa_gsm_modify_receive_to_video">%s видео чалууга которулууну каалайт.</string>
@@ -742,6 +746,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="usa_gsm_modify_requested_wait_for_response">Жооп күтүү</string>
     <string name="usa_gsm_modify_select_call_type">Чалуу түрүн тандоо</string>
     <string name="usa_gsm_switching_to_voice_call">Үн чалууга гана которуу.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Мобилдик маалыматтар жеткиликсиз болгондуктан, видео өчурулдү.</string>
     <string name="usa_volte_reject_upgrade_request">%s азыр видео чалууларды кабыл ала албайт.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Видео чалуу байкалбайт.</string>
     <string name="usa_vzw_change_to_oneway_video">"Бир тараптуу видеого
@@ -786,7 +791,9 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Кайра көрсөтпөө</string>
     <string name="video_calling_incoming">Видео чалуу</string>
+    <string name="video_calls_quality_poor_tmo">Туташуу сапаты начар. Видео чалуу үн чалуусуна которулушу мүмкүн.</string>
     <string name="video_calls_temporarily_not_available">Видео чалууларды колдонуу убактылуу байкалбайт. Чалуу үн чалуусуна которулуу.</string>
+    <string name="video_calls_temporarily_not_available_att">Сиз чалып жаткан номер учурда видео чалууларды кабыл ала албайт. Чалуу үн чалуу катары туташылды.</string>
     <string name="video_calls_temporarily_not_available_tmo">Видео чалуу байкалбайт.</string>
     <string name="video_paused_info_text">Видео тыныт.</string>
     <string name="video_saved">Видео %s дегенге сакталды.</string>

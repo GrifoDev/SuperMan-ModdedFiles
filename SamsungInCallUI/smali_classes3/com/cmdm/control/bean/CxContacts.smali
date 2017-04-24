@@ -34,24 +34,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 28
     const-string v0, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 
     sput-object v0, Lcom/cmdm/control/bean/CxContacts;->xmlns:Ljava/lang/String;
 
-    .line 22
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
     return-void
 .end method
 
@@ -67,15 +61,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 31
-    .local p1, "phoneList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/CxContact;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     invoke-virtual {p0, p1}, Lcom/cmdm/control/bean/CxContacts;->setCxContactList(Ljava/util/List;)V
 
-    .line 33
     return-void
 .end method
 
@@ -92,15 +81,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 40
-    .local p0, "phoneList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/CxContact;>;"
     new-instance v0, Lcom/cmdm/control/bean/CxContacts;
 
     invoke-direct {v0, p0}, Lcom/cmdm/control/bean/CxContacts;-><init>(Ljava/util/ArrayList;)V
 
-    .line 41
-    .local v0, "mCxContacts":Lcom/cmdm/control/bean/CxContacts;
     new-instance v1, Lcom/thoughtworks/xstream/XStream;
 
     new-instance v2, Lcom/thoughtworks/xstream/io/xml/DomDriver;
@@ -109,13 +93,10 @@
 
     invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/XStream;-><init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamDriver;)V
 
-    .line 42
-    .local v1, "xstream":Lcom/thoughtworks/xstream/XStream;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/thoughtworks/xstream/XStream;->autodetectAnnotations(Z)V
 
-    .line 43
     new-instance v2, Ljava/lang/StringBuilder;
 
     sget-object v3, Lcom/cmdm/control/bean/CxContacts;->xmlns:Ljava/lang/String;
@@ -143,16 +124,11 @@
 
 .method public static main([Ljava/lang/String;)V
     .locals 3
-    .param p0, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 47
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 48
-    .local v0, "cxContactsList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/cmdm/control/bean/CxContact;>;"
     new-instance v1, Lcom/cmdm/control/bean/CxContact;
 
     const-string v2, "18750257043"
@@ -161,7 +137,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 49
     new-instance v1, Lcom/cmdm/control/bean/CxContact;
 
     const-string v2, "18250257043"
@@ -170,7 +145,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 50
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-static {v0}, Lcom/cmdm/control/bean/CxContacts;->getCxContacts(Ljava/util/ArrayList;)Ljava/lang/String;
@@ -179,7 +153,6 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 51
     return-void
 .end method
 
@@ -197,8 +170,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 57
     iget-object v0, p0, Lcom/cmdm/control/bean/CxContacts;->cxContactList:Ljava/util/List;
 
     return-object v0
@@ -216,11 +187,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 65
-    .local p1, "cxContactList":Ljava/util/List;, "Ljava/util/List<Lcom/cmdm/control/bean/CxContact;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/CxContacts;->cxContactList:Ljava/util/List;
 
-    .line 66
     return-void
 .end method

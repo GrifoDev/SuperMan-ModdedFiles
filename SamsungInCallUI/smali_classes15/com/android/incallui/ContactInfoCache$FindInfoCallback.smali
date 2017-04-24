@@ -18,26 +18,25 @@
 
 
 # instance fields
+.field private final mIsContactChanged:Z
+
 .field private final mIsIncoming:Z
 
 .field final synthetic this$0:Lcom/android/incallui/ContactInfoCache;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/incallui/ContactInfoCache;Z)V
+.method public constructor <init>(Lcom/android/incallui/ContactInfoCache;ZZ)V
     .locals 0
-    .param p2, "isIncoming"    # Z
 
-    .prologue
-    .line 176
     iput-object p1, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->this$0:Lcom/android/incallui/ContactInfoCache;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 177
     iput-boolean p2, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->mIsIncoming:Z
 
-    .line 178
+    iput-boolean p3, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->mIsContactChanged:Z
+
     return-void
 .end method
 
@@ -45,19 +44,13 @@
 # virtual methods
 .method public onQueryComplete(ILjava/lang/Object;Lcom/android/incallui/CallerInfo;)V
     .locals 8
-    .param p1, "token"    # I
-    .param p2, "cookie"    # Ljava/lang/Object;
-    .param p3, "callerInfo"    # Lcom/android/incallui/CallerInfo;
 
-    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
-    .line 182
     if-nez p2, :cond_0
 
-    .line 183
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
@@ -67,13 +60,9 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 223
-    .end local p2    # "cookie":Ljava/lang/Object;
     :goto_0
     return-void
 
-    .line 186
-    .restart local p2    # "cookie":Ljava/lang/Object;
     :cond_0
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
@@ -100,10 +89,12 @@
 
     invoke-static {v1, v4, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 187
     iput-boolean v2, p3, Lcom/android/incallui/CallerInfo;->queryCompleted:Z
 
-    .line 188
+    iget-boolean v1, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->mIsContactChanged:Z
+
+    iput-boolean v1, p3, Lcom/android/incallui/CallerInfo;->isContactChanged:Z
+
     iget-object v4, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->this$0:Lcom/android/incallui/ContactInfoCache;
 
     move-object v1, p2
@@ -117,7 +108,6 @@
 
     move-object v1, p2
 
-    .line 190
     check-cast v1, Lcom/android/incallui/Call;
 
     if-eqz v1, :cond_3
@@ -146,7 +136,6 @@
 
     if-eqz v1, :cond_3
 
-    .line 191
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v1
@@ -161,7 +150,6 @@
 
     check-cast v1, Lcom/android/incallui/Call;
 
-    .line 192
     invoke-virtual {v1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v1
@@ -174,25 +162,21 @@
 
     move v1, v2
 
-    .line 191
     :goto_1
     invoke-static {v4, v5, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     move-object v1, p2
 
-    .line 193
     check-cast v1, Lcom/android/incallui/Call;
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/Call;->setSmartCallSearching(Z)V
 
-    .line 194
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallController;->getInstance()Lcom/android/incallui/smartcall/SmartCallController;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/incallui/smartcall/SmartCallController;->notifyListenersOfSmartQueryStart()V
 
-    .line 195
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallController;->getInstance()Lcom/android/incallui/smartcall/SmartCallController;
 
     move-result-object v3
@@ -215,14 +199,12 @@
 
     invoke-virtual {v3, v4, v1}, Lcom/android/incallui/smartcall/SmartCallController;->startQuery(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 216
     :cond_1
     :goto_2
     iget-boolean v1, p3, Lcom/android/incallui/CallerInfo;->contactExists:Z
 
     if-nez v1, :cond_7
 
-    .line 217
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
@@ -250,8 +232,6 @@
 
     invoke-static {v1, v3, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 222
-    .end local p2    # "cookie":Ljava/lang/Object;
     :goto_3
     iget-object v1, p3, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
 
@@ -263,14 +243,11 @@
 
     goto/16 :goto_0
 
-    .restart local p2    # "cookie":Ljava/lang/Object;
     :cond_2
     move v1, v3
 
-    .line 192
     goto :goto_1
 
-    .line 196
     :cond_3
     const-string v1, "support_smart_call"
 
@@ -284,7 +261,6 @@
 
     if-nez v1, :cond_6
 
-    .line 198
     invoke-virtual {p3}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
 
     move-result v1
@@ -293,7 +269,6 @@
 
     iget-object v1, p3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
-    .line 199
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -306,7 +281,6 @@
 
     iget-object v4, p0, Lcom/android/incallui/ContactInfoCache$FindInfoCallback;->this$0:Lcom/android/incallui/ContactInfoCache;
 
-    .line 200
     # getter for: Lcom/android/incallui/ContactInfoCache;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/incallui/ContactInfoCache;->access$200(Lcom/android/incallui/ContactInfoCache;)Landroid/content/Context;
 
@@ -322,14 +296,12 @@
 
     check-cast v1, Lcom/android/incallui/Call;
 
-    .line 201
     invoke-static {v1}, Lcom/android/incallui/util/CallTypeUtils;->checkEmergencyCall(Lcom/android/incallui/Call;)Z
 
     move-result v1
 
     if-nez v1, :cond_6
 
-    .line 202
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
     move-result v1
@@ -345,8 +317,6 @@
     :cond_4
     move v0, v2
 
-    .line 203
-    .local v0, "mEmergencyMode":Z
     :goto_4
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
@@ -377,7 +347,6 @@
 
     invoke-static {v1, v3, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 204
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
 
     move-result v1
@@ -388,7 +357,6 @@
 
     move-object v1, p2
 
-    .line 205
     check-cast v1, Lcom/android/incallui/Call;
 
     invoke-virtual {v1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
@@ -397,7 +365,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 206
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
 
@@ -409,19 +376,16 @@
 
     move-object v1, p2
 
-    .line 207
     check-cast v1, Lcom/android/incallui/Call;
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/Call;->setSmartCallSearching(Z)V
 
-    .line 208
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallController;->getInstance()Lcom/android/incallui/smartcall/SmartCallController;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/incallui/smartcall/SmartCallController;->notifyListenersOfSmartQueryStart()V
 
-    .line 209
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallController;->getInstance()Lcom/android/incallui/smartcall/SmartCallController;
 
     move-result-object v3
@@ -446,24 +410,20 @@
 
     goto/16 :goto_2
 
-    .end local v0    # "mEmergencyMode":Z
     :cond_5
     move v0, v3
 
-    .line 202
     goto :goto_4
 
     :cond_6
     move-object v1, p2
 
-    .line 213
     check-cast v1, Lcom/android/incallui/Call;
 
     invoke-virtual {v1, v3}, Lcom/android/incallui/Call;->setSmartCallSearching(Z)V
 
     goto/16 :goto_2
 
-    .line 219
     :cond_7
     # getter for: Lcom/android/incallui/ContactInfoCache;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/ContactInfoCache;->access$000()Ljava/lang/String;
@@ -474,7 +434,6 @@
 
     invoke-static {v1, v3, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 220
     invoke-static {}, Lcom/android/incallui/OrgAsyncHandler;->getInstance()Lcom/android/incallui/OrgAsyncHandler;
 
     move-result-object v1
@@ -483,7 +442,6 @@
 
     check-cast p2, Lcom/android/incallui/Call;
 
-    .end local p2    # "cookie":Ljava/lang/Object;
     invoke-virtual {p2}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v4

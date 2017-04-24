@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/CoverScreen;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/accessory/CoverScreen;
 
-    .prologue
-    .line 902
     iput-object p1, p0, Lcom/android/incallui/accessory/CoverScreen$10;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 905
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$10;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallPhoto:Landroid/widget/ImageView;
@@ -52,7 +46,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 906
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen$10;->this$0:Lcom/android/incallui/accessory/CoverScreen;
 
     # getter for: Lcom/android/incallui/accessory/CoverScreen;->mSmartCallPhoto:Landroid/widget/ImageView;
@@ -72,7 +65,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    .line 908
     :cond_0
     return-void
 .end method

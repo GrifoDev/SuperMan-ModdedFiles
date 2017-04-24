@@ -27,9 +27,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 48
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingCollection;-><init>()V
 
     return-void
@@ -40,9 +37,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -53,9 +47,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -81,9 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 75
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -103,10 +91,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 55
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
-    .local p1, "o":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -126,9 +110,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -148,9 +129,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 60
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -170,9 +148,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 65
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->delegate()Ljava/util/Queue;
 
     move-result-object v0
@@ -192,10 +167,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 87
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ForwardingQueue;->add(Ljava/lang/Object;)Z
     :try_end_0
@@ -203,16 +174,12 @@
 
     move-result v1
 
-    .line 89
     :goto_0
     return v1
 
-    .line 88
     :catch_0
     move-exception v0
 
-    .line 89
-    .local v0, "caught":Ljava/lang/IllegalStateException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -226,9 +193,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 102
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->element()Ljava/lang/Object;
     :try_end_0
@@ -236,16 +200,12 @@
 
     move-result-object v1
 
-    .line 104
     :goto_0
     return-object v1
 
-    .line 103
     :catch_0
     move-exception v0
 
-    .line 104
-    .local v0, "caught":Ljava/util/NoSuchElementException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -259,9 +219,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 117
-    .local p0, "this":Lcom/google/common/collect/ForwardingQueue;, "Lcom/google/common/collect/ForwardingQueue<TE;>;"
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingQueue;->remove()Ljava/lang/Object;
     :try_end_0
@@ -269,16 +226,12 @@
 
     move-result-object v1
 
-    .line 119
     :goto_0
     return-object v1
 
-    .line 118
     :catch_0
     move-exception v0
 
-    .line 119
-    .local v0, "caught":Ljava/util/NoSuchElementException;
     const/4 v1, 0x0
 
     goto :goto_0

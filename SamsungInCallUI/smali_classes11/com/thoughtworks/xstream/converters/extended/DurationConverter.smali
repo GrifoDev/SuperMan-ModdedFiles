@@ -11,8 +11,6 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 36
     new-instance v0, Lcom/thoughtworks/xstream/converters/extended/DurationConverter$1;
 
     invoke-direct {v0}, Lcom/thoughtworks/xstream/converters/extended/DurationConverter$1;-><init>()V
@@ -23,22 +21,16 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/DurationConverter;-><init>(Ljavax/xml/datatype/DatatypeFactory;)V
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(Ljavax/xml/datatype/DatatypeFactory;)V
     .locals 0
-    .param p1, "factory"    # Ljavax/xml/datatype/DatatypeFactory;
 
-    .prologue
-    .line 47
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
-    .line 48
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/extended/DurationConverter;->factory:Ljavax/xml/datatype/DatatypeFactory;
 
-    .line 49
     return-void
 .end method
 
@@ -46,10 +38,7 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "c"    # Ljava/lang/Class;
 
-    .prologue
-    .line 52
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/DurationConverter;->factory:Ljavax/xml/datatype/DatatypeFactory;
 
     if-eqz v0, :cond_0
@@ -75,10 +64,7 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 56
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/DurationConverter;->factory:Ljavax/xml/datatype/DatatypeFactory;
 
     invoke-virtual {v0, p1}, Ljavax/xml/datatype/DatatypeFactory;->newDuration(Ljava/lang/String;)Ljavax/xml/datatype/Duration;

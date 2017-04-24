@@ -31,8 +31,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 446
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "line_entities"
@@ -49,10 +47,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 439
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 440
     return-void
 .end method

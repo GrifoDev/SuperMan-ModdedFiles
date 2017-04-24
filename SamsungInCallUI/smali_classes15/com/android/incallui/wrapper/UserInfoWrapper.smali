@@ -27,18 +27,14 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 27
     const-string v1, "android.content.pm.UserInfo"
 
     invoke-static {v1}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 28
-    .local v0, "baseClass":Ljava/lang/Class;
     const-string v1, "isBMode"
 
     new-array v2, v3, [Ljava/lang/Class;
@@ -49,7 +45,6 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsBMode:Ljava/lang/reflect/Method;
 
-    .line 29
     const-string v1, "getUserHandle"
 
     new-array v2, v3, [Ljava/lang/Class;
@@ -60,7 +55,6 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodGetUserHandler:Ljava/lang/reflect/Method;
 
-    .line 30
     const-string v1, "isManagedProfile"
 
     new-array v2, v3, [Ljava/lang/Class;
@@ -71,7 +65,6 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsManagedProfile:Ljava/lang/reflect/Method;
 
-    .line 31
     const-string v1, "isKnoxWorkspace"
 
     new-array v2, v3, [Ljava/lang/Class;
@@ -82,7 +75,6 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsKnoxWorkspace:Ljava/lang/reflect/Method;
 
-    .line 32
     const-string v1, "id"
 
     invoke-static {v0, v1}, Lcom/android/incallui/wrapper/ReflectUtil;->getField(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -91,27 +83,20 @@
 
     sput-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->idField:Ljava/lang/reflect/Field;
 
-    .line 33
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "instance"    # Ljava/lang/Object;
 
-    .prologue
-    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/incallui/wrapper/UserInfoWrapper;->mInstance:Ljava/lang/Object;
 
-    .line 36
     iput-object p1, p0, Lcom/android/incallui/wrapper/UserInfoWrapper;->mInstance:Ljava/lang/Object;
 
-    .line 37
     return-void
 .end method
 
@@ -120,17 +105,12 @@
 .method public getId()I
     .locals 4
 
-    .prologue
-    .line 40
     const/4 v0, -0x1
 
-    .line 41
-    .local v0, "fieldValue":I
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->idField:Ljava/lang/reflect/Field;
 
     if-eqz v1, :cond_0
 
-    .line 42
     iget-object v1, p0, Lcom/android/incallui/wrapper/UserInfoWrapper;->mInstance:Ljava/lang/Object;
 
     const/4 v2, -0x1
@@ -151,7 +131,6 @@
 
     move-result v0
 
-    .line 45
     :cond_0
     return v0
 .end method
@@ -159,10 +138,8 @@
 .method public getUserHandle()Landroid/os/UserHandle;
     .locals 5
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 61
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodGetUserHandler:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -174,11 +151,9 @@
     :cond_0
     move-object v1, v2
 
-    .line 68
     :goto_0
     return-object v1
 
-    .line 65
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodGetUserHandler:Ljava/lang/reflect/Method;
@@ -200,12 +175,9 @@
 
     goto :goto_0
 
-    .line 66
     :catch_0
     move-exception v0
 
-    .line 67
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "UserInfoWrapper"
 
@@ -235,11 +207,8 @@
 
     move-object v1, v2
 
-    .line 68
     goto :goto_0
 
-    .line 66
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -249,10 +218,8 @@
 .method public isBMode()Z
     .locals 5
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 49
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsBMode:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -264,11 +231,9 @@
     :cond_0
     move v1, v2
 
-    .line 56
     :goto_0
     return v1
 
-    .line 53
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsBMode:Ljava/lang/reflect/Method;
@@ -294,12 +259,9 @@
 
     goto :goto_0
 
-    .line 54
     :catch_0
     move-exception v0
 
-    .line 55
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "UserInfoWrapper"
 
@@ -329,11 +291,8 @@
 
     move v1, v2
 
-    .line 56
     goto :goto_0
 
-    .line 54
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -343,10 +302,8 @@
 .method public isKnoxWorkspace()Z
     .locals 5
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 85
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsKnoxWorkspace:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -358,11 +315,9 @@
     :cond_0
     move v1, v2
 
-    .line 92
     :goto_0
     return v1
 
-    .line 89
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsKnoxWorkspace:Ljava/lang/reflect/Method;
@@ -388,12 +343,9 @@
 
     goto :goto_0
 
-    .line 90
     :catch_0
     move-exception v0
 
-    .line 91
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "UserInfoWrapper"
 
@@ -423,11 +375,8 @@
 
     move v1, v2
 
-    .line 92
     goto :goto_0
 
-    .line 90
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -437,10 +386,8 @@
 .method public isManagedProfile()Z
     .locals 5
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 73
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsManagedProfile:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
@@ -452,11 +399,9 @@
     :cond_0
     move v1, v2
 
-    .line 80
     :goto_0
     return v1
 
-    .line 77
     :cond_1
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/UserInfoWrapper;->sMethodIsManagedProfile:Ljava/lang/reflect/Method;
@@ -482,12 +427,9 @@
 
     goto :goto_0
 
-    .line 78
     :catch_0
     move-exception v0
 
-    .line 79
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "UserInfoWrapper"
 
@@ -517,11 +459,8 @@
 
     move v1, v2
 
-    .line 80
     goto :goto_0
 
-    .line 78
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

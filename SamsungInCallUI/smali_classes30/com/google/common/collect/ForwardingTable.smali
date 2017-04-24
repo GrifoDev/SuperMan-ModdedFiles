@@ -30,9 +30,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 37
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingObject;-><init>()V
 
     return-void
@@ -52,9 +49,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 44
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -69,16 +63,12 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 49
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/google/common/collect/Table;->clear()V
 
-    .line 50
     return-void
 .end method
 
@@ -92,10 +82,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 54
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
-    .local p1, "columnKey":Ljava/lang/Object;, "TC;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -117,9 +103,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 59
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -143,9 +126,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 64
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -159,12 +139,7 @@
 
 .method public contains(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "rowKey"    # Ljava/lang/Object;
-    .param p2, "columnKey"    # Ljava/lang/Object;
 
-    .prologue
-    .line 69
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -178,11 +153,7 @@
 
 .method public containsColumn(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "columnKey"    # Ljava/lang/Object;
 
-    .prologue
-    .line 74
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -196,11 +167,7 @@
 
 .method public containsRow(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "rowKey"    # Ljava/lang/Object;
 
-    .prologue
-    .line 79
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -214,11 +181,7 @@
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 84
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -243,9 +206,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 34
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -255,11 +215,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 139
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     if-eq p1, p0, :cond_0
 
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
@@ -286,8 +242,6 @@
 
 .method public get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "rowKey"    # Ljava/lang/Object;
-    .param p2, "columnKey"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -297,9 +251,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 89
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -314,9 +265,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 144
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -331,9 +279,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 94
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -353,12 +298,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 99
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
-    .local p1, "rowKey":Ljava/lang/Object;, "TR;"
-    .local p2, "columnKey":Ljava/lang/Object;, "TC;"
-    .local p3, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -380,24 +319,17 @@
         }
     .end annotation
 
-    .prologue
-    .line 104
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
-    .local p1, "table":Lcom/google/common/collect/Table;, "Lcom/google/common/collect/Table<+TR;+TC;+TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lcom/google/common/collect/Table;->putAll(Lcom/google/common/collect/Table;)V
 
-    .line 105
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "rowKey"    # Ljava/lang/Object;
-    .param p2, "columnKey"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -407,9 +339,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 109
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -431,10 +360,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 114
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
-    .local p1, "rowKey":Ljava/lang/Object;, "TR;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -456,9 +381,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 119
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -482,9 +404,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 124
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -499,9 +418,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 129
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0
@@ -523,9 +439,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 134
-    .local p0, "this":Lcom/google/common/collect/ForwardingTable;, "Lcom/google/common/collect/ForwardingTable<TR;TC;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ForwardingTable;->delegate()Lcom/google/common/collect/Table;
 
     move-result-object v0

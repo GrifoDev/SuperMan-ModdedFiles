@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/ConferenceParticipantListAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/ConferenceParticipantListAdapter;
 
-    .prologue
-    .line 806
     iput-object p1, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$6;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,13 +37,10 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 809
     iget-object v0, p0, Lcom/android/incallui/ConferenceParticipantListAdapter$6;->this$0:Lcom/android/incallui/ConferenceParticipantListAdapter;
 
     # invokes: Lcom/android/incallui/ConferenceParticipantListAdapter;->updateCallTime()V
     invoke-static {v0}, Lcom/android/incallui/ConferenceParticipantListAdapter;->access$700(Lcom/android/incallui/ConferenceParticipantListAdapter;)V
 
-    .line 810
     return-void
 .end method

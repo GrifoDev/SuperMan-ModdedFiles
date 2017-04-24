@@ -36,7 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/SortedSet;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "mutex"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -50,13 +50,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 251
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
-    .local p1, "delegate":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Synchronized$SynchronizedSet;-><init>(Ljava/util/Set;Ljava/lang/Object;)V
 
-    .line 252
     return-void
 .end method
 
@@ -72,14 +67,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 261
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 262
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -93,7 +84,6 @@
 
     return-object v0
 
-    .line 263
     :catchall_0
     move-exception v0
 
@@ -107,9 +97,6 @@
 .method bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 249
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -120,9 +107,6 @@
 .method bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 249
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -133,9 +117,6 @@
 .method bridge synthetic delegate()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 249
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -153,9 +134,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 256
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     invoke-super {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -173,14 +151,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 289
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 290
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -194,7 +168,6 @@
 
     return-object v0
 
-    .line 291
     :catchall_0
     move-exception v0
 
@@ -215,15 +188,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 275
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 276
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -244,7 +212,6 @@
 
     return-object v0
 
-    .line 277
     :catchall_0
     move-exception v0
 
@@ -263,14 +230,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 296
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 297
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -284,7 +247,6 @@
 
     return-object v0
 
-    .line 298
     :catchall_0
     move-exception v0
 
@@ -305,16 +267,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 268
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 269
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -335,7 +291,6 @@
 
     return-object v0
 
-    .line 270
     :catchall_0
     move-exception v0
 
@@ -356,15 +311,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 282
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 283
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedSet;->delegate()Ljava/util/SortedSet;
 
@@ -385,7 +335,6 @@
 
     return-object v0
 
-    .line 284
     :catchall_0
     move-exception v0
 

@@ -32,33 +32,21 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[BZLjava/lang/String;)V
     .locals 1
-    .param p1, "format"    # Ljava/lang/String;
-    .param p2, "photoBytes"    # [B
-    .param p3, "isPrimary"    # Z
-    .param p4, "side"    # Ljava/lang/String;
 
-    .prologue
-    .line 1295
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1291
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mHashCode:Ljava/lang/Integer;
 
-    .line 1296
     iput-object p1, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mFormat:Ljava/lang/String;
 
-    .line 1297
     iput-object p2, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
-    .line 1298
     iput-boolean p3, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mIsPrimary:Z
 
-    .line 1299
     iput-object p4, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mSide:Ljava/lang/String;
 
-    .line 1300
     return-void
 .end method
 
@@ -66,7 +54,6 @@
 # virtual methods
 .method public constructInsertOperation(Ljava/util/List;I)V
     .locals 4
-    .param p2, "backReferenceIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,11 +64,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "operationList":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentProviderOperation;>;"
     const/4 v3, 0x1
 
-    .line 1305
     iget-object v1, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mSide:Ljava/lang/String;
 
     const-string v2, "FRONT"
@@ -92,39 +76,32 @@
 
     if-eqz v1, :cond_2
 
-    .line 1306
     sget-object v1, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v1}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v0
 
-    .line 1308
-    .local v0, "builder":Landroid/content/ContentProviderOperation$Builder;
     const-string v1, "data15"
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1309
     const-string v1, "raw_contact_id"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentProviderOperation$Builder;->withValueBackReference(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1310
     const-string v1, "mimetype"
 
     const-string v2, "vnd.sec.cursor.item/name_card"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1311
     iget-boolean v1, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mIsPrimary:Z
 
     if-eqz v1, :cond_0
 
-    .line 1312
     const-string v1, "is_primary"
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -133,7 +110,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1313
     :cond_0
     invoke-virtual {v0}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
@@ -141,13 +117,10 @@
 
     invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1325
-    .end local v0    # "builder":Landroid/content/ContentProviderOperation$Builder;
     :cond_1
     :goto_0
     return-void
 
-    .line 1314
     :cond_2
     iget-object v1, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mSide:Ljava/lang/String;
 
@@ -159,39 +132,32 @@
 
     if-eqz v1, :cond_1
 
-    .line 1315
     sget-object v1, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v1}, Landroid/content/ContentProviderOperation;->newUpdate(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v0
 
-    .line 1317
-    .restart local v0    # "builder":Landroid/content/ContentProviderOperation$Builder;
     const-string v1, "raw_contact_id= ? AND mimetype = \"vnd.sec.cursor.item/name_card\""
 
     new-array v2, v3, [Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withSelection(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1319
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentProviderOperation$Builder;->withSelectionBackReference(II)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1320
     const-string v1, "data13"
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1321
     iget-boolean v1, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mIsPrimary:Z
 
     if-eqz v1, :cond_3
 
-    .line 1322
     const-string v1, "is_primary"
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -200,7 +166,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    .line 1323
     :cond_3
     invoke-virtual {v0}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
@@ -213,22 +178,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 1334
     if-ne p0, p1, :cond_1
 
-    .line 1341
     :cond_0
     :goto_0
     return v1
 
-    .line 1337
     :cond_1
     instance-of v3, p1, Lcom/android/vcard/VCardEntry$NameCardData;
 
@@ -236,17 +196,13 @@
 
     move v1, v2
 
-    .line 1338
     goto :goto_0
 
     :cond_2
     move-object v0, p1
 
-    .line 1340
     check-cast v0, Lcom/android/vcard/VCardEntry$NameCardData;
 
-    .line 1341
-    .local v0, "NameCardData":Lcom/android/vcard/VCardEntry$NameCardData;
     iget-object v3, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mFormat:Ljava/lang/String;
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry$NameCardData;->mFormat:Ljava/lang/String;
@@ -282,8 +238,6 @@
 .method public getBytes()[B
     .locals 1
 
-    .prologue
-    .line 1380
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
     return-object v0
@@ -292,8 +246,6 @@
 .method public final getEntryLabel()Lcom/android/vcard/VCardEntry$EntryLabel;
     .locals 1
 
-    .prologue
-    .line 1372
     sget-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->NAMECARD:Lcom/android/vcard/VCardEntry$EntryLabel;
 
     return-object v0
@@ -302,8 +254,6 @@
 .method public getFormat()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1376
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mFormat:Ljava/lang/String;
 
     return-object v0
@@ -312,24 +262,19 @@
 .method public hashCode()I
     .locals 7
 
-    .prologue
-    .line 1347
     iget-object v5, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mHashCode:Ljava/lang/Integer;
 
     if-eqz v5, :cond_0
 
-    .line 1348
     iget-object v5, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mHashCode:Ljava/lang/Integer;
 
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    .line 1361
     :goto_0
     return v2
 
-    .line 1351
     :cond_0
     iget-object v5, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mFormat:Ljava/lang/String;
 
@@ -341,53 +286,35 @@
 
     move-result v2
 
-    .line 1352
-    .local v2, "hash":I
     :goto_1
     mul-int/lit8 v2, v2, 0x1f
 
-    .line 1353
     iget-object v5, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
     if-eqz v5, :cond_2
 
-    .line 1354
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
-    .local v0, "arr$":[B
     array-length v4, v0
 
-    .local v4, "len$":I
     const/4 v3, 0x0
 
-    .local v3, "i$":I
     :goto_2
     if-ge v3, v4, :cond_2
 
     aget-byte v1, v0, v3
 
-    .line 1355
-    .local v1, "b":B
     add-int/2addr v2, v1
 
-    .line 1354
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 1351
-    .end local v0    # "arr$":[B
-    .end local v1    # "b":B
-    .end local v2    # "hash":I
-    .end local v3    # "i$":I
-    .end local v4    # "len$":I
     :cond_1
     const/4 v2, 0x0
 
     goto :goto_1
 
-    .line 1359
-    .restart local v2    # "hash":I
     :cond_2
     mul-int/lit8 v6, v2, 0x1f
 
@@ -400,7 +327,6 @@
     :goto_3
     add-int v2, v6, v5
 
-    .line 1360
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -409,7 +335,6 @@
 
     goto :goto_0
 
-    .line 1359
     :cond_3
     const/16 v5, 0x4d5
 
@@ -419,8 +344,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 1329
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$NameCardData;->mBytes:[B
 
     if-eqz v0, :cond_0
@@ -446,8 +369,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 1366
     const-string v0, "format: %s: size: %d, isPrimary: %s"
 
     const/4 v1, 0x3

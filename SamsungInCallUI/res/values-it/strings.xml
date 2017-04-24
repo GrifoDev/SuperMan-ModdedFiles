@@ -147,7 +147,7 @@
     <string name="add_reminder">Agg. promem.</string>
     <string name="agree">Accetto</string>
     <string name="am_cover_toggle_string">Aprite cover per rispondere o rifiutare.</string>
-    <string name="am_device_memory_full_warning">Unable to use Auto answer with message. There is not enough space in your device storage to save voice messages. Delete some items and try again.</string>
+    <string name="am_device_memory_full_warning">Impossibile utilizzare la funzione Risposta automatica con messaggio. Lo spazio nella memoria del dispositivo non è sufficiente per salvare i messaggi vocali. Eliminate alcuni elementi e riprovate.</string>
     <string name="another_device_pickup_message">Un altro telefono ha risposto alla chiamata.</string>
     <string name="answering_memo_Playing_text">Riproduzione messaggio di risposta in corso…</string>
     <string name="answering_memo_Recording_text">Registrazione messaggio in corso…</string>
@@ -191,7 +191,7 @@
     <string name="call_out_duration">Durata della chiamata</string>
     <string name="call_twophone_one_phone">Numero originale</string>
     <string name="call_twophone_two_phone">Secondo numero</string>
-    <string name="caller_info_card_last_call_log_title">Chiam. più recente</string>
+    <string name="caller_info_card_last_call_log_title">Chiamata più recente</string>
     <string name="caller_info_card_last_message_title">Messaggio più recente</string>
     <string name="caller_info_card_memo_title">Memo creato durante la chiamata</string>
     <string name="callsettings_hold_key_record_calls_notify">Tenete premuto il tasto di blocco per avviare o arrestare la registrazione</string>
@@ -200,8 +200,8 @@
     <string name="callsettings_rejectmessage_list3">Sono a lezione.</string>
     <string name="callsettings_rejectmessage_list4">Sono al cinema.</string>
     <string name="callsettings_rejectmessage_list5">Sto guidando.</string>
-    <string name="camera_off">Camera turned off.</string>
-    <string name="camera_on">Camera turned on.</string>
+    <string name="camera_off">La fotocamera è disattivata.</string>
+    <string name="camera_on">La fotocamera è attivata.</string>
     <string name="camera_security_enter">"I criteri di sicurezza limitano l'uso della fotocamera."</string>
     <string name="camera_start_failed">Errore fotocamera.</string>
     <string name="cancel">Annulla</string>
@@ -249,7 +249,7 @@ Questa videochiamata sta adesso utilizzando i dati e la connessione dati verrà 
     <string name="description_secOnscreenVideoCallText">Videochiamata</string>
     <string name="description_secOnscreenViewContactText">Visualizza dettagli contatto</string>
     <string name="device_info_not_available">Non disponibile</string>
-    <string name="dial_warning">Unable to dial.</string>
+    <string name="dial_warning">Impossibile comporre.</string>
     <string name="dialling_video_call">Composizione videochiamata</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
@@ -289,6 +289,7 @@ Questa videochiamata sta adesso utilizzando i dati e la connessione dati verrà 
     <string name="extra_vol_off">Volume aggiuntivo disattivato.</string>
     <string name="extra_vol_on">Volume aggiuntivo attivato.</string>
     <string name="far_end_stopped_share_video">%s ha interrotto la condivisione video.</string>
+    <string name="far_end_stopped_share_video_att">"%s ha interrotto l'invio del video."</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">File non supportato.</string>
     <string name="full_name">Nome</string>
@@ -486,7 +487,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="memory_full_msg">Mem. insufficiente</string>
     <string name="message_greeting">Messaggio di benvenuto</string>
     <string name="modify_to_video_start">Richiesta di passaggio a videochiamata in corso…</string>
-    <string name="modify_to_voice_start">Switching to voice call…</string>
+    <string name="modify_to_voice_start">Passaggio alla chiamata vocale in corso…</string>
     <string name="msg_for_video_show_never_again">Alcuni formati di file non sono supportati. Nella Galleria verranno visualizzati solo i file supportati.</string>
     <string name="mt_vt_not_possible">Al momento %s non può ricevere videochiamate. Verrete connessi con una chiamata vocale.</string>
     <string name="nameLabelsGroup">Nome</string>
@@ -503,7 +504,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="name_suffix">Suffisso nome</string>
     <string name="network_message_no_answer">Nessuna risposta</string>
     <string name="nicknameLabelsGroup">Soprannome</string>
-    <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="not_enable_to_video">Le videochiamate non sono disponibili quando la Modalità di emergenza è attivata.</string>
     <string name="not_enable_to_video_emergencymode">Impossibile effettuare o ricevere delle videochiamate mentre la Modalità di emergenza è attiva.</string>
     <string name="notification_action_answer">Rispondi</string>
     <string name="notification_of_sub_number_empty_body">Per visualizzare i numeri alternativi, iscrivetevi a un servizio a numeri multipli su scheda SIM e riprovate.</string>
@@ -544,7 +545,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="prepareOtherVideo">Preparazione immagine video in corso…</string>
     <string name="previous_call_is_held_when_you_accept_call">Se accettate una nuova chiamata, quella in corso verrà messa in attesa.</string>
     <string name="private_num_cdma">Con restrizioni</string>
-    <string name="private_num_sbm">Withheld number</string>
+    <string name="private_num_sbm">Numero trattenuto</string>
     <string name="quick_panel_title_video_call">Videochiamata</string>
     <string name="quick_panel_title_voice_call">Chiamata vocale</string>
     <string name="quick_panel_title_volte_call">Chiamata VoLTE</string>
@@ -569,7 +570,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="recently_use_sim_for_callback">SIM utilizzata di recente</string>
     <string name="record_notification_button_text_close">Chiudi</string>
     <string name="record_notification_button_text_record_list">Registrazioni</string>
-    <string name="record_notification_button_text_storage">Memoria</string>
+    <string name="record_notification_button_text_storage">Memoria archiviazione</string>
     <string name="record_notification_content">Toccate REGISTRAZIONI per vedere le chiamate registrate.</string>
     <string name="record_notification_content_unable_not_to_record_entire_call">Memoria dispositivo piena. Registrazione parziale della chiamata salvata.</string>
     <string name="record_notification_content_unable_to_record">Spazio nella memoria del dispositivo insufficiente. Eliminate dei file e riprovate.</string>
@@ -649,7 +650,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Passa al telefono</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Passa a videochiamata</string>
     <string name="secOnscreenMenuSwitchToVoiceCallText">Passa a chiam. voc.</string>
-    <string name="secOnscreenMenuSwitchVideoDisplay">Switch video displays</string>
+    <string name="secOnscreenMenuSwitchVideoDisplay">Passa a visualizzazioni video</string>
     <string name="secOnscreenMenuUnmuteText">Attiva microfono</string>
     <string name="secOnscreenMenuVideoConfCallText">Invita nuovo partecipante</string>
     <string name="secOnscreenMenuViewInFullScreenText">Visualizza a schermo intero</string>
@@ -671,7 +672,7 @@ a 1 via"</string>
     <string name="secOnscreenResumeCallText">Riprendi</string>
     <string name="secOnscreenShowCallOption">Visualizza opzioni chiamata</string>
     <string name="secOnscreenSpeaker">Vivavoce</string>
-    <string name="secOnscreenStopText">Interrompi</string>
+    <string name="secOnscreenStopText">Arresta registrazione</string>
     <string name="secOnscreenSwapText">Scambia</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Cambia camera</string>
@@ -734,8 +735,8 @@ a 1 via"</string>
     <string name="spam_call_resported_count">(%d volte)</string>
     <string name="spam_call_type_and_count">Segnalato come %1$s per %2$d volte</string>
     <string name="sub_number_item">%d alternativo</string>
-    <string name="suguden_guide_do_not_show_again_dcm">Do not show again</string>
-    <string name="suguden_guide_main_text_dcm">Answer the call by bringing the device close to your ear.</string>
+    <string name="suguden_guide_do_not_show_again_dcm">Non mostrare più</string>
+    <string name="suguden_guide_main_text_dcm">"Rispondete alla chiamata avvicinando il dispositivo all'orecchio."</string>
     <string name="swipe_left">Trascinate a sx.</string>
     <string name="swipe_right">Trascinate a destra.</string>
     <string name="swipe_right_to_answer_call_with_video">Trascinate lo schermo verso destra per rispondere alla chiamata con il video.</string>
@@ -746,6 +747,7 @@ a 1 via"</string>
     <string name="switch_to_voice_call_failed">Richiesta di passaggio alla chiamata vocale non riuscita.</string>
     <string name="switched_to_voip_mo">Passata a chiamata vocale.</string>
     <string name="switched_to_voip_mt">Passata a chiamata vocale per richiesta del ricevente.</string>
+    <string name="switched_to_voip_mt_att">Chiamata passata a solo voce.</string>
     <string name="switched_to_voip_mt_att_tmo">%s ha disattivato il video.</string>
     <string name="switching_camera_failed">Impossibile cambiare fotocamera</string>
     <string name="switching_to_voice_call">Passaggio alla chiamata vocale in corso…</string>
@@ -761,7 +763,9 @@ a 1 via"</string>
     <string name="usa_att_connected_as_voice">Chiamata connessa soltanto come chiamata vocale.</string>
     <string name="usa_att_data_usage_charge_alert">"L'utilizzo dei dati impostato sul dispositivo sta per raggiungere il limite. La videochiamata richiede i dati."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Non è possibile effettuare la chiamata sulla rete Wi-Fi; connessione alla rete cellulare in corso. Verranno applicati i costi relativi a voce e dati.</string>
-    <string name="usa_att_modify_receive_to_video">Seleziona modalità video</string>
+    <string name="usa_att_modify_receive_to_video">%s chiede passare alla videochiamata.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s chiede di condividere il video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Non è possibile effettuare la chiamata sulla rete Wi-Fi; connessione alla rete cellulare in corso. Verranno applicati i costi relativi a voce e dati.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Toccate sotto per selezionare il tipo di chiamata.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Impossibile modificare il tipo di chiamata durante la conferenza.</string>
     <string name="usa_gsm_modify_receive_to_video">%s vuole passare alla videochiamata.</string>
@@ -769,6 +773,7 @@ a 1 via"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">In attesa di risposta</string>
     <string name="usa_gsm_modify_select_call_type">Selezionate il tipo di chiamata</string>
     <string name="usa_gsm_switching_to_voice_call">Passaggio a solo voce.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Video disattivato perché la connessione dati non è disponibile.</string>
     <string name="usa_volte_reject_upgrade_request">Al momento %s non può ricevere videochiamate.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Le videochiamate non sono disponibili.</string>
     <string name="usa_vzw_change_to_oneway_video">"Passa a video
@@ -813,7 +818,9 @@ La videochiamata adesso è in corso sulla rete mobile (se scegliete di continuar
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Non mostrare più</string>
     <string name="video_calling_incoming">Videochiamata</string>
+    <string name="video_calls_quality_poor_tmo">Qualità connessione scarsa. La videochiamata potrebbe passare alla chiamata vocale.</string>
     <string name="video_calls_temporarily_not_available">Le videochiamate non sono al momento disponibili. Chiamata modificata in chiamata vocale.</string>
+    <string name="video_calls_temporarily_not_available_att">Al momento, il numero che state chiamando non può ricevere videochiamate. La chiamata è stata connessa come chiamata vocale.</string>
     <string name="video_calls_temporarily_not_available_tmo">Le videochiamate non sono disponibili.</string>
     <string name="video_paused_info_text">Video in pausa</string>
     <string name="video_saved">Video salvato in %s.</string>

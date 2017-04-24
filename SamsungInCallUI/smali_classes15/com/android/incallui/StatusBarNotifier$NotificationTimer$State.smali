@@ -37,14 +37,12 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 118
     new-instance v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
     const-string v1, "SCHEDULED"
@@ -53,7 +51,6 @@
 
     sput-object v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;->SCHEDULED:Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
-    .line 119
     new-instance v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
     const-string v1, "FIRED"
@@ -62,7 +59,6 @@
 
     sput-object v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;->FIRED:Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
-    .line 120
     new-instance v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
     const-string v1, "CLEAR"
@@ -71,7 +67,6 @@
 
     sput-object v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;->CLEAR:Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
-    .line 117
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
@@ -101,8 +96,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 117
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -110,10 +103,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 117
     const-class v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -128,8 +118,6 @@
 .method public static values()[Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
     .locals 1
 
-    .prologue
-    .line 117
     sget-object v0, Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;->$VALUES:[Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;
 
     invoke-virtual {v0}, [Lcom/android/incallui/StatusBarNotifier$NotificationTimer$State;->clone()Ljava/lang/Object;

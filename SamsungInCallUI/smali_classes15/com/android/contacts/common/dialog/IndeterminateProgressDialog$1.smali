@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;
 
-    .prologue
-    .line 57
     iput-object p1, p0, Lcom/android/contacts/common/dialog/IndeterminateProgressDialog$1;->this$0:Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,13 +37,10 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 60
     iget-object v0, p0, Lcom/android/contacts/common/dialog/IndeterminateProgressDialog$1;->this$0:Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;
 
     # invokes: Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;->superDismiss()V
     invoke-static {v0}, Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;->access$000(Lcom/android/contacts/common/dialog/IndeterminateProgressDialog;)V
 
-    .line 61
     return-void
 .end method

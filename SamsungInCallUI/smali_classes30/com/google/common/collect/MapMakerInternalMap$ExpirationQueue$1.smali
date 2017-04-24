@@ -47,17 +47,12 @@
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue;)V
     .locals 0
 
-    .prologue
-    .line 3255
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->this$0:Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue;
 
     invoke-direct {p0}, Lcom/google/common/collect/MapMakerInternalMap$AbstractReferenceEntry;-><init>()V
 
-    .line 3265
     iput-object p0, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->nextExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
-    .line 3277
     iput-object p0, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->previousExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
     return-void
@@ -68,9 +63,6 @@
 .method public getExpirationTime()J
     .locals 2
 
-    .prologue
-    .line 3259
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
     const-wide v0, 0x7fffffffffffffffL
 
     return-wide v0
@@ -86,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3269
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->nextExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
     return-object v0
@@ -104,9 +93,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3281
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->previousExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
     return-object v0
@@ -114,11 +100,7 @@
 
 .method public setExpirationTime(J)V
     .locals 0
-    .param p1, "time"    # J
 
-    .prologue
-    .line 3263
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
     return-void
 .end method
 
@@ -132,13 +114,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 3274
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
-    .local p1, "next":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->nextExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
-    .line 3275
     return-void
 .end method
 
@@ -152,12 +129,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 3286
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;, "Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue.1;"
-    .local p1, "previous":Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;, "Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$ExpirationQueue$1;->previousExpirable:Lcom/google/common/collect/MapMakerInternalMap$ReferenceEntry;
 
-    .line 3287
     return-void
 .end method

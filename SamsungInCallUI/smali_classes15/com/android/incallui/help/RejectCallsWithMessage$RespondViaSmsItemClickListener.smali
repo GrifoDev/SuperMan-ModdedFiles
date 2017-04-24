@@ -25,8 +25,6 @@
 .method private constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
 
-    .prologue
-    .line 476
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +34,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;Lcom/android/incallui/help/RejectCallsWithMessage$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
-    .param p2, "x1"    # Lcom/android/incallui/help/RejectCallsWithMessage$1;
 
-    .prologue
-    .line 476
     invoke-direct {p0, p1}, Lcom/android/incallui/help/RejectCallsWithMessage$RespondViaSmsItemClickListener;-><init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
 
     return-void
@@ -50,9 +44,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 2
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,9 +54,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 480
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -92,20 +80,16 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 481
     if-nez p3, :cond_0
 
-    .line 482
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # invokes: Lcom/android/incallui/help/RejectCallsWithMessage;->clickRejectCallsWithMessage()V
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$1400(Lcom/android/incallui/help/RejectCallsWithMessage;)V
 
-    .line 485
     :goto_0
     return-void
 
-    .line 484
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$RespondViaSmsItemClickListener;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 

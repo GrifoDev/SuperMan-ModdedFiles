@@ -13,8 +13,6 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    .line 19
     const-class v0, Landroid/os/UserHandle;
 
     const/4 v1, 0x1
@@ -33,15 +31,12 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/UserHandleWrapper;->sConstructor:Ljava/lang/reflect/Constructor;
 
-    .line 20
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,10 +44,7 @@
 
 .method public static newInstance(I)Landroid/os/UserHandle;
     .locals 5
-    .param p0, "user"    # I
 
-    .prologue
-    .line 24
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/UserHandleWrapper;->sConstructor:Ljava/lang/reflect/Constructor;
 
@@ -79,16 +71,12 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
 
-    .line 28
     :goto_0
     return-object v1
 
-    .line 25
     :catch_0
     move-exception v0
 
-    .line 27
-    .local v0, "e":Ljava/lang/Exception;
     :goto_1
     const-string v1, "UserHandleWrapper"
 
@@ -116,13 +104,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 28
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 25
-    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 

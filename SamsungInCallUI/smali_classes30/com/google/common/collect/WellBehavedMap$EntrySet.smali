@@ -29,9 +29,6 @@
 .method private constructor <init>(Lcom/google/common/collect/WellBehavedMap;)V
     .locals 0
 
-    .prologue
-    .line 71
-    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet;->this$0:Lcom/google/common/collect/WellBehavedMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$EntrySet;-><init>()V
@@ -41,12 +38,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/WellBehavedMap;Lcom/google/common/collect/WellBehavedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/WellBehavedMap;
-    .param p2, "x1"    # Lcom/google/common/collect/WellBehavedMap$1;
 
-    .prologue
-    .line 71
-    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>.EntrySet;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/WellBehavedMap$EntrySet;-><init>(Lcom/google/common/collect/WellBehavedMap;)V
 
     return-void
@@ -66,9 +58,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 79
-    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>.EntrySet;"
     new-instance v0, Lcom/google/common/collect/WellBehavedMap$EntrySet$1;
 
     iget-object v1, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet;->this$0:Lcom/google/common/collect/WellBehavedMap;
@@ -96,9 +85,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 74
-    .local p0, "this":Lcom/google/common/collect/WellBehavedMap$EntrySet;, "Lcom/google/common/collect/WellBehavedMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/WellBehavedMap$EntrySet;->this$0:Lcom/google/common/collect/WellBehavedMap;
 
     return-object v0

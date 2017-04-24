@@ -38,8 +38,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 781
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,10 +45,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/AccountTypeManagerImpl$1;
 
-    .prologue
-    .line 781
     invoke-direct {p0}, Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;-><init>()V
 
     return-void
@@ -71,8 +66,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 806
     iget-object v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;->mInvitableAccountTypes:Ljava/util/Map;
 
     return-object v0
@@ -81,8 +74,6 @@
 .method public isExpired()Z
     .locals 4
 
-    .prologue
-    .line 798
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -121,18 +112,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 810
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<Lcom/android/contacts/common/model/account/AccountTypeWithDataSet;Lcom/android/contacts/common/model/account/AccountType;>;"
     iput-object p1, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;->mInvitableAccountTypes:Ljava/util/Map;
 
-    .line 811
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/contacts/common/model/AccountTypeManagerImpl$InvitableAccountTypeCache;->mTimeLastSet:J
 
-    .line 812
     return-void
 .end method

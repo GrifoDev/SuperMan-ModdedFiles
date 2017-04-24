@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
-    .prologue
-    .line 352
     iput-object p1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$2;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,8 +37,6 @@
 .method public ivrScreenRemoved()V
     .locals 1
 
-    .prologue
-    .line 355
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$2;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->VCCPagerAdapter:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$VisualCallPagerAdapter;
@@ -51,7 +46,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 356
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$2;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # getter for: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->VCCPagerAdapter:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$VisualCallPagerAdapter;
@@ -61,19 +55,16 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$VisualCallPagerAdapter;->notifyDataSetChanged()V
 
-    .line 358
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$2;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->refreshViewPager()V
     invoke-static {v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$200(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
 
-    .line 359
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$2;->this$0:Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;
 
     # invokes: Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->updateVoiceCallButtons()V
     invoke-static {v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->access$300(Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;)V
 
-    .line 360
     return-void
 .end method

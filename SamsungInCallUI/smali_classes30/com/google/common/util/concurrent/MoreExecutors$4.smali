@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ScheduledExecutorService;Lcom/google/common/base/Supplier;)V
     .locals 0
-    .param p1, "x0"    # Ljava/util/concurrent/ScheduledExecutorService;
 
-    .prologue
-    .line 919
     iput-object p2, p0, Lcom/google/common/util/concurrent/MoreExecutors$4;->val$nameSupplier:Lcom/google/common/base/Supplier;
 
     invoke-direct {p0, p1}, Lcom/google/common/util/concurrent/WrappingScheduledExecutorService;-><init>(Ljava/util/concurrent/ScheduledExecutorService;)V
@@ -36,10 +33,7 @@
 # virtual methods
 .method protected wrapTask(Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 924
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$4;->val$nameSupplier:Lcom/google/common/base/Supplier;
 
     invoke-static {p1, v0}, Lcom/google/common/util/concurrent/Callables;->threadRenaming(Ljava/lang/Runnable;Lcom/google/common/base/Supplier;)Ljava/lang/Runnable;
@@ -63,9 +57,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 921
-    .local p1, "callable":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TT;>;"
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$4;->val$nameSupplier:Lcom/google/common/base/Supplier;
 
     invoke-static {p1, v0}, Lcom/google/common/util/concurrent/Callables;->threadRenaming(Ljava/util/concurrent/Callable;Lcom/google/common/base/Supplier;)Ljava/util/concurrent/Callable;

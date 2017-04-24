@@ -37,9 +37,6 @@
 .method constructor <init>(Lcom/google/common/collect/Iterators$MergingIterator;Ljava/util/Comparator;)V
     .locals 0
 
-    .prologue
-    .line 1301
-    .local p0, "this":Lcom/google/common/collect/Iterators$MergingIterator$1;, "Lcom/google/common/collect/Iterators$MergingIterator.1;"
     iput-object p1, p0, Lcom/google/common/collect/Iterators$MergingIterator$1;->this$0:Lcom/google/common/collect/Iterators$MergingIterator;
 
     iput-object p2, p0, Lcom/google/common/collect/Iterators$MergingIterator$1;->val$itemComparator:Ljava/util/Comparator;
@@ -63,11 +60,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1304
-    .local p0, "this":Lcom/google/common/collect/Iterators$MergingIterator$1;, "Lcom/google/common/collect/Iterators$MergingIterator.1;"
-    .local p1, "o1":Lcom/google/common/collect/PeekingIterator;, "Lcom/google/common/collect/PeekingIterator<TT;>;"
-    .local p2, "o2":Lcom/google/common/collect/PeekingIterator;, "Lcom/google/common/collect/PeekingIterator<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/Iterators$MergingIterator$1;->val$itemComparator:Ljava/util/Comparator;
 
     invoke-interface {p1}, Lcom/google/common/collect/PeekingIterator;->peek()Ljava/lang/Object;
@@ -87,18 +79,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1301
-    .local p0, "this":Lcom/google/common/collect/Iterators$MergingIterator$1;, "Lcom/google/common/collect/Iterators$MergingIterator.1;"
     check-cast p1, Lcom/google/common/collect/PeekingIterator;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/google/common/collect/PeekingIterator;
 
-    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Iterators$MergingIterator$1;->compare(Lcom/google/common/collect/PeekingIterator;Lcom/google/common/collect/PeekingIterator;)I
 
     move-result v0

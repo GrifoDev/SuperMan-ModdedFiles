@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 199
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/Striped$1;->get()Ljava/util/concurrent/locks/Lock;
 
     move-result-object v0
@@ -55,8 +51,6 @@
 .method public get()Ljava/util/concurrent/locks/Lock;
     .locals 1
 
-    .prologue
-    .line 201
     new-instance v0, Lcom/google/common/util/concurrent/Striped$PaddedLock;
 
     invoke-direct {v0}, Lcom/google/common/util/concurrent/Striped$PaddedLock;-><init>()V

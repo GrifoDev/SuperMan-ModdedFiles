@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/util/Iterator;Lcom/google/common/base/Predicate;)V
     .locals 0
 
-    .prologue
-    .line 670
     iput-object p1, p0, Lcom/google/common/collect/Iterators$7;->val$unfiltered:Ljava/util/Iterator;
 
     iput-object p2, p0, Lcom/google/common/collect/Iterators$7;->val$predicate:Lcom/google/common/base/Predicate;
@@ -52,8 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 673
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/Iterators$7;->val$unfiltered:Ljava/util/Iterator;
 
@@ -63,15 +59,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 674
     iget-object v1, p0, Lcom/google/common/collect/Iterators$7;->val$unfiltered:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 675
-    .local v0, "element":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Lcom/google/common/collect/Iterators$7;->val$predicate:Lcom/google/common/base/Predicate;
 
     invoke-interface {v1, v0}, Lcom/google/common/base/Predicate;->apply(Ljava/lang/Object;)Z
@@ -80,8 +73,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 679
-    .end local v0    # "element":Ljava/lang/Object;, "TT;"
     :goto_0
     return-object v0
 

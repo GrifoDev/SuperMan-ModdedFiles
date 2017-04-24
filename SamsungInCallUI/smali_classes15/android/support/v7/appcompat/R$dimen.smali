@@ -161,25 +161,23 @@
 
 .field public static final disabled_alpha_material_light:I = 0x7f0a0438
 
-.field public static final highlight_alpha_material_colored:I = 0x7f0a045f
+.field public static final highlight_alpha_material_colored:I = 0x7f0a0462
 
-.field public static final highlight_alpha_material_dark:I = 0x7f0a0460
+.field public static final highlight_alpha_material_dark:I = 0x7f0a0463
 
-.field public static final highlight_alpha_material_light:I = 0x7f0a0461
+.field public static final highlight_alpha_material_light:I = 0x7f0a0464
 
-.field public static final notification_large_icon_height:I = 0x7f0a0481
+.field public static final notification_large_icon_height:I = 0x7f0a0484
 
-.field public static final notification_large_icon_width:I = 0x7f0a0482
+.field public static final notification_large_icon_width:I = 0x7f0a0485
 
-.field public static final notification_subtext_size:I = 0x7f0a0483
+.field public static final notification_subtext_size:I = 0x7f0a0486
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 336
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

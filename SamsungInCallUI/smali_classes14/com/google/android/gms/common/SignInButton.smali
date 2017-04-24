@@ -30,9 +30,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/google/android/gms/common/SignInButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -42,10 +40,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/android/gms/common/SignInButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -55,11 +50,7 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyle"    # I
 
-    .prologue
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -159,9 +150,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/common/SignInButton;->R:Landroid/view/View$OnClickListener;
 
     if-eqz v0, :cond_0
@@ -180,9 +169,7 @@
 
 .method public setColorScheme(I)V
     .locals 1
-    .param p1, "colorScheme"    # I
 
-    .prologue
     iget v0, p0, Lcom/google/android/gms/common/SignInButton;->O:I
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/common/SignInButton;->setStyle(II)V
@@ -192,9 +179,7 @@
 
 .method public setEnabled(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
 
-    .prologue
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
     iget-object v0, p0, Lcom/google/android/gms/common/SignInButton;->Q:Landroid/view/View;
@@ -206,9 +191,7 @@
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/view/View$OnClickListener;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/common/SignInButton;->R:Landroid/view/View$OnClickListener;
 
     iget-object v0, p0, Lcom/google/android/gms/common/SignInButton;->Q:Landroid/view/View;
@@ -225,9 +208,7 @@
 
 .method public setSize(I)V
     .locals 1
-    .param p1, "buttonSize"    # I
 
-    .prologue
     iget v0, p0, Lcom/google/android/gms/common/SignInButton;->P:I
 
     invoke-virtual {p0, p1, v0}, Lcom/google/android/gms/common/SignInButton;->setStyle(II)V
@@ -237,10 +218,7 @@
 
 .method public setStyle(II)V
     .locals 5
-    .param p1, "buttonSize"    # I
-    .param p2, "colorScheme"    # I
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0

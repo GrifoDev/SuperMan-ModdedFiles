@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 559
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$CommonInflater;-><init>()V
 
     return-void
@@ -29,10 +27,7 @@
 # virtual methods
 .method protected getTypeLabelResource(Ljava/lang/Integer;)I
     .locals 1
-    .param p1, "type"    # Ljava/lang/Integer;
 
-    .prologue
-    .line 568
     invoke-static {p1}, Lcom/android/contacts/common/util/ContactDisplayUtils;->getSmsLabelResourceId(Ljava/lang/Integer;)I
 
     move-result v0
@@ -42,10 +37,7 @@
 
 .method protected isCustom(Ljava/lang/Integer;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Integer;
 
-    .prologue
-    .line 563
     invoke-static {p1}, Lcom/android/contacts/common/util/ContactDisplayUtils;->isCustomPhoneType(Ljava/lang/Integer;)Z
 
     move-result v0

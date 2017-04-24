@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 565
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,10 +30,6 @@
 # virtual methods
 .method public onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "path"    # Ljava/lang/String;
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 567
     return-void
 .end method

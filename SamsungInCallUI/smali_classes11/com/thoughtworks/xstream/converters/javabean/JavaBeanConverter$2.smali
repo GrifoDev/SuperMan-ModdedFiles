@@ -22,8 +22,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;)V
     .locals 0
 
-    .prologue
-    .line 114
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$2;->this$0:Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;
 
     invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
@@ -35,22 +33,17 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "e"    # Ljava/lang/Object;
 
-    .prologue
-    .line 116
     invoke-super {p0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 117
     new-instance v0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$DuplicatePropertyException;
 
     check-cast p1, Lcom/thoughtworks/xstream/core/util/FastField;
 
-    .end local p1    # "e":Ljava/lang/Object;
     invoke-virtual {p1}, Lcom/thoughtworks/xstream/core/util/FastField;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -59,8 +52,6 @@
 
     throw v0
 
-    .line 119
-    .restart local p1    # "e":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x1
 

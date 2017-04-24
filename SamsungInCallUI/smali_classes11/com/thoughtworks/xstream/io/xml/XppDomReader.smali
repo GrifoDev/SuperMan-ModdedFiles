@@ -10,39 +10,25 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;)V
     .locals 0
-    .param p1, "xppDom"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    .prologue
-    .line 25
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;-><init>(Ljava/lang/Object;)V
 
-    .line 26
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "xppDom"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
-    .param p2, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    .prologue
-    .line 32
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "xppDom"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
-    .param p2, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
-    .prologue
-    .line 40
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/XppDomReader;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 41
     return-void
 .end method
 
@@ -50,10 +36,7 @@
 # virtual methods
 .method public getAttribute(I)Ljava/lang/String;
     .locals 2
-    .param p1, "index"    # I
 
-    .prologue
-    .line 64
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
@@ -73,10 +56,7 @@
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "attributeName"    # Ljava/lang/String;
 
-    .prologue
-    .line 60
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->encodeAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -93,8 +73,6 @@
 .method public getAttributeCount()I
     .locals 1
 
-    .prologue
-    .line 68
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getAttributeNames()[Ljava/lang/String;
@@ -108,10 +86,7 @@
 
 .method public getAttributeName(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
-    .prologue
-    .line 72
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getAttributeNames()[Ljava/lang/String;
@@ -129,10 +104,7 @@
 
 .method protected getChild(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
 
-    .prologue
-    .line 80
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getChild(I)Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
@@ -145,8 +117,6 @@
 .method protected getChildCount()I
     .locals 1
 
-    .prologue
-    .line 84
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getChildCount()I
@@ -159,8 +129,6 @@
 .method public getNodeName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 44
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getName()Ljava/lang/String;
@@ -177,8 +145,6 @@
 .method protected getParent()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 76
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getParent()Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
@@ -191,12 +157,8 @@
 .method public getValue()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 48
     const/4 v0, 0x0
 
-    .line 51
-    .local v0, "text":Ljava/lang/String;
     :try_start_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
@@ -206,18 +168,14 @@
 
     move-result-object v0
 
-    .line 56
     :goto_0
     if-nez v0, :cond_0
 
     const-string v0, ""
 
-    .end local v0    # "text":Ljava/lang/String;
     :cond_0
     return-object v0
 
-    .line 52
-    .restart local v0    # "text":Ljava/lang/String;
     :catch_0
     move-exception v1
 
@@ -227,8 +185,6 @@
 .method public peekNextChild()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 92
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->getChildCount()I
@@ -237,10 +193,8 @@
 
     if-nez v0, :cond_0
 
-    .line 93
     const/4 v0, 0x0
 
-    .line 95
     :goto_0
     return-object v0
 
@@ -266,15 +220,10 @@
 
 .method protected reassignCurrentElement(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "current"    # Ljava/lang/Object;
 
-    .prologue
-    .line 88
     check-cast p1, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    .end local p1    # "current":Ljava/lang/Object;
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/XppDomReader;->currentElement:Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    .line 89
     return-void
 .end method

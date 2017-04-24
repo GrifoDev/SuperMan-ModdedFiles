@@ -44,10 +44,7 @@
 
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "activityType"    # I
-    .param p2, "confidence"    # I
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x1
@@ -63,11 +60,7 @@
 
 .method public constructor <init>(III)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "activityType"    # I
-    .param p3, "confidence"    # I
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/location/DetectedActivity;->ab:I
@@ -178,10 +171,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/location/DetectedActivityCreator;->a(Lcom/google/android/gms/location/DetectedActivity;Landroid/os/Parcel;I)V
 
     return-void

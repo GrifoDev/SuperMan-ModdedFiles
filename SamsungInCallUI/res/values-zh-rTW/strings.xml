@@ -289,6 +289,7 @@
     <string name="extra_vol_off">已停用 [增強音量]。</string>
     <string name="extra_vol_on">已啟用 [增強音量]。</string>
     <string name="far_end_stopped_share_video">%s已停止共享視訊。</string>
+    <string name="far_end_stopped_share_video_att">%s 已停止傳送視訊。</string>
     <string name="fareastone_operator_name">遠傳電信</string>
     <string name="file_not_supp">不支援檔案。</string>
     <string name="full_name">名稱</string>
@@ -671,7 +672,7 @@
     <string name="secOnscreenResumeCallText">繼續</string>
     <string name="secOnscreenShowCallOption">顯示通話選項</string>
     <string name="secOnscreenSpeaker">喇叭</string>
-    <string name="secOnscreenStopText">停止</string>
+    <string name="secOnscreenStopText">停止錄製</string>
     <string name="secOnscreenSwapText">切換</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">切換相機</string>
@@ -746,6 +747,7 @@
     <string name="switch_to_voice_call_failed">要求切換至語音通話失敗。</string>
     <string name="switched_to_voip_mo">已切換至語音通話。</string>
     <string name="switched_to_voip_mt">已依照對方要求切換至語音通話。</string>
+    <string name="switched_to_voip_mt_att">已將通話切換為僅語音。</string>
     <string name="switched_to_voip_mt_att_tmo">%s已關閉視訊。</string>
     <string name="switching_camera_failed">無法切換相機。</string>
     <string name="switching_to_voice_call">正在切換為語音通話…</string>
@@ -761,7 +763,9 @@
     <string name="usa_att_connected_as_voice">僅以語音連接通話。</string>
     <string name="usa_att_data_usage_charge_alert">裝置設定的數據用量即將達到上限。視訊通話需使用數據。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">通話無法經由 Wi-Fi 進行，改透過行動網路連接。將產生語音與數據費用。</string>
-    <string name="usa_att_modify_receive_to_video">選擇影片模式</string>
+    <string name="usa_att_modify_receive_to_video">%s 正在要求切換為視訊通話。</string>
+    <string name="usa_att_modify_receive_to_video_share">%s 正在要求共享視訊。</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">通話無法經由 Wi-Fi 進行，改透過行動網路連接。將產生語音與數據費用。</string>
     <string name="usa_att_select_call_type_incoming_video_call">請輕觸下方的通話類型。</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">電話會議中無法變更通話類型。</string>
     <string name="usa_gsm_modify_receive_to_video">%s 想要切換為視訊通話。</string>
@@ -769,6 +773,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">等待回應</string>
     <string name="usa_gsm_modify_select_call_type">選擇通話類型</string>
     <string name="usa_gsm_switching_to_voice_call">切換至僅限語音通話。</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">無法取得行動數據，影片已關閉。</string>
     <string name="usa_volte_reject_upgrade_request">%s此次無法接聽視訊來電。</string>
     <string name="usa_volte_reject_upgrade_request_tmo">視訊通話無法使用。</string>
     <string name="usa_vzw_change_to_oneway_video">"變更為
@@ -813,7 +818,9 @@
     <string name="vibo_operator_name">台灣之星</string>
     <string name="video_alert_show_never_again">不再顯示</string>
     <string name="video_calling_incoming">視訊通話</string>
+    <string name="video_calls_quality_poor_tmo">連線品質不佳。視訊通話可能切換為語音通話。</string>
     <string name="video_calls_temporarily_not_available">視訊通話暫時無法使用。通話已切換至語音通話。</string>
+    <string name="video_calls_temporarily_not_available_att">您撥打的號碼目前無法接聽視訊通話。已改為語音通話連接。</string>
     <string name="video_calls_temporarily_not_available_tmo">視訊通話無法使用。</string>
     <string name="video_paused_info_text">影片已暫停</string>
     <string name="video_saved">影片已儲存至%s。</string>

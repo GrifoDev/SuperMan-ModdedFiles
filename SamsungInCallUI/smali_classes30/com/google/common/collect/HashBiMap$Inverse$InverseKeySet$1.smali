@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet;)V
     .locals 1
 
-    .prologue
-    .line 600
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet$1;, "Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet.1;"
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet$1;->this$2:Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet;
 
     iget-object v0, p1, Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet;->this$1:Lcom/google/common/collect/HashBiMap$Inverse;
@@ -55,10 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 603
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet$1;, "Lcom/google/common/collect/HashBiMap$Inverse$InverseKeySet.1;"
-    .local p1, "entry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     iget-object v0, p1, Lcom/google/common/collect/HashBiMap$BiEntry;->value:Ljava/lang/Object;
 
     return-object v0

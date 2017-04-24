@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/Multimaps$AsMap;)V
     .locals 0
 
-    .prologue
-    .line 1751
-    .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap$EntrySet;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->this$0:Lcom/google/common/collect/Multimaps$AsMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$EntrySet;-><init>()V
@@ -57,9 +54,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1759
-    .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap$EntrySet;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->this$0:Lcom/google/common/collect/Multimaps$AsMap;
 
     # getter for: Lcom/google/common/collect/Multimaps$AsMap;->multimap:Lcom/google/common/collect/Multimap;
@@ -94,9 +88,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1754
-    .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap$EntrySet;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->this$0:Lcom/google/common/collect/Multimaps$AsMap;
 
     return-object v0
@@ -104,32 +95,23 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1771
-    .local p0, "this":Lcom/google/common/collect/Multimaps$AsMap$EntrySet;, "Lcom/google/common/collect/Multimaps$AsMap<TK;TV;>.EntrySet;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1772
     const/4 v1, 0x0
 
-    .line 1776
     :goto_0
     return v1
 
     :cond_0
     move-object v0, p1
 
-    .line 1774
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 1775
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     iget-object v1, p0, Lcom/google/common/collect/Multimaps$AsMap$EntrySet;->this$0:Lcom/google/common/collect/Multimaps$AsMap;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -138,7 +120,6 @@
 
     invoke-virtual {v1, v2}, Lcom/google/common/collect/Multimaps$AsMap;->removeValuesForKey(Ljava/lang/Object;)V
 
-    .line 1776
     const/4 v1, 0x1
 
     goto :goto_0

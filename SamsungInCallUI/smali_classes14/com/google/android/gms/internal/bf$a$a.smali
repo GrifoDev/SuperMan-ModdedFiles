@@ -826,14 +826,12 @@
 
 .method public removeActivityUpdates(Landroid/app/PendingIntent;)V
     .locals 5
-    .param p1, "callbackIntent"    # Landroid/app/PendingIntent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -898,14 +896,12 @@
 
 .method public setMockLocation(Landroid/location/Location;)V
     .locals 5
-    .param p1, "location"    # Landroid/location/Location;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -970,14 +966,12 @@
 
 .method public setMockMode(Z)V
     .locals 5
-    .param p1, "isMockMode"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;

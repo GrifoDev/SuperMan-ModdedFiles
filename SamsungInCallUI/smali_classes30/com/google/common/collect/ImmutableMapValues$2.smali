@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableMapValues;Lcom/google/common/collect/ImmutableList;)V
     .locals 0
 
-    .prologue
-    .line 77
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$2;, "Lcom/google/common/collect/ImmutableMapValues.2;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMapValues$2;->this$0:Lcom/google/common/collect/ImmutableMapValues;
 
     iput-object p2, p0, Lcom/google/common/collect/ImmutableMapValues$2;->val$entryList:Lcom/google/common/collect/ImmutableList;
@@ -55,9 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 85
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$2;, "Lcom/google/common/collect/ImmutableMapValues.2;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$2;->this$0:Lcom/google/common/collect/ImmutableMapValues;
 
     return-object v0
@@ -65,16 +59,12 @@
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
         }
     .end annotation
 
-    .prologue
-    .line 80
-    .local p0, "this":Lcom/google/common/collect/ImmutableMapValues$2;, "Lcom/google/common/collect/ImmutableMapValues.2;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMapValues$2;->val$entryList:Lcom/google/common/collect/ImmutableList;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/ImmutableList;->get(I)Ljava/lang/Object;

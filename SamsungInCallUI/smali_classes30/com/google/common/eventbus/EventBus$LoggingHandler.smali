@@ -25,8 +25,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 233
     new-instance v0, Lcom/google/common/eventbus/EventBus$LoggingHandler;
 
     invoke-direct {v0}, Lcom/google/common/eventbus/EventBus$LoggingHandler;-><init>()V
@@ -39,8 +37,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 232
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,10 +44,7 @@
 
 .method private static logger(Lcom/google/common/eventbus/SubscriberExceptionContext;)Ljava/util/logging/Logger;
     .locals 2
-    .param p0, "context"    # Lcom/google/common/eventbus/SubscriberExceptionContext;
 
-    .prologue
-    .line 244
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -97,16 +90,11 @@
 
 .method private static message(Lcom/google/common/eventbus/SubscriberExceptionContext;)Ljava/lang/String;
     .locals 4
-    .param p0, "context"    # Lcom/google/common/eventbus/SubscriberExceptionContext;
 
-    .prologue
-    .line 248
     invoke-virtual {p0}, Lcom/google/common/eventbus/SubscriberExceptionContext;->getSubscriberMethod()Ljava/lang/reflect/Method;
 
     move-result-object v0
 
-    .line 249
-    .local v0, "method":Ljava/lang/reflect/Method;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -192,17 +180,11 @@
 # virtual methods
 .method public handleException(Ljava/lang/Throwable;Lcom/google/common/eventbus/SubscriberExceptionContext;)V
     .locals 3
-    .param p1, "exception"    # Ljava/lang/Throwable;
-    .param p2, "context"    # Lcom/google/common/eventbus/SubscriberExceptionContext;
 
-    .prologue
-    .line 237
     invoke-static {p2}, Lcom/google/common/eventbus/EventBus$LoggingHandler;->logger(Lcom/google/common/eventbus/SubscriberExceptionContext;)Ljava/util/logging/Logger;
 
     move-result-object v0
 
-    .line 238
-    .local v0, "logger":Ljava/util/logging/Logger;
     sget-object v1, Ljava/util/logging/Level;->SEVERE:Ljava/util/logging/Level;
 
     invoke-virtual {v0, v1}, Ljava/util/logging/Logger;->isLoggable(Ljava/util/logging/Level;)Z
@@ -211,7 +193,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 239
     sget-object v1, Ljava/util/logging/Level;->SEVERE:Ljava/util/logging/Level;
 
     invoke-static {p2}, Lcom/google/common/eventbus/EventBus$LoggingHandler;->message(Lcom/google/common/eventbus/SubscriberExceptionContext;)Ljava/lang/String;
@@ -220,7 +201,6 @@
 
     invoke-virtual {v0, v1, v2, p1}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 241
     :cond_0
     return-void
 .end method

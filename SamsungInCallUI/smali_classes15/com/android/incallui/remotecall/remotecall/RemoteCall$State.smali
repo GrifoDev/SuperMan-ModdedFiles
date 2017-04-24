@@ -30,8 +30,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,49 +37,39 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "state"    # I
 
-    .prologue
-    .line 23
     sparse-switch p0, :sswitch_data_0
 
-    .line 35
     const-string v0, "UNKNOWN"
 
     :goto_0
     return-object v0
 
-    .line 25
     :sswitch_0
     const-string v0, "INVALID"
 
     goto :goto_0
 
-    .line 27
     :sswitch_1
     const-string v0, "ACTIVE"
 
     goto :goto_0
 
-    .line 29
     :sswitch_2
     const-string v0, "ONHOLD"
 
     goto :goto_0
 
-    .line 31
     :sswitch_3
     const-string v0, "IDLE"
 
     goto :goto_0
 
-    .line 33
     :sswitch_4
     const-string v0, "DISCONNECTED"
 
     goto :goto_0
 
-    .line 23
     nop
 
     :sswitch_data_0

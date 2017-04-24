@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/HeadUpNotificationService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/HeadUpNotificationService;
 
-    .prologue
-    .line 399
     iput-object p1, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 402
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
@@ -49,7 +43,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 403
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     # getter for: Lcom/android/incallui/service/HeadUpNotificationService;->mHeadUpNotificationView:Lcom/android/incallui/service/HeadUpNotificationView;
@@ -61,26 +54,22 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/HeadUpNotificationView;->setTranslationY(F)V
 
-    .line 404
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/incallui/service/HeadUpNotificationService;->mIsShowAnimationRunning:Z
 
-    .line 405
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lcom/android/incallui/service/HeadUpNotificationService;->mIsPopupShowing:Z
 
-    .line 406
     iget-object v0, p0, Lcom/android/incallui/service/HeadUpNotificationService$3;->this$0:Lcom/android/incallui/service/HeadUpNotificationService;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/HeadUpNotificationService;->onShowPopup()V
 
-    .line 408
     :cond_0
     return-void
 .end method

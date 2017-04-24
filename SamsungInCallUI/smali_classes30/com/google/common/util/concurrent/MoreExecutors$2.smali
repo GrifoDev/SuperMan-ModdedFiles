@@ -27,8 +27,6 @@
 .method constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/base/Supplier;)V
     .locals 0
 
-    .prologue
-    .line 860
     iput-object p1, p0, Lcom/google/common/util/concurrent/MoreExecutors$2;->val$executor:Ljava/util/concurrent/Executor;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/MoreExecutors$2;->val$nameSupplier:Lcom/google/common/base/Supplier;
@@ -42,10 +40,7 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "command"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 862
     iget-object v0, p0, Lcom/google/common/util/concurrent/MoreExecutors$2;->val$executor:Ljava/util/concurrent/Executor;
 
     iget-object v1, p0, Lcom/google/common/util/concurrent/MoreExecutors$2;->val$nameSupplier:Lcom/google/common/base/Supplier;
@@ -56,6 +51,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 863
     return-void
 .end method

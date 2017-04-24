@@ -53,16 +53,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 134
-    .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm;, "Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm<TE;>;"
-    .local p1, "delegate":Ljava/util/EnumSet;, "Ljava/util/EnumSet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 135
     iput-object p1, p0, Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm;->delegate:Ljava/util/EnumSet;
 
-    .line 136
     return-void
 .end method
 
@@ -71,9 +65,6 @@
 .method readResolve()Ljava/lang/Object;
     .locals 3
 
-    .prologue
-    .line 140
-    .local p0, "this":Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm;, "Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm<TE;>;"
     new-instance v0, Lcom/google/common/collect/ImmutableEnumSet;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableEnumSet$EnumSerializedForm;->delegate:Ljava/util/EnumSet;

@@ -37,8 +37,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 332
     new-instance v0, Lcom/google/common/base/Equivalence$Equals;
 
     invoke-direct {v0}, Lcom/google/common/base/Equivalence$Equals;-><init>()V
@@ -51,8 +49,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 330
     invoke-direct {p0}, Lcom/google/common/base/Equivalence;-><init>()V
 
     return-void
@@ -61,8 +57,6 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 345
     sget-object v0, Lcom/google/common/base/Equivalence$Equals;->INSTANCE:Lcom/google/common/base/Equivalence$Equals;
 
     return-object v0
@@ -72,11 +66,7 @@
 # virtual methods
 .method protected doEquivalent(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "a"    # Ljava/lang/Object;
-    .param p2, "b"    # Ljava/lang/Object;
 
-    .prologue
-    .line 336
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -86,10 +76,7 @@
 
 .method protected doHash(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 341
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v0

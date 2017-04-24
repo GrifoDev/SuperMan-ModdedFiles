@@ -22,8 +22,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,8 +35,6 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 66
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -48,11 +44,7 @@
 
 .method public final get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
-    .prologue
-    .line 74
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/manager/DialpadFragmentManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
-    .prologue
-    .line 86
     iput-object p1, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,22 +33,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 89
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 108
     :cond_0
     :goto_0
     return-void
 
-    .line 91
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
@@ -79,7 +71,6 @@
 
     if-nez v0, :cond_0
 
-    .line 93
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->getFragment()Lcom/android/incallui/fragment/DialpadFragment;
@@ -97,7 +88,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 94
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->getFragment()Lcom/android/incallui/fragment/DialpadFragment;
@@ -113,7 +103,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/fragment/DialpadFragment;->restoreDtmfText(Ljava/lang/String;)V
 
-    .line 95
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     # setter for: Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
@@ -121,7 +110,6 @@
 
     goto :goto_0
 
-    .line 99
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
@@ -129,21 +117,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 100
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->dtmfDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 101
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager$1;->this$0:Lcom/android/incallui/fragment/manager/DialpadFragmentManager;
 
     iput-object v2, v0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->dtmfDialog:Landroid/app/AlertDialog;
 
     goto :goto_0
 
-    .line 89
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_0

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/secrcs/BatteryMonitor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/secrcs/BatteryMonitor;
 
-    .prologue
-    .line 30
     iput-object p1, p0, Lcom/android/incallui/secrcs/BatteryMonitor$1;->this$0:Lcom/android/incallui/secrcs/BatteryMonitor;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,13 +33,9 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
 
-    .prologue
     const/16 v5, 0x64
 
-    .line 33
     const-string v3, "level"
 
     const/4 v4, 0x0
@@ -51,29 +44,22 @@
 
     move-result v1
 
-    .line 34
-    .local v1, "rawlevel":I
     const-string v3, "scale"
 
     invoke-virtual {p2, v3, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 36
-    .local v2, "scale":I
     mul-int/lit8 v3, v1, 0x64
 
     div-int v0, v3, v2
 
-    .line 38
-    .local v0, "level":I
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
 
     move-result-object v3
 
     invoke-virtual {v3, v5}, Lcom/android/incallui/secrcs/RcsShareUI;->setBatteryLevel(I)V
 
-    .line 40
     const-string v3, "BatteryMonitor"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -96,6 +82,5 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 41
     return-void
 .end method

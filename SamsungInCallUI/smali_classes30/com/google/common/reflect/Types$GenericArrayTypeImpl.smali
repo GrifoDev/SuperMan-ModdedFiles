@@ -29,13 +29,9 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;)V
     .locals 1
-    .param p1, "componentType"    # Ljava/lang/reflect/Type;
 
-    .prologue
-    .line 236
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 237
     sget-object v0, Lcom/google/common/reflect/Types$JavaVersion;->CURRENT:Lcom/google/common/reflect/Types$JavaVersion;
 
     invoke-virtual {v0, p1}, Lcom/google/common/reflect/Types$JavaVersion;->usedInGenericType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
@@ -44,7 +40,6 @@
 
     iput-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
 
-    .line 238
     return-void
 .end method
 
@@ -52,21 +47,15 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 253
     instance-of v1, p1, Ljava/lang/reflect/GenericArrayType;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 254
     check-cast v0, Ljava/lang/reflect/GenericArrayType;
 
-    .line 255
-    .local v0, "that":Ljava/lang/reflect/GenericArrayType;
     invoke-virtual {p0}, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->getGenericComponentType()Ljava/lang/reflect/Type;
 
     move-result-object v1
@@ -79,8 +68,6 @@
 
     move-result v1
 
-    .line 258
-    .end local v0    # "that":Ljava/lang/reflect/GenericArrayType;
     :goto_0
     return v1
 
@@ -93,8 +80,6 @@
 .method public getGenericComponentType()Ljava/lang/reflect/Type;
     .locals 1
 
-    .prologue
-    .line 241
     iget-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
 
     return-object v0
@@ -103,8 +88,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 249
     iget-object v0, p0, Lcom/google/common/reflect/Types$GenericArrayTypeImpl;->componentType:Ljava/lang/reflect/Type;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -117,8 +100,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 245
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

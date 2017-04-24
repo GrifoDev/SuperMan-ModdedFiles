@@ -62,14 +62,10 @@
 .method private constructor <init>(Lcom/google/common/collect/ImmutableMultimap;)V
     .locals 1
 
-    .prologue
-    .line 550
-    .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Itr;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Itr<TT;>;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->this$0:Lcom/google/common/collect/ImmutableMultimap;
 
     invoke-direct {p0}, Lcom/google/common/collect/UnmodifiableIterator;-><init>()V
 
-    .line 551
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->this$0:Lcom/google/common/collect/ImmutableMultimap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableMultimap;->asMap()Lcom/google/common/collect/ImmutableMap;
@@ -86,12 +82,10 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->mapIterator:Ljava/util/Iterator;
 
-    .line 552
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->key:Ljava/lang/Object;
 
-    .line 553
     invoke-static {}, Lcom/google/common/collect/Iterators;->emptyIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v0
@@ -103,12 +97,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/ImmutableMultimap;Lcom/google/common/collect/ImmutableMultimap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/ImmutableMultimap;
-    .param p2, "x1"    # Lcom/google/common/collect/ImmutableMultimap$1;
 
-    .prologue
-    .line 550
-    .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Itr;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Itr<TT;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/ImmutableMultimap$Itr;-><init>(Lcom/google/common/collect/ImmutableMultimap;)V
 
     return-void
@@ -119,9 +108,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 559
-    .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Itr;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Itr<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->mapIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -158,9 +144,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 564
-    .local p0, "this":Lcom/google/common/collect/ImmutableMultimap$Itr;, "Lcom/google/common/collect/ImmutableMultimap<TK;TV;>.Itr<TT;>;"
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->valueIterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -169,7 +152,6 @@
 
     if-nez v1, :cond_0
 
-    .line 565
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->mapIterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -178,15 +160,12 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 566
-    .local v0, "mapEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->key:Ljava/lang/Object;
 
-    .line 567
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -199,8 +178,6 @@
 
     iput-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->valueIterator:Ljava/util/Iterator;
 
-    .line 569
-    .end local v0    # "mapEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/ImmutableMultimap$Itr;->key:Ljava/lang/Object;
 

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupService;
 
-    .prologue
-    .line 805
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,12 +33,9 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 7
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 808
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -54,8 +48,6 @@
 
     move-result-object v0
 
-    .line 809
-    .local v0, "call":Lcom/android/incallui/Call;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
@@ -66,7 +58,6 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 810
     const/high16 v1, 0x20000000
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/Call;->can(I)Z
@@ -75,7 +66,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 811
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     # getter for: Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupWaitingCall:Lcom/android/incallui/service/SecCallPopupWaitingCall;
@@ -85,7 +75,6 @@
 
     invoke-virtual {v1}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->controlWaitingCall()V
 
-    .line 815
     :goto_0
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -97,21 +86,17 @@
 
     invoke-virtual {v1, v2, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 819
     :goto_1
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iput-boolean v6, v1, Lcom/android/incallui/service/SecCallPopupService;->mIsHideAnimationRunning:Z
 
-    .line 820
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 
     iput-boolean v6, v1, Lcom/android/incallui/service/SecCallPopupService;->mIsPopupShowing:Z
 
-    .line 821
     return-void
 
-    .line 813
     :cond_0
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
@@ -125,7 +110,6 @@
 
     goto :goto_0
 
-    .line 817
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupService$5;->this$0:Lcom/android/incallui/service/SecCallPopupService;
 

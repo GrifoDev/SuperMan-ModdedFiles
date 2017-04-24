@@ -36,9 +36,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 101
-    .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,23 +45,17 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 105
     if-ne p1, p0, :cond_1
 
-    .line 114
     :cond_0
     :goto_0
     return v1
 
-    .line 108
     :cond_1
     instance-of v3, p1, Lcom/google/common/collect/Table$Cell;
 
@@ -72,11 +63,8 @@
 
     move-object v0, p1
 
-    .line 109
     check-cast v0, Lcom/google/common/collect/Table$Cell;
 
-    .line 110
-    .local v0, "other":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Tables$AbstractCell;->getRowKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -124,20 +112,15 @@
 
     goto :goto_0
 
-    .end local v0    # "other":Lcom/google/common/collect/Table$Cell;, "Lcom/google/common/collect/Table$Cell<***>;"
     :cond_3
     move v1, v2
 
-    .line 114
     goto :goto_0
 .end method
 
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 119
-    .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -176,9 +159,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 124
-    .local p0, "this":Lcom/google/common/collect/Tables$AbstractCell;, "Lcom/google/common/collect/Tables$AbstractCell<TR;TC;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

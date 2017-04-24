@@ -36,9 +36,6 @@
 .method constructor <init>(Lcom/google/common/util/concurrent/AtomicLongMap;)V
     .locals 0
 
-    .prologue
-    .line 294
-    .local p0, "this":Lcom/google/common/util/concurrent/AtomicLongMap$1;, "Lcom/google/common/util/concurrent/AtomicLongMap.1;"
     iput-object p1, p0, Lcom/google/common/util/concurrent/AtomicLongMap$1;->this$0:Lcom/google/common/util/concurrent/AtomicLongMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,11 +47,7 @@
 # virtual methods
 .method public apply(Ljava/util/concurrent/atomic/AtomicLong;)Ljava/lang/Long;
     .locals 2
-    .param p1, "atomic"    # Ljava/util/concurrent/atomic/AtomicLong;
 
-    .prologue
-    .line 297
-    .local p0, "this":Lcom/google/common/util/concurrent/AtomicLongMap$1;, "Lcom/google/common/util/concurrent/AtomicLongMap.1;"
     invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
@@ -68,14 +61,9 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 294
-    .local p0, "this":Lcom/google/common/util/concurrent/AtomicLongMap$1;, "Lcom/google/common/util/concurrent/AtomicLongMap.1;"
     check-cast p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/AtomicLongMap$1;->apply(Ljava/util/concurrent/atomic/AtomicLong;)Ljava/lang/Long;
 
     move-result-object v0

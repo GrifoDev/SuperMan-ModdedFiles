@@ -47,13 +47,7 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "connectedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p3, "connectionFailedListener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
-    .param p4, "accountName"    # Ljava/lang/String;
-    .param p5, "scopes"    # [Ljava/lang/String;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/google/android/gms/internal/c;
@@ -77,14 +71,7 @@
 
 .method synthetic constructor <init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;Ljava/lang/String;[Ljava/lang/String;Lcom/google/android/gms/appstate/AppStateClient$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/content/Context;
-    .param p2, "x1"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
-    .param p3, "x2"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
-    .param p4, "x3"    # Ljava/lang/String;
-    .param p5, "x4"    # [Ljava/lang/String;
-    .param p6, "x5"    # Lcom/google/android/gms/appstate/AppStateClient$1;
 
-    .prologue
     invoke-direct/range {p0 .. p5}, Lcom/google/android/gms/appstate/AppStateClient;-><init>(Landroid/content/Context;Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;Ljava/lang/String;[Ljava/lang/String;)V
 
     return-void
@@ -104,10 +91,7 @@
 
 .method public deleteState(Lcom/google/android/gms/appstate/OnStateDeletedListener;I)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateDeletedListener;
-    .param p2, "stateKey"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/c;->deleteState(Lcom/google/android/gms/appstate/OnStateDeletedListener;I)V
@@ -175,9 +159,7 @@
 
 .method public isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->isConnectionCallbacksRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)Z
@@ -189,9 +171,7 @@
 
 .method public isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->isConnectionFailedListenerRegistered(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)Z
@@ -203,9 +183,7 @@
 
 .method public listStates(Lcom/google/android/gms/appstate/OnStateListLoadedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateListLoadedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->listStates(Lcom/google/android/gms/appstate/OnStateListLoadedListener;)V
@@ -215,10 +193,7 @@
 
 .method public loadState(Lcom/google/android/gms/appstate/OnStateLoadedListener;I)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateLoadedListener;
-    .param p2, "stateKey"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/c;->loadState(Lcom/google/android/gms/appstate/OnStateLoadedListener;I)V
@@ -242,9 +217,7 @@
 
 .method public registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->registerConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -254,9 +227,7 @@
 
 .method public registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->registerConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -266,12 +237,7 @@
 
 .method public resolveState(Lcom/google/android/gms/appstate/OnStateLoadedListener;ILjava/lang/String;[B)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateLoadedListener;
-    .param p2, "stateKey"    # I
-    .param p3, "resolvedVersion"    # Ljava/lang/String;
-    .param p4, "resolvedData"    # [B
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/c;->resolveState(Lcom/google/android/gms/appstate/OnStateLoadedListener;ILjava/lang/String;[B)V
@@ -293,9 +259,7 @@
 
 .method public signOut(Lcom/google/android/gms/appstate/OnSignOutCompleteListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnSignOutCompleteListener;
 
-    .prologue
     const-string v0, "Must provide a valid listener"
 
     invoke-static {p1, v0}, Lcom/google/android/gms/internal/s;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -309,9 +273,7 @@
 
 .method public unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->unregisterConnectionCallbacks(Lcom/google/android/gms/common/GooglePlayServicesClient$ConnectionCallbacks;)V
@@ -321,9 +283,7 @@
 
 .method public unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/c;->unregisterConnectionFailedListener(Lcom/google/android/gms/common/GooglePlayServicesClient$OnConnectionFailedListener;)V
@@ -333,10 +293,7 @@
 
 .method public updateState(I[B)V
     .locals 2
-    .param p1, "stateKey"    # I
-    .param p2, "data"    # [B
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/appstate/AppStateClient;->b:Lcom/google/android/gms/internal/c;
 
     const/4 v1, 0x0
@@ -348,11 +305,7 @@
 
 .method public updateStateImmediate(Lcom/google/android/gms/appstate/OnStateLoadedListener;I[B)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateLoadedListener;
-    .param p2, "stateKey"    # I
-    .param p3, "data"    # [B
 
-    .prologue
     const-string v0, "Must provide a valid listener"
 
     invoke-static {p1, v0}, Lcom/google/android/gms/internal/s;->b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

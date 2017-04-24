@@ -29,13 +29,10 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;)V
     .locals 3
 
-    .prologue
-    .line 110
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 111
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
@@ -61,7 +58,6 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->file:Ljava/io/File;
 
-    .line 112
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     iget-object v0, v0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
@@ -85,47 +81,34 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 7
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 127
     instance-of v5, p1, Ljava/util/Map$Entry;
 
     if-nez v5, :cond_1
 
-    .line 134
     :cond_0
     :goto_0
     return v4
 
-    .line 130
     :cond_1
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
-    .local v2, "value":Ljava/lang/Object;
     move-object v0, p1
 
-    .line 131
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 132
-    .local v0, "e2":Ljava/util/Map$Entry;
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 133
-    .local v1, "key2":Ljava/lang/Object;
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 134
-    .local v3, "value2":Ljava/lang/Object;
     iget-object v5, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->key:Ljava/lang/Object;
 
     if-nez v5, :cond_2
@@ -174,8 +157,6 @@
 .method public getKey()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 115
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->key:Ljava/lang/Object;
 
     return-object v0
@@ -184,8 +165,6 @@
 .method public getValue()Ljava/lang/Object;
     .locals 2
 
-    .prologue
-    .line 119
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     iget-object v0, v0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
@@ -202,10 +181,7 @@
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 123
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator$1;->this$1:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     iget-object v0, v0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;

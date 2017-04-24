@@ -57,7 +57,6 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -66,7 +65,6 @@
 
     const/4 v2, 0x0
 
-    .line 10
     const-string v0, "content://com.vodafone.callplus.provider/ui_entry_points"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -75,7 +73,6 @@
 
     sput-object v0, Lcom/android/incallui/UIEntryPointsContract;->UI_ENTRY_POINTS_CONTENT_URI:Landroid/net/Uri;
 
-    .line 25
     new-array v0, v5, [Ljava/lang/String;
 
     const-string v1, "composer_action"
@@ -92,7 +89,6 @@
 
     sput-object v0, Lcom/android/incallui/UIEntryPointsContract;->UI_ENTRY_POINTS_COMPOSER_COLUMNS:[Ljava/lang/String;
 
-    .line 28
     new-array v0, v5, [Ljava/lang/String;
 
     const-string v1, "unanswered_action"
@@ -109,7 +105,6 @@
 
     sput-object v0, Lcom/android/incallui/UIEntryPointsContract;->UI_ENTRY_POINTS_UNANSWERED_COLUMNS:[Ljava/lang/String;
 
-    .line 31
     new-array v0, v5, [Ljava/lang/String;
 
     const-string v1, "sharing_action"
@@ -132,8 +127,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

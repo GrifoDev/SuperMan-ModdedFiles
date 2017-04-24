@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    .prologue
-    .line 167
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$1;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 170
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 181
     :goto_0
     return-void
 
-    .line 172
     :pswitch_0
     invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isGuidancePlaying()Z
 
@@ -56,7 +48,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 173
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$1;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     const/4 v1, 0x0
@@ -65,7 +56,6 @@
 
     goto :goto_0
 
-    .line 175
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$1;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
@@ -75,7 +65,6 @@
 
     goto :goto_0
 
-    .line 170
     :pswitch_data_0
     .packed-switch 0x96
         :pswitch_0

@@ -34,59 +34,46 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
     return-void
 .end method
 
 .method public static getFriendlyName(I)Ljava/lang/String;
     .locals 1
-    .param p0, "screenType"    # I
 
-    .prologue
-    .line 40
     packed-switch p0, :pswitch_data_0
 
-    .line 54
     const/4 v0, 0x0
 
     :goto_0
     return-object v0
 
-    .line 43
     :pswitch_0
     const-string v0, "Search"
 
     goto :goto_0
 
-    .line 45
     :pswitch_1
     const-string v0, "Favorites"
 
     goto :goto_0
 
-    .line 47
     :pswitch_2
     const-string v0, "AllContacts"
 
     goto :goto_0
 
-    .line 49
     :pswitch_3
     const-string v0, "QuickContact"
 
     goto :goto_0
 
-    .line 51
     :pswitch_4
     const-string v0, "Editor"
 
     goto :goto_0
 
-    .line 40
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

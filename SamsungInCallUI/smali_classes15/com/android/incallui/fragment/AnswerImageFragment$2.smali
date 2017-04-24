@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/AnswerImageFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/AnswerImageFragment;
 
-    .prologue
-    .line 145
     iput-object p1, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,30 +37,25 @@
 .method public onDrawerClosed()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 147
     const-string v0, "AnswerImageFragment"
 
     const-string v1, "onDrawerClosed"
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 148
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->animateHideForMaskPanel()V
     invoke-static {v0}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$100(Lcom/android/incallui/fragment/AnswerImageFragment;)V
 
-    .line 149
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/AnswerImageFragment;->mRejectCallWithMsgDrawer:Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;
 
     if-eqz v0, :cond_0
 
-    .line 150
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/AnswerImageFragment$2;->this$0:Lcom/android/incallui/fragment/AnswerImageFragment;
@@ -77,7 +69,6 @@
     # invokes: Lcom/android/incallui/fragment/AnswerImageFragment;->setDescriptionToHandle(Landroid/view/View;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/incallui/fragment/AnswerImageFragment;->access$000(Lcom/android/incallui/fragment/AnswerImageFragment;Landroid/view/View;Z)V
 
-    .line 152
     :cond_0
     return-void
 .end method

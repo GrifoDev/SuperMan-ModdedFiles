@@ -13,16 +13,11 @@
 # direct methods
 .method public constructor <init>(Lcom/sec/ims/Dialog;)V
     .locals 0
-    .param p1, "dialog"    # Lcom/sec/ims/Dialog;
 
-    .prologue
-    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     iput-object p1, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
-    .line 27
     return-void
 .end method
 
@@ -31,8 +26,6 @@
 .method public getCallId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 36
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getSipCallId()Ljava/lang/String;
@@ -45,8 +38,6 @@
 .method public getCallState()I
     .locals 1
 
-    .prologue
-    .line 56
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getCallState()I
@@ -59,8 +50,6 @@
 .method public getDeviceId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 66
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getDeviceId()Ljava/lang/String;
@@ -73,8 +62,6 @@
 .method public getDialogID()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getDialogId()Ljava/lang/String;
@@ -87,8 +74,6 @@
 .method public getRemoteDispName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 46
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getRemoteDispName()Ljava/lang/String;
@@ -101,8 +86,6 @@
 .method public getRemoteNumber()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 41
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getRemoteNumber()Ljava/lang/String;
@@ -115,8 +98,6 @@
 .method public getRemoteURI()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 71
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getRemoteUri()Ljava/lang/String;
@@ -129,8 +110,6 @@
 .method public getState()I
     .locals 1
 
-    .prologue
-    .line 51
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->getState()I
@@ -143,8 +122,6 @@
 .method public isPullAvailable()Z
     .locals 1
 
-    .prologue
-    .line 61
     iget-object v0, p0, Lcom/android/incallui/remotecall/data/MultiEndDataIms6Wrapper;->mDialog:Lcom/sec/ims/Dialog;
 
     invoke-virtual {v0}, Lcom/sec/ims/Dialog;->isPullAvailable()Z

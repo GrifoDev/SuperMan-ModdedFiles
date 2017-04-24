@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;Landroid/os/Looper;Lcom/samsung/android/sdk/cover/ScoverManager;)V
     .locals 0
-    .param p2, "x0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 714
     iput-object p1, p0, Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;
 
     iput-object p3, p0, Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate$1;->val$this$0:Lcom/samsung/android/sdk/cover/ScoverManager;
@@ -40,10 +37,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 717
     iget-object v1, p0, Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;
 
     # getter for: Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;->mListener:Lcom/samsung/android/sdk/cover/ScoverManager$StateListener;
@@ -53,16 +47,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 718
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v6, Lcom/samsung/android/cover/CoverState;
 
-    .line 719
-    .local v6, "coverState":Lcom/samsung/android/cover/CoverState;
     if-eqz v6, :cond_1
 
-    .line 720
     new-instance v0, Lcom/samsung/android/sdk/cover/ScoverState;
 
     iget-boolean v1, v6, Lcom/samsung/android/cover/CoverState;->switchState:Z
@@ -77,8 +67,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/sdk/cover/ScoverState;-><init>(ZIIII)V
 
-    .line 723
-    .local v0, "scoverState":Lcom/samsung/android/sdk/cover/ScoverState;
     iget-object v1, p0, Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;
 
     # getter for: Lcom/samsung/android/sdk/cover/ScoverManager$CoverListenerDelegate;->mListener:Lcom/samsung/android/sdk/cover/ScoverManager$StateListener;
@@ -88,15 +76,10 @@
 
     invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/cover/ScoverManager$StateListener;->onCoverStateChanged(Lcom/samsung/android/sdk/cover/ScoverState;)V
 
-    .line 728
-    .end local v0    # "scoverState":Lcom/samsung/android/sdk/cover/ScoverState;
-    .end local v6    # "coverState":Lcom/samsung/android/cover/CoverState;
     :cond_0
     :goto_0
     return-void
 
-    .line 725
-    .restart local v6    # "coverState":Lcom/samsung/android/cover/CoverState;
     :cond_1
     const-string v1, "ScoverManager"
 

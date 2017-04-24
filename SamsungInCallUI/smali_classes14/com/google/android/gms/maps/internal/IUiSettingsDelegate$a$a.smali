@@ -463,14 +463,12 @@
 
 .method public setAllGesturesEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -523,14 +521,12 @@
 
 .method public setCompassEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -583,14 +579,12 @@
 
 .method public setMyLocationButtonEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -643,14 +637,12 @@
 
 .method public setRotateGesturesEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -703,14 +695,12 @@
 
 .method public setScrollGesturesEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -763,14 +753,12 @@
 
 .method public setTiltGesturesEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -823,14 +811,12 @@
 
 .method public setZoomControlsEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -888,14 +874,12 @@
 
 .method public setZoomGesturesEnabled(Z)V
     .locals 5
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;

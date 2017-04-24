@@ -25,8 +25,6 @@
 .method constructor <init>(J)V
     .locals 1
 
-    .prologue
-    .line 285
     iput-wide p1, p0, Lcom/whitepages/nameid/NameIDHelper$4;->val$untilMillis:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +37,10 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 287
     iget-wide v0, p0, Lcom/whitepages/nameid/NameIDHelper$4;->val$untilMillis:J
 
     # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnectUntil(J)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$400(J)V
 
-    .line 288
     return-void
 .end method

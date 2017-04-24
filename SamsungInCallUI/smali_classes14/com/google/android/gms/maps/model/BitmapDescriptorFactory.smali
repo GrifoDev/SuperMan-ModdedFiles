@@ -105,9 +105,7 @@
 
 .method public static defaultMarker(F)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "hue"    # F
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
@@ -137,9 +135,7 @@
 
 .method public static fromAsset(Ljava/lang/String;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "assetName"    # Ljava/lang/String;
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
@@ -169,9 +165,7 @@
 
 .method public static fromBitmap(Landroid/graphics/Bitmap;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "image"    # Landroid/graphics/Bitmap;
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
@@ -201,9 +195,7 @@
 
 .method public static fromFile(Ljava/lang/String;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "fileName"    # Ljava/lang/String;
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
@@ -233,9 +225,7 @@
 
 .method public static fromPath(Ljava/lang/String;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "absolutePath"    # Ljava/lang/String;
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 
@@ -265,9 +255,7 @@
 
 .method public static fromResource(I)Lcom/google/android/gms/maps/model/BitmapDescriptor;
     .locals 2
-    .param p0, "resourceId"    # I
 
-    .prologue
     :try_start_0
     new-instance v0, Lcom/google/android/gms/maps/model/BitmapDescriptor;
 

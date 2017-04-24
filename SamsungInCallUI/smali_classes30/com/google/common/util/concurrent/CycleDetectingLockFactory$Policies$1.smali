@@ -18,8 +18,6 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
-    .prologue
-    .line 206
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/util/concurrent/CycleDetectingLockFactory$Policies;-><init>(Ljava/lang/String;ILcom/google/common/util/concurrent/CycleDetectingLockFactory$1;)V
@@ -31,9 +29,6 @@
 # virtual methods
 .method public handlePotentialDeadlock(Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;)V
     .locals 0
-    .param p1, "e"    # Lcom/google/common/util/concurrent/CycleDetectingLockFactory$PotentialDeadlockException;
 
-    .prologue
-    .line 209
     throw p1
 .end method

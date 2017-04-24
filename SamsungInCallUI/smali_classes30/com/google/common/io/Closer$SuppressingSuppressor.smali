@@ -30,15 +30,12 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 263
     new-instance v0, Lcom/google/common/io/Closer$SuppressingSuppressor;
 
     invoke-direct {v0}, Lcom/google/common/io/Closer$SuppressingSuppressor;-><init>()V
 
     sput-object v0, Lcom/google/common/io/Closer$SuppressingSuppressor;->INSTANCE:Lcom/google/common/io/Closer$SuppressingSuppressor;
 
-    .line 269
     invoke-static {}, Lcom/google/common/io/Closer$SuppressingSuppressor;->getAddSuppressed()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -51,8 +48,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -61,8 +56,6 @@
 .method private static getAddSuppressed()Ljava/lang/reflect/Method;
     .locals 6
 
-    .prologue
-    .line 273
     :try_start_0
     const-class v1, Ljava/lang/Throwable;
 
@@ -84,18 +77,12 @@
 
     move-result-object v1
 
-    .line 275
-    .local v0, "e":Ljava/lang/Throwable;
     :goto_0
     return-object v1
 
-    .line 274
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_0
     move-exception v0
 
-    .line 275
-    .restart local v0    # "e":Ljava/lang/Throwable;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -104,8 +91,6 @@
 .method static isAvailable()Z
     .locals 1
 
-    .prologue
-    .line 266
     sget-object v0, Lcom/google/common/io/Closer$SuppressingSuppressor;->addSuppressed:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_0
@@ -125,19 +110,12 @@
 # virtual methods
 .method public suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "closeable"    # Ljava/io/Closeable;
-    .param p2, "thrown"    # Ljava/lang/Throwable;
-    .param p3, "suppressed"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 282
     if-ne p2, p3, :cond_0
 
-    .line 291
     :goto_0
     return-void
 
-    .line 286
     :cond_0
     :try_start_0
     sget-object v1, Lcom/google/common/io/Closer$SuppressingSuppressor;->addSuppressed:Ljava/lang/reflect/Method;
@@ -156,12 +134,9 @@
 
     goto :goto_0
 
-    .line 287
     :catch_0
     move-exception v0
 
-    .line 289
-    .local v0, "e":Ljava/lang/Throwable;
     sget-object v1, Lcom/google/common/io/Closer$LoggingSuppressor;->INSTANCE:Lcom/google/common/io/Closer$LoggingSuppressor;
 
     invoke-virtual {v1, p1, p2, p3}, Lcom/google/common/io/Closer$LoggingSuppressor;->suppress(Ljava/io/Closeable;Ljava/lang/Throwable;Ljava/lang/Throwable;)V

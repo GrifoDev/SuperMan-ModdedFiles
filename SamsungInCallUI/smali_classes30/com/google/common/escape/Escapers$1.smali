@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 51
     invoke-direct {p0}, Lcom/google/common/escape/CharEscaper;-><init>()V
 
     return-void
@@ -29,10 +27,7 @@
 # virtual methods
 .method public escape(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "string"    # Ljava/lang/String;
 
-    .prologue
-    .line 53
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -44,10 +39,7 @@
 
 .method protected escape(C)[C
     .locals 1
-    .param p1, "c"    # C
 
-    .prologue
-    .line 58
     const/4 v0, 0x0
 
     return-object v0

@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1303
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1303
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$PhotoKindBuilder;-><init>()V
 
     return-void
@@ -43,8 +38,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1307
     const-string v0, "photo"
 
     return-object v0
@@ -52,9 +45,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,14 +67,12 @@
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
     const/4 v6, 0x0
 
     const/4 v7, -0x1
 
-    .line 1314
     const-string v5, "vnd.android.cursor.item/photo"
 
     move-object v0, p0
@@ -105,8 +93,6 @@
 
     move-result-object v11
 
-    .line 1319
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
@@ -117,10 +103,8 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1321
     invoke-virtual {p0, v11}, Lcom/android/contacts/common/model/account/BaseAccountType$PhotoKindBuilder;->throwIfList(Lcom/android/contacts/common/model/dataitem/DataKind;)V
 
-    .line 1323
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

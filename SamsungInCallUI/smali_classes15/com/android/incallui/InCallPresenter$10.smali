@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 3985
     invoke-static {}, Lcom/android/incallui/InCallPresenter$InCallState;->values()[Lcom/android/incallui/InCallPresenter$InCallState;
 
     move-result-object v0

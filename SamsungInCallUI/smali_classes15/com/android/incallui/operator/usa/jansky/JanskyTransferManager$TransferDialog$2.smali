@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
-    .prologue
-    .line 284
     iput-object p1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$2;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$2;->val$this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -43,10 +40,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 286
     iget-object v1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$2;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iget-object v1, v1, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -58,7 +52,6 @@
 
     invoke-virtual {v1}, Landroid/widget/AutoCompleteTextView;->requestFocus()Z
 
-    .line 287
     iget-object v1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$2;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iget-object v1, v1, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -72,7 +65,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/RadioButton;->setChecked(Z)V
 
-    .line 288
     iget-object v1, p0, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog$2;->this$1:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;
 
     iget-object v1, v1, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
@@ -99,16 +91,12 @@
 
     check-cast v0, Landroid/widget/RadioButton;
 
-    .line 289
-    .local v0, "mRB":Landroid/widget/RadioButton;
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Landroid/widget/RadioButton;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 291
-    .end local v0    # "mRB":Landroid/widget/RadioButton;
     :cond_0
     return-void
 .end method

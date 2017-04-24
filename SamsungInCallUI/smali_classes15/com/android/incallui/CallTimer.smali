@@ -26,32 +26,23 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "callback"    # Ljava/lang/Runnable;
 
-    .prologue
     const-wide/16 v0, 0x0
 
-    .line 35
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 36
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 38
     iput-wide v0, p0, Lcom/android/incallui/CallTimer;->mInterval:J
 
-    .line 39
     iput-wide v0, p0, Lcom/android/incallui/CallTimer;->mLastReportedTime:J
 
-    .line 40
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/incallui/CallTimer;->mRunning:Z
 
-    .line 41
     iput-object p1, p0, Lcom/android/incallui/CallTimer;->mCallback:Ljava/lang/Runnable;
 
-    .line 42
     new-instance v0, Lcom/android/incallui/CallTimer$CallTimerCallback;
 
     const/4 v1, 0x0
@@ -60,16 +51,12 @@
 
     iput-object v0, p0, Lcom/android/incallui/CallTimer;->mInternalCallback:Ljava/lang/Runnable;
 
-    .line 43
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/android/incallui/CallTimer;)V
     .locals 0
-    .param p0, "x0"    # Lcom/android/incallui/CallTimer;
 
-    .prologue
-    .line 27
     invoke-direct {p0}, Lcom/android/incallui/CallTimer;->periodicUpdateTimer()V
 
     return-void
@@ -78,54 +65,42 @@
 .method private periodicUpdateTimer()V
     .locals 8
 
-    .prologue
-    .line 72
     iget-boolean v4, p0, Lcom/android/incallui/CallTimer;->mRunning:Z
 
     if-nez v4, :cond_0
 
-    .line 87
     :goto_0
     return-void
 
-    .line 76
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
-    .line 77
-    .local v2, "now":J
     iget-wide v4, p0, Lcom/android/incallui/CallTimer;->mLastReportedTime:J
 
     iget-wide v6, p0, Lcom/android/incallui/CallTimer;->mInterval:J
 
     add-long v0, v4, v6
 
-    .line 78
-    .local v0, "nextReport":J
     :goto_1
     cmp-long v4, v2, v0
 
     if-ltz v4, :cond_1
 
-    .line 79
     iget-wide v4, p0, Lcom/android/incallui/CallTimer;->mInterval:J
 
     add-long/2addr v0, v4
 
     goto :goto_1
 
-    .line 82
     :cond_1
     iget-object v4, p0, Lcom/android/incallui/CallTimer;->mInternalCallback:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v4, v0, v1}, Lcom/android/incallui/CallTimer;->postAtTime(Ljava/lang/Runnable;J)Z
 
-    .line 83
     iput-wide v0, p0, Lcom/android/incallui/CallTimer;->mLastReportedTime:J
 
-    .line 86
     iget-object v4, p0, Lcom/android/incallui/CallTimer;->mCallback:Ljava/lang/Runnable;
 
     invoke-interface {v4}, Ljava/lang/Runnable;->run()V
@@ -138,26 +113,20 @@
 .method public cancel()V
     .locals 1
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/android/incallui/CallTimer;->mInternalCallback:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/CallTimer;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 64
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/incallui/CallTimer;->mRunning:Z
 
-    .line 65
     return-void
 .end method
 
 .method public isRunning()Z
     .locals 1
 
-    .prologue
-    .line 68
     iget-boolean v0, p0, Lcom/android/incallui/CallTimer;->mRunning:Z
 
     return v0
@@ -165,43 +134,33 @@
 
 .method public start(J)Z
     .locals 5
-    .param p1, "interval"    # J
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 46
     const-wide/16 v2, 0x0
 
     cmp-long v1, p1, v2
 
     if-gtz v1, :cond_0
 
-    .line 47
     const/4 v0, 0x0
 
-    .line 59
     :goto_0
     return v0
 
-    .line 51
     :cond_0
     invoke-virtual {p0}, Lcom/android/incallui/CallTimer;->cancel()V
 
-    .line 53
     iput-wide p1, p0, Lcom/android/incallui/CallTimer;->mInterval:J
 
-    .line 54
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/incallui/CallTimer;->mLastReportedTime:J
 
-    .line 56
     iput-boolean v0, p0, Lcom/android/incallui/CallTimer;->mRunning:Z
 
-    .line 57
     invoke-direct {p0}, Lcom/android/incallui/CallTimer;->periodicUpdateTimer()V
 
     goto :goto_0

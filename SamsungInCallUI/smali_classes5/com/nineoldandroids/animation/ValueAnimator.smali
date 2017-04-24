@@ -179,163 +179,124 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 95
     new-instance v0, Ljava/lang/ThreadLocal;
 
     invoke-direct {v0}, Ljava/lang/ThreadLocal;-><init>()V
 
-    .line 94
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimationHandler:Ljava/lang/ThreadLocal;
 
-    .line 99
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$1;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator$1;-><init>()V
 
-    .line 98
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
-    .line 108
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$2;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator$2;-><init>()V
 
-    .line 107
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sPendingAnimations:Ljava/lang/ThreadLocal;
 
-    .line 120
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$3;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator$3;-><init>()V
 
-    .line 119
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sDelayedAnims:Ljava/lang/ThreadLocal;
 
-    .line 128
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$4;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator$4;-><init>()V
 
-    .line 127
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sEndingAnims:Ljava/lang/ThreadLocal;
 
-    .line 136
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$5;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator$5;-><init>()V
 
-    .line 135
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sReadyAnims:Ljava/lang/ThreadLocal;
 
-    .line 145
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
-    .line 144
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sDefaultInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 148
     new-instance v0, Lcom/nineoldandroids/animation/IntEvaluator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/IntEvaluator;-><init>()V
 
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sIntEvaluator:Lcom/nineoldandroids/animation/TypeEvaluator;
 
-    .line 149
     new-instance v0, Lcom/nineoldandroids/animation/FloatEvaluator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/FloatEvaluator;-><init>()V
 
     sput-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sFloatEvaluator:Lcom/nineoldandroids/animation/TypeEvaluator;
 
-    .line 222
     const-wide/16 v0, 0xa
 
     sput-wide v0, Lcom/nineoldandroids/animation/ValueAnimator;->sFrameDelay:J
 
-    .line 276
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 283
     invoke-direct {p0}, Lcom/nineoldandroids/animation/Animator;-><init>()V
 
-    .line 85
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
-    .line 155
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
-    .line 161
     iput v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
-    .line 166
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentFraction:F
 
-    .line 171
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
-    .line 187
     iput v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 197
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
-    .line 203
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStarted:Z
 
-    .line 209
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
-    .line 216
     const-wide/16 v0, 0x12c
 
     iput-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
 
-    .line 219
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
-    .line 226
     iput v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatCount:I
 
-    .line 233
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatMode:I
 
-    .line 240
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sDefaultInterpolator:Landroid/view/animation/Interpolator;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 245
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
-    .line 284
     return-void
 .end method
 
 .method static synthetic access$10(Lcom/nineoldandroids/animation/ValueAnimator;Z)V
     .locals 0
 
-    .prologue
-    .line 197
     iput-boolean p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
     return-void
@@ -344,8 +305,6 @@
 .method static synthetic access$11(Lcom/nineoldandroids/animation/ValueAnimator;)V
     .locals 0
 
-    .prologue
-    .line 1024
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->endAnimation()V
 
     return-void
@@ -354,8 +313,6 @@
 .method static synthetic access$12()J
     .locals 2
 
-    .prologue
-    .line 222
     sget-wide v0, Lcom/nineoldandroids/animation/ValueAnimator;->sFrameDelay:J
 
     return-wide v0
@@ -364,8 +321,6 @@
 .method static synthetic access$2()Ljava/lang/ThreadLocal;
     .locals 1
 
-    .prologue
-    .line 98
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     return-object v0
@@ -374,8 +329,6 @@
 .method static synthetic access$3()Ljava/lang/ThreadLocal;
     .locals 1
 
-    .prologue
-    .line 119
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sDelayedAnims:Ljava/lang/ThreadLocal;
 
     return-object v0
@@ -384,8 +337,6 @@
 .method static synthetic access$4()Ljava/lang/ThreadLocal;
     .locals 1
 
-    .prologue
-    .line 107
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sPendingAnimations:Ljava/lang/ThreadLocal;
 
     return-object v0
@@ -394,8 +345,6 @@
 .method static synthetic access$5(Lcom/nineoldandroids/animation/ValueAnimator;)J
     .locals 2
 
-    .prologue
-    .line 219
     iget-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     return-wide v0
@@ -404,8 +353,6 @@
 .method static synthetic access$6(Lcom/nineoldandroids/animation/ValueAnimator;)V
     .locals 0
 
-    .prologue
-    .line 1045
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->startAnimation()V
 
     return-void
@@ -414,8 +361,6 @@
 .method static synthetic access$7()Ljava/lang/ThreadLocal;
     .locals 1
 
-    .prologue
-    .line 135
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sReadyAnims:Ljava/lang/ThreadLocal;
 
     return-object v0
@@ -424,8 +369,6 @@
 .method static synthetic access$8()Ljava/lang/ThreadLocal;
     .locals 1
 
-    .prologue
-    .line 127
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sEndingAnims:Ljava/lang/ThreadLocal;
 
     return-object v0
@@ -434,8 +377,6 @@
 .method static synthetic access$9(Lcom/nineoldandroids/animation/ValueAnimator;J)Z
     .locals 1
 
-    .prologue
-    .line 1070
     invoke-direct {p0, p1, p2}, Lcom/nineoldandroids/animation/ValueAnimator;->delayedAnimationFrame(J)Z
 
     move-result v0
@@ -446,8 +387,6 @@
 .method public static clearAllAnimations()V
     .locals 1
 
-    .prologue
-    .line 1249
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -458,7 +397,6 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 1250
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sPendingAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -469,7 +407,6 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 1251
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sDelayedAnims:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -480,50 +417,39 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 1252
     return-void
 .end method
 
 .method private delayedAnimationFrame(J)Z
     .locals 7
-    .param p1, "currentTime"    # J
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 1071
     iget-boolean v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
     if-nez v3, :cond_1
 
-    .line 1072
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
-    .line 1073
     iput-wide p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDelayStartTime:J
 
-    .line 1084
     :cond_0
     const/4 v2, 0x0
 
     :goto_0
     return v2
 
-    .line 1075
     :cond_1
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDelayStartTime:J
 
     sub-long v0, p1, v4
 
-    .line 1076
-    .local v0, "deltaTime":J
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     cmp-long v3, v0, v4
 
     if-lez v3, :cond_0
 
-    .line 1079
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     sub-long v4, v0, v4
@@ -532,7 +458,6 @@
 
     iput-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 1080
     iput v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     goto :goto_0
@@ -541,10 +466,8 @@
 .method private endAnimation()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 1025
     sget-object v3, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -555,7 +478,6 @@
 
     invoke-virtual {v3, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 1026
     sget-object v3, Lcom/nineoldandroids/animation/ValueAnimator;->sPendingAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -566,7 +488,6 @@
 
     invoke-virtual {v3, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 1027
     sget-object v3, Lcom/nineoldandroids/animation/ValueAnimator;->sDelayedAnims:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -577,10 +498,8 @@
 
     invoke-virtual {v3, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 1028
     iput v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 1029
     iget-boolean v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
     if-eqz v3, :cond_0
@@ -589,7 +508,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 1031
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -598,37 +516,22 @@
 
     check-cast v2, Ljava/util/ArrayList;
 
-    .line 1032
-    .local v2, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 1033
-    .local v1, "numListeners":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_1
 
-    .line 1037
-    .end local v0    # "i":I
-    .end local v1    # "numListeners":I
-    .end local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_0
     iput-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
-    .line 1038
     iput-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStarted:Z
 
-    .line 1039
     return-void
 
-    .line 1034
-    .restart local v0    # "i":I
-    .restart local v1    # "numListeners":I
-    .restart local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_1
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -638,7 +541,6 @@
 
     invoke-interface {v3, p0}, Lcom/nineoldandroids/animation/Animator$AnimatorListener;->onAnimationEnd(Lcom/nineoldandroids/animation/Animator;)V
 
-    .line 1033
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -647,8 +549,6 @@
 .method public static getCurrentAnimationsCount()I
     .locals 1
 
-    .prologue
-    .line 1239
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -667,8 +567,6 @@
 .method public static getFrameDelay()J
     .locals 2
 
-    .prologue
-    .line 715
     sget-wide v0, Lcom/nineoldandroids/animation/ValueAnimator;->sFrameDelay:J
 
     return-wide v0
@@ -676,109 +574,75 @@
 
 .method public static varargs ofFloat([F)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
-    .param p0, "values"    # [F
 
-    .prologue
-    .line 315
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
-    .line 316
-    .local v0, "anim":Lcom/nineoldandroids/animation/ValueAnimator;
     invoke-virtual {v0, p0}, Lcom/nineoldandroids/animation/ValueAnimator;->setFloatValues([F)V
 
-    .line 317
     return-object v0
 .end method
 
 .method public static varargs ofInt([I)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
-    .param p0, "values"    # [I
 
-    .prologue
-    .line 298
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
-    .line 299
-    .local v0, "anim":Lcom/nineoldandroids/animation/ValueAnimator;
     invoke-virtual {v0, p0}, Lcom/nineoldandroids/animation/ValueAnimator;->setIntValues([I)V
 
-    .line 300
     return-object v0
 .end method
 
 .method public static varargs ofObject(Lcom/nineoldandroids/animation/TypeEvaluator;[Ljava/lang/Object;)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
-    .param p0, "evaluator"    # Lcom/nineoldandroids/animation/TypeEvaluator;
-    .param p1, "values"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 352
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
-    .line 353
-    .local v0, "anim":Lcom/nineoldandroids/animation/ValueAnimator;
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/ValueAnimator;->setObjectValues([Ljava/lang/Object;)V
 
-    .line 354
     invoke-virtual {v0, p0}, Lcom/nineoldandroids/animation/ValueAnimator;->setEvaluator(Lcom/nineoldandroids/animation/TypeEvaluator;)V
 
-    .line 355
     return-object v0
 .end method
 
 .method public static varargs ofPropertyValuesHolder([Lcom/nineoldandroids/animation/PropertyValuesHolder;)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 1
-    .param p0, "values"    # [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .prologue
-    .line 329
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator;
 
     invoke-direct {v0}, Lcom/nineoldandroids/animation/ValueAnimator;-><init>()V
 
-    .line 330
-    .local v0, "anim":Lcom/nineoldandroids/animation/ValueAnimator;
     invoke-virtual {v0, p0}, Lcom/nineoldandroids/animation/ValueAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 331
     return-object v0
 .end method
 
 .method public static setFrameDelay(J)V
     .locals 0
-    .param p0, "frameDelay"    # J
 
-    .prologue
-    .line 728
     sput-wide p0, Lcom/nineoldandroids/animation/ValueAnimator;->sFrameDelay:J
 
-    .line 729
     return-void
 .end method
 
 .method private start(Z)V
     .locals 10
-    .param p1, "playBackwards"    # Z
 
-    .prologue
     const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    .line 917
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v4
 
     if-nez v4, :cond_0
 
-    .line 918
     new-instance v4, Landroid/util/AndroidRuntimeException;
 
     const-string v5, "Animators may only be run on Looper threads"
@@ -787,23 +651,17 @@
 
     throw v4
 
-    .line 920
     :cond_0
     iput-boolean p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
-    .line 921
     iput v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
-    .line 922
     iput v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 923
     iput-boolean v9, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStarted:Z
 
-    .line 924
     iput-boolean v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
-    .line 925
     sget-object v4, Lcom/nineoldandroids/animation/ValueAnimator;->sPendingAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v4}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -814,7 +672,6 @@
 
     invoke-virtual {v4, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 926
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     const-wide/16 v6, 0x0
@@ -823,25 +680,20 @@
 
     if-nez v4, :cond_1
 
-    .line 928
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->getCurrentPlayTime()J
 
     move-result-wide v4
 
     invoke-virtual {p0, v4, v5}, Lcom/nineoldandroids/animation/ValueAnimator;->setCurrentPlayTime(J)V
 
-    .line 929
     iput v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 930
     iput-boolean v9, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
-    .line 932
     iget-object v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_1
 
-    .line 934
     iget-object v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -850,24 +702,15 @@
 
     check-cast v3, Ljava/util/ArrayList;
 
-    .line 935
-    .local v3, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    .line 936
-    .local v2, "numListeners":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-lt v1, v2, :cond_3
 
-    .line 941
-    .end local v1    # "i":I
-    .end local v2    # "numListeners":I
-    .end local v3    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_1
     sget-object v4, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimationHandler:Ljava/lang/ThreadLocal;
 
@@ -877,36 +720,23 @@
 
     check-cast v0, Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
 
-    .line 942
-    .local v0, "animationHandler":Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
     if-nez v0, :cond_2
 
-    .line 943
     new-instance v0, Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
 
-    .end local v0    # "animationHandler":Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
     const/4 v4, 0x0
 
     invoke-direct {v0, v4}, Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;-><init>(Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;)V
 
-    .line 944
-    .restart local v0    # "animationHandler":Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
     sget-object v4, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimationHandler:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v4, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 946
     :cond_2
     invoke-virtual {v0, v8}, Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;->sendEmptyMessage(I)Z
 
-    .line 947
     return-void
 
-    .line 937
-    .end local v0    # "animationHandler":Lcom/nineoldandroids/animation/ValueAnimator$AnimationHandler;
-    .restart local v1    # "i":I
-    .restart local v2    # "numListeners":I
-    .restart local v3    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_3
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -916,7 +746,6 @@
 
     invoke-interface {v4, p0}, Lcom/nineoldandroids/animation/Animator$AnimatorListener;->onAnimationStart(Lcom/nineoldandroids/animation/Animator;)V
 
-    .line 936
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
@@ -925,11 +754,8 @@
 .method private startAnimation()V
     .locals 8
 
-    .prologue
-    .line 1046
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->initAnimation()V
 
-    .line 1047
     sget-object v3, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -940,7 +766,6 @@
 
     invoke-virtual {v3, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1048
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     const-wide/16 v6, 0x0
@@ -953,7 +778,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 1052
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -962,31 +786,18 @@
 
     check-cast v2, Ljava/util/ArrayList;
 
-    .line 1053
-    .local v2, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 1054
-    .local v1, "numListeners":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_1
 
-    .line 1058
-    .end local v0    # "i":I
-    .end local v1    # "numListeners":I
-    .end local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_0
     return-void
 
-    .line 1055
-    .restart local v0    # "i":I
-    .restart local v1    # "numListeners":I
-    .restart local v2    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_1
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -996,7 +807,6 @@
 
     invoke-interface {v3, p0}, Lcom/nineoldandroids/animation/Animator$AnimatorListener;->onAnimationStart(Lcom/nineoldandroids/animation/Animator;)V
 
-    .line 1054
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -1006,84 +816,63 @@
 # virtual methods
 .method public addUpdateListener(Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;
 
-    .prologue
-    .line 820
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 821
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
-    .line 823
     :cond_0
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 824
     return-void
 .end method
 
 .method animateValue(F)V
     .locals 4
-    .param p1, "fraction"    # F
 
-    .prologue
-    .line 1169
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-interface {v3, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result p1
 
-    .line 1170
     iput p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentFraction:F
 
-    .line 1171
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v2, v3
 
-    .line 1172
-    .local v2, "numValues":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-lt v0, v2, :cond_1
 
-    .line 1175
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     if-eqz v3, :cond_0
 
-    .line 1176
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 1177
-    .local v1, "numListeners":I
     const/4 v0, 0x0
 
     :goto_1
     if-lt v0, v1, :cond_2
 
-    .line 1181
-    .end local v1    # "numListeners":I
     :cond_0
     return-void
 
-    .line 1173
     :cond_1
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -1091,13 +880,10 @@
 
     invoke-virtual {v3, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->calculateValue(F)V
 
-    .line 1172
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1178
-    .restart local v1    # "numListeners":I
     :cond_2
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
@@ -1109,7 +895,6 @@
 
     invoke-interface {v3, p0}, Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;->onAnimationUpdate(Lcom/nineoldandroids/animation/ValueAnimator;)V
 
-    .line 1177
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
@@ -1117,49 +902,38 @@
 
 .method animationFrame(J)Z
     .locals 13
-    .param p1, "currentTime"    # J
 
-    .prologue
     const-wide/16 v10, 0x0
 
     const/4 v5, 0x1
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    .line 1100
     const/4 v0, 0x0
 
-    .line 1102
-    .local v0, "done":Z
     iget v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     if-nez v4, :cond_0
 
-    .line 1103
     iput v5, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 1104
     iget-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
     cmp-long v4, v8, v10
 
     if-gez v4, :cond_1
 
-    .line 1105
     iput-wide p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 1112
     :cond_0
     :goto_0
     iget v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     packed-switch v4, :pswitch_data_0
 
-    .line 1143
     :goto_1
     return v0
 
-    .line 1107
     :cond_1
     iget-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
@@ -1167,14 +941,12 @@
 
     iput-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 1109
     const-wide/16 v8, -0x1
 
     iput-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
     goto :goto_0
 
-    .line 1115
     :pswitch_0
     iget-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
 
@@ -1194,14 +966,11 @@
 
     div-float v1, v4, v7
 
-    .line 1116
-    .local v1, "fraction":F
     :goto_2
     cmpl-float v4, v1, v6
 
     if-ltz v4, :cond_5
 
-    .line 1117
     iget v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
     iget v7, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatCount:I
@@ -1214,30 +983,22 @@
 
     if-ne v4, v7, :cond_a
 
-    .line 1119
     :cond_2
     iget-object v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_3
 
-    .line 1120
     iget-object v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    .line 1121
-    .local v3, "numListeners":I
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_3
     if-lt v2, v3, :cond_8
 
-    .line 1125
-    .end local v2    # "i":I
-    .end local v3    # "numListeners":I
     :cond_3
     iget v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatMode:I
 
@@ -1245,7 +1006,6 @@
 
     if-ne v4, v7, :cond_4
 
-    .line 1126
     iget-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
     if-eqz v4, :cond_9
@@ -1255,7 +1015,6 @@
     :goto_4
     iput-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
-    .line 1128
     :cond_4
     iget v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
@@ -1265,10 +1024,8 @@
 
     iput v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
-    .line 1129
     rem-float/2addr v1, v6
 
-    .line 1130
     iget-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
     iget-wide v8, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
@@ -1277,33 +1034,24 @@
 
     iput-wide v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 1136
     :cond_5
     :goto_5
     iget-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
     if-eqz v4, :cond_6
 
-    .line 1137
     sub-float v1, v6, v1
 
-    .line 1139
     :cond_6
     invoke-virtual {p0, v1}, Lcom/nineoldandroids/animation/ValueAnimator;->animateValue(F)V
 
     goto :goto_1
 
-    .end local v1    # "fraction":F
     :cond_7
     move v1, v6
 
-    .line 1115
     goto :goto_2
 
-    .line 1122
-    .restart local v1    # "fraction":F
-    .restart local v2    # "i":I
-    .restart local v3    # "numListeners":I
     :cond_8
     iget-object v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
@@ -1315,31 +1063,24 @@
 
     invoke-interface {v4, p0}, Lcom/nineoldandroids/animation/Animator$AnimatorListener;->onAnimationRepeat(Lcom/nineoldandroids/animation/Animator;)V
 
-    .line 1121
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .end local v2    # "i":I
-    .end local v3    # "numListeners":I
     :cond_9
     move v4, v5
 
-    .line 1126
     goto :goto_4
 
-    .line 1132
     :cond_a
     const/4 v0, 0x1
 
-    .line 1133
     invoke-static {v1, v6}, Ljava/lang/Math;->min(FF)F
 
     move-result v1
 
     goto :goto_5
 
-    .line 1112
     nop
 
     :pswitch_data_0
@@ -1352,8 +1093,6 @@
 .method public cancel()V
     .locals 4
 
-    .prologue
-    .line 958
     iget v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     if-nez v2, :cond_0
@@ -1372,7 +1111,6 @@
 
     if-nez v2, :cond_0
 
-    .line 959
     sget-object v2, Lcom/nineoldandroids/animation/ValueAnimator;->sDelayedAnims:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v2}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -1387,7 +1125,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 961
     :cond_0
     iget-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRunning:Z
 
@@ -1397,7 +1134,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 963
     iget-object v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -1406,8 +1142,6 @@
 
     check-cast v1, Ljava/util/ArrayList;
 
-    .line 964
-    .local v1, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1419,17 +1153,12 @@
 
     if-nez v3, :cond_3
 
-    .line 968
-    .end local v1    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_1
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->endAnimation()V
 
-    .line 970
     :cond_2
     return-void
 
-    .line 964
-    .restart local v1    # "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/Animator$AnimatorListener;>;"
     :cond_3
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1437,8 +1166,6 @@
 
     check-cast v0, Lcom/nineoldandroids/animation/Animator$AnimatorListener;
 
-    .line 965
-    .local v0, "listener":Lcom/nineoldandroids/animation/Animator$AnimatorListener;
     invoke-interface {v0, p0}, Lcom/nineoldandroids/animation/Animator$AnimatorListener;->onAnimationCancel(Lcom/nineoldandroids/animation/Animator;)V
 
     goto :goto_0
@@ -1447,8 +1174,6 @@
 .method public bridge synthetic clone()Lcom/nineoldandroids/animation/Animator;
     .locals 1
 
-    .prologue
-    .line 1
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->clone()Lcom/nineoldandroids/animation/ValueAnimator;
 
     move-result-object v0
@@ -1459,111 +1184,74 @@
 .method public clone()Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 11
 
-    .prologue
     const/4 v10, 0x0
 
-    .line 1185
     invoke-super {p0}, Lcom/nineoldandroids/animation/Animator;->clone()Lcom/nineoldandroids/animation/Animator;
 
     move-result-object v0
 
     check-cast v0, Lcom/nineoldandroids/animation/ValueAnimator;
 
-    .line 1186
-    .local v0, "anim":Lcom/nineoldandroids/animation/ValueAnimator;
     iget-object v7, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     if-eqz v7, :cond_0
 
-    .line 1187
     iget-object v5, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
-    .line 1188
-    .local v5, "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;>;"
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v7, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
-    .line 1189
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    .line 1190
-    .local v3, "numListeners":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-lt v1, v3, :cond_2
 
-    .line 1194
-    .end local v1    # "i":I
-    .end local v3    # "numListeners":I
-    .end local v5    # "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;>;"
     :cond_0
     const-wide/16 v8, -0x1
 
     iput-wide v8, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
-    .line 1195
     iput-boolean v10, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
-    .line 1196
     iput v10, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentIteration:I
 
-    .line 1197
     iput-boolean v10, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
-    .line 1198
     iput v10, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 1199
     iput-boolean v10, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
-    .line 1200
     iget-object v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .line 1201
-    .local v6, "oldValues":[Lcom/nineoldandroids/animation/PropertyValuesHolder;
     if-eqz v6, :cond_1
 
-    .line 1202
     array-length v4, v6
 
-    .line 1203
-    .local v4, "numValues":I
     new-array v7, v4, [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     iput-object v7, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .line 1204
     new-instance v7, Ljava/util/HashMap;
 
     invoke-direct {v7, v4}, Ljava/util/HashMap;-><init>(I)V
 
     iput-object v7, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mValuesMap:Ljava/util/HashMap;
 
-    .line 1205
     const/4 v1, 0x0
 
-    .restart local v1    # "i":I
     :goto_1
     if-lt v1, v4, :cond_3
 
-    .line 1211
-    .end local v1    # "i":I
-    .end local v4    # "numValues":I
     :cond_1
     return-object v0
 
-    .line 1191
-    .end local v6    # "oldValues":[Lcom/nineoldandroids/animation/PropertyValuesHolder;
-    .restart local v1    # "i":I
-    .restart local v3    # "numListeners":I
-    .restart local v5    # "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;>;"
     :cond_2
     iget-object v8, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
@@ -1575,16 +1263,10 @@
 
     invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1190
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1206
-    .end local v3    # "numListeners":I
-    .end local v5    # "oldListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;>;"
-    .restart local v4    # "numValues":I
-    .restart local v6    # "oldValues":[Lcom/nineoldandroids/animation/PropertyValuesHolder;
     :cond_3
     aget-object v7, v6, v1
 
@@ -1592,13 +1274,10 @@
 
     move-result-object v2
 
-    .line 1207
-    .local v2, "newValuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     iget-object v7, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aput-object v2, v7, v1
 
-    .line 1208
     iget-object v7, v0, Lcom/nineoldandroids/animation/ValueAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->getPropertyName()Ljava/lang/String;
@@ -1607,7 +1286,6 @@
 
     invoke-virtual {v7, v8, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1205
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
@@ -1616,8 +1294,6 @@
 .method public end()V
     .locals 2
 
-    .prologue
-    .line 974
     sget-object v0, Lcom/nineoldandroids/animation/ValueAnimator;->sAnimations:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -1646,15 +1322,12 @@
 
     if-nez v0, :cond_1
 
-    .line 976
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartedDelay:Z
 
-    .line 977
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->startAnimation()V
 
-    .line 983
     :cond_0
     :goto_0
     iget v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatCount:I
@@ -1669,30 +1342,24 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 984
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/nineoldandroids/animation/ValueAnimator;->animateValue(F)V
 
-    .line 988
     :goto_1
     invoke-direct {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->endAnimation()V
 
-    .line 989
     return-void
 
-    .line 978
     :cond_1
     iget-boolean v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     if-nez v0, :cond_0
 
-    .line 979
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->initAnimation()V
 
     goto :goto_0
 
-    .line 986
     :cond_2
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -1704,8 +1371,6 @@
 .method public getAnimatedFraction()F
     .locals 1
 
-    .prologue
-    .line 1153
     iget v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mCurrentFraction:F
 
     return v0
@@ -1714,8 +1379,6 @@
 .method public getAnimatedValue()Ljava/lang/Object;
     .locals 2
 
-    .prologue
-    .line 744
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v0, :cond_0
@@ -1726,7 +1389,6 @@
 
     if-lez v0, :cond_0
 
-    .line 745
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     const/4 v1, 0x0
@@ -1737,7 +1399,6 @@
 
     move-result-object v0
 
-    .line 748
     :goto_0
     return-object v0
 
@@ -1749,10 +1410,7 @@
 
 .method public getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
-    .param p1, "propertyName"    # Ljava/lang/String;
 
-    .prologue
-    .line 762
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1761,16 +1419,12 @@
 
     check-cast v0, Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .line 763
-    .local v0, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     if-eqz v0, :cond_0
 
-    .line 764
     invoke-virtual {v0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 767
     :goto_0
     return-object v1
 
@@ -1783,8 +1437,6 @@
 .method public getCurrentPlayTime()J
     .locals 4
 
-    .prologue
-    .line 556
     iget-boolean v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     if-eqz v0, :cond_0
@@ -1793,11 +1445,9 @@
 
     if-nez v0, :cond_1
 
-    .line 557
     :cond_0
     const-wide/16 v0, 0x0
 
-    .line 559
     :goto_0
     return-wide v0
 
@@ -1816,8 +1466,6 @@
 .method public getDuration()J
     .locals 2
 
-    .prologue
-    .line 524
     iget-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
 
     return-wide v0
@@ -1826,8 +1474,6 @@
 .method public getInterpolator()Landroid/view/animation/Interpolator;
     .locals 1
 
-    .prologue
-    .line 878
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInterpolator:Landroid/view/animation/Interpolator;
 
     return-object v0
@@ -1836,8 +1482,6 @@
 .method public getRepeatCount()I
     .locals 1
 
-    .prologue
-    .line 789
     iget v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatCount:I
 
     return v0
@@ -1846,8 +1490,6 @@
 .method public getRepeatMode()I
     .locals 1
 
-    .prologue
-    .line 809
     iget v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatMode:I
 
     return v0
@@ -1856,8 +1498,6 @@
 .method public getStartDelay()J
     .locals 2
 
-    .prologue
-    .line 692
     iget-wide v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
     return-wide v0
@@ -1866,8 +1506,6 @@
 .method public getValues()[Lcom/nineoldandroids/animation/PropertyValuesHolder;
     .locals 1
 
-    .prologue
-    .line 476
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     return-object v0
@@ -1876,39 +1514,26 @@
 .method initAnimation()V
     .locals 3
 
-    .prologue
-    .line 490
     iget-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     if-nez v2, :cond_0
 
-    .line 491
     iget-object v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     array-length v1, v2
 
-    .line 492
-    .local v1, "numValues":I
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_1
 
-    .line 495
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
-    .line 497
-    .end local v0    # "i":I
-    .end local v1    # "numValues":I
     :cond_0
     return-void
 
-    .line 493
-    .restart local v0    # "i":I
-    .restart local v1    # "numValues":I
     :cond_1
     iget-object v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -1916,7 +1541,6 @@
 
     invoke-virtual {v2}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->init()V
 
-    .line 492
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -1925,10 +1549,8 @@
 .method public isRunning()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x1
 
-    .line 993
     iget v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     if-eq v1, v0, :cond_0
@@ -1946,8 +1568,6 @@
 .method public isStarted()Z
     .locals 1
 
-    .prologue
-    .line 998
     iget-boolean v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStarted:Z
 
     return v0
@@ -1956,23 +1576,18 @@
 .method public removeAllUpdateListeners()V
     .locals 1
 
-    .prologue
-    .line 830
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 835
     :goto_0
     return-void
 
-    .line 833
     :cond_0
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 834
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
@@ -1982,26 +1597,20 @@
 
 .method public removeUpdateListener(Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/nineoldandroids/animation/ValueAnimator$AnimatorUpdateListener;
 
-    .prologue
-    .line 844
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     if-nez v0, :cond_1
 
-    .line 851
     :cond_0
     :goto_0
     return-void
 
-    .line 847
     :cond_1
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 848
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -2010,7 +1619,6 @@
 
     if-nez v0, :cond_0
 
-    .line 849
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
@@ -2021,10 +1629,8 @@
 .method public reverse()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x1
 
-    .line 1009
     iget-boolean v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
     if-eqz v6, :cond_0
@@ -2034,48 +1640,34 @@
     :goto_0
     iput-boolean v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingBackwards:Z
 
-    .line 1010
     iget v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     if-ne v6, v7, :cond_1
 
-    .line 1011
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v2
 
-    .line 1012
-    .local v2, "currentTime":J
     iget-wide v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
     sub-long v0, v2, v6
 
-    .line 1013
-    .local v0, "currentPlayTime":J
     iget-wide v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
 
     sub-long v4, v6, v0
 
-    .line 1014
-    .local v4, "timeLeft":J
     sub-long v6, v2, v4
 
     iput-wide v6, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 1018
-    .end local v0    # "currentPlayTime":J
-    .end local v2    # "currentTime":J
-    .end local v4    # "timeLeft":J
     :goto_1
     return-void
 
     :cond_0
     move v6, v7
 
-    .line 1009
     goto :goto_0
 
-    .line 1016
     :cond_1
     invoke-direct {p0, v7}, Lcom/nineoldandroids/animation/ValueAnimator;->start(Z)V
 
@@ -2084,51 +1676,38 @@
 
 .method public setCurrentPlayTime(J)V
     .locals 5
-    .param p1, "playTime"    # J
 
-    .prologue
-    .line 538
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/ValueAnimator;->initAnimation()V
 
-    .line 539
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
 
-    .line 540
-    .local v0, "currentTime":J
     iget v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
     const/4 v3, 0x1
 
     if-eq v2, v3, :cond_0
 
-    .line 541
     iput-wide p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mSeekTime:J
 
-    .line 542
     const/4 v2, 0x2
 
     iput v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mPlayingState:I
 
-    .line 544
     :cond_0
     sub-long v2, v0, p1
 
     iput-wide v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartTime:J
 
-    .line 545
     invoke-virtual {p0, v0, v1}, Lcom/nineoldandroids/animation/ValueAnimator;->animationFrame(J)Z
 
-    .line 546
     return-void
 .end method
 
 .method public bridge synthetic setDuration(J)Lcom/nineoldandroids/animation/Animator;
     .locals 1
 
-    .prologue
-    .line 1
     invoke-virtual {p0, p1, p2}, Lcom/nineoldandroids/animation/ValueAnimator;->setDuration(J)Lcom/nineoldandroids/animation/ValueAnimator;
 
     move-result-object v0
@@ -2138,17 +1717,13 @@
 
 .method public setDuration(J)Lcom/nineoldandroids/animation/ValueAnimator;
     .locals 3
-    .param p1, "duration"    # J
 
-    .prologue
-    .line 510
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 511
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2157,7 +1732,6 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 512
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2166,25 +1740,19 @@
 
     move-result-object v1
 
-    .line 511
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 514
     :cond_0
     iput-wide p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mDuration:J
 
-    .line 515
     return-object p0
 .end method
 
 .method public setEvaluator(Lcom/nineoldandroids/animation/TypeEvaluator;)V
     .locals 2
-    .param p1, "value"    # Lcom/nineoldandroids/animation/TypeEvaluator;
 
-    .prologue
-    .line 898
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
@@ -2197,7 +1765,6 @@
 
     if-lez v0, :cond_0
 
-    .line 899
     iget-object v0, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     const/4 v1, 0x0
@@ -2206,31 +1773,25 @@
 
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setEvaluator(Lcom/nineoldandroids/animation/TypeEvaluator;)V
 
-    .line 901
     :cond_0
     return-void
 .end method
 
 .method public varargs setFloatValues([F)V
     .locals 4
-    .param p1, "values"    # [F
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 401
     if-eqz p1, :cond_0
 
     array-length v1, p1
 
     if-nez v1, :cond_1
 
-    .line 412
     :cond_0
     :goto_0
     return-void
 
-    .line 404
     :cond_1
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -2242,7 +1803,6 @@
 
     if-nez v1, :cond_3
 
-    .line 405
     :cond_2
     const/4 v1, 0x1
 
@@ -2258,20 +1818,16 @@
 
     invoke-virtual {p0, v1}, Lcom/nineoldandroids/animation/ValueAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 411
     :goto_1
     iput-boolean v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     goto :goto_0
 
-    .line 407
     :cond_3
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aget-object v0, v1, v3
 
-    .line 408
-    .local v0, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setFloatValues([F)V
 
     goto :goto_1
@@ -2279,24 +1835,19 @@
 
 .method public varargs setIntValues([I)V
     .locals 4
-    .param p1, "values"    # [I
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 373
     if-eqz p1, :cond_0
 
     array-length v1, p1
 
     if-nez v1, :cond_1
 
-    .line 384
     :cond_0
     :goto_0
     return-void
 
-    .line 376
     :cond_1
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -2308,7 +1859,6 @@
 
     if-nez v1, :cond_3
 
-    .line 377
     :cond_2
     const/4 v1, 0x1
 
@@ -2324,20 +1874,16 @@
 
     invoke-virtual {p0, v1}, Lcom/nineoldandroids/animation/ValueAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 383
     :goto_1
     iput-boolean v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     goto :goto_0
 
-    .line 379
     :cond_3
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aget-object v0, v1, v3
 
-    .line 380
-    .local v0, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setIntValues([I)V
 
     goto :goto_1
@@ -2345,20 +1891,14 @@
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)V
     .locals 1
-    .param p1, "value"    # Landroid/view/animation/Interpolator;
 
-    .prologue
-    .line 865
     if-eqz p1, :cond_0
 
-    .line 866
     iput-object p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 870
     :goto_0
     return-void
 
-    .line 868
     :cond_0
     new-instance v0, Landroid/view/animation/LinearInterpolator;
 
@@ -2371,24 +1911,19 @@
 
 .method public varargs setObjectValues([Ljava/lang/Object;)V
     .locals 5
-    .param p1, "values"    # [Ljava/lang/Object;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 433
     if-eqz p1, :cond_0
 
     array-length v1, p1
 
     if-nez v1, :cond_1
 
-    .line 445
     :cond_0
     :goto_0
     return-void
 
-    .line 436
     :cond_1
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -2400,7 +1935,6 @@
 
     if-nez v1, :cond_3
 
-    .line 437
     :cond_2
     const/4 v1, 0x1
 
@@ -2408,10 +1942,8 @@
 
     const-string v2, ""
 
-    .line 438
     const/4 v3, 0x0
 
-    .line 437
     invoke-static {v2, v3, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->ofObject(Ljava/lang/String;Lcom/nineoldandroids/animation/TypeEvaluator;[Ljava/lang/Object;)Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     move-result-object v2
@@ -2420,20 +1952,16 @@
 
     invoke-virtual {p0, v1}, Lcom/nineoldandroids/animation/ValueAnimator;->setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 444
     :goto_1
     iput-boolean v4, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
     goto :goto_0
 
-    .line 440
     :cond_3
     iget-object v1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     aget-object v0, v1, v4
 
-    .line 441
-    .local v0, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setObjectValues([Ljava/lang/Object;)V
 
     goto :goto_1
@@ -2441,80 +1969,55 @@
 
 .method public setRepeatCount(I)V
     .locals 0
-    .param p1, "value"    # I
 
-    .prologue
-    .line 780
     iput p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatCount:I
 
-    .line 781
     return-void
 .end method
 
 .method public setRepeatMode(I)V
     .locals 0
-    .param p1, "value"    # I
 
-    .prologue
-    .line 800
     iput p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mRepeatMode:I
 
-    .line 801
     return-void
 .end method
 
 .method public setStartDelay(J)V
     .locals 1
-    .param p1, "startDelay"    # J
 
-    .prologue
-    .line 702
     iput-wide p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mStartDelay:J
 
-    .line 703
     return-void
 .end method
 
 .method public varargs setValues([Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
     .locals 5
-    .param p1, "values"    # [Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .prologue
-    .line 456
     array-length v1, p1
 
-    .line 457
-    .local v1, "numValues":I
     iput-object p1, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
-    .line 458
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3, v1}, Ljava/util/HashMap;-><init>(I)V
 
     iput-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValuesMap:Ljava/util/HashMap;
 
-    .line 459
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-lt v0, v1, :cond_0
 
-    .line 464
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mInitialized:Z
 
-    .line 465
     return-void
 
-    .line 460
     :cond_0
     aget-object v2, p1, v0
 
-    .line 461
-    .local v2, "valuesHolder":Lcom/nineoldandroids/animation/PropertyValuesHolder;
     iget-object v3, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValuesMap:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->getPropertyName()Ljava/lang/String;
@@ -2523,7 +2026,6 @@
 
     invoke-virtual {v3, v4, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 459
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -2532,21 +2034,16 @@
 .method public start()V
     .locals 1
 
-    .prologue
-    .line 951
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/nineoldandroids/animation/ValueAnimator;->start(Z)V
 
-    .line 952
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 1256
     new-instance v2, Ljava/lang/StringBuilder;
 
     const-string v3, "ValueAnimator@"
@@ -2569,16 +2066,12 @@
 
     move-result-object v1
 
-    .line 1257
-    .local v1, "returnVal":Ljava/lang/String;
     iget-object v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     if-eqz v2, :cond_0
 
-    .line 1258
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lcom/nineoldandroids/animation/ValueAnimator;->mValues:[Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
@@ -2586,13 +2079,9 @@
 
     if-lt v0, v2, :cond_1
 
-    .line 1262
-    .end local v0    # "i":I
     :cond_0
     return-object v1
 
-    .line 1259
-    .restart local v0    # "i":I
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2624,7 +2113,6 @@
 
     move-result-object v1
 
-    .line 1258
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0

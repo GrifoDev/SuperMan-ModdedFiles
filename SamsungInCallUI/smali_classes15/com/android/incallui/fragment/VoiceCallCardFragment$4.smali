@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
-    .prologue
-    .line 567
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,17 +36,13 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 570
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhoto:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_0
 
-    .line 571
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v1, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mPhoto:Landroid/widget/ImageView;
@@ -66,7 +59,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    .line 573
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
@@ -74,7 +66,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 574
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$4;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v1, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mBizDuring:Landroid/widget/ImageView;
@@ -91,7 +82,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    .line 576
     :cond_1
     return-void
 .end method

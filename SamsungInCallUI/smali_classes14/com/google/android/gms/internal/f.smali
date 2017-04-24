@@ -181,9 +181,7 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 7
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
     const/4 v1, 0x1
 
     const/high16 v6, 0x3f800000    # 1.0f
@@ -482,9 +480,7 @@
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/internal/as;->an()Z
 
     move-result v0
@@ -549,9 +545,7 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/f;->ba:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
@@ -573,11 +567,7 @@
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
     .locals 1
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "what"    # Ljava/lang/Runnable;
-    .param p3, "when"    # J
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/internal/as;->an()Z
 
     move-result v0
@@ -598,9 +588,7 @@
 
 .method public setAlpha(I)V
     .locals 2
-    .param p1, "alpha"    # I
 
-    .prologue
     iget v0, p0, Lcom/google/android/gms/internal/f;->aX:I
 
     iget v1, p0, Lcom/google/android/gms/internal/f;->aV:I
@@ -619,9 +607,7 @@
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/f;->ba:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
@@ -635,9 +621,7 @@
 
 .method public startTransition(I)V
     .locals 2
-    .param p1, "durationMillis"    # I
 
-    .prologue
     const/4 v1, 0x0
 
     iput v1, p0, Lcom/google/android/gms/internal/f;->aT:I
@@ -661,10 +645,7 @@
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "what"    # Ljava/lang/Runnable;
 
-    .prologue
     invoke-static {}, Lcom/google/android/gms/internal/as;->an()Z
 
     move-result v0

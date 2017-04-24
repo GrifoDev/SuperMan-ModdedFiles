@@ -35,8 +35,6 @@
 .method constructor <init>(Ljava/util/concurrent/Executor;Lcom/google/common/cache/RemovalListener;)V
     .locals 0
 
-    .prologue
-    .line 45
     iput-object p1, p0, Lcom/google/common/cache/RemovalListeners$1;->val$executor:Ljava/util/concurrent/Executor;
 
     iput-object p2, p0, Lcom/google/common/cache/RemovalListeners$1;->val$listener:Lcom/google/common/cache/RemovalListener;
@@ -58,9 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 48
-    .local p1, "notification":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/RemovalListeners$1;->val$executor:Ljava/util/concurrent/Executor;
 
     new-instance v1, Lcom/google/common/cache/RemovalListeners$1$1;
@@ -69,6 +64,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 54
     return-void
 .end method

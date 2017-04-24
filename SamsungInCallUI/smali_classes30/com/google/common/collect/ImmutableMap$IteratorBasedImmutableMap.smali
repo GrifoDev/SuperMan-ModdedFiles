@@ -30,9 +30,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 369
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMap;-><init>()V
 
     return-void
@@ -52,9 +49,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 386
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;
 
     invoke-direct {v0, p0}, Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap$1EntrySetImpl;-><init>(Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;)V
@@ -77,9 +71,6 @@
 .method public bridge synthetic entrySet()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 369
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap;->entrySet()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
@@ -90,9 +81,6 @@
 .method public bridge synthetic keySet()Ljava/util/Set;
     .locals 1
 
-    .prologue
-    .line 369
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap;->keySet()Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
@@ -103,9 +91,6 @@
 .method public bridge synthetic values()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 369
-    .local p0, "this":Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap;, "Lcom/google/common/collect/ImmutableMap$IteratorBasedImmutableMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/ImmutableMap;->values()Lcom/google/common/collect/ImmutableCollection;
 
     move-result-object v0

@@ -32,9 +32,7 @@
 # direct methods
 .method private constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;)V
     .locals 2
-    .param p1, "builder"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iget-object v0, p1, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;->eW:Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
@@ -99,10 +97,7 @@
 
 .method synthetic constructor <init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
-    .param p2, "x1"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$1;
 
-    .prologue
     invoke-direct {p0, p1}, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig;-><init>(Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;)V
 
     return-void
@@ -110,9 +105,7 @@
 
 .method public static builder(Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;)Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
     .locals 2
-    .param p0, "listener"    # Lcom/google/android/gms/games/multiplayer/realtime/RoomUpdateListener;
 
-    .prologue
     new-instance v0, Lcom/google/android/gms/games/multiplayer/realtime/RoomConfig$Builder;
 
     const/4 v1, 0x0
@@ -124,11 +117,7 @@
 
 .method public static createAutoMatchCriteria(IIJ)Landroid/os/Bundle;
     .locals 2
-    .param p0, "minAutoMatchPlayers"    # I
-    .param p1, "maxAutoMatchPlayers"    # I
-    .param p2, "exclusiveBitMask"    # J
 
-    .prologue
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V

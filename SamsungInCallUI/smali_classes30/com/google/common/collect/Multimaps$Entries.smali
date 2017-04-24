@@ -32,9 +32,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1694
-    .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
     return-void
@@ -45,40 +42,30 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 1722
-    .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$Entries;->multimap()Lcom/google/common/collect/Multimap;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/google/common/collect/Multimap;->clear()V
 
-    .line 1723
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 1704
-    .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 1705
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 1706
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$Entries;->multimap()Lcom/google/common/collect/Multimap;
 
     move-result-object v1
@@ -95,8 +82,6 @@
 
     move-result v1
 
-    .line 1708
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :goto_0
     return v1
 
@@ -118,25 +103,19 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 1713
-    .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     instance-of v1, p1, Ljava/util/Map$Entry;
 
     if-eqz v1, :cond_0
 
     move-object v0, p1
 
-    .line 1714
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 1715
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$Entries;->multimap()Lcom/google/common/collect/Multimap;
 
     move-result-object v1
@@ -153,8 +132,6 @@
 
     move-result v1
 
-    .line 1717
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :goto_0
     return v1
 
@@ -167,9 +144,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 1699
-    .local p0, "this":Lcom/google/common/collect/Multimaps$Entries;, "Lcom/google/common/collect/Multimaps$Entries<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$Entries;->multimap()Lcom/google/common/collect/Multimap;
 
     move-result-object v0

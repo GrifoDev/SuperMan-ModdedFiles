@@ -36,8 +36,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 39
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer"
@@ -49,7 +47,6 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer:[I
 
-    .line 40
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_content"
@@ -61,7 +58,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_content:I
 
-    .line 41
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_handle"
@@ -73,7 +69,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_handle:I
 
-    .line 42
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_topOffset"
@@ -85,7 +80,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_topOffset:I
 
-    .line 43
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_bottomOffset"
@@ -97,7 +91,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_bottomOffset:I
 
-    .line 44
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_orientation"
@@ -109,7 +102,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_orientation:I
 
-    .line 45
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_allowSingleTap"
@@ -121,7 +113,6 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_allowSingleTap:I
 
-    .line 46
     const-string v0, "android.R$styleable"
 
     const-string v1, "SlidingDrawer_animateOnClick"
@@ -133,15 +124,12 @@
 
     sput v0, Lcom/android/incallui/wrapper/AndroidRWrapper$styleable;->SlidingDrawer_animateOnClick:I
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

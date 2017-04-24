@@ -35,29 +35,29 @@
 
 .field public static final abc_capital_on:I = 0x7f090009
 
-.field public static final abc_font_family_body_1_material:I = 0x7f09041c
+.field public static final abc_font_family_body_1_material:I = 0x7f090423
 
-.field public static final abc_font_family_body_2_material:I = 0x7f09041d
+.field public static final abc_font_family_body_2_material:I = 0x7f090424
 
-.field public static final abc_font_family_button_material:I = 0x7f09041e
+.field public static final abc_font_family_button_material:I = 0x7f090425
 
-.field public static final abc_font_family_caption_material:I = 0x7f09041f
+.field public static final abc_font_family_caption_material:I = 0x7f090426
 
-.field public static final abc_font_family_display_1_material:I = 0x7f090420
+.field public static final abc_font_family_display_1_material:I = 0x7f090427
 
-.field public static final abc_font_family_display_2_material:I = 0x7f090421
+.field public static final abc_font_family_display_2_material:I = 0x7f090428
 
-.field public static final abc_font_family_display_3_material:I = 0x7f090422
+.field public static final abc_font_family_display_3_material:I = 0x7f090429
 
-.field public static final abc_font_family_display_4_material:I = 0x7f090423
+.field public static final abc_font_family_display_4_material:I = 0x7f09042a
 
-.field public static final abc_font_family_headline_material:I = 0x7f090424
+.field public static final abc_font_family_headline_material:I = 0x7f09042b
 
-.field public static final abc_font_family_menu_material:I = 0x7f090425
+.field public static final abc_font_family_menu_material:I = 0x7f09042c
 
-.field public static final abc_font_family_subhead_material:I = 0x7f090426
+.field public static final abc_font_family_subhead_material:I = 0x7f09042d
 
-.field public static final abc_font_family_title_material:I = 0x7f090427
+.field public static final abc_font_family_title_material:I = 0x7f09042e
 
 .field public static final abc_search_hint:I = 0x7f09000a
 
@@ -84,8 +84,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 641
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

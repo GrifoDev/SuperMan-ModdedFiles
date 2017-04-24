@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
-    .prologue
-    .line 193
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,15 +33,11 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 196
     const-string v0, "hide animation end..."
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 197
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->mConferenceParticipantList:Landroid/widget/ListView;
@@ -56,7 +49,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAlpha(F)V
 
-    .line 198
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->getView()Landroid/view/View;
@@ -65,7 +57,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 199
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->getView()Landroid/view/View;
@@ -76,7 +67,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 201
     :cond_0
     return-void
 .end method

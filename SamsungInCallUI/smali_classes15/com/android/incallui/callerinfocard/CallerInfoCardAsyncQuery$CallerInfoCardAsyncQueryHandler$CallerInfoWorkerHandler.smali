@@ -21,17 +21,11 @@
 # direct methods
 .method public constructor <init>(Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;
-    .param p2, "looper"    # Landroid/os/Looper;
 
-    .prologue
-    .line 92
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler$CallerInfoWorkerHandler;->this$1:Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CallerInfoCardAsyncQueryHandler;
 
-    .line 93
     invoke-direct {p0, p1, p2}, Landroid/content/AsyncQueryHandler$WorkerHandler;-><init>(Landroid/content/AsyncQueryHandler;Landroid/os/Looper;)V
 
-    .line 94
     return-void
 .end method
 
@@ -39,25 +33,17 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 98
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/AsyncQueryHandler$WorkerArgs;
 
-    .line 99
-    .local v0, "args":Landroid/content/AsyncQueryHandler$WorkerArgs;
     iget-object v1, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
 
-    .line 101
-    .local v1, "cw":Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery$CookieWrapper;
     if-nez v1, :cond_0
 
-    .line 102
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -86,14 +72,11 @@
 
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 104
     invoke-super {p0, p1}, Landroid/content/AsyncQueryHandler$WorkerHandler;->handleMessage(Landroid/os/Message;)V
 
-    .line 111
     :goto_0
     return-void
 
-    .line 107
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -143,7 +126,6 @@
 
     iget-object v3, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
-    .line 108
     # invokes: Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;->sanitizeUriToString(Landroid/net/Uri;)Ljava/lang/String;
     invoke-static {v3}, Lcom/android/incallui/callerinfocard/CallerInfoCardAsyncQuery;->access$000(Landroid/net/Uri;)Ljava/lang/String;
 
@@ -157,10 +139,8 @@
 
     move-result-object v2
 
-    .line 107
     invoke-static {p0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 109
     invoke-super {p0, p1}, Landroid/content/AsyncQueryHandler$WorkerHandler;->handleMessage(Landroid/os/Message;)V
 
     goto :goto_0

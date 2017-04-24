@@ -31,10 +31,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 619
     const-class v1, Lcom/google/common/reflect/Types$NativeTypeVariableEquals;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
@@ -70,9 +68,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 618
-    .local p0, "this":Lcom/google/common/reflect/Types$NativeTypeVariableEquals;, "Lcom/google/common/reflect/Types$NativeTypeVariableEquals<TX;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -45,9 +45,6 @@
 
 .method public constructor <init>(ILjava/util/List;JJ)V
     .locals 1
-    .param p1, "versionCode"    # I
-    .param p3, "timeMillis"    # J
-    .param p5, "elapsedRealtimeMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -58,8 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p2, "probableActivities":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/location/DetectedActivity;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x1
@@ -77,11 +72,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/location/DetectedActivity;JJ)V
     .locals 6
-    .param p1, "mostProbableActivity"    # Lcom/google/android/gms/location/DetectedActivity;
-    .param p2, "time"    # J
-    .param p4, "elapsedRealtimeMillis"    # J
 
-    .prologue
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -99,8 +90,6 @@
 
 .method public constructor <init>(Ljava/util/List;JJ)V
     .locals 4
-    .param p2, "time"    # J
-    .param p4, "elapsedRealtimeMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,8 +100,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "probableActivities":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/location/DetectedActivity;>;"
     const/4 v1, 0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -150,9 +137,7 @@
 
 .method public static extractResult(Landroid/content/Intent;)Lcom/google/android/gms/location/ActivityRecognitionResult;
     .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
 
-    .prologue
     invoke-static {p0}, Lcom/google/android/gms/location/ActivityRecognitionResult;->hasResult(Landroid/content/Intent;)Z
 
     move-result v0
@@ -182,9 +167,7 @@
 
 .method public static hasResult(Landroid/content/Intent;)Z
     .locals 1
-    .param p0, "intent"    # Landroid/content/Intent;
 
-    .prologue
     if-nez p0, :cond_0
 
     const/4 v0, 0x0
@@ -214,9 +197,7 @@
 
 .method public getActivityConfidence(I)I
     .locals 3
-    .param p1, "activityType"    # I
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/location/ActivityRecognitionResult;->fp:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -370,10 +351,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/location/ActivityRecognitionResultCreator;->a(Lcom/google/android/gms/location/ActivityRecognitionResult;Landroid/os/Parcel;I)V
 
     return-void

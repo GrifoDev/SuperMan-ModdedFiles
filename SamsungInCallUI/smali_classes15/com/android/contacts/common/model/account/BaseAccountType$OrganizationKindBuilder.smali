@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 1275
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$KindBuilder;-><init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
@@ -29,10 +27,7 @@
 
 .method synthetic constructor <init>(Lcom/android/contacts/common/model/account/BaseAccountType$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/contacts/common/model/account/BaseAccountType$1;
 
-    .prologue
-    .line 1275
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$OrganizationKindBuilder;-><init>()V
 
     return-void
@@ -43,8 +38,6 @@
 .method public getTagName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1279
     const-string v0, "organization"
 
     return-object v0
@@ -52,9 +45,6 @@
 
 .method public parseDataKind(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Ljava/util/List;
     .locals 12
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,21 +67,19 @@
         }
     .end annotation
 
-    .prologue
-    .line 1286
     const/4 v4, 0x0
 
     const-string v5, "vnd.android.cursor.item/organization"
 
     const/4 v6, 0x0
 
-    const v7, 0x7f0901ff
+    const v7, 0x7f090200
 
     const/16 v8, 0x7d
 
     new-instance v9, Lcom/android/contacts/common/model/account/BaseAccountType$SimpleInflater;
 
-    const v0, 0x7f0901ff
+    const v0, 0x7f090200
 
     invoke-direct {v9, v0}, Lcom/android/contacts/common/model/account/BaseAccountType$SimpleInflater;-><init>(I)V
 
@@ -109,28 +97,11 @@
 
     move-result-object v11
 
-    .line 1292
-    .local v11, "kind":Lcom/android/contacts/common/model/dataitem/DataKind;
     iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
 
     new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
 
     const-string v2, "data1"
-
-    const v3, 0x7f09011d
-
-    const/16 v4, 0x2001
-
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/contacts/common/model/account/AccountType$EditField;-><init>(Ljava/lang/String;II)V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 1294
-    iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
-
-    new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
-
-    const-string v2, "data4"
 
     const v3, 0x7f09011e
 
@@ -140,10 +111,22 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1297
+    iget-object v0, v11, Lcom/android/contacts/common/model/dataitem/DataKind;->fieldList:Ljava/util/List;
+
+    new-instance v1, Lcom/android/contacts/common/model/account/AccountType$EditField;
+
+    const-string v2, "data4"
+
+    const v3, 0x7f09011f
+
+    const/16 v4, 0x2001
+
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/contacts/common/model/account/AccountType$EditField;-><init>(Ljava/lang/String;II)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     invoke-virtual {p0, v11}, Lcom/android/contacts/common/model/account/BaseAccountType$OrganizationKindBuilder;->throwIfList(Lcom/android/contacts/common/model/dataitem/DataKind;)V
 
-    .line 1299
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/android/contacts/common/model/dataitem/DataKind;

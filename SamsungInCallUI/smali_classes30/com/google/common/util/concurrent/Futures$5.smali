@@ -27,8 +27,6 @@
 .method constructor <init>(Ljava/util/concurrent/ConcurrentLinkedQueue;Lcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
 
-    .prologue
-    .line 1668
     iput-object p1, p0, Lcom/google/common/util/concurrent/Futures$5;->val$delegates:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     iput-object p2, p0, Lcom/google/common/util/concurrent/Futures$5;->val$future:Lcom/google/common/util/concurrent/ListenableFuture;
@@ -43,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 1670
     iget-object v0, p0, Lcom/google/common/util/concurrent/Futures$5;->val$delegates:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->remove()Ljava/lang/Object;
@@ -57,6 +53,5 @@
 
     invoke-virtual {v0, v1}, Lcom/google/common/util/concurrent/SettableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
-    .line 1671
     return-void
 .end method

@@ -30,10 +30,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/util/SecErrorDialogActivity;Ljava/lang/String;ZI)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/util/SecErrorDialogActivity;
 
-    .prologue
-    .line 148
     iput-object p1, p0, Lcom/android/incallui/util/SecErrorDialogActivity$8;->this$0:Lcom/android/incallui/util/SecErrorDialogActivity;
 
     iput-object p2, p0, Lcom/android/incallui/util/SecErrorDialogActivity$8;->val$number:Ljava/lang/String;
@@ -51,11 +48,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 151
     iget-object v0, p0, Lcom/android/incallui/util/SecErrorDialogActivity$8;->val$number:Ljava/lang/String;
 
     iget-boolean v1, p0, Lcom/android/incallui/util/SecErrorDialogActivity$8;->val$toVoLTE:Z
@@ -64,11 +57,9 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/IMSErrorUtils;->divertToVoiceCall(Ljava/lang/String;ZI)V
 
-    .line 152
     iget-object v0, p0, Lcom/android/incallui/util/SecErrorDialogActivity$8;->this$0:Lcom/android/incallui/util/SecErrorDialogActivity;
 
     invoke-virtual {v0}, Lcom/android/incallui/util/SecErrorDialogActivity;->finish()V
 
-    .line 153
     return-void
 .end method

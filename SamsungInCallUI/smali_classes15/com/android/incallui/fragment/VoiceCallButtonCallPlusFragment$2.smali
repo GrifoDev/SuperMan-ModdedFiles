@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    .prologue
-    .line 271
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,12 +33,9 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const/4 v2, 0x1
 
-    .line 274
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -64,17 +58,14 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 275
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 284
     :cond_0
     :goto_0
     return-void
 
-    .line 277
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
@@ -99,7 +90,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$InCallViewPager;->setCurrentItem(IZ)V
 
-    .line 278
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
@@ -126,7 +116,6 @@
 
     goto :goto_0
 
-    .line 281
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$2;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
@@ -153,7 +142,6 @@
 
     goto :goto_0
 
-    .line 275
     :pswitch_data_0
     .packed-switch 0x65
         :pswitch_1

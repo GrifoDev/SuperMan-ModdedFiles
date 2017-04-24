@@ -28,10 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichCallScreenUtils;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
-    .prologue
-    .line 63
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$1;->this$0:Lcom/android/incallui/richscreen/RichCallScreenUtils;
 
     iput-object p2, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$1;->val$m:Ljava/lang/String;
@@ -48,15 +45,12 @@
 .method public run()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 66
     sget-object v2, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     if-eqz v2, :cond_1
 
-    .line 67
     sget-object v2, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     iget-object v3, p0, Lcom/android/incallui/richscreen/RichCallScreenUtils$1;->val$m:Ljava/lang/String;
@@ -69,23 +63,18 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->result:Lcom/cmdm/control/util/client/ResultUtil;
 
-    .line 68
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->result:Lcom/cmdm/control/util/client/ResultUtil;
 
     invoke-virtual {v2}, Lcom/cmdm/control/util/client/ResultUtil;->isSuccessed()Z
 
     move-result v0
 
-    .line 69
-    .local v0, "bGetRichScrnObjSuccess":Z
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->result:Lcom/cmdm/control/util/client/ResultUtil;
 
     invoke-virtual {v2}, Lcom/cmdm/control/util/client/ResultUtil;->getResMsg()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 70
-    .local v1, "mGetRichScrnString":Ljava/lang/String;
     const-string v2, "RichCallScreenUtils"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -118,7 +107,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 71
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->result:Lcom/cmdm/control/util/client/ResultUtil;
 
     invoke-virtual {v2}, Lcom/cmdm/control/util/client/ResultUtil;->getAttachObj()Ljava/lang/Object;
@@ -129,12 +117,10 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
-    .line 72
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     if-eqz v2, :cond_0
 
-    .line 73
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     invoke-virtual {v2}, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->getMissdn()Ljava/lang/String;
@@ -143,7 +129,6 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->CallingNumber:Ljava/lang/String;
 
-    .line 74
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     invoke-virtual {v2}, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->getCid()Ljava/lang/String;
@@ -152,7 +137,6 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->Cid:Ljava/lang/String;
 
-    .line 75
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     invoke-virtual {v2}, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->getGreeting()Ljava/lang/String;
@@ -161,7 +145,6 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->Greeting:Ljava/lang/String;
 
-    .line 76
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     invoke-virtual {v2}, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->getSourceType()Ljava/lang/String;
@@ -170,21 +153,18 @@
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->SourceType:Ljava/lang/String;
 
-    .line 77
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     iget-object v2, v2, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->missdnAddress:Ljava/lang/String;
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->PhoneNumberLocator:Ljava/lang/String;
 
-    .line 78
     sget-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->mRichScrnShowingObject:Lcom/cmdm/rcs/bean/RichScrnShowingObject;
 
     iget-object v2, v2, Lcom/cmdm/rcs/bean/RichScrnShowingObject;->localSourceUrl:Ljava/lang/String;
 
     sput-object v2, Lcom/android/incallui/richscreen/RichCallScreenUtils;->URL:Ljava/lang/String;
 
-    .line 79
     const-string v2, "RichCallScreenUtils"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -285,23 +265,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 88
-    .end local v0    # "bGetRichScrnObjSuccess":Z
-    .end local v1    # "mGetRichScrnString":Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 83
-    .restart local v0    # "bGetRichScrnObjSuccess":Z
-    .restart local v1    # "mGetRichScrnString":Ljava/lang/String;
     :cond_0
     sput-object v5, Lcom/android/incallui/richscreen/RichCallScreenUtils;->SourceType:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 86
-    .end local v0    # "bGetRichScrnObjSuccess":Z
-    .end local v1    # "mGetRichScrnString":Ljava/lang/String;
     :cond_1
     sput-object v5, Lcom/android/incallui/richscreen/RichCallScreenUtils;->SourceType:Ljava/lang/String;
 

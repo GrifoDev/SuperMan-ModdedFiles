@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/edge/CallEdgeManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/edge/CallEdgeManager;
 
-    .prologue
-    .line 214
     iput-object p1, p0, Lcom/android/incallui/edge/CallEdgeManager$1;->this$0:Lcom/android/incallui/edge/CallEdgeManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 216
     const-string v0, "CallEdgeManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -64,16 +58,13 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 217
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 222
     :goto_0
     return-void
 
-    .line 219
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/edge/CallEdgeManager$1;->this$0:Lcom/android/incallui/edge/CallEdgeManager;
 
@@ -82,7 +73,6 @@
 
     goto :goto_0
 
-    .line 217
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

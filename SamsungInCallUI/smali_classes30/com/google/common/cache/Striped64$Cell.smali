@@ -56,8 +56,6 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    .line 108
     :try_start_0
     # invokes: Lcom/google/common/cache/Striped64;->getUnsafe()Lsun/misc/Unsafe;
     invoke-static {}, Lcom/google/common/cache/Striped64;->access$000()Lsun/misc/Unsafe;
@@ -66,11 +64,8 @@
 
     sput-object v2, Lcom/google/common/cache/Striped64$Cell;->UNSAFE:Lsun/misc/Unsafe;
 
-    .line 109
     const-class v0, Lcom/google/common/cache/Striped64$Cell;
 
-    .line 110
-    .local v0, "ak":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     sget-object v2, Lcom/google/common/cache/Striped64$Cell;->UNSAFE:Lsun/misc/Unsafe;
 
     const-string v3, "value"
@@ -87,15 +82,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 115
     return-void
 
-    .line 112
     :catch_0
     move-exception v1
 
-    .line 113
-    .local v1, "e":Ljava/lang/Exception;
     new-instance v2, Ljava/lang/Error;
 
     invoke-direct {v2, v1}, Ljava/lang/Error;-><init>(Ljava/lang/Throwable;)V
@@ -105,10 +96,7 @@
 
 .method constructor <init>(J)V
     .locals 1
-    .param p1, "x"    # J
 
-    .prologue
-    .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-wide p1, p0, Lcom/google/common/cache/Striped64$Cell;->value:J
@@ -120,11 +108,7 @@
 # virtual methods
 .method final cas(JJ)Z
     .locals 9
-    .param p1, "cmp"    # J
-    .param p3, "val"    # J
 
-    .prologue
-    .line 100
     sget-object v0, Lcom/google/common/cache/Striped64$Cell;->UNSAFE:Lsun/misc/Unsafe;
 
     sget-wide v2, Lcom/google/common/cache/Striped64$Cell;->valueOffset:J

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/SmartIVRDialogActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/SmartIVRDialogActivity;
 
-    .prologue
-    .line 80
     iput-object p1, p0, Lcom/android/incallui/SmartIVRDialogActivity$1;->this$0:Lcom/android/incallui/SmartIVRDialogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +36,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
-    .param p2, "arg1"    # Landroid/view/View;
-    .param p3, "arg2"    # I
-    .param p4, "arg3"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,9 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 86
-    .local p1, "arg0":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     const-string v0, "Achintya PRAKHAR SmartIVRDialogActivity:"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -93,11 +84,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 88
     iget-object v0, p0, Lcom/android/incallui/SmartIVRDialogActivity$1;->this$0:Lcom/android/incallui/SmartIVRDialogActivity;
 
     invoke-virtual {v0, p3}, Lcom/android/incallui/SmartIVRDialogActivity;->removeSelected(I)V
 
-    .line 89
     return-void
 .end method

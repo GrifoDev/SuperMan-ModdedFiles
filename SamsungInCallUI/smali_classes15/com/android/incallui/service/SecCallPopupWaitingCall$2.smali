@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/SecCallPopupWaitingCall;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
-    .prologue
-    .line 222
     iput-object p1, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$2;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +36,10 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
-    .prologue
-    .line 224
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupWaitingCall$2;->this$0:Lcom/android/incallui/service/SecCallPopupWaitingCall;
 
     invoke-virtual {v0}, Lcom/android/incallui/service/SecCallPopupWaitingCall;->dismissWaitingCallPopup()V
 
-    .line 225
     return-void
 .end method

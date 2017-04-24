@@ -22,6 +22,7 @@
     <item android:id="@id/viewInFullScreen" android:visible="false" android:title="@string/secOnscreenMenuViewInFullScreenText" />
     <item android:id="@id/Bluetooth" android:visible="false" android:title="@string/audio_mode_bluetooth" />
     <item android:id="@id/VideoConfCallButton" android:visible="false" android:title="@string/secOnscreenMenuVideoConfCallText" />
+    <item android:id="@id/swtichToVoiceCall" android:visible="false" android:title="@string/secOnscreenMenuSwitchToVoiceCallText" />
     <item android:id="@id/switchVideoDisplay" android:visible="false" android:title="@string/secOnscreenMenuSwitchVideoDisplay" />
     <item android:id="@id/callTransfer" android:visible="false" android:title="@string/secOnscreenMenuCallTransfer" />
     <item android:id="@id/pushSoftPhone" android:title="@string/secOnscreenMenuCallTransfer" />

@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 243
     new-instance v0, Lcom/google/common/hash/MessageDigestHashFunction;
 
     const-string v1, "SHA-512"
@@ -40,8 +38,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -30,11 +30,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 36
-    .local p0, "this":Lcom/google/common/util/concurrent/CollectionFuture;, "Lcom/google/common/util/concurrent/CollectionFuture<TV;TC;>;"
     invoke-direct {p0}, Lcom/google/common/util/concurrent/AggregateFuture;-><init>()V
 
-    .line 38
     return-void
 .end method

@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/MapMakerInternalMap;)V
     .locals 1
 
-    .prologue
-    .line 3788
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iput-object p1, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     const/4 v0, 0x0
@@ -46,24 +43,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 3817
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MapMakerInternalMap;->clear()V
 
-    .line 3818
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 3807
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->containsKey(Ljava/lang/Object;)Z
@@ -76,9 +65,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 3802
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MapMakerInternalMap;->isEmpty()Z
@@ -98,9 +84,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3792
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     new-instance v0, Lcom/google/common/collect/MapMakerInternalMap$KeyIterator;
 
     iget-object v1, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
@@ -112,11 +95,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 3812
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/MapMakerInternalMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -139,9 +118,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 3797
-    .local p0, "this":Lcom/google/common/collect/MapMakerInternalMap$KeySet;, "Lcom/google/common/collect/MapMakerInternalMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lcom/google/common/collect/MapMakerInternalMap$KeySet;->this$0:Lcom/google/common/collect/MapMakerInternalMap;
 
     invoke-virtual {v0}, Lcom/google/common/collect/MapMakerInternalMap;->size()I

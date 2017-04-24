@@ -31,9 +31,6 @@
 .method private constructor <init>(Lcom/google/common/collect/Maps$FilteredEntryMap;)V
     .locals 0
 
-    .prologue
-    .line 2801
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;->this$0:Lcom/google/common/collect/Maps$FilteredEntryMap;
 
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSet;-><init>()V
@@ -43,12 +40,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/Maps$FilteredEntryMap;Lcom/google/common/collect/Maps$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/Maps$FilteredEntryMap;
-    .param p2, "x1"    # Lcom/google/common/collect/Maps$1;
 
-    .prologue
-    .line 2801
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;-><init>(Lcom/google/common/collect/Maps$FilteredEntryMap;)V
 
     return-void
@@ -59,9 +51,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 2800
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -72,9 +61,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 2800
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -94,9 +80,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2804
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;->this$0:Lcom/google/common/collect/Maps$FilteredEntryMap;
 
     iget-object v0, v0, Lcom/google/common/collect/Maps$FilteredEntryMap;->filteredEntrySet:Ljava/util/Set;
@@ -116,9 +99,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2809
-    .local p0, "this":Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;, "Lcom/google/common/collect/Maps$FilteredEntryMap<TK;TV;>.EntrySet;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet$1;
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$FilteredEntryMap$EntrySet;->this$0:Lcom/google/common/collect/Maps$FilteredEntryMap;

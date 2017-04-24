@@ -32,10 +32,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/CustomContactListFilterActivity;Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;ILjava/lang/CharSequence;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
-    .prologue
-    .line 778
     iput-object p1, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$2;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
     iput-object p2, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$2;->val$account:Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
@@ -55,10 +52,7 @@
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 5
-    .param p1, "item"    # Landroid/view/MenuItem;
 
-    .prologue
-    .line 780
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$2;->this$0:Lcom/android/contacts/common/list/CustomContactListFilterActivity;
 
     iget-object v1, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$2;->val$account:Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;
@@ -71,7 +65,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->handleRemoveSync(Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;Lcom/android/contacts/common/list/CustomContactListFilterActivity$GroupDelta;ILjava/lang/CharSequence;)V
 
-    .line 781
     const/4 v0, 0x1
 
     return v0

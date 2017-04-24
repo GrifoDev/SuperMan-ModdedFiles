@@ -32,9 +32,6 @@
 .method public constructor <init>(Lcom/google/common/collect/ForwardingMultiset;)V
     .locals 0
 
-    .prologue
-    .line 252
-    .local p0, "this":Lcom/google/common/collect/ForwardingMultiset$StandardElementSet;, "Lcom/google/common/collect/ForwardingMultiset<TE;>.StandardElementSet;"
     iput-object p1, p0, Lcom/google/common/collect/ForwardingMultiset$StandardElementSet;->this$0:Lcom/google/common/collect/ForwardingMultiset;
 
     invoke-direct {p0}, Lcom/google/common/collect/Multisets$ElementSet;-><init>()V
@@ -54,9 +51,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 256
-    .local p0, "this":Lcom/google/common/collect/ForwardingMultiset$StandardElementSet;, "Lcom/google/common/collect/ForwardingMultiset<TE;>.StandardElementSet;"
     iget-object v0, p0, Lcom/google/common/collect/ForwardingMultiset$StandardElementSet;->this$0:Lcom/google/common/collect/ForwardingMultiset;
 
     return-object v0

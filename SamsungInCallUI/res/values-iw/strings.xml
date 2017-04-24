@@ -289,6 +289,7 @@
     <string name="extra_vol_off">עוצמת קול נוספת מושבתת.</string>
     <string name="extra_vol_on">עוצמת קול נוספת מופעלת.</string>
     <string name="far_end_stopped_share_video">%s הפסיק את שיתוף הווידאו.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">הקובץ לא נתמך.</string>
     <string name="full_name">שם</string>
@@ -671,7 +672,7 @@
     <string name="secOnscreenResumeCallText">חדש שיחה</string>
     <string name="secOnscreenShowCallOption">הצג אפשרויות שיחה</string>
     <string name="secOnscreenSpeaker">רמקול</string>
-    <string name="secOnscreenStopText">עצור</string>
+    <string name="secOnscreenStopText">הפסק הקלטה</string>
     <string name="secOnscreenSwapText">החלף</string>
     <string name="secOnscreenSwisText">תראו יחד איתי</string>
     <string name="secOnscreenSwitchCameraText">החלף מצלמה</string>
@@ -746,6 +747,7 @@
     <string name="switch_to_voice_call_failed">הבקשה לעבור לשיחה קולית נדחתה.</string>
     <string name="switched_to_voip_mo">התבצע מעבר לשיחה קולית.</string>
     <string name="switched_to_voip_mt">התבצע מעבר לשיחה קולית בעקבות בקשה מהצד שהתקשרת אליו.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s כיבה את הווידאו.</string>
     <string name="switching_camera_failed">נכשל המעבר בין המצלמות.</string>
     <string name="switching_to_voice_call">עובר לשיחה קולית…</string>
@@ -761,7 +763,9 @@
     <string name="usa_att_connected_as_voice">השיחה בוצעה כשיחת קול בלבד.</string>
     <string name="usa_att_data_usage_charge_alert">אתה קרוב למגבלת השימוש בנתונים שהגדרת במכשיר שלך. שיחת וידאו כרוכה בהעברת נתונים.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">לא ניתן לבצע דרך Wi-Fi, מתחבר דרך רשת סלולרית. השירות כרוך בחיוב על קול ונתונים.</string>
-    <string name="usa_att_modify_receive_to_video">בחירת מצב וידאו</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">לא ניתן לבצע דרך Wi-Fi, מתחבר דרך רשת סלולרית. השירות כרוך בחיוב על קול ונתונים.</string>
     <string name="usa_att_select_call_type_incoming_video_call">הקש להלן כדי לבחור סוג שיחה.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">לא ניתן לשנות סוג שיחה תוך כדי שיחת ועידה.</string>
     <string name="usa_gsm_modify_receive_to_video">%s מבקש לעבור לשיחת וידאו.</string>
@@ -769,6 +773,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">ממתין לתגובה</string>
     <string name="usa_gsm_modify_select_call_type">בחירת סוג שיחה</string>
     <string name="usa_gsm_switching_to_voice_call">עובר לקול בלבד.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">"התכונה 'וידאו' כבתה משום שנתונים ניידים לא זמינים."</string>
     <string name="usa_volte_reject_upgrade_request">%s אינו יכול לקבל שיחות וידאו כרגע.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">"התכונה 'שיחות וידאו' לא זמינה."</string>
     <string name="usa_vzw_change_to_oneway_video">"עבור לווידאו
@@ -813,7 +818,9 @@
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">אל תציג שוב</string>
     <string name="video_calling_incoming">שיחות וידאו</string>
+    <string name="video_calls_quality_poor_tmo">איכות החיבור גרועה. שיחות וידאו עשויות להפוך לשיחות קוליות.</string>
     <string name="video_calls_temporarily_not_available">שיחות וידאו אינן זמינות כרגע. התבצע מעבר לשיחה קולית.</string>
+    <string name="video_calls_temporarily_not_available_att">המספר שחייגת לא יכול לקבל שיחות וידאו כרגע. השיחה פעילה כשיחה קולית.</string>
     <string name="video_calls_temporarily_not_available_tmo">"התכונה 'שיחות וידאו' לא זמינה."</string>
     <string name="video_paused_info_text">הסרטון הושהה</string>
     <string name="video_saved">הוידאו נשמר בתיקייה %s.</string>

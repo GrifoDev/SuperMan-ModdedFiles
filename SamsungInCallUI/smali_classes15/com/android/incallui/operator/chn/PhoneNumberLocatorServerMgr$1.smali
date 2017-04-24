@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
-    .prologue
-    .line 54
     iput-object p1, p0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$1;->this$0:Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,17 +36,12 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 57
     const-string v1, "checkserviceConnection - onServiceConnected "
 
     # invokes: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$000(Ljava/lang/String;)V
 
-    .line 58
     invoke-static {p2}, Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;
 
     move-result-object v1
@@ -57,7 +49,6 @@
     # setter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->myService:Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;
     invoke-static {v1}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$102(Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;)Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;
 
-    .line 59
     iget-object v1, p0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$1;->this$0:Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
     const/4 v2, 0x1
@@ -65,7 +56,6 @@
     # setter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->mIsConnected:Z
     invoke-static {v1, v2}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$202(Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;Z)Z
 
-    .line 60
     iget-object v1, p0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$1;->this$0:Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
     # getter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->mListeners:Ljava/util/List;
@@ -90,36 +80,27 @@
 
     check-cast v0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$IBindServerListener;
 
-    .line 61
-    .local v0, "listener":Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$IBindServerListener;
     invoke-interface {v0}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$IBindServerListener;->onServiceConnected()V
 
     goto :goto_0
 
-    .line 63
-    .end local v0    # "listener":Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$IBindServerListener;
     :cond_0
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "name"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 67
     const-string v0, "onServiceDisconnected - "
 
     # invokes: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$000(Ljava/lang/String;)V
 
-    .line 68
     const/4 v0, 0x0
 
     # setter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->myService:Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;
     invoke-static {v0}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$102(Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;)Lcom/sgmc/phonenumberlocatorservice/location/IPhoneNumberLocatorService;
 
-    .line 69
     iget-object v0, p0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$1;->this$0:Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
     const/4 v1, 0x0
@@ -127,7 +108,6 @@
     # setter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->mIsConnected:Z
     invoke-static {v0, v1}, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->access$202(Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;Z)Z
 
-    .line 70
     iget-object v0, p0, Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr$1;->this$0:Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;
 
     # getter for: Lcom/android/incallui/operator/chn/PhoneNumberLocatorServerMgr;->mListeners:Ljava/util/List;
@@ -137,6 +117,5 @@
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 71
     return-void
 .end method

@@ -43,9 +43,7 @@
 # virtual methods
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .param p1, "size"    # I
 
-    .prologue
     packed-switch p1, :pswitch_data_0
 
     const-string v0, "ic_plusone_standard_off_client"

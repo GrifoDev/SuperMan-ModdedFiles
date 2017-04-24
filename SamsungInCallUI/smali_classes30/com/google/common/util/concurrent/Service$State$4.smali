@@ -18,8 +18,6 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
-    .prologue
-    .line 216
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/google/common/util/concurrent/Service$State;-><init>(Ljava/lang/String;ILcom/google/common/util/concurrent/Service$1;)V
@@ -32,8 +30,6 @@
 .method isTerminal()Z
     .locals 1
 
-    .prologue
-    .line 218
     const/4 v0, 0x0
 
     return v0

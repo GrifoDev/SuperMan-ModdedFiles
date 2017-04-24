@@ -25,33 +25,28 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     const/16 v2, 0xc08
 
     const/16 v1, 0xdd
 
-    .line 27
     new-array v0, v2, [B
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/incallui/util/SolarLunarTables;->lunar:[B
 
-    .line 280
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/incallui/util/SolarLunarTables;->accumulatedLunarDays:[I
 
-    .line 305
     new-array v0, v2, [B
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/android/incallui/util/SolarLunarTables;->lunarCHN:[B
 
-    .line 571
     new-array v0, v1, [I
 
     fill-array-data v0, :array_3
@@ -60,7 +55,6 @@
 
     return-void
 
-    .line 27
     nop
 
     :array_0
@@ -3147,7 +3141,6 @@
         0x7ft
     .end array-data
 
-    .line 280
     :array_1
     .array-data 4
         0x0
@@ -3373,7 +3366,6 @@
         0x139e0
     .end array-data
 
-    .line 305
     :array_2
     .array-data 1
         0x1dt
@@ -6458,7 +6450,6 @@
         0x7ft
     .end array-data
 
-    .line 571
     :array_3
     .array-data 4
         0x0
@@ -6688,8 +6679,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -6697,12 +6686,7 @@
 
 .method public static getDayLengthOf(IIZ)I
     .locals 5
-    .param p0, "year"    # I
-    .param p1, "month"    # I
-    .param p2, "leap"    # Z
 
-    .prologue
-    .line 598
     const-string v2, "feature_chn"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -6719,17 +6703,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 599
     :cond_0
     invoke-static {p0, p1, p2}, Lcom/android/incallui/util/SolarLunarTables;->getDayLengthOf_CHN(IIZ)I
 
     move-result v2
 
-    .line 611
     :goto_0
     return v2
 
-    .line 602
     :cond_1
     const/16 v2, 0x759
 
@@ -6745,7 +6726,6 @@
 
     if-le p1, v2, :cond_3
 
-    .line 603
     :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -6787,27 +6767,21 @@
 
     throw v2
 
-    .line 606
     :cond_3
     add-int/lit16 v2, p0, -0x759
 
     mul-int/lit8 v1, v2, 0xe
 
-    .line 607
-    .local v1, "startIndexOfYear":I
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunar:[B
 
     add-int/lit8 v3, v1, 0xd
 
     aget-byte v0, v2, v3
 
-    .line 608
-    .local v0, "leapMonth":I
     if-nez p2, :cond_4
 
     if-ge p1, v0, :cond_4
 
-    .line 609
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunar:[B
 
     add-int v3, v1, p1
@@ -6816,7 +6790,6 @@
 
     goto :goto_0
 
-    .line 611
     :cond_4
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunar:[B
 
@@ -6831,12 +6804,7 @@
 
 .method public static getDayLengthOf_CHN(IIZ)I
     .locals 5
-    .param p0, "year"    # I
-    .param p1, "month"    # I
-    .param p2, "leap"    # Z
 
-    .prologue
-    .line 630
     const/16 v2, 0x759
 
     if-lt p0, v2, :cond_0
@@ -6851,7 +6819,6 @@
 
     if-le p1, v2, :cond_1
 
-    .line 631
     :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -6893,34 +6860,27 @@
 
     throw v2
 
-    .line 634
     :cond_1
     add-int/lit16 v2, p0, -0x759
 
     mul-int/lit8 v1, v2, 0xe
 
-    .line 635
-    .local v1, "startIndexOfYear":I
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunarCHN:[B
 
     add-int/lit8 v3, v1, 0xd
 
     aget-byte v0, v2, v3
 
-    .line 636
-    .local v0, "leapMonth":I
     if-nez p2, :cond_2
 
     if-ge p1, v0, :cond_2
 
-    .line 637
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunarCHN:[B
 
     add-int v3, v1, p1
 
     aget-byte v2, v2, v3
 
-    .line 639
     :goto_0
     return v2
 
@@ -6938,11 +6898,7 @@
 
 .method public static isLeapMonth(II)Z
     .locals 5
-    .param p0, "year"    # I
-    .param p1, "month"    # I
 
-    .prologue
-    .line 616
     const-string v2, "feature_chn"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -6959,17 +6915,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 617
     :cond_0
     invoke-static {p0, p1}, Lcom/android/incallui/util/SolarLunarTables;->isLeapMonth_CHN(II)Z
 
     move-result v2
 
-    .line 626
     :goto_0
     return v2
 
-    .line 619
     :cond_1
     const/16 v2, 0x759
 
@@ -6985,7 +6938,6 @@
 
     if-le p1, v2, :cond_3
 
-    .line 620
     :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -7027,22 +6979,17 @@
 
     throw v2
 
-    .line 623
     :cond_3
     add-int/lit16 v2, p0, -0x759
 
     mul-int/lit8 v1, v2, 0xe
 
-    .line 624
-    .local v1, "startIndexOfYear":I
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunar:[B
 
     add-int/lit8 v3, v1, 0xd
 
     aget-byte v0, v2, v3
 
-    .line 626
-    .local v0, "leapMonth":I
     add-int/lit8 v2, v0, -0x1
 
     if-ne v2, p1, :cond_4
@@ -7059,11 +7006,7 @@
 
 .method public static isLeapMonth_CHN(II)Z
     .locals 5
-    .param p0, "year"    # I
-    .param p1, "month"    # I
 
-    .prologue
-    .line 644
     const/16 v2, 0x759
 
     if-lt p0, v2, :cond_0
@@ -7078,7 +7021,6 @@
 
     if-le p1, v2, :cond_1
 
-    .line 645
     :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -7120,22 +7062,17 @@
 
     throw v2
 
-    .line 648
     :cond_1
     add-int/lit16 v2, p0, -0x759
 
     mul-int/lit8 v1, v2, 0xe
 
-    .line 649
-    .local v1, "startIndexOfYear":I
     sget-object v2, Lcom/android/incallui/util/SolarLunarTables;->lunarCHN:[B
 
     add-int/lit8 v3, v1, 0xd
 
     aget-byte v0, v2, v3
 
-    .line 651
-    .local v0, "leapMonth":I
     add-int/lit8 v2, v0, -0x1
 
     if-ne v2, p1, :cond_2

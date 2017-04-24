@@ -534,9 +534,6 @@
 
 .method public static getToken(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "accountName"    # Ljava/lang/String;
-    .param p2, "scope"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -545,7 +542,6 @@
         }
     .end annotation
 
-    .prologue
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -559,10 +555,6 @@
 
 .method public static getToken(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String;
     .locals 5
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "accountName"    # Ljava/lang/String;
-    .param p2, "scope"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -571,7 +563,6 @@
         }
     .end annotation
 
-    .prologue
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -584,10 +575,8 @@
 
     new-instance p3, Landroid/os/Bundle;
 
-    .end local p3    # "extras":Landroid/os/Bundle;
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
-    .restart local p3    # "extras":Landroid/os/Bundle;
     :goto_0
     sget-object v1, Lcom/google/android/gms/auth/GoogleAuthUtil;->KEY_ANDROID_PACKAGE_NAME:Ljava/lang/String;
 
@@ -658,12 +647,8 @@
 
     invoke-direct {v0, p3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    .end local p3    # "extras":Landroid/os/Bundle;
-    .local v0, "extras":Landroid/os/Bundle;
     move-object p3, v0
 
-    .end local v0    # "extras":Landroid/os/Bundle;
-    .restart local p3    # "extras":Landroid/os/Bundle;
     goto :goto_0
 
     :cond_2
@@ -783,10 +768,6 @@
 
 .method public static getTokenWithNotification(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "accountName"    # Ljava/lang/String;
-    .param p2, "scope"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -795,15 +776,12 @@
         }
     .end annotation
 
-    .prologue
     if-nez p3, :cond_0
 
     new-instance p3, Landroid/os/Bundle;
 
-    .end local p3    # "extras":Landroid/os/Bundle;
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
-    .restart local p3    # "extras":Landroid/os/Bundle;
     :cond_0
     const-string v0, "handle_notification"
 
@@ -820,11 +798,6 @@
 
 .method public static getTokenWithNotification(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Landroid/content/Intent;)Ljava/lang/String;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "accountName"    # Ljava/lang/String;
-    .param p2, "scope"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
-    .param p4, "callback"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -833,17 +806,14 @@
         }
     .end annotation
 
-    .prologue
     invoke-static {p4}, Lcom/google/android/gms/auth/GoogleAuthUtil;->a(Landroid/content/Intent;)V
 
     if-nez p3, :cond_0
 
     new-instance p3, Landroid/os/Bundle;
 
-    .end local p3    # "extras":Landroid/os/Bundle;
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
-    .restart local p3    # "extras":Landroid/os/Bundle;
     :cond_0
     const-string v0, "callback_intent"
 
@@ -864,12 +834,6 @@
 
 .method public static getTokenWithNotification(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/String;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "accountName"    # Ljava/lang/String;
-    .param p2, "scope"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
-    .param p4, "authority"    # Ljava/lang/String;
-    .param p5, "syncBundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -878,7 +842,6 @@
         }
     .end annotation
 
-    .prologue
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -898,19 +861,15 @@
 
     new-instance p3, Landroid/os/Bundle;
 
-    .end local p3    # "extras":Landroid/os/Bundle;
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
-    .restart local p3    # "extras":Landroid/os/Bundle;
     :cond_1
     if-nez p5, :cond_2
 
     new-instance p5, Landroid/os/Bundle;
 
-    .end local p5    # "syncBundle":Landroid/os/Bundle;
     invoke-direct {p5}, Landroid/os/Bundle;-><init>()V
 
-    .restart local p5    # "syncBundle":Landroid/os/Bundle;
     :cond_2
     invoke-static {p5}, Landroid/content/ContentResolver;->validateSyncExtrasBundle(Landroid/os/Bundle;)V
 
@@ -937,10 +896,7 @@
 
 .method public static invalidateToken(Landroid/content/Context;Ljava/lang/String;)V
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "token"    # Ljava/lang/String;
 
-    .prologue
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0

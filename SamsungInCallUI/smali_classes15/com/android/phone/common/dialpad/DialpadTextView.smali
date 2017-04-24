@@ -12,21 +12,15 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
-    .line 40
     invoke-direct {p0, p1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 36
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextBounds:Landroid/graphics/Rect;
 
-    .line 41
     return-void
 .end method
 
@@ -34,23 +28,17 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 4
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
-    .prologue
-    .line 48
     invoke-virtual {p0}, Lcom/android/phone/common/dialpad/DialpadTextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v0
 
-    .line 51
-    .local v0, "paint":Landroid/graphics/Paint;
     invoke-virtual {p0}, Lcom/android/phone/common/dialpad/DialpadTextView;->getCurrentTextColor()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 56
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextStr:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextBounds:Landroid/graphics/Rect;
@@ -71,20 +59,14 @@
 
     invoke-virtual {p1, v1, v2, v3, v0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 57
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 7
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
 
-    .prologue
-    .line 65
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
-    .line 66
     invoke-virtual {p0}, Lcom/android/phone/common/dialpad/DialpadTextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -95,7 +77,6 @@
 
     iput-object v2, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextStr:Ljava/lang/String;
 
-    .line 67
     invoke-virtual {p0}, Lcom/android/phone/common/dialpad/DialpadTextView;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v2
@@ -114,7 +95,6 @@
 
     invoke-virtual {v2, v3, v4, v5, v6}, Landroid/text/TextPaint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
-    .line 69
     iget-object v2, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
@@ -125,8 +105,6 @@
 
     move-result v1
 
-    .line 70
-    .local v1, "width":I
     iget-object v2, p0, Lcom/android/phone/common/dialpad/DialpadTextView;->mTextBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
@@ -137,10 +115,7 @@
 
     move-result v0
 
-    .line 71
-    .local v0, "height":I
     invoke-virtual {p0, v1, v0}, Lcom/android/phone/common/dialpad/DialpadTextView;->setMeasuredDimension(II)V
 
-    .line 72
     return-void
 .end method

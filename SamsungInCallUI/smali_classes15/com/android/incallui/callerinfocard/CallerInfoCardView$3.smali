@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
-    .prologue
-    .line 527
     iput-object p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,16 +36,11 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 17
-    .param p1, "view"    # Landroid/view/View;
 
-    .prologue
-    .line 530
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getId()I
 
     move-result v3
 
-    .line 531
-    .local v3, "id":I
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -89,16 +81,13 @@
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 532
     packed-switch v3, :pswitch_data_0
 
-    .line 573
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 535
     :pswitch_1
     move-object/from16 v0, p0
 
@@ -122,8 +111,6 @@
 
     check-cast v4, Landroid/view/LayoutInflater;
 
-    .line 536
-    .local v4, "inflater":Landroid/view/LayoutInflater;
     const v12, 0x7f040168
 
     const/4 v13, 0x0
@@ -132,8 +119,6 @@
 
     move-result-object v7
 
-    .line 537
-    .local v7, "popupView":Landroid/view/View;
     const v12, 0x7f100411
 
     invoke-virtual {v7, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -142,8 +127,6 @@
 
     check-cast v5, Landroid/widget/ImageView;
 
-    .line 538
-    .local v5, "mCallPlusimage":Landroid/widget/ImageView;
     new-instance v12, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3$1;
 
     move-object/from16 v0, p0
@@ -152,7 +135,6 @@
 
     invoke-virtual {v7, v12}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 546
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -184,7 +166,6 @@
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 547
     if-eqz v5, :cond_1
 
     move-object/from16 v0, p0
@@ -198,7 +179,6 @@
 
     if-eqz v12, :cond_1
 
-    .line 548
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -214,7 +194,6 @@
 
     invoke-virtual {v5, v12}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
-    .line 549
     :cond_1
     move-object/from16 v0, p0
 
@@ -229,7 +208,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0a0441
+    const v13, 0x7f0a0444
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -237,81 +216,6 @@
 
     float-to-int v9, v12
 
-    .line 550
-    .local v9, "width":I
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
-
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
-    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v12
-
-    const v13, 0x7f0a043d
-
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v12
-
-    float-to-int v1, v12
-
-    .line 551
-    .local v1, "height":I
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
-
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
-    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v12
-
-    const v13, 0x7f0a043e
-
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v12
-
-    float-to-int v12, v12
-
-    mul-int/lit8 v10, v12, -0x1
-
-    .line 552
-    .local v10, "width_margin":I
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
-
-    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
-    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v12
-
-    const v13, 0x7f0a043e
-
-    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v12
-
-    float-to-int v12, v12
-
-    mul-int/lit8 v11, v12, -0x1
-
-    .line 553
-    .local v11, "width_margin_img_only":I
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -331,12 +235,77 @@
 
     move-result v12
 
+    float-to-int v1, v12
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
+    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    const v13, 0x7f0a0441
+
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v12
+
+    float-to-int v12, v12
+
+    mul-int/lit8 v10, v12, -0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
+    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    const v13, 0x7f0a0441
+
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v12
+
+    float-to-int v12, v12
+
+    mul-int/lit8 v11, v12, -0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
+
+    # getter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mContext:Landroid/content/Context;
+    invoke-static {v12}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$900(Lcom/android/incallui/callerinfocard/CallerInfoCardView;)Landroid/content/Context;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v12
+
+    const v13, 0x7f0a0443
+
+    invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v12
+
     float-to-int v12, v12
 
     mul-int/lit8 v2, v12, -0x1
 
-    .line 554
-    .local v2, "height_margin":I
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -348,7 +317,6 @@
 
     if-nez v12, :cond_2
 
-    .line 555
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -360,7 +328,6 @@
     # setter for: Lcom/android/incallui/callerinfocard/CallerInfoCardView;->popupWindowImage:Landroid/widget/PopupWindow;
     invoke-static {v12, v13}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->access$702(Lcom/android/incallui/callerinfocard/CallerInfoCardView;Landroid/widget/PopupWindow;)Landroid/widget/PopupWindow;
 
-    .line 556
     :cond_2
     move-object/from16 v0, p0
 
@@ -377,7 +344,6 @@
 
     if-nez v12, :cond_0
 
-    .line 557
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -389,7 +355,6 @@
 
     if-eqz v12, :cond_3
 
-    .line 558
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -412,7 +377,6 @@
 
     goto/16 :goto_0
 
-    .line 560
     :cond_3
     move-object/from16 v0, p0
 
@@ -436,15 +400,6 @@
 
     goto/16 :goto_0
 
-    .line 564
-    .end local v1    # "height":I
-    .end local v2    # "height_margin":I
-    .end local v4    # "inflater":Landroid/view/LayoutInflater;
-    .end local v5    # "mCallPlusimage":Landroid/widget/ImageView;
-    .end local v7    # "popupView":Landroid/view/View;
-    .end local v9    # "width":I
-    .end local v10    # "width_margin":I
-    .end local v11    # "width_margin_img_only":I
     :pswitch_2
     new-instance v12, Ljava/lang/StringBuilder;
 
@@ -496,7 +451,6 @@
 
     invoke-static {v0, v12}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 565
     sget-object v12, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     const-string v13, "geo:%f,%f?q=%f,%f"
@@ -569,8 +523,6 @@
 
     move-result-object v8
 
-    .line 566
-    .local v8, "uri":Ljava/lang/String;
     new-instance v6, Landroid/content/Intent;
 
     const-string v12, "android.intent.action.VIEW"
@@ -581,13 +533,10 @@
 
     invoke-direct {v6, v12, v13}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 567
-    .local v6, "mapIntent":Landroid/content/Intent;
     const-string v12, "com.google.android.apps.maps"
 
     invoke-virtual {v6, v12}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 568
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -607,7 +556,6 @@
 
     if-eqz v12, :cond_0
 
-    .line 569
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/incallui/callerinfocard/CallerInfoCardView$3;->this$0:Lcom/android/incallui/callerinfocard/CallerInfoCardView;
@@ -621,7 +569,6 @@
 
     goto/16 :goto_0
 
-    .line 532
     nop
 
     :pswitch_data_0

@@ -48,22 +48,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 68
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isLollipopCompatible()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 69
     new-instance v0, Lcom/android/contacts/common/list/ViewPagerTabs$1;
 
     invoke-direct {v0}, Lcom/android/contacts/common/list/ViewPagerTabs$1;-><init>()V
 
     sput-object v0, Lcom/android/contacts/common/list/ViewPagerTabs;->VIEW_BOUNDS_OUTLINE_PROVIDER:Landroid/view/ViewOutlineProvider;
 
-    .line 83
     :goto_0
     const/4 v0, 0x4
 
@@ -75,7 +71,6 @@
 
     return-void
 
-    .line 76
     :cond_0
     const/4 v0, 0x0
 
@@ -83,7 +78,6 @@
 
     goto :goto_0
 
-    .line 83
     :array_0
     .array-data 4
         0x1010095
@@ -95,56 +89,39 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 124
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/contacts/common/list/ViewPagerTabs;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 125
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
-    .line 128
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/contacts/common/list/ViewPagerTabs;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 129
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyle"    # I
 
-    .prologue
     const/4 v5, 0x1
 
     const/4 v4, -0x1
 
     const/4 v3, 0x0
 
-    .line 132
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 58
     iput v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPrevSelected:I
 
-    .line 133
     invoke-virtual {p0, v5}, Lcom/android/contacts/common/list/ViewPagerTabs;->setFillViewport(Z)V
 
-    .line 135
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ViewPagerTabs;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -163,29 +140,24 @@
 
     iput v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mSidePadding:I
 
-    .line 137
     sget-object v1, Lcom/android/contacts/common/list/ViewPagerTabs;->ATTRS:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 138
-    .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextSize:I
 
-    .line 139
     invoke-virtual {v0, v5, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextStyle:I
 
-    .line 140
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -194,7 +166,6 @@
 
     iput-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextColor:Landroid/content/res/ColorStateList;
 
-    .line 141
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -203,14 +174,12 @@
 
     iput-boolean v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextAllCaps:Z
 
-    .line 143
     new-instance v1, Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-direct {v1, p1}, Lcom/android/contacts/common/list/ViewPagerTabStrip;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
-    .line 144
     iget-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
@@ -221,33 +190,25 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/contacts/common/list/ViewPagerTabs;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 146
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 148
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isLollipopCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 150
     sget-object v1, Lcom/android/contacts/common/list/ViewPagerTabs;->VIEW_BOUNDS_OUTLINE_PROVIDER:Landroid/view/ViewOutlineProvider;
 
     invoke-virtual {p0, v1}, Lcom/android/contacts/common/list/ViewPagerTabs;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
-    .line 152
     :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/contacts/common/list/ViewPagerTabs;I)I
     .locals 1
-    .param p0, "x0"    # Lcom/android/contacts/common/list/ViewPagerTabs;
-    .param p1, "x1"    # I
 
-    .prologue
-    .line 45
     invoke-direct {p0, p1}, Lcom/android/contacts/common/list/ViewPagerTabs;->getRtlPosition(I)I
 
     move-result v0
@@ -257,15 +218,11 @@
 
 .method private addTab(Ljava/lang/CharSequence;I)V
     .locals 11
-    .param p1, "tabTitle"    # Ljava/lang/CharSequence;
-    .param p2, "position"    # I
 
-    .prologue
     const/4 v10, 0x1
 
     const/4 v9, 0x0
 
-    .line 188
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabIcons:[I
 
     if-eqz v4, :cond_2
@@ -276,7 +233,6 @@
 
     if-ge p2, v4, :cond_2
 
-    .line 189
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ViewPagerTabs;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -293,26 +249,20 @@
 
     move-result-object v1
 
-    .line 191
-    .local v1, "layout":Landroid/view/View;
     const v4, 0x7f10003f
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 192
-    .local v0, "iconView":Landroid/view/View;
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabIcons:[I
 
     aget v4, v4, p2
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 193
     invoke-virtual {v0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 194
     const v4, 0x7f100110
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -321,8 +271,6 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 195
-    .local v3, "textView":Landroid/widget/TextView;
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mUnreadCounts:[I
 
     if-eqz v4, :cond_1
@@ -333,7 +281,6 @@
 
     if-lez v4, :cond_1
 
-    .line 196
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mUnreadCounts:[I
 
     aget v4, v4, p2
@@ -344,10 +291,8 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 197
     invoke-virtual {v3, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 198
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ViewPagerTabs;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -362,7 +307,6 @@
 
     new-array v7, v7, [Ljava/lang/Object;
 
-    .line 201
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v8
@@ -373,28 +317,21 @@
 
     aget v8, v8, p2
 
-    .line 202
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
     aput-object v8, v7, v10
 
-    .line 198
     invoke-virtual {v4, v5, v6, v7}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v0, v4}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 207
     :goto_0
     move-object v2, v1
 
-    .line 229
-    .end local v0    # "iconView":Landroid/view/View;
-    .end local v1    # "layout":Landroid/view/View;
-    .local v2, "tabView":Landroid/view/View;
     :goto_1
     new-instance v4, Lcom/android/contacts/common/list/ViewPagerTabs$2;
 
@@ -402,21 +339,18 @@
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 236
     new-instance v4, Lcom/android/contacts/common/list/ViewPagerTabs$OnTabLongClickListener;
 
     invoke-direct {v4, p0, p2}, Lcom/android/contacts/common/list/ViewPagerTabs$OnTabLongClickListener;-><init>(Lcom/android/contacts/common/list/ViewPagerTabs;I)V
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    .line 238
     iget v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mSidePadding:I
 
     iget v5, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mSidePadding:I
 
     invoke-virtual {v2, v4, v9, v5, v9}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 240
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
@@ -431,37 +365,24 @@
 
     invoke-virtual {v4, v2, p2, v5}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    .line 244
     if-nez p2, :cond_0
 
-    .line 245
     iput v9, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPrevSelected:I
 
-    .line 246
     invoke-virtual {v2, v10}, Landroid/view/View;->setSelected(Z)V
 
-    .line 248
     :cond_0
     return-void
 
-    .line 204
-    .end local v2    # "tabView":Landroid/view/View;
-    .restart local v0    # "iconView":Landroid/view/View;
-    .restart local v1    # "layout":Landroid/view/View;
     :cond_1
     const/4 v4, 0x4
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 205
     invoke-virtual {v0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 209
-    .end local v0    # "iconView":Landroid/view/View;
-    .end local v1    # "layout":Landroid/view/View;
-    .end local v3    # "textView":Landroid/widget/TextView;
     :cond_2
     new-instance v3, Landroid/widget/TextView;
 
@@ -471,21 +392,16 @@
 
     invoke-direct {v3, v4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 210
-    .restart local v3    # "textView":Landroid/widget/TextView;
     invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 211
-    const v4, 0x7f02030e
+    const v4, 0x7f020318
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    .line 214
     iget v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextStyle:I
 
     if-lez v4, :cond_3
 
-    .line 215
     invoke-virtual {v3}, Landroid/widget/TextView;->getTypeface()Landroid/graphics/Typeface;
 
     move-result-object v4
@@ -494,94 +410,73 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 217
     :cond_3
     iget v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextSize:I
 
     if-lez v4, :cond_4
 
-    .line 218
     iget v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextSize:I
 
     int-to-float v4, v4
 
     invoke-virtual {v3, v9, v4}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 220
     :cond_4
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextColor:Landroid/content/res/ColorStateList;
 
     if-eqz v4, :cond_5
 
-    .line 221
     iget-object v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextColor:Landroid/content/res/ColorStateList;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 223
     :cond_5
     iget-boolean v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTextAllCaps:Z
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setAllCaps(Z)V
 
-    .line 224
     const/16 v4, 0x11
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 226
     move-object v2, v3
 
-    .restart local v2    # "tabView":Landroid/view/View;
     goto :goto_1
 .end method
 
 .method private addTabs(Landroid/support/v4/view/PagerAdapter;)V
     .locals 3
-    .param p1, "adapter"    # Landroid/support/v4/view/PagerAdapter;
 
-    .prologue
-    .line 178
     iget-object v2, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v2}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->removeAllViews()V
 
-    .line 180
     invoke-virtual {p1}, Landroid/support/v4/view/PagerAdapter;->getCount()I
 
     move-result v0
 
-    .line 181
-    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 182
     invoke-virtual {p1, v1}, Landroid/support/v4/view/PagerAdapter;->getPageTitle(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
     invoke-direct {p0, v2, v1}, Lcom/android/contacts/common/list/ViewPagerTabs;->addTab(Ljava/lang/CharSequence;I)V
 
-    .line 181
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 184
     :cond_0
     return-void
 .end method
 
 .method private getRtlPosition(I)I
     .locals 2
-    .param p1, "position"    # I
 
-    .prologue
-    .line 311
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ViewPagerTabs;->getLayoutDirection()I
 
     move-result v0
@@ -590,7 +485,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 312
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v0}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->getChildCount()I
@@ -601,8 +495,6 @@
 
     sub-int p1, v0, p1
 
-    .line 314
-    .end local p1    # "position":I
     :cond_0
     return p1
 .end method
@@ -611,65 +503,47 @@
 # virtual methods
 .method public configureTabIcons([I)V
     .locals 1
-    .param p1, "tabIcons"    # [I
 
-    .prologue
-    .line 166
     iput-object p1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabIcons:[I
 
-    .line 167
     array-length v0, p1
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mUnreadCounts:[I
 
-    .line 168
     return-void
 .end method
 
 .method public onPageScrollStateChanged(I)V
     .locals 0
-    .param p1, "state"    # I
 
-    .prologue
-    .line 308
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
     .locals 2
-    .param p1, "position"    # I
-    .param p2, "positionOffset"    # F
-    .param p3, "positionOffsetPixels"    # I
 
-    .prologue
-    .line 277
     invoke-direct {p0, p1}, Lcom/android/contacts/common/list/ViewPagerTabs;->getRtlPosition(I)I
 
     move-result p1
 
-    .line 278
     iget-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v1}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->getChildCount()I
 
     move-result v0
 
-    .line 279
-    .local v0, "tabStripChildCount":I
     if-eqz v0, :cond_0
 
     if-ltz p1, :cond_0
 
     if-lt p1, v0, :cond_1
 
-    .line 284
     :cond_0
     :goto_0
     return-void
 
-    .line 283
     :cond_1
     iget-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
@@ -680,37 +554,29 @@
 
 .method public onPageSelected(I)V
     .locals 7
-    .param p1, "position"    # I
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 288
     invoke-direct {p0, p1}, Lcom/android/contacts/common/list/ViewPagerTabs;->getRtlPosition(I)I
 
     move-result p1
 
-    .line 289
     iget-object v3, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v3}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->getChildCount()I
 
     move-result v2
 
-    .line 290
-    .local v2, "tabStripChildCount":I
     if-eqz v2, :cond_0
 
     if-ltz p1, :cond_0
 
     if-lt p1, v2, :cond_1
 
-    .line 304
     :cond_0
     :goto_0
     return-void
 
-    .line 294
     :cond_1
     iget v3, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPrevSelected:I
 
@@ -720,7 +586,6 @@
 
     if-ge v3, v2, :cond_2
 
-    .line 295
     iget-object v3, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     iget v4, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPrevSelected:I
@@ -731,7 +596,6 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setSelected(Z)V
 
-    .line 297
     :cond_2
     iget-object v3, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
@@ -739,13 +603,10 @@
 
     move-result-object v1
 
-    .line 298
-    .local v1, "selectedChild":Landroid/view/View;
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setSelected(Z)V
 
-    .line 301
     invoke-virtual {v1}, Landroid/view/View;->getLeft()I
 
     move-result v3
@@ -764,11 +625,8 @@
 
     sub-int v0, v3, v4
 
-    .line 302
-    .local v0, "scrollPos":I
     invoke-virtual {p0, v0, v6}, Lcom/android/contacts/common/list/ViewPagerTabs;->smoothScrollTo(II)V
 
-    .line 303
     iput p1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPrevSelected:I
 
     goto :goto_0
@@ -776,37 +634,26 @@
 
 .method public removeTab(I)V
     .locals 2
-    .param p1, "index"    # I
 
-    .prologue
-    .line 256
     iget-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v1, p1}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 257
-    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
-    .line 258
     iget-object v1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mTabStrip:Lcom/android/contacts/common/list/ViewPagerTabStrip;
 
     invoke-virtual {v1, v0}, Lcom/android/contacts/common/list/ViewPagerTabStrip;->removeView(Landroid/view/View;)V
 
-    .line 260
     :cond_0
     return-void
 .end method
 
 .method public setUnreadCount(II)V
     .locals 1
-    .param p1, "count"    # I
-    .param p2, "position"    # I
 
-    .prologue
-    .line 171
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mUnreadCounts:[I
 
     if-eqz v0, :cond_0
@@ -817,12 +664,10 @@
 
     if-lt p2, v0, :cond_1
 
-    .line 175
     :cond_0
     :goto_0
     return-void
 
-    .line 174
     :cond_1
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mUnreadCounts:[I
 
@@ -833,13 +678,9 @@
 
 .method public setViewPager(Landroid/support/v4/view/ViewPager;)V
     .locals 1
-    .param p1, "viewPager"    # Landroid/support/v4/view/ViewPager;
 
-    .prologue
-    .line 155
     iput-object p1, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPager:Landroid/support/v4/view/ViewPager;
 
-    .line 156
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPager:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getAdapter()Landroid/support/v4/view/PagerAdapter;
@@ -848,19 +689,14 @@
 
     invoke-direct {p0, v0}, Lcom/android/contacts/common/list/ViewPagerTabs;->addTabs(Landroid/support/v4/view/PagerAdapter;)V
 
-    .line 157
     return-void
 .end method
 
 .method public updateTab(I)V
     .locals 1
-    .param p1, "index"    # I
 
-    .prologue
-    .line 268
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/list/ViewPagerTabs;->removeTab(I)V
 
-    .line 270
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPager:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getAdapter()Landroid/support/v4/view/PagerAdapter;
@@ -873,7 +709,6 @@
 
     if-ge p1, v0, :cond_0
 
-    .line 271
     iget-object v0, p0, Lcom/android/contacts/common/list/ViewPagerTabs;->mPager:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getAdapter()Landroid/support/v4/view/PagerAdapter;
@@ -886,7 +721,6 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/contacts/common/list/ViewPagerTabs;->addTab(Ljava/lang/CharSequence;I)V
 
-    .line 273
     :cond_0
     return-void
 .end method

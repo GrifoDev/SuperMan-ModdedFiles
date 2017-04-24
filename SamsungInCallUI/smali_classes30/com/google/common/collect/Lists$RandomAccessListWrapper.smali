@@ -39,12 +39,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 1185
-    .local p0, "this":Lcom/google/common/collect/Lists$RandomAccessListWrapper;, "Lcom/google/common/collect/Lists$RandomAccessListWrapper<TE;>;"
-    .local p1, "backingList":Ljava/util/List;, "Ljava/util/List<TE;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/Lists$AbstractListWrapper;-><init>(Ljava/util/List;)V
 
-    .line 1186
     return-void
 .end method

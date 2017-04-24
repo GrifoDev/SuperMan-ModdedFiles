@@ -17,13 +17,10 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
-    .line 34
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->baseClass:Ljava/lang/Class;
 
-    .line 37
     const-string v0, "android.bluetooth.BluetoothHeadset"
 
     invoke-static {v0}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
@@ -32,7 +29,6 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->baseClass:Ljava/lang/Class;
 
-    .line 39
     sget-object v0, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->baseClass:Ljava/lang/Class;
 
     const-string v1, "connectAudio"
@@ -53,15 +49,12 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->sMethodConnectAudio:Ljava/lang/reflect/Method;
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -69,30 +62,22 @@
 
 .method public static connectAudio(Landroid/bluetooth/BluetoothHeadset;Landroid/bluetooth/BluetoothDevice;)Z
     .locals 5
-    .param p0, "instance"    # Landroid/bluetooth/BluetoothHeadset;
-    .param p1, "device"    # Landroid/bluetooth/BluetoothDevice;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 43
     sget-object v2, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->sMethodConnectAudio:Ljava/lang/reflect/Method;
 
     if-eqz v2, :cond_0
 
     if-nez p0, :cond_1
 
-    .line 54
     :cond_0
     :goto_0
     return v0
 
-    .line 47
     :cond_1
     const/4 v0, 0x0
 
-    .line 49
-    .local v0, "connectAudio":Z
     :try_start_0
     sget-object v2, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->sMethodConnectAudio:Ljava/lang/reflect/Method;
 
@@ -114,7 +99,6 @@
 
     move-result v0
 
-    .line 50
     const-string v2, "BluetoothHeadsetWrapper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -142,12 +126,9 @@
 
     goto :goto_0
 
-    .line 51
     :catch_0
     move-exception v1
 
-    .line 52
-    .local v1, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v2, "BluetoothHeadsetWrapper"
 
@@ -177,8 +158,6 @@
 
     goto :goto_0
 
-    .line 51
-    .end local v1    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v1
 

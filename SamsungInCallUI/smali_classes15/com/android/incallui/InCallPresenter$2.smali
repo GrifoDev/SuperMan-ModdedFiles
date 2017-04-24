@@ -1,5 +1,5 @@
 .class Lcom/android/incallui/InCallPresenter$2;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/database/ContentObserver;
 .source "InCallPresenter.java"
 
 
@@ -19,80 +19,100 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/InCallPresenter;)V
+.method constructor <init>(Lcom/android/incallui/InCallPresenter;Landroid/os/Handler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InCallPresenter;
 
-    .prologue
-    .line 324
     iput-object p1, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+.method public onChange(Z)V
+    .locals 6
 
-    .prologue
-    .line 327
-    const-string v1, "mlstatus"
+    const/4 v5, 0x0
 
-    const/4 v2, 0x0
+    invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    const-string v3, "NTT DOCOMO : onChange "
 
-    move-result v0
+    invoke-static {p0, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 328
-    .local v0, "mlstatus":I
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v3
 
-    const-string v2, "InCallPresenter ACTION_ML_STATE : "
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3, v4, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_2
 
-    move-result-object v1
+    iget-object v3, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    # getter for: Lcom/android/incallui/InCallPresenter;->mContext:Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/incallui/InCallPresenter;->access$100(Lcom/android/incallui/InCallPresenter;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v3}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
 
-    .line 329
-    if-nez v0, :cond_0
+    move-result-object v3
 
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    if-eqz v1, :cond_0
-
-    .line 330
-    iget-object v1, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
-
-    iget-object v2, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
-
-    # getter for: Lcom/android/incallui/InCallPresenter;->mCallList:Lcom/android/incallui/CallList;
-    invoke-static {v2}, Lcom/android/incallui/InCallPresenter;->access$200(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/CallList;
+    invoke-virtual {v3, v4}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/incallui/InCallPresenter;->onCallListChange(Lcom/android/incallui/CallList;)V
+    if-eqz v2, :cond_0
 
-    .line 332
+    iput-boolean v5, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->hide_status:Z
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isChangedHideStatus:Z
+
     :cond_0
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->getCallCardPresenter()Lcom/android/incallui/CallCardPresenter;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/android/incallui/CallCardPresenter;->updatePrimaryDisplayInfo()V
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
+
+    # getter for: Lcom/android/incallui/InCallPresenter;->mStatusBarNotifier:Lcom/android/incallui/StatusBarNotifier;
+    invoke-static {v3}, Lcom/android/incallui/InCallPresenter;->access$200(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/StatusBarNotifier;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/incallui/InCallPresenter$2;->this$0:Lcom/android/incallui/InCallPresenter;
+
+    # getter for: Lcom/android/incallui/InCallPresenter;->mStatusBarNotifier:Lcom/android/incallui/StatusBarNotifier;
+    invoke-static {v3}, Lcom/android/incallui/InCallPresenter;->access$200(Lcom/android/incallui/InCallPresenter;)Lcom/android/incallui/StatusBarNotifier;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0, v2, v5}, Lcom/android/incallui/StatusBarNotifier;->makeNotification(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Z)V
+
+    :cond_2
     return-void
 .end method

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/phone/common/dialpad/DialpadKeyButton;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    .prologue
-    .line 149
     iput-object p1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$2;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 152
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -53,8 +47,6 @@
 
     move-result v0
 
-    .line 154
-    .local v0, "animatedColor":I
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$2;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
     # getter for: Lcom/android/phone/common/dialpad/DialpadKeyButton;->mLetterTextView:Landroid/widget/TextView;
@@ -64,7 +56,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 155
     iget-object v1, p0, Lcom/android/phone/common/dialpad/DialpadKeyButton$2;->this$0:Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
     # getter for: Lcom/android/phone/common/dialpad/DialpadKeyButton;->mLetterTextView:Landroid/widget/TextView;
@@ -74,7 +65,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 156
     :cond_0
     return-void
 .end method

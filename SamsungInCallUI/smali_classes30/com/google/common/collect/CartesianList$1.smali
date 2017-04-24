@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/CartesianList;I)V
     .locals 0
 
-    .prologue
-    .line 74
-    .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList.1;"
     iput-object p1, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
     iput p2, p0, Lcom/google/common/collect/CartesianList$1;->val$index:I
@@ -47,23 +44,18 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 3
-    .param p1, "axis"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
-    .prologue
-    .line 83
-    .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/CartesianList$1;->size()I
 
     move-result v1
 
     invoke-static {p1, v1}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
-    .line 84
     iget-object v1, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
     iget v2, p0, Lcom/google/common/collect/CartesianList$1;->val$index:I
@@ -73,8 +65,6 @@
 
     move-result v0
 
-    .line 85
-    .local v0, "axisIndex":I
     iget-object v1, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
     # getter for: Lcom/google/common/collect/CartesianList;->axes:Lcom/google/common/collect/ImmutableList;
@@ -98,9 +88,6 @@
 .method isPartialView()Z
     .locals 1
 
-    .prologue
-    .line 90
-    .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList.1;"
     const/4 v0, 0x1
 
     return v0
@@ -109,9 +96,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 78
-    .local p0, "this":Lcom/google/common/collect/CartesianList$1;, "Lcom/google/common/collect/CartesianList.1;"
     iget-object v0, p0, Lcom/google/common/collect/CartesianList$1;->this$0:Lcom/google/common/collect/CartesianList;
 
     # getter for: Lcom/google/common/collect/CartesianList;->axes:Lcom/google/common/collect/ImmutableList;

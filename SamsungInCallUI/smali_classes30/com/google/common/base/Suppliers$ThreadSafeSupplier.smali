@@ -56,16 +56,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 274
-    .local p0, "this":Lcom/google/common/base/Suppliers$ThreadSafeSupplier;, "Lcom/google/common/base/Suppliers$ThreadSafeSupplier<TT;>;"
-    .local p1, "delegate":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 275
     iput-object p1, p0, Lcom/google/common/base/Suppliers$ThreadSafeSupplier;->delegate:Lcom/google/common/base/Supplier;
 
-    .line 276
     return-void
 .end method
 
@@ -79,14 +73,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 280
-    .local p0, "this":Lcom/google/common/base/Suppliers$ThreadSafeSupplier;, "Lcom/google/common/base/Suppliers$ThreadSafeSupplier<TT;>;"
     iget-object v1, p0, Lcom/google/common/base/Suppliers$ThreadSafeSupplier;->delegate:Lcom/google/common/base/Supplier;
 
     monitor-enter v1
 
-    .line 281
     :try_start_0
     iget-object v0, p0, Lcom/google/common/base/Suppliers$ThreadSafeSupplier;->delegate:Lcom/google/common/base/Supplier;
 
@@ -98,7 +88,6 @@
 
     return-object v0
 
-    .line 282
     :catchall_0
     move-exception v0
 
@@ -112,9 +101,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 287
-    .local p0, "this":Lcom/google/common/base/Suppliers$ThreadSafeSupplier;, "Lcom/google/common/base/Suppliers$ThreadSafeSupplier<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

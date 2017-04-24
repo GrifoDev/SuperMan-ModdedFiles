@@ -31,10 +31,6 @@
 .method constructor <init>(Lcom/google/common/cache/LocalCache$WriteQueue;Lcom/google/common/cache/LocalCache$ReferenceEntry;)V
     .locals 0
 
-    .prologue
-    .line 3726
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$2;, "Lcom/google/common/cache/LocalCache$WriteQueue.2;"
-    .local p2, "x0":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/cache/LocalCache$WriteQueue$2;->this$0:Lcom/google/common/cache/LocalCache$WriteQueue;
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/AbstractSequentialIterator;-><init>(Ljava/lang/Object;)V
@@ -56,16 +52,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 3729
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$2;, "Lcom/google/common/cache/LocalCache$WriteQueue.2;"
-    .local p1, "previous":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     invoke-interface {p1}, Lcom/google/common/cache/LocalCache$ReferenceEntry;->getNextInWriteQueue()Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     move-result-object v0
 
-    .line 3730
-    .local v0, "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/cache/LocalCache$WriteQueue$2;->this$0:Lcom/google/common/cache/LocalCache$WriteQueue;
 
     iget-object v1, v1, Lcom/google/common/cache/LocalCache$WriteQueue;->head:Lcom/google/common/cache/LocalCache$ReferenceEntry;
@@ -74,21 +64,15 @@
 
     const/4 v0, 0x0
 
-    .end local v0    # "next":Lcom/google/common/cache/LocalCache$ReferenceEntry;, "Lcom/google/common/cache/LocalCache$ReferenceEntry<TK;TV;>;"
     :cond_0
     return-object v0
 .end method
 
 .method protected bridge synthetic computeNext(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 3726
-    .local p0, "this":Lcom/google/common/cache/LocalCache$WriteQueue$2;, "Lcom/google/common/cache/LocalCache$WriteQueue.2;"
     check-cast p1, Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/cache/LocalCache$WriteQueue$2;->computeNext(Lcom/google/common/cache/LocalCache$ReferenceEntry;)Lcom/google/common/cache/LocalCache$ReferenceEntry;
 
     move-result-object v0

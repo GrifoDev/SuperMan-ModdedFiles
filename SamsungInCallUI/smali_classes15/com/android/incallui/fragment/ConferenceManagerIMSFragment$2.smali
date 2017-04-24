@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
-    .prologue
-    .line 248
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 251
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment$2;->this$0:Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;
 
     # getter for: Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->mConferenceParticipantList:Landroid/widget/ListView;
@@ -51,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAlpha(F)V
 
-    .line 252
     return-void
 .end method

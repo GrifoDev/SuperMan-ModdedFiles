@@ -23,8 +23,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 41
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -36,24 +34,15 @@
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "memberClass"    # Ljava/lang/Class;
-    .param p2, "propertyName"    # Ljava/lang/String;
-    .param p3, "propertyType"    # Ljava/lang/Class;
 
-    .prologue
-    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->memberClass:Ljava/lang/Class;
 
-    .line 49
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->propertyName:Ljava/lang/String;
 
-    .line 50
     iput-object p3, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->type:Ljava/lang/Class;
 
-    .line 51
     return-void
 .end method
 
@@ -61,7 +50,6 @@
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .param p1, "member"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -69,15 +57,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 94
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->isReadable()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 95
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -122,7 +107,6 @@
 
     throw v1
 
-    .line 99
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->getter:Ljava/lang/reflect/Method;
@@ -137,12 +121,9 @@
 
     return-object v1
 
-    .line 100
     :catch_0
     move-exception v0
 
-    .line 101
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/reflect/UndeclaredThrowableException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
@@ -157,8 +138,6 @@
 .method public getBeanClass()Ljava/lang/Class;
     .locals 1
 
-    .prologue
-    .line 57
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->memberClass:Ljava/lang/Class;
 
     return-object v0
@@ -167,8 +146,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 71
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->propertyName:Ljava/lang/String;
 
     return-object v0
@@ -177,8 +154,6 @@
 .method public getType()Ljava/lang/Class;
     .locals 1
 
-    .prologue
-    .line 64
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->type:Ljava/lang/Class;
 
     return-object v0
@@ -187,8 +162,6 @@
 .method public isReadable()Z
     .locals 1
 
-    .prologue
-    .line 78
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->getter:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_0
@@ -207,8 +180,6 @@
 .method public isWritable()Z
     .locals 1
 
-    .prologue
-    .line 85
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->setter:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_0
@@ -226,8 +197,6 @@
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .param p1, "member"    # Ljava/lang/Object;
-    .param p2, "newValue"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -235,15 +204,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 111
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->isWritable()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 112
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -288,7 +254,6 @@
 
     throw v1
 
-    .line 116
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->setter:Ljava/lang/reflect/Method;
@@ -309,12 +274,9 @@
 
     return-object v1
 
-    .line 117
     :catch_0
     move-exception v0
 
-    .line 118
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/reflect/UndeclaredThrowableException;
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
@@ -328,24 +290,16 @@
 
 .method public setGetterMethod(Ljava/lang/reflect/Method;)V
     .locals 0
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
-    .prologue
-    .line 126
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->getter:Ljava/lang/reflect/Method;
 
-    .line 128
     return-void
 .end method
 
 .method public setSetterMethod(Ljava/lang/reflect/Method;)V
     .locals 0
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
-    .prologue
-    .line 134
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/javabean/BeanProperty;->setter:Ljava/lang/reflect/Method;
 
-    .line 135
     return-void
 .end method

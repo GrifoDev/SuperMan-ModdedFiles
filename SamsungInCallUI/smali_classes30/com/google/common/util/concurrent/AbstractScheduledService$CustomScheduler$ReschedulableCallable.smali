@@ -60,33 +60,23 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler;Lcom/google/common/util/concurrent/AbstractService;Ljava/util/concurrent/ScheduledExecutorService;Ljava/lang/Runnable;)V
     .locals 1
-    .param p2, "service"    # Lcom/google/common/util/concurrent/AbstractService;
-    .param p3, "executor"    # Ljava/util/concurrent/ScheduledExecutorService;
-    .param p4, "runnable"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 453
     iput-object p1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler;
 
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ForwardingFuture;-><init>()V
 
-    .line 446
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     iput-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 454
     iput-object p4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->wrappedRunnable:Ljava/lang/Runnable;
 
-    .line 455
     iput-object p3, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->executor:Ljava/util/concurrent/ScheduledExecutorService;
 
-    .line 456
     iput-object p2, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->service:Lcom/google/common/util/concurrent/AbstractService;
 
-    .line 457
     return-void
 .end method
 
@@ -100,8 +90,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 427
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->call()Ljava/lang/Void;
 
     move-result-object v0
@@ -117,16 +105,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 461
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->wrappedRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 462
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->reschedule()V
 
-    .line 463
     const/4 v0, 0x0
 
     return-object v0
@@ -134,15 +118,11 @@
 
 .method public cancel(Z)Z
     .locals 2
-    .param p1, "mayInterruptIfRunning"    # Z
 
-    .prologue
-    .line 512
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 514
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->currentFuture:Ljava/util/concurrent/Future;
 
@@ -152,7 +132,6 @@
 
     move-result v0
 
-    .line 516
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
@@ -172,8 +151,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 427
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->delegate()Ljava/util/concurrent/Future;
 
     move-result-object v0
@@ -193,8 +170,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 532
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Only cancel and isCancelled is supported by this future"
@@ -207,13 +182,10 @@
 .method public isCancelled()Z
     .locals 2
 
-    .prologue
-    .line 522
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 524
     :try_start_0
     iget-object v0, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->currentFuture:Ljava/util/concurrent/Future;
 
@@ -223,7 +195,6 @@
 
     move-result v0
 
-    .line 526
     iget-object v1, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
@@ -243,8 +214,6 @@
 .method public reschedule()V
     .locals 8
 
-    .prologue
-    .line 473
     :try_start_0
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->this$0:Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler;
 
@@ -254,17 +223,12 @@
 
     move-result-object v1
 
-    .line 482
-    .local v1, "schedule":Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;
     const/4 v2, 0x0
 
-    .line 483
-    .local v2, "scheduleFailure":Ljava/lang/Throwable;
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 485
     :try_start_1
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->currentFuture:Ljava/util/concurrent/Future;
 
@@ -278,7 +242,6 @@
 
     if-nez v4, :cond_1
 
-    .line 486
     :cond_0
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->executor:Ljava/util/concurrent/ScheduledExecutorService;
 
@@ -301,59 +264,42 @@
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 499
     :cond_1
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 502
     :goto_0
     if-eqz v2, :cond_2
 
-    .line 503
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->service:Lcom/google/common/util/concurrent/AbstractService;
 
     invoke-virtual {v4, v2}, Lcom/google/common/util/concurrent/AbstractService;->notifyFailed(Ljava/lang/Throwable;)V
 
-    .line 505
-    .end local v1    # "schedule":Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;
-    .end local v2    # "scheduleFailure":Ljava/lang/Throwable;
     :cond_2
     :goto_1
     return-void
 
-    .line 474
     :catch_0
     move-exception v3
 
-    .line 475
-    .local v3, "t":Ljava/lang/Throwable;
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->service:Lcom/google/common/util/concurrent/AbstractService;
 
     invoke-virtual {v4, v3}, Lcom/google/common/util/concurrent/AbstractService;->notifyFailed(Ljava/lang/Throwable;)V
 
     goto :goto_1
 
-    .line 488
-    .end local v3    # "t":Ljava/lang/Throwable;
-    .restart local v1    # "schedule":Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$Schedule;
-    .restart local v2    # "scheduleFailure":Ljava/lang/Throwable;
     :catch_1
     move-exception v0
 
-    .line 497
-    .local v0, "e":Ljava/lang/Throwable;
     move-object v2, v0
 
-    .line 499
     iget-object v4, p0, Lcom/google/common/util/concurrent/AbstractScheduledService$CustomScheduler$ReschedulableCallable;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v4}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     goto :goto_0
 
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catchall_0
     move-exception v4
 

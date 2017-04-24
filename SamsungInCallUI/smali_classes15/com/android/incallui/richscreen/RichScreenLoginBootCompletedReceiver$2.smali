@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
-    .prologue
-    .line 132
     iput-object p1, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     iput-object p2, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->val$token:Ljava/lang/String;
@@ -44,18 +41,14 @@
 .method public run()V
     .locals 4
 
-    .prologue
     const/4 v3, 0x1
 
-    .line 135
     invoke-static {v3}, Lcom/cmdm/control/util/PrintLog;->setLogOnOff(Z)V
 
-    .line 136
     sget-object v0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     if-nez v0, :cond_0
 
-    .line 137
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     const-string v1, " loginRichScreenServer init again"
@@ -63,7 +56,6 @@
     # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
-    .line 138
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mContext:Landroid/content/Context;
@@ -74,13 +66,11 @@
     # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->initCache(Landroid/content/Context;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$300(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Landroid/content/Context;)V
 
-    .line 140
     :cond_0
     sget-object v0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     if-eqz v0, :cond_1
 
-    .line 141
     sget-object v0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mRichScrnPersonBiz:Lcom/cmdm/rcs/biz/RichScrnPersonBiz;
 
     iget-object v1, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->val$token:Ljava/lang/String;
@@ -94,14 +84,12 @@
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$402(Lcom/cmdm/control/util/client/ResultEntity;)Lcom/cmdm/control/util/client/ResultEntity;
 
-    .line 143
     :cond_1
     const/4 v0, 0x0
 
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bDuringLoginServer:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$502(Z)Z
 
-    .line 144
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
@@ -109,7 +97,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 145
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
@@ -122,7 +109,6 @@
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bLoginSuccess:Z
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$602(Z)Z
 
-    .line 146
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->loginResult:Lcom/cmdm/control/util/client/ResultEntity;
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$400()Lcom/cmdm/control/util/client/ResultEntity;
 
@@ -135,7 +121,6 @@
     # setter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->LoginString:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$702(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 147
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -179,7 +164,6 @@
     # invokes: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$100(Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;Ljava/lang/String;)V
 
-    .line 148
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->bLoginSuccess:Z
     invoke-static {}, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->access$600()Z
 
@@ -187,7 +171,6 @@
 
     if-eqz v0, :cond_3
 
-    .line 149
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 
     # getter for: Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;->mGetTokenService:Lcom/android/incallui/richscreen/GetTokenService;
@@ -195,12 +178,10 @@
 
     sput v3, Lcom/android/incallui/richscreen/GetTokenService;->tryLoginRichScreenServerCount:I
 
-    .line 154
     :cond_2
     :goto_0
     return-void
 
-    .line 151
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver$2;->this$0:Lcom/android/incallui/richscreen/RichScreenLoginBootCompletedReceiver;
 

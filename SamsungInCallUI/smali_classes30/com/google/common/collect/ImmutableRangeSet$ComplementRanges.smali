@@ -37,14 +37,10 @@
 .method constructor <init>(Lcom/google/common/collect/ImmutableRangeSet;)V
     .locals 3
 
-    .prologue
-    .line 206
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>.ComplementRanges;"
     iput-object p1, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableList;-><init>()V
 
-    .line 207
     # getter for: Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
     invoke-static {p1}, Lcom/google/common/collect/ImmutableRangeSet;->access$000(Lcom/google/common/collect/ImmutableRangeSet;)Lcom/google/common/collect/ImmutableList;
 
@@ -64,7 +60,6 @@
 
     iput-boolean v1, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedBelow:Z
 
-    .line 208
     # getter for: Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
     invoke-static {p1}, Lcom/google/common/collect/ImmutableRangeSet;->access$000(Lcom/google/common/collect/ImmutableRangeSet;)Lcom/google/common/collect/ImmutableList;
 
@@ -82,7 +77,6 @@
 
     iput-boolean v1, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedAbove:Z
 
-    .line 210
     # getter for: Lcom/google/common/collect/ImmutableRangeSet;->ranges:Lcom/google/common/collect/ImmutableList;
     invoke-static {p1}, Lcom/google/common/collect/ImmutableRangeSet;->access$000(Lcom/google/common/collect/ImmutableRangeSet;)Lcom/google/common/collect/ImmutableList;
 
@@ -94,29 +88,22 @@
 
     add-int/lit8 v0, v1, -0x1
 
-    .line 211
-    .local v0, "size":I
     iget-boolean v1, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedBelow:Z
 
     if-eqz v1, :cond_0
 
-    .line 212
     add-int/lit8 v0, v0, 0x1
 
-    .line 214
     :cond_0
     iget-boolean v1, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedAbove:Z
 
     if-eqz v1, :cond_1
 
-    .line 215
     add-int/lit8 v0, v0, 0x1
 
-    .line 217
     :cond_1
     iput v0, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->size:I
 
-    .line 218
     return-void
 .end method
 
@@ -124,7 +111,6 @@
 # virtual methods
 .method public get(I)Lcom/google/common/collect/Range;
     .locals 4
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -133,27 +119,20 @@
         }
     .end annotation
 
-    .prologue
-    .line 227
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>.ComplementRanges;"
     iget v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->size:I
 
     invoke-static {p1, v2}, Lcom/google/common/base/Preconditions;->checkElementIndex(II)I
 
-    .line 230
     iget-boolean v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedBelow:Z
 
     if-eqz v2, :cond_1
 
-    .line 231
     if-nez p1, :cond_0
 
     invoke-static {}, Lcom/google/common/collect/Cut;->belowAll()Lcom/google/common/collect/Cut;
 
     move-result-object v0
 
-    .line 237
-    .local v0, "lowerBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :goto_0
     iget-boolean v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->positiveBoundedAbove:Z
 
@@ -165,13 +144,10 @@
 
     if-ne p1, v2, :cond_2
 
-    .line 238
     invoke-static {}, Lcom/google/common/collect/Cut;->aboveAll()Lcom/google/common/collect/Cut;
 
     move-result-object v1
 
-    .line 243
-    .local v1, "upperBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :goto_1
     invoke-static {v0, v1}, Lcom/google/common/collect/Range;->create(Lcom/google/common/collect/Cut;Lcom/google/common/collect/Cut;)Lcom/google/common/collect/Range;
 
@@ -179,9 +155,6 @@
 
     return-object v2
 
-    .line 231
-    .end local v0    # "lowerBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
-    .end local v1    # "upperBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :cond_0
     iget-object v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
@@ -202,7 +175,6 @@
 
     goto :goto_0
 
-    .line 233
     :cond_1
     iget-object v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
@@ -219,10 +191,8 @@
 
     iget-object v0, v2, Lcom/google/common/collect/Range;->upperBound:Lcom/google/common/collect/Cut;
 
-    .restart local v0    # "lowerBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     goto :goto_0
 
-    .line 240
     :cond_2
     iget-object v2, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->this$0:Lcom/google/common/collect/ImmutableRangeSet;
 
@@ -248,10 +218,8 @@
 
     iget-object v1, v2, Lcom/google/common/collect/Range;->lowerBound:Lcom/google/common/collect/Cut;
 
-    .restart local v1    # "upperBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     goto :goto_1
 
-    .end local v1    # "upperBound":Lcom/google/common/collect/Cut;, "Lcom/google/common/collect/Cut<TC;>;"
     :cond_3
     const/4 v2, 0x1
 
@@ -260,11 +228,7 @@
 
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
-    .line 197
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>.ComplementRanges;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->get(I)Lcom/google/common/collect/Range;
 
     move-result-object v0
@@ -275,9 +239,6 @@
 .method isPartialView()Z
     .locals 1
 
-    .prologue
-    .line 248
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>.ComplementRanges;"
     const/4 v0, 0x1
 
     return v0
@@ -286,9 +247,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 222
-    .local p0, "this":Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;, "Lcom/google/common/collect/ImmutableRangeSet<TC;>.ComplementRanges;"
     iget v0, p0, Lcom/google/common/collect/ImmutableRangeSet$ComplementRanges;->size:I
 
     return v0

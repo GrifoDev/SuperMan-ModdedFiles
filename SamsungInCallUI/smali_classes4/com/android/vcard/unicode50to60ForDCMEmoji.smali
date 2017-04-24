@@ -23,20 +23,16 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 13
     const-string v0, "\ue729\ue72a\ue752\ue753\ue6f0\ue72c\ue726\ue721\ue725\ue722\ue723\ue6f2\ue720\ue6f3\ue6f4\ue72b\ue757\ue72d\ue72e\ue6f1\ue724\ue728\ue6b1\ue6ec\ue6ed\ue6ee\ue6ef\ue6fa\ue6f6\ue6ff\ue6fb\ue706\ue707\ue708\ue701\ue6fc\ue705\ue6fe\ue737\ue693\ue694\ue695\ue6fd\ue727\ue691\ue692\ue6f9\ue698\ue702\ue704\ue703\ue6a1\ue6a2\ue754\ue755\ue74f\ue750\ue751\ue74e\ue749\ue74d\ue673\ue74c\ue686\ue74a\ue66f\ue670\ue671\ue672\ue71e\ue74b\ue756\ue742\ue744\ue745\ue63e\ue63f\ue640\ue641\ue642\ue643\ue644\ue6b3\ue69c\ue69d\ue69e\ue69f\ue6a0\ue73f\ue741\ue743\ue746\ue748\ue747\ue6a4\ue70e\ue652\ue711\ue699\ue674\ue682\ue6ad\ue645\ue67c\ue71a\ue69a\ue71b\ue684\ue710\ue653\ue656\ue658\ue654\ue655\ue733\ue712\ue657\ue659\ue6f7\ue679\ue67d\ue6ac\ue68b\ue71d\ue65e\ue65f\ue660\ue65b\ue65c\ue65d\ue6b2\ue662\ue6a3\ue661\ue663\ue664\ue73e\ue665\ue666\ue667\ue668\ue66b\ue66a\ue669\ue66c\ue66d\ue6de\ue66e\ue740\ue687\ue688\ue716\ue6d0\ue65a\ue68a\ue681\ue676\ue67a\ue677\ue67b\ue67e\ue68c\ue71f\ue6ba\ue71c\ue70f\ue715\ue719\ue6ae\ue730\ue675\ue683\ue689\ue718\ue714\ue713\ue6dc\ue685\ue6d9\ue6ce\ue6d3\ue6cf\ue717\ue70b\ue72f\ue6dd\ue6d7\ue6d8\ue6db\ue738\ue739\ue73a\ue73b\ue734\ue680\ue67f\ue69b\ue735\ue731\ue736\ue732\ue6d6\ue6df\ue6f8\ue709\ue70a\ue6f5\ue700\ue73d\ue73c\ue678\ue696\ue697\ue6a5\ue6da\ue6b8\ue6b9\ue6b7\ue646\ue647\ue648\ue649\ue64a\ue64b\ue64c\ue64d\ue64e\ue64f\ue650\ue651\ue68d\ue68e\ue68f\ue690\ue6e0\ue6e2\ue6e3\ue6e4\ue6e5\ue6e6\ue6e7\ue6e8\ue6e9\ue6ea\ue6eb\ue6d1\ue6d2\ue6d4\ue6d5\ue6e1\ue70c\ue70d"
 
     sput-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->emojiStr:Ljava/lang/String;
 
-    .line 17
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
-    .line 20
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue729"
@@ -45,7 +41,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 21
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72a"
@@ -54,7 +49,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 22
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue752"
@@ -63,7 +57,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 23
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue753"
@@ -72,7 +65,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 24
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f0"
@@ -81,7 +73,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 25
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72c"
@@ -90,7 +81,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 26
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue726"
@@ -99,7 +89,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 27
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue721"
@@ -108,7 +97,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 28
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue725"
@@ -117,7 +105,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 29
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue722"
@@ -126,7 +113,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 30
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue723"
@@ -135,7 +121,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 31
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f2"
@@ -144,7 +129,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 32
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue720"
@@ -153,7 +137,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 33
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f3"
@@ -162,7 +145,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 34
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f4"
@@ -171,7 +153,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 35
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72b"
@@ -180,7 +161,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 36
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue757"
@@ -189,7 +169,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 37
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72d"
@@ -198,7 +177,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 38
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72e"
@@ -207,7 +185,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 39
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f1"
@@ -216,7 +193,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 40
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue724"
@@ -225,7 +201,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 41
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue728"
@@ -234,7 +209,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b1"
@@ -243,7 +217,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 43
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ec"
@@ -252,7 +225,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 44
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ed"
@@ -261,7 +233,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 45
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ee"
@@ -270,7 +241,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 46
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ef"
@@ -279,7 +249,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 47
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6fa"
@@ -288,7 +257,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f6"
@@ -297,7 +265,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 49
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ff"
@@ -306,7 +273,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 50
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6fb"
@@ -315,7 +281,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 51
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue706"
@@ -324,7 +289,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 52
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue707"
@@ -333,7 +297,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue708"
@@ -342,7 +305,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 54
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue701"
@@ -351,7 +313,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6fc"
@@ -360,7 +321,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 56
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue705"
@@ -369,7 +329,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 57
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6fe"
@@ -378,7 +337,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 58
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue737"
@@ -387,7 +345,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue693"
@@ -396,7 +353,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 60
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue694"
@@ -405,7 +361,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 61
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue695"
@@ -414,7 +369,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 62
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6fd"
@@ -423,7 +377,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue727"
@@ -432,7 +385,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue691"
@@ -441,7 +393,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue692"
@@ -450,7 +401,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 66
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f9"
@@ -459,7 +409,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue698"
@@ -468,7 +417,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 68
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue702"
@@ -477,7 +425,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue704"
@@ -486,7 +433,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue703"
@@ -495,7 +441,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 71
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a1"
@@ -504,7 +449,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 72
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a2"
@@ -513,7 +457,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue754"
@@ -522,7 +465,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 74
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue755"
@@ -531,7 +473,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 75
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74f"
@@ -540,7 +481,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 76
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue750"
@@ -549,7 +489,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 77
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue751"
@@ -558,7 +497,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 78
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74e"
@@ -567,7 +505,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 79
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue749"
@@ -576,7 +513,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 80
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74d"
@@ -585,7 +521,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 81
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue673"
@@ -594,7 +529,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74c"
@@ -603,7 +537,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 83
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue686"
@@ -612,7 +545,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 84
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74a"
@@ -621,7 +553,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 85
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66f"
@@ -630,7 +561,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 86
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue670"
@@ -639,7 +569,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 87
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue671"
@@ -648,7 +577,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 88
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue672"
@@ -657,7 +585,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 89
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71e"
@@ -666,7 +593,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 90
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue74b"
@@ -675,7 +601,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 91
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue756"
@@ -684,7 +609,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 92
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue742"
@@ -693,7 +617,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 93
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue744"
@@ -702,7 +625,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 94
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue745"
@@ -711,7 +633,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 95
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue63e"
@@ -720,7 +641,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 96
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue63f"
@@ -729,7 +649,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 97
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue640"
@@ -738,7 +657,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 98
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue641"
@@ -747,7 +665,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 99
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue642"
@@ -756,7 +673,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 100
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue643"
@@ -765,7 +681,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 101
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue644"
@@ -774,7 +689,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 102
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b3"
@@ -783,7 +697,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 103
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69c"
@@ -792,7 +705,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 104
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69d"
@@ -801,7 +713,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 105
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69e"
@@ -810,7 +721,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 106
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69f"
@@ -819,7 +729,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 107
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a0"
@@ -828,7 +737,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 108
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73f"
@@ -837,7 +745,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 109
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue741"
@@ -846,7 +753,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 110
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue743"
@@ -855,7 +761,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 111
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue746"
@@ -864,7 +769,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 112
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue748"
@@ -873,7 +777,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 113
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue747"
@@ -882,7 +785,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 114
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a4"
@@ -891,7 +793,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 115
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70e"
@@ -900,7 +801,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 116
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue652"
@@ -909,7 +809,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 117
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue711"
@@ -918,7 +817,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 118
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue699"
@@ -927,7 +825,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 119
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue674"
@@ -936,7 +833,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 120
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue682"
@@ -945,7 +841,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 121
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ad"
@@ -954,7 +849,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 122
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue645"
@@ -963,7 +857,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 123
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67c"
@@ -972,7 +865,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 124
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71a"
@@ -981,7 +873,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 125
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69a"
@@ -990,7 +881,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71b"
@@ -999,7 +889,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 127
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue684"
@@ -1008,7 +897,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 128
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue710"
@@ -1017,7 +905,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 129
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue653"
@@ -1026,7 +913,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 130
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue656"
@@ -1035,7 +921,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 131
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue658"
@@ -1044,7 +929,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 132
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue654"
@@ -1053,7 +937,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 133
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue655"
@@ -1062,7 +945,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 134
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue733"
@@ -1071,7 +953,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 135
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue712"
@@ -1080,7 +961,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 136
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue657"
@@ -1089,7 +969,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue659"
@@ -1098,7 +977,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 138
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f7"
@@ -1107,7 +985,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 139
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue679"
@@ -1116,7 +993,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 140
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67d"
@@ -1125,7 +1001,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 141
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ac"
@@ -1134,7 +1009,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 142
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68b"
@@ -1143,7 +1017,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 143
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71d"
@@ -1152,7 +1025,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 144
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65e"
@@ -1161,7 +1033,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 145
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65f"
@@ -1170,7 +1041,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 146
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue660"
@@ -1179,7 +1049,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 147
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65b"
@@ -1188,7 +1057,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 148
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65c"
@@ -1197,7 +1065,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 149
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65d"
@@ -1206,7 +1073,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 150
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b2"
@@ -1215,7 +1081,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 151
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue662"
@@ -1224,7 +1089,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 152
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a3"
@@ -1233,7 +1097,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 153
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue661"
@@ -1242,7 +1105,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 154
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue663"
@@ -1251,7 +1113,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 155
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue664"
@@ -1260,7 +1121,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 156
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73e"
@@ -1269,7 +1129,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 157
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue665"
@@ -1278,7 +1137,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 158
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue666"
@@ -1287,7 +1145,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 159
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue667"
@@ -1296,7 +1153,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 160
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue668"
@@ -1305,7 +1161,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 161
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66b"
@@ -1314,7 +1169,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 162
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66a"
@@ -1323,7 +1177,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 163
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue669"
@@ -1332,7 +1185,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 164
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66c"
@@ -1341,7 +1193,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 165
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66d"
@@ -1350,7 +1201,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 166
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6de"
@@ -1359,7 +1209,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 167
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue66e"
@@ -1368,7 +1217,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 168
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue740"
@@ -1377,7 +1225,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 169
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue687"
@@ -1386,7 +1233,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 170
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue688"
@@ -1395,7 +1241,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 171
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue716"
@@ -1404,7 +1249,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 172
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d0"
@@ -1413,7 +1257,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 173
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue65a"
@@ -1422,7 +1265,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 174
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68a"
@@ -1431,7 +1273,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 175
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue681"
@@ -1440,7 +1281,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 176
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue676"
@@ -1449,7 +1289,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 177
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67a"
@@ -1458,7 +1297,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 178
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue677"
@@ -1467,7 +1305,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 179
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67b"
@@ -1476,7 +1313,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 180
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67e"
@@ -1485,7 +1321,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 181
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68c"
@@ -1494,7 +1329,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 182
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71f"
@@ -1503,7 +1337,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 183
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ba"
@@ -1512,7 +1345,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 184
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue71c"
@@ -1521,7 +1353,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 185
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70f"
@@ -1530,7 +1361,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 186
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue715"
@@ -1539,7 +1369,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 187
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue719"
@@ -1548,7 +1377,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 188
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ae"
@@ -1557,7 +1385,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 189
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue730"
@@ -1566,7 +1393,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 190
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue675"
@@ -1575,7 +1401,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 191
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue683"
@@ -1584,7 +1409,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 192
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue689"
@@ -1593,7 +1417,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 193
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue718"
@@ -1602,7 +1425,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 194
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue714"
@@ -1611,7 +1433,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 195
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue713"
@@ -1620,7 +1441,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 196
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6dc"
@@ -1629,7 +1449,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 197
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue685"
@@ -1638,7 +1457,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 198
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d9"
@@ -1647,7 +1465,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 199
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ce"
@@ -1656,7 +1473,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 200
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d3"
@@ -1665,7 +1481,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 201
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6cf"
@@ -1674,7 +1489,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 202
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue717"
@@ -1683,7 +1497,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 203
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70b"
@@ -1692,7 +1505,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 204
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue72f"
@@ -1701,7 +1513,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 205
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6dd"
@@ -1710,7 +1521,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 206
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d7"
@@ -1719,7 +1529,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 207
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d8"
@@ -1728,7 +1537,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 208
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6db"
@@ -1737,7 +1545,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 209
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue738"
@@ -1746,7 +1553,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 210
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue739"
@@ -1755,7 +1561,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 211
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73a"
@@ -1764,7 +1569,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 212
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73b"
@@ -1773,7 +1577,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 213
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue734"
@@ -1782,7 +1585,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 214
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue680"
@@ -1791,7 +1593,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 215
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue67f"
@@ -1800,7 +1601,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 216
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue69b"
@@ -1809,7 +1609,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 217
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue735"
@@ -1818,7 +1617,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 218
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue731"
@@ -1827,7 +1625,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 219
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue736"
@@ -1836,7 +1633,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 220
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue732"
@@ -1845,7 +1641,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 221
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d6"
@@ -1854,7 +1649,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 222
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6df"
@@ -1863,7 +1657,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 223
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f8"
@@ -1872,7 +1665,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 224
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue709"
@@ -1881,7 +1673,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 225
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70a"
@@ -1890,7 +1681,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 226
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6f5"
@@ -1899,7 +1689,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 227
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue700"
@@ -1908,7 +1697,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 228
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73d"
@@ -1917,7 +1705,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 229
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue73c"
@@ -1926,7 +1713,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 230
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue678"
@@ -1935,7 +1721,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 231
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue696"
@@ -1944,7 +1729,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 232
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue697"
@@ -1953,7 +1737,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 233
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6a5"
@@ -1962,7 +1745,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 234
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6da"
@@ -1971,7 +1753,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 235
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b8"
@@ -1980,7 +1761,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 236
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b9"
@@ -1989,7 +1769,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 237
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6b7"
@@ -1998,7 +1777,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 238
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue646"
@@ -2007,7 +1785,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 239
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue647"
@@ -2016,7 +1793,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 240
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue648"
@@ -2025,7 +1801,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 241
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue649"
@@ -2034,7 +1809,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 242
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64a"
@@ -2043,7 +1817,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 243
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64b"
@@ -2052,7 +1825,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 244
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64c"
@@ -2061,7 +1833,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 245
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64d"
@@ -2070,7 +1841,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 246
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64e"
@@ -2079,7 +1849,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 247
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue64f"
@@ -2088,7 +1857,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 248
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue650"
@@ -2097,7 +1865,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 249
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue651"
@@ -2106,7 +1873,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 250
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68d"
@@ -2115,7 +1881,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 251
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68e"
@@ -2124,7 +1889,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 252
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue68f"
@@ -2133,7 +1897,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 253
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue690"
@@ -2142,7 +1905,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 254
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e0"
@@ -2151,7 +1913,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 255
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e2"
@@ -2160,7 +1921,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 256
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e3"
@@ -2169,7 +1929,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 257
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e4"
@@ -2178,7 +1937,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 258
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e5"
@@ -2187,7 +1945,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 259
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e6"
@@ -2196,7 +1953,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 260
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e7"
@@ -2205,7 +1961,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 261
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e8"
@@ -2214,7 +1969,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 262
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e9"
@@ -2223,7 +1977,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 263
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6ea"
@@ -2232,7 +1985,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 264
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6eb"
@@ -2241,7 +1993,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 265
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d1"
@@ -2250,7 +2001,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 266
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d2"
@@ -2259,7 +2009,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 267
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d4"
@@ -2268,7 +2017,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 268
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6d5"
@@ -2277,7 +2025,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 269
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue6e1"
@@ -2286,7 +2033,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 270
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70c"
@@ -2295,7 +2041,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 271
     sget-object v0, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     const-string v1, "\ue70d"
@@ -2304,15 +2049,12 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 272
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -2320,16 +2062,11 @@
 
 .method public static convert(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .param p0, "stringinDcmEmoji_str"    # Ljava/lang/String;
 
-    .prologue
-    .line 309
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 310
-    .local v0, "finded":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -2360,14 +2097,10 @@
 
     move-result-object v3
 
-    .line 311
-    .local v3, "p":Ljava/util/regex/Pattern;
     invoke-virtual {v3, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v1
 
-    .line 312
-    .local v1, "m":Ljava/util/regex/Matcher;
     :cond_0
     :goto_0
     invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
@@ -2376,23 +2109,18 @@
 
     if-eqz v4, :cond_1
 
-    .line 313
     invoke-virtual {v1}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 314
-    .local v2, "matstr":Ljava/lang/String;
     invoke-virtual {v0, v2}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-nez v4, :cond_0
 
-    .line 315
     invoke-virtual {v0, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 316
     sget-object v4, Lcom/android/vcard/unicode50to60ForDCMEmoji;->convertMap:Ljava/util/HashMap;
 
     invoke-virtual {v4, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2407,23 +2135,17 @@
 
     goto :goto_0
 
-    .line 319
-    .end local v2    # "matstr":Ljava/lang/String;
     :cond_1
     return-object p0
 .end method
 
 .method private static getsurogateIfNeed(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 11
-    .param p0, "string"    # Ljava/lang/String;
-    .param p1, "bineryString"    # Ljava/lang/String;
 
-    .prologue
     const/4 v7, 0x0
 
     const/4 v10, 0x2
 
-    .line 283
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -2434,7 +2156,6 @@
 
     if-ge v8, v9, :cond_0
 
-    .line 284
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2453,11 +2174,9 @@
 
     move-result-object v7
 
-    .line 302
     :goto_0
     return-object v7
 
-    .line 287
     :cond_0
     const-string v8, "1101100000000000"
 
@@ -2465,32 +2184,20 @@
 
     move-result v3
 
-    .line 288
-    .local v3, "highSurogatePrefix":I
     const-string v8, "1101110000000000"
 
     invoke-static {v8, v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 289
-    .local v5, "lowSurogatePrefix":I
     const/4 v0, 0x0
 
-    .line 290
-    .local v0, "HSur_int":I
     const/4 v1, 0x0
 
-    .line 291
-    .local v1, "LSur_int":I
     const/4 v2, 0x0
 
-    .line 292
-    .local v2, "highSurogate":Ljava/lang/String;
     const/4 v4, 0x0
 
-    .line 295
-    .local v4, "lowSurogate":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v8
@@ -2505,19 +2212,15 @@
 
     add-int/lit8 v6, v8, -0xa
 
-    .line 296
-    .local v6, "pos":I
     :goto_1
     invoke-virtual {p1, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 297
     invoke-virtual {p1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 298
     invoke-static {v2, v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
     move-result v7
@@ -2532,14 +2235,12 @@
 
     sub-int v0, v7, v8
 
-    .line 299
     invoke-static {v4, v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
     move-result v7
 
     add-int v1, v5, v7
 
-    .line 302
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2578,10 +2279,8 @@
 
     goto :goto_0
 
-    .end local v6    # "pos":I
     :cond_1
     move v6, v7
 
-    .line 295
     goto :goto_1
 .end method

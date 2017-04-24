@@ -13,7 +13,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -24,7 +23,6 @@
 
     const/4 v3, 0x0
 
-    .line 38
     const/16 v0, 0x13
 
     new-array v0, v0, [Lorg/joda/time/format/DateTimeFormatter;
@@ -173,7 +171,6 @@
 
     sput-object v0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->formattersUTC:[Lorg/joda/time/format/DateTimeFormatter;
 
-    .line 59
     const/16 v0, 0x16
 
     new-array v0, v0, [Lorg/joda/time/format/DateTimeFormatter;
@@ -352,8 +349,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 37
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
     return-void
@@ -363,10 +358,7 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .prologue
-    .line 85
     const-class v0, Ljava/util/GregorianCalendar;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -378,13 +370,9 @@
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 8
-    .param p1, "str"    # Ljava/lang/String;
 
-    .prologue
-    .line 89
     const/4 v3, 0x0
 
-    .local v3, "i":I
     :goto_0
     sget-object v5, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->formattersUTC:[Lorg/joda/time/format/DateTimeFormatter;
 
@@ -392,26 +380,19 @@
 
     if-ge v3, v5, :cond_0
 
-    .line 90
     sget-object v5, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->formattersUTC:[Lorg/joda/time/format/DateTimeFormatter;
 
     aget-object v2, v5, v3
 
-    .line 92
-    .local v2, "formatter":Lorg/joda/time/format/DateTimeFormatter;
     :try_start_0
     invoke-virtual {v2, p1}, Lorg/joda/time/format/DateTimeFormatter;->parseDateTime(Ljava/lang/String;)Lorg/joda/time/DateTime;
 
     move-result-object v1
 
-    .line 93
-    .local v1, "dt":Lorg/joda/time/DateTime;
     invoke-virtual {v1}, Lorg/joda/time/DateTime;->toGregorianCalendar()Ljava/util/GregorianCalendar;
 
     move-result-object v0
 
-    .line 94
-    .local v0, "calendar":Ljava/util/Calendar;
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
     move-result-object v5
@@ -420,23 +401,16 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 107
     :goto_1
     return-object v0
 
-    .line 96
-    .end local v0    # "calendar":Ljava/util/Calendar;
-    .end local v1    # "dt":Lorg/joda/time/DateTime;
     :catch_0
     move-exception v5
 
-    .line 89
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 100
-    .end local v2    # "formatter":Lorg/joda/time/format/DateTimeFormatter;
     :cond_0
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
@@ -446,8 +420,6 @@
 
     move-result-object v4
 
-    .line 101
-    .local v4, "timeZoneID":Ljava/lang/String;
     const/4 v3, 0x0
 
     :goto_2
@@ -457,7 +429,6 @@
 
     if-ge v3, v5, :cond_1
 
-    .line 103
     :try_start_1
     sget-object v5, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->formattersNoUTC:[Lorg/joda/time/format/DateTimeFormatter;
 
@@ -471,20 +442,14 @@
 
     move-result-object v2
 
-    .line 104
-    .restart local v2    # "formatter":Lorg/joda/time/format/DateTimeFormatter;
     invoke-virtual {v2, p1}, Lorg/joda/time/format/DateTimeFormatter;->parseDateTime(Ljava/lang/String;)Lorg/joda/time/DateTime;
 
     move-result-object v1
 
-    .line 105
-    .restart local v1    # "dt":Lorg/joda/time/DateTime;
     invoke-virtual {v1}, Lorg/joda/time/DateTime;->toGregorianCalendar()Ljava/util/GregorianCalendar;
 
     move-result-object v0
 
-    .line 106
-    .restart local v0    # "calendar":Ljava/util/Calendar;
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
     move-result-object v5
@@ -495,19 +460,13 @@
 
     goto :goto_1
 
-    .line 108
-    .end local v0    # "calendar":Ljava/util/Calendar;
-    .end local v1    # "dt":Lorg/joda/time/DateTime;
-    .end local v2    # "formatter":Lorg/joda/time/format/DateTimeFormatter;
     :catch_1
     move-exception v5
 
-    .line 101
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 112
     :cond_1
     new-instance v5, Lcom/thoughtworks/xstream/converters/ConversionException;
 
@@ -536,16 +495,11 @@
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 116
     new-instance v0, Lorg/joda/time/DateTime;
 
     invoke-direct {v0, p1}, Lorg/joda/time/DateTime;-><init>(Ljava/lang/Object;)V
 
-    .line 117
-    .local v0, "dt":Lorg/joda/time/DateTime;
     sget-object v1, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->formattersUTC:[Lorg/joda/time/format/DateTimeFormatter;
 
     const/4 v2, 0x0

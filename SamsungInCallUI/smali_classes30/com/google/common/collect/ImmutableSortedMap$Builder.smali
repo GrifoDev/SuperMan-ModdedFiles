@@ -48,13 +48,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 416
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TK;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableMap$Builder;-><init>()V
 
-    .line 417
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -63,7 +58,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->comparator:Ljava/util/Comparator;
 
-    .line 418
     return-void
 .end method
 
@@ -72,9 +66,6 @@
 .method public bridge synthetic build()Lcom/google/common/collect/ImmutableMap;
     .locals 1
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->build()Lcom/google/common/collect/ImmutableSortedMap;
 
     move-result-object v0
@@ -92,16 +83,12 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     const/4 v3, 0x0
 
-    .line 494
     iget v0, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->size:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 500
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->comparator:Ljava/util/Comparator;
 
     iget-object v1, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->entries:[Lcom/google/common/collect/ImmutableMapEntry;
@@ -116,7 +103,6 @@
     :goto_0
     return-object v0
 
-    .line 496
     :pswitch_0
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->comparator:Ljava/util/Comparator;
 
@@ -126,7 +112,6 @@
 
     goto :goto_0
 
-    .line 498
     :pswitch_1
     iget-object v0, p0, Lcom/google/common/collect/ImmutableSortedMap$Builder;->comparator:Ljava/util/Comparator;
 
@@ -153,7 +138,6 @@
 
     goto :goto_0
 
-    .line 494
     nop
 
     :pswitch_data_0
@@ -165,11 +149,7 @@
 
 .method public bridge synthetic orderEntriesByValue(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 1
-    .param p1, "x0"    # Ljava/util/Comparator;
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->orderEntriesByValue(Ljava/util/Comparator;)Lcom/google/common/collect/ImmutableSortedMap$Builder;
 
     move-result-object v0
@@ -195,10 +175,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .prologue
-    .line 483
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "valueComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Not available on ImmutableSortedMap.Builder"
@@ -210,12 +186,7 @@
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSortedMap$Builder;
 
     move-result-object v0
@@ -225,11 +196,7 @@
 
 .method public bridge synthetic put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 1
-    .param p1, "x0"    # Ljava/util/Map$Entry;
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableSortedMap$Builder;
 
     move-result-object v0
@@ -247,14 +214,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 427
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-super {p0, p1, p2}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
 
-    .line 428
     return-object p0
 .end method
 
@@ -270,23 +231,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 441
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/util/Map$Entry;)Lcom/google/common/collect/ImmutableMap$Builder;
 
-    .line 442
     return-object p0
 .end method
 
 .method public bridge synthetic putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Iterable;
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableSortedMap$Builder;
 
     move-result-object v0
@@ -296,11 +248,7 @@
 
 .method public bridge synthetic putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap$Builder;
     .locals 1
-    .param p1, "x0"    # Ljava/util/Map;
 
-    .prologue
-    .line 408
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ImmutableSortedMap$Builder;->putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableSortedMap$Builder;
 
     move-result-object v0
@@ -325,13 +273,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 469
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "entries":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Ljava/util/Map$Entry<+TK;+TV;>;>;"
     invoke-super {p0, p1}, Lcom/google/common/collect/ImmutableMap$Builder;->putAll(Ljava/lang/Iterable;)Lcom/google/common/collect/ImmutableMap$Builder;
 
-    .line 470
     return-object p0
 .end method
 
@@ -347,12 +290,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 454
-    .local p0, "this":Lcom/google/common/collect/ImmutableSortedMap$Builder;, "Lcom/google/common/collect/ImmutableSortedMap$Builder<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-super {p0, p1}, Lcom/google/common/collect/ImmutableMap$Builder;->putAll(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap$Builder;
 
-    .line 455
     return-object p0
 .end method

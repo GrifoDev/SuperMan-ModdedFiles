@@ -70,9 +70,7 @@
 
 .method public getDescription(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "description"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/achievement/a;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
@@ -110,9 +108,7 @@
 
 .method public getFormattedCurrentSteps(Landroid/database/CharArrayBuffer;)V
     .locals 2
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const/4 v0, 0x1
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/achievement/a;->getType()I
@@ -166,9 +162,7 @@
 
 .method public getFormattedTotalSteps(Landroid/database/CharArrayBuffer;)V
     .locals 2
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const/4 v0, 0x1
 
     invoke-virtual {p0}, Lcom/google/android/gms/games/achievement/a;->getType()I
@@ -218,9 +212,7 @@
 
 .method public getName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "name"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/achievement/a;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V

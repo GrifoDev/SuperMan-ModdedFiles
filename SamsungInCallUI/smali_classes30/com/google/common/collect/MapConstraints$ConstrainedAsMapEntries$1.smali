@@ -37,10 +37,6 @@
 .method constructor <init>(Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries;Ljava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 718
-    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;, "Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries.1;"
-    .local p2, "x0":Ljava/util/Iterator;, "Ljava/util/Iterator<+Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;>;"
     iput-object p1, p0, Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;->this$0:Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries;
 
     invoke-direct {p0, p2}, Lcom/google/common/collect/TransformedIterator;-><init>(Ljava/util/Iterator;)V
@@ -52,14 +48,9 @@
 # virtual methods
 .method bridge synthetic transform(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 718
-    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;, "Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries.1;"
     check-cast p1, Ljava/util/Map$Entry;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;->transform(Ljava/util/Map$Entry;)Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -83,10 +74,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 721
-    .local p0, "this":Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;, "Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries.1;"
-    .local p1, "from":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;Ljava/util/Collection<TV;>;>;"
     iget-object v0, p0, Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries$1;->this$0:Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries;
 
     # getter for: Lcom/google/common/collect/MapConstraints$ConstrainedAsMapEntries;->constraint:Lcom/google/common/collect/MapConstraint;

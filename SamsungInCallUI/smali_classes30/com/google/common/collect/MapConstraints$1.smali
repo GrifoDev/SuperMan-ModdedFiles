@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/util/Map$Entry;Lcom/google/common/collect/MapConstraint;)V
     .locals 0
 
-    .prologue
-    .line 192
     iput-object p1, p0, Lcom/google/common/collect/MapConstraints$1;->val$entry:Ljava/util/Map$Entry;
 
     iput-object p2, p0, Lcom/google/common/collect/MapConstraints$1;->val$constraint:Lcom/google/common/collect/MapConstraint;
@@ -47,8 +45,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 192
     invoke-virtual {p0}, Lcom/google/common/collect/MapConstraints$1;->delegate()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -66,8 +62,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 195
     iget-object v0, p0, Lcom/google/common/collect/MapConstraints$1;->val$entry:Ljava/util/Map$Entry;
 
     return-object v0
@@ -81,9 +75,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 200
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/MapConstraints$1;->val$constraint:Lcom/google/common/collect/MapConstraint;
 
     invoke-virtual {p0}, Lcom/google/common/collect/MapConstraints$1;->getKey()Ljava/lang/Object;
@@ -92,7 +83,6 @@
 
     invoke-interface {v0, v1, p1}, Lcom/google/common/collect/MapConstraint;->checkKeyValue(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 201
     iget-object v0, p0, Lcom/google/common/collect/MapConstraints$1;->val$entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0, p1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;

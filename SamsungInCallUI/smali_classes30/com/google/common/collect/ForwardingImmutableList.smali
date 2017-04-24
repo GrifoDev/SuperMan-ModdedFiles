@@ -22,9 +22,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
-    .local p0, "this":Lcom/google/common/collect/ForwardingImmutableList;, "Lcom/google/common/collect/ForwardingImmutableList<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -51,8 +51,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -60,35 +58,25 @@
 
 .method public static getAutoCallNumberAnswerMode(Landroid/content/Context;Ljava/lang/String;)I
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "number"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    .line 393
     const-string v0, "content://com.sec.knox.provider2/KnoxCustomManagerService2"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 395
-    .local v1, "uri":Landroid/net/Uri;
     new-array v4, v3, [Ljava/lang/String;
 
     const/4 v0, 0x0
 
     aput-object p1, v4, v0
 
-    .line 397
-    .local v4, "args":[Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 399
-    .local v6, "cr":Landroid/database/Cursor;
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -97,7 +85,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 401
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -110,15 +97,11 @@
 
     move-result-object v6
 
-    .line 405
     :cond_0
     const/4 v7, -0x1
 
-    .line 407
-    .local v7, "retValue":I
     if-eqz v6, :cond_2
 
-    .line 411
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -126,7 +109,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 413
     const-string v0, "getAutoCallNumberAnswerMode"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -137,7 +119,6 @@
 
     move-result v7
 
-    .line 415
     const-string v0, "KnoxCustomManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -164,15 +145,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 421
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 427
     :cond_2
     return v7
 
-    .line 421
     :catchall_0
     move-exception v0
 
@@ -183,35 +161,25 @@
 
 .method public static getAutoCallNumberDelay(Landroid/content/Context;Ljava/lang/String;)I
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "number"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    .line 352
     const-string v0, "content://com.sec.knox.provider2/KnoxCustomManagerService2"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 354
-    .local v1, "uri":Landroid/net/Uri;
     new-array v4, v3, [Ljava/lang/String;
 
     const/4 v0, 0x0
 
     aput-object p1, v4, v0
 
-    .line 356
-    .local v4, "args":[Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 358
-    .local v6, "cr":Landroid/database/Cursor;
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -220,7 +188,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 360
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -233,15 +200,11 @@
 
     move-result-object v6
 
-    .line 364
     :cond_0
     const/4 v7, -0x1
 
-    .line 366
-    .local v7, "retValue":I
     if-eqz v6, :cond_2
 
-    .line 370
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -249,7 +212,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 372
     const-string v0, "getAutoCallNumberDelay"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -260,7 +222,6 @@
 
     move-result v7
 
-    .line 374
     const-string v0, "KnoxCustomManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -287,15 +248,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 380
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 386
     :cond_2
     return v7
 
-    .line 380
     :catchall_0
     move-exception v0
 
@@ -306,7 +264,6 @@
 
 .method public static getAutoCallNumberList(Landroid/content/Context;)Ljava/util/List;
     .locals 9
-    .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -319,22 +276,16 @@
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 307
     const-string v0, "content://com.sec.knox.provider2/KnoxCustomManagerService2"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 309
-    .local v1, "uri":Landroid/net/Uri;
     const/4 v6, 0x0
 
-    .line 311
-    .local v6, "cr":Landroid/database/Cursor;
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -343,7 +294,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 313
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -358,21 +308,16 @@
 
     move-result-object v6
 
-    .line 317
     :cond_0
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
-    .line 319
-    .local v8, "retList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     if-eqz v6, :cond_2
 
-    .line 323
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 325
     :goto_0
     invoke-interface {v6}, Landroid/database/Cursor;->isAfterLast()Z
 
@@ -380,7 +325,6 @@
 
     if-nez v0, :cond_1
 
-    .line 327
     const-string v0, "getAutoCallNumberList"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -391,19 +335,14 @@
 
     move-result-object v7
 
-    .line 329
-    .local v7, "curNumber":Ljava/lang/String;
     invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 331
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    .line 339
-    .end local v7    # "curNumber":Ljava/lang/String;
     :catchall_0
     move-exception v0
 
@@ -411,7 +350,6 @@
 
     throw v0
 
-    .line 335
     :cond_1
     :try_start_1
     const-string v0, "KnoxCustomManagerWrapper"
@@ -440,34 +378,25 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 339
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 345
     :cond_2
     return-object v8
 .end method
 
 .method public static getAutoCallPickupState(Landroid/content/Context;)I
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 268
     const-string v0, "content://com.sec.knox.provider2/KnoxCustomManagerService2"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 270
-    .local v1, "uri":Landroid/net/Uri;
     const/4 v6, 0x0
 
-    .line 272
-    .local v6, "cr":Landroid/database/Cursor;
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -476,7 +405,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 274
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -491,15 +419,11 @@
 
     move-result-object v6
 
-    .line 278
     :cond_0
     const/4 v7, 0x0
 
-    .line 280
-    .local v7, "retValue":I
     if-eqz v6, :cond_2
 
-    .line 284
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -507,7 +431,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 286
     const-string v0, "getAutoCallPickupState"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -518,7 +441,6 @@
 
     move-result v7
 
-    .line 288
     const-string v0, "KnoxCustomManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -545,15 +467,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 294
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 300
     :cond_2
     return v7
 
-    .line 294
     :catchall_0
     move-exception v0
 
@@ -564,24 +483,17 @@
 
 .method public static getCallScreenDisabledItems(Landroid/content/Context;)I
     .locals 8
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 214
     const-string v0, "content://com.sec.knox.provider2/KnoxCustomManagerService1"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    .line 216
-    .local v1, "uri":Landroid/net/Uri;
     const/4 v6, 0x0
 
-    .line 218
-    .local v6, "cr":Landroid/database/Cursor;
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -590,7 +502,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 220
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -605,15 +516,11 @@
 
     move-result-object v6
 
-    .line 224
     :cond_0
     const/4 v7, 0x0
 
-    .line 226
-    .local v7, "retValue":I
     if-eqz v6, :cond_2
 
-    .line 230
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -621,7 +528,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 232
     const-string v0, "getCallScreenDisabledItems"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -632,7 +538,6 @@
 
     move-result v7
 
-    .line 234
     const-string v0, "KnoxCustomManagerWrapper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -659,15 +564,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 240
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 246
     :cond_2
     return v7
 
-    .line 240
     :catchall_0
     move-exception v0
 

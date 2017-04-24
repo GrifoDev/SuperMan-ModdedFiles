@@ -31,9 +31,6 @@
 .method constructor <init>(Lcom/google/common/collect/ConcurrentHashMultiset;Ljava/util/Set;)V
     .locals 0
 
-    .prologue
-    .line 462
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     iput-object p1, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->this$0:Lcom/google/common/collect/ConcurrentHashMultiset;
 
     iput-object p2, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
@@ -47,14 +44,11 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 470
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
@@ -86,10 +80,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 475
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
-    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ConcurrentHashMultiset$1;->standardContainsAll(Ljava/util/Collection;)Z
 
     move-result v0
@@ -100,9 +90,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 462
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/ConcurrentHashMultiset$1;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -113,9 +100,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 462
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/ConcurrentHashMultiset$1;->delegate()Ljava/util/Set;
 
     move-result-object v0
@@ -133,9 +117,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 465
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
 
     return-object v0
@@ -143,11 +124,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .prologue
-    .line 480
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/google/common/collect/ConcurrentHashMultiset$1;->val$delegate:Ljava/util/Set;
@@ -179,10 +156,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 485
-    .local p0, "this":Lcom/google/common/collect/ConcurrentHashMultiset$1;, "Lcom/google/common/collect/ConcurrentHashMultiset.1;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/ConcurrentHashMultiset$1;->standardRemoveAll(Ljava/util/Collection;)Z
 
     move-result v0

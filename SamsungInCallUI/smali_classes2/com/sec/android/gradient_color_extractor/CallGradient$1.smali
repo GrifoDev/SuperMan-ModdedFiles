@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 245
     invoke-static {}, Lcom/sec/android/gradient_color_extractor/CallGradient$RESOLUTION_MODE;->values()[Lcom/sec/android/gradient_color_extractor/CallGradient$RESOLUTION_MODE;
 
     move-result-object v0

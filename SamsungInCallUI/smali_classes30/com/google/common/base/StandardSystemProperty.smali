@@ -92,7 +92,6 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -103,7 +102,6 @@
 
     const/4 v4, 0x0
 
-    .line 37
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VERSION"
@@ -114,7 +112,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 40
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VENDOR"
@@ -125,7 +122,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VENDOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 43
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VENDOR_URL"
@@ -136,7 +132,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VENDOR_URL:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 46
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_HOME"
@@ -147,7 +142,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_HOME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 49
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_SPECIFICATION_VERSION"
@@ -158,7 +152,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_SPECIFICATION_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 52
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_SPECIFICATION_VENDOR"
@@ -171,7 +164,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_SPECIFICATION_VENDOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 55
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_SPECIFICATION_NAME"
@@ -184,7 +176,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_SPECIFICATION_NAME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 58
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_VERSION"
@@ -197,7 +188,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 61
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_VENDOR"
@@ -210,7 +200,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_VENDOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 64
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_VM_NAME"
@@ -223,7 +212,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_VM_NAME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 67
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_SPECIFICATION_VERSION"
@@ -236,7 +224,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_SPECIFICATION_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 70
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_SPECIFICATION_VENDOR"
@@ -249,7 +236,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_SPECIFICATION_VENDOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 73
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_SPECIFICATION_NAME"
@@ -262,7 +248,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_SPECIFICATION_NAME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 76
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_CLASS_VERSION"
@@ -275,7 +260,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_CLASS_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 79
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_CLASS_PATH"
@@ -288,7 +272,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_CLASS_PATH:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 82
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_LIBRARY_PATH"
@@ -301,7 +284,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_LIBRARY_PATH:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 85
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_IO_TMPDIR"
@@ -314,7 +296,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_IO_TMPDIR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 88
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_COMPILER"
@@ -327,7 +308,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_COMPILER:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 91
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "JAVA_EXT_DIRS"
@@ -340,7 +320,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->JAVA_EXT_DIRS:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 94
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "OS_NAME"
@@ -353,7 +332,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->OS_NAME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 97
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "OS_ARCH"
@@ -366,7 +344,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->OS_ARCH:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 100
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "OS_VERSION"
@@ -379,7 +356,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->OS_VERSION:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 103
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "FILE_SEPARATOR"
@@ -392,7 +368,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->FILE_SEPARATOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 106
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "PATH_SEPARATOR"
@@ -405,7 +380,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->PATH_SEPARATOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 109
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "LINE_SEPARATOR"
@@ -418,7 +392,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->LINE_SEPARATOR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 112
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "USER_NAME"
@@ -431,7 +404,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->USER_NAME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 115
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "USER_HOME"
@@ -444,7 +416,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->USER_HOME:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 118
     new-instance v0, Lcom/google/common/base/StandardSystemProperty;
 
     const-string v1, "USER_DIR"
@@ -457,7 +428,6 @@
 
     sput-object v0, Lcom/google/common/base/StandardSystemProperty;->USER_DIR:Lcom/google/common/base/StandardSystemProperty;
 
-    .line 31
     const/16 v0, 0x1c
 
     new-array v0, v0, [Lcom/google/common/base/StandardSystemProperty;
@@ -627,7 +597,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -636,23 +605,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 122
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 123
     iput-object p3, p0, Lcom/google/common/base/StandardSystemProperty;->key:Ljava/lang/String;
 
-    .line 124
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/common/base/StandardSystemProperty;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 31
     const-class v0, Lcom/google/common/base/StandardSystemProperty;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -667,8 +629,6 @@
 .method public static values()[Lcom/google/common/base/StandardSystemProperty;
     .locals 1
 
-    .prologue
-    .line 31
     sget-object v0, Lcom/google/common/base/StandardSystemProperty;->$VALUES:[Lcom/google/common/base/StandardSystemProperty;
 
     invoke-virtual {v0}, [Lcom/google/common/base/StandardSystemProperty;->clone()Ljava/lang/Object;
@@ -685,8 +645,6 @@
 .method public key()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 130
     iget-object v0, p0, Lcom/google/common/base/StandardSystemProperty;->key:Ljava/lang/String;
 
     return-object v0
@@ -695,8 +653,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 147
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -735,8 +691,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 139
     iget-object v0, p0, Lcom/google/common/base/StandardSystemProperty;->key:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;

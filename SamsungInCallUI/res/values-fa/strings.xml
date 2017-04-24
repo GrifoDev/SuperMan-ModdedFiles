@@ -289,6 +289,7 @@
     <string name="extra_vol_off">صدای بیشتر غیرفعال شد.</string>
     <string name="extra_vol_on">صدای بیشتر فعال شد.</string>
     <string name="far_end_stopped_share_video">%s اشتراک‌گذاری ویدیو را متوقف کرد.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">پشتیبانی نمی‌شود.</string>
     <string name="full_name">نام</string>
@@ -671,7 +672,7 @@
     <string name="secOnscreenResumeCallText">ازسرگیری</string>
     <string name="secOnscreenShowCallOption">نمایش گزینه‌های تماس</string>
     <string name="secOnscreenSpeaker">بلندگو</string>
-    <string name="secOnscreenStopText">توقف</string>
+    <string name="secOnscreenStopText">توقف ضبط</string>
     <string name="secOnscreenSwapText">جابجايی</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">تعویض دوربین</string>
@@ -746,6 +747,7 @@
     <string name="switch_to_voice_call_failed">درخواست برای تغییر به تماس صوتی ناموفق بود.</string>
     <string name="switched_to_voip_mo">به تماس صوتی تغییر یافت.</string>
     <string name="switched_to_voip_mt">بدلیل درخواست شخص تماس گیرنده، به تماس صوتی تغییر یافت.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s ویدیو را خاموش کرد.</string>
     <string name="switching_camera_failed">تعویض دوربین‌ها ناموفق بود.</string>
     <string name="switching_to_voice_call">در حال تغییر به تماس صوتی…</string>
@@ -761,7 +763,9 @@
     <string name="usa_att_connected_as_voice">تماس به‌صورت فقط صوتی وصل شد.</string>
     <string name="usa_att_data_usage_charge_alert">به زودی به محدودیتی که برای میزان مصرف اینترنت همراه در دستگاهتان تنظیم کرده‌اید می‌رسید. برای تماس ویدیویی به اینترنت نیاز دارید.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">امکان برقراری تماس با Wi-Fi وجود ندارد، اتصال توسط شبکه سلولی برقرار می‌شود. هزینه تماس صوتی و اینترنت همراه اعمال خواهد شد.</string>
-    <string name="usa_att_modify_receive_to_video">انتخاب حالت ویدیو</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">امکان برقراری تماس با Wi-Fi وجود ندارد، اتصال توسط شبکه سلولی برقرار می‌شود. هزینه تماس صوتی و اینترنت همراه اعمال خواهد شد.</string>
     <string name="usa_att_select_call_type_incoming_video_call">برای انتخاب نوع تماس روی قسمت زیر ضربه بزنید.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">در حین تماس کنفرانسی امکان تغییر نوع تماس وجود ندارد.</string>
     <string name="usa_gsm_modify_receive_to_video">%s می‌خواهد به تماس ویدیویی برود.</string>
@@ -769,6 +773,7 @@
     <string name="usa_gsm_modify_requested_wait_for_response">در انتظار پاسخ</string>
     <string name="usa_gsm_modify_select_call_type">انتخاب نوع تماس</string>
     <string name="usa_gsm_switching_to_voice_call">تغییر وضعیت به فقط تماس صوتی.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">ویدیو به دلیل دردسترس نبودن اینترنت همراه خاموش شد.</string>
     <string name="usa_volte_reject_upgrade_request">‎%s در حال حاضر نمی‌تواند تماس ویدیویی دریافت کند.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">تماس ویدیویی در دسترس نیست.</string>
     <string name="usa_vzw_change_to_oneway_video">"تغییر به
@@ -813,7 +818,9 @@
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">دوباره نمایش داده نشود</string>
     <string name="video_calling_incoming">تماس ویدیویی</string>
+    <string name="video_calls_quality_poor_tmo">کیفیت اتصال ضعیف است. تماس ویدیویی ممکن است تبدیل به تماس صوتی شود.</string>
     <string name="video_calls_temporarily_not_available">تماس‌های ویدیویی موقتاً در دسترس نیستند. تماس به تماس صوتی تغییر کرد.</string>
+    <string name="video_calls_temporarily_not_available_att">شماره‌ای که با آن تماس می‌گیرید در حال حاضر قادر به دریافت تماس ویدیویی نیست. تماس به عنوان تماس صوتی متصل شد.</string>
     <string name="video_calls_temporarily_not_available_tmo">تماس ویدیویی در دسترس نیست.</string>
     <string name="video_paused_info_text">ویدیو مکث شد</string>
     <string name="video_saved">ویدیو در ‎%s ذخیره شد.</string>

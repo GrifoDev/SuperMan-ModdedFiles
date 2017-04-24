@@ -36,8 +36,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 19
     const-string v0, "content://com.samsung.android.smartcallprovider.directory.provider/"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -46,7 +44,6 @@
 
     sput-object v0, Lcom/android/incallui/smartcall/SmartCallContract;->SMART_CALL_URI:Landroid/net/Uri;
 
-    .line 20
     const-string v0, "content://com.samsung.android.smartcallprovider.directory.provider/callerInfo/call"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -55,7 +52,6 @@
 
     sput-object v0, Lcom/android/incallui/smartcall/SmartCallContract;->CALLER_INFO_URI:Landroid/net/Uri;
 
-    .line 21
     const-string v0, "content://com.samsung.android.smartcallprovider.directory.provider/imageCache"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -70,8 +66,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

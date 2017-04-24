@@ -13,8 +13,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,22 +20,17 @@
 
 .method public static isSystemUser(Landroid/os/UserManager;)Z
     .locals 2
-    .param p0, "userManager"    # Landroid/os/UserManager;
 
-    .prologue
-    .line 47
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isMarshmallowCompatible()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 48
     invoke-virtual {p0}, Landroid/os/UserManager;->isSystemUser()Z
 
     move-result v0
 
-    .line 51
     :goto_0
     return v0
 
@@ -64,22 +57,17 @@
 
 .method public static isUserUnlocked(Landroid/content/Context;)Z
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 67
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isNCompatible()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 68
     invoke-static {p0}, Lcom/android/dialer/compat/UserManagerSdkCompat;->isUserUnlocked(Landroid/content/Context;)Z
 
     move-result v0
 
-    .line 70
     :goto_0
     return v0
 

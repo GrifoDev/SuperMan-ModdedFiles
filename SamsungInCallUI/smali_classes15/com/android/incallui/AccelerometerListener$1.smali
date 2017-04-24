@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/AccelerometerListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/AccelerometerListener;
 
-    .prologue
-    .line 138
     iput-object p1, p0, Lcom/android/incallui/AccelerometerListener$1;->this$0:Lcom/android/incallui/AccelerometerListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,20 +36,13 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
-    .param p1, "sensor"    # Landroid/hardware/Sensor;
-    .param p2, "accuracy"    # I
 
-    .prologue
-    .line 145
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 8
-    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
-    .prologue
-    .line 140
     iget-object v1, p0, Lcom/android/incallui/AccelerometerListener$1;->this$0:Lcom/android/incallui/AccelerometerListener;
 
     iget-object v0, p1, Landroid/hardware/SensorEvent;->values:[F
@@ -82,6 +72,5 @@
     # invokes: Lcom/android/incallui/AccelerometerListener;->onSensorEvent(DDD)V
     invoke-static/range {v1 .. v7}, Lcom/android/incallui/AccelerometerListener;->access$000(Lcom/android/incallui/AccelerometerListener;DDD)V
 
-    .line 141
     return-void
 .end method

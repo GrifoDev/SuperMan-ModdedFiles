@@ -39,8 +39,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 14
     invoke-direct {p0}, Lcom/cmdm/control/bean/BaseBean;-><init>()V
 
     return-void
@@ -51,8 +49,6 @@
 .method public hasSearch()Z
     .locals 2
 
-    .prologue
-    .line 47
     iget-object v0, p0, Lcom/cmdm/control/bean/GetSearchListResult;->isHaveSearch:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -67,7 +63,6 @@
 
     if-nez v0, :cond_0
 
-    .line 48
     iget-object v0, p0, Lcom/cmdm/control/bean/GetSearchListResult;->isHaveSearch:Ljava/lang/String;
 
     const-string v1, "1"
@@ -78,10 +73,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 49
     const/4 v0, 0x1
 
-    .line 51
     :goto_0
     return v0
 

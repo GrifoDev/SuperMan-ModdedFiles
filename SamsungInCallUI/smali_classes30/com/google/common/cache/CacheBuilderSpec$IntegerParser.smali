@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 287
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,16 +30,11 @@
 # virtual methods
 .method public parse(Lcom/google/common/cache/CacheBuilderSpec;Ljava/lang/String;Ljava/lang/String;)V
     .locals 6
-    .param p1, "spec"    # Lcom/google/common/cache/CacheBuilderSpec;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "value"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    .line 292
     if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Ljava/lang/String;->isEmpty()Z
@@ -61,7 +54,6 @@
 
     invoke-static {v1, v4, v5}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 294
     :try_start_0
     invoke-static {p3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -71,21 +63,16 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 299
     return-void
 
     :cond_0
     move v1, v3
 
-    .line 292
     goto :goto_0
 
-    .line 295
     :catch_0
     move-exception v0
 
-    .line 296
-    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v4, "key %s value set to %s, must be integer"

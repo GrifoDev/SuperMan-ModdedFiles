@@ -69,8 +69,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 156
     invoke-static {}, Lcom/google/common/cache/CacheBuilder;->newBuilder()Lcom/google/common/cache/CacheBuilder;
 
     move-result-object v0
@@ -89,7 +87,6 @@
 
     sput-object v0, Lcom/google/common/eventbus/SubscriberRegistry;->subscriberMethodsCache:Lcom/google/common/cache/LoadingCache;
 
-    .line 210
     invoke-static {}, Lcom/google/common/cache/CacheBuilder;->newBuilder()Lcom/google/common/cache/CacheBuilder;
 
     move-result-object v0
@@ -113,20 +110,15 @@
 
 .method constructor <init>(Lcom/google/common/eventbus/EventBus;)V
     .locals 1
-    .param p1, "bus"    # Lcom/google/common/eventbus/EventBus;
 
-    .prologue
-    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     invoke-static {}, Lcom/google/common/collect/Maps;->newConcurrentMap()Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
-    .line 74
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -135,16 +127,12 @@
 
     iput-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry;->bus:Lcom/google/common/eventbus/EventBus;
 
-    .line 75
     return-void
 .end method
 
 .method static synthetic access$000(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
     .locals 1
-    .param p0, "x0"    # Ljava/lang/Class;
 
-    .prologue
-    .line 57
     invoke-static {p0}, Lcom/google/common/eventbus/SubscriberRegistry;->getAnnotatedMethodsNotCached(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v0
@@ -154,7 +142,6 @@
 
 .method private findAllSubscribers(Ljava/lang/Object;)Lcom/google/common/collect/Multimap;
     .locals 7
-    .param p1, "listener"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,20 +156,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 170
     invoke-static {}, Lcom/google/common/collect/HashMultimap;->create()Lcom/google/common/collect/HashMultimap;
 
     move-result-object v4
 
-    .line 171
-    .local v4, "methodsInListener":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<Ljava/lang/Class<*>;Lcom/google/common/eventbus/Subscriber;>;"
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 172
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {v0}, Lcom/google/common/eventbus/SubscriberRegistry;->getAnnotatedMethods(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableList;
 
     move-result-object v6
@@ -191,7 +172,6 @@
 
     move-result-object v2
 
-    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -205,20 +185,14 @@
 
     check-cast v3, Ljava/lang/reflect/Method;
 
-    .line 173
-    .local v3, "method":Ljava/lang/reflect/Method;
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v5
 
-    .line 174
-    .local v5, "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     const/4 v6, 0x0
 
     aget-object v1, v5, v6
 
-    .line 175
-    .local v1, "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v6, p0, Lcom/google/common/eventbus/SubscriberRegistry;->bus:Lcom/google/common/eventbus/EventBus;
 
     invoke-static {v6, p1, v3}, Lcom/google/common/eventbus/Subscriber;->create(Lcom/google/common/eventbus/EventBus;Ljava/lang/Object;Ljava/lang/reflect/Method;)Lcom/google/common/eventbus/Subscriber;
@@ -229,10 +203,6 @@
 
     goto :goto_0
 
-    .line 177
-    .end local v1    # "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v3    # "method":Ljava/lang/reflect/Method;
-    .end local v5    # "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     :cond_0
     return-object v4
 .end method
@@ -254,9 +224,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 229
-    .local p0, "concreteClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     sget-object v1, Lcom/google/common/eventbus/SubscriberRegistry;->flattenHierarchyCache:Lcom/google/common/cache/LoadingCache;
 
@@ -270,12 +237,9 @@
 
     return-object v1
 
-    .line 230
     :catch_0
     move-exception v0
 
-    .line 231
-    .local v0, "e":Lcom/google/common/util/concurrent/UncheckedExecutionException;
     invoke-virtual {v0}, Lcom/google/common/util/concurrent/UncheckedExecutionException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v1
@@ -301,9 +265,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 181
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     sget-object v0, Lcom/google/common/eventbus/SubscriberRegistry;->subscriberMethodsCache:Lcom/google/common/cache/LoadingCache;
 
     invoke-interface {v0, p0}, Lcom/google/common/cache/LoadingCache;->getUnchecked(Ljava/lang/Object;)Ljava/lang/Object;
@@ -329,9 +290,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 185
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {p0}, Lcom/google/common/reflect/TypeToken;->of(Ljava/lang/Class;)Lcom/google/common/reflect/TypeToken;
 
     move-result-object v10
@@ -344,14 +302,10 @@
 
     move-result-object v9
 
-    .line 186
-    .local v9, "supertypes":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/Class<*>;>;"
     invoke-static {}, Lcom/google/common/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v4
 
-    .line 187
-    .local v4, "identifiers":Ljava/util/Map;, "Ljava/util/Map<Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;Ljava/lang/reflect/Method;>;"
     invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -369,26 +323,19 @@
 
     check-cast v8, Ljava/lang/Class;
 
-    .line 188
-    .local v8, "supertype":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v8}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
 
     move-result-object v0
 
-    .local v0, "arr$":[Ljava/lang/reflect/Method;
     array-length v5, v0
 
-    .local v5, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v5, :cond_0
 
     aget-object v6, v0, v2
 
-    .line 189
-    .local v6, "method":Ljava/lang/reflect/Method;
     const-class v10, Lcom/google/common/eventbus/Subscribe;
 
     invoke-virtual {v6, v10}, Ljava/lang/reflect/Method;->isAnnotationPresent(Ljava/lang/Class;)Z
@@ -403,13 +350,10 @@
 
     if-nez v10, :cond_1
 
-    .line 191
     invoke-virtual {v6}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v7
 
-    .line 192
-    .local v7, "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     array-length v10, v7
 
     const/4 v11, 0x1
@@ -441,44 +385,28 @@
 
     invoke-static {v10, v11, v12}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 197
     new-instance v3, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
 
     invoke-direct {v3, v6}, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;-><init>(Ljava/lang/reflect/Method;)V
 
-    .line 198
-    .local v3, "ident":Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
     invoke-interface {v4, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v10
 
     if-nez v10, :cond_1
 
-    .line 199
     invoke-interface {v4, v3, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 188
-    .end local v3    # "ident":Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
-    .end local v7    # "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 192
-    .restart local v7    # "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     :cond_2
     const/4 v10, 0x0
 
     goto :goto_1
 
-    .line 204
-    .end local v0    # "arr$":[Ljava/lang/reflect/Method;
-    .end local v2    # "i$":I
-    .end local v5    # "len$":I
-    .end local v6    # "method":Ljava/lang/reflect/Method;
-    .end local v7    # "parameterTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
-    .end local v8    # "supertype":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_3
     invoke-interface {v4}, Ljava/util/Map;->values()Ljava/util/Collection;
 
@@ -495,7 +423,6 @@
 # virtual methods
 .method getSubscribers(Ljava/lang/Object;)Ljava/util/Iterator;
     .locals 6
-    .param p1, "event"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -508,8 +435,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 134
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -518,8 +443,6 @@
 
     move-result-object v2
 
-    .line 136
-    .local v2, "eventTypes":Lcom/google/common/collect/ImmutableSet;, "Lcom/google/common/collect/ImmutableSet<Ljava/lang/Class<*>;>;"
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableSet;->size()I
 
     move-result v5
@@ -528,13 +451,10 @@
 
     move-result-object v4
 
-    .line 139
-    .local v4, "subscriberIterators":Ljava/util/List;, "Ljava/util/List<Ljava/util/Iterator<Lcom/google/common/eventbus/Subscriber;>;>;"
     invoke-virtual {v2}, Lcom/google/common/collect/ImmutableSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    .local v3, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -549,8 +469,6 @@
 
     check-cast v1, Ljava/lang/Class;
 
-    .line 140
-    .local v1, "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v5, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v5, v1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -559,11 +477,8 @@
 
     check-cast v0, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    .line 141
-    .local v0, "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     if-eqz v0, :cond_0
 
-    .line 143
     invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
@@ -572,9 +487,6 @@
 
     goto :goto_0
 
-    .line 147
-    .end local v0    # "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
-    .end local v1    # "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_1
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -604,9 +516,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 126
-    .local p1, "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -628,16 +537,11 @@
 
 .method register(Ljava/lang/Object;)V
     .locals 8
-    .param p1, "listener"    # Ljava/lang/Object;
 
-    .prologue
-    .line 81
     invoke-direct {p0, p1}, Lcom/google/common/eventbus/SubscriberRegistry;->findAllSubscribers(Ljava/lang/Object;)Lcom/google/common/collect/Multimap;
 
     move-result-object v5
 
-    .line 83
-    .local v5, "listenerMethods":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<Ljava/lang/Class<*>;Lcom/google/common/eventbus/Subscriber;>;"
     invoke-interface {v5}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
 
     move-result-object v7
@@ -650,7 +554,6 @@
 
     move-result-object v4
 
-    .local v4, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -664,24 +567,18 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 84
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/Class;
 
-    .line 85
-    .local v3, "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Collection;
 
-    .line 87
-    .local v1, "eventMethodsInListener":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;"
     iget-object v7, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v7, v3}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -690,17 +587,12 @@
 
     check-cast v2, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    .line 89
-    .local v2, "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     if-nez v2, :cond_0
 
-    .line 90
     new-instance v6, Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-direct {v6}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
 
-    .line 91
-    .local v6, "newSet":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     iget-object v7, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v7, v3, v6}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -711,38 +603,24 @@
 
     move-result-object v2
 
-    .end local v2    # "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     check-cast v2, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    .line 95
-    .end local v6    # "newSet":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
-    .restart local v2    # "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     :cond_0
     invoke-virtual {v2, v1}, Ljava/util/concurrent/CopyOnWriteArraySet;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_0
 
-    .line 97
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;>;"
-    .end local v1    # "eventMethodsInListener":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;"
-    .end local v2    # "eventSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
-    .end local v3    # "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_1
     return-void
 .end method
 
 .method unregister(Ljava/lang/Object;)V
     .locals 9
-    .param p1, "listener"    # Ljava/lang/Object;
 
-    .prologue
-    .line 103
     invoke-direct {p0, p1}, Lcom/google/common/eventbus/SubscriberRegistry;->findAllSubscribers(Ljava/lang/Object;)Lcom/google/common/collect/Multimap;
 
     move-result-object v4
 
-    .line 105
-    .local v4, "listenerMethods":Lcom/google/common/collect/Multimap;, "Lcom/google/common/collect/Multimap<Ljava/lang/Class<*>;Lcom/google/common/eventbus/Subscriber;>;"
     invoke-interface {v4}, Lcom/google/common/collect/Multimap;->asMap()Ljava/util/Map;
 
     move-result-object v6
@@ -755,7 +633,6 @@
 
     move-result-object v3
 
-    .local v3, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -769,24 +646,18 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 106
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/Class;
 
-    .line 107
-    .local v2, "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Ljava/util/Collection;
 
-    .line 109
-    .local v5, "listenerMethodsForType":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;"
     iget-object v6, p0, Lcom/google/common/eventbus/SubscriberRegistry;->subscribers:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v6, v2}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -795,8 +666,6 @@
 
     check-cast v0, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    .line 110
-    .local v0, "currentSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
     if-eqz v0, :cond_1
 
     invoke-virtual {v0, v5}, Ljava/util/concurrent/CopyOnWriteArraySet;->removeAll(Ljava/util/Collection;)Z
@@ -805,7 +674,6 @@
 
     if-nez v6, :cond_0
 
-    .line 115
     :cond_1
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
@@ -837,11 +705,6 @@
 
     throw v6
 
-    .line 122
-    .end local v0    # "currentSubscribers":Ljava/util/concurrent/CopyOnWriteArraySet;, "Ljava/util/concurrent/CopyOnWriteArraySet<Lcom/google/common/eventbus/Subscriber;>;"
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;>;"
-    .end local v2    # "eventType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v5    # "listenerMethodsForType":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/google/common/eventbus/Subscriber;>;"
     :cond_2
     return-void
 .end method

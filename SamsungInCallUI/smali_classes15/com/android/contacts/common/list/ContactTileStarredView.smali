@@ -10,14 +10,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .prologue
-    .line 37
     invoke-direct {p0, p1, p2}, Lcom/android/contacts/common/list/ContactTileView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 38
     return-void
 .end method
 
@@ -26,8 +21,6 @@
 .method protected getApproximateImageSize()I
     .locals 1
 
-    .prologue
-    .line 48
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactTileStarredView;->mListener:Lcom/android/contacts/common/list/ContactTileView$Listener;
 
     invoke-interface {v0}, Lcom/android/contacts/common/list/ContactTileView$Listener;->getApproximateTileWidth()I
@@ -39,13 +32,9 @@
 
 .method protected getDefaultImageRequest(Ljava/lang/String;Ljava/lang/String;)Lcom/android/contacts/common/ContactPhotoManager$DefaultImageRequest;
     .locals 7
-    .param p1, "displayName"    # Ljava/lang/String;
-    .param p2, "lookupKey"    # Ljava/lang/String;
 
-    .prologue
     const/4 v3, 0x1
 
-    .line 53
     new-instance v0, Lcom/android/contacts/common/ContactPhotoManager$DefaultImageRequest;
 
     const v4, 0x3f4ccccd    # 0.8f
@@ -66,8 +55,6 @@
 .method protected isDarkTheme()Z
     .locals 1
 
-    .prologue
-    .line 42
     const/4 v0, 0x0
 
     return v0

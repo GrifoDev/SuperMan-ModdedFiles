@@ -32,14 +32,9 @@
 # direct methods
 .method private varargs constructor <init>(Ljava/io/File;[Lcom/google/common/io/FileWriteMode;)V
     .locals 1
-    .param p1, "file"    # Ljava/io/File;
-    .param p2, "modes"    # [Lcom/google/common/io/FileWriteMode;
 
-    .prologue
-    .line 203
     invoke-direct {p0}, Lcom/google/common/io/ByteSink;-><init>()V
 
-    .line 204
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -48,25 +43,18 @@
 
     iput-object v0, p0, Lcom/google/common/io/Files$FileByteSink;->file:Ljava/io/File;
 
-    .line 205
     invoke-static {p2}, Lcom/google/common/collect/ImmutableSet;->copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/io/Files$FileByteSink;->modes:Lcom/google/common/collect/ImmutableSet;
 
-    .line 206
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/io/File;[Lcom/google/common/io/FileWriteMode;Lcom/google/common/io/Files$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/io/File;
-    .param p2, "x1"    # [Lcom/google/common/io/FileWriteMode;
-    .param p3, "x2"    # Lcom/google/common/io/Files$1;
 
-    .prologue
-    .line 198
     invoke-direct {p0, p1, p2}, Lcom/google/common/io/Files$FileByteSink;-><init>(Ljava/io/File;[Lcom/google/common/io/FileWriteMode;)V
 
     return-void
@@ -82,8 +70,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 210
     new-instance v0, Ljava/io/FileOutputStream;
 
     iget-object v1, p0, Lcom/google/common/io/Files$FileByteSink;->file:Ljava/io/File;
@@ -109,8 +95,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 198
     invoke-virtual {p0}, Lcom/google/common/io/Files$FileByteSink;->openStream()Ljava/io/FileOutputStream;
 
     move-result-object v0
@@ -121,8 +105,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 215
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

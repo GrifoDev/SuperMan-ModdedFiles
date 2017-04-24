@@ -35,9 +35,6 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;Ljava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 447
-    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1.1;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->this$2:Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;
 
     iput-object p2, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->val$backingItr:Ljava/util/Iterator;
@@ -52,9 +49,6 @@
 .method protected bridge synthetic computeNext()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 447
-    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1.1;"
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->computeNext()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -74,9 +68,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 451
-    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1.1;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->val$backingItr:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -85,7 +76,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 452
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->val$backingItr:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -94,8 +84,6 @@
 
     check-cast v0, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;
 
-    .line 453
-    .local v0, "entry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     invoke-virtual {v0}, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;->getUpperBound()Lcom/google/common/collect/Cut;
 
     move-result-object v1
@@ -117,20 +105,15 @@
 
     if-gtz v1, :cond_0
 
-    .line 454
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->endOfData()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 458
-    .end local v0    # "entry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     :goto_0
     return-object v1
 
-    .line 456
-    .restart local v0    # "entry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     :cond_0
     invoke-virtual {v0}, Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;->getKey()Lcom/google/common/collect/Range;
 
@@ -159,8 +142,6 @@
 
     goto :goto_0
 
-    .line 458
-    .end local v0    # "entry":Lcom/google/common/collect/TreeRangeMap$RangeMapEntry;, "Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;"
     :cond_1
     invoke-virtual {p0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;->endOfData()Ljava/lang/Object;
 

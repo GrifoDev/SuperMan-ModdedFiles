@@ -33,8 +33,6 @@
 .method constructor <init>(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;)V
     .locals 0
 
-    .prologue
-    .line 88
     iput-object p1, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$1;->this$0:Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -47,8 +45,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 88
     invoke-virtual {p0}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$1;->initialValue()Ljava/util/Queue;
 
     move-result-object v0
@@ -68,8 +64,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 91
     invoke-static {}, Lcom/google/common/collect/Queues;->newArrayDeque()Ljava/util/ArrayDeque;
 
     move-result-object v0

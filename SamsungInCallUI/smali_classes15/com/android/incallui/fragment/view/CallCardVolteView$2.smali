@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/view/CallCardVolteView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/view/CallCardVolteView;
 
-    .prologue
-    .line 369
     iput-object p1, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
-    .param p1, "animator"    # Landroid/animation/ValueAnimator;
 
-    .prologue
-    .line 372
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
     # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mHdWifiIcon:Landroid/widget/ImageView;
@@ -71,7 +65,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
 
-    .line 373
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
 
@@ -101,37 +94,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 374
     :cond_1
-    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
-
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mUHDIconImageSecondary:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$300(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView$2;->this$0:Lcom/android/incallui/fragment/view/CallCardVolteView;
-
-    # getter for: Lcom/android/incallui/fragment/view/CallCardVolteView;->mUHDIconImageSecondary:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/incallui/fragment/view/CallCardVolteView;->access$300(Lcom/android/incallui/fragment/view/CallCardVolteView;)Landroid/widget/ImageView;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setColorFilter(I)V
-
-    .line 375
-    :cond_2
     return-void
 .end method

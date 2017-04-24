@@ -68,14 +68,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
-    .local p1, "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<-TT;>;"
-    .local p2, "reference":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 179
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -84,22 +78,14 @@
 
     iput-object v0, p0, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
 
-    .line 180
     iput-object p2, p0, Lcom/google/common/base/Equivalence$Wrapper;->reference:Ljava/lang/Object;
 
-    .line 181
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;Lcom/google/common/base/Equivalence$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/base/Equivalence;
-    .param p2, "x1"    # Ljava/lang/Object;
-    .param p3, "x2"    # Lcom/google/common/base/Equivalence$1;
 
-    .prologue
-    .line 174
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/base/Equivalence$Wrapper;-><init>(Lcom/google/common/base/Equivalence;Ljava/lang/Object;)V
 
     return-void
@@ -109,24 +95,18 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 196
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
     if-ne p1, p0, :cond_0
 
-    .line 197
     const/4 v2, 0x1
 
-    .line 212
     :goto_0
     return v2
 
-    .line 199
     :cond_0
     instance-of v2, p1, Lcom/google/common/base/Equivalence$Wrapper;
 
@@ -134,11 +114,8 @@
 
     move-object v1, p1
 
-    .line 200
     check-cast v1, Lcom/google/common/base/Equivalence$Wrapper;
 
-    .line 202
-    .local v1, "that":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<*>;"
     iget-object v2, p0, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
 
     iget-object v3, v1, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
@@ -149,11 +126,8 @@
 
     if-eqz v2, :cond_1
 
-    .line 208
     iget-object v0, p0, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
 
-    .line 209
-    .local v0, "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<Ljava/lang/Object;>;"
     iget-object v2, p0, Lcom/google/common/base/Equivalence$Wrapper;->reference:Ljava/lang/Object;
 
     iget-object v3, v1, Lcom/google/common/base/Equivalence$Wrapper;->reference:Ljava/lang/Object;
@@ -164,9 +138,6 @@
 
     goto :goto_0
 
-    .line 212
-    .end local v0    # "equivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<Ljava/lang/Object;>;"
-    .end local v1    # "that":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<*>;"
     :cond_1
     const/4 v2, 0x0
 
@@ -184,9 +155,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 186
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Equivalence$Wrapper;->reference:Ljava/lang/Object;
 
     return-object v0
@@ -195,9 +163,6 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 220
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
     iget-object v0, p0, Lcom/google/common/base/Equivalence$Wrapper;->equivalence:Lcom/google/common/base/Equivalence;
 
     iget-object v1, p0, Lcom/google/common/base/Equivalence$Wrapper;->reference:Ljava/lang/Object;
@@ -212,9 +177,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 229
-    .local p0, "this":Lcom/google/common/base/Equivalence$Wrapper;, "Lcom/google/common/base/Equivalence$Wrapper<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

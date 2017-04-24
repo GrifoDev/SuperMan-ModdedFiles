@@ -54,31 +54,22 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)V"
         }
     .end annotation
 
-    .prologue
-    .line 229
-    .local p0, "this":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
-    .local p1, "element":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Lcom/google/common/collect/Multisets$AbstractEntry;-><init>()V
 
-    .line 230
     iput-object p1, p0, Lcom/google/common/collect/Multisets$ImmutableEntry;->element:Ljava/lang/Object;
 
-    .line 231
     iput p2, p0, Lcom/google/common/collect/Multisets$ImmutableEntry;->count:I
 
-    .line 232
     const-string v0, "count"
 
     invoke-static {p2, v0}, Lcom/google/common/collect/CollectPreconditions;->checkNonnegative(ILjava/lang/String;)I
 
-    .line 233
     return-void
 .end method
 
@@ -87,9 +78,6 @@
 .method public final getCount()I
     .locals 1
 
-    .prologue
-    .line 243
-    .local p0, "this":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
     iget v0, p0, Lcom/google/common/collect/Multisets$ImmutableEntry;->count:I
 
     return v0
@@ -106,9 +94,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 238
-    .local p0, "this":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multisets$ImmutableEntry;->element:Ljava/lang/Object;
 
     return-object v0
@@ -124,9 +109,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 247
-    .local p0, "this":Lcom/google/common/collect/Multisets$ImmutableEntry;, "Lcom/google/common/collect/Multisets$ImmutableEntry<TE;>;"
     const/4 v0, 0x0
 
     return-object v0

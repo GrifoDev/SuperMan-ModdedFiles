@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/google/common/base/Splitter$4;Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
     .locals 0
-    .param p2, "x0"    # Lcom/google/common/base/Splitter;
-    .param p3, "x1"    # Ljava/lang/CharSequence;
 
-    .prologue
-    .line 299
     iput-object p1, p0, Lcom/google/common/base/Splitter$4$1;->this$0:Lcom/google/common/base/Splitter$4;
 
     invoke-direct {p0, p2, p3}, Lcom/google/common/base/Splitter$SplittingIterator;-><init>(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
@@ -37,27 +33,19 @@
 # virtual methods
 .method public separatorEnd(I)I
     .locals 0
-    .param p1, "separatorPosition"    # I
 
-    .prologue
-    .line 308
     return p1
 .end method
 
 .method public separatorStart(I)I
     .locals 2
-    .param p1, "start"    # I
 
-    .prologue
-    .line 302
     iget-object v1, p0, Lcom/google/common/base/Splitter$4$1;->this$0:Lcom/google/common/base/Splitter$4;
 
     iget v1, v1, Lcom/google/common/base/Splitter$4;->val$length:I
 
     add-int v0, p1, v1
 
-    .line 303
-    .local v0, "nextChunkStart":I
     iget-object v1, p0, Lcom/google/common/base/Splitter$4$1;->toSplit:Ljava/lang/CharSequence;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -66,11 +54,9 @@
 
     if-ge v0, v1, :cond_0
 
-    .end local v0    # "nextChunkStart":I
     :goto_0
     return v0
 
-    .restart local v0    # "nextChunkStart":I
     :cond_0
     const/4 v0, -0x1
 

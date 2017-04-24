@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/RejectCallsWithMessage;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/help/RejectCallsWithMessage;
 
-    .prologue
-    .line 339
     iput-object p1, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +36,9 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 3
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
     const/4 v2, 0x2
 
-    .line 350
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
@@ -56,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
-    .line 351
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$600(Lcom/android/incallui/help/RejectCallsWithMessage;)Landroid/widget/FrameLayout;
 
@@ -68,7 +61,6 @@
 
     if-nez v0, :cond_1
 
-    .line 352
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mBubbleCount:I
@@ -78,7 +70,6 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 353
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mSendMsgTipBubble:Landroid/widget/FrameLayout;
@@ -95,12 +86,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 360
     :cond_0
     :goto_0
     return-void
 
-    .line 354
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
@@ -113,7 +102,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
-    .line 355
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mDragUpImageLayout:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/incallui/help/RejectCallsWithMessage;->access$1200(Lcom/android/incallui/help/RejectCallsWithMessage;)Landroid/widget/FrameLayout;
 
@@ -125,14 +113,12 @@
 
     if-nez v0, :cond_0
 
-    .line 356
     const-string v0, "RejectCallsWithMessage"
 
     const-string v1, "mDragUpImageLayout1"
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 357
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mBubbleCount:I
@@ -142,7 +128,6 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 358
     iget-object v0, p0, Lcom/android/incallui/help/RejectCallsWithMessage$8;->this$0:Lcom/android/incallui/help/RejectCallsWithMessage;
 
     # getter for: Lcom/android/incallui/help/RejectCallsWithMessage;->mDragUpImageLayout:Landroid/widget/FrameLayout;
@@ -164,18 +149,12 @@
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 346
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 342
     return-void
 .end method

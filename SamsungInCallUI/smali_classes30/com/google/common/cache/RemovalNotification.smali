@@ -65,7 +65,6 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "cause"    # Lcom/google/common/cache/RemovalCause;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;",
@@ -74,20 +73,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 57
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     iput-object p1, p0, Lcom/google/common/cache/RemovalNotification;->key:Ljava/lang/Object;
 
-    .line 59
     iput-object p2, p0, Lcom/google/common/cache/RemovalNotification;->value:Ljava/lang/Object;
 
-    .line 60
     invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -96,7 +87,6 @@
 
     iput-object v0, p0, Lcom/google/common/cache/RemovalNotification;->cause:Lcom/google/common/cache/RemovalCause;
 
-    .line 61
     return-void
 .end method
 
@@ -110,7 +100,6 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "cause"    # Lcom/google/common/cache/RemovalCause;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -125,10 +114,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 54
-    .local p0, "key":Ljava/lang/Object;, "TK;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Lcom/google/common/cache/RemovalNotification;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/cache/RemovalNotification;-><init>(Ljava/lang/Object;Ljava/lang/Object;Lcom/google/common/cache/RemovalCause;)V
@@ -140,27 +125,21 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     const/4 v1, 0x0
 
-    .line 91
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 92
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 93
-    .local v0, "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lcom/google/common/cache/RemovalNotification;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -191,8 +170,6 @@
 
     const/4 v1, 0x1
 
-    .line 96
-    .end local v0    # "that":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :cond_0
     return v1
 .end method
@@ -200,9 +177,6 @@
 .method public getCause()Lcom/google/common/cache/RemovalCause;
     .locals 1
 
-    .prologue
-    .line 67
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/RemovalNotification;->cause:Lcom/google/common/cache/RemovalCause;
 
     return-object v0
@@ -219,9 +193,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 79
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/RemovalNotification;->key:Ljava/lang/Object;
 
     return-object v0
@@ -238,9 +209,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 83
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/RemovalNotification;->value:Ljava/lang/Object;
 
     return-object v0
@@ -249,23 +217,16 @@
 .method public hashCode()I
     .locals 4
 
-    .prologue
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     const/4 v2, 0x0
 
-    .line 100
     invoke-virtual {p0}, Lcom/google/common/cache/RemovalNotification;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 101
-    .local v0, "k":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/cache/RemovalNotification;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 102
-    .local v1, "v":Ljava/lang/Object;, "TV;"
     if-nez v0, :cond_0
 
     move v3, v2
@@ -301,10 +262,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 87
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -315,9 +272,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 109
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -354,9 +308,6 @@
 .method public wasEvicted()Z
     .locals 1
 
-    .prologue
-    .line 75
-    .local p0, "this":Lcom/google/common/cache/RemovalNotification;, "Lcom/google/common/cache/RemovalNotification<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/cache/RemovalNotification;->cause:Lcom/google/common/cache/RemovalCause;
 
     invoke-virtual {v0}, Lcom/google/common/cache/RemovalCause;->wasEvicted()Z

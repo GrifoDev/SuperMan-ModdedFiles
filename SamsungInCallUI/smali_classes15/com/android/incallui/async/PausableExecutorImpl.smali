@@ -10,8 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,47 +20,35 @@
 .method public ackAllMilestonesForTesting()V
     .locals 0
 
-    .prologue
-    .line 36
     return-void
 .end method
 
 .method public ackMilestoneForTesting()V
     .locals 0
 
-    .prologue
-    .line 32
     return-void
 .end method
 
 .method public awaitMilestoneForTesting()V
     .locals 0
 
-    .prologue
-    .line 40
     return-void
 .end method
 
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 44
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 45
     return-void
 .end method
 
 .method public milestone()V
     .locals 0
 
-    .prologue
-    .line 28
     return-void
 .end method

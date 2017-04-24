@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/Maps$AsMapView;)V
     .locals 0
 
-    .prologue
-    .line 830
-    .local p0, "this":Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;, "Lcom/google/common/collect/Maps$AsMapView.1EntrySetImpl;"
     iput-object p1, p0, Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;->this$0:Lcom/google/common/collect/Maps$AsMapView;
 
     invoke-direct {p0}, Lcom/google/common/collect/Maps$EntrySet;-><init>()V
@@ -53,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 838
-    .local p0, "this":Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;, "Lcom/google/common/collect/Maps$AsMapView.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;->this$0:Lcom/google/common/collect/Maps$AsMapView;
 
     invoke-virtual {v0}, Lcom/google/common/collect/Maps$AsMapView;->backingSet()Ljava/util/Set;
@@ -83,9 +77,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 833
-    .local p0, "this":Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;, "Lcom/google/common/collect/Maps$AsMapView.1EntrySetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$AsMapView$1EntrySetImpl;->this$0:Lcom/google/common/collect/Maps$AsMapView;
 
     return-object v0

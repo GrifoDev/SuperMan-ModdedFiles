@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallApp;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InCallApp;
 
-    .prologue
-    .line 62
     iput-object p1, p0, Lcom/android/incallui/InCallApp$1;->this$0:Lcom/android/incallui/InCallApp;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

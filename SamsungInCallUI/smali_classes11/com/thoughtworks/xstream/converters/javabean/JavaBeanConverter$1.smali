@@ -33,8 +33,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 0
 
-    .prologue
-    .line 86
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$source:Ljava/lang/Object;
@@ -52,19 +50,11 @@
 
 .method private writeField(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Class;)V
     .locals 6
-    .param p1, "propertyName"    # Ljava/lang/String;
-    .param p2, "fieldType"    # Ljava/lang/Class;
-    .param p3, "newObj"    # Ljava/lang/Object;
-    .param p4, "definedIn"    # Ljava/lang/Class;
 
-    .prologue
-    .line 98
     invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 99
-    .local v0, "actualType":Ljava/lang/Class;
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;
 
     iget-object v3, v3, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -73,8 +63,6 @@
 
     move-result-object v1
 
-    .line 100
-    .local v1, "defaultType":Ljava/lang/Class;
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;
 
     iget-object v3, v3, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -89,13 +77,10 @@
 
     move-result-object v2
 
-    .line 101
-    .local v2, "serializedMember":Ljava/lang/String;
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     invoke-static {v3, v2, v0}, Lcom/thoughtworks/xstream/io/ExtendedHierarchicalStreamWriterHelper;->startNode(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 102
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -106,7 +91,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 103
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     iget-object v4, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$classAttributeName:Ljava/lang/String;
@@ -121,18 +105,15 @@
 
     invoke-interface {v3, v4, v5}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 105
     :cond_0
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$context:Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
     invoke-interface {v3, p3}, Lcom/thoughtworks/xstream/converters/MarshallingContext;->convertAnother(Ljava/lang/Object;)V
 
-    .line 107
     iget-object v3, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     invoke-interface {v3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 108
     return-void
 .end method
 
@@ -140,11 +121,7 @@
 # virtual methods
 .method public shouldVisit(Ljava/lang/String;Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "definedIn"    # Ljava/lang/Class;
 
-    .prologue
-    .line 88
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;
 
     iget-object v0, v0, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter;->mapper:Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -158,19 +135,11 @@
 
 .method public visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "propertyName"    # Ljava/lang/String;
-    .param p2, "fieldType"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
-    .param p4, "newObj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 92
     if-eqz p4, :cond_0
 
-    .line 93
     invoke-direct {p0, p1, p2, p4, p3}, Lcom/thoughtworks/xstream/converters/javabean/JavaBeanConverter$1;->writeField(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    .line 95
     :cond_0
     return-void
 .end method

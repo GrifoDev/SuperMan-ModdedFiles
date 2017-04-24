@@ -126,8 +126,6 @@
 
 .method public addGeofences(Ljava/util/List;Landroid/app/PendingIntent;Lcom/google/android/gms/location/LocationClient$OnAddGeofencesResultListener;)V
     .locals 3
-    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
-    .param p3, "listener"    # Lcom/google/android/gms/location/LocationClient$OnAddGeofencesResultListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,8 +139,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "geofences":Ljava/util/List;, "Ljava/util/List<Lcom/google/android/gms/internal/bi;>;"
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bh;->B()V
 
     if-eqz p1, :cond_0
@@ -299,9 +295,7 @@
 
 .method public removeActivityUpdates(Landroid/app/PendingIntent;)V
     .locals 2
-    .param p1, "callbackIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bh;->B()V
 
     invoke-static {p1}, Lcom/google/android/gms/internal/s;->d(Ljava/lang/Object;)Ljava/lang/Object;
@@ -331,10 +325,7 @@
 
 .method public removeGeofences(Landroid/app/PendingIntent;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
     .locals 3
-    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
-    .param p2, "listener"    # Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;
 
-    .prologue
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bh;->B()V
 
     const-string v0, "PendingIntent must be specified."
@@ -394,7 +385,6 @@
 
 .method public removeGeofences(Ljava/util/List;Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;)V
     .locals 4
-    .param p2, "listener"    # Lcom/google/android/gms/location/LocationClient$OnRemoveGeofencesResultListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -407,8 +397,6 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "geofenceRequestIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bh;->B()V
@@ -494,9 +482,7 @@
 
 .method public removeLocationUpdates(Landroid/app/PendingIntent;)V
     .locals 1
-    .param p1, "callbackIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bg;->removeLocationUpdates(Landroid/app/PendingIntent;)V
@@ -506,9 +492,7 @@
 
 .method public removeLocationUpdates(Lcom/google/android/gms/location/LocationListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/google/android/gms/location/LocationListener;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bg;->removeLocationUpdates(Lcom/google/android/gms/location/LocationListener;)V
@@ -518,10 +502,7 @@
 
 .method public requestActivityUpdates(JLandroid/app/PendingIntent;)V
     .locals 5
-    .param p1, "detectionIntervalMillis"    # J
-    .param p3, "callbackIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
     const/4 v0, 0x1
 
     invoke-virtual {p0}, Lcom/google/android/gms/internal/bh;->B()V
@@ -571,10 +552,7 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Landroid/app/PendingIntent;)V
     .locals 1
-    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
-    .param p2, "callbackIntent"    # Landroid/app/PendingIntent;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/android/gms/internal/bg;->requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Landroid/app/PendingIntent;)V
@@ -584,10 +562,7 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;)V
     .locals 1
-    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
-    .param p2, "listener"    # Lcom/google/android/gms/location/LocationListener;
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/google/android/gms/internal/bh;->requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;Landroid/os/Looper;)V
@@ -597,11 +572,7 @@
 
 .method public requestLocationUpdates(Lcom/google/android/gms/location/LocationRequest;Lcom/google/android/gms/location/LocationListener;Landroid/os/Looper;)V
     .locals 2
-    .param p1, "request"    # Lcom/google/android/gms/location/LocationRequest;
-    .param p2, "listener"    # Lcom/google/android/gms/location/LocationListener;
-    .param p3, "looper"    # Landroid/os/Looper;
 
-    .prologue
     iget-object v1, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     monitor-enter v1
@@ -637,9 +608,7 @@
 
 .method public setMockLocation(Landroid/location/Location;)V
     .locals 1
-    .param p1, "mockLocation"    # Landroid/location/Location;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bg;->setMockLocation(Landroid/location/Location;)V
@@ -649,9 +618,7 @@
 
 .method public setMockMode(Z)V
     .locals 1
-    .param p1, "isMockMode"    # Z
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/bh;->fM:Lcom/google/android/gms/internal/bg;
 
     invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/bg;->setMockMode(Z)V

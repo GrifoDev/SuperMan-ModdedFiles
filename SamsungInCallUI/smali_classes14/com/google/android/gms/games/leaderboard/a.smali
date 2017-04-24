@@ -36,9 +36,7 @@
 
 .method public getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     const-string v0, "name"
 
     invoke-virtual {p0, v0, p1}, Lcom/google/android/gms/games/leaderboard/a;->a(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V

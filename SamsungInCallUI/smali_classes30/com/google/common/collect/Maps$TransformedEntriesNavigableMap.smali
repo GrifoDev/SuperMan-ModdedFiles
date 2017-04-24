@@ -50,14 +50,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 2042
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "fromMap":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV1;>;"
-    .local p2, "transformer":Lcom/google/common/collect/Maps$EntryTransformer;, "Lcom/google/common/collect/Maps$EntryTransformer<-TK;-TV1;TV2;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;-><init>(Ljava/util/SortedMap;Lcom/google/common/collect/Maps$EntryTransformer;)V
 
-    .line 2043
     return-void
 .end method
 
@@ -80,10 +74,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 2154
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV1;>;"
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
@@ -113,10 +103,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2047
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -140,10 +126,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2052
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -165,9 +147,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2057
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -189,9 +168,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2062
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -219,9 +195,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2067
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -247,10 +220,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2072
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -274,10 +243,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2077
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -299,9 +264,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2159
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-super {p0}, Lcom/google/common/collect/Maps$TransformedEntriesSortedMap;->fromMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -314,9 +276,6 @@
 .method protected bridge synthetic fromMap()Ljava/util/SortedMap;
     .locals 1
 
-    .prologue
-    .line 2036
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -334,10 +293,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2082
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -349,7 +304,6 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -358,10 +312,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2087
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -381,11 +331,7 @@
 
 .method public bridge synthetic headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2036
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->headMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -403,10 +349,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2092
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -430,10 +372,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2097
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -455,9 +393,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2102
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -483,10 +418,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2107
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -510,10 +441,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2112
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -535,9 +462,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2117
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -559,9 +483,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2122
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -587,9 +508,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2127
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -615,11 +533,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2139
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -633,8 +546,6 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -643,11 +554,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2133
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -667,12 +573,7 @@
 
 .method public bridge synthetic subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2036
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -690,10 +591,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2144
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -705,7 +602,6 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 2
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -714,10 +610,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2149
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->fromMap()Ljava/util/NavigableMap;
 
     move-result-object v0
@@ -737,11 +629,7 @@
 
 .method public bridge synthetic tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2036
-    .local p0, "this":Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;, "Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap<TK;TV1;TV2;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Maps$TransformedEntriesNavigableMap;->tailMap(Ljava/lang/Object;)Ljava/util/NavigableMap;
 
     move-result-object v0

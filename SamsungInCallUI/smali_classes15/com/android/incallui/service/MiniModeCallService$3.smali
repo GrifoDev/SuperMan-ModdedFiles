@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/MiniModeCallService;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/MiniModeCallService;
 
-    .prologue
-    .line 171
     iput-object p1, p0, Lcom/android/incallui/service/MiniModeCallService$3;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 174
     iget-object v1, p0, Lcom/android/incallui/service/MiniModeCallService$3;->this$0:Lcom/android/incallui/service/MiniModeCallService;
 
     iget-object v1, v1, Lcom/android/incallui/service/MiniModeCallService;->mContext:Landroid/content/Context;
@@ -55,10 +49,7 @@
 
     move-result-object v0
 
-    .line 175
-    .local v0, "toast":Landroid/widget/Toast;
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 176
     return-void
 .end method

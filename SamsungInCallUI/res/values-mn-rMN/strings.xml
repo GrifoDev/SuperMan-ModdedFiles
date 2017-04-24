@@ -135,8 +135,8 @@
     <string name="call_drug_up_panel_for_kk">ЗУРВАС ИЛГЭЭХ товчийг дээш нь чирээд түргэн зурвас илгээж, ирсэн дуудлагаас татгалз.</string>
     <string name="call_drug_up_panel_for_kk_tts">Ирсэн дуудлагыг татгалзахдаа дуудлага татгалзах зурвас илгээхийн тулд дуудлагыг зурвасаар татгалзах самбарыг дээш чир.</string>
     <string name="call_ended_toast">Дуудлага дууслаа.</string>
-    <string name="call_forwarded_to">Call forwarded to:</string>
-    <string name="call_forwarding_from">Call forwarded from:</string>
+    <string name="call_forwarded_to">Дуудлагыг уламжилсан:</string>
+    <string name="call_forwarding_from">Уламжилсан дуудлага ирсэн:</string>
     <string name="call_incoming_voice_call2">Дуудлагад хариулахын тулд %s-г товш.</string>
     <string name="call_incoming_voice_call2_tts">Дуудлагад хариулахын тулд дуудлагад хариулах товчийг товш.</string>
     <string name="call_incoming_voice_call3">%s-г товшоод дууд.аас татгалз.</string>
@@ -167,7 +167,7 @@
     <string name="caller_info_card_last_call_log_title">Сүүлийн дуудлагууд</string>
     <string name="caller_info_card_last_message_title">Хамгийн сүүлийн зурвас</string>
     <string name="caller_info_card_memo_title">Дуудлагын явцад үүссэн санамж</string>
-    <string name="callsettings_hold_key_record_calls_notify">Press and hold Hold key to start or stop recording</string>
+    <string name="callsettings_hold_key_record_calls_notify">Бичлэгийг зогсоохын тулд Барих товчийг дарж барь</string>
     <string name="callsettings_rejectmessage_list1">Уучлаарай, одоо ярих боломжгүй байна. Дараа залгана уу.</string>
     <string name="callsettings_rejectmessage_list2">Би уулзалтанд байна</string>
     <string name="callsettings_rejectmessage_list3">Би хичээлд сууж байна</string>
@@ -262,6 +262,7 @@
     <string name="extra_vol_off">Нэмэлт дууны хэмжээ идэвхгүй болгосон.</string>
     <string name="extra_vol_on">Нэмэлт дууны хэмжээ идэвхжүүлсэн.</string>
     <string name="far_end_stopped_share_video">%s видео хуваалцахаа зогсоолоо.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">Файл дэмжигдэхгүй.</string>
     <string name="full_name">Нэрээр</string>
@@ -290,7 +291,7 @@
     <string name="incall_popup_call_remove_title_vzw">Холбоосыг нуух</string>
     <string name="incall_popup_ended">Дууссан</string>
     <string name="incall_spam_call_block">Дугаар хоригло</string>
-    <string name="incall_spam_call_reject">Add to Black list</string>
+    <string name="incall_spam_call_reject">Хар дансанд нэм</string>
     <string name="incall_spam_call_reject_toast">Утасны дугаарыг Хориглох жагсаалт руу нэмсэн.</string>
     <string name="incall_spam_call_report">Дугаарыг мэдэгд</string>
     <string name="incall_transfer_call">Дуудлага шилжүүлэх</string>
@@ -486,7 +487,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="onscreenBluetoothTextOn_att">Утас рүү сэлгэх</string>
     <string name="onscreenBluetoothTextOn_tmo">Утас рүү сэлгэх</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">To turn off the speakerphone, open the flip phone.</string>
+    <string name="open_folder_for_speakeroff">Чанга яригчтай утсыг унтраахын тулд дэлгэдэг утсыг нээ.</string>
     <string name="open_the_cover">Хаалтыг нээх</string>
     <string name="open_the_cover_incoming">Видео дуудлагад хариулах эсвэл татгалзахдаа хавтсыг нээ.</string>
     <string name="open_the_cover_modify_call">Дуудуулсан тал видео дуудлага руу шилжихийг хүсэж байна. Хүсэлт зөвшөөрөх/татгалзахдаа хавтсыг нээ</string>
@@ -644,7 +645,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="secOnscreenResumeCallText">Үргэлжлүүлэх</string>
     <string name="secOnscreenShowCallOption">Дуудлагын сонголтуудыг харуулах</string>
     <string name="secOnscreenSpeaker">Чанга яригч</string>
-    <string name="secOnscreenStopText">Зогсоох</string>
+    <string name="secOnscreenStopText">Бичлэг зогсоох</string>
     <string name="secOnscreenSwapText">Солих</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Камер сэлгэх</string>
@@ -703,9 +704,9 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="spam_call_report_dialog_spam">Спам</string>
     <string name="spam_call_report_dialog_taxis">Такси</string>
     <string name="spam_call_reported_as">%s-р мэдэгдсэн</string>
-    <string name="spam_call_resported_as_by_you">Reported as %s by you</string>
+    <string name="spam_call_resported_as_by_you">Та %s гэж мэдээлсэн</string>
     <string name="spam_call_resported_count">(%d удаа)</string>
-    <string name="spam_call_type_and_count">Reported as %1$s %2$d times</string>
+    <string name="spam_call_type_and_count">%1$s гэж %2$d удаа мэдүүлсэн</string>
     <string name="sub_number_item">Альтернатив %d</string>
     <string name="suguden_guide_do_not_show_again_dcm">Дахин бүү харуул</string>
     <string name="suguden_guide_main_text_dcm">Дуудлагад хариулахын тулд төхөөрөмжийг чихэндээ ойртуул.</string>
@@ -719,6 +720,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="switch_to_voice_call_failed">Дуут дуудлага руу шилжих хүсэлт амжилтгүй болсон.</string>
     <string name="switched_to_voip_mo">Дуут дуудлага руу шилжсэн</string>
     <string name="switched_to_voip_mt">Дуудуулсан талын хүсэлтээс шалтгаалж дуут дуудлага руу шилжсэн</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s видеогоо унтраалаа.</string>
     <string name="switching_camera_failed">Камер сэлгэж чадсангүй.</string>
     <string name="switching_to_voice_call">Яриан дуудлага руу шилжиж байна…</string>
@@ -734,7 +736,9 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="usa_att_connected_as_voice">Зөвхөн яриан дуудлагаар холбогдсон.</string>
     <string name="usa_att_data_usage_charge_alert">Таны Дата ашиглалт төхөөрөмж дээрээ тохируулсан хязгаарт хүрлээ. Видео дуудлага дата ашигладаг.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-гаар дуудлага хийх боломжгүй тул үүрэн холбооны сүлжээгээр холбогдож байна. Яриа ба дата төлбөр тооцогдоно.</string>
-    <string name="usa_att_modify_receive_to_video">Видео горим сонгох</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Wi-Fi-гаар дуудлага хийх боломжгүй тул үүрэн холбооны сүлжээгээр холбогдож байна. Яриа ба дата төлбөр тооцогдоно.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Доор товшоод дуудлагын төрлийг сонго.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Дуудлагын төрлийг хурлын дуудлагын үеэр өөрчлөх боломжгүй.</string>
     <string name="usa_gsm_modify_receive_to_video">%s видео дуудлага руу шилжихийг хүсч байна.</string>
@@ -742,6 +746,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="usa_gsm_modify_requested_wait_for_response">Хариу хүлээж байна</string>
     <string name="usa_gsm_modify_select_call_type">Дуудлагын төрлийг сонго</string>
     <string name="usa_gsm_switching_to_voice_call">Зөвхөн яриа руу шилжиж байна.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Мобайл дата боломжгүйн улмаас видео унтарсан.</string>
     <string name="usa_volte_reject_upgrade_request">%s энэ удаа видео дуудлага хүлээн авах боломжгүй.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Видео дуудлага хийх боломжгүй байна.</string>
     <string name="usa_vzw_change_to_oneway_video">"Нэг талын видео
@@ -786,7 +791,9 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Дахин бүү харуул</string>
     <string name="video_calling_incoming">Видео дуудлага</string>
+    <string name="video_calls_quality_poor_tmo">Холболтын чанар муу байна. Видео дуудлагыг яриан дуудлага руу шилжүүлж магадгүй.</string>
     <string name="video_calls_temporarily_not_available">Видео дуудлага түр боломжгүй байна. Видео дуудлага дуут дуудлага руу шилжсэн.</string>
+    <string name="video_calls_temporarily_not_available_att">Яг одоо таны залгаж байгаа дугаар видео дуудлага хүлээж авахгүй. Яриан дуудлага холбогдлоо.</string>
     <string name="video_calls_temporarily_not_available_tmo">Видео дуудлага хийх боломжгүй байна.</string>
     <string name="video_paused_info_text">Видео түр зогссон</string>
     <string name="video_saved">Видеог %s-д хадгалсан.</string>
@@ -799,5 +806,5 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="waiting_call_dialog_dismiss_toast">Дуудлагыг %1$s тасалсан. %2$s-тай дуудлагаа үргэлжлүүлж байна…</string>
     <string name="waiting_call_dialog_message">Дуудлагад хариулах</string>
     <string name="websiteLabelsGroup">Вэб хаяг</string>
-    <string name="yellow_pages">Yellow Pages</string>
+    <string name="yellow_pages">Шар Хуудаснууд</string>
 </resources>

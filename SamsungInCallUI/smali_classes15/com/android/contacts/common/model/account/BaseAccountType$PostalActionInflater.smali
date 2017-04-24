@@ -18,8 +18,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 607
     invoke-direct {p0}, Lcom/android/contacts/common/model/account/BaseAccountType$CommonInflater;-><init>()V
 
     return-void
@@ -29,20 +27,15 @@
 # virtual methods
 .method protected getTypeLabelResource(Ljava/lang/Integer;)I
     .locals 2
-    .param p1, "type"    # Ljava/lang/Integer;
 
-    .prologue
-    const v0, 0x7f0901d3
+    const v0, 0x7f0901d4
 
-    .line 611
     if-nez p1, :cond_0
 
-    .line 620
     :goto_0
     :pswitch_0
     return v0
 
-    .line 612
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
@@ -50,24 +43,20 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 620
-    const v0, 0x7f0901d1
-
-    goto :goto_0
-
-    .line 614
-    :pswitch_1
     const v0, 0x7f0901d2
 
     goto :goto_0
 
-    .line 616
-    :pswitch_2
-    const v0, 0x7f0901d4
+    :pswitch_1
+    const v0, 0x7f0901d3
 
     goto :goto_0
 
-    .line 612
+    :pswitch_2
+    const v0, 0x7f0901d5
+
+    goto :goto_0
+
     nop
 
     :pswitch_data_0

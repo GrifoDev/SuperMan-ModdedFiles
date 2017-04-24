@@ -21,8 +21,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,25 +30,18 @@
 # virtual methods
 .method public failure(Lcom/google/common/util/concurrent/Service;)V
     .locals 0
-    .param p1, "service"    # Lcom/google/common/util/concurrent/Service;
 
-    .prologue
-    .line 169
     return-void
 .end method
 
 .method public healthy()V
     .locals 0
 
-    .prologue
-    .line 156
     return-void
 .end method
 
 .method public stopped()V
     .locals 0
 
-    .prologue
-    .line 162
     return-void
 .end method

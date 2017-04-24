@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
-    .prologue
-    .line 385
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 388
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -58,7 +52,6 @@
     # setter for: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->mSelectedRowId:I
     invoke-static {v1, v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$102(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)I
 
-    .line 389
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -88,7 +81,6 @@
 
     invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    .line 390
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     iget-object v1, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
@@ -101,7 +93,6 @@
     # invokes: Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->animateForSplit(I)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->access$200(Lcom/android/incallui/fragment/ConferenceManagerCsFragment;I)V
 
-    .line 391
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerCsFragment$3;->this$0:Lcom/android/incallui/fragment/ConferenceManagerCsFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerCsFragment;->getActivity()Landroid/app/Activity;
@@ -118,14 +109,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUIAppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 393
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getScreenId(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0903f3
+    const v1, 0x7f0903fa
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -133,6 +123,5 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 394
     return-void
 .end method

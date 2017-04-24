@@ -157,14 +157,12 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 5
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -425,14 +423,12 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 5
-    .param p1, "outState"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

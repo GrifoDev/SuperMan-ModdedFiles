@@ -45,18 +45,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 477
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1$MapEntry;, "Lcom/google/common/collect/HashBiMap.1.MapEntry;"
-    .local p2, "entry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     iput-object p1, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMapEntry;-><init>()V
 
-    .line 478
     iput-object p2, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 479
     return-void
 .end method
 
@@ -70,9 +64,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 483
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1$MapEntry;, "Lcom/google/common/collect/HashBiMap.1.MapEntry;"
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iget-object v0, v0, Lcom/google/common/collect/HashBiMap$BiEntry;->key:Ljava/lang/Object;
@@ -88,9 +79,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 488
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1$MapEntry;, "Lcom/google/common/collect/HashBiMap.1.MapEntry;"
     iget-object v0, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iget-object v0, v0, Lcom/google/common/collect/HashBiMap$BiEntry;->value:Ljava/lang/Object;
@@ -106,28 +94,20 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/common/collect/HashBiMap$1$MapEntry;, "Lcom/google/common/collect/HashBiMap.1.MapEntry;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     const/4 v7, 0x0
 
     const/4 v4, 0x1
 
     const/4 v5, 0x0
 
-    .line 493
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iget-object v1, v3, Lcom/google/common/collect/HashBiMap$BiEntry;->value:Ljava/lang/Object;
 
-    .line 494
-    .local v1, "oldValue":Ljava/lang/Object;, "TV;"
     invoke-static {p1}, Lcom/google/common/collect/Hashing;->smearedHash(Ljava/lang/Object;)I
 
     move-result v2
 
-    .line 495
-    .local v2, "valueHash":I
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iget v3, v3, Lcom/google/common/collect/HashBiMap$BiEntry;->valueHash:I
@@ -140,13 +120,9 @@
 
     if-eqz v3, :cond_0
 
-    .line 510
-    .end local p1    # "value":Ljava/lang/Object;, "TV;"
     :goto_0
     return-object p1
 
-    .line 498
-    .restart local p1    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
@@ -170,7 +146,6 @@
 
     invoke-static {v3, v6, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 499
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     iget-object v3, v3, Lcom/google/common/collect/HashBiMap$1;->this$0:Lcom/google/common/collect/HashBiMap;
@@ -180,7 +155,6 @@
     # invokes: Lcom/google/common/collect/HashBiMap;->delete(Lcom/google/common/collect/HashBiMap$BiEntry;)V
     invoke-static {v3, v4}, Lcom/google/common/collect/HashBiMap;->access$200(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/HashBiMap$BiEntry;)V
 
-    .line 500
     new-instance v0, Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
@@ -193,8 +167,6 @@
 
     invoke-direct {v0, v3, v4, p1, v2}, Lcom/google/common/collect/HashBiMap$BiEntry;-><init>(Ljava/lang/Object;ILjava/lang/Object;I)V
 
-    .line 502
-    .local v0, "newEntry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     iget-object v3, v3, Lcom/google/common/collect/HashBiMap$1;->this$0:Lcom/google/common/collect/HashBiMap;
@@ -204,17 +176,14 @@
     # invokes: Lcom/google/common/collect/HashBiMap;->insert(Lcom/google/common/collect/HashBiMap$BiEntry;Lcom/google/common/collect/HashBiMap$BiEntry;)V
     invoke-static {v3, v0, v4}, Lcom/google/common/collect/HashBiMap;->access$500(Lcom/google/common/collect/HashBiMap;Lcom/google/common/collect/HashBiMap$BiEntry;Lcom/google/common/collect/HashBiMap$BiEntry;)V
 
-    .line 503
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iput-object v7, v3, Lcom/google/common/collect/HashBiMap$BiEntry;->prevInKeyInsertionOrder:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 504
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     iput-object v7, v3, Lcom/google/common/collect/HashBiMap$BiEntry;->nextInKeyInsertionOrder:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 505
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     iget-object v4, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
@@ -228,7 +197,6 @@
 
     iput v4, v3, Lcom/google/common/collect/HashBiMap$1;->expectedModCount:I
 
-    .line 506
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     iget-object v3, v3, Lcom/google/common/collect/HashBiMap$1;->toRemove:Lcom/google/common/collect/HashBiMap$BiEntry;
@@ -237,24 +205,19 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 507
     iget-object v3, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->this$1:Lcom/google/common/collect/HashBiMap$1;
 
     iput-object v0, v3, Lcom/google/common/collect/HashBiMap$1;->toRemove:Lcom/google/common/collect/HashBiMap$BiEntry;
 
-    .line 509
     :cond_1
     iput-object v0, p0, Lcom/google/common/collect/HashBiMap$1$MapEntry;->delegate:Lcom/google/common/collect/HashBiMap$BiEntry;
 
     move-object p1, v1
 
-    .line 510
     goto :goto_0
 
-    .end local v0    # "newEntry":Lcom/google/common/collect/HashBiMap$BiEntry;, "Lcom/google/common/collect/HashBiMap$BiEntry<TK;TV;>;"
     :cond_2
     move v3, v5
 
-    .line 498
     goto :goto_1
 .end method

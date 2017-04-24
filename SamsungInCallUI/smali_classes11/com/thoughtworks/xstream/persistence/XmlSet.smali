@@ -10,34 +10,25 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/persistence/PersistenceStrategy;)V
     .locals 1
-    .param p1, "persistenceStrategy"    # Lcom/thoughtworks/xstream/persistence/PersistenceStrategy;
 
-    .prologue
-    .line 26
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
-    .line 27
     new-instance v0, Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/persistence/XmlMap;-><init>(Lcom/thoughtworks/xstream/persistence/PersistenceStrategy;)V
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
-    .line 28
     return-void
 .end method
 
 .method private findEmptyKey()Ljava/lang/Long;
     .locals 4
 
-    .prologue
-    .line 49
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 50
-    .local v0, "i":J
     :goto_0
     iget-object v2, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
@@ -51,14 +42,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 51
     const-wide/16 v2, 0x1
 
     add-long/2addr v0, v2
 
     goto :goto_0
 
-    .line 53
     :cond_0
     new-instance v2, Ljava/lang/Long;
 
@@ -71,10 +60,7 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 39
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/persistence/XmlMap;->containsValue(Ljava/lang/Object;)Z
@@ -83,14 +69,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 40
     const/4 v0, 0x0
 
-    .line 44
     :goto_0
     return v0
 
-    .line 43
     :cond_0
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
@@ -100,7 +83,6 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/thoughtworks/xstream/persistence/XmlMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 44
     const/4 v0, 0x1
 
     goto :goto_0
@@ -109,8 +91,6 @@
 .method public iterator()Ljava/util/Iterator;
     .locals 1
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/persistence/XmlMap;->values()Ljava/util/Collection;
@@ -127,8 +107,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 35
     iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/XmlSet;->map:Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/persistence/XmlMap;->size()I

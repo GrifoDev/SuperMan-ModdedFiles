@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/PostCharDialogFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/PostCharDialogFragment;
 
-    .prologue
-    .line 102
     iput-object p1, p0, Lcom/android/incallui/PostCharDialogFragment$1;->this$0:Lcom/android/incallui/PostCharDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "whichButton"    # I
 
-    .prologue
-    .line 105
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v0
@@ -56,6 +49,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/incallui/TelecomAdapter;->postDialContinue(Ljava/lang/String;Z)V
 
-    .line 106
     return-void
 .end method

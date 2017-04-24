@@ -68,16 +68,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 3221
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "delegate":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedMap;-><init>()V
 
-    .line 3222
     iput-object p1, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
-    .line 3223
     return-void
 .end method
 
@@ -93,20 +87,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 3226
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "delegate":Ljava/util/NavigableMap;, "Ljava/util/NavigableMap<TK;TV;>;"
-    .local p2, "descendingMap":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     invoke-direct {p0}, Lcom/google/common/collect/ForwardingSortedMap;-><init>()V
 
-    .line 3227
     iput-object p1, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
-    .line 3228
     iput-object p2, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->descendingMap:Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;
 
-    .line 3229
     return-void
 .end method
 
@@ -122,10 +108,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3258
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->ceilingEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -148,10 +130,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3263
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->ceilingKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -164,9 +142,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 3216
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -177,9 +152,6 @@
 .method protected bridge synthetic delegate()Ljava/util/Map;
     .locals 1
 
-    .prologue
-    .line 3216
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -197,9 +169,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3233
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
@@ -219,9 +188,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3318
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->descendingKeySet()Ljava/util/NavigableSet;
@@ -245,18 +211,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 3300
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->descendingMap:Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;
 
-    .line 3301
-    .local v0, "result":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     if-nez v0, :cond_0
 
     new-instance v0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;
 
-    .end local v0    # "result":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v1}, Ljava/util/NavigableMap;->descendingMap()Ljava/util/NavigableMap;
@@ -281,9 +241,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3278
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->firstEntry()Ljava/util/Map$Entry;
@@ -308,10 +265,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3248
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->floorEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -334,10 +287,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3253
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->floorKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -349,7 +298,6 @@
 
 .method public headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -358,10 +306,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3345
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -385,10 +329,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3328
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->headMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -408,10 +348,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3268
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->higherEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -434,10 +370,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3273
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->higherKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -457,9 +389,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3308
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -477,9 +406,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3283
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->lastEntry()Ljava/util/Map$Entry;
@@ -504,10 +430,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3238
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->lowerEntry(Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -530,10 +452,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3243
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->lowerKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -553,9 +471,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3313
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0}, Ljava/util/NavigableMap;->navigableKeySet()Ljava/util/NavigableSet;
@@ -579,9 +494,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3288
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -599,9 +511,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3293
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -611,8 +520,6 @@
 
 .method public subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 1
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -621,11 +528,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3339
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/NavigableMap;->subMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -649,11 +551,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3323
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -667,7 +564,6 @@
 
 .method public tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
     .locals 1
-    .param p2, "inclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -676,10 +572,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3350
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->delegate:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;
@@ -703,10 +595,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3333
-    .local p0, "this":Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;, "Lcom/google/common/collect/Maps$UnmodifiableNavigableMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$UnmodifiableNavigableMap;->tailMap(Ljava/lang/Object;Z)Ljava/util/NavigableMap;

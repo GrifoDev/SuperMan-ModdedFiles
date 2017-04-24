@@ -40,8 +40,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -61,8 +59,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 39
     iget-object v0, p0, Lcom/cmdm/control/bean/BillList;->billList:Ljava/util/List;
 
     return-object v0
@@ -71,8 +67,6 @@
 .method public getMonth()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 67
     iget-object v0, p0, Lcom/cmdm/control/bean/BillList;->month:Ljava/lang/String;
 
     return-object v0
@@ -81,8 +75,6 @@
 .method public getYear()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 53
     iget-object v0, p0, Lcom/cmdm/control/bean/BillList;->year:Ljava/lang/String;
 
     return-object v0
@@ -100,35 +92,23 @@
         }
     .end annotation
 
-    .prologue
-    .line 46
-    .local p1, "billList":Ljava/util/List;, "Ljava/util/List<Lcom/cmdm/control/bean/Bill;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/BillList;->billList:Ljava/util/List;
 
-    .line 47
     return-void
 .end method
 
 .method public setMonth(Ljava/lang/String;)V
     .locals 0
-    .param p1, "month"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     iput-object p1, p0, Lcom/cmdm/control/bean/BillList;->month:Ljava/lang/String;
 
-    .line 75
     return-void
 .end method
 
 .method public setYear(Ljava/lang/String;)V
     .locals 0
-    .param p1, "year"    # Ljava/lang/String;
 
-    .prologue
-    .line 60
     iput-object p1, p0, Lcom/cmdm/control/bean/BillList;->year:Ljava/lang/String;
 
-    .line 61
     return-void
 .end method

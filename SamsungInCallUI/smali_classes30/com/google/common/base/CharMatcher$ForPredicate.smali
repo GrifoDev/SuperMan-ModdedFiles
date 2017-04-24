@@ -40,12 +40,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1806
-    .local p1, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/lang/Character;>;"
     invoke-direct {p0}, Lcom/google/common/base/CharMatcher;-><init>()V
 
-    .line 1807
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -54,7 +50,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/CharMatcher$ForPredicate;->predicate:Lcom/google/common/base/Predicate;
 
-    .line 1808
     return-void
 .end method
 
@@ -62,10 +57,7 @@
 # virtual methods
 .method public apply(Ljava/lang/Character;)Z
     .locals 2
-    .param p1, "character"    # Ljava/lang/Character;
 
-    .prologue
-    .line 1818
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$ForPredicate;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -81,13 +73,9 @@
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1802
     check-cast p1, Ljava/lang/Character;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/base/CharMatcher$ForPredicate;->apply(Ljava/lang/Character;)Z
 
     move-result v0
@@ -97,10 +85,7 @@
 
 .method public matches(C)Z
     .locals 2
-    .param p1, "c"    # C
 
-    .prologue
-    .line 1812
     iget-object v0, p0, Lcom/google/common/base/CharMatcher$ForPredicate;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
@@ -117,8 +102,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 1823
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

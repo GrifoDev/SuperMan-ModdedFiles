@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -18,11 +16,7 @@
 # virtual methods
 .method public newInCallToneGenerator(II)Landroid/media/ToneGenerator;
     .locals 1
-    .param p1, "stream"    # I
-    .param p2, "volume"    # I
 
-    .prologue
-    .line 34
     new-instance v0, Landroid/media/ToneGenerator;
 
     invoke-direct {v0, p1, p2}, Landroid/media/ToneGenerator;-><init>(II)V

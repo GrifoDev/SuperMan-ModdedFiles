@@ -35,8 +35,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;Ljava/util/Set;Ljava/util/Set;)V
     .locals 0
 
-    .prologue
-    .line 233
     iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->this$0:Lcom/thoughtworks/xstream/mapper/AnnotationMapper;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->val$types:Ljava/util/Set;
@@ -52,13 +50,9 @@
 # virtual methods
 .method public bridge synthetic add(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 233
     check-cast p1, Ljava/lang/reflect/Type;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->add(Ljava/lang/reflect/Type;)Z
 
     move-result v0
@@ -68,29 +62,22 @@
 
 .method public add(Ljava/lang/reflect/Type;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/reflect/Type;
 
-    .prologue
-    .line 237
     instance-of v0, p1, Ljava/lang/Class;
 
     if-eqz v0, :cond_0
 
-    .line 238
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->val$types:Ljava/util/Set;
 
     check-cast p1, Ljava/lang/Class;
 
-    .end local p1    # "o":Ljava/lang/reflect/Type;
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-result v0
 
-    .line 240
     :goto_0
     return v0
 
-    .restart local p1    # "o":Ljava/lang/reflect/Type;
     :cond_0
     if-eqz p1, :cond_1
 

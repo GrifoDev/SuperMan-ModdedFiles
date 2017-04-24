@@ -64,14 +64,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 43
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
-    .local p1, "function":Lcom/google/common/base/Function;, "Lcom/google/common/base/Function<TF;+TT;>;"
-    .local p2, "resultEquivalence":Lcom/google/common/base/Equivalence;, "Lcom/google/common/base/Equivalence<TT;>;"
     invoke-direct {p0}, Lcom/google/common/base/Equivalence;-><init>()V
 
-    .line 44
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -80,7 +74,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/FunctionalEquivalence;->function:Lcom/google/common/base/Function;
 
-    .line 45
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -89,7 +82,6 @@
 
     iput-object v0, p0, Lcom/google/common/base/FunctionalEquivalence;->resultEquivalence:Lcom/google/common/base/Equivalence;
 
-    .line 46
     return-void
 .end method
 
@@ -103,11 +95,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 50
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TF;"
-    .local p2, "b":Ljava/lang/Object;, "TF;"
     iget-object v0, p0, Lcom/google/common/base/FunctionalEquivalence;->resultEquivalence:Lcom/google/common/base/Equivalence;
 
     iget-object v1, p0, Lcom/google/common/base/FunctionalEquivalence;->function:Lcom/google/common/base/Function;
@@ -137,10 +124,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 55
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TF;"
     iget-object v0, p0, Lcom/google/common/base/FunctionalEquivalence;->resultEquivalence:Lcom/google/common/base/Equivalence;
 
     iget-object v1, p0, Lcom/google/common/base/FunctionalEquivalence;->function:Lcom/google/common/base/Function;
@@ -158,26 +141,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 60
     if-ne p1, p0, :cond_1
 
-    .line 67
     :cond_0
     :goto_0
     return v1
 
-    .line 63
     :cond_1
     instance-of v3, p1, Lcom/google/common/base/FunctionalEquivalence;
 
@@ -185,11 +163,8 @@
 
     move-object v0, p1
 
-    .line 64
     check-cast v0, Lcom/google/common/base/FunctionalEquivalence;
 
-    .line 65
-    .local v0, "that":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<**>;"
     iget-object v3, p0, Lcom/google/common/base/FunctionalEquivalence;->function:Lcom/google/common/base/Function;
 
     iget-object v4, v0, Lcom/google/common/base/FunctionalEquivalence;->function:Lcom/google/common/base/Function;
@@ -215,20 +190,15 @@
 
     goto :goto_0
 
-    .end local v0    # "that":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<**>;"
     :cond_3
     move v1, v2
 
-    .line 67
     goto :goto_0
 .end method
 
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 72
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -255,9 +225,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 77
-    .local p0, "this":Lcom/google/common/base/FunctionalEquivalence;, "Lcom/google/common/base/FunctionalEquivalence<TF;TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

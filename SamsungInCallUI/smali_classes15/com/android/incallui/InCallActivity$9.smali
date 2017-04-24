@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/InCallActivity;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/InCallActivity;
 
-    .prologue
-    .line 515
     iput-object p1, p0, Lcom/android/incallui/InCallActivity$9;->this$0:Lcom/android/incallui/InCallActivity;
 
     iput-object p2, p0, Lcom/android/incallui/InCallActivity$9;->val$callId:Ljava/lang/String;
@@ -44,8 +41,6 @@
 .method public run()V
     .locals 2
 
-    .prologue
-    .line 518
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
     move-result-object v0
@@ -54,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/TelecomAdapter;->stopDtmfTone(Ljava/lang/String;)V
 
-    .line 519
     return-void
 .end method

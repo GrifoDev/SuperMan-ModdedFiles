@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,11 +30,7 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 123
     new-instance v0, Ljava/lang/RuntimeException;
 
     invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V

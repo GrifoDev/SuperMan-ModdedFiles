@@ -39,7 +39,6 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -48,7 +47,6 @@
 
     const/4 v2, 0x0
 
-    .line 84
     new-instance v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     const-string v1, "STREQUENT"
@@ -57,7 +55,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->STREQUENT:Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
-    .line 89
     new-instance v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     const-string v1, "STARRED_ONLY"
@@ -66,7 +63,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->STARRED_ONLY:Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
-    .line 94
     new-instance v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     const-string v1, "FREQUENT_ONLY"
@@ -75,7 +71,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->FREQUENT_ONLY:Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
-    .line 104
     new-instance v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     const-string v1, "GROUP_MEMBERS"
@@ -84,7 +79,6 @@
 
     sput-object v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->GROUP_MEMBERS:Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
-    .line 80
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
@@ -118,8 +112,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 80
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -127,10 +119,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 80
     const-class v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -145,8 +134,6 @@
 .method public static values()[Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
     .locals 1
 
-    .prologue
-    .line 80
     sget-object v0, Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->$VALUES:[Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;
 
     invoke-virtual {v0}, [Lcom/android/contacts/common/list/ContactTileAdapter$DisplayType;->clone()Ljava/lang/Object;

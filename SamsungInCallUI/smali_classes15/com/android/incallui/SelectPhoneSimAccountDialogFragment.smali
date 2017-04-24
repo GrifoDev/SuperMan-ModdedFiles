@@ -42,8 +42,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 55
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
@@ -51,11 +49,7 @@
 
 .method static synthetic access$002(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
-    .param p1, "x1"    # Z
 
-    .prologue
-    .line 55
     iput-boolean p1, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
 
     return p1
@@ -63,10 +57,7 @@
 
 .method static synthetic access$100(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)Ljava/util/List;
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    .prologue
-    .line 55
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
     return-object v0
@@ -74,10 +65,7 @@
 
 .method static synthetic access$300(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)Landroid/telecom/TelecomManager;
     .locals 1
-    .param p0, "x0"    # Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    .prologue
-    .line 55
     iget-object v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
 
     return-object v0
@@ -86,8 +74,6 @@
 .method static synthetic access$400()Z
     .locals 1
 
-    .prologue
-    .line 55
     sget-boolean v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
 
     return v0
@@ -96,8 +82,6 @@
 .method static synthetic access$500()I
     .locals 1
 
-    .prologue
-    .line 55
     sget v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mRecentlyUsedSim:I
 
     return v0
@@ -106,8 +90,6 @@
 .method static synthetic access$600()I
     .locals 1
 
-    .prologue
-    .line 55
     sget v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mPreferredSim:I
 
     return v0
@@ -116,20 +98,16 @@
 .method public static dismissDialog()V
     .locals 1
 
-    .prologue
-    .line 72
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     if-eqz v0, :cond_2
 
-    .line 73
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->cancelAccountSelection()V
 
-    .line 74
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
@@ -138,7 +116,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 75
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
@@ -147,13 +124,11 @@
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 76
     :cond_0
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     if-eqz v0, :cond_2
 
-    .line 77
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getDialog()Landroid/app/Dialog;
@@ -162,42 +137,34 @@
 
     if-eqz v0, :cond_1
 
-    .line 78
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismiss()V
 
-    .line 79
     :cond_1
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    .line 82
     :cond_2
     return-void
 .end method
 
 .method public static show(Landroid/app/FragmentManager;)V
     .locals 2
-    .param p0, "fragmentManager"    # Landroid/app/FragmentManager;
 
-    .prologue
-    .line 67
     new-instance v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     invoke-direct {v0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;-><init>()V
 
     sput-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
-    .line 68
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     const-string v1, "selectAccount"
 
     invoke-virtual {v0, p0, v1}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    .line 69
     return-void
 .end method
 
@@ -205,15 +172,11 @@
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 12
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
-    .prologue
-    .line 86
     const/4 v9, 0x0
 
     iput-boolean v9, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
 
-    .line 87
     invoke-virtual {p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
@@ -228,14 +191,12 @@
 
     iput-object v9, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
 
-    .line 88
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v9, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
-    .line 89
     iget-object v9, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
 
     invoke-virtual {v9}, Landroid/telecom/TelecomManager;->getCallCapablePhoneAccounts()Ljava/util/List;
@@ -260,16 +221,12 @@
 
     check-cast v1, Landroid/telecom/PhoneAccountHandle;
 
-    .line 90
-    .local v1, "accountHandle":Landroid/telecom/PhoneAccountHandle;
     iget-object v10, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mTelecomManager:Landroid/telecom/TelecomManager;
 
     invoke-virtual {v10, v1}, Landroid/telecom/TelecomManager;->getPhoneAccount(Landroid/telecom/PhoneAccountHandle;)Landroid/telecom/PhoneAccount;
 
     move-result-object v0
 
-    .line 91
-    .local v0, "account":Landroid/telecom/PhoneAccount;
     if-eqz v0, :cond_0
 
     const-string v10, "tel"
@@ -280,23 +237,17 @@
 
     if-eqz v10, :cond_0
 
-    .line 92
     iget-object v10, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
     invoke-interface {v10, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 95
-    .end local v0    # "account":Landroid/telecom/PhoneAccount;
-    .end local v1    # "accountHandle":Landroid/telecom/PhoneAccountHandle;
     :cond_1
     new-instance v8, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$1;
 
     invoke-direct {v8, p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$1;-><init>(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)V
 
-    .line 110
-    .local v8, "selectionListener":Landroid/content/DialogInterface$OnClickListener;
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
@@ -305,11 +256,8 @@
 
     invoke-direct {v3, v9}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 112
-    .local v3, "builder":Landroid/app/AlertDialog$Builder;
     new-instance v7, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter;
 
-    .line 113
     invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->getContext()Landroid/content/Context;
 
     move-result-object v9
@@ -320,13 +268,10 @@
 
     invoke-direct {v7, p0, v9, v10, v11}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter;-><init>(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;Landroid/content/Context;ILjava/util/List;)V
 
-    .line 117
-    .local v7, "selectAccountListAdapter":Landroid/widget/ListAdapter;
     const/4 v9, 0x0
 
     sput-boolean v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
 
-    .line 119
     const-string v9, "feature_multisim_adaptive_callback"
 
     invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -335,7 +280,6 @@
 
     if-eqz v9, :cond_5
 
-    .line 120
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
     move-result-object v9
@@ -352,8 +296,6 @@
 
     move-result v6
 
-    .line 121
-    .local v6, "preferredSimCondition":I
     const-string v9, "feature_chn"
 
     invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -362,15 +304,12 @@
 
     if-eqz v9, :cond_3
 
-    .line 122
     const/4 v9, 0x1
 
     sput-boolean v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
 
-    .line 123
     sput v6, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mPreferredSim:I
 
-    .line 129
     :cond_2
     :goto_1
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->getSimReceiveId()I
@@ -379,12 +318,10 @@
 
     sput v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mRecentlyUsedSim:I
 
-    .line 131
     sget-boolean v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
 
     if-eqz v9, :cond_4
 
-    .line 132
     invoke-virtual {p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v9
@@ -401,8 +338,6 @@
 
     move-result-object v4
 
-    .line 134
-    .local v4, "dialogView":Landroid/view/View;
     const v9, 0x7f100428
 
     invoke-virtual {v4, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -411,39 +346,28 @@
 
     check-cast v5, Landroid/widget/ListView;
 
-    .line 135
-    .local v5, "mListView":Landroid/widget/ListView;
     invoke-virtual {v5, v7}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 136
     new-instance v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;
 
     invoke-direct {v9, p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$2;-><init>(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;)V
 
     invoke-virtual {v5, v9}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 148
-    const v9, 0x7f0902a9
+    const v9, 0x7f0902aa
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 149
     invoke-virtual {v9, v4}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 150
     invoke-virtual {v9}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
-    .line 162
-    .end local v4    # "dialogView":Landroid/view/View;
-    .end local v5    # "mListView":Landroid/widget/ListView;
-    .end local v6    # "preferredSimCondition":I
-    .local v2, "alertDialog":Landroid/app/AlertDialog;
     :goto_2
     invoke-virtual {v2}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -453,119 +377,92 @@
 
     invoke-virtual {v9, v10}, Landroid/view/Window;->setType(I)V
 
-    .line 164
     return-object v2
 
-    .line 125
-    .end local v2    # "alertDialog":Landroid/app/AlertDialog;
-    .restart local v6    # "preferredSimCondition":I
     :cond_3
     if-eqz v6, :cond_2
 
-    .line 126
     const/4 v9, 0x1
 
     sput-boolean v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsDisplayCallbackDialog:Z
 
-    .line 127
     add-int/lit8 v9, v6, -0x1
 
     sput v9, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mPreferredSim:I
 
     goto :goto_1
 
-    .line 152
     :cond_4
-    const v9, 0x7f0902ac
+    const v9, 0x7f0902ad
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 153
     invoke-virtual {v9, v7, v8}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 154
     invoke-virtual {v9}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
-    .restart local v2    # "alertDialog":Landroid/app/AlertDialog;
     goto :goto_2
 
-    .line 157
-    .end local v2    # "alertDialog":Landroid/app/AlertDialog;
-    .end local v6    # "preferredSimCondition":I
     :cond_5
-    const v9, 0x7f0902ac
+    const v9, 0x7f0902ad
 
     invoke-virtual {v3, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 158
     invoke-virtual {v9, v7, v8}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v9
 
-    .line 159
     invoke-virtual {v9}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v2
 
-    .restart local v2    # "alertDialog":Landroid/app/AlertDialog;
     goto :goto_2
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .prologue
-    .line 261
     invoke-super {p0}, Landroid/app/DialogFragment;->onDestroy()V
 
-    .line 262
     return-void
 .end method
 
 .method public onPause()V
     .locals 1
 
-    .prologue
-    .line 250
     iget-boolean v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
 
     if-nez v0, :cond_0
 
-    .line 251
     invoke-static {}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog()V
 
-    .line 252
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/incallui/bike/BikeModeUtils;->setIsBMOutCallHandled(I)V
 
-    .line 254
     :cond_0
     invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V
 
-    .line 255
     invoke-virtual {p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 256
     invoke-virtual {p0}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/Activity;->finish()V
 
-    .line 257
     :cond_1
     return-void
 .end method

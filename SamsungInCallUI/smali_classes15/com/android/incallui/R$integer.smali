@@ -201,21 +201,23 @@
 
 .field public static final swap_info_animation_duration:I = 0x7f0d005d
 
+.field public static final vga_button_area_width_weight:I = 0x7f0d005e
+
+.field public static final vga_button_area_width_weight_landscape:I = 0x7f0d005f
+
 .field public static final vga_button_gradation_background:I = 0x7f0d0000
 
-.field public static final vga_button_gradation_background_mkeyboard:I = 0x7f0d005e
+.field public static final vga_button_gradation_background_mkeyboard:I = 0x7f0d0060
 
-.field public static final video_animation_duration:I = 0x7f0d005f
+.field public static final video_animation_duration:I = 0x7f0d0061
 
-.field public static final video_call_auto_fullscreen_timeout:I = 0x7f0d0060
+.field public static final video_call_auto_fullscreen_timeout:I = 0x7f0d0062
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 6652
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

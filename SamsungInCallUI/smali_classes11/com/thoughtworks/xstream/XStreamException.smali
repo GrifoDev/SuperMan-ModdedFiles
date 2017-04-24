@@ -11,39 +11,28 @@
 .method protected constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 33
     const-string v0, ""
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .prologue
-    .line 43
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 3
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 65
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -67,13 +56,10 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/core/BaseException;-><init>(Ljava/lang/String;)V
 
-    .line 66
     iput-object p2, p0, Lcom/thoughtworks/xstream/XStreamException;->cause:Ljava/lang/Throwable;
 
-    .line 67
     return-void
 
-    .line 65
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -102,15 +88,11 @@
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 53
     const-string v0, ""
 
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 54
     return-void
 .end method
 
@@ -119,8 +101,6 @@
 .method public getCause()Ljava/lang/Throwable;
     .locals 1
 
-    .prologue
-    .line 70
     iget-object v0, p0, Lcom/thoughtworks/xstream/XStreamException;->cause:Ljava/lang/Throwable;
 
     return-object v0

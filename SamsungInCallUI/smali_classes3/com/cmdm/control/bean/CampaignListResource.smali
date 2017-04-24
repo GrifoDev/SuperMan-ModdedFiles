@@ -33,18 +33,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     new-instance v0, Lcom/cmdm/control/bean/CampaignList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/CampaignList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/CampaignListResource;->campaignList:Lcom/cmdm/control/bean/CampaignList;
 
-    .line 22
     return-void
 .end method
 
@@ -53,8 +49,6 @@
 .method public getCampaignList()Lcom/cmdm/control/bean/CampaignList;
     .locals 1
 
-    .prologue
-    .line 28
     iget-object v0, p0, Lcom/cmdm/control/bean/CampaignListResource;->campaignList:Lcom/cmdm/control/bean/CampaignList;
 
     return-object v0
@@ -63,8 +57,6 @@
 .method public getOffset()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 48
     iget-object v0, p0, Lcom/cmdm/control/bean/CampaignListResource;->offset:Ljava/lang/String;
 
     return-object v0
@@ -73,8 +65,6 @@
 .method public getRange()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 56
     iget-object v0, p0, Lcom/cmdm/control/bean/CampaignListResource;->range:Ljava/lang/String;
 
     return-object v0
@@ -82,36 +72,24 @@
 
 .method public setCampaignList(Lcom/cmdm/control/bean/CampaignList;)V
     .locals 0
-    .param p1, "campaignList"    # Lcom/cmdm/control/bean/CampaignList;
 
-    .prologue
-    .line 32
     iput-object p1, p0, Lcom/cmdm/control/bean/CampaignListResource;->campaignList:Lcom/cmdm/control/bean/CampaignList;
 
-    .line 33
     return-void
 .end method
 
 .method public setOffset(Ljava/lang/String;)V
     .locals 0
-    .param p1, "offset"    # Ljava/lang/String;
 
-    .prologue
-    .line 52
     iput-object p1, p0, Lcom/cmdm/control/bean/CampaignListResource;->offset:Ljava/lang/String;
 
-    .line 53
     return-void
 .end method
 
 .method public setRange(Ljava/lang/String;)V
     .locals 0
-    .param p1, "range"    # Ljava/lang/String;
 
-    .prologue
-    .line 60
     iput-object p1, p0, Lcom/cmdm/control/bean/CampaignListResource;->range:Ljava/lang/String;
 
-    .line 61
     return-void
 .end method

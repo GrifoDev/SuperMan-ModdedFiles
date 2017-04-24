@@ -12,31 +12,23 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "textStyle"    # I
 
-    .prologue
-    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     iput p1, p0, Lcom/android/contacts/common/format/TextHighlighter;->mTextStyle:I
 
-    .line 35
     invoke-direct {p0}, Lcom/android/contacts/common/format/TextHighlighter;->getStyleSpan()Landroid/text/style/CharacterStyle;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/contacts/common/format/TextHighlighter;->mTextStyleSpan:Landroid/text/style/CharacterStyle;
 
-    .line 36
     return-void
 .end method
 
 .method private getStyleSpan()Landroid/text/style/CharacterStyle;
     .locals 2
 
-    .prologue
-    .line 50
     new-instance v0, Landroid/text/style/StyleSpan;
 
     iget v1, p0, Lcom/android/contacts/common/format/TextHighlighter;->mTextStyle:I
@@ -50,12 +42,7 @@
 # virtual methods
 .method public applyMaskingHighlight(Landroid/text/SpannableString;II)V
     .locals 2
-    .param p1, "text"    # Landroid/text/SpannableString;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
 
-    .prologue
-    .line 62
     invoke-direct {p0}, Lcom/android/contacts/common/format/TextHighlighter;->getStyleSpan()Landroid/text/style/CharacterStyle;
 
     move-result-object v0
@@ -64,32 +51,21 @@
 
     invoke-virtual {p1, v0, p2, p3, v1}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 63
     return-void
 .end method
 
 .method public applyPrefixHighlight(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/CharSequence;
     .locals 7
-    .param p1, "text"    # Ljava/lang/CharSequence;
-    .param p2, "prefix"    # Ljava/lang/String;
 
-    .prologue
-    .line 72
     if-nez p2, :cond_1
 
-    .line 90
-    .end local p1    # "text":Ljava/lang/CharSequence;
     :cond_0
     :goto_0
     return-object p1
 
-    .line 77
-    .restart local p1    # "text":Ljava/lang/CharSequence;
     :cond_1
     const/4 v1, 0x0
 
-    .line 78
-    .local v1, "prefixStart":I
     :goto_1
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -97,7 +73,6 @@
 
     if-ge v1, v4, :cond_2
 
-    .line 79
     invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
@@ -108,36 +83,27 @@
 
     if-nez v4, :cond_2
 
-    .line 80
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 82
     :cond_2
     invoke-virtual {p2, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 84
-    .local v3, "trimmedPrefix":Ljava/lang/String;
     invoke-static {p1, v3}, Lcom/android/contacts/common/format/FormatUtils;->indexOfWordPrefix(Ljava/lang/CharSequence;Ljava/lang/String;)I
 
     move-result v0
 
-    .line 85
-    .local v0, "index":I
     const/4 v4, -0x1
 
     if-eq v0, v4, :cond_0
 
-    .line 86
     new-instance v2, Landroid/text/SpannableString;
 
     invoke-direct {v2, p1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 87
-    .local v2, "result":Landroid/text/SpannableString;
     iget-object v4, p0, Lcom/android/contacts/common/format/TextHighlighter;->mTextStyleSpan:Landroid/text/style/CharacterStyle;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -152,24 +118,17 @@
 
     move-object p1, v2
 
-    .line 88
     goto :goto_0
 .end method
 
 .method public setPrefixText(Landroid/widget/TextView;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "view"    # Landroid/widget/TextView;
-    .param p2, "text"    # Ljava/lang/String;
-    .param p3, "prefix"    # Ljava/lang/String;
 
-    .prologue
-    .line 46
     invoke-virtual {p0, p2, p3}, Lcom/android/contacts/common/format/TextHighlighter;->applyPrefixHighlight(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 47
     return-void
 .end method

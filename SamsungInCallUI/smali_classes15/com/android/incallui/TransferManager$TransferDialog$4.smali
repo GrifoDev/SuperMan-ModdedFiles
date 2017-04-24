@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/TransferManager$TransferDialog;Lcom/android/incallui/TransferManager;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/TransferManager$TransferDialog;
 
-    .prologue
-    .line 234
     iput-object p1, p0, Lcom/android/incallui/TransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iput-object p2, p0, Lcom/android/incallui/TransferManager$TransferDialog$4;->val$this$0:Lcom/android/incallui/TransferManager;
@@ -43,17 +40,12 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 237
     iget-object v0, p0, Lcom/android/incallui/TransferManager$TransferDialog$4;->this$1:Lcom/android/incallui/TransferManager$TransferDialog;
 
     iget-object v0, v0, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/TransferManager;->finish()V
 
-    .line 238
     return-void
 .end method

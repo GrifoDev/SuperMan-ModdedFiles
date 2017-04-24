@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,17 +14,13 @@
 
 .method public static clone(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 8
-    .param p0, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 28
     instance-of v5, p0, Ljava/lang/Cloneable;
 
     if-eqz v5, :cond_0
 
-    .line 29
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -37,7 +31,6 @@
 
     if-eqz v5, :cond_2
 
-    .line 30
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v5
@@ -46,58 +39,40 @@
 
     move-result-object v1
 
-    .line 31
-    .local v1, "componentType":Ljava/lang/Class;
     invoke-virtual {v1}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v5
 
     if-nez v5, :cond_1
 
-    .line 32
     check-cast p0, [Ljava/lang/Object;
 
-    .end local p0    # "o":Ljava/lang/Object;
     check-cast p0, [Ljava/lang/Object;
 
     invoke-virtual {p0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 55
-    .end local v1    # "componentType":Ljava/lang/Class;
-    .restart local p0    # "o":Ljava/lang/Object;
     :cond_0
     :goto_0
     return-object v0
 
-    .line 34
-    .restart local v1    # "componentType":Ljava/lang/Class;
     :cond_1
     invoke-static {p0}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v3
 
-    .line 35
-    .local v3, "length":I
     invoke-static {v1, v3}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .local v0, "clone":Ljava/lang/Object;
     move v4, v3
 
-    .line 36
-    .end local v3    # "length":I
-    .local v4, "length":I
     :goto_1
     add-int/lit8 v3, v4, -0x1
 
-    .end local v4    # "length":I
-    .restart local v3    # "length":I
     if-lez v4, :cond_0
 
-    .line 37
     invoke-static {p0, v3}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v5
@@ -106,14 +81,8 @@
 
     move v4, v3
 
-    .end local v3    # "length":I
-    .restart local v4    # "length":I
     goto :goto_1
 
-    .line 44
-    .end local v0    # "clone":Ljava/lang/Object;
-    .end local v1    # "componentType":Ljava/lang/Class;
-    .end local v4    # "length":I
     :cond_2
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -130,8 +99,6 @@
 
     move-result-object v0
 
-    .line 45
-    .local v0, "clone":Ljava/lang/reflect/Method;
     const/4 v5, 0x0
 
     check-cast v5, [Ljava/lang/Object;
@@ -146,13 +113,9 @@
 
     goto :goto_0
 
-    .line 46
-    .end local v0    # "clone":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v2
 
-    .line 47
-    .local v2, "e":Ljava/lang/NoSuchMethodException;
     new-instance v5, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v6, "Cloneable type has no clone method"
@@ -161,13 +124,9 @@
 
     throw v5
 
-    .line 48
-    .end local v2    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v2
 
-    .line 49
-    .local v2, "e":Ljava/lang/IllegalAccessException;
     new-instance v5, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v6, "Cannot clone Cloneable type"
@@ -176,13 +135,9 @@
 
     throw v5
 
-    .line 50
-    .end local v2    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v2
 
-    .line 51
-    .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v5, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v6, "Exception cloning Cloneable type"
@@ -198,23 +153,16 @@
 
 .method public static cloneIfPossible(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p0, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 59
     invoke-static {p0}, Lcom/thoughtworks/xstream/core/util/Cloneables;->clone(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 60
-    .local v0, "clone":Ljava/lang/Object;
     if-nez v0, :cond_0
 
-    .end local p0    # "o":Ljava/lang/Object;
     :goto_0
     return-object p0
 
-    .restart local p0    # "o":Ljava/lang/Object;
     :cond_0
     move-object p0, v0
 

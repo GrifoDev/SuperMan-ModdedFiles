@@ -97,20 +97,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 120
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMapEntry;-><init>()V
 
-    .line 121
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->key:Ljava/lang/Object;
 
-    .line 122
     iput-object p2, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->value:Ljava/lang/Object;
 
-    .line 123
     return-void
 .end method
 
@@ -124,9 +116,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 127
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->key:Ljava/lang/Object;
 
     return-object v0
@@ -140,9 +129,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 132
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->value:Ljava/lang/Object;
 
     return-object v0
@@ -160,16 +146,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 137
-    .local p0, "this":Lcom/google/common/collect/LinkedListMultimap$Node;, "Lcom/google/common/collect/LinkedListMultimap$Node<TK;TV;>;"
-    .local p1, "newValue":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->value:Ljava/lang/Object;
 
-    .line 138
-    .local v0, "result":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lcom/google/common/collect/LinkedListMultimap$Node;->value:Ljava/lang/Object;
 
-    .line 139
     return-object v0
 .end method

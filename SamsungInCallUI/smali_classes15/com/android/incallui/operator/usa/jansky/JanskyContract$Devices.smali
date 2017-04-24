@@ -40,8 +40,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 312
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "devices"
@@ -58,20 +56,14 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 304
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 305
     return-void
 .end method
 
 .method public static final buildDeviceUri(J)Landroid/net/Uri;
     .locals 2
-    .param p0, "deviceId"    # J
 
-    .prologue
-    .line 345
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Devices;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
@@ -84,8 +76,6 @@
 .method public static final buildNsdsServiceStatusUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 352
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Devices;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "own_nsds_service_status"
@@ -100,8 +90,6 @@
 .method public static final buildOwnActivationStatusUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 381
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Devices;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "own_activation_status"
@@ -115,10 +103,7 @@
 
 .method public static final buildSetPrimaryUri(J)Landroid/net/Uri;
     .locals 2
-    .param p0, "deviceId"    # J
 
-    .prologue
-    .line 362
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Devices;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
@@ -136,10 +121,7 @@
 
 .method public static final buildUpdateDeviceNameUri(J)Landroid/net/Uri;
     .locals 2
-    .param p0, "lineId"    # J
 
-    .prologue
-    .line 372
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Devices;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;

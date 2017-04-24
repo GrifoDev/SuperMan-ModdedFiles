@@ -65,10 +65,8 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, -0x1
 
-    .line 33
     const/16 v1, 0x17
 
     new-array v1, v1, [Ljava/lang/String;
@@ -213,36 +211,28 @@
 
     sput-object v1, Lcom/android/dialer/calllog/CallLogQuery;->_PROJECTION_INTERNAL:[Ljava/lang/String;
 
-    .line 88
     sput v4, Lcom/android/dialer/calllog/CallLogQuery;->CACHED_PHOTO_URI:I
 
-    .line 94
     sput v4, Lcom/android/dialer/calllog/CallLogQuery;->POST_DIAL_DIGITS:I
 
-    .line 95
     sput v4, Lcom/android/dialer/calllog/CallLogQuery;->VIA_NUMBER:I
 
-    .line 100
     sget-object v1, Lcom/android/dialer/calllog/CallLogQuery;->_PROJECTION_INTERNAL:[Ljava/lang/String;
 
     invoke-static {v1}, Lcom/google/common/collect/Lists;->newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 101
-    .local v0, "projectionList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-static {}, Lcom/android/dialer/compat/DialerCompatUtils;->isCallsCachedPhotoUriCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 102
     const-string v1, "photo_uri"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 103
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -251,7 +241,6 @@
 
     sput v1, Lcom/android/dialer/calllog/CallLogQuery;->CACHED_PHOTO_URI:I
 
-    .line 105
     :cond_0
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isNCompatible()Z
 
@@ -259,12 +248,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 106
     const-string v1, "post_dial_digits"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 107
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -273,12 +260,10 @@
 
     sput v1, Lcom/android/dialer/calllog/CallLogQuery;->POST_DIAL_DIGITS:I
 
-    .line 108
     const-string v1, "via_number"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 109
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
@@ -287,7 +272,6 @@
 
     sput v1, Lcom/android/dialer/calllog/CallLogQuery;->VIA_NUMBER:I
 
-    .line 111
     :cond_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -303,15 +287,12 @@
 
     sput-object v1, Lcom/android/dialer/calllog/CallLogQuery;->_PROJECTION:[Ljava/lang/String;
 
-    .line 112
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

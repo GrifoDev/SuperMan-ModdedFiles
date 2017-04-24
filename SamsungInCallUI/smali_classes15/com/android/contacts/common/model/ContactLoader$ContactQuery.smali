@@ -154,8 +154,6 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    .line 119
     const/16 v1, 0x40
 
     new-array v1, v1, [Ljava/lang/String;
@@ -546,27 +544,22 @@
 
     sput-object v1, Lcom/android/contacts/common/model/ContactLoader$ContactQuery;->COLUMNS_INTERNAL:[Ljava/lang/String;
 
-    .line 195
     sget-object v1, Lcom/android/contacts/common/model/ContactLoader$ContactQuery;->COLUMNS_INTERNAL:[Ljava/lang/String;
 
     invoke-static {v1}, Lcom/google/common/collect/Lists;->newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 196
-    .local v0, "projectionList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-static {}, Lcom/android/contacts/common/compat/CompatUtils;->isMarshmallowCompatible()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 197
     const-string v1, "carrier_presence"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 199
     :cond_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -582,15 +575,12 @@
 
     sput-object v1, Lcom/android/contacts/common/model/ContactLoader$ContactQuery;->COLUMNS:[Ljava/lang/String;
 
-    .line 200
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

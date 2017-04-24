@@ -11,8 +11,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 35
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/String;
@@ -43,8 +41,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 33
     invoke-direct {p0}, Lcom/android/contacts/common/activity/RequestPermissionsActivityBase;-><init>()V
 
     return-void
@@ -52,12 +48,9 @@
 
 .method public static startPermissionActivity(Landroid/app/Activity;)Z
     .locals 3
-    .param p0, "activity"    # Landroid/app/Activity;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 58
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v2
@@ -66,8 +59,6 @@
 
     move-result-object v0
 
-    .line 59
-    .local v0, "extras":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
     const-string v2, "started_permissions_activity"
@@ -78,7 +69,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 62
     :goto_0
     return v1
 
@@ -99,8 +89,6 @@
 .method protected getDesiredPermissions()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 48
     sget-object v0, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->DESIRED_PERMISSIONS:[Ljava/lang/String;
 
     return-object v0
@@ -109,8 +97,6 @@
 .method protected getRequiredPermissions()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 43
     sget-object v0, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->DESIRED_PERMISSIONS:[Ljava/lang/String;
 
     return-object v0
@@ -118,34 +104,24 @@
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .locals 3
-    .param p1, "requestCode"    # I
-    .param p2, "permissions"    # [Ljava/lang/String;
-    .param p3, "grantResults"    # [I
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 69
     iget-object v0, p0, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->mPreviousActivityIntent:Landroid/content/Intent;
 
     const/high16 v1, 0x10000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 70
     iget-object v0, p0, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->mPreviousActivityIntent:Landroid/content/Intent;
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 71
     invoke-virtual {p0, v2, v2}, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->overridePendingTransition(II)V
 
-    .line 73
     invoke-virtual {p0}, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->finish()V
 
-    .line 74
     invoke-virtual {p0, v2, v2}, Lcom/android/contacts/common/activity/RequestDesiredPermissionsActivity;->overridePendingTransition(II)V
 
-    .line 75
     return-void
 .end method

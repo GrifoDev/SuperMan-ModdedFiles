@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/AbstractSortedMultiset;)V
     .locals 0
 
-    .prologue
-    .line 130
-    .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;, "Lcom/google/common/collect/AbstractSortedMultiset.1DescendingMultisetImpl;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;->this$0:Lcom/google/common/collect/AbstractSortedMultiset;
 
     invoke-direct {p0}, Lcom/google/common/collect/DescendingMultiset;-><init>()V
@@ -53,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 138
-    .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;, "Lcom/google/common/collect/AbstractSortedMultiset.1DescendingMultisetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;->this$0:Lcom/google/common/collect/AbstractSortedMultiset;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractSortedMultiset;->descendingEntryIterator()Ljava/util/Iterator;
@@ -75,9 +69,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 133
-    .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;, "Lcom/google/common/collect/AbstractSortedMultiset.1DescendingMultisetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;->this$0:Lcom/google/common/collect/AbstractSortedMultiset;
 
     return-object v0
@@ -93,9 +84,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 143
-    .local p0, "this":Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;, "Lcom/google/common/collect/AbstractSortedMultiset.1DescendingMultisetImpl;"
     iget-object v0, p0, Lcom/google/common/collect/AbstractSortedMultiset$1DescendingMultisetImpl;->this$0:Lcom/google/common/collect/AbstractSortedMultiset;
 
     invoke-virtual {v0}, Lcom/google/common/collect/AbstractSortedMultiset;->descendingIterator()Ljava/util/Iterator;

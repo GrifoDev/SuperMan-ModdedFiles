@@ -53,7 +53,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -64,7 +63,6 @@
 
     const/4 v3, 0x0
 
-    .line 33
     new-instance v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
     const-string v1, "CALL_PRESSED"
@@ -97,7 +95,6 @@
 
     sput-object v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;->UNMUTE_PRESSED:Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
-    .line 34
     new-instance v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
     const-string v1, "HOLD_PRESSED"
@@ -136,7 +133,6 @@
 
     sput-object v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;->CALL_DISCONNECTED:Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
-    .line 35
     new-instance v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
     const-string v1, "RINGING"
@@ -167,7 +163,6 @@
 
     sput-object v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;->SCREEN_OFF:Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
-    .line 32
     const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
@@ -241,8 +236,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 32
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -250,10 +243,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 32
     const-class v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -268,8 +258,6 @@
 .method public static values()[Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
     .locals 1
 
-    .prologue
-    .line 32
     sget-object v0, Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;->$VALUES:[Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;
 
     invoke-virtual {v0}, [Lcom/android/incallui/operator/usa/InCallUIConstants$UICallState;->clone()Ljava/lang/Object;

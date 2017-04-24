@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,11 +40,7 @@
 # virtual methods
 .method public compare(Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;)I
     .locals 3
-    .param p1, "lhs"    # Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;
-    .param p2, "rhs"    # Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;
 
-    .prologue
-    .line 174
     const v0, 0x47c35000    # 100000.0f
 
     iget v1, p2, Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;->percentage:F
@@ -65,8 +59,6 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
-    .prologue
-    .line 171
     check-cast p1, Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;
 
     check-cast p2, Lcom/sec/android/gradient_color_extractor/GradientColorExtractor$DominantColorResult;

@@ -24,16 +24,11 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 0
-    .param p1, "callbackIndexMap"    # Ljava/util/Map;
 
-    .prologue
-    .line 482
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 483
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeredCallbackFilter;->callbackIndexMap:Ljava/util/Map;
 
-    .line 484
     return-void
 .end method
 
@@ -41,10 +36,7 @@
 # virtual methods
 .method public accept(Ljava/lang/reflect/Method;)I
     .locals 3
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
-    .prologue
-    .line 487
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeredCallbackFilter;->callbackIndexMap:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -53,15 +45,12 @@
 
     if-nez v1, :cond_0
 
-    .line 488
     new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
     const-string v1, "CGLIB callback not detected in reverse engineering"
 
     invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
-    .line 490
-    .local v0, "exception":Lcom/thoughtworks/xstream/converters/ConversionException;
     const-string v1, "CGLIB callback"
 
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->toString()Ljava/lang/String;
@@ -70,11 +59,8 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 491
     throw v0
 
-    .line 493
-    .end local v0    # "exception":Lcom/thoughtworks/xstream/converters/ConversionException;
     :cond_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeredCallbackFilter;->callbackIndexMap:Ljava/util/Map;
 

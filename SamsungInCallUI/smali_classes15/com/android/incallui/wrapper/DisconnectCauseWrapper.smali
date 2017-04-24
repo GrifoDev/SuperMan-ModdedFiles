@@ -221,20 +221,14 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 510
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 514
     return-void
 .end method
 
 .method public static disconnectCauseId(Ljava/lang/String;)I
     .locals 1
-    .param p0, "cause"    # Ljava/lang/String;
 
-    .prologue
-    .line 960
     const-string v0, "NOT_DISCONNECTED"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -243,14 +237,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 962
     const/4 v0, 0x0
 
-    .line 1386
     :goto_0
     return v0
 
-    .line 964
     :cond_0
     const-string v0, "INCOMING_MISSED"
 
@@ -260,12 +251,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 966
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 968
     :cond_1
     const-string v0, "NORMAL"
 
@@ -275,12 +264,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 970
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 972
     :cond_2
     const-string v0, "LOCAL"
 
@@ -290,12 +277,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 974
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 976
     :cond_3
     const-string v0, "BUSY"
 
@@ -305,12 +290,10 @@
 
     if-eqz v0, :cond_4
 
-    .line 978
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 980
     :cond_4
     const-string v0, "CONGESTION"
 
@@ -320,12 +303,10 @@
 
     if-eqz v0, :cond_5
 
-    .line 982
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 984
     :cond_5
     const-string v0, "INVALID_NUMBER"
 
@@ -335,12 +316,10 @@
 
     if-eqz v0, :cond_6
 
-    .line 986
     const/4 v0, 0x7
 
     goto :goto_0
 
-    .line 988
     :cond_6
     const-string v0, "NUMBER_UNREACHABLE"
 
@@ -350,12 +329,10 @@
 
     if-eqz v0, :cond_7
 
-    .line 990
     const/16 v0, 0x8
 
     goto :goto_0
 
-    .line 992
     :cond_7
     const-string v0, "SERVER_UNREACHABLE"
 
@@ -365,12 +342,10 @@
 
     if-eqz v0, :cond_8
 
-    .line 994
     const/16 v0, 0x9
 
     goto :goto_0
 
-    .line 996
     :cond_8
     const-string v0, "INVALID_CREDENTIALS"
 
@@ -380,12 +355,10 @@
 
     if-eqz v0, :cond_9
 
-    .line 998
     const/16 v0, 0xa
 
     goto :goto_0
 
-    .line 1000
     :cond_9
     const-string v0, "OUT_OF_NETWORK"
 
@@ -395,12 +368,10 @@
 
     if-eqz v0, :cond_a
 
-    .line 1002
     const/16 v0, 0xb
 
     goto :goto_0
 
-    .line 1004
     :cond_a
     const-string v0, "SERVER_ERROR"
 
@@ -410,12 +381,10 @@
 
     if-eqz v0, :cond_b
 
-    .line 1006
     const/16 v0, 0xc
 
     goto :goto_0
 
-    .line 1008
     :cond_b
     const-string v0, "TIMED_OUT"
 
@@ -425,12 +394,10 @@
 
     if-eqz v0, :cond_c
 
-    .line 1010
     const/16 v0, 0xd
 
     goto :goto_0
 
-    .line 1012
     :cond_c
     const-string v0, "LOST_SIGNAL"
 
@@ -440,12 +407,10 @@
 
     if-eqz v0, :cond_d
 
-    .line 1014
     const/16 v0, 0xe
 
     goto/16 :goto_0
 
-    .line 1016
     :cond_d
     const-string v0, "LIMIT_EXCEEDED"
 
@@ -455,12 +420,10 @@
 
     if-eqz v0, :cond_e
 
-    .line 1018
     const/16 v0, 0xf
 
     goto/16 :goto_0
 
-    .line 1020
     :cond_e
     const-string v0, "INCOMING_REJECTED"
 
@@ -470,12 +433,10 @@
 
     if-eqz v0, :cond_f
 
-    .line 1022
     const/16 v0, 0x10
 
     goto/16 :goto_0
 
-    .line 1024
     :cond_f
     const-string v0, "POWER_OFF"
 
@@ -485,12 +446,10 @@
 
     if-eqz v0, :cond_10
 
-    .line 1026
     const/16 v0, 0x11
 
     goto/16 :goto_0
 
-    .line 1028
     :cond_10
     const-string v0, "OUT_OF_SERVICE"
 
@@ -500,12 +459,10 @@
 
     if-eqz v0, :cond_11
 
-    .line 1030
     const/16 v0, 0x12
 
     goto/16 :goto_0
 
-    .line 1032
     :cond_11
     const-string v0, "ICC_ERROR"
 
@@ -515,12 +472,10 @@
 
     if-eqz v0, :cond_12
 
-    .line 1034
     const/16 v0, 0x13
 
     goto/16 :goto_0
 
-    .line 1036
     :cond_12
     const-string v0, "CALL_BARRED"
 
@@ -530,12 +485,10 @@
 
     if-eqz v0, :cond_13
 
-    .line 1038
     const/16 v0, 0x14
 
     goto/16 :goto_0
 
-    .line 1040
     :cond_13
     const-string v0, "FDN_BLOCKED"
 
@@ -545,12 +498,10 @@
 
     if-eqz v0, :cond_14
 
-    .line 1042
     const/16 v0, 0x15
 
     goto/16 :goto_0
 
-    .line 1044
     :cond_14
     const-string v0, "CS_RESTRICTED"
 
@@ -560,12 +511,10 @@
 
     if-eqz v0, :cond_15
 
-    .line 1046
     const/16 v0, 0x16
 
     goto/16 :goto_0
 
-    .line 1048
     :cond_15
     const-string v0, "CS_RESTRICTED_NORMAL"
 
@@ -575,12 +524,10 @@
 
     if-eqz v0, :cond_16
 
-    .line 1050
     const/16 v0, 0x17
 
     goto/16 :goto_0
 
-    .line 1052
     :cond_16
     const-string v0, "CS_RESTRICTED_EMERGENCY"
 
@@ -590,12 +537,10 @@
 
     if-eqz v0, :cond_17
 
-    .line 1054
     const/16 v0, 0x18
 
     goto/16 :goto_0
 
-    .line 1056
     :cond_17
     const-string v0, "UNOBTAINABLE_NUMBER"
 
@@ -605,12 +550,10 @@
 
     if-eqz v0, :cond_18
 
-    .line 1058
     const/16 v0, 0x19
 
     goto/16 :goto_0
 
-    .line 1060
     :cond_18
     const-string v0, "CDMA_LOCKED_UNTIL_POWER_CYCLE"
 
@@ -620,12 +563,10 @@
 
     if-eqz v0, :cond_19
 
-    .line 1062
     const/16 v0, 0x1a
 
     goto/16 :goto_0
 
-    .line 1064
     :cond_19
     const-string v0, "CDMA_DROP"
 
@@ -635,12 +576,10 @@
 
     if-eqz v0, :cond_1a
 
-    .line 1066
     const/16 v0, 0x1b
 
     goto/16 :goto_0
 
-    .line 1068
     :cond_1a
     const-string v0, "CDMA_INTERCEPT"
 
@@ -650,12 +589,10 @@
 
     if-eqz v0, :cond_1b
 
-    .line 1070
     const/16 v0, 0x1c
 
     goto/16 :goto_0
 
-    .line 1072
     :cond_1b
     const-string v0, "CDMA_REORDER"
 
@@ -665,12 +602,10 @@
 
     if-eqz v0, :cond_1c
 
-    .line 1074
     const/16 v0, 0x1d
 
     goto/16 :goto_0
 
-    .line 1076
     :cond_1c
     const-string v0, "CDMA_SO_REJECT"
 
@@ -680,12 +615,10 @@
 
     if-eqz v0, :cond_1d
 
-    .line 1078
     const/16 v0, 0x1e
 
     goto/16 :goto_0
 
-    .line 1080
     :cond_1d
     const-string v0, "CDMA_RETRY_ORDER"
 
@@ -695,12 +628,10 @@
 
     if-eqz v0, :cond_1e
 
-    .line 1082
     const/16 v0, 0x1f
 
     goto/16 :goto_0
 
-    .line 1084
     :cond_1e
     const-string v0, "CDMA_ACCESS_FAILURE"
 
@@ -710,12 +641,10 @@
 
     if-eqz v0, :cond_1f
 
-    .line 1086
     const/16 v0, 0x20
 
     goto/16 :goto_0
 
-    .line 1088
     :cond_1f
     const-string v0, "CDMA_PREEMPTED"
 
@@ -725,12 +654,10 @@
 
     if-eqz v0, :cond_20
 
-    .line 1090
     const/16 v0, 0x21
 
     goto/16 :goto_0
 
-    .line 1092
     :cond_20
     const-string v0, "CDMA_NOT_EMERGENCY"
 
@@ -740,12 +667,10 @@
 
     if-eqz v0, :cond_21
 
-    .line 1094
     const/16 v0, 0x22
 
     goto/16 :goto_0
 
-    .line 1096
     :cond_21
     const-string v0, "CDMA_ACCESS_BLOCKED"
 
@@ -755,12 +680,10 @@
 
     if-eqz v0, :cond_22
 
-    .line 1098
     const/16 v0, 0x23
 
     goto/16 :goto_0
 
-    .line 1100
     :cond_22
     const-string v0, "EMERGENCY_ONLY"
 
@@ -770,12 +693,10 @@
 
     if-eqz v0, :cond_23
 
-    .line 1102
     const/16 v0, 0x25
 
     goto/16 :goto_0
 
-    .line 1104
     :cond_23
     const-string v0, "NO_PHONE_NUMBER_SUPPLIED"
 
@@ -785,12 +706,10 @@
 
     if-eqz v0, :cond_24
 
-    .line 1106
     const/16 v0, 0x26
 
     goto/16 :goto_0
 
-    .line 1108
     :cond_24
     const-string v0, "DIALED_MMI"
 
@@ -800,12 +719,10 @@
 
     if-eqz v0, :cond_25
 
-    .line 1110
     const/16 v0, 0x27
 
     goto/16 :goto_0
 
-    .line 1112
     :cond_25
     const-string v0, "VOICEMAIL_NUMBER_MISSING"
 
@@ -815,12 +732,10 @@
 
     if-eqz v0, :cond_26
 
-    .line 1114
     const/16 v0, 0x28
 
     goto/16 :goto_0
 
-    .line 1116
     :cond_26
     const-string v0, "CDMA_CALL_LOST"
 
@@ -830,12 +745,10 @@
 
     if-eqz v0, :cond_27
 
-    .line 1118
     const/16 v0, 0x29
 
     goto/16 :goto_0
 
-    .line 1120
     :cond_27
     const-string v0, "EXITED_ECM"
 
@@ -845,12 +758,10 @@
 
     if-eqz v0, :cond_28
 
-    .line 1122
     const/16 v0, 0x2a
 
     goto/16 :goto_0
 
-    .line 1124
     :cond_28
     const-string v0, "DIAL_MODIFIED_TO_USSD"
 
@@ -860,12 +771,10 @@
 
     if-eqz v0, :cond_29
 
-    .line 1126
     const/16 v0, 0x2e
 
     goto/16 :goto_0
 
-    .line 1128
     :cond_29
     const-string v0, "DIAL_MODIFIED_TO_SS"
 
@@ -875,12 +784,10 @@
 
     if-eqz v0, :cond_2a
 
-    .line 1130
     const/16 v0, 0x2f
 
     goto/16 :goto_0
 
-    .line 1132
     :cond_2a
     const-string v0, "DIAL_MODIFIED_TO_DIAL"
 
@@ -890,12 +797,10 @@
 
     if-eqz v0, :cond_2b
 
-    .line 1134
     const/16 v0, 0x30
 
     goto/16 :goto_0
 
-    .line 1136
     :cond_2b
     const-string v0, "ERROR_UNSPECIFIED"
 
@@ -905,12 +810,10 @@
 
     if-eqz v0, :cond_2c
 
-    .line 1138
     const/16 v0, 0x24
 
     goto/16 :goto_0
 
-    .line 1140
     :cond_2c
     const-string v0, "OUTGOING_FAILURE"
 
@@ -920,12 +823,10 @@
 
     if-eqz v0, :cond_2d
 
-    .line 1142
     const/16 v0, 0x2b
 
     goto/16 :goto_0
 
-    .line 1144
     :cond_2d
     const-string v0, "OUTGOING_CANCELED"
 
@@ -935,12 +836,10 @@
 
     if-eqz v0, :cond_2e
 
-    .line 1146
     const/16 v0, 0x2c
 
     goto/16 :goto_0
 
-    .line 1148
     :cond_2e
     const-string v0, "IMS_MERGED_SUCCESSFULLY"
 
@@ -950,12 +849,10 @@
 
     if-eqz v0, :cond_2f
 
-    .line 1150
     const/16 v0, 0x2d
 
     goto/16 :goto_0
 
-    .line 1152
     :cond_2f
     const-string v0, "CDMA_ALREADY_ACTIVATED"
 
@@ -965,12 +862,10 @@
 
     if-eqz v0, :cond_30
 
-    .line 1154
     const/16 v0, 0x31
 
     goto/16 :goto_0
 
-    .line 1158
     :cond_30
     const-string v0, "NO_ANSWER"
 
@@ -980,12 +875,10 @@
 
     if-eqz v0, :cond_31
 
-    .line 1160
     const/16 v0, 0x64
 
     goto/16 :goto_0
 
-    .line 1162
     :cond_31
     const-string v0, "IMS_ERROR"
 
@@ -995,12 +888,10 @@
 
     if-eqz v0, :cond_32
 
-    .line 1164
     const/16 v0, 0x65
 
     goto/16 :goto_0
 
-    .line 1166
     :cond_32
     const-string v0, "UAVAILABLE_CHANNEL"
 
@@ -1010,12 +901,10 @@
 
     if-eqz v0, :cond_33
 
-    .line 1168
     const/16 v0, 0x66
 
     goto/16 :goto_0
 
-    .line 1174
     :cond_33
     const-string v0, "WIFI_OUT_OF_FOOTPRINT"
 
@@ -1025,12 +914,10 @@
 
     if-eqz v0, :cond_34
 
-    .line 1176
     const/16 v0, 0x67
 
     goto/16 :goto_0
 
-    .line 1182
     :cond_34
     const-string v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
 
@@ -1040,12 +927,10 @@
 
     if-eqz v0, :cond_35
 
-    .line 1184
     const/16 v0, 0xc8
 
     goto/16 :goto_0
 
-    .line 1186
     :cond_35
     const-string v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
 
@@ -1055,12 +940,10 @@
 
     if-eqz v0, :cond_36
 
-    .line 1188
     const/16 v0, 0xc9
 
     goto/16 :goto_0
 
-    .line 1194
     :cond_36
     const-string v0, "NO_USER_RESP"
 
@@ -1070,12 +953,10 @@
 
     if-eqz v0, :cond_37
 
-    .line 1196
     const/16 v0, 0xce
 
     goto/16 :goto_0
 
-    .line 1198
     :cond_37
     const-string v0, "NO_CIRCUIT"
 
@@ -1085,12 +966,10 @@
 
     if-eqz v0, :cond_38
 
-    .line 1200
     const/16 v0, 0xd8
 
     goto/16 :goto_0
 
-    .line 1202
     :cond_38
     const-string v0, "TMP_FAIL"
 
@@ -1100,12 +979,10 @@
 
     if-eqz v0, :cond_39
 
-    .line 1204
     const/16 v0, 0xda
 
     goto/16 :goto_0
 
-    .line 1206
     :cond_39
     const-string v0, "SWITCH_CONGESTION"
 
@@ -1115,12 +992,10 @@
 
     if-eqz v0, :cond_3a
 
-    .line 1208
     const/16 v0, 0xdb
 
     goto/16 :goto_0
 
-    .line 1210
     :cond_3a
     const-string v0, "NO_CHANNEL"
 
@@ -1130,12 +1005,10 @@
 
     if-eqz v0, :cond_3b
 
-    .line 1212
     const/16 v0, 0xdd
 
     goto/16 :goto_0
 
-    .line 1214
     :cond_3b
     const-string v0, "NO_QOS"
 
@@ -1145,12 +1018,10 @@
 
     if-eqz v0, :cond_3c
 
-    .line 1216
     const/16 v0, 0xdf
 
     goto/16 :goto_0
 
-    .line 1218
     :cond_3c
     const-string v0, "NO_BEARER"
 
@@ -1160,12 +1031,10 @@
 
     if-eqz v0, :cond_3d
 
-    .line 1220
     const/16 v0, 0xe3
 
     goto/16 :goto_0
 
-    .line 1222
     :cond_3d
     const-string v0, "ACM_EXCEED"
 
@@ -1175,12 +1044,10 @@
 
     if-eqz v0, :cond_3e
 
-    .line 1224
     const/16 v0, 0xe6
 
     goto/16 :goto_0
 
-    .line 1226
     :cond_3e
     const-string v0, "UNASSIGNED_NUM"
 
@@ -1190,12 +1057,10 @@
 
     if-eqz v0, :cond_3f
 
-    .line 1228
     const/16 v0, 0xca
 
     goto/16 :goto_0
 
-    .line 1230
     :cond_3f
     const-string v0, "NO_ROUTE"
 
@@ -1205,12 +1070,10 @@
 
     if-eqz v0, :cond_40
 
-    .line 1232
     const/16 v0, 0xcb
 
     goto/16 :goto_0
 
-    .line 1234
     :cond_40
     const-string v0, "CHANNEL_UNACCEPT"
 
@@ -1220,12 +1083,10 @@
 
     if-eqz v0, :cond_41
 
-    .line 1236
     const/16 v0, 0xcc
 
     goto/16 :goto_0
 
-    .line 1238
     :cond_41
     const-string v0, "OP_DETERMINED"
 
@@ -1235,12 +1096,10 @@
 
     if-eqz v0, :cond_42
 
-    .line 1240
     const/16 v0, 0xcd
 
     goto/16 :goto_0
 
-    .line 1242
     :cond_42
     const-string v0, "CALL_REJECT"
 
@@ -1250,12 +1109,10 @@
 
     if-eqz v0, :cond_43
 
-    .line 1244
     const/16 v0, 0xcf
 
     goto/16 :goto_0
 
-    .line 1246
     :cond_43
     const-string v0, "PRE_EMPTION"
 
@@ -1265,12 +1122,10 @@
 
     if-eqz v0, :cond_44
 
-    .line 1248
     const/16 v0, 0xd1
 
     goto/16 :goto_0
 
-    .line 1250
     :cond_44
     const-string v0, "NON_SELECTED"
 
@@ -1280,12 +1135,10 @@
 
     if-eqz v0, :cond_45
 
-    .line 1252
     const/16 v0, 0xd2
 
     goto/16 :goto_0
 
-    .line 1254
     :cond_45
     const-string v0, "DESTINATION_OUT_OF"
 
@@ -1295,12 +1148,10 @@
 
     if-eqz v0, :cond_46
 
-    .line 1256
     const/16 v0, 0xd3
 
     goto/16 :goto_0
 
-    .line 1258
     :cond_46
     const-string v0, "INVALID_NUM_FORMAT"
 
@@ -1310,12 +1161,10 @@
 
     if-eqz v0, :cond_47
 
-    .line 1260
     const/16 v0, 0xd4
 
     goto/16 :goto_0
 
-    .line 1262
     :cond_47
     const-string v0, "FACILITY_REJECT"
 
@@ -1325,12 +1174,10 @@
 
     if-eqz v0, :cond_48
 
-    .line 1264
     const/16 v0, 0xd5
 
     goto/16 :goto_0
 
-    .line 1266
     :cond_48
     const-string v0, "NET_OUT_OF"
 
@@ -1340,12 +1187,10 @@
 
     if-eqz v0, :cond_49
 
-    .line 1268
     const/16 v0, 0xd9
 
     goto/16 :goto_0
 
-    .line 1270
     :cond_49
     const-string v0, "ACCESS_DISCARD"
 
@@ -1355,12 +1200,10 @@
 
     if-eqz v0, :cond_4a
 
-    .line 1272
     const/16 v0, 0xdc
 
     goto/16 :goto_0
 
-    .line 1274
     :cond_4a
     const-string v0, "NO_RESOURCE"
 
@@ -1370,12 +1213,10 @@
 
     if-eqz v0, :cond_4b
 
-    .line 1276
     const/16 v0, 0xde
 
     goto/16 :goto_0
 
-    .line 1278
     :cond_4b
     const-string v0, "NO_SUBSCRIBED"
 
@@ -1385,12 +1226,10 @@
 
     if-eqz v0, :cond_4c
 
-    .line 1280
     const/16 v0, 0xe0
 
     goto/16 :goto_0
 
-    .line 1282
     :cond_4c
     const-string v0, "BARRED_IN_CUG"
 
@@ -1400,12 +1239,10 @@
 
     if-eqz v0, :cond_4d
 
-    .line 1284
     const/16 v0, 0xe1
 
     goto/16 :goto_0
 
-    .line 1286
     :cond_4d
     const-string v0, "BARRER_NOT_ALLOWED"
 
@@ -1415,12 +1252,10 @@
 
     if-eqz v0, :cond_4e
 
-    .line 1288
     const/16 v0, 0xe2
 
     goto/16 :goto_0
 
-    .line 1290
     :cond_4e
     const-string v0, "SERVICE_UNAVAILABLE"
 
@@ -1430,12 +1265,10 @@
 
     if-eqz v0, :cond_4f
 
-    .line 1292
     const/16 v0, 0xe4
 
     goto/16 :goto_0
 
-    .line 1294
     :cond_4f
     const-string v0, "BEARER_UNINPLEMENTED"
 
@@ -1445,12 +1278,10 @@
 
     if-eqz v0, :cond_50
 
-    .line 1296
     const/16 v0, 0xe5
 
     goto/16 :goto_0
 
-    .line 1298
     :cond_50
     const-string v0, "FACILITY_UNINPLEMENTED"
 
@@ -1460,12 +1291,10 @@
 
     if-eqz v0, :cond_51
 
-    .line 1300
     const/16 v0, 0xe7
 
     goto/16 :goto_0
 
-    .line 1302
     :cond_51
     const-string v0, "RESTRICTED_DIGITAL"
 
@@ -1475,12 +1304,10 @@
 
     if-eqz v0, :cond_52
 
-    .line 1304
     const/16 v0, 0xe8
 
     goto/16 :goto_0
 
-    .line 1306
     :cond_52
     const-string v0, "SERVICE_UNINPLEMENTED"
 
@@ -1490,12 +1317,10 @@
 
     if-eqz v0, :cond_53
 
-    .line 1308
     const/16 v0, 0xe9
 
     goto/16 :goto_0
 
-    .line 1310
     :cond_53
     const-string v0, "INVALID_TI"
 
@@ -1505,12 +1330,10 @@
 
     if-eqz v0, :cond_54
 
-    .line 1312
     const/16 v0, 0xea
 
     goto/16 :goto_0
 
-    .line 1314
     :cond_54
     const-string v0, "NOT_IN_CUG"
 
@@ -1520,12 +1343,10 @@
 
     if-eqz v0, :cond_55
 
-    .line 1316
     const/16 v0, 0xeb
 
     goto/16 :goto_0
 
-    .line 1318
     :cond_55
     const-string v0, "INCOMPATIBLE_DEST"
 
@@ -1535,12 +1356,10 @@
 
     if-eqz v0, :cond_56
 
-    .line 1320
     const/16 v0, 0xec
 
     goto/16 :goto_0
 
-    .line 1322
     :cond_56
     const-string v0, "INVALID_TRANSIT_NET"
 
@@ -1550,12 +1369,10 @@
 
     if-eqz v0, :cond_57
 
-    .line 1324
     const/16 v0, 0xed
 
     goto/16 :goto_0
 
-    .line 1326
     :cond_57
     const-string v0, "INCORRECT_MSG"
 
@@ -1565,12 +1382,10 @@
 
     if-eqz v0, :cond_58
 
-    .line 1328
     const/16 v0, 0xee
 
     goto/16 :goto_0
 
-    .line 1330
     :cond_58
     const-string v0, "IE_ERROR"
 
@@ -1580,12 +1395,10 @@
 
     if-eqz v0, :cond_59
 
-    .line 1332
     const/16 v0, 0xef
 
     goto/16 :goto_0
 
-    .line 1334
     :cond_59
     const-string v0, "MSG_TYPE_NON_EXIST"
 
@@ -1595,12 +1408,10 @@
 
     if-eqz v0, :cond_5a
 
-    .line 1336
     const/16 v0, 0xf0
 
     goto/16 :goto_0
 
-    .line 1338
     :cond_5a
     const-string v0, "MSG_NOT_COMP"
 
@@ -1610,12 +1421,10 @@
 
     if-eqz v0, :cond_5b
 
-    .line 1340
     const/16 v0, 0xf1
 
     goto/16 :goto_0
 
-    .line 1342
     :cond_5b
     const-string v0, "IE_NON_EXIST"
 
@@ -1625,12 +1434,10 @@
 
     if-eqz v0, :cond_5c
 
-    .line 1344
     const/16 v0, 0xf2
 
     goto/16 :goto_0
 
-    .line 1346
     :cond_5c
     const-string v0, "INVALID_IE_CONTENTS"
 
@@ -1640,12 +1447,10 @@
 
     if-eqz v0, :cond_5d
 
-    .line 1348
     const/16 v0, 0xf3
 
     goto/16 :goto_0
 
-    .line 1350
     :cond_5d
     const-string v0, "MSG_NOT_COMP_CALL_STATE"
 
@@ -1655,12 +1460,10 @@
 
     if-eqz v0, :cond_5e
 
-    .line 1352
     const/16 v0, 0xf4
 
     goto/16 :goto_0
 
-    .line 1354
     :cond_5e
     const-string v0, "RECOVERY_TIMER_EXPIRY"
 
@@ -1670,12 +1473,10 @@
 
     if-eqz v0, :cond_5f
 
-    .line 1356
     const/16 v0, 0xf5
 
     goto/16 :goto_0
 
-    .line 1358
     :cond_5f
     const-string v0, "PROTOCOL_ERROR"
 
@@ -1685,12 +1486,10 @@
 
     if-eqz v0, :cond_60
 
-    .line 1360
     const/16 v0, 0xf6
 
     goto/16 :goto_0
 
-    .line 1362
     :cond_60
     const-string v0, "INTERWORKING"
 
@@ -1700,12 +1499,10 @@
 
     if-eqz v0, :cond_61
 
-    .line 1364
     const/16 v0, 0xf7
 
     goto/16 :goto_0
 
-    .line 1366
     :cond_61
     const-string v0, "NUMBER_CHANGED"
 
@@ -1715,12 +1512,10 @@
 
     if-eqz v0, :cond_62
 
-    .line 1368
     const/16 v0, 0xd0
 
     goto/16 :goto_0
 
-    .line 1370
     :cond_62
     const-string v0, "STATUS_ENQUIRY"
 
@@ -1730,12 +1525,10 @@
 
     if-eqz v0, :cond_63
 
-    .line 1372
     const/16 v0, 0xd6
 
     goto/16 :goto_0
 
-    .line 1374
     :cond_63
     const-string v0, "NORMAL_UNSPECIFIED"
 
@@ -1745,12 +1538,10 @@
 
     if-eqz v0, :cond_64
 
-    .line 1376
     const/16 v0, 0xd7
 
     goto/16 :goto_0
 
-    .line 1378
     :cond_64
     const-string v0, "PLAY_BUSYTONE"
 
@@ -1760,12 +1551,10 @@
 
     if-eqz v0, :cond_65
 
-    .line 1380
     const/16 v0, 0xf8
 
     goto/16 :goto_0
 
-    .line 1386
     :cond_65
     const/4 v0, -0x1
 
@@ -1774,13 +1563,9 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 2
-    .param p0, "cause"    # I
 
-    .prologue
-    .line 521
     packed-switch p0, :pswitch_data_0
 
-    .line 949
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1803,619 +1588,516 @@
     :goto_0
     return-object v0
 
-    .line 525
     :pswitch_1
     const-string v0, "NOT_DISCONNECTED"
 
     goto :goto_0
 
-    .line 529
     :pswitch_2
     const-string v0, "INCOMING_MISSED"
 
     goto :goto_0
 
-    .line 533
     :pswitch_3
     const-string v0, "NORMAL"
 
     goto :goto_0
 
-    .line 537
     :pswitch_4
     const-string v0, "LOCAL"
 
     goto :goto_0
 
-    .line 541
     :pswitch_5
     const-string v0, "BUSY"
 
     goto :goto_0
 
-    .line 545
     :pswitch_6
     const-string v0, "CONGESTION"
 
     goto :goto_0
 
-    .line 549
     :pswitch_7
     const-string v0, "INVALID_NUMBER"
 
     goto :goto_0
 
-    .line 553
     :pswitch_8
     const-string v0, "NUMBER_UNREACHABLE"
 
     goto :goto_0
 
-    .line 557
     :pswitch_9
     const-string v0, "SERVER_UNREACHABLE"
 
     goto :goto_0
 
-    .line 561
     :pswitch_a
     const-string v0, "INVALID_CREDENTIALS"
 
     goto :goto_0
 
-    .line 565
     :pswitch_b
     const-string v0, "OUT_OF_NETWORK"
 
     goto :goto_0
 
-    .line 569
     :pswitch_c
     const-string v0, "SERVER_ERROR"
 
     goto :goto_0
 
-    .line 573
     :pswitch_d
     const-string v0, "TIMED_OUT"
 
     goto :goto_0
 
-    .line 577
     :pswitch_e
     const-string v0, "LOST_SIGNAL"
 
     goto :goto_0
 
-    .line 581
     :pswitch_f
     const-string v0, "LIMIT_EXCEEDED"
 
     goto :goto_0
 
-    .line 585
     :pswitch_10
     const-string v0, "INCOMING_REJECTED"
 
     goto :goto_0
 
-    .line 589
     :pswitch_11
     const-string v0, "POWER_OFF"
 
     goto :goto_0
 
-    .line 593
     :pswitch_12
     const-string v0, "OUT_OF_SERVICE"
 
     goto :goto_0
 
-    .line 597
     :pswitch_13
     const-string v0, "ICC_ERROR"
 
     goto :goto_0
 
-    .line 601
     :pswitch_14
     const-string v0, "CALL_BARRED"
 
     goto :goto_0
 
-    .line 605
     :pswitch_15
     const-string v0, "FDN_BLOCKED"
 
     goto :goto_0
 
-    .line 609
     :pswitch_16
     const-string v0, "CS_RESTRICTED"
 
     goto :goto_0
 
-    .line 613
     :pswitch_17
     const-string v0, "CS_RESTRICTED_NORMAL"
 
     goto :goto_0
 
-    .line 617
     :pswitch_18
     const-string v0, "CS_RESTRICTED_EMERGENCY"
 
     goto :goto_0
 
-    .line 621
     :pswitch_19
     const-string v0, "UNOBTAINABLE_NUMBER"
 
     goto :goto_0
 
-    .line 625
     :pswitch_1a
     const-string v0, "CDMA_LOCKED_UNTIL_POWER_CYCLE"
 
     goto :goto_0
 
-    .line 629
     :pswitch_1b
     const-string v0, "CDMA_DROP"
 
     goto :goto_0
 
-    .line 633
     :pswitch_1c
     const-string v0, "CDMA_INTERCEPT"
 
     goto :goto_0
 
-    .line 637
     :pswitch_1d
     const-string v0, "CDMA_REORDER"
 
     goto :goto_0
 
-    .line 641
     :pswitch_1e
     const-string v0, "CDMA_SO_REJECT"
 
     goto :goto_0
 
-    .line 645
     :pswitch_1f
     const-string v0, "CDMA_RETRY_ORDER"
 
     goto :goto_0
 
-    .line 649
     :pswitch_20
     const-string v0, "CDMA_ACCESS_FAILURE"
 
     goto :goto_0
 
-    .line 653
     :pswitch_21
     const-string v0, "CDMA_PREEMPTED"
 
     goto :goto_0
 
-    .line 657
     :pswitch_22
     const-string v0, "CDMA_NOT_EMERGENCY"
 
     goto :goto_0
 
-    .line 661
     :pswitch_23
     const-string v0, "CDMA_ACCESS_BLOCKED"
 
     goto :goto_0
 
-    .line 665
     :pswitch_24
     const-string v0, "EMERGENCY_ONLY"
 
     goto :goto_0
 
-    .line 669
     :pswitch_25
     const-string v0, "NO_PHONE_NUMBER_SUPPLIED"
 
     goto :goto_0
 
-    .line 673
     :pswitch_26
     const-string v0, "DIALED_MMI"
 
     goto :goto_0
 
-    .line 677
     :pswitch_27
     const-string v0, "VOICEMAIL_NUMBER_MISSING"
 
     goto :goto_0
 
-    .line 681
     :pswitch_28
     const-string v0, "CDMA_CALL_LOST"
 
     goto :goto_0
 
-    .line 685
     :pswitch_29
     const-string v0, "EXITED_ECM"
 
     goto :goto_0
 
-    .line 689
     :pswitch_2a
     const-string v0, "DIAL_MODIFIED_TO_USSD"
 
     goto :goto_0
 
-    .line 693
     :pswitch_2b
     const-string v0, "DIAL_MODIFIED_TO_SS"
 
     goto/16 :goto_0
 
-    .line 697
     :pswitch_2c
     const-string v0, "DIAL_MODIFIED_TO_DIAL"
 
     goto/16 :goto_0
 
-    .line 701
     :pswitch_2d
     const-string v0, "ERROR_UNSPECIFIED"
 
     goto/16 :goto_0
 
-    .line 705
     :pswitch_2e
     const-string v0, "OUTGOING_FAILURE"
 
     goto/16 :goto_0
 
-    .line 709
     :pswitch_2f
     const-string v0, "OUTGOING_CANCELED"
 
     goto/16 :goto_0
 
-    .line 713
     :pswitch_30
     const-string v0, "IMS_MERGED_SUCCESSFULLY"
 
     goto/16 :goto_0
 
-    .line 717
     :pswitch_31
     const-string v0, "CDMA_ALREADY_ACTIVATED"
 
     goto/16 :goto_0
 
-    .line 723
     :pswitch_32
     const-string v0, "NO_ANSWER"
 
     goto/16 :goto_0
 
-    .line 727
     :pswitch_33
     const-string v0, "IMS_ERROR"
 
     goto/16 :goto_0
 
-    .line 731
     :pswitch_34
     const-string v0, "UAVAILABLE_CHANNEL"
 
     goto/16 :goto_0
 
-    .line 739
     :pswitch_35
     const-string v0, "WIFI_OUT_OF_FOOTPRINT"
 
     goto/16 :goto_0
 
-    .line 747
     :pswitch_36
     const-string v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
 
     goto/16 :goto_0
 
-    .line 751
     :pswitch_37
     const-string v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
 
     goto/16 :goto_0
 
-    .line 759
     :pswitch_38
     const-string v0, "NO_USER_RESP"
 
     goto/16 :goto_0
 
-    .line 763
     :pswitch_39
     const-string v0, "NO_CIRCUIT"
 
     goto/16 :goto_0
 
-    .line 767
     :pswitch_3a
     const-string v0, "TMP_FAIL"
 
     goto/16 :goto_0
 
-    .line 771
     :pswitch_3b
     const-string v0, "SWITCH_CONGESTION"
 
     goto/16 :goto_0
 
-    .line 775
     :pswitch_3c
     const-string v0, "NO_CHANNEL"
 
     goto/16 :goto_0
 
-    .line 779
     :pswitch_3d
     const-string v0, "NO_QOS"
 
     goto/16 :goto_0
 
-    .line 783
     :pswitch_3e
     const-string v0, "NO_BEARER"
 
     goto/16 :goto_0
 
-    .line 787
     :pswitch_3f
     const-string v0, "ACM_EXCEED"
 
     goto/16 :goto_0
 
-    .line 791
     :pswitch_40
     const-string v0, "UNASSIGNED_NUM"
 
     goto/16 :goto_0
 
-    .line 795
     :pswitch_41
     const-string v0, "NO_ROUTE"
 
     goto/16 :goto_0
 
-    .line 799
     :pswitch_42
     const-string v0, "CHANNEL_UNACCEPT"
 
     goto/16 :goto_0
 
-    .line 803
     :pswitch_43
     const-string v0, "OP_DETERMINED"
 
     goto/16 :goto_0
 
-    .line 807
     :pswitch_44
     const-string v0, "CALL_REJECT"
 
     goto/16 :goto_0
 
-    .line 811
     :pswitch_45
     const-string v0, "PRE_EMPTION"
 
     goto/16 :goto_0
 
-    .line 815
     :pswitch_46
     const-string v0, "NON_SELECTED"
 
     goto/16 :goto_0
 
-    .line 819
     :pswitch_47
     const-string v0, "DESTINATION_OUT_OF"
 
     goto/16 :goto_0
 
-    .line 823
     :pswitch_48
     const-string v0, "INVALID_NUM_FORMAT"
 
     goto/16 :goto_0
 
-    .line 827
     :pswitch_49
     const-string v0, "FACILITY_REJECT"
 
     goto/16 :goto_0
 
-    .line 831
     :pswitch_4a
     const-string v0, "NET_OUT_OF"
 
     goto/16 :goto_0
 
-    .line 835
     :pswitch_4b
     const-string v0, "ACCESS_DISCARD"
 
     goto/16 :goto_0
 
-    .line 839
     :pswitch_4c
     const-string v0, "NO_RESOURCE"
 
     goto/16 :goto_0
 
-    .line 843
     :pswitch_4d
     const-string v0, "NO_SUBSCRIBED"
 
     goto/16 :goto_0
 
-    .line 847
     :pswitch_4e
     const-string v0, "BARRED_IN_CUG"
 
     goto/16 :goto_0
 
-    .line 851
     :pswitch_4f
     const-string v0, "BARRER_NOT_ALLOWED"
 
     goto/16 :goto_0
 
-    .line 855
     :pswitch_50
     const-string v0, "SERVICE_UNAVAILABLE"
 
     goto/16 :goto_0
 
-    .line 859
     :pswitch_51
     const-string v0, "BEARER_UNINPLEMENTED"
 
     goto/16 :goto_0
 
-    .line 863
     :pswitch_52
     const-string v0, "FACILITY_UNINPLEMENTED"
 
     goto/16 :goto_0
 
-    .line 867
     :pswitch_53
     const-string v0, "RESTRICTED_DIGITAL"
 
     goto/16 :goto_0
 
-    .line 871
     :pswitch_54
     const-string v0, "SERVICE_UNINPLEMENTED"
 
     goto/16 :goto_0
 
-    .line 875
     :pswitch_55
     const-string v0, "INVALID_TI"
 
     goto/16 :goto_0
 
-    .line 879
     :pswitch_56
     const-string v0, "NOT_IN_CUG"
 
     goto/16 :goto_0
 
-    .line 883
     :pswitch_57
     const-string v0, "INCOMPATIBLE_DEST"
 
     goto/16 :goto_0
 
-    .line 887
     :pswitch_58
     const-string v0, "INVALID_TRANSIT_NET"
 
     goto/16 :goto_0
 
-    .line 891
     :pswitch_59
     const-string v0, "INCORRECT_MSG"
 
     goto/16 :goto_0
 
-    .line 895
     :pswitch_5a
     const-string v0, "IE_ERROR"
 
     goto/16 :goto_0
 
-    .line 899
     :pswitch_5b
     const-string v0, "MSG_TYPE_NON_EXIST"
 
     goto/16 :goto_0
 
-    .line 903
     :pswitch_5c
     const-string v0, "MSG_NOT_COMP"
 
     goto/16 :goto_0
 
-    .line 907
     :pswitch_5d
     const-string v0, "IE_NON_EXIST"
 
     goto/16 :goto_0
 
-    .line 911
     :pswitch_5e
     const-string v0, "INVALID_IE_CONTENTS"
 
     goto/16 :goto_0
 
-    .line 915
     :pswitch_5f
     const-string v0, "MSG_NOT_COMP_CALL_STATE"
 
     goto/16 :goto_0
 
-    .line 919
     :pswitch_60
     const-string v0, "RECOVERY_TIMER_EXPIRY"
 
     goto/16 :goto_0
 
-    .line 923
     :pswitch_61
     const-string v0, "PROTOCOL_ERROR"
 
     goto/16 :goto_0
 
-    .line 927
     :pswitch_62
     const-string v0, "INTERWORKING"
 
     goto/16 :goto_0
 
-    .line 931
     :pswitch_63
     const-string v0, "NUMBER_CHANGED"
 
     goto/16 :goto_0
 
-    .line 935
     :pswitch_64
     const-string v0, "STATUS_ENQUIRY"
 
     goto/16 :goto_0
 
-    .line 939
     :pswitch_65
     const-string v0, "NORMAL_UNSPECIFIED"
 
     goto/16 :goto_0
 
-    .line 943
     :pswitch_66
     const-string v0, "PLAY_BUSYTONE"
 
     goto/16 :goto_0
 
-    .line 521
     nop
 
     :pswitch_data_0

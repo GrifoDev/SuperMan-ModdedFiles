@@ -24,8 +24,6 @@
 .method constructor <init>(Ljava/lang/Class;Ljava/util/concurrent/atomic/AtomicReference;)V
     .locals 0
 
-    .prologue
-    .line 413
     iput-object p1, p0, Lcom/google/common/reflect/TypeToken$1;->val$declaringClass:Ljava/lang/Class;
 
     iput-object p2, p0, Lcom/google/common/reflect/TypeToken$1;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
@@ -47,27 +45,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 431
-    .local p1, "t":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     return-void
 .end method
 
 .method visitGenericArrayType(Ljava/lang/reflect/GenericArrayType;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/reflect/GenericArrayType;
 
-    .prologue
-    .line 430
     return-void
 .end method
 
 .method visitParameterizedType(Ljava/lang/reflect/ParameterizedType;)V
     .locals 5
-    .param p1, "pt"    # Ljava/lang/reflect/ParameterizedType;
 
-    .prologue
-    .line 420
     iget-object v2, p0, Lcom/google/common/reflect/TypeToken$1;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken$1;->val$declaringClass:Ljava/lang/Class;
@@ -108,10 +97,8 @@
 
     invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
-    .line 428
     return-void
 
-    .line 420
     :cond_0
     invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getOwnerType()Ljava/lang/reflect/Type;
 
@@ -143,9 +130,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 415
-    .local p1, "var":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
     invoke-interface {p1}, Ljava/lang/reflect/TypeVariable;->getGenericDeclaration()Ljava/lang/reflect/GenericDeclaration;
 
     move-result-object v0
@@ -154,7 +138,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 416
     iget-object v0, p0, Lcom/google/common/reflect/TypeToken$1;->val$result:Ljava/util/concurrent/atomic/AtomicReference;
 
     const-class v1, Ljava/lang/Object;
@@ -165,16 +148,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
-    .line 418
     :cond_0
     return-void
 .end method
 
 .method visitWildcardType(Ljava/lang/reflect/WildcardType;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/reflect/WildcardType;
 
-    .prologue
-    .line 429
     return-void
 .end method

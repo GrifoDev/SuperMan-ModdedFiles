@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider;Ljava/io/InputStream;Ljava/lang/Class;)V
     .locals 0
-    .param p2, "x0"    # Ljava/io/InputStream;
 
-    .prologue
-    .line 113
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider;
 
     iput-object p3, p0, Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider$1;->val$type:Ljava/lang/Class;
@@ -40,7 +37,6 @@
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
     .locals 3
-    .param p1, "desc"    # Ljava/io/ObjectStreamClass;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -48,8 +44,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 116
     invoke-virtual {p1}, Ljava/io/ObjectStreamClass;->getName()Ljava/lang/String;
 
     move-result-object v0

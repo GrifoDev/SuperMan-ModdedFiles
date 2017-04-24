@@ -37,53 +37,34 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 44
     const-string v0, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 
     sput-object v0, Lcom/cmdm/control/bean/WorkTimeSetting;->xmlns:Ljava/lang/String;
 
-    .line 17
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "workDay"    # Ljava/lang/String;
-    .param p2, "startTime"    # Ljava/lang/String;
-    .param p3, "endTime"    # Ljava/lang/String;
 
-    .prologue
-    .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     iput-object p1, p0, Lcom/cmdm/control/bean/WorkTimeSetting;->workDay:Ljava/lang/String;
 
-    .line 40
     iput-object p2, p0, Lcom/cmdm/control/bean/WorkTimeSetting;->startTime:Ljava/lang/String;
 
-    .line 41
     iput-object p3, p0, Lcom/cmdm/control/bean/WorkTimeSetting;->endTime:Ljava/lang/String;
 
-    .line 42
     return-void
 .end method
 
 .method public static getWorkTimeSetting(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p0, "workDay"    # Ljava/lang/String;
-    .param p1, "startTime"    # Ljava/lang/String;
-    .param p2, "endTime"    # Ljava/lang/String;
 
-    .prologue
-    .line 48
     new-instance v0, Lcom/cmdm/control/bean/WorkTimeSetting;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/cmdm/control/bean/WorkTimeSetting;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 50
-    .local v0, "mShowingCRSSetting":Lcom/cmdm/control/bean/WorkTimeSetting;
     new-instance v1, Lcom/thoughtworks/xstream/XStream;
 
     new-instance v2, Lcom/thoughtworks/xstream/io/xml/DomDriver;
@@ -92,13 +73,10 @@
 
     invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/XStream;-><init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamDriver;)V
 
-    .line 51
-    .local v1, "xstream":Lcom/thoughtworks/xstream/XStream;
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/thoughtworks/xstream/XStream;->autodetectAnnotations(Z)V
 
-    .line 52
     new-instance v2, Ljava/lang/StringBuilder;
 
     sget-object v3, Lcom/cmdm/control/bean/WorkTimeSetting;->xmlns:Ljava/lang/String;
@@ -126,10 +104,7 @@
 
 .method public static main([Ljava/lang/String;)V
     .locals 5
-    .param p0, "args"    # [Ljava/lang/String;
 
-    .prologue
-    .line 56
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -138,7 +113,6 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 57
     const-string v2, "1,2,3,4,5,6,7"
 
     const-string v3, "08"
@@ -157,9 +131,7 @@
 
     move-result-object v1
 
-    .line 56
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 58
     return-void
 .end method

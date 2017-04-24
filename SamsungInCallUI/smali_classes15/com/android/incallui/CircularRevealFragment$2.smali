@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/CircularRevealFragment;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/CircularRevealFragment;
 
-    .prologue
-    .line 125
     iput-object p1, p0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
 
     iput-object p2, p0, Lcom/android/incallui/CircularRevealFragment$2;->val$view:Landroid/view/View;
@@ -44,26 +41,20 @@
 .method public onPreDraw()Z
     .locals 4
 
-    .prologue
-    .line 128
     iget-object v2, p0, Lcom/android/incallui/CircularRevealFragment$2;->val$view:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
 
-    .line 129
-    .local v1, "vto":Landroid/view/ViewTreeObserver;
     invoke-virtual {v1}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 130
     invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 132
     :cond_0
     iget-object v2, p0, Lcom/android/incallui/CircularRevealFragment$2;->this$0:Lcom/android/incallui/CircularRevealFragment;
 
@@ -79,21 +70,16 @@
 
     move-result-object v0
 
-    .line 133
-    .local v0, "animator":Landroid/animation/Animator;
     if-eqz v0, :cond_1
 
-    .line 134
     new-instance v2, Lcom/android/incallui/CircularRevealFragment$2$1;
 
     invoke-direct {v2, p0}, Lcom/android/incallui/CircularRevealFragment$2$1;-><init>(Lcom/android/incallui/CircularRevealFragment$2;)V
 
     invoke-virtual {v0, v2}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 143
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    .line 145
     :cond_1
     const/4 v2, 0x0
 

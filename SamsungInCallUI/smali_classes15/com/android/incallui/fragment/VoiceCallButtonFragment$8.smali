@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
-    .prologue
-    .line 1345
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonFragment$8;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +36,8 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 1347
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 1348
     return-void
 .end method

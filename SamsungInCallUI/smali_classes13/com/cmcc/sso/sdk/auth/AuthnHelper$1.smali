@@ -22,11 +22,8 @@
 .method constructor <init>(Lcom/cmcc/sso/sdk/auth/AuthnHelper;)V
     .locals 0
 
-    .prologue
-    .line 1
     iput-object p1, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$1;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
-    .line 1047
     invoke-direct {p0}, Lcom/cmcc/sso/service/IPCCallback$Stub;-><init>()V
 
     return-void
@@ -36,47 +33,36 @@
 # virtual methods
 .method public callback(Landroid/os/Bundle;)V
     .locals 5
-    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
-    .line 1052
     const/4 v1, 0x0
 
-    .line 1054
-    .local v1, "jsonobj":Lorg/json/JSONObject;
     const-string v3, "resultCode"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v2
 
-    .line 1056
-    .local v2, "resultCode":I
     const v3, 0x18e70
 
     if-ne v3, v2, :cond_0
 
-    .line 1058
     iget-object v3, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$1;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
     const/4 v4, 0x1
 
     invoke-static {v3, v4}, Lcom/cmcc/sso/sdk/auth/AuthnHelper;->access$0(Lcom/cmcc/sso/sdk/auth/AuthnHelper;Z)V
 
-    .line 1060
     const-string v3, "commandid"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 1062
-    .local v0, "commandId":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     const-string v4, "commandid = "
@@ -93,10 +79,8 @@
 
     invoke-static {v3}, Lcom/cmcc/sso/sdk/util/LogUtil;->info(Ljava/lang/String;)V
 
-    .line 1064
     packed-switch v0, :pswitch_data_0
 
-    .line 1090
     :pswitch_0
     const/4 v3, 0x0
 
@@ -104,8 +88,6 @@
 
     move-result-object v1
 
-    .line 1099
-    .end local v0    # "commandId":I
     :goto_0
     invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
@@ -113,23 +95,18 @@
 
     invoke-static {v3}, Lcom/cmcc/sso/sdk/util/LogUtil;->info(Ljava/lang/String;)V
 
-    .line 1101
     iget-object v3, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$1;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
     # invokes: Lcom/cmcc/sso/sdk/auth/AuthnHelper;->callbackToApp(Lorg/json/JSONObject;)V
     invoke-static {v3, v1}, Lcom/cmcc/sso/sdk/auth/AuthnHelper;->access$2(Lcom/cmcc/sso/sdk/auth/AuthnHelper;Lorg/json/JSONObject;)V
 
-    .line 1102
     return-void
 
-    .line 1072
-    .restart local v0    # "commandId":I
     :pswitch_1
     invoke-static {p1}, Lcom/cmcc/sso/sdk/auth/AuthnResult;->getResultForToken(Landroid/os/Bundle;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    .line 1073
     iget-object v3, p0, Lcom/cmcc/sso/sdk/auth/AuthnHelper$1;->this$0:Lcom/cmcc/sso/sdk/auth/AuthnHelper;
 
     const-string v4, "passid"
@@ -142,16 +119,13 @@
 
     goto :goto_0
 
-    .line 1079
     :pswitch_2
     invoke-static {p1}, Lcom/cmcc/sso/sdk/auth/AuthnResult;->getUserList(Landroid/os/Bundle;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    .line 1080
     goto :goto_0
 
-    .line 1084
     :pswitch_3
     const-string v3, "validcode"
 
@@ -163,11 +137,8 @@
 
     move-result-object v1
 
-    .line 1085
     goto :goto_0
 
-    .line 1096
-    .end local v0    # "commandId":I
     :cond_0
     const-string v3, "resultString"
 
@@ -181,7 +152,6 @@
 
     goto :goto_0
 
-    .line 1064
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_1

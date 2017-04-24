@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    .prologue
-    .line 1170
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$5;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,34 +36,22 @@
 # virtual methods
 .method public onPageScrollStateChanged(I)V
     .locals 0
-    .param p1, "state"    # I
 
-    .prologue
-    .line 1173
     # setter for: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mCurrentPageScrollState:I
     invoke-static {p1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$602(I)I
 
-    .line 1174
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
     .locals 0
-    .param p1, "position"    # I
-    .param p2, "positionOffset"    # F
-    .param p3, "positionOffsetPixels"    # I
 
-    .prologue
-    .line 1178
     return-void
 .end method
 
 .method public onPageSelected(I)V
     .locals 4
-    .param p1, "position"    # I
 
-    .prologue
-    .line 1182
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -87,7 +72,6 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1183
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$5;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -105,6 +89,5 @@
     # invokes: Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->updatePagerState(Lcom/android/incallui/Call;)V
     invoke-static {v0, v1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$2700(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;Lcom/android/incallui/Call;)V
 
-    .line 1184
     return-void
 .end method

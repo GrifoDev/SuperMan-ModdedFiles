@@ -23,10 +23,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/view/CallCardSmartCallView;Landroid/widget/TextView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
-    .prologue
-    .line 748
     iput-object p1, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$5;->this$0:Lcom/android/incallui/fragment/view/CallCardSmartCallView;
 
     iput-object p2, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$5;->val$detTextView:Landroid/widget/TextView;
@@ -40,32 +37,24 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 756
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$5;->val$detTextView:Landroid/widget/TextView;
 
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
-    .line 757
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 751
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView$5;->val$detTextView:Landroid/widget/TextView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 752
     return-void
 .end method

@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/remotecall/RemoteCallCardFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/remotecall/RemoteCallCardFragment;
 
-    .prologue
-    .line 466
     iput-object p1, p0, Lcom/android/incallui/remotecall/RemoteCallCardFragment$2;->this$0:Lcom/android/incallui/remotecall/RemoteCallCardFragment;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 468
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 473
     :goto_0
     return-void
 
-    .line 470
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallCardFragment$2;->this$0:Lcom/android/incallui/remotecall/RemoteCallCardFragment;
 
@@ -60,7 +52,6 @@
 
     goto :goto_0
 
-    .line 468
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

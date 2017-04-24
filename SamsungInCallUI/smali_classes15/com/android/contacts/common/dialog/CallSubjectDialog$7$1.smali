@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/dialog/CallSubjectDialog$7;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/contacts/common/dialog/CallSubjectDialog$7;
 
-    .prologue
-    .line 536
     iput-object p1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7$1;->this$1:Lcom/android/contacts/common/dialog/CallSubjectDialog$7;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,25 +33,17 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 539
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
-    .line 540
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
-    .line 544
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationStart(Landroid/animation/Animator;)V
 
-    .line 545
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7$1;->this$1:Lcom/android/contacts/common/dialog/CallSubjectDialog$7;
 
     iget-object v0, v0, Lcom/android/contacts/common/dialog/CallSubjectDialog$7;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
@@ -68,6 +57,5 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setVisibility(I)V
 
-    .line 546
     return-void
 .end method

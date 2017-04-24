@@ -33,8 +33,6 @@
 .method constructor <init>(Lcom/google/common/collect/Sets$4;Ljava/util/Iterator;Ljava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 739
     iput-object p1, p0, Lcom/google/common/collect/Sets$4$1;->this$0:Lcom/google/common/collect/Sets$4;
 
     iput-object p2, p0, Lcom/google/common/collect/Sets$4$1;->val$itr1:Ljava/util/Iterator;
@@ -56,8 +54,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 742
     :cond_0
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->val$itr1:Ljava/util/Iterator;
 
@@ -67,15 +63,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 743
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->val$itr1:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 744
-    .local v0, "elem1":Ljava/lang/Object;, "TE;"
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->this$0:Lcom/google/common/collect/Sets$4;
 
     iget-object v2, v2, Lcom/google/common/collect/Sets$4;->val$set2:Ljava/util/Set;
@@ -86,12 +79,9 @@
 
     if-nez v2, :cond_0
 
-    .line 754
-    .end local v0    # "elem1":Ljava/lang/Object;, "TE;"
     :goto_0
     return-object v0
 
-    .line 748
     :cond_1
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->val$itr2:Ljava/util/Iterator;
 
@@ -101,15 +91,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 749
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->val$itr2:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 750
-    .local v1, "elem2":Ljava/lang/Object;, "TE;"
     iget-object v2, p0, Lcom/google/common/collect/Sets$4$1;->this$0:Lcom/google/common/collect/Sets$4;
 
     iget-object v2, v2, Lcom/google/common/collect/Sets$4;->val$set1:Ljava/util/Set;
@@ -122,11 +109,8 @@
 
     move-object v0, v1
 
-    .line 751
     goto :goto_0
 
-    .line 754
-    .end local v1    # "elem2":Ljava/lang/Object;, "TE;"
     :cond_2
     invoke-virtual {p0}, Lcom/google/common/collect/Sets$4$1;->endOfData()Ljava/lang/Object;
 

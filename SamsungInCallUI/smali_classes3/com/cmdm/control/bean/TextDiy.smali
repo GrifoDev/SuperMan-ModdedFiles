@@ -55,8 +55,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,8 +65,6 @@
 .method public getContent()Lcom/cmdm/control/bean/Content;
     .locals 1
 
-    .prologue
-    .line 138
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->content:Lcom/cmdm/control/bean/Content;
 
     return-object v0
@@ -77,8 +73,6 @@
 .method public getDiyDate()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 82
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->diyDate:Ljava/lang/String;
 
     return-object v0
@@ -87,8 +81,6 @@
 .method public getDiyPrice()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 96
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->diyPrice:Ljava/lang/String;
 
     return-object v0
@@ -97,8 +89,6 @@
 .method public getDiyStatus()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 110
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->diyStatus:Ljava/lang/String;
 
     return-object v0
@@ -107,8 +97,6 @@
 .method public getDiyTextId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 68
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->diyTextId:Ljava/lang/String;
 
     return-object v0
@@ -117,8 +105,6 @@
 .method public getIsOpen()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 124
     iget-object v0, p0, Lcom/cmdm/control/bean/TextDiy;->isOpen:Ljava/lang/String;
 
     return-object v0
@@ -126,72 +112,48 @@
 
 .method public setContent(Lcom/cmdm/control/bean/Content;)V
     .locals 0
-    .param p1, "content"    # Lcom/cmdm/control/bean/Content;
 
-    .prologue
-    .line 145
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->content:Lcom/cmdm/control/bean/Content;
 
-    .line 146
     return-void
 .end method
 
 .method public setDiyDate(Ljava/lang/String;)V
     .locals 0
-    .param p1, "diyDate"    # Ljava/lang/String;
 
-    .prologue
-    .line 89
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->diyDate:Ljava/lang/String;
 
-    .line 90
     return-void
 .end method
 
 .method public setDiyPrice(Ljava/lang/String;)V
     .locals 0
-    .param p1, "diyPrice"    # Ljava/lang/String;
 
-    .prologue
-    .line 103
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->diyPrice:Ljava/lang/String;
 
-    .line 104
     return-void
 .end method
 
 .method public setDiyStatus(Ljava/lang/String;)V
     .locals 0
-    .param p1, "diyStatus"    # Ljava/lang/String;
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->diyStatus:Ljava/lang/String;
 
-    .line 118
     return-void
 .end method
 
 .method public setDiyTextId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "diyTextId"    # Ljava/lang/String;
 
-    .prologue
-    .line 75
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->diyTextId:Ljava/lang/String;
 
-    .line 76
     return-void
 .end method
 
 .method public setIsOpen(Ljava/lang/String;)V
     .locals 0
-    .param p1, "isOpen"    # Ljava/lang/String;
 
-    .prologue
-    .line 131
     iput-object p1, p0, Lcom/cmdm/control/bean/TextDiy;->isOpen:Ljava/lang/String;
 
-    .line 132
     return-void
 .end method

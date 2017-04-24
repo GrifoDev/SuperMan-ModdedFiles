@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,11 +30,7 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
-    .param p1, "className"    # Landroid/content/ComponentName;
-    .param p2, "service"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 74
     invoke-static {p2}, Lcom/whitepages/nameid/ILookupService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/whitepages/nameid/ILookupService;
 
     move-result-object v0
@@ -44,43 +38,34 @@
     # setter for: Lcom/whitepages/nameid/NameIDHelper;->s_service:Lcom/whitepages/nameid/ILookupService;
     invoke-static {v0}, Lcom/whitepages/nameid/NameIDHelper;->access$002(Lcom/whitepages/nameid/ILookupService;)Lcom/whitepages/nameid/ILookupService;
 
-    .line 75
     const/4 v0, 0x1
 
     # setter for: Lcom/whitepages/nameid/NameIDHelper;->s_isBound:Z
     invoke-static {v0}, Lcom/whitepages/nameid/NameIDHelper;->access$102(Z)Z
 
-    .line 76
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "arg0"    # Landroid/content/ComponentName;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 80
     const/4 v0, 0x0
 
     # setter for: Lcom/whitepages/nameid/NameIDHelper;->s_isBound:Z
     invoke-static {v0}, Lcom/whitepages/nameid/NameIDHelper;->access$102(Z)Z
 
-    .line 81
     # setter for: Lcom/whitepages/nameid/NameIDHelper;->s_service:Lcom/whitepages/nameid/ILookupService;
     invoke-static {v1}, Lcom/whitepages/nameid/NameIDHelper;->access$002(Lcom/whitepages/nameid/ILookupService;)Lcom/whitepages/nameid/ILookupService;
 
-    .line 82
     # setter for: Lcom/whitepages/nameid/NameIDHelper;->s_connection:Landroid/content/ServiceConnection;
     invoke-static {v1}, Lcom/whitepages/nameid/NameIDHelper;->access$202(Landroid/content/ServiceConnection;)Landroid/content/ServiceConnection;
 
-    .line 86
     const-wide/32 v0, 0xea60
 
     # invokes: Lcom/whitepages/nameid/NameIDHelper;->tryReconnect(J)V
     invoke-static {v0, v1}, Lcom/whitepages/nameid/NameIDHelper;->access$300(J)V
 
-    .line 87
     return-void
 .end method

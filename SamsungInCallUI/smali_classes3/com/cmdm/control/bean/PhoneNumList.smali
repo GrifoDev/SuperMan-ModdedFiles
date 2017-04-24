@@ -30,8 +30,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,8 +49,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 31
     iget-object v0, p0, Lcom/cmdm/control/bean/PhoneNumList;->buddies:Ljava/util/List;
 
     return-object v0
@@ -70,11 +66,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 38
-    .local p1, "msisdnlist":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/cmdm/control/bean/PhoneNumList;->buddies:Ljava/util/List;
 
-    .line 39
     return-void
 .end method

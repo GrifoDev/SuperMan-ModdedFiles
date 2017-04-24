@@ -25,123 +25,91 @@
 # direct methods
 .method public constructor <init>(Lcom/nineoldandroids/util/Property;Lcom/nineoldandroids/animation/FloatKeyframeSet;)V
     .locals 1
-    .param p1, "property"    # Lcom/nineoldandroids/util/Property;
-    .param p2, "keyframeSet"    # Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .prologue
-    .line 908
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;-><init>(Lcom/nineoldandroids/util/Property;Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 909
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mValueType:Ljava/lang/Class;
 
-    .line 910
     iput-object p2, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
-    .line 911
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
     check-cast v0, Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframeSet:Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .line 912
     instance-of v0, p1, Lcom/nineoldandroids/util/FloatProperty;
 
     if-eqz v0, :cond_0
 
-    .line 913
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mProperty:Lcom/nineoldandroids/util/Property;
 
     check-cast v0, Lcom/nineoldandroids/util/FloatProperty;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Lcom/nineoldandroids/util/FloatProperty;
 
-    .line 915
     :cond_0
     return-void
 .end method
 
 .method public varargs constructor <init>(Lcom/nineoldandroids/util/Property;[F)V
     .locals 1
-    .param p1, "property"    # Lcom/nineoldandroids/util/Property;
-    .param p2, "values"    # [F
 
-    .prologue
-    .line 923
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;-><init>(Lcom/nineoldandroids/util/Property;Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 924
     invoke-virtual {p0, p2}, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->setFloatValues([F)V
 
-    .line 925
     instance-of v0, p1, Lcom/nineoldandroids/util/FloatProperty;
 
     if-eqz v0, :cond_0
 
-    .line 926
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mProperty:Lcom/nineoldandroids/util/Property;
 
     check-cast v0, Lcom/nineoldandroids/util/FloatProperty;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Lcom/nineoldandroids/util/FloatProperty;
 
-    .line 928
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/nineoldandroids/animation/FloatKeyframeSet;)V
     .locals 1
-    .param p1, "propertyName"    # Ljava/lang/String;
-    .param p2, "keyframeSet"    # Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .prologue
-    .line 901
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;-><init>(Ljava/lang/String;Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 902
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mValueType:Ljava/lang/Class;
 
-    .line 903
     iput-object p2, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
-    .line 904
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
     check-cast v0, Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframeSet:Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .line 905
     return-void
 .end method
 
 .method public varargs constructor <init>(Ljava/lang/String;[F)V
     .locals 1
-    .param p1, "propertyName"    # Ljava/lang/String;
-    .param p2, "values"    # [F
 
-    .prologue
-    .line 918
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;-><init>(Ljava/lang/String;Lcom/nineoldandroids/animation/PropertyValuesHolder;)V
 
-    .line 919
     invoke-virtual {p0, p2}, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->setFloatValues([F)V
 
-    .line 920
     return-void
 .end method
 
@@ -149,10 +117,7 @@
 # virtual methods
 .method calculateValue(F)V
     .locals 1
-    .param p1, "fraction"    # F
 
-    .prologue
-    .line 938
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframeSet:Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
     invoke-virtual {v0, p1}, Lcom/nineoldandroids/animation/FloatKeyframeSet;->getFloatValue(F)F
@@ -161,38 +126,30 @@
 
     iput v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatAnimatedValue:F
 
-    .line 939
     return-void
 .end method
 
 .method public clone()Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
     .locals 2
 
-    .prologue
-    .line 948
     invoke-super {p0}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->clone()Lcom/nineoldandroids/animation/PropertyValuesHolder;
 
     move-result-object v0
 
     check-cast v0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
 
-    .line 949
-    .local v0, "newPVH":Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
     iget-object v1, v0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
     check-cast v1, Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
     iput-object v1, v0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframeSet:Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .line 950
     return-object v0
 .end method
 
 .method public bridge synthetic clone()Lcom/nineoldandroids/animation/PropertyValuesHolder;
     .locals 1
 
-    .prologue
-    .line 1
     invoke-virtual {p0}, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->clone()Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
 
     move-result-object v0
@@ -203,8 +160,6 @@
 .method getAnimatedValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 943
     iget v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatAnimatedValue:F
 
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -216,33 +171,26 @@
 
 .method setAnimatedValue(Ljava/lang/Object;)V
     .locals 4
-    .param p1, "target"    # Ljava/lang/Object;
 
-    .prologue
-    .line 962
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Lcom/nineoldandroids/util/FloatProperty;
 
     if-eqz v1, :cond_1
 
-    .line 963
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Lcom/nineoldandroids/util/FloatProperty;
 
     iget v2, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatAnimatedValue:F
 
     invoke-virtual {v1, p1, v2}, Lcom/nineoldandroids/util/FloatProperty;->setValue(Ljava/lang/Object;F)V
 
-    .line 984
     :cond_0
     :goto_0
     return-void
 
-    .line 966
     :cond_1
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v1, :cond_2
 
-    .line 967
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mProperty:Lcom/nineoldandroids/util/Property;
 
     iget v2, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatAnimatedValue:F
@@ -255,13 +203,11 @@
 
     goto :goto_0
 
-    .line 974
     :cond_2
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mSetter:Ljava/lang/reflect/Method;
 
     if-eqz v1, :cond_0
 
-    .line 976
     :try_start_0
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mTmpValueArray:[Ljava/lang/Object;
 
@@ -275,7 +221,6 @@
 
     aput-object v3, v1, v2
 
-    .line 977
     iget-object v1, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mSetter:Ljava/lang/reflect/Method;
 
     iget-object v2, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mTmpValueArray:[Ljava/lang/Object;
@@ -287,12 +232,9 @@
 
     goto :goto_0
 
-    .line 978
     :catch_0
     move-exception v0
 
-    .line 979
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     const-string v1, "PropertyValuesHolder"
 
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->toString()Ljava/lang/String;
@@ -303,13 +245,9 @@
 
     goto :goto_0
 
-    .line 980
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_1
     move-exception v0
 
-    .line 981
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     const-string v1, "PropertyValuesHolder"
 
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->toString()Ljava/lang/String;
@@ -323,38 +261,28 @@
 
 .method public varargs setFloatValues([F)V
     .locals 1
-    .param p1, "values"    # [F
 
-    .prologue
-    .line 932
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setFloatValues([F)V
 
-    .line 933
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mKeyframeSet:Lcom/nineoldandroids/animation/KeyframeSet;
 
     check-cast v0, Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
     iput-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframeSet:Lcom/nineoldandroids/animation/FloatKeyframeSet;
 
-    .line 934
     return-void
 .end method
 
 .method setupSetter(Ljava/lang/Class;)V
     .locals 1
-    .param p1, "targetClass"    # Ljava/lang/Class;
 
-    .prologue
-    .line 988
     iget-object v0, p0, Lcom/nineoldandroids/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mProperty:Lcom/nineoldandroids/util/Property;
 
     if-eqz v0, :cond_0
 
-    .line 1022
     :goto_0
     return-void
 
-    .line 1020
     :cond_0
     invoke-super {p0, p1}, Lcom/nineoldandroids/animation/PropertyValuesHolder;->setupSetter(Ljava/lang/Class;)V
 

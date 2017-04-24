@@ -29,15 +29,10 @@
 .method constructor <init>(Lcom/google/common/collect/StandardTable$Column;)V
     .locals 0
 
-    .prologue
-    .line 571
-    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
     iput-object p1, p0, Lcom/google/common/collect/StandardTable$Column$Values;->this$1:Lcom/google/common/collect/StandardTable$Column;
 
-    .line 572
     invoke-direct {p0, p1}, Lcom/google/common/collect/Maps$Values;-><init>(Ljava/util/Map;)V
 
-    .line 573
     return-void
 .end method
 
@@ -45,11 +40,7 @@
 # virtual methods
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
-    .line 577
-    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$Values;->this$1:Lcom/google/common/collect/StandardTable$Column;
@@ -89,10 +80,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 582
-    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$Values;->this$1:Lcom/google/common/collect/StandardTable$Column;
 
     invoke-static {p1}, Lcom/google/common/base/Predicates;->in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;
@@ -120,10 +107,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 587
-    .local p0, "this":Lcom/google/common/collect/StandardTable$Column$Values;, "Lcom/google/common/collect/StandardTable<TR;TC;TV;>.Column.Values;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lcom/google/common/collect/StandardTable$Column$Values;->this$1:Lcom/google/common/collect/StandardTable$Column;
 
     invoke-static {p1}, Lcom/google/common/base/Predicates;->in(Ljava/util/Collection;)Lcom/google/common/base/Predicate;

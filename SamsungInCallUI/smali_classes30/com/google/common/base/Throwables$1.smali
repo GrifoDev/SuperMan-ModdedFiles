@@ -31,8 +31,6 @@
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
 
-    .prologue
-    .line 275
     iput-object p1, p0, Lcom/google/common/base/Throwables$1;->val$t:Ljava/lang/Throwable;
 
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -44,10 +42,7 @@
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # I
 
-    .prologue
-    .line 275
     invoke-virtual {p0, p1}, Lcom/google/common/base/Throwables$1;->get(I)Ljava/lang/StackTraceElement;
 
     move-result-object v0
@@ -57,10 +52,7 @@
 
 .method public get(I)Ljava/lang/StackTraceElement;
     .locals 5
-    .param p1, "n"    # I
 
-    .prologue
-    .line 278
     # getter for: Lcom/google/common/base/Throwables;->getStackTraceElementMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$000()Ljava/lang/reflect/Method;
 
@@ -102,8 +94,6 @@
 .method public size()I
     .locals 5
 
-    .prologue
-    .line 284
     # getter for: Lcom/google/common/base/Throwables;->getStackTraceDepthMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lcom/google/common/base/Throwables;->access$300()Ljava/lang/reflect/Method;
 

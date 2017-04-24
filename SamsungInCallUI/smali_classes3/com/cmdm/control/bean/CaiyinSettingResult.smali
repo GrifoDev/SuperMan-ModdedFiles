@@ -33,8 +33,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,8 +43,6 @@
 .method public getOffset()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 59
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->offset:Ljava/lang/String;
 
     return-object v0
@@ -55,8 +51,6 @@
 .method public getRange()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 74
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->range:Ljava/lang/String;
 
     return-object v0
@@ -65,8 +59,6 @@
 .method public getmCaiyinSettingResourceList()Lcom/cmdm/control/bean/CaiyinSettingResourceList;
     .locals 1
 
-    .prologue
-    .line 43
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->mCaiyinSettingResourceList:Lcom/cmdm/control/bean/CaiyinSettingResourceList;
 
     return-object v0
@@ -74,36 +66,24 @@
 
 .method public setOffset(Ljava/lang/String;)V
     .locals 0
-    .param p1, "offset"    # Ljava/lang/String;
 
-    .prologue
-    .line 67
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->offset:Ljava/lang/String;
 
-    .line 68
     return-void
 .end method
 
 .method public setRange(Ljava/lang/String;)V
     .locals 0
-    .param p1, "range"    # Ljava/lang/String;
 
-    .prologue
-    .line 82
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->range:Ljava/lang/String;
 
-    .line 83
     return-void
 .end method
 
 .method public setmCaiyinSettingResourceList(Lcom/cmdm/control/bean/CaiyinSettingResourceList;)V
     .locals 0
-    .param p1, "mCaiyinSettingResourceList"    # Lcom/cmdm/control/bean/CaiyinSettingResourceList;
 
-    .prologue
-    .line 52
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResult;->mCaiyinSettingResourceList:Lcom/cmdm/control/bean/CaiyinSettingResourceList;
 
-    .line 53
     return-void
 .end method

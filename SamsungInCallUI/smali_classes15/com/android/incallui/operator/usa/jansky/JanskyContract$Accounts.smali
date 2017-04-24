@@ -30,8 +30,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 242
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "accounts"
@@ -48,20 +46,14 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 236
     return-void
 .end method
 
 .method public static final buildAccountUri(J)Landroid/net/Uri;
     .locals 2
-    .param p0, "accountId"    # J
 
-    .prologue
-    .line 250
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
@@ -74,8 +66,6 @@
 .method public static final buildDowmloadAllContactsUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 278
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "download_all_contacts"
@@ -90,8 +80,6 @@
 .method public static final buildLoginPageUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 264
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "open_login_page"
@@ -106,8 +94,6 @@
 .method public static final buildLogoutUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 257
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "logout"
@@ -122,8 +108,6 @@
 .method public static final buildUploadAllContactsUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 271
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "upload_all_contacts"
@@ -138,8 +122,6 @@
 .method public static final buildUploadUpdatedContactUri()Landroid/net/Uri;
     .locals 2
 
-    .prologue
-    .line 285
     sget-object v0, Lcom/android/incallui/operator/usa/jansky/JanskyContract$Accounts;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "upload_updated_contact"

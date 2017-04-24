@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap;)V
     .locals 0
 
-    .prologue
-    .line 434
-    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap.1;"
     iput-object p1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;->this$1:Lcom/google/common/collect/TreeRangeMap$SubRangeMap;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$SubRangeMapAsMap;-><init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap;)V
@@ -55,9 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 438
-    .local p0, "this":Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;, "Lcom/google/common/collect/TreeRangeMap$SubRangeMap.1;"
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;->this$1:Lcom/google/common/collect/TreeRangeMap$SubRangeMap;
 
     # getter for: Lcom/google/common/collect/TreeRangeMap$SubRangeMap;->subRange:Lcom/google/common/collect/Range;
@@ -71,16 +65,13 @@
 
     if-eqz v1, :cond_0
 
-    .line 439
     invoke-static {}, Lcom/google/common/collect/Iterators;->emptyIterator()Lcom/google/common/collect/UnmodifiableIterator;
 
     move-result-object v1
 
-    .line 447
     :goto_0
     return-object v1
 
-    .line 441
     :cond_0
     iget-object v1, p0, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;->this$1:Lcom/google/common/collect/TreeRangeMap$SubRangeMap;
 
@@ -118,8 +109,6 @@
 
     move-result-object v0
 
-    .line 447
-    .local v0, "backingItr":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/common/collect/TreeRangeMap$RangeMapEntry<TK;TV;>;>;"
     new-instance v1, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;
 
     invoke-direct {v1, p0, v0}, Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1$1;-><init>(Lcom/google/common/collect/TreeRangeMap$SubRangeMap$1;Ljava/util/Iterator;)V

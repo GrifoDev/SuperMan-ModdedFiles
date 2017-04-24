@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .prologue
-    .line 1329
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$5;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -36,12 +33,9 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
-    .param p1, "animation"    # Landroid/animation/Animator;
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 1332
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$5;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -77,7 +71,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->log(Ljava/lang/String;)V
 
-    .line 1333
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$5;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowContainer:Landroid/view/View;
@@ -87,7 +80,6 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setTranslationX(F)V
 
-    .line 1334
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$5;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowContainer:Landroid/view/View;
@@ -97,7 +89,6 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setAlpha(F)V
 
-    .line 1335
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$5;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mRedialArrowList:Landroid/widget/ImageView;
@@ -107,6 +98,5 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    .line 1336
     return-void
 .end method

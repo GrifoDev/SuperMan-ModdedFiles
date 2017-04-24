@@ -36,9 +36,7 @@
 # virtual methods
 .method public activate(Lcom/google/android/gms/maps/internal/g;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/maps/internal/g;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMap$1;->fZ:Lcom/google/android/gms/maps/LocationSource;
 
     new-instance v1, Lcom/google/android/gms/maps/GoogleMap$1$1;

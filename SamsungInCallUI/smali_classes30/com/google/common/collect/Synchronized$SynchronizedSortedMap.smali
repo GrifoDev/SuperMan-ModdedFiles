@@ -38,7 +38,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "mutex"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -52,13 +52,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1099
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "delegate":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-direct {p0, p1, p2}, Lcom/google/common/collect/Synchronized$SynchronizedMap;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
 
-    .line 1100
     return-void
 .end method
 
@@ -74,14 +69,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1109
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1110
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -95,7 +86,6 @@
 
     return-object v0
 
-    .line 1111
     :catchall_0
     move-exception v0
 
@@ -109,9 +99,6 @@
 .method bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 1095
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -122,9 +109,6 @@
 .method bridge synthetic delegate()Ljava/util/Map;
     .locals 1
 
-    .prologue
-    .line 1095
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -142,9 +126,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1104
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     invoke-super {p0}, Lcom/google/common/collect/Synchronized$SynchronizedMap;->delegate()Ljava/util/Map;
 
     move-result-object v0
@@ -162,14 +143,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1116
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1117
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -183,7 +160,6 @@
 
     return-object v0
 
-    .line 1118
     :catchall_0
     move-exception v0
 
@@ -204,15 +180,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1123
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1124
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -232,7 +203,6 @@
 
     return-object v0
 
-    .line 1125
     :catchall_0
     move-exception v0
 
@@ -251,14 +221,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1130
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1131
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -272,7 +238,6 @@
 
     return-object v0
 
-    .line 1132
     :catchall_0
     move-exception v0
 
@@ -293,16 +258,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1137
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1138
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -322,7 +281,6 @@
 
     return-object v0
 
-    .line 1139
     :catchall_0
     move-exception v0
 
@@ -343,15 +301,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1144
-    .local p0, "this":Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;, "Lcom/google/common/collect/Synchronized$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1145
     :try_start_0
     invoke-virtual {p0}, Lcom/google/common/collect/Synchronized$SynchronizedSortedMap;->delegate()Ljava/util/SortedMap;
 
@@ -371,7 +324,6 @@
 
     return-object v0
 
-    .line 1146
     :catchall_0
     move-exception v0
 

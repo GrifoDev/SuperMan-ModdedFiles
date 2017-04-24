@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/SelectPhoneAccountDialogFragment;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
-    .prologue
-    .line 117
     iput-object p1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
 
-    .prologue
-    .line 120
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
     const/4 v2, 0x1
@@ -51,7 +44,6 @@
     # setter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mIsSelected:Z
     invoke-static {v1, v2}, Lcom/android/incallui/SelectPhoneAccountDialogFragment;->access$002(Lcom/android/incallui/SelectPhoneAccountDialogFragment;Z)Z
 
-    .line 121
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
     # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mAccountHandles:Ljava/util/List;
@@ -65,8 +57,6 @@
 
     check-cast v0, Landroid/telecom/PhoneAccountHandle;
 
-    .line 122
-    .local v0, "selectedAccountHandle":Landroid/telecom/PhoneAccountHandle;
     iget-object v1, p0, Lcom/android/incallui/SelectPhoneAccountDialogFragment$1;->this$0:Lcom/android/incallui/SelectPhoneAccountDialogFragment;
 
     # getter for: Lcom/android/incallui/SelectPhoneAccountDialogFragment;->mListener:Lcom/android/incallui/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
@@ -83,6 +73,5 @@
 
     invoke-interface {v1, v0, v2}, Lcom/android/incallui/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;->onPhoneAccountSelected(Landroid/telecom/PhoneAccountHandle;Z)V
 
-    .line 123
     return-void
 .end method

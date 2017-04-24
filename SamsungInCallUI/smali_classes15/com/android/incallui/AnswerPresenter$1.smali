@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/AnswerPresenter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/AnswerPresenter;
 
-    .prologue
-    .line 86
     iput-object p1, p0, Lcom/android/incallui/AnswerPresenter$1;->this$0:Lcom/android/incallui/AnswerPresenter;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,27 +33,20 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 89
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 99
     :cond_0
     :goto_0
     return-void
 
-    .line 91
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/incallui/smartcall/SmartCallUtil$SmartCallCookieWrapper;
 
-    .line 92
-    .local v0, "smartCallcookie":Lcom/android/incallui/smartcall/SmartCallUtil$SmartCallCookieWrapper;
     if-eqz v0, :cond_0
 
     iget-object v1, p0, Lcom/android/incallui/AnswerPresenter$1;->this$0:Lcom/android/incallui/AnswerPresenter;
@@ -67,7 +57,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 93
     iget-object v1, p0, Lcom/android/incallui/AnswerPresenter$1;->this$0:Lcom/android/incallui/AnswerPresenter;
 
     invoke-virtual {v1}, Lcom/android/incallui/AnswerPresenter;->getUi()Lcom/android/incallui/Ui;
@@ -80,7 +69,6 @@
 
     invoke-interface {v1, v2}, Lcom/android/incallui/AnswerUi;->updateSmartCallRejectMsg(Lcom/android/incallui/Call;)V
 
-    .line 94
     iget-object v1, p0, Lcom/android/incallui/AnswerPresenter$1;->this$0:Lcom/android/incallui/AnswerPresenter;
 
     iget-object v2, v0, Lcom/android/incallui/smartcall/SmartCallUtil$SmartCallCookieWrapper;->call:Lcom/android/incallui/Call;
@@ -94,7 +82,6 @@
 
     goto :goto_0
 
-    .line 89
     nop
 
     :pswitch_data_0

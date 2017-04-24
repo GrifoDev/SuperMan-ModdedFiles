@@ -63,20 +63,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 2652
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
-    .local p1, "unfiltered":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "predicate":Lcom/google/common/base/Predicate;, "Lcom/google/common/base/Predicate<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Maps$ViewCachingAbstractMap;-><init>()V
 
-    .line 2653
     iput-object p1, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
 
-    .line 2654
     iput-object p2, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->predicate:Lcom/google/common/base/Predicate;
 
-    .line 2655
     return-void
 .end method
 
@@ -84,7 +76,7 @@
 # virtual methods
 .method apply(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -100,14 +92,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 2661
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     move-object v0, p1
 
-    .line 2662
-    .local v0, "k":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->predicate:Lcom/google/common/base/Predicate;
 
     invoke-static {v0, p2}, Lcom/google/common/collect/Maps;->immutableEntry(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map$Entry;
@@ -123,11 +109,7 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2681
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -169,9 +151,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2702
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
     new-instance v0, Lcom/google/common/collect/Maps$FilteredMapValues;
 
     iget-object v1, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
@@ -185,7 +164,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,17 +172,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 2686
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
     iget-object v1, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 2687
-    .local v0, "value":Ljava/lang/Object;, "TV;"
     if-eqz v0, :cond_0
 
     invoke-virtual {p0, p1, v0}, Lcom/google/common/collect/Maps$AbstractFilteredMap;->apply(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -213,11 +186,9 @@
 
     if-eqz v1, :cond_0
 
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :goto_0
     return-object v0
 
-    .restart local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     const/4 v0, 0x0
 
@@ -227,9 +198,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 2692
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Maps$AbstractFilteredMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -249,18 +217,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 2667
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1, p2}, Lcom/google/common/collect/Maps$AbstractFilteredMap;->apply(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
     invoke-static {v0}, Lcom/google/common/base/Preconditions;->checkArgument(Z)V
 
-    .line 2668
     iget-object v0, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -280,10 +242,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2673
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v2
@@ -292,7 +250,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -306,8 +263,6 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 2674
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -324,20 +279,16 @@
 
     goto :goto_0
 
-    .line 2676
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     :cond_0
     iget-object v2, p0, Lcom/google/common/collect/Maps$AbstractFilteredMap;->unfiltered:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 2677
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -346,9 +297,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2697
-    .local p0, "this":Lcom/google/common/collect/Maps$AbstractFilteredMap;, "Lcom/google/common/collect/Maps$AbstractFilteredMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Maps$AbstractFilteredMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0

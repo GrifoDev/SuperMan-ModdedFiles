@@ -33,8 +33,6 @@
 .method private constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
     .locals 0
 
-    .prologue
-    .line 189
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,11 +42,7 @@
 
 .method synthetic constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;Lcom/android/incallui/secrcs/RcsShareUI$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/android/incallui/secrcs/RcsShareUI;
-    .param p2, "x1"    # Lcom/android/incallui/secrcs/RcsShareUI$1;
 
-    .prologue
-    .line 189
     invoke-direct {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
 
     return-void
@@ -58,10 +52,7 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/String;)Landroid/database/Cursor;
     .locals 4
-    .param p1, "params"    # [Ljava/lang/String;
 
-    .prologue
-    .line 193
     iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -72,7 +63,6 @@
 
     sput-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
 
-    .line 194
     iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -89,8 +79,6 @@
 
     move-result-object v0
 
-    .line 195
-    .local v0, "c":Landroid/database/Cursor;
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200()Ljava/lang/String;
 
@@ -116,7 +104,6 @@
 
     invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 198
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200()Ljava/lang/String;
 
@@ -146,15 +133,12 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 199
     return-object v0
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 189
     check-cast p1, [Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->doInBackground([Ljava/lang/String;)Landroid/database/Cursor;
@@ -166,10 +150,7 @@
 
 .method protected onPostExecute(Landroid/database/Cursor;)V
     .locals 6
-    .param p1, "c"    # Landroid/database/Cursor;
 
-    .prologue
-    .line 204
     const-string v0, "feature_chn"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -178,7 +159,6 @@
 
     if-nez v0, :cond_0
 
-    .line 205
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -205,7 +185,6 @@
     # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->setupPromotedServiceButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;Z)V
     invoke-static/range {v0 .. v5}, Lcom/android/incallui/secrcs/RcsShareUI;->access$600(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;Z)V
 
-    .line 206
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -223,7 +202,6 @@
     # invokes: Lcom/android/incallui/secrcs/RcsShareUI;->setupRcsServicesButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;)V
     invoke-static {v0, v1, v2, v3, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$900(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;)V
 
-    .line 208
     :cond_0
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200()Ljava/lang/String;
@@ -234,7 +212,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 209
     # getter for: Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200()Ljava/lang/String;
 
@@ -286,13 +263,10 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 210
     if-eqz p1, :cond_1
 
-    .line 211
     invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 213
     :cond_1
     return-void
 .end method
@@ -300,8 +274,6 @@
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
-    .prologue
-    .line 189
     check-cast p1, Landroid/database/Cursor;
 
     invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI$ContactsQuerryTask;->onPostExecute(Landroid/database/Cursor;)V

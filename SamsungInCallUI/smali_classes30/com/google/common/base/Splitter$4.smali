@@ -25,8 +25,6 @@
 .method constructor <init>(I)V
     .locals 0
 
-    .prologue
-    .line 296
     iput p1, p0, Lcom/google/common/base/Splitter$4;->val$length:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,11 +36,7 @@
 # virtual methods
 .method public iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Lcom/google/common/base/Splitter$SplittingIterator;
     .locals 1
-    .param p1, "splitter"    # Lcom/google/common/base/Splitter;
-    .param p2, "toSplit"    # Ljava/lang/CharSequence;
 
-    .prologue
-    .line 299
     new-instance v0, Lcom/google/common/base/Splitter$4$1;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/google/common/base/Splitter$4$1;-><init>(Lcom/google/common/base/Splitter$4;Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)V
@@ -52,11 +46,7 @@
 
 .method public bridge synthetic iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Ljava/util/Iterator;
     .locals 1
-    .param p1, "x0"    # Lcom/google/common/base/Splitter;
-    .param p2, "x1"    # Ljava/lang/CharSequence;
 
-    .prologue
-    .line 296
     invoke-virtual {p0, p1, p2}, Lcom/google/common/base/Splitter$4;->iterator(Lcom/google/common/base/Splitter;Ljava/lang/CharSequence;)Lcom/google/common/base/Splitter$SplittingIterator;
 
     move-result-object v0

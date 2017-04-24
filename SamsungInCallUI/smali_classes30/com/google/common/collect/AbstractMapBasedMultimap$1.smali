@@ -29,9 +29,6 @@
 .method constructor <init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
     .locals 0
 
-    .prologue
-    .line 1201
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$1;, "Lcom/google/common/collect/AbstractMapBasedMultimap.1;"
     iput-object p1, p0, Lcom/google/common/collect/AbstractMapBasedMultimap$1;->this$0:Lcom/google/common/collect/AbstractMapBasedMultimap;
 
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractMapBasedMultimap$Itr;-><init>(Lcom/google/common/collect/AbstractMapBasedMultimap;)V
@@ -49,10 +46,5 @@
         }
     .end annotation
 
-    .prologue
-    .line 1204
-    .local p0, "this":Lcom/google/common/collect/AbstractMapBasedMultimap$1;, "Lcom/google/common/collect/AbstractMapBasedMultimap.1;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     return-object p2
 .end method

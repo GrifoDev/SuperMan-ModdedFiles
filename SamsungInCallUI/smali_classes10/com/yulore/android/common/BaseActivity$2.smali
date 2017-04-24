@@ -28,10 +28,7 @@
 # direct methods
 .method constructor <init>(Lcom/yulore/android/common/BaseActivity;ILcom/yulore/android/common/job/AsyncJob;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/yulore/android/common/BaseActivity;
 
-    .prologue
-    .line 78
     iput-object p1, p0, Lcom/yulore/android/common/BaseActivity$2;->this$0:Lcom/yulore/android/common/BaseActivity;
 
     iput p2, p0, Lcom/yulore/android/common/BaseActivity$2;->val$event:I
@@ -48,8 +45,6 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 83
     const-string v0, "YuloreIVRCommon"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -74,7 +69,6 @@
 
     invoke-static {v0, v1}, Lcom/yulore/android/common/util/Logger;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 85
     iget-object v0, p0, Lcom/yulore/android/common/BaseActivity$2;->this$0:Lcom/yulore/android/common/BaseActivity;
 
     iget v1, p0, Lcom/yulore/android/common/BaseActivity$2;->val$event:I
@@ -83,6 +77,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/yulore/android/common/BaseActivity;->onEventMainThread(ILcom/yulore/android/common/job/AsyncJob;)V
 
-    .line 86
     return-void
 .end method

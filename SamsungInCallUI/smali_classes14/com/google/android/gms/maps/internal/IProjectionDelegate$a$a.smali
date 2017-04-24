@@ -43,14 +43,12 @@
 
 .method public fromScreenLocation(Lcom/google/android/gms/dynamic/b;)Lcom/google/android/gms/maps/model/LatLng;
     .locals 6
-    .param p1, "point"    # Lcom/google/android/gms/dynamic/b;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     const/4 v0, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -190,14 +188,12 @@
 
 .method public toScreenLocation(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/dynamic/b;
     .locals 5
-    .param p1, "location"    # Lcom/google/android/gms/maps/model/LatLng;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1

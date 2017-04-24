@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    .prologue
-    .line 182
     iput-object p1, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 193
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTabView:Landroid/widget/ImageView;
@@ -54,7 +48,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    .line 194
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTabView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$200(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)Landroid/widget/ImageView;
 
@@ -66,7 +59,6 @@
 
     if-nez v0, :cond_1
 
-    .line 195
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTabView:Landroid/widget/ImageView;
@@ -83,18 +75,15 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 196
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # operator++ for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mBubbleCount:I
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$408(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)I
 
-    .line 206
     :cond_0
     :goto_0
     return-void
 
-    .line 197
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
@@ -107,7 +96,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    .line 198
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapAccept:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$500(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)Landroid/widget/ImageView;
 
@@ -119,7 +107,6 @@
 
     if-nez v0, :cond_2
 
-    .line 199
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapAccept:Landroid/widget/ImageView;
@@ -136,7 +123,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 200
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # operator++ for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mBubbleCount:I
@@ -144,7 +130,6 @@
 
     goto :goto_0
 
-    .line 201
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
@@ -157,7 +142,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    .line 202
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapReject:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$600(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)Landroid/widget/ImageView;
 
@@ -169,7 +153,6 @@
 
     if-nez v0, :cond_0
 
-    .line 203
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # getter for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapReject:Landroid/widget/ImageView;
@@ -186,7 +169,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 204
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$2;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # operator++ for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mBubbleCount:I
@@ -197,18 +179,12 @@
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 189
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .prologue
-    .line 185
     return-void
 .end method

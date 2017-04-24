@@ -239,6 +239,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="extra_vol_off">Extra volume disabled.</string>
     <string name="extra_vol_on">Extra volume enabled.</string>
     <string name="far_end_stopped_share_video">%s stopped sharing video.</string>
+    <string name="far_end_stopped_share_video_att">%s stopped sending video.</string>
     <string name="fareastone_operator_name">FarEasTone</string>
     <string name="file_not_supp">File not supported.</string>
     <string name="full_name">Name</string>
@@ -619,7 +620,7 @@ Camera"</string>
     <string name="secOnscreenResumeCallText">Resume</string>
     <string name="secOnscreenShowCallOption">Show call options</string>
     <string name="secOnscreenSpeaker">Speaker</string>
-    <string name="secOnscreenStopText">Stop</string>
+    <string name="secOnscreenStopText">Stop recording</string>
     <string name="secOnscreenSwapText">Swap</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Switch camera</string>
@@ -694,6 +695,7 @@ Camera"</string>
     <string name="switch_to_voice_call_failed">Request to switch to voice call failed.</string>
     <string name="switched_to_voip_mo">Switched to voice call.</string>
     <string name="switched_to_voip_mt">Switched to voice call because of request from called party.</string>
+    <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s turned off video.</string>
     <string name="switching_camera_failed">Failed to switch cameras.</string>
     <string name="switching_to_voice_call">Switching to voice call…</string>
@@ -709,7 +711,9 @@ Camera"</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
-    <string name="usa_att_modify_receive_to_video">Select video mode</string>
+    <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
+    <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Tap below to select call type.</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Call type cannot be changed during conference calls.</string>
     <string name="usa_gsm_modify_receive_to_video">%s wants to switch to video call.</string>
@@ -717,6 +721,7 @@ Camera"</string>
     <string name="usa_gsm_modify_requested_wait_for_response">Waiting for response</string>
     <string name="usa_gsm_modify_select_call_type">Select call type</string>
     <string name="usa_gsm_switching_to_voice_call">Switching to voice only.</string>
+    <string name="usa_tmo_notify_wifi_to_lte_popup_text">Video turned off as mobile data is unavailable.</string>
     <string name="usa_volte_reject_upgrade_request">%s cannot receive video calls at this time.</string>
     <string name="usa_volte_reject_upgrade_request_tmo">Video calling is unavailable.</string>
     <string name="usa_vzw_change_to_oneway_video">"Change to
@@ -761,6 +766,8 @@ Your video call is now running on the mobile network. (Data usage applies if you
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Do not show again</string>
     <string name="video_calling_incoming">Video calling</string>
+    <string name="video_calls_quality_poor_tmo">Connection quality is poor. Video call may switch to voice call.</string>
+    <string name="video_calls_temporarily_not_available_att">The number you are calling cannot receive video calls at this time. Call connected as a voice call.</string>
     <string name="video_calls_temporarily_not_available_tmo">Video calling is unavailable.</string>
     <string name="video_paused_info_text">Video paused</string>
     <string name="video_saved">Video saved to %s.</string>

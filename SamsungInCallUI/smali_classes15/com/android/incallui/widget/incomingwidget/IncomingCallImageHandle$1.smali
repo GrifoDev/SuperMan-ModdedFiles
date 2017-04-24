@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .prologue
-    .line 202
     iput-object p1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,16 +33,13 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
     const-wide/16 v4, 0x12c
 
     const/16 v3, 0x64
 
     const/4 v2, 0x0
 
-    .line 204
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mParent:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;
@@ -55,12 +49,10 @@
 
     if-nez v0, :cond_1
 
-    .line 268
     :cond_0
     :goto_0
     return-void
 
-    .line 206
     :cond_1
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -68,7 +60,6 @@
 
     goto :goto_0
 
-    .line 228
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -79,7 +70,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 230
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -92,7 +82,6 @@
 
     if-ne v0, v1, :cond_7
 
-    .line 231
     const-string v0, "IncomingCallImageHandle"
 
     const-string v1, "InCallState.NO_CALLS "
@@ -101,7 +90,6 @@
 
     goto :goto_0
 
-    .line 208
     :sswitch_1
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -115,7 +103,6 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 209
     const-string v0, "IncomingCallImageHandle"
 
     const-string v1, "InCallState.NO_CALLS "
@@ -124,7 +111,6 @@
 
     goto :goto_0
 
-    .line 212
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -148,13 +134,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 213
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->animateForArrowContainer()V
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$200(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
 
-    .line 214
     const-string v0, "sview_cover_redial_call"
 
     iget-object v1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
@@ -174,7 +158,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .line 215
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mTag:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$300(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Ljava/lang/String;
 
@@ -186,14 +169,12 @@
 
     if-eqz v0, :cond_4
 
-    .line 216
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->animateForRedialArrowContainer()V
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$400(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
 
-    .line 219
     :cond_4
     const-string v0, "sview_cover_incall"
 
@@ -214,7 +195,6 @@
 
     iget-object v1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .line 220
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mTag:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$300(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Ljava/lang/String;
 
@@ -226,14 +206,12 @@
 
     if-eqz v0, :cond_6
 
-    .line 221
     :cond_5
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # invokes: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->animateForInCallArrowContainer()V
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$500(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)V
 
-    .line 224
     :cond_6
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -250,7 +228,6 @@
 
     goto/16 :goto_0
 
-    .line 234
     :cond_7
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -267,7 +244,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .line 235
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mArrow:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$700(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Landroid/widget/ImageView;
 
@@ -281,7 +257,6 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    .line 236
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mEnableArrowAnimation:Z
     invoke-static {v0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$100(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;)Z
 
@@ -289,7 +264,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 237
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandleType:I
@@ -301,7 +275,6 @@
 
     goto/16 :goto_0
 
-    .line 240
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -321,13 +294,11 @@
 
     if-ne v0, v1, :cond_8
 
-    .line 241
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mArrowAnimationIndex:I
     invoke-static {v0, v2}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$902(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;I)I
 
-    .line 243
     :cond_8
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -354,7 +325,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 244
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandler:Landroid/os/Handler;
@@ -366,7 +336,6 @@
 
     goto/16 :goto_0
 
-    .line 248
     :pswitch_1
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -386,13 +355,11 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 249
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # setter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mArrowAnimationIndex:I
     invoke-static {v0, v2}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->access$902(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;I)I
 
-    .line 251
     :cond_9
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -419,7 +386,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 252
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
     # getter for: Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->mHandler:Landroid/os/Handler;
@@ -431,7 +397,6 @@
 
     goto/16 :goto_0
 
-    .line 262
     :sswitch_2
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle$1;->this$0:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
@@ -441,7 +406,6 @@
 
     goto/16 :goto_0
 
-    .line 206
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_0
@@ -449,7 +413,6 @@
         0x12c -> :sswitch_2
     .end sparse-switch
 
-    .line 237
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

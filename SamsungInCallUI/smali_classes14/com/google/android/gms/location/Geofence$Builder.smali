@@ -140,11 +140,7 @@
 
 .method public setCircularRegion(DDF)Lcom/google/android/gms/location/Geofence$Builder;
     .locals 1
-    .param p1, "latitude"    # D
-    .param p3, "longitude"    # D
-    .param p5, "radius"    # F
 
-    .prologue
     const/4 v0, 0x1
 
     iput-short v0, p0, Lcom/google/android/gms/location/Geofence$Builder;->fx:S
@@ -160,9 +156,7 @@
 
 .method public setExpirationDuration(J)Lcom/google/android/gms/location/Geofence$Builder;
     .locals 3
-    .param p1, "durationMillis"    # J
 
-    .prologue
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -190,9 +184,7 @@
 
 .method public setRequestId(Ljava/lang/String;)Lcom/google/android/gms/location/Geofence$Builder;
     .locals 0
-    .param p1, "requestId"    # Ljava/lang/String;
 
-    .prologue
     iput-object p1, p0, Lcom/google/android/gms/location/Geofence$Builder;->fu:Ljava/lang/String;
 
     return-object p0
@@ -200,9 +192,7 @@
 
 .method public setTransitionTypes(I)Lcom/google/android/gms/location/Geofence$Builder;
     .locals 0
-    .param p1, "transitionTypes"    # I
 
-    .prologue
     iput p1, p0, Lcom/google/android/gms/location/Geofence$Builder;->fv:I
 
     return-object p0

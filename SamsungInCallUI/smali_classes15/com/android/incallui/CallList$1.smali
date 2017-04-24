@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/CallList;Landroid/os/Looper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/CallList;
-    .param p2, "x0"    # Landroid/os/Looper;
 
-    .prologue
-    .line 1077
     iput-object p1, p0, Lcom/android/incallui/CallList$1;->this$0:Lcom/android/incallui/CallList;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -37,15 +33,11 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 1080
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1090
     const-string v0, "CallList"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -70,11 +62,9 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1093
     :goto_0
     return-void
 
-    .line 1082
     :pswitch_0
     const-string v0, "CallList"
 
@@ -84,7 +74,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 1083
     iget-object v1, p0, Lcom/android/incallui/CallList$1;->this$0:Lcom/android/incallui/CallList;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -96,7 +85,6 @@
 
     goto :goto_0
 
-    .line 1086
     :pswitch_1
     const-string v0, "CallList"
 
@@ -104,7 +92,6 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1087
     iget-object v0, p0, Lcom/android/incallui/CallList$1;->this$0:Lcom/android/incallui/CallList;
 
     # invokes: Lcom/android/incallui/CallList;->notifyGenericListeners()V
@@ -112,7 +99,6 @@
 
     goto :goto_0
 
-    .line 1080
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

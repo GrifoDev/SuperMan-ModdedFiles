@@ -27,8 +27,6 @@
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/WeakCache;Ljava/util/Set;)V
     .locals 0
 
-    .prologue
-    .line 123
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4;->this$0:Lcom/thoughtworks/xstream/core/util/WeakCache;
 
     iput-object p2, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4;->val$set:Ljava/util/Set;
@@ -42,16 +40,11 @@
 # virtual methods
 .method public visit(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1, "element"    # Ljava/lang/Object;
 
-    .prologue
-    .line 126
     move-object v0, p1
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 127
-    .local v0, "entry":Ljava/util/Map$Entry;
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4;->val$set:Ljava/util/Set;
 
     new-instance v2, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;
@@ -60,7 +53,6 @@
 
     invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 142
     const/4 v1, 0x0
 
     return-object v1

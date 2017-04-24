@@ -64,14 +64,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 279
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
-    .local p2, "factory":Lcom/google/common/base/Supplier;, "Lcom/google/common/base/Supplier<+Ljava/util/Set<TV;>;>;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/AbstractSetMultimap;-><init>(Ljava/util/Map;)V
 
-    .line 280
     invoke-static {p2}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -80,13 +74,11 @@
 
     iput-object v0, p0, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->factory:Lcom/google/common/base/Supplier;
 
-    .line 281
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
-    .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.io.ObjectInputStream"
     .end annotation
@@ -98,12 +90,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 299
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 300
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v1
@@ -112,24 +100,19 @@
 
     iput-object v1, p0, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->factory:Lcom/google/common/base/Supplier;
 
-    .line 301
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Map;
 
-    .line 302
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;"
     invoke-virtual {p0, v0}, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->setMap(Ljava/util/Map;)V
 
-    .line 303
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation build Lcom/google/common/annotations/GwtIncompatible;
         value = "java.io.ObjectOutputStream"
     .end annotation
@@ -140,24 +123,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 291
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 292
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->factory:Lcom/google/common/base/Supplier;
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 293
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->backingMap()Ljava/util/Map;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 294
     return-void
 .end method
 
@@ -166,9 +143,6 @@
 .method protected bridge synthetic createCollection()Ljava/util/Collection;
     .locals 1
 
-    .prologue
-    .line 275
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
     invoke-virtual {p0}, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->createCollection()Ljava/util/Set;
 
     move-result-object v0
@@ -186,9 +160,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 285
-    .local p0, "this":Lcom/google/common/collect/Multimaps$CustomSetMultimap;, "Lcom/google/common/collect/Multimaps$CustomSetMultimap<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/Multimaps$CustomSetMultimap;->factory:Lcom/google/common/base/Supplier;
 
     invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;

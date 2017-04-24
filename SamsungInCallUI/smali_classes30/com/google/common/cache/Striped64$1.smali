@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 322
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,8 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 322
     invoke-virtual {p0}, Lcom/google/common/cache/Striped64$1;->run()Lsun/misc/Unsafe;
 
     move-result-object v0
@@ -65,50 +61,37 @@
         }
     .end annotation
 
-    .prologue
-    .line 324
     const-class v3, Lsun/misc/Unsafe;
 
-    .line 325
-    .local v3, "k":Ljava/lang/Class;, "Ljava/lang/Class<Lsun/misc/Unsafe;>;"
     invoke-virtual {v3}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
     move-result-object v0
 
-    .local v0, "arr$":[Ljava/lang/reflect/Field;
     array-length v4, v0
 
-    .local v4, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v4, :cond_1
 
     aget-object v1, v0, v2
 
-    .line 326
-    .local v1, "f":Ljava/lang/reflect/Field;
     const/4 v6, 0x1
 
     invoke-virtual {v1, v6}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 327
     const/4 v6, 0x0
 
     invoke-virtual {v1, v6}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 328
-    .local v5, "x":Ljava/lang/Object;
     invoke-virtual {v3, v5}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
-    .line 329
     invoke-virtual {v3, v5}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
@@ -117,15 +100,11 @@
 
     return-object v6
 
-    .line 325
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 331
-    .end local v1    # "f":Ljava/lang/reflect/Field;
-    .end local v5    # "x":Ljava/lang/Object;
     :cond_1
     new-instance v6, Ljava/lang/NoSuchFieldError;
 

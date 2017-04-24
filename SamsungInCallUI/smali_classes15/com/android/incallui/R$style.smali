@@ -831,157 +831,157 @@
 
 .field public static final TutorialPopupStyle:I = 0x7f0b003a
 
-.field public static final Widget_AppCompat_ActionBar:I = 0x7f0b0198
+.field public static final VideoTextStrokeStyle:I = 0x7f0b0198
 
-.field public static final Widget_AppCompat_ActionBar_Solid:I = 0x7f0b0199
+.field public static final Widget_AppCompat_ActionBar:I = 0x7f0b0199
 
-.field public static final Widget_AppCompat_ActionBar_TabBar:I = 0x7f0b019a
+.field public static final Widget_AppCompat_ActionBar_Solid:I = 0x7f0b019a
 
-.field public static final Widget_AppCompat_ActionBar_TabText:I = 0x7f0b019b
+.field public static final Widget_AppCompat_ActionBar_TabBar:I = 0x7f0b019b
 
-.field public static final Widget_AppCompat_ActionBar_TabView:I = 0x7f0b019c
+.field public static final Widget_AppCompat_ActionBar_TabText:I = 0x7f0b019c
 
-.field public static final Widget_AppCompat_ActionButton:I = 0x7f0b019d
+.field public static final Widget_AppCompat_ActionBar_TabView:I = 0x7f0b019d
 
-.field public static final Widget_AppCompat_ActionButton_CloseMode:I = 0x7f0b019e
+.field public static final Widget_AppCompat_ActionButton:I = 0x7f0b019e
 
-.field public static final Widget_AppCompat_ActionButton_Overflow:I = 0x7f0b019f
+.field public static final Widget_AppCompat_ActionButton_CloseMode:I = 0x7f0b019f
 
-.field public static final Widget_AppCompat_ActionMode:I = 0x7f0b01a0
+.field public static final Widget_AppCompat_ActionButton_Overflow:I = 0x7f0b01a0
 
-.field public static final Widget_AppCompat_ActivityChooserView:I = 0x7f0b01a1
+.field public static final Widget_AppCompat_ActionMode:I = 0x7f0b01a1
 
-.field public static final Widget_AppCompat_AutoCompleteTextView:I = 0x7f0b01a2
+.field public static final Widget_AppCompat_ActivityChooserView:I = 0x7f0b01a2
 
-.field public static final Widget_AppCompat_Button:I = 0x7f0b01a3
+.field public static final Widget_AppCompat_AutoCompleteTextView:I = 0x7f0b01a3
 
-.field public static final Widget_AppCompat_ButtonBar:I = 0x7f0b01a9
+.field public static final Widget_AppCompat_Button:I = 0x7f0b01a4
 
-.field public static final Widget_AppCompat_ButtonBar_AlertDialog:I = 0x7f0b01aa
+.field public static final Widget_AppCompat_ButtonBar:I = 0x7f0b01aa
 
-.field public static final Widget_AppCompat_Button_Borderless:I = 0x7f0b01a4
+.field public static final Widget_AppCompat_ButtonBar_AlertDialog:I = 0x7f0b01ab
 
-.field public static final Widget_AppCompat_Button_Borderless_Colored:I = 0x7f0b01a5
+.field public static final Widget_AppCompat_Button_Borderless:I = 0x7f0b01a5
 
-.field public static final Widget_AppCompat_Button_ButtonBar_AlertDialog:I = 0x7f0b01a6
+.field public static final Widget_AppCompat_Button_Borderless_Colored:I = 0x7f0b01a6
 
-.field public static final Widget_AppCompat_Button_Colored:I = 0x7f0b01a7
+.field public static final Widget_AppCompat_Button_ButtonBar_AlertDialog:I = 0x7f0b01a7
 
-.field public static final Widget_AppCompat_Button_Small:I = 0x7f0b01a8
+.field public static final Widget_AppCompat_Button_Colored:I = 0x7f0b01a8
 
-.field public static final Widget_AppCompat_CompoundButton_CheckBox:I = 0x7f0b01ab
+.field public static final Widget_AppCompat_Button_Small:I = 0x7f0b01a9
 
-.field public static final Widget_AppCompat_CompoundButton_RadioButton:I = 0x7f0b01ac
+.field public static final Widget_AppCompat_CompoundButton_CheckBox:I = 0x7f0b01ac
 
-.field public static final Widget_AppCompat_CompoundButton_Switch:I = 0x7f0b01ad
+.field public static final Widget_AppCompat_CompoundButton_RadioButton:I = 0x7f0b01ad
 
-.field public static final Widget_AppCompat_DrawerArrowToggle:I = 0x7f0b01ae
+.field public static final Widget_AppCompat_CompoundButton_Switch:I = 0x7f0b01ae
 
-.field public static final Widget_AppCompat_DropDownItem_Spinner:I = 0x7f0b01af
+.field public static final Widget_AppCompat_DrawerArrowToggle:I = 0x7f0b01af
 
-.field public static final Widget_AppCompat_EditText:I = 0x7f0b01b0
+.field public static final Widget_AppCompat_DropDownItem_Spinner:I = 0x7f0b01b0
 
-.field public static final Widget_AppCompat_ImageButton:I = 0x7f0b01b1
+.field public static final Widget_AppCompat_EditText:I = 0x7f0b01b1
 
-.field public static final Widget_AppCompat_Light_ActionBar:I = 0x7f0b01b2
+.field public static final Widget_AppCompat_ImageButton:I = 0x7f0b01b2
 
-.field public static final Widget_AppCompat_Light_ActionBar_Solid:I = 0x7f0b01b3
+.field public static final Widget_AppCompat_Light_ActionBar:I = 0x7f0b01b3
 
-.field public static final Widget_AppCompat_Light_ActionBar_Solid_Inverse:I = 0x7f0b01b4
+.field public static final Widget_AppCompat_Light_ActionBar_Solid:I = 0x7f0b01b4
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabBar:I = 0x7f0b01b5
+.field public static final Widget_AppCompat_Light_ActionBar_Solid_Inverse:I = 0x7f0b01b5
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabBar_Inverse:I = 0x7f0b01b6
+.field public static final Widget_AppCompat_Light_ActionBar_TabBar:I = 0x7f0b01b6
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabText:I = 0x7f0b01b7
+.field public static final Widget_AppCompat_Light_ActionBar_TabBar_Inverse:I = 0x7f0b01b7
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabText_Inverse:I = 0x7f0b01b8
+.field public static final Widget_AppCompat_Light_ActionBar_TabText:I = 0x7f0b01b8
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabView:I = 0x7f0b01b9
+.field public static final Widget_AppCompat_Light_ActionBar_TabText_Inverse:I = 0x7f0b01b9
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabView_Inverse:I = 0x7f0b01ba
+.field public static final Widget_AppCompat_Light_ActionBar_TabView:I = 0x7f0b01ba
 
-.field public static final Widget_AppCompat_Light_ActionButton:I = 0x7f0b01bb
+.field public static final Widget_AppCompat_Light_ActionBar_TabView_Inverse:I = 0x7f0b01bb
 
-.field public static final Widget_AppCompat_Light_ActionButton_CloseMode:I = 0x7f0b01bc
+.field public static final Widget_AppCompat_Light_ActionButton:I = 0x7f0b01bc
 
-.field public static final Widget_AppCompat_Light_ActionButton_Overflow:I = 0x7f0b01bd
+.field public static final Widget_AppCompat_Light_ActionButton_CloseMode:I = 0x7f0b01bd
 
-.field public static final Widget_AppCompat_Light_ActionMode_Inverse:I = 0x7f0b01be
+.field public static final Widget_AppCompat_Light_ActionButton_Overflow:I = 0x7f0b01be
 
-.field public static final Widget_AppCompat_Light_ActivityChooserView:I = 0x7f0b01bf
+.field public static final Widget_AppCompat_Light_ActionMode_Inverse:I = 0x7f0b01bf
 
-.field public static final Widget_AppCompat_Light_AutoCompleteTextView:I = 0x7f0b01c0
+.field public static final Widget_AppCompat_Light_ActivityChooserView:I = 0x7f0b01c0
 
-.field public static final Widget_AppCompat_Light_DropDownItem_Spinner:I = 0x7f0b01c1
+.field public static final Widget_AppCompat_Light_AutoCompleteTextView:I = 0x7f0b01c1
 
-.field public static final Widget_AppCompat_Light_ListPopupWindow:I = 0x7f0b01c2
+.field public static final Widget_AppCompat_Light_DropDownItem_Spinner:I = 0x7f0b01c2
 
-.field public static final Widget_AppCompat_Light_ListView_DropDown:I = 0x7f0b01c3
+.field public static final Widget_AppCompat_Light_ListPopupWindow:I = 0x7f0b01c3
 
-.field public static final Widget_AppCompat_Light_PopupMenu:I = 0x7f0b01c4
+.field public static final Widget_AppCompat_Light_ListView_DropDown:I = 0x7f0b01c4
 
-.field public static final Widget_AppCompat_Light_PopupMenu_Overflow:I = 0x7f0b01c5
+.field public static final Widget_AppCompat_Light_PopupMenu:I = 0x7f0b01c5
 
-.field public static final Widget_AppCompat_Light_SearchView:I = 0x7f0b01c6
+.field public static final Widget_AppCompat_Light_PopupMenu_Overflow:I = 0x7f0b01c6
 
-.field public static final Widget_AppCompat_Light_Spinner_DropDown_ActionBar:I = 0x7f0b01c7
+.field public static final Widget_AppCompat_Light_SearchView:I = 0x7f0b01c7
 
-.field public static final Widget_AppCompat_ListMenuView:I = 0x7f0b01c8
+.field public static final Widget_AppCompat_Light_Spinner_DropDown_ActionBar:I = 0x7f0b01c8
 
-.field public static final Widget_AppCompat_ListPopupWindow:I = 0x7f0b01c9
+.field public static final Widget_AppCompat_ListMenuView:I = 0x7f0b01c9
 
-.field public static final Widget_AppCompat_ListView:I = 0x7f0b01ca
+.field public static final Widget_AppCompat_ListPopupWindow:I = 0x7f0b01ca
 
-.field public static final Widget_AppCompat_ListView_DropDown:I = 0x7f0b01cb
+.field public static final Widget_AppCompat_ListView:I = 0x7f0b01cb
 
-.field public static final Widget_AppCompat_ListView_Menu:I = 0x7f0b01cc
+.field public static final Widget_AppCompat_ListView_DropDown:I = 0x7f0b01cc
 
-.field public static final Widget_AppCompat_PopupMenu:I = 0x7f0b01cd
+.field public static final Widget_AppCompat_ListView_Menu:I = 0x7f0b01cd
 
-.field public static final Widget_AppCompat_PopupMenu_Overflow:I = 0x7f0b01ce
+.field public static final Widget_AppCompat_PopupMenu:I = 0x7f0b01ce
 
-.field public static final Widget_AppCompat_PopupWindow:I = 0x7f0b01cf
+.field public static final Widget_AppCompat_PopupMenu_Overflow:I = 0x7f0b01cf
 
-.field public static final Widget_AppCompat_ProgressBar:I = 0x7f0b01d0
+.field public static final Widget_AppCompat_PopupWindow:I = 0x7f0b01d0
 
-.field public static final Widget_AppCompat_ProgressBar_Horizontal:I = 0x7f0b01d1
+.field public static final Widget_AppCompat_ProgressBar:I = 0x7f0b01d1
 
-.field public static final Widget_AppCompat_RatingBar:I = 0x7f0b01d2
+.field public static final Widget_AppCompat_ProgressBar_Horizontal:I = 0x7f0b01d2
 
-.field public static final Widget_AppCompat_RatingBar_Indicator:I = 0x7f0b01d3
+.field public static final Widget_AppCompat_RatingBar:I = 0x7f0b01d3
 
-.field public static final Widget_AppCompat_RatingBar_Small:I = 0x7f0b01d4
+.field public static final Widget_AppCompat_RatingBar_Indicator:I = 0x7f0b01d4
 
-.field public static final Widget_AppCompat_SearchView:I = 0x7f0b01d5
+.field public static final Widget_AppCompat_RatingBar_Small:I = 0x7f0b01d5
 
-.field public static final Widget_AppCompat_SearchView_ActionBar:I = 0x7f0b01d6
+.field public static final Widget_AppCompat_SearchView:I = 0x7f0b01d6
 
-.field public static final Widget_AppCompat_SeekBar:I = 0x7f0b01d7
+.field public static final Widget_AppCompat_SearchView_ActionBar:I = 0x7f0b01d7
 
-.field public static final Widget_AppCompat_SeekBar_Discrete:I = 0x7f0b01d8
+.field public static final Widget_AppCompat_SeekBar:I = 0x7f0b01d8
 
-.field public static final Widget_AppCompat_Spinner:I = 0x7f0b01d9
+.field public static final Widget_AppCompat_SeekBar_Discrete:I = 0x7f0b01d9
 
-.field public static final Widget_AppCompat_Spinner_DropDown:I = 0x7f0b01da
+.field public static final Widget_AppCompat_Spinner:I = 0x7f0b01da
 
-.field public static final Widget_AppCompat_Spinner_DropDown_ActionBar:I = 0x7f0b01db
+.field public static final Widget_AppCompat_Spinner_DropDown:I = 0x7f0b01db
 
-.field public static final Widget_AppCompat_Spinner_Underlined:I = 0x7f0b01dc
+.field public static final Widget_AppCompat_Spinner_DropDown_ActionBar:I = 0x7f0b01dc
 
-.field public static final Widget_AppCompat_TextView_SpinnerItem:I = 0x7f0b01dd
+.field public static final Widget_AppCompat_Spinner_Underlined:I = 0x7f0b01dd
 
-.field public static final Widget_AppCompat_Toolbar:I = 0x7f0b01de
+.field public static final Widget_AppCompat_TextView_SpinnerItem:I = 0x7f0b01de
 
-.field public static final Widget_AppCompat_Toolbar_Button_Navigation:I = 0x7f0b01df
+.field public static final Widget_AppCompat_Toolbar:I = 0x7f0b01df
+
+.field public static final Widget_AppCompat_Toolbar_Button_Navigation:I = 0x7f0b01e0
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 8712
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

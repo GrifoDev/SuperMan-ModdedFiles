@@ -35,11 +35,7 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
-    .param p1, "component"    # Landroid/content/ComponentName;
-    .param p2, "binder"    # Landroid/os/IBinder;
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/internal/k$e;, "Lcom/google/android/gms/internal/k<TT;>.e;"
     iget-object v0, p0, Lcom/google/android/gms/internal/k$e;->bE:Lcom/google/android/gms/internal/k;
 
     invoke-virtual {v0, p2}, Lcom/google/android/gms/internal/k;->f(Landroid/os/IBinder;)V
@@ -49,10 +45,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
-    .param p1, "component"    # Landroid/content/ComponentName;
 
-    .prologue
-    .local p0, "this":Lcom/google/android/gms/internal/k$e;, "Lcom/google/android/gms/internal/k<TT;>.e;"
     iget-object v0, p0, Lcom/google/android/gms/internal/k$e;->bE:Lcom/google/android/gms/internal/k;
 
     const/4 v1, 0x0

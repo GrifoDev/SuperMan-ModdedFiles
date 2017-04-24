@@ -13,8 +13,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 31
     const-class v0, Landroid/media/AudioManager;
 
     const-string v1, "isRemoteSubmixOn"
@@ -29,15 +27,12 @@
 
     sput-object v0, Lcom/android/incallui/wrapper/SamsungAudioManagerWrapper;->sMethodIsRemoteSubmixOn:Ljava/lang/reflect/Method;
 
-    .line 32
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,14 +40,9 @@
 
 .method public static isRemoteSubmixOn(Landroid/media/AudioManager;)Z
     .locals 5
-    .param p0, "instance"    # Landroid/media/AudioManager;
 
-    .prologue
-    .line 35
     const/4 v1, 0x0
 
-    .line 37
-    .local v1, "retValue":Z
     :try_start_0
     sget-object v2, Lcom/android/incallui/wrapper/SamsungAudioManagerWrapper;->sMethodIsRemoteSubmixOn:Ljava/lang/reflect/Method;
 
@@ -72,16 +62,12 @@
 
     move-result v1
 
-    .line 41
     :goto_0
     return v1
 
-    .line 38
     :catch_0
     move-exception v0
 
-    .line 39
-    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "SamsungAudioManagerWrapper"
 
     new-instance v3, Ljava/lang/StringBuilder;

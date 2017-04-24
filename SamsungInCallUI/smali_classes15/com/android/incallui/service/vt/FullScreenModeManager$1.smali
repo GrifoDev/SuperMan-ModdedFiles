@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/vt/FullScreenModeManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/vt/FullScreenModeManager;
 
-    .prologue
-    .line 38
     iput-object p1, p0, Lcom/android/incallui/service/vt/FullScreenModeManager$1;->this$0:Lcom/android/incallui/service/vt/FullScreenModeManager;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 41
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 49
     :goto_0
     return-void
 
-    .line 43
     :pswitch_0
     iget-object v0, p0, Lcom/android/incallui/service/vt/FullScreenModeManager$1;->this$0:Lcom/android/incallui/service/vt/FullScreenModeManager;
 
@@ -57,7 +49,6 @@
 
     goto :goto_0
 
-    .line 41
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

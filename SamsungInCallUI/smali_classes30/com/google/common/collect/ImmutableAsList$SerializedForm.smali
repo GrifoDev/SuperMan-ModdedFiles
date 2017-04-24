@@ -47,15 +47,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 67
-    .local p1, "collection":Lcom/google/common/collect/ImmutableCollection;, "Lcom/google/common/collect/ImmutableCollection<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 68
     iput-object p1, p0, Lcom/google/common/collect/ImmutableAsList$SerializedForm;->collection:Lcom/google/common/collect/ImmutableCollection;
 
-    .line 69
     return-void
 .end method
 
@@ -64,8 +59,6 @@
 .method readResolve()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 72
     iget-object v0, p0, Lcom/google/common/collect/ImmutableAsList$SerializedForm;->collection:Lcom/google/common/collect/ImmutableCollection;
 
     invoke-virtual {v0}, Lcom/google/common/collect/ImmutableCollection;->asList()Lcom/google/common/collect/ImmutableList;

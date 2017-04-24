@@ -64,20 +64,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 33
-    .local p0, "this":Lcom/google/common/collect/ImmutableEntry;, "Lcom/google/common/collect/ImmutableEntry<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Lcom/google/common/collect/AbstractMapEntry;-><init>()V
 
-    .line 34
     iput-object p1, p0, Lcom/google/common/collect/ImmutableEntry;->key:Ljava/lang/Object;
 
-    .line 35
     iput-object p2, p0, Lcom/google/common/collect/ImmutableEntry;->value:Ljava/lang/Object;
 
-    .line 36
     return-void
 .end method
 
@@ -94,9 +86,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 41
-    .local p0, "this":Lcom/google/common/collect/ImmutableEntry;, "Lcom/google/common/collect/ImmutableEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableEntry;->key:Ljava/lang/Object;
 
     return-object v0
@@ -113,9 +102,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 47
-    .local p0, "this":Lcom/google/common/collect/ImmutableEntry;, "Lcom/google/common/collect/ImmutableEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/google/common/collect/ImmutableEntry;->value:Ljava/lang/Object;
 
     return-object v0
@@ -129,10 +115,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 52
-    .local p0, "this":Lcom/google/common/collect/ImmutableEntry;, "Lcom/google/common/collect/ImmutableEntry<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

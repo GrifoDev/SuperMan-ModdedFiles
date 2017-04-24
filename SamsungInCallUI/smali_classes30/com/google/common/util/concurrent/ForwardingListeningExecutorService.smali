@@ -10,8 +10,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 33
     invoke-direct {p0}, Lcom/google/common/util/concurrent/ForwardingExecutorService;-><init>()V
 
     return-void
@@ -25,8 +23,6 @@
 .method protected bridge synthetic delegate()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 30
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->delegate()Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     move-result-object v0
@@ -37,8 +33,6 @@
 .method protected bridge synthetic delegate()Ljava/util/concurrent/ExecutorService;
     .locals 1
 
-    .prologue
-    .line 30
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->delegate()Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     move-result-object v0
@@ -48,7 +42,6 @@
 
 .method public submit(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
-    .param p1, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 45
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->delegate()Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     move-result-object v0
@@ -74,7 +65,6 @@
 
 .method public submit(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
-    .param p1, "task"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -87,9 +77,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 50
-    .local p2, "result":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->delegate()Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     move-result-object v0
@@ -115,9 +102,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 40
-    .local p1, "task":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TT;>;"
     invoke-virtual {p0}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->delegate()Lcom/google/common/util/concurrent/ListeningExecutorService;
 
     move-result-object v0
@@ -131,10 +115,7 @@
 
 .method public bridge synthetic submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 30
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->submit(Ljava/lang/Runnable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0
@@ -144,11 +125,7 @@
 
 .method public bridge synthetic submit(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Runnable;
-    .param p2, "x1"    # Ljava/lang/Object;
 
-    .prologue
-    .line 30
     invoke-virtual {p0, p1, p2}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->submit(Ljava/lang/Runnable;Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0
@@ -158,10 +135,7 @@
 
 .method public bridge synthetic submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
     .locals 1
-    .param p1, "x0"    # Ljava/util/concurrent/Callable;
 
-    .prologue
-    .line 30
     invoke-virtual {p0, p1}, Lcom/google/common/util/concurrent/ForwardingListeningExecutorService;->submit(Ljava/util/concurrent/Callable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0

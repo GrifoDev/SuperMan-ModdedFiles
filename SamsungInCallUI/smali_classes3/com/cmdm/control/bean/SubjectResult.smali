@@ -33,18 +33,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 28
     new-instance v0, Lcom/cmdm/control/bean/SubjectList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/SubjectList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/SubjectResult;->subjectList:Lcom/cmdm/control/bean/SubjectList;
 
-    .line 23
     return-void
 .end method
 
@@ -53,8 +49,6 @@
 .method public getOffset()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 48
     iget-object v0, p0, Lcom/cmdm/control/bean/SubjectResult;->offset:Ljava/lang/String;
 
     return-object v0
@@ -63,8 +57,6 @@
 .method public getRange()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 62
     iget-object v0, p0, Lcom/cmdm/control/bean/SubjectResult;->range:Ljava/lang/String;
 
     return-object v0
@@ -73,8 +65,6 @@
 .method public getSubjectList()Lcom/cmdm/control/bean/SubjectList;
     .locals 1
 
-    .prologue
-    .line 76
     iget-object v0, p0, Lcom/cmdm/control/bean/SubjectResult;->subjectList:Lcom/cmdm/control/bean/SubjectList;
 
     return-object v0
@@ -82,36 +72,24 @@
 
 .method public setOffset(Ljava/lang/String;)V
     .locals 0
-    .param p1, "offset"    # Ljava/lang/String;
 
-    .prologue
-    .line 55
     iput-object p1, p0, Lcom/cmdm/control/bean/SubjectResult;->offset:Ljava/lang/String;
 
-    .line 56
     return-void
 .end method
 
 .method public setRange(Ljava/lang/String;)V
     .locals 0
-    .param p1, "range"    # Ljava/lang/String;
 
-    .prologue
-    .line 69
     iput-object p1, p0, Lcom/cmdm/control/bean/SubjectResult;->range:Ljava/lang/String;
 
-    .line 70
     return-void
 .end method
 
 .method public setSubjectList(Lcom/cmdm/control/bean/SubjectList;)V
     .locals 0
-    .param p1, "subjectList"    # Lcom/cmdm/control/bean/SubjectList;
 
-    .prologue
-    .line 83
     iput-object p1, p0, Lcom/cmdm/control/bean/SubjectResult;->subjectList:Lcom/cmdm/control/bean/SubjectList;
 
-    .line 84
     return-void
 .end method

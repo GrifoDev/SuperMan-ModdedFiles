@@ -21,17 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/list/ContactEntryListFragment;Landroid/content/Context;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
     .locals 7
-    .param p1, "this$0"    # Lcom/android/contacts/common/list/ContactEntryListFragment;
-    .param p2, "x0"    # Landroid/content/Context;
-    .param p3, "x1"    # Landroid/net/Uri;
-    .param p4, "x2"    # [Ljava/lang/String;
-    .param p5, "x3"    # Ljava/lang/String;
-    .param p6, "x4"    # [Ljava/lang/String;
-    .param p7, "x5"    # Ljava/lang/String;
 
-    .prologue
-    .line 357
-    .local p0, "this":Lcom/android/contacts/common/list/ContactEntryListFragment$2;, "Lcom/android/contacts/common/list/ContactEntryListFragment$2;"
     iput-object p1, p0, Lcom/android/contacts/common/list/ContactEntryListFragment$2;->this$0:Lcom/android/contacts/common/list/ContactEntryListFragment;
 
     move-object v0, p0
@@ -58,9 +48,6 @@
 .method protected onLoadInBackground()Landroid/database/Cursor;
     .locals 3
 
-    .prologue
-    .line 361
-    .local p0, "this":Lcom/android/contacts/common/list/ContactEntryListFragment$2;, "Lcom/android/contacts/common/list/ContactEntryListFragment$2;"
     :try_start_0
     invoke-super {p0}, Landroid/content/CursorLoader;->onLoadInBackground()Ljava/lang/Object;
 
@@ -70,23 +57,18 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 366
     :goto_0
     return-object v1
 
-    .line 362
     :catch_0
     move-exception v0
 
-    .line 365
-    .local v0, "e":Ljava/lang/RuntimeException;
     const-string v1, "ContactEntryListFragment"
 
     const-string v2, "RuntimeException while trying to query ContactsProvider."
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 366
     const/4 v1, 0x0
 
     goto :goto_0
@@ -95,9 +77,6 @@
 .method protected bridge synthetic onLoadInBackground()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 357
-    .local p0, "this":Lcom/android/contacts/common/list/ContactEntryListFragment$2;, "Lcom/android/contacts/common/list/ContactEntryListFragment$2;"
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ContactEntryListFragment$2;->onLoadInBackground()Landroid/database/Cursor;
 
     move-result-object v0

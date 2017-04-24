@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
-    .prologue
-    .line 115
     iput-object p1, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -36,19 +33,14 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
-    .param p1, "msg"    # Landroid/os/Message;
 
-    .prologue
-    .line 118
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 128
     :goto_0
     return-void
 
-    .line 120
     :sswitch_0
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
@@ -56,20 +48,17 @@
 
     goto :goto_0
 
-    .line 123
     :sswitch_1
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # operator++ for: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->callTimerCount:I
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$008(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)I
 
-    .line 124
     iget-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls$1;->this$0:Lcom/android/incallui/help/AcceptingAndRejectingCalls;
 
     # invokes: Lcom/android/incallui/help/AcceptingAndRejectingCalls;->dispCallDuration()V
     invoke-static {v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->access$100(Lcom/android/incallui/help/AcceptingAndRejectingCalls;)V
 
-    .line 125
     const/16 v0, 0x64
 
     const-wide/16 v2, 0x3e8
@@ -78,7 +67,6 @@
 
     goto :goto_0
 
-    .line 118
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

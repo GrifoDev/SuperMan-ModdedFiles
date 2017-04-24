@@ -40,9 +40,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 509
-    .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,11 +47,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/TreeMultiset$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/TreeMultiset$1;
 
-    .prologue
-    .line 509
-    .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/TreeMultiset$Reference;-><init>()V
 
     return-void
@@ -74,27 +67,19 @@
         }
     .end annotation
 
-    .prologue
-    .line 518
-    .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
-    .local p1, "expected":Ljava/lang/Object;, "TT;"
-    .local p2, "newValue":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$Reference;->value:Ljava/lang/Object;
 
     if-eq v0, p1, :cond_0
 
-    .line 519
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
     throw v0
 
-    .line 521
     :cond_0
     iput-object p2, p0, Lcom/google/common/collect/TreeMultiset$Reference;->value:Ljava/lang/Object;
 
-    .line 522
     return-void
 .end method
 
@@ -109,9 +94,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 514
-    .local p0, "this":Lcom/google/common/collect/TreeMultiset$Reference;, "Lcom/google/common/collect/TreeMultiset$Reference<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/TreeMultiset$Reference;->value:Ljava/lang/Object;
 
     return-object v0

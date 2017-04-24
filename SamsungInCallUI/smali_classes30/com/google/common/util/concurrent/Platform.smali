@@ -13,8 +13,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,7 +20,7 @@
 
 .method static isInstanceOfThrowableClass(Ljava/lang/Throwable;Ljava/lang/Class;)Z
     .locals 1
-    .param p0, "t"    # Ljava/lang/Throwable;
+    .param p0    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -37,9 +35,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 30
-    .local p1, "expectedClass":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Throwable;>;"
     invoke-virtual {p1, p0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v0

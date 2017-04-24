@@ -57,21 +57,15 @@
 # direct methods
 .method public constructor <init>(B)V
     .locals 2
-    .param p1, "type"    # B
 
-    .prologue
-    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/thoughtworks/xstream/io/binary/Token;->id:J
 
-    .line 61
     iput-byte p1, p0, Lcom/thoughtworks/xstream/io/binary/Token;->type:B
 
-    .line 62
     return-void
 .end method
 
@@ -79,24 +73,19 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 8
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 81
     if-ne p0, p1, :cond_1
 
     move v2, v1
 
-    .line 88
     :cond_0
     :goto_0
     return v2
 
-    .line 82
     :cond_1
     if-eqz p1, :cond_0
 
@@ -112,11 +101,8 @@
 
     move-object v0, p1
 
-    .line 84
     check-cast v0, Lcom/thoughtworks/xstream/io/binary/Token;
 
-    .line 86
-    .local v0, "token":Lcom/thoughtworks/xstream/io/binary/Token;
     iget-wide v4, p0, Lcom/thoughtworks/xstream/io/binary/Token;->id:J
 
     iget-wide v6, v0, Lcom/thoughtworks/xstream/io/binary/Token;->id:J
@@ -125,14 +111,12 @@
 
     if-nez v3, :cond_0
 
-    .line 87
     iget-byte v3, p0, Lcom/thoughtworks/xstream/io/binary/Token;->type:B
 
     iget-byte v4, v0, Lcom/thoughtworks/xstream/io/binary/Token;->type:B
 
     if-ne v3, v4, :cond_0
 
-    .line 88
     iget-object v3, p0, Lcom/thoughtworks/xstream/io/binary/Token;->value:Ljava/lang/String;
 
     if-eqz v3, :cond_4
@@ -167,8 +151,6 @@
 .method public getId()J
     .locals 2
 
-    .prologue
-    .line 69
     iget-wide v0, p0, Lcom/thoughtworks/xstream/io/binary/Token;->id:J
 
     return-wide v0
@@ -177,8 +159,6 @@
 .method public getType()B
     .locals 1
 
-    .prologue
-    .line 65
     iget-byte v0, p0, Lcom/thoughtworks/xstream/io/binary/Token;->type:B
 
     return v0
@@ -187,8 +167,6 @@
 .method public getValue()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 73
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/binary/Token;->value:Ljava/lang/String;
 
     return-object v0
@@ -197,12 +175,8 @@
 .method public hashCode()I
     .locals 7
 
-    .prologue
-    .line 93
     iget-byte v0, p0, Lcom/thoughtworks/xstream/io/binary/Token;->type:B
 
-    .line 94
-    .local v0, "result":I
     mul-int/lit8 v1, v0, 0x1d
 
     iget-wide v2, p0, Lcom/thoughtworks/xstream/io/binary/Token;->id:J
@@ -219,7 +193,6 @@
 
     add-int v0, v1, v2
 
-    .line 95
     mul-int/lit8 v2, v0, 0x1d
 
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/binary/Token;->value:Ljava/lang/String;
@@ -235,10 +208,8 @@
     :goto_0
     add-int v0, v2, v1
 
-    .line 96
     return v0
 
-    .line 95
     :cond_0
     const/4 v1, 0x0
 
@@ -255,19 +226,14 @@
 
 .method protected readId(Ljava/io/DataInput;B)J
     .locals 4
-    .param p1, "in"    # Ljava/io/DataInput;
-    .param p2, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 138
     sparse-switch p2, :sswitch_data_0
 
-    .line 148
     new-instance v0, Ljava/lang/Error;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -292,7 +258,6 @@
 
     throw v0
 
-    .line 140
     :sswitch_0
     invoke-interface {p1}, Ljava/io/DataInput;->readByte()B
 
@@ -302,11 +267,9 @@
 
     int-to-long v0, v0
 
-    .line 146
     :goto_0
     return-wide v0
 
-    .line 142
     :sswitch_1
     invoke-interface {p1}, Ljava/io/DataInput;->readShort()S
 
@@ -320,7 +283,6 @@
 
     goto :goto_0
 
-    .line 144
     :sswitch_2
     invoke-interface {p1}, Ljava/io/DataInput;->readInt()I
 
@@ -334,7 +296,6 @@
 
     goto :goto_0
 
-    .line 146
     :sswitch_3
     invoke-interface {p1}, Ljava/io/DataInput;->readLong()J
 
@@ -346,7 +307,6 @@
 
     goto :goto_0
 
-    .line 138
     :sswitch_data_0
     .sparse-switch
         0x8 -> :sswitch_0
@@ -358,21 +318,16 @@
 
 .method protected readString(Ljava/io/DataInput;)Ljava/lang/String;
     .locals 4
-    .param p1, "in"    # Ljava/io/DataInput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 153
     invoke-interface {p1}, Ljava/io/DataInput;->readUTF()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 154
-    .local v2, "string":Ljava/lang/String;
     const-string v3, "\u0000\u2021\u0000"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -381,30 +336,20 @@
 
     if-nez v3, :cond_0
 
-    .line 160
-    .end local v2    # "string":Ljava/lang/String;
     :goto_0
     return-object v2
 
-    .line 157
-    .restart local v2    # "string":Ljava/lang/String;
     :cond_0
     invoke-interface {p1}, Ljava/io/DataInput;->readInt()I
 
     move-result v1
 
-    .line 158
-    .local v1, "size":I
     new-array v0, v1, [B
 
-    .line 159
-    .local v0, "bytes":[B
     invoke-interface {p1, v0}, Ljava/io/DataInput;->readFully([B)V
 
-    .line 160
     new-instance v2, Ljava/lang/String;
 
-    .end local v2    # "string":Ljava/lang/String;
     const-string v3, "utf-8"
 
     invoke-direct {v2, v0, v3}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
@@ -415,8 +360,6 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 77
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -472,24 +415,18 @@
 
 .method protected writeId(Ljava/io/DataOutput;JB)V
     .locals 4
-    .param p1, "out"    # Ljava/io/DataOutput;
-    .param p2, "id"    # J
-    .param p4, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 104
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
     if-gez v0, :cond_0
 
-    .line 105
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -514,11 +451,9 @@
 
     throw v0
 
-    .line 107
     :cond_0
     sparse-switch p4, :sswitch_data_0
 
-    .line 121
     new-instance v0, Ljava/lang/Error;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -543,7 +478,6 @@
 
     throw v0
 
-    .line 109
     :sswitch_0
     long-to-int v0, p2
 
@@ -553,11 +487,9 @@
 
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->writeByte(I)V
 
-    .line 123
     :goto_0
     return-void
 
-    .line 112
     :sswitch_1
     long-to-int v0, p2
 
@@ -569,7 +501,6 @@
 
     goto :goto_0
 
-    .line 115
     :sswitch_2
     long-to-int v0, p2
 
@@ -581,7 +512,6 @@
 
     goto :goto_0
 
-    .line 118
     :sswitch_3
     const-wide/high16 v0, -0x8000000000000000L
 
@@ -591,7 +521,6 @@
 
     goto :goto_0
 
-    .line 107
     :sswitch_data_0
     .sparse-switch
         0x8 -> :sswitch_0
@@ -603,16 +532,12 @@
 
 .method protected writeString(Ljava/io/DataOutput;Ljava/lang/String;)V
     .locals 4
-    .param p1, "out"    # Ljava/io/DataOutput;
-    .param p2, "string"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 126
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -627,27 +552,18 @@
 
     move-result-object v0
 
-    .line 127
-    .local v0, "bytes":[B
     :goto_0
     array-length v1, v0
 
-    .line 128
-    .local v1, "length":I
     const v2, 0xffff
 
     if-gt v1, v2, :cond_1
 
-    .line 129
     invoke-interface {p1, p2}, Ljava/io/DataOutput;->writeUTF(Ljava/lang/String;)V
 
-    .line 135
     :goto_1
     return-void
 
-    .line 126
-    .end local v0    # "bytes":[B
-    .end local v1    # "length":I
     :cond_0
     const/4 v2, 0x0
 
@@ -655,20 +571,15 @@
 
     goto :goto_0
 
-    .line 131
-    .restart local v0    # "bytes":[B
-    .restart local v1    # "length":I
     :cond_1
     const-string v2, "\u0000\u2021\u0000"
 
     invoke-interface {p1, v2}, Ljava/io/DataOutput;->writeUTF(Ljava/lang/String;)V
 
-    .line 132
     array-length v2, v0
 
     invoke-interface {p1, v2}, Ljava/io/DataOutput;->writeInt(I)V
 
-    .line 133
     invoke-interface {p1, v0}, Ljava/io/DataOutput;->write([B)V
 
     goto :goto_1

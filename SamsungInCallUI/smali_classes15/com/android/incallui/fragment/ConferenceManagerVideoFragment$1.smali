@@ -26,10 +26,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;
 
-    .prologue
-    .line 140
     iput-object p1, p0, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;
 
     iput p2, p0, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment$1;->val$rowId:I
@@ -43,15 +40,11 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 143
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;->animateForHide()V
 
-    .line 144
     iget-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment$1;->this$0:Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -64,9 +57,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/ConferenceManagerPresenter;->endConferenceConnection(I)V
 
-    .line 145
     invoke-static {}, Lcom/android/incallui/util/VideoCallAppLogging;->multipartyCall_dropParticipant()V
 
-    .line 146
     return-void
 .end method

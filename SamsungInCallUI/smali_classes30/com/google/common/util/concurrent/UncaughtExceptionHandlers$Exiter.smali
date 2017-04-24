@@ -32,8 +32,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 55
     const-class v0, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -51,16 +49,11 @@
 
 .method constructor <init>(Ljava/lang/Runtime;)V
     .locals 0
-    .param p1, "runtime"    # Ljava/lang/Runtime;
 
-    .prologue
-    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 60
     iput-object p1, p0, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;->runtime:Ljava/lang/Runtime;
 
-    .line 61
     return-void
 .end method
 
@@ -68,13 +61,9 @@
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
     .locals 8
-    .param p1, "t"    # Ljava/lang/Thread;
-    .param p2, "e"    # Ljava/lang/Throwable;
 
-    .prologue
     const/4 v7, 0x1
 
-    .line 66
     :try_start_0
     sget-object v1, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;->logger:Ljava/util/logging/Logger;
 
@@ -101,21 +90,16 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 74
     iget-object v1, p0, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;->runtime:Ljava/lang/Runtime;
 
     invoke-virtual {v1, v7}, Ljava/lang/Runtime;->exit(I)V
 
-    .line 76
     :goto_0
     return-void
 
-    .line 68
     :catch_0
     move-exception v0
 
-    .line 71
-    .local v0, "errorInLogging":Ljava/lang/Throwable;
     :try_start_1
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
@@ -125,7 +109,6 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 72
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
@@ -136,14 +119,12 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 74
     iget-object v1, p0, Lcom/google/common/util/concurrent/UncaughtExceptionHandlers$Exiter;->runtime:Ljava/lang/Runtime;
 
     invoke-virtual {v1, v7}, Ljava/lang/Runtime;->exit(I)V
 
     goto :goto_0
 
-    .end local v0    # "errorInLogging":Ljava/lang/Throwable;
     :catchall_0
     move-exception v1
 

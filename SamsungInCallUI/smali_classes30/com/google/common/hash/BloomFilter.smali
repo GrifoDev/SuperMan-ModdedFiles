@@ -52,9 +52,6 @@
 # direct methods
 .method private constructor <init>(Lcom/google/common/hash/BloomFilterStrategies$BitArray;ILcom/google/common/hash/Funnel;Lcom/google/common/hash/BloomFilter$Strategy;)V
     .locals 6
-    .param p1, "bits"    # Lcom/google/common/hash/BloomFilterStrategies$BitArray;
-    .param p2, "numHashFunctions"    # I
-    .param p4, "strategy"    # Lcom/google/common/hash/BloomFilter$Strategy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,17 +64,12 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p3, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 114
     if-lez p2, :cond_0
 
     move v0, v1
@@ -95,7 +87,6 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 115
     const/16 v0, 0xff
 
     if-gt p2, v0, :cond_1
@@ -115,7 +106,6 @@
 
     invoke-static {v0, v3, v1}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 117
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -124,10 +114,8 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
-    .line 118
     iput p2, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
 
-    .line 119
     invoke-static {p3}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -136,7 +124,6 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
 
-    .line 120
     invoke-static {p4}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -145,33 +132,22 @@
 
     iput-object v0, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
-    .line 121
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 114
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 115
     goto :goto_1
 .end method
 
 .method synthetic constructor <init>(Lcom/google/common/hash/BloomFilterStrategies$BitArray;ILcom/google/common/hash/Funnel;Lcom/google/common/hash/BloomFilter$Strategy;Lcom/google/common/hash/BloomFilter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/hash/BloomFilterStrategies$BitArray;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # Lcom/google/common/hash/Funnel;
-    .param p4, "x3"    # Lcom/google/common/hash/BloomFilter$Strategy;
-    .param p5, "x4"    # Lcom/google/common/hash/BloomFilter$1;
 
-    .prologue
-    .line 63
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/google/common/hash/BloomFilter;-><init>(Lcom/google/common/hash/BloomFilterStrategies$BitArray;ILcom/google/common/hash/Funnel;Lcom/google/common/hash/BloomFilter$Strategy;)V
 
     return-void
@@ -179,10 +155,7 @@
 
 .method static synthetic access$000(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilterStrategies$BitArray;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/hash/BloomFilter;
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     return-object v0
@@ -190,10 +163,7 @@
 
 .method static synthetic access$100(Lcom/google/common/hash/BloomFilter;)I
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/hash/BloomFilter;
 
-    .prologue
-    .line 63
     iget v0, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
 
     return v0
@@ -201,10 +171,7 @@
 
 .method static synthetic access$200(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/Funnel;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/hash/BloomFilter;
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
 
     return-object v0
@@ -212,10 +179,7 @@
 
 .method static synthetic access$300(Lcom/google/common/hash/BloomFilter;)Lcom/google/common/hash/BloomFilter$Strategy;
     .locals 1
-    .param p0, "x0"    # Lcom/google/common/hash/BloomFilter;
 
-    .prologue
-    .line 63
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
     return-object v0
@@ -223,7 +187,6 @@
 
 .method public static create(Lcom/google/common/hash/Funnel;I)Lcom/google/common/hash/BloomFilter;
     .locals 2
-    .param p1, "expectedInsertions"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -239,9 +202,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 381
-    .local p0, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     int-to-long v0, p1
 
     invoke-static {p0, v0, v1}, Lcom/google/common/hash/BloomFilter;->create(Lcom/google/common/hash/Funnel;J)Lcom/google/common/hash/BloomFilter;
@@ -253,8 +213,6 @@
 
 .method public static create(Lcom/google/common/hash/Funnel;ID)Lcom/google/common/hash/BloomFilter;
     .locals 2
-    .param p1, "expectedInsertions"    # I
-    .param p2, "fpp"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -270,9 +228,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 300
-    .local p0, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     int-to-long v0, p1
 
     invoke-static {p0, v0, v1, p2, p3}, Lcom/google/common/hash/BloomFilter;->create(Lcom/google/common/hash/Funnel;JD)Lcom/google/common/hash/BloomFilter;
@@ -284,7 +239,6 @@
 
 .method public static create(Lcom/google/common/hash/Funnel;J)Lcom/google/common/hash/BloomFilter;
     .locals 3
-    .param p1, "expectedInsertions"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -300,9 +254,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 407
-    .local p0, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     const-wide v0, 0x3f9eb851eb851eb8L    # 0.03
 
     invoke-static {p0, p1, p2, v0, v1}, Lcom/google/common/hash/BloomFilter;->create(Lcom/google/common/hash/Funnel;JD)Lcom/google/common/hash/BloomFilter;
@@ -314,8 +265,6 @@
 
 .method public static create(Lcom/google/common/hash/Funnel;JD)Lcom/google/common/hash/BloomFilter;
     .locals 7
-    .param p1, "expectedInsertions"    # J
-    .param p3, "fpp"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -331,9 +280,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 328
-    .local p0, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     sget-object v6, Lcom/google/common/hash/BloomFilterStrategies;->MURMUR128_MITZ_64:Lcom/google/common/hash/BloomFilterStrategies;
 
     move-object v1, p0
@@ -351,9 +297,6 @@
 
 .method static create(Lcom/google/common/hash/Funnel;JDLcom/google/common/hash/BloomFilter$Strategy;)Lcom/google/common/hash/BloomFilter;
     .locals 9
-    .param p1, "expectedInsertions"    # J
-    .param p3, "fpp"    # D
-    .param p5, "strategy"    # Lcom/google/common/hash/BloomFilter$Strategy;
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
@@ -371,12 +314,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 334
-    .local p0, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<-TT;>;"
     invoke-static {p0}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 335
     const-wide/16 v4, 0x0
 
     cmp-long v4, p1, v4
@@ -402,7 +341,6 @@
 
     invoke-static {v4, v5, v6}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 337
     const-wide/16 v4, 0x0
 
     cmpl-double v4, p3, v4
@@ -428,7 +366,6 @@
 
     invoke-static {v4, v5, v6}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 338
     const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
 
     cmpg-double v4, p3, v4
@@ -454,33 +391,25 @@
 
     invoke-static {v4, v5, v6}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 339
     invoke-static {p5}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 341
     const-wide/16 v4, 0x0
 
     cmp-long v4, p1, v4
 
     if-nez v4, :cond_0
 
-    .line 342
     const-wide/16 p1, 0x1
 
-    .line 350
     :cond_0
     invoke-static {p1, p2, p3, p4}, Lcom/google/common/hash/BloomFilter;->optimalNumOfBits(JD)J
 
     move-result-wide v2
 
-    .line 351
-    .local v2, "numBits":J
     invoke-static {p1, p2, v2, v3}, Lcom/google/common/hash/BloomFilter;->optimalNumOfHashFunctions(JJ)I
 
     move-result v1
 
-    .line 353
-    .local v1, "numHashFunctions":I
     :try_start_0
     new-instance v4, Lcom/google/common/hash/BloomFilter;
 
@@ -494,34 +423,24 @@
 
     return-object v4
 
-    .line 335
-    .end local v1    # "numHashFunctions":I
-    .end local v2    # "numBits":J
     :cond_1
     const/4 v4, 0x0
 
     goto :goto_0
 
-    .line 337
     :cond_2
     const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 338
     :cond_3
     const/4 v4, 0x0
 
     goto :goto_2
 
-    .line 354
-    .restart local v1    # "numHashFunctions":I
-    .restart local v2    # "numBits":J
     :catch_0
     move-exception v0
 
-    .line 355
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -555,25 +474,19 @@
 
 .method static optimalNumOfBits(JD)J
     .locals 6
-    .param p0, "n"    # J
-    .param p2, "p"    # D
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
-    .prologue
     const-wide/high16 v4, 0x4000000000000000L    # 2.0
 
-    .line 450
     const-wide/16 v0, 0x0
 
     cmpl-double v0, p2, v0
 
     if-nez v0, :cond_0
 
-    .line 451
     const-wide/16 p2, 0x1
 
-    .line 453
     :cond_0
     neg-long v0, p0
 
@@ -604,13 +517,9 @@
 
 .method static optimalNumOfHashFunctions(JJ)I
     .locals 6
-    .param p0, "n"    # J
-    .param p2, "m"    # J
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
-    .prologue
-    .line 436
     const/4 v0, 0x1
 
     long-to-double v2, p2
@@ -642,7 +551,6 @@
 
 .method public static readFrom(Ljava/io/InputStream;Lcom/google/common/hash/Funnel;)Lcom/google/common/hash/BloomFilter;
     .locals 12
-    .param p0, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -665,43 +573,29 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 518
-    .local p1, "funnel":Lcom/google/common/hash/Funnel;, "Lcom/google/common/hash/Funnel<TT;>;"
     const-string v9, "InputStream"
 
     invoke-static {p0, v9}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 519
     const-string v9, "Funnel"
 
     invoke-static {p1, v9}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 520
     const/4 v8, -0x1
 
-    .line 521
-    .local v8, "strategyOrdinal":I
     const/4 v6, -0x1
 
-    .line 522
-    .local v6, "numHashFunctions":I
     const/4 v1, -0x1
 
-    .line 524
-    .local v1, "dataLength":I
     :try_start_0
     new-instance v2, Ljava/io/DataInputStream;
 
     invoke-direct {v2, p0}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 528
-    .local v2, "din":Ljava/io/DataInputStream;
     invoke-virtual {v2}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v8
 
-    .line 529
     invoke-virtual {v2}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v9
@@ -710,45 +604,35 @@
 
     move-result v6
 
-    .line 530
     invoke-virtual {v2}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v1
 
-    .line 532
     invoke-static {}, Lcom/google/common/hash/BloomFilterStrategies;->values()[Lcom/google/common/hash/BloomFilterStrategies;
 
     move-result-object v9
 
     aget-object v7, v9, v8
 
-    .line 533
-    .local v7, "strategy":Lcom/google/common/hash/BloomFilter$Strategy;
     new-array v0, v1, [J
 
-    .line 534
-    .local v0, "data":[J
     const/4 v4, 0x0
 
-    .local v4, "i":I
     :goto_0
     array-length v9, v0
 
     if-ge v4, v9, :cond_0
 
-    .line 535
     invoke-virtual {v2}, Ljava/io/DataInputStream;->readLong()J
 
     move-result-wide v10
 
     aput-wide v10, v0, v4
 
-    .line 534
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 537
     :cond_0
     new-instance v9, Lcom/google/common/hash/BloomFilter;
 
@@ -762,16 +646,9 @@
 
     return-object v9
 
-    .line 538
-    .end local v0    # "data":[J
-    .end local v2    # "din":Ljava/io/DataInputStream;
-    .end local v4    # "i":I
-    .end local v7    # "strategy":Lcom/google/common/hash/BloomFilter$Strategy;
     :catch_0
     move-exception v3
 
-    .line 539
-    .local v3, "e":Ljava/lang/RuntimeException;
     new-instance v5, Ljava/io/IOException;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -814,20 +691,14 @@
 
     invoke-direct {v5, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 544
-    .local v5, "ioException":Ljava/io/IOException;
     invoke-virtual {v5, v3}, Ljava/io/IOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 545
     throw v5
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 457
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     new-instance v0, Lcom/google/common/hash/BloomFilter$SerialForm;
 
     invoke-direct {v0, p0}, Lcom/google/common/hash/BloomFilter$SerialForm;-><init>(Lcom/google/common/hash/BloomFilter;)V
@@ -851,10 +722,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 151
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p1, "input":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lcom/google/common/hash/BloomFilter;->mightContain(Ljava/lang/Object;)Z
 
     move-result v0
@@ -867,9 +734,6 @@
     .annotation build Lcom/google/common/annotations/VisibleForTesting;
     .end annotation
 
-    .prologue
-    .line 192
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     invoke-virtual {v0}, Lcom/google/common/hash/BloomFilterStrategies$BitArray;->bitSize()J
@@ -892,9 +756,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 131
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     new-instance v0, Lcom/google/common/hash/BloomFilter;
 
     iget-object v1, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
@@ -916,26 +777,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 258
     if-ne p1, p0, :cond_1
 
-    .line 268
     :cond_0
     :goto_0
     return v1
 
-    .line 261
     :cond_1
     instance-of v3, p1, Lcom/google/common/hash/BloomFilter;
 
@@ -943,11 +799,8 @@
 
     move-object v0, p1
 
-    .line 262
     check-cast v0, Lcom/google/common/hash/BloomFilter;
 
-    .line 263
-    .local v0, "that":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<*>;"
     iget v3, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
 
     iget v4, v0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
@@ -989,11 +842,9 @@
 
     goto :goto_0
 
-    .end local v0    # "that":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<*>;"
     :cond_3
     move v1, v2
 
-    .line 268
     goto :goto_0
 .end method
 
@@ -1002,9 +853,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 184
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     invoke-virtual {v0}, Lcom/google/common/hash/BloomFilterStrategies$BitArray;->bitCount()J
@@ -1035,9 +883,6 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 273
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -1090,13 +935,8 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 212
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p1, "that":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 213
     if-eq p0, p1, :cond_0
 
     iget v0, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
@@ -1159,10 +999,6 @@
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
-    .prologue
-    .line 140
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
     iget-object v1, p0, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
@@ -1186,10 +1022,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 167
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
     iget-object v1, p0, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
@@ -1215,19 +1047,14 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
-    .local p1, "that":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     const/4 v8, 0x2
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 231
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 232
     if-eq p0, p1, :cond_0
 
     move v0, v1
@@ -1237,7 +1064,6 @@
 
     invoke-static {v0, v3}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    .line 233
     iget v0, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
 
     iget v3, p1, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
@@ -1269,7 +1095,6 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 238
     invoke-virtual {p0}, Lcom/google/common/hash/BloomFilter;->bitSize()J
 
     move-result-wide v4
@@ -1311,7 +1136,6 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 243
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
     iget-object v3, p1, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
@@ -1334,7 +1158,6 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 248
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
 
     iget-object v3, p1, Lcom/google/common/hash/BloomFilter;->funnel:Lcom/google/common/hash/Funnel;
@@ -1357,53 +1180,42 @@
 
     invoke-static {v0, v3, v4}, Lcom/google/common/base/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 253
     iget-object v0, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     iget-object v1, p1, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     invoke-virtual {v0, v1}, Lcom/google/common/hash/BloomFilterStrategies$BitArray;->putAll(Lcom/google/common/hash/BloomFilterStrategies$BitArray;)V
 
-    .line 254
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 232
     goto/16 :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 233
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 238
     goto :goto_2
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 8
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 495
-    .local p0, "this":Lcom/google/common/hash/BloomFilter;, "Lcom/google/common/hash/BloomFilter<TT;>;"
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, p1}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 496
-    .local v1, "dout":Ljava/io/DataOutputStream;
     iget-object v6, p0, Lcom/google/common/hash/BloomFilter;->strategy:Lcom/google/common/hash/BloomFilter$Strategy;
 
     invoke-interface {v6}, Lcom/google/common/hash/BloomFilter$Strategy;->ordinal()I
@@ -1418,7 +1230,6 @@
 
     invoke-virtual {v1, v6}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 497
     iget v6, p0, Lcom/google/common/hash/BloomFilter;->numHashFunctions:I
 
     int-to-long v6, v6
@@ -1429,7 +1240,6 @@
 
     invoke-virtual {v1, v6}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 498
     iget-object v6, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     iget-object v6, v6, Lcom/google/common/hash/BloomFilterStrategies$BitArray;->data:[J
@@ -1438,34 +1248,25 @@
 
     invoke-virtual {v1, v6}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 499
     iget-object v6, p0, Lcom/google/common/hash/BloomFilter;->bits:Lcom/google/common/hash/BloomFilterStrategies$BitArray;
 
     iget-object v0, v6, Lcom/google/common/hash/BloomFilterStrategies$BitArray;->data:[J
 
-    .local v0, "arr$":[J
     array-length v3, v0
 
-    .local v3, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v3, :cond_0
 
     aget-wide v4, v0, v2
 
-    .line 500
-    .local v4, "value":J
     invoke-virtual {v1, v4, v5}, Ljava/io/DataOutputStream;->writeLong(J)V
 
-    .line 499
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 502
-    .end local v4    # "value":J
     :cond_0
     return-void
 .end method

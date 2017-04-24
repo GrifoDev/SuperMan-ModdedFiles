@@ -216,10 +216,7 @@
 
 .method public deleteState(Lcom/google/android/gms/appstate/OnStateDeletedListener;I)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateDeletedListener;
-    .param p2, "stateKey"    # I
 
-    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/c;->C()Landroid/os/IInterface;
 
@@ -322,9 +319,7 @@
 
 .method public listStates(Lcom/google/android/gms/appstate/OnStateListLoadedListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateListLoadedListener;
 
-    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/c;->C()Landroid/os/IInterface;
 
@@ -357,10 +352,7 @@
 
 .method public loadState(Lcom/google/android/gms/appstate/OnStateLoadedListener;I)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateLoadedListener;
-    .param p2, "stateKey"    # I
 
-    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/c;->C()Landroid/os/IInterface;
 
@@ -393,12 +385,7 @@
 
 .method public resolveState(Lcom/google/android/gms/appstate/OnStateLoadedListener;ILjava/lang/String;[B)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnStateLoadedListener;
-    .param p2, "stateKey"    # I
-    .param p3, "resolvedVersion"    # Ljava/lang/String;
-    .param p4, "resolvedData"    # [B
 
-    .prologue
     :try_start_0
     invoke-virtual {p0}, Lcom/google/android/gms/internal/c;->C()Landroid/os/IInterface;
 
@@ -431,9 +418,7 @@
 
 .method public signOut(Lcom/google/android/gms/appstate/OnSignOutCompleteListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/google/android/gms/appstate/OnSignOutCompleteListener;
 
-    .prologue
     if-nez p1, :cond_0
 
     const/4 v0, 0x0

@@ -15,8 +15,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 24
     sget-object v0, Landroid/provider/ContactsContract$Directory;->ENTERPRISE_CONTENT_URI:Landroid/net/Uri;
 
     sput-object v0, Lcom/android/contacts/common/compat/DirectorySdkCompat;->ENTERPRISE_CONTENT_URI:Landroid/net/Uri;
@@ -27,8 +25,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,10 +32,7 @@
 
 .method public static isEnterpriseDirectoryId(J)Z
     .locals 2
-    .param p0, "directoryId"    # J
 
-    .prologue
-    .line 33
     invoke-static {p0, p1}, Landroid/provider/ContactsContract$Directory;->isEnterpriseDirectoryId(J)Z
 
     move-result v0
@@ -49,10 +42,7 @@
 
 .method public static isRemoteDirectoryId(J)Z
     .locals 2
-    .param p0, "directoryId"    # J
 
-    .prologue
-    .line 29
     invoke-static {p0, p1}, Landroid/provider/ContactsContract$Directory;->isRemoteDirectoryId(J)Z
 
     move-result v0

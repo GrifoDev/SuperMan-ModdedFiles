@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection;
 
-    .prologue
-    .line 318
     iput-object p1, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection$1;->this$1:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +37,11 @@
 .method public run()V
     .locals 1
 
-    .prologue
-    .line 321
     iget-object v0, p0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection$1;->this$1:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection;
 
     iget-object v0, v0, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager$RecorderServiceConnection;->this$0:Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/operator/dcm/AnswerMemoRecorderManager;->onAMRecorderStateChanged()V
 
-    .line 322
     return-void
 .end method

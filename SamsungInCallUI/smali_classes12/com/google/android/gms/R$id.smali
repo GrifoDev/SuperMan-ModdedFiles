@@ -30,28 +30,22 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 178
     const v0, 0x7f040004
 
     sput v0, Lcom/google/android/gms/R$id;->hybrid:I
 
-    .line 179
     const/high16 v0, 0x7f040000
 
     sput v0, Lcom/google/android/gms/R$id;->none:I
 
-    .line 180
     const v0, 0x7f040001
 
     sput v0, Lcom/google/android/gms/R$id;->normal:I
 
-    .line 181
     const v0, 0x7f040002
 
     sput v0, Lcom/google/android/gms/R$id;->satellite:I
 
-    .line 182
     const v0, 0x7f040003
 
     sput v0, Lcom/google/android/gms/R$id;->terrain:I
@@ -62,8 +56,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -16,20 +14,14 @@
 
 .method public static create(ILjava/lang/Object;)Lcom/android/incallui/callerinfocard/queryargs/CallerInfoCardQueryArgs;
     .locals 1
-    .param p0, "token"    # I
-    .param p1, "cookie"    # Ljava/lang/Object;
 
-    .prologue
-    .line 25
     sparse-switch p0, :sswitch_data_0
 
-    .line 43
     const/4 v0, 0x0
 
     :goto_0
     return-object v0
 
-    .line 27
     :sswitch_0
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/ProfileQueryArgs;
 
@@ -37,7 +29,6 @@
 
     goto :goto_0
 
-    .line 29
     :sswitch_1
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/BirthdayQueryArgs;
 
@@ -45,7 +36,6 @@
 
     goto :goto_0
 
-    .line 31
     :sswitch_2
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/AnniversaryQueryArgs;
 
@@ -53,7 +43,6 @@
 
     goto :goto_0
 
-    .line 33
     :sswitch_3
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/LastCallLogQueryArgs;
 
@@ -61,7 +50,6 @@
 
     goto :goto_0
 
-    .line 35
     :sswitch_4
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/MemoQueryArgs;
 
@@ -69,7 +57,6 @@
 
     goto :goto_0
 
-    .line 37
     :sswitch_5
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/MessageQueryArgs;
 
@@ -77,7 +64,6 @@
 
     goto :goto_0
 
-    .line 39
     :sswitch_6
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/EmailQueryArgs;
 
@@ -85,7 +71,6 @@
 
     goto :goto_0
 
-    .line 41
     :sswitch_7
     new-instance v0, Lcom/android/incallui/callerinfocard/queryargs/SocialNetworkServiceGooglePlusQueryArgs;
 
@@ -93,7 +78,6 @@
 
     goto :goto_0
 
-    .line 25
     nop
 
     :sswitch_data_0

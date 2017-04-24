@@ -69,20 +69,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 325
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
-    .local p1, "first":Lcom/google/common/base/Converter;, "Lcom/google/common/base/Converter<TA;TB;>;"
-    .local p2, "second":Lcom/google/common/base/Converter;, "Lcom/google/common/base/Converter<TB;TC;>;"
     invoke-direct {p0}, Lcom/google/common/base/Converter;-><init>()V
 
-    .line 326
     iput-object p1, p0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
 
-    .line 327
     iput-object p2, p0, Lcom/google/common/base/Converter$ConverterComposition;->second:Lcom/google/common/base/Converter;
 
-    .line 328
     return-void
 .end method
 
@@ -103,10 +95,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 356
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
-    .local p1, "c":Ljava/lang/Object;, "TC;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
 
     iget-object v1, p0, Lcom/google/common/base/Converter$ConverterComposition;->second:Lcom/google/common/base/Converter;
@@ -137,10 +125,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .prologue
-    .line 350
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
-    .local p1, "a":Ljava/lang/Object;, "TA;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ConverterComposition;->second:Lcom/google/common/base/Converter;
 
     iget-object v1, p0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
@@ -164,10 +148,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 344
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
-    .local p1, "c":Ljava/lang/Object;, "TC;"
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -183,10 +163,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 339
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
-    .local p1, "a":Ljava/lang/Object;, "TA;"
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -196,27 +172,21 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
     const/4 v1, 0x0
 
-    .line 361
     instance-of v2, p1, Lcom/google/common/base/Converter$ConverterComposition;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 362
     check-cast v0, Lcom/google/common/base/Converter$ConverterComposition;
 
-    .line 363
-    .local v0, "that":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<***>;"
     iget-object v2, p0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
 
     iget-object v3, v0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
@@ -239,8 +209,6 @@
 
     const/4 v1, 0x1
 
-    .line 365
-    .end local v0    # "that":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<***>;"
     :cond_0
     return v1
 .end method
@@ -248,9 +216,6 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 370
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
     iget-object v0, p0, Lcom/google/common/base/Converter$ConverterComposition;->first:Lcom/google/common/base/Converter;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -273,9 +238,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 375
-    .local p0, "this":Lcom/google/common/base/Converter$ConverterComposition;, "Lcom/google/common/base/Converter$ConverterComposition<TA;TB;TC;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

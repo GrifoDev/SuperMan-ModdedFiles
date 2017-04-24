@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/accessory/AccessoryEventHandler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/accessory/AccessoryEventHandler;
 
-    .prologue
-    .line 190
     iput-object p1, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-direct {p0}, Lcom/samsung/android/sdk/cover/ScoverManager$StateListener;-><init>()V
@@ -36,27 +33,21 @@
 # virtual methods
 .method public onCoverStateChanged(Lcom/samsung/android/sdk/cover/ScoverState;)V
     .locals 6
-    .param p1, "state"    # Lcom/samsung/android/sdk/cover/ScoverState;
 
-    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
-    .line 192
     if-nez p1, :cond_1
 
-    .line 193
     const-string v2, "onCoverStateChanged: ScoverState is null"
 
     invoke-static {p0, v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    .line 235
     :cond_0
     :goto_0
     return-void
 
-    .line 197
     :cond_1
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
@@ -67,12 +58,10 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverType:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$402(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
-    .line 198
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     iput-object p1, v2, Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverState:Lcom/samsung/android/sdk/cover/ScoverState;
 
-    .line 199
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/cover/ScoverState;->getColor()I
@@ -82,7 +71,6 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverColor:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$502(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
-    .line 200
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/cover/ScoverState;->getWindowHeight()I
@@ -92,7 +80,6 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverHeight:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$602(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
-    .line 201
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/cover/ScoverState;->getWindowWidth()I
@@ -102,7 +89,6 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mCoverWidth:I
     invoke-static {v2, v5}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$702(Lcom/android/incallui/accessory/AccessoryEventHandler;I)I
 
-    .line 202
     iget-object v5, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/cover/ScoverState;->getSwitchState()Z
@@ -117,7 +103,6 @@
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
     invoke-static {v5, v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$802(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
-    .line 204
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
@@ -127,13 +112,11 @@
 
     if-eqz v2, :cond_5
 
-    .line 205
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     # setter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsAppLogging:Z
     invoke-static {v2, v4}, Lcom/android/incallui/accessory/AccessoryEventHandler;->access$902(Lcom/android/incallui/accessory/AccessoryEventHandler;Z)Z
 
-    .line 210
     :cond_2
     :goto_2
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -151,7 +134,6 @@
 
     if-nez v2, :cond_6
 
-    .line 211
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -179,7 +161,6 @@
 
     invoke-static {p0, v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    .line 212
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
@@ -200,12 +181,10 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 213
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     invoke-virtual {v2}, Lcom/android/incallui/accessory/AccessoryEventHandler;->notifyCallTimeForLedCover()V
 
-    .line 215
     :cond_3
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
@@ -217,10 +196,8 @@
     :cond_4
     move v2, v4
 
-    .line 202
     goto :goto_1
 
-    .line 207
     :cond_5
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
@@ -238,7 +215,6 @@
 
     goto :goto_2
 
-    .line 220
     :cond_6
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -252,7 +228,6 @@
 
     if-eq v2, v5, :cond_0
 
-    .line 224
     invoke-virtual {p1}, Lcom/samsung/android/sdk/cover/ScoverState;->getSwitchState()Z
 
     move-result v2
@@ -261,8 +236,6 @@
 
     move v1, v3
 
-    .line 226
-    .local v1, "isClosed":Z
     :goto_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -274,8 +247,6 @@
 
     move-result-object v0
 
-    .line 229
-    .local v0, "aliveCall":Lcom/android/incallui/Call;
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     # getter for: Lcom/android/incallui/accessory/AccessoryEventHandler;->mIsClosed:Z
@@ -287,7 +258,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 233
     :cond_7
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -326,7 +296,6 @@
 
     invoke-static {p0, v2, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    .line 234
     iget-object v2, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
 
     iget-object v3, p0, Lcom/android/incallui/accessory/AccessoryEventHandler$2;->this$0:Lcom/android/incallui/accessory/AccessoryEventHandler;
@@ -341,11 +310,8 @@
 
     goto/16 :goto_0
 
-    .end local v0    # "aliveCall":Lcom/android/incallui/Call;
-    .end local v1    # "isClosed":Z
     :cond_8
     move v1, v4
 
-    .line 224
     goto :goto_3
 .end method

@@ -37,8 +37,6 @@
 .method constructor <init>(ILjava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 949
     iput p1, p0, Lcom/google/common/collect/Iterators$9;->val$limitSize:I
 
     iput-object p2, p0, Lcom/google/common/collect/Iterators$9;->val$iterator:Ljava/util/Iterator;
@@ -53,8 +51,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 954
     iget v0, p0, Lcom/google/common/collect/Iterators$9;->count:I
 
     iget v1, p0, Lcom/google/common/collect/Iterators$9;->val$limitSize:I
@@ -88,22 +84,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 959
     invoke-virtual {p0}, Lcom/google/common/collect/Iterators$9;->hasNext()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 960
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
-    .line 962
     :cond_0
     iget v0, p0, Lcom/google/common/collect/Iterators$9;->count:I
 
@@ -111,7 +103,6 @@
 
     iput v0, p0, Lcom/google/common/collect/Iterators$9;->count:I
 
-    .line 963
     iget-object v0, p0, Lcom/google/common/collect/Iterators$9;->val$iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -124,12 +115,9 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 968
     iget-object v0, p0, Lcom/google/common/collect/Iterators$9;->val$iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 969
     return-void
 .end method

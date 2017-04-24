@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 340
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,8 +38,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 344
     :try_start_0
     const-string v1, "com.google.common.base.internal.Finalizer"
 
@@ -53,12 +49,9 @@
 
     return-object v1
 
-    .line 345
     :catch_0
     move-exception v0
 
-    .line 346
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V

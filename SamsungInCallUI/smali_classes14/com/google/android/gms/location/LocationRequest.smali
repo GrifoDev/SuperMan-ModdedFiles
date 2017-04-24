@@ -90,16 +90,7 @@
 
 .method constructor <init>(IIJJZJIF)V
     .locals 1
-    .param p1, "versionCode"    # I
-    .param p2, "priority"    # I
-    .param p3, "interval"    # J
-    .param p5, "fastestInterval"    # J
-    .param p7, "explicitFastestInterval"    # Z
-    .param p8, "expireAt"    # J
-    .param p10, "numUpdates"    # I
-    .param p11, "smallestDisplacement"    # F
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/location/LocationRequest;->ab:I
@@ -305,21 +296,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     if-ne p0, p1, :cond_1
 
-    .end local p1    # "object":Ljava/lang/Object;
     :cond_0
     :goto_0
     return v0
 
-    .restart local p1    # "object":Ljava/lang/Object;
     :cond_1
     instance-of v2, p1, Lcom/google/android/gms/location/LocationRequest;
 
@@ -332,7 +319,6 @@
     :cond_2
     check-cast p1, Lcom/google/android/gms/location/LocationRequest;
 
-    .end local p1    # "object":Ljava/lang/Object;
     iget v2, p0, Lcom/google/android/gms/location/LocationRequest;->mPriority:I
 
     iget v3, p1, Lcom/google/android/gms/location/LocationRequest;->mPriority:I
@@ -531,9 +517,7 @@
 
 .method public setExpirationDuration(J)Lcom/google/android/gms/location/LocationRequest;
     .locals 9
-    .param p1, "millis"    # J
 
-    .prologue
     const-wide v6, 0x7fffffffffffffffL
 
     const-wide/16 v4, 0x0
@@ -572,9 +556,7 @@
 
 .method public setExpirationTime(J)Lcom/google/android/gms/location/LocationRequest;
     .locals 5
-    .param p1, "millis"    # J
 
-    .prologue
     const-wide/16 v2, 0x0
 
     iput-wide p1, p0, Lcom/google/android/gms/location/LocationRequest;->fw:J
@@ -593,9 +575,7 @@
 
 .method public setFastestInterval(J)Lcom/google/android/gms/location/LocationRequest;
     .locals 1
-    .param p1, "millis"    # J
 
-    .prologue
     invoke-static {p1, p2}, Lcom/google/android/gms/location/LocationRequest;->c(J)V
 
     const/4 v0, 0x1
@@ -609,9 +589,7 @@
 
 .method public setInterval(J)Lcom/google/android/gms/location/LocationRequest;
     .locals 5
-    .param p1, "millis"    # J
 
-    .prologue
     invoke-static {p1, p2}, Lcom/google/android/gms/location/LocationRequest;->c(J)V
 
     iput-wide p1, p0, Lcom/google/android/gms/location/LocationRequest;->fB:J
@@ -638,9 +616,7 @@
 
 .method public setNumUpdates(I)Lcom/google/android/gms/location/LocationRequest;
     .locals 3
-    .param p1, "numUpdates"    # I
 
-    .prologue
     if-gtz p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -675,9 +651,7 @@
 
 .method public setPriority(I)Lcom/google/android/gms/location/LocationRequest;
     .locals 0
-    .param p1, "priority"    # I
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/location/LocationRequest;->M(I)V
 
     iput p1, p0, Lcom/google/android/gms/location/LocationRequest;->mPriority:I
@@ -687,9 +661,7 @@
 
 .method public setSmallestDisplacement(F)Lcom/google/android/gms/location/LocationRequest;
     .locals 0
-    .param p1, "smallestDisplacementMeters"    # F
 
-    .prologue
     invoke-static {p1}, Lcom/google/android/gms/location/LocationRequest;->a(F)V
 
     iput p1, p0, Lcom/google/android/gms/location/LocationRequest;->fF:F
@@ -848,10 +820,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .param p1, "parcel"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     invoke-static {p0, p1, p2}, Lcom/google/android/gms/location/LocationRequestCreator;->a(Lcom/google/android/gms/location/LocationRequest;Landroid/os/Parcel;I)V
 
     return-void

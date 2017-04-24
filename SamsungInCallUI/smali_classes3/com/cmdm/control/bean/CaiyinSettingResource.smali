@@ -160,25 +160,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 141
     new-instance v0, Lcom/cmdm/control/bean/PraiseList;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/PraiseList;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->praiseList:Lcom/cmdm/control/bean/PraiseList;
 
-    .line 147
     new-instance v0, Lcom/cmdm/control/bean/UserInfo;
 
     invoke-direct {v0}, Lcom/cmdm/control/bean/UserInfo;-><init>()V
 
     iput-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->userInfo:Lcom/cmdm/control/bean/UserInfo;
 
-    .line 28
     return-void
 .end method
 
@@ -186,32 +181,23 @@
 # virtual methods
 .method public getContactInfo(Landroid/content/Context;)Lcom/cmdm/control/bean/ContactInfo;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 434
     new-instance v0, Lcom/cmdm/control/biz/q;
 
     invoke-direct {v0, p1}, Lcom/cmdm/control/biz/q;-><init>(Landroid/content/Context;)V
 
-    .line 435
-    .local v0, "biz":Lcom/cmdm/control/biz/q;
     iget-object v2, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->friendUid:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Lcom/cmdm/control/biz/q;->ah(Ljava/lang/String;)Lcom/cmdm/control/bean/ContactInfo;
 
     move-result-object v1
 
-    .line 436
-    .local v1, "ci":Lcom/cmdm/control/bean/ContactInfo;
     return-object v1
 .end method
 
 .method public getContent()Lcom/cmdm/control/bean/Content;
     .locals 1
 
-    .prologue
-    .line 237
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->content:Lcom/cmdm/control/bean/Content;
 
     return-object v0
@@ -220,8 +206,6 @@
 .method public getCrsProfile()Lcom/cmdm/control/bean/CRSProfile;
     .locals 1
 
-    .prologue
-    .line 222
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
     return-object v0
@@ -230,8 +214,6 @@
 .method public getDisplayObject()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 315
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->displayObject:Ljava/lang/String;
 
     return-object v0
@@ -240,8 +222,6 @@
 .method public getFriendUid()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 300
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->friendUid:Ljava/lang/String;
 
     return-object v0
@@ -250,8 +230,6 @@
 .method public getGoodFlag()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 407
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFlag:Ljava/lang/String;
 
     return-object v0
@@ -260,8 +238,6 @@
 .method public getGoodFriendName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 360
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFriendName:Ljava/lang/String;
 
     return-object v0
@@ -270,8 +246,6 @@
 .method public getGoodFriendUid()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 392
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFriendUid:Ljava/lang/String;
 
     return-object v0
@@ -279,12 +253,9 @@
 
 .method public getGoodPraiseFriendsName(Landroid/content/Context;)Ljava/lang/String;
     .locals 5
-    .param p1, "context"    # Landroid/content/Context;
 
-    .prologue
     const/4 v4, 0x1
 
-    .line 372
     invoke-virtual {p0}, Lcom/cmdm/control/bean/CaiyinSettingResource;->getGoodFriendUid()Ljava/lang/String;
 
     move-result-object v2
@@ -303,7 +274,6 @@
 
     if-nez v2, :cond_1
 
-    .line 373
     invoke-virtual {p0}, Lcom/cmdm/control/bean/CaiyinSettingResource;->getGoodFriendUid()Ljava/lang/String;
 
     move-result-object v2
@@ -316,7 +286,6 @@
 
     if-nez v2, :cond_1
 
-    .line 374
     invoke-virtual {p0}, Lcom/cmdm/control/bean/CaiyinSettingResource;->getGoodFriendUid()Ljava/lang/String;
 
     move-result-object v2
@@ -327,15 +296,12 @@
 
     move-result-object v0
 
-    .line 375
-    .local v0, "a":[Ljava/lang/String;
     if-eqz v0, :cond_1
 
     array-length v2, v0
 
     if-lt v2, v4, :cond_1
 
-    .line 376
     const/4 v2, 0x0
 
     aget-object v2, v0, v2
@@ -344,13 +310,10 @@
 
     move-result-object v1
 
-    .line 378
-    .local v1, "name":Ljava/lang/String;
     array-length v2, v0
 
     if-ne v2, v4, :cond_0
 
-    .line 379
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -369,15 +332,9 @@
 
     move-result-object v2
 
-    .line 385
-    .end local v0    # "a":[Ljava/lang/String;
-    .end local v1    # "name":Ljava/lang/String;
     :goto_0
     return-object v2
 
-    .line 381
-    .restart local v0    # "a":[Ljava/lang/String;
-    .restart local v1    # "name":Ljava/lang/String;
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -411,9 +368,6 @@
 
     goto :goto_0
 
-    .line 385
-    .end local v0    # "a":[Ljava/lang/String;
-    .end local v1    # "name":Ljava/lang/String;
     :cond_1
     const/4 v2, 0x0
 
@@ -423,8 +377,6 @@
 .method public getGreeting()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 422
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->greeting:Ljava/lang/String;
 
     return-object v0
@@ -433,8 +385,6 @@
 .method public getLastGoodFriendUrl()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 345
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->lastGoodFriendUrl:Ljava/lang/String;
 
     return-object v0
@@ -443,8 +393,6 @@
 .method public getPicId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 192
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->picId:Ljava/lang/String;
 
     return-object v0
@@ -453,8 +401,6 @@
 .method public getSettingDate()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 252
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
 
     return-object v0
@@ -463,8 +409,6 @@
 .method public getSettingDescribe()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 330
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDescribe:Ljava/lang/String;
 
     return-object v0
@@ -473,14 +417,10 @@
 .method public getSettingFormDate()Ljava/lang/String;
     .locals 5
 
-    .prologue
-    .line 256
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 257
-    .local v0, "set":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -495,7 +435,6 @@
 
     if-nez v1, :cond_0
 
-    .line 258
     iget-object v1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -506,7 +445,6 @@
 
     if-lt v1, v2, :cond_0
 
-    .line 260
     :try_start_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -538,7 +476,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 261
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
@@ -569,7 +506,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 262
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
@@ -600,7 +536,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 263
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
@@ -631,7 +566,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 264
     new-instance v1, Ljava/lang/StringBuilder;
 
     iget-object v2, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
@@ -662,7 +596,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 265
     iget-object v1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
 
     const/16 v2, 0xc
@@ -677,7 +610,6 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 270
     :cond_0
     :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -686,7 +618,6 @@
 
     return-object v1
 
-    .line 266
     :catch_0
     move-exception v1
 
@@ -696,8 +627,6 @@
 .method public getSettingId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 177
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingId:Ljava/lang/String;
 
     return-object v0
@@ -706,8 +635,6 @@
 .method public getSettingType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 285
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingType:Ljava/lang/String;
 
     return-object v0
@@ -716,8 +643,6 @@
 .method public getTextId()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 207
     iget-object v0, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->textId:Ljava/lang/String;
 
     return-object v0
@@ -725,180 +650,120 @@
 
 .method public setContent(Lcom/cmdm/control/bean/Content;)V
     .locals 0
-    .param p1, "content"    # Lcom/cmdm/control/bean/Content;
 
-    .prologue
-    .line 245
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->content:Lcom/cmdm/control/bean/Content;
 
-    .line 246
     return-void
 .end method
 
 .method public setCrsProfile(Lcom/cmdm/control/bean/CRSProfile;)V
     .locals 0
-    .param p1, "crsProfile"    # Lcom/cmdm/control/bean/CRSProfile;
 
-    .prologue
-    .line 230
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->crsProfile:Lcom/cmdm/control/bean/CRSProfile;
 
-    .line 231
     return-void
 .end method
 
 .method public setDisplayObject(Ljava/lang/String;)V
     .locals 0
-    .param p1, "displayObject"    # Ljava/lang/String;
 
-    .prologue
-    .line 323
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->displayObject:Ljava/lang/String;
 
-    .line 324
     return-void
 .end method
 
 .method public setFriendUid(Ljava/lang/String;)V
     .locals 0
-    .param p1, "friendUid"    # Ljava/lang/String;
 
-    .prologue
-    .line 308
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->friendUid:Ljava/lang/String;
 
-    .line 309
     return-void
 .end method
 
 .method public setGoodFlag(Ljava/lang/String;)V
     .locals 0
-    .param p1, "goodFlag"    # Ljava/lang/String;
 
-    .prologue
-    .line 415
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFlag:Ljava/lang/String;
 
-    .line 416
     return-void
 .end method
 
 .method public setGoodFriendName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "goodFriendName"    # Ljava/lang/String;
 
-    .prologue
-    .line 368
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFriendName:Ljava/lang/String;
 
-    .line 369
     return-void
 .end method
 
 .method public setGoodFriendUid(Ljava/lang/String;)V
     .locals 0
-    .param p1, "goodFriendUid"    # Ljava/lang/String;
 
-    .prologue
-    .line 400
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->goodFriendUid:Ljava/lang/String;
 
-    .line 401
     return-void
 .end method
 
 .method public setGreeting(Ljava/lang/String;)V
     .locals 0
-    .param p1, "greeting"    # Ljava/lang/String;
 
-    .prologue
-    .line 430
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->greeting:Ljava/lang/String;
 
-    .line 431
     return-void
 .end method
 
 .method public setLastGoodFriendUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "lastGoodFriendUrl"    # Ljava/lang/String;
 
-    .prologue
-    .line 353
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->lastGoodFriendUrl:Ljava/lang/String;
 
-    .line 354
     return-void
 .end method
 
 .method public setPicId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "picId"    # Ljava/lang/String;
 
-    .prologue
-    .line 200
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->picId:Ljava/lang/String;
 
-    .line 201
     return-void
 .end method
 
 .method public setSettingDate(Ljava/lang/String;)V
     .locals 0
-    .param p1, "settingDate"    # Ljava/lang/String;
 
-    .prologue
-    .line 278
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDate:Ljava/lang/String;
 
-    .line 279
     return-void
 .end method
 
 .method public setSettingDescribe(Ljava/lang/String;)V
     .locals 0
-    .param p1, "settingDescribe"    # Ljava/lang/String;
 
-    .prologue
-    .line 338
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingDescribe:Ljava/lang/String;
 
-    .line 339
     return-void
 .end method
 
 .method public setSettingId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "settingId"    # Ljava/lang/String;
 
-    .prologue
-    .line 185
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingId:Ljava/lang/String;
 
-    .line 186
     return-void
 .end method
 
 .method public setSettingType(Ljava/lang/String;)V
     .locals 0
-    .param p1, "settingType"    # Ljava/lang/String;
 
-    .prologue
-    .line 293
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->settingType:Ljava/lang/String;
 
-    .line 294
     return-void
 .end method
 
 .method public setTextId(Ljava/lang/String;)V
     .locals 0
-    .param p1, "textId"    # Ljava/lang/String;
 
-    .prologue
-    .line 215
     iput-object p1, p0, Lcom/cmdm/control/bean/CaiyinSettingResource;->textId:Ljava/lang/String;
 
-    .line 216
     return-void
 .end method

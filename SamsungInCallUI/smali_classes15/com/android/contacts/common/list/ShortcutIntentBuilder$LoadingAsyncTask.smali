@@ -44,28 +44,21 @@
 # direct methods
 .method public constructor <init>(Lcom/android/contacts/common/list/ShortcutIntentBuilder;Landroid/net/Uri;)V
     .locals 0
-    .param p2, "uri"    # Landroid/net/Uri;
 
-    .prologue
-    .line 156
     iput-object p1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    .line 157
     iput-object p2, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->mUri:Landroid/net/Uri;
 
-    .line 158
     return-void
 .end method
 
 .method private loadPhoto()V
     .locals 10
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 171
     iget-wide v2, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->mPhotoId:J
 
     const-wide/16 v4, 0x0
@@ -74,12 +67,10 @@
 
     if-nez v1, :cond_1
 
-    .line 187
     :cond_0
     :goto_0
     return-void
 
-    .line 175
     :cond_1
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
@@ -92,8 +83,6 @@
 
     move-result-object v0
 
-    .line 176
-    .local v0, "resolver":Landroid/content/ContentResolver;
     sget-object v1, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->PHOTO_COLUMNS:[Ljava/lang/String;
@@ -109,7 +98,6 @@
 
     iget-wide v8, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->mPhotoId:J
 
-    .line 177
     invoke-static {v8, v9}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v5
@@ -118,16 +106,12 @@
 
     const/4 v5, 0x0
 
-    .line 176
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6
 
-    .line 178
-    .local v6, "cursor":Landroid/database/Cursor;
     if-eqz v6, :cond_0
 
-    .line 180
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -135,7 +119,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 181
     const/4 v1, 0x0
 
     invoke-interface {v6, v1}, Landroid/database/Cursor;->getBlob(I)[B
@@ -146,7 +129,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 184
     :cond_2
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
@@ -165,8 +147,6 @@
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 147
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
@@ -178,10 +158,7 @@
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
     .locals 2
-    .param p1, "params"    # [Ljava/lang/Void;
 
-    .prologue
-    .line 162
     iget-object v0, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->this$0:Lcom/android/contacts/common/list/ShortcutIntentBuilder;
 
     # getter for: Lcom/android/contacts/common/list/ShortcutIntentBuilder;->mContext:Landroid/content/Context;
@@ -201,13 +178,10 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->mContentType:Ljava/lang/String;
 
-    .line 163
     invoke-virtual {p0}, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->loadData()V
 
-    .line 164
     invoke-direct {p0}, Lcom/android/contacts/common/list/ShortcutIntentBuilder$LoadingAsyncTask;->loadPhoto()V
 
-    .line 165
     const/4 v0, 0x0
 
     return-object v0

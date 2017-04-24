@@ -29,9 +29,6 @@
 .method private constructor <init>(Lcom/google/common/collect/RegularImmutableTable;)V
     .locals 0
 
-    .prologue
-    .line 84
-    .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$Values;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.Values;"
     iput-object p1, p0, Lcom/google/common/collect/RegularImmutableTable$Values;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
     invoke-direct {p0}, Lcom/google/common/collect/ImmutableList;-><init>()V
@@ -41,12 +38,7 @@
 
 .method synthetic constructor <init>(Lcom/google/common/collect/RegularImmutableTable;Lcom/google/common/collect/RegularImmutableTable$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/common/collect/RegularImmutableTable;
-    .param p2, "x1"    # Lcom/google/common/collect/RegularImmutableTable$1;
 
-    .prologue
-    .line 84
-    .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$Values;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.Values;"
     invoke-direct {p0, p1}, Lcom/google/common/collect/RegularImmutableTable$Values;-><init>(Lcom/google/common/collect/RegularImmutableTable;)V
 
     return-void
@@ -56,16 +48,12 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
         }
     .end annotation
 
-    .prologue
-    .line 92
-    .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$Values;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$Values;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/RegularImmutableTable;->getValue(I)Ljava/lang/Object;
@@ -78,9 +66,6 @@
 .method isPartialView()Z
     .locals 1
 
-    .prologue
-    .line 97
-    .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$Values;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.Values;"
     const/4 v0, 0x1
 
     return v0
@@ -89,9 +74,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 87
-    .local p0, "this":Lcom/google/common/collect/RegularImmutableTable$Values;, "Lcom/google/common/collect/RegularImmutableTable<TR;TC;TV;>.Values;"
     iget-object v0, p0, Lcom/google/common/collect/RegularImmutableTable$Values;->this$0:Lcom/google/common/collect/RegularImmutableTable;
 
     invoke-virtual {v0}, Lcom/google/common/collect/RegularImmutableTable;->size()I

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/contacts/common/dialog/CallSubjectDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
-    .prologue
-    .line 160
     iput-object p1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
-    .param p1, "v"    # Landroid/view/View;
 
-    .prologue
-    .line 163
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mCallSubjectView:Landroid/widget/EditText;
@@ -58,8 +52,6 @@
 
     move-result-object v1
 
-    .line 164
-    .local v1, "subject":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mNumber:Ljava/lang/String;
@@ -78,25 +70,20 @@
 
     move-result-object v0
 
-    .line 167
-    .local v0, "intent":Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     const-string v4, "telecom"
 
-    .line 169
     invoke-virtual {v2, v4}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/telecom/TelecomManager;
 
-    .line 167
     invoke-static {v3, v2, v0}, Lcom/android/contacts/common/compat/telecom/TelecomManagerCompat;->placeCall(Landroid/app/Activity;Landroid/telecom/TelecomManager;Landroid/content/Intent;)V
 
-    .line 172
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     # getter for: Lcom/android/contacts/common/dialog/CallSubjectDialog;->mSubjectHistory:Ljava/util/List;
@@ -106,7 +93,6 @@
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 173
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     iget-object v3, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
@@ -119,11 +105,9 @@
     # invokes: Lcom/android/contacts/common/dialog/CallSubjectDialog;->saveSubjectHistory(Ljava/util/List;)V
     invoke-static {v2, v3}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->access$700(Lcom/android/contacts/common/dialog/CallSubjectDialog;Ljava/util/List;)V
 
-    .line 174
     iget-object v2, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog$4;->this$0:Lcom/android/contacts/common/dialog/CallSubjectDialog;
 
     invoke-virtual {v2}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->finish()V
 
-    .line 175
     return-void
 .end method

@@ -63,18 +63,7 @@
 
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;Landroid/net/Uri;Landroid/net/Uri;ILjava/lang/String;ZLcom/google/android/gms/games/PlayerEntity;I)V
     .locals 0
-    .param p1, "versionCode"    # I
-    .param p2, "participantId"    # Ljava/lang/String;
-    .param p3, "displayName"    # Ljava/lang/String;
-    .param p4, "iconImageUri"    # Landroid/net/Uri;
-    .param p5, "hiResImageUri"    # Landroid/net/Uri;
-    .param p6, "status"    # I
-    .param p7, "clientAddress"    # Ljava/lang/String;
-    .param p8, "connectedToRoom"    # Z
-    .param p9, "player"    # Lcom/google/android/gms/games/PlayerEntity;
-    .param p10, "capabilities"    # I
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     iput p1, p0, Lcom/google/android/gms/games/multiplayer/ParticipantEntity;->ab:I
@@ -102,9 +91,7 @@
 
 .method public constructor <init>(Lcom/google/android/gms/games/multiplayer/Participant;)V
     .locals 2
-    .param p1, "participant"    # Lcom/google/android/gms/games/multiplayer/Participant;
 
-    .prologue
     invoke-direct {p0}, Lcom/google/android/gms/internal/av;-><init>()V
 
     const/4 v0, 0x1
@@ -598,9 +585,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     invoke-static {p0, p1}, Lcom/google/android/gms/games/multiplayer/ParticipantEntity;->a(Lcom/google/android/gms/games/multiplayer/Participant;Ljava/lang/Object;)Z
 
     move-result v0
@@ -648,9 +633,7 @@
 
 .method public getDisplayName(Landroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "dataOut"    # Landroid/database/CharArrayBuffer;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/games/multiplayer/ParticipantEntity;->eQ:Lcom/google/android/gms/games/PlayerEntity;
 
     if-nez v0, :cond_0
@@ -784,10 +767,7 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
-    .prologue
     const/4 v1, 0x0
 
     const/4 v2, 0x1

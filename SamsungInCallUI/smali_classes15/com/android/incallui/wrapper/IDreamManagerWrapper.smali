@@ -23,26 +23,20 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 24
     const-string v2, "android.service.dreams.IDreamManager"
 
     invoke-static {v2}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 25
-    .local v0, "baseClass":Ljava/lang/Class;
     const-string v2, "android.service.dreams.IDreamManager$Stub"
 
     invoke-static {v2}, Lcom/android/incallui/wrapper/ReflectUtil;->classForName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
 
-    .line 27
-    .local v1, "stubClass":Ljava/lang/Class;
     const-string v2, "asInterface"
 
     const/4 v3, 0x1
@@ -59,7 +53,6 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodAsInterface:Ljava/lang/reflect/Method;
 
-    .line 28
     const-string v2, "isDreaming"
 
     new-array v3, v5, [Ljava/lang/Class;
@@ -70,7 +63,6 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodIsDreaming:Ljava/lang/reflect/Method;
 
-    .line 29
     const-string v2, "awaken"
 
     new-array v3, v5, [Ljava/lang/Class;
@@ -81,42 +73,31 @@
 
     sput-object v2, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodAwaken:Ljava/lang/reflect/Method;
 
-    .line 30
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "instance"    # Ljava/lang/Object;
 
-    .prologue
-    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     iput-object p1, p0, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->mInstance:Ljava/lang/Object;
 
-    .line 34
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/incallui/wrapper/IDreamManagerWrapper;
     .locals 7
-    .param p0, "service"    # Landroid/os/IBinder;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 37
     sget-object v2, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodAsInterface:Ljava/lang/reflect/Method;
 
     if-nez v2, :cond_0
 
-    .line 44
     :goto_0
     return-object v1
 
-    .line 41
     :cond_0
     :try_start_0
     new-instance v2, Lcom/android/incallui/wrapper/IDreamManagerWrapper;
@@ -147,12 +128,9 @@
 
     goto :goto_0
 
-    .line 42
     :catch_0
     move-exception v0
 
-    .line 43
-    .local v0, "e":Ljava/lang/Exception;
     :goto_1
     const-string v2, "IDreamManagerWrapper"
 
@@ -182,8 +160,6 @@
 
     goto :goto_0
 
-    .line 42
-    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
@@ -200,17 +176,13 @@
 .method public awaken()V
     .locals 4
 
-    .prologue
-    .line 61
     sget-object v1, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodAwaken:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
-    .line 70
     :goto_0
     return-void
 
-    .line 65
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodAwaken:Ljava/lang/reflect/Method;
@@ -228,12 +200,9 @@
 
     goto :goto_0
 
-    .line 66
     :catch_0
     move-exception v0
 
-    .line 67
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "IDreamManagerWrapper"
 
@@ -263,8 +232,6 @@
 
     goto :goto_0
 
-    .line 66
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 
@@ -274,21 +241,17 @@
 .method public isDreaming()Z
     .locals 5
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 49
     sget-object v1, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodIsDreaming:Ljava/lang/reflect/Method;
 
     if-nez v1, :cond_0
 
     move v1, v2
 
-    .line 56
     :goto_0
     return v1
 
-    .line 53
     :cond_0
     :try_start_0
     sget-object v1, Lcom/android/incallui/wrapper/IDreamManagerWrapper;->sMethodIsDreaming:Ljava/lang/reflect/Method;
@@ -314,12 +277,9 @@
 
     goto :goto_0
 
-    .line 54
     :catch_0
     move-exception v0
 
-    .line 55
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
     const-string v1, "IDreamManagerWrapper"
 
@@ -349,11 +309,8 @@
 
     move v1, v2
 
-    .line 56
     goto :goto_0
 
-    .line 54
-    .end local v0    # "e":Ljava/lang/ReflectiveOperationException;
     :catch_1
     move-exception v0
 

@@ -21,11 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/service/vt/VideoCallManager;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/service/vt/VideoCallManager;
-    .param p2, "context"    # Landroid/content/Context;
 
-    .prologue
-    .line 335
     iput-object p1, p0, Lcom/android/incallui/service/vt/VideoCallManager$2;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
     invoke-direct {p0, p2}, Lcom/android/incallui/service/vt/InCallRotationEventListener;-><init>(Landroid/content/Context;)V
@@ -37,10 +33,26 @@
 # virtual methods
 .method public onRotationChanged(I)V
     .locals 3
-    .param p1, "rotation"    # I
 
-    .prologue
-    .line 338
+    const-string v1, "feature_lgt"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isIMSConferenceCall()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -61,7 +73,6 @@
 
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->rotation(Ljava/lang/String;)V
 
-    .line 339
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -72,8 +83,6 @@
 
     move-result-object v0
 
-    .line 340
-    .local v0, "call":Lcom/android/incallui/Call;
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v1
@@ -90,14 +99,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 341
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
 
     move-result-object v1
 
     invoke-virtual {v1, p1}, Lcom/android/incallui/service/vt/VideoCallAdapter;->setDeviceRotatoin(I)V
 
-    .line 342
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$2;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
     # getter for: Lcom/android/incallui/service/vt/VideoCallManager;->mInCallRotationEventListener:Lcom/android/incallui/service/vt/InCallRotationEventListener;
@@ -111,12 +118,9 @@
 
     if-eqz v1, :cond_0
 
-    .line 343
     iget-object v1, p0, Lcom/android/incallui/service/vt/VideoCallManager$2;->this$0:Lcom/android/incallui/service/vt/VideoCallManager;
 
     invoke-virtual {v1, p1}, Lcom/android/incallui/service/vt/VideoCallManager;->onDisplayRotationChanged(I)V
 
-    .line 346
-    :cond_0
-    return-void
+    goto :goto_0
 .end method

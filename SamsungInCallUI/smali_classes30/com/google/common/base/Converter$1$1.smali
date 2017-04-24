@@ -42,14 +42,10 @@
 .method constructor <init>(Lcom/google/common/base/Converter$1;)V
     .locals 1
 
-    .prologue
-    .line 204
-    .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1.1;"
     iput-object p1, p0, Lcom/google/common/base/Converter$1$1;->this$1:Lcom/google/common/base/Converter$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 205
     iget-object v0, p0, Lcom/google/common/base/Converter$1$1;->this$1:Lcom/google/common/base/Converter$1;
 
     iget-object v0, v0, Lcom/google/common/base/Converter$1;->val$fromIterable:Ljava/lang/Iterable;
@@ -68,9 +64,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 209
-    .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1.1;"
     iget-object v0, p0, Lcom/google/common/base/Converter$1$1;->fromIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -88,9 +81,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 214
-    .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1.1;"
     iget-object v0, p0, Lcom/google/common/base/Converter$1$1;->this$1:Lcom/google/common/base/Converter$1;
 
     iget-object v0, v0, Lcom/google/common/base/Converter$1;->this$0:Lcom/google/common/base/Converter;
@@ -111,13 +101,9 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 219
-    .local p0, "this":Lcom/google/common/base/Converter$1$1;, "Lcom/google/common/base/Converter$1.1;"
     iget-object v0, p0, Lcom/google/common/base/Converter$1$1;->fromIterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 220
     return-void
 .end method

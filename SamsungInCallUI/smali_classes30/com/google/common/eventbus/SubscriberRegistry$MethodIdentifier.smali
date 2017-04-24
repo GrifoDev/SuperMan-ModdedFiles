@@ -32,20 +32,15 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;)V
     .locals 1
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
-    .prologue
-    .line 240
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 241
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->name:Ljava/lang/String;
 
-    .line 242
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
     move-result-object v0
@@ -56,7 +51,6 @@
 
     iput-object v0, p0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->parameterTypes:Ljava/util/List;
 
-    .line 243
     return-void
 .end method
 
@@ -64,26 +58,21 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 252
     instance-of v2, p1, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
 
     if-eqz v2, :cond_0
 
     move-object v0, p1
 
-    .line 253
     check-cast v0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
 
-    .line 254
-    .local v0, "ident":Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
     iget-object v2, p0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->name:Ljava/lang/String;
 
     iget-object v3, v0, Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;->name:Ljava/lang/String;
@@ -106,8 +95,6 @@
 
     const/4 v1, 0x1
 
-    .line 256
-    .end local v0    # "ident":Lcom/google/common/eventbus/SubscriberRegistry$MethodIdentifier;
     :cond_0
     return v1
 .end method
@@ -115,8 +102,6 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 247
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;

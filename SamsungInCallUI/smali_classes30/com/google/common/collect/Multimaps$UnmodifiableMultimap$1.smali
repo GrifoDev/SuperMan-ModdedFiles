@@ -37,9 +37,6 @@
 .method constructor <init>(Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;)V
     .locals 0
 
-    .prologue
-    .line 515
-    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap.1;"
     iput-object p1, p0, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;->this$0:Lcom/google/common/collect/Multimaps$UnmodifiableMultimap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,14 +48,9 @@
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
 
-    .prologue
-    .line 515
-    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap.1;"
     check-cast p1, Ljava/util/Collection;
 
-    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;->apply(Ljava/util/Collection;)Ljava/util/Collection;
 
     move-result-object v0
@@ -78,10 +70,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 518
-    .local p0, "this":Lcom/google/common/collect/Multimaps$UnmodifiableMultimap$1;, "Lcom/google/common/collect/Multimaps$UnmodifiableMultimap.1;"
-    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     # invokes: Lcom/google/common/collect/Multimaps;->unmodifiableValueCollection(Ljava/util/Collection;)Ljava/util/Collection;
     invoke-static {p1}, Lcom/google/common/collect/Multimaps;->access$000(Ljava/util/Collection;)Ljava/util/Collection;
 

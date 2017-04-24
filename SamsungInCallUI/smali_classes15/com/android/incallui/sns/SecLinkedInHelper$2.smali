@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/sns/SecLinkedInHelper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/sns/SecLinkedInHelper;
 
-    .prologue
-    .line 155
     iput-object p1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,11 +36,7 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
-    .param p1, "arg0"    # Landroid/content/ComponentName;
-    .param p2, "binder"    # Landroid/os/IBinder;
 
-    .prologue
-    .line 162
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     invoke-static {p2}, Lcom/sec/android/app/snsimagecache/ISnsImageCacheService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
@@ -53,7 +46,6 @@
     # setter for: Lcom/android/incallui/sns/SecLinkedInHelper;->mSnsService:Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
     invoke-static {v1, v2}, Lcom/android/incallui/sns/SecLinkedInHelper;->access$602(Lcom/android/incallui/sns/SecLinkedInHelper;Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;)Lcom/sec/android/app/snsimagecache/ISnsImageCacheService;
 
-    .line 164
     :try_start_0
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
@@ -64,7 +56,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 165
     iget-object v1, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
 
     iget-object v2, p0, Lcom/android/incallui/sns/SecLinkedInHelper$2;->this$0:Lcom/android/incallui/sns/SecLinkedInHelper;
@@ -90,17 +81,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 169
     :cond_0
     :goto_0
     return-void
 
-    .line 166
     :catch_0
     move-exception v0
 
-    .line 167
-    .local v0, "e":Landroid/os/RemoteException;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -126,9 +113,6 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .param p1, "arg0"    # Landroid/content/ComponentName;
 
-    .prologue
-    .line 158
     return-void
 .end method

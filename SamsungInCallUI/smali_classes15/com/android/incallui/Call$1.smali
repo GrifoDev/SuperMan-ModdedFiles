@@ -21,10 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/incallui/Call;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/android/incallui/Call;
 
-    .prologue
-    .line 350
     iput-object p1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     invoke-direct {p0}, Landroid/telecom/Call$Callback;-><init>()V
@@ -36,10 +33,7 @@
 # virtual methods
 .method public onCallDestroyed(Landroid/telecom/Call;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
 
-    .prologue
-    .line 426
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -60,16 +54,13 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 427
     invoke-virtual {p1, p0}, Landroid/telecom/Call;->unregisterCallback(Landroid/telecom/Call$Callback;)V
 
-    .line 428
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->unregisterNsriSecureContentObserver()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$500(Lcom/android/incallui/Call;)V
 
-    .line 429
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
@@ -78,7 +69,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 430
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -106,7 +96,6 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->provider(Ljava/lang/String;)V
 
-    .line 431
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoCall()Landroid/telecom/InCallService$VideoCall;
@@ -122,14 +111,12 @@
 
     invoke-virtual {v0, v1}, Landroid/telecom/InCallService$VideoCall;->unregisterCallback(Landroid/telecom/InCallService$VideoCall$Callback;)V
 
-    .line 433
     :cond_0
     return-void
 .end method
 
 .method public onCannedTextResponsesLoaded(Landroid/telecom/Call;Ljava/util/List;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,9 +128,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 387
-    .local p2, "cannedTextResponses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -174,19 +158,16 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 389
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 390
     return-void
 .end method
 
 .method public onChildrenChanged(Landroid/telecom/Call;Ljava/util/List;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,9 +179,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 369
-    .local p2, "children":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/Call;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -231,19 +209,16 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 371
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 372
     return-void
 .end method
 
 .method public onConferenceableCallsChanged(Landroid/telecom/Call;Ljava/util/List;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,9 +230,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 438
-    .local p2, "conferenceableCalls":Ljava/util/List;, "Ljava/util/List<Landroid/telecom/Call;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -278,23 +250,17 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 439
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 440
     return-void
 .end method
 
 .method public onDetailsChanged(Landroid/telecom/Call;Landroid/telecom/Call$Details;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
-    .param p2, "details"    # Landroid/telecom/Call$Details;
 
-    .prologue
-    .line 377
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -325,31 +291,24 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 379
     invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->canUpdateDetailsChanged(Landroid/telecom/Call;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 380
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 382
     :cond_0
     return-void
 .end method
 
 .method public onParentChanged(Landroid/telecom/Call;Landroid/telecom/Call;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
-    .param p2, "newParent"    # Landroid/telecom/Call;
 
-    .prologue
-    .line 361
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -380,23 +339,17 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 363
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 364
     return-void
 .end method
 
 .method public onPostDialWait(Landroid/telecom/Call;Ljava/lang/String;)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
-    .param p2, "remainingPostDialSequence"    # Ljava/lang/String;
 
-    .prologue
-    .line 395
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -427,23 +380,17 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 397
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 398
     return-void
 .end method
 
 .method public onStateChanged(Landroid/telecom/Call;I)V
     .locals 2
-    .param p1, "call"    # Landroid/telecom/Call;
-    .param p2, "newState"    # I
 
-    .prologue
-    .line 353
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -474,26 +421,19 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 355
     iget-object v0, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v0}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 356
     return-void
 .end method
 
 .method public onVideoCallChanged(Landroid/telecom/Call;Landroid/telecom/InCallService$VideoCall;)V
     .locals 3
-    .param p1, "call"    # Landroid/telecom/Call;
-    .param p2, "videoCall"    # Landroid/telecom/InCallService$VideoCall;
 
-    .prologue
-    .line 402
     if-eqz p1, :cond_2
 
-    .line 403
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # getter for: Lcom/android/incallui/Call;->mTelecomCall:Landroid/telecom/Call;
@@ -518,8 +458,6 @@
 
     const/4 v0, 0x1
 
-    .line 404
-    .local v0, "isConferenced":Z
     :goto_0
     if-eqz p2, :cond_1
 
@@ -532,7 +470,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 405
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -573,7 +510,6 @@
 
     move-result-object v1
 
-    .line 406
     invoke-virtual {p1}, Landroid/telecom/Call;->getDetails()Landroid/telecom/Call$Details;
 
     move-result-object v2
@@ -592,7 +528,6 @@
 
     move-result-object v1
 
-    .line 407
     invoke-static {p1}, Lcom/android/incallui/util/SecCallExtraUtils;->getSessionId(Landroid/telecom/Call;)I
 
     move-result v2
@@ -625,10 +560,8 @@
 
     move-result-object v1
 
-    .line 405
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->provider(Ljava/lang/String;)V
 
-    .line 410
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # getter for: Lcom/android/incallui/Call;->mVideoCallCallback:Lcom/android/incallui/InCallVideoCallCallback;
@@ -638,25 +571,23 @@
 
     invoke-virtual {p2, v1}, Landroid/telecom/InCallService$VideoCall;->registerCallback(Landroid/telecom/InCallService$VideoCall$Callback;)V
 
-    .line 421
-    .end local v0    # "isConferenced":Z
+    iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
+
+    invoke-virtual {v1}, Lcom/android/incallui/Call;->fireVideoCallChanged()V
+
     :goto_1
     iget-object v1, p0, Lcom/android/incallui/Call$1;->this$0:Lcom/android/incallui/Call;
 
     # invokes: Lcom/android/incallui/Call;->update()V
     invoke-static {v1}, Lcom/android/incallui/Call;->access$000(Lcom/android/incallui/Call;)V
 
-    .line 422
     return-void
 
-    .line 403
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 412
-    .restart local v0    # "isConferenced":Z
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -698,7 +629,6 @@
 
     move-result-object v1
 
-    .line 413
     invoke-virtual {p1}, Landroid/telecom/Call;->getDetails()Landroid/telecom/Call$Details;
 
     move-result-object v2
@@ -717,7 +647,6 @@
 
     move-result-object v1
 
-    .line 414
     invoke-static {p1}, Lcom/android/incallui/util/SecCallExtraUtils;->getSessionId(Landroid/telecom/Call;)I
 
     move-result v2
@@ -750,13 +679,10 @@
 
     move-result-object v1
 
-    .line 412
     invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallLog;->provider(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 419
-    .end local v0    # "isConferenced":Z
     :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 

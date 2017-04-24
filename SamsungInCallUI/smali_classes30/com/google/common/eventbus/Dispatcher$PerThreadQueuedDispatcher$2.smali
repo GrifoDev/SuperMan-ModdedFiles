@@ -31,8 +31,6 @@
 .method constructor <init>(Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;)V
     .locals 0
 
-    .prologue
-    .line 99
     iput-object p1, p0, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$2;->this$0:Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -45,8 +43,6 @@
 .method protected initialValue()Ljava/lang/Boolean;
     .locals 1
 
-    .prologue
-    .line 102
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -59,8 +55,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 99
     invoke-virtual {p0}, Lcom/google/common/eventbus/Dispatcher$PerThreadQueuedDispatcher$2;->initialValue()Ljava/lang/Boolean;
 
     move-result-object v0

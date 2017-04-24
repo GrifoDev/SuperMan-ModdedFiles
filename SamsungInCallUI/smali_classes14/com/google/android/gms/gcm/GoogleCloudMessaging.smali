@@ -140,9 +140,7 @@
 
 .method public static declared-synchronized getInstance(Landroid/content/Context;)Lcom/google/android/gms/gcm/GoogleCloudMessaging;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
 
-    .prologue
     const-class v1, Lcom/google/android/gms/gcm/GoogleCloudMessaging;
 
     monitor-enter v1
@@ -327,9 +325,7 @@
 
 .method public getMessageType(Landroid/content/Intent;)Ljava/lang/String;
     .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .prologue
     invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -364,14 +360,12 @@
 
 .method public varargs register([Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "senderIds"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -480,17 +474,12 @@
 
 .method public send(Ljava/lang/String;Ljava/lang/String;JLandroid/os/Bundle;)V
     .locals 3
-    .param p1, "to"    # Ljava/lang/String;
-    .param p2, "msgId"    # Ljava/lang/String;
-    .param p3, "timeToLive"    # J
-    .param p5, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -558,16 +547,12 @@
 
 .method public send(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 7
-    .param p1, "to"    # Ljava/lang/String;
-    .param p2, "msgId"    # Ljava/lang/String;
-    .param p3, "data"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const-wide/16 v4, -0x1
 
     move-object v1, p0

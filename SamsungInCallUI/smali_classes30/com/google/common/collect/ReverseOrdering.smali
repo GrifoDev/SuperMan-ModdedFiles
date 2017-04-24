@@ -49,13 +49,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 33
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "forwardOrder":Lcom/google/common/collect/Ordering;, "Lcom/google/common/collect/Ordering<-TT;>;"
     invoke-direct {p0}, Lcom/google/common/collect/Ordering;-><init>()V
 
-    .line 34
     invoke-static {p1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -64,7 +59,6 @@
 
     iput-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
-    .line 35
     return-void
 .end method
 
@@ -78,11 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 39
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TT;"
-    .local p2, "b":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p2, p1}, Lcom/google/common/collect/Ordering;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -94,24 +83,18 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .prologue
-    .line 97
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
     if-ne p1, p0, :cond_0
 
-    .line 98
     const/4 v1, 0x1
 
-    .line 104
     :goto_0
     return v1
 
-    .line 100
     :cond_0
     instance-of v1, p1, Lcom/google/common/collect/ReverseOrdering;
 
@@ -119,11 +102,8 @@
 
     move-object v0, p1
 
-    .line 101
     check-cast v0, Lcom/google/common/collect/ReverseOrdering;
 
-    .line 102
-    .local v0, "that":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<*>;"
     iget-object v1, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     iget-object v2, v0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
@@ -134,8 +114,6 @@
 
     goto :goto_0
 
-    .line 104
-    .end local v0    # "that":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<*>;"
     :cond_1
     const/4 v1, 0x0
 
@@ -145,9 +123,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 92
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -169,10 +144,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 87
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Ordering;->min(Ljava/lang/Iterable;)Ljava/lang/Object;
@@ -190,11 +161,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TE;"
-    .local p2, "b":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/Ordering;->min(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -212,13 +178,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 77
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TE;"
-    .local p2, "b":Ljava/lang/Object;, "TE;"
-    .local p3, "c":Ljava/lang/Object;, "TE;"
-    .local p4, "rest":[Ljava/lang/Object;, "[TE;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/common/collect/Ordering;->min(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
@@ -238,10 +197,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 82
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Ordering;->min(Ljava/util/Iterator;)Ljava/lang/Object;
@@ -261,10 +216,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 67
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Ordering;->max(Ljava/lang/Iterable;)Ljava/lang/Object;
@@ -282,11 +233,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 52
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TE;"
-    .local p2, "b":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/common/collect/Ordering;->max(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -304,13 +250,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 57
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TE;"
-    .local p2, "b":Ljava/lang/Object;, "TE;"
-    .local p3, "c":Ljava/lang/Object;, "TE;"
-    .local p4, "rest":[Ljava/lang/Object;, "[TE;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/common/collect/Ordering;->max(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
@@ -330,10 +269,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 62
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     invoke-virtual {v0, p1}, Lcom/google/common/collect/Ordering;->max(Ljava/util/Iterator;)Ljava/lang/Object;
@@ -353,9 +288,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 45
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
     iget-object v0, p0, Lcom/google/common/collect/ReverseOrdering;->forwardOrder:Lcom/google/common/collect/Ordering;
 
     return-object v0
@@ -364,9 +296,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 109
-    .local p0, "this":Lcom/google/common/collect/ReverseOrdering;, "Lcom/google/common/collect/ReverseOrdering<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

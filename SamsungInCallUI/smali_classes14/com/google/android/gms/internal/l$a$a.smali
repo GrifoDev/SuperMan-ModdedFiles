@@ -35,10 +35,7 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
-    .param p1, "component"    # Landroid/content/ComponentName;
-    .param p2, "binder"    # Landroid/os/IBinder;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/l$a$a;->bU:Lcom/google/android/gms/internal/l$a;
 
     iget-object v0, v0, Lcom/google/android/gms/internal/l$a;->bT:Lcom/google/android/gms/internal/l;
@@ -111,9 +108,7 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
-    .param p1, "component"    # Landroid/content/ComponentName;
 
-    .prologue
     iget-object v0, p0, Lcom/google/android/gms/internal/l$a$a;->bU:Lcom/google/android/gms/internal/l$a;
 
     iget-object v0, v0, Lcom/google/android/gms/internal/l$a;->bT:Lcom/google/android/gms/internal/l;
