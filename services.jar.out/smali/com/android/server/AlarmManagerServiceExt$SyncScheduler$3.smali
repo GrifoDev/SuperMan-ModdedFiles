@@ -223,6 +223,22 @@
     :cond_4
     :try_start_3
     monitor-exit v7
+
+    iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
+
+    invoke-static {v4}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_5
+
+    iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
+
+    invoke-static {v4}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->-get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;->-wrap0(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 

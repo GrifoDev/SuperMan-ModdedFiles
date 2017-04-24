@@ -17,7 +17,7 @@
 # instance fields
 .field private final mGenerationNumber:I
 
-.field private mSimAbsentSeen:Z
+.field private mSimNotLoadedSeen:Z
 
 .field final synthetic this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
@@ -32,7 +32,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    iput-boolean v0, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
 
     iput p2, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mGenerationNumber:I
 
@@ -129,13 +129,13 @@
 
     move-result-object v12
 
-    const-string/jumbo v13, ", mSimAbsentSeen="
+    const-string/jumbo v13, ", mSimNotLoadedSeen="
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
-    iget-boolean v13, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    iget-boolean v13, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -147,24 +147,21 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    iget-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
 
     if-nez v11, :cond_1
 
-    const-string/jumbo v11, "ABSENT"
+    const-string/jumbo v11, "LOADED"
 
     invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_1
-
-    const/4 v11, 0x1
-
-    iput-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    if-eqz v11, :cond_4
 
     :cond_1
-    iget-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    :goto_0
+    iget-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
 
     if-eqz v11, :cond_3
 
@@ -178,7 +175,7 @@
 
     const/4 v11, 0x0
 
-    iput-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimAbsentSeen:Z
+    iput-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
 
     :try_start_0
     iget-object v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
@@ -203,7 +200,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_8
+    if-nez v11, :cond_9
 
     new-instance v10, Ljava/util/ArrayList;
 
@@ -239,12 +236,12 @@
     move-result-object v3
 
     :cond_2
-    :goto_0
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_7
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -286,7 +283,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5
 
     new-instance v11, Ljava/lang/Integer;
 
@@ -298,7 +295,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v11
@@ -320,10 +317,17 @@
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    :goto_1
+    :goto_2
     return-void
 
     :cond_4
+    const/4 v11, 0x1
+
+    iput-boolean v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->mSimNotLoadedSeen:Z
+
+    goto/16 :goto_0
+
+    :cond_5
     :try_start_3
     iget-object v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
@@ -339,7 +343,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_6
 
     new-instance v11, Ljava/lang/Integer;
 
@@ -349,9 +353,9 @@
 
     invoke-virtual {v10, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-object v11, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SimChangeBroadcastReceiver;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
     iget-object v11, v11, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->this$0:Lcom/android/server/connectivity/Tethering;
@@ -374,9 +378,9 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_6
+    :cond_7
     :try_start_4
     monitor-exit v12
 
@@ -384,12 +388,12 @@
 
     move-result-object v9
 
-    :goto_2
+    :goto_3
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_8
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -433,18 +437,18 @@
 
     invoke-virtual {v11, v6, v12}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_7
+    :cond_8
     const-string/jumbo v11, "Tethering"
 
     const-string/jumbo v12, "re-evaluate provisioning"
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_8
+    :cond_9
     const-string/jumbo v11, "Tethering"
 
     const-string/jumbo v12, "no prov-check needed for new SIM"
@@ -453,5 +457,5 @@
     :try_end_4
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_0
 
-    goto :goto_1
+    goto/16 :goto_2
 .end method

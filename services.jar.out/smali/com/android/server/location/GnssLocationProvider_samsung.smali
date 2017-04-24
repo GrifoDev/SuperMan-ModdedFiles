@@ -177,7 +177,7 @@
 
     aput v2, v0, v1
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_16
 
     :goto_0
     :try_start_1
@@ -191,7 +191,7 @@
 
     aput v2, v0, v1
     :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_13
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_15
 
     :goto_1
     :try_start_2
@@ -205,7 +205,7 @@
 
     aput v2, v0, v1
     :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_12
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_14
 
     :goto_2
     :try_start_3
@@ -219,7 +219,7 @@
 
     aput v2, v0, v1
     :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_13
 
     :goto_3
     :try_start_4
@@ -233,7 +233,7 @@
 
     aput v2, v0, v1
     :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_12
 
     :goto_4
     :try_start_5
@@ -243,11 +243,11 @@
 
     move-result v1
 
-    const/16 v2, 0x11
+    const/16 v2, 0x13
 
     aput v2, v0, v1
     :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_11
 
     :goto_5
     :try_start_6
@@ -257,11 +257,11 @@
 
     move-result v1
 
-    const/16 v2, 0x12
+    const/16 v2, 0x14
 
     aput v2, v0, v1
     :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_10
 
     :goto_6
     :try_start_7
@@ -275,7 +275,7 @@
 
     aput v2, v0, v1
     :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_f
 
     :goto_7
     :try_start_8
@@ -285,11 +285,11 @@
 
     move-result v1
 
-    const/16 v2, 0x13
+    const/16 v2, 0x15
 
     aput v2, v0, v1
     :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_e
 
     :goto_8
     :try_start_9
@@ -303,7 +303,7 @@
 
     aput v2, v0, v1
     :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_d
 
     :goto_9
     :try_start_a
@@ -317,7 +317,7 @@
 
     aput v2, v0, v1
     :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_c
 
     :goto_a
     :try_start_b
@@ -331,7 +331,7 @@
 
     aput v2, v0, v1
     :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
 
     :goto_b
     :try_start_c
@@ -345,7 +345,7 @@
 
     aput v2, v0, v1
     :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_a
 
     :goto_c
     :try_start_d
@@ -359,7 +359,7 @@
 
     aput v2, v0, v1
     :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_9
 
     :goto_d
     :try_start_e
@@ -373,7 +373,7 @@
 
     aput v2, v0, v1
     :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_8
 
     :goto_e
     :try_start_f
@@ -387,11 +387,11 @@
 
     aput v2, v0, v1
     :try_end_f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_7
 
     :goto_f
     :try_start_10
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
 
@@ -401,39 +401,11 @@
 
     aput v2, v0, v1
     :try_end_10
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_6
 
     :goto_10
     :try_start_11
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
-
-    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0x14
-
-    aput v2, v0, v1
-    :try_end_11
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_3
-
-    :goto_11
-    :try_start_12
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->TUR_TUR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
-
-    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0x15
-
-    aput v2, v0, v1
-    :try_end_12
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_2
-
-    :goto_12
-    :try_start_13
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_ATT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
 
@@ -442,12 +414,12 @@
     const/16 v2, 0xf
 
     aput v2, v0, v1
-    :try_end_13
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_1
+    :try_end_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_5
 
-    :goto_13
-    :try_start_14
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_TMO:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    :goto_11
+    :try_start_12
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
 
@@ -456,10 +428,66 @@
     const/16 v2, 0x10
 
     aput v2, v0, v1
+    :try_end_12
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_4
+
+    :goto_12
+    :try_start_13
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x16
+
+    aput v2, v0, v1
+    :try_end_13
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_3
+
+    :goto_13
+    :try_start_14
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->TUR_TUR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x17
+
+    aput v2, v0, v1
     :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_2
 
     :goto_14
+    :try_start_15
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_ATT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x11
+
+    aput v2, v0, v1
+    :try_end_15
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_15} :catch_1
+
+    :goto_15
+    :try_start_16
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_TMO:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x12
+
+    aput v2, v0, v1
+    :try_end_16
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_16} :catch_0
+
+    :goto_16
     sput-object v0, Lcom/android/server/location/GnssLocationProvider_samsung;->-com-android-server-location-GnssLocationProvider_samsung$VendorSwitchesValues:[I
 
     return-object v0
@@ -467,104 +495,114 @@
     :catch_0
     move-exception v1
 
-    goto :goto_14
+    goto :goto_16
 
     :catch_1
     move-exception v1
 
-    goto :goto_13
+    goto :goto_15
 
     :catch_2
     move-exception v1
 
-    goto :goto_12
+    goto :goto_14
 
     :catch_3
     move-exception v1
 
-    goto :goto_11
+    goto :goto_13
 
     :catch_4
     move-exception v1
 
-    goto :goto_10
+    goto :goto_12
 
     :catch_5
     move-exception v1
 
-    goto :goto_f
+    goto :goto_11
 
     :catch_6
     move-exception v1
 
-    goto :goto_e
+    goto :goto_10
 
     :catch_7
     move-exception v1
 
-    goto :goto_d
+    goto :goto_f
 
     :catch_8
     move-exception v1
 
-    goto :goto_c
+    goto :goto_e
 
     :catch_9
     move-exception v1
 
-    goto :goto_b
+    goto :goto_d
 
     :catch_a
     move-exception v1
 
-    goto :goto_a
+    goto :goto_c
 
     :catch_b
     move-exception v1
 
-    goto/16 :goto_9
+    goto/16 :goto_b
 
     :catch_c
     move-exception v1
 
-    goto/16 :goto_8
+    goto/16 :goto_a
 
     :catch_d
     move-exception v1
 
-    goto/16 :goto_7
+    goto/16 :goto_9
 
     :catch_e
     move-exception v1
 
-    goto/16 :goto_6
+    goto/16 :goto_8
 
     :catch_f
     move-exception v1
 
-    goto/16 :goto_5
+    goto/16 :goto_7
 
     :catch_10
     move-exception v1
 
-    goto/16 :goto_4
+    goto/16 :goto_6
 
     :catch_11
     move-exception v1
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
     :catch_12
     move-exception v1
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
     :catch_13
     move-exception v1
 
-    goto/16 :goto_1
+    goto/16 :goto_3
 
     :catch_14
+    move-exception v1
+
+    goto/16 :goto_2
+
+    :catch_15
+    move-exception v1
+
+    goto/16 :goto_1
+
+    :catch_16
     move-exception v1
 
     goto/16 :goto_0
@@ -1992,7 +2030,7 @@
     goto/16 :goto_0
 
     :cond_19
-    const-string/jumbo v2, "SWC"
+    const-string/jumbo v2, "UNE"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2000,11 +2038,37 @@
 
     if-eqz v2, :cond_1a
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     goto/16 :goto_0
 
     :cond_1a
+    const-string/jumbo v2, "PNT"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1b
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    goto/16 :goto_0
+
+    :cond_1b
+    const-string/jumbo v2, "SWC"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1c
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    goto/16 :goto_0
+
+    :cond_1c
     const-string/jumbo v2, "TUR"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -4239,6 +4303,22 @@
 
     sget-object v2, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_MNX:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
+    if-eq v1, v2, :cond_3
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-eq v1, v2, :cond_3
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
     if-ne v1, v2, :cond_4
 
     goto :goto_0
@@ -4322,6 +4402,22 @@
     move-result-object v0
 
     sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_MNX:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-eq v0, v1, :cond_0
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-eq v0, v1, :cond_0
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     if-eq v0, v1, :cond_0
 
@@ -4626,6 +4722,22 @@
     move-result-object v0
 
     sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_MNX:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-eq v0, v1, :cond_6
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-eq v0, v1, :cond_6
+
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     if-ne v0, v1, :cond_7
 
@@ -4990,7 +5102,13 @@
     goto/16 :goto_0
 
     :pswitch_6
-    const-string/jumbo v4, "USE_NI_SLP_ADDRESS"
+    const-string/jumbo v4, "SUPL_USE_APN"
+
+    const-string/jumbo v5, "TRUE"
+
+    invoke-virtual {v2, v4, v5}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string/jumbo v4, "SUPL_USE_FW_DNS"
 
     const-string/jumbo v5, "TRUE"
 
@@ -4999,7 +5117,7 @@
     goto/16 :goto_0
 
     :pswitch_7
-    const-string/jumbo v4, "SUPL_ECID_CAPABLE"
+    const-string/jumbo v4, "USE_NI_SLP_ADDRESS"
 
     const-string/jumbo v5, "TRUE"
 
@@ -5008,6 +5126,15 @@
     goto/16 :goto_0
 
     :pswitch_8
+    const-string/jumbo v4, "SUPL_ECID_CAPABLE"
+
+    const-string/jumbo v5, "TRUE"
+
+    invoke-virtual {v2, v4, v5}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    goto/16 :goto_0
+
+    :pswitch_9
     const-string/jumbo v4, "REAIDING_INTERVAL_SEC"
 
     const-string/jumbo v5, "600"
@@ -5046,7 +5173,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_9
+    :pswitch_a
     const-string/jumbo v4, "SUPL_UT1_SEC"
 
     const-string/jumbo v5, "10"
@@ -5079,7 +5206,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_a
+    :pswitch_b
     const-string/jumbo v4, "USE_NI_SLP_ADDRESS"
 
     const-string/jumbo v5, "TRUE"
@@ -5132,15 +5259,17 @@
         :pswitch_4
         :pswitch_0
         :pswitch_0
-        :pswitch_8
         :pswitch_9
         :pswitch_a
-        :pswitch_6
-        :pswitch_0
+        :pswitch_b
         :pswitch_7
+        :pswitch_0
+        :pswitch_8
+        :pswitch_5
         :pswitch_5
         :pswitch_5
         :pswitch_0
+        :pswitch_6
         :pswitch_1
         :pswitch_2
     .end packed-switch
@@ -5615,7 +5744,9 @@
 .end method
 
 .method public extension_reloadMakeAutoSuplUrl(Z)V
-    .locals 7
+    .locals 13
+
+    const/4 v1, 0x4
 
     const/16 v3, 0x1c6b
 
@@ -5627,9 +5758,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_ATT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v6, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->USA_ATT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v6, :cond_1
 
     iget-boolean v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mIsSetAutoSuplServer:Z
 
@@ -5642,8 +5773,6 @@
     move-result-object v2
 
     if-eqz v2, :cond_0
-
-    const/4 v1, 0x4
 
     move-object v0, p0
 
@@ -5662,9 +5791,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->CAD_XAC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v6, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->CAD_XAC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v6, :cond_2
 
     iget-boolean v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mIsSetAutoSuplServer:Z
 
@@ -5685,6 +5814,45 @@
     move v6, v5
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+
+    iput-boolean v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mIsSetAutoSuplServer:Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    move-result-object v0
+
+    sget-object v6, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    if-ne v0, v6, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mIsSetAutoSuplServer:Z
+
+    if-nez v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->makeAutoSuplUrl()Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    move-object v6, p0
+
+    move v7, v1
+
+    move v9, v3
+
+    move v10, v4
+
+    move v11, v5
+
+    move v12, v5
+
+    invoke-direct/range {v6 .. v12}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     iput-boolean v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mIsSetAutoSuplServer:Z
 
@@ -6751,31 +6919,43 @@
 .end method
 
 .method public extension_set_supl_server()V
-    .locals 13
+    .locals 17
 
-    invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->getSuplServerFromCSC()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->getSuplServerFromCSC()V
 
-    iget v0, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplServerFromCSC:I
+    move-object/from16 v0, p0
 
-    const/4 v1, 0x1
+    iget v1, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplServerFromCSC:I
 
-    if-ne v0, v1, :cond_1
+    const/4 v2, 0x1
 
-    iget v1, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplType:I
+    if-ne v1, v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v3, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
+    iget v2, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplType:I
 
-    iget v4, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplSslMode:I
+    move-object/from16 v0, p0
 
-    iget v6, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplSslType:I
+    iget-object v3, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
 
-    const/4 v5, 0x0
+    move-object/from16 v0, p0
 
-    move-object v0, p0
+    iget v4, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v0, p0
+
+    iget v5, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplSslMode:I
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplSslType:I
+
+    const/4 v6, 0x0
+
+    move-object/from16 v1, p0
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     :cond_0
     :goto_0
@@ -6784,243 +6964,282 @@
     :cond_1
     invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->-getcom-android-server-location-GnssLocationProvider_samsung$VendorSwitchesValues()[I
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-static {}, Lcom/android/server/location/GnssLocationProvider_samsung;->getVendor()Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
+    invoke-virtual {v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->ordinal()I
 
-    move-result v1
+    move-result v2
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    iget-object v8, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v9, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
+    iget-object v12, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
 
-    const/4 v7, 0x4
+    move-object/from16 v0, p0
 
-    const/4 v10, 0x1
+    iget v13, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
 
-    const/4 v11, 0x0
+    const/4 v11, 0x4
 
-    const/4 v12, 0x0
+    const/4 v14, 0x1
 
-    move-object v6, p0
+    const/4 v15, 0x0
 
-    invoke-direct/range {v6 .. v12}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    const/16 v16, 0x0
+
+    move-object/from16 v10, p0
+
+    invoke-direct/range {v10 .. v16}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_1
-    const-string/jumbo v2, "lbs.geo.t-mobile.com"
+    const-string/jumbo v3, "lbs.geo.t-mobile.com"
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    const/16 v3, 0x1c6b
+    const/16 v4, 0x1c6b
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
-    move-object v0, p0
+    const/4 v7, 0x0
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v1, p0
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_2
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->makeAutoSuplUrl()Ljava/lang/String;
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->makeAutoSuplUrl()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    const/4 v1, 0x4
+    const/4 v2, 0x4
 
-    const/16 v3, 0x1c6b
+    const/16 v4, 0x1c6b
 
-    const/4 v4, 0x1
-
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
-    move-object v0, p0
+    const/4 v7, 0x0
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v1, p0
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v5, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->googleSuplAddr:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    const/4 v4, 0x4
+    iget-object v6, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->googleSuplAddr:Ljava/lang/String;
 
-    const/16 v6, 0x1c6b
+    const/4 v5, 0x4
 
-    const/4 v7, 0x1
+    const/16 v7, 0x1c6b
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_4
-    const-string/jumbo v5, "location2.kddi.ne.jp"
+    const-string/jumbo v6, "location2.kddi.ne.jp"
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    const/16 v6, 0x1c6b
+    const/16 v7, 0x1c6b
 
-    const/4 v7, 0x1
-
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_5
-    const-string/jumbo v5, "supl.telusmobility.com"
+    const-string/jumbo v6, "supl.telusmobility.com"
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    const/16 v6, 0x1c6b
+    const/16 v7, 0x1c6b
 
-    const/4 v7, 0x1
-
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto :goto_0
 
     :pswitch_6
-    iget-object v5, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v6, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
+    iget-object v6, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
 
-    const/4 v4, 0x3
+    move-object/from16 v0, p0
 
-    const/4 v7, 0x1
+    iget v7, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
 
-    const/4 v8, 0x0
+    const/4 v5, 0x3
+
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v4, p0
 
-    goto :goto_0
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+
+    goto/16 :goto_0
 
     :pswitch_7
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->setSuplByNw()Ljava/lang/String;
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->setSuplByNw()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
-    const/16 v6, 0x1c6b
+    const/16 v7, 0x1c6b
 
-    const/4 v7, 0x1
-
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
     const/4 v9, 0x0
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v4, p0
+
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto/16 :goto_0
 
     :cond_2
-    iget-object v8, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget v9, p0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
+    iget-object v9, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplAddress:Ljava/lang/String;
 
-    const/4 v7, 0x3
+    move-object/from16 v0, p0
 
-    const/4 v10, 0x1
+    iget v10, v0, Lcom/android/server/location/GnssLocationProvider_samsung;->mSuplPort:I
 
-    const/4 v11, 0x0
+    const/4 v8, 0x3
+
+    const/4 v11, 0x1
 
     const/4 v12, 0x0
 
-    move-object v6, p0
+    const/4 v13, 0x0
 
-    invoke-direct/range {v6 .. v12}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v7, p0
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto/16 :goto_0
 
     :pswitch_8
-    invoke-direct {p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->setSktSuplVer()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->setSktSuplVer()V
 
     goto/16 :goto_0
 
     :pswitch_9
-    const-string/jumbo v8, "221.176.0.55"
+    const-string/jumbo v9, "221.176.0.55"
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    const/16 v9, 0x1c6b
+    const/16 v10, 0x1c6b
 
-    const/4 v10, 0x1
-
-    const/4 v11, 0x0
+    const/4 v11, 0x1
 
     const/4 v12, 0x0
 
-    move-object v6, p0
+    const/4 v13, 0x0
 
-    invoke-direct/range {v6 .. v12}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v7, p0
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto/16 :goto_0
 
     :pswitch_a
-    const-string/jumbo v8, "supl.iusacell.com"
+    const-string/jumbo v9, "supl.iusacell.com"
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    const/16 v9, 0x1c6b
+    const/16 v10, 0x1c6b
 
-    const/4 v10, 0x1
-
-    const/4 v11, 0x0
+    const/4 v11, 0x1
 
     const/4 v12, 0x0
 
-    move-object v6, p0
+    const/4 v13, 0x0
 
-    invoke-direct/range {v6 .. v12}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+    move-object/from16 v7, p0
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    const/4 v9, 0x0
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/GnssLocationProvider_samsung;->makeAutoSuplUrl()Ljava/lang/String;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_0
+
+    const/4 v8, 0x4
+
+    const/16 v10, 0x1c6b
+
+    const/4 v11, 0x1
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    move-object/from16 v7, p0
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/server/location/GnssLocationProvider_samsung;->native_set_agps_server_extension(ILjava/lang/String;IIII)V
 
     goto/16 :goto_0
 
@@ -7039,7 +7258,9 @@
         :pswitch_8
         :pswitch_a
         :pswitch_a
+        :pswitch_a
         :pswitch_0
+        :pswitch_b
         :pswitch_2
         :pswitch_1
     .end packed-switch

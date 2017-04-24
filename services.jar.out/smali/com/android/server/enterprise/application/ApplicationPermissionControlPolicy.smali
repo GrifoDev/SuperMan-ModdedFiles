@@ -1610,6 +1610,14 @@
 
     if-nez v6, :cond_0
 
+    iget-object v6, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v6, v6, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v6, v6, 0x80
+
+    if-nez v6, :cond_0
+
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
@@ -1696,6 +1704,11 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
+    const/4 v2, 0x0
+
+    monitor-enter p0
+
+    :try_start_0
     sget-object v6, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1713,10 +1726,21 @@
     move-result-object v2
 
     check-cast v2, Ljava/util/Map;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     if-nez v2, :cond_0
 
     return-object v8
+
+    :catchall_0
+    move-exception v6
+
+    monitor-exit p0
+
+    throw v6
 
     :cond_0
     const-string/jumbo v6, "Blacklist"
@@ -2724,6 +2748,9 @@
 
     check-cast v6, Ljava/lang/String;
 
+    monitor-enter p0
+
+    :try_start_0
     sget-object v12, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
     invoke-virtual {v12}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -2731,8 +2758,12 @@
     move-result-object v12
 
     invoke-interface {v12}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v11
+
+    monitor-exit p0
 
     new-instance v1, Ljava/util/TreeSet;
 
@@ -2771,6 +2802,13 @@
     invoke-interface {v1, v2}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_1
+
+    :catchall_0
+    move-exception v12
+
+    monitor-exit p0
+
+    throw v12
 
     :cond_4
     invoke-interface {v1}, Ljava/util/Set;->isEmpty()Z
@@ -2824,14 +2862,14 @@
 
     invoke-direct {v9, v12}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    :try_start_0
+    :try_start_1
     iget-object v12, p0, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mPackageManager:Landroid/content/pm/IPackageManager;
 
     const/4 v13, 0x1
 
     invoke-interface {v12, v4, v9, v13}, Landroid/content/pm/IPackageManager;->revokePermissionEDM(Ljava/lang/String;Ljava/util/List;Z)Ljava/util/List;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_2
 
@@ -3352,7 +3390,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3395,8 +3433,15 @@
 
     and-int/lit8 v10, v10, 0x1
 
-    if-eqz v10, :cond_8
+    if-nez v10, :cond_8
 
+    iget v10, v3, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v10, v10, 0x80
+
+    if-eqz v10, :cond_9
+
+    :cond_8
     const-string/jumbo v10, "ApplicationPermissionControlPolicy"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -3428,7 +3473,7 @@
 
     return-object v10
 
-    :cond_8
+    :cond_9
     if-eqz v2, :cond_7
 
     :try_start_6
@@ -3489,12 +3534,12 @@
 
     goto/16 :goto_1
 
-    :cond_9
-    if-nez p4, :cond_e
+    :cond_a
+    if-nez p4, :cond_f
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_f
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3506,7 +3551,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3526,16 +3571,16 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_b
+    if-nez v10, :cond_c
 
-    :cond_a
+    :cond_b
     const/4 v10, 0x0
 
     monitor-exit p0
 
     return-object v10
 
-    :cond_b
+    :cond_c
     :try_start_8
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3561,18 +3606,18 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    :cond_c
+    :cond_d
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_f
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3610,7 +3655,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_d
+    if-nez v10, :cond_e
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3647,7 +3692,7 @@
     move-result v10
 
     :goto_2
-    if-nez v10, :cond_c
+    if-nez v10, :cond_d
 
     const/4 v7, 0x0
 
@@ -3657,12 +3702,12 @@
 
     return-object v10
 
-    :cond_d
+    :cond_e
     const/4 v10, 0x1
 
     goto :goto_2
 
-    :cond_e
+    :cond_f
     :try_start_9
     invoke-interface {v7}, Ljava/util/List;->size()I
 
@@ -3670,7 +3715,7 @@
 
     const/4 v11, 0x1
 
-    if-ne v10, v11, :cond_f
+    if-ne v10, v11, :cond_10
 
     const-string/jumbo v10, "*"
 
@@ -3678,13 +3723,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
-    if-eqz p4, :cond_f
+    if-eqz p4, :cond_10
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3696,7 +3741,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3714,7 +3759,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3740,7 +3785,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     sget-object v10, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->mAppPermissionControl:Ljava/util/HashMap;
 
@@ -3774,13 +3819,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     invoke-interface {v7}, Ljava/util/List;->clear()V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    :cond_f
+    :cond_10
     monitor-exit p0
 
     return-object v7
@@ -5067,7 +5112,7 @@
     return-object v1
 .end method
 
-.method public declared-synchronized loadApplicationPermissionControlList()V
+.method public loadApplicationPermissionControlList()V
     .locals 12
 
     monitor-enter p0
@@ -5260,15 +5305,15 @@
     move-result-object v11
 
     invoke-virtual {v10, v11, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto/16 :goto_0
 
     :cond_5
-    invoke-direct {p0}, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->reinforceApplicationPermissionControl()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
     monitor-exit p0
+
+    invoke-direct {p0}, Lcom/android/server/enterprise/application/ApplicationPermissionControlPolicy;->reinforceApplicationPermissionControl()V
 
     return-void
 .end method

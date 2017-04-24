@@ -24,16 +24,20 @@
 
 .field final synthetic val$secureFolderId:I
 
+.field final synthetic val$top:Lcom/android/server/am/ActivityRecord;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor$1;ILcom/android/server/pm/PersonaManagerService;)V
+.method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor$1;ILcom/android/server/am/ActivityRecord;Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->this$1:Lcom/android/server/am/ActivityStackSupervisor$1;
 
     iput p2, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$secureFolderId:I
 
-    iput-object p3, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$pms:Lcom/android/server/pm/PersonaManagerService;
+    iput-object p3, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$top:Lcom/android/server/am/ActivityRecord;
+
+    iput-object p4, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$pms:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->this$1:Lcom/android/server/am/ActivityStackSupervisor$1;
 
@@ -51,7 +55,9 @@
 
     iget v1, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$secureFolderId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/am/ActivityStackSupervisor;->-wrap1(Lcom/android/server/am/ActivityStackSupervisor;I)Z
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor$1$1;->val$top:Lcom/android/server/am/ActivityRecord;
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/am/ActivityStackSupervisor;->-wrap1(Lcom/android/server/am/ActivityStackSupervisor;ILcom/android/server/am/ActivityRecord;)Z
 
     move-result v0
 

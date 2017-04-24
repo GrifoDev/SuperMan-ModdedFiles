@@ -1428,7 +1428,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x1080afb
+    const v5, 0x1080afa
 
     invoke-virtual {v0, v4, v5, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
     :try_end_0
@@ -2638,7 +2638,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x1080afb
+    const v6, 0x1080afa
 
     invoke-virtual {v0, v5, v6, v1, v4}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
     :try_end_0
@@ -3728,7 +3728,7 @@
 
     invoke-direct {v3, v4}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x1080afb
+    const v4, 0x1080afa
 
     invoke-virtual {v3, v4}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -6087,7 +6087,7 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x1080afb
+    const v7, 0x1080afa
 
     invoke-virtual {v0, v6, v7, v1, v5}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
     :try_end_0

@@ -115,6 +115,12 @@
 .method public abstract restoreFromForceUserActivityTimeout(ZLcom/android/server/wm/WindowState;)V
 .end method
 
+.method public abstract restoreSizeDensityIfNeeded(Lcom/android/server/wm/DisplayContent;)V
+.end method
+
+.method public abstract setDisplaySizeDensity()V
+.end method
+
 .method public abstract setFocusedApp(Landroid/os/IBinder;)V
 .end method
 

@@ -7625,72 +7625,15 @@
 .end method
 
 .method public declared-synchronized tuiDecryptPinHash(Ljava/lang/String;[B)[B
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 1
 
     monitor-enter p0
 
-    :try_start_0
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "TIMA3: TUI decrypt PIN hash"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/server/TimaService;->getTimaVersion()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "3.0"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0, p2}, Lcom/android/server/TimaService;->verifyCertChain([B)[B
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v1, "TimaService"
-
-    const-string/jumbo v2, "Certificate chain verification failed"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const/4 v0, 0x0
 
     monitor-exit p0
 
-    return-object v3
-
-    :cond_0
-    :try_start_1
-    invoke-static {p1, v0}, Lcom/android/server/TimaService;->timaTuiDecryptPinHash(Ljava/lang/String;[B)[B
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v1
-
-    monitor-exit p0
-
-    return-object v1
-
-    :cond_1
-    monitor-exit p0
-
-    return-object v3
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
+    return-object v0
 .end method
 
 .method public declared-synchronized tuiGetCerts()[B
@@ -7706,52 +7649,15 @@
 .end method
 
 .method public declared-synchronized tuiGetSecretDimension()[I
-    .locals 2
+    .locals 1
 
     monitor-enter p0
 
-    :try_start_0
-    const-string/jumbo v0, "TimaService"
-
-    const-string/jumbo v1, "TIMA3: TUI get secret dimension"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/server/TimaService;->getTimaVersion()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "3.0"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/server/TimaService;->timaTuiGetSecretDimension()[I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-object v0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :cond_0
     const/4 v0, 0x0
 
     monitor-exit p0
 
     return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method public declared-synchronized tuiInitSecret([BIILjava/lang/String;)I

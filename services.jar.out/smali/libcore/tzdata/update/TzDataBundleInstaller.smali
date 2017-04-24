@@ -406,8 +406,6 @@
         }
     .end annotation
 
-    const/4 v6, 0x0
-
     new-instance v1, Ljava/io/File;
 
     iget-object v4, p0, Llibcore/tzdata/update/TzDataBundleInstaller;->installDir:Ljava/io/File;
@@ -466,20 +464,16 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    const/4 v4, 0x0
+
     invoke-direct {p0, v1}, Llibcore/tzdata/update/TzDataBundleInstaller;->deleteBestEffort(Ljava/io/File;)V
 
     invoke-direct {p0, v2}, Llibcore/tzdata/update/TzDataBundleInstaller;->deleteBestEffort(Ljava/io/File;)V
 
-    return v6
+    return v4
 
     :cond_1
     :try_start_1
-    invoke-direct {p0, v2}, Llibcore/tzdata/update/TzDataBundleInstaller;->verifySystemChecksums(Ljava/io/File;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
     invoke-static {v2}, Llibcore/tzdata/update/FileUtils;->makeDirectoryWorldAccessible(Ljava/io/File;)V
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -594,22 +588,6 @@
     invoke-direct {p0, v2}, Llibcore/tzdata/update/TzDataBundleInstaller;->deleteBestEffort(Ljava/io/File;)V
 
     return v4
-
-    :cond_3
-    :try_start_2
-    iget-object v4, p0, Llibcore/tzdata/update/TzDataBundleInstaller;->logTag:Ljava/lang/String;
-
-    const-string/jumbo v5, "Update not applied: System checksum did not match"
-
-    invoke-static {v4, v5}, Lcom/samsung/android/util/SemLog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    invoke-direct {p0, v1}, Llibcore/tzdata/update/TzDataBundleInstaller;->deleteBestEffort(Ljava/io/File;)V
-
-    invoke-direct {p0, v2}, Llibcore/tzdata/update/TzDataBundleInstaller;->deleteBestEffort(Ljava/io/File;)V
-
-    return v6
 
     :catchall_0
     move-exception v4

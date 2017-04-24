@@ -29770,6 +29770,13 @@
 
     if-ne v5, v7, :cond_3f
 
+    if-eqz v58, :cond_40
+
+    :cond_3f
+    :goto_10
+    return v21
+
+    :cond_40
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->getService()Lcom/samsung/android/knox/SemPersonaManager;
 
     move-result-object v5
@@ -29778,8 +29785,7 @@
 
     invoke-virtual {v5, v7}, Lcom/samsung/android/knox/SemPersonaManager;->launchPersonaHome(I)Z
 
-    :cond_3f
-    return v21
+    goto :goto_10
 .end method
 
 .method public createContainerMarkSuccess(Lcom/samsung/android/knox/container/ContainerCreationParams;)Z

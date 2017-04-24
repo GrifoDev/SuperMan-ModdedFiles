@@ -6741,7 +6741,37 @@
 .end method
 
 .method public getTetherableBluetoothRegexs()[Ljava/lang/String;
-    .locals 1
+    .locals 3
+
+    const-string/jumbo v0, "Tethering"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "mTetherableBluetoothRegexs : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/connectivity/Tethering;->mTetherableBluetoothRegexs:[Ljava/lang/String;
+
+    array-length v2, v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/connectivity/Tethering;->mTetherableBluetoothRegexs:[Ljava/lang/String;
 
@@ -10006,152 +10036,210 @@
 .end method
 
 .method updateConfiguration()V
-    .locals 10
+    .locals 13
 
-    const/4 v9, 0x1
+    const/4 v12, -0x1
 
-    const/4 v6, 0x0
+    const/4 v11, 0x1
 
-    iget-object v7, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
+    const/4 v8, 0x0
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v9, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
 
-    move-result-object v7
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    const v8, 0x1070030
+    move-result-object v9
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    const v10, 0x1070030
 
-    move-result-object v3
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    new-array v2, v6, [Ljava/lang/String;
+    move-result-object v4
 
-    const-string/jumbo v7, "persist.fst.rate.upgrade.en"
+    new-array v3, v8, [Ljava/lang/String;
 
-    invoke-static {v7, v6}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    const-string/jumbo v9, "persist.fst.rate.upgrade.en"
 
-    move-result v7
+    invoke-static {v9, v8}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    if-ne v7, v9, :cond_1
+    move-result v9
 
-    new-array v4, v9, [Ljava/lang/String;
+    if-ne v9, v11, :cond_1
 
-    const-string/jumbo v7, "bond0"
+    new-array v5, v11, [Ljava/lang/String;
 
-    aput-object v7, v4, v6
+    const-string/jumbo v9, "bond0"
+
+    aput-object v9, v5, v8
 
     :goto_0
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
-    move-result-object v7
+    move-result-object v9
 
-    const-string/jumbo v8, "CscFeature_BT_DisableNAP"
+    const-string/jumbo v10, "CscFeature_BT_DisableNAP"
 
-    invoke-virtual {v7, v8}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v9, v10}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v9
 
-    if-nez v7, :cond_0
+    if-nez v9, :cond_0
 
     invoke-static {}, Lcom/android/server/connectivity/Tethering;->isWifiOnly()Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_2
+    if-eqz v9, :cond_2
 
     :cond_0
     :goto_1
-    iget-object v7, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
+    iget-object v9, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v9
 
-    const v8, 0x1070036
+    const v10, 0x1070036
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getIntArray(I)[I
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v1
 
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    array-length v7, v1
+    array-length v9, v1
 
     :goto_2
-    if-ge v6, v7, :cond_3
+    if-ge v8, v9, :cond_5
 
-    aget v0, v1, v6
+    aget v0, v1, v8
 
-    new-instance v8, Ljava/lang/Integer;
+    new-instance v10, Ljava/lang/Integer;
 
-    invoke-direct {v8, v0}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {v10, v0}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-interface {v5, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v7, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_2
 
     :cond_1
-    iget-object v7, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
+    iget-object v9, p0, Lcom/android/server/connectivity/Tethering;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v9
 
-    const v8, 0x1070031
+    const v10, 0x1070031
 
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v7, "Tethering"
+    const-string/jumbo v9, "SPR"
 
-    const-string/jumbo v8, "NAP Supported and not Wifi Model"
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v10
 
-    new-array v2, v9, [Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v7, "bt-pan"
+    move-result v9
 
-    aput-object v7, v2, v6
+    if-eqz v9, :cond_4
+
+    const-string/jumbo v9, "persist.sys.tether_data"
+
+    invoke-static {v9, v12}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string/jumbo v9, "persist.sys.tether_data_bt"
+
+    invoke-static {v9, v12}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v6
+
+    const/4 v9, 0x2
+
+    if-ge v2, v9, :cond_3
+
+    if-gtz v6, :cond_3
+
+    const-string/jumbo v9, "Tethering"
+
+    const-string/jumbo v10, "BT Tethering disabled by Sprint limitation"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array v3, v8, [Ljava/lang/String;
 
     goto :goto_1
 
     :cond_3
-    iget-object v7, p0, Lcom/android/server/connectivity/Tethering;->mPublicSync:Ljava/lang/Object;
+    const-string/jumbo v9, "Tethering"
 
-    monitor-enter v7
+    const-string/jumbo v10, "NAP Supported on Sprint"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array v3, v11, [Ljava/lang/String;
+
+    const-string/jumbo v9, "bt-pan"
+
+    aput-object v9, v3, v8
+
+    goto :goto_1
+
+    :cond_4
+    const-string/jumbo v9, "Tethering"
+
+    const-string/jumbo v10, "NAP Supported by CSCFeature and not Wifi Model"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array v3, v11, [Ljava/lang/String;
+
+    const-string/jumbo v9, "bt-pan"
+
+    aput-object v9, v3, v8
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v9, p0, Lcom/android/server/connectivity/Tethering;->mPublicSync:Ljava/lang/Object;
+
+    monitor-enter v9
 
     :try_start_0
-    iput-object v3, p0, Lcom/android/server/connectivity/Tethering;->mTetherableUsbRegexs:[Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/server/connectivity/Tethering;->mTetherableUsbRegexs:[Ljava/lang/String;
 
-    sget-object v6, Lcom/android/server/connectivity/Tethering;->mWifiInterface:[Ljava/lang/String;
+    sget-object v8, Lcom/android/server/connectivity/Tethering;->mWifiInterface:[Ljava/lang/String;
 
-    iput-object v6, p0, Lcom/android/server/connectivity/Tethering;->mTetherableWifiRegexs:[Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/server/connectivity/Tethering;->mTetherableWifiRegexs:[Ljava/lang/String;
 
-    iput-object v2, p0, Lcom/android/server/connectivity/Tethering;->mTetherableBluetoothRegexs:[Ljava/lang/String;
+    iput-object v3, p0, Lcom/android/server/connectivity/Tethering;->mTetherableBluetoothRegexs:[Ljava/lang/String;
 
-    iput-object v5, p0, Lcom/android/server/connectivity/Tethering;->mUpstreamIfaceTypes:Ljava/util/Collection;
+    iput-object v7, p0, Lcom/android/server/connectivity/Tethering;->mUpstreamIfaceTypes:Ljava/util/Collection;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v7
+    monitor-exit v9
 
     invoke-direct {p0}, Lcom/android/server/connectivity/Tethering;->checkDunRequired()V
 
     return-void
 
     :catchall_0
-    move-exception v6
+    move-exception v8
 
-    monitor-exit v7
+    monitor-exit v9
 
-    throw v6
+    throw v8
 .end method

@@ -32699,13 +32699,13 @@
 .end method
 
 .method public final activityPaused(Landroid/os/IBinder;)V
-    .locals 6
+    .locals 8
 
-    const-wide/16 v4, 0x40
+    const-wide/16 v6, 0x40
 
-    const-string/jumbo v3, "activityPaused"
+    const-string/jumbo v4, "activityPaused"
 
-    invoke-static {v4, v5, v3}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    invoke-static {v6, v7, v4}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -32718,59 +32718,54 @@
 
     invoke-static {p1}, Lcom/android/server/am/ActivityRecord;->getStackLocked(Landroid/os/IBinder;)Lcom/android/server/am/ActivityStack;
 
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, p1, v4}, Lcom/android/server/am/ActivityStack;->activityPausedLocked(Landroid/os/IBinder;Z)V
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/server/am/ActivityRecord;->forTokenLocked(Landroid/os/IBinder;)Lcom/android/server/am/ActivityRecord;
+
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    const/4 v3, 0x0
+    iget v4, v2, Lcom/android/server/am/ActivityRecord;->userId:I
 
-    invoke-virtual {v2, p1, v3}, Lcom/android/server/am/ActivityStack;->activityPausedLocked(Landroid/os/IBinder;Z)V
+    invoke-static {v4}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityStackSupervisor;->lockSecureFolderIfNeeded()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     monitor-exit p0
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v4, v5}, Landroid/os/Trace;->traceEnd(J)V
-
-    monitor-enter p0
-
-    :try_start_1
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
-
-    invoke-virtual {v3}, Lcom/android/server/am/ActivityStackSupervisor;->lockSecureFolderIfNeeded()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    monitor-exit p0
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
 
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     monitor-exit p0
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v3
-
-    :catchall_1
-    move-exception v3
-
-    monitor-exit p0
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v3
+    throw v4
 .end method
 
 .method public final activityRelaunched(Landroid/os/IBinder;)V
@@ -33166,6 +33161,20 @@
     iget-object v3, v3, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
     invoke-virtual {v3, v2, p2, p3, p4}, Lcom/android/server/am/ActivityStack;->activityStoppedLocked(Lcom/android/server/am/ActivityRecord;Landroid/os/Bundle;Landroid/os/PersistableBundle;Ljava/lang/CharSequence;)V
+
+    iget-object v3, v2, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget v3, v3, Lcom/android/server/am/TaskRecord;->userId:I
+
+    invoke-static {v3}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v3}, Lcom/android/server/am/ActivityStackSupervisor;->lockSecureFolderIfNeeded()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -41536,8 +41545,6 @@
 
     const/4 v9, 0x0
 
-    const/4 v8, 0x0
-
     :try_start_1
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -41552,12 +41559,9 @@
     move-object/from16 v0, v30
 
     invoke-interface {v4, v0, v10, v5}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v6
 
-    :try_start_2
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v4
@@ -41571,79 +41575,22 @@
     move-object/from16 v0, p5
 
     invoke-interface {v4, v0, v10, v5}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     move-result-object v8
 
-    :goto_1
-    if-eqz v6, :cond_8
+    if-eqz p1, :cond_9
 
-    if-nez v8, :cond_9
-
-    :cond_8
-    const/4 v4, 0x0
-
-    return v4
-
-    :catch_0
-    move-exception v21
-
-    :try_start_3
-    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "destAppInfo isn\'t gotten, "
-
-    move-object/from16 v0, v21
-
-    invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v20
-
-    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "Could not check permissionManager enabled."
-
-    move-object/from16 v0, v20
-
-    invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/16 v26, 0x0
-
-    :goto_2
-    if-nez v26, :cond_21
-
-    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "isPermissionGranted is false"
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v4, -0x1
-
-    return v4
-
-    :cond_9
-    if-eqz p1, :cond_b
-
-    :try_start_4
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
@@ -41659,7 +41606,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_8
 
     const-string/jumbo v4, "com.sec.knox.bridge"
 
@@ -41669,7 +41616,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_8
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -41681,7 +41628,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_8
 
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
@@ -41693,7 +41640,7 @@
 
     return v4
 
-    :cond_a
+    :cond_8
     const-string/jumbo v4, "com.google.android.packageinstaller"
 
     move-object/from16 v0, p5
@@ -41702,7 +41649,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -41714,7 +41661,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_9
 
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
@@ -41726,7 +41673,7 @@
 
     return v4
 
-    :cond_b
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
@@ -41740,24 +41687,24 @@
     check-cast v28, Lcom/samsung/android/knox/SemPersonaManager;
 
     invoke-static {}, Lcom/samsung/android/knox/SemPersonaManager;->getBbcEnabled()I
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v16
 
     const/16 v24, 0x0
 
-    if-lez v35, :cond_13
+    if-lez v35, :cond_11
 
-    if-lez v16, :cond_13
+    if-lez v16, :cond_11
 
     move/from16 v0, v35
 
     move/from16 v1, v16
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_11
 
-    :try_start_5
+    :try_start_2
     iget-object v0, v6, Landroid/content/pm/ApplicationInfo;->bbcallowCategory:Ljava/lang/String;
 
     move-object/from16 v31, v0
@@ -41783,21 +41730,21 @@
     move/from16 v3, v19
 
     invoke-static {v0, v1, v2, v3}, Landroid/app/ActivityManager;->allowRuleCheck(Ljava/lang/String;ILjava/lang/String;I)Z
-    :try_end_5
-    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_5} :catch_2
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
+    :try_end_2
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     move-result v24
 
-    :goto_3
+    :goto_1
     const/16 v25, 0x1
 
-    :try_start_6
+    :try_start_3
     invoke-static/range {p3 .. p4}, Landroid/os/UserHandle;->isSameUser(II)Z
 
     move-result v4
 
-    if-nez v4, :cond_d
+    if-nez v4, :cond_b
 
     invoke-static/range {p4 .. p4}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -41805,7 +41752,7 @@
 
     const/16 v5, 0x64
 
-    if-lt v4, v5, :cond_d
+    if-lt v4, v5, :cond_b
 
     invoke-static/range {p4 .. p4}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -41813,13 +41760,13 @@
 
     const/16 v5, 0x96
 
-    if-ge v4, v5, :cond_d
+    if-ge v4, v5, :cond_b
 
     iget v4, v6, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit16 v4, v4, 0x81
 
-    if-nez v4, :cond_15
+    if-nez v4, :cond_13
 
     const-string/jumbo v4, "platform"
 
@@ -41829,21 +41776,21 @@
 
     move-result v4
 
-    if-nez v4, :cond_14
+    if-nez v4, :cond_12
 
     const/16 v25, 0x0
 
-    :cond_c
-    :goto_4
-    if-nez v25, :cond_d
+    :cond_a
+    :goto_2
+    if-nez v25, :cond_b
 
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->mAMSLog:Landroid/content/pm/AMSLogger;
 
-    if-eqz v26, :cond_16
+    if-eqz v26, :cond_14
 
     move/from16 v5, v25
 
-    :goto_5
+    :goto_3
     const-string/jumbo v12, "checkContainerAppPermission"
 
     const/4 v13, 0x1
@@ -41854,7 +41801,7 @@
 
     invoke-virtual/range {v4 .. v13}, Landroid/content/pm/AMSLogger;->log(ZLandroid/content/pm/ApplicationInfo;ZLandroid/content/pm/ApplicationInfo;ZLandroid/content/Intent;ILjava/lang/String;Z)V
 
-    :cond_d
+    :cond_b
     iget-object v0, v6, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
 
     move-object/from16 v32, v0
@@ -41863,7 +41810,7 @@
 
     move-object/from16 v18, v0
 
-    if-eqz v32, :cond_e
+    if-eqz v32, :cond_c
 
     const-string/jumbo v4, ""
 
@@ -41873,11 +41820,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_15
 
-    :cond_e
-    :goto_6
-    if-eqz v18, :cond_f
+    :cond_c
+    :goto_4
+    if-eqz v18, :cond_d
 
     const-string/jumbo v4, ""
 
@@ -41887,52 +41834,52 @@
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_16
 
-    :cond_f
-    :goto_7
+    :cond_d
+    :goto_5
     iget v4, v8, Landroid/content/pm/ApplicationInfo;->allowedAgentType:I
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_1a
+    if-ne v4, v5, :cond_18
 
-    if-nez v24, :cond_19
+    if-nez v24, :cond_17
 
-    if-nez v7, :cond_19
+    if-nez v7, :cond_17
 
-    if-nez v9, :cond_19
+    if-nez v9, :cond_17
 
     move/from16 v26, p6
 
-    :goto_8
-    if-eqz v26, :cond_10
+    :goto_6
+    if-eqz v26, :cond_e
 
-    if-nez v25, :cond_12
+    if-nez v25, :cond_10
 
-    :cond_10
-    if-nez v7, :cond_11
+    :cond_e
+    if-nez v7, :cond_f
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_10
 
-    :cond_11
+    :cond_f
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
     const-string/jumbo v5, "Denial occuring with trusted src or dest"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
 
-    :cond_12
-    :try_start_7
+    :cond_10
+    :try_start_4
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->mAMSLog:Landroid/content/pm/AMSLogger;
 
-    if-eqz v26, :cond_1e
+    if-eqz v26, :cond_1c
 
     move/from16 v5, v25
 
-    :goto_9
+    :goto_7
     const-string/jumbo v12, "checkContainerAppPermission"
 
     const/4 v13, 0x1
@@ -41942,23 +41889,29 @@
     move/from16 v11, p2
 
     invoke-virtual/range {v4 .. v13}, Landroid/content/pm/AMSLogger;->log(ZLandroid/content/pm/ApplicationInfo;ZLandroid/content/pm/ApplicationInfo;ZLandroid/content/Intent;ILjava/lang/String;Z)V
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_3
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_1
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
 
-    :goto_a
+    :goto_8
     packed-switch v15, :pswitch_data_0
 
+    :goto_9
     :pswitch_0
-    goto/16 :goto_2
+    if-nez v26, :cond_1f
 
-    :pswitch_1
-    const/16 v26, 0x1
+    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
-    goto/16 :goto_2
+    const-string/jumbo v5, "isPermissionGranted is false"
 
-    :cond_13
-    :try_start_8
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, -0x1
+
+    return v4
+
+    :cond_11
+    :try_start_5
     iget-object v0, v6, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
 
     move-object/from16 v31, v0
@@ -41980,18 +41933,18 @@
     move/from16 v1, v19
 
     invoke-static {v0, v1}, Landroid/app/ActivityManager;->allowRuleCheck(Ljava/lang/String;I)Z
-    :try_end_8
-    .catch Ljava/lang/NullPointerException; {:try_start_8 .. :try_end_8} :catch_2
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_1
+    :try_end_5
+    .catch Ljava/lang/NullPointerException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
 
     move-result v24
 
-    goto/16 :goto_3
+    goto/16 :goto_1
 
-    :catch_2
+    :catch_0
     move-exception v22
 
-    :try_start_9
+    :try_start_6
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -42103,45 +42056,63 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
+
+    goto/16 :goto_1
+
+    :catch_1
+    move-exception v20
+
+    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v5, "Could not check permissionManager enabled."
+
+    move-object/from16 v0, v20
+
+    invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v26, 0x0
+
+    goto/16 :goto_9
+
+    :cond_12
+    :try_start_7
+    move-object/from16 v0, p5
+
+    move-object/from16 v1, v34
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService;->checkDestPkgNameInList(Ljava/lang/String;[Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    const/16 v25, 0x0
+
+    goto/16 :goto_2
+
+    :cond_13
+    move-object/from16 v0, p5
+
+    move-object/from16 v1, v34
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService;->checkDestPkgNameInList(Ljava/lang/String;[Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    const/16 v25, 0x0
+
+    goto/16 :goto_2
+
+    :cond_14
+    const/4 v5, 0x0
 
     goto/16 :goto_3
 
-    :cond_14
-    move-object/from16 v0, p5
-
-    move-object/from16 v1, v34
-
-    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService;->checkDestPkgNameInList(Ljava/lang/String;[Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_c
-
-    const/16 v25, 0x0
-
-    goto/16 :goto_4
-
     :cond_15
-    move-object/from16 v0, p5
-
-    move-object/from16 v1, v34
-
-    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService;->checkDestPkgNameInList(Ljava/lang/String;[Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_c
-
-    const/16 v25, 0x0
-
-    goto/16 :goto_4
-
-    :cond_16
-    const/4 v5, 0x0
-
-    goto/16 :goto_5
-
-    :cond_17
     move-object/from16 v0, v32
 
     move/from16 v1, v19
@@ -42150,9 +42121,9 @@
 
     move-result v7
 
-    goto/16 :goto_6
+    goto/16 :goto_4
 
-    :cond_18
+    :cond_16
     move-object/from16 v0, v18
 
     move/from16 v1, v33
@@ -42161,25 +42132,25 @@
 
     move-result v9
 
-    goto/16 :goto_7
+    goto/16 :goto_5
 
-    :cond_19
+    :cond_17
     const/16 v26, 0x1
 
-    goto/16 :goto_8
+    goto/16 :goto_6
 
-    :cond_1a
+    :cond_18
     iget v4, v6, Landroid/content/pm/ApplicationInfo;->agentType:I
 
     iget v5, v8, Landroid/content/pm/ApplicationInfo;->allowedAgentType:I
 
     and-int/2addr v4, v5
 
-    if-eqz v4, :cond_1b
+    if-eqz v4, :cond_19
 
-    if-nez v24, :cond_1c
+    if-nez v24, :cond_1a
 
-    :cond_1b
+    :cond_19
     move-object/from16 v0, v30
 
     move-object/from16 v1, p5
@@ -42188,12 +42159,12 @@
 
     move-result v26
 
-    :goto_b
-    if-eqz v26, :cond_1d
+    :goto_a
+    if-eqz v26, :cond_1b
 
     const-string/jumbo v14, "AGENT GRANTED"
 
-    :goto_c
+    :goto_b
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -42258,24 +42229,24 @@
 
     invoke-static {v4, v14}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_8
+    goto/16 :goto_6
 
-    :cond_1c
+    :cond_1a
     const/16 v26, 0x1
+
+    goto :goto_a
+
+    :cond_1b
+    const-string/jumbo v14, "AGENT DENIED "
 
     goto :goto_b
 
-    :cond_1d
-    const-string/jumbo v14, "AGENT DENIED "
-
-    goto :goto_c
-
-    :cond_1e
+    :cond_1c
     const/4 v5, 0x0
 
-    goto/16 :goto_9
+    goto/16 :goto_7
 
-    :catch_3
+    :catch_2
     move-exception v21
 
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
@@ -42285,32 +42256,35 @@
     move-object/from16 v0, v21
 
     invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_9} :catch_1
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_1
 
-    goto/16 :goto_a
+    goto/16 :goto_8
 
-    :pswitch_2
-    if-eqz v26, :cond_1f
-
-    if-nez v25, :cond_20
-
-    :cond_1f
-    move/from16 v26, p6
-
-    goto/16 :goto_2
-
-    :cond_20
+    :pswitch_1
     const/16 v26, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_9
 
-    :cond_21
+    :pswitch_2
+    if-eqz v26, :cond_1d
+
+    if-nez v25, :cond_1e
+
+    :cond_1d
+    move/from16 v26, p6
+
+    goto/16 :goto_9
+
+    :cond_1e
+    const/16 v26, 0x1
+
+    goto/16 :goto_9
+
+    :cond_1f
     const/4 v4, 0x0
 
     return v4
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

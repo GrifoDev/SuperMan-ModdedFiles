@@ -292,19 +292,19 @@
     :try_start_0
     iget-object v8, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v8}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v8}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
     iget-object v9, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v9}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v9}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
     iget-object v10, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v10}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v10}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -608,19 +608,19 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -1101,7 +1101,7 @@
 
     move-result v5
 
-    invoke-static {v6, v5}, Lcom/android/server/audio/AudioService;->-wrap50(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v6, v5}, Lcom/android/server/audio/AudioService;->-wrap51(Lcom/android/server/audio/AudioService;I)V
 
     const-wide/16 v6, 0xc8
 
@@ -1166,7 +1166,7 @@
 
     iget-object v5, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v5}, Lcom/android/server/audio/AudioService;->-get42(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+    invoke-static {v5}, Lcom/android/server/audio/AudioService;->-get43(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
 
     move-result-object v6
 
@@ -1347,7 +1347,7 @@
 
     iget-object v3, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get62(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$SoundKitchen;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get63(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$SoundKitchen;
 
     move-result-object v3
 
@@ -1365,12 +1365,12 @@
 
     aget v4, v2, v1
 
-    invoke-static {v3, v4}, Lcom/android/server/audio/AudioService;->-wrap50(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v3, v4}, Lcom/android/server/audio/AudioService;->-wrap51(Lcom/android/server/audio/AudioService;I)V
 
     :cond_0
     iget-object v3, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get42(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get43(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/MediaFocusControl;
 
     move-result-object v3
 

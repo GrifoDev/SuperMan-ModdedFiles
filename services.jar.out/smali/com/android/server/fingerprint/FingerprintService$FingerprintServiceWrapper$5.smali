@@ -47,7 +47,7 @@
 
     iget v1, p0, Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceWrapper$5;->val$userId:I
 
-    const/4 v2, 0x0
+    const-string/jumbo v2, ""
 
     invoke-static {v0, v1, v2}, Lcom/android/server/fingerprint/FingerprintService;->-wrap4(Lcom/android/server/fingerprint/FingerprintService;ILjava/lang/String;)I
 

@@ -387,8 +387,6 @@
     :goto_0
     if-nez v0, :cond_1
 
-    if-nez v1, :cond_1
-
     const/4 v10, 0x0
 
     return v10

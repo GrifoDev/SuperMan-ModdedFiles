@@ -57,415 +57,356 @@
 
 # virtual methods
 .method public run()V
-    .locals 18
+    .locals 15
 
     :try_start_0
-    move-object/from16 v0, p0
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->mQueue:Ljava/util/HashSet;
 
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->mQueue:Ljava/util/HashSet;
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
+    move-result-object v9
 
     :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v13
+    move-result v10
 
-    if-eqz v13, :cond_3
+    if-eqz v10, :cond_3
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    invoke-static {v10, v8}, Lcom/android/server/backup/BackupManagerService;->-wrap9(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;)Lcom/android/internal/backup/IBackupTransport;
+
+    move-result-object v7
+
+    if-nez v7, :cond_0
+
+    const-string/jumbo v10, "BackupManagerService"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "Requested init for "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    check-cast v11, Ljava/lang/String;
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v11
 
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    const-string/jumbo v12, " but not found"
 
-    invoke-static {v13, v11}, Lcom/android/server/backup/BackupManagerService;->-wrap9(Lcom/android/server/backup/BackupManagerService;Ljava/lang/String;)Lcom/android/internal/backup/IBackupTransport;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    if-nez v10, :cond_0
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v13, "BackupManagerService"
+    move-result-object v11
 
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "Requested init for "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " but not found"
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v4
+    move-exception v2
 
-    move-object/from16 v0, p0
+    :try_start_1
+    const-string/jumbo v10, "BackupManagerService"
 
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    const-string/jumbo v11, "Unexpected error performing init"
 
-    iget-object v13, v13, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+    invoke-static {v10, v11, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->release()V
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v10, v10, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v10}, Landroid/os/PowerManager$WakeLock;->release()V
 
     :goto_1
     return-void
 
     :cond_0
-    :try_start_1
-    const-string/jumbo v13, "BackupManagerService"
+    :try_start_2
+    const-string/jumbo v10, "BackupManagerService"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "Initializing (wiping) backup transport storage: "
+    const-string/jumbo v12, "Initializing (wiping) backup transport storage: "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-static {v13, v14}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v10}, Lcom/android/internal/backup/IBackupTransport;->transportDirName()Ljava/lang/String;
+    invoke-interface {v7}, Lcom/android/internal/backup/IBackupTransport;->transportDirName()Ljava/lang/String;
+
+    move-result-object v10
+
+    const/16 v11, 0xb05
+
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v4
+
+    invoke-interface {v7}, Lcom/android/internal/backup/IBackupTransport;->initializeDevice()I
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    invoke-interface {v7}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
+
+    move-result v6
+
+    :cond_1
+    if-nez v6, :cond_2
+
+    const-string/jumbo v10, "BackupManagerService"
+
+    const-string/jumbo v11, "Device init successful"
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v10
+
+    sub-long/2addr v10, v4
+
+    long-to-int v3, v10
+
+    const/4 v10, 0x0
+
+    new-array v10, v10, [Ljava/lang/Object;
+
+    const/16 v11, 0xb0b
+
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    new-instance v11, Ljava/io/File;
+
+    iget-object v12, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v12, v12, Lcom/android/server/backup/BackupManagerService;->mBaseStateDir:Ljava/io/File;
+
+    invoke-interface {v7}, Lcom/android/internal/backup/IBackupTransport;->transportDirName()Ljava/lang/String;
 
     move-result-object v13
 
-    const/16 v14, 0xb05
+    invoke-direct {v11, v12, v13}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-static {v14, v13}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    invoke-virtual {v10, v11}, Lcom/android/server/backup/BackupManagerService;->resetBackupState(Ljava/io/File;)V
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    const/4 v10, 0x2
 
-    move-result-wide v8
+    new-array v10, v10, [Ljava/lang/Object;
 
-    invoke-interface {v10}, Lcom/android/internal/backup/IBackupTransport;->initializeDevice()I
+    const/4 v11, 0x0
 
-    move-result v7
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    if-nez v7, :cond_1
+    move-result-object v11
 
-    invoke-interface {v10}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
+    const/4 v12, 0x0
 
-    move-result v7
+    aput-object v11, v10, v12
 
-    :cond_1
-    if-nez v7, :cond_2
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v13, "BackupManagerService"
+    move-result-object v11
 
-    const-string/jumbo v14, "Device init successful"
+    const/4 v12, 0x1
 
-    invoke-static {v13, v14}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    aput-object v11, v10, v12
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    const/16 v11, 0xb09
 
-    move-result-wide v14
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    sub-long/2addr v14, v8
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    long-to-int v6, v14
+    iget-object v11, v10, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
 
-    const/4 v13, 0x0
-
-    new-array v13, v13, [Ljava/lang/Object;
-
-    const/16 v14, 0xb0b
-
-    invoke-static {v14, v13}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    new-instance v14, Ljava/io/File;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    iget-object v15, v15, Lcom/android/server/backup/BackupManagerService;->mBaseStateDir:Ljava/io/File;
-
-    invoke-interface {v10}, Lcom/android/internal/backup/IBackupTransport;->transportDirName()Ljava/lang/String;
-
-    move-result-object v16
-
-    invoke-direct/range {v14 .. v16}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {v13, v14}, Lcom/android/server/backup/BackupManagerService;->resetBackupState(Ljava/io/File;)V
-
-    const/4 v13, 0x2
-
-    new-array v13, v13, [Ljava/lang/Object;
-
-    const/4 v14, 0x0
-
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v14
-
-    const/4 v15, 0x0
-
-    aput-object v14, v13, v15
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v14
-
-    const/4 v15, 0x1
-
-    aput-object v14, v13, v15
-
-    const/16 v14, 0xb09
-
-    invoke-static {v14, v13}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    iget-object v14, v13, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
-
-    monitor-enter v14
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v13, v15, v11}, Lcom/android/server/backup/BackupManagerService;->recordInitPendingLocked(ZLjava/lang/String;)V
+    monitor-enter v11
     :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    monitor-exit v14
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v10, v12, v8}, Lcom/android/server/backup/BackupManagerService;->recordInitPendingLocked(ZLjava/lang/String;)V
     :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :try_start_4
+    monitor-exit v11
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto/16 :goto_0
 
-    :catch_1
-    move-exception v5
-
-    :try_start_4
-    const-string/jumbo v13, "BackupManagerService"
-
-    const-string/jumbo v14, "Unexpected error performing init"
-
-    invoke-static {v13, v14, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    iget-object v13, v13, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    goto/16 :goto_1
-
     :catchall_0
-    move-exception v13
+    move-exception v10
 
-    :try_start_5
-    monitor-exit v14
+    iget-object v11, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    throw v13
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    iget-object v11, v11, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v11}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    throw v10
 
     :catchall_1
-    move-exception v13
+    move-exception v10
 
-    move-object/from16 v0, p0
+    :try_start_5
+    monitor-exit v11
 
-    iget-object v14, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    iget-object v14, v14, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v14}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    throw v13
+    throw v10
 
     :cond_2
+    const-string/jumbo v10, "BackupManagerService"
+
+    const-string/jumbo v11, "Transport error in initializeDevice()"
+
+    invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v10, "(initialize)"
+
+    const/16 v11, 0xb06
+
+    invoke-static {v11, v10}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+
+    iget-object v11, v10, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
+
+    monitor-enter v11
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
     :try_start_6
-    const-string/jumbo v13, "BackupManagerService"
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    const-string/jumbo v14, "Transport error in initializeDevice()"
+    const/4 v12, 0x1
 
-    invoke-static {v13, v14}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v13, "(initialize)"
-
-    const/16 v14, 0xb06
-
-    invoke-static {v14, v13}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    iget-object v14, v13, Lcom/android/server/backup/BackupManagerService;->mQueueLock:Ljava/lang/Object;
-
-    monitor-enter v14
+    invoke-virtual {v10, v12, v8}, Lcom/android/server/backup/BackupManagerService;->recordInitPendingLocked(ZLjava/lang/String;)V
     :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     :try_start_7
-    move-object/from16 v0, p0
+    monitor-exit v11
 
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    invoke-interface {v7}, Lcom/android/internal/backup/IBackupTransport;->requestBackupTime()J
 
-    const/4 v15, 0x1
+    move-result-wide v0
 
-    invoke-virtual {v13, v15, v11}, Lcom/android/server/backup/BackupManagerService;->recordInitPendingLocked(ZLjava/lang/String;)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    const-string/jumbo v10, "BackupManagerService"
 
-    :try_start_8
-    monitor-exit v14
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-interface {v10}, Lcom/android/internal/backup/IBackupTransport;->requestBackupTime()J
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-wide v2
+    const-string/jumbo v12, "Init failed on "
 
-    const-string/jumbo v13, "BackupManagerService"
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v15, "Init failed on "
+    move-result-object v11
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v12, " resched in "
 
-    move-result-object v14
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v14
+    invoke-virtual {v11, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v15, " resched in "
+    move-result-object v11
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-virtual {v14, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v14
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v10}, Lcom/android/server/backup/BackupManagerService;->-get5(Lcom/android/server/backup/BackupManagerService;)Landroid/app/AlarmManager;
 
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
-
-    invoke-static {v13}, Lcom/android/server/backup/BackupManagerService;->-get5(Lcom/android/server/backup/BackupManagerService;)Landroid/app/AlarmManager;
-
-    move-result-object v13
+    move-result-object v10
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v14
+    move-result-wide v12
 
-    add-long/2addr v14, v2
+    add-long/2addr v12, v0
 
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v11, v11, Lcom/android/server/backup/BackupManagerService;->mRunInitIntent:Landroid/app/PendingIntent;
 
-    move-object/from16 v16, v0
+    const/4 v14, 0x0
 
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Lcom/android/server/backup/BackupManagerService;->mRunInitIntent:Landroid/app/PendingIntent;
-
-    move-object/from16 v16, v0
-
-    const/16 v17, 0x0
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v13, v0, v14, v15, v1}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
+    invoke-virtual {v10, v14, v12, v13, v11}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
     goto/16 :goto_0
 
     :catchall_2
-    move-exception v13
+    move-exception v10
 
-    monitor-exit v14
+    monitor-exit v11
 
-    throw v13
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    throw v10
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     :cond_3
-    move-object/from16 v0, p0
+    iget-object v10, p0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
 
-    iget-object v13, v0, Lcom/android/server/backup/BackupManagerService$PerformInitializeTask;->this$0:Lcom/android/server/backup/BackupManagerService;
+    iget-object v10, v10, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
 
-    iget-object v13, v13, Lcom/android/server/backup/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v13}, Landroid/os/PowerManager$WakeLock;->release()V
+    invoke-virtual {v10}, Landroid/os/PowerManager$WakeLock;->release()V
 
     goto/16 :goto_1
 .end method

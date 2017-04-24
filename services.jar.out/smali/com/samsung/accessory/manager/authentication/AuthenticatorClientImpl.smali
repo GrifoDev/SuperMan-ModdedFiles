@@ -239,7 +239,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_14
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
@@ -283,7 +283,7 @@
     :cond_2
     array-length v3, v1
 
-    if-ne v3, v7, :cond_e
+    if-ne v3, v7, :cond_f
 
     const/4 v3, 0x0
 
@@ -364,11 +364,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xf
+    const/16 v4, -0x10
 
     if-ne v3, v4, :cond_7
 
-    const/16 v3, 0x28
+    const/16 v3, 0xf
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -379,11 +379,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xe
+    const/16 v4, -0xf
 
     if-ne v3, v4, :cond_8
 
-    const/16 v3, 0x29
+    const/16 v3, 0x28
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -394,11 +394,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xd
+    const/16 v4, -0xe
 
     if-ne v3, v4, :cond_9
 
-    const/16 v3, 0x2a
+    const/16 v3, 0x29
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -409,11 +409,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xc
+    const/16 v4, -0xd
 
     if-ne v3, v4, :cond_a
 
-    const/16 v3, 0x2b
+    const/16 v3, 0x2a
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -424,11 +424,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xb
+    const/16 v4, -0xc
 
     if-ne v3, v4, :cond_b
 
-    const/16 v3, 0x2c
+    const/16 v3, 0x2b
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -439,11 +439,11 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0xa
+    const/16 v4, -0xb
 
     if-ne v3, v4, :cond_c
 
-    const/16 v3, 0x2d
+    const/16 v3, 0x2c
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
@@ -454,9 +454,24 @@
 
     aget-byte v3, v1, v3
 
-    const/16 v4, -0x9
+    const/16 v4, -0xa
 
     if-ne v3, v4, :cond_d
+
+    const/16 v3, 0x2d
+
+    invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
+
+    goto/16 :goto_0
+
+    :cond_d
+    const/4 v3, 0x0
+
+    aget-byte v3, v1, v3
+
+    const/16 v4, -0x9
+
+    if-ne v3, v4, :cond_e
 
     const/16 v3, 0x2e
 
@@ -464,19 +479,19 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_e
     const/16 v3, 0x1b
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
 
     goto/16 :goto_0
 
-    :cond_e
+    :cond_f
     array-length v3, v1
 
     const/16 v4, 0x10
 
-    if-ne v3, v4, :cond_11
+    if-ne v3, v4, :cond_12
 
     iget-object v3, p0, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->mMsgParser:Lcom/samsung/accessory/manager/authentication/msg/MsgParser;
 
@@ -486,9 +501,9 @@
 
     move-result v2
 
-    :cond_f
+    :cond_10
     :goto_1
-    if-nez v2, :cond_14
+    if-nez v2, :cond_15
 
     const/16 v3, 0x1a
 
@@ -496,7 +511,7 @@
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_11
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -504,15 +519,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_10
+    :cond_11
     invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
 
     return v6
 
-    :cond_11
+    :cond_12
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_13
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -520,7 +535,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_12
+    :cond_13
     const/16 v3, 0x19
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setReason(I)V
@@ -529,10 +544,10 @@
 
     return v6
 
-    :cond_13
+    :cond_14
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_10
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -542,27 +557,14 @@
 
     goto :goto_1
 
-    :cond_14
+    :cond_15
     invoke-virtual {p1}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isKeyChanged()Z
 
     move-result v3
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_1b
 
     const/4 v3, 0x2
-
-    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_15
-
-    invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
-
-    return v6
-
-    :cond_15
-    const/4 v3, 0x3
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
@@ -575,17 +577,30 @@
     return v6
 
     :cond_16
+    const/4 v3, 0x3
+
+    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_17
+
+    invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
+
+    return v6
+
+    :cond_17
     const/4 v3, 0x5
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
     move-result v2
 
-    if-nez v2, :cond_18
+    if-nez v2, :cond_19
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_18
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -593,15 +608,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_17
+    :cond_18
     invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
 
     return v6
 
-    :cond_18
+    :cond_19
     iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
 
-    if-ne v3, v7, :cond_1d
+    if-ne v3, v7, :cond_1e
 
     const/16 v3, 0x9
 
@@ -609,11 +624,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_1a
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_1a
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -621,11 +636,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_19
+    :cond_1a
     :goto_2
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1b
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -633,16 +648,16 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1a
+    :cond_1b
     invoke-virtual {p1}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->needKeyChange()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1d
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_1c
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -650,90 +665,27 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1b
+    :cond_1c
     const/4 v3, 0x7
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_1d
 
     const/4 v3, 0x1
 
     invoke-virtual {p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setKeyChanged(Z)V
 
-    :cond_1c
+    :cond_1d
     invoke-virtual {p1}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isKeyChanged()Z
 
     move-result v3
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_25
 
     const/16 v3, 0x8
-
-    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1f
-
-    invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
-
-    return v6
-
-    :cond_1d
-    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
-
-    if-ne v3, v9, :cond_1e
-
-    const/16 v3, 0xa
-
-    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_19
-
-    sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
-
-    if-eqz v3, :cond_19
-
-    sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v4, "Extra is not exist."
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    :cond_1e
-    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
-
-    if-ne v3, v8, :cond_19
-
-    const/16 v3, 0xb
-
-    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_19
-
-    sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
-
-    if-eqz v3, :cond_19
-
-    sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v4, "3rd data is not exist."
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    :cond_1f
-    const/4 v3, 0x3
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
@@ -745,36 +697,71 @@
 
     return v6
 
-    :cond_20
-    const/4 v3, 0x5
+    :cond_1e
+    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
+
+    if-ne v3, v9, :cond_1f
+
+    const/16 v3, 0xa
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
     move-result v2
 
-    if-nez v2, :cond_22
+    if-nez v2, :cond_1a
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_21
+    if-eqz v3, :cond_1a
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v4, "Read id fail."
+    const-string/jumbo v4, "Extra is not exist."
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_21
+    goto :goto_2
+
+    :cond_1f
+    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
+
+    if-ne v3, v8, :cond_1a
+
+    const/16 v3, 0xb
+
+    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1a
+
+    sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
+
+    if-eqz v3, :cond_1a
+
+    sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "3rd data is not exist."
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_20
+    const/4 v3, 0x3
+
+    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_21
+
     invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
 
     return v6
 
-    :cond_22
-    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
-
-    if-ne v3, v7, :cond_25
-
-    const/16 v3, 0x9
+    :cond_21
+    const/4 v3, 0x5
 
     invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
 
@@ -784,7 +771,35 @@
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_22
+
+    sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Read id fail."
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_22
+    invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
+
+    return v6
+
+    :cond_23
+    iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
+
+    if-ne v3, v7, :cond_26
+
+    const/16 v3, 0x9
+
+    invoke-direct {p0, p1, v3}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendCommand(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_24
+
+    sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
+
+    if-eqz v3, :cond_24
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -792,11 +807,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_23
+    :cond_24
     :goto_3
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_25
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -804,7 +819,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_24
+    :cond_25
     invoke-virtual {p0}, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->sendStopAuth()Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
@@ -813,11 +828,11 @@
 
     return v7
 
-    :cond_25
+    :cond_26
     :try_start_2
     iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
 
-    if-ne v3, v9, :cond_26
+    if-ne v3, v9, :cond_27
 
     const/16 v3, 0xa
 
@@ -825,11 +840,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_24
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_24
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 
@@ -839,10 +854,10 @@
 
     goto :goto_3
 
-    :cond_26
+    :cond_27
     iget v3, p1, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->isUrlExist:I
 
-    if-ne v3, v8, :cond_23
+    if-ne v3, v8, :cond_24
 
     const/16 v3, 0xb
 
@@ -850,11 +865,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_24
 
     sget-boolean v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->DBG:Z
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_24
 
     sget-object v3, Lcom/samsung/accessory/manager/authentication/AuthenticatorClientImpl;->TAG:Ljava/lang/String;
 

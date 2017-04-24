@@ -7893,6 +7893,10 @@
     iput v0, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
 
     :cond_4
+    iget-object v7, p0, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
+
+    invoke-interface {v7, p1}, Lcom/android/server/wm/IWindowManagerServiceBridge;->restoreSizeDensityIfNeeded(Lcom/android/server/wm/DisplayContent;)V
+
     const-string/jumbo v7, "WQHD,FHD,HD"
 
     invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
@@ -20469,6 +20473,10 @@
 
     invoke-interface {v1}, Landroid/view/WindowManagerPolicy;->systemBooted()V
 
+    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService;->mBridge:Lcom/android/server/wm/IWindowManagerServiceBridge;
+
+    invoke-interface {v1}, Lcom/android/server/wm/IWindowManagerServiceBridge;->setDisplaySizeDensity()V
+
     invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService;->performEnableScreen()V
 
     return-void
@@ -27211,7 +27219,7 @@
 .end method
 
 .method public moveTaskToTop(I)V
-    .locals 7
+    .locals 8
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -27254,8 +27262,29 @@
 
     move-result-object v0
 
+    if-nez v0, :cond_1
+
+    sget-object v5, Lcom/android/server/wm/WindowManagerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "moveTaskToTop can not move task to top displayContent is null"
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    monitor-exit v6
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return-void
+
+    :cond_1
     const/4 v5, 0x1
 
+    :try_start_5
     invoke-virtual {v0, v1, v5}, Lcom/android/server/wm/DisplayContent;->moveStack(Lcom/android/server/wm/TaskStack;Z)V
 
     invoke-virtual {v1, v4}, Lcom/android/server/wm/TaskStack;->moveTaskToTop(Lcom/android/server/wm/Task;)V
@@ -27266,16 +27295,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     const/4 v5, 0x0
 
     invoke-virtual {v4, v5}, Lcom/android/server/wm/Task;->setSendingToBottom(Z)V
 
-    :cond_1
+    :cond_2
     sget-boolean v5, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/server/wm/WindowManagerService;->mAppTransition:Lcom/android/server/wm/AppTransition;
 
@@ -27283,40 +27312,40 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowManagerService;->moveStackWindowsLocked(Lcom/android/server/wm/DisplayContent;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    :cond_2
+    :cond_3
     :goto_0
-    :try_start_4
+    :try_start_6
     monitor-exit v6
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
 
-    :cond_3
-    :try_start_5
+    :cond_4
+    :try_start_7
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowManagerService;->moveStackWindowsLocked(Lcom/android/server/wm/DisplayContent;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto :goto_0
 
     :catchall_0
     move-exception v5
 
-    :try_start_6
+    :try_start_8
     monitor-exit v6
 
     throw v5
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     :catchall_1
     move-exception v5
@@ -45992,9 +46021,7 @@
 .end method
 
 .method updateOrientationFromAppTokensLocked(Z)Z
-    .locals 6
-
-    const/4 v5, 0x1
+    .locals 4
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -46016,28 +46043,18 @@
     invoke-interface {v3, v2}, Landroid/view/WindowManagerPolicy;->setCurrentOrientationLw(I)V
 
     invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowManagerService;->updateRotationUncheckedLocked(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService;->getDefaultDisplayContentLocked()Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/server/wm/DisplayContent;->getDockedDividerController()Lcom/android/server/wm/DockedStackDividerController;
-
-    move-result-object v3
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/DockedStackDividerController;->setForceHideForDivider(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const/4 v3, 0x1
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v5
+    return v3
 
     :cond_0
     const/4 v3, 0x0

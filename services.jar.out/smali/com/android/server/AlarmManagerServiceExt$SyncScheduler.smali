@@ -22,6 +22,7 @@
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$2;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$3;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$IniFile;,
+        Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;,
         Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
     }
@@ -169,6 +170,8 @@
 
 .field private final mLockUserApps:Ljava/lang/Object;
 
+.field private mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
 .field private mNextAlarmWhen:J
 
 .field private mNextSlotInChn:J
@@ -303,7 +306,23 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
+.method static synthetic -get16(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get17(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+
+    return-object v0
+.end method
+
+.method static synthetic -get18(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPermanentWhitelistPackages:Ljava/util/ArrayList;
@@ -311,7 +330,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
+.method static synthetic -get19(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;)Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->ta:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
@@ -871,6 +890,14 @@
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mBootIntentReceiver:Landroid/content/BroadcastReceiver;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
 
     move-object/from16 v0, p2
 
@@ -1755,6 +1782,22 @@
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mPMReceiver:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$PackageManagerReceiver;
+
+    new-instance v22, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p2
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;-><init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;Landroid/content/Context;)V
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;->mMultiUserMgr:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$MultiUserManager;
 
     move-object/from16 v0, p0
 

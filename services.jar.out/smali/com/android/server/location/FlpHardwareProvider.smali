@@ -8,7 +8,6 @@
     value = {
         Lcom/android/server/location/FlpHardwareProvider$1;,
         Lcom/android/server/location/FlpHardwareProvider$2;,
-        Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;,
         Lcom/android/server/location/FlpHardwareProvider$NetworkLocationListener;
     }
 .end annotation
@@ -16,8 +15,6 @@
 
 # static fields
 .field private static final FIRST_VERSION_WITH_FLUSH_LOCATIONS:I = 0x2
-
-.field private static final FIRST_VERSION_WITH_ONLOCATION_CONVERT:I = 0xc9f4
 
 .field private static final FLP_GEOFENCE_MONITOR_STATUS_AVAILABLE:I = 0x2
 
@@ -73,24 +70,9 @@
 
 .field private final mLocationSinkLock:Ljava/lang/Object;
 
-.field private mSLocationListener:Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-.field private mSLocationService:Lcom/samsung/android/location/ISLocationManager;
-
 .field private mVersion:I
 
 .field private manager:Landroid/location/LocationManager;
-
-.field private onLocationIdList:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 
 # direct methods
@@ -110,30 +92,6 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/location/FlpHardwareProvider;)Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationListener:Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationService:Lcom/samsung/android/location/ISLocationManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider;->onLocationIdList:Ljava/util/List;
-
-    return-object v0
-.end method
-
 .method static synthetic -set0(Lcom/android/server/location/FlpHardwareProvider;Landroid/hardware/location/IFusedLocationHardwareSink;)Landroid/hardware/location/IFusedLocationHardwareSink;
     .locals 0
 
@@ -145,7 +103,7 @@
 .method static synthetic -wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->isSLocationSupported()Z
+    invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeIsDeviceContextSupported()Z
 
     move-result v0
 
@@ -155,96 +113,6 @@
 .method static synthetic -wrap1(Lcom/android/server/location/FlpHardwareProvider;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeIsDeviceContextSupported()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap10(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDiagnosticData(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap11(Lcom/android/server/location/FlpHardwareProvider;Landroid/location/Location;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeInjectLocation(Landroid/location/Location;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap12(Lcom/android/server/location/FlpHardwareProvider;IIIIII)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/location/FlpHardwareProvider;->nativeModifyGeofenceOption(IIIIII)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap13(Lcom/android/server/location/FlpHardwareProvider;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativePauseGeofence(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap14(Lcom/android/server/location/FlpHardwareProvider;[I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeRemoveGeofences([I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap15(Lcom/android/server/location/FlpHardwareProvider;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeRequestBatchedLocation(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap16(Lcom/android/server/location/FlpHardwareProvider;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeResumeGeofence(II)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap17(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeStartBatching(ILandroid/location/FusedBatchOptions;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap18(Lcom/android/server/location/FlpHardwareProvider;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeStopBatching(I)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap19(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeUpdateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Lcom/android/server/location/FlpHardwareProvider;)Z
-    .locals 1
-
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeIsDiagnosticSupported()Z
 
     move-result v0
@@ -252,15 +120,79 @@
     return v0
 .end method
 
-.method static synthetic -wrap20(Lcom/android/server/location/FlpHardwareProvider;[Landroid/location/Location;)V
+.method static synthetic -wrap10(Lcom/android/server/location/FlpHardwareProvider;Landroid/location/Location;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->onLocationReport([Landroid/location/Location;)V
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeInjectLocation(Landroid/location/Location;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap21(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
+.method static synthetic -wrap11(Lcom/android/server/location/FlpHardwareProvider;IIIIII)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p6}, Lcom/android/server/location/FlpHardwareProvider;->nativeModifyGeofenceOption(IIIIII)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap12(Lcom/android/server/location/FlpHardwareProvider;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativePauseGeofence(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap13(Lcom/android/server/location/FlpHardwareProvider;[I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeRemoveGeofences([I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap14(Lcom/android/server/location/FlpHardwareProvider;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeRequestBatchedLocation(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap15(Lcom/android/server/location/FlpHardwareProvider;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeResumeGeofence(II)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap16(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeStartBatching(ILandroid/location/FusedBatchOptions;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap17(Lcom/android/server/location/FlpHardwareProvider;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeStopBatching(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap18(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->nativeUpdateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap19(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/location/FlpHardwareProvider;->sendInfoToFLP(IILandroid/location/FusedBatchOptions;)V
@@ -268,7 +200,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/location/FlpHardwareProvider;)Z
+.method static synthetic -wrap2(Lcom/android/server/location/FlpHardwareProvider;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeIsGeofencingSupported()Z
@@ -278,7 +210,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/server/location/FlpHardwareProvider;)I
+.method static synthetic -wrap3(Lcom/android/server/location/FlpHardwareProvider;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->getVersion()I
@@ -288,7 +220,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap5(Lcom/android/server/location/FlpHardwareProvider;)I
+.method static synthetic -wrap4(Lcom/android/server/location/FlpHardwareProvider;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeGetBatchSize()I
@@ -298,7 +230,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap6(Lcom/android/server/location/FlpHardwareProvider;)V
+.method static synthetic -wrap5(Lcom/android/server/location/FlpHardwareProvider;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->maybeSendCapabilities()V
@@ -306,7 +238,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/server/location/FlpHardwareProvider;[Landroid/hardware/location/GeofenceHardwareRequestParcelable;)V
+.method static synthetic -wrap6(Lcom/android/server/location/FlpHardwareProvider;[Landroid/hardware/location/GeofenceHardwareRequestParcelable;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeAddGeofences([Landroid/hardware/location/GeofenceHardwareRequestParcelable;)V
@@ -314,7 +246,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Lcom/android/server/location/FlpHardwareProvider;)V
+.method static synthetic -wrap7(Lcom/android/server/location/FlpHardwareProvider;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/location/FlpHardwareProvider;->nativeFlushBatchedLocations()V
@@ -322,10 +254,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap9(Lcom/android/server/location/FlpHardwareProvider;I)V
+.method static synthetic -wrap8(Lcom/android/server/location/FlpHardwareProvider;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDeviceContext(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap9(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/FlpHardwareProvider;->nativeInjectDiagnosticData(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -364,14 +304,6 @@
     iput-object v5, p0, Lcom/android/server/location/FlpHardwareProvider;->mLocationSinkLock:Ljava/lang/Object;
 
     iput-object v10, p0, Lcom/android/server/location/FlpHardwareProvider;->manager:Landroid/location/LocationManager;
-
-    iput-object v10, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationService:Lcom/samsung/android/location/ISLocationManager;
-
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v5, p0, Lcom/android/server/location/FlpHardwareProvider;->onLocationIdList:Ljava/util/List;
 
     new-instance v5, Lcom/android/server/location/FlpHardwareProvider$1;
 
@@ -430,24 +362,6 @@
     move-result-object v7
 
     invoke-virtual {v5, v4, v6, v7}, Landroid/location/LocationManager;->requestLocationUpdates(Landroid/location/LocationRequest;Landroid/location/LocationListener;Landroid/os/Looper;)V
-
-    const-string/jumbo v5, "sec_location"
-
-    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/samsung/android/location/ISLocationManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationService:Lcom/samsung/android/location/ISLocationManager;
-
-    new-instance v5, Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-    invoke-direct {v5, p0, v10}, Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;-><init>(Lcom/android/server/location/FlpHardwareProvider;Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;)V
-
-    iput-object v5, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationListener:Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
 
     return-void
 .end method
@@ -539,74 +453,6 @@
     throw v0
 .end method
 
-.method private isSLocationSupported()Z
-    .locals 6
-
-    const/4 v5, 0x0
-
-    const-string/jumbo v3, "FlpHardwareProvider"
-
-    const-string/jumbo v4, "isSLocationSupported"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/location/FlpHardwareProvider;->mSLocationService:Lcom/samsung/android/location/ISLocationManager;
-
-    if-nez v3, :cond_0
-
-    const-string/jumbo v3, "FlpHardwareProvider"
-
-    const-string/jumbo v4, "mSLocationService is null"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/server/location/FlpHardwareProvider;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    :try_start_0
-    const-string/jumbo v3, "com.samsung.android.location"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    move-result-object v1
-
-    iget v3, v1, Landroid/content/pm/PackageInfo;->versionCode:I
-
-    const v4, 0xc9f4
-
-    if-le v3, v4, :cond_1
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :cond_1
-    const-string/jumbo v3, "FlpHardwareProvider"
-
-    const-string/jumbo v4, "SLocation version is not support FlpBatching"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return v5
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    return v5
-.end method
-
 .method public static isSupported()Z
     .locals 2
 
@@ -632,16 +478,6 @@
 
     :cond_0
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public static isSupportedForSec()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/FlpHardwareProvider;->nativeIsSupported()Z
-
-    move-result v0
 
     return v0
 .end method

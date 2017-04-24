@@ -7290,7 +7290,7 @@
     return v0
 
     :cond_3
-    const v2, 0x10409ab
+    const v2, 0x10409ac
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -7549,7 +7549,7 @@
     return v0
 
     :cond_1
-    const v2, 0x10409bd
+    const v2, 0x10409be
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -7732,7 +7732,7 @@
     return v2
 
     :cond_3
-    const v4, 0x10409ad
+    const v4, 0x10409ae
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

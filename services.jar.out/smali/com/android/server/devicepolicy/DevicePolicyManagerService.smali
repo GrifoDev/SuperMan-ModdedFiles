@@ -13269,7 +13269,7 @@
     .end sparse-switch
 .end method
 
-.method private wipeDataLocked(ZLjava/lang/String;)V
+.method private wipeDataNoLock(ZLjava/lang/String;)V
     .locals 5
 
     invoke-direct {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->findSDCard()Z
@@ -13314,33 +13314,58 @@
     goto :goto_0
 .end method
 
-.method private wipeDeviceOrUserLocked(ZILjava/lang/String;)V
-    .locals 2
+.method private wipeDeviceNoLock(ZILjava/lang/String;)V
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderClearCallingIdentity()J
+
+    move-result-wide v0
 
     if-eqz p2, :cond_0
 
+    :try_start_0
     invoke-static {p2}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
-    invoke-direct {p0, p1, p3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDataLocked(ZLjava/lang/String;)V
+    invoke-direct {p0, p1, p3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDataNoLock(ZLjava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v2, v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mHandler:Landroid/os/Handler;
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/devicepolicy/DevicePolicyManagerService$8;
+    new-instance v3, Lcom/android/server/devicepolicy/DevicePolicyManagerService$8;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$8;-><init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
+    invoke-direct {v3, p0, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$8;-><init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v3, v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 
@@ -27932,7 +27957,7 @@
 
     move-result-wide v4
 
-    const v3, 0x1040a09
+    const v3, 0x1040a0a
 
     :try_start_1
     invoke-static {v3}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
@@ -29149,7 +29174,7 @@
 
     const/4 v9, 0x0
 
-    invoke-direct {p0, v9, v2, v8}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDeviceOrUserLocked(ZILjava/lang/String;)V
+    invoke-direct {p0, v9, v2, v8}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDeviceNoLock(ZILjava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -46987,8 +47012,19 @@
     if-eqz v1, :cond_2
 
     invoke-virtual {v1}, Landroid/service/persistentdata/PersistentDataBlockManager;->wipe()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :cond_2
+    :try_start_4
+    iget-object v7, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+
+    invoke-virtual {v7, v2, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    monitor-exit p0
+
     and-int/lit8 v7, p1, 0x1
 
     if-eqz v7, :cond_3
@@ -47014,18 +47050,7 @@
 
     move-result-object v7
 
-    invoke-direct {p0, v6, v5, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDeviceOrUserLocked(ZILjava/lang/String;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :try_start_4
-    iget-object v7, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
-
-    invoke-virtual {v7, v2, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderRestoreCallingIdentity(J)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    monitor-exit p0
+    invoke-direct {p0, v6, v5, v7}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->wipeDeviceNoLock(ZILjava/lang/String;)V
 
     return-void
 

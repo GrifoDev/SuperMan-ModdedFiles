@@ -2625,6 +2625,24 @@
 
     if-eqz v0, :cond_2
 
+    iget-object v3, p0, Lcom/android/server/am/ActivityStarter;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityStarter;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mMultiWindowManager:Lcom/android/server/am/IMultiWindowManagerServiceBridge;
+
+    iget-object v4, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    invoke-interface {v3, v4}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
     iget-object v3, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
     if-eqz v3, :cond_2
@@ -2684,6 +2702,14 @@
     iget-boolean v3, p0, Lcom/android/server/am/ActivityStarter;->mLaunchSingleTask:Z
 
     if-nez v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
+
+    iget v3, v3, Lcom/android/server/am/ActivityRecord;->launchMode:I
+
+    const/4 v4, 0x3
+
+    if-eq v3, v4, :cond_2
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
 

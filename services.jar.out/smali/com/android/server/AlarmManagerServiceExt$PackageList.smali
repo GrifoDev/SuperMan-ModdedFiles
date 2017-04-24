@@ -607,6 +607,14 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
+    const-string/jumbo v0, "com.nttdocomo.osaifu.tsmproxy"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "com.showcasegig.devlawson"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
     const-string/jumbo v0, "jp.id_credit_sp.android"
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
@@ -620,6 +628,14 @@
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
     const-string/jumbo v0, "jp.co.lawson.activity"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "jp.co.omronsoft.android.decoemojimanager_docomo"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "org.simalliance.openmobileapi.service"
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
@@ -639,6 +655,10 @@
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
     const-string/jumbo v0, "com.sec\\..*ims.*"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "com.sec.epdg"
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
@@ -670,6 +690,19 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
 
+    sget-boolean v0, Lcom/android/server/AlarmManagerServiceExt$Sales;->JAPAN:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "com.android.incallui"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "com.android.services.telephony.common"
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AlarmManagerServiceExt$PackageList;->add(Ljava/lang/String;)V
+
+    :cond_0
     return-void
 .end method
 

@@ -2130,7 +2130,7 @@
 
     invoke-virtual {v1, v4, v2, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const v1, 0x104089e
+    const v1, 0x10408a0
 
     iput v1, p0, Lcom/android/server/policy/GlobalActions;->mBikeModeStringId:I
 
@@ -4365,13 +4365,13 @@
 
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mProKioskExitAlertDialogBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x1040903
+    const v5, 0x1040904
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mProKioskExitAlertDialogBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x1040904
+    const v5, 0x1040905
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -4453,11 +4453,11 @@
 
     const v7, 0x10803fe
 
-    const v8, 0x1040900
+    const v8, 0x1040901
 
-    const v9, 0x1040901
+    const v9, 0x1040902
 
-    const v10, 0x1040901
+    const v10, 0x1040902
 
     move-object/from16 v5, p0
 
@@ -4758,11 +4758,11 @@
 
     const v7, 0x1080a30
 
-    const v8, 0x104089e
+    const v8, 0x10408a0
 
-    const v9, 0x104089f
+    const v9, 0x10408a1
 
-    const v10, 0x10408a0
+    const v10, 0x10408a2
 
     move-object/from16 v5, p0
 

@@ -501,10 +501,10 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/am/ActivityStackSupervisor;I)Z
+.method static synthetic -wrap1(Lcom/android/server/am/ActivityStackSupervisor;ILcom/android/server/am/ActivityRecord;)Z
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isSecureFodlerImmeditateLockExceptionalCase(I)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/ActivityStackSupervisor;->isSecureFodlerImmeditateLockExceptionalCase(ILcom/android/server/am/ActivityRecord;)Z
 
     move-result v0
 
@@ -2673,7 +2673,7 @@
     return v5
 .end method
 
-.method private isSecureFodlerImmeditateLockExceptionalCase(I)Z
+.method private isSecureFodlerImmeditateLockExceptionalCase(ILcom/android/server/am/ActivityRecord;)Z
     .locals 7
 
     const/4 v6, 0x1
@@ -2720,6 +2720,12 @@
 
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
+
+    const-string/jumbo v3, "com.samsung.knox.securefolder.foldercontainer.MultiwindowLockActivity"
+
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManagerLocked()Lcom/android/server/pm/PersonaManagerService;
 
@@ -2731,6 +2737,12 @@
 
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxMultiwindowVisibleLocked(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxFullscreenVisibleLocked(I)Z
 
     move-result v2
 
@@ -2756,13 +2768,12 @@
     return v6
 
     :cond_3
-    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
+    if-eqz p2, :cond_4
 
-    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    move-object v1, p2
 
-    move-result-object v1
-
-    if-nez v1, :cond_4
+    :goto_0
+    if-nez v1, :cond_5
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -2773,9 +2784,18 @@
     return v5
 
     :cond_4
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_5
     iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -2785,7 +2805,7 @@
 
     return v5
 
-    :cond_5
+    :cond_6
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mSecureFodlerImmeditateLockExceptionalList:Ljava/util/List;
 
     iget-object v3, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
@@ -2798,7 +2818,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     const-string/jumbo v2, "SecureFolder"
 
@@ -2830,7 +2850,7 @@
 
     return v6
 
-    :cond_6
+    :cond_7
     const-string/jumbo v2, "SecureFolder"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -8661,7 +8681,7 @@
 .end method
 
 .method public hideKnoxMultiwindowsLocked(I)V
-    .locals 36
+    .locals 37
 
     move-object/from16 v0, p0
 
@@ -8689,7 +8709,7 @@
     add-int/lit8 v26, v2, -0x1
 
     :goto_0
-    if-ltz v26, :cond_9
+    if-ltz v26, :cond_b
 
     move-object/from16 v0, p0
 
@@ -8705,49 +8725,53 @@
 
     iget-object v0, v2, Lcom/android/server/am/ActivityStackSupervisor$ActivityDisplay;->mStacks:Ljava/util/ArrayList;
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    invoke-virtual/range {v33 .. v33}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v34 .. v34}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    add-int/lit8 v32, v2, -0x1
+    add-int/lit8 v33, v2, -0x1
 
     :goto_1
-    if-ltz v32, :cond_8
+    if-ltz v33, :cond_a
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v31
+    move-result-object v32
 
-    check-cast v31, Lcom/android/server/am/ActivityStack;
+    check-cast v32, Lcom/android/server/am/ActivityStack;
 
-    invoke-virtual/range {v31 .. v31}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
+    if-eqz v32, :cond_9
 
-    move-result-object v35
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
-    invoke-virtual/range {v35 .. v35}, Ljava/util/ArrayList;->size()I
+    move-result-object v36
+
+    invoke-virtual/range {v36 .. v36}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    add-int/lit8 v34, v2, -0x1
+    add-int/lit8 v35, v2, -0x1
 
     :goto_2
-    if-ltz v34, :cond_7
+    if-ltz v35, :cond_9
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v36
 
-    move/from16 v1, v34
+    move/from16 v1, v35
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v25
 
     check-cast v25, Lcom/android/server/am/TaskRecord;
+
+    if-eqz v25, :cond_2
 
     move-object/from16 v0, v25
 
@@ -8773,7 +8797,7 @@
 
     if-nez v2, :cond_2
 
-    invoke-virtual/range {v31 .. v31}, Lcom/android/server/am/ActivityStack;->getStackId()I
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
     move-result v2
 
@@ -8781,7 +8805,7 @@
 
     if-eq v2, v3, :cond_1
 
-    invoke-virtual/range {v31 .. v31}, Lcom/android/server/am/ActivityStack;->getStackId()I
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
     move-result v2
 
@@ -8838,14 +8862,14 @@
 
     :cond_2
     :goto_5
-    add-int/lit8 v34, v34, -0x1
+    add-int/lit8 v35, v35, -0x1
 
     goto :goto_2
 
     :cond_3
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityStackSupervisor;->isSplitMode(Lcom/android/server/am/ActivityStack;)Z
 
@@ -8919,6 +8943,42 @@
 
     iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
 
+    const-string/jumbo v3, "com.android.settings/.ChooseLockPattern"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v3, "com.android.settings/.ChooseLockPassword"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v3, "com.samsung.android.settings/.KnoxChooseLockTwoFactor"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
     const-string/jumbo v3, "com.samsung.knox.kss/.KnoxKeyguardActivityPauser"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -8939,11 +8999,38 @@
 
     if-nez v2, :cond_2
 
+    move-object/from16 v0, v28
+
+    iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    const-string/jumbo v3, "com.samsung.knox.securefolder/.keyguard.KnoxKeyguardSamsungAccountBridge"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
     invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v28
 
     :cond_6
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ActivityStack;->getStackId()I
+
+    move-result v2
+
+    const/4 v3, 0x3
+
+    if-ne v2, v3, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/server/am/ActivityStackSupervisor;->mIsDockMinimized:Z
+
+    if-nez v2, :cond_2
+
+    :cond_7
     if-eqz v28, :cond_2
 
     move-object/from16 v0, v28
@@ -8958,9 +9045,15 @@
 
     if-nez v2, :cond_2
 
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/TaskRecord;->getRootActivity()Lcom/android/server/am/ActivityRecord;
+
+    move-result-object v31
+
+    if-eqz v31, :cond_8
+
     const-string/jumbo v2, "appName"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v31
 
     iget-object v3, v0, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
@@ -8972,6 +9065,7 @@
 
     invoke-virtual {v4, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
+    :cond_8
     const-string/jumbo v2, "pkgName"
 
     move-object/from16 v0, v25
@@ -9038,17 +9132,17 @@
 
     goto/16 :goto_5
 
-    :cond_7
-    add-int/lit8 v32, v32, -0x1
+    :cond_9
+    add-int/lit8 v33, v33, -0x1
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_a
     add-int/lit8 v26, v26, -0x1
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_b
     return-void
 .end method
 
@@ -9422,6 +9516,8 @@
 
     check-cast v1, Lcom/android/server/am/ActivityStack;
 
+    if-eqz v1, :cond_2
+
     invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
     move-result v7
@@ -9457,6 +9553,8 @@
     move-result-object v4
 
     check-cast v4, Lcom/android/server/am/TaskRecord;
+
+    if-eqz v4, :cond_3
 
     iget v7, v4, Lcom/android/server/am/TaskRecord;->userId:I
 
@@ -9551,6 +9649,8 @@
 
     check-cast v2, Lcom/android/server/am/ActivityStack;
 
+    if-eqz v2, :cond_6
+
     invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
     move-result-object v7
@@ -9569,6 +9669,8 @@
     move-result-object v5
 
     check-cast v5, Lcom/android/server/am/TaskRecord;
+
+    if-eqz v5, :cond_2
 
     if-nez p1, :cond_3
 
@@ -16538,7 +16640,7 @@
 .end method
 
 .method setDockedStackMinimized(Z)V
-    .locals 4
+    .locals 5
 
     iput-boolean p1, p0, Lcom/android/server/am/ActivityStackSupervisor;->mIsDockMinimized:Z
 
@@ -16562,6 +16664,41 @@
 
     move-result-object v1
 
+    if-eqz v1, :cond_3
+
+    iget v2, v1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStackSupervisor;->getPersonaManagerLocked()Lcom/android/server/pm/PersonaManagerService;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/knox/SemPersonaState;->LOCKED:Lcom/samsung/android/knox/SemPersonaState;
+
+    iget v4, v1, Lcom/android/server/am/ActivityRecord;->userId:I
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/server/pm/PersonaManagerService;->inState(Lcom/samsung/android/knox/SemPersonaState;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v1, Lcom/android/server/am/ActivityRecord;->appToken:Landroid/view/IApplicationToken$Stub;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityManagerService;->activityResumed(Landroid/os/IBinder;)V
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :cond_3
     if-eqz v1, :cond_2
 
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -16576,14 +16713,6 @@
 
     if-eqz v2, :cond_2
 
-    iget v2, v1, Lcom/android/server/am/ActivityRecord;->userId:I
-
-    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mActivityStarter:Lcom/android/server/am/ActivityStarter;
@@ -16592,8 +16721,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/am/ActivityStarter;->showConfirmDeviceCredential(I)V
 
-    :cond_2
-    return-void
+    goto :goto_0
 .end method
 
 .method setFocusStackUnchecked(Ljava/lang/String;Lcom/android/server/am/ActivityStack;)V

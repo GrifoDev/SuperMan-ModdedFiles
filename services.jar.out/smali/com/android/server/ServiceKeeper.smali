@@ -170,7 +170,9 @@
 
     sput-object v0, Lcom/android/server/ServiceKeeper;->AUTHORIZE_POLICY_FILE:[Ljava/io/File;
 
-    new-array v0, v8, [Ljava/lang/String;
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
 
     const-string/jumbo v1, "queryPhoneLookupEnterpriseForKnox"
 
@@ -183,6 +185,22 @@
     const-string/jumbo v1, "isTimaKeystoreEnabled"
 
     aput-object v1, v0, v7
+
+    const-string/jumbo v1, "isCallerInfoBrowsingAllow"
+
+    aput-object v1, v0, v8
+
+    const-string/jumbo v1, "isBluetoothEnterpriseContactSharingDisabled"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "openCorpContactPicture"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
 
     sput-object v0, Lcom/android/server/ServiceKeeper;->FILTERED_API:[Ljava/lang/String;
 
@@ -1091,110 +1109,128 @@
 .end method
 
 .method private static getAppinfo(Landroid/content/Context;Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-    .locals 8
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v4
+    move-result v5
 
-    if-ne p2, v4, :cond_0
+    if-ne p2, v5, :cond_0
 
-    return-object v5
+    return-object v6
 
     :cond_0
+    const/4 v1, 0x0
+
     const/4 v0, 0x0
 
     :try_start_0
     invoke-static {p3}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v3
+    move-result v4
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/16 v4, 0x80
+    const/16 v5, 0x80
 
-    invoke-interface {v2, p1, v4, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-interface {v3, p1, v5, v4}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     invoke-static {p0, p2, p3}, Lcom/android/server/ServiceKeeper;->getPackageName(Landroid/content/Context;II)Ljava/lang/String;
 
     move-result-object p1
 
-    const/16 v4, 0x80
+    const/16 v5, 0x80
 
-    invoke-interface {v2, p1, v4, v3}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {v3, p1, v5, v4}, Landroid/content/pm/IPackageManager;->getApplicationInfo(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v1
+
+    if-nez v1, :cond_1
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    invoke-interface {v3, p3, p1}, Landroid/content/pm/IPackageManager;->AASA_getSEInfo(ILjava/lang/String;)[B
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    :cond_2
+    if-eqz v0, :cond_3
 
-    :cond_1
+    new-instance v5, Ljava/lang/String;
+
+    invoke-direct {v5, v0}, Ljava/lang/String;-><init>([B)V
+
+    iput-object v5, v1, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_3
     :goto_0
-    return-object v0
+    return-object v1
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    sget-object v4, Lcom/android/server/ServiceKeeper;->mSKLog:Lcom/android/server/SKLogger;
+    sget-object v5, Lcom/android/server/ServiceKeeper;->mSKLog:Lcom/android/server/SKLogger;
 
-    sget-object v5, Lcom/android/server/ServiceKeeper;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/ServiceKeeper;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v6, "Exception in getAppInfo"
+    const-string/jumbo v7, "Exception in getAppInfo"
 
-    invoke-virtual {v4, v5, v6, v1}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v5, v6, v7, v2}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    sget-object v4, Lcom/android/server/ServiceKeeper;->mSKLog:Lcom/android/server/SKLogger;
+    sget-object v5, Lcom/android/server/ServiceKeeper;->mSKLog:Lcom/android/server/SKLogger;
 
-    sget-object v5, Lcom/android/server/ServiceKeeper;->TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/ServiceKeeper;->TAG:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Exception Details:pid = "
+    const-string/jumbo v8, "Exception Details:pid = "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, " pkgName = "
+    const-string/jumbo v8, " pkgName = "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, " appinfo = "
+    const-string/jumbo v8, " appinfo = "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v5, v6, v7}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -1891,7 +1927,7 @@
 
     invoke-virtual {v4, v9, v10}, Lcom/android/server/SKLogger;->logAll(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v4, 0x0
+    const/4 v4, -0x1
 
     return v4
 

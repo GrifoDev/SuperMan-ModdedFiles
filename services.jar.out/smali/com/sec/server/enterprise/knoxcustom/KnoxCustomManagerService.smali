@@ -12255,7 +12255,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "getWifiHotspotEnabledState() failed - persistence problem "
+    const-string/jumbo v8, "getMacAddress() failed - persistence problem "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

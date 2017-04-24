@@ -58,7 +58,11 @@
 
 .field public static final enum MEX_MNX:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
+.field public static final enum MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
 .field public static final enum NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+.field public static final enum PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
 .field public static final enum SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
@@ -255,9 +259,29 @@
 
     new-instance v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
-    const-string/jumbo v1, "SUI_SWC"
+    const-string/jumbo v1, "MEX_UNE"
 
     const/16 v2, 0x12
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    new-instance v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    const-string/jumbo v1, "PER_PNT"
+
+    const/16 v2, 0x13
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    new-instance v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    const-string/jumbo v1, "SUI_SWC"
+
+    const/16 v2, 0x14
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;-><init>(Ljava/lang/String;I)V
 
@@ -267,7 +291,7 @@
 
     const-string/jumbo v1, "TUR_TUR"
 
-    const/16 v2, 0x13
+    const/16 v2, 0x15
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;-><init>(Ljava/lang/String;I)V
 
@@ -277,13 +301,13 @@
 
     const-string/jumbo v1, "NO_OPERATOR"
 
-    const/16 v2, 0x14
+    const/16 v2, 0x16
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
-    const/16 v0, 0x15
+    const/16 v0, 0x17
 
     new-array v0, v0, [Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
@@ -385,21 +409,33 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->MEX_UNE:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     const/16 v2, 0x12
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->TUR_TUR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->PER_PNT:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     const/16 v2, 0x13
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->SUI_SWC:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
 
     const/16 v2, 0x14
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->TUR_TUR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    const/16 v2, 0x15
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;->NO_OPERATOR:Lcom/android/server/location/GnssLocationProvider_samsung$Vendor;
+
+    const/16 v2, 0x16
 
     aput-object v1, v0, v2
 

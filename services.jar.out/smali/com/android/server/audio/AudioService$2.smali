@@ -38,7 +38,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0, p2}, Lcom/android/server/audio/AudioService;->-set13(Lcom/android/server/audio/AudioService;I)I
+    invoke-static {v0, p2}, Lcom/android/server/audio/AudioService;->-set14(Lcom/android/server/audio/AudioService;I)I
 
     const-string/jumbo v0, "AudioService"
 
@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get36(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get37(Lcom/android/server/audio/AudioService;)I
 
     move-result v2
 
@@ -70,13 +70,13 @@
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get49(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
+    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get50(Lcom/android/server/audio/AudioService;)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get36(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get37(Lcom/android/server/audio/AudioService;)I
 
     move-result v3
 

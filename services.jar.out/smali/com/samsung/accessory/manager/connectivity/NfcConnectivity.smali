@@ -23,6 +23,8 @@
 
 
 # instance fields
+.field private DUPLICATED_POLLING_REQUEST:[B
+
 .field private mAdapterStateChangedHandler:Lcom/samsung/accessory/manager/connectivity/Connectivity$StateChangedHandler;
 
 .field private mEnableRequest:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -142,25 +144,35 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 7
 
-    const/4 v1, -0x1
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    const/4 v4, -0x1
 
     const/4 v3, 0x0
 
     invoke-direct {p0, p1}, Lcom/samsung/accessory/manager/connectivity/Connectivity;-><init>(Landroid/content/Context;)V
 
+    new-array v1, v6, [B
+
+    const/16 v2, -0x10
+
+    aput-byte v2, v1, v5
+
+    iput-object v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->DUPLICATED_POLLING_REQUEST:[B
+
     iput-object v3, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mNfcStateReceiver:Lcom/samsung/accessory/manager/connectivity/NfcConnectivity$NfcStateReceiver;
 
-    iput v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mState:I
+    iput v4, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mState:I
 
-    iput v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mPrevState:I
+    iput v4, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mPrevState:I
 
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+    invoke-direct {v1, v5}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mEnableRequest:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -170,9 +182,7 @@
 
     move-result v1
 
-    const/4 v2, 0x1
-
-    if-eq v1, v2, :cond_0
+    if-eq v1, v6, :cond_0
 
     new-instance v1, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity$AdapterStateChangedHandler;
 
@@ -777,54 +787,83 @@
 .end method
 
 .method public sendStartAuth(Lcom/samsung/accessory/manager/authentication/AuthenticationResult;)[B
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v1, 0x1
-
     :try_start_0
-    invoke-virtual {p1, v1}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setApiState(I)V
+    invoke-static {}, Lcom/samsung/accessory/manager/SAccessoryManager;->getNfcState()I
 
-    iget-object v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mNfcAdapter:Landroid/nfc/INfcAdapter;
+    move-result v2
 
-    invoke-interface {v1}, Landroid/nfc/INfcAdapter;->startCoverAuth()[B
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1, v2}, Lcom/samsung/accessory/manager/authentication/AuthenticationResult;->setApiState(I)V
+
+    iget-object v2, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mNfcAdapter:Landroid/nfc/INfcAdapter;
+
+    invoke-interface {v2}, Landroid/nfc/INfcAdapter;->startCoverAuth()[B
 
     move-result-object v1
 
+    const/4 v2, 0x1
+
+    invoke-static {v2}, Lcom/samsung/accessory/manager/SAccessoryManager;->setNfcState(I)V
+
     return-object v1
+
+    :cond_0
+    iget-object v2, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->DUPLICATED_POLLING_REQUEST:[B
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v2
 
     :catch_0
     move-exception v0
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    return-object v1
+    return-object v2
 .end method
 
 .method public sendStopAuth()Z
-    .locals 2
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    :try_start_0
-    iget-object v1, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mNfcAdapter:Landroid/nfc/INfcAdapter;
+    const/4 v4, 0x0
 
-    invoke-interface {v1}, Landroid/nfc/INfcAdapter;->stopCoverAuth()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_start_0
+    invoke-static {}, Lcom/samsung/accessory/manager/SAccessoryManager;->getNfcState()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    iget-object v2, p0, Lcom/samsung/accessory/manager/connectivity/NfcConnectivity;->mNfcAdapter:Landroid/nfc/INfcAdapter;
+
+    invoke-interface {v2}, Landroid/nfc/INfcAdapter;->stopCoverAuth()Z
 
     move-result v1
+
+    const/4 v2, 0x0
+
+    invoke-static {v2}, Lcom/samsung/accessory/manager/SAccessoryManager;->setNfcState(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     return v1
 
@@ -833,9 +872,8 @@
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    const/4 v1, 0x0
-
-    return v1
+    :cond_0
+    return v4
 .end method
 
 .method public sendSync([B)[B

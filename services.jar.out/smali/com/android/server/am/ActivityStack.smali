@@ -1047,82 +1047,158 @@
 .end method
 
 .method private addToStopping(Lcom/android/server/am/ActivityRecord;Z)V
-    .locals 3
+    .locals 7
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    const/4 v6, 0x1
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
 
-    move-result v1
+    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    if-nez v1, :cond_0
+    move-result v4
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    if-nez v4, :cond_0
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v4
 
-    const/4 v2, 0x3
+    const/4 v5, 0x3
 
-    if-gt v1, v2, :cond_2
+    if-gt v4, v5, :cond_2
 
-    iget-boolean v1, p1, Lcom/android/server/am/ActivityRecord;->frontOfTask:Z
+    iget-boolean v4, p1, Lcom/android/server/am/ActivityRecord;->frontOfTask:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v4, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mTaskHistory:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mTaskHistory:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v4
+
+    if-gt v4, v6, :cond_3
 
     const/4 v2, 0x1
 
-    if-gt v1, v2, :cond_3
-
-    const/4 v0, 0x1
-
     :goto_0
-    if-nez p2, :cond_1
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    :cond_1
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mMultiScreenManager:Lcom/android/server/am/IMultiScreenManagerServiceBridge;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleIdleLocked()V
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->getDisplayId()I
+
+    move-result v5
+
+    invoke-interface {v4, v5}, Lcom/android/server/am/IMultiScreenManagerServiceBridge;->isVirtualScreen(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-le v0, v6, :cond_5
+
+    add-int/lit8 v3, v0, -0x1
 
     :goto_1
-    return-void
+    if-ltz v3, :cond_5
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-eq v4, p1, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v5, v4, Lcom/android/server/am/ActivityManagerService;->mMultiScreenManager:Lcom/android/server/am/IMultiScreenManagerServiceBridge;
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget-object v4, v4, Lcom/android/server/am/ActivityStackSupervisor;->mStoppingActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/am/ActivityRecord;
+
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityRecord;->getDisplayId()I
+
+    move-result v4
+
+    invoke-interface {v5, v4}, Lcom/android/server/am/IMultiScreenManagerServiceBridge;->isVirtualScreen(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    :cond_1
+    add-int/lit8 v3, v3, -0x1
+
+    goto :goto_1
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_4
-    iget-object v1, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+    const/4 v1, 0x1
 
-    invoke-virtual {v1}, Lcom/android/server/am/ActivityStackSupervisor;->checkReadyForSleepLocked()V
+    :cond_5
+    if-nez v1, :cond_7
 
-    goto :goto_1
+    if-nez p2, :cond_6
+
+    if-eqz v2, :cond_7
+
+    :cond_6
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleIdleLocked()V
+
+    :goto_2
+    return-void
+
+    :cond_7
+    iget-object v4, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityStackSupervisor;->checkReadyForSleepLocked()V
+
+    goto :goto_2
 .end method
 
 .method private adjustFocusToNextFocusableStackLocked(ILjava/lang/String;)Z
@@ -1716,7 +1792,7 @@
 
     sget-object v9, Lcom/android/server/am/ActivityStack$ActivityState;->STOPPING:Lcom/android/server/am/ActivityStack$ActivityState;
 
-    if-ne v8, v9, :cond_8
+    if-ne v8, v9, :cond_9
 
     const/4 v7, 0x1
 
@@ -1727,7 +1803,7 @@
 
     iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_a
 
     const/4 v8, 0x2
 
@@ -1751,7 +1827,7 @@
     iput-object v8, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
     :cond_2
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -1761,11 +1837,42 @@
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiScreenManager:Lcom/android/server/am/IMultiScreenManagerServiceBridge;
+
+    if-eqz v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mMultiScreenManager:Lcom/android/server/am/IMultiScreenManagerServiceBridge;
+
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->getDisplayId()I
+
+    move-result v9
+
+    invoke-interface {v8, v9}, Lcom/android/server/am/IMultiScreenManagerServiceBridge;->isVirtualScreen(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v8, p0}, Lcom/android/server/am/ActivityStackSupervisor;->isFocusedStack(Lcom/android/server/am/ActivityStack;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    move-object v6, p0
+
+    :cond_3
+    iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+
     invoke-virtual {v8}, Lcom/android/server/am/ActivityManagerService;->isSleepingOrShuttingDownLocked()Z
 
     move-result v8
 
-    if-nez v8, :cond_10
+    if-nez v8, :cond_11
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -1773,15 +1880,15 @@
 
     invoke-virtual {v8, v6, v1, v9}, Lcom/android/server/am/ActivityStackSupervisor;->resumeFocusedStackTopActivityLocked(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ActivityRecord;Landroid/app/ActivityOptions;)Z
 
-    :cond_3
+    :cond_4
     :goto_2
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityRecord;->resumeKeyDispatchingLocked()V
 
     iget-object v8, v1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     iget-wide v8, v1, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
 
@@ -1789,7 +1896,7 @@
 
     cmp-long v8, v8, v10
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_6
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1799,7 +1906,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1821,7 +1928,7 @@
 
     cmp-long v8, v2, v8
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_6
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1848,26 +1955,26 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     invoke-virtual {v4, v2, v3}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->addForegroundTimeLocked(J)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_4
+    :cond_5
     monitor-exit v0
 
-    :cond_5
+    :cond_6
     const-wide/16 v8, 0x0
 
     iput-wide v8, v1, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
 
-    :cond_6
+    :cond_7
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     iget-boolean v8, v8, Lcom/android/server/am/ActivityStackSupervisor;->mAppVisibilitiesChangedSinceLastPause:Z
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1879,7 +1986,7 @@
 
     iput-boolean v9, v8, Lcom/android/server/am/ActivityStackSupervisor;->mAppVisibilitiesChangedSinceLastPause:Z
 
-    :cond_7
+    :cond_8
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     const/4 v9, 0x0
@@ -1892,15 +1999,15 @@
 
     return-void
 
-    :cond_8
+    :cond_9
     const/4 v7, 0x0
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     iget-object v8, v1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_10
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
@@ -1910,12 +2017,12 @@
 
     move-result v8
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_b
 
-    :cond_a
+    :cond_b
     iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->deferRelaunchUntilPaused:Z
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_c
 
     iget v8, v1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
 
@@ -1927,8 +2034,8 @@
 
     goto/16 :goto_1
 
-    :cond_b
-    if-eqz v7, :cond_c
+    :cond_c
+    if-eqz v7, :cond_d
 
     sget-object v8, Lcom/android/server/am/ActivityStack$ActivityState;->STOPPING:Lcom/android/server/am/ActivityStack$ActivityState;
 
@@ -1936,18 +2043,18 @@
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_d
     iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->visible:Z
 
-    if-nez v8, :cond_d
+    if-nez v8, :cond_e
 
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->hasVisibleBehindActivity()Z
 
     move-result v8
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_f
 
-    :cond_d
+    :cond_e
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v8}, Lcom/android/server/am/ActivityManagerService;->isSleepingOrShuttingDownLocked()Z
@@ -1956,19 +2063,19 @@
 
     if-eqz v8, :cond_0
 
-    :cond_e
+    :cond_f
     const/4 v8, 0x1
 
     invoke-direct {p0, v1, v8}, Lcom/android/server/am/ActivityStack;->addToStopping(Lcom/android/server/am/ActivityRecord;Z)V
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_10
     const/4 v1, 0x0
 
     goto/16 :goto_1
 
-    :cond_10
+    :cond_11
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {v8}, Lcom/android/server/am/ActivityStackSupervisor;->checkReadyForSleepLocked()V
@@ -1977,13 +2084,13 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_12
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    if-eq v5, v1, :cond_3
+    if-eq v5, v1, :cond_4
 
-    :cond_11
+    :cond_12
     iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {v8}, Lcom/android/server/am/ActivityStackSupervisor;->resumeFocusedStackTopActivityLocked()Z
@@ -5010,6 +5117,16 @@
     iget-object v4, v0, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
 
     if-eqz v4, :cond_1a
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
+
+    iget-object v4, v4, Lcom/android/server/am/ActivityRecord;->state:Lcom/android/server/am/ActivityStack$ActivityState;
+
+    sget-object v5, Lcom/android/server/am/ActivityStack$ActivityState;->RESUMED:Lcom/android/server/am/ActivityStack$ActivityState;
+
+    if-ne v4, v5, :cond_1a
 
     const/4 v4, 0x0
 

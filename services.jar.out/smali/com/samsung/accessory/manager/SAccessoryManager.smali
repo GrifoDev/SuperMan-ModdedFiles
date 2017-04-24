@@ -38,6 +38,10 @@
 
 .field private static final MSG_AUTH_STOP_REQUEST:I = 0x4
 
+.field public static final NFC_STATE_TYPE_S:I = 0x1
+
+.field public static final NFC_STATE_TYPE_STANDARD:I = 0x0
+
 .field private static final TAG:Ljava/lang/String;
 
 .field public static final TEST_ACTION_AUTHENTICATION_REPLY:Ljava/lang/String; = "com.samsung.accessory.authentication.action.TEST_AUTHENTICATION_REPLY"
@@ -45,6 +49,8 @@
 .field private static final TEST_ACTION_AUTHENTICATION_REQUEST:Ljava/lang/String; = "com.samsung.accessory.authentication.action.TEST_AUTHENTICATION_REQUEST"
 
 .field private static final VDBG:Z = true
+
+.field private static nfcState:I
 
 
 # instance fields
@@ -134,6 +140,8 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/input/InputManagerService;)V
     .locals 7
 
+    const/4 v4, 0x0
+
     invoke-direct {p0}, Lcom/samsung/accessory/manager/ISAccessoryManager$Stub;-><init>()V
 
     new-instance v2, Ljava/util/HashMap;
@@ -194,9 +202,7 @@
 
     iget-object v2, p0, Lcom/samsung/accessory/manager/SAccessoryManager;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+    invoke-virtual {v2, v4}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
     new-instance v2, Landroid/os/HandlerThread;
 
@@ -221,6 +227,8 @@
     invoke-direct {v2, p0, v3}, Lcom/samsung/accessory/manager/SAccessoryManager$AuthHandler;-><init>(Lcom/samsung/accessory/manager/SAccessoryManager;Landroid/os/Looper;)V
 
     iput-object v2, p0, Lcom/samsung/accessory/manager/SAccessoryManager;->mAuthHandler:Landroid/os/Handler;
+
+    sput v4, Lcom/samsung/accessory/manager/SAccessoryManager;->nfcState:I
 
     sget-boolean v2, Lcom/samsung/accessory/manager/SAccessoryManager;->DBG:Z
 
@@ -258,6 +266,14 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
+.end method
+
+.method public static getNfcState()I
+    .locals 1
+
+    sget v0, Lcom/samsung/accessory/manager/SAccessoryManager;->nfcState:I
+
+    return v0
 .end method
 
 .method private getRunningSessionsLocked(I)I
@@ -789,6 +805,14 @@
     sget-object v3, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
+.end method
+
+.method public static setNfcState(I)V
+    .locals 0
+
+    sput p0, Lcom/samsung/accessory/manager/SAccessoryManager;->nfcState:I
 
     return-void
 .end method

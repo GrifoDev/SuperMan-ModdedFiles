@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap8(Lcom/android/server/location/FlpHardwareProvider;)V
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap7(Lcom/android/server/location/FlpHardwareProvider;)V
 
     :goto_0
     return-void
@@ -64,7 +64,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap5(Lcom/android/server/location/FlpHardwareProvider;)I
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap4(Lcom/android/server/location/FlpHardwareProvider;)I
 
     move-result v0
 
@@ -76,7 +76,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap4(Lcom/android/server/location/FlpHardwareProvider;)I
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap3(Lcom/android/server/location/FlpHardwareProvider;)I
 
     move-result v0
 
@@ -88,7 +88,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap9(Lcom/android/server/location/FlpHardwareProvider;I)V
+    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap8(Lcom/android/server/location/FlpHardwareProvider;I)V
 
     return-void
 .end method
@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap10(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap9(Lcom/android/server/location/FlpHardwareProvider;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -140,7 +140,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap6(Lcom/android/server/location/FlpHardwareProvider;)V
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap5(Lcom/android/server/location/FlpHardwareProvider;)V
 
     return-void
 
@@ -157,222 +157,43 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap15(Lcom/android/server/location/FlpHardwareProvider;I)V
+    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap14(Lcom/android/server/location/FlpHardwareProvider;I)V
 
     return-void
 .end method
 
 .method public startBatching(ILandroid/location/FusedBatchOptions;)V
-    .locals 4
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    const/16 v2, 0x65
+    const/16 v1, 0x65
 
-    invoke-static {v1, v2, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap21(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap19(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
 
-    invoke-virtual {p2}, Landroid/location/FusedBatchOptions;->getFlags()I
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    move-result v1
+    invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap16(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
-    sget v2, Landroid/location/FusedBatchOptions$BatchFlags;->CALLBACK_ON_LOCATION_FIX:I
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Convert HW FLP request : startBatching id "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/FlpHardwareProvider;->-get2(Lcom/android/server/location/FlpHardwareProvider;)Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-    move-result-object v2
-
-    invoke-interface {v1, p1, p2, v2}, Lcom/samsung/android/location/ISLocationManager;->startCoreBatching(ILandroid/location/FusedBatchOptions;Lcom/samsung/android/location/ISLocationListener;)V
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap17(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-
-    goto :goto_0
 .end method
 
 .method public stopBatching(I)V
-    .locals 4
+    .locals 3
 
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    const/16 v2, 0x66
+    const/16 v1, 0x66
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/server/location/FlpHardwareProvider;->-wrap21(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
+    invoke-static {v0, v1, p1, v2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap19(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
 
-    const-string/jumbo v1, "FlpHardwareProvider"
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-static {v0, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap17(Lcom/android/server/location/FlpHardwareProvider;I)V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Convert HW FLP request : stopBatching id "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1}, Lcom/samsung/android/location/ISLocationManager;->stopCoreBatching(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap18(Lcom/android/server/location/FlpHardwareProvider;I)V
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
-
-    move-result v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    :cond_1
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public supportsDeviceContextInjection()Z
@@ -380,7 +201,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap1(Lcom/android/server/location/FlpHardwareProvider;)Z
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
 
     move-result v0
 
@@ -392,7 +213,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap2(Lcom/android/server/location/FlpHardwareProvider;)Z
+    invoke-static {v0}, Lcom/android/server/location/FlpHardwareProvider;->-wrap1(Lcom/android/server/location/FlpHardwareProvider;)Z
 
     move-result v0
 
@@ -441,245 +262,17 @@
 .end method
 
 .method public updateBatchingOptions(ILandroid/location/FusedBatchOptions;)V
-    .locals 4
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    const/16 v2, 0x67
+    const/16 v1, 0x67
 
-    invoke-static {v1, v2, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap21(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap19(Lcom/android/server/location/FlpHardwareProvider;IILandroid/location/FusedBatchOptions;)V
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
+    iget-object v0, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
 
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap0(Lcom/android/server/location/FlpHardwareProvider;)Z
+    invoke-static {v0, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap18(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
 
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "updateBatchingOptions id "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string/jumbo v3, " with "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {p2}, Landroid/location/FusedBatchOptions;->getFlags()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p2}, Landroid/location/FusedBatchOptions;->getFlags()I
-
-    move-result v1
-
-    sget v2, Landroid/location/FusedBatchOptions$BatchFlags;->CALLBACK_ON_LOCATION_FIX:I
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Convert HW FLP request : updateBatchingOptions id "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/FlpHardwareProvider;->-get2(Lcom/android/server/location/FlpHardwareProvider;)Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-    move-result-object v2
-
-    invoke-interface {v1, p1, p2, v2}, Lcom/samsung/android/location/ISLocationManager;->updateCoreBatchingOptions(ILandroid/location/FusedBatchOptions;Lcom/samsung/android/location/ISLocationListener;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1}, Lcom/samsung/android/location/ISLocationManager;->stopCoreBatching(I)V
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
-
-    move-result v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap17(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "FlpHardwareProvider"
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_1
-    :try_start_1
-    invoke-virtual {p2}, Landroid/location/FusedBatchOptions;->getFlags()I
-
-    move-result v1
-
-    sget v2, Landroid/location/FusedBatchOptions$BatchFlags;->CALLBACK_ON_LOCATION_FIX:I
-
-    if-ne v1, v2, :cond_2
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1}, Lcom/android/server/location/FlpHardwareProvider;->-wrap18(Lcom/android/server/location/FlpHardwareProvider;I)V
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get3(Lcom/android/server/location/FlpHardwareProvider;)Lcom/samsung/android/location/ISLocationManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v2}, Lcom/android/server/location/FlpHardwareProvider;->-get2(Lcom/android/server/location/FlpHardwareProvider;)Lcom/android/server/location/FlpHardwareProvider$FlpSLocationListener;
-
-    move-result-object v2
-
-    invoke-interface {v1, p1, p2, v2}, Lcom/samsung/android/location/ISLocationManager;->startCoreBatching(ILandroid/location/FusedBatchOptions;Lcom/samsung/android/location/ISLocationListener;)V
-
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1}, Lcom/android/server/location/FlpHardwareProvider;->-get4(Lcom/android/server/location/FlpHardwareProvider;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap19(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/server/location/FlpHardwareProvider$1;->this$0:Lcom/android/server/location/FlpHardwareProvider;
-
-    invoke-static {v1, p1, p2}, Lcom/android/server/location/FlpHardwareProvider;->-wrap19(Lcom/android/server/location/FlpHardwareProvider;ILandroid/location/FusedBatchOptions;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_0
 .end method

@@ -1245,6 +1245,10 @@
 
     if-eq v10, v4, :cond_11
 
+    const/16 v4, 0xf
+
+    if-eq v10, v4, :cond_11
+
     const/16 v4, 0x5a
 
     if-eq v10, v4, :cond_11
@@ -1292,6 +1296,10 @@
     goto :goto_3
 
     :cond_14
+    const/16 v4, 0xf
+
+    if-eq v10, v4, :cond_12
+
     const/16 v4, 0xe
 
     if-eq v10, v4, :cond_12

@@ -1562,73 +1562,6 @@
     throw v1
 .end method
 
-.method private addPrivateVolume()V
-    .locals 7
-
-    const/4 v6, 0x0
-
-    const/4 v5, 0x0
-
-    iget-object v3, p0, Lcom/android/server/MountService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    const-string/jumbo v3, "com.sec.feature.secretmode_service"
-
-    invoke-virtual {v1, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v3, "MountService"
-
-    const-string/jumbo v4, "This model is not supported privatemode"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v3, "MountService"
-
-    const-string/jumbo v4, "MountService addPrivateVolume"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v2, Landroid/os/storage/VolumeInfo;
-
-    const-string/jumbo v3, "privatemode"
-
-    invoke-direct {v2, v3, v5, v6, v6}, Landroid/os/storage/VolumeInfo;-><init>(Ljava/lang/String;ILandroid/os/storage/DiskInfo;Ljava/lang/String;)V
-
-    iput v5, v2, Landroid/os/storage/VolumeInfo;->state:I
-
-    iget v3, v2, Landroid/os/storage/VolumeInfo;->mountFlags:I
-
-    or-int/lit8 v3, v3, 0x2
-
-    iput v3, v2, Landroid/os/storage/VolumeInfo;->mountFlags:I
-
-    const-string/jumbo v3, "/storage/Private"
-
-    iput-object v3, v2, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
-
-    const-string/jumbo v3, "Private"
-
-    iput-object v3, v2, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/android/server/MountService;->mVolumes:Landroid/util/ArrayMap;
-
-    iget-object v4, v2, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
-
-    invoke-virtual {v3, v4, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
 .method private bootCompleted()V
     .locals 1
 
@@ -7164,8 +7097,6 @@
     invoke-virtual {v6}, Landroid/util/ArrayMap;->clear()V
 
     invoke-direct {p0}, Lcom/android/server/MountService;->addInternalVolumeLocked()V
-
-    invoke-direct {p0}, Lcom/android/server/MountService;->addPrivateVolume()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -8115,6 +8046,93 @@
 
 
 # virtual methods
+.method public addPrivateVolume()V
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v5, 0x0
+
+    const-string/jumbo v3, "android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+
+    invoke-direct {p0, v3}, Lcom/android/server/MountService;->validatePermission(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/MountService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "com.sec.feature.secretmode_service"
+
+    invoke-virtual {v1, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v3, "MountService"
+
+    const-string/jumbo v4, "This model is not supported privatemode"
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v3, "PPS_MOUNT"
+
+    const-string/jumbo v4, "MountService addPrivateVolume"
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Landroid/os/storage/VolumeInfo;
+
+    const-string/jumbo v3, "privatemode"
+
+    invoke-direct {v2, v3, v5, v6, v6}, Landroid/os/storage/VolumeInfo;-><init>(Ljava/lang/String;ILandroid/os/storage/DiskInfo;Ljava/lang/String;)V
+
+    iput v5, v2, Landroid/os/storage/VolumeInfo;->state:I
+
+    iget v3, v2, Landroid/os/storage/VolumeInfo;->mountFlags:I
+
+    or-int/lit8 v3, v3, 0x2
+
+    iput v3, v2, Landroid/os/storage/VolumeInfo;->mountFlags:I
+
+    const-string/jumbo v3, "/storage/Private"
+
+    iput-object v3, v2, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
+
+    const-string/jumbo v3, "Private"
+
+    iput-object v3, v2, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/android/server/MountService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/MountService;->mVolumes:Landroid/util/ArrayMap;
+
+    iget-object v5, v2, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
+
+    invoke-virtual {v3, v5, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v4
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+.end method
+
 .method public addUserKeyAuth(II[B[B)V
     .locals 6
 
@@ -15342,6 +15360,81 @@
     invoke-virtual {v0, p1}, Lcom/android/server/MountService$Callbacks;->register(Landroid/os/storage/IMountServiceListener;)V
 
     return-void
+.end method
+
+.method public removePrivateVolume()V
+    .locals 5
+
+    const-string/jumbo v2, "android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+
+    invoke-direct {p0, v2}, Lcom/android/server/MountService;->validatePermission(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/android/server/MountService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    const/4 v0, 0x0
+
+    :goto_0
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/MountService;->mVolumes:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/MountService;->mVolumes:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/storage/VolumeInfo;
+
+    iget-object v2, v1, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "/storage/Private"
+
+    iget-object v4, v1, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string/jumbo v2, "PPS_MOUNT"
+
+    const-string/jumbo v4, "MountService removePrivateVolume"
+
+    invoke-static {v2, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/server/MountService;->mVolumes:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v3
+
+    return-void
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
 .end method
 
 .method public renameSecureContainer(Ljava/lang/String;Ljava/lang/String;)I

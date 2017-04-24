@@ -16663,7 +16663,7 @@
     return-void
 
     :pswitch_0
-    const v0, 0x10409ef
+    const v0, 0x10409f0
 
     :goto_0
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
@@ -16671,12 +16671,12 @@
     return-void
 
     :pswitch_1
-    const v0, 0x10409f1
+    const v0, 0x10409f2
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x10409e0
+    const v0, 0x10409e1
 
     goto :goto_0
 

@@ -4097,7 +4097,7 @@
 
     invoke-direct {v2, p3}, Landroid/os/UserHandle;-><init>(I)V
 
-    const v3, 0x1080afb
+    const v3, 0x1080afa
 
     invoke-virtual {v0, v4, v3, v1, v2}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 

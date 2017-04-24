@@ -448,7 +448,7 @@
 
     const-string/jumbo v12, "com.samsung.android.knox.intent.extra.BLOCKED_DOMAIN_URL"
 
-    const/4 v13, 0x4
+    const/4 v13, 0x5
 
     aget-object v13, p3, v13
 
@@ -515,7 +515,7 @@
 
     const-string/jumbo v12, "com.sec.enterprise.intent.extra.BLOCKED_DOMAIN_URL"
 
-    const/4 v13, 0x4
+    const/4 v13, 0x5
 
     aget-object v13, p3, v13
 

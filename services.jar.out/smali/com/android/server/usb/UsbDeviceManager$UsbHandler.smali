@@ -5665,7 +5665,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040883
+    const v6, 0x1040885
 
     goto/16 :goto_0
 
@@ -5723,7 +5723,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v6, 0x1040883
+    const v6, 0x1040885
 
     goto/16 :goto_0
 

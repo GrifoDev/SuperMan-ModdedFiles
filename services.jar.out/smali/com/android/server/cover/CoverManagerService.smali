@@ -50,12 +50,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "CoverManager"
 
-.field private static final TRANSMIT_POWER_DEFAULT:I = 0x0
-
-.field private static final TRANSMIT_POWER_HALLIC_LED:I = 0x4000
-
-.field private static final TRANSMIT_POWER_HALLIC_REST:I = 0x1000
-
 
 # instance fields
 .field private mAnimationStartCallback:Ljava/lang/Runnable;
@@ -89,8 +83,6 @@
 .field private mLedCoverServiceBound:Z
 
 .field private mLedCoverServiceConnection:Landroid/content/ServiceConnection;
-
-.field private mNeedBackOffRequest:Z
 
 .field private mNeonCoverController:Lcom/android/server/cover/NeonCoverServiceController;
 
@@ -224,8 +216,6 @@
     iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mSystemReady:Z
 
     iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mCalledByTestModule:Z
-
-    iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
 
     new-instance v0, Lcom/android/server/cover/CoverManagerService$1;
 
@@ -793,76 +783,6 @@
     return-void
 .end method
 
-.method private sendBackoffRequest(IZ)V
-    .locals 5
-
-    const-string/jumbo v3, "CoverManager"
-
-    const-string/jumbo v4, "sendBackoffRequest"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "phone"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    const-string/jumbo v3, "CoverManager"
-
-    const-string/jumbo v4, "Can\'t get telephony service, skip backoff()"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v3, "ril.backoffstate"
-
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    if-eqz p2, :cond_1
-
-    or-int/2addr v0, p1
-
-    :goto_0
-    :try_start_0
-    invoke-interface {v2, v0}, Lcom/android/internal/telephony/ITelephony;->setTransmitPower(I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_1
-    return-void
-
-    :cond_1
-    not-int v3, p1
-
-    and-int/2addr v0, v3
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v3, "CoverManager"
-
-    const-string/jumbo v4, "Remove exception is occurred during setTransmitPower"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-.end method
-
 .method private sendCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
     .locals 11
 
@@ -1060,8 +980,6 @@
     invoke-direct {p0, v1, p1, v9, v8}, Lcom/android/server/cover/CoverManagerService;->sendCoverSwitchStateLocked(ZZZZ)Z
 
     :cond_9
-    iput-boolean v9, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
-
     :goto_4
     if-nez v0, :cond_a
 
@@ -1724,48 +1642,44 @@
 .end method
 
 .method private updateCoverSwitchState(ZZ)V
-    .locals 8
+    .locals 7
 
-    const/4 v3, 0x1
+    iget-object v3, p0, Lcom/android/server/cover/CoverManagerService;->mCoverStateLock:Ljava/lang/Object;
 
-    const/4 v2, 0x0
-
-    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverStateLock:Ljava/lang/Object;
-
-    monitor-enter v4
+    monitor-enter v3
 
     :try_start_0
-    const-string/jumbo v5, "CoverManager"
+    const-string/jumbo v2, "CoverManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "updateCoverSwitchState : switchState="
+    const-string/jumbo v5, "updateCoverSwitchState : switchState="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const-string/jumbo v7, ", isBoot="
+    const-string/jumbo v5, ", isBoot="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-nez p2, :cond_1
 
@@ -1773,130 +1687,132 @@
 
     invoke-direct {p0}, Lcom/android/server/cover/CoverManagerService;->needToBoost()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Lcom/android/server/cover/CoverManagerUtils;->performCPUBoostCover(Landroid/content/Context;)V
+    invoke-static {v2}, Lcom/android/server/cover/CoverManagerUtils;->performCPUBoostCover(Landroid/content/Context;)V
 
     :cond_1
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
+    invoke-static {v2}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/android/server/cover/Feature;->isNfcAuthEnabled()Z
+    invoke-virtual {v2}, Lcom/android/server/cover/Feature;->isNfcAuthEnabled()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_3
+    if-eqz v2, :cond_3
 
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    invoke-virtual {v5}, Lcom/android/server/cover/CoverVerifier;->isCoverVerified()Z
+    invoke-virtual {v2}, Lcom/android/server/cover/CoverVerifier;->isCoverVerified()Z
 
     move-result v0
 
-    const-string/jumbo v5, "CoverManager"
+    const-string/jumbo v2, "CoverManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "[SmartCover]updateCoverSwitchState : switchState="
+    const-string/jumbo v5, "[SmartCover]updateCoverSwitchState : switchState="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const-string/jumbo v7, ", isBoot="
+    const-string/jumbo v5, ", isBoot="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    const-string/jumbo v7, ", isDetected="
+    const-string/jumbo v5, ", isDetected="
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     :goto_0
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    invoke-virtual {v5}, Lcom/android/server/cover/CoverVerifier;->isCoverAttached()Z
+    invoke-virtual {v2}, Lcom/android/server/cover/CoverVerifier;->isCoverAttached()Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_6
+    if-nez v2, :cond_6
 
-    const-string/jumbo v5, "CoverManager"
+    const-string/jumbo v2, "CoverManager"
 
-    const-string/jumbo v6, "updateCoverSwitchState : Returning switch state - cover is not attached"
+    const-string/jumbo v4, "updateCoverSwitchState : Returning switch state - cover is not attached"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mPowerManager:Landroid/os/PowerManager;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mPowerManager:Landroid/os/PowerManager;
 
     if-eqz p1, :cond_5
 
+    const/4 v2, 0x0
+
     :goto_1
-    invoke-virtual {v5, v2}, Landroid/os/PowerManager;->updateCoverState(Z)V
+    invoke-virtual {v4, v2}, Landroid/os/PowerManager;->updateCoverState(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v3
 
     return-void
 
     :cond_3
     :try_start_1
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
+    invoke-static {v2}, Lcom/android/server/cover/Feature;->getInstance(Landroid/content/Context;)Lcom/android/server/cover/Feature;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/android/server/cover/Feature;->isSupportDetectCover()Z
+    invoke-virtual {v2}, Lcom/android/server/cover/Feature;->isSupportDetectCover()Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    invoke-virtual {v5}, Lcom/android/server/cover/CoverVerifier;->onUpdateCoverVerifiedLocked()Z
+    invoke-virtual {v2}, Lcom/android/server/cover/CoverVerifier;->onUpdateCoverVerifiedLocked()Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_4
+    if-eqz v2, :cond_4
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {p0, p2, v5}, Lcom/android/server/cover/CoverManagerService;->sendCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
+    invoke-direct {p0, p2, v2}, Lcom/android/server/cover/CoverManagerService;->sendCoverAttachStateLocked(ZLcom/samsung/android/cover/CoverState;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1905,24 +1821,24 @@
     :catchall_0
     move-exception v2
 
-    monitor-exit v4
+    monitor-exit v3
 
     throw v2
 
     :cond_4
     :try_start_2
-    iget-object v5, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
+    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverVerifier:Lcom/android/server/cover/CoverVerifier;
 
-    iget-object v6, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
+    iget-object v4, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v5, v6, v7}, Lcom/android/server/cover/CoverVerifier;->updateCoverPropertiesLocked(Lcom/samsung/android/cover/CoverState;Lcom/samsung/android/cover/CoverState;)V
+    invoke-virtual {v2, v4, v5}, Lcom/android/server/cover/CoverVerifier;->updateCoverPropertiesLocked(Lcom/samsung/android/cover/CoverState;Lcom/samsung/android/cover/CoverState;)V
 
     goto :goto_0
 
     :cond_5
-    move v2, v3
+    const/4 v2, 0x1
 
     goto :goto_1
 
@@ -1941,100 +1857,26 @@
 
     const-string/jumbo v2, "CoverManager"
 
-    const-string/jumbo v3, "cover opened wake up"
+    const-string/jumbo v4, "cover opened wake up"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mPowerManager:Landroid/os/PowerManager;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    const/4 v3, 0x6
+    const/4 v6, 0x6
 
-    invoke-virtual {v2, v6, v7, v3}, Landroid/os/PowerManager;->wakeUp(JI)V
-
-    :cond_7
-    if-nez p1, :cond_8
-
-    iget-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
-
-    if-eqz v2, :cond_8
-
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
-
-    if-eqz v2, :cond_9
-
-    iget-object v2, p0, Lcom/android/server/cover/CoverManagerService;->mCoverState:Lcom/samsung/android/cover/CoverState;
-
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getType()I
+    invoke-virtual {v2, v4, v5, v6}, Landroid/os/PowerManager;->wakeUp(JI)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result v2
-
-    packed-switch v2, :pswitch_data_0
-
-    :cond_8
-    :goto_2
-    :pswitch_0
-    monitor-exit v4
+    :cond_7
+    monitor-exit v3
 
     return-void
-
-    :pswitch_1
-    const/16 v2, 0x1000
-
-    const/4 v3, 0x1
-
-    :try_start_3
-    invoke-direct {p0, v2, v3}, Lcom/android/server/cover/CoverManagerService;->sendBackoffRequest(IZ)V
-
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
-
-    goto :goto_2
-
-    :pswitch_2
-    const/16 v2, 0x4000
-
-    const/4 v3, 0x1
-
-    invoke-direct {p0, v2, v3}, Lcom/android/server/cover/CoverManagerService;->sendBackoffRequest(IZ)V
-
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/android/server/cover/CoverManagerService;->mNeedBackOffRequest:Z
-
-    goto :goto_2
-
-    :cond_9
-    const-string/jumbo v2, "CoverManager"
-
-    const-string/jumbo v3, "CoverState is null"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto :goto_2
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-    .end packed-switch
 .end method
 
 .method private updateCoverSwitchStateLocked(Z)V
