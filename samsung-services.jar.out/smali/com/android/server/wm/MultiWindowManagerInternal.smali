@@ -1352,7 +1352,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
 
     monitor-enter v1
 
@@ -4274,11 +4276,29 @@
 .end method
 
 .method public getFreeformRelaunchAnimState()I
-    .locals 1
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRelaunchAnimState:I
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    return v0
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mFreeformRelaunchAnimState:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public getHandler()Landroid/os/Handler;
@@ -4620,11 +4640,29 @@
 .end method
 
 .method public getSplitRelaunchAnimState()I
-    .locals 1
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchAnimState:I
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    return v0
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchAnimState:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public getSplitRelaunchClosingToken()Lcom/android/server/wm/AppWindowToken;
@@ -5424,28 +5462,49 @@
 .end method
 
 .method public isSplitRelaunchOpeningToken(Landroid/os/IBinder;)Z
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchOpeningToken:Lcom/android/server/wm/AppWindowToken;
+    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    if-nez v1, :cond_1
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchOpeningToken:Lcom/android/server/wm/AppWindowToken;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v2, :cond_1
 
     :cond_0
     :goto_0
+    monitor-exit v1
+
     return v0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchOpeningToken:Lcom/android/server/wm/AppWindowToken;
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchOpeningToken:Lcom/android/server/wm/AppWindowToken;
 
-    iget-object v1, v1, Lcom/android/server/wm/AppWindowToken;->token:Landroid/os/IBinder;
+    iget-object v2, v2, Lcom/android/server/wm/AppWindowToken;->token:Landroid/os/IBinder;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-ne v1, p1, :cond_0
+    if-ne v2, p1, :cond_0
 
     const/4 v0, 0x1
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public isStackAdjustedForIme(I)Z
@@ -7549,11 +7608,29 @@
 .end method
 
 .method public setAutoResizingEnabled(Z)V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v0
+
+    :try_start_0
     iput-boolean p1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mAutoResizingEnabled:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public setCoolDownFreeformRequested(Z)V
@@ -7872,15 +7949,8 @@
     return-void
 
     :cond_4
-    iget-object v4, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v5, v4, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
-
-    monitor-enter v5
-
     const/4 v0, 0x0
 
-    :try_start_0
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -7922,25 +7992,13 @@
     :cond_6
     sget-boolean v4, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_GUIDE_RESIZE:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
     invoke-direct {p0, v0}, Lcom/android/server/wm/MultiWindowManagerInternal;->prepareFreeformResizeAnimLocked(Lcom/android/server/wm/Task;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_7
-    monitor-exit v5
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit v5
-
-    throw v4
 .end method
 
 .method public setFreeformStackTemporaryVisibilityLocked(Z)V
@@ -8272,13 +8330,6 @@
 
     iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
-
-    monitor-enter v2
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
     invoke-virtual {v1, p1}, Lcom/android/server/wm/WindowManagerService;->findAppWindowToken(Landroid/os/IBinder;)Lcom/android/server/wm/AppWindowToken;
 
     move-result-object v0
@@ -8305,12 +8356,8 @@
     if-eqz v0, :cond_3
 
     iput-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mSplitRelaunchClosingToken:Lcom/android/server/wm/AppWindowToken;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_3
-    monitor-exit v2
-
     iget-object v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mHandler:Lcom/android/server/wm/MultiWindowManagerInternal$MultiWindowHandlerImpl;
 
     const-wide/16 v2, 0xbb8
@@ -8319,13 +8366,6 @@
 
     :cond_4
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
-
-    throw v1
 .end method
 
 .method public setStackColor(II)V
@@ -9109,13 +9149,31 @@
 .end method
 
 .method public startDividerDragging()V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    iput-boolean v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mIsDividerDragging:Z
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v0
+
+    const/4 v1, 0x1
+
+    :try_start_0
+    iput-boolean v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mIsDividerDragging:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public startResizingFreeformTask(III)V
@@ -9238,13 +9296,31 @@
 .end method
 
 .method public stopDividerDragging()V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    iput-boolean v0, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mIsDividerDragging:Z
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput-boolean v1, p0, Lcom/android/server/wm/MultiWindowManagerInternal;->mIsDividerDragging:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method
 
 .method public unregisterMultiWindowDividerPanelListener(Lcom/samsung/android/multiwindow/IMultiWindowDividerPanelListener;)V

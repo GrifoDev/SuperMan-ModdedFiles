@@ -4754,71 +4754,71 @@
 .end method
 
 .method public prepareSurfaceBeforeFreezing([I)V
-    .locals 12
+    .locals 13
 
     invoke-static {}, Landroid/view/SurfaceControl;->openTransaction()V
 
-    iget-object v9, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v10, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v10, v9, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+    iget-object v11, v10, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
 
-    monitor-enter v10
-
-    const/4 v5, 0x0
-
-    :goto_0
-    :try_start_0
-    array-length v9, p1
-
-    if-ge v5, v9, :cond_2
-
-    aget v4, p1, v5
-
-    iget-object v9, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v9, v4}, Lcom/android/server/wm/WindowManagerService;->getDisplayContentLocked(I)Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v3
-
-    iget-object v9, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v9, v4}, Lcom/android/server/wm/WindowManagerService;->getWindowListLocked(I)Lcom/android/server/wm/WindowList;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v0
+    monitor-enter v11
 
     const/4 v6, 0x0
 
+    :goto_0
+    :try_start_0
+    array-length v10, p1
+
+    if-ge v6, v10, :cond_2
+
+    aget v4, p1, v6
+
+    iget-object v10, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v10, v4}, Lcom/android/server/wm/WindowManagerService;->getDisplayContentLocked(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v3
+
+    iget-object v10, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v10, v4}, Lcom/android/server/wm/WindowManagerService;->getWindowListLocked(I)Lcom/android/server/wm/WindowList;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v0
+
+    const/4 v7, 0x0
+
     :goto_1
-    if-ge v6, v0, :cond_1
+    if-ge v7, v0, :cond_1
 
-    invoke-virtual {v8, v6}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v7}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Lcom/android/server/wm/WindowState;
+    check-cast v8, Lcom/android/server/wm/WindowState;
 
-    iget-object v9, v7, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+    iget-object v10, v8, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
-    invoke-virtual {v9, v11}, Lcom/android/server/wm/WindowStateAnimator;->prepareSurfaceLocked(Z)V
+    invoke-virtual {v10, v12}, Lcom/android/server/wm/WindowStateAnimator;->prepareSurfaceLocked(Z)V
 
-    iget-object v9, v7, Lcom/android/server/wm/WindowState;->mChildWindows:Lcom/android/server/wm/WindowList;
+    iget-object v10, v8, Lcom/android/server/wm/WindowState;->mChildWindows:Lcom/android/server/wm/WindowList;
 
-    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
     :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_0
+    if-eqz v10, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4826,344 +4826,270 @@
 
     check-cast v1, Lcom/android/server/wm/WindowState;
 
-    iget-object v9, v1, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
+    iget-object v10, v1, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
-    invoke-virtual {v9, v11}, Lcom/android/server/wm/WindowStateAnimator;->prepareSurfaceLocked(Z)V
+    invoke-virtual {v10, v12}, Lcom/android/server/wm/WindowStateAnimator;->prepareSurfaceLocked(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_2
 
     :catchall_0
-    move-exception v9
+    move-exception v10
 
-    monitor-exit v10
+    monitor-exit v11
 
-    throw v9
+    throw v10
 
     :cond_0
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
     :cond_1
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_2
-    monitor-exit v10
+    monitor-exit v11
 
     invoke-static {}, Landroid/view/SurfaceControl;->closeTransaction()V
 
+    const-wide/16 v10, 0x10
+
+    :try_start_1
+    invoke-static {v10, v11}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :goto_3
     return-void
+
+    :catch_0
+    move-exception v5
+
+    goto :goto_3
 .end method
 
 .method public readForcedDisplayPropertiesLocked(Lcom/android/server/wm/DisplayContent;)V
-    .locals 10
+    .locals 8
 
-    const/4 v9, 0x0
-
-    const/4 v3, 0x0
-
-    const-wide/high16 v4, 0x3fe8000000000000L    # 0.75
+    const-wide/high16 v2, 0x3fe8000000000000L    # 0.75
 
     invoke-virtual {p0}, Lcom/android/server/wm/SamsungWindowManagerService;->isLCDDetached()Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_0
+    if-eqz v4, :cond_0
 
-    const-string/jumbo v6, "SamsungWindowManager"
+    const-string/jumbo v4, "SamsungWindowManager"
 
-    const-string/jumbo v7, "LCD detached.. skip to set high performance concept"
+    const-string/jumbo v5, "LCD detached.. skip to set high performance concept"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    const/4 v3, 0x1
-
-    const-string/jumbo v6, "SamsungWindowManager"
-
-    const-string/jumbo v7, "FactoryBinary.. skip to set setting value"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const-string/jumbo v6, "HIGH"
+    const-string/jumbo v4, "HIGH"
 
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
-    move-result-object v7
+    move-result-object v5
 
-    const-string/jumbo v8, "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEF_PERFORMANCE_MODE"
+    const-string/jumbo v6, "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEF_PERFORMANCE_MODE"
 
-    invoke-virtual {v7, v8}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_2
+    if-eqz v4, :cond_1
 
-    const-string/jumbo v6, "SamsungWindowManager"
+    const-string/jumbo v4, "SamsungWindowManager"
 
-    const-string/jumbo v7, "didn\'t set high performance mode"
+    const-string/jumbo v5, "didn\'t set high performance mode"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    :cond_2
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
+    :cond_1
+    iget v4, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
 
-    int-to-double v6, v6
+    int-to-double v4, v4
 
-    mul-double/2addr v6, v4
+    mul-double/2addr v4, v2
 
-    double-to-int v6, v6
+    double-to-int v4, v4
 
-    iput v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    iput v4, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
+    iget v4, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
 
-    int-to-double v6, v6
+    int-to-double v4, v4
 
-    mul-double/2addr v6, v4
+    mul-double/2addr v4, v2
 
-    double-to-int v6, v6
+    double-to-int v4, v4
 
-    iput v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    iput v4, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "SamsungWindowManager"
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    const-string/jumbo v6, "readForcedDisplayPropertiesLocked size: "
 
-    move-result-object v7
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
-    const-string/jumbo v7, ","
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    const-string/jumbo v6, ","
 
-    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v7
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v6, " baseScreenRatio: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v4, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "display_density_forced"
+
+    invoke-static {v4, v5}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v6, "SamsungWindowManager"
+    if-eqz v0, :cond_2
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v4
 
-    const-string/jumbo v8, "readForcedDisplayPropertiesLocked size: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v3, :cond_3
-
-    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "display_size_forced"
-
-    invoke-static {v6, v7, v0}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "default_display_size_forced"
-
-    invoke-static {v6, v7, v0, v9}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-
-    :cond_3
-    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "display_density_forced"
-
-    invoke-static {v6, v7}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_5
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v6
-
-    if-lez v6, :cond_5
+    if-lez v4, :cond_2
 
     :try_start_0
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v6
+    move-result v4
 
-    int-to-double v6, v6
+    int-to-double v4, v4
 
-    mul-double/2addr v6, v4
+    mul-double/2addr v4, v2
 
-    double-to-int v6, v6
+    double-to-int v4, v4
 
-    iput v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+    iput v4, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const-string/jumbo v6, "SamsungWindowManager"
+    const-string/jumbo v4, "SamsungWindowManager"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "readForcedDisplayPropertiesLocked density: "
+    const-string/jumbo v6, "readForcedDisplayPropertiesLocked density: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v5
 
-    iget v8, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v3, :cond_4
+    const-string/jumbo v4, "persist.sys.display_density"
 
-    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+    iget v5, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
 
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    int-to-double v6, v5
 
-    move-result-object v6
+    mul-double/2addr v6, v2
 
-    const-string/jumbo v7, "display_density_forced"
+    double-to-int v5, v6
 
-    iget v8, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-static {v8}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v8
-
-    invoke-static {v6, v7, v8, v9}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-
-    iget-object v6, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "default_display_density_forced"
-
-    iget v8, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
-
-    invoke-static {v8}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v7, v8, v9}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-
-    :cond_4
-    const-string/jumbo v6, "persist.sys.display_density"
-
-    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
-
-    int-to-double v8, v7
-
-    mul-double/2addr v8, v4
-
-    double-to-int v7, v8
-
-    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v4, v5}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
+    iget v4, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
 
-    int-to-double v6, v6
+    int-to-double v4, v4
 
-    mul-double/2addr v6, v4
+    mul-double/2addr v4, v2
 
-    double-to-int v6, v6
+    double-to-int v4, v4
 
-    iput v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+    iput v4, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
 
     goto :goto_0
 
-    :cond_5
-    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
+    :cond_2
+    iget v4, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
 
-    int-to-double v6, v6
+    int-to-double v4, v4
 
-    mul-double/2addr v6, v4
+    mul-double/2addr v4, v2
 
-    double-to-int v6, v6
+    double-to-int v4, v4
 
-    iput v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+    iput v4, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
 
     goto :goto_0
 .end method
@@ -5194,6 +5120,215 @@
     iput-wide v4, v0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     :cond_0
+    return-void
+.end method
+
+.method public restoreSizeDensityIfNeeded(Lcom/android/server/wm/DisplayContent;)V
+    .locals 14
+
+    const/16 v13, 0x2c
+
+    const/4 v12, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v2, 0x0
+
+    const-wide/16 v0, 0x0
+
+    iget-object v9, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "display_size_forced"
+
+    invoke-static {v9, v10}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v9, "SamsungWindowManager"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "restoreSizeDensityIfNeeded sizeStr = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    if-lez v9, :cond_2
+
+    invoke-virtual {v7, v13}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v6
+
+    if-lez v6, :cond_0
+
+    invoke-virtual {v7, v13}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v9
+
+    if-ne v9, v6, :cond_0
+
+    const/4 v9, 0x0
+
+    :try_start_0
+    invoke-virtual {v7, v9, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v8
+
+    add-int/lit8 v9, v6, 0x1
+
+    invoke-virtual {v7, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v5
+
+    :cond_0
+    iget-object v9, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "display_density_forced"
+
+    invoke-static {v9, v10, v12}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v9, "SamsungWindowManager"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "restoreSizeDensityIfNeeded densityStr = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    if-lez v9, :cond_1
+
+    return-void
+
+    :catch_0
+    move-exception v4
+
+    return-void
+
+    :cond_1
+    invoke-static {v8, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    int-to-double v10, v9
+
+    iget v9, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayWidth:I
+
+    iget v12, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayHeight:I
+
+    invoke-static {v9, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    int-to-double v12, v9
+
+    div-double v0, v10, v12
+
+    iget v9, p1, Lcom/android/server/wm/DisplayContent;->mInitialDisplayDensity:I
+
+    int-to-double v10, v9
+
+    mul-double/2addr v10, v0
+
+    double-to-int v2, v10
+
+    iput v2, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+
+    const-string/jumbo v9, "SamsungWindowManager"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "density is null, currentRatio = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " density = "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
     return-void
 .end method
 
@@ -5361,6 +5496,287 @@
     monitor-exit v0
 
     throw v1
+.end method
+
+.method public setDisplaySizeDensity()V
+    .locals 12
+
+    const-wide/high16 v10, 0x3fe8000000000000L    # 0.75
+
+    const/4 v8, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/SamsungWindowManagerService;->isLCDDetached()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    :cond_0
+    const-string/jumbo v5, "SamsungWindowManager"
+
+    const-string/jumbo v6, "skip to set setting value"
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "display_size_forced"
+
+    invoke-static {v5, v6}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "display_density_forced"
+
+    invoke-static {v5, v6, v8}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v5, v8}, Lcom/android/server/wm/WindowManagerService;->getDisplayContentLocked(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-nez v5, :cond_5
+
+    :cond_2
+    :goto_0
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget v6, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ","
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget v6, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget v5, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v5, "SamsungWindowManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "setDisplaySizeDensity size: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " baseDensityStr: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "display_size_forced"
+
+    invoke-static {v5, v6, v1}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "display_density_forced"
+
+    invoke-static {v5, v6, v0, v8}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+
+    const-string/jumbo v5, "HIGH"
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "SEC_FLOATING_FEATURE_COMMON_CONFIG_DEF_PERFORMANCE_MODE"
+
+    invoke-virtual {v6, v7}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const-string/jumbo v5, "SamsungWindowManager"
+
+    const-string/jumbo v6, "set vzw requirement"
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget v6, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+
+    int-to-double v6, v6
+
+    mul-double/2addr v6, v10
+
+    double-to-int v6, v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ","
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget v6, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+
+    int-to-double v6, v6
+
+    mul-double/2addr v6, v10
+
+    double-to-int v6, v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget v5, v3, Lcom/android/server/wm/DisplayContent;->mBaseDisplayDensity:I
+
+    int-to-double v6, v5
+
+    mul-double/2addr v6, v10
+
+    double-to-int v5, v6
+
+    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_3
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "default_display_size_forced"
+
+    invoke-static {v5, v6, v1, v8}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+
+    iget-object v5, p0, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "default_display_density_forced"
+
+    invoke-static {v5, v6, v0, v8}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+
+    :cond_4
+    return-void
+
+    :cond_5
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    goto/16 :goto_0
 .end method
 
 .method public setFocusedApp(Landroid/os/IBinder;)V

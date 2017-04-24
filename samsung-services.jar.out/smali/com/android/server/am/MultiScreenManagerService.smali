@@ -1339,10 +1339,6 @@
 
     if-eqz p1, :cond_2
 
-    iget-object v2, p1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
-
-    if-eqz v2, :cond_2
-
     const/4 v1, 0x0
 
     const/4 v0, -0x1
@@ -1399,6 +1395,10 @@
     return v2
 
     :cond_1
+    iget-object v2, p1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
+
+    if-eqz v2, :cond_2
+
     iget-object v2, p0, Lcom/android/server/am/MultiScreenManagerService;->mVirtualScreenByPid:Ljava/util/HashMap;
 
     iget-object v3, p1, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;

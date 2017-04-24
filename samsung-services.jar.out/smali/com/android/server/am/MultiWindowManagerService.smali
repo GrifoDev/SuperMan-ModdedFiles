@@ -12423,19 +12423,26 @@
 .end method
 
 .method public shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     const/4 v1, 0x0
 
     sget-boolean v2, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->MULTIINSTANCE_SUPPORT:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
+    if-nez p1, :cond_0
+
+    return v4
+
+    :cond_0
     iget-object v2, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     iget-object v2, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -12448,19 +12455,19 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     iget v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mMaxMultiInstanceCnt:I
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_1
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/server/am/MultiWindowManagerService;->initMultiInstanceSettings()V
+    if-ne v2, v3, :cond_2
 
     :cond_1
-    if-eqz v0, :cond_2
+    invoke-direct {p0}, Lcom/android/server/am/MultiWindowManagerService;->initMultiInstanceSettings()V
+
+    :cond_2
+    if-eqz v0, :cond_3
 
     const-string/jumbo v2, "com.samsung.android.sdk.multiwindow.multiinstance.enable"
 
@@ -12468,16 +12475,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
-    :cond_2
+    :cond_3
     iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mSupportMultiInstanceAppList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_9
 
     iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mSupportMultiInstanceAppList:Ljava/util/ArrayList;
 
@@ -12489,10 +12496,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
-    :cond_3
-    if-eqz v0, :cond_4
+    :cond_4
+    if-eqz v0, :cond_5
 
     const-string/jumbo v2, "com.samsung.android.sdk.multiwindow.multiinstance.launchmode"
 
@@ -12500,8 +12507,8 @@
 
     move-result-object v1
 
-    :cond_4
-    if-eqz v1, :cond_7
+    :cond_5
+    if-eqz v1, :cond_8
 
     const-string/jumbo v2, "singleTask"
 
@@ -12509,7 +12516,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "singleInstance"
 
@@ -12517,24 +12524,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
-
-    :cond_5
-    return v4
+    if-eqz v2, :cond_8
 
     :cond_6
+    return v5
+
+    :cond_7
     const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mSupportMultiInstanceAppList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_9
 
     iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService;->mSupportMultiInstanceAppList:Ljava/util/ArrayList;
 
@@ -12546,14 +12553,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
+    return v5
+
+    :cond_9
     return v4
-
-    :cond_8
-    const/4 v2, 0x0
-
-    return v2
 .end method
 
 .method public showRecentApps()V
