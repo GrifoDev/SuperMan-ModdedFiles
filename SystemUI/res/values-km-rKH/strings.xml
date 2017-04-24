@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">បានភ្ជាប់តាមរយៈ %1$s</string>
     <string name="available_via_passpoint">មានតាមរយៈ %1$s</string>
     <string name="wifi_connected_no_internet">បានភ្ជាប់ ប៉ុន្តែគ្មានអ៊ីនធឺណិតទេ</string>
+    <string name="wifi_internet_may_not_be_available">អាច​មិនមាន​អ៊ីនធើណិត</string>
     <string name="wifi_reconnecting">រួចរាល់​ដើម្បី​ភ្ជាប់ នៅពេល​គុណភាព​បណ្ដាញ​កើនឡើង</string>
     <string name="wifi_connected_checking_quality">កំពុង​ពិនិត្យ​គុណភាព​នៃ​ការភ្ជាប់​អ៊ីនធឺណិត​របស់​អ្នក…</string>
     <string name="wifi_setup_title_connected_network">បាន​ភ្ជាប់​ទៅ​បណ្ដាញ Wi-Fi %s។</string>
@@ -850,7 +851,7 @@ S Bike"</string>
     <string name="aod_show_popup_title">បើកប្រើ %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s និង %2$s មិន​អាច​បើកប្រើ​ក្នុង​ពេល​តែ​មួយ​ឡើយ។ នឹង​បិទ %3$s។</string>
     <string name="aod_show_popup_description">%s និង ជម្រើស​ខាងក្រោម មិន​អាច​បើកប្រើ​ក្នុង​ពេល​តែ​មួយ​ឡើយ។ នឹង​បិទ​ជម្រើស​ខាងក្រោម។</string>
-    <string name="wificalling_show_popup_use_location_inform">ការហៅ Wi-Fi ត្រូវការ​ប្រើ​ព័ត៌មាន​ទីកន្លែង​របស់​អ្នក។ នឹង​ប្រមូល​ទិន្នន័យ​ទីកន្លែង​អនាមិក ហើយ​ផ្ញើ​ទៅ Google និង អ្នកផ្ដល់​សេវា​ឲ្យ​អ្នក។ ទាក់ទង​អ្នកផ្ដល់​សេវា​ឲ្យ​អ្នក​សម្រាប់​ព័ត៌មាន​លម្អិត។</string>
+    <string name="wificalling_show_popup_use_location_inform">ព័ត៌មាន​ទីកន្លែង​របស់​អ្នក​អាច​ផ្ញើ​ជូន​អ្នកផ្ដល់​សេវា​របស់​អ្នក ខណៈពេល​អ្នក​កំពុង​ប្រើ​ការហៅ Wi-Fi។ ទាក់ទង​អ្នកផ្ដល់​សេវា​ឲ្យ​អ្នក ដើម្បី​ទទួល​ព័ត៌មាន​លម្អិត។</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">ព័ត៌មាន​ពាក់ព័ន្ធ​នឹង​ទីកន្លែង​របស់​អ្នក​អាច​ផ្ញើ​ទៅ Google និង ប្រតិបត្តិករ​របស់​អ្នក ដើម្បី​បង្កើត​ការហៅ Wi-Fi មិន​ថា​អ្នក​បាន​បើកដំណើរការ​មុខងារ​ទីកន្លែង ឬ​ក៏​អត់​ឡើយ។</string>
     <string name="wificalling_show_popup_enable_location_title">បើកប្រើ​ទីកន្លែង</string>
     <string name="wificalling_show_popup_enable_location_message">ការហៅ Wi-Fi ត្រូវការ​ប្រើ​ព័ត៌មាន​ទីកន្លែង​របស់​អ្នក។ នឹង​បើកប្រើ​ទីកន្លែង។ នឹង​ប្រមូល​ទិន្នន័យ​ទីកន្លែង​អនាមិក ហើយ​ផ្ញើ​ទៅ Google និង អ្នកផ្ដល់​សេវា​ឲ្យ​អ្នក។ ទាក់ទង​អ្នកផ្ដល់​សេវា​ឲ្យ​អ្នក​សម្រាប់​ព័ត៌មាន​លម្អិត។</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">វាយបញ្ចូល PIN ជំនួស​ឲ្យ​ការប្រើ​ការទទួលស្គាល់​ប្រស្រីភ្នែក ដោយសារ​គោលការណ៍​សន្តិសុខ</string>
     <string name="kg_none_multi_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ជីវមាត្រ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">ទូរសព្ទ​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ខ្ចៅដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​បន្ទាប់​ពី​អ្នក​ដោះសោ​ទូរសព្ទ​របស់​អ្នក។</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ស្នាមម្រាមដៃ​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_none_iris_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">ឧបករណ៍​របស់​អ្នក​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើងវិញ ហើយ​ត្រូវការ​ដោះសោ​ដោយ​ប្រើ​លំនាំ​របស់​អ្នក។ អ្នក​អាច​ប្រើ​ប្រស្រីភ្នែក​របស់​អ្នក​នៅពេល​ក្រោយ​ដែល​អ្នក​ដោះសោ​ឧបករណ៍​របស់​អ្នក។</string>

@@ -3,12 +3,12 @@
 .source "LocationTile.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/tiles/LocationTile;->handleClick()V
+    value = Lcom/android/systemui/qs/tiles/LocationTile;->showPopupDialog(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;ILandroid/content/DialogInterface$OnClickListener;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,26 +34,9 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 1
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$3;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get1(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/statusbar/policy/LocationController;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Lcom/android/systemui/statusbar/policy/LocationController;->setLocationEnabled(ZZ)Z
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$3;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->refreshState()V

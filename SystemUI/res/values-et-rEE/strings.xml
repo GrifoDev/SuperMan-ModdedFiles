@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Ühendatud üksuse %1$s kaudu</string>
     <string name="available_via_passpoint">Saadaval üksuse %1$s kaudu</string>
     <string name="wifi_connected_no_internet">Ühendatud, Interneti-ühendus puudub</string>
+    <string name="wifi_internet_may_not_be_available">Internet ei pruugi olla saad.</string>
     <string name="wifi_reconnecting">Valmis ühenduse loomiseks, kui võrgukvaliteet paraneb</string>
     <string name="wifi_connected_checking_quality">Internetiühenduse kvaliteedi kontrollimine…</string>
     <string name="wifi_setup_title_connected_network">Ühendus loodud Wi-Fi võrguga %s.</string>
@@ -849,7 +850,7 @@ režiim"</string>
     <string name="aod_show_popup_title">Aktiveeri %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ja %2$s ei saa olla korraga aktiivsed. %3$s desaktiveeritakse.</string>
     <string name="aod_show_popup_description">%s ja allolevad valikud ei saa olla korraga aktiveeritud. Allolevad valikud desaktiveeritakse.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi helistamine vajab teie asukohateavet. Kogutakse anonüümseid asukohaandmeid ning need saadetake Google’ile ja teie teenusepakkujale. Lisateabe saamiseks võtke ühendust oma teenusepakkujaga.</string>
+    <string name="wificalling_show_popup_use_location_inform">Teie asukohateave võidakse saata teie teenusepakkujale, kui kasutate Wi-Fi helistamist. Lisateabe saamiseks võtke ühendust oma teenusepakkujaga.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Teie asukohaga seotud teave võidakse saata Google’ile ja teie operaatorile, et teha Wi-Fi kõnesid olenemata sellest, kas olete asukohafunktsiooni aktiveerinud või mitte.</string>
     <string name="wificalling_show_popup_enable_location_title">Aktiveerige Asukoht</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi helistamine vajab teie asukohateavet. Asukoht aktiveeritakse. Kogutakse anonüümseid asukohaandmeid ning need saadetake Google’ile ja teie teenusepakkujale. Lisateabe saamiseks võtke ühendust oma teenusepakkujaga.</string>
@@ -1854,7 +1855,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Iirisetuvastuse kasutamise asemel sisestage PIN-kood turvalisuse poliisi tõttu</string>
     <string name="kg_none_multi_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada biomeetriat.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Teie telefon taaskäivitus ja tuleb mustri abil lukust avada. Telefoni järgmisel avamisel saate kasutada oma sõrmejälgi.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel seadme lukust avamisel saate kasutada sõrmejälgi.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Teie seade taaskäivitati ning teil tuleb see oma mustri abil lukust avada. Järgmisel korral seadme avamisel võid kasutada oma iiriseid.</string>

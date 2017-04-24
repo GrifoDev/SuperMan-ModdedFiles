@@ -51,6 +51,8 @@
 
 .field private final mMinimumBacklight:I
 
+.field private mOutdoorMode:Z
+
 .field private final mPower:Landroid/os/IPowerManager;
 
 .field private final mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
@@ -81,10 +83,26 @@
     return-object v0
 .end method
 
+.method static synthetic -get3(Lcom/android/systemui/settings/BrightnessController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+
+    return v0
+.end method
+
 .method static synthetic -set0(Lcom/android/systemui/settings/BrightnessController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mExternalChange:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/systemui/settings/BrightnessController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
 
     return p1
 .end method
@@ -113,7 +131,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/settings/BrightnessController;)V
+.method static synthetic -wrap3(Lcom/android/systemui/settings/BrightnessController;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/settings/BrightnessController;->updateOutdoorMode(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Lcom/android/systemui/settings/BrightnessController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateSlider()V
@@ -464,6 +490,49 @@
     invoke-direct {p0, v1}, Lcom/android/systemui/settings/BrightnessController;->updateIcon(Z)V
 
     goto :goto_0
+.end method
+
+.method private updateOutdoorMode(Z)V
+    .locals 4
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/settings/ToggleSlider;->setOutdoorMode(Z)V
+
+    iget-object v3, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+
+    if-eqz p1, :cond_1
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {v3, v0}, Lcom/android/systemui/settings/ToggleSlider;->setTouchEnabled(Z)V
+
+    :cond_0
+    if-eqz p1, :cond_2
+
+    :goto_1
+    iput-boolean v1, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
+
+    return-void
+
+    :cond_1
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method private updateSlider()V
@@ -901,36 +970,66 @@
 .end method
 
 .method public registerCallbacks()V
-    .locals 1
+    .locals 5
 
-    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
+
+    iget-boolean v2, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
+
+    if-eqz v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;->startObserving()V
+    invoke-virtual {v2}, Lcom/android/systemui/settings/BrightnessController$BrightnessObserver;->startObserving()V
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserTracker;->startTracking()V
+    invoke-virtual {v2}, Lcom/android/systemui/settings/CurrentUserTracker;->startTracking()V
 
     invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateMode()V
 
     invoke-direct {p0}, Lcom/android/systemui/settings/BrightnessController;->updateSlider()V
 
-    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/settings/ToggleSlider;->setOnChangedListener(Lcom/android/systemui/settings/ToggleSlider$Listener;)V
-
-    const/4 v0, 0x1
+    invoke-virtual {v2, p0}, Lcom/android/systemui/settings/ToggleSlider;->setOnChangedListener(Lcom/android/systemui/settings/ToggleSlider$Listener;)V
 
     iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mListening:Z
 
+    iget-object v2, p0, Lcom/android/systemui/settings/BrightnessController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "display_outdoor_mode"
+
+    const/4 v4, -0x2
+
+    invoke-static {v2, v3, v1, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :goto_0
+    iput-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/settings/BrightnessController;->updateOutdoorMode(Z)V
+
     return-void
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public setDoNotShowStrainPopup()V
@@ -974,7 +1073,14 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/settings/BrightnessController;->mOutdoorMode:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
 
@@ -985,7 +1091,7 @@
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController;->mControl:Lcom/android/systemui/settings/ToggleSlider;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSlider;->setTouchEnabled(Z)V

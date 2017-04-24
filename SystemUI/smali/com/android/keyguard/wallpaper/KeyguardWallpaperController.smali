@@ -750,8 +750,6 @@
 
     iput p1, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mCurrentUserId:I
 
-    invoke-virtual {p0}, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->handleWallpaperTypeChanged()V
-
     iget-object v0, p0, Lcom/android/keyguard/wallpaper/KeyguardWallpaperController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I

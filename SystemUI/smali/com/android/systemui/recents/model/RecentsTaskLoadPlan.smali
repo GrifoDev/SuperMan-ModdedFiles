@@ -453,7 +453,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f02f0
+    const v5, 0x7f0f02f1
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -463,7 +463,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f02f4
+    const v5, 0x7f0f02f5
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -473,7 +473,7 @@
 
     iget-object v4, v0, Lcom/android/systemui/recents/model/RecentsTaskLoadPlan;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f02f3
+    const v5, 0x7f0f02f4
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -567,6 +567,10 @@
     invoke-static {v4}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isFreeformStack(I)Z
 
     move-result v33
+
+    sget-boolean v4, Lcom/android/systemui/recents/RecentsDebugFlags$Static;->EnableAllListShown:Z
+
+    if-nez v4, :cond_3
 
     if-nez v33, :cond_3
 

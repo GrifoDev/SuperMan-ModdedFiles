@@ -23,7 +23,7 @@
 .method public static Res_text_pressure_scale_1()I
     .locals 1
 
-    const v0, 0x7f0f0872
+    const v0, 0x7f0f0875
 
     return v0
 .end method
@@ -31,7 +31,7 @@
 .method public static Res_text_pressure_scale_2()I
     .locals 1
 
-    const v0, 0x7f0f0873
+    const v0, 0x7f0f0876
 
     return v0
 .end method
@@ -39,7 +39,7 @@
 .method public static Res_text_pressure_scale_3()I
     .locals 1
 
-    const v0, 0x7f0f0874
+    const v0, 0x7f0f0877
 
     return v0
 .end method

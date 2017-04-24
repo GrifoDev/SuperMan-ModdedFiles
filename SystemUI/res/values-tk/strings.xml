@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">Internet elýeterli däl</string>
     <string name="wifi_disabled_password_failure">Anyklaýyşda ýalňyşlyk ýüze çykdy</string>
     <string name="wifi_auto_reconnect_disabled">Awto-täzeden birikme ýapyk</string>
+    <string name="wifi_internet_may_not_be_available">Internet elýeterli bolman biler</string>
     <string name="wifi_reconnecting">Ulgamyň hili özgeren wagty baglanmak üçin taýýar</string>
     <string name="wifi_connected_checking_quality">Internet baglanyşygyňyzyň hili barlanýar…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi ulgamyna baglandy</string>
@@ -282,7 +283,7 @@ tertibi"</string>
     <string name="aod_show_popup_title">%sny aç</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s bilen %2$s bilelikde işledip bolmaýar. %3$s ýapylar.</string>
     <string name="aod_show_popup_description">%s bilen aşakdaky opsiýalary bilelikde işledip bolmaýar. Aşakdaky opsiýalar ýapylar.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi jaňyna siziň ýerleşiş maglumatyňyz gerek. Anonim ýerleşiş maglumaty ýygnalyp, Google-a we hyzmat üpjün edijiňize iberiler. Goşmaça maglumat üçin hyzmat üpjün edijiňize ýüz tutuň.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi jaňyny ulanýarkaňyz, ýerleşiş maglumatyňyz hyzmat üpjün edijiňize iberilip biler. Goşmaça maglumat üçin hyzmat üpjün edijiňize ýüz tutuň.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Ýerleşiş funksiýasyny işletdiňizmi-ýokmy, tapawudy ýok, Wi-Fi jaňlary gurmak üçin, ýerleşiş-dahylly maglumatyňyz Google we operatoryňyza iberilip biler.</string>
     <string name="wificalling_show_popup_enable_location_title">Ýerleşişi işlet</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi jaňyna siziň ýerleşiş maglumatyňyz gerek. Ýerleşiş işlediler. Anonim ýerleşiş maglumaty ýygnalyp, Google-a we hyzmat üpjün edijiňize iberiler. Goşmaça maglumat üçin hyzmat üpjün edijiňize ýüz tutuň.</string>
@@ -854,7 +855,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Howpsuzlyk syýasaty sebäpli, göz tanamaga derek, PIN giriz</string>
     <string name="kg_none_multi_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, biometrikaňyzy ulanyp bilersiňiz.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefonyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek telefonyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, barmak yzlaryňyzy ulanyp bilersiňiz.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Enjamyňyz açylyp ýapyldy we onuň gulpuny şablon bilen açmaly. Indiki gezek enjamyň gulpuny açmak üçin, gözleriňizi ulanyp bilersiňiz.</string>

@@ -280,37 +280,37 @@
 
 .field public static final row3:I = 0x7f13018e
 
-.field public static final servicebox_event_list:I = 0x7f13038b
+.field public static final servicebox_event_list:I = 0x7f13038d
 
-.field public static final servicebox_music_controller_container:I = 0x7f130382
+.field public static final servicebox_music_controller_container:I = 0x7f130384
 
-.field public static final servicebox_music_page_appinfo:I = 0x7f13037d
+.field public static final servicebox_music_page_appinfo:I = 0x7f13037f
 
-.field public static final servicebox_music_page_artist:I = 0x7f130381
+.field public static final servicebox_music_page_artist:I = 0x7f130383
 
-.field public static final servicebox_music_page_cover:I = 0x7f13037e
+.field public static final servicebox_music_page_cover:I = 0x7f130380
 
-.field public static final servicebox_music_page_holder:I = 0x7f13037c
+.field public static final servicebox_music_page_holder:I = 0x7f13037e
 
-.field public static final servicebox_music_page_lyrics:I = 0x7f13037f
+.field public static final servicebox_music_page_lyrics:I = 0x7f130381
 
-.field public static final servicebox_music_page_next_btn:I = 0x7f130386
+.field public static final servicebox_music_page_next_btn:I = 0x7f130388
 
-.field public static final servicebox_music_page_pause_btn:I = 0x7f130385
+.field public static final servicebox_music_page_pause_btn:I = 0x7f130387
 
-.field public static final servicebox_music_page_play_btn:I = 0x7f130384
+.field public static final servicebox_music_page_play_btn:I = 0x7f130386
 
-.field public static final servicebox_music_page_prev_btn:I = 0x7f130383
+.field public static final servicebox_music_page_prev_btn:I = 0x7f130385
 
-.field public static final servicebox_music_page_title:I = 0x7f130380
+.field public static final servicebox_music_page_title:I = 0x7f130382
 
-.field public static final servicebox_today_clock_day:I = 0x7f130387
+.field public static final servicebox_today_clock_day:I = 0x7f130389
 
-.field public static final servicebox_today_clock_week_day:I = 0x7f130388
+.field public static final servicebox_today_clock_week_day:I = 0x7f13038a
 
-.field public static final servicebox_today_event_time:I = 0x7f13038a
+.field public static final servicebox_today_event_time:I = 0x7f13038c
 
-.field public static final servicebox_today_event_title:I = 0x7f130389
+.field public static final servicebox_today_event_title:I = 0x7f13038b
 
 .field public static final set_as_wallpaper_button_view:I = 0x7f1301e3
 

@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s арқылы қосылған</string>
     <string name="available_via_passpoint">%1$s арқылы қолжетімді</string>
     <string name="wifi_connected_no_internet">Қосылған, интернет жоқ</string>
+    <string name="wifi_internet_may_not_be_available">Инт.қол жетімсіз болуы мүмкін</string>
     <string name="wifi_reconnecting">Желі сапасы жақсарғанда қосылуға дайын</string>
     <string name="wifi_connected_checking_quality">Интернет қосылымыңыздың сапасы тексерілуде…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi %s желісіне қосылды.</string>
@@ -849,7 +850,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s қосу</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s және %2$s бір уақытта қосу мүмкін емес. %3$s өшіріледі.</string>
     <string name="aod_show_popup_description">%s және төмендегі опциялар бір уақытта іске қосылмайды. Төмендегі опциялар өшіріледі.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi қоңырау шалу функциясы орныңыз туралы ақпаратты пайдалануды қажет етеді. Анонимді орын деректері жиналып, Google компаниясы мен қызмет жеткізушіңізге жіберіледі. Мәліметтер алу үшін, қызмет жеткізушіңізге хабарласыңыз.</string>
+    <string name="wificalling_show_popup_use_location_inform">“Wi-Fi арқылы қоңырау шалу” функциясын пайдалану кезінде сіздің орныңыз туралы ақпарат қызмет көрсетуші мекемеге жіберілуі мүмкін. Мәліметтер алу үшін қызмет көрсетуші мекемеге хабарласыңыз.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Орын функциясының қосылғанына не қосылмағанына қарамастан, Wi-Fi қоңырауларын орнату мақсатында сіздің орныңызға қатысты ақпарат Google компаниясына және операторға жіберілуі мүмкін.</string>
     <string name="wificalling_show_popup_enable_location_title">Орынды қосу</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi қоңырау шалу функциясы орныңыз туралы ақпаратты пайдалануды қажет етеді. Геодеректер опциясы қосылады. Анонимді орын деректері жиналып, Google компаниясы мен қызмет жеткізушіңізге жіберіледі. Мәліметтер алу үшін, қызмет жеткізушіңізге хабарласыңыз.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Қауіпсіздік саясатына байланысты көздің қабығын тану әдісін пайдаланудың орнына PIN кодты енгізіңіз</string>
     <string name="kg_none_multi_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғы құлпын ашқан кезде, биометрлік деректеріңізді пайдалана аласыз.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Телефоныңыз қайта қосылды және оның құлпын үлгі арқылы ашу қажет. Келесі жолы телефон құлпын ашқан кезде саусақ іздерін пайдалануға болады.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде саусақ іздеріңізді пайдалана аласыз.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Құрылғыңыз қайта іске қосылды және үлгі арқылы құлпын ашуды қажет етеді. Келесі жолы құрылғыңыздың құлпын ашқан кезде көзіңіздің қабықтарын пайдалана аласыз.</string>

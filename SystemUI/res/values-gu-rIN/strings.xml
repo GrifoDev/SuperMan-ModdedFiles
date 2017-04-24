@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s દ્વારા કનેક્ટ થયેલ</string>
     <string name="available_via_passpoint">%1$s દ્વારા ઉપલબ્ધ</string>
     <string name="wifi_connected_no_internet">કનેક્ટ કર્યું, કોઈ ઇન્ટરનેટ નથી</string>
+    <string name="wifi_internet_may_not_be_available">ઇન્ટરનેટ ઉપલબ્ધ હોઈ શકે નહી</string>
     <string name="wifi_reconnecting">નેટવર્ક ગુણવત્તાને બહેતર બનાવવામાં આવે ત્યારે જોડાવા માટે તૈયાર</string>
     <string name="wifi_connected_checking_quality">તમારા ઇન્ટરનેટ જોડાણની ગુણવત્તા તપાસી રહ્યાં છે…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi નેટવર્ક %s સાથે જોડેલું છે.</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s ને સક્ષમ કરો</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s અને %2$s એક જ સમયે સક્ષમ કરી શકતા નથી. %3$s અક્ષમ કરવામાં આવશે.</string>
     <string name="aod_show_popup_description">%s અને નીચેના વિકલ્પોને એક જ સમયે સક્ષમ કરી શકાતા નથી. નીચેના વિકલ્પોને અક્ષમ કરવામાં આવશે.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi કૉલિંગને તમારી સ્થાન માહિતીનો ઉપયોગ કરવાની જરૂર પડે છે. અજ્ઞાત સ્થાન ડેટા એકત્રિત કરવામાં અને ગૂગલ અને તમારા સેવા પ્રદાતાને મોકલવામાં આવશે. વિગતો માટે તમારા સેવા પ્રદાતાનો સંપર્ક કરો.</string>
+    <string name="wificalling_show_popup_use_location_inform">જ્યારે તમે Wi-Fi કૉલિંગનો ઉપયોગ કરી રહ્યાં હોય ત્યારે તમારી સ્થાન માહિતી તમારા સેવા પ્રદાતાને મોકલવામાં આવી શકે છે. વિગતો માટે તમારા સેવા પ્રદાતાનો સંપર્ક કરો.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">તમે સ્થાન ફંક્શનને સક્રિય કરયું હોય કે ન હોય, Wi-Fi કૉલ્સ સ્થાપિત કરવા માટે તમારી સ્થાન-સંબંધીત માહિતી ગૂગલ પર મોકલી શકાતી છે.</string>
     <string name="wificalling_show_popup_enable_location_title">સ્થાન સક્ષમ કરો</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi કૉલિંગને તમારી સ્થાન માહિતીનો ઉપયોગ કરવાની જરૂર પડે છે. સ્થાન સક્ષમ કરવામાં આવશે. અજ્ઞાત સ્થાન ડેટા એકત્રિત કરવામાં અને ગૂગલ અને તમારા સેવા પ્રદાતાને મોકલવામાં આવશે. વિગતો માટે તમારા સેવા પ્રદાતાનો સંપર્ક કરો.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">સુરક્ષા નીતિને કારણે આઇરિસ ઓળખાણનો ઉપયોગ કરવાને બદલે PIN દાખલ કરો</string>
     <string name="kg_none_multi_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ થયું ન હતું અને તમારી પેટર્નનો ઉપયોગ કરીને અનલોક કરવાની જરૂર છે. તમે પછીની વખતે તમારા ઉપકરણને અનલોક કરવા માટે તમારા બાયોમેટ્રિક્સનો ઉપયોગ કરી શકો છો.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ થયું ન હતું અને તમારી પેટર્નનો ઉપયોગ કરીને અનલોક કરવાની જરૂર છે. તમે પછીની વખતે તમારા ઉપકરણને અનલોક કરવા માટે તમારા બાયોમેટ્રિક્સનો ઉપયોગ કરી શકો છો.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ કરેલ છે અને તમારી પેર્ટનનો ઉપયોગ કરી અનલોક કરવાની જરૂર છે. તમારું ઉપકરણ પછીના વખતે અનલોક કરવા માટે તમે તમારી ફિંગરપ્રિન્ટ્સનો ઉપયોગ કરી શકો છો.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">તમારો ફોન પુનઃપ્રારંભ કરેલ છે અને તમારી પેટર્નનો ઉપયોગ કરી અનલોક કરવાની જરૂર છે. તમારા ફોનને પછીના વખતે અનલોક કરવા માટે તમે તમારી ફિંગરપ્રિન્ટ્સનો ઉપયોગ કરી શકો છો.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ કરેલ છે અને તમારી પેર્ટનનો ઉપયોગ કરી અનલોક કરવાની જરૂર છે. તમારું ઉપકરણ પછીના વખતે અનલોક કરવા માટે તમે તમારી ફિંગરપ્રિન્ટ્સનો ઉપયોગ કરી શકો છો.</string>
     <string name="kg_none_iris_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ કરેલ છે અને તમારી પેર્ટનનો ઉપયોગ કરી અનલોક કરવાની જરૂર છે. તમારું ઉપકરણ પછીના વખતે અનલોક કરવા માટે તમે તમારા આઇરિસિઝનો ઉપયોગ કરી શકો છો.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">તમારું ઉપકરણ પુનઃપ્રારંભ કરેલ છે અને તમારી પેર્ટનનો ઉપયોગ કરી અનલોક કરવાની જરૂર છે. તમારું ઉપકરણ પછીના વખતે અનલોક કરવા માટે તમે તમારા આઇરિસિઝનો ઉપયોગ કરી શકો છો.</string>

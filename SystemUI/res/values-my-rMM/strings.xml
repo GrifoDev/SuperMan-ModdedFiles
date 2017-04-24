@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s မှတစ်ဆင့် ချိတ်ဆက်ထားသည်</string>
     <string name="available_via_passpoint">%1$s မှတစ်ဆင့်ရနိုင်သည်</string>
     <string name="wifi_connected_no_internet">ချိတ်ဆက်ထားသည်၊ အင်တာနက်မရှိ</string>
+    <string name="wifi_internet_may_not_be_available">အင်တာနက် အရန်သင့် ရချင်မှ ရလိမ့်မည်</string>
     <string name="wifi_reconnecting">ကွန်ရက် အရည်အသွေး ပိုကောင်းလာသည့်အခါ ချိတ်ဆက်ရန် အဆင်သင့်</string>
     <string name="wifi_connected_checking_quality">သင့် အင်တာနက် ချိတ်ဆက်မှု အရည်အသွေး စစ်ဆေးနေသည်…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi ကွန်ယက် %s သို့ ချိတ်ဆက်ပြီးပြီ။</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s ဖွင့်ပါ</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s နှင့် %2$s တို့ကို တပြိုင်တည်း ဖွင့်မရပါ။ %3$s ကို ပိတ်သွားမည်။</string>
     <string name="aod_show_popup_description">%s နှင့် အောက်ရှိ ရွေးချယ်ရန်များကို တစ်ပြိုင်တည်း ဖွင့်၍ မရနိုင်ပါ။ အောက်မှ ရွေးစရာများကို ပိတ်မည်။</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ခေါ်ဆိုမှုသည် သင်၏တည်နေရာ အချက်အလက်များအသုံးပြုရန် လိုအပ်သည်။ အမည်မသိ တည်နေရာဒေတာကို ရယူပြီး Google နှင့် သင်၏ ဝန်ဆောင်မှုပေးသူထံသို့ ပေးပို့သွားမည်ဖြစ်သည်။ အသေးစိတ်အချက်များအတွက် သင်၏ ဝန်ဆောင်မှုပေးသူကို ဆက်သွယ်ပါ။</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ဖုန်းခေါ်ခြင်းကို သုံးနေစဉ်အတွင်း သင်၏ တည်နေရာအချက်အလက်ကို သင်၏ ဝန်ဆောင်မှုစီစဉ်သူဆီသို့ ပို့ပေးနိုင်သည်။ အသေးစိတ်များအတွက် သင်၏ ဝန်ဆောင်မှုစီစဉ်သူကို ဆက်သွယ်ပါ။</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Wi-Fi ဖုန်းများကို တည်နေရာပြလုပ်ဆောင်ချက်အား သက်ဝင်ခလုတ်ဖွင့်သည်ဖြစ်စေ မဖွင့်သည်ဖြစ်စေ ပြဋ္ဌာန်းရန်အတွက် သင်၏ တည်နေရာ-အခြေစိုက် အချက်အလက်ကို Google နှင့် သင့်အော်ပရေတာဆီသို့ ပို့ပါမည်။</string>
     <string name="wificalling_show_popup_enable_location_title">တည်နေရာ အလုပ်လုပ်စေပါနှင့်</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi ခေါ်ဆိုမှုသည် သင်၏တည်နေရာ အချက်အလက်များအသုံးပြုရန် လိုအပ်သည်။ တည်နေရာ တဂ်များ ဖွင့်မည်။ အမည်မသိ တည်နေရာဒေတာကို ရယူပြီး Google နှင့် သင်၏ ဝန်ဆောင်မှုပေးသူထံသို့ ပေးပို့သွားမည်ဖြစ်သည်။ အသေးစိတ်အချက်များအတွက် သင်၏ ဝန်ဆောင်မှုပေးသူကို ဆက်သွယ်ပါ။</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">လုံခြုံရေး မူဝါဒရှိသည့်အတွက် မျက်ဝန်းမှတ်သားချက် အသုံးပြုမှုအစား PIN ထည့်သွင်းပါ</string>
     <string name="kg_none_multi_pattern_restart_instructions">ကိရိယာသော့ဖွင့်ရန် သင့်ပုံစံကိုသုံးပြီးသော့ဖွင့်ရန်လိုအပ်ပြီး ပြန်လည်စတင်ပါ။ နောက်တစ်ကြိမ် သင်၏ကိရိယာသော့ဖွင့်မှုတွင် ဇီဝရုပ်လက္ခဏာများကို သုံးနိုင်ပါသည်။</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">ကိရိယာသော့ဖွင့်ရန် သင့်ပုံစံကိုသုံးပြီးသော့ဖွင့်ရန်လိုအပ်ပြီး ပြန်လည်စတင်ပါ။ နောက်တစ်ကြိမ် သင်၏ကိရိယာသော့ဖွင့်မှုတွင် ဇီဝရုပ်လက္ခဏာများကို သုံးနိုင်ပါသည်။</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">သင့်ကိရိယာကို ပြန်စတင်ဖွင့်ခဲ့ပြီး ၎င်းကို သင့်သော့ဖွင့်ပုံစံ သုံး၍ သော့ဖွင့်ရမည်။ သင့်လက်ဗွေများကို နောက်တစ်ခါ ကိရိယာသော့ဖွင့်လျှင် သုံးနိုင်ပါမည်။</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">သင့်ဖုန်းကို ပိတ်ပြီး ပြန်ဖွင့်လိုက်ပြီဖြစ်ကာ သင့်ပုံစံဖြင့် သော့ဖွင့်ရန် လိုအပ်ပါသည်။ သင့်ဖုန်းကို နောက်တကြိမ် သော့ဖွင့်သည့်အခါ သင့် လက်ဗွေရာများကို သုံးနိုင်ပါသည်။</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">သင့်ကိရိယာကို ပြန်စတင်ဖွင့်ခဲ့ပြီး ၎င်းကို သင့်သော့ဖွင့်ပုံစံ သုံး၍ သော့ဖွင့်ရမည်။ သင့်လက်ဗွေများကို နောက်တစ်ခါ ကိရိယာသော့ဖွင့်လျှင် သုံးနိုင်ပါမည်။</string>
     <string name="kg_none_iris_pattern_restart_instructions">သင့်ကိရိယာကို ပြန်စတင်ဖွင့်ခဲ့ပြီး ၎င်းကို သင့်သော့ဖွင့်ပုံစံ သုံး၍ သော့ဖွင့်ရမည်။ သင့်မျက်ဝန်းများကို နောက်တစ်ခါ ကိရိယာသော့ဖွင့်လျှင် သုံးနိုင်ပါမည်။</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">သင့်ကိရိယာကို ပြန်စတင်ဖွင့်ခဲ့ပြီး ၎င်းကို သင့်သော့ဖွင့်ပုံစံ သုံး၍ သော့ဖွင့်ရမည်။ သင့်မျက်ဝန်းများကို နောက်တစ်ခါ ကိရိယာသော့ဖွင့်လျှင် သုံးနိုင်ပါမည်။</string>

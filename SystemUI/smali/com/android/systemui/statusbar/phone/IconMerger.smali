@@ -308,7 +308,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d0391
+    const v1, 0x7f0d0393
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

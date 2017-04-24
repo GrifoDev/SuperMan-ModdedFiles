@@ -404,7 +404,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f066a
+    const v1, 0x7f0f066e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f066b
+    const v1, 0x7f0f066f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -494,7 +494,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f066a
+    const v1, 0x7f0f066e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -505,7 +505,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenCaptureTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f066b
+    const v1, 0x7f0f066f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -592,9 +592,9 @@
 .method protected handleUpdateState(Lcom/android/systemui/qs/QSTile$BooleanState;Ljava/lang/Object;)V
     .locals 4
 
-    const v3, 0x7f0f066b
+    const v3, 0x7f0f066f
 
-    const v2, 0x7f0f066a
+    const v2, 0x7f0f066e
 
     const/4 v1, 0x1
 

@@ -190,7 +190,7 @@
 
     aput-object v2, v7, v9
 
-    const v8, 0x7f0f0258
+    const v8, 0x7f0f0259
 
     invoke-virtual {p0, v8, v7}, Lcom/android/systemui/usb/UsbPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -261,7 +261,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
 
-    const v8, 0x7f0f025f
+    const v8, 0x7f0f0260
 
     invoke-virtual {v7, v8}, Landroid/widget/CheckBox;->setText(I)V
 
@@ -310,7 +310,7 @@
 
     aput-object v2, v7, v9
 
-    const v8, 0x7f0f0257
+    const v8, 0x7f0f0258
 
     invoke-virtual {p0, v8, v7}, Lcom/android/systemui/usb/UsbPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -331,7 +331,7 @@
     :cond_1
     iget-object v7, p0, Lcom/android/systemui/usb/UsbPermissionActivity;->mAlwaysUse:Landroid/widget/CheckBox;
 
-    const v8, 0x7f0f025e
+    const v8, 0x7f0f025f
 
     invoke-virtual {v7, v8}, Landroid/widget/CheckBox;->setText(I)V
 

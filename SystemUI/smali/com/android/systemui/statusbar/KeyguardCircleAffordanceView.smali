@@ -1148,7 +1148,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0d02a7
+    const v5, 0x7f0d02a9
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1200,7 +1200,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0d0364
+    const v5, 0x7f0d0366
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3776,9 +3776,9 @@
 .method protected onLayout(ZIIII)V
     .locals 8
 
-    const v6, 0x7f0d02a7
+    const v6, 0x7f0d02a9
 
-    const v7, 0x7f0d02a6
+    const v7, 0x7f0d02a8
 
     invoke-super/range {p0 .. p5}, Landroid/widget/ImageView;->onLayout(ZIIII)V
 

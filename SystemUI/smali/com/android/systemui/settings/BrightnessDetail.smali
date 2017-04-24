@@ -23,6 +23,8 @@
 
 .field private mConvertView:Landroid/view/View;
 
+.field private mDeatailExpandButton:Landroid/widget/ImageView;
+
 .field private mQsPanel:Lcom/android/systemui/qs/QSPanel;
 
 
@@ -134,17 +136,29 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
+    const v0, 0x7f130377
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/settings/BrightnessDetail;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatailExpandButton:Landroid/widget/ImageView;
+
     const-string/jumbo v0, "BrightnessDetail"
 
     const-string/jumbo v1, "onFinishInflate"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, p0}, Lcom/android/systemui/settings/BrightnessDetail;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/settings/BrightnessDetail;->setFocusable(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/BrightnessDetail;->mDeatailExpandButton:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method

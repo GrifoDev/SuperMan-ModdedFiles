@@ -2697,7 +2697,7 @@
 
     iput v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mDividerHeight:I
 
-    const v6, 0x7f0d023e
+    const v6, 0x7f0d0240
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2705,7 +2705,7 @@
 
     iput v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTopPadding:I
 
-    const v6, 0x7f0d023f
+    const v6, 0x7f0d0241
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2773,7 +2773,7 @@
 
     iput v6, p0, Lcom/android/systemui/qs/customize/CustomizerTileLayout;->mTileIconSize:I
 
-    const v6, 0x7f0d0245
+    const v6, 0x7f0d0247
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

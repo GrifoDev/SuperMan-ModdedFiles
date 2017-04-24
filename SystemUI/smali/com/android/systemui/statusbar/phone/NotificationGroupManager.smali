@@ -279,37 +279,45 @@
 .end method
 
 .method private getTotalNumberOfChildren(Landroid/service/notification/StatusBarNotification;)I
-    .locals 3
+    .locals 5
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroupKey()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->getNumberOfIsolatedChildren(Ljava/lang/String;)I
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->getNumberOfIsolatedChildren(Ljava/lang/String;)I
 
     move-result v1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->mGroupMap:Ljava/util/HashMap;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->mGroupMap:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroupKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v0, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager$NotificationGroup;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager$NotificationGroup;->children:Ljava/util/HashSet;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Ljava/util/HashSet;->size()I
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager$NotificationGroup;->children:Ljava/util/HashSet;
 
-    move-result v0
+    invoke-virtual {v3}, Ljava/util/HashSet;->size()I
 
-    add-int/2addr v0, v1
+    move-result v2
 
-    return v0
+    :goto_0
+    add-int v3, v1, v2
+
+    return v3
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 .end method
 
 .method private handleSuppressedSummaryHeadsUpped(Lcom/android/systemui/statusbar/NotificationData$Entry;)V
@@ -1221,22 +1229,12 @@
     return v1
 .end method
 
-.method public isOnlyChildInSuppressedGroup(Landroid/service/notification/StatusBarNotification;)Z
+.method public isOnlyChildInGroup(Landroid/service/notification/StatusBarNotification;)Z
     .locals 3
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroupKey()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->isGroupSuppressed(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -1246,23 +1244,50 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-nez v2, :cond_1
 
-    :cond_0
-    move v0, v1
-
-    :cond_1
-    :goto_0
-    return v0
-
-    :cond_2
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->getTotalNumberOfChildren(Landroid/service/notification/StatusBarNotification;)I
 
     move-result v2
 
-    if-eq v2, v0, :cond_1
+    if-ne v2, v0, :cond_0
 
+    :goto_0
+    return v0
+
+    :cond_0
     move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method public isOnlyChildInSuppressedGroup(Landroid/service/notification/StatusBarNotification;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroupKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->isGroupSuppressed(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;->isOnlyChildInGroup(Landroid/service/notification/StatusBarNotification;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

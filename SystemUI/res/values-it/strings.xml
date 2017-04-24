@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Collegato tramite %1$s</string>
     <string name="available_via_passpoint">Disponibile tramite %1$s</string>
     <string name="wifi_connected_no_internet">Connesso senza Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet non disponibile</string>
     <string name="wifi_reconnecting">Pronto per essere connesso una volta migliorata la qualità della rete</string>
     <string name="wifi_connected_checking_quality">Verifica della qualità della connessione Internet in corso…</string>
     <string name="wifi_setup_title_connected_network">Connesso alla rete Wi-Fi %s.</string>
@@ -849,7 +850,7 @@ S Bike"</string>
     <string name="aod_show_popup_title">Attiva %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s e %2$s non possono essere attivati contemporaneamente. %3$s verrà disattivato.</string>
     <string name="aod_show_popup_description">%s e le opzioni riportate di seguito non possono essere attivate contemporaneamente. Le opzioni riportate di seguito verranno disattivate.</string>
-    <string name="wificalling_show_popup_use_location_inform">La funzione Chiamata Wi-Fi deve utilizzare le informazioni sulla posizione. I dati anonimi sulla posizione saranno raccolti e inviati a Google e al gestore telefonico. Contattate il gestore telefonico per ulteriori dettagli.</string>
+    <string name="wificalling_show_popup_use_location_inform">"Le informazioni sulla vostra posizione potrebbero venire inviati al gestore telefonico durante l'uso della chiamata Wi-Fi. Contattate il gestore telefonico per ulteriori dettagli."</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Le informazioni relative alla posizione possono essere inviate a Google e al gestore telefonico per consentirvi di effettuare le chiamate Wi-Fi, a prescindere dal fatto che abbiate attivato o meno la funzione della posizione.</string>
     <string name="wificalling_show_popup_enable_location_title">Attiva posizione</string>
     <string name="wificalling_show_popup_enable_location_message">La funzione Chiamata Wi-Fi deve utilizzare le informazioni sulla posizione. La posizione verrà attivata. I dati anonimi sulla posizione saranno raccolti e inviati a Google e al gestore telefonico. Contattate il gestore telefonico per ulteriori dettagli.</string>
@@ -1858,7 +1859,7 @@ Se il tablet viene ripristinato, potrebbe essere necessario inserire le informaz
     <string name="kg_none_iris_pin_deviceadmin_instructions">"In base ai criteri di protezione, inserite il PIN invece di utilizzare il riconoscimento dell'iride"</string>
     <string name="kg_none_multi_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare i dati biometrici.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Il telefono è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del telefono, potrete utilizzare le impronte digitali.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare le impronte digitali.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Il dispositivo è stato riavviato e deve essere sbloccato con il segno. Al successivo sblocco del dispositivo, potrete utilizzare le iridi.</string>

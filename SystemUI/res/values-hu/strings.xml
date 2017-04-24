@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Csatlakozva a következőn keresztül: %1$s</string>
     <string name="available_via_passpoint">Elérhető a következőn keresztül: %1$s</string>
     <string name="wifi_connected_no_internet">Csatlakozva, nincs internetelérés</string>
+    <string name="wifi_internet_may_not_be_available">Az internet esetleg nem elérh.</string>
     <string name="wifi_reconnecting">Kész a kapcsolódásra a hálózat minőségének javulása esetén</string>
     <string name="wifi_connected_checking_quality">Az internetkapcsolat minőségének ellenőrzése…</string>
     <string name="wifi_setup_title_connected_network">A(z) %s Wi-Fi-hálózathoz kapcsolódva.</string>
@@ -850,7 +851,7 @@ adattakar."</string>
     <string name="aod_show_popup_title">%s engedélyezése</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">A(z) %1$s és a(z) %2$s nem kapcsolható be egyszerre. A(z) %3$s kikapcsol.</string>
     <string name="aod_show_popup_description">A(z) %s és az alábbi lehetőségek nem kapcsolhatók be egyszerre. Az alábbi lehetőségek kikapcsolnak.</string>
-    <string name="wificalling_show_popup_use_location_inform">A Wi-Fi-hívás funkciónak szüksége van a helyadatok használatára. A szolgáltatás nevet nem tartalmazó helyadatokat gyűjt, és elküldi azokat a Google-nak, illetve a szolgáltatónak. A részletekért forduljon a szolgáltatóhoz.</string>
+    <string name="wificalling_show_popup_use_location_inform">A Wi-Fi-hívás funkció használata során a rendszer elküldheti a szolgáltatónak az ön helyadatait. A részletekért forduljon a szolgáltatóhoz.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">A rendszer a Wi-Fi-hívás kapcsolásához elküldheti a helyadatait a Google és a szolgáltató számára még akkor is, ha ön nem aktiválta a helymeghatározást.</string>
     <string name="wificalling_show_popup_enable_location_title">Hely engedélyezése</string>
     <string name="wificalling_show_popup_enable_location_message">A Wi-Fi-hívás funkciónak szüksége van a helyadatok használatára. Bekapcsol a Hely funkció. A szolgáltatás nevet nem tartalmazó helyadatokat gyűjt, és elküldi azokat a Google-nak, illetve a szolgáltatónak. A részletekért forduljon a szolgáltatóhoz.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">A biztonsági házirend előírásai miatt az íriszfelismerés használata helyett a PIN-kódot kell megadni</string>
     <string name="kg_none_multi_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja a biometrikus azonosítást.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">A telefon újraindult, ezért mintával kell feloldania. A következő feloldáskor használhatja ujjlenyomatát.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja az ujjlenyomatát.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Az eszköz újraindult, ezért mintával kell feloldania. Az eszköz következő feloldásakor használhatja az íriszét.</string>

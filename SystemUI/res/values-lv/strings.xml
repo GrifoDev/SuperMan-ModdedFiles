@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Savienots, izmantojot %1$s</string>
     <string name="available_via_passpoint">Pieejams, izmantojot %1$s</string>
     <string name="wifi_connected_no_internet">Savienots, nav piekļuves internetam</string>
+    <string name="wifi_internet_may_not_be_available">Internets var nebūt pieejams</string>
     <string name="wifi_reconnecting">Gatavs savienojumam, kad uzlabosies tīkla kvalitāte</string>
     <string name="wifi_connected_checking_quality">Pārbauda jūsu interneta savienojuma kvalitāti…</string>
     <string name="wifi_setup_title_connected_network">Izveidots savienojums ar Wi-Fi tīklu %s.</string>
@@ -850,7 +851,7 @@ režīms"</string>
     <string name="aod_show_popup_title">Aktivizēt %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Funkcijas %1$s un %2$s nevar aktivizēt vienlaikus. Funkcija %3$s tiks deaktivizēta.</string>
     <string name="aod_show_popup_description">Programmu %s un tālāk minētās iespējas nevar aktivizēt vienlaikus. Tālāk minētās iespējas tiks deaktivizētas.</string>
-    <string name="wificalling_show_popup_use_location_inform">Funkcijai Wi-Fi zvani nepieciešama piekļuve jūsu atrašanās vietas informācijai. Tiks apkopoti anonīmi atrašanās vietas dati un pēc tam tie tiks nosūtīti uzņēmumam Google un jūsu pakalpojumu sniedzējam. Papildinformāciju lūdziet savam pakalpojumu sniedzējam.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi zvanu lietošanas laikā jūsu pakalpojumu sniedzējam var tikt nosūtīta jūsu atrašanās vietas informācija. Papildinformāciju lūdziet savam pakalpojumu sniedzējam.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Jūsu atrašanās vietas informācija var tikt nosūtīta uzņēmumam Google un jūsu operatoram, lai izveidotu Wi-Fi zvanus, neatkarīgi no tā, vai esat aktivizējis atrašanās vietas funkciju.</string>
     <string name="wificalling_show_popup_enable_location_title">Aktivizēt funkciju Atrašanās vieta</string>
     <string name="wificalling_show_popup_enable_location_message">Funkcijai Wi-Fi zvani nepieciešama piekļuve jūsu atrašanās vietas informācijai. Atrašanās vieta tiks aktivizēta. Tiks apkopoti anonīmi atrašanās vietas dati un pēc tam tie tiks nosūtīti uzņēmumam Google un jūsu pakalpojumu sniedzējam. Papildinformāciju lūdziet savam pakalpojumu sniedzējam.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Drošības politikas dēļ ievadiet PIN kodu, nevis izmantojiet varavīksnenes atpazīšanu</string>
     <string name="kg_none_multi_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot biometriju.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Jūsu tālrunis tika restartēts, un tas ir jāatbloķē, izmantojot figūru. Nākamreiz tālruņa atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot pirkstu nospiedumus.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Ierīce tika restartēta un ir jāatbloķē ar figūru. Nākamreiz ierīces atbloķēšanai varēsit izmantot varavīksneni.</string>

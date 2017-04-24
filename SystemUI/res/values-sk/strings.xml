@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Pripojené prostredníctvom %1$s</string>
     <string name="available_via_passpoint">K dispozícii prostredníctvom %1$s</string>
     <string name="wifi_connected_no_internet">Pripojené, žiadny internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet nemusí byť dostupný</string>
     <string name="wifi_reconnecting">Pripravené na pripojenie, keď sa zlepší kvalita siete</string>
     <string name="wifi_connected_checking_quality">Kontroluje sa kvalita internetového pripojenia…</string>
     <string name="wifi_setup_title_connected_network">Pripojené k sieti Wi-Fi %s.</string>
@@ -848,7 +849,7 @@ S motorka"</string>
     <string name="aod_show_popup_title">Zapnúť aplikáciu %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Funkcie %1$s a %2$s nemôžu byť zapnuté súčasne. Funkcia %3$s sa vypne.</string>
     <string name="aod_show_popup_description">Funkcia %s a možnosti uvedené nižšie nemôžu byť zapnuté súčasne. Možnosti uvedené nižšie sa vypnú.</string>
-    <string name="wificalling_show_popup_use_location_inform">Funkcia Volanie cez Wi-Fi potrebuje používať informácie o vašej polohe. Budú sa zhromažďovať anonymné údaje o polohe a odosielať do spoločnosti Google a vášmu operátorovi. Bližšie informácie získate od svojho operátora.</string>
+    <string name="wificalling_show_popup_use_location_inform">Kým budete používať funkciu Volanie cez Wi-Fi, informácie o vašej polohe sa môžu odosielať vášmu sieťovému operátorovi. Bližšie informácie získate od svojho operátora.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informácie o vašej polohe sa môžu odosielať spoločnosti Google a operátorovi na účely poskytovania služby volaní cez Wi-Fi bez ohľadu na to, či máte aktivovanú funkciu zisťovania polohy.</string>
     <string name="wificalling_show_popup_enable_location_title">Zapnutie umiestnenia</string>
     <string name="wificalling_show_popup_enable_location_message">Funkcia Volanie cez Wi-Fi potrebuje používať informácie o vašej polohe. Zapne sa funkcia Lokalizácia. Budú sa zhromažďovať anonymné údaje o polohe a odosielať do spoločnosti Google a vášmu operátorovi. Bližšie informácie získate od svojho operátora.</string>
@@ -1855,7 +1856,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Z dôvodu politiky zabezpečenia musíte namiesto použitia rozpoznávania dúhovky zadať kód PIN</string>
     <string name="kg_none_multi_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich biometrických údajov.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich biometrických údajov.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich odtlačkov prstov.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefón sa reštartoval a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete telefón odomknúť pomocou svojich odtlačkov prstov.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich odtlačkov prstov.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich dúhoviek.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Zariadenie sa reštartovalo a je potrebné ho odomknúť pomocou vzoru. Nabudúce môžete odomknúť zariadenie pomocou svojich dúhoviek.</string>

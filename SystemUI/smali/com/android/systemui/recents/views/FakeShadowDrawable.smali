@@ -61,7 +61,7 @@
 .method public constructor <init>(Landroid/content/res/Resources;Lcom/android/systemui/recents/RecentsConfiguration;)V
     .locals 3
 
-    const v1, 0x7f0d02c3
+    const v1, 0x7f0d02c5
 
     const/4 v2, 0x1
 
@@ -91,7 +91,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/FakeShadowDrawable;->mShadowEndColor:I
 
-    const v0, 0x7f0d02c2
+    const v0, 0x7f0d02c4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setDither(Z)V
 
-    const v0, 0x7f0d0313
+    const v0, 0x7f0d0315
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

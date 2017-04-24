@@ -102,6 +102,14 @@
 
     :cond_1
     :goto_1
+    iget-object v1, p0, Lcom/android/systemui/swipe/SwipeAnimator$2;->this$0:Lcom/android/systemui/swipe/SwipeAnimator;
+
+    invoke-static {v1}, Lcom/android/systemui/swipe/SwipeAnimator;->-get0(Lcom/android/systemui/swipe/SwipeAnimator;)Lcom/android/systemui/swipe/SwipeAnimator$AnimatorCallback;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/systemui/swipe/SwipeAnimator$AnimatorCallback;->onViEnd()V
+
     return-void
 
     :cond_2

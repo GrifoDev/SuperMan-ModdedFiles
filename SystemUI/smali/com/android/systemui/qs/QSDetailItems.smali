@@ -389,7 +389,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QSDetailItems;->mEmptyText:Landroid/widget/TextView;
 
-    const v4, 0x7f0d021c
+    const v4, 0x7f0d021e
 
     invoke-static {v3, v4}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
 

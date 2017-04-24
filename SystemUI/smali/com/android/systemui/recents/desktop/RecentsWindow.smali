@@ -62,7 +62,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d024f
+    const v3, 0x7f0d0251
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -412,7 +412,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f130344
+    .packed-switch 0x7f130346
         :pswitch_1
         :pswitch_0
         :pswitch_2
@@ -435,7 +435,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->setContentView(I)V
 
-    const v1, 0x7f130342
+    const v1, 0x7f130344
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -449,7 +449,7 @@
 
     invoke-virtual {v1, p0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowView;->setCallback(Lcom/android/systemui/recents/desktop/views/RecentsWindowView$RecentsWindowViewCallbacks;)V
 
-    const v1, 0x7f130344
+    const v1, 0x7f130346
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +461,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130346
+    const v1, 0x7f130348
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -473,7 +473,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130347
+    const v1, 0x7f130349
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +485,7 @@
 
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f130343
+    const v1, 0x7f130345
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/desktop/RecentsWindow;->findViewById(I)Landroid/view/View;
 

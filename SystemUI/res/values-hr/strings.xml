@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Povezano putem %1$s</string>
     <string name="available_via_passpoint">Dostupno putem %1$s</string>
     <string name="wifi_connected_no_internet">Povezano, bez interneta</string>
+    <string name="wifi_internet_may_not_be_available">Internet možda nije dostupan</string>
     <string name="wifi_reconnecting">Spremno za spajanje kad se poboljša kvaliteta mreže</string>
     <string name="wifi_connected_checking_quality">Provjera kvalitete internet veze…</string>
     <string name="wifi_setup_title_connected_network">Spojeno na Wi-Fi mrežu %s.</string>
@@ -849,7 +850,7 @@ motora"</string>
     <string name="aod_show_popup_title">Uključi %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s i %2$s ne mogu biti istovremeno uključeni. Isključit će se %3$s.</string>
     <string name="aod_show_popup_description">%s i opcije u nastavku ne mogu biti istovremeno uključene. Isključit će se opcije u nastavku.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi pozivanje mora upotrebljavati podatke o vašoj lokaciji. Anonimni podaci o lokaciji prikupit će se i poslati tvrtki Google i vašem davatelju usluge. Obratite se svojem davatelju usluge za detalje.</string>
+    <string name="wificalling_show_popup_use_location_inform">Informacije o vašoj lokaciji možda će se slati vašem davatelju usluga dok upotrebljavate Wi-Fi pozivanje. Obratite se svojem davatelju usluge za detalje.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Podaci u vezi s vašom lokacijom mogu se poslati Googleu i vašem operateru radi uspostave Wi-Fi poziva, neovisno jeste li aktivirali značajku lokacije ili niste.</string>
     <string name="wificalling_show_popup_enable_location_title">Uključite Lokaciju</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi pozivanje mora upotrebljavati podatke o vašoj lokaciji. Lokacija će se uključiti. Anonimni podaci o lokaciji prikupit će se i poslati tvrtki Google i vašem davatelju usluge. Obratite se svojem davatelju usluge za detalje.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Zbog sigurnosnih pravila unesite PIN umjesto upotrebe prepoznavanja šarenice</string>
     <string name="kg_none_multi_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti biometrijske podatke pri sljedećem otključavanju uređaja.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti biometrijske podatke pri sljedećem otključavanju uređaja.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti otiske prstiju pri sljedećem otključavanju uređaja.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Vaš je telefon ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti otiske prstiju pri sljedećem otključavanju telefona.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti otiske prstiju pri sljedećem otključavanju uređaja.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti šarenice pri sljedećem otključavanju uređaja.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Vaš je uređaj ponovno pokrenut i treba ga otključati s pomoću uzorka. Možete upotrijebiti šarenice pri sljedećem otključavanju uređaja.</string>

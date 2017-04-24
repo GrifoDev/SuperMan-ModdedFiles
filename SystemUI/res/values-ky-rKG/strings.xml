@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s аркылуу жеткиликтүү</string>
     <string name="available_via_passpoint">%1$s аркылуу жеткиликтүү</string>
     <string name="wifi_connected_no_internet">Туташып турат, Интернет жок</string>
+    <string name="wifi_internet_may_not_be_available">Интернет байкалбашы мүмкүн</string>
     <string name="wifi_reconnecting">Качан тармак сапаты көтөрүлгөндө байланышууга даяр</string>
     <string name="wifi_connected_checking_quality">Интернет туташууңуздун сапатын текшерүүдө…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi тармагына туташты</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s колдонмосун иштетүү</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s жана %2$s бир убактын ичинде иштетиле албайт. %3$s иштен чыгарылат.</string>
     <string name="aod_show_popup_description">%s жана төмөнкү тандоолор бир убакта иштетилбейт. Төмөндөгү тандоолор иштен чыгарылат.</string>
-    <string name="wificalling_show_popup_use_location_inform">"Wi-Fi чалуунун жайгашуу маалыматыңызды колдонуусу зарыл. Белгисиз жайгашуу маалыматтары топтолуп, Google'га жана кызмат тейлөөчүңүзгө жөнөтүлөт. Кошумча маалымат үчүн, кызмат тейлөөчүңүз менен байланышыңыз."</string>
+    <string name="wificalling_show_popup_use_location_inform">Жайгашуу маалыматыңыз, Wi-Fi чалуусун колдонуп жатканда, кызмат тейлөөчүңүзгө жөнөтүлүшү мүмкүн. Чоо-жайы үчүн кызмат тейлөөчүңүз менен байланышыңыз.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Сиздин жайгашууга байланышкан маалыматыңыз Wi-Fi чалууларын орнотуу үчүн, жайгашуу өзгөчөлүгүн иштетсеңиз же иштетпесеңиз деле, Google же операторуңузга жөнөтүлбөйт.</string>
     <string name="wificalling_show_popup_enable_location_title">Жердикти Иштетүү</string>
     <string name="wificalling_show_popup_enable_location_message">"Wi-Fi чалуунун жайгашуу маалыматыңызды колдонуусу зарыл. Жайгашуу иштетилет. Белгисиз жайгашуу маалыматтары топтолуп, Google'га жана кызмат тейлөөчүңүзгө жөнөтүлөт. Кошумча маалымат үчүн, кызмат тейлөөчүңүз менен байланышыңыз."</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Коопсуздук саясатына байланыштуу карек аныктоонун ордуна, ПИН код киргизиңиз</string>
     <string name="kg_none_multi_pattern_restart_instructions">Түзмөгүңуз кайра иштетилген жана сүрөтүңуздү колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Түзмөгүңуз кайра иштетилген жана сүрөтүңуздү колдонуу менен кулпуну ачуу керек. Сиз кийинки жолу түзмөгүңүздүн кулпусун ачуу үчүн, биометрикалык маалыматтарыңызды колдонсоңуз болот.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сүрөтүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Телефонуңуз кайра иштетилген жана сүрөтүңүзү колдонуу менен анын кулпусун ачуу керек. Кийинки жолу телефонуңуздун кулпусун ачууда бармак издериңизди колдоно аласыз.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сүрөтүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн бармак издериңизди колдонсоңуз болот.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сүрөтүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Түзмөгүңүз кайра иштелиген жана аны сүрөтүңүздү колдонуу менен кулпудан ачуу зарыл. Түзмөгүңүздү кийинки жолу кулпудан ачуу үчүн көз челдериңизди колдонсоңуз болот.</string>

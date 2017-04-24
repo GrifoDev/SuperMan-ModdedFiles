@@ -1207,7 +1207,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f100233
+    const v17, 0x7f100234
 
     invoke-virtual/range {v16 .. v17}, Landroid/widget/TextView;->setTextAppearance(I)V
 

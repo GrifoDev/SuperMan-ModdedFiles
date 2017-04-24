@@ -311,7 +311,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f130379
+    const v3, 0x7f13037b
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    const v3, 0x7f130376
+    const v3, 0x7f130378
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -385,7 +385,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f130377
+    const v3, 0x7f130379
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/ToggleSlider;->findViewById(I)Landroid/view/View;
 
@@ -469,7 +469,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0394
+    const v2, 0x7f0f0395
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1070,6 +1070,85 @@
     iput-object p1, p0, Lcom/android/systemui/settings/ToggleSlider;->mListener:Lcom/android/systemui/settings/ToggleSlider$Listener;
 
     return-void
+.end method
+
+.method public setOutdoorMode(Z)V
+    .locals 5
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v0, "ToggleSlider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "setOutdoorMode "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v3, p0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    if-eqz p1, :cond_1
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {v3, v0}, Lcom/android/systemui/settings/ToggleSeekBar;->setEnabled(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
+
+    if-eqz v0, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
+
+    if-eqz p1, :cond_2
+
+    move v0, v1
+
+    :goto_1
+    iput-boolean v0, v3, Lcom/android/systemui/settings/ToggleSlider;->mTouchEnabled:Z
+
+    iget-object v0, p0, Lcom/android/systemui/settings/ToggleSlider;->mMirror:Lcom/android/systemui/settings/ToggleSlider;
+
+    iget-object v0, v0, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
+
+    if-eqz p1, :cond_3
+
+    :goto_2
+    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSeekBar;->setEnabled(Z)V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_2
 .end method
 
 .method setSliderColor()V

@@ -38,6 +38,7 @@
     <string name="connected_via_passpoint">Падлучана праз %1$s</string>
     <string name="available_via_passpoint">Даступна праз %1$s</string>
     <string name="wifi_connected_no_internet">Падлучана, няма інтэрнэту</string>
+    <string name="wifi_internet_may_not_be_available">Інтэрнэт можа быць недаступны</string>
     <string name="wifi_reconnecting">Падлучэнне адбудзецца пры паляпшэнні якасці сеткі</string>
     <string name="wifi_connected_checking_quality">Праверка якасці інтэрнэт-злучэння…</string>
     <string name="wifi_setup_title_connected_network">Падлучана да сеткі Wi-Fi «%s».</string>
@@ -816,7 +817,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Уключыць %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s і %2$s не могуць быць адначасова ўключаны. %3$s будзе адключаны.</string>
     <string name="aod_show_popup_description">Немагчыма адначасова ўключыць параметры, пералічаныя ніжэй, і функцыю %s. Пералічаныя ніжэй параметры будуць адключаны.</string>
-    <string name="wificalling_show_popup_use_location_inform">Выклікам праз Wi-Fi патрабуецца інфармацыя пра ваша месцазнаходжанне. Ананімныя даныя пра месцазнаходжанне будуць збірацца і адпраўляцца кампаніі Google і вашаму пастаўшчыку паслуг. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
+    <string name="wificalling_show_popup_use_location_inform">Інфармацыя аб вашым месцазнаходжанні можа быць адпраўлена пастаўшчыку паслуг падчас выкарыстання выклікаў праз Wi-Fi. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Для правядзення выклікаў Wi-Fi даныя, звязаныя з вашым месцазнаходжаннем, могуць адпраўляцца ў Google і вашаму аператару – незалежна ад таго, ці актывавалі вы функцыю вызначэння месцазнаходжання.</string>
     <string name="wificalling_show_popup_enable_location_title">Уключыць вызначэнне месцазнаходжання</string>
     <string name="wificalling_show_popup_enable_location_message">Выклікам праз Wi-Fi патрабуецца інфармацыя пра ваша месцазнаходжанне. Будзе ўключана вызначэнне месцазнаходжання. Ананімныя даныя пра месцазнаходжанне будуць збірацца і адпраўляцца кампаніі Google і вашаму пастаўшчыку паслуг. За дадатковай інфармацыяй звяртайцеся да пастаўшчыка паслуг.</string>
@@ -1822,7 +1823,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Увядзіце PIN-код замест выкарыстання распазнавання вясёлкавай абалонкі з-за палітыкі бяспекі</string>
     <string name="kg_none_multi_pattern_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Ваша прылада была перазапушчана і патрабуе разблакіроўкі з дапамогай узору. Каб разблакіраваць прыладу, наступным разам вы можаце выкарыстоўваць біяметрычныя даныя.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Ваш тэлефон быў перазапушчаны, і яго трэба разблакіраваць з дапамогай узора. Вы зможаце выкарыстаць свае адбіткі пальцаў пры наступнай разблакіроўцы тэлефона.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць адбіткі пальцаў.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Ваша прылада была перазапушчана, і яе трэба разблакіраваць з дапамогай узору. У наступны раз для разблакіроўкі прылады вы зможаце выкарыстоўваць вясёлкавыя абалонкі.</string>

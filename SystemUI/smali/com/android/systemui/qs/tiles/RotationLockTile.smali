@@ -223,7 +223,7 @@
 .method private getAccessibilityString(Z)Ljava/lang/String;
     .locals 5
 
-    const v2, 0x7f0f0375
+    const v2, 0x7f0f0376
 
     if-eqz p1, :cond_1
 
@@ -265,7 +265,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0378
+    const v4, 0x7f0f0379
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -276,7 +276,7 @@
 
     aput-object v0, v3, v4
 
-    const v0, 0x7f0f0376
+    const v0, 0x7f0f0377
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0379
+    const v4, 0x7f0f037a
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -440,7 +440,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f0f0424
+    const v5, 0x7f0f0425
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -458,7 +458,7 @@
 
     aput-object v1, v6, v3
 
-    const v7, 0x7f0f0425
+    const v7, 0x7f0f0426
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -567,7 +567,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0f0378
+    const v0, 0x7f0f0379
 
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
@@ -608,7 +608,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0f0379
+    const v0, 0x7f0f037a
 
     goto :goto_0
 
@@ -630,7 +630,7 @@
     :cond_4
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/RotationLockTile;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0374
+    const v4, 0x7f0f0375
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

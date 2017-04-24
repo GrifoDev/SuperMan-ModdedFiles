@@ -2183,9 +2183,15 @@
         <item name="android:fontFamily">roboto-regular</item>
     </style>
     <style name="TextAppearance.QS.DetailContentTitle" parent="@style/TextAppearance.QS">
-        <item name="android:textSize">@dimen/qs_detail_item_primary_text_size</item>
+        <item name="android:textSize">@dimen/qs_detail_content_primary_text_size</item>
         <item name="android:textColor">@color/qs_detail_item_name</item>
         <item name="android:fontFamily">roboto-regular</item>
+    </style>
+    <style name="TextAppearance.QS.DetailContentPrimary" parent="@style/TextAppearance.QS.DetailItemPrimary">
+        <item name="android:textSize">@dimen/qs_detail_content_primary_text_size</item>
+    </style>
+    <style name="TextAppearance.QS.DetailContentSecondary" parent="@style/TextAppearance.QS.DetailItemSecondary">
+        <item name="android:textSize">@dimen/qs_detail_content_secondary_text_size</item>
     </style>
     <style name="TextAppearance.QS.Introduction" parent="@style/TextAppearance.QS">
         <item name="android:textSize">14.0sp</item>
@@ -2210,25 +2216,12 @@
         <item name="android:textColor">@color/qs_detail_empty_text</item>
         <item name="android:fontFamily">roboto-regular</item>
     </style>
-    <style name="TextAppearance.QS.DetailRadio" parent="@style/TextAppearance.QS">
-        <item name="android:textSize">@dimen/qs_detail_button_text_size</item>
-        <item name="android:textColor">@color/qs_detail_item_name</item>
-        <item name="android:fontFamily">roboto-regular</item>
-    </style>
+    <style name="TextAppearance.QS.DetailRadio" parent="@style/TextAppearance.QS.DetailContentPrimary" />
     <style name="TextAppearance.QS.DetailRadio.Disable" parent="@style/TextAppearance.QS.DetailRadio">
-        <item name="android:textSize">@dimen/qs_detail_button_text_size</item>
         <item name="android:textColor">@color/qs_detail_text_disable</item>
-        <item name="android:fontFamily">sec-roboto-condensed</item>
     </style>
-    <style name="TextAppearance.QS.DetailTorch" parent="@style/TextAppearance.QS">
-        <item name="android:textSize">@dimen/qs_detail_empty_text_size</item>
+    <style name="TextAppearance.QS.DetailTorch" parent="@style/TextAppearance.QS.DetailEmpty">
         <item name="android:textColor">@color/qs_detail_torch_level_text</item>
-        <item name="android:fontFamily">roboto-regular</item>
-    </style>
-    <style name="TextAppearance.QS.DetailTorchTitle" parent="@style/TextAppearance.QS">
-        <item name="android:textSize">@dimen/qs_detail_button_text_size</item>
-        <item name="android:textColor">@color/qs_detail_item_name</item>
-        <item name="android:fontFamily">roboto-regular</item>
     </style>
     <style name="TextAppearance.QS.Subhead" parent="@style/TextAppearance.QS">
         <item name="android:textSize">14.0sp</item>

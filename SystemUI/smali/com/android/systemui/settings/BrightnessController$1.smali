@@ -40,7 +40,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/settings/BrightnessController$1;->this$0:Lcom/android/systemui/settings/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-wrap3(Lcom/android/systemui/settings/BrightnessController;)V
+    invoke-static {v0}, Lcom/android/systemui/settings/BrightnessController;->-wrap4(Lcom/android/systemui/settings/BrightnessController;)V
 
     return-void
 .end method

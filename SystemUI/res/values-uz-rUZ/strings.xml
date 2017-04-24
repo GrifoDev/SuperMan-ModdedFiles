@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s orqali ulangan</string>
     <string name="available_via_passpoint">%1$s orqali ishlaydi</string>
     <string name="wifi_connected_no_internet">Ulangan, lekin internet aloqasi yo‘q</string>
+    <string name="wifi_internet_may_not_be_available">Internet yo‘q bo‘lishi mumkin</string>
     <string name="wifi_reconnecting">Tarmoq sifati yaxshilanganda, ulanishga tayyor</string>
     <string name="wifi_connected_checking_quality">Internet ulanishingiz sifati tekshirilmoqda…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi tarmog‘iga ulangan.</string>
@@ -849,7 +850,7 @@ rejimi"</string>
     <string name="aod_show_popup_title">%sni yoqish</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s va %2$s ni bir vaqtda yoqib bo‘lmaydi. %3$s o‘chiriladi.</string>
     <string name="aod_show_popup_description">%s va quyidagi opsiyalarning har ikkalasini bir vaqtda yoqib bo‘lmaydi. Quyidagi opsiyalar o‘chiriladi.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi qo‘ng‘iroq joylashuv ma’lumotlaridan foydalanishi lozim. Anonim joylashuv ma’lumotlari to‘planadi va Google va xizmat ta’minotchisiga yuboriladi. Batafsil ma‘lumot olish uchun xizmat ta‘minotchingiz bilan bog‘laning.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi qo‘ng‘iroqdan foydalanayotganingizda joylashuvingiz ma’lumotlari xizmat ta’minotchisiga yuborilishi mumkin. Batafsil ma‘lumot olish uchun xizmat ta‘minotchingiz bilan bog‘laning.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Joylashuv funksiyasi yoqilgan yoki yoqilmaganligiga qaramasdan, Wi-Fi qo‘ng‘iroqlarni amalga oshirish uchun joylashuvingizga tegishli ma’lumotlarni Google va operatoringizga yuborish mumkin.</string>
     <string name="wificalling_show_popup_enable_location_title">Joylashuvni yoqish</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi qo‘ng‘iroq joylashuv ma’lumotlaridan foydalanishi lozim. Joylashuv yoqiladi. Anonim joylashuv ma’lumotlari to‘planadi va Google va xizmat ta’minotchisiga yuboriladi. Batafsil ma‘lumot olish uchun xizmat ta‘minotchingiz bilan bog‘laning.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Xavfsizlik siyosati sababli ko‘z pardasini tanish o‘rniga PIN-kodni kiriting</string>
     <string name="kg_none_multi_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda biometrik ma’lumotlardan foydalanishingiz mumkin.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefoningiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Telefoningizni keyingi gal blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Keyingi gal qurilmani blokdan chiqarishda barmoq izlaridan foydalanishingiz mumkin.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Qurilmangiz qayta ishga tushirildi va chizma yordamida blokdan chiqarilishi lozim. Qurilmani keyingi gal blokdan chiqarganingizda, ko‘z pardalaridan foydalanishingiz mumkin bo‘ladi.</string>

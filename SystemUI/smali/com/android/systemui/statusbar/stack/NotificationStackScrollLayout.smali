@@ -3492,7 +3492,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d026a
+    const v2, 0x7f0d026c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3508,7 +3508,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d026e
+    const v2, 0x7f0d0270
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3524,7 +3524,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d026f
+    const v2, 0x7f0d0271
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3544,7 +3544,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0270
+    const v2, 0x7f0d0272
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3558,7 +3558,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0390
+    const v2, 0x7f0d0392
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -5333,7 +5333,7 @@
     invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setDismissed(Z)V
 
     :cond_1
-    const v3, 0x7f1303d9
+    const v3, 0x7f1303db
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -8905,7 +8905,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d026c
+    const v2, 0x7f0d026e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12495,7 +12495,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d03e6
+    const v6, 0x7f0d03e9
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

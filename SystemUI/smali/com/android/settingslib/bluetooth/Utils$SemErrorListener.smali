@@ -21,5 +21,5 @@
 .method public abstract showConnectingError(Landroid/content/Context;Ljava/lang/String;)V
 .end method
 
-.method public abstract showPANConnectingError(Landroid/content/Context;Ljava/lang/String;)V
+.method public abstract showPANConnectingError(Landroid/content/Context;Ljava/lang/String;Z)V
 .end method

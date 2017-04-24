@@ -69,7 +69,7 @@
 
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
-    const v3, 0x7f100229
+    const v3, 0x7f10022a
 
     invoke-direct {v2, p1, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mToolbar:Landroid/widget/Toolbar;
 
-    const v3, 0x7f0f0594
+    const v3, 0x7f0f0598
 
     invoke-virtual {v2, v3}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -231,7 +231,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0227
+    const v4, 0x7f0f0228
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

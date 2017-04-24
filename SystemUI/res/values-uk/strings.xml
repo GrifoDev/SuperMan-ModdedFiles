@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Під’єднано через %1$s</string>
     <string name="available_via_passpoint">Доступ через %1$s</string>
     <string name="wifi_connected_no_internet">Під’єднано, але немає доступу до Інтернету</string>
+    <string name="wifi_internet_may_not_be_available">Інтернет може бути недоступний</string>
     <string name="wifi_reconnecting">Підключення буде встановлено після покращення якості мережі</string>
     <string name="wifi_connected_checking_quality">Триває перевірка якості підключення до Інтернету…</string>
     <string name="wifi_setup_title_connected_network">Підключено до мережі Wi-Fi %s.</string>
@@ -849,7 +850,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Увімкнути %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s та %2$s не можна увімкнути одночасно. %3$s буде вимкнено.</string>
     <string name="aod_show_popup_description">Одночасно увімкнути %s та наведені нижче параметри неможливо. Параметри нижче буде вимкнено.</string>
-    <string name="wificalling_show_popup_use_location_inform">Для здійснення викликів через Wi-Fi використовується інформація про ваше місцезнаходження. Анонімні геодані збиратимуться та відправлятимуться до Google та до вашого оператора зв’язку. Для отримання детальнішої інформації зверніться до вашого оператора зв’язку.</string>
+    <string name="wificalling_show_popup_use_location_inform">Під час дзвінків за допомогою мережі Wi-Fi вашому постачальникові послуг може надсилатися інформація про ваше розташування. Щоб дізнатися більше, зверніться до свого постачальника послуг.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Для викликів по Wi-Fi дані про ваше розташування може бути надіслано Google та вашому мобільному оператору, навіть якщо функцію визначення місця розташування вимкнено.</string>
     <string name="wificalling_show_popup_enable_location_title">Увімкнути функцію «Розташування»</string>
     <string name="wificalling_show_popup_enable_location_message">Для здійснення викликів через Wi-Fi використовується інформація про ваше місцезнаходження. Буде увімкнено геодані. Анонімні геодані збиратимуться та відправлятимуться до Google та до вашого оператора зв’язку. Для отримання детальнішої інформації зверніться до вашого оператора зв’язку.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Згідно з політикою безпеки необхідно ввести PIN-код замість розпізнавання райдужних оболонок</string>
     <string name="kg_none_multi_pattern_restart_instructions">Пристрій перезапущено. Його необхідно розблокувати за допомогою малюнка. При наступному розблокуванні пристрою ви зможете використати біометричні дані.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Пристрій перезапущено. Його необхідно розблокувати за допомогою малюнка. При наступному розблокуванні пристрою ви зможете використати біометричні дані.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Пристрій було перезапущено, і його необхідно розблокувати за допомогою малюнка розблокування. Для наступного розблокування пристрою ви зможете використати відбитки пальців.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Телефон перезавантажено, тому його необхідно розблокувати за допомогою малюнка розблокування. Для наступного розблокування телефону ви зможете використати відбитки пальців.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Пристрій було перезапущено, і його необхідно розблокувати за допомогою малюнка розблокування. Для наступного розблокування пристрою ви зможете використати відбитки пальців.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Пристрій було перезапущено, і його необхідно розблокувати за допомогою малюнка розблокування. Для наступного розблокування пристрою ви зможете використати райдужки.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Пристрій було перезапущено, і його необхідно розблокувати за допомогою малюнка розблокування. Для наступного розблокування пристрою ви зможете використати райдужки.</string>

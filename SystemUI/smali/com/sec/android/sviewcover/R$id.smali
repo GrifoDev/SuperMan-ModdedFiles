@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final battery_charging:I = 0x7f130359
+.field public static final battery_charging:I = 0x7f13035b
 
 .field public static final clear_cover_battery_charging:I = 0x7f130107
 
@@ -84,21 +84,21 @@
 
 .field public static final s_view_cover_contact_button:I = 0x7f130000
 
-.field public static final s_view_cover_hide_effect:I = 0x7f13035e
+.field public static final s_view_cover_hide_effect:I = 0x7f130360
 
-.field public static final s_view_cover_shortcut_camera_button:I = 0x7f130355
+.field public static final s_view_cover_shortcut_camera_button:I = 0x7f130357
 
-.field public static final s_view_cover_swipearrow_camera:I = 0x7f130356
+.field public static final s_view_cover_swipearrow_camera:I = 0x7f130358
 
 .field public static final s_view_cover_swipearrow_contact:I = 0x7f130001
 
-.field public static final s_view_cover_unlock_area:I = 0x7f13035b
+.field public static final s_view_cover_unlock_area:I = 0x7f13035d
 
-.field public static final s_view_cover_wallpaper:I = 0x7f13035f
+.field public static final s_view_cover_wallpaper:I = 0x7f130361
 
-.field public static final sec_cover_camera_circle:I = 0x7f130354
+.field public static final sec_cover_camera_circle:I = 0x7f130356
 
-.field public static final sec_cover_contact_circle:I = 0x7f130357
+.field public static final sec_cover_contact_circle:I = 0x7f130359
 
 .field public static final stub_notifications:I = 0x7f1300f2
 

@@ -24,7 +24,7 @@
     <dimen name="navbar_search_outerring_radius">215.0dip</dimen>
     <dimen name="navbar_search_panel_height">280.0dip</dimen>
     <dimen name="status_bar_header_height_keyguard">60.0dip</dimen>
-    <dimen name="notification_panel_width">600.0dip</dimen>
+    <dimen name="notification_panel_width">588.0dip</dimen>
     <item type="dimen" name="notification_panel_min_height_frac">39.999996%</item>
     <dimen name="qs_expand_margin">0.0dip</dimen>
     <dimen name="keyguard_clock_notifications_margin_min">44.0dip</dimen>

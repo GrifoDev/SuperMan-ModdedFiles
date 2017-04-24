@@ -749,32 +749,6 @@
     return v3
 .end method
 
-.method public static isTablet()Z
-    .locals 2
-
-    const-string/jumbo v1, "ro.build.characteristics"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v1, "tablet"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method private static longToString(J)Ljava/lang/String;
     .locals 10
 
@@ -1236,7 +1210,7 @@
     return-void
 .end method
 
-.method static showPANConnectingError(Landroid/content/Context;Ljava/lang/String;)V
+.method static showPANConnectingError(Landroid/content/Context;Ljava/lang/String;Z)V
     .locals 1
 
     sget-object v0, Lcom/android/settingslib/bluetooth/Utils;->sSemErrorListener:Lcom/android/settingslib/bluetooth/Utils$SemErrorListener;
@@ -1245,7 +1219,7 @@
 
     sget-object v0, Lcom/android/settingslib/bluetooth/Utils;->sSemErrorListener:Lcom/android/settingslib/bluetooth/Utils$SemErrorListener;
 
-    invoke-interface {v0, p0, p1}, Lcom/android/settingslib/bluetooth/Utils$SemErrorListener;->showPANConnectingError(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-interface {v0, p0, p1, p2}, Lcom/android/settingslib/bluetooth/Utils$SemErrorListener;->showPANConnectingError(Landroid/content/Context;Ljava/lang/String;Z)V
 
     :cond_0
     return-void

@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s মাধ্যমে সংযুক্ত হয়েছে</string>
     <string name="available_via_passpoint">%1$s এর মাধ্যমে উপলব্ধ</string>
     <string name="wifi_connected_no_internet">সংযুক্ত, ইন্টারনেট নেই</string>
+    <string name="wifi_internet_may_not_be_available">ইন্টারনেট সুলভ নাও হতে পারে</string>
     <string name="wifi_reconnecting">নেটওয়ার্ক গুণমান উন্নত হলে সংযোগ করতে প্রস্তুত</string>
     <string name="wifi_connected_checking_quality">আপনার ইন্টারনেট সংযোগের গুণমান পরীক্ষা করা হচ্ছে…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi নেটওয়ার্ক %s-এ সংযুক্ত হয়েছে।</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s সক্ষম করুন</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ও %2$s-কে একই সময় সক্ষম করা যাবে না। %3$s অক্ষম হবে।</string>
     <string name="aod_show_popup_description">%s এবং নিচের বিকল্পগুলোকে একই সময় সক্রিয় করা যাবে না। নিচের বিকল্পগুলো নিষ্ক্রিয় হবে।</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi কলিং আপনার অবস্থান সম্পর্কিত তথ্য ব্যবহার করা দরকার৷ বেনামে অবস্থানের তথ্য সংগ্রহ করা হবে এবং Google ও আপনার সার্ভিস প্রোভাইডারের কাছে পাঠানো হবে৷ বিস্তারিত তথ্যের জন্য আপনার সার্ভিস প্রোভাইডারের সাথে যোগাযোগ করুন৷</string>
+    <string name="wificalling_show_popup_use_location_inform">আপনি ওয়াই-ফাই কলিং ব্যবহারের সময় আপনার সার্ভিস প্রোভাইডারের কাছে আপনার অবস্থানের তথ্য পাঠানো হতে পারে৷ বিস্তারিত তথ্যের জন্য আপনার সার্ভিস প্রোভাইডারের সাথে যোগাযোগ করুন৷</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">আপনার অবস্থান-সংক্রান্ত তথ্য এখানে পাঠানো যেতে পারে ওয়াই-ফাই কল চালু করার জন্য Google ও আপনার অপারেটরের কাছে, আপনি অবস্থানের ফিচার সক্রিয় করেন বা না করেন</string>
     <string name="wificalling_show_popup_enable_location_title">অবস্থান সক্ষম করুন</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi কলিং আপনার অবস্থান সম্পর্কিত তথ্য ব্যবহার করা দরকার৷ অবস্থান সক্ষম হবে৷ বেনামে অবস্থানের তথ্য সংগ্রহ করা হবে এবং Google ও আপনার সার্ভিস প্রোভাইডারের কাছে পাঠানো হবে৷ বিস্তারিত তথ্যের জন্য আপনার সার্ভিস প্রোভাইডারের সাথে যোগাযোগ করুন৷</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">নিরাপত্তা নীতির কারণে চোখের মণি শনাক্তকরণ ব্যবহারের পরিবর্তে পিন লিখুন</string>
     <string name="kg_none_multi_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার বায়োমেট্রিক্স ব্যবহার করতে পারবেন৷</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার বায়োমেট্রিক্স ব্যবহার করতে পারবেন৷</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার আঙুলের ছাপ ব্যবহার করতে পারবেন৷</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">আপনার ফোন পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ফোন আনলক করার সময় আপনার আঙুলের ছাপ ব্যবহার করতে পারবেন৷</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার আঙুলের ছাপ ব্যবহার করতে পারবেন৷</string>
     <string name="kg_none_iris_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার চোখের মণি ব্যবহার করতে পারবেন৷</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">আপনার ডিভাইসটি পুনরায় চালু করা হয়েছে এবং এটিকে আপনার প্যাটার্ন দিয়ে আনলক করতে হবে৷ পরবর্তী বার আপনার ডিভাইস আনলক করার সময় আপনার চোখের মণি ব্যবহার করতে পারবেন৷</string>

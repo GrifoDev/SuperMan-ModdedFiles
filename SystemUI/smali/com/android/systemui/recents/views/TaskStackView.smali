@@ -13,6 +13,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/recents/views/TaskStackView$-void_onBusEvent_com_android_systemui_recents_events_activity_MultiWindowSettingChangedEvent_event_LambdaImpl0;,
         Lcom/android/systemui/recents/views/TaskStackView$1;,
         Lcom/android/systemui/recents/views/TaskStackView$2;,
         Lcom/android/systemui/recents/views/TaskStackView$3;,
@@ -264,6 +265,14 @@
 
 
 # direct methods
+.method static synthetic -com_android_systemui_recents_views_TaskStackView_lambda$1(Lcom/android/systemui/recents/views/TaskView;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskView;->setNoUserInteractionState()V
+
+    return-void
+.end method
+
 .method static synthetic -get0(Lcom/android/systemui/recents/views/TaskStackView;)Lcom/android/systemui/recents/views/TaskStackAnimationHelper;
     .locals 1
 
@@ -523,7 +532,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0d0315
+    const v3, 0x7f0d0317
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -618,7 +627,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f0d0313
+    const v3, 0x7f0d0315
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3941,6 +3950,22 @@
     return-void
 .end method
 
+.method public final onBusEvent(Lcom/android/systemui/recents/events/activity/MultiWindowSettingChangedEvent;)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskStackView;->getTaskViews()Ljava/util/List;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/recents/views/TaskStackView$-void_onBusEvent_com_android_systemui_recents_events_activity_MultiWindowSettingChangedEvent_event_LambdaImpl0;
+
+    invoke-direct {v1}, Lcom/android/systemui/recents/views/TaskStackView$-void_onBusEvent_com_android_systemui_recents_events_activity_MultiWindowSettingChangedEvent_event_LambdaImpl0;-><init>()V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
 .method public final onBusEvent(Lcom/android/systemui/recents/events/activity/MultiWindowStateChangedEvent;)V
     .locals 3
 
@@ -4224,7 +4249,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0f02f1
+    const v3, 0x7f0f02f2
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -6393,7 +6418,7 @@
 
     if-eqz p5, :cond_7
 
-    const v4, 0x7f0f044f
+    const v4, 0x7f0f0453
 
     :goto_0
     if-eqz p6, :cond_5
@@ -6410,7 +6435,7 @@
     return-void
 
     :cond_7
-    const v4, 0x7f0f0450
+    const v4, 0x7f0f0454
 
     goto :goto_0
 
@@ -6477,7 +6502,7 @@
 
     new-instance v3, Lcom/android/systemui/recents/events/ui/AllTaskViewsDismissedEvent;
 
-    const v4, 0x7f0f0450
+    const v4, 0x7f0f0454
 
     const/4 v5, 0x1
 

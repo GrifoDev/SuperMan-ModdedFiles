@@ -676,7 +676,7 @@
 .method private isAvailableCapacity()Z
     .locals 15
 
-    const v14, 0x7f0f027c
+    const v14, 0x7f0f027d
 
     const/4 v13, 0x0
 
@@ -844,9 +844,9 @@
 .method static notifyScreenshotError(Landroid/content/Context;Landroid/app/NotificationManager;)V
     .locals 8
 
-    const v7, 0x7f0f027d
+    const v7, 0x7f0f027e
 
-    const v5, 0x7f0f027c
+    const v5, 0x7f0f027d
 
     const/4 v6, 0x1
 
@@ -1418,15 +1418,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f10022d
+    const v3, 0x7f10022e
 
     invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v2, 0x7f0f027f
+    const v2, 0x7f0f0280
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0f0280
+    const v2, 0x7f0f0281
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1849,7 +1849,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0f0282
+    const v3, 0x7f0f0283
 
     move-object/from16 v0, p0
 
@@ -1904,7 +1904,7 @@
 
     move-result-object v4
 
-    const v7, 0x1040817
+    const v7, 0x1040819
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1941,7 +1941,7 @@
 
     move-result-object v4
 
-    const v7, 0x1040816
+    const v7, 0x1040818
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2208,7 +2208,7 @@
 
     invoke-static {v3, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0f0282
+    const v3, 0x7f0f0283
 
     move-object/from16 v0, p0
 

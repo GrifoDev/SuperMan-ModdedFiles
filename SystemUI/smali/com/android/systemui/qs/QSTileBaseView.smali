@@ -200,7 +200,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f044a
+    const v5, 0x7f0f044b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -220,7 +220,7 @@
 
     if-eqz v4, :cond_4
 
-    const v4, 0x7f0f02cc
+    const v4, 0x7f0f02cd
 
     :goto_0
     invoke-virtual {v5, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -232,6 +232,14 @@
     const-string/jumbo v4, "\n"
 
     const-string/jumbo v5, ","
+
+    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v4, "-"
+
+    const-string/jumbo v5, ""
 
     invoke-virtual {v1, v4, v5}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -290,7 +298,7 @@
     return-void
 
     :cond_4
-    const v4, 0x7f0f02cd
+    const v4, 0x7f0f02ce
 
     goto :goto_0
 
@@ -397,7 +405,7 @@
 
     if-nez v1, :cond_1
 
-    const v1, 0x7f0f057c
+    const v1, 0x7f0f0580
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -419,7 +427,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0f057d
+    const v1, 0x7f0f0581
 
     goto :goto_0
 
@@ -468,7 +476,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0f057c
+    const v1, 0x7f0f0580
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -489,7 +497,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0f057d
+    const v1, 0x7f0f0581
 
     goto :goto_0
 .end method

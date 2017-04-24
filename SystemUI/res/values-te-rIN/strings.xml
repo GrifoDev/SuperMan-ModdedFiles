@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s ద్వారా కనెక్ట్ చేయబడింది</string>
     <string name="available_via_passpoint">%1$s ద్వారా అందుబాటులో ఉంది</string>
     <string name="wifi_connected_no_internet">కనెక్ట్ చేయబడింది, ఇంటర్నెట్ లేదు</string>
+    <string name="wifi_internet_may_not_be_available">ఇంటర్నెట్ అందుబాటులో లేకపోవచ్చు</string>
     <string name="wifi_reconnecting">నెట్‌వర్క్ నాణ్యత మెరుగుపడినప్పుడు అనుసంధానమయ్యేందుకు సిద్ధంగా ఉంటుంది</string>
     <string name="wifi_connected_checking_quality">మీ ఇంటర్నెట్ కనెక్షన్ యొక్క నాణ్యతని తనిఖీ చేస్తోంది…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi నెట్‌వర్క్ %s కు కనెక్ట్ అయింది.</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%sని ప్రారంభించు</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s మరియు %2$sను ఒకేసారి ప్రారంభించడం సాధ్యం కాదు. %3$s నిలిపివేయబడుతుంది.</string>
     <string name="aod_show_popup_description">%s మరియు దిగువ ఎంపికలను ఒకేసారి ప్రారంభించడం సాధ్యం కాదు. దిగువ ఎంపికలు నిలిపివేయబడతాయి.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi కాలింగ్ మీ స్థాన సమాచారాన్ని ఉపయోగిస్తుంది. తెలియని స్థాన డేటా సేకరించబడుతుంది మరియు గూగుల్ మరియు మీ సేవా ప్రదాతకు పంపబడుతుంది. వివరాల కోసం మీ సేవా ప్రదాతని సంప్రదించండి.</string>
+    <string name="wificalling_show_popup_use_location_inform">మీరు Wi-Fi కాలింగ్‌ని ఉపయోగించేటప్పుడు మీ స్థాన సమాచారం మీ సేవా ప్రదాతకు పంపబడవచ్చు. వివరాల కోసం మీ సేవా ప్రదాతని సంప్రదించండి.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Wi-Fi కాల్‌లను ప్రారంభించే క్రమంలో మీరు స్థాన ఫీచర్‌ను సక్రియం చేసి ఉన్నా లేదా చేయకపోయినా కూడా గూగులో మరియు మీ ఆపరేటర్‌కు మీ స్థాన సంబంధిత సమాచారం పంపబడుతుంది.</string>
     <string name="wificalling_show_popup_enable_location_title">స్థానాన్ని సవరించు</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi కాలింగ్ మీ స్థాన సమాచారాన్ని ఉపయోగిస్తుంది. స్థానం ప్రారంభించబడుతుంది. తెలియని స్థాన డేటా సేకరించబడుతుంది మరియు గూగుల్ మరియు మీ సేవా ప్రదాతకు పంపబడుతుంది. వివరాల కోసం మీ సేవా ప్రదాతని సంప్రదించండి.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">భద్రతా విధానం కారణంగా కనుపాప గుర్తింపును ఉపయోగించడానికి బదులుగా PINను నమోదు చేయండి</string>
     <string name="kg_none_multi_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటప్పుడు మీ బయోమెట్రిక్స్‌ని ఉపయోగించవచ్చు.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటప్పుడు మీ బయోమెట్రిక్స్‌ని ఉపయోగించవచ్చు.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటప్పుడు మీ వేలిముద్రలను ఉపయోగించవచ్చు.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">మీ ఫోన్ పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. మీరు మీ ఫోన్‌ని అన్‌లాక్ చేయడానికి తదుపరిసారి మీ వేలిముద్రలను ఉపయోగించవచ్చు.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటప్పుడు మీ వేలిముద్రలను ఉపయోగించవచ్చు.</string>
     <string name="kg_none_iris_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటపేపుడు మీ కనుపాపలను ఉపయోగించవచ్చు.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">మీ పరికరం పునఃప్రారంభించబడింది మరియు మీ నమూనాని ఉపయోగించి అన్‌లాక్ చేయాలి. తదుపరి సారి మీరు మీ పరికరాన్ని అన్‌లాక్ చేసేటపేపుడు మీ కనుపాపలను ఉపయోగించవచ్చు.</string>

@@ -183,7 +183,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0315
+    const v1, 0x7f0f0316
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -194,7 +194,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0314
+    const v1, 0x7f0f0315
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -255,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0367
+    const v1, 0x7f0f0368
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -445,7 +445,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f030f
+    const v7, 0x7f0f0310
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f02bc
+    const v8, 0x7f0f02bd
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -536,7 +536,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0367
+    const v7, 0x7f0f0368
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -570,7 +570,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0f02bc
+    const v8, 0x7f0f02bd
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -585,7 +585,7 @@
 
     if-eqz v6, :cond_7
 
-    const v6, 0x7f0f02cc
+    const v6, 0x7f0f02cd
 
     :goto_3
     invoke-virtual {v7, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -594,7 +594,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0367
+    const v7, 0x7f0f0368
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -665,7 +665,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0312
+    const v7, 0x7f0f0313
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -675,7 +675,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0367
+    const v7, 0x7f0f0368
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -728,7 +728,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f0311
+    const v8, 0x7f0f0312
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -746,7 +746,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f02c6
+    const v8, 0x7f0f02c7
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -780,7 +780,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f02c6
+    const v8, 0x7f0f02c7
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -809,7 +809,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0367
+    const v7, 0x7f0f0368
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -819,7 +819,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/tiles/BluetoothTile;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0f0310
+    const v7, 0x7f0f0311
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -830,7 +830,7 @@
     goto/16 :goto_2
 
     :cond_7
-    const v6, 0x7f0f02cd
+    const v6, 0x7f0f02ce
 
     goto/16 :goto_3
 

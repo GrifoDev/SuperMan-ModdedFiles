@@ -468,7 +468,7 @@
 
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
 
-    const v1, 0x7f100209
+    const v1, 0x7f10020a
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/SystemUIApplication;->setTheme(I)V
 

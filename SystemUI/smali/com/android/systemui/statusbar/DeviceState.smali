@@ -439,6 +439,61 @@
     return v6
 .end method
 
+.method public static isLightSensorAvailable(Landroid/content/Context;)Z
+    .locals 6
+
+    const-string/jumbo v5, "sensor"
+
+    invoke-virtual {p0, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/SensorManager;
+
+    const/4 v5, -0x1
+
+    invoke-virtual {v2, v5}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v4, :cond_1
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/Sensor;
+
+    invoke-virtual {v5}, Landroid/hardware/Sensor;->getType()I
+
+    move-result v3
+
+    const/4 v5, 0x5
+
+    if-ne v3, v5, :cond_0
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v5, 0x0
+
+    return v5
+.end method
+
 .method public static isLocationMenuNeed(Landroid/content/Context;)Z
     .locals 5
 

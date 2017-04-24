@@ -726,7 +726,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$DockState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
-    const v2, 0x7f0d031c
+    const v2, 0x7f0d031e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -774,7 +774,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/model/TaskStack$DockState$ViewState;->mHintStrokePaint:Landroid/graphics/Paint;
 
-    const v2, 0x7f0d0303
+    const v2, 0x7f0d0305
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

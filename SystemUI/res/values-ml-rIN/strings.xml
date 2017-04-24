@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s വഴി ബന്ധിപ്പിച്ചു</string>
     <string name="available_via_passpoint">%1$s വഴി ലഭ്യം</string>
     <string name="wifi_connected_no_internet">കണക്റ്റുചെയ്തിരിക്കുന്നു, ഇന്റർനെറ്റില്ല</string>
+    <string name="wifi_internet_may_not_be_available">ഇന്‍റർനെറ്റ് ലഭ്യമായേക്കില്ല</string>
     <string name="wifi_reconnecting">നെറ്റ്‌വർക്ക് മേന്മ മെച്ചപ്പെടുമ്പോൾ ബന്ധിപ്പിക്കാൻ തയ്യാർ</string>
     <string name="wifi_connected_checking_quality">നിങ്ങളുടെ ഇന്‍റര്‍നെറ്റ് കണക്ഷന്‍റെ ഗുണമേന്മ പരിശോധിക്കുന്നു…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi നെറ്റ്‌വര്‍ക്ക് %s-ലേക്ക് കണക്ട് ചെയ്തു.</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s പ്രാപ്തമാക്കുക</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s, %2$s എന്നിവ ഒരേ സമയം പ്രാപ്തമാക്കാനാവില്ല. %3$s അപ്രാപ്തമാക്കപ്പെടും.</string>
     <string name="aod_show_popup_description">%s, താഴെയുള്ള ഐച്ഛികങ്ങൾ എന്നിവ ഒരേ സമയം പ്രാപ്തമാക്കാനാവില്ല. താഴെയുള്ള ഐച്ഛികങ്ങൾ അപ്രാപ്തമാക്കപ്പെടും.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi കോൾ ചെയ്യലിന് നിങ്ങളുടെ ലൊക്കേഷൻ വിവരങ്ങൾ ഉപയോഗിക്കേണ്ട ആവശ്യകതയുണ്ട്. അജ്ഞാത ലൊക്കേഷൻ ഡാറ്റ ശേഖരിച്ച് ഗൂഗിളിനും നിങ്ങളുടെ സേവന ദാതാവിനും അയയ്ക്കും. വിശദാംശങ്ങൾക്ക് നിങ്ങളുടെ സേവന ദാതാവിനെ ബന്ധപ്പെടുക.</string>
+    <string name="wificalling_show_popup_use_location_inform">നിങ്ങൾ Wi-Fi കോളിംഗ് ഉപയോഗിക്കുന്ന സമയത്ത് നിങ്ങളുടെ ലൊക്കേഷൻ വിവരങ്ങൾ നിങ്ങളുടെ സേവന ദാതാവിന് അയച്ചേക്കാം. വിശദാംശങ്ങൾക്ക് നിങ്ങളുടെ സേവന ദാതാവിനെ ബന്ധപ്പെടുക.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">ലൊക്കേഷൻ സവിശേഷത നിങ്ങൾ സജീവമാക്കിയിട്ടുണ്ടെങ്കിലും ഇല്ലെങ്കിലും Wi-Fi കോളുകൾ സജ്ജീകരിക്കാനായി നിങ്ങളുടെ ലൊക്കേഷൻ സംബന്ധ വിവരങ്ങൾ ഗൂഗിളിനും നിങ്ങളുടെ ഓപ്പറേറ്റർക്കും അയയ്ക്കാനുള്ള സാധ്യതയുണ്ട്.</string>
     <string name="wificalling_show_popup_enable_location_title">സ്ഥാനം പ്രാപ്തമാക്കുക</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi കോൾ ചെയ്യലിന് നിങ്ങളുടെ ലൊക്കേഷൻ വിവരങ്ങൾ ഉപയോഗിക്കേണ്ട ആവശ്യകതയുണ്ട്. ലൊക്കേഷൻ പ്രാപ്തമാക്കപ്പെടും. അജ്ഞാത ലൊക്കേഷൻ ഡാറ്റ ശേഖരിച്ച് ഗൂഗിളിനും നിങ്ങളുടെ സേവന ദാതാവിനും അയയ്ക്കും. വിശദാംശങ്ങൾക്ക് നിങ്ങളുടെ സേവന ദാതാവിനെ ബന്ധപ്പെടുക.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">സുരക്ഷാ നയം നിമിത്തം നേത്രപടല തിരിച്ചറിയൽ ഉപയോഗിക്കുന്നതിന് പകരം PIN നൽകുക</string>
     <string name="kg_none_multi_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിക്കപ്പെട്ടതിനാൽ നിങ്ങളുടെ പാറ്റേൺ ഉപയോഗിച്ച് അത് അൺലോക്ക് ചെയ്യേണ്ടിവരും. അടുത്ത തവണ നിങ്ങളുടെ ഉപകരണം അൺലോക്ക് ചെയ്യുമ്പോൾ നിങ്ങളുടെ ബയോമെട്രിക്ക്സ് ഉപയോഗിക്കാവുന്നതാണ്.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിക്കപ്പെട്ടതിനാൽ നിങ്ങളുടെ പാറ്റേൺ ഉപയോഗിച്ച് അത് അൺലോക്ക് ചെയ്യേണ്ടിവരും. അടുത്ത തവണ നിങ്ങളുടെ ഉപകരണം അൺലോക്ക് ചെയ്യുമ്പോൾ നിങ്ങളുടെ ബയോമെട്രിക്ക്സ് ഉപയോഗിക്കാവുന്നതാണ്.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിച്ചു, പാറ്റേൺ ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യേണ്ടതുണ്ട്. അടുത്ത തവണ ഉപകരണം അൺലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ വിരലടയാളം ഉപയോഗിക്കാനാകും.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">നിങ്ങളുടെ ഫോൺ പുനരാരംഭിക്കപ്പെട്ടതിനാൽ നിങ്ങളുടെ ‌പാറ്റേൺ ഉപയോഗിച്ച് അത് അൺലോക്ക് ചെയ്യേണ്ടിവരും. അടുത്ത തവണ നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യുമ്പോൾ നിങ്ങളുടെ വിരലടയാളങ്ങൾ ഉപയോഗിക്കാവുന്നതാണ്.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിച്ചു, പാറ്റേൺ ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യേണ്ടതുണ്ട്. അടുത്ത തവണ ഉപകരണം അൺലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ വിരലടയാളം ഉപയോഗിക്കാനാകും.</string>
     <string name="kg_none_iris_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിച്ചു, പാറ്റേൺ ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യേണ്ടതുണ്ട്. അടുത്ത തവണ ഉപകരണം അൺലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ മിഴിപടലങ്ങൾ ഉപയോഗിക്കാനാകും.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">നിങ്ങളുടെ ഉപകരണം പുനരാരംഭിച്ചു, പാറ്റേൺ ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യേണ്ടതുണ്ട്. അടുത്ത തവണ ഉപകരണം അൺലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ മിഴിപടലങ്ങൾ ഉപയോഗിക്കാനാകും.</string>

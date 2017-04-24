@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s vasitəsilə qoşuludur</string>
     <string name="available_via_passpoint">%1$s vasitəsilə əlçatandır</string>
     <string name="wifi_connected_no_internet">Qoşuludur, internet yoxdur</string>
+    <string name="wifi_internet_may_not_be_available">İnternet mövcud olmaya bilər</string>
     <string name="wifi_reconnecting">Şəbəkə keyfiyyəti artdıqda bağlanmağa hazır</string>
     <string name="wifi_connected_checking_quality">İnternet bağlantınızın keyfiyyəti yoxlanılır…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi şəbəkəsinə %s qoşuldu.</string>
@@ -849,7 +850,7 @@ rejimi"</string>
     <string name="aod_show_popup_title">%s-i aktiv et</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s və %2$s eyni anda aktivləşdirilə bilməz. %3$s qeyri-aktiv ediləcəkdir.</string>
     <string name="aod_show_popup_description">%s və aşağıdakı seçimlər eyni zamanda aktivləşdirilə bilmir. Aşağıdakı seçimlər qeyri-aktiv ediləcəkdir.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi zəng məkanınız barədə məlumatdan istifadə etməlidir. Anonim yer məlumatı toplanacaq və Google-a və xidmət təminatçınıza göndəriləcək. Ətraflı məlumat üçün xidmət təminatçısı ilə əlaqə saxlayın.</string>
+    <string name="wificalling_show_popup_use_location_inform">Sizin məkan məlumatınız Wi-Fi zəngdən istifadə edilən zaman xidmət təminatçısına göndərilə bilər. Ətraflı məlumat üçün xidmət təminatçısı ilə əlaqə saxlayın.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Məkan funksiyası olub-olmadığından asılı olmayaraq Wi-Fi zəngləri etmək üçün məkanla əlaqədar məlumat Google-a və operatorunuza göndərilə bilər.</string>
     <string name="wificalling_show_popup_enable_location_title">Məkanı aktivləşdir</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi zəng məkanınız barədə məlumatdan istifadə etməlidir. Məkan aktiv ediləcək. Anonim yer məlumatı toplanacaq və Google-a və xidmət təminatçınıza göndəriləcək. Ətraflı məlumat üçün xidmət təminatçısı ilə əlaqə saxlayın.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Təhlükəsizlik siyasətinə görə diafraqma tanınması əvəzinə PIN daxil et</string>
     <string name="kg_none_multi_pattern_restart_instructions">Cihazınız sönüb yandı və model ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Cihazınız sönüb yandı və model ilə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açdıqda bioölçüdən istifadə edə bilərsiniz.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Cihazınız sönüb-yandı və modellə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Cihazınız sönüb yandı və modellə kiliddən açılmalıdır. Növbəti dəfə telefonu kiliddən açdıqda barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Cihazınız sönüb-yandı və modellə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman barmaq izlərindən istifadə edə bilərsiniz.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Cihazınız sönüb-yandı və modellə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Cihazınız sönüb-yandı və modellə kiliddən açılmalıdır. Növbəti dəfə cihazı kiliddən açan zaman diafraqmalardan istifadə edə bilərsiniz.</string>

@@ -2212,7 +2212,7 @@
 
     if-ne v7, v11, :cond_6
 
-    sget v11, Lcom/android/settingslib/R$string;->wifi_connected_no_internet:I
+    sget v11, Lcom/android/settingslib/R$string;->wifi_internet_may_not_be_available:I
 
     invoke-virtual {p0, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

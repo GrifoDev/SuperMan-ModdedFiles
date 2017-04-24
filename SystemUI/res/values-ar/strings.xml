@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">‏تم الاتصال عبر %1$s</string>
     <string name="available_via_passpoint">‏متوفرة عبر %1$s</string>
     <string name="wifi_connected_no_internet">متصلة، ولا يتوفر إنترنت</string>
+    <string name="wifi_internet_may_not_be_available">قد لا يتوفر الإنترنت</string>
     <string name="wifi_reconnecting">جاهز للاتصال عندما تتحسن جودة الشبكة</string>
     <string name="wifi_connected_checking_quality">جار فحص جودة اتصال الإنترنت…</string>
     <string name="wifi_setup_title_connected_network">تم الاتصال بشبكة Wi-Fi %s.</string>
@@ -848,7 +849,7 @@ Display"</string>
     <string name="aod_show_popup_title">تفعيل %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">يتعذر تفعيل %1$s و%2$s في الوقت نفسه. سيتم إلغاء تفعيل %3$s.</string>
     <string name="aod_show_popup_description">لا يمكن تفعيل %s والخيارات أدناه في الوقت نفسه. سيتم إلغاء تفعيل الخيارات أدناه.</string>
-    <string name="wificalling_show_popup_use_location_inform">يجب أن يستخدم خيار الاتصال عبر Wi-Fi معلومات موقعك. سيتم جمع بيانات الموقع المجهولة وإرسالها إلى Google ومزود الخدمة. اتصل بمزود الخدمة للحصول على التفاصيل.</string>
+    <string name="wificalling_show_popup_use_location_inform">قد يتم إرسال معلومات موقعك إلى مزود الخدمة لديك أثناء استخدام الاتصال عبر شبكة Wi-Fi. اتصل بمزود الخدمة للحصول على التفاصيل.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">يمكن إرسال المعلومات المتعلقة بموقعك إلى Google وإلى المشغّل لإجراء مكالمات عبر Wi-Fi، سواء قمت بتنشيط ميزة الموقع أم لا.</string>
     <string name="wificalling_show_popup_enable_location_title">تفعيل الموقع</string>
     <string name="wificalling_show_popup_enable_location_message">يجب أن يستخدم خيار الاتصال عبر Wi-Fi معلومات موقعك. سيتم تفعيل الموقع. سيتم جمع بيانات الموقع المجهولة وإرسالها إلى Google ومزود الخدمة. اتصل بمزود الخدمة للحصول على التفاصيل.</string>
@@ -1855,7 +1856,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">أدخل رقم PIN بدلاً من استخدام ميزة التعرف على بصمة العين بسبب سياسة الحماية</string>
     <string name="kg_none_multi_pattern_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام النمط الخاص بك. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">تمت إعادة تشغيل جهازك ويجب إلغاء قفله باستخدام النمط الخاص بك. يمكنك استخدام بيانات مقاييسك الحيوية في المرة المقبلة التي تقوم فيها بإلغاء قفل جهازك.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام النمط الخاص بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">تمت إعادة تشغيل هاتفك وهو بحاجة إلى إلغاء قفله باستخدام النمط. يمكنك استخدام بصمة أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل هاتفك.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام النمط الخاص بك. يمكنك استخدام بصمات أصابعك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_none_iris_pattern_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام النمط الخاص بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">تمت إعادة تشغيل جهازك وهو بحاجة إلى إلغاء القفل باستخدام النمط الخاص بك. يمكنك استخدام بصمة عينيك في المرة القادمة التي تقوم فيها بإلغاء قفل جهازك.</string>

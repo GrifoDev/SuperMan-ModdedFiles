@@ -726,13 +726,13 @@
 .method protected onFinishInflate()V
     .locals 11
 
-    const v10, 0x7f13027b
-
-    const v7, 0x7f130279
+    const v10, 0x7f130279
 
     const/16 v9, 0x8
 
     const/4 v2, 0x1
+
+    const/4 v6, 0x0
 
     const/4 v8, 0x0
 
@@ -740,15 +740,15 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v7}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget v6, v6, Landroid/content/res/Configuration;->orientation:I
+    iget v7, v7, Landroid/content/res/Configuration;->orientation:I
 
-    if-ne v6, v2, :cond_1
+    if-ne v7, v2, :cond_1
 
     :goto_0
     if-eqz v2, :cond_2
@@ -763,7 +763,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -790,7 +790,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->mButtons:Landroid/util/ArrayMap;
 
-    invoke-virtual {p0, v10}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
+    const v7, 0x7f13027b
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -872,7 +874,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -894,7 +896,21 @@
 
     if-eq v6, v7, :cond_0
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
+
+    invoke-virtual {p0}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v6
+
+    iget v6, v6, Landroid/content/res/Configuration;->screenLayout:I
+
+    and-int/lit8 v6, v6, 0x40
+
+    if-eqz v6, :cond_4
 
     iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
 
@@ -936,12 +952,12 @@
     goto :goto_3
 
     :cond_1
-    const/4 v2, 0x0
+    move v2, v6
 
     goto/16 :goto_0
 
     :cond_2
-    invoke-virtual {p0, v7}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v10}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -950,7 +966,9 @@
     goto/16 :goto_1
 
     :cond_3
-    invoke-virtual {p0, v10}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
+    const v6, 0x7f13027b
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/stackdivider/DividerButtonsGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
@@ -959,6 +977,11 @@
     goto/16 :goto_2
 
     :cond_4
+    iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+
+    goto :goto_4
+
+    :cond_5
     iput v0, v1, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     goto :goto_4
@@ -983,10 +1006,8 @@
 
     goto :goto_5
 
-    :cond_5
+    :cond_6
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x7f130279

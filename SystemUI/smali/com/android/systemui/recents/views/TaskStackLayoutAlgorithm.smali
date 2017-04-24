@@ -308,7 +308,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFreeformLayoutAlgorithm:Lcom/android/systemui/recents/views/FreeformWorkspaceLayoutAlgorithm;
 
-    const v1, 0x7f0d02e9
+    const v1, 0x7f0d02eb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -316,7 +316,7 @@
 
     iput v1, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mMinMargin:I
 
-    const v1, 0x7f0d02ed
+    const v1, 0x7f0d02ef
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -324,7 +324,7 @@
 
     iput v1, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mBaseBottomMargin:I
 
-    const v1, 0x7f0d02fe
+    const v1, 0x7f0d0300
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1877,7 +1877,7 @@
 
     if-eqz v3, :cond_4
 
-    const v21, 0x7f0d030d
+    const v21, 0x7f0d030f
 
     :goto_1
     move-object/from16 v0, p0
@@ -1957,7 +1957,7 @@
     goto :goto_0
 
     :cond_4
-    const v21, 0x7f0d0307
+    const v21, 0x7f0d0309
 
     goto :goto_1
 
@@ -4297,7 +4297,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0d032b
+    const v2, 0x7f0d032d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4495,7 +4495,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0d032c
+    const v2, 0x7f0d032e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4552,7 +4552,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0d032b
+    const v2, 0x7f0d032d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -4962,9 +4962,9 @@
 .method public reloadOnConfigurationChange(Landroid/content/Context;)V
     .locals 9
 
-    const v8, 0x7f0d02fb
+    const v8, 0x7f0d02fd
 
-    const v3, 0x7f0d02fa
+    const v3, 0x7f0d02fc
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -4988,11 +4988,11 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFocusedRange:Lcom/android/systemui/recents/views/Range;
 
-    const v0, 0x7f0d02ea
+    const v0, 0x7f0d02ec
 
-    const v1, 0x7f0d02eb
+    const v1, 0x7f0d02ed
 
-    const v2, 0x7f0d02ec
+    const v2, 0x7f0d02ee
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->getDimensionForDevice(Landroid/content/Context;III)I
 
@@ -5000,11 +5000,11 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mBaseTopMargin:I
 
-    const v0, 0x7f0d02ee
+    const v0, 0x7f0d02f0
 
-    const v1, 0x7f0d02ef
+    const v1, 0x7f0d02f1
 
-    const v2, 0x7f0d02f1
+    const v2, 0x7f0d02f3
 
     invoke-static {p1, v0, v1, v2}, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->getDimensionForDevice(Landroid/content/Context;III)I
 
@@ -5100,7 +5100,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFocusState:I
 
-    const v0, 0x7f0d02f3
+    const v0, 0x7f0d02f5
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5108,7 +5108,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFocusedTopPeekHeight:I
 
-    const v0, 0x7f0d02f4
+    const v0, 0x7f0d02f6
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5116,7 +5116,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mFocusedBottomPeekHeight:I
 
-    const v0, 0x7f0d02fc
+    const v0, 0x7f0d02fe
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5124,7 +5124,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mMinTranslationZ:I
 
-    const v0, 0x7f0d02fd
+    const v0, 0x7f0d02ff
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5132,9 +5132,9 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mMaxTranslationZ:I
 
-    const v1, 0x7f0d02f6
+    const v1, 0x7f0d02f8
 
-    const v2, 0x7f0d02f8
+    const v2, 0x7f0d02fa
 
     move-object v0, p1
 
@@ -5150,9 +5150,9 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mBaseInitialTopOffset:I
 
-    const v1, 0x7f0d02f7
+    const v1, 0x7f0d02f9
 
-    const v2, 0x7f0d02f9
+    const v2, 0x7f0d02fb
 
     move-object v0, p1
 
@@ -5170,7 +5170,7 @@
 
     iput v0, p0, Lcom/android/systemui/recents/views/TaskStackLayoutAlgorithm;->mBaseInitialBottomOffset:I
 
-    const v0, 0x7f0d02f5
+    const v0, 0x7f0d02f7
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

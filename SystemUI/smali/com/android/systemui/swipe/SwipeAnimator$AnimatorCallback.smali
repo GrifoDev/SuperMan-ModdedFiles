@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract getBarStatus()I
 .end method
+
+.method public abstract onViEnd()V
+.end method

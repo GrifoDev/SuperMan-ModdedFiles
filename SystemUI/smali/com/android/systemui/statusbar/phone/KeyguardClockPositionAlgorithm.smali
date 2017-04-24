@@ -458,7 +458,7 @@
 
     const/4 v1, 0x1
 
-    const v0, 0x7f0d0276
+    const v0, 0x7f0d0278
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +466,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockNotificationsMarginMin:I
 
-    const v0, 0x7f0d0277
+    const v0, 0x7f0d0279
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -518,7 +518,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDensity:F
 
-    const v0, 0x7f0d0443
+    const v0, 0x7f0d0446
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

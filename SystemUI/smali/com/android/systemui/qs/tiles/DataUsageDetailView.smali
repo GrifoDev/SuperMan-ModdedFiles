@@ -175,7 +175,7 @@
     if-gtz v4, :cond_1
 
     :cond_0
-    const v18, 0x7f0f03a0
+    const v18, 0x7f0f03a1
 
     move-object/from16 v0, p1
 
@@ -199,7 +199,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f03a5
+    const v5, 0x7f0f03a6
 
     move-object/from16 v0, v16
 
@@ -365,7 +365,7 @@
 
     if-gtz v4, :cond_2
 
-    const v18, 0x7f0f03a1
+    const v18, 0x7f0f03a2
 
     move-object/from16 v0, p1
 
@@ -395,7 +395,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f03a3
+    const v5, 0x7f0f03a4
 
     move-object/from16 v0, v16
 
@@ -421,7 +421,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f03a4
+    const v5, 0x7f0f03a5
 
     move-object/from16 v0, v16
 
@@ -432,7 +432,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0f03a2
+    const v18, 0x7f0f03a3
 
     move-object/from16 v0, p1
 
@@ -462,7 +462,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f03a3
+    const v5, 0x7f0f03a4
 
     move-object/from16 v0, v16
 
@@ -488,7 +488,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0f03a4
+    const v5, 0x7f0f03a5
 
     move-object/from16 v0, v16
 
@@ -514,7 +514,7 @@
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 3
 
-    const v2, 0x7f0d021e
+    const v2, 0x7f0d0220
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -524,7 +524,7 @@
 
     const v0, 0x7f13010b
 
-    const v1, 0x7f0d021f
+    const v1, 0x7f0d0221
 
     invoke-static {p0, v0, v1}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/view/View;II)V
 

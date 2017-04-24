@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">‏متصل از طریق %1$s</string>
     <string name="available_via_passpoint">‏در دسترس از طریق %1$s</string>
     <string name="wifi_connected_no_internet">متصل، بدون اینترنت</string>
+    <string name="wifi_internet_may_not_be_available">ممکن است اینترنت دردسترس نباشد</string>
     <string name="wifi_reconnecting">وقتی کیفیت شبکه بهبود می‌یابد شبکه آماده اتصال شود</string>
     <string name="wifi_connected_checking_quality">در حال بررسی کیفیت اتصال اینترنت شما…</string>
     <string name="wifi_setup_title_connected_network">به %s شبکه Wi-Fi وصل شد.</string>
@@ -850,7 +851,7 @@ mirroring"</string>
     <string name="aod_show_popup_title">فعال کردن ‎%s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">فعال کردن ‎%1$s و ‎%2$s به طور همزمان ممکن نیست. ‎%3$s غیرفعال خواهد شد.</string>
     <string name="aod_show_popup_description">‎%s و گزینه‌های زیر را نمی‌توان به طور همزمان فعال کرد. گزینه‌های زیر غیرفعال می‌شوند.</string>
-    <string name="wificalling_show_popup_use_location_inform">تماس با Wi-Fi از اطلاعات مکان شما استفاده می‌کند. اطلاعات مکان به صورت ناشناس جمع‌آوری شده و به Google و ارائه دهنده سرویس شما ارسال می‌شوند. برای جزئیات بیشتر با ارائه دهنده سرویس خود تماس بگیرید.</string>
+    <string name="wificalling_show_popup_use_location_inform">هنگامی که از تماس با Wi-Fi استفاده می‌کنید اطلاعات مکان شما ممکن است به ارائه‌دهنده سرویستان ارسال شود. برای جزئیات بیشتر با ارائه‌دهنده سرویس تماس بگیرید.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">جهت برقراری تماس‌های Wi-Fi، اطلاعات مکانی شما به Google و اپراتور شما ارسال می‌شود، چه ویژگی مکان را فعال کرده یا نکرده باشید.</string>
     <string name="wificalling_show_popup_enable_location_title">فعال‌سازی مکان</string>
     <string name="wificalling_show_popup_enable_location_message">تماس با Wi-Fi از اطلاعات مکان شما استفاده می‌کند. مکان‌یابی فعال خواهد شد. اطلاعات مکان به صورت ناشناس جمع‌آوری شده و به Google و ارائه دهنده سرویس شما ارسال می‌شوند. برای جزئیات بیشتر با ارائه دهنده سرویس خود تماس بگیرید.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">به دلیل سیاست امنیتی، به جای استفاده از تشخیص چشم، پین را وارد کنید</string>
     <string name="kg_none_multi_pattern_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">دستگاهتان راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اطلاعات بیومتریک خود استفاده کنید.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">تلفن شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل تلفنتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از اثر انگشت‌های خود استفاده کنید.</string>
     <string name="kg_none_iris_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">دستگاه شما راه‌اندازی مجدد شده و لازم است با الگوی خود قفل آن را باز کنید. می‌توانید دفعه بعد برای بازگشایی قفل دستگاهتان از چشم‌های خود استفاده کنید.</string>

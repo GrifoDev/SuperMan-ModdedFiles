@@ -258,7 +258,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0324
+    const v3, 0x7f0d0326
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -270,7 +270,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0325
+    const v3, 0x7f0d0327
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -3399,7 +3399,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f130316
+    const v2, 0x7f130318
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3459,7 +3459,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f130319
+    const v2, 0x7f13031b
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3488,7 +3488,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsButtonsContainer:Landroid/view/ViewGroup;
 
-    const v2, 0x7f130318
+    const v2, 0x7f13031a
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -3798,7 +3798,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0f044f
+    const v0, 0x7f0f0453
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/recents/views/RecentsView;->showEmptyView(I)V
 

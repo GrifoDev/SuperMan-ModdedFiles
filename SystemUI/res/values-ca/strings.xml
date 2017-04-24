@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Connectada mitjançant %1$s</string>
     <string name="available_via_passpoint">Disponible mitjançant %1$s</string>
     <string name="wifi_connected_no_internet">Connectada, sense Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet potser no disponible</string>
     <string name="wifi_reconnecting">Preparat per connectar quan millori la qualitat de la xarxa</string>
     <string name="wifi_connected_checking_quality">Comprovant la qualitat de la seva connexió a Internet…</string>
     <string name="wifi_setup_title_connected_network">Connectat a la xarxa Wi-Fi %s</string>
@@ -850,7 +851,7 @@ S Moto"</string>
     <string name="aod_show_popup_title">Habilitar %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s i %2$s no poden estar habilitats simultàniament. Es deshabilitarà %3$s.</string>
     <string name="aod_show_popup_description">%s i les opcions següents no poden estar habilitades simultàniament. Es deshabilitaran les opcions següents.</string>
-    <string name="wificalling_show_popup_use_location_inform">"Cal que les trucades Wi-Fi utilitzin la informació de la seva ubicació. Es recopilaran les dades d'ubicació anònimes i s'enviaran a Google i al proveïdor de serveis. Contacti amb el seu proveïdor de serveis per obtenir més detalls."</string>
+    <string name="wificalling_show_popup_use_location_inform">"És possible que la informació de la seva ubicació s'enviï al proveïdor de serveis mentre utilitzi les trucades Wi-Fi. Contacti amb el seu proveïdor de serveis per obtenir-ne més informació."</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">"La informació relacionada amb la seva ubicació es pot enviar a Google i a l'operador a fi d'establir les trucades Wi-Fi, independentment de si ha activat o no la funció d'ubicació."</string>
     <string name="wificalling_show_popup_enable_location_title">Habilitar Ubicació</string>
     <string name="wificalling_show_popup_enable_location_message">"Cal que les trucades Wi-Fi utilitzin la informació de la seva ubicació. S'activarà Ubicació. Es recopilaran les dades d'ubicació anònimes i s'enviaran a Google i al proveïdor de serveis. Contacti amb el seu proveïdor de serveis per obtenir més detalls."</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">"Introdueixi un PIN en comptes d'utilitzar el reconeixement d'iris per adequar-se a la política de seguretat"</string>
     <string name="kg_none_multi_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar la biometria el proper cop que desbloquegi el dispositiu."</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">"S'ha reiniciat el telèfon i cal desbloquejar-lo utilitzant el patró. Pot utilitzar les empremtes el proper cop que desbloquegi el telèfon."</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar les empremtes el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_none_iris_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">"S'ha reiniciat el dispositiu i cal desbloquejar-lo utilitzant el patró. Pot utilitzar l'iris el proper cop que desbloquegi el dispositiu."</string>

@@ -39,11 +39,11 @@
 
     const/4 v7, 0x0
 
-    const v11, 0x7f0d033e
+    const v11, 0x7f0d0340
 
     const/4 v10, 0x0
 
-    const v9, 0x7f0d0342
+    const v9, 0x7f0d0344
 
     iget-object v6, p0, Lcom/android/systemui/volume/SecVolumeDialog$2;->this$0:Lcom/android/systemui/volume/SecVolumeDialog;
 
@@ -245,7 +245,7 @@
 
     iput v6, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    const v6, 0x7f0d0347
+    const v6, 0x7f0d0349
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,7 +253,7 @@
 
     iput v6, v1, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    const v6, 0x7f0d0348
+    const v6, 0x7f0d034a
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -340,7 +340,7 @@
 
     iput v6, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    const v6, 0x7f0d02d4
+    const v6, 0x7f0d02d6
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

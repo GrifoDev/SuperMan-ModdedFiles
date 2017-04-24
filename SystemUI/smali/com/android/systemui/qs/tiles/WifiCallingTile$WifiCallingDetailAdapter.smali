@@ -328,7 +328,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x7f1001f6
+    const v4, 0x7f1001f8
 
     :goto_2
     invoke-virtual {v3, v4}, Landroid/widget/RadioButton;->setTextAppearance(I)V
@@ -343,7 +343,7 @@
     goto :goto_0
 
     :cond_2
-    const v4, 0x7f1001f7
+    const v4, 0x7f1001f9
 
     goto :goto_2
 
@@ -557,7 +557,7 @@
 
     if-eqz p1, :cond_2
 
-    const v3, 0x7f1001f6
+    const v3, 0x7f1001f8
 
     :goto_1
     invoke-virtual {v2, v3}, Landroid/widget/RadioButton;->setTextAppearance(I)V
@@ -567,7 +567,7 @@
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f1001f7
+    const v3, 0x7f1001f9
 
     goto :goto_1
 

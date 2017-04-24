@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Կապակցված է %1$s-ի միջոցով</string>
     <string name="available_via_passpoint">Հասանելի է %1$s-ի միջոցով</string>
     <string name="wifi_connected_no_internet">Կապակցված է առանց համացանցի</string>
+    <string name="wifi_internet_may_not_be_available">Համացանցը կարող է անմատչելի լինել</string>
     <string name="wifi_reconnecting">Պատրաստ է միանալու, երբ ցանցի որակը բարելավվի</string>
     <string name="wifi_connected_checking_quality">Ստուգվում է Ձեր ինտերնետի միացման որակը…</string>
     <string name="wifi_setup_title_connected_network">Միացել է %s Wi-Fi ցանցին:</string>
@@ -850,7 +851,7 @@ sխնայում"</string>
     <string name="aod_show_popup_title">Միացնել %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s-ը և %2$s-ը չեն կարող միաժամանակ ընձեռվել: %3$s-ը կկասեցվի:</string>
     <string name="aod_show_popup_description">%s-ը և ներքևի ընտրանքները չեն կարող միաժամանակ ընձեռվել: Ներքևի ընտրանքները կկասեցվեն:</string>
-    <string name="wificalling_show_popup_use_location_inform">Ձեր տեղի մասին տեղեկատվությունն օգտագործելու համար Wi-Fi զանգահարում է հարկավոր: Տեղի մասին անանուն տվյալները կհավաքվեն և կուղարկվեն Google-ին և ծառայության մատակարարին: Մանրամասների համար դիմեք Ձեր ծառայության մատակարարին:</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi կանչ օգտագործելու ընթացքում Ձեր տեղի մասին տեղեկատվությունը կարող է ուղարկվել ծառայության մատակարարին: Մանրամասների համար դիմեք Ձեր ծառայության մատակարարին:</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Ձեր գտնվելու վայրին վերաբերող տեղեկությունները կարող են ուղարկվել Google-ին և Ձեր օպերատորին՝ Wi-Fi կանչեր իրականացնելու համար՝ անկախ տեղորոշման հնարավորությունն ակտիվացրած լինելու կամ չլինելու հանգամանքից:</string>
     <string name="wificalling_show_popup_enable_location_title">Ընձեռել տեղորոշում</string>
     <string name="wificalling_show_popup_enable_location_message">Ձեր տեղի մասին տեղեկատվությունն օգտագործելու համար Wi-Fi զանգահարում է հարկավոր: Տեղորոշումը կընձեռվի: Տեղի մասին անանուն տվյալները կհավաքվեն և կուղարկվեն Google-ին և ծառայության մատակարարին: Մանրամասների համար դիմեք Ձեր ծառայության մատակարարին:</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Անվտանգության քաղաքականության նկատառումներով՝ ծիածանաթաղանթի ճանաչում օգտագործելու փոխարեն մուտքագրեք PIN</string>
     <string name="kg_none_multi_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք կենսաչափական տվյալներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Ձեր հեռախոսը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ հեռախոսն արգելաբացելիս:</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք մատնահետքերն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_none_iris_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Ձեր սարքը վերագործարկվեց, և հարկավոր է այն արգելաբացել Ձեր նախշով: Կարող եք ծիածանաթաղանթներն օգտագործել հաջորդ անգամ սարքն արգելաբացելիս:</string>

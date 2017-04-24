@@ -21,6 +21,10 @@
 
 
 # instance fields
+.field private mAddFailedSlot:Ljava/lang/String;
+
+.field private mAddFailedViewIndex:I
+
 .field protected mBatteryMeterView:Lcom/android/systemui/BatteryMeterView;
 
 .field protected mBatteryMeterViewKeyguard:Lcom/android/systemui/BatteryMeterView;
@@ -177,15 +181,15 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
     .locals 11
 
-    const v8, 0x7f1303ee
+    const v8, 0x7f1303f0
 
-    const v7, 0x7f1303ed
+    const v7, 0x7f1303ef
 
-    const v6, 0x7f1303ec
+    const v6, 0x7f1303ee
 
-    const v5, 0x7f13038f
+    const v5, 0x7f130391
 
-    const v4, 0x7f1303f0
+    const v4, 0x7f1303f2
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -225,7 +229,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mPhoneStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    const v2, 0x7f1303b5
+    const v2, 0x7f1303b7
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +299,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconAreaInner:Landroid/view/View;
 
-    const v2, 0x7f1303b4
+    const v2, 0x7f1303b6
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +422,7 @@
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mKeyguardTwoPhoneModeIcon:Landroid/widget/ImageView;
 
     :cond_2
-    const v2, 0x7f1303ef
+    const v2, 0x7f1303f1
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -428,7 +432,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryText:Landroid/widget/TextView;
 
-    const v2, 0x7f1303ef
+    const v2, 0x7f1303f1
 
     invoke-virtual {p3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -442,7 +446,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f1303b3
+    const v2, 0x7f1303b5
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1091,7 +1095,7 @@
 .method private updateBatteryLevelDensity()V
     .locals 2
 
-    const v1, 0x7f0d0384
+    const v1, 0x7f0d0386
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryText:Landroid/widget/TextView;
 
@@ -1167,71 +1171,122 @@
 .method protected addSystemIcon(ILcom/android/internal/statusbar/StatusBarIcon;)V
     .locals 10
 
-    const/4 v9, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, -0x2
-
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getSlot(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->getViewIndex(I)I
 
-    move-result v4
+    move-result v5
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconBlacklist:Landroid/util/ArraySet;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconBlacklist:Landroid/util/ArraySet;
 
-    invoke-virtual {v5, v2}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    new-instance v3, Lcom/android/systemui/statusbar/StatusBarIconView;
+    :try_start_0
+    new-instance v4, Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mContext:Landroid/content/Context;
 
-    invoke-direct {v3, v5, v2, v9, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;Z)V
+    const/4 v7, 0x0
 
-    invoke-virtual {v3, p2}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
+    invoke-direct {v4, v6, v3, v7, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;Z)V
 
-    new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
+    invoke-virtual {v4, p2}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
 
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconSize:I
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
-    invoke-direct {v1, v8, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconSize:I
 
-    iget v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconHPadding:I
+    const/4 v7, -0x2
+
+    invoke-direct {v2, v7, v6}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     iget v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconHPadding:I
 
-    invoke-virtual {v1, v5, v7, v6, v7}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
+    iget v7, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconHPadding:I
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIcons:Landroid/widget/LinearLayout;
+    const/4 v8, 0x0
 
-    invoke-virtual {v5, v3, v4, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+    const/4 v9, 0x0
 
-    new-instance v3, Lcom/android/systemui/statusbar/StatusBarIconView;
+    invoke-virtual {v2, v6, v8, v7, v9}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIcons:Landroid/widget/LinearLayout;
 
-    invoke-direct {v3, v5, v2, v9, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;Z)V
+    invoke-virtual {v6, v4, v5, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-virtual {v3, p2}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
+    new-instance v4, Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconsKeyguard:Landroid/widget/LinearLayout;
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mContext:Landroid/content/Context;
 
-    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
+    const/4 v7, 0x0
 
-    iget v7, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconSize:I
+    invoke-direct {v4, v6, v3, v7, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/app/Notification;Z)V
 
-    invoke-direct {v6, v8, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {v4, p2}, Lcom/android/systemui/statusbar/StatusBarIconView;->set(Lcom/android/internal/statusbar/StatusBarIcon;)Z
 
-    invoke-virtual {v5, v3, v4, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mStatusIconsKeyguard:Landroid/widget/LinearLayout;
+
+    new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget v8, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mIconSize:I
+
+    const/4 v9, -0x2
+
+    invoke-direct {v7, v9, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v6, v4, v5, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->applyIconTint()V
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v6, "StatusBarIconController"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "slot = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " viewIndex = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mAddFailedSlot:Ljava/lang/String;
+
+    iput v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mAddFailedViewIndex:I
+
+    goto :goto_0
 .end method
 
 .method public appTransitionCancelled()V
@@ -1814,6 +1869,50 @@
     goto :goto_1
 
     :cond_1
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "  mAddFailedSlot: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mAddFailedSlot:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "  mAddFailedViewIndex: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mAddFailedViewIndex:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mNotificationIconAreaController:Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
     invoke-virtual {v4, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->dump(Ljava/io/PrintWriter;)V
@@ -2250,7 +2349,7 @@
 
     move-result v1
 
-    const v7, 0x7f0d02bb
+    const v7, 0x7f0d02bd
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2788,7 +2887,7 @@
 .method public updateBatteryTextLevel(I)V
     .locals 7
 
-    const v6, 0x7f0f05f6
+    const v6, 0x7f0f05fa
 
     const/4 v5, 0x1
 

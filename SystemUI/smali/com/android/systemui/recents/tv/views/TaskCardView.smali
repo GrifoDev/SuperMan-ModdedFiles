@@ -140,13 +140,13 @@
 
     iget v5, v6, Landroid/graphics/Point;->x:I
 
-    const v9, 0x7f0d03fa
+    const v9, 0x7f0d03fd
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v9, 0x7f0d0408
+    const v9, 0x7f0d040b
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -192,7 +192,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03fd
+    const v2, 0x7f0d0400
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -204,7 +204,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03fe
+    const v2, 0x7f0d0401
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -232,7 +232,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03ff
+    const v2, 0x7f0d0402
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -244,7 +244,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0400
+    const v2, 0x7f0d0403
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -325,7 +325,7 @@
 .method private setThumbnailView()V
     .locals 7
 
-    const v4, 0x7f130327
+    const v4, 0x7f130329
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -643,7 +643,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v1, 0x7f130326
+    const v1, 0x7f130328
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mThumbnailView:Landroid/view/View;
 
-    const v1, 0x7f130321
+    const v1, 0x7f130323
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -659,7 +659,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mInfoFieldView:Landroid/view/View;
 
-    const v1, 0x7f130323
+    const v1, 0x7f130325
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -669,7 +669,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mTitleTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f130322
+    const v1, 0x7f130324
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -679,7 +679,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/tv/views/TaskCardView;->mBadgeView:Landroid/widget/ImageView;
 
-    const v1, 0x7f130324
+    const v1, 0x7f130326
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/tv/views/TaskCardView;->findViewById(I)Landroid/view/View;
 
@@ -701,7 +701,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d033b
+    const v2, 0x7f0d033d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -756,7 +756,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0313
+    const v2, 0x7f0d0315
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

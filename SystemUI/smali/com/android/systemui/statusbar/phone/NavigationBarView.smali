@@ -495,11 +495,11 @@
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
-    const v2, 0x7f13030f
+    const v2, 0x7f130311
 
     invoke-direct {v1, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;-><init>(I)V
 
-    const v2, 0x7f13030f
+    const v2, 0x7f130311
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -1051,7 +1051,7 @@
 
     if-eqz p1, :cond_3
 
-    const v3, 0x7f100206
+    const v3, 0x7f100207
 
     iput v3, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -1859,7 +1859,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mButtonDisatchers:Landroid/util/SparseArray;
 
-    const v1, 0x7f13030f
+    const v1, 0x7f130311
 
     invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
@@ -2258,7 +2258,7 @@
     :sswitch_2
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mCurrentView:Landroid/view/View;
 
-    const v4, 0x7f13030f
+    const v4, 0x7f130311
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2416,7 +2416,7 @@
         0x7f1300c2 -> :sswitch_0
         0x7f130261 -> :sswitch_3
         0x7f130262 -> :sswitch_4
-        0x7f13030f -> :sswitch_2
+        0x7f130311 -> :sswitch_2
     .end sparse-switch
 .end method
 

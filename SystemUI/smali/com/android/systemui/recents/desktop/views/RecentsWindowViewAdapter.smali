@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d024f
+    const v1, 0x7f0d0251
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -139,7 +139,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0261
+    const v1, 0x7f0d0263
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -155,7 +155,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0260
+    const v1, 0x7f0d0262
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -171,7 +171,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0263
+    const v1, 0x7f0d0265
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -187,7 +187,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0262
+    const v1, 0x7f0d0264
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -203,7 +203,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0265
+    const v1, 0x7f0d0267
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -219,7 +219,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0264
+    const v1, 0x7f0d0266
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -235,7 +235,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0267
+    const v1, 0x7f0d0269
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -251,7 +251,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0266
+    const v1, 0x7f0d0268
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -659,7 +659,7 @@
 
     invoke-direct {v1, p0, v0}, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;-><init>(Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;Landroid/view/View;)V
 
-    const v2, 0x7f130349
+    const v2, 0x7f13034b
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -667,7 +667,7 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->contentView:Landroid/view/View;
 
-    const v2, 0x7f13034a
+    const v2, 0x7f13034c
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +675,7 @@
 
     iput-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->focusView:Landroid/view/View;
 
-    const v2, 0x7f13034b
+    const v2, 0x7f13034d
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -709,7 +709,7 @@
 
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f13033a
+    const v3, 0x7f13033c
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -725,7 +725,7 @@
 
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f13034c
+    const v3, 0x7f13034e
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -738,7 +738,7 @@
     :cond_0
     iget-object v2, v1, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->taskView:Landroid/view/View;
 
-    const v3, 0x7f130332
+    const v3, 0x7f130334
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

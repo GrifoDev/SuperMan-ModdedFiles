@@ -429,7 +429,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0f036b
+    const v1, 0x7f0f036c
 
     :goto_0
     invoke-virtual {v2, v5, v1}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
@@ -459,7 +459,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->mItems:Lcom/android/systemui/qs/QSDetailItems;
 
-    const v2, 0x7f0f036a
+    const v2, 0x7f0f036b
 
     invoke-virtual {v1, v5, v2}, Lcom/android/systemui/qs/QSDetailItems;->setEmptyState(II)V
 
@@ -484,7 +484,7 @@
     return-object p2
 
     :cond_1
-    const v1, 0x7f0f036e
+    const v1, 0x7f0f036f
 
     goto :goto_0
 .end method
@@ -522,7 +522,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0367
+    const v1, 0x7f0f0368
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -853,7 +853,7 @@
 
     if-eqz p1, :cond_4
 
-    const v1, 0x7f0f036b
+    const v1, 0x7f0f036c
 
     :goto_1
     const v3, 0x7f0201ac
@@ -874,7 +874,7 @@
     goto :goto_0
 
     :cond_4
-    const v1, 0x7f0f036e
+    const v1, 0x7f0f036f
 
     goto :goto_1
 .end method

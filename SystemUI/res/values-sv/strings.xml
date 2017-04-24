@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Anslutet via %1$s</string>
     <string name="available_via_passpoint">Tillgängligt via %1$s</string>
     <string name="wifi_connected_no_internet">Ansluten, inget internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet är ev. inte tillg.</string>
     <string name="wifi_reconnecting">Redo att ansluta när nätverkskvaliteten förbättras</string>
     <string name="wifi_connected_checking_quality">Kontrollerar Internetanslutningens kvalitet…</string>
     <string name="wifi_setup_title_connected_network">Ansluten till Wi-Fi-nätverket %s.</string>
@@ -849,7 +850,7 @@ läge"</string>
     <string name="aod_show_popup_title">Aktivera %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s och %2$s kan inte vara aktiva samtidigt. %3$s inaktiveras.</string>
     <string name="aod_show_popup_description">%s och alternativen nedan kan inte vara aktiverade samtidigt. Alternativen nedan inaktiveras.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi-samtal måste använda dina platsuppgifter. Anonyma platsuppgifter samlas in och skickas till Google och din tjänsteleverantör. Mer information får du av tjänsteleverantören.</string>
+    <string name="wificalling_show_popup_use_location_inform">Din platsinformation kan skickas till tjänsteleverantören när du använder Wi-Fi-samtal. Kontakta tjänsteleverantören om du vill veta mer.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Din platsrelaterade information kan skickas till Google och din operatör för att du ska kunna ringa Wi-Fi-samtal, vare sig du har aktiverat platsfunktionen eller inte.</string>
     <string name="wificalling_show_popup_enable_location_title">Aktivera plats</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi-samtal måste använda dina platsuppgifter. Plats aktiveras. Anonyma platsuppgifter samlas in och skickas till Google och din tjänsteleverantör. Mer information får du av tjänsteleverantören.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">På grund av säkerhetspolicyn måste du ange en pinkod i stället för att använda irisidentifiering</string>
     <string name="kg_none_multi_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda biometrik.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda biometrik.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefonen har startats om och måste låsas upp med mönstret. Nästa gång du låser upp telefonen kan du använda fingeravtryck.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda fingeravtryck.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Enheten har startats om och måste låsas upp med mönstret. Nästa gång du låser upp enheten kan du använda irisidentifiering.</string>

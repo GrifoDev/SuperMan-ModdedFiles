@@ -1477,7 +1477,7 @@
 
     const/4 v8, 0x0
 
-    const v6, 0x7f130310
+    const v6, 0x7f130312
 
     const/4 v7, 0x2
 
@@ -1566,7 +1566,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/recents/RecentsActivity;->mSlidingView:Lcom/android/systemui/recents/views/RecentsSlidingView;
 
-    const v5, 0x7f13032d
+    const v5, 0x7f13032f
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/recents/views/RecentsSlidingView;->findViewById(I)Landroid/view/View;
 
@@ -1686,7 +1686,7 @@
     :cond_3
     iget-object v6, p0, Lcom/android/systemui/recents/RecentsActivity;->mRecentsView:Lcom/android/systemui/recents/views/RecentsView;
 
-    const v4, 0x7f130317
+    const v4, 0x7f130319
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1694,7 +1694,7 @@
 
     check-cast v4, Landroid/view/ViewGroup;
 
-    const v5, 0x7f130315
+    const v5, 0x7f130317
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/recents/RecentsActivity;->findViewById(I)Landroid/view/View;
 
@@ -1886,9 +1886,9 @@
 .method public onEnterAnimationComplete()V
     .locals 10
 
-    const v9, 0x7f0f05cc
+    const v9, 0x7f0f05d0
 
-    const v8, 0x7f0f05cb
+    const v8, 0x7f0f05cf
 
     const v5, 0x7f020437
 
@@ -1969,9 +1969,9 @@
 
     const v3, 0x7f020435
 
-    const v4, 0x7f0f05c6
+    const v4, 0x7f0f05ca
 
-    const v5, 0x7f0f05c7
+    const v5, 0x7f0f05cb
 
     invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2046,7 +2046,7 @@
 
     const v3, 0x7f020436
 
-    const v4, 0x7f0f05ca
+    const v4, 0x7f0f05ce
 
     invoke-virtual {v2, v3, v8, v8, v4}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 
@@ -2062,9 +2062,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/RecentsActivity;->mHelpPopup:Lcom/android/systemui/recents/views/AbstractHelpPopup;
 
-    const v3, 0x7f0f05cd
+    const v3, 0x7f0f05d1
 
-    const v4, 0x7f0f05cd
+    const v4, 0x7f0f05d1
 
     invoke-virtual {v2, v5, v3, v4, v6}, Lcom/android/systemui/recents/views/AbstractHelpPopup;->addContent(IIII)V
 

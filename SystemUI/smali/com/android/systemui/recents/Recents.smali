@@ -893,7 +893,7 @@
     :cond_c
     iget-object v2, p0, Lcom/android/systemui/recents/Recents;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f0457
+    const v3, 0x7f0f045b
 
     const/4 v4, 0x0
 

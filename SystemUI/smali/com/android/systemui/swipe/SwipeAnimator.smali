@@ -455,7 +455,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/swipe/SwipeAnimator;->mNotiPanelView:Landroid/view/View;
 
-    const v1, 0x7f1303bf
+    const v1, 0x7f1303c1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -539,7 +539,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d043e
+    const v1, 0x7f0d0441
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2252,6 +2252,14 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
+    iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator;->mTapAnimRestoreSet:Landroid/animation/AnimatorSet;
+
+    new-instance v3, Lcom/android/systemui/swipe/SwipeAnimator$3;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/swipe/SwipeAnimator$3;-><init>(Lcom/android/systemui/swipe/SwipeAnimator;)V
+
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
     new-instance v2, Landroid/animation/AnimatorSet;
 
     invoke-direct {v2}, Landroid/animation/AnimatorSet;-><init>()V
@@ -2272,9 +2280,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/swipe/SwipeAnimator;->mTapAnimShrinkSet:Landroid/animation/AnimatorSet;
 
-    new-instance v3, Lcom/android/systemui/swipe/SwipeAnimator$3;
+    new-instance v3, Lcom/android/systemui/swipe/SwipeAnimator$4;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/swipe/SwipeAnimator$3;-><init>(Lcom/android/systemui/swipe/SwipeAnimator;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/swipe/SwipeAnimator$4;-><init>(Lcom/android/systemui/swipe/SwipeAnimator;)V
 
     invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -3902,9 +3910,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/swipe/SwipeAnimator;->mPreviewFocusAnimSet:Landroid/animation/AnimatorSet;
 
-    new-instance v1, Lcom/android/systemui/swipe/SwipeAnimator$4;
+    new-instance v1, Lcom/android/systemui/swipe/SwipeAnimator$5;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/swipe/SwipeAnimator$4;-><init>(Lcom/android/systemui/swipe/SwipeAnimator;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/swipe/SwipeAnimator$5;-><init>(Lcom/android/systemui/swipe/SwipeAnimator;Z)V
 
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 

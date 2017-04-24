@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Yhdistetty seuraavan kautta: %1$s</string>
     <string name="available_via_passpoint">Käytettävissä seuraavan kautta: %1$s</string>
     <string name="wifi_connected_no_internet">Yhdistetty, ei internetyhteyttä.</string>
+    <string name="wifi_internet_may_not_be_available">Internet ei ehkä ole käytett.</string>
     <string name="wifi_reconnecting">Valmis muodostamaan yhteyden, kun verkon laatu paranee</string>
     <string name="wifi_connected_checking_quality">Tarkistetaan Internet-yhteyden laatua…</string>
     <string name="wifi_setup_title_connected_network">Yhdistetty Wi-Fi-verkkoon %s.</string>
@@ -851,7 +852,7 @@ tila"</string>
     <string name="aod_show_popup_title">Ota %s käyttöön</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ja %2$s eivät voi olla käytössä samaan aikaan. %3$s poistetaan käytöstä.</string>
     <string name="aod_show_popup_description">%s ja alla olevat asetukset eivät voi olla käytössä samaan aikaan. Alla olevat asetukset poistetaan käytöstä.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi-puhelujen on käytettävä sijaintitietojasi. Googlelle ja palveluntarjoajallesi kerätään ja lähetetään nimettömiä sijaintitietoja. Lisätietoja saat palveluntarjoajalta.</string>
+    <string name="wificalling_show_popup_use_location_inform">Sijaintitietosi voidaan lähettää palveluntarjoajallesi, kun käytät Wi-Fi-puheluita. Lisätietoja saat palveluntarjoajalta.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Sijaintitietosi voidaan lähettää Googlelle ja operaattorillesi Wi-Fi-puheluiden soittamista varten siihen katsomatta, onko sijaintitoiminto otettu käyttöön vai ei.</string>
     <string name="wificalling_show_popup_enable_location_title">Ota sijainti käyttöön</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi-puhelujen on käytettävä sijaintitietojasi. Sijainti-toiminto otetaan käyttöön. Googlelle ja palveluntarjoajallesi kerätään ja lähetetään nimettömiä sijaintitietoja. Lisätietoja saat palveluntarjoajalta.</string>
@@ -1859,7 +1860,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Anna suojauskäytännön vuoksi PIN-koodi iiriksen tunnistuksen sijaan</string>
     <string name="kg_none_multi_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää biometriikkaa, kun poistat laitteen lukituksen seuraavan kerran.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää biometriikkaa, kun poistat laitteen lukituksen seuraavan kerran.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää sormenjälkiä, kun poistat laitteen lukituksen seuraavan kerran.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Puhelimesi käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää sormenjälkiä, kun poistat puhelimesi lukituksen seuraavan kerran.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää sormenjälkiä, kun poistat laitteen lukituksen seuraavan kerran.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää iiriksiä, kun poistat laitteen lukituksen seuraavan kerran.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Laite käynnistettiin uudelleen, ja sen lukitus on poistettava kuviolla. Voit käyttää iiriksiä, kun poistat laitteen lukituksen seuraavan kerran.</string>

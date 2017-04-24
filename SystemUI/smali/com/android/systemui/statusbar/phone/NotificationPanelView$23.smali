@@ -47,3 +47,13 @@
 
     return v0
 .end method
+
+.method public onViEnd()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView$23;->this$0:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->-wrap5(Lcom/android/systemui/statusbar/phone/NotificationPanelView;)V
+
+    return-void
+.end method

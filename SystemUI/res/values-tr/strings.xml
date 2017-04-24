@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s üzerinden bağlı</string>
     <string name="available_via_passpoint">%1$s üzerinden kullanılabilir</string>
     <string name="wifi_connected_no_internet">Bağlı, İnternet yok</string>
+    <string name="wifi_internet_may_not_be_available">İnternet kullanılamıyor</string>
     <string name="wifi_reconnecting">Ağ kalitesi arttığında bağlanmaya hazır</string>
     <string name="wifi_connected_checking_quality">İnternet bağlantınızın kalitesi kontrol ediliyor…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi ağına %s bağlandı.</string>
@@ -850,7 +851,7 @@ modu"</string>
     <string name="aod_show_popup_title">%s öğesini etkinleştir</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ve %2$s aynı anda etkinleştirilemez. %3$s devre dışı bırakılacak.</string>
     <string name="aod_show_popup_description">%s ve aşağıdaki seçenekler aynı anda etkinleştirilemez. Aşağıdaki seçenekler devre dışı bırakılacak.</string>
-    <string name="wificalling_show_popup_use_location_inform">"Wi-Fi aramasının konum bilgilerinizi kullanması gerekiyor. Anonim konum verileri toplanıp Google'a ve servis sağlayıcınıza gönderilir. Ayrıntılar için servis sağlayıcınız ile iletişim kurun."</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi aramasını kullandığınız sırada konum bilgileriniz servis sağlayıcınıza gönderilebilir. Ayrıntılar için servis sağlayıcınızla iletişim kurun.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">"Konumla ilgili bilgileriniz, konum özelliğini etkinleştirmenizden bağımsız olarak Wi-Fi aramaları kurmak için Google'a ve operatörünüze gönderilebilir."</string>
     <string name="wificalling_show_popup_enable_location_title">"Konum'u Etkinleştir"</string>
     <string name="wificalling_show_popup_enable_location_message">"Wi-Fi aramasının konum bilgilerinizi kullanması gerekiyor. Konum etkinleştirilecek. Anonim konum verileri toplanıp Google'a ve servis sağlayıcınıza gönderilir. Ayrıntılar için servis sağlayıcınıza başvurun."</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Güvenlik ilkesi nedeniyle iris tanımayı kullanmak yerine PIN girin</string>
     <string name="kg_none_multi_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken biyometrik verilerinizi kullanabilirsiniz.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefonunuz yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer telefonunuzun kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken parmak izlerinizi kullanabilirsiniz.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Cihazınız yeniden başlatıldı ve deseniniz kullanılarak kilidinin açılması gerekiyor. Bir sonraki sefer cihazınızın kilidini açarken irislerinizi kullanabilirsiniz.</string>

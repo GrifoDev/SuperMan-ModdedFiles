@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s ਰਾਹੀਂ ਕਨੈਕਟ ਕੀਤਾ</string>
     <string name="available_via_passpoint">%1$s ਰਾਹੀਂ ਉਪਲਬਧ</string>
     <string name="wifi_connected_no_internet">ਕਨੈਕਟ ਕੀਤਾ, ਕੋਈ ਇੰਟਰਨੈਟ ਨਹੀਂ</string>
+    <string name="wifi_internet_may_not_be_available">ਹੋ ਸਕਦਾ ਹੈ ਇੰਟਰਨੈੱਟ ਉਪਲਬਧ ਨਾ ਹੋਵੇ</string>
     <string name="wifi_reconnecting">ਨੈੱਟਵਰਕ ਦੀ ਗੁਣਵੱਤਾ ਵਿੱਚ ਸੁਧਾਰ ਹੋਣ ਤੇ ਕਨੈਕਟ ਕਰਨ ਲਈ ਤਿਆਰ ਹੈ</string>
     <string name="wifi_connected_checking_quality">ਤੁਹਾਡੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਦੀ ਗੁਣਵੱਤਾ ਦੀ ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi ਨੈੱਟਵਰਕ %s ਨਾਲ ਕਨੈਕਟ ਹੋਇਆ।</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s ਨੂੰ ਸਮਰੱਥ ਕਰੋ</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">"%1$s ਅਤੇ %2$s ਨੂੰ ਇੱਕੋ ਸਮੇਂ 'ਤੇ ਸਮਰੱਥ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। %3$s ਨੂੰ ਅਸਮਰੱਥ ਕੀਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="aod_show_popup_description">%s ਅਤੇ ਹੇਠਾਂ ਦਿੱਤੇ ਵਿਕਲਪਾਂ ਨੂੰ ਇੱਕੋ ਸਮੇਂ ਸਮਰੱਥ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਹੇਠਾਂ ਦਿੱਤੇ ਵਿਕਲਪਾਂ ਨੂੰ ਅਸਮਰੱਥ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ਕਾਲਿੰਗ ਨੂੰ ਤੁਹਾਡੇ ਸਥਾਨ ਦੀ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਅਗਿਆਤ ਸਥਾਨ ਡੇਟਾ ਇਕੱਤਰ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਗੂਗਲ ਅਤੇ ਤੁਹਾਡੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨੂੰ ਭੇਜਿਆ ਜਾਵੇਗਾ। ਵੇਰਵਿਆਂ ਲਈ ਆਪਣੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ਕਾੱਲਿੰਗ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਸਮੇਂ ਤੁਹਾਡੀ ਸਥਾਨ ਜਾਣਕਾਰੀ ਨੂੰ ਤੁਹਾਡੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਵੇਰਵਿਆਂ ਲਈ ਆਪਣੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨੂੰ ਸੰਪਰਕ ਕਰੋ।</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">ਤੁਹਾਡੀ ਸਥਾਨ ਸੰਬੰਧੀ ਜਾਣਕਾਰੀ Wi-Fi ਕਾੱਲਸ ਨੂੰ ਸਥਾਪਿਤ ਕਰਨ ਲਈ ਗੂਗਲ ਅਤੇ ਤੁਹਾਡੇ ਔਪਰੇਟਰ ਨੂੰ ਭੇਜੀ ਜਾ ਸਕਦੀ ਹੈ, ਭਾਵੇਂ ਤੁਸੀਂ ਸਥਾਨ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਕਿਰਿਆਸ਼ੀਲ ਕੀਤਾ ਹੋਵੇ ਜਾਂ ਨਹੀਂ।</string>
     <string name="wificalling_show_popup_enable_location_title">ਸਥਾਨ ਸਮਰੱਥ ਕਰੋ</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi ਕਾਲਿੰਗ ਨੂੰ ਤੁਹਾਡੇ ਸਥਾਨ ਦੀ ਜਾਣਕਾਰੀ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਸਥਾਨ ਨੂੰ ਸਮਰੱਥ ਕੀਤਾ ਜਾਵੇਗਾ। ਅਗਿਆਤ ਸਥਾਨ ਡੇਟਾ ਇਕੱਤਰ ਕੀਤਾ ਜਾਵੇਗਾ ਅਤੇ ਗੂਗਲ ਅਤੇ ਤੁਹਾਡੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨੂੰ ਭੇਜਿਆ ਜਾਵੇਗਾ। ਵੇਰਵਿਆਂ ਲਈ ਆਪਣੇ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">ਸੁਰੱਖਿਆ ਨੀਤੀ ਦੇ ਕਾਰਨ ਆਈਰਿਸ ਪਛਾਣ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਬਜਾਏ PIN ਦਾਖ਼ਲ ਕਰੋ</string>
     <string name="kg_none_multi_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀ ਬਾਇਓਮੀਟ੍ਰਿਕ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">ਤੁਹਾਡੇ ਫ਼ੋਨ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_none_iris_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਹੋਇਆ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੈਲੀ ਦਾ ਉਪਯੋਗ ਕਰਕੇ ਅਨਲੌਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਅਗਲੀ ਵਾਰ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਆਪਣੀਆਂ ਆਈਰਿਸਜ਼ ਦਾ ਉਪਯੋਗ ਕਰ ਸਕਦੇ ਹੋ।</string>

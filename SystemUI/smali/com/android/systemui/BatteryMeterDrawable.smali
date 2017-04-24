@@ -385,7 +385,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterDrawable;->updateShowPercent()V
 
-    const v6, 0x7f0f0461
+    const v6, 0x7f0f0465
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -717,7 +717,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d02e2
+    const v7, 0x7f0d02e4
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -729,7 +729,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d02e1
+    const v7, 0x7f0d02e3
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

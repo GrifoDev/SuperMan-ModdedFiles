@@ -25,9 +25,11 @@
 
 .field final synthetic val$notificationKey:Ljava/lang/String;
 
+.field final synthetic val$parentToCancelFinal:Landroid/service/notification/StatusBarNotification;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;ZZLandroid/app/PendingIntent;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;ZZLandroid/app/PendingIntent;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->this$2:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;
@@ -39,6 +41,8 @@
     iput-object p4, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$intent:Landroid/app/PendingIntent;
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$notificationKey:Ljava/lang/String;
+
+    iput-object p6, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$parentToCancelFinal:Landroid/service/notification/StatusBarNotification;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
@@ -390,11 +394,11 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$keyguardShowing:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$afterKeyguardGone:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     move v0, v12
 
@@ -418,6 +422,27 @@
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
 
     :goto_4
+    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$parentToCancelFinal:Landroid/service/notification/StatusBarNotification;
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->this$2:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2;->this$1:Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mHandler:Lcom/android/systemui/statusbar/BaseStatusBar$H;
+
+    new-instance v1, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1$1;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;->val$parentToCancelFinal:Landroid/service/notification/StatusBarNotification;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1$1;-><init>(Lcom/android/systemui/statusbar/BaseStatusBar$NotificationClicker$2$1;Landroid/service/notification/StatusBarNotification;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/BaseStatusBar$H;->post(Ljava/lang/Runnable;)Z
+
+    :cond_5
     return-void
 
     :catch_1
@@ -447,12 +472,12 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     const/4 v0, 0x1
 
     goto :goto_3
 
-    :cond_6
+    :cond_7
     move v0, v12
 
     goto :goto_3

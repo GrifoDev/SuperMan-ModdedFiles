@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">已透過 %1$s 連線</string>
     <string name="available_via_passpoint">可透過 %1$s 使用</string>
     <string name="wifi_connected_no_internet">已連線，沒有網際網路</string>
+    <string name="wifi_internet_may_not_be_available">網際網路可能無法使用</string>
     <string name="wifi_reconnecting">網路品質提升時即可連接</string>
     <string name="wifi_connected_checking_quality">正在檢查網際網路連線品質…</string>
     <string name="wifi_setup_title_connected_network">已連接至 Wi-Fi 網路 %s。</string>
@@ -847,7 +848,7 @@ mirroring"</string>
     <string name="aod_show_popup_title">啟用%s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s 與 %2$s 無法同時啟用。將停用 %3$s。</string>
     <string name="aod_show_popup_description">%s與下方選項無法同時啟用。將停用下方選項。</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi 通話需使用您的定位資訊。將蒐集匿名位置資料並傳送至 Google 與您的電信業者。請聯絡您的電信業者瞭解更多詳情。</string>
+    <string name="wificalling_show_popup_use_location_inform">當您使用 Wi-Fi 通話期間，可能已將位置資訊提供給電信業者。請聯絡您的電信業者取得詳細資料。</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">無論您是否已啟用定位功能，若要建立 Wi-Fi 通話，可將您的位置相關資訊傳送給 Google 與電信業者。</string>
     <string name="wificalling_show_popup_enable_location_title">啟用定位</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi 通話需使用您的定位資訊。將啟用 [定位]。將蒐集匿名位置資料並傳送至 Google 與您的電信業者。請聯絡您的電信業者瞭解更多詳情。</string>
@@ -1855,7 +1856,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pin_deviceadmin_instructions">因安全性原則之故，請輸入數字密碼來取代虹膜辨識</string>
     <string name="kg_none_multi_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次可使用生物辨識來解除裝置鎖定。</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次可使用生物辨識來解除裝置鎖定。</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次裝置鎖定時即可使用指紋來解鎖。</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">您的手機已重新啟動，需使用圖形解除鎖定。下次即可使用指紋解除手機鎖定。</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次裝置鎖定時即可使用指紋來解鎖。</string>
     <string name="kg_none_iris_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次裝置鎖定時即可使用虹膜來解鎖。</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">您的裝置已重新啟動，需使用圖形解除鎖定。下次裝置鎖定時即可使用虹膜來解鎖。</string>

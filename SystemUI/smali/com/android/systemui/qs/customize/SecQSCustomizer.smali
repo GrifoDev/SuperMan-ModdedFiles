@@ -342,7 +342,7 @@
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x7f100229
+    const v1, 0x7f10022a
 
     invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
@@ -1346,7 +1346,7 @@
 
     sub-int v1, v4, v5
 
-    const v4, 0x7f13036c
+    const v4, 0x7f13036e
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1354,7 +1354,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v4, 0x7f13036d
+    const v4, 0x7f13036f
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1394,7 +1394,7 @@
 
     invoke-virtual {v4, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v4, 0x7f13036f
+    const v4, 0x7f130371
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1476,7 +1476,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v4, 0x7f13036e
+    const v4, 0x7f130370
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1486,7 +1486,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/customize/SecQSCustomizer;->mActiveTileLayout:Lcom/android/systemui/qs/customize/SecQSCustomizer$QSCustomizerTileLayout;
 
-    const v4, 0x7f130372
+    const v4, 0x7f130374
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1556,7 +1556,7 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/graphics/drawable/ColorDrawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    const v4, 0x7f130370
+    const v4, 0x7f130372
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1566,7 +1566,7 @@
 
     invoke-virtual {v3, v6}, Landroid/view/View;->setElevation(F)V
 
-    const v4, 0x7f130371
+    const v4, 0x7f130373
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/customize/SecQSCustomizer;->findViewById(I)Landroid/view/View;
 
@@ -1614,7 +1614,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0f03cb
+    const v3, 0x7f0f03cc
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

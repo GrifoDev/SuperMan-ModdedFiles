@@ -2166,10 +2166,43 @@
 .end method
 
 .method public update()V
-    .locals 0
+    .locals 4
 
     invoke-super {p0}, Lcom/android/keyguard/wallpaper/SystemUIWallpaper;->update()V
 
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mCurrentUserId:I
+
+    if-eq v1, v0, :cond_0
+
+    const-string/jumbo v1, "KeyguardImageWallpaper"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "update userId="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v0, p0, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->mCurrentUserId:I
+
+    :cond_0
     invoke-direct {p0}, Lcom/android/keyguard/wallpaper/KeyguardImageWallpaper;->updateWallpaper()V
 
     return-void

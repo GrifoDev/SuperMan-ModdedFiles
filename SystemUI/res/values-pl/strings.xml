@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Połączono przez %1$s</string>
     <string name="available_via_passpoint">Dostępne przez %1$s</string>
     <string name="wifi_connected_no_internet">Połączono, brak internetu</string>
+    <string name="wifi_internet_may_not_be_available">Internet może być niedostępny</string>
     <string name="wifi_reconnecting">Gotowy do połączenia, kiedy poprawi się jakość sieci</string>
     <string name="wifi_connected_checking_quality">Sprawdzanie jakości połączenia z Internetem…</string>
     <string name="wifi_setup_title_connected_network">Połączono z siecią Wi-Fi %s.</string>
@@ -791,8 +792,8 @@ Offline"</string>
 niebiesk."</string>
     <string name="quick_settings_mobile_data_label">"Dane
 komórkowe"</string>
-    <string name="quick_settings_wificalling_label">"WiFi
-Calling"</string>
+    <string name="quick_settings_wificalling_label">"Poł. przez
+Wi-Fi"</string>
     <string name="quick_settings_personal_mode_label">"Tryb
 prywatny"</string>
     <string name="quick_settings_data_roaming_label">"Roaming
@@ -851,7 +852,7 @@ S motoc."</string>
     <string name="aod_show_popup_title">Włącz aplikację %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Funkcje %1$s i %2$s nie mogą być włączone jednocześnie. Funkcja %3$s zostanie wyłączona.</string>
     <string name="aod_show_popup_description">%s i poniższe opcje nie mogą być włączone jednocześnie. Poniższe opcje zostaną wyłączone.</string>
-    <string name="wificalling_show_popup_use_location_inform">Połączenia przez sieć Wi-Fi potrzebują informacji o Twojej lokalizacji. Będziemy zbierać anonimowe dane o lokalizacji i wysyłać je do Google i Twojego dostawcy usług. Aby uzyskać więcej informacji, skontaktuj się ze swoim dostawcą usług.</string>
+    <string name="wificalling_show_popup_use_location_inform">Informacje o Twojej lokalizacji mogą być wysyłane do dostawcy usług w przypadku wykonywania połączeń za pośrednictwem sieci Wi-Fi. Skontaktuj się z dostawcą usług, aby uzyskać szczegółowe informacje.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informacje dotyczące lokalizacji mogą być wysyłane do firmy Google i Twojego operatora w celu nawiązania połączeń z siecią Wi-Fi, niezależenie od tego, czy aktywowano funkcję lokalizacji.</string>
     <string name="wificalling_show_popup_enable_location_title">Włączanie lokalizacji</string>
     <string name="wificalling_show_popup_enable_location_message">Połączenia przez sieć Wi-Fi potrzebują informacji o Twojej lokalizacji. Lokalizacja zostanie włączona. Będziemy zbierać anonimowe dane o lokalizacji i wysyłać je do Google i Twojego dostawcy usług. Aby uzyskać więcej informacji, skontaktuj się ze swoim dostawcą usług.</string>
@@ -1858,7 +1859,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Wprowadź kod PIN zamiast korzystać z rozpoznawania tęczówki ze względu na zasady bezpieczeństwa</string>
     <string name="kg_none_multi_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć odcisków danych biometrycznych.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć odcisków danych biometrycznych.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć odcisków palców.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefon został uruchomiony ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania telefonu możesz użyć odcisków palców.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć odcisków palców.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć tęczówek.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Urządzenie zostało uruchomione ponownie i wymaga odblokowania przy użyciu symbolu. Następnym razem do odblokowania urządzenia możesz użyć tęczówek.</string>

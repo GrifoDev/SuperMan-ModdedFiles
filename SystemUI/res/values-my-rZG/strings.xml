@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">အင္တာနက္ မရရွိႏိုင္ပါ</string>
     <string name="wifi_disabled_password_failure">အေထာက္အထားျပျခင္း အမွား ျဖစ္သြားသည္</string>
     <string name="wifi_auto_reconnect_disabled">အလုိအေလ်ာက္ ခ်ိတ္ဆက္မႈကုိ ပိတ္ထားသည္</string>
+    <string name="wifi_internet_may_not_be_available">အင္တာနက္ အရန္သင့္ ရခ်င္မွ ရလိမ့္မည္</string>
     <string name="wifi_reconnecting">ကြန္ရက္ အရည္အေသြး ပိုေကာင္းလာသည့္အခါ ခ်ိတ္ဆက္ရန္ အဆင္သင့္</string>
     <string name="wifi_connected_checking_quality">သင့္ အင္တာနက္ ခ်ိတ္ဆက္မႈ အရည္အေသြး စစ္ေဆးေနသည္…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi ကြန္ယက္ %s သို႔ ခ်ိတ္ဆက္ျပီးၿပီ။</string>
@@ -282,7 +283,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s ဖြင့္ပါ</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ႏွင့္ %2$s တို႔ကို တၿပိဳင္တည္း ဖြင့္မရပါ။ %3$s ကို ပိတ္သြားမည္။</string>
     <string name="aod_show_popup_description">%s ႏွင့္ ေအာက္ရွိ ေ႐ြးခ်ယ္ရန္မ်ားကို တစ္ၿပိဳင္တည္း ဖြင့္၍ မရႏိုင္ပါ။ ေအာက္မွ ေ႐ြးစရာမ်ားကို ပိတ္မည္။</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ေခၚဆိုမႈသည္ သင္၏တည္ေနရာ အခ်က္အလက္မ်ားအသုံးျပဳရန္ လိုအပ္သည္။ အမည္မသိ တည္ေနရာေဒတာကို ရယူၿပီး Google ႏွင့္ သင္၏ ဝန္ေဆာင္မႈေပးသူထံသို႔ ေပးပို႔သြားမည္ျဖစ္သည္။ အေသးစိတ္အခ်က္မ်ားအတြက္ သင္၏ ဝန္ေဆာင္မႈေပးသူကို ဆက္သြယ္ပါ။</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ဖုန္းေခၚျခင္းကို သုံးေနစဥ္အတြင္း သင္၏ တည္ေနရာအခ်က္အလက္ကို သင္၏ ဝန္ေဆာင္မႈစီစဥ္သူဆီသို႔ ပို႔ေပးႏိုင္သည္။ အေသးစိတ္မ်ားအတြက္ သင္၏ ဝန္ေဆာင္မႈစီစဥ္သူကို ဆက္သြယ္ပါ။</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Wi-Fi ဖုန္းမ်ားကို တည္ေနရာျပလုပ္ေဆာင္ခ်က္အား သက္ဝင္ခလုတ္ဖြင့္သည္ျဖစ္ေစ မဖြင့္သည္ျဖစ္ေစ ျပ႒ာန္းရန္အတြက္ သင္၏ တည္ေနရာ-အေျခစိုက္ အခ်က္အလက္ကို Google ႏွင့္ သင့္ေအာ္ပေရတာဆီသို႔ ပို႔ပါမည္။</string>
     <string name="wificalling_show_popup_enable_location_title">တည္ေနရာ အလုပ္လုပ္ေစပါႏွင့္</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi ေခၚဆိုမႈသည္ သင္၏တည္ေနရာ အခ်က္အလက္မ်ားအသုံးျပဳရန္ လိုအပ္သည္။ တည္ေနရာ တဂ္မ်ား ဖြင့္မည္။ အမည္မသိ တည္ေနရာေဒတာကို ရယူၿပီး Google ႏွင့္ သင္၏ ဝန္ေဆာင္မႈေပးသူထံသို႔ ေပးပို႔သြားမည္ျဖစ္သည္။ အေသးစိတ္အခ်က္မ်ားအတြက္ သင္၏ ဝန္ေဆာင္မႈေပးသူကို ဆက္သြယ္ပါ။</string>
@@ -854,7 +855,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">လုံၿခဳံေရး မူဝါဒရွိသည့္အတြက္ မ်က္ဝန္းမွတ္သားခ်က္ အသုံးျပဳမႈအစား PIN ထည့္သြင္းပါ</string>
     <string name="kg_none_multi_pattern_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္ပုံစံကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">ကိရိယာေသာ့ဖြင့္ရန္ သင့္ပုံစံကိုသုံးၿပီးေသာ့ဖြင့္ရန္လိုအပ္ၿပီး ျပန္လည္စတင္ပါ။ ေနာက္တစ္ႀကိမ္ သင္၏ကိရိယာေသာ့ဖြင့္မႈတြင္ ဇီဝ႐ုပ္လကၡဏာမ်ားကို သုံးႏိုင္ပါသည္။</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">သင့္ဖုန္းကုိ ပိတ္ၿပီး ျပန္ဖြင့္လုိက္ၿပီျဖစ္ကာ သင့္ပံုစံျဖင့္ ေသာ့ဖြင့္ရန္ လိုအပ္ပါသည္။ သင့္ဖုန္းကုိ ေနာက္တႀကိမ္ ေသာ့ဖြင့္သည့္အခါ သင့္ လက္ေဗြရာမ်ားကို သုံးႏိုင္ပါသည္။</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္လက္ေဗြမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_none_iris_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">သင့္ကိရိယာကို ျပန္စတင္ဖြင့္ခဲ့ၿပီး ၎ကို သင့္ေသာ့ဖြင့္ပုံစံ သုံး၍ ေသာ့ဖြင့္ရမည္။ သင့္မ်က္ဝန္းမ်ားကို ေနာက္တစ္ခါ ကိရိယာေသာ့ဖြင့္လွ်င္ သုံးႏိုင္ပါမည္။</string>

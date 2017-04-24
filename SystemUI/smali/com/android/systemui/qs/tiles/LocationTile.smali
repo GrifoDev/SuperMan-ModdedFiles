@@ -196,9 +196,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mAlertDialog:Landroid/app/AlertDialog;
 
-    new-instance v2, Lcom/android/systemui/qs/tiles/LocationTile$4;
+    new-instance v2, Lcom/android/systemui/qs/tiles/LocationTile$3;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/LocationTile$4;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/LocationTile$3;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0319
+    const v1, 0x7f0f031a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -239,7 +239,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f0318
+    const v1, 0x7f0f0319
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -281,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0f037b
+    const v1, 0x7f0f037c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -297,50 +297,6 @@
 
     const/4 v1, 0x0
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mState:Lcom/android/systemui/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isSecure()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardMonitor;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/KeyguardMonitor;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/LocationTile$1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/LocationTile$1;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSTile$Host;->startRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
-
-    return-void
-
-    :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;)Z
@@ -351,7 +307,7 @@
 
     return-void
 
-    :cond_2
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mState:Lcom/android/systemui/qs/QSTile$State;
 
     check-cast v0, Lcom/android/systemui/qs/QSTile$BooleanState;
@@ -372,7 +328,7 @@
 
     move-result v4
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_3
 
     move v0, v1
 
@@ -381,7 +337,7 @@
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_LOCATION_ENABLE_POPUP:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mController:Lcom/android/systemui/statusbar/policy/LocationController;
 
@@ -389,20 +345,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
-
-    :cond_3
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_GPS_IN_LOCATION:Z
-
     if-eqz v0, :cond_4
 
-    if-eqz v9, :cond_a
+    :cond_1
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_GPS_IN_LOCATION:Z
 
-    :cond_4
+    if-eqz v0, :cond_2
+
+    if-eqz v9, :cond_8
+
+    :cond_2
     :goto_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mController:Lcom/android/systemui/statusbar/policy/LocationController;
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_9
 
     :goto_2
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/LocationController;->setLocationEnabled(Z)Z
@@ -410,24 +366,24 @@
     :goto_3
     return-void
 
-    :cond_5
+    :cond_3
     move v0, v2
 
     goto :goto_0
 
-    :cond_6
+    :cond_4
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_5
 
-    const v8, 0x7f0f040f
+    const v8, 0x7f0f0410
 
     :goto_4
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    const v7, 0x7f0f0410
+    const v7, 0x7f0f0411
 
     :goto_5
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
@@ -442,17 +398,17 @@
 
     move-result-object v2
 
-    new-instance v4, Lcom/android/systemui/qs/tiles/LocationTile$2;
+    new-instance v4, Lcom/android/systemui/qs/tiles/LocationTile$1;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/qs/tiles/LocationTile$2;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
+    invoke-direct {v4, p0}, Lcom/android/systemui/qs/tiles/LocationTile$1;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
 
-    new-instance v6, Lcom/android/systemui/qs/tiles/LocationTile$3;
+    new-instance v6, Lcom/android/systemui/qs/tiles/LocationTile$2;
 
-    invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/LocationTile$3;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
+    invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/LocationTile$2;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
 
-    const v3, 0x7f0f03d0
+    const v3, 0x7f0f03d1
 
-    const v5, 0x7f0f03d1
+    const v5, 0x7f0f03d2
 
     move-object v0, p0
 
@@ -460,35 +416,35 @@
 
     goto :goto_3
 
-    :cond_7
-    const v8, 0x7f0f040c
+    :cond_5
+    const v8, 0x7f0f040d
 
     goto :goto_4
 
-    :cond_8
+    :cond_6
     invoke-static {}, Lcom/android/systemui/statusbar/DeviceState;->isTablet()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
+    const v7, 0x7f0f040f
+
+    goto :goto_5
+
+    :cond_7
     const v7, 0x7f0f040e
 
     goto :goto_5
 
-    :cond_9
-    const v7, 0x7f0f040d
-
-    goto :goto_5
-
-    :cond_a
+    :cond_8
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mHost:Lcom/android/systemui/qs/QSTile$Host;
 
     invoke-interface {v0}, Lcom/android/systemui/qs/QSTile$Host;->collapsePanels()V
 
     goto :goto_1
 
-    :cond_b
+    :cond_9
     move v1, v2
 
     goto :goto_2
@@ -523,7 +479,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03bc
+    const v2, 0x7f0f03bd
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -547,7 +503,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f037b
+    const v2, 0x7f0f037c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

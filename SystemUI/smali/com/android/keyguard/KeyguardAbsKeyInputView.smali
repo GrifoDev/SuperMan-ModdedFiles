@@ -304,7 +304,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mContext:Landroid/content/Context;
 
-    const v2, 0x10409c2
+    const v2, 0x10409c3
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

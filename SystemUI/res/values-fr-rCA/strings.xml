@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Connecté par %1$s</string>
     <string name="available_via_passpoint">Accessible par %1$s</string>
     <string name="wifi_connected_no_internet">Connecté, aucun accès à Internet</string>
+    <string name="wifi_internet_may_not_be_available">Intern. peut ne pas être disp.</string>
     <string name="wifi_reconnecting">Prêt à se connecter lorsque la qualité du réseau sera meilleure</string>
     <string name="wifi_connected_checking_quality">Vérification de la qualité de votre connexion Internet…</string>
     <string name="wifi_setup_title_connected_network">Connecté au réseau Wifi %s</string>
@@ -849,7 +850,7 @@ S Bike"</string>
     <string name="aod_show_popup_title">Activer %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s and %2$s ne peuvent pas être activés en même temps. %3$s va être désactivé.</string>
     <string name="aod_show_popup_description">La fonction %s et les options ci-dessous ne peuvent pas être activées en même temps. Les options ci-dessous vont être désactivées.</string>
-    <string name="wificalling_show_popup_use_location_inform">La fonction Appels Wifi doit utiliser vos informations de localisation. Des données de localisation anonymes vont être collectées et envoyées à Google et à votre opérateur. Contactez votre opérateur pour plus de détails.</string>
+    <string name="wificalling_show_popup_use_location_inform">Il se peut que vos informations de position soient envoyées à votre fournisseur de services lorsque vous utilisez la fonction Appels Wifi. Contactez votre fournisseur de services pour plus de détails.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Vos informations de localisation peuvent être envoyées à Google et à votre opérateur pour passer des appels Wi-Fi, que vous ayez activé ou non la fonction de localisation.</string>
     <string name="wificalling_show_popup_enable_location_title">Activer la localisation</string>
     <string name="wificalling_show_popup_enable_location_message">La fonction Appels Wifi doit utiliser vos informations de localisation. La localisation va être activée. Des données de localisation anonymes vont être collectées et envoyées à Google et à votre opérateur. Contactez votre opérateur pour plus de détails.</string>
@@ -1856,7 +1857,7 @@ Si votre tablette est réinitialisée, vous pouvez être amené à entrer les in
     <string name="kg_none_iris_pin_deviceadmin_instructions">"Entrer le NIP au lieu d'utiliser la reconnaissance par iris en raison de la politique de sécurité"</string>
     <string name="kg_none_multi_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos données biométriques lors du prochain déverrouillage de votre appareil.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Votre téléphone a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre téléphone.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos empreintes lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Votre appareil a été redémarré et doit être déverrouillé avec votre modèle. Vous pourrez utiliser vos iris lors du prochain déverrouillage de votre appareil.</string>

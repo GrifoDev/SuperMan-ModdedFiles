@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Připojeno prostřednictvím %1$s</string>
     <string name="available_via_passpoint">Dostupné prostřednictvím %1$s</string>
     <string name="wifi_connected_no_internet">Připojeno, není k dispozici internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet nemusí být dostupný</string>
     <string name="wifi_reconnecting">Připraven k připojení až se zlepší kvalita sítě</string>
     <string name="wifi_connected_checking_quality">Probíhá kontrola kvality připojení k Internetu…</string>
     <string name="wifi_setup_title_connected_network">Připojeno k síti Wi-Fi %s.</string>
@@ -848,7 +849,7 @@ S motorka"</string>
     <string name="aod_show_popup_title">Povolit %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Funkce %1$s a %2$s nelze zapnout současně. Funkce %3$s bude vypnuta.</string>
     <string name="aod_show_popup_description">Funkci %s a níže uvedené možnosti nelze zapnout současně. Níže uvedené možnosti budou vypnuty.</string>
-    <string name="wificalling_show_popup_use_location_inform">Volání pomocí Wi-Fi potřebuje použít informace o poloze. Anonymní údaje o poloze se shromáždí a odešlou do Google a poskytovateli služeb. Podrobnosti získáte u svého poskytovatele služeb.</string>
+    <string name="wificalling_show_popup_use_location_inform">Při používání volání pomocí Wi-Fi mohou být poskytovateli služeb odesílány informace o poloze. Podrobnosti získáte u svého poskytovatele služeb.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informace o poloze mohou být za účelem poskytování volání pomocí Wi-Fi odeslány společnosti Google a operátorovi bez ohledu na to, zda jste funkci zjišťování polohy aktivovali nebo ne.</string>
     <string name="wificalling_show_popup_enable_location_title">Zapnout Informace o poloze</string>
     <string name="wificalling_show_popup_enable_location_message">Volání pomocí Wi-Fi potřebuje použít informace o poloze. Bude povoleno zjišťování polohy. Anonymní údaje o poloze se shromáždí a odešlou do Google a poskytovateli služeb. Podrobnosti získáte u svého poskytovatele služeb.</string>
@@ -1855,7 +1856,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Z důvodu zásad zabezpečení zadejte místo použití rozpoznávání duhovky PIN kód</string>
     <string name="kg_none_multi_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít biometriku.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefon byl restartován a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí telefonu budete moci použít otisky prstů.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít otisky prstů.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít duhovky.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Zařízení bylo restartováno a je potřeba ho odemknout pomocí znaku. Při příštím odemknutí zařízení budete moci použít duhovky.</string>

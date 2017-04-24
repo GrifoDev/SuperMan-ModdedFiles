@@ -890,7 +890,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v26, 0x7f0f0278
+    const v26, 0x7f0f0279
 
     move-object/from16 v0, v22
 
@@ -904,7 +904,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0f0279
+    const v26, 0x7f0f027a
 
     move-object/from16 v0, v22
 
@@ -978,7 +978,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    const v26, 0x7f0f0278
+    const v26, 0x7f0f0279
 
     move-object/from16 v0, v22
 
@@ -992,7 +992,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0f0279
+    const v26, 0x7f0f027a
 
     move-object/from16 v0, v22
 
@@ -1994,7 +1994,7 @@
     :cond_7
     new-instance v30, Landroid/app/Notification$Action$Builder;
 
-    const v31, 0x7f0f0287
+    const v31, 0x7f0f0288
 
     move-object/from16 v0, v21
 
@@ -2125,7 +2125,7 @@
     :cond_8
     new-instance v30, Landroid/app/Notification$Action$Builder;
 
-    const v31, 0x7f0f0286
+    const v31, 0x7f0f0287
 
     move-object/from16 v0, v21
 
@@ -2245,7 +2245,7 @@
     :cond_a
     new-instance v30, Landroid/app/Notification$Action$Builder;
 
-    const v31, 0x7f0f0288
+    const v31, 0x7f0f0289
 
     move-object/from16 v0, v21
 
@@ -2568,7 +2568,7 @@
 
     iget-object v5, p1, Lcom/android/systemui/screenshot/SaveImageInBackgroundData;->context:Landroid/content/Context;
 
-    const v6, 0x7f0f0282
+    const v6, 0x7f0f0283
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2637,7 +2637,7 @@
 
     iget-object v5, p1, Lcom/android/systemui/screenshot/SaveImageInBackgroundData;->context:Landroid/content/Context;
 
-    const v6, 0x7f0f0282
+    const v6, 0x7f0f0283
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2682,7 +2682,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;->mPublicNotificationBuilder:Landroid/app/Notification$Builder;
 
-    const v6, 0x7f0f027a
+    const v6, 0x7f0f027b
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2692,7 +2692,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f027b
+    const v6, 0x7f0f027c
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2730,7 +2730,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;->mNotificationBuilder:Landroid/app/Notification$Builder;
 
-    const v6, 0x7f0f027a
+    const v6, 0x7f0f027b
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2740,7 +2740,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f027b
+    const v6, 0x7f0f027c
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

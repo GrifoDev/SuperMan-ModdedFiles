@@ -604,6 +604,14 @@
 
     move-result-object v1
 
+    const-string/jumbo v6, "-"
+
+    const-string/jumbo v7, ""
+
+    invoke-virtual {v1, v6, v7}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
     :cond_2
     iget-object v6, p0, Lcom/android/systemui/qs/QSTileView;->mContext:Landroid/content/Context;
 
@@ -615,7 +623,7 @@
 
     aput-object v1, v7, v5
 
-    const v8, 0x7f0f0449
+    const v8, 0x7f0f044a
 
     invoke-virtual {v6, v8, v7}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

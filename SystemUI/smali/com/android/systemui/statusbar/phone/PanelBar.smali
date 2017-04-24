@@ -12,6 +12,8 @@
 
 .field private mState:I
 
+.field private mStatusBarState:I
+
 .field private mTracking:Z
 
 
@@ -33,11 +35,13 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
     const/4 v0, 0x0
 
+    invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
     iput v0, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mState:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mStatusBarState:I
 
     return-void
 .end method
@@ -396,9 +400,11 @@
 .end method
 
 .method public panelExpansionChanged(FZ)V
-    .locals 6
+    .locals 9
 
-    const/4 v5, 0x0
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
 
     const/4 v0, 0x1
 
@@ -406,88 +412,135 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mPanel:Lcom/android/systemui/statusbar/phone/PanelView;
 
-    if-eqz p2, :cond_4
+    if-nez p2, :cond_8
 
-    move v4, v5
+    const/4 v5, 0x0
+
+    cmpl-float v5, p1, v5
+
+    if-nez v5, :cond_8
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mStatusBarState:I
+
+    const/4 v8, 0x5
+
+    if-eq v5, v8, :cond_0
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mStatusBarState:I
+
+    const/16 v8, 0xa
+
+    if-ne v5, v8, :cond_7
+
+    :cond_0
+    move v5, v6
 
     :goto_0
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/PanelView;->setVisibility(I)V
+    move v3, v5
 
-    if-eqz p2, :cond_1
+    :goto_1
+    if-eqz v3, :cond_1
 
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mState:I
+    sget-object v5, Lcom/android/systemui/statusbar/phone/PanelBar;->TAG:Ljava/lang/String;
 
-    if-nez v4, :cond_0
+    const-string/jumbo v8, "SHOULD SHOW"
 
-    const/4 v4, 0x1
+    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/PanelBar;->go(I)V
+    :cond_1
+    if-nez p2, :cond_2
+
+    if-eqz v3, :cond_9
+
+    :cond_2
+    move v5, v7
+
+    :goto_2
+    invoke-virtual {v2, v5}, Lcom/android/systemui/statusbar/phone/PanelView;->setVisibility(I)V
+
+    if-eqz p2, :cond_4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mState:I
+
+    if-nez v5, :cond_3
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/statusbar/phone/PanelBar;->go(I)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelPeeked()V
 
-    :cond_0
+    :cond_3
     const/4 v0, 0x0
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/PanelView;->getExpandedFraction()F
 
-    move-result v3
+    move-result v4
 
-    const/high16 v4, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    cmpl-float v4, v3, v4
+    cmpl-float v5, v4, v5
 
-    if-ltz v4, :cond_5
+    if-ltz v5, :cond_a
 
     const/4 v1, 0x1
 
-    :cond_1
-    :goto_1
-    if-eqz v1, :cond_2
+    :cond_4
+    :goto_3
+    if-eqz v1, :cond_5
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mTracking:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mTracking:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v5, :cond_b
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_5
+    if-eqz v0, :cond_6
 
-    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mTracking:Z
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mTracking:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v5, :cond_c
 
-    :cond_3
-    :goto_2
+    :cond_6
+    :goto_4
     return-void
 
-    :cond_4
-    const/4 v4, 0x4
+    :cond_7
+    move v5, v7
 
     goto :goto_0
 
-    :cond_5
-    const/4 v1, 0x0
+    :cond_8
+    move v3, v7
 
     goto :goto_1
 
-    :cond_6
-    const/4 v4, 0x2
-
-    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/phone/PanelBar;->go(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelFullyOpened()V
+    :cond_9
+    const/4 v5, 0x4
 
     goto :goto_2
 
-    :cond_7
-    iget v4, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mState:I
+    :cond_a
+    const/4 v1, 0x0
 
-    if-eqz v4, :cond_3
+    goto :goto_3
+
+    :cond_b
+    const/4 v5, 0x2
 
     invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/phone/PanelBar;->go(I)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelFullyOpened()V
+
+    goto :goto_4
+
+    :cond_c
+    iget v5, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mState:I
+
+    if-eqz v5, :cond_6
+
+    invoke-virtual {p0, v7}, Lcom/android/systemui/statusbar/phone/PanelBar;->go(I)V
+
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelCollapsed()V
 
-    goto :goto_2
+    goto :goto_4
 .end method
 
 .method public abstract panelScrimMinFractionChanged(F)V
@@ -526,6 +579,14 @@
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mPanel:Lcom/android/systemui/statusbar/phone/PanelView;
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/phone/PanelView;->setBar(Lcom/android/systemui/statusbar/phone/PanelBar;)V
+
+    return-void
+.end method
+
+.method public setStatusBarState(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mStatusBarState:I
 
     return-void
 .end method

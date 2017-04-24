@@ -117,7 +117,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOverlayActivity;->setContentView(I)V
 
-    const v0, 0x7f130401
+    const v0, 0x7f130403
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tv/pip/PipOverlayActivity;->findViewById(I)Landroid/view/View;
 

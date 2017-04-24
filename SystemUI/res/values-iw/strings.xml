@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">‏מחובר דרך %1$s</string>
     <string name="available_via_passpoint">‏זמינה דרך %1$s</string>
     <string name="wifi_connected_no_internet">מחובר. אין אינטרנט</string>
+    <string name="wifi_internet_may_not_be_available">ייתכן שלא תהיה זמינות אינטרנט</string>
     <string name="wifi_reconnecting">מוכן להתחברות כאשר איכות הרשת תשתפר</string>
     <string name="wifi_connected_checking_quality">בודק את האיכות של החיבור שלך לאינטרנט…</string>
     <string name="wifi_setup_title_connected_network">מחובר אל רשת Wi-Fi של %s.</string>
@@ -849,7 +850,7 @@ S bike"</string>
     <string name="aod_show_popup_title">הפעל את %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">לא ניתן להפעיל את הפונקציות %1$s ו%2$s במקביל. הפונקציה %3$s תושבת.</string>
     <string name="aod_show_popup_description">לא ניתן להפעיל במקביל את %s ואת האפשרויות שלהלן. האפשרויות שלהלן יושבתו.</string>
-    <string name="wificalling_show_popup_use_location_inform">"הפונקציה 'שיחות ב-Wi-Fi' נדרשת להשתמש בנתוני המיקום שלך. נתוני מיקום אנונימיים ייאספו ויישלחו אל Google ואל ספק השירות שלך. לפרטים, פנה אל ספק השירות שלך."</string>
+    <string name="wificalling_show_popup_use_location_inform">"ייתכן שנתוני המיקום שלך יישלחו אל ספק השירות בעת השימוש שלך ב'שיחות Wi-Fi'. לפרטים, פנה אל ספק השירות שלך."</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">תוכל לשלוח נתונים מבוססי-מיקום אל Google ואל ספק השירות שלך כדי לבצע שיחות Wi-Fi, גם אם לא הפעלת את תכונת המיקום.</string>
     <string name="wificalling_show_popup_enable_location_title">"הפעלת 'מיקום'"</string>
     <string name="wificalling_show_popup_enable_location_message">"הפונקציה 'שיחות ב-Wi-Fi' נדרשת להשתמש בנתוני המיקום שלך. הפונקציה 'מיקום' תופעל. נתוני מיקום אנונימיים ייאספו ויישלחו אל Google ואל ספק השירות שלך. לפרטים, פנה אל ספק השירות שלך."</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">הזן קוד PIN במקום להשתמש בזיהוי קשתיות, בשל מדיניות האבטחה</string>
     <string name="kg_none_multi_pattern_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">המכשיר שלך הופעל מחדש, לכן עליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בנתונים ביומטריים בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">הטלפון הופעל מחדש ועליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת הטלפון.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בטביעות אצבע בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_none_iris_pattern_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">המכשיר הופעל מחדש ועליך לבטל את נעילתו בעזרת הדפוס שלך. תוכל להשתמש בנתוני קשתיות בפעם הבאה שתרצה לבטל את נעילת המכשיר.</string>

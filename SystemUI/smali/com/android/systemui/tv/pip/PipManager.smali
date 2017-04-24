@@ -1117,7 +1117,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/tv/pip/PipManager;->mDefaultPipBounds:Landroid/graphics/Rect;
 
-    const v2, 0x7f0f0230
+    const v2, 0x7f0f0231
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1129,7 +1129,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/tv/pip/PipManager;->mSettingsPipBounds:Landroid/graphics/Rect;
 
-    const v2, 0x7f0f0231
+    const v2, 0x7f0f0232
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1141,7 +1141,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/tv/pip/PipManager;->mMenuModePipBounds:Landroid/graphics/Rect;
 
-    const v2, 0x7f0f0232
+    const v2, 0x7f0f0233
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1153,7 +1153,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/tv/pip/PipManager;->mRecentsPipBounds:Landroid/graphics/Rect;
 
-    const v2, 0x7f0f0233
+    const v2, 0x7f0f0234
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

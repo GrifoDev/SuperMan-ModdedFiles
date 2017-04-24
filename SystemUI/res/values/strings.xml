@@ -102,6 +102,7 @@
     <string name="settings_package">com.android.settings</string>
     <string name="certinstaller_package">com.android.certinstaller</string>
     <string name="wifi_connected_no_internet">Connected, no Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet may not be available</string>
     <string name="wifi_reconnecting">Ready to connect when network quality improves</string>
     <string name="wifi_connected_checking_quality">Checking the quality of your Internet connection...</string>
     <string name="wifi_setup_title_connected_network">Connected to Wi-Fi network %s.</string>
@@ -504,7 +505,7 @@
     <string name="v7_preference_off">OFF</string>
     <string name="config_statusBarComponent">com.android.systemui.statusbar.phone.PhoneStatusBar</string>
     <string name="quick_settings_tiles_default">Wifi,SilentMode,Bluetooth,RotationLock,Flashlight,ScreenCapture,ScreenRecorder,TouchSensitivity,UHQ,DataSaver,Cast,PowerSaving,MobileData,AirplaneMode,Performance,BlueLightFilter,WifiHotspot,PersonalMode,SecureFolder,Location,Nfc,Aod,AllShareCast,DeviceVisibility,Dnd,Sync,UDS,BikeMode</string>
-    <string name="quick_settings_tiles_upsm">Wifi,SilentMode,Bluetooth,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,AirplaneMode,Location</string>
+    <string name="quick_settings_tiles_upsm">Wifi,Bluetooth,AirplaneMode,custom(com.sec.android.emergencymode.service/.PowerSavingTile),MobileData,Location</string>
     <string name="quick_settings_custom_tile_component_names">Performance:com.samsung.android.lool/com.samsung.android.sm.ui.booster.PerformanceTile,PerformanceCHN:com.samsung.android.sm_cn/com.samsung.android.sm.ui.booster.PerformanceTile,PowerSaving:com.android.settings/com.samsung.android.settings.powersaving.PowerSavingTile,Aod:com.samsung.android.app.aodservice/.settings.AODTileService,DeviceVisibility:com.samsung.android.oneconnect/.external.DeviceVisibilityTile,PowerSavingUPSM:com.sec.android.emergencymode.service/.PowerSavingTile,Sync:com.android.settings/com.samsung.android.settings.qstile.SecAccountTiles,PersonalMode:com.android.settings/com.samsung.android.settings.qstile.PersonalModeTile,AllShareCast:com.sec.android.app.wfdbroker/.AllShareCastTile,Nfc:com.android.nfc/com.samsung.android.nfc.quicktile.NfcTile,SecureFolder:com.samsung.knox.securefolder/.switcher.SecureFolderTile</string>
     <string name="quick_settings_tiles">default</string>
     <string name="velocity_tracker_impl">platform</string>
@@ -1105,6 +1106,9 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
     <string name="quick_settings_brightness_quick_access">Show control on top</string>
     <string name="quick_settings_brightness_quick_access_summary">Show the brightness control above the notification panel.</string>
     <string name="quick_settings_brightness_detail_level">Level</string>
+    <string name="outdoor_mode_title">Outdoor mode</string>
+    <string name="outdoor_mode_summary">Increase the screen brightness for %1$d minutes. If the screen is turned on when the %2$d minutes have elapsed, Outdoor mode will remain turned on until the screen is turned off.</string>
+    <string name="outdoor_mode_summary_vzw">Outdoor mode will maximize screen brightness for best viewing in sunlight. If the screen is not in use, screen brightness will return to the previous setting in 15 minutes.</string>
     <string name="recents_empty_message">No Recently used apps</string>
     <string name="recents_empty_message_dismissed_all">"You've cleared everything"</string>
     <string name="recents_app_info_button_label">Application Info</string>
@@ -1814,8 +1818,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
-    <item type="string" name="APKTOOL_DUMMY_6a1">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6a2">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6a5">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6a6">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2118,7 +2122,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Enter PIN instead of using iris because of security policy</string>
     <string name="kg_none_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Your phone was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
@@ -2345,7 +2349,6 @@ Try again in 1 second"</string>
     <string name="theme_clockfont_effect_type" />
     <string name="kg_wallpaper_preview_title">Lock screen</string>
     <string name="kg_wallpaper_preview_button">Set as wallpaper</string>
-    <string name="status_view_12_hours_format">h:mm</string>
     <string name="status_view_24_hours_format">kk:mm</string>
     <string name="text_pressure_scale_1">mm</string>
     <string name="text_pressure_scale_2">Hg. Art.</string>
@@ -2354,4 +2357,5 @@ Try again in 1 second"</string>
     <string name="voshod">Sunrise :</string>
     <string name="service_background_processes">%1$s free</string>
     <string name="service_foreground_processes">%1$s used</string>
+    <string name="status_view_12_hours_format">h:mm</string>
 </resources>

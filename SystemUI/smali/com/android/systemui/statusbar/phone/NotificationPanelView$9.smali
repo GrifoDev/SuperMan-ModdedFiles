@@ -77,7 +77,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13030c
+    const v1, 0x7f13030e
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->findViewById(I)Landroid/view/View;
 
@@ -105,7 +105,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mQsContainer:Lcom/android/systemui/qs/QSContainer;
 
-    const v2, 0x7f130303
+    const v2, 0x7f130305
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 

@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s-р холбогдсон</string>
     <string name="available_via_passpoint">%1$s-р боломжтой</string>
     <string name="wifi_connected_no_internet">Холбогдсон, интернэт байхгүй байна</string>
+    <string name="wifi_internet_may_not_be_available">Интернэт боломжгүй байж болно</string>
     <string name="wifi_reconnecting">Сүлжээний чанар сайжрахад холбогдох бэлэн</string>
     <string name="wifi_connected_checking_quality">Интернэт холболтынхоо чанарыг шалгаж байна…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi сүлжээ %s-д холбогдсон</string>
@@ -850,7 +851,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s идэвхжүүлэх</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ба %2$s нэгэн зэрэг идэвхижиж чадахгүй. %3$s идэвхигүй болно.</string>
     <string name="aod_show_popup_description">%s ба доорх сонголтуудыг нэг зэрэг идэвхжүүлэх боломжгүй. Доорх сонголтыг идэвхгүй болгоно.</string>
-    <string name="wificalling_show_popup_use_location_inform">Байршлын мэдээллээ ашиглахад Wi-Fi дуудлага шаардлагатай болно. Нэргүй байршлын өгөгдлийг цуглуулж, Google болон таны үйлчилгээ үзүүлэгчид илгээнэ. Үйлчилгээ үзүүлэгчтэй холбоо барьж, дэлгэрэнгүй мэдээлэл ав.</string>
+    <string name="wificalling_show_popup_use_location_inform">Таны байршлын мэдээллийг Wi-Fi дуудлага ашиглах үеэр үйлчилгээ үзүүлэгч рүү илгээж болно. Үйлчилгээ үзүүлэгчтэй холбоо барьж дэлгэрэнгүй мэдээлэл авна уу.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Та байршлын функцийг идэвхжүүлсэн эсэхээс үл хамааран Wi-Fi дуудлага байгуулахын тулд таны байршилтай холбоотой мэдээллийг Google болон таны үйлчилгээ үзүүлэгчид илгээх боломжтой.</string>
     <string name="wificalling_show_popup_enable_location_title">Байрлалыг идэвхжүүл</string>
     <string name="wificalling_show_popup_enable_location_message">Байршлын мэдээллээ ашиглахад Wi-Fi дуудлага шаардлагатай болно. Байршил идэвхжинэ. Нэргүй байршлын өгөгдлийг цуглуулж, Google болон таны үйлчилгээ үзүүлэгчид илгээнэ. Үйлчилгээ үзүүлэгчтэй холбоо барьж, дэлгэрэнгүй мэдээлэл ав.</string>
@@ -1856,7 +1857,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Хамгаалалтын бодлогын дагуу нүдний солонгон бүрхэвч таниулахгүйгээр PIN-г оруул</string>
     <string name="kg_none_multi_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа биометрээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Таны утас унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан утасныхаа түгжээг тайлна уу.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа хурууны хээгээ ашиглан төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Таны төхөөрөмж унтарч ассан тул хээгээр түгжээг тайлах хэрэгтэй. Та дараагийн удаа солонгон бүрхэвчээрээ төхөөрөмжийнхөө түгжээг тайлна уу.</string>

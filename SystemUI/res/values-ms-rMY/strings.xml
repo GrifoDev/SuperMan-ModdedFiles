@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Disambungkan melalui %1$s</string>
     <string name="available_via_passpoint">Tersedia melalui %1$s</string>
     <string name="wifi_connected_no_internet">Disambungkan, tiada Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet mungkin tdk tersedia</string>
     <string name="wifi_reconnecting">Bersedia untuk disambungkan apabila kualiti rangkaian meningkat</string>
     <string name="wifi_connected_checking_quality">Menyemak kualiti sambungan Internet anda…</string>
     <string name="wifi_setup_title_connected_network">Disambung ke rangkaian Wi-Fi %s.</string>
@@ -850,7 +851,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Aktifkan %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s dan %2$s tidak dapat diaktifkan pada masa yang sama. %3$s akan dinyahaktifkan.</string>
     <string name="aod_show_popup_description">%s dan pilihan di bawah tidak boleh diaktifkan pada masa yang sama. Pilihan di bawah akan dinyahaktifkan.</string>
-    <string name="wificalling_show_popup_use_location_inform">Panggilan Wi-Fi perlu menggunakan maklumat lokasi anda. Data lokasi tanpa nama akan dikumpulkan dan dihantar ke Google dan pembekal perkhidmatan anda. Hubungi pembekal perkhidmatan anda untuk maklumat lanjut.</string>
+    <string name="wificalling_show_popup_use_location_inform">Maklumat lokasi anda mungkin akan dihantar kepada pembekal perkhidmatan anda semasa anda menggunakan Panggilan Wi-Fi. Hubungi pembekal perkhidmatan anda untuk butiran.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Maklumat berkaitan lokasi anda boleh dihantar kepada Google dan pengendali untuk mewujudkan panggilan Wi-Fi, tidak kira sama ada anda telah mengaktifkan ciri lokasi atau tidak.</string>
     <string name="wificalling_show_popup_enable_location_title">Aktifkan Lokasi</string>
     <string name="wificalling_show_popup_enable_location_message">Panggilan Wi-Fi perlu menggunakan maklumat lokasi anda. Lokasi akan diaktifkan. Data lokasi tanpa nama akan dikumpulkan dan dihantar ke Google dan pembekal perkhidmatan anda. Hubungi pembekal perkhidmatan anda untuk maklumat lanjut.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Masukkan PIN dan bukannya menggunakan pengecaman iris atas sebab dasar keselamatan</string>
     <string name="kg_none_multi_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan biometrik anda pada kali berikutnya anda membuka kunci peranti anda.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefon anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci telefon anda.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan cap jari anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Peranti anda telah dimulakan semula dan perlu dibuka kunci menggunakan corak anda. Anda boleh menggunakan iris anda pada kali berikutnya anda membuka kunci peranti anda.</string>

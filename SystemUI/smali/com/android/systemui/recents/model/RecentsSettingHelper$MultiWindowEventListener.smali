@@ -70,7 +70,7 @@
 
     invoke-direct {v1}, Lcom/android/systemui/recents/events/activity/MultiWindowSettingChangedEvent;-><init>()V
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->send(Lcom/android/systemui/recents/events/EventBus$Event;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/recents/events/EventBus;->sendOntoMainThread(Lcom/android/systemui/recents/events/EventBus$Event;)V
 
     return-void
 .end method

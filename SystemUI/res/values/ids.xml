@@ -711,6 +711,8 @@
     <item type="id" name="tile_label">false</item>
     <item type="id" name="restricted_padlock">false</item>
     <item type="id" name="auto_switch_container">false</item>
+    <item type="id" name="auto_title">false</item>
+    <item type="id" name="outdoor_summary">false</item>
     <item type="id" name="auto_switch">false</item>
     <item type="id" name="quick_access_switch_container">false</item>
     <item type="id" name="quick_access_switch">false</item>
@@ -1028,8 +1030,6 @@
     <item type="id" name="screen_grid">false</item>
     <item type="id" name="brightness_control_on_top">false</item>
     <item type="id" name="contact_us">false</item>
-    <item type="id" name="network_traffic">false</item>
-    <item type="id" name="attrName">false</item>
     <item type="id" name="attrValue">false</item>
     <item type="id" name="gear_bottom_layout">false</item>
     <item type="id" name="next_alarm_txt">false</item>
@@ -1091,6 +1091,8 @@
     <item type="id" name="gid_info_ram">false</item>
     <item type="id" name="blur_background_image_view_recents">false</item>
     <item type="id" name="view_flipper_text_slide">false</item>
+    <item type="id" name="network_traffic">false</item>
+    <item type="id" name="attrName">false</item>
     <item type="id" name="killer_mem_info">false</item>
     <item type="id" name="killer_clean_button">false</item>
 </resources>

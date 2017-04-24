@@ -257,7 +257,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x7f0d0315
+    const v3, 0x7f0d0317
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -266,7 +266,7 @@
     iput v3, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mCornerRadius:I
 
     :goto_1
-    const v3, 0x7f0d0317
+    const v3, 0x7f0d0319
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -441,7 +441,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v3, 0x7f0d0313
+    const v3, 0x7f0d0315
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -575,7 +575,7 @@
 
     if-nez v7, :cond_1
 
-    const v7, 0x7f13033d
+    const v7, 0x7f13033f
 
     invoke-static {p0, v7}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -617,7 +617,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mAppOverlayView:Landroid/widget/FrameLayout;
 
-    const v8, 0x7f130340
+    const v8, 0x7f130342
 
     invoke-virtual {v7, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -633,7 +633,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mAppOverlayView:Landroid/widget/FrameLayout;
 
-    const v8, 0x7f13033f
+    const v8, 0x7f130341
 
     invoke-virtual {v7, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -960,7 +960,7 @@
 
     if-eqz v7, :cond_1
 
-    const v7, 0x7f0d0310
+    const v7, 0x7f0d0312
 
     :goto_0
     invoke-virtual {v8, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -971,7 +971,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d0311
+    const v8, 0x7f0d0313
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1086,7 +1086,7 @@
     goto :goto_1
 
     :cond_1
-    const v7, 0x7f0d030c
+    const v7, 0x7f0d030e
 
     goto/16 :goto_0
 
@@ -1370,7 +1370,7 @@
 
     if-nez v1, :cond_5
 
-    const v1, 0x7f13033b
+    const v1, 0x7f13033d
 
     invoke-static {p0, v1}, Lcom/android/systemui/recents/misc/Utilities;->findViewStubById(Landroid/view/View;I)Landroid/view/ViewStub;
 
@@ -1864,19 +1864,19 @@
 
     const/4 v14, 0x0
 
-    const v13, 0x7f0d030b
+    const v13, 0x7f0d030d
 
-    const v4, 0x7f0d0308
+    const v4, 0x7f0d030a
 
-    const v12, 0x7f0d030a
+    const v12, 0x7f0d030c
 
-    const v1, 0x7f0d0307
+    const v1, 0x7f0d0309
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/views/TaskViewHeader;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
-    const v0, 0x7f0d0312
+    const v0, 0x7f0d0314
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1886,19 +1886,19 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0d030d
+    const v0, 0x7f0d030f
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v7
 
-    const v0, 0x7f0d030f
+    const v0, 0x7f0d0311
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v8
 
-    const v0, 0x7f0d030e
+    const v0, 0x7f0d0310
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1972,7 +1972,7 @@
     return-void
 
     :cond_3
-    const v0, 0x7f0d0309
+    const v0, 0x7f0d030b
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2113,7 +2113,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mTitleView:Landroid/widget/TextView;
 
-    const v1, 0x7f13033a
+    const v1, 0x7f13033c
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2131,7 +2131,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f130339
+    const v1, 0x7f13033b
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2164,7 +2164,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f130337
+    const v1, 0x7f130339
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2199,7 +2199,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f130338
+    const v1, 0x7f13033a
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/recents/views/TaskViewHeader;->findViewById(I)Landroid/view/View;
 
@@ -2228,7 +2228,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f0d030e
+    const v1, 0x7f0d0310
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -2241,7 +2241,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0312
+    const v2, 0x7f0d0314
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2254,7 +2254,7 @@
     return-void
 
     :cond_3
-    const v1, 0x7f0d0309
+    const v1, 0x7f0d030b
 
     goto :goto_0
 .end method
@@ -2312,7 +2312,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f02fd
+    const v2, 0x7f0f02fe
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2329,7 +2329,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f05c1
+    const v2, 0x7f0f05c5
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2346,7 +2346,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/TaskViewHeader;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f05c2
+    const v2, 0x7f0f05c6
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3435,7 +3435,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0315
+    const v1, 0x7f0d0317
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3455,7 +3455,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0313
+    const v1, 0x7f0d0315
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

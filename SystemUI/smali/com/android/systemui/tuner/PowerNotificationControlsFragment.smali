@@ -119,7 +119,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v3, 0x7f1303ea
+    const v3, 0x7f1303ec
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -133,7 +133,7 @@
 
     check-cast v2, Landroid/widget/Switch;
 
-    const v3, 0x7f1303eb
+    const v3, 0x7f1303ed
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0f057c
+    const v3, 0x7f0f0580
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tuner/PowerNotificationControlsFragment;->getString(I)Ljava/lang/String;
 
@@ -171,7 +171,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f0f057d
+    const v3, 0x7f0f0581
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tuner/PowerNotificationControlsFragment;->getString(I)Ljava/lang/String;
 

@@ -713,7 +713,7 @@
 .method protected onFinishInflate()V
     .locals 9
 
-    const v8, 0x7f0d037e
+    const v8, 0x7f0d0380
 
     const v7, 0x7f0d01dc
 
@@ -739,7 +739,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mQSDetail:Lcom/android/systemui/qs/QSDetail;
 
-    const v2, 0x7f130303
+    const v2, 0x7f130305
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QSContainer;->findViewById(I)Landroid/view/View;
 
@@ -860,7 +860,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSContainer;->mHeader:Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;
 
-    const v4, 0x7f13030c
+    const v4, 0x7f13030e
 
     invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/phone/BaseStatusBarHeader;->findViewById(I)Landroid/view/View;
 

@@ -105,7 +105,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03ba
+    const v2, 0x7f0d03bd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -143,7 +143,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d038b
+    const v4, 0x7f0d038d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -157,7 +157,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mSViewCoverMargin:I
 
-    const v1, 0x7f0d0389
+    const v1, 0x7f0d038b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -336,7 +336,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0415
+    const v2, 0x7f0d0418
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -378,7 +378,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mBackgroundView:Landroid/view/View;
 
-    const v3, 0x7f1303b3
+    const v3, 0x7f1303b5
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d03cf
+    const v4, 0x7f0d03d2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -414,7 +414,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d03d0
+    const v4, 0x7f0d03d3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -634,7 +634,15 @@
 .end method
 
 .method public panelExpansionChanged(FZ)V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->getBarState()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->setStatusBarState(I)V
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/PanelBar;->panelExpansionChanged(FZ)V
 

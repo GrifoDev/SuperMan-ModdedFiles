@@ -879,29 +879,57 @@
     return-object v3
 .end method
 
-.method private getWifiConfigurationForNetworkId(I)Landroid/net/wifi/WifiConfiguration;
-    .locals 5
+.method private getConfiguredNetworks()Ljava/util/List;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/WifiConfiguration;",
+            ">;"
+        }
+    .end annotation
 
-    const/4 v4, 0x0
+    new-instance v6, Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConfiguredNetworks()Ljava/util/List;
+    const/4 v3, -0x1
+
+    const/16 v4, 0x3c
+
+    move v5, v4
+
+    :goto_0
+    add-int/lit8 v4, v5, -0x1
+
+    if-lez v5, :cond_1
+
+    iget-object v7, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v7, v3}, Landroid/net/wifi/WifiManager;->semGetConfiguredNetworks(I)Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-lez v7, :cond_1
 
     invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_0
+    :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v7
 
-    if-eqz v3, :cond_2
+    if-eqz v7, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -909,27 +937,47 @@
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    iget-object v3, p0, Lcom/android/settingslib/wifi/WifiTracker;->mLastInfo:Landroid/net/wifi/WifiInfo;
-
-    if-eqz v3, :cond_0
+    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     iget v3, v0, Landroid/net/wifi/WifiConfiguration;->networkId:I
 
-    if-ne p1, v3, :cond_0
+    goto :goto_1
 
-    iget-boolean v3, v0, Landroid/net/wifi/WifiConfiguration;->selfAdded:Z
+    :cond_0
+    move v5, v4
 
-    if-eqz v3, :cond_1
-
-    iget v3, v0, Landroid/net/wifi/WifiConfiguration;->numAssociation:I
-
-    if-eqz v3, :cond_0
+    goto :goto_0
 
     :cond_1
-    return-object v0
+    return-object v6
+.end method
 
-    :cond_2
-    return-object v4
+.method private getWifiConfigurationForNetworkId(I)Landroid/net/wifi/WifiConfiguration;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v1, p1}, Landroid/net/wifi/WifiManager;->getSpecificNetwork(I)Landroid/net/wifi/WifiConfiguration;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "WifiTracker"
+
+    const-string/jumbo v2, "Exception occures during getWifiConfigurationForNetworkId !!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
 .end method
 
 .method private handleResume()V
@@ -1284,13 +1332,7 @@
 
     move-result-object v23
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    move-object/from16 v28, v0
-
-    invoke-virtual/range {v28 .. v28}, Landroid/net/wifi/WifiManager;->getConfiguredNetworks()Ljava/util/List;
+    invoke-direct/range {p0 .. p0}, Lcom/android/settingslib/wifi/WifiTracker;->getConfiguredNetworks()Ljava/util/List;
 
     move-result-object v12
 

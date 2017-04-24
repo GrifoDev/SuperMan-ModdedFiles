@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">Интернет дастрас нест</string>
     <string name="wifi_disabled_password_failure">Хатогии санҷиши ҳаққоният ба миён омад</string>
     <string name="wifi_auto_reconnect_disabled">Пайвастшавии такрории худкор ғайрифаъол аст</string>
+    <string name="wifi_internet_may_not_be_available">Интернет метавонад дастнорас бошад</string>
     <string name="wifi_reconnecting">Барои пайваст шудан ҳангоми беҳтар шудани сифати шабака тайёр</string>
     <string name="wifi_connected_checking_quality">Сифати пайвасти шумо ба Интернет тафтиш карда мешавад…</string>
     <string name="wifi_setup_title_connected_network">Дастгоҳ ба шабакаи Wi-Fi %s пайваст шудааст.</string>
@@ -283,7 +284,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Фаъол кардани %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ва %2$s дар як вақт фаъол карда намешаванд. %3$s ғайрифаъол мешавад.</string>
     <string name="aod_show_popup_description">%s ва имконоти зер дар як вақт фаъол буда наметавонанд. Имконоти зер ғайрифаъол карда мешаванд.</string>
-    <string name="wificalling_show_popup_use_location_inform">Ба занги Wi-Fi лозим аст, ки маълумоти оиди макони шуморо истифода барад. Иттилооти анонимии оиди макон ҷамъ карда шуда, ба Google ва таҳвилгари хизматрасониҳои шумо фиристода мешавад. Барои тафсилот ба таҳвилгари хизматрасонии худ муроҷиат кунед.</string>
+    <string name="wificalling_show_popup_use_location_inform">Маълумот оиди макони шумо метавонад ҳангоми Зангзании Wi-Fi-ро истифода бурдан ба таҳвилгари хизматрасониҳо фиристода шавад. Барои тафсилот ба таҳвилгари хизматрасонии худ муроҷиат кунед.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Маълумоти марбут ба макони шумо метавонад барои барқарор кардани занги Wi-Fi ба Google ва оператори шумо фиристода шавад, новобаста аз он ки шумо хусусияти маконро фаъол мекунед ё не.</string>
     <string name="wificalling_show_popup_enable_location_title">Фаъол кардани Ҷойгиршавӣ</string>
     <string name="wificalling_show_popup_enable_location_message">Ба занги Wi-Fi лозим аст, ки маълумоти оиди макони шуморо истифода барад. Макон фаъол карда мешавад. Иттилооти анонимии оиди макон ҷамъ карда шуда, ба Google ва таҳвилгари хизматрасониҳои шумо фиристода мешавад. Барои тафсилот ба таҳвилгари хизматрасонии худ муроҷиат кунед.</string>
@@ -855,7 +856,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Аз сабаби сиёсати амният ба ҷои истифодаи шинохтагирии инабия PIN дохил кунед</string>
     <string name="kg_none_multi_pattern_restart_instructions">Дастгоҳи шумо бозоғозӣ карда шуд ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан биометрияи худро истифода баред.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Дастгоҳи шумо бозоғозӣ карда шуд ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан биометрияи худро истифода баред.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Дастгоҳи шумо аз нав ба кор дароварда шудааст ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан изҳои ангуштонатонро истифода баред.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Телефони шумо аз нав ба кор дароварда шудааст ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои телефонро озод кардан изҳои ангуштонатонро истифода баред.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Дастгоҳи шумо аз нав ба кор дароварда шудааст ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан изҳои ангуштонатонро истифода баред.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Дастгоҳи шумо аз нав ба кор дароварда шудааст ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан инабияҳои худро истифода баред.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Дастгоҳи шумо аз нав ба кор дароварда шудааст ва бояд бо истифодаи расм озод карда шавад. Дафъаи дигар метавонед барои дастгоҳро озод кардан инабияҳои худро истифода баред.</string>

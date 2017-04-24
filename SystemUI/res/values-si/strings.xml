@@ -52,6 +52,7 @@
     <string name="wifi_disabled_no_internet">අන්තර්ජාලය නොපවතී</string>
     <string name="wifi_disabled_password_failure">සත්‍යාපන දෝෂය හට ගැනිණි</string>
     <string name="wifi_auto_reconnect_disabled">ස්වයං යළි සබැඳුම අක්‍රියයි</string>
+    <string name="wifi_internet_may_not_be_available">අන්තර්ජා.ය ලබා ගැනී. නොහැකි විය හැක</string>
     <string name="wifi_reconnecting">ජාල තත්වය වැඩිදියුණු වූ විට සබැඳීමට සූදානම්ය</string>
     <string name="wifi_connected_checking_quality">ඔබේ අන්තර්ජාල සම්බන්ධතාවයේ තත්ත්වය පරීක්ෂා කෙරෙමින්…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi ජාලයට සම්බන්ධ විය.</string>
@@ -279,7 +280,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s සක්‍රිය කරන්න</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s හා %2$s එකවර සක්‍රිය කළ නොහැක. %3$s අක්‍රිය වනු ඇත.</string>
     <string name="aod_show_popup_description">%s හා පහත විකල්ප එකවර සක්‍රිය කළ නොහැක. පහත විකල්ප මැකෙනු ඇත.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi ඇමතුම්කරණයට ඔබේ පිහිටීම් තොරතුරු භාවිතා කිරීමට අවශ්‍යයි. නිර්නාමික පිහිටීම් දත්ත එකතු කෙරෙනු ඇති අතර ගුගල් සහ ඔබේ සේවා සැපයුම්කරු වෙත යවනු ඇත. විස්තර සඳහා ඔබේ සේවා සැපයුම්කරු අමතන්න.</string>
+    <string name="wificalling_show_popup_use_location_inform">ඔබ Wi-Fi ඇමතුම්කරණය භාවිතා කරන අතරේ ඔබේ පිහිටීම් තොරතුරු ඔබේ සේවා සැපයුම්කරු වෙත යැවිය හැක. විස්තර සඳහා ඔබේ සේවා සැපයුම්කරු අමතන්න.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">ඔබ පිහිටීම් විශේෂාංගය සක්‍රිය කරත් නැතත්, ඔබේ පිහිටීමට-අදාළ තොරතුරු, Wi-Fi ඇමතුම් ලබා ගැනීම සඳහා ගූගල් සහ ඔබේ ක්‍රියාකරු වෙත යැවිය හැක.</string>
     <string name="wificalling_show_popup_enable_location_title">පිහිටීම සක්‍රිය කිරීම</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi ඇමතුම්කරණයට ඔබේ පිහිටීම් තොරතුරු භාවිතා කිරීමට අවශ්‍යයි. පිහිටීම සක්‍රිය වනු ඇත. නිර්නාමික පිහිටීම් දත්ත එකතු කෙරෙනු ඇති අතර ගුගල් සහ ඔබේ සේවා සැපයුම්කරු වෙත යවනු ඇත. විස්තර සඳහා ඔබේ සේවා සැපයුම්කරු අමතන්න.</string>
@@ -819,7 +820,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">ආරක්ෂක ප්‍රතිපත්තිය හේතුවෙන් කළු ඉංගිරියා හඳුනාගැනීම භාවිතා කරනවා වෙනුවට PIN ඇතුළු කරන්න</string>
     <string name="kg_none_multi_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඊළඟ වතාවේ ඔබ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ ජීවමිතික භාවිතා කළ හැකිය.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඊළඟ වතාවේ ඔබ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ ජීවමිතික භාවිතා කළ හැකිය.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඔබ ඊළඟ වතාවේ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ ඇඟිලි සලකුණු භාවිතා කළ හැක.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">ඔබේ දුරකථනය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුළු හැරිය යුතුයි. ඔබ ඊළඟ වතාවේ ඔබේ දුරකථනය අගුළු හරින විට ඔබට ඔබේ ඇඟිලි සලකුණු භාවිතා කළ හැක.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඔබ ඊළඟ වතාවේ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ ඇඟිලි සලකුණු භාවිතා කළ හැක.</string>
     <string name="kg_none_iris_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඔබ ඊළඟ වතාවේ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ කළු ඉංගිරියා භාවිතා කළ හැක.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">ඔබේ උපාංගය යළි ඇරඹුණු අතර ඔබේ රටාව භාවිතයෙන් අගුලු හැරිය යුතුය. ඔබ ඊළඟ වතාවේ ඔබේ උපාංගය අගුලු හරින විට ඔබට ඔබේ කළු ඉංගිරියා භාවිතා කළ හැක.</string>

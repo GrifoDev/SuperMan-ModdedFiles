@@ -234,7 +234,7 @@
 
     iget-object v1, v1, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f04ca
+    const v3, 0x7f0f04ce
 
     const/4 v4, 0x0
 
@@ -274,7 +274,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0d02d7
+    const v3, 0x7f0d02d9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

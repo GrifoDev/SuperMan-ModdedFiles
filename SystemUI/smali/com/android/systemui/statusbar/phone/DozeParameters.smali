@@ -479,7 +479,7 @@
 
     const-string/jumbo v1, "doze.pulse.schedule"
 
-    const v2, 0x7f0f022c
+    const v2, 0x7f0f022d
 
     invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getString(Ljava/lang/String;I)Ljava/lang/String;
 

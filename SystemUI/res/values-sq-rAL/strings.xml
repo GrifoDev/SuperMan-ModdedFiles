@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">E lidhur përmes %1$s</string>
     <string name="available_via_passpoint">E mundshme përmes %1$s</string>
     <string name="wifi_connected_no_internet">U lidh, nuk ka internet</string>
+    <string name="wifi_internet_may_not_be_available">Mund të mos ketë Internet</string>
     <string name="wifi_reconnecting">"Gati për t'u lidhur sapo të përmirësohet cilësia e rrjetit"</string>
     <string name="wifi_connected_checking_quality">Duke kontrolluar cilësinë e lidhjes tënde në Internet…</string>
     <string name="wifi_setup_title_connected_network">Lidhur me rrjetin %s Wi-Fi.</string>
@@ -849,7 +850,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Aftëso %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s dhe %2$s nuk mund të aftësohen njëkohësisht. %3$s do të paaftësohet.</string>
     <string name="aod_show_popup_description">%s dhe opsionet e mëposhtme nuk mund të aftësohen njëkohësisht. Opsionet e mëposhtme do të paaftësohen.</string>
-    <string name="wificalling_show_popup_use_location_inform">Thirrjet me Wi-Fi ka nevojë të përdorë informacion për vendndodhjen. Do të mblidhen të dhëna anonime të vendndodhjes dhe do t‘i dërgohen Google-it dhe ofruesit tënd të shërbimit. Lidhu me ofruesin e shërbimit për hollësi.</string>
+    <string name="wificalling_show_popup_use_location_inform">Informacioni për vendndodhjen tënde mund t’i dërgohet ofruesit tënd të shërbimit kur ti je duke përdorur thirrjen Wi-Fi. Lidhu me ofruesin e shërbimit për hollësi.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informacioni i ndërlidhur me vendndodhjen tënde mund të dërgohet te Google dhe tek operatori yt, për të vendosur thirrjet Wi-Fi, pavarësisht nëse e ke aktivizuar apo jo funksionalitetin e vendndodhjes.</string>
     <string name="wificalling_show_popup_enable_location_title">Aftëso Vendndodhjen</string>
     <string name="wificalling_show_popup_enable_location_message">Thirrjet me Wi-Fi ka nevojë të përdorë informacion për vendndodhjen. Vendndodhja do të aftësohet. Do të mblidhen të dhëna anonime të vendndodhjes dhe do t‘i dërgohen Google-it dhe ofruesit tënd të shërbimit. Lidhu me ofruesin e shërbimit për hollësi.</string>
@@ -1855,7 +1856,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Fut PIN-in në vend që të përdorësh njohjen me iris, për shkak të politikës së sigurisë</string>
     <string name="kg_none_multi_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh të dhënat biometrike herën tjetër që ta zhbllokosh pajisjen.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefoni yt u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh telefonin.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh shenjat e gishtit herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Pajisja jote u rinis dhe ka nevojë të zhbllokohet me anë të motivit. Mund t’i përdorësh iriset herën tjetër që ta zhbllokosh pajisjen.</string>

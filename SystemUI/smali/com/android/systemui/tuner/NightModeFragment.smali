@@ -578,7 +578,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/support/v14/preference/PreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v1, 0x7f1303ea
+    const v1, 0x7f1303ec
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

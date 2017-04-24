@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Συνδέθηκε μέσω %1$s</string>
     <string name="available_via_passpoint">Διαθέσιμο μέσω %1$s</string>
     <string name="wifi_connected_no_internet">Συνδέθηκε, χωρίς διαδίκτυο</string>
+    <string name="wifi_internet_may_not_be_available">Το Internet ίσως δεν είναι διαθέσ.</string>
     <string name="wifi_reconnecting">Έτοιμο για σύνδεση μόλις βελτιωθεί η ποιότητα του δικτύου</string>
     <string name="wifi_connected_checking_quality">Έλεγχος ποιότητας της σύνδεσής σας στο Internet…</string>
     <string name="wifi_setup_title_connected_network">Συνδέθηκε στο δίκτυο Wi-Fi %s.</string>
@@ -851,7 +852,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Ενεργοποίηση του %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση της λειτουργίας %1$s και της λειτουργίας %2$s. Η λειτουργία %3$s θα απενεργοποιηθεί.</string>
     <string name="aod_show_popup_description">Δεν είναι δυνατή η ταυτόχρονη ενεργοποίηση του %s και των ακόλουθων επιλογών. Οι ακόλουθες επιλογές θα απενεργοποιηθούν.</string>
-    <string name="wificalling_show_popup_use_location_inform">Οι κλήσεις Wi-Fi χρειάζονται πρόσβαση στις πληροφορίες τοποθεσίας. Θα γίνει συλλογή ανώνυμων δεδομένων τοποθεσίας τα οποία θα σταλούν στην Google και τον παροχέα υπηρεσιών. Επικοινωνήστε με τον παροχέα υπηρεσιών για λεπτομέρειες.</string>
+    <string name="wificalling_show_popup_use_location_inform">Οι πληροφορίες τοποθεσίας μπορεί να σταλούν στον παροχέα υπηρεσιών κατά τη χρήση της λειτουργίας «Κλήσεις Wi-Fi». Επικοινωνήστε με τον παροχέα υπηρεσιών για λεπτομέρειες.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Οι πληροφορίες που σχετίζονται με την τοποθεσία σας μπορεί να σταλούν στην Google και τον πάροχό σας για την πραγματοποίηση κλήσεων Wi-Fi, είτε έχετε ενεργοποιήσει τη λειτουργία τοποθεσίας είτε όχι.</string>
     <string name="wificalling_show_popup_enable_location_title">Ενεργοποίηση τοποθεσίας</string>
     <string name="wificalling_show_popup_enable_location_message">Οι κλήσεις Wi-Fi χρειάζονται πρόσβαση στις πληροφορίες τοποθεσίας. Η Τοποθεσία θα ενεργοποιηθεί. Θα γίνει συλλογή ανώνυμων δεδομένων τοποθεσίας τα οποία θα σταλούν στην Google και τον παροχέα υπηρεσιών. Επικοινωνήστε με τον παροχέα υπηρεσιών για λεπτομέρειες.</string>
@@ -1858,7 +1859,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Καταχωρήστε το PIN αντί για τη χρήση της αναγνώρισης ίριδας λόγω της πολιτικής ασφάλειας</string>
     <string name="kg_none_multi_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τα βιομετρικά δεδομένα σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Το τηλέφωνό σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε το τηλέφωνό σας.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τα δαχτυλικά σας αποτυπώματα την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Η συσκευή σας επανεκκινήθηκε και πρέπει να ξεκλειδωθεί χρησιμοποιώντας το μοτίβο σας. Μπορείτε να χρησιμοποιήσετε τις ίριδές σας την επόμενη φορά που θα ξεκλειδώσετε τη συσκευή σας.</string>

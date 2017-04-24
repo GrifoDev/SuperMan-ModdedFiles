@@ -71,6 +71,7 @@
     <string name="connected_via_passpoint">%1$s을(를) 통해 연결됨</string>
     <string name="available_via_passpoint">%1$s을(를) 통해 사용 가능</string>
     <string name="wifi_connected_no_internet">인터넷을 사용하지 않고 연결됨</string>
+    <string name="wifi_internet_may_not_be_available">인터넷 연결 확실치 않음</string>
     <string name="wifi_reconnecting">네트워크 품질이 좋아지면 이 네트워크에 연결합니다.</string>
     <string name="wifi_connected_checking_quality">인터넷 연결 상태 확인 중…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi 네트워크에 연결했습니다.</string>
@@ -845,7 +846,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s 실행</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s 기능과 %2$s 기능은 동시에 실행할 수 없습니다. %3$s 기능을 해제합니다.</string>
     <string name="aod_show_popup_description">%s 기능과 아래 옵션은 동시에 실행할 수 없습니다. 아래 옵션을 해제합니다.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi 전화를 사용하려면 위치정보가 필요합니다. 위치정보를 수집하여 Google 및 서비스 공급자에게 익명으로 보냅니다. 자세한 내용은 서비스 공급자에게 문의하세요.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi 전화를 사용하는 동안에는 서비스 공급자에게 내 위치정보가 제공될 수 있습니다. 자세한 내용은 서비스 공급자에게 문의하세요.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">위치 기능 실행 여부와 상관없이 Wi-Fi 전화를 사용하기 위해 내 위치정보를 Google 및 서비스 공급자에게 보냅니다.</string>
     <string name="wificalling_show_popup_enable_location_title">위치 실행</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi 전화를 사용하려면 위치정보가 필요합니다. 위치 기능을 실행합니다. 위치정보를 수집하여 Google 및 서비스 공급자에게 익명으로 보냅니다. 자세한 내용은 서비스 공급자에게 문의하세요.</string>
@@ -1867,7 +1868,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pin_deviceadmin_instructions">보안정책에 따라 홍채 인식 대신 PIN을 입력하세요</string>
     <string name="kg_none_multi_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 휴대전화 잠금 해제 시에 생체 인식을 사용할 수 있습니다.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">휴대전화를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 지문 인식은 다음 번에 잠금을 해제할 때부터 사용할 수 있습니다.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 지문 인식을 사용할 수 있습니다.</string>
     <string name="kg_none_iris_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">디바이스를 다시 시작하여 패턴으로 잠금을 해제해야 합니다. 다음 디바이스 잠금 해제 시에 홍채 인식을 사용할 수 있습니다.</string>

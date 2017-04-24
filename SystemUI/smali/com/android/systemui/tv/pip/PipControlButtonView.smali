@@ -129,7 +129,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/tv/pip/PipControlButtonView;->mButtonImageView:Landroid/widget/ImageView;
 
-    const v3, 0x7f1303f9
+    const v3, 0x7f1303fb
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/tv/pip/PipControlButtonView;->findViewById(I)Landroid/view/View;
 

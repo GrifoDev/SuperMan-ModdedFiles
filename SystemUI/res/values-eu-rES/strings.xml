@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s bidez konektatuta</string>
     <string name="available_via_passpoint">%1$s bidez erabilgarri</string>
     <string name="wifi_connected_no_internet">Konektatuta, ez dago Interneteko konexiorik</string>
+    <string name="wifi_internet_may_not_be_available">Baliteke Internet erabilgarri ez egotea</string>
     <string name="wifi_reconnecting">Sare kalitatea hobetzen denean konektatzeko prest</string>
     <string name="wifi_connected_checking_quality">Zure Internet konexioaren kalitatea egiaztatzen…</string>
     <string name="wifi_setup_title_connected_network">%s Wi-Fi sarera konektatuta</string>
@@ -849,7 +850,7 @@ modua"</string>
     <string name="aod_show_popup_title">Gaitu %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s eta %2$s ezin dira aldi berean gaitu. %3$s desgaituko da.</string>
     <string name="aod_show_popup_description">%s eta beheko aukerak ezin dituzu aldi berean gaitu. Beheko aukerak desgaituko dira.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi deiek kokapen informazioa erabili behar dute. Kokapen datu anonimoak bilduko dira eta Google-ri eta zerbitzu hornitzaileari bidaliko zaizkie. Xehetasunak lortzeko, jarri harremanetan zerbitzu hornitzailearekin.</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi deiak erabiltzean, baliteke kokapen informazioa zerbitzu hornitzaileari bidaltzea. Xehetasunak lortzeko, jarri harremanetan zerbitzu hornitzailearekin.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Kokapenarekin erlazionatutako informazioa Google-ri eta zure operadoreari bidaliko zaie agian, Wi-Fi bidezko deiak egiteko (kokapen eginbidea aktibatu duzun ala ez kontuan hartu gabe).</string>
     <string name="wificalling_show_popup_enable_location_title">Gaitu kokapena</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi deiek kokapen informazioa erabili behar dute. Kokapena gaituko da. Kokapen datu anonimoak bilduko dira eta Google-ri eta zerbitzu hornitzaileari bidaliko zaizkie. Xehetasunak lortzeko, jarri harremanetan zerbitzu hornitzailearekin.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Segurtasun politika dela eta, idatzi PINa irisaren hautematea erabili beharrean</string>
     <string name="kg_none_multi_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, datu biometrikoak erabil ditzakezu gailua desblokeatzeko.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefonoa berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu telefonoa desblokeatzeko.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, hatz aztarnak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Gailua berrabiarazi da eta patroia erabiliz desblokeatu behar da. Hurrengo aldian, irisak erabil ditzakezu gailua desblokeatzeko.</string>

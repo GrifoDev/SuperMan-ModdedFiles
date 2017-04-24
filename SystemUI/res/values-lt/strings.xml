@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Prisijungta naudojant „%1$s“</string>
     <string name="available_via_passpoint">Pasiekiama naudojant „%1$s“</string>
     <string name="wifi_connected_no_internet">Prisijungta, nėra interneto</string>
+    <string name="wifi_internet_may_not_be_available">Internetas gali būti nepasiek.</string>
     <string name="wifi_reconnecting">Parengta prisijungti, kai pagerės tinklo kokybė</string>
     <string name="wifi_connected_checking_quality">Tikrinama interneto ryšio kokybė…</string>
     <string name="wifi_setup_title_connected_network">Prisijungta prie „Wi-Fi“ tinklo %s.</string>
@@ -850,7 +851,7 @@ režimas"</string>
     <string name="aod_show_popup_title">Įjungti %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s ir %2$s negalima įjungti vienu metu. %3$s bus išjungta.</string>
     <string name="aod_show_popup_description">%s ir toliau pateiktų parinkčių vienu metu įjungti negalima. Toliau pateiktos parinktys bus išjungtos.</string>
-    <string name="wificalling_show_popup_use_location_inform">„Wi-Fi“ skambučiams reikalinga vietos informacija. Anoniminiai vietos duomenys bus renkami ir siunčiami „Google“ bei paslaugų teikėjui. Išsamesnės informacijos teiraukitės paslaugų teikėjo.</string>
+    <string name="wificalling_show_popup_use_location_inform">Jums naudojantis „Wi-Fi“ skambučių funkcija, jūsų vietos informacija gali būti siunčiama paslaugų teikėjui. Išsamesnės informacijos teiraukitės paslaugų teikėjo.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informacija apie jūsų buvimo vietą gali būti nusiųsta „Google“ ir jūsų operatoriui, kad būtų teikiama „Wi-Fi“ skambučių paslauga, neatsižvelgiant į tai, ar įjungėte vietos funkciją, ar ne.</string>
     <string name="wificalling_show_popup_enable_location_title">Įjungti vietą</string>
     <string name="wificalling_show_popup_enable_location_message">„Wi-Fi“ skambučiams reikalinga vietos informacija. Bus įjungta vietos nustatymo funkcija. Anoniminiai vietos duomenys bus renkami ir siunčiami „Google“ bei paslaugų teikėjui. Išsamesnės informacijos teiraukitės paslaugų teikėjo.</string>
@@ -1857,7 +1858,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Dėl saugos politikos vietoje rainelės atpažinimo įveskite PIN</string>
     <string name="kg_none_multi_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti biometrinius duomenis.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Jūsų telefonas buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami telefoną galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti pirštų atspaudus.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Jūsų įrenginys buvo paleistas iš naujo, todėl jį reikia atrakinti naudojant šabloną. Kitą kartą atrakindami įrenginį galėsite naudoti raineles.</string>

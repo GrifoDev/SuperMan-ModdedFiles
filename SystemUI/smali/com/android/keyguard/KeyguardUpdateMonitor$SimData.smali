@@ -190,10 +190,6 @@
     goto :goto_0
 
     :cond_6
-    sget-boolean v6, Lcom/android/keyguard/KeyguardRune;->SUPPORT_SIM_PERM_DISABLED:Z
-
-    if-eqz v6, :cond_7
-
     const-string/jumbo v6, "PERM_DISABLED"
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

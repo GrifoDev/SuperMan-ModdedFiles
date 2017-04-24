@@ -68,7 +68,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f0299
+    const v0, 0x7f0f029a
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0f0298
+    const v0, 0x7f0f0299
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -102,7 +102,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0f029b
+    const v0, 0x7f0f029c
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0f0582
+    const v0, 0x7f0f0586
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0f0583
+    const v0, 0x7f0f0587
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -153,7 +153,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f0f058a
+    const v0, 0x7f0f058e
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -170,7 +170,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0f058d
+    const v0, 0x7f0f0591
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -507,7 +507,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v0, 0x7f0f0586
+    const v0, 0x7f0f058a
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -593,13 +593,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f0587
+    const v1, 0x7f0f058b
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0f0588
+    const v1, 0x7f0f058c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -688,7 +688,7 @@
 
     if-nez p2, :cond_1
 
-    const v6, 0x7f0f022e
+    const v6, 0x7f0f022f
 
     invoke-virtual {v1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -727,7 +727,7 @@
 
     new-array v2, v6, [Ljava/lang/String;
 
-    const v6, 0x7f0f057f
+    const v6, 0x7f0f0583
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -737,7 +737,7 @@
 
     aput-object v6, v2, v7
 
-    const v6, 0x7f0f0580
+    const v6, 0x7f0f0584
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -747,7 +747,7 @@
 
     aput-object v6, v2, v7
 
-    const v6, 0x7f0f0581
+    const v6, 0x7f0f0585
 
     invoke-virtual {p0, v6}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 
@@ -815,7 +815,7 @@
 
     const-string/jumbo v7, "add"
 
-    const v8, 0x7f0f0585
+    const v8, 0x7f0f0589
 
     invoke-virtual {p0, v8}, Lcom/android/systemui/tuner/NavBarTuner;->getString(I)Ljava/lang/String;
 

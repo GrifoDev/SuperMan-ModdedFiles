@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Über %1$s verbunden</string>
     <string name="available_via_passpoint">Verfügbar über %1$s</string>
     <string name="wifi_connected_no_internet">Verbunden, kein Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet event. nicht verfügbar</string>
     <string name="wifi_reconnecting">Bereit zur Verbindung, wenn die Netzwerkqualität besser wird</string>
     <string name="wifi_connected_checking_quality">Die Qualität Ihrer Internetverbindung wird überprüft…</string>
     <string name="wifi_setup_title_connected_network">Mit WLAN-Netz %s verbunden.</string>
@@ -849,7 +850,7 @@ Modus"</string>
     <string name="aod_show_popup_title">%s aktivieren</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s und %2$s können nicht gleichzeitig aktiviert werden. %3$s wird deaktiviert.</string>
     <string name="aod_show_popup_description">%s und die Optionen unten können nicht gleichzeitig aktiviert werden. Die Optionen unten werden deaktiviert.</string>
-    <string name="wificalling_show_popup_use_location_inform">Für WLAN-Anrufe ist die Verwendung Ihrer Standortinformationen erforderlich. Anonyme Standortdaten werden an Google und Ihren Dienstanbieter gesendet. Details erhalten Sie bei Ihrem Dienstanbieter.</string>
+    <string name="wificalling_show_popup_use_location_inform">Bei der Verwendung von WLAN-Anrufen werden Ihre Standortinformationen eventuell an Ihren Dienstanbieter gesendet. Details erhalten Sie von Ihrem Dienstanbieter.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Ihre standortabhängigen Informationen können an Google und Ihren Netzwerkbetreiber gesendet werden, um WLAN-Anrufe unabhängig von der Aktivierung oder Deaktivierung der Standortfunktion aufzubauen.</string>
     <string name="wificalling_show_popup_enable_location_title">Standort aktivieren</string>
     <string name="wificalling_show_popup_enable_location_message">Für WLAN-Anrufe ist die Verwendung Ihrer Standortinformationen erforderlich. „Standort“ wird aktiviert. Anonyme Standortdaten werden an Google und Ihren Dienstanbieter gesendet. Details erhalten Sie bei Ihrem Dienstanbieter.</string>
@@ -1859,7 +1860,7 @@ Wenn Ihr Tablet zurückgesetzt wird, müssen Sie möglicherweise die Google-Kont
     <string name="kg_none_iris_pin_deviceadmin_instructions">Geben Sie aufgrund der Sicherheitsrichtlinien Ihre PIN ein anstatt die Iriserkennung zu verwenden.</string>
     <string name="kg_none_multi_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Biometrie zum Entsperren verwenden.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Ihr Telefon wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren verwenden.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Ihren Fingerabdruck zum Entsperren Ihres Tablets verwenden.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Ihr Gerät wurde neu gestartet und muss mit Ihrem Muster entsperrt werden. Sie können das nächste Mal Ihre Iris zum Entsperren verwenden.</string>

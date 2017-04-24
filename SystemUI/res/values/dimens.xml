@@ -539,7 +539,9 @@
     <dimen name="qs_detail_header_text_size">17.0sp</dimen>
     <dimen name="qs_detail_button_text_size">15.0sp</dimen>
     <dimen name="qs_detail_item_primary_text_size">17.0sp</dimen>
-    <dimen name="qs_detail_item_secondary_text_size">14.0sp</dimen>
+    <dimen name="qs_detail_item_secondary_text_size">13.0sp</dimen>
+    <dimen name="qs_detail_content_primary_text_size">15.0sp</dimen>
+    <dimen name="qs_detail_content_secondary_text_size">12.0sp</dimen>
     <dimen name="qs_detail_empty_text_size">14.0sp</dimen>
     <dimen name="qs_detail_margin_top">28.0dip</dimen>
     <dimen name="qs_data_usage_text_size">14.0sp</dimen>
@@ -809,7 +811,7 @@
     <dimen name="recents_empty_text_size">16.0sp</dimen>
     <dimen name="recents_buttons_container_height">54.0dip</dimen>
     <dimen name="recents_buttons_container_margin_right">20.0dip</dimen>
-    <dimen name="recents_buttons_item_height">30.0dip</dimen>
+    <dimen name="recents_buttons_item_height">34.0dip</dimen>
     <dimen name="recents_close_all_container_height">54.0dip</dimen>
     <dimen name="recents_close_all_button_marginTop">10.0dip</dimen>
     <dimen name="recents_close_all_button_marginTop_full">6.0dip</dimen>
@@ -937,6 +939,7 @@
     <dimen name="recents_app_list_item_header_height">15.0dip</dimen>
     <dimen name="recents_app_list_item_header_margin_bottom">10.0dip</dimen>
     <dimen name="recents_app_list_item_header_text_size">13.0dip</dimen>
+    <dimen name="recents_app_list_item_header_text_padding_right">6.0dip</dimen>
     <dimen name="recents_app_list_item_content_width">85.0dip</dimen>
     <dimen name="recents_app_list_item_content_width_land">77.0dip</dimen>
     <dimen name="recents_app_list_item_content_height">88.0dip</dimen>
@@ -1226,8 +1229,8 @@
     <dimen name="kg_set_as_wallpaper_text_size">15.0dip</dimen>
     <dimen name="kg_deadzone_padding_bouncer">0.0dip</dimen>
     <dimen name="kg_deadzone_padding_non_bouncer">0.0dip</dimen>
+    <dimen name="killer_meminfo_txt_size">16.0sp</dimen>
     <dimen name="net_traffic_single_text_size">12.0dip</dimen>
     <dimen name="net_traffic_multi_text_size">9.0dip</dimen>
     <dimen name="pressure">-55.0dip</dimen>
-    <dimen name="killer_meminfo_txt_size">16.0sp</dimen>
 </resources>

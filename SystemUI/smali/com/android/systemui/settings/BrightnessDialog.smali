@@ -43,7 +43,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->setContentView(I)V
 
-    const v3, 0x7f1302ff
+    const v3, 0x7f130301
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->findViewById(I)Landroid/view/View;
 
@@ -51,7 +51,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v3, 0x7f130300
+    const v3, 0x7f130302
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/settings/BrightnessDialog;->findViewById(I)Landroid/view/View;
 

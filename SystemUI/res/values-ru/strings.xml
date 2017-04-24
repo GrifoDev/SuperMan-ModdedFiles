@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Подключено к %1$s</string>
     <string name="available_via_passpoint">Доступно через %1$s</string>
     <string name="wifi_connected_no_internet">Подключено, без Интернета</string>
+    <string name="wifi_internet_may_not_be_available">Интернет может быть недоступен</string>
     <string name="wifi_reconnecting">Подключение при улучшении сигнала сети</string>
     <string name="wifi_connected_checking_quality">Проверка качества подключения к Интернету…</string>
     <string name="wifi_setup_title_connected_network">Подключено к сети Wi-Fi %s.</string>
@@ -851,7 +852,7 @@ S bike"</string>
     <string name="aod_show_popup_title">Включить %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Одновременно включить %1$s и %2$s невозможно. Функция %3$s будет отключена.</string>
     <string name="aod_show_popup_description">Невозможно одновременно включить указанные ниже параметры и %s. Параметры ниже будут отключены.</string>
-    <string name="wificalling_show_popup_use_location_inform">Для совершения вызовов по Wi-Fi необходимо использовать информацию о вашем местоположении. Анонимные данные о местоположении будут собираться и отправляться в компанию Google и вашему поставщику услуг. За дополнительной информацией обратитесь к поставщику услуг.</string>
+    <string name="wificalling_show_popup_use_location_inform">Во время совершения вызовов по Wi-Fi информация о вашем местоположении может быть отправлена поставщику услуг. Для получения подробных сведений обратитесь к поставщику услуг.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Для вызовов по Wi-Fi данные о вашем местоположении могут быть отправлены в Google, а также вашему оператору, даже если функция определения местоположения отключена.</string>
     <string name="wificalling_show_popup_enable_location_title">Включить местоположение</string>
     <string name="wificalling_show_popup_enable_location_message">Для совершения вызовов по Wi-Fi необходимо использовать информацию о вашем местоположении. Будет включена функция определения местоположения. Анонимные данные о местоположении будут собираться и отправляться в компанию Google и вашему поставщику услуг. За дополнительной информацией обратитесь к поставщику услуг.</string>
@@ -1858,7 +1859,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Из соображений безопасности вместо распознавания радужки необходимо ввести PIN-код</string>
     <string name="kg_none_multi_pattern_restart_instructions">Устройство перезапущено. Его необходимо разблокировать с помощью рисунка. В следующий раз вы сможете использовать для разблокировки биометрические данные.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Устройство перезапущено. Его необходимо разблокировать с помощью рисунка. В следующий раз вы сможете использовать для разблокировки биометрические данные.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Устройство перезагружено и должно быть разблокировано при помощи рисунка. При следующей разблокировке можно использовать отпечатки пальцев.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Телефон был перезагружен и должен быть разблокирован с помощью рисунка разблокировки. При следующей разблокировке можно использовать отпечатки пальцев.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Устройство перезагружено и должно быть разблокировано при помощи рисунка. При следующей разблокировке можно использовать отпечатки пальцев.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Устройство перезагружено и должно быть разблокировано при помощи рисунка. При следующей разблокировке можно использовать радужки.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Устройство перезагружено и должно быть разблокировано при помощи рисунка. При следующей разблокировке можно использовать радужки.</string>

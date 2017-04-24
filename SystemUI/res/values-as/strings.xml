@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">ইণ্টাৰনেট উপলব্ধ নহয়</string>
     <string name="wifi_disabled_password_failure">প্ৰামাণিকৰণ ত্ৰুটি সংঘটিত হৈছে</string>
     <string name="wifi_auto_reconnect_disabled">স্বয়ং পুনঃসংযোগ অক্ষম হৈছে</string>
+    <string name="wifi_internet_may_not_be_available">"ইণ্টাৰনেট উপলব্ধ নহ'ব পাৰে"</string>
     <string name="wifi_reconnecting">নেটৱৰ্ক গুণমান উন্নত কৰিবৰ বাবে সংযোগ কৰিবলৈ সাজু হওক</string>
     <string name="wifi_connected_checking_quality">আপোনাৰ ইণ্টাৰনেট সংযোগৰ গুণমান পৰীক্ষা কৰি আছে…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi নেটৱৰ্ক %s-লৈ সংযোগ হৈছে৷</string>
@@ -282,7 +283,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s সক্ষম কৰক</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">"%1$s আৰু %2$s একে সময়তে সক্ষম কৰিব নোৱাৰে৷ %3$s অক্ষম কৰা হ'ব৷"</string>
     <string name="aod_show_popup_description">"%s আৰু তলৰ বিকল্পসমূহ একে সময়তে সক্ষম কৰিব নোৱাৰি৷ তলৰ বিকল্প অক্ষম কৰা হ'ব৷"</string>
-    <string name="wificalling_show_popup_use_location_inform">"আপোনাৰ অৱস্থান তথ্য ব্যৱহাৰ কৰিবলৈ Wi-Fi কলিঙৰ প্ৰয়োজন। অনামী অৱস্থান ডাটা সংগ্ৰহ কৰা হ'ব আৰু গুগ'ল আৰু আপোনাৰ সেৱা প্ৰদানকাৰীলৈ প্ৰেৰণ কৰা হ'ব। বিৱৰণৰ বাবে আপোনাৰ সেৱা প্ৰদানকাৰীৰ সৈতে সম্পৰ্ক কৰক।"</string>
+    <string name="wificalling_show_popup_use_location_inform">"আপুনি Wi-Fi কলিং ব্যৱহাৰ কৰি থাকোতে আপোনাৰ অৱস্থান তথ্য সম্ভৱ আপোনাৰ সেৱা প্ৰদানকাৰীলৈ প্ৰেৰণ হ'ব পাৰে। বিৱৰণৰ বাবে আপোনাৰ সেৱা প্ৰদানকাৰীৰ সৈতে সম্পৰ্ক কৰক।"</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">"আপুনি সক্ৰিয় কৰিবনে নকৰে বা অৱস্থান সুবিধা আছেনে নাই তাৰ বাবে Wi-Fi কল স্থাপন কৰিবলৈ আপোনাৰ অৱস্থান-সম্বন্ধিত তথ্য ক্ৰমভাৱে গুগ'ল আৰু আপোনাৰ অপাৰেটৰলৈ প্ৰেৰণ কৰিব পাৰি।"</string>
     <string name="wificalling_show_popup_enable_location_title">অৱস্থান সক্ষম কৰক</string>
     <string name="wificalling_show_popup_enable_location_message">"আপোনাৰ অৱস্থান তথ্য ব্যৱহাৰ কৰিবলৈ Wi-Fi কলিঙৰ প্ৰয়োজন। অৱস্থান সক্ষম কৰা হ'ব। অনামী অৱস্থান ডাটা সংগ্ৰহ কৰা হ'ব আৰু গুগ'ল আৰু আপোনাৰ সেৱা প্ৰদানকাৰীলৈ প্ৰেৰণ কৰা হ'ব। বিৱৰণৰ বাবে আপোনাৰ সেৱা প্ৰদানকাৰীৰ সৈতে সম্পৰ্ক কৰক।"</string>
@@ -854,7 +855,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">নিৰাপত্তা নীতিৰ কাৰণে আইৰিচ চিনাক্তকৰণ ব্যৱহাৰৰ পৰিৱৰ্তে PIN প্ৰৱিষ্ট কৰক</string>
     <string name="kg_none_multi_pattern_restart_instructions">"আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে পৰৱৰ্তী সময়ত আপুনি আপোনাৰ বায়'মেট্ৰিক ব্যৱহাৰ কৰিব পাৰে।"</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">"আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে পৰৱৰ্তী সময়ত আপুনি আপোনাৰ বায়'মেট্ৰিক ব্যৱহাৰ কৰিব পাৰে।"</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে আপুনি পৰৱৰ্তী সময়ত আপোনাৰ আঙুলিৰ ছাপ ব্যৱহাৰ কৰিব পাৰে।</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">আপোনাৰ ফোন পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ফোন আনলক কৰিলে আপুনি পৰৱৰ্তী সময়ত আপোনাৰ আঙুলিৰ ছাপ ব্যৱহাৰ কৰিব পাৰে।</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে আপুনি পৰৱৰ্তী সময়ত আপোনাৰ আঙুলিৰ ছাপ ব্যৱহাৰ কৰিব পাৰে।</string>
     <string name="kg_none_iris_pattern_restart_instructions">আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে আপুনি পৰৱৰ্তী সময়ত আপোনাৰ আইৰিচ ব্যৱহাৰ কৰিব পাৰে।</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">আপোনাৰ ডিভাইচ পুনৰাৰম্ভ হৈছিল আৰু আপোনাৰ আৰ্হি ব্যৱহাৰ কৰি আনলক কৰাৰ প্ৰয়োজন। আপুনি আপোনাৰ ডিভাইচ আনলক কৰিলে আপুনি পৰৱৰ্তী সময়ত আপোনাৰ আইৰিচ ব্যৱহাৰ কৰিব পাৰে।</string>

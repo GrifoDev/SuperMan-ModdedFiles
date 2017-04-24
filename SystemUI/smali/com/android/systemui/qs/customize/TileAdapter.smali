@@ -384,7 +384,7 @@
 
     aput-object v1, v3, v6
 
-    const v4, 0x7f0f05ae
+    const v4, 0x7f0f05b2
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -456,7 +456,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f05ad
+    const v4, 0x7f0f05b1
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -517,7 +517,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0f05af
+    const v4, 0x7f0f05b3
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -805,7 +805,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f05ab
+    const v5, 0x7f0f05af
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -823,7 +823,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f05ac
+    const v5, 0x7f0f05b0
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1089,7 +1089,7 @@
 .method public onBindViewHolder(Lcom/android/systemui/qs/customize/TileAdapter$Holder;I)V
     .locals 10
 
-    const v9, 0x7f0f05aa
+    const v9, 0x7f0f05ae
 
     const/4 v4, 0x4
 
@@ -1128,7 +1128,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0f0592
+    const v3, 0x7f0f0596
 
     :goto_0
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
@@ -1136,7 +1136,7 @@
     return-void
 
     :cond_1
-    const v3, 0x7f0f0591
+    const v3, 0x7f0f0595
 
     goto :goto_0
 
@@ -1253,7 +1253,7 @@
 
     aput-object v8, v7, v2
 
-    const v8, 0x7f0f05a9
+    const v8, 0x7f0f05ad
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1406,7 +1406,7 @@
 
     aput-object v8, v7, v3
 
-    const v8, 0x7f0f05a8
+    const v8, 0x7f0f05ac
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">已通过%1$s连接</string>
     <string name="available_via_passpoint">可通过%1$s连接</string>
     <string name="wifi_connected_no_internet">已连接，但无法访问互联网</string>
+    <string name="wifi_internet_may_not_be_available">互联网可能不可用</string>
     <string name="wifi_reconnecting">准备好在网络质量改善时连接</string>
     <string name="wifi_connected_checking_quality">正在检查您的互联网连接的质量…</string>
     <string name="wifi_setup_title_connected_network">已连接到Wi-Fi网络%s。</string>
@@ -846,7 +847,7 @@ P2P"</string>
     <string name="aod_show_popup_title">启用%s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s 和 %2$s 无法同时启用。将禁用 %3$s。</string>
     <string name="aod_show_popup_description">%s和以下选项无法同时启用。将禁用以下选项。</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi 通话需要使用您的位置信息。将以匿名方式收集位置数据并发送至 Google 和您的运营商。请联系您的运营商了解详细信息。</string>
+    <string name="wificalling_show_popup_use_location_inform">在使用 <cst>Wi-Fi</cst> 通话时，您的位置信息可能会被发送给您的运营商。请联系您的运营商获取详细信息。</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">为了建立 <cst>Wi-Fi</cst> 通话，将向 Google 和网络运营商发送您的位置相关信息，无论您是否已激活位置功能。</string>
     <string name="wificalling_show_popup_enable_location_title">启用位置</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi 通话需要使用您的位置信息。将启用【位置】，并以匿名方式收集位置数据并发送至 Google 和您的运营商。请联系您的运营商了解详细信息。</string>
@@ -1857,7 +1858,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pin_deviceadmin_instructions">因为安全政策，请输入数字密码来代替使用虹膜识别</string>
     <string name="kg_none_multi_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用生物识别。</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用生物识别。</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用指纹。</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">您的手机已重启，需要使用图案解锁。下次解锁手机时可以使用指纹。</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用指纹。</string>
     <string name="kg_none_iris_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用虹膜。</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">您的设备已重启，需要使用图案解锁。您可以在下次解锁设备时使用虹膜。</string>

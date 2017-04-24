@@ -117,11 +117,11 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/SoundModeTile;->SOUNDMODE_DETAIL_SETTINGS:Landroid/content/Intent;
 
-    const v0, 0x7f0f03a9
+    const v0, 0x7f0f03aa
 
-    const v1, 0x7f0f03a8
+    const v1, 0x7f0f03a9
 
-    const v2, 0x7f0f03a7
+    const v2, 0x7f0f03a8
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -574,7 +574,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/tiles/SoundModeTile;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f02cc
+    const v3, 0x7f0f02cd
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

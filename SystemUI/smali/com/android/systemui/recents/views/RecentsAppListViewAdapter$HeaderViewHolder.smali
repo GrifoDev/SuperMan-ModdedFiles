@@ -36,7 +36,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/recents/views/RecentsAppListViewAdapter$HeaderViewHolder;->labelView:Landroid/widget/TextView;
 
-    const v0, 0x7f13031f
+    const v0, 0x7f130321
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -630,7 +630,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f04ff
+    const v5, 0x7f0f0503
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -652,7 +652,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotDataSaver:Ljava/lang/String;
 
-    const v4, 0x7f0f057a
+    const v4, 0x7f0f057e
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -920,7 +920,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0311
+    const v4, 0x7f0f0312
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -950,7 +950,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f02aa
+    const v4, 0x7f0f02ab
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1057,7 +1057,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0f02ee
+    const v6, 0x7f0f02ef
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1132,7 +1132,7 @@
 
     if-eqz v2, :cond_2
 
-    const v3, 0x7f0f0578
+    const v3, 0x7f0f057c
 
     :goto_2
     invoke-virtual {v4, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -1172,7 +1172,7 @@
     goto :goto_1
 
     :cond_2
-    const v3, 0x7f0f0577
+    const v3, 0x7f0f057b
 
     goto :goto_2
 
@@ -1194,7 +1194,7 @@
 .method private updateManagedProfile()V
     .locals 5
 
-    const v4, 0x7f0f04ff
+    const v4, 0x7f0f0503
 
     sget-boolean v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->DEBUG:Z
 
@@ -1538,7 +1538,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0f02eb
+    const v5, 0x7f0f02ec
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1718,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0f065c
+    const v5, 0x7f0f0660
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1770,7 +1770,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0f065e
+    const v5, 0x7f0f0662
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1847,7 +1847,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f02ec
+    const v3, 0x7f0f02ed
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1915,7 +1915,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f065d
+    const v3, 0x7f0f0661
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1953,7 +1953,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0f02ed
+    const v3, 0x7f0f02ee
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2027,7 +2027,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0340
+    const v4, 0x7f0f0341
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2056,7 +2056,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f033f
+    const v4, 0x7f0f0340
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

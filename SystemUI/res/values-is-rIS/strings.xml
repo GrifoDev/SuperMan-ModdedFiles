@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">Tengt í gegnum %1$s</string>
     <string name="available_via_passpoint">Í boði í gegnum %1$s</string>
     <string name="wifi_connected_no_internet">Tengt, enginn internetaðgangur</string>
+    <string name="wifi_internet_may_not_be_available">Net er hugsanlega ekki í boði</string>
     <string name="wifi_reconnecting">Tilbúið til tengingar þegar netgæði hafa aukist</string>
     <string name="wifi_connected_checking_quality">Athuga gæði nettengingarinnar þinnar…</string>
     <string name="wifi_setup_title_connected_network">Tengt við Wi-Fi netið %s.</string>
@@ -859,7 +860,7 @@ still."</string>
     <string name="aod_show_popup_title">Kveikja á %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Ekki er hægt að hafa kveikt á %1$s og %2$s á sama tíma. Slökkt verður á %3$s.</string>
     <string name="aod_show_popup_description">Ekki er hægt að hafa kveikt á %s og valkostunum hér að neðan á sama tíma. Slökkt verður á valkostunum hér að neðan.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi símtöl þurfa að nota staðsetningarupplýsingarnar þínar. Nafnlaus staðsetningargögn verða send til Google og símafyrirtækisins. Hafðu samband við símafyrirtækið til að fá frekari upplýsingar.</string>
+    <string name="wificalling_show_popup_use_location_inform">Staðsetningarupplýsingarnar þínar kunna að vera sendar til símafyrirtækisins þegar þú hringir Wi-Fi símtöl. Hafðu samband við símafyrirtækið til að fá frekari upplýsingar.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Upplýsingar sem tengjast staðsetningu þinni eru hugsanlega sendar til Google og símafyrirtækisins til að hægt sé að hringja Wi-Fi símtöl, hvort sem kveikt er á staðsetningareiginleikanum eða ekki.</string>
     <string name="wificalling_show_popup_enable_location_title">Gera staðsetningu virka</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi símtöl þurfa að nota staðsetningarupplýsingarnar þínar. Staðsetning verður gerð virk. Nafnlaus staðsetningargögn verða send til Google og símafyrirtækisins. Hafðu samband við símafyrirtækið til að fá frekari upplýsingar.</string>
@@ -1870,7 +1871,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Sláðu inn PIN-númer í stað þess að nota lithimnugreiningu vegna öryggisstefnu</string>
     <string name="kg_none_multi_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað lífkenni næst þegar tækið er opnað.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað lífkenni næst þegar tækið er opnað.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað fingraförin þín næst þegar tækið er opnað.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Síminn var endurræstur og því þarftu að nota mynstrið þitt til að taka hann úr lás. Þú getur notað fingraförin þín næst þegar síminn er tekinn úr lás.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað fingraförin þín næst þegar tækið er opnað.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað lithimnurnar þínar næst þegar tækið er opnað.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Tækið var endurræst og því þarftu að nota mynstrið þitt til að opna það. Þú getur notað lithimnurnar þínar næst þegar tækið er opnað.</string>

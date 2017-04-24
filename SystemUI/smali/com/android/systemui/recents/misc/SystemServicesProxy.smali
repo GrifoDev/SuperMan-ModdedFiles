@@ -395,7 +395,7 @@
     iput-object v4, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     :cond_0
-    const v4, 0x7f0d033c
+    const v4, 0x7f0d033e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -476,7 +476,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f067b
+    const v5, 0x7f0f067f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -488,7 +488,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d03dd
+    const v5, 0x7f0d03e0
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -502,7 +502,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d03de
+    const v5, 0x7f0d03e1
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1480,7 +1480,7 @@
 
     aput-object v0, v3, v4
 
-    const v4, 0x7f0f02f6
+    const v4, 0x7f0f02f7
 
     invoke-virtual {p3, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1490,39 +1490,50 @@
 .end method
 
 .method public getBadgedTaskDescriptionIcon(Landroid/app/ActivityManager$TaskDescription;ILandroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-virtual {p1}, Landroid/app/ActivityManager$TaskDescription;->getInMemoryIcon()Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
+    :try_start_0
     invoke-virtual {p1}, Landroid/app/ActivityManager$TaskDescription;->getIconFilename()Ljava/lang/String;
 
+    move-result-object v2
+
+    invoke-static {v2, p2}, Landroid/app/ActivityManager$TaskDescription;->loadTaskDescriptionIcon(Ljava/lang/String;I)Landroid/graphics/Bitmap;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
     move-result-object v1
-
-    invoke-static {v1, p2}, Landroid/app/ActivityManager$TaskDescription;->loadTaskDescriptionIcon(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-
-    move-result-object v0
 
     :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v1, :cond_1
 
-    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v2, Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-direct {v1, p3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    invoke-direct {v2, p3, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    invoke-direct {p0, v1, p2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getBadgedIcon(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, v2, p2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->getBadgedIcon(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object v2
 
-    return-object v1
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+
+    goto :goto_0
 
     :cond_1
-    return-object v2
+    return-object v3
 .end method
 
 .method public getCurrentUser()I
@@ -3530,7 +3541,7 @@
 
     aput-object p3, v3, v6
 
-    const v4, 0x7f0f0454
+    const v4, 0x7f0f0458
 
     invoke-virtual {p1, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

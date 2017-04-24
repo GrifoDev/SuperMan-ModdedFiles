@@ -429,7 +429,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mIndicationController:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    const v1, 0x7f0f04b5
+    const v1, 0x7f0f04b9
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
 
@@ -1035,7 +1035,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0365
+    const v3, 0x7f0d0367
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1047,7 +1047,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0369
+    const v3, 0x7f0d036b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2795,7 +2795,7 @@
 
     const v2, 0x7f020194
 
-    const v0, 0x7f0f029f
+    const v0, 0x7f0f02a0
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mContext:Landroid/content/Context;
 
@@ -2854,7 +2854,7 @@
 
     const v2, 0x7f0201a0
 
-    const v0, 0x7f0f05c5
+    const v0, 0x7f0f05c9
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mAffordanceViews:[Lcom/android/systemui/statusbar/KeyguardCircleAffordanceView;
 

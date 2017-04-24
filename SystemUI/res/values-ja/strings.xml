@@ -70,6 +70,7 @@
     <string name="connected_via_passpoint">%1$s経由で接続</string>
     <string name="available_via_passpoint">%1$s経由で使用可能</string>
     <string name="wifi_connected_no_internet">接続済み、インターネットは利用できません</string>
+    <string name="wifi_internet_may_not_be_available">ｲﾝﾀｰﾈｯﾄ接続が不安定です</string>
     <string name="wifi_reconnecting">ネットワークの品質が向上すると接続</string>
     <string name="wifi_connected_checking_quality">インターネット接続の品質を確認中…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fiネットワーク%sに接続しました。</string>
@@ -847,7 +848,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%sを有効にする</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$sと%2$sを同時に有効にすることはできません。%3$sが無効になります。</string>
     <string name="aod_show_popup_description">%sと以下のオプションを同時に有効にすることはできません。以下のオプションが無効になります。</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi電話は位置情報を使用する必要があります。匿名の位置データが収集され、Googleおよびサービスプロバイダに送信されます。詳細は、サービスプロバイダにお問い合わせください。</string>
+    <string name="wificalling_show_popup_use_location_inform">Wi-Fi電話を使用中、位置情報をサービスプロバイダに送信する場合があります。詳細は、サービスプロバイダにお問い合わせください。</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">位置情報機能を有効にしていなくても、Wi-Fi電話を使用するために、位置関連の情報がGoogleおよび通信事業者に送信される場合があります。</string>
     <string name="wificalling_show_popup_enable_location_title">位置情報を有効にする</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi電話は位置情報を使用する必要があるため、位置情報を有効にします。匿名の位置データが収集され、Googleおよびサービスプロバイダに送信されます。詳細は、サービスプロバイダにお問い合わせください。</string>
@@ -1867,7 +1868,7 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="kg_none_iris_pin_deviceadmin_instructions">セキュリティポリシーのため、虹彩認証を使用する代わりに、PINを入力してください</string>
     <string name="kg_none_multi_pattern_restart_instructions">端末が再起動したため、生体認証の代わりにパターンを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">端末が再起動したため、生体認証の代わりにパターンを使用してロックを解除する必要があります。生体認証は、次回端末のロックを解除するときから使用することができます。</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">端末が再起動したため、指紋認証の代わりにパターンを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">端末が再起動したため、パターンを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">端末が再起動したため、指紋認証の代わりにパターンを使用してロックを解除する必要があります。指紋認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_none_iris_pattern_restart_instructions">端末が再起動したため、虹彩認証の代わりにパターンを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">端末が再起動したため、虹彩認証の代わりにパターンを使用してロックを解除する必要があります。虹彩認証は、次回端末のロックを解除するときから使用することができます。</string>

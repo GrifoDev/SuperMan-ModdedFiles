@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">Internec niyma dostympny</string>
     <string name="wifi_disabled_password_failure">Zaszeł feler uwierzytelnianiŏ</string>
     <string name="wifi_auto_reconnect_disabled">Wyłōnczōno Autōmatyczne druge zepniyńcie</string>
+    <string name="wifi_internet_may_not_be_available">Internec może być niydostympny</string>
     <string name="wifi_reconnecting">Fertich coby połōnczyć, jak jakoś ôd neca bydzie lepszŏ.</string>
     <string name="wifi_connected_checking_quality">Sprŏwdzanie jakości połōnczyniŏ z Internecym…</string>
     <string name="wifi_setup_title_connected_network">Połōnczōne z necym Wi-Fi %s.</string>
@@ -282,7 +283,7 @@ S motor."</string>
     <string name="aod_show_popup_title">Załōncz %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">Fōnkcyje %1$s i %2$s niy mogōm być załōnczōne bez jedyn czas. Fōnkcyjŏ %3$s ôstanie wyłōczōnŏ.</string>
     <string name="aod_show_popup_description">%s i niżyj pokŏzane ôpcyje niy śmiōm być załōnczōne bez jedyn czas. Niżyj pokŏzane ôpcyje ôstanōm wyłōnczōne.</string>
-    <string name="wificalling_show_popup_use_location_inform">Zepniyńcia bez nec Wi-Fi muszōm mieć informacyjo ô Twojij lokalizacyji. Bydymy zbiyrać anōnimowe dane ô lokalizacyji i posyłać ône do Google i Twojigo dostŏwcy usug. Coby mieć wiyncyj informacyji, pogŏdej ze swoim dostowcōm usug.</string>
+    <string name="wificalling_show_popup_use_location_inform">Info ô Twojij lokacyji mogōm być posyłane do dostŏwcy usug, kej gŏdŏsz bez nec Wi-Fi. Skōntaktuj się z dostŏwcōm usug, coby dostać detajlne info.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Informacje dotyczące lokalizacji mogą być wysyłane do firmy Google i Twojego operatora w celu nawiązania połączeń z siecią Wi-Fi, niezależenie od tego, czy aktywowano funkcję lokalizacji.</string>
     <string name="wificalling_show_popup_enable_location_title">Załōnczanie lokalizacyji</string>
     <string name="wificalling_show_popup_enable_location_message">Zepniyńcia bez nec Wi-Fi potrzebujōm informacyji ô Twojij lokalizacyji. Lokalizacyjo bydzie załōnczōno. Bydymy zbiyrać anōnimowe dane ô lokalizacyji i posyłać ône do Google i Twojigo dostŏwcy usug. Coby mieć wiyncyj informacyji, pogŏdej ze swoim dostowcōm usug.</string>
@@ -854,7 +855,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">Wkludź kod PIN coby niy używać poznŏwanio tynczōwki skuli prawideł bezpieczyństwa</string>
     <string name="kg_none_multi_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw danych biometrycznych.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw danych biometrycznych.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Telefōn resztartowano i trza go ôdblokować bez znak. Dalij idzie do ôdblokowaniŏ telefōnu użyć ôdciskōw palcōw.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć ôdciskōw palcōw.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Maszina je sztartniynto drugi rŏz i trza ôna ôdbloknōńć bez użycie znaku. Na drugi rŏz do ôdblokniyńcio masziny poradzisz użyć tynczōwek.</string>

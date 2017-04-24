@@ -302,7 +302,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0f04c5
+    const v3, 0x7f0f04c9
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -314,11 +314,11 @@
 
     invoke-direct {v1, p0, p1}, Lcom/android/systemui/volume/VolumeUI$1;-><init>(Lcom/android/systemui/volume/VolumeUI;Landroid/content/ComponentName;)V
 
-    const v2, 0x7f0f04c6
+    const v2, 0x7f0f04ca
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    const v1, 0x7f0f04c7
+    const v1, 0x7f0f04cb
 
     const/4 v2, 0x0
 

@@ -33,11 +33,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0f0426
+    const v0, 0x7f0f0427
 
-    const v1, 0x7f0f0427
+    const v1, 0x7f0f0428
 
-    const v2, 0x7f0f0428
+    const v2, 0x7f0f0429
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -115,7 +115,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0429
+    const v5, 0x7f0f042a
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f042a
+    const v5, 0x7f0f042b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -292,6 +292,8 @@
 .method public setToggleState(Z)Z
     .locals 3
 
+    const/4 v2, 0x1
+
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
     invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get3(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/qs/QSTile$State;
@@ -312,8 +314,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
-    const/4 v2, 0x1
-
     invoke-interface {v0, v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;Z)Z
 
     move-result v0
@@ -331,19 +331,29 @@
     return v0
 
     :cond_0
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_GPS_IN_LOCATION:Z
-
-    if-eqz v0, :cond_1
-
-    if-eqz p1, :cond_1
-
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
     invoke-static {v0}, Lcom/android/systemui/qs/tiles/LocationTile;->-get2(Lcom/android/systemui/qs/tiles/LocationTile;)Lcom/android/systemui/qs/QSTile$Host;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/android/systemui/qs/QSTile$Host;->collapsePanels()V
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/qs/QSTile$Host;->onClickQSTileOnKeyguard(Lcom/android/systemui/qs/QSTile;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->getToggleState()Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    return v0
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile$LocationDetailAdapter;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;

@@ -372,7 +372,7 @@
     :goto_1
     if-eqz v1, :cond_8
 
-    const v5, 0x7f0f04f4
+    const v5, 0x7f0f04f8
 
     invoke-static {p1, v5, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

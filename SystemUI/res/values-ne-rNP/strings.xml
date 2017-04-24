@@ -39,6 +39,7 @@
     <string name="connected_via_passpoint">%1$s मार्फत जडित</string>
     <string name="available_via_passpoint">%1$s मार्फत उपलब्ध</string>
     <string name="wifi_connected_no_internet">जडित, इन्टरनेट चलेको छैन</string>
+    <string name="wifi_internet_may_not_be_available">इन्टरनेट उपलब्ध नहुन सक्छ</string>
     <string name="wifi_reconnecting">नेटवर्क गुणस्तर सुधार जडान गर्नको लागि तयार।</string>
     <string name="wifi_connected_checking_quality">तपाईको इन्टरनेट जडानको गुणस्तर जाँच गर्दै…</string>
     <string name="wifi_setup_title_connected_network">Wi-Fi नेटवर्क %s मा जडान गरिएको।</string>
@@ -816,7 +817,7 @@ Mirroring"</string>
     <string name="aod_show_popup_title">%s सक्षम गर्नुहोस्</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s र %2$s एकै समयमा सक्षम गर्न सकिन्न। %3$s असक्षम गरिनेछ।</string>
     <string name="aod_show_popup_description">%s र तलका विकल्पहरूलाई एकै समयमा सक्षम गर्न सकिँदैन। तलका विकल्पहरूलाई असक्षम गरिनेछ।</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi कलिङले तपाईको स्थान जानकारी प्रयोग गर्नु पर्ने हुन्छ। अज्ञात स्थान डाटा संकलन गरी गुगल र तपाईको सेवा प्रदायकलाई पठाइनेछ। विवरणहरूका लागि तपाईको सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="wificalling_show_popup_use_location_inform">तपाईले Wi-Fi कलिङको प्रयोग गरिरहनुभएको बेला तपाईको सेवा प्रदायकलाई तपाईको स्थान सम्बन्धी जानकारी पठाइन सक्छ। विवरणका लागि आफ्नो सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">तपाईले स्थानको सुविधा सक्रिय गरे वा नगरे पनि Wi-Fi को जडान स्थापना गर्न तपाईको स्थान सम्बन्धी जानकारी गूगल वा तपाईको अपरेटरलाई पठाइन सक्छ।</string>
     <string name="wificalling_show_popup_enable_location_title">स्थान सक्षम गर्नुहोस्</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi कलिङले तपाईको स्थान जानकारी प्रयोग गर्नु पर्ने हुन्छ। स्थानलाई सक्षम गरिनेछ। अज्ञात स्थान डाटा संकलन गरी गुगल र तपाईको सेवा प्रदायकलाई पठाइनेछ। विवरणका लागि तपाईको सेवा प्रदायकलाई सम्पर्क गर्नुहोस्।</string>
@@ -1823,7 +1824,7 @@ If your tablet is reset, you may need to enter the Google account information (e
     <string name="kg_none_iris_pin_deviceadmin_instructions">सुरक्षा नीतिका कारणले गर्दा, आइरिस पहिचानको प्रयोग गर्नुको सट्टा PIN प्रविष्ट गर्नुहोस्</string>
     <string name="kg_none_multi_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो यन्त्रलाई अनलक गर्दा आफ्ना बायोमेट्रिकहरू प्रयोग गर्न सक्नुहुन्छ।</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">तपाईको फोनलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपाई अर्को पटक आफ्नो फोन अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना फिंगरप्रिन्टहरू प्रयोग गर्न सक्नुहुन्छ।</string>
     <string name="kg_none_iris_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">तपाईको यन्त्रलाई पुनः सुरु गरियो र तपाईको ढाँचा प्रयोग गरेर अनलक गर्नुपर्छ। तपईले अर्को पटक आफ्नो यन्त्र अनलक गर्दा आफ्ना आइरिसहरू प्रयोग गर्न सक्नुहुन्छ।</string>

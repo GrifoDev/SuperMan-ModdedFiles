@@ -191,7 +191,7 @@
 
     new-instance v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;
 
-    const v4, 0x7f0f0459
+    const v4, 0x7f0f045d
 
     const/4 v5, 0x0
 
@@ -438,7 +438,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0301
+    const v1, 0x7f0d0303
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -452,7 +452,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0302
+    const v1, 0x7f0d0304
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +466,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0305
+    const v1, 0x7f0d0307
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -480,7 +480,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0306
+    const v1, 0x7f0d0308
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

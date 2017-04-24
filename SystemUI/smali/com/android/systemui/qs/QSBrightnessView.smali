@@ -123,7 +123,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_0
-    const v0, 0x7f1302ff
+    const v0, 0x7f130301
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -143,7 +143,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon2:Landroid/widget/ImageView;
 
-    const v0, 0x7f130300
+    const v0, 0x7f130302
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -207,7 +207,7 @@
 
     invoke-virtual {v0, p0, v1}, Lcom/android/systemui/tuner/TunerService;->addTunable(Lcom/android/systemui/tuner/TunerService$Tunable;[Ljava/lang/String;)V
 
-    const v0, 0x7f130373
+    const v0, 0x7f130375
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -221,7 +221,7 @@
 
     invoke-virtual {v0, p3}, Lcom/android/systemui/settings/BrightnessDetail;->setQsPanel(Lcom/android/systemui/qs/QSPanel;)V
 
-    const v0, 0x7f130374
+    const v0, 0x7f130376
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
@@ -354,7 +354,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d037a
+    const v1, 0x7f0d037c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -558,7 +558,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130300
+    const v2, 0x7f130302
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -578,7 +578,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f130374
+    const v2, 0x7f130376
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -26,7 +26,7 @@
 
     invoke-direct {p0, p2}, Lcom/android/systemui/recents/views/BaseAppListViewHolder;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f13031e
+    const v0, 0x7f130320
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -55,6 +55,7 @@
     <string name="wifi_disabled_no_internet">Internet not available</string>
     <string name="wifi_disabled_password_failure">Authentication error occurred</string>
     <string name="wifi_auto_reconnect_disabled">Auto reconnect disabled</string>
+    <string name="wifi_internet_may_not_be_available">Internet may not be available</string>
     <string name="wifi_reconnecting">Ready to connect when network quality improves</string>
     <string name="wifi_connected_checking_quality">Checking the quality of your Internet connection…</string>
     <string name="wifi_setup_title_connected_network">Connected to Wi-Fi network %s.</string>
@@ -282,7 +283,7 @@ mode"</string>
     <string name="aod_show_popup_title">Enable %s</string>
     <string name="aod_show_popup_unavailable_with_at_same_time">%1$s and %2$s cannot be enabled at the same time. %3$s will be disabled.</string>
     <string name="aod_show_popup_description">%s and the options below cannot be enabled at the same time. The options below will be disabled.</string>
-    <string name="wificalling_show_popup_use_location_inform">Wi-Fi calling needs to use your location information. Anonymous location data will be collected and sent to Google and your service provider. Contact your service provider for details.</string>
+    <string name="wificalling_show_popup_use_location_inform">Your location information might be sent to your service provider while you are using Wi-Fi calling. Contact your service provider for details.</string>
     <string name="wificalling_show_popup_use_location_inform_ftm">Your location-related information can be sent to Google and your operator in order to establish Wi-Fi calls, whether you have activated or not the location feature.</string>
     <string name="wificalling_show_popup_enable_location_title">Enable Location</string>
     <string name="wificalling_show_popup_enable_location_message">Wi-Fi calling needs to use your location information. Location will be enabled. Anonymous location data will be collected and sent to Google and your service provider. Contact your service provider for details.</string>
@@ -854,7 +855,7 @@ If your tablet is reset, you may need to enter the Google account information (E
     <string name="kg_none_iris_pin_deviceadmin_instructions">Enter PIN instead of using iris recognition because of security policy</string>
     <string name="kg_none_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
     <string name="kg_tablet_multi_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your biometrics next time you unlock your device.</string>
-    <string name="kg_none_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
+    <string name="kg_none_fingerprint_pattern_restart_instructions">Your phone was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your phone.</string>
     <string name="kg_tablet_fingerprint_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your fingerprints next time you unlock your device.</string>
     <string name="kg_none_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
     <string name="kg_tablet_iris_pattern_restart_instructions">Your device was restarted and needs to be unlocked using your pattern. You can use your irises next time you unlock your device.</string>
