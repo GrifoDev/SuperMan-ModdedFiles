@@ -66,27 +66,27 @@
 
     sput-object v3, Ljava/lang/System;->cons:Ljava/io/Console;
 
-    .line 1551
+    .line 1588
     invoke-static {}, Ljava/lang/System;->initUnchangeableSystemProperties()Ljava/util/Properties;
 
     move-result-object v3
 
     sput-object v3, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
-    .line 1552
+    .line 1589
     invoke-static {}, Ljava/lang/System;->initProperties()Ljava/util/Properties;
 
     move-result-object v3
 
     sput-object v3, Ljava/lang/System;->props:Ljava/util/Properties;
 
-    .line 1553
+    .line 1590
     invoke-static {}, Ljava/lang/System;->addLegacyLocaleSystemProperties()V
 
-    .line 1554
+    .line 1591
     invoke-static {}, Lsun/misc/Version;->initSystemProperties()V
 
-    .line 1559
+    .line 1596
     sget-object v3, Ljava/lang/System;->props:Ljava/util/Properties;
 
     const-string/jumbo v4, "line.separator"
@@ -97,14 +97,14 @@
 
     sput-object v3, Ljava/lang/System;->lineSeparator:Ljava/lang/String;
 
-    .line 1561
+    .line 1598
     new-instance v1, Ljava/io/FileInputStream;
 
     sget-object v3, Ljava/io/FileDescriptor;->in:Ljava/io/FileDescriptor;
 
     invoke-direct {v1, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 1562
+    .line 1599
     .local v1, "fdIn":Ljava/io/FileInputStream;
     new-instance v2, Ljava/io/FileOutputStream;
 
@@ -112,7 +112,7 @@
 
     invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 1563
+    .line 1600
     .local v2, "fdOut":Ljava/io/FileOutputStream;
     new-instance v0, Ljava/io/FileOutputStream;
 
@@ -120,7 +120,7 @@
 
     invoke-direct {v0, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 1565
+    .line 1602
     .local v0, "fdErr":Ljava/io/FileOutputStream;
     new-instance v3, Ljava/io/BufferedInputStream;
 
@@ -128,24 +128,24 @@
 
     sput-object v3, Ljava/lang/System;->in:Ljava/io/InputStream;
 
-    .line 1566
+    .line 1603
     new-instance v3, Ljava/io/PrintStream;
 
     invoke-direct {v3, v2}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V
 
     sput-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    .line 1567
+    .line 1604
     new-instance v3, Ljava/io/PrintStream;
 
     invoke-direct {v3, v0}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V
 
     sput-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    .line 1573
+    .line 1610
     invoke-static {}, Lsun/misc/VM;->initializeOSEnvironment()V
 
-    .line 1579
+    .line 1616
     invoke-static {}, Lsun/misc/VM;->booted()V
 
     .line 54
@@ -166,7 +166,7 @@
     .locals 6
 
     .prologue
-    .line 1049
+    .line 1051
     const-string/jumbo v4, "user.locale"
 
     const-string/jumbo v5, ""
@@ -175,7 +175,7 @@
 
     move-result-object v2
 
-    .line 1050
+    .line 1052
     .local v2, "locale":Ljava/lang/String;
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
@@ -183,12 +183,12 @@
 
     if-nez v4, :cond_1
 
-    .line 1051
+    .line 1053
     invoke-static {v2}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
     move-result-object v0
 
-    .line 1052
+    .line 1054
     .local v0, "l":Ljava/util/Locale;
     const-string/jumbo v4, "user.language"
 
@@ -198,7 +198,7 @@
 
     invoke-static {v4, v5}, Ljava/lang/System;->setUnchangeableSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1053
+    .line 1055
     const-string/jumbo v4, "user.region"
 
     invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
@@ -207,7 +207,7 @@
 
     invoke-static {v4, v5}, Ljava/lang/System;->setUnchangeableSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1054
+    .line 1056
     const-string/jumbo v4, "user.variant"
 
     invoke-virtual {v0}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
@@ -216,13 +216,13 @@
 
     invoke-static {v4, v5}, Ljava/lang/System;->setUnchangeableSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1048
+    .line 1050
     .end local v0    # "l":Ljava/util/Locale;
     :cond_0
     :goto_0
     return-void
 
-    .line 1060
+    .line 1062
     :cond_1
     const-string/jumbo v4, "user.language"
 
@@ -232,7 +232,7 @@
 
     move-result-object v1
 
-    .line 1061
+    .line 1063
     .local v1, "language":Ljava/lang/String;
     const-string/jumbo v4, "user.region"
 
@@ -242,7 +242,7 @@
 
     move-result-object v3
 
-    .line 1063
+    .line 1065
     .local v3, "region":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
@@ -250,14 +250,14 @@
 
     if-eqz v4, :cond_2
 
-    .line 1064
+    .line 1066
     const-string/jumbo v4, "user.language"
 
     const-string/jumbo v5, "en"
 
     invoke-static {v4, v5}, Ljava/lang/System;->setUnchangeableSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1067
+    .line 1069
     :cond_2
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
@@ -265,7 +265,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 1068
+    .line 1070
     const-string/jumbo v4, "user.region"
 
     const-string/jumbo v5, "US"
@@ -1947,10 +1947,10 @@
     .param p0, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 1256
+    .line 1293
     if-nez p0, :cond_0
 
-    .line 1257
+    .line 1294
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "key can\'t be null"
@@ -1959,7 +1959,7 @@
 
     throw v0
 
-    .line 1259
+    .line 1296
     :cond_0
     const-string/jumbo v0, ""
 
@@ -1969,7 +1969,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1260
+    .line 1297
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "key can\'t be empty"
@@ -1978,7 +1978,7 @@
 
     throw v0
 
-    .line 1255
+    .line 1292
     :cond_1
     return-void
 .end method
@@ -1988,10 +1988,10 @@
     .param p0, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 1250
+    .line 1287
     invoke-static {p0}, Ljava/lang/System;->checkKey(Ljava/lang/String;)V
 
-    .line 1252
+    .line 1289
     sget-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
     invoke-virtual {v0, p0}, Ljava/util/Properties;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2052,14 +2052,14 @@
     .param p0, "status"    # I
 
     .prologue
-    .line 1384
+    .line 1421
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Ljava/lang/Runtime;->exit(I)V
 
-    .line 1383
+    .line 1420
     return-void
 .end method
 
@@ -2067,20 +2067,20 @@
     .locals 3
 
     .prologue
-    .line 1407
+    .line 1444
     sget-object v2, Ljava/lang/System;->LOCK:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1408
+    .line 1445
     :try_start_0
     sget-boolean v0, Ljava/lang/System;->justRanFinalization:Z
 
-    .line 1409
+    .line 1446
     .local v0, "shouldRunGC":Z
     if-eqz v0, :cond_1
 
-    .line 1410
+    .line 1447
     const/4 v1, 0x0
 
     sput-boolean v1, Ljava/lang/System;->justRanFinalization:Z
@@ -2090,21 +2090,21 @@
     :goto_0
     monitor-exit v2
 
-    .line 1415
+    .line 1452
     if-eqz v0, :cond_0
 
-    .line 1416
+    .line 1453
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Runtime;->gc()V
 
-    .line 1405
+    .line 1442
     :cond_0
     return-void
 
-    .line 1412
+    .line 1449
     :cond_1
     const/4 v1, 0x1
 
@@ -2115,7 +2115,7 @@
 
     goto :goto_0
 
-    .line 1407
+    .line 1444
     :catchall_0
     move-exception v1
 
@@ -2124,11 +2124,126 @@
     throw v1
 .end method
 
+.method private static generateIcuDataPath()Ljava/lang/String;
+    .locals 5
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 1076
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 1077
+    .local v1, "icuDataPathBuilder":Ljava/lang/StringBuilder;
+    if-nez v1, :cond_0
+
+    .line 1078
+    return-object v3
+
+    .line 1081
+    :cond_0
+    const-string/jumbo v3, "ANDROID_DATA"
+
+    const-string/jumbo v4, "/misc/zoneinfo/current/icu"
+
+    invoke-static {v3, v4}, Ljava/lang/System;->getEnvironmentPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1082
+    .local v0, "dataIcuDataPath":Ljava/lang/String;
+    if-eqz v0, :cond_1
+
+    .line 1083
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1087
+    :cond_1
+    const-string/jumbo v3, "ANDROID_ROOT"
+
+    const-string/jumbo v4, "/usr/icu"
+
+    invoke-static {v3, v4}, Ljava/lang/System;->getEnvironmentPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1088
+    .local v2, "systemIcuDataPath":Ljava/lang/String;
+    if-eqz v2, :cond_3
+
+    .line 1089
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v3
+
+    if-lez v3, :cond_2
+
+    .line 1090
+    const-string/jumbo v3, ":"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1092
+    :cond_2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1094
+    :cond_3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+.end method
+
+.method private static getEnvironmentPath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+    .param p0, "environmentVariable"    # Ljava/lang/String;
+    .param p1, "path"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 1102
+    invoke-static {p0}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1103
+    .local v0, "variable":Ljava/lang/String;
+    if-nez v0, :cond_0
+
+    .line 1104
+    return-object v1
+
+    .line 1106
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method public static getProperties()Ljava/util/Properties;
     .locals 1
 
     .prologue
-    .line 1126
+    .line 1163
     sget-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
     return-object v0
@@ -2139,10 +2254,10 @@
     .param p0, "key"    # Ljava/lang/String;
 
     .prologue
-    .line 1179
+    .line 1216
     invoke-static {p0}, Ljava/lang/System;->checkKey(Ljava/lang/String;)V
 
-    .line 1181
+    .line 1218
     sget-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
     invoke-virtual {v0, p0}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -2158,10 +2273,10 @@
     .param p1, "def"    # Ljava/lang/String;
 
     .prologue
-    .line 1207
+    .line 1244
     invoke-static {p0}, Ljava/lang/System;->checkKey(Ljava/lang/String;)V
 
-    .line 1209
+    .line 1246
     sget-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
     invoke-virtual {v0, p0, p1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -2186,10 +2301,10 @@
     .param p0, "name"    # Ljava/lang/String;
 
     .prologue
-    .line 1311
+    .line 1348
     if-nez p0, :cond_0
 
-    .line 1312
+    .line 1349
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "name == null"
@@ -2198,7 +2313,7 @@
 
     throw v0
 
-    .line 1315
+    .line 1352
     :cond_0
     sget-object v0, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
@@ -2223,7 +2338,7 @@
     .end annotation
 
     .prologue
-    .line 1360
+    .line 1397
     invoke-static {}, Ljava/lang/ProcessEnvironment;->getenv()Ljava/util/Map;
 
     move-result-object v0
@@ -2259,382 +2374,366 @@
     .locals 2
 
     .prologue
-    .line 1006
+    .line 1008
     new-instance v0, Ljava/lang/System$PropertiesWithNonOverrideableDefaults;
 
     sget-object v1, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
     invoke-direct {v0, v1}, Ljava/lang/System$PropertiesWithNonOverrideableDefaults;-><init>(Ljava/util/Properties;)V
 
-    .line 1007
+    .line 1009
     .local v0, "p":Ljava/util/Properties;
     invoke-static {v0}, Ljava/lang/System;->setDefaultChangeableProperties(Ljava/util/Properties;)Ljava/util/Properties;
 
-    .line 1008
+    .line 1010
     return-object v0
 .end method
 
 .method private static initUnchangeableSystemProperties()Ljava/util/Properties;
-    .locals 14
+    .locals 15
 
     .prologue
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     .line 938
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
-    move-result-object v6
+    move-result-object v7
 
     .line 939
-    .local v6, "runtime":Ldalvik/system/VMRuntime;
-    new-instance v3, Ljava/util/Properties;
+    .local v7, "runtime":Ldalvik/system/VMRuntime;
+    new-instance v4, Ljava/util/Properties;
 
-    invoke-direct {v3}, Ljava/util/Properties;-><init>()V
+    invoke-direct {v4}, Ljava/util/Properties;-><init>()V
 
     .line 942
-    .local v3, "p":Ljava/util/Properties;
-    const-string/jumbo v7, "java.boot.class.path"
+    .local v4, "p":Ljava/util/Properties;
+    const-string/jumbo v8, "java.boot.class.path"
 
-    invoke-virtual {v6}, Ldalvik/system/VMRuntime;->bootClassPath()Ljava/lang/String;
+    invoke-virtual {v7}, Ldalvik/system/VMRuntime;->bootClassPath()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 943
-    const-string/jumbo v7, "java.class.path"
+    const-string/jumbo v8, "java.class.path"
 
-    invoke-virtual {v6}, Ldalvik/system/VMRuntime;->classPath()Ljava/lang/String;
+    invoke-virtual {v7}, Ldalvik/system/VMRuntime;->classPath()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 946
-    const-string/jumbo v7, "JAVA_HOME"
+    const-string/jumbo v8, "JAVA_HOME"
 
-    invoke-static {v7}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     .line 947
-    .local v2, "javaHome":Ljava/lang/String;
-    if-nez v2, :cond_0
+    .local v3, "javaHome":Ljava/lang/String;
+    if-nez v3, :cond_0
 
     .line 948
-    const-string/jumbo v2, "/system"
+    const-string/jumbo v3, "/system"
 
     .line 950
     :cond_0
-    const-string/jumbo v7, "java.home"
+    const-string/jumbo v8, "java.home"
 
-    invoke-virtual {v3, v7, v2}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v3}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 952
-    const-string/jumbo v7, "java.vm.version"
+    const-string/jumbo v8, "java.vm.version"
 
-    invoke-virtual {v6}, Ldalvik/system/VMRuntime;->vmVersion()Ljava/lang/String;
+    invoke-virtual {v7}, Ldalvik/system/VMRuntime;->vmVersion()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 955
     :try_start_0
-    sget-object v7, Llibcore/io/Libcore;->os:Llibcore/io/Os;
+    sget-object v8, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
-    sget-object v9, Llibcore/io/Libcore;->os:Llibcore/io/Os;
+    sget-object v10, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
-    invoke-interface {v9}, Llibcore/io/Os;->getuid()I
+    invoke-interface {v10}, Llibcore/io/Os;->getuid()I
 
-    move-result v9
+    move-result v10
 
-    invoke-interface {v7, v9}, Llibcore/io/Os;->getpwuid(I)Landroid/system/StructPasswd;
+    invoke-interface {v8, v10}, Llibcore/io/Os;->getpwuid(I)Landroid/system/StructPasswd;
 
-    move-result-object v5
+    move-result-object v6
 
     .line 956
-    .local v5, "passwd":Landroid/system/StructPasswd;
-    const-string/jumbo v7, "user.name"
+    .local v6, "passwd":Landroid/system/StructPasswd;
+    const-string/jumbo v8, "user.name"
 
-    iget-object v9, v5, Landroid/system/StructPasswd;->pw_name:Ljava/lang/String;
+    iget-object v10, v6, Landroid/system/StructPasswd;->pw_name:Ljava/lang/String;
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 961
-    sget-object v7, Llibcore/io/Libcore;->os:Llibcore/io/Os;
+    sget-object v8, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
-    invoke-interface {v7}, Llibcore/io/Os;->uname()Landroid/system/StructUtsname;
+    invoke-interface {v8}, Llibcore/io/Os;->uname()Landroid/system/StructUtsname;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 962
-    .local v1, "info":Landroid/system/StructUtsname;
-    const-string/jumbo v7, "os.arch"
+    .local v2, "info":Landroid/system/StructUtsname;
+    const-string/jumbo v8, "os.arch"
 
-    iget-object v9, v1, Landroid/system/StructUtsname;->machine:Ljava/lang/String;
+    iget-object v10, v2, Landroid/system/StructUtsname;->machine:Ljava/lang/String;
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 963
-    const-string/jumbo v7, "os.name"
+    const-string/jumbo v8, "os.name"
 
-    invoke-virtual {v3, v7}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    if-eqz v7, :cond_1
+    if-eqz v8, :cond_1
 
-    const-string/jumbo v7, "os.name"
+    const-string/jumbo v8, "os.name"
 
-    invoke-virtual {v3, v7}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    iget-object v9, v1, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
+    iget-object v10, v2, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
 
-    invoke-virtual {v7, v9}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v10}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_3
 
     .line 968
     :cond_1
     :goto_0
-    const-string/jumbo v7, "os.version"
+    const-string/jumbo v8, "os.version"
 
-    iget-object v9, v1, Landroid/system/StructUtsname;->release:Ljava/lang/String;
+    iget-object v10, v2, Landroid/system/StructUtsname;->release:Ljava/lang/String;
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 971
-    const-string/jumbo v7, "android.icu.library.version"
+    const-string/jumbo v8, "android.icu.library.version"
 
     invoke-static {}, Llibcore/icu/ICU;->getIcuVersion()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 972
-    const-string/jumbo v7, "android.icu.unicode.version"
+    const-string/jumbo v8, "android.icu.unicode.version"
 
     invoke-static {}, Llibcore/icu/ICU;->getUnicodeVersion()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 973
-    const-string/jumbo v7, "android.icu.cldr.version"
+    const-string/jumbo v8, "android.icu.cldr.version"
 
     invoke-static {}, Llibcore/icu/ICU;->getCldrVersion()Ljava/lang/String;
 
-    move-result-object v9
-
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 979
-    const-string/jumbo v7, "android.icu.impl.ICUBinary.dataPath"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "ANDROID_ROOT"
-
-    invoke-static {v10}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
-
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v9
+    .line 979
+    invoke-static {}, Ljava/lang/System;->generateIcuDataPath()Ljava/lang/String;
 
-    const-string/jumbo v10, "/usr/icu"
+    move-result-object v1
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 980
+    .local v1, "icuDataPath":Ljava/lang/String;
+    const-string/jumbo v8, "android.icu.impl.ICUBinary.dataPath"
 
-    move-result-object v9
+    invoke-virtual {v4, v8, v1}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 981
+    .line 983
     invoke-static {}, Ljava/lang/System;->specialProperties()[Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v3, v7}, Ljava/lang/System;->parsePropertyAssignments(Ljava/util/Properties;[Ljava/lang/String;)V
+    invoke-static {v4, v8}, Ljava/lang/System;->parsePropertyAssignments(Ljava/util/Properties;[Ljava/lang/String;)V
 
-    .line 985
-    invoke-virtual {v6}, Ldalvik/system/VMRuntime;->properties()[Ljava/lang/String;
+    .line 987
+    invoke-virtual {v7}, Ldalvik/system/VMRuntime;->properties()[Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v3, v7}, Ljava/lang/System;->parsePropertyAssignments(Ljava/util/Properties;[Ljava/lang/String;)V
-
-    .line 991
-    sget-object v9, Ljava/lang/AndroidHardcodedSystemProperties;->STATIC_PROPERTIES:[[Ljava/lang/String;
-
-    array-length v10, v9
-
-    move v7, v8
-
-    :goto_1
-    if-ge v7, v10, :cond_5
-
-    aget-object v4, v9, v7
-
-    .line 992
-    .local v4, "pair":[Ljava/lang/String;
-    aget-object v11, v4, v8
-
-    invoke-virtual {v3, v11}, Ljava/util/Properties;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_2
+    invoke-static {v4, v8}, Ljava/lang/System;->parsePropertyAssignments(Ljava/util/Properties;[Ljava/lang/String;)V
 
     .line 993
-    new-instance v11, Ljava/lang/StringBuilder;
+    sget-object v10, Ljava/lang/AndroidHardcodedSystemProperties;->STATIC_PROPERTIES:[[Ljava/lang/String;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    array-length v11, v10
 
-    const-string/jumbo v12, "Ignoring command line argument: -D"
+    move v8, v9
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_1
+    if-ge v8, v11, :cond_5
 
-    move-result-object v11
+    aget-object v5, v10, v8
 
-    aget-object v12, v4, v8
+    .line 994
+    .local v5, "pair":[Ljava/lang/String;
+    aget-object v12, v5, v9
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v12}, Ljava/util/Properties;->containsKey(Ljava/lang/Object;)Z
 
-    move-result-object v11
+    move-result v12
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v11}, Ljava/lang/System;->logE(Ljava/lang/String;)V
+    if-eqz v12, :cond_2
 
     .line 995
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v13, "Ignoring command line argument: -D"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    aget-object v13, v5, v9
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v12}, Ljava/lang/System;->logE(Ljava/lang/String;)V
+
+    .line 997
     :cond_2
-    aget-object v11, v4, v13
+    aget-object v12, v5, v14
 
-    if-nez v11, :cond_4
+    if-nez v12, :cond_4
 
-    .line 996
-    aget-object v11, v4, v8
+    .line 998
+    aget-object v12, v5, v9
 
-    invoke-virtual {v3, v11}, Ljava/util/Properties;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v12}, Ljava/util/Properties;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 991
+    .line 993
     :goto_2
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
     .line 957
-    .end local v1    # "info":Landroid/system/StructUtsname;
-    .end local v4    # "pair":[Ljava/lang/String;
-    .end local v5    # "passwd":Landroid/system/StructPasswd;
+    .end local v1    # "icuDataPath":Ljava/lang/String;
+    .end local v2    # "info":Landroid/system/StructUtsname;
+    .end local v5    # "pair":[Ljava/lang/String;
+    .end local v6    # "passwd":Landroid/system/StructPasswd;
     :catch_0
     move-exception v0
 
     .line 958
     .local v0, "exception":Landroid/system/ErrnoException;
-    new-instance v7, Ljava/lang/AssertionError;
+    new-instance v8, Ljava/lang/AssertionError;
 
-    invoke-direct {v7, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v8, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v7
+    throw v8
 
     .line 964
     .end local v0    # "exception":Landroid/system/ErrnoException;
-    .restart local v1    # "info":Landroid/system/StructUtsname;
-    .restart local v5    # "passwd":Landroid/system/StructPasswd;
+    .restart local v2    # "info":Landroid/system/StructUtsname;
+    .restart local v6    # "passwd":Landroid/system/StructPasswd;
     :cond_3
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "Wrong compile-time assumption for os.name: "
+    const-string/jumbo v10, "Wrong compile-time assumption for os.name: "
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v9, "os.name"
+    const-string/jumbo v10, "os.name"
 
-    invoke-virtual {v3, v9}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v10}, Ljava/util/Properties;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string/jumbo v9, " vs "
+    const-string/jumbo v10, " vs "
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
     .line 965
-    iget-object v9, v1, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
+    iget-object v10, v2, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
 
     .line 964
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v7}, Ljava/lang/System;->logE(Ljava/lang/String;)V
+    invoke-static {v8}, Ljava/lang/System;->logE(Ljava/lang/String;)V
 
     .line 966
-    const-string/jumbo v7, "os.name"
+    const-string/jumbo v8, "os.name"
 
-    iget-object v9, v1, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
+    iget-object v10, v2, Landroid/system/StructUtsname;->sysname:Ljava/lang/String;
 
-    invoke-virtual {v3, v7, v9}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v8, v10}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_0
 
-    .line 998
-    .restart local v4    # "pair":[Ljava/lang/String;
+    .line 1000
+    .restart local v1    # "icuDataPath":Ljava/lang/String;
+    .restart local v5    # "pair":[Ljava/lang/String;
     :cond_4
-    aget-object v11, v4, v8
+    aget-object v12, v5, v9
 
-    aget-object v12, v4, v13
+    aget-object v13, v5, v14
 
-    invoke-virtual {v3, v11, v12}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v12, v13}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_2
 
-    .line 1002
-    .end local v4    # "pair":[Ljava/lang/String;
+    .line 1004
+    .end local v5    # "pair":[Ljava/lang/String;
     :cond_5
-    return-object v3
+    return-object v4
 .end method
 
 .method public static lineSeparator()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 1138
+    .line 1175
     sget-object v0, Ljava/lang/System;->lineSeparator:Ljava/lang/String;
 
     return-object v0
@@ -2645,7 +2744,7 @@
     .param p0, "filename"    # Ljava/lang/String;
 
     .prologue
-    .line 1505
+    .line 1542
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
@@ -2656,7 +2755,7 @@
 
     invoke-virtual {v0, v1, p0}, Ljava/lang/Runtime;->load0(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 1504
+    .line 1541
     return-void
 .end method
 
@@ -2665,7 +2764,7 @@
     .param p0, "libname"    # Ljava/lang/String;
 
     .prologue
-    .line 1530
+    .line 1567
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
@@ -2676,7 +2775,7 @@
 
     invoke-virtual {v0, v1, p0}, Ljava/lang/Runtime;->loadLibrary0(Ljava/lang/ClassLoader;Ljava/lang/String;)V
 
-    .line 1529
+    .line 1566
     return-void
 .end method
 
@@ -2688,14 +2787,14 @@
     .param p0, "message"    # Ljava/lang/String;
 
     .prologue
-    .line 1586
+    .line 1623
     const/16 v0, 0x45
 
     const/4 v1, 0x0
 
     invoke-static {v0, p0, v1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1585
+    .line 1622
     return-void
 .end method
 
@@ -2705,12 +2804,12 @@
     .param p1, "th"    # Ljava/lang/Throwable;
 
     .prologue
-    .line 1593
+    .line 1630
     const/16 v0, 0x45
 
     invoke-static {v0, p0, p1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1592
+    .line 1629
     return-void
 .end method
 
@@ -2719,14 +2818,14 @@
     .param p0, "message"    # Ljava/lang/String;
 
     .prologue
-    .line 1600
+    .line 1637
     const/16 v0, 0x49
 
     const/4 v1, 0x0
 
     invoke-static {v0, p0, v1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1599
+    .line 1636
     return-void
 .end method
 
@@ -2736,12 +2835,12 @@
     .param p1, "th"    # Ljava/lang/Throwable;
 
     .prologue
-    .line 1607
+    .line 1644
     const/16 v0, 0x49
 
     invoke-static {v0, p0, p1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1606
+    .line 1643
     return-void
 .end method
 
@@ -2750,14 +2849,14 @@
     .param p0, "message"    # Ljava/lang/String;
 
     .prologue
-    .line 1614
+    .line 1651
     const/16 v0, 0x57
 
     const/4 v1, 0x0
 
     invoke-static {v0, p0, v1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1613
+    .line 1650
     return-void
 .end method
 
@@ -2767,12 +2866,12 @@
     .param p1, "th"    # Ljava/lang/Throwable;
 
     .prologue
-    .line 1621
+    .line 1658
     const/16 v0, 0x57
 
     invoke-static {v0, p0, p1}, Ljava/lang/System;->log(CLjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1620
+    .line 1657
     return-void
 .end method
 
@@ -2844,16 +2943,16 @@
     .locals 3
 
     .prologue
-    .line 1440
+    .line 1477
     sget-object v2, Ljava/lang/System;->LOCK:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1441
+    .line 1478
     :try_start_0
     sget-boolean v0, Ljava/lang/System;->runGC:Z
 
-    .line 1442
+    .line 1479
     .local v0, "shouldRunGC":Z
     const/4 v1, 0x0
 
@@ -2863,17 +2962,17 @@
 
     monitor-exit v2
 
-    .line 1444
+    .line 1481
     if-eqz v0, :cond_0
 
-    .line 1445
+    .line 1482
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Runtime;->gc()V
 
-    .line 1447
+    .line 1484
     :cond_0
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -2881,12 +2980,12 @@
 
     invoke-virtual {v1}, Ljava/lang/Runtime;->runFinalization()V
 
-    .line 1448
+    .line 1485
     sget-object v1, Ljava/lang/System;->LOCK:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1449
+    .line 1486
     const/4 v2, 0x1
 
     :try_start_1
@@ -2896,10 +2995,10 @@
 
     monitor-exit v1
 
-    .line 1438
+    .line 1475
     return-void
 
-    .line 1440
+    .line 1477
     :catchall_0
     move-exception v1
 
@@ -2907,7 +3006,7 @@
 
     throw v1
 
-    .line 1448
+    .line 1485
     :catchall_1
     move-exception v2
 
@@ -2923,12 +3022,12 @@
     .end annotation
 
     .prologue
-    .line 1480
+    .line 1517
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     invoke-static {p0}, Ljava/lang/Runtime;->runFinalizersOnExit(Z)V
 
-    .line 1479
+    .line 1516
     return-void
 .end method
 
@@ -2937,7 +3036,7 @@
     .param p0, "p"    # Ljava/util/Properties;
 
     .prologue
-    .line 1017
+    .line 1019
     sget-object v0, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
     const-string/jumbo v1, "java.io.tmpdir"
@@ -2948,14 +3047,14 @@
 
     if-nez v0, :cond_0
 
-    .line 1018
+    .line 1020
     const-string/jumbo v0, "java.io.tmpdir"
 
     const-string/jumbo v1, "/tmp"
 
     invoke-virtual {p0, v0, v1}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1028
+    .line 1030
     :cond_0
     sget-object v0, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
@@ -2967,14 +3066,14 @@
 
     if-nez v0, :cond_1
 
-    .line 1029
+    .line 1031
     const-string/jumbo v0, "user.home"
 
     const-string/jumbo v1, ""
 
     invoke-virtual {p0, v0, v1}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1032
+    .line 1034
     :cond_1
     return-object p0
 .end method
@@ -3029,28 +3128,28 @@
     .param p0, "props"    # Ljava/util/Properties;
 
     .prologue
-    .line 1151
+    .line 1188
     new-instance v0, Ljava/lang/System$PropertiesWithNonOverrideableDefaults;
 
     sget-object v1, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
     invoke-direct {v0, v1}, Ljava/lang/System$PropertiesWithNonOverrideableDefaults;-><init>(Ljava/util/Properties;)V
 
-    .line 1152
+    .line 1189
     .local v0, "baseProperties":Ljava/util/Properties;
     if-eqz p0, :cond_0
 
-    .line 1153
+    .line 1190
     invoke-virtual {v0, p0}, Ljava/util/Properties;->putAll(Ljava/util/Map;)V
 
-    .line 1158
+    .line 1195
     :goto_0
     sput-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
-    .line 1150
+    .line 1187
     return-void
 
-    .line 1155
+    .line 1192
     :cond_0
     invoke-static {v0}, Ljava/lang/System;->setDefaultChangeableProperties(Ljava/util/Properties;)Ljava/util/Properties;
 
@@ -3063,10 +3162,10 @@
     .param p1, "value"    # Ljava/lang/String;
 
     .prologue
-    .line 1229
+    .line 1266
     invoke-static {p0}, Ljava/lang/System;->checkKey(Ljava/lang/String;)V
 
-    .line 1231
+    .line 1268
     sget-object v0, Ljava/lang/System;->props:Ljava/util/Properties;
 
     invoke-virtual {v0, p0, p1}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
@@ -3104,15 +3203,15 @@
     .param p1, "value"    # Ljava/lang/String;
 
     .prologue
-    .line 1044
+    .line 1046
     invoke-static {p0}, Ljava/lang/System;->checkKey(Ljava/lang/String;)V
 
-    .line 1045
+    .line 1047
     sget-object v0, Ljava/lang/System;->unchangeableProps:Ljava/util/Properties;
 
     invoke-virtual {v0, p0, p1}, Ljava/util/Properties;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1043
+    .line 1045
     return-void
 .end method
 
