@@ -536,7 +536,7 @@
     <string name="keyguard_password_wrong_pin_code">गलत PIN कोड।</string>
     <string name="keyguard_label_text">अनलक गर्न मेनु थिच्नुहोस् र त्यसपछि ० थिच्नुहोस्।</string>
     <string name="emergency_call_dialog_number_for_display">आपतकालीन नम्बर</string>
-    <string name="lockscreen_carrier_default">कुनै सेवा छैन</string>
+    <string name="lockscreen_carrier_default">कुनै नेटवर्क जडान छैन</string>
     <string name="lockscreen_screen_locked">स्क्रिन लक गरिएको।</string>
     <string name="lockscreen_instructions_when_pattern_enabled">अनलक वा आपतकालीन कल गर्न मेनु थिच्नुहोस्।</string>
     <string name="lockscreen_instructions_when_pattern_disabled">अनलक गर्न मेनु थिच्नुहोस्।</string>
@@ -1398,7 +1398,9 @@
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">लक हुँदा पावर अफ ब्लक गर्नु सक्षम भएको बेला यन्त्र पावर अफ गर्न असमर्थ। स्क्रीन अनलक गरेपछि फेरि प्रयास गर्नुहोस्।</string>
-    <string name="wifi_notification_sns_exception_title">इन्टरनेट उपलब्ध छैन</string>
+    <string name="wifi_notification_sns_go_wifi_settings">सेटिङहरु</string>
+    <string name="wifi_notification_sns_exception_title">इन्टरनेट उपलब्ध नहुन सक्छ</string>
+    <string name="wifi_notification_sns_exception_hun_detail">अर्को नेटवर्कमा जडान गर्नुहोस्।</string>
     <string name="bluetooth_china_popup_title">ब्लुटूथ</string>
     <string name="sem_date_picker_increment_month_button_text">अर्को महिना</string>
     <string name="sem_date_picker_decrement_month_button_text">पछिल्लो महिना</string>
@@ -1416,7 +1418,6 @@
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">सयम सेट गर्न अघि समय क्षेत्र चयन गर्नुहोस्।</string>
     <string name="sound_off_toast">भोल्‍यूम परिवर्तन गर्न, उपलब्धता योग्यता सेटिङहरूमा “सबै ध्‍वनिहरू अफ गर्नुहोस्‌” लाई असक्षम गर्नुहोस्।</string>
-    <string name="wifi_notification_sns_go_wifi_settings">सेटिङहरु</string>
     <string name="permlab_knoxCustomSetting">यन्त्र सेटिङहरू व्यवस्थित गर्नुहोस्</string>
     <string name="permdesc_knoxCustomSetting">यन्त्र सेटिङहरू कन्फिगर गर्नुहोस्, जस्तै ब्लुटूथ, स्थान, Wi-Fi, मोबाइल डाटा, र एन्ड्रोइड सेटिङहरू।</string>
     <string name="permlab_knoxCustomSystem">प्रणाली सेटिङहरू व्यवस्थित गर्नुहोस्</string>
@@ -1683,7 +1684,6 @@
     <string name="securitymanager_st_encryption_device">सुरक्षित सुरुवात</string>
     <string name="securitymanager_st_direction_lock">दिशा लक</string>
     <string name="securitymanager_st_tampered">सफ्टवेयर छेडछाड पत्ता लाग्यो</string>
-    <string name="wifi_notification_sns_exception_hun_detail">अर्को नेटवर्कमा जडान गर्नुहोस्।</string>
     <string name="usb_storage_activity_title">USB ठूलो भण्डारण</string>
     <string name="usb_storage_title">USB जोडिएको छ</string>
     <string name="usb_storage_message">तपाईं आफ्नो कम्प्युटरमा USB मार्फत जडान हुनुभयो। तलको बटन टच गर्नुहोस् यदि तपाईं आफ्नो कम्प्युटर र एन्ड्रोइडको SD कार्ड बीच फाइलहरू प्रतिलिपि गर्न चाहनुहुन्छ भने।</string>

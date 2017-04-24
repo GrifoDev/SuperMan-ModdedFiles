@@ -1796,7 +1796,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Ինտերնետը մատչելի չէ</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Դրվծքր</string>
+    <string name="wifi_notification_sns_exception_title">Համացանցը կարող է անմատչելի լինել</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Միացնել այլ ցանցի:</string>
     <string name="wifi_notification_sns_poor_network_title">Ցանցերի խելացի փոխարկում</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Ցանցի ինքնափոխում</string>
     <string name="wifi_notification_sns_poor_network_detail">Անջատվել է %s-ից:</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Ժամը դնելուց առաջ ընտրել ժամային գոտին:</string>
     <string name="sound_off_toast">Ձայնի ուժգնությունը փոխելու համար կասեցրեք «Անջատել բոլոր հնչյունները» Մատչելիության դրվածքներում:</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Դրվծքր</string>
     <string name="permlab_knoxCustomSetting">Կառավարել սարքի դրվածքները</string>
     <string name="permdesc_knoxCustomSetting">Կազմաձևել սարքի դրվածքները, օրինակ՝ Bluetooth-ի, Տեղի, Wi-Fi-ի, Շարժական տվյալների և Android-ի դրվածքները:</string>
     <string name="permlab_knoxCustomSystem">Կառավարել համակարգի դրվածքները</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Անվտանգ գործարկում</string>
     <string name="securitymanager_st_direction_lock">Կողպում ուղղությամբ</string>
     <string name="securitymanager_st_tampered">Հայտնաբերվել է միջամտություն ծրագրակազմի աշխատանքին</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Միացնել այլ ցանցի:</string>
     <string name="permdesc_mount_unmount_filesystems">Թույլ է տալիս, որ ծրագիրը սարի և ապասարի ֆայլային համակարգերը հանովի հիշասարքերի համար:</string>
     <string name="permdesc_mount_format_filesystems">Թույլատրում է գործադրին ձևաչափել հեռացվելի պահեստը:</string>
     <string name="usb_storage_activity_title">USB զանգվածային պահոց</string>

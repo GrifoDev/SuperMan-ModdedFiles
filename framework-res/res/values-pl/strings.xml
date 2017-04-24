@@ -1800,7 +1800,9 @@ wskaz."</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet niedostępny</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ustaw.</string>
+    <string name="wifi_notification_sns_exception_title">Internet może być niedostępny</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Połącz z inną siecią.</string>
     <string name="wifi_notification_sns_poor_network_title">Inteligentne przełączanie sieci</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom. przełączanie sieci</string>
     <string name="wifi_notification_sns_poor_network_detail">Odłączono od %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Przed ustawieniem godziny wybierz strefę czasową.</string>
     <string name="sound_off_toast">Aby zmienić głośność, wyłącz opcję Wyłącz wszystkie dźwięki w ustawieniach opcji Dostępność.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ustaw.</string>
     <string name="permlab_knoxCustomSetting">Zarządzaj ustawieniami urządzenia</string>
     <string name="permdesc_knoxCustomSetting">Skonfiguruj ustawienia, takie jak Bluetooth, Lokalizacja, Wi-Fi, Dane komórkowe i Android.</string>
     <string name="permlab_knoxCustomSystem">Zarządzaj ustawieniami systemu</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Bezpieczne uruchamianie</string>
     <string name="securitymanager_st_direction_lock">Blokada kierunkami</string>
     <string name="securitymanager_st_tampered">Wykryto modyfikacje oprogramowania</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Połącz z inną siecią.</string>
     <string name="permlab_mount_unmount_filesystems">uzyskiwanie dostępu do systemu plików karty SD</string>
     <string name="permdesc_mount_unmount_filesystems">Umożliwia aplikacji podłączanie i odłączanie systemów plików dla przenośnych pamięci masowych.</string>
     <string name="permlab_mount_format_filesystems">czyszczenie karty SD</string>

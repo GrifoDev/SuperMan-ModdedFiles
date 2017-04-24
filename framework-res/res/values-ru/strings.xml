@@ -1799,7 +1799,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Интернет недоступен</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Настр.</string>
+    <string name="wifi_notification_sns_exception_title">Интернет может быть недоступен</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Подключитесь к другой сети.</string>
     <string name="wifi_notification_sns_poor_network_title">Автопереключатель сети</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Автопереключатель сети</string>
     <string name="wifi_notification_sns_poor_network_detail">Отключено от %s.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Перед тем как задавать время, выберите часовой пояс.</string>
     <string name="sound_off_toast">Отключите в специальных возможностях параметр “Отключить все звуки”, чтобы изменить громкость.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Настр.</string>
     <string name="permlab_knoxCustomSetting">Управление настройками устройства</string>
     <string name="permdesc_knoxCustomSetting">Установка настроек устройства, в том числе настроек Bluetooth, местоположения, Wi-Fi, мобильных данных и Android.</string>
     <string name="permlab_knoxCustomSystem">Управление настройками системы</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Безопасный запуск</string>
     <string name="securitymanager_st_direction_lock">Блокировка направлениями</string>
     <string name="securitymanager_st_tampered">Обнаружен взлом ПО</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Подключитесь к другой сети.</string>
     <string name="permlab_mount_unmount_filesystems">Доступ к файловой системе SD-карты</string>
     <string name="permdesc_mount_unmount_filesystems">Позволяет приложению подключать и отключать файловую систему съемного носителя.</string>
     <string name="permlab_mount_format_filesystems">Удаление данных с SD-карты</string>

@@ -1795,7 +1795,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet ez eskuragarri</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ezarp.</string>
+    <string name="wifi_notification_sns_exception_title">Baliteke Internet erabilgarri ez egotea</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Konektatu beste sare batera.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Sare aldaketa automatikoa</string>
     <string name="wifi_notification_sns_poor_network_detail">%s-(e)tik deskonektatu da.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Aukeratu ordu eremua ordua ezarri baino lehen</string>
     <string name="sound_off_toast">Bolumena doitzeko, Erabilerraztasun ezarpenak atalean, desgaitu Desaktibatu soinu guztiak.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ezarp.</string>
     <string name="permlab_knoxCustomSetting">Kudeatu gailuaren ezarpenak</string>
     <string name="permdesc_knoxCustomSetting">Konfiguratu gailuaren ezarpenak, hala nola Bluetooth, Kokapena, Wi-Fi, Datu mugikorrak eta Android ezarpenak.</string>
     <string name="permlab_knoxCustomSystem">Kudeatu sistemaren ezarpenak</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Abiarazte segurua</string>
     <string name="securitymanager_st_direction_lock">Keinu bidezko blokeoa</string>
     <string name="securitymanager_st_tampered">Softwarea hondatuta dagoela hauteman da</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Konektatu beste sare batera.</string>
     <string name="permdesc_mount_unmount_filesystems">Aplikazioei aukera ematen die fitxategi sistemak muntatu eta desmuntatzeko biltegiratze aldagarriarentzat</string>
     <string name="permdesc_mount_format_filesystems">Aplikazioari biltegiratze kengarria formateatzea ahalbidetzen dio</string>
     <string name="usb_storage_activity_title">USB biltegiratze masiboa</string>

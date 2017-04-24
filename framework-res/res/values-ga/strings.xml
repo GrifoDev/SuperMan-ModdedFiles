@@ -1086,7 +1086,9 @@ TV (Smart View)"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Níl Idirlíon ar fáil</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Socruith.</string>
+    <string name="wifi_notification_sns_exception_title">Seans nach bhfuil Idirlíon ar fáil</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Nasc le líonra eile.</string>
     <string name="wifi_notification_sns_poor_network_title">Aistriú líonraí cliste</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Uath-aistriú líonra</string>
     <string name="wifi_notification_sns_poor_network_detail">Dínasctha ó %s.</string>
@@ -1268,7 +1270,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Roghnaigh crios ama roimh an am a shocrú</string>
     <string name="sound_off_toast">Leis an airde a athrú, díchumasaigh Cas as gach fuaim sna Socruithe inrochtaineachta.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Socruith.</string>
     <string name="permlab_knoxCustomSetting">Bainistigh socruithe gléis</string>
     <string name="permdesc_knoxCustomSetting">Cumraigh socruithe gléis, amhail Bluetooth, Suíomh, Wi-Fi, Sonraí móibíleacha, agus socruithe Android.</string>
     <string name="permlab_knoxCustomSystem">Bainistigh socruithe córais</string>
@@ -1540,7 +1541,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Slántosú</string>
     <string name="securitymanager_st_direction_lock">Glas treo</string>
     <string name="securitymanager_st_tampered">Baint do bhogearraí braite</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Nasc le líonra eile.</string>
     <string name="permlab_mount_unmount_filesystems">Faigh rochtain ar chóras comhad an chárta SD</string>
     <string name="permdesc_mount_unmount_filesystems">Ceadaítear don fheidhmchlár córais comhad a ghléasadh agus a díghléasadh do stóras inbhainte.</string>
     <string name="permlab_mount_format_filesystems">Formáidigh cárta SD</string>

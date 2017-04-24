@@ -1073,7 +1073,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet not available</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
+    <string name="wifi_notification_sns_exception_title">Internet may not be available</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Connect to another network.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Auto network switch</string>
     <string name="wifi_notification_sns_poor_network_detail">Disconnected from %s.</string>
@@ -1254,7 +1256,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Select time zone before setting time.</string>
     <string name="sound_off_toast">To change volume, disable Turn off all sounds in Accessibility settings.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
     <string name="permlab_knoxCustomSetting">Manage device settings</string>
     <string name="permdesc_knoxCustomSetting">Configure device settings, such as Bluetooth, Location, Wi-Fi, Mobile data, and Android settings.</string>
     <string name="permlab_knoxCustomSystem">Manage system settings</string>
@@ -1521,7 +1522,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Secure startup</string>
     <string name="securitymanager_st_direction_lock">Direction lock</string>
     <string name="securitymanager_st_tampered">Software tampering detected</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Connect to another network.</string>
     <string name="usb_blocked_by_maximum_power_saving_mode">Unable to use functions related to connected USB device while Maximum power saving mode enabled.</string>
     <string name="usb_water_notification_title">Check port</string>
     <string name="usb_water_notification_message">Moisture has been detected in your charger/USB port. Make sure it is completely dry before charging your device. Drying the port may take some time.</string>

@@ -1794,7 +1794,9 @@ ajrore"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Nuk ka internet</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Cilësime</string>
+    <string name="wifi_notification_sns_exception_title">Mund të mos ketë Internet</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Lidhu me një rrjet tjetër.</string>
     <string name="wifi_notification_sns_poor_network_title">Këmbim inteligjent rrjeti</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Këmbim auto i rrjetit</string>
     <string name="wifi_notification_sns_poor_network_detail">U shkëput nga %s.</string>
@@ -1976,7 +1978,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Zgjidh zonën e orës përpara se të vendosësh orën.</string>
     <string name="sound_off_toast">Për ta ndryshuar volumin, paaftëso Fik të gjithë tingujt te Cilësimet e aksessshmërisë.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Cilësime</string>
     <string name="permlab_knoxCustomSetting">Menaxho cilësimet e pajisjes</string>
     <string name="permdesc_knoxCustomSetting">Konfiguro cilësimet e pajisjes, të tilla si Bluetooth, Vendndodhja, Wi-Fi, Të dhënat celulare dhe cilësimet Android.</string>
     <string name="permlab_knoxCustomSystem">Menaxho cilësimet e sistemit</string>
@@ -2248,7 +2249,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Nisja e sigurt</string>
     <string name="securitymanager_st_direction_lock">Bllokim me drejtime</string>
     <string name="securitymanager_st_tampered">U pikas modifikim i softuerit</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Lidhu me një rrjet tjetër.</string>
     <string name="permlab_mount_unmount_filesystems">aksesi në sistemin e skedarëve të kartës SD</string>
     <string name="permdesc_mount_unmount_filesystems">Lejon aplikacionin të bashkojë dhe ndajë sistemet e skedarëve për memorien e jashtme.</string>
     <string name="permlab_mount_format_filesystems">Formato kartën SD</string>

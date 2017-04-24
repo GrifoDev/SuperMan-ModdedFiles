@@ -1802,7 +1802,9 @@ skaņas"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internets nav pieejams</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Iestat.</string>
+    <string name="wifi_notification_sns_exception_title">Internets var nebūt pieejams</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Izveidojiet savienojumu ar citu tīklu.</string>
     <string name="wifi_notification_sns_poor_network_title">Viedā tīkla pārslēgšana</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom. tīkla pārslēgšana</string>
     <string name="wifi_notification_sns_poor_network_detail">Savienojums ar %s ir pārtraukts.</string>
@@ -1984,7 +1986,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Pirms laika iestatīšanas izvēlieties laika joslu.</string>
     <string name="sound_off_toast">Lai mainītu skaļumu, pieejamības iestatījumos deaktivizējiet funkciju Izslēgt visas skaņas.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Iestat.</string>
     <string name="permlab_knoxCustomSetting">Ierīces iestatījumu pārvaldība</string>
     <string name="permdesc_knoxCustomSetting">Konfigurējiet ierīces iestatījumus, piemēram, Bluetooth, atrašanās vietas, Wi-Fi, mobilo datu un Android iestatījumus.</string>
     <string name="permlab_knoxCustomSystem">Sistēmas iestatījumu pārvaldība</string>
@@ -2256,7 +2257,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Drošā startēšana</string>
     <string name="securitymanager_st_direction_lock">Bloķēšana ar virzienu</string>
     <string name="securitymanager_st_tampered">Noteikta iejaukšanās programmatūrā</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Izveidojiet savienojumu ar citu tīklu.</string>
     <string name="permlab_mount_unmount_filesystems">piekļūt SD kartes failu sistēmai</string>
     <string name="permdesc_mount_unmount_filesystems">Ļauj programmai pievienot un atvienot failu sistēmas, kas paredzētas noņemamai krātuvei.</string>
     <string name="permlab_mount_format_filesystems">dzēst SD karti</string>

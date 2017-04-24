@@ -1087,7 +1087,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ଇଣ୍ଟର୍ନେଟ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="wifi_notification_sns_go_wifi_settings">ସେଟିଂସ୍</string>
+    <string name="wifi_notification_sns_exception_title">ଇଣ୍ଟର୍ନେଟ୍ ହୁଏତ ଉପଲବ୍ଧ ହୋଇନପାରେ</string>
+    <string name="wifi_notification_sns_exception_hun_detail">ଅନ୍ୟ ଏକ ନେଟୱାର୍କକୁ ସଂଯୋଗ କରନ୍ତୁ।</string>
     <string name="wifi_notification_sns_poor_network_title">ସ୍ମାର୍ଟ୍ ନେଟୱାର୍କ୍ ସ୍ଵିଚ୍</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ସ୍ଵତଃ ନେଟୱାର୍କ୍ ସୁଇଚ୍</string>
     <string name="wifi_notification_sns_poor_network_detail">%sରୁ ବିଚ୍ଛିନ୍ନ ହୋଇଛି।</string>
@@ -1269,7 +1271,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">ସମୟ ସେଟିଂ କରିବା ପୂର୍ବରୁ ସମୟ କ୍ଷେତ୍ର ଚୟନ କରନ୍ତୁ।</string>
     <string name="sound_off_toast">ଭଲ୍ୟୁମ୍ ପରିବର୍ତ୍ତନ କରିବାକୁ, ଆକ୍ସେସିବିଲିଟି ସେଟିଂସର “ସମସ୍ତ ଧ୍ୱନି ଟର୍ନ୍ ଅଫ୍ କରିବା” ଅକ୍ଷମ କରନ୍ତୁ।</string>
-    <string name="wifi_notification_sns_go_wifi_settings">ସେଟିଂସ୍</string>
     <string name="permlab_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍ ପରିଚାଳନା କରନ୍ତୁ</string>
     <string name="permdesc_knoxCustomSetting">ଡିଭାଇସ୍ ସେଟିଂସ୍, ଯେପରି ବ୍ଲୁଟୁଥ୍, ଅବସ୍ଥାନ, Wi-Fi, ମୋବାଇଲ୍ ଡାଟା, ଏବଂ ଆଣ୍ଡ୍ରୋଏଡ୍ ସେଟିଂସ୍ କନଫିଗର୍ କରନ୍ତୁ।</string>
     <string name="permlab_knoxCustomSystem">ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ପରିଚାଳନା</string>
@@ -1541,7 +1542,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ସୁରକ୍ଷିତ ଆରମ୍ଭ</string>
     <string name="securitymanager_st_direction_lock">ଦିଗ ଲକ୍</string>
     <string name="securitymanager_st_tampered">ସଫ୍ଟୱେୟାର୍ ଟେମ୍ପରିଙ୍ଗ୍ ଚିହ୍ନଟ ହୋଇଛି</string>
-    <string name="wifi_notification_sns_exception_hun_detail">ଅନ୍ୟ ଏକ ନେଟୱାର୍କକୁ ସଂଯୋଗ କରନ୍ତୁ।</string>
     <string name="permlab_mount_unmount_filesystems">SD କାର୍ଡ୍‌ ଫାଇଲ୍ ସିଷ୍ଟମ୍ ଆକସେସ୍ କରନ୍ତୁ।</string>
     <string name="permdesc_mount_unmount_filesystems">ଅପସାରଣଯୋଗ୍ୟ ଷ୍ଟୋରେଜ୍ ପାଇଁ ଫାଇଲ୍ ସିଷ୍ଟମଗୁଡିକୁ ମାଉଣ୍ଟ ଏବଂ ଅନମାଉଣ୍ଟ କରିବାକୁ ଆପ୍ଲିକେସନ୍ ଅନୁମତି କରେ।</string>
     <string name="permlab_mount_format_filesystems">SD କାର୍ଡ୍‌ ଫର୍ମାଟ୍</string>

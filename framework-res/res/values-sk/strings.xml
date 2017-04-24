@@ -1800,7 +1800,9 @@ televízore (Smart View)"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet nie je dostupný</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Nast.</string>
+    <string name="wifi_notification_sns_exception_title">Internet nemusí byť dostupný</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Pripojte sa k inej sieti.</string>
     <string name="wifi_notification_sns_poor_network_title">Inteligentné prepínanie sietí</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Automat. prepínanie sietí</string>
     <string name="wifi_notification_sns_poor_network_detail">Odpojené od zariadenia %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Pred nastavením času vyberte časové pásmo.</string>
     <string name="sound_off_toast">Ak chcete zmeniť hlasitosť, vypnite možnosť Vypnúť všetky zvuky v menu Nastavenia zjednodušenia ovládania.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Nast.</string>
     <string name="permlab_knoxCustomSetting">Spravovať nastavenia zariadenia</string>
     <string name="permdesc_knoxCustomSetting">Slúži na konfiguráciu nastavení zariadenia, ako sú napríklad nastavenia pripojenia Bluetooth, lokalizácie, Wi-Fi, mobilného dátového pripojenia a systému Android.</string>
     <string name="permlab_knoxCustomSystem">Spravovať systémové nastavenia</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Zabezpečené spustenie</string>
     <string name="securitymanager_st_direction_lock">Smerový zámok</string>
     <string name="securitymanager_st_tampered">Zistila sa neoprávnená manipulácia so softvérom</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Pripojte sa k inej sieti.</string>
     <string name="permlab_mount_unmount_filesystems">pristupovať do systému súborov karty SD</string>
     <string name="permdesc_mount_unmount_filesystems">Umožňuje aplikácii pripojiť a odpojiť súborové systémy pre vymeniteľné pamäťové zariadenia.</string>
     <string name="permlab_mount_format_filesystems">vymazať kartu SD</string>

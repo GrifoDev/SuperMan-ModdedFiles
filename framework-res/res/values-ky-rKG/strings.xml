@@ -1795,7 +1795,9 @@ booker"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Интернет байкалбайт</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Орнот.</string>
+    <string name="wifi_notification_sns_exception_title">Интернет байкалбашы мүмкүн</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Башка тармакка туташуу.</string>
     <string name="wifi_notification_sns_poor_network_title">Смарт тармак которуу</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Авто тармак алмаштыруу</string>
     <string name="wifi_notification_sns_poor_network_detail">%s тармагынан ажыратылды.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Убакытты коюудан мурун убакыт алкагын тандаңыз</string>
     <string name="sound_off_toast">Үн көлөмүн өзгөртүү үчүн, Атайын мүмкүнчүлүктөр орнотууларындагы Бардык үндөрдү өчүрүүнү иштен чыгарыңыз.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Орнот.</string>
     <string name="permlab_knoxCustomSetting">Түзмөк орнотууларын башкаруу</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Жайгашуу, Wi-Fi, Mобилдик маалыматтар, жана Android орнотуулары сыяктуу түзмөк орнотууларын конфигурациялоо.</string>
     <string name="permlab_knoxCustomSystem">Система орнотууларын башкаруу</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Коопсуз баштоо</string>
     <string name="securitymanager_st_direction_lock">Багыт кулпусу</string>
     <string name="securitymanager_st_tampered">Программа бузулуусу аныкталды</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Башка тармакка туташуу.</string>
     <string name="permdesc_mount_unmount_filesystems">Сунуучунун суурулуучу сактагыч үчүн файл системаларын орнотуп жана орнотуудан чыгаруусуна жол ачат.</string>
     <string name="permdesc_mount_format_filesystems">Колдонмонун суурула турган сактагычты форматтоосуна жол ачат.</string>
     <string name="usb_storage_activity_title">USB зор сактагычы</string>

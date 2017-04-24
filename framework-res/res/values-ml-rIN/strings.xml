@@ -1795,7 +1795,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ഇന്‍റര്‍നെറ്റ് ലഭ്യമല്ല</string>
+    <string name="wifi_notification_sns_go_wifi_settings">ക്രമീകരണങ്ങള്‍</string>
+    <string name="wifi_notification_sns_exception_title">ഇന്‍റർനെറ്റ് ലഭ്യമായേക്കില്ല</string>
+    <string name="wifi_notification_sns_exception_hun_detail">മറ്റൊരു നെറ്റ്‍വര്‍ക്കിലേക്ക് ബന്ധിപ്പിക്കുക.</string>
     <string name="wifi_notification_sns_poor_network_title">സ്മാര്‍ട്ട്‌ നെറ്റ്‌വര്‍ക്ക് സ്വിച്ച്</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ഓട്ടോമാറ്റിക്കായി നെറ്റ്‌വർക്ക് മാറൽ</string>
     <string name="wifi_notification_sns_poor_network_detail">%s-ല്‍ നിന്ന്‍ വിച്ഛേദിച്ചു.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">സമയം ക്രമീകരിക്കുന്നതിന് മുമ്പായി സമയ മേഖല തിരഞ്ഞെടുക്കുക.</string>
     <string name="sound_off_toast">വോളിയം വ്യത്യാസപ്പെടുത്തുന്നതിന്, ആക്സസിബിലിറ്റി ക്രമീകരണങ്ങളിൽ “എല്ലാ ശബ്ദങ്ങളും ഓഫ് ചെയ്യുക” എന്നത് അപ്രാപ്തമാക്കുക.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">ക്രമീകരണങ്ങള്‍</string>
     <string name="permlab_knoxCustomSetting">ഉപകരണ ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
     <string name="permdesc_knoxCustomSetting">ബ്ലൂടൂത്ത്, ലൊക്കേഷൻ, Wi-Fi, മൊബൈൽ ഡാറ്റ, ആൻഡ്രോയ്ഡ് ക്രമീകരണങ്ങൾ തുടങ്ങിയ ഉപകരണ ക്രമീകരണങ്ങൾ കോൺഫിഗർ ചെയ്യുക.</string>
     <string name="permlab_knoxCustomSystem">സിസ്റ്റം ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">സുരക്ഷിത സ്റ്റാർട്ടപ്പ്</string>
     <string name="securitymanager_st_direction_lock">ദിശാ ലോക്ക്</string>
     <string name="securitymanager_st_tampered">സോഫ്റ്റ്‌വെയർ താറുമാറാക്കൽ കണ്ടെത്തി</string>
-    <string name="wifi_notification_sns_exception_hun_detail">മറ്റൊരു നെറ്റ്‍വര്‍ക്കിലേക്ക് ബന്ധിപ്പിക്കുക.</string>
     <string name="permdesc_mount_unmount_filesystems">നീക്കം ചെയ്യാവുന്ന സ്റ്റോറേജിനായി ഫയല്‍സിസ്റ്റങ്ങള്‍ മൌണ്ട്, അണ്‍മൌണ്ട് എന്നിവ ചെയ്യുന്നതിന് ആപ്ലിക്കേഷനെ അനുവദിക്കുന്നു.</string>
     <string name="permdesc_mount_format_filesystems">നീക്കം ചെയ്യാവുന്ന സ്റ്റോറേജ്, ഫോര്‍മാറ്റ് ചെയ്യുന്നതിന് ആപ്ലിക്കേഷനെ അനുവദിക്കുന്നു.</string>
     <string name="usb_storage_activity_title">USB മാസ്സ് സ്റ്റോറേജ്</string>

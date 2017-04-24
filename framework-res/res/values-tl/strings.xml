@@ -1800,7 +1800,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Di available ang Internet</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
+    <string name="wifi_notification_sns_exception_title">Maaaring walang Internet</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Kumonekta sa panibagong network.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Auto network switch</string>
     <string name="wifi_notification_sns_poor_network_detail">Tinanggal mula sa %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Select time zone before setting time.</string>
     <string name="sound_off_toast">Para baguhin ang volume, huwag paganahin ang Turn off all sounds sa mga setting ng Accessibility.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
     <string name="permlab_knoxCustomSetting">Pamahalaan ang mga setting ng device</string>
     <string name="permdesc_knoxCustomSetting">I-configure ang mga setting ng device, gaya ng Bluetooth, Location, Wi-Fi, Mobile data at mga setting ng Android.</string>
     <string name="permlab_knoxCustomSystem">Pamahalaan ang mga setting ng system</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Secure startup</string>
     <string name="securitymanager_st_direction_lock">Direction lock</string>
     <string name="securitymanager_st_tampered">May nadetektang pakikialam sa software</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Kumonekta sa panibagong network.</string>
     <string name="permlab_mount_unmount_filesystems">i-access ang filesystem ng SD Card</string>
     <string name="permdesc_mount_unmount_filesystems">Pinapayagan ang application na mag-mount at mag-unmount ng mga file system para sa naaalis na storage.</string>
     <string name="permlab_mount_format_filesystems">burahin ang SD card</string>

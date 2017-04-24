@@ -1088,7 +1088,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">අන්තර්ජාලය නොමැත</string>
+    <string name="wifi_notification_sns_go_wifi_settings">සැකසුම්</string>
+    <string name="wifi_notification_sns_exception_title">අන්තර්ජා.ය ලබා ගැනී. නොහැකි විය හැක</string>
+    <string name="wifi_notification_sns_exception_hun_detail">අනෙත් ජාලයට සම්බන්ධ වන්න.</string>
     <string name="wifi_notification_sns_poor_network_title">ස්මාට් ජාල ස්විචය</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ස්වයං ජාල මාරුව</string>
     <string name="wifi_notification_sns_poor_network_detail">%s වෙතින් විසන්ධි විය.</string>
@@ -1270,7 +1272,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">වේලාව සැකසීමට පෙර කාල කලාපය තෝරන්න.</string>
     <string name="sound_off_toast">හඬ තීව්‍රතාවය වෙනස් කිරීමට, ප්‍රවේශ්‍යතා සැකසුම් තුළ “හඬ සියල්ල ක්‍රියා විරහිත කරන්න” අක්‍රිය කරන්න.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">සැකසුම්</string>
     <string name="permlab_knoxCustomSetting">උපාංග සැකසුම් කළමණාකරණය</string>
     <string name="permdesc_knoxCustomSetting">බ්ලූටූත්, පිහිටීම, Wi-Fi, ජංගම දත්ත, සහ ඇන්ඩ්‍රොයිඩ් සැකසුම් වැනි උපාංග සැකසුම් වින්‍යාස කරන්න.</string>
     <string name="permlab_knoxCustomSystem">පද්ධති සැකසුම් කළමනාකරණය</string>
@@ -1542,7 +1543,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ආරක්ෂිත ඇරඹුම</string>
     <string name="securitymanager_st_direction_lock">දිශා අගුල</string>
     <string name="securitymanager_st_tampered">මෘදුකාංග අපවේශනයක් අනාවරණය විය</string>
-    <string name="wifi_notification_sns_exception_hun_detail">අනෙත් ජාලයට සම්බන්ධ වන්න.</string>
     <string name="permlab_mount_unmount_filesystems">SD කාඩ්පත් ගොනු පද්ධතිය ප්‍රවේශ කරන්න</string>
     <string name="permdesc_mount_unmount_filesystems">ඉවත් කළ හැකි ගබඩාවන්ට ගොනු පද්ධති සවි කිරීමට හෝ ගැලවීමට යෙදුමකට ඉඩ දෙයි.</string>
     <string name="permlab_mount_format_filesystems">SD කාඩ්පත ෆෝමැට් කරන්න</string>

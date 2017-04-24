@@ -1801,7 +1801,9 @@
     <string name="verizon_sim_state_notification">%sに接続できません。SIMカードを挿入し、再度実行してください。</string>
     <string name="verizon_disconnect_notification">Verizonサービスを利用するには、Verizon Wi-Fiテザリングへのアクセスが必要です。Verizon SIMカードを取り外している場合、挿入してから再接続してください。</string>
     <string name="verizon_service_required_title">Verizonサービスが必要</string>
-    <string name="wifi_notification_sns_exception_title">インターネットが利用できません。</string>
+    <string name="wifi_notification_sns_go_wifi_settings">設定</string>
+    <string name="wifi_notification_sns_exception_title">ｲﾝﾀｰﾈｯﾄ接続が不安定です</string>
+    <string name="wifi_notification_sns_exception_hun_detail">他のネットワークに接続してください。</string>
     <string name="wifi_notification_sns_poor_network_title">スマートネットワーク切り替え</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ネットワーク自動切り替え</string>
     <string name="wifi_notification_sns_poor_network_detail">%sとの接続が解除されました。</string>
@@ -1983,7 +1985,6 @@
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">時間を設定する前にタイムゾーンを設定してください。</string>
     <string name="sound_off_toast">音量を変更するには、[ユーザー補助]で[全ての音をOFF]を無効にしてください。</string>
-    <string name="wifi_notification_sns_go_wifi_settings">設定</string>
     <string name="permlab_knoxCustomSetting">端末設定を管理</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth、位置情報、Wi-Fi、モバイルデータ、Android設定などの端末設定を行います。</string>
     <string name="permlab_knoxCustomSystem">システム設定を管理</string>
@@ -2257,7 +2258,6 @@
     <string name="securitymanager_st_encryption_device">安全な起動</string>
     <string name="securitymanager_st_direction_lock">スワイプコンビネーションロック</string>
     <string name="securitymanager_st_tampered">ソフトウェアの改ざんが検出されました。</string>
-    <string name="wifi_notification_sns_exception_hun_detail">他のネットワークに接続してください。</string>
     <string name="permlab_mount_unmount_filesystems">SDカードのファイルシステムへのアクセス</string>
     <string name="permdesc_mount_unmount_filesystems">リムーバブルストレージのマウントやマウント解除を、アプリケーションに許可します。</string>
     <string name="permlab_mount_format_filesystems">SDカード内データの消去</string>

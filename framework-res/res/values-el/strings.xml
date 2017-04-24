@@ -1800,7 +1800,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet μη διαθέσιμο</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ρυθμ.</string>
+    <string name="wifi_notification_sns_exception_title">Το Internet ίσως δεν είναι διαθέσ.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Συνδεθείτε σε άλλο δίκτυο.</string>
     <string name="wifi_notification_sns_poor_network_title">Έξυπνη εναλλαγή δικτύου</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Αυτόματη αλλαγή δικτύου</string>
     <string name="wifi_notification_sns_poor_network_detail">Αποσυνδέθηκε από το χρήστη %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Επιλέξτε τη ζώνη ώρας πριν από τη ρύθμιση της ώρας.</string>
     <string name="sound_off_toast">Για την αλλαγή της έντασης, απενεργοποιήστε τη ρύθμιση «Απενεργοποίηση όλων των ήχων» στις ρυθμίσεις προσβασιμότητας.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ρυθμ.</string>
     <string name="permlab_knoxCustomSetting">Διαχείριση ρυθμίσεων συσκευής</string>
     <string name="permdesc_knoxCustomSetting">Διαμορφώστε ρυθμίσεις συσκευής, όπως είναι το Bluetooth, η Τοποθεσία, το Wi-Fi, τα δεδομένα κινητής τηλεφωνίας και οι ρυθμίσεις Android.</string>
     <string name="permlab_knoxCustomSystem">Διαχείριση ρυθμίσεων συστήματος</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Ασφαλής εκκίνηση</string>
     <string name="securitymanager_st_direction_lock">Κλείδωμα με κατευθύνσεις</string>
     <string name="securitymanager_st_tampered">Εντοπίστηκε τροποποίηση στο λογισμικό</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Συνδεθείτε σε άλλο δίκτυο.</string>
     <string name="permlab_mount_unmount_filesystems">πρόσβαση στο σύστημα αρχείων της κάρτας SD</string>
     <string name="permdesc_mount_unmount_filesystems">Επιτρέπει στην εφαρμογή τη σύνδεση και την αποσύνδεση συστημάτων αρχείων για αφαιρούμενα μέσα αποθήκευσης.</string>
     <string name="permlab_mount_format_filesystems">διαγραφή κάρτας SD</string>

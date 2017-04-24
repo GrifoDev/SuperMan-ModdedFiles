@@ -1800,7 +1800,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">اینترنت در دسترس نیست</string>
+    <string name="wifi_notification_sns_go_wifi_settings">تنظیم</string>
+    <string name="wifi_notification_sns_exception_title">ممکن است اینترنت دردسترس نباشد</string>
+    <string name="wifi_notification_sns_exception_hun_detail">به شبکه دیگری متصل شوید.</string>
     <string name="wifi_notification_sns_poor_network_title">تغییر شبکه هوشمند</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">جابجایی خودکار شبکه</string>
     <string name="wifi_notification_sns_poor_network_detail">اتصال با ‎%s قطع شد.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">قبل از تنظیم زمان، منطقه زمانی را انتخاب کنید.</string>
     <string name="sound_off_toast">برای تغییر میزان صدا، در تنظیمات قابلیت دسترسی، &lt;خاموش شدن همه صداها> را غیرفعال کنید.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">تنظیم</string>
     <string name="permlab_knoxCustomSetting">مدیریت تنظیمات دستگاه</string>
     <string name="permdesc_knoxCustomSetting">تنظیمات دستگاه از جمله تنظیمات بلوتوث، مکان، Wi-Fi، داده تلفن همراه و Android را پیکربندی کنید.</string>
     <string name="permlab_knoxCustomSystem">مدیریت تنظیمات سیستم</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">راه‌اندازی امن</string>
     <string name="securitymanager_st_direction_lock">قفل کردن با جهت</string>
     <string name="securitymanager_st_tampered">مداخله در نرم‌افزار شناسایی شد</string>
-    <string name="wifi_notification_sns_exception_hun_detail">به شبکه دیگری متصل شوید.</string>
     <string name="permlab_mount_unmount_filesystems">‏دسترسی به سیستم فایل کارت SD</string>
     <string name="permdesc_mount_unmount_filesystems">به برنامه امکان می‌دهد تا سیستم های فایل را برای دستگاه ذخیره سازی جداشدنی نصب یا لغو نصب کند.</string>
     <string name="permlab_mount_format_filesystems">‏پاک کردن کارت SD</string>

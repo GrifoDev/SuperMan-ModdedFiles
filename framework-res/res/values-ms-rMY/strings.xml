@@ -1796,7 +1796,9 @@ udara"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet tidak tersedia</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Aturan</string>
+    <string name="wifi_notification_sns_exception_title">Internet mungkin tdk tersedia</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Sambung ke rangkaian lain.</string>
     <string name="wifi_notification_sns_poor_network_title">Bertukar rangkaian pintar</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Tukar rangkaian auto</string>
     <string name="wifi_notification_sns_poor_network_detail">Dinyahsambung daripada %s.</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Pilih zon waktu sebelum menetapkan masa.</string>
     <string name="sound_off_toast">Untuk mengubah kelantangan, nyahaktifkan Matikan semua bunyi dalam aturan Pencapaian.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Aturan</string>
     <string name="permlab_knoxCustomSetting">Urus aturan peranti</string>
     <string name="permdesc_knoxCustomSetting">Tatarajah aturan peranti seperti Bluetooth, Lokasi, Wi-Fi, Data mudah alih dan aturan Android.</string>
     <string name="permlab_knoxCustomSystem">Urus aturan sistem</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Permulaan selamat</string>
     <string name="securitymanager_st_direction_lock">Kunci arah</string>
     <string name="securitymanager_st_tampered">Pengusikan perisian dikesan</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Sambung ke rangkaian lain.</string>
     <string name="permdesc_mount_unmount_filesystems">Benarkan aplikasi untuk memasang dan menanggal sistem fail untuk storan boleh ditanggal.</string>
     <string name="permdesc_mount_format_filesystems">Membenarkan aplikasi memformatkan storan boleh alih keluar.</string>
     <string name="usb_storage_activity_title">Storan besar USB</string>

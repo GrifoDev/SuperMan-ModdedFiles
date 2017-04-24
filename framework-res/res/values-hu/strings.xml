@@ -1799,7 +1799,9 @@ funkc."</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Nincs internetkapcsolat</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Beállít.</string>
+    <string name="wifi_notification_sns_exception_title">Az internet esetleg nem elérh.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Csatlakozás másik hálózathoz.</string>
     <string name="wifi_notification_sns_poor_network_title">Intelligens hálózatváltás</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Automatikus hálózatváltás</string>
     <string name="wifi_notification_sns_poor_network_detail">Megszakadt a kapcsolat a következővel: %s.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Az idő beállítása előtt válasszon időzónát.</string>
     <string name="sound_off_toast">A hangerő módosításához kapcsolja ki a Minden hang kikapcsolása beállítást a Kisegítő lehetőségek között.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Beállít.</string>
     <string name="permlab_knoxCustomSetting">Eszközbeállítások kezelése</string>
     <string name="permdesc_knoxCustomSetting">Az eszközbeállítások – például a Bluetooth, a helymeghatározás, a Wi-Fi, a mobilinternet és az Android rendszer beállításainak – konfigurálása.</string>
     <string name="permlab_knoxCustomSystem">Rendszerbeállítások kezelése</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Biztonságos indítás</string>
     <string name="securitymanager_st_direction_lock">Irányzár</string>
     <string name="securitymanager_st_tampered">A rendszer szoftveres manipulálást észlelt</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Csatlakozás másik hálózathoz.</string>
     <string name="permlab_mount_unmount_filesystems">hozzáférés az SD-kártyához</string>
     <string name="permdesc_mount_unmount_filesystems">Lehetővé teszi az alkalmazás számára a fájlrendszerek csatolását és leválasztását cserélhető tárolók esetében.</string>
     <string name="permlab_mount_format_filesystems">SD-kártya törlése</string>

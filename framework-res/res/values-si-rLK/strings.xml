@@ -536,7 +536,7 @@
     <string name="keyguard_password_wrong_pin_code">වැරදි PIN කේතයකි.</string>
     <string name="keyguard_label_text">අගුළු ඇරීමට, මෙනුව ඔබා පසුව 0 ද ඔබන්න.</string>
     <string name="emergency_call_dialog_number_for_display">හදිසි ඇමතුම් අංකය</string>
-    <string name="lockscreen_carrier_default">සේවාව නැත</string>
+    <string name="lockscreen_carrier_default">ජාල සබැඳුමක් නැත</string>
     <string name="lockscreen_screen_locked">තිරය අගුළු දමා ඇත.</string>
     <string name="lockscreen_instructions_when_pattern_enabled">අගුළු හැරීමට මෙනුව ඔබන්න හෝ හදිසි ඇමතුම ලබාගන්න.</string>
     <string name="lockscreen_instructions_when_pattern_disabled">අගුළු හැරීමට මෙනු ඔබන්න.</string>
@@ -1400,7 +1400,9 @@
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">අගුලු දැමූ විට ක්‍රියා විරහිත කිරීම අවහිර කරන්න සක්‍රියව පවතින විට උපාංගය ක්‍රියා විරහිත කළ නොහැකිය. තිරය අගුලු හැරීමෙන් පසුව නැවත උත්සාහ කරන්න.</string>
-    <string name="wifi_notification_sns_exception_title">අන්තර්ජාලය නොමැත</string>
+    <string name="wifi_notification_sns_go_wifi_settings">සැකසුම්</string>
+    <string name="wifi_notification_sns_exception_title">අන්තර්ජා.ය ලබා ගැනී. නොහැකි විය හැක</string>
+    <string name="wifi_notification_sns_exception_hun_detail">අනෙත් ජාලයට සම්බන්ධ වන්න.</string>
     <string name="bluetooth_china_popup_title">බ්ලූටූත්</string>
     <string name="sem_date_picker_increment_month_button_text">ඊළඟ මාසය</string>
     <string name="sem_date_picker_decrement_month_button_text">පෙර මාසය</string>
@@ -1418,7 +1420,6 @@
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">වේලාව සැකසීමට පෙර කාල කලාපය තෝරන්න.</string>
     <string name="sound_off_toast">හඬ තීව්‍රතාවය වෙනස් කිරීමට, ප්‍රවේශ්‍යතා සැකසුම් තුළ “හඬ සියල්ල ක්‍රියා විරහිත කරන්න” අක්‍රිය කරන්න.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">සැකසුම්</string>
     <string name="permlab_knoxCustomSetting">උපාංග සැකසුම් කළමණාකරණය</string>
     <string name="permdesc_knoxCustomSetting">බ්ලූටූත්, පිහිටීම, Wi-Fi, ජංගම දත්ත, සහ ඇන්ඩ්‍රොයිඩ් සැකසුම් වැනි උපාංග සැකසුම් වින්‍යාස කරන්න.</string>
     <string name="permlab_knoxCustomSystem">පද්ධති සැකසුම් කළමනාකරණය</string>
@@ -1685,7 +1686,6 @@
     <string name="securitymanager_st_encryption_device">ආරක්ෂිත ඇරඹුම</string>
     <string name="securitymanager_st_direction_lock">දිශා අගුල</string>
     <string name="securitymanager_st_tampered">මෘදුකාංග අපවේශනයක් අනාවරණය විය</string>
-    <string name="wifi_notification_sns_exception_hun_detail">අනෙත් ජාලයට සම්බන්ධ වන්න.</string>
     <string name="usb_storage_activity_title">USB මහා ආචයනය</string>
     <string name="usb_storage_title">USB සම්බන්ධිතයි</string>
     <string name="usb_storage_message">ඔබ ඔබගේ පරිගණකයට USB හරහා සම්බන්ධ වී ඇත. ඔබට ඔබේ පරිගණකය හා ඔබගේ Android SD පත අතර ගොනු පිටපත් කිරීමට අවශ්‍ය නම් පහත බොත්තම ස්පර්ශ කරන්න.</string>

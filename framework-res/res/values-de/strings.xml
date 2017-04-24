@@ -1800,7 +1800,9 @@ Befehl"</string>
     <string name="verizon_sim_state_notification">Es kann keine Verbindung mit %s hergestellt werden. Legen Sie die SIM-Karte ein und versuchen Sie es erneut.</string>
     <string name="verizon_disconnect_notification">Verizon-Dienst ist erforderlich, um auf einen Verizon-WLAN-Hotspot zuzugreifen. Wenn Sie Ihre Verizon-SIM-Karte entfernt haben, legen Sie sie bitte wieder ein und versuchen Sie erneut, eine Verbindung herzustellen.</string>
     <string name="verizon_service_required_title">Verizon-Dienst erforderlich</string>
-    <string name="wifi_notification_sns_exception_title">Internet nicht verfügbar</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Einstellungen</string>
+    <string name="wifi_notification_sns_exception_title">Internet event. nicht verfügbar</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Stellen Sie eine Verbindung mit einem anderen Netzwerk her.</string>
     <string name="wifi_notification_sns_poor_network_title">Intelligenter Netzwechsel</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Automatischer Netzwechsel</string>
     <string name="wifi_notification_sns_poor_network_detail">Von %s getrennt.</string>
@@ -1982,7 +1984,6 @@ Offline-Modus einschalten?"</string>
     <string name="popup_set_manually_button_vzw">Manuell festlegen</string>
     <string name="mcc_setting_toast_notification">Zeitzone vor der Zeiteinstellung auswählen.</string>
     <string name="sound_off_toast">„Alle Töne ausschalten“ in den Eingabehilfeeinstellungen deaktivieren, um die Lautstärke zu ändern.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Einstellungen</string>
     <string name="permlab_knoxCustomSetting">Geräteeinstellungen verwalten</string>
     <string name="permdesc_knoxCustomSetting">Geräteeinstellungen, wie z. B. die Einstellungen für Bluetooth, Standort, WLAN, mobile Daten und Android, konfigurieren.</string>
     <string name="permlab_knoxCustomSystem">Systemeinstellungen verwalten</string>
@@ -2254,7 +2255,6 @@ Offline-Modus einschalten?"</string>
     <string name="securitymanager_st_encryption_device">Sicherer Start</string>
     <string name="securitymanager_st_direction_lock">Richtungssperre</string>
     <string name="securitymanager_st_tampered">Softwaremodifizierung erkannt</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Stellen Sie eine Verbindung mit einem anderen Netzwerk her.</string>
     <string name="permlab_mount_unmount_filesystems">Auf Dateisystem der SD-Karte zugreifen</string>
     <string name="permdesc_mount_unmount_filesystems">Hiermit kann die Anwendung Dateisysteme für Wechselspeicher anschließen und entfernen.</string>
     <string name="permlab_mount_format_filesystems">SD-Karteninhalt löschen</string>

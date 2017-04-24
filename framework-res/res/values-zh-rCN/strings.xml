@@ -1803,7 +1803,9 @@
     <string name="verizon_sim_state_notification">无法连接至%s。插入 SIM 卡并重试。</string>
     <string name="verizon_disconnect_notification">需要 Verizon 服务才能访问 Verizon Wi-Fi 热点。如果您已移除 Verizon SIM 卡，请重新插入并重新尝试连接。</string>
     <string name="verizon_service_required_title">需要 Verizon 服务</string>
-    <string name="wifi_notification_sns_exception_title">互联网不可用</string>
+    <string name="wifi_notification_sns_go_wifi_settings">设置</string>
+    <string name="wifi_notification_sns_exception_title">互联网可能不可用</string>
+    <string name="wifi_notification_sns_exception_hun_detail">请连接至其他网络。</string>
     <string name="wifi_notification_sns_poor_network_title">智能网络切换</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">自动网络切换</string>
     <string name="wifi_notification_sns_poor_network_detail">已与%s断开连接</string>
@@ -1985,7 +1987,6 @@
     <string name="popup_set_manually_button_vzw">手动设置</string>
     <string name="mcc_setting_toast_notification">设置时间前请选择时区。</string>
     <string name="sound_off_toast">若要更改音量，请禁用【辅助功能】设置中的【关闭所有声音】。</string>
-    <string name="wifi_notification_sns_go_wifi_settings">设置</string>
     <string name="permlab_knoxCustomSetting">管理设备设置</string>
     <string name="permdesc_knoxCustomSetting">配置设备设置，例如：蓝牙、定位服务、Wi-Fi、手机流量和 Android 设置。</string>
     <string name="permlab_knoxCustomSystem">管理系统设置</string>
@@ -2257,7 +2258,6 @@
     <string name="securitymanager_st_encryption_device">安全启动</string>
     <string name="securitymanager_st_direction_lock">方向锁定</string>
     <string name="securitymanager_st_tampered">检测到软件篡改</string>
-    <string name="wifi_notification_sns_exception_hun_detail">请连接至其他网络。</string>
     <string name="permlab_mount_unmount_filesystems">访问SD卡文件系统</string>
     <string name="permdesc_mount_unmount_filesystems">允许应用程序为可移动存储安装和卸载文件系统。</string>
     <string name="permlab_mount_format_filesystems">清除SD卡内容</string>

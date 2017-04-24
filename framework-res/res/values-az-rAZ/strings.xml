@@ -1796,7 +1796,9 @@ yazısı"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">İnternet mümkün deyil</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Parmtrlr</string>
+    <string name="wifi_notification_sns_exception_title">İnternet mövcud olmaya bilər</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Başqa şəbəkəyə qoşul.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart şəbəkə keçidi</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Avto şəbəkə keçidi</string>
     <string name="wifi_notification_sns_poor_network_detail">%s-dən ayrılmışdır.</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Vaxtı qurmazdan əvvəl saat qurşağını seçin.</string>
     <string name="sound_off_toast">Səsi dəyişmək üçün Çıxış imkanı parametrlərində Bütün səsləri söndürməni qeyri-aktiv edin.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Parmtrlr</string>
     <string name="permlab_knoxCustomSetting">Cihaz parametrlərini idarə et</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Məkan, Wi-Fi, Mobil data və Android parametrləri kimi cihaz parametrlərini konfiqurasiya et.</string>
     <string name="permlab_knoxCustomSystem">Sistem parametrlərini idarə et</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Təhlükəsiz qurulma</string>
     <string name="securitymanager_st_direction_lock">İstiqamət kilidi</string>
     <string name="securitymanager_st_tampered">Proqram təminatının mənfi dəyişikliyi aşkar edildi</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Başqa şəbəkəyə qoşul.</string>
     <string name="permdesc_mount_unmount_filesystems">Proqrama portativ yaddaşın fayl sistemlərinə qoşulmağa və bağlantını kəsməyə imkan verir.</string>
     <string name="permdesc_mount_format_filesystems">Proqrama çıxarılan yaddaşı format etməyə imkan verir.</string>
     <string name="usb_storage_activity_title">USB kütləvi yaddaş</string>

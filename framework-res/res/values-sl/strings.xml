@@ -1799,7 +1799,9 @@ ukaz"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet ni na voljo</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Nast.</string>
+    <string name="wifi_notification_sns_exception_title">Internet morda ne bo na voljo</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Povežite se z drugim omrežjem.</string>
     <string name="wifi_notification_sns_poor_network_title">Preklop pametnega omrežja</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Samodejni preklop omrežja</string>
     <string name="wifi_notification_sns_poor_network_detail">Povezava z %s je prekinjena.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Preden nastavite čas, morate nastaviti časovni pas.</string>
     <string name="sound_off_toast">Če želite spremeniti glasnost, onemogočite možnost Izklop vseh zvokov v meniju Nastavitve dostopnosti.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Nast.</string>
     <string name="permlab_knoxCustomSetting">Upravljanje nastavitev naprave</string>
     <string name="permdesc_knoxCustomSetting">Konfiguracija nastavitev naprave, kot so Bluetooth, Lokacija, Wi-Fi, Prenos podatkov prek mobilnega omrežja in Nastavitve sistema Android.</string>
     <string name="permlab_knoxCustomSystem">Upravljanje sistemskih nastavitev</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Varen zagon</string>
     <string name="securitymanager_st_direction_lock">Zaklepanje s smerjo</string>
     <string name="securitymanager_st_tampered">Zaznan je poseg v programsko opremo</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Povežite se z drugim omrežjem.</string>
     <string name="permlab_mount_unmount_filesystems">dostop do datotečnega sistema kartice SD</string>
     <string name="permdesc_mount_unmount_filesystems">Omogoča programu vpenjanje in izpenjanje datotečnih sistemov izmenljive shrambe.</string>
     <string name="permlab_mount_format_filesystems">brisanje kartice SD</string>

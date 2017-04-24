@@ -1795,7 +1795,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ఇంటర్నెట్ అందుబాటులో లేదు</string>
+    <string name="wifi_notification_sns_go_wifi_settings">సెట్టింగులు</string>
+    <string name="wifi_notification_sns_exception_title">ఇంటర్నెట్ అందుబాటులో లేకపోవచ్చు</string>
+    <string name="wifi_notification_sns_exception_hun_detail">మరొక నెట్‌వర్క్‌కు కనెక్ట్ చేయండి.</string>
     <string name="wifi_notification_sns_poor_network_title">స్మార్ట్ నెట్‌వర్క్ స్విచ్</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">స్వయంచాలక నెట్‌వర్క్ స్విచ్</string>
     <string name="wifi_notification_sns_poor_network_detail">%s నుండి డిస్‌కనెక్ట్ చేయబడింది.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">సెట్టింగ్ సమయానికి ముందుగా సమయ జోన్ ఎంచుకోండి.</string>
     <string name="sound_off_toast">వాల్యూమ్‍‌ని మార్చడానికి ప్రాప్యత సెట్టింగ్‌ల్లో “అన్ని ధ్వనులను ఆఫ్ చేయి” నిలిపివేయండి.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">సెట్టింగులు</string>
     <string name="permlab_knoxCustomSetting">పరికర సెట్టింగ్‌లను నిర్వహించండి</string>
     <string name="permdesc_knoxCustomSetting">బ్లూటూత్, స్థానం, Wi-Fi, మొబైల్ డేటా మరియు ఆండ్రాయిడ్ సెట్టింగుల వంటి పరికర సెట్టింగ్‌లను కాన్ఫిగర్ చేయండి.</string>
     <string name="permlab_knoxCustomSystem">సిస్టమ్ సెట్టింగ్‌లను నిర్వహించండి</string>
@@ -2251,7 +2252,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">సురక్షిత ప్రారంభం</string>
     <string name="securitymanager_st_direction_lock">దిశ లాక్</string>
     <string name="securitymanager_st_tampered">సాఫ్ట్‌వేర్ దిద్దుబాటు గుర్తించబడింది</string>
-    <string name="wifi_notification_sns_exception_hun_detail">మరొక నెట్‌వర్క్‌కు కనెక్ట్ చేయండి.</string>
     <string name="permdesc_mount_unmount_filesystems">తొలగించే నిల్వ కొరకు ఫైల్‌ను మౌంట్ మరియు అన్‌మౌంట్ చెయ్యడానికి అప్లికేషన్ అనుమతిస్తుంది.</string>
     <string name="permdesc_mount_format_filesystems">తొలగించే స్టోరేజ్ ను ఫార్మాట్ చెయ్యడానికి అప్లికేషన్ కు అనుమతిస్తుంది.</string>
     <string name="usb_storage_activity_title">USB అధిక నిల్వ</string>

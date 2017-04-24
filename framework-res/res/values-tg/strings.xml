@@ -1087,7 +1087,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Интернет дастрас нест</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Танзимот</string>
+    <string name="wifi_notification_sns_exception_title">Интернет метавонад дастнорас бошад</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Ба шабакаи дигаре пайваст шавед.</string>
     <string name="wifi_notification_sns_poor_network_title">Калидаки зеҳнии шабакаҳо</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Гузариши худкори шабака</string>
     <string name="wifi_notification_sns_poor_network_detail">Аз %s ҷудо шуд.</string>
@@ -1269,7 +1271,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Пеш аз гузоштани вақт минтақаи вақтро интихоб кунед.</string>
     <string name="sound_off_toast">Барои баландии садоро тағйир додан, дар танзимоти Осонии истифода Хомӯш кардани ҳамаи садоҳоро ғайрифаъол кунед.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Танзимот</string>
     <string name="permlab_knoxCustomSetting">Идоракунии танзимоти дастгоҳ</string>
     <string name="permdesc_knoxCustomSetting">Тағйир додани танзимот, ба мисли Bluetooth, Макон, Wi-Fi, Иттилооти мобилӣ ва танзимоти Android.</string>
     <string name="permlab_knoxCustomSystem">Идоракунии танзимоти система</string>
@@ -1541,7 +1542,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Бакордароии эмин</string>
     <string name="securitymanager_st_direction_lock">Банди самт</string>
     <string name="securitymanager_st_tampered">Дахолат ба нармафзор зоҳир карда шуд</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Ба шабакаи дигаре пайваст шавед.</string>
     <string name="permlab_mount_unmount_filesystems">Дастрас кардани системаи файлии корти SD</string>
     <string name="permdesc_mount_unmount_filesystems">Ба барнома иҷозат медиҳад, ки барои захирагоҳи ивазшаванда системаҳои файлӣ пайваст ва ҷудо кунад.</string>
     <string name="permlab_mount_format_filesystems">Формат кардани корти SD</string>

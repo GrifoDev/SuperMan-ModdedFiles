@@ -1799,7 +1799,9 @@ vazduhu"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet nije dostupan</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Podeš.</string>
+    <string name="wifi_notification_sns_exception_title">Internet možda nije dostupan</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Povežite se na drugu mrežu.</string>
     <string name="wifi_notification_sns_poor_network_title">Pametna promena mreže</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom. uključivanje mreže</string>
     <string name="wifi_notification_sns_poor_network_detail">Veza sa %s je prekinuta.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Izaberi vremensku zonu pre podešavanja vremena.</string>
     <string name="sound_off_toast">Da biste promenili jačinu zvuka, onemogućite funkciju Isključi sve zvuke u okviru Podešavanja pristupačnosti.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Podeš.</string>
     <string name="permlab_knoxCustomSetting">Podesi podešavanja uređaja</string>
     <string name="permdesc_knoxCustomSetting">Konfigurišite podešavanja uređaja kao što su Bluetooth, Lokacija, Wi-Fi, Mobilni podaci i podešavanja za Android.</string>
     <string name="permlab_knoxCustomSystem">Podesi podešavanja sistema</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Bezbedno pokretanje</string>
     <string name="securitymanager_st_direction_lock">Pravac zaključavanja</string>
     <string name="securitymanager_st_tampered">Detektovano je modifikovanje softvera</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Povežite se na drugu mrežu.</string>
     <string name="permlab_mount_unmount_filesystems">приступ систему датотека SD картице</string>
     <string name="permdesc_mount_unmount_filesystems">Dozvoljava aplikaciji da uključi i isključi fajl-sisteme za spoljnu memoriju.</string>
     <string name="permlab_mount_format_filesystems">брисање SD картице</string>

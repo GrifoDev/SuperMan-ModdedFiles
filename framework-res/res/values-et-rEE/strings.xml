@@ -1796,7 +1796,9 @@ käsklus"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet pole saadaval</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Seaded</string>
+    <string name="wifi_notification_sns_exception_title">Internet ei pruugi olla saad.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Looge ühendus teise võrguga.</string>
     <string name="wifi_notification_sns_poor_network_title">Nutikas võrgu vahetamine</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Võrgu autom. vahetamine</string>
     <string name="wifi_notification_sns_poor_network_detail">Ühendus seadmega %s on katkestatud.</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Enne kellaaja maaramist valige ajavoond.</string>
     <string name="sound_off_toast">Helitugevuse muutmiseks inaktiveerige menüüs Juurdepääsu seaded suvand Lülita kõik helid välja.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Seaded</string>
     <string name="permlab_knoxCustomSetting">Seadme seadete haldamine</string>
     <string name="permdesc_knoxCustomSetting">Saate konfigureerida seadme seadeid, nagu Bluetooth, asukoht, Wi-Fi, mobiilne andmeside ja Androidi seaded.</string>
     <string name="permlab_knoxCustomSystem">Süsteemi seadete haldamine</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Turvaline käivitamine</string>
     <string name="securitymanager_st_direction_lock">Suunalukk</string>
     <string name="securitymanager_st_tampered">Tuvastati tarkvara muutmine</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Looge ühendus teise võrguga.</string>
     <string name="permdesc_mount_unmount_filesystems">Lubab rakendusel irdmälu kasutamiseks failisüsteeme ühendada ja lahti ühendada.</string>
     <string name="permdesc_mount_format_filesystems">Lubab rakendusel vormindada eemaldatava mälu.</string>
     <string name="usb_storage_activity_title">USB-massmälu</string>

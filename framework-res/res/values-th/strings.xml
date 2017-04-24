@@ -1803,7 +1803,9 @@ memo"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">อินเทอร์เน็ตใช้ไม่ได้</string>
+    <string name="wifi_notification_sns_go_wifi_settings">ตั้ง​ค่า</string>
+    <string name="wifi_notification_sns_exception_title">อินเทอร์เน็ต อาจไม่พร้อมใช้งาน</string>
+    <string name="wifi_notification_sns_exception_hun_detail">เชื่อมต่อกับเครือข่ายอื่น</string>
     <string name="wifi_notification_sns_poor_network_title">สลับเครือข่ายอัจฉริยะ</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">สลับเครือข่ายอัตโนมัติ</string>
     <string name="wifi_notification_sns_poor_network_detail">ยกเลิกการเชื่อมต่อกับ %s แล้ว</string>
@@ -1986,7 +1988,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">เลือก​ไทม์​โซน​ก่อน​ตั้ง​ค่า​เวลา</string>
     <string name="sound_off_toast">ปิดใช้งาน “ปิดเสียงทั้งหมด” ในการตั้งค่าการช่วยเหลือการเข้าถึงเพื่อปรับระดับเสียง</string>
-    <string name="wifi_notification_sns_go_wifi_settings">ตั้ง​ค่า</string>
     <string name="permlab_knoxCustomSetting">จัดการการตั้งค่าอุปกรณ์</string>
     <string name="permdesc_knoxCustomSetting">กำหนดการตั้งค่าอุปกรณ์ เช่น Bluetooth, ตำแหน่ง, Wi-Fi, ข้อมูลมือถือและการตั้งค่า Android</string>
     <string name="permlab_knoxCustomSystem">จัดการการตั้งค่าระบบ</string>
@@ -2259,7 +2260,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ความปลอดภัยเมื่อเริ่มระบบ</string>
     <string name="securitymanager_st_direction_lock">ล็อคทิศทาง</string>
     <string name="securitymanager_st_tampered">ตรวจพบการดัดแปลงซอฟต์แวร์</string>
-    <string name="wifi_notification_sns_exception_hun_detail">เชื่อมต่อกับเครือข่ายอื่น</string>
     <string name="permlab_mount_unmount_filesystems">เข้าถึงระบบไฟล์ของการ์ด SD</string>
     <string name="permdesc_mount_unmount_filesystems">อนุญาต​ให้​แอ​พพลิ​เค​ชั่น​ติด​ตั้ง​และ​ยก​เลิก​การ​ติด​ตั้ง​ระบบ​ไฟล์​สำหรับ​พื้นที่​จัด​เก็บ​ที่​ถอด​ออก​ได้</string>
     <string name="permlab_mount_format_filesystems">ลบการ์ด SD</string>

@@ -1800,7 +1800,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">الإنترنت غير متوفر</string>
+    <string name="wifi_notification_sns_go_wifi_settings">الضبط</string>
+    <string name="wifi_notification_sns_exception_title">قد لا يتوفر الإنترنت</string>
+    <string name="wifi_notification_sns_exception_hun_detail">اتصل بشبكة أخرى.</string>
     <string name="wifi_notification_sns_poor_network_title">تبديل الشبكة الذكي</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">تبديل تلقائي للشبكة</string>
     <string name="wifi_notification_sns_poor_network_detail">تم الفصل عن %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">حدد المنطقة الزمنية‬ قبل ضبط الوقت.</string>
     <string name="sound_off_toast">لتغيير مستوى الصوت، قم بإلغاء تفعيل ”إيقاف تشغيل كل الأصوات“ في ضبط إمكانية الوصول.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">الضبط</string>
     <string name="permlab_knoxCustomSetting">إدارة ضبط الجهاز</string>
     <string name="permdesc_knoxCustomSetting">قم بتكوين إعدادات الجهاز، مثل البلوتوث والموقع وWi-Fi وبيانات الهاتف المحمول وإعدادات Android.</string>
     <string name="permlab_knoxCustomSystem">إدارة ضبط النظام</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">الإعداد الآمن</string>
     <string name="securitymanager_st_direction_lock">قفل الاتجاه</string>
     <string name="securitymanager_st_tampered">تم اكتشاف عبث في البرنامج</string>
-    <string name="wifi_notification_sns_exception_hun_detail">اتصل بشبكة أخرى.</string>
     <string name="permlab_mount_unmount_filesystems">‏الدخول إلى نظام ملفات بطاقة SD</string>
     <string name="permdesc_mount_unmount_filesystems">يسمح للتطبيق بتحميل أنظمة الملفات وإلغاء تحميلها لوحدات التخزين القابلة للإزالة.</string>
     <string name="permlab_mount_format_filesystems">‏محو بطاقة SD</string>

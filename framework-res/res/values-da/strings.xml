@@ -1800,7 +1800,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Intern. er ikke tilg.</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Indst.</string>
+    <string name="wifi_notification_sns_exception_title">Internet muligvis ikke tilg.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Opret forbindelse til et andet netværk.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart netværksskift</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Skift netværk automatisk</string>
     <string name="wifi_notification_sns_poor_network_detail">Forbindelsen til %s er blevet afbrudt.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Vælg tidszone, inden du indstiller tiden.</string>
     <string name="sound_off_toast">Skift lydstyrke ved at deaktivere Deaktiver alle lyde under indstillinger for Tilgængelighed.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Indst.</string>
     <string name="permlab_knoxCustomSetting">Administrer enhedsindstillinger</string>
     <string name="permdesc_knoxCustomSetting">Konfigurer enhedsindstillinger som Bluetooth, Placering, Wi-Fi, Mobile data og Android-indstillinger.</string>
     <string name="permlab_knoxCustomSystem">Administrer systemindstillinger</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Sikker start</string>
     <string name="securitymanager_st_direction_lock">Retningslås</string>
     <string name="securitymanager_st_tampered">Der er registreret softwareændring</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Opret forbindelse til et andet netværk.</string>
     <string name="permlab_mount_unmount_filesystems">få adgang til SD-kortets filsystem</string>
     <string name="permdesc_mount_unmount_filesystems">Tillader, at programmet opretter/afbryder forbindelse til filsystemer på flytbare lagermedier.</string>
     <string name="permlab_mount_format_filesystems">slette SD-kort</string>

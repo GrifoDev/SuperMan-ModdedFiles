@@ -1800,7 +1800,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Интернет не е достъпен</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Настр.</string>
+    <string name="wifi_notification_sns_exception_title">Интернет може да не е достъпен</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Свържете се към друга мрежа.</string>
     <string name="wifi_notification_sns_poor_network_title">Превключване на умна мрежа</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Автом. превкл. на мрежата</string>
     <string name="wifi_notification_sns_poor_network_detail">Връзката с %s е прекъсната.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Изберете часова зона, преди да настроите часа.</string>
     <string name="sound_off_toast">За да промените силата на звука, деактивирайте „Изключване на всички звуци“ в настройките за достъпност.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Настр.</string>
     <string name="permlab_knoxCustomSetting">Управление на настройките на устр.</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирайте настройки на устройството, като Bluetooth, местоположение, Wi-Fi, мобилни данни и настройки на Android.</string>
     <string name="permlab_knoxCustomSystem">Управление на системните настройки</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Защитено стартиране</string>
     <string name="securitymanager_st_direction_lock">Заключване на посока</string>
     <string name="securitymanager_st_tampered">Открито е смущение в софтуера</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Свържете се към друга мрежа.</string>
     <string name="permlab_mount_unmount_filesystems">достъп до файловата система на SD картата</string>
     <string name="permdesc_mount_unmount_filesystems">Позволява на приложението да монтира и демонтира файлови системи за устройството за съхранение.</string>
     <string name="permlab_mount_format_filesystems">изтриване на SD картата</string>

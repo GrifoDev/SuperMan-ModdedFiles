@@ -1794,7 +1794,9 @@ Command"</string>
     <string name="verizon_sim_state_notification">La connexion à %s est impossible. Insérez une carte SIM, puis réessayez.</string>
     <string name="verizon_disconnect_notification">"Le service Verizon est requis pour accéder à un point d'accès Wi-Fi Verizon. Si vous avez retiré votre carte SIM Verizon, réinsérez-la, puis réessayez de vous connecter."</string>
     <string name="verizon_service_required_title">Service Verizon requis</string>
-    <string name="wifi_notification_sns_exception_title">Internet non disponible</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Param.</string>
+    <string name="wifi_notification_sns_exception_title">Intern. peut ne pas être disp.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Connectez-vous à un autre réseau.</string>
     <string name="wifi_notification_sns_poor_network_title">Réseau intelligent</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Basculement réseau auto</string>
     <string name="wifi_notification_sns_poor_network_detail">Déconnecté de %s.</string>
@@ -1976,7 +1978,6 @@ Activer le mode Hors ligne ?"</string>
     <string name="popup_set_manually_button_vzw">Définir manuel.</string>
     <string name="mcc_setting_toast_notification">"Sélectionner le fuseau horaire avant de régler l'heure."</string>
     <string name="sound_off_toast">"Pour modifier le volume, désactivez l'option Désactiver tous les sons dans les Paramètres d'accessibilité."</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Param.</string>
     <string name="permlab_knoxCustomSetting">"Gestion des paramètres de l'appareil"</string>
     <string name="permdesc_knoxCustomSetting">"Configurez les paramètres de l'appareil, tels que le Bluetooth, la localisation, le Wifi, les données mobiles et les paramètres Android."</string>
     <string name="permlab_knoxCustomSystem">Gestion des paramètres système</string>
@@ -2248,7 +2249,6 @@ Activer le mode Hors ligne ?"</string>
     <string name="securitymanager_st_encryption_device">Démarrage sécurisé</string>
     <string name="securitymanager_st_direction_lock">Verrouillage avec modèle</string>
     <string name="securitymanager_st_tampered">Transformation de logiciel détectée</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Connectez-vous à un autre réseau.</string>
     <string name="permlab_mount_unmount_filesystems">accéder au système de fichiers de la carte SD</string>
     <string name="permdesc_mount_unmount_filesystems">"Autorise l'application à activer et à désactiver des systèmes de fichiers pour un stockage amovible."</string>
     <string name="permlab_mount_format_filesystems">effacer la carte SD</string>

@@ -1793,7 +1793,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Не е достапен интернет</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Поставувања</string>
+    <string name="wifi_notification_sns_exception_title">Интернет може да не е достапен</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Поврзи се со друга мрежа.</string>
     <string name="wifi_notification_sns_poor_network_title">Паметно менување мрежи</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Автоматско менување мрежи</string>
     <string name="wifi_notification_sns_poor_network_detail">Врската со %s е прекината.</string>
@@ -1975,7 +1977,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Изберете временска зона пред да го наместите времето.</string>
     <string name="sound_off_toast">За да ја смените јачината, оневозможете Исклучување на сите звуци во Поставувањата за пристапност.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Поставувања</string>
     <string name="permlab_knoxCustomSetting">Управувај со поставувањата на уредот</string>
     <string name="permdesc_knoxCustomSetting">Конфигурирај поставувања за уредот како што се Bluetooth, Локација, Wi-Fi, Мобилни податоци и Android поставувања.</string>
     <string name="permlab_knoxCustomSystem">Управувај со системските поставувања</string>
@@ -2247,7 +2248,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Безбедно активирање</string>
     <string name="securitymanager_st_direction_lock">Заклучување со насока</string>
     <string name="securitymanager_st_tampered">Откриено е влијание врз софтверот</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Поврзи се со друга мрежа.</string>
     <string name="permdesc_mount_unmount_filesystems">Дозволува апликациите да монтираат и демонтираат системи за фајлови за надворешни мемориски уреди.</string>
     <string name="permdesc_mount_format_filesystems">Дозволува апликациите да форматираат надворешни мемориски уреди.</string>
     <string name="usb_storage_activity_title">Мемориски уред USB</string>

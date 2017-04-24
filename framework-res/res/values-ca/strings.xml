@@ -1800,7 +1800,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet no disponible</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ajust</string>
+    <string name="wifi_notification_sns_exception_title">Internet potser no disponible</string>
+    <string name="wifi_notification_sns_exception_hun_detail">"Connecti's a una altra xarxa."</string>
     <string name="wifi_notification_sns_poor_network_title">Canvi Smart network</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Canvi de xarxa automàtic</string>
     <string name="wifi_notification_sns_poor_network_detail">Desconnectat de %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">"Seleccioni la zona horària abans d'ajustar l'hora"</string>
     <string name="sound_off_toast">"Per canviar el volum, desactivi Apagar tots els sons a Ajustaments d'accessibilitat."</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ajust</string>
     <string name="permlab_knoxCustomSetting">Gestionar ajustaments del dispositiu</string>
     <string name="permdesc_knoxCustomSetting">"Configuri els ajustaments del dispositiu, com ara Bluetooth, Ubicació, Wi-Fi, Dades mòbils i Ajustaments d'Android."</string>
     <string name="permlab_knoxCustomSystem">Gestionar ajustaments del sistema</string>
@@ -2254,7 +2255,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Posada en marxa de forma segura</string>
     <string name="securitymanager_st_direction_lock">Bloqueig de direcció</string>
     <string name="securitymanager_st_tampered">"S'ha detectat una alteració del software"</string>
-    <string name="wifi_notification_sns_exception_hun_detail">"Connecti's a una altra xarxa."</string>
     <string name="permlab_mount_unmount_filesystems">accés al sistema de fitxers de la targeta SD</string>
     <string name="permdesc_mount_unmount_filesystems">Permet a l’aplicació muntar i desmuntar sistemes de fitxers per a emmagatzematge extraïble</string>
     <string name="permlab_mount_format_filesystems">esborrament de la targeta SD</string>

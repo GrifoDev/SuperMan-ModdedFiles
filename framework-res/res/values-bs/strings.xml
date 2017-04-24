@@ -11,6 +11,7 @@
     <string name="global_actions_airplane_mode_on_status">Omogućeno</string>
     <string name="global_actions_airplane_mode_off_status">Onemogućeno</string>
     <string name="emailTypeHome">Kuća</string>
+    <string name="lockscreen_carrier_default">Nema mrežne veze</string>
     <string name="lockscreen_pattern_wrong">Pokušajte ponovno.</string>
     <string name="volume_icon_description_ringer">Zvuk zvona i obavještenja</string>
     <string name="volume_icon_description_notification">Obavještenje</string>
@@ -382,7 +383,9 @@ zraku"</string>
     <string name="wifi_notification_connected_message">Dodirnite za konfiguraciju Wi-Fi mreže.</string>
     <string name="wifi_notification_connected_secure">Sigurno</string>
     <string name="wifi_notification_connected_open">Otvori</string>
-    <string name="wifi_notification_sns_exception_title">Internet nije dostupan</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Postavke</string>
+    <string name="wifi_notification_sns_exception_title">Internet možda nije dostupan</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Povežite se na drugu mrežu.</string>
     <string name="wifi_notification_sns_poor_network_title">Pametna promjena mreže</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom. uključivanje mreže</string>
     <string name="wifi_notification_sns_poor_network_detail">Veza sa %s je prekinuta.</string>
@@ -544,7 +547,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Izaberite vremensku zonu prije postavljanja vremena.</string>
     <string name="sound_off_toast">Da biste promijenili jačinu zvuka, onemogućite funkciju Isključi sve zvuke u okviru Postavki pristupačnosti.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Postavke</string>
     <string name="permlab_knoxCustomSetting">Manage device settings</string>
     <string name="permdesc_knoxCustomSetting">Configure device settings, such as Bluetooth, Location, Wi-Fi, Mobile data, and Android settings.</string>
     <string name="permlab_knoxCustomSystem">Manage system settings</string>
@@ -811,7 +813,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Sigurno pokretanje</string>
     <string name="securitymanager_st_direction_lock">Pravac zaključavanja</string>
     <string name="securitymanager_st_tampered">Otkriveno je modifikovanje softvera</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Povežite se na drugu mrežu.</string>
     <string name="usb_blocked_by_reserved_mode">Nije moguće koristiti funkcije povezane sa povezanim USB uređajem dok je omogućen Režim rezerve baterije.</string>
     <string name="usb_water_notification_title">Provjerite priključak</string>
     <string name="usb_water_notification_message">Detektovana je vlaga u punjaču/USB priključku. Osigurajte da je potpuno suh prije punjenja uređaja. Sušenje priključka može potrajati.</string>

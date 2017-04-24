@@ -1799,7 +1799,9 @@ aéreo"</string>
     <string name="verizon_sim_state_notification">No es posible conectarse a %s. Inserte una tarjeta SIM y vuelva a intentarlo.</string>
     <string name="verizon_disconnect_notification">Se necesita tener el servicio Verizon para acceder a un Wi-Fi hotspot de Verizon. Si ha retirado la tarjeta SIM de Verizon, reinsértela e intente conectarse de nuevo.</string>
     <string name="verizon_service_required_title">Se necesita el servicio Verizon</string>
-    <string name="wifi_notification_sns_exception_title">Internet no disponible</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ajustes</string>
+    <string name="wifi_notification_sns_exception_title">Internet no está disponible</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Conéctese a otra red.</string>
     <string name="wifi_notification_sns_poor_network_title">Cambio de red inteligente</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Cambio automático de red</string>
     <string name="wifi_notification_sns_poor_network_detail">Se desconectó de %s.</string>
@@ -1981,7 +1983,6 @@ Para desanclar una aplicación, mantenga presionada la tecla Menú."</string>
     <string name="popup_set_manually_button_vzw">Def. manualmente</string>
     <string name="mcc_setting_toast_notification">Seleccionar zona horaria antes de configurar la hora.</string>
     <string name="sound_off_toast">Para cambiar el volumen, desactive la opción Desactivar todos los sonidos en los ajustes de Accesibilidad.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ajustes</string>
     <string name="permlab_knoxCustomSetting">Administrar ajustes del dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configurar ajustes del dispositivo, como Bluetooth, Ubicación, Wi-Fi, Datos móviles y ajustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Administrar ajustes del sistema</string>
@@ -2253,7 +2254,6 @@ Para desanclar una aplicación, mantenga presionada la tecla Menú."</string>
     <string name="securitymanager_st_encryption_device">Inicio seguro</string>
     <string name="securitymanager_st_direction_lock">Bloqueo con direcciones</string>
     <string name="securitymanager_st_tampered">Se detectaron alteraciones del software</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Conéctese a otra red.</string>
     <string name="permlab_mount_unmount_filesystems">acceder al sistema de archivos de la tarjeta SD</string>
     <string name="permdesc_mount_unmount_filesystems">Permite que el sistema active o detenga sistemas de archivos para dispositivos de almacenamiento extraíble.</string>
     <string name="permlab_mount_format_filesystems">borrar tarjeta SD</string>

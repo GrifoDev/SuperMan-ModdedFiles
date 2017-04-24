@@ -1799,7 +1799,9 @@ pe TV (Smart View)"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet indisponibil</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Setări</string>
+    <string name="wifi_notification_sns_exception_title">Internetul poate fi indispon.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Conectați-vă la o altă rețea.</string>
     <string name="wifi_notification_sns_poor_network_title">Comutare inteligentă rețea</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Comutare automată rețea</string>
     <string name="wifi_notification_sns_poor_network_detail">Deconectat de la %s.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Selectați fusul orar înainte de a seta ora.</string>
     <string name="sound_off_toast">Pentru a schimba volumul, dezactivați opțiunea Oprire toate sunetele în Setări accesibilitate.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Setări</string>
     <string name="permlab_knoxCustomSetting">Gestionare setări dispozitiv</string>
     <string name="permdesc_knoxCustomSetting">Configurați setările dispozitivului, cum ar fi cele pentru Bluetooth, Locație, Wi-Fi, Date mobile și cele pentru Android.</string>
     <string name="permlab_knoxCustomSystem">Gestionare setări de sistem</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Pornire securizată</string>
     <string name="securitymanager_st_direction_lock">Blocare prin direcții</string>
     <string name="securitymanager_st_tampered">Schimbare software neautorizată detectată</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Conectați-vă la o altă rețea.</string>
     <string name="permlab_mount_unmount_filesystems">accesează sistemul de fişiere pe cardul SD</string>
     <string name="permdesc_mount_unmount_filesystems">Permite aplicaţiei să instaleze şi să dezinstaleze sisteme de fişiere pentru stocare externă.</string>
     <string name="permlab_mount_format_filesystems">şterge cardul SD</string>

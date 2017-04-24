@@ -1795,7 +1795,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ਇੰਟਰਨੈੱਟ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
+    <string name="wifi_notification_sns_go_wifi_settings">ਸੈੱਟਿੰਗਸ</string>
+    <string name="wifi_notification_sns_exception_title">ਹੋ ਸਕਦਾ ਹੈ ਇੰਟਰਨੈੱਟ ਉਪਲਬਧ ਨਾ ਹੋਵੇ</string>
+    <string name="wifi_notification_sns_exception_hun_detail">ਕਿਸੇ ਹੋਰ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਕਰੋ।</string>
     <string name="wifi_notification_sns_poor_network_title">ਸਮਾਰਟ ਨੈੱਟਵਰਕ ਸਵਿੱਚ</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ਸਵੈ ਨੈੱਟਵਰਕ ਸਵਿੱਚ</string>
     <string name="wifi_notification_sns_poor_network_detail">%s ਤੋਂ ਡਿਸਕਨੈਕਟ ਹੋਇਆ।</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">ਸਮਾਂ ਸੈੱਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸਮਾਂ ਜ਼ੋਨ ਚੁਣੋ।</string>
     <string name="sound_off_toast">ਵਾੱਲਿਊਮ ਬਦਲਣ ਲਈ, ਪਹੁੰਚਯੋਗਤਾ ਸੈੱਟਿੰਗਸ ਵਿੱਚ “ਸਾਰੀਆਂ ਧੁਨੀਆਂ ਬੰਦ ਕਰੋ” ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ।</string>
-    <string name="wifi_notification_sns_go_wifi_settings">ਸੈੱਟਿੰਗਸ</string>
     <string name="permlab_knoxCustomSetting">ਡਿਵਾਈਸ ਸੈੱਟਿੰਗਸ ਪ੍ਰਬੰਧਿਤ ਕਰੋ</string>
     <string name="permdesc_knoxCustomSetting">ਡਿਵਾਈਸ ਸੈੱਟਿੰਗਸ ਕੌਨਫਿਗਰ ਕਰੋ, ਜਿਵੇਂ ਕਿ ਬਲੂਟੁੱਥ, ਸਥਾਨ, Wi-Fi, ਮੋਬਾਈਲ ਡੈਟਾ, ਅਤੇ ਐਂਡ੍ਰੌਇਡ ਸੈੱਟਿੰਗਸ।</string>
     <string name="permlab_knoxCustomSystem">ਸਿਸਟਮ ਸੈੱਟਿੰਗਸ ਪ੍ਰਬੰਧਿਤ ਕਰੋ</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ਸੁਰੱਖਿਅਤ ਸਟਾਰਟਅਪ</string>
     <string name="securitymanager_st_direction_lock">ਦਿਸ਼ਾ ਲੌਕ</string>
     <string name="securitymanager_st_tampered">ਸੌਫਟਵੇਅਰ ਨਾਲ ਛੇੜਛਾੜ ਦਾ ਪਤਾ ਲੱਗਿਆ</string>
-    <string name="wifi_notification_sns_exception_hun_detail">ਕਿਸੇ ਹੋਰ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਕਰੋ।</string>
     <string name="permlab_mount_unmount_filesystems">SD ਕਾਰਡ ਫਾਈਲ ਸਿਸਟਮ ਐਕਸੈੱਸ ਕਰੋ</string>
     <string name="permdesc_mount_unmount_filesystems">ਅਨੁਪ੍ਰਯੋਗ ਨੂੰ ਹਟਾਉਣਯੋਗ ਸਟੋਰੇਜ ਲਈ ਫਾਈਲ ਸਿਸਟਮਸ ਨੂੰ ਮਾਉਂਟ ਅਤੇ ਅਨਮਾਉਂਟ ਕਰਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।</string>
     <string name="permlab_mount_format_filesystems">SD ਕਾਰਡ ਫੌਰਮੈਟ ਕਰੋ</string>

@@ -1084,7 +1084,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ইন্টারনেট সুলভ নয়</string>
+    <string name="wifi_notification_sns_go_wifi_settings">সেটিংস</string>
+    <string name="wifi_notification_sns_exception_title">ইন্টারনেট সুলভ নাও হতে পারে</string>
+    <string name="wifi_notification_sns_exception_hun_detail">অন্য একটি নেটওয়ার্কে সংযোগ করুন।</string>
     <string name="wifi_notification_sns_poor_network_title">স্মার্ট নেটওয়ার্ক স্যুইচ</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">স্বতঃ নেটওয়ার্ক স্যুইচ</string>
     <string name="wifi_notification_sns_poor_network_detail">%s থেকে সংযোগ বিচ্ছিন্ন হয়েছে।</string>
@@ -1266,7 +1268,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">সময় সেট করার আগে সময় জোন নির্বাচন করুন।</string>
     <string name="sound_off_toast">ভলিউম পরিবর্তন করতে, অ্যাক্সেসযোগ্যতার সেটিংসে “সমস্ত ধ্বনি বন্ধ করুন” অক্ষম করুন।</string>
-    <string name="wifi_notification_sns_go_wifi_settings">সেটিংস</string>
     <string name="permlab_knoxCustomSetting">ডিভাইস সেটিংস পরিচালনা করুন</string>
     <string name="permdesc_knoxCustomSetting">ব্লুটুথ, অবস্থান, Wi-Fi, মোবাইল তথ্য এবং অ্যান্ড্রয়েডের সেটিংসের মতো ডিভাইস সেটিংস কনফিগার করুন।</string>
     <string name="permlab_knoxCustomSystem">সিস্টেম সেটিংস পরিচালনা করুন</string>
@@ -1538,7 +1539,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">নিরাপদে শুরু করা</string>
     <string name="securitymanager_st_direction_lock">দিক নির্দেশের লক</string>
     <string name="securitymanager_st_tampered">সফ্টওয়্যার টেম্পারিং শনাক্ত হয়েছে</string>
-    <string name="wifi_notification_sns_exception_hun_detail">অন্য একটি নেটওয়ার্কে সংযোগ করুন।</string>
     <string name="usb_cd_installer_notification_title">Software Installation</string>
     <string name="usb_vzw_mtp_notification_title">File Transfer</string>
     <string name="usb_vzw_ptp_notification_title">Photo Transfer</string>

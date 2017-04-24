@@ -1799,7 +1799,9 @@ komento"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet ei ole käytett.</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Aset.</string>
+    <string name="wifi_notification_sns_exception_title">Internet ei ehkä ole käytett.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Muodosta yhteys toiseen verkkoon.</string>
     <string name="wifi_notification_sns_poor_network_title">Älykäs verkon vaihto</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom. verkon vaihto</string>
     <string name="wifi_notification_sns_poor_network_detail">Yhteys tukiasemaan %s on katkaistu.</string>
@@ -1981,7 +1983,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Valitse aikavyöhyke ennen ajan asettamista.</string>
     <string name="sound_off_toast">Jos haluat muuttaa äänenvoimakkuutta, poista Poista äänet käytöstä -toiminto helppokäyttöasetuksissa käytöstä.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Aset.</string>
     <string name="permlab_knoxCustomSetting">Laitteen asetusten hallinta</string>
     <string name="permdesc_knoxCustomSetting">Määritä laitteen asetukset, kuten Bluetooth-, Sijainti-, Wi-Fi-, mobiilidata- ja Android-asetukset.</string>
     <string name="permlab_knoxCustomSystem">Järjestelmäasetusten hallinta</string>
@@ -2253,7 +2254,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Suojattu käynnistys</string>
     <string name="securitymanager_st_direction_lock">Suuntalukitus</string>
     <string name="securitymanager_st_tampered">Havaittu ohjelmiston peukalointia</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Muodosta yhteys toiseen verkkoon.</string>
     <string name="permlab_mount_unmount_filesystems">käytä SD-kortin tiedostojärjestelmää</string>
     <string name="permdesc_mount_unmount_filesystems">Antaa sovelluksen ottaa siirrettävien tallennusvälineiden tiedostojärjestelmät käyttöön ja poistaa ne käytöstä.</string>
     <string name="permlab_mount_format_filesystems">tyhjennä SD-kortti</string>

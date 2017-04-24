@@ -1795,7 +1795,9 @@ skipun"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Net ekki til staðar</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Still.</string>
+    <string name="wifi_notification_sns_exception_title">Net er hugsanlega ekki í boði</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Tengjast öðru neti.</string>
     <string name="wifi_notification_sns_poor_network_title">Snjöll netskipti</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Sjálfvirk netskipti</string>
     <string name="wifi_notification_sns_poor_network_detail">Aftengt frá %s.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Veldu tímabelti áður en þú stillir tímann.</string>
     <string name="sound_off_toast">Til að breyta hljóðstyrknum skaltu gera „Slökkva á öllum hljóðum“ óvirkt í aðgengisstillingum.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Still.</string>
     <string name="permlab_knoxCustomSetting">Stjórna tækjastillingum</string>
     <string name="permdesc_knoxCustomSetting">Stilltu tækjastillingar, t.d. stillingar fyrir Bluetooth, staðsetningu, Wi-Fi, farsímagögn og Android.</string>
     <string name="permlab_knoxCustomSystem">Stjórna kerfisstillingum</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Örugg ræsing</string>
     <string name="securitymanager_st_direction_lock">Stefnulás</string>
     <string name="securitymanager_st_tampered">Breytingar á hugbúnaði greindust</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Tengjast öðru neti.</string>
     <string name="permdesc_mount_unmount_filesystems">Leyfir forritinu að tengja og aftengja skráakerfi fyrir lausa geymslu.</string>
     <string name="permdesc_mount_format_filesystems">Leyfir forriti að forsníða tengt tæki.</string>
     <string name="usb_storage_activity_title">USB-gagnageymsla</string>

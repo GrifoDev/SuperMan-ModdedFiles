@@ -1823,7 +1823,9 @@ google.com/accounts/recovery"</string>
     <string name="verizon_sim_state_notification">%s에 연결할 수 없습니다. SIM 카드를 삽입한 후 다시 시도하세요.</string>
     <string name="verizon_disconnect_notification">Verizon Wi-Fi 핫스팟에 접근하려면 Verizon 서비스가 필요합니다. Verizon SIM 카드를 분리한 경우, SIM 카드를 다시 삽입하고 연결을 시도하세요.</string>
     <string name="verizon_service_required_title">Verizon 서비스 필요</string>
-    <string name="wifi_notification_sns_exception_title">인터넷을 사용할 수 없음</string>
+    <string name="wifi_notification_sns_go_wifi_settings">설정</string>
+    <string name="wifi_notification_sns_exception_title">인터넷 연결 확실치 않음</string>
+    <string name="wifi_notification_sns_exception_hun_detail">다른 네트워크에 연결하세요.</string>
     <string name="wifi_notification_sns_poor_network_title">스마트 네트워크 전환</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">네트워크 자동 전환</string>
     <string name="wifi_notification_sns_poor_network_detail">%s 연결을 해제하였습니다.</string>
@@ -2005,7 +2007,6 @@ google.com/accounts/recovery"</string>
     <string name="popup_set_manually_button_vzw">직접 설정</string>
     <string name="mcc_setting_toast_notification">시간을 설정하기 전에 시간대를 선택하세요.</string>
     <string name="sound_off_toast">음량을 조절하려면 접근성 설정에서 [모든 소리끄기]를 해제하세요.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">설정</string>
     <string name="permlab_knoxCustomSetting">디바이스 설정 관리</string>
     <string name="permdesc_knoxCustomSetting">블루투스, 위치, Wi-Fi, 모바일 데이터, 안드로이드 설정과 같은 디바이스 설정을 관리합니다.</string>
     <string name="permlab_knoxCustomSystem">디바이스 시스템 설정</string>
@@ -2277,7 +2278,6 @@ google.com/accounts/recovery"</string>
     <string name="securitymanager_st_encryption_device">보안 설정</string>
     <string name="securitymanager_st_direction_lock">방향 잠금</string>
     <string name="securitymanager_st_tampered">소프트웨어 변경 감지됨</string>
-    <string name="wifi_notification_sns_exception_hun_detail">다른 네트워크에 연결하세요.</string>
     <string name="permlab_mount_unmount_filesystems">SD 카드 파일 시스템에 액세스</string>
     <string name="permdesc_mount_unmount_filesystems">애플리케이션에서 이동식 저장공간의 파일시스템을 마운트하거나 마운트 해제할 수 있도록 허용합니다.</string>
     <string name="permlab_mount_format_filesystems">SD 카드 지우기</string>

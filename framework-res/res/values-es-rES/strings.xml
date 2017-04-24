@@ -1087,7 +1087,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet no disponible</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Ajustes</string>
+    <string name="wifi_notification_sns_exception_title">Internet podría no estar disp</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Conéctese a otra red.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Cambio de red automático</string>
     <string name="wifi_notification_sns_poor_network_detail">Desconectado de %s.</string>
@@ -1269,7 +1271,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Seleccione la zona horaria antes de definir la hora</string>
     <string name="sound_off_toast">Para cambiar el volumen, desactive Desactivar todos los sonidos en los ajustes de accesibilidad.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Ajustes</string>
     <string name="permlab_knoxCustomSetting">Administrar ajustes de dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configurar ajustes del dispositivo, como Bluetooth, Ubicación, Wi-Fi, Datos móviles y ajustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Administrar ajustes de sistema</string>
@@ -1541,7 +1542,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Inicio seguro</string>
     <string name="securitymanager_st_direction_lock">Bloqueo por direcciones</string>
     <string name="securitymanager_st_tampered">Manipulación de software detectada</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Conéctese a otra red.</string>
     <string name="permlab_mount_unmount_filesystems">Acceder al sistema de archivos de la tarjeta SD</string>
     <string name="permdesc_mount_unmount_filesystems">Permite que la aplicación monte y desmonte sistemas de archivos para dispositivos de almacenamiento externos</string>
     <string name="permlab_mount_format_filesystems">Formatear tarjeta SD</string>

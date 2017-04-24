@@ -1795,7 +1795,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ইন্টারনেট পাওয়া যায় নি</string>
+    <string name="wifi_notification_sns_go_wifi_settings">সেটিংস</string>
+    <string name="wifi_notification_sns_exception_title">ইন্টারনেট সুলভ নাও হতে পারে</string>
+    <string name="wifi_notification_sns_exception_hun_detail">আরেকটি নেটওয়ার্কের সাথে সংযুক্ত হোন৷</string>
     <string name="wifi_notification_sns_poor_network_title">স্মার্ট নেটওয়ার্ক স্যুইচ</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">স্বয়ংক্রিয় নেটওয়ার্ক পরিবর্তন</string>
     <string name="wifi_notification_sns_poor_network_detail">%s থেকে সংযোগ বিচ্ছিন্ন হয়েছে।</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">সময় সেট করার পূর্বে সময় অঞ্চল নির্বাচন করুন।</string>
     <string name="sound_off_toast">ভলিউম পরিবর্তন করতে, ‘প্রবেশযোগ্যতা’ সেটিংসে ‘সব শব্দ বন্ধ করুন’ অপশনটি নিষ্ক্রিয় করুন৷</string>
-    <string name="wifi_notification_sns_go_wifi_settings">সেটিংস</string>
     <string name="permlab_knoxCustomSetting">ডিভাইস সেটিংস পরিচালনা করুন</string>
     <string name="permdesc_knoxCustomSetting">ডিভাইসের সেটিংস, যেমন Bluetooth , অবস্থান, Wi-Fi, মোবাইল তথ্য, ও Android সেটিংস কনফিগার করুন৷</string>
     <string name="permlab_knoxCustomSystem">সিস্টেমের সেটিংস পরিচালনা</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">নিরাপদে চালু হওয়া</string>
     <string name="securitymanager_st_direction_lock">ডিরেকশন লক</string>
     <string name="securitymanager_st_tampered">সফটওয়্যার টেম্পারিং শনাক্ত হয়েছে</string>
-    <string name="wifi_notification_sns_exception_hun_detail">আরেকটি নেটওয়ার্কের সাথে সংযুক্ত হোন৷</string>
     <string name="usb_storage_activity_title">USB বড় সঞ্চয়স্থান</string>
     <string name="usb_storage_title">USB সংযুক্ত আছে</string>
     <string name="usb_storage_message">আপনি USB এর মাধ্যমে আপনার কম্পিউটারের সাথে সংযুক্ত হয়েছেন৷ আপনার কম্পিউটার এবং Android এর SD কার্ডের মধ্যে আপনি যদি ফাইলগুলিকে অনুলিপি করতে চান তাহলে নীচের বোতামটি স্পর্শ করুন৷</string>

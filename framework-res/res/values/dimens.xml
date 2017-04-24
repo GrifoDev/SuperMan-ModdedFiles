@@ -731,11 +731,11 @@
     <dimen name="sem_go_to_top_scrollableview_gap">13.0dip</dimen>
     <dimen name="sem_badge_default_width">14.0dip</dimen>
     <dimen name="sem_badge_additional_width">4.0dip</dimen>
-    <dimen name="tw_seekbar_track_height_material">2.0dip</dimen>
+    <dimen name="tw_progress_bar_height_material">2.0dip</dimen>
     <dimen name="tw_progress_bar_size_small">24.0dip</dimen>
     <dimen name="tw_progress_bar_size_small_title">16.0dip</dimen>
     <dimen name="tw_progress_bar_size_large">60.0dip</dimen>
-    <dimen name="tw_progress_bar_height_material">2.0dip</dimen>
+    <dimen name="tw_seekbar_track_height_material">2.0dip</dimen>
     <dimen name="tw_seekbar_ripple_radius">18.0dip</dimen>
     <dimen name="tw_pointer_pen_select_hovering_spen_pointer_dark_hotspot">11.0dip</dimen>
     <dimen name="tw_pointer_scroll_hovering_spen_pointer_dark_hotspot">16.0dip</dimen>

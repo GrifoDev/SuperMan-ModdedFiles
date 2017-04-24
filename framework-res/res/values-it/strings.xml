@@ -1800,7 +1800,9 @@ sensore"</string>
     <string name="verizon_sim_state_notification">Impossibile connettersi a %s. Inserite la scheda SIM e riprovate.</string>
     <string name="verizon_disconnect_notification">Il servizio Verizon deve accedere a Router Wi-Fi di Verizon. Se avete rimosso la scheda SIM Verizon, inseritela nuovamente e riprovate a effettuare la connessione.</string>
     <string name="verizon_service_required_title">Servizio Verizon richiesto</string>
-    <string name="wifi_notification_sns_exception_title">Conn. Internet non disp.</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Impostaz.</string>
+    <string name="wifi_notification_sns_exception_title">Internet non disponibile</string>
+    <string name="wifi_notification_sns_exception_hun_detail">"Connettetevi a un'altra rete."</string>
     <string name="wifi_notification_sns_poor_network_title">Rete Intelligente</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Selezione rete automatica</string>
     <string name="wifi_notification_sns_poor_network_detail">Disconnesso da %s.</string>
@@ -1982,7 +1984,6 @@ Attivare la modalità Offline?"</string>
     <string name="popup_set_manually_button_vzw">Imp. manualmente</string>
     <string name="mcc_setting_toast_notification">"Selezionare il fuso orario prima di impostare l'orario."</string>
     <string name="sound_off_toast">"Per modificare il volume, disattivate l'opzione Disattiva tutti i suoni nelle impostazioni di accessibilità."</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Impostaz.</string>
     <string name="permlab_knoxCustomSetting">Gestisci impostazioni dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Per configurare le impostazioni del dispositivo come ad esempio le impostazioni relative a Bluetooth, posizione, Wi-Fi, connessione dati e Android.</string>
     <string name="permlab_knoxCustomSystem">Gestisci impostazioni di sistema</string>
@@ -2254,7 +2255,6 @@ Attivare la modalità Offline?"</string>
     <string name="securitymanager_st_encryption_device">Avvio protetto</string>
     <string name="securitymanager_st_direction_lock">Blocco direzionale</string>
     <string name="securitymanager_st_tampered">Manomissione del software rilevata</string>
-    <string name="wifi_notification_sns_exception_hun_detail">"Connettetevi a un'altra rete."</string>
     <string name="permlab_mount_unmount_filesystems">accesso al filesystem della scheda SD</string>
     <string name="permdesc_mount_unmount_filesystems">"Consente all'applicazione di collegare e scollegare i file system per la memoria rimovibile."</string>
     <string name="permlab_mount_format_filesystems">cancellazione scheda SD</string>

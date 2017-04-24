@@ -536,7 +536,7 @@
     <string name="keyguard_password_wrong_pin_code">Няправільны PIN-код.</string>
     <string name="keyguard_label_text">Каб разблакаваць, націсніце \"Меню\", затым 0.</string>
     <string name="emergency_call_dialog_number_for_display">Нумар экстранай службы</string>
-    <string name="lockscreen_carrier_default">Не абслугоўваецца</string>
+    <string name="lockscreen_carrier_default">Няма злучэння з сеткай</string>
     <string name="lockscreen_screen_locked">Экран заблакаваны.</string>
     <string name="lockscreen_instructions_when_pattern_enabled">Націсніце \"Меню\", каб разблакаваць, або зрабіце экстраны выклік.</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Націсніце \"Меню\", каб разблакаваць.</string>
@@ -1401,7 +1401,9 @@
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">Немагчыма адключыць прылады, калі ўключана функцыя «Не дазваляць адключэнне сілкавання падчас блакіроўкі». Паўтарыце спробу пасля разблакіроўкі экрана.</string>
-    <string name="wifi_notification_sns_exception_title">Інтэрнэт недаступны</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Налады</string>
+    <string name="wifi_notification_sns_exception_title">Інтэрнэт можа быць недаступны</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Падлучыцца да даступнай сеткі.</string>
     <string name="bluetooth_china_popup_title">Bluetooth</string>
     <string name="sem_date_picker_increment_month_button_text">Наступны месяц</string>
     <string name="sem_date_picker_decrement_month_button_text">Папярэдні месяц</string>
@@ -1419,7 +1421,6 @@
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Перад навядзеннем часу выберыце часавы пояс.</string>
     <string name="sound_off_toast">Каб змяніць гучнасць, адключыце ўсе гукі ў наладах спецыяльных магчымасцяў.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Налады</string>
     <string name="permlab_knoxCustomSetting">Кіраванне наладамі прылады</string>
     <string name="permdesc_knoxCustomSetting">Канфігураванне налад прылады, такіх як Bluetooth, Вызначэнне месцазнаходжання, Wi-Fi, мабільныя даныя і налады Android.</string>
     <string name="permlab_knoxCustomSystem">Кіраванне наладамі сістэмы</string>
@@ -1686,7 +1687,6 @@
     <string name="securitymanager_st_encryption_device">Бяспечны запуск</string>
     <string name="securitymanager_st_direction_lock">Напрамак блакіроўкі</string>
     <string name="securitymanager_st_tampered">Выяўлены незаконны доступ да праграмнага забеспячэння</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Падлучыцца да даступнай сеткі.</string>
     <string name="usb_blocked_by_reserved_mode">Немагчыма выкарыстоўваць функцыі, звязаныя з падлучанай прыладай USB, пры ўключаным рэжыме рэзервавання зараду акумулятара.</string>
     <string name="usb_water_notification_title">Праверце порт</string>
     <string name="usb_water_notification_message">У вашай зараднай прыладзе/порце USB выяўлена вільгаць. Перш чым зараджаць, упэўніцеся, што прылада ці порт поўнасцю сухія. Высушванне парта можа заняць некаторы час.</string>

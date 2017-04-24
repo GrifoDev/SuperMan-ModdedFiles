@@ -1795,7 +1795,9 @@ buyruq"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet mavjud emas</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Parametr</string>
+    <string name="wifi_notification_sns_exception_title">Internet yo‘q bo‘lishi mumkin</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Boshqa tarmoqqa ulaning.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart tarmoqni almashtirish</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Avtomatik tarmoq almash</string>
     <string name="wifi_notification_sns_poor_network_detail">%sdan uzildi.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Vaqtni o‘rnatishdan avval vaqt mintaqasini tanlang.</string>
     <string name="sound_off_toast">Ovoz balandligini o‘zgartirish uchun Maxsus imkoniyatlar parametrlarida Barcha ovozlarni o‘chirish funksiyasini o‘chiring.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Parametr</string>
     <string name="permlab_knoxCustomSetting">Qurilma parametrlarini boshqarish</string>
     <string name="permdesc_knoxCustomSetting">Bluetooth, Joylashuv, Wi-Fi, Mobil internet va Android parametrlari kabi qurilma parametrlarini sozlang.</string>
     <string name="permlab_knoxCustomSystem">Tizim parametrlarini boshqarish</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Xavfsiz ishga tushirish</string>
     <string name="securitymanager_st_direction_lock">Yo‘nalishni bloklash</string>
     <string name="securitymanager_st_tampered">Dastur buzib kirishi aniqlandi</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Boshqa tarmoqqa ulaning.</string>
     <string name="permdesc_mount_unmount_filesystems">Ilovaga olinadigan xotiraga fayl tizimlarini ulash yoki demontajlash uchun ruxsat beradi.</string>
     <string name="permdesc_mount_format_filesystems">Ilovaga olinadigan xotirani formatlash uchun ruxsat beradi.</string>
     <string name="usb_storage_activity_title">USB-katta hajmli xotira</string>

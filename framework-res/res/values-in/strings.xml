@@ -1800,7 +1800,9 @@ udara"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet tidak tersedia</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Pgtrn</string>
+    <string name="wifi_notification_sns_exception_title">Internet mgkn tdk tersedia</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Sambungkan ke jaringan lain.</string>
     <string name="wifi_notification_sns_poor_network_title">Alih jaringan cerdas</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Sakelar jaringan otomatis</string>
     <string name="wifi_notification_sns_poor_network_detail">Terputus dari %s.</string>
@@ -1982,7 +1984,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Pilih zona waktu sebelum mengatur waktu.</string>
     <string name="sound_off_toast">Untuk mengubah volume, nonaktifkan Matikan semua suara di Pengaturan aksesibilitas.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Pgtrn</string>
     <string name="permlab_knoxCustomSetting">Mengelola pengaturan perangkat</string>
     <string name="permdesc_knoxCustomSetting">Konfigurasikan pengaturan perangkat, misalnya Bluetooth, Lokasi, Wi-Fi, Data seluler, dan pengaturan Android.</string>
     <string name="permlab_knoxCustomSystem">Mengelola pengaturan sistem</string>
@@ -2255,7 +2256,6 @@ tercabut."</string>
     <string name="securitymanager_st_encryption_device">Mulai aman</string>
     <string name="securitymanager_st_direction_lock">Kunci arah</string>
     <string name="securitymanager_st_tampered">Perusakan perangkat lunak terdeteksi</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Sambungkan ke jaringan lain.</string>
     <string name="permlab_mount_unmount_filesystems">akses sistem file Kartu SD</string>
     <string name="permdesc_mount_unmount_filesystems">Membolehkan aplikasi memasang dan melepas sistem file untuk media penyimpanan lepasan.</string>
     <string name="permlab_mount_format_filesystems">hapus Kartu SD</string>

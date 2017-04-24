@@ -1795,7 +1795,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet non dispoñible</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Axust</string>
+    <string name="wifi_notification_sns_exception_title">Pode que Internet non dispoñ.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Conéctate a outra rede.</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Cambio de rede automático</string>
     <string name="wifi_notification_sns_poor_network_detail">Desconectado de %s.</string>
@@ -1977,7 +1979,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Selecciona a zona horaria antes de axustar a hora</string>
     <string name="sound_off_toast">Para cambiar o volume, desactiva Desactivar todos os sons nos axustes de accesibilidade.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Axust</string>
     <string name="permlab_knoxCustomSetting">Xestionar axustes do dispositivo</string>
     <string name="permdesc_knoxCustomSetting">Configura os axustes do dispositivo, como o Bluetooth, Localización, Wi-Fi, Datos móbiles e Axustes de Android.</string>
     <string name="permlab_knoxCustomSystem">Xestionar axustes do sistema</string>
@@ -2249,7 +2250,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Inicio seguro</string>
     <string name="securitymanager_st_direction_lock">Bloqueo da dirección</string>
     <string name="securitymanager_st_tampered">Detectouse alteración do software</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Conéctate a outra rede.</string>
     <string name="permdesc_mount_unmount_filesystems">Permite á aplicación montar e desmontar sistemas de arquivos para o almacenamento extraíble</string>
     <string name="permdesc_mount_format_filesystems">Permite que a aplicación formate o dispositivo de almacenamento extraíble</string>
     <string name="usb_storage_activity_title">Almacenamento masivo de USB</string>

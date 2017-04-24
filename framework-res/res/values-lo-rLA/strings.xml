@@ -1796,7 +1796,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">ບໍ່ມີອິນເຕີເນັດຢູ່</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
+    <string name="wifi_notification_sns_exception_title">ອາດຈະບໍ່ມີອິນເຕີເນັດຢູ່</string>
+    <string name="wifi_notification_sns_exception_hun_detail">ເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍອື່ນ.</string>
     <string name="wifi_notification_sns_poor_network_title">ສັບປ່ຽນເຄືອຂ່າຍອັດສະລິຍະ</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ຍ້າຍເຄືອຂ່າຍອັດຕະໂນມັດ</string>
     <string name="wifi_notification_sns_poor_network_detail">ຕັດເຊື່ອມຕໍ່ຈາກ %s ແລ້ວ.</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">ເລືອກເຂດເວລາກ່ອນຕັ້ງເວລາ.</string>
     <string name="sound_off_toast">ເພື່ອປ່ຽນແປງລະດັບສຽງ, ປິດໃຊ້ງານ [ປິດສຽງທັງໝົດ] ໃນການຕັ້ງຄ່າຄວາມສາມາດເຂົ້າໃຊ້ໄດ້.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Settings</string>
     <string name="permlab_knoxCustomSetting">ຈັດການການຕັ້ງຄ່າອຸປະກອນ</string>
     <string name="permdesc_knoxCustomSetting">ກຳນົດຄ່າການຕັ້ງຄ່າອຸປະກອນ, ເຊັ່ນ ບລູທູດ, ຈຸດທີ່ຕັ້ງ, Wi-Fi, ຂໍ້ມູນມືຖື, ແລະການຕັ້ງຄ່າແອນດຣອຍ.</string>
     <string name="permlab_knoxCustomSystem">ຈັດການການຕັ້ງຄ່າລະບົບ</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ການເລີ່ມຕົ້ນທີ່ປອດໄພ</string>
     <string name="securitymanager_st_direction_lock">ລັອກ​ທິດ​ທາງ</string>
     <string name="securitymanager_st_tampered">ກວດພົບການປອມແປງຊອບແວແລ້ວ</string>
-    <string name="wifi_notification_sns_exception_hun_detail">ເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍອື່ນ.</string>
     <string name="permdesc_mount_unmount_filesystems">ອະນຸຍາດໃຫ້ແອພພລິເຄຊັນຕໍ່ ແລະປິດລະບົບໄຟລ໌ສໍາລັບອຸປະກອນທີ່ສາມາດເຄື່ອນຍ້າຍໄດ້.</string>
     <string name="permdesc_mount_format_filesystems">ອະນຸຍາດໃຫ້ແອພພລິເຄຊັນຟໍແມັດເຄື່ອງເກັບຂໍ້ມູນທີ່ຖອດອອກໄດ້.</string>
     <string name="usb_storage_activity_title">ບ່ອນເກັບຂໍ້ມູນ USB</string>

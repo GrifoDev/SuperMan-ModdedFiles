@@ -1796,7 +1796,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">មិន​មាន​អ៊ីនធឺណិត</string>
+    <string name="wifi_notification_sns_go_wifi_settings">កំណត់</string>
+    <string name="wifi_notification_sns_exception_title">អាច​មិនមាន​អ៊ីនធើណិត</string>
+    <string name="wifi_notification_sns_exception_hun_detail">ភ្ជាប់​ទៅ​បណ្ដាញ​មួយ​ទៀត។</string>
     <string name="wifi_notification_sns_poor_network_title">ការប្ដូរ​បណ្ដាញ​វៃឆ្លាត</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">ស្វ័យ​ប្ដូរ​បណ្ដាញ</string>
     <string name="wifi_notification_sns_poor_network_detail">បាន​ផ្ដាច់​ពី %s។</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">ជ្រើស​តំបន់​ម៉ោង មុន​ពេល​កំណត់​ម៉ោង។</string>
     <string name="sound_off_toast">ដើម្បី​ប្ដូរ​កម្រិត​សំឡេង សូម​បិទ បិទ​សំឡេង​ទាំងអស់ ក្នុង ការកំណត់​លទ្ធភាព​ចូលប្រើ។</string>
-    <string name="wifi_notification_sns_go_wifi_settings">កំណត់</string>
     <string name="permlab_knoxCustomSetting">គ្រប់គ្រង​ការកំណត់​ឧបករណ៍</string>
     <string name="permdesc_knoxCustomSetting">ធ្វើ​ការកំណត់​រចនាសម្ពន្ធ​ឧបករណ៍ ដូចជា Bluetooth, ទីកន្លែង, Wi-Fi, ទិន្នន័យ​ចល័ត និង ការកំណត់ Android។</string>
     <string name="permlab_knoxCustomSystem">គ្រប់គ្រង​ការកំណត់​ប្រព័ន្ធ</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">ការចាប់ផ្ដើម​ដោយ​សន្តិសុខ</string>
     <string name="securitymanager_st_direction_lock">សោ​ទិសដៅ</string>
     <string name="securitymanager_st_tampered">ចាប់​បាន​ការអុកឡុក​សុហ្វវែរ</string>
-    <string name="wifi_notification_sns_exception_hun_detail">ភ្ជាប់​ទៅ​បណ្ដាញ​មួយ​ទៀត។</string>
     <string name="permdesc_mount_unmount_filesystems">អនុញ្ញាត​ឲ្យ​កម្មវិធី​ម៉ោន និង អាន់​ម៉ោន​ប្រព័ន្ធ​ឯកសារ​សម្រាប់​ឃ្លាំងផ្ទុក​អាច​ដោះ​បាន។</string>
     <string name="permdesc_mount_format_filesystems">អនុញ្ញាត​ឲ្យ​កម្មវិធី​សម្អាត​ឃ្លាំងផ្ទុក​ដែល​អាច​ដោះ​បាន។</string>
     <string name="usb_storage_activity_title">ឃ្លាំង​ផ្ទុក​ដុល USB</string>

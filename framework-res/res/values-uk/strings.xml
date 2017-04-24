@@ -1798,7 +1798,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Інтернет недоступний</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Налаштування</string>
+    <string name="wifi_notification_sns_exception_title">Інтернет може бути недоступний</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Підключіться до іншої мережі.</string>
     <string name="wifi_notification_sns_poor_network_title">Розумний перемикач мережі</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Автопереключення мережі</string>
     <string name="wifi_notification_sns_poor_network_detail">Відключено від %s.</string>
@@ -1980,7 +1982,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Виберіть часовий пояс перед встановленням часу.</string>
     <string name="sound_off_toast">Щоб змінити гучність, у налаштуваннях доступності скасуйте вибір опції «Вимкнути всі звуки».</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Налаштування</string>
     <string name="permlab_knoxCustomSetting">Керування налаштуваннями пристрою</string>
     <string name="permdesc_knoxCustomSetting">Встановлення налаштувань пристрою, у тому числі налаштувань Bluetooth, розташування, Wi-Fi, мобільних даних та Android.</string>
     <string name="permlab_knoxCustomSystem">Керування налаштуваннями системи</string>
@@ -2252,7 +2253,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Безпечний запуск</string>
     <string name="securitymanager_st_direction_lock">Блокування напрямками</string>
     <string name="securitymanager_st_tampered">Виявлено злом ПЗ</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Підключіться до іншої мережі.</string>
     <string name="permlab_mount_unmount_filesystems">отримувати доступ до файлової системи карти SD</string>
     <string name="permdesc_mount_unmount_filesystems">Дозволяє програмі підключати або відключати файлові системи для знімних дисків.</string>
     <string name="permlab_mount_format_filesystems">очищати карту SD</string>

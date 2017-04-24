@@ -536,7 +536,7 @@
     <string name="keyguard_password_wrong_pin_code">Código PIN incorreto.</string>
     <string name="keyguard_label_text">Para desbloquear, pressione Menu e 0.</string>
     <string name="emergency_call_dialog_number_for_display">Número de emergência</string>
-    <string name="lockscreen_carrier_default">Sem conexão de rede</string>
+    <string name="lockscreen_carrier_default">Sem serviço</string>
     <string name="lockscreen_screen_locked">Tela bloqueada.</string>
     <string name="lockscreen_instructions_when_pattern_enabled">Pressione Menu para desbloquear ou efetuar uma chamada de emergência.</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Pressione Menu para desbloquear.</string>
@@ -1796,7 +1796,9 @@ susp."</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet indisponível</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Config.</string>
+    <string name="wifi_notification_sns_exception_title">Internet pode estar indispon.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Conecte-se a outra rede.</string>
     <string name="wifi_notification_sns_poor_network_title">Troca de rede inteligente</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Alteração rede automática</string>
     <string name="wifi_notification_sns_poor_network_detail">Desconectado de %s.</string>
@@ -1978,7 +1980,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Def. manualmente</string>
     <string name="mcc_setting_toast_notification">Selecione o fuso horário antes de definir a hora.</string>
     <string name="sound_off_toast">Para alterar o volume, desative a função Desligar todos os sons nas Configurações de acessibilidade.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Config.</string>
     <string name="permlab_knoxCustomSetting">Gerenciar configurações do aparelho</string>
     <string name="permdesc_knoxCustomSetting">Defina as configurações do aparelho, como Bluetooth, Localização, Wi-Fi, Dados móveis e configurações do Android.</string>
     <string name="permlab_knoxCustomSystem">Gerenciar configurações do sistema</string>
@@ -2250,7 +2251,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Inicialização segura</string>
     <string name="securitymanager_st_direction_lock">Bloqueio de direção</string>
     <string name="securitymanager_st_tampered">Adulteração de software detectada</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Conecte-se a outra rede.</string>
     <string name="permlab_mount_unmount_filesystems">Acessar sistema de arquivos do cartão SD</string>
     <string name="permdesc_mount_unmount_filesystems">Permite à aplicação instalar e desinstalar sistemas de arquivos de armazenamento removível.</string>
     <string name="permlab_mount_format_filesystems">Formatar cartão SD</string>

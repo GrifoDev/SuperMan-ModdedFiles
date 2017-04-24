@@ -2085,7 +2085,9 @@ After exiting this mode, your widgets placed in Home screen may not display prop
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again</string>
     <string name="verizon_service_required_title">Verizon service required</string>
     <string name="wifi_disabled_expiration">Network unavailable. Your certification has expired.</string>
-    <string name="wifi_notification_sns_exception_title">Internet not available</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Go to Wi-Fi settings</string>
+    <string name="wifi_notification_sns_exception_title">Internet may not be available</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Connect to other network</string>
     <string name="wifi_notification_sns_poor_network_title">Smart network switch</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Auto network switch</string>
     <string name="wifi_notification_sns_poor_network_detail">Disconnected from %s.</string>
@@ -2331,7 +2333,6 @@ Turn on Airplane mode?"</string>
     <string name="multisound_my_device">My device</string>
     <string name="multisound_headset">Headset</string>
     <string name="multisound_bluetooth">Bluetooth</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Go to Wi-Fi settings</string>
     <string name="permlab_knoxCustomSetting">Manage device settings</string>
     <string name="permdesc_knoxCustomSetting">Configure device settings, such as Bluetooth, Location, Wi-Fi, Mobile data, and Android settings.</string>
     <string name="permlab_knoxCustomSystem">Manage system settings</string>
@@ -2658,7 +2659,6 @@ RETURN TO,"</string>
     <string name="config_geocoderProviderPackageName_autonavi">com.amap.android.location</string>
     <string name="config_fusedLocationProviderPackageName_nsflp">com.sec.location.nsflp2</string>
     <string name="config_networkLocationProviderPackageName_gms">com.google.android.gms</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Connect to other network</string>
     <string name="wifi_notification_auto_wifi_title">Auto Wi-Fi(TBD)</string>
     <string name="wifi_notification_auto_wifi_detail">Please do not test. It is under construction</string>
     <string name="permlab_mount_unmount_filesystems">access SD Card filesystem</string>

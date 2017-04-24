@@ -1802,7 +1802,9 @@ boek"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">Internet niet beschikbaar</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Instell.</string>
+    <string name="wifi_notification_sns_exception_title">Internet missch niet beschikb.</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Maak verbinding met een ander netwerk.</string>
     <string name="wifi_notification_sns_poor_network_title">Slimme netwerkwissel</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Autom netwerkwissel</string>
     <string name="wifi_notification_sns_poor_network_detail">Verbinding met %s verbroken.</string>
@@ -1984,7 +1986,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">Selecteer tijdzone voordat u de tijd instelt.</string>
     <string name="sound_off_toast">Als u het volume wilt wijzigen, schakelt u Alle geluiden uit in Toegankelijkheidsinstellingen uit.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Instell.</string>
     <string name="permlab_knoxCustomSetting">Apparaatinstellingen beheren</string>
     <string name="permdesc_knoxCustomSetting">Configureer apparaatinstellingen, zoals Bluetooth, Locatie, Wi-Fi, Mobiele gegevens en Android-instellingen.</string>
     <string name="permlab_knoxCustomSystem">Systeeminstellingen beheren</string>
@@ -2256,7 +2257,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">Veilig opstarten</string>
     <string name="securitymanager_st_direction_lock">Richtingvergrendeling</string>
     <string name="securitymanager_st_tampered">Knoeien aan software gedetecteerd</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Maak verbinding met een ander netwerk.</string>
     <string name="permlab_mount_unmount_filesystems">bestandssysteem van SD-kaart openen</string>
     <string name="permdesc_mount_unmount_filesystems">Applicatie mag bestandssystemen koppelen en loskoppelen van verwisselbare opslag.</string>
     <string name="permlab_mount_format_filesystems">SD-kaart wissen</string>

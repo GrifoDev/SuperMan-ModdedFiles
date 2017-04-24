@@ -1088,7 +1088,9 @@
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">इन्टरनेट उपलब्ध छैन</string>
+    <string name="wifi_notification_sns_go_wifi_settings">सेटिङहरु</string>
+    <string name="wifi_notification_sns_exception_title">इन्टरनेट उपलब्ध नहुन सक्छ</string>
+    <string name="wifi_notification_sns_exception_hun_detail">अर्को नेटवर्कमा जडान गर्नुहोस्।</string>
     <string name="wifi_notification_sns_poor_network_title">स्मार्ट नेटवर्क स्विच</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">स्वत: नेटवर्क स्विच</string>
     <string name="wifi_notification_sns_poor_network_detail">%s बाट विच्छेद भयो।</string>
@@ -1270,7 +1272,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">सयम सेट गर्न अघि समय क्षेत्र चयन गर्नुहोस्।</string>
     <string name="sound_off_toast">भोल्‍यूम परिवर्तन गर्न, उपलब्धता योग्यता सेटिङहरूमा “सबै ध्‍वनिहरू अफ गर्नुहोस्‌” लाई असक्षम गर्नुहोस्।</string>
-    <string name="wifi_notification_sns_go_wifi_settings">सेटिङहरु</string>
     <string name="permlab_knoxCustomSetting">यन्त्र सेटिङहरू व्यवस्थित गर्नुहोस्</string>
     <string name="permdesc_knoxCustomSetting">यन्त्र सेटिङहरू कन्फिगर गर्नुहोस्, जस्तै ब्लुटूथ, स्थान, Wi-Fi, मोबाइल डाटा, र एन्ड्रोइड सेटिङहरू।</string>
     <string name="permlab_knoxCustomSystem">प्रणाली सेटिङहरू व्यवस्थित गर्नुहोस्</string>
@@ -1542,7 +1543,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">सुरक्षित सुरुवात</string>
     <string name="securitymanager_st_direction_lock">दिशा लक</string>
     <string name="securitymanager_st_tampered">सफ्टवेयर छेडछाड पत्ता लाग्यो</string>
-    <string name="wifi_notification_sns_exception_hun_detail">अर्को नेटवर्कमा जडान गर्नुहोस्।</string>
     <string name="permlab_mount_unmount_filesystems">SD कार्ड फाइल प्रणाली पहुँच गर्नुहोस्</string>
     <string name="permdesc_mount_unmount_filesystems">हटाउन सक्ने भण्डारणको लागि फाइल प्रणालीहरू माउन्ट गर्न र अनमाउन्ट गर्न अनुप्रयोगलाई अनुमति दिन्छ।</string>
     <string name="permlab_mount_format_filesystems">SD कार्ड स्वरूपन गर</string>

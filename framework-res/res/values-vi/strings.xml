@@ -1800,7 +1800,9 @@ không chạm"</string>
     <string name="verizon_sim_state_notification">Không thể kết nối với %s. Hãy gắn thẻ SIM rồi thử lại.</string>
     <string name="verizon_disconnect_notification">Cần có dịch vụ Verizon để truy cập vào Điểm truy cập Wi-Fi Verizon. Nếu bạn đã tháo thẻ SIM Verizon, vui lòng gắn lại và thử kết nối lại.</string>
     <string name="verizon_service_required_title">Cần có dịch vụ Verizon</string>
-    <string name="wifi_notification_sns_exception_title">Internet không sẵn dùng</string>
+    <string name="wifi_notification_sns_go_wifi_settings">Cài đặt</string>
+    <string name="wifi_notification_sns_exception_title">Internet có thể không có sẵn</string>
+    <string name="wifi_notification_sns_exception_hun_detail">Kết nối với mạng khác.</string>
     <string name="wifi_notification_sns_poor_network_title">Chuyển mạng thông minh</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">Tự động chuyển mạng</string>
     <string name="wifi_notification_sns_poor_network_detail">Đã ngắt kết nối khỏi %s.</string>
@@ -1982,7 +1984,6 @@ Bật chế độ Máy bay?"</string>
     <string name="popup_set_manually_button_vzw">Đặt thủ công</string>
     <string name="mcc_setting_toast_notification">Chọn múi giờ trước khi đặt thời gian.</string>
     <string name="sound_off_toast">Để thay đổi âm lượng, hãy bỏ tùy chọn Tắt tất cả âm thanh trong cài đặt Hỗ trợ.</string>
-    <string name="wifi_notification_sns_go_wifi_settings">Cài đặt</string>
     <string name="permlab_knoxCustomSetting">Quản lý cài đặt thiết bị</string>
     <string name="permdesc_knoxCustomSetting">Cấu hình các cài đặt thiết bị như Bluetooth, Vị trí, Wi-Fi, Dữ liệu di động và cài đặt Android.</string>
     <string name="permlab_knoxCustomSystem">Quản lý cài đặt hệ thống</string>
@@ -2254,7 +2255,6 @@ Bật chế độ Máy bay?"</string>
     <string name="securitymanager_st_encryption_device">Khởi động bảo mật</string>
     <string name="securitymanager_st_direction_lock">Khóa bằng hướng</string>
     <string name="securitymanager_st_tampered">Đã phát hiện hành động sửa đổi phần mềm</string>
-    <string name="wifi_notification_sns_exception_hun_detail">Kết nối với mạng khác.</string>
     <string name="permlab_mount_unmount_filesystems">truy cập hệ thống tệp Thẻ SD</string>
     <string name="permdesc_mount_unmount_filesystems">Cho phép ứng dụng gắn kết và ngắt hệ thống file của bộ nhớ rời.</string>
     <string name="permlab_mount_format_filesystems">xóa Thẻ SD</string>

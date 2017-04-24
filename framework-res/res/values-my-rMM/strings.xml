@@ -1794,7 +1794,9 @@ command"</string>
     <string name="verizon_sim_state_notification">Unable to connect to %s. Insert SIM card and try again.</string>
     <string name="verizon_disconnect_notification">Verizon service is required to access a Verizon Wi-Fi hotspot. If you have removed your Verizon SIM card, please reinsert it and try to connect again.</string>
     <string name="verizon_service_required_title">Verizon service required</string>
-    <string name="wifi_notification_sns_exception_title">အင်တာနက် မရနိုင်ပါ</string>
+    <string name="wifi_notification_sns_go_wifi_settings">သတ်မှတ်ချက်များ</string>
+    <string name="wifi_notification_sns_exception_title">အင်တာနက် အရန်သင့် ရချင်မှ ရလိမ့်မည်</string>
+    <string name="wifi_notification_sns_exception_hun_detail">အခြားကွန်ရက်နှင့် ချိတ်ဆက်ပါ။</string>
     <string name="wifi_notification_sns_poor_network_title">စမတ် ကွန်ယက် ခလုတ်</string>
     <string name="wifi_notification_sns_poor_network_title_old_name">အလိုလို ကွန်ယက် ပြောင်းခြင်း</string>
     <string name="wifi_notification_sns_poor_network_detail">%s မှ ချိတ်ဆက်မှု ပြတ်နေပါသည်။</string>
@@ -1976,7 +1978,6 @@ Turn on Airplane mode?"</string>
     <string name="popup_set_manually_button_vzw">Set manually</string>
     <string name="mcc_setting_toast_notification">အချိန်ကို သတ်မှတ်ချက်မလုပ်မီ အချိန်ဇုန် ရွေးပါ။</string>
     <string name="sound_off_toast">အသံနိမ့်မြင့်ကိုပြောင်းရန်၊ သုံးခွင့်ရနိုင်မှု သတ်မှတ်ချက်များရှိ “အသံများအားလုံးကိုပိတ်ပါ” ကိုပိတ်ထားပါ။</string>
-    <string name="wifi_notification_sns_go_wifi_settings">သတ်မှတ်ချက်များ</string>
     <string name="permlab_knoxCustomSetting">ကိရိယာ သတ်မှတ်ချက်များ စီမံပါ</string>
     <string name="permdesc_knoxCustomSetting">ဘလူးတုသ်၊ တည်နေရာ၊ Wi-Fi၊ မိုဘိုင်းဒေတာနှင့် အန်းဒရွိုက်သတ်မှတ်ချက်များကဲ့သို့ ကိရိယာသတ်မှတ်ချက်ကို သီးခြားစီစဉ်ပါ။</string>
     <string name="permlab_knoxCustomSystem">စနစ် သတ်မှတ်ချက်များ စီမံပါ</string>
@@ -2248,7 +2249,6 @@ Turn on Airplane mode?"</string>
     <string name="securitymanager_st_encryption_device">စိတ်ချရသည့် စတင်မှု</string>
     <string name="securitymanager_st_direction_lock">ဒါရိုက်ရှင် သော့</string>
     <string name="securitymanager_st_tampered">ဆော့ဖ်ဝဲ အနှောင့်အယှက် တွေ့ရှိထားပါသည်</string>
-    <string name="wifi_notification_sns_exception_hun_detail">အခြားကွန်ရက်နှင့် ချိတ်ဆက်ပါ။</string>
     <string name="permlab_mount_unmount_filesystems">SDကတ် ဖိုင် စနစ် အား အသုံးပြုခွင့်ပေးရန်</string>
     <string name="permdesc_mount_unmount_filesystems">လုပ်ငန်းသုံး ပရိုဂရမ်အား ဖယ်ပစ်နိုင်သည့်သိုလှောင်ခန်းအတွက် ဖိုင်နစ်များကို တင်ခွင့်ချခွင့်ပြုပါ။</string>
     <string name="permlab_mount_format_filesystems">SDကတ်အား ဖျက်ရန်</string>
