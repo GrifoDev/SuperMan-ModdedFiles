@@ -14103,7 +14103,7 @@
     :pswitch_2
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getChildCount()I
 
@@ -14113,7 +14113,7 @@
 
     move-result v6
 
-    if-le v4, v6, :cond_4
+    if-le v4, v6, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
@@ -14129,11 +14129,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-direct {p0, p1}, Lcom/android/launcher2/Workspace;->onWallpaperTap(Landroid/view/MotionEvent;)V
 
-    :cond_4
+    :cond_5
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
     goto :goto_1
@@ -14147,7 +14147,7 @@
 
     cmpl-float v4, v4, v6
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_7
 
     iput-boolean v3, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
@@ -14160,22 +14160,22 @@
 
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->snapToDestination()V
 
-    :cond_5
+    :cond_6
     iput v5, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
     iget-boolean v4, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v4
 
-    if-ne v4, v7, :cond_7
+    if-ne v4, v7, :cond_8
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
 
@@ -14187,7 +14187,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -14233,7 +14233,7 @@
 
     const/16 v4, 0x32
 
-    if-le v2, v4, :cond_7
+    if-le v2, v4, :cond_8
 
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
@@ -14249,12 +14249,12 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_7
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
     goto/16 :goto_1
@@ -14328,8 +14328,6 @@
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->cancelCurrentPageLongPress()V
 
     goto/16 :goto_1
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
