@@ -133,7 +133,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSBrightnessView;->mIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f130375
+    const v0, 0x7f130377
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSBrightnessView;->findViewById(I)Landroid/view/View;
 
