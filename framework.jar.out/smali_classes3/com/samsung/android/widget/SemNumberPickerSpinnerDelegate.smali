@@ -155,6 +155,8 @@
 
 .field private mMinimumFlingVelocity:I
 
+.field private mModifiedTxtHeight:I
+
 .field private mOnEditTextModeChangedListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
 
 .field private mOnScrollListener:Lcom/samsung/android/widget/SemNumberPicker$OnScrollListener;
@@ -1976,7 +1978,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mPickerContentDescription:Ljava/lang/String;
 
-    const v20, 0x10408da
+    const v20, 0x10408dc
 
     move-object/from16 v0, v18
 
@@ -2958,11 +2960,7 @@
 
     move-result v2
 
-    iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mInputText:Landroid/widget/EditText;
-
-    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
-
-    move-result v3
+    iget v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mModifiedTxtHeight:I
 
     div-int/lit8 v3, v3, 0x2
 
@@ -3014,11 +3012,7 @@
 
     move-result v3
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mInputText:Landroid/widget/EditText;
-
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
-
-    move-result v4
+    iget v4, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mModifiedTxtHeight:I
 
     div-int/lit8 v4, v4, 0x2
 
@@ -6812,7 +6806,7 @@
 .end method
 
 .method public onLayout(ZIIII)V
-    .locals 10
+    .locals 12
 
     iget-object v8, p0, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -6832,19 +6826,31 @@
 
     move-result v3
 
-    int-to-float v8, v6
+    iget-object v8, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mInputText:Landroid/widget/EditText;
 
-    iget v9, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mHeightRatio:F
+    invoke-virtual {v8}, Landroid/view/View;->getMeasuredHeight()I
 
-    mul-float/2addr v8, v9
+    move-result v8
 
-    float-to-double v8, v8
+    int-to-float v9, v6
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->floor(D)D
+    iget v10, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mHeightRatio:F
 
-    move-result-wide v8
+    mul-float/2addr v9, v10
 
-    double-to-int v2, v8
+    float-to-double v10, v9
+
+    invoke-static {v10, v11}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v10
+
+    double-to-int v9, v10
+
+    invoke-static {v8, v9}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mModifiedTxtHeight:I
 
     sub-int v8, v7, v3
 

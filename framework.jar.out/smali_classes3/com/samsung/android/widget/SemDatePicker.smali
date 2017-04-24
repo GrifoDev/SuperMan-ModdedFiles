@@ -146,6 +146,8 @@
 
 .field private mIsEnabled:Z
 
+.field private mIsFarsiLanguage:Z
+
 .field private mIsFirstMeasure:Z
 
 .field private mIsFromSetLunar:Z
@@ -159,6 +161,8 @@
 .field private mIsLunarSupported:Z
 
 .field private mIsRTL:Z
+
+.field private mIsSimplifiedChinese:Z
 
 .field private mLongPressUpdateInterval:J
 
@@ -747,22 +751,6 @@
 
     iput-boolean v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mIsConfigurationChanged:Z
 
-    new-instance v18, Ljava/text/SimpleDateFormat;
-
-    const-string/jumbo v19, "EEE"
-
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v20
-
-    invoke-direct/range {v18 .. v20}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mDayFormatter:Ljava/text/SimpleDateFormat;
-
     new-instance v18, Lcom/samsung/android/widget/SemDatePicker$1;
 
     move-object/from16 v0, v18
@@ -899,6 +887,51 @@
 
     iput-boolean v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mIsRTL:Z
 
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->isFarsiLanguage()Z
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mIsFarsiLanguage:Z
+
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePicker;->isSimplifiedChinese()Z
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mIsSimplifiedChinese:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/samsung/android/widget/SemDatePicker;->mIsSimplifiedChinese:Z
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_1
+
+    new-instance v18, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v19, "EEEEE"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v20
+
+    invoke-direct/range {v18 .. v20}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mDayFormatter:Ljava/text/SimpleDateFormat;
+
+    :goto_0
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v12
@@ -1618,7 +1651,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_1
+    if-eqz v18, :cond_2
 
     const v18, 0x102049f
 
@@ -1668,7 +1701,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x10408d1
+    const v20, 0x10408d3
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1688,7 +1721,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x10408d2
+    const v20, 0x10408d4
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1696,7 +1729,7 @@
 
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemDatePicker;->mPrevButton:Landroid/widget/ImageButton;
@@ -2280,6 +2313,25 @@
     return-void
 
     :cond_1
+    new-instance v18, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v19, "EEE"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v20
+
+    invoke-direct/range {v18 .. v20}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mDayFormatter:Ljava/text/SimpleDateFormat;
+
+    goto/16 :goto_0
+
+    :cond_2
     const v18, 0x102049d
 
     move-object/from16 v0, p0
@@ -2316,7 +2368,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/widget/SemDatePicker;->mNextButton:Landroid/widget/ImageButton;
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method private checkMaxFontSize()V
@@ -2865,13 +2917,38 @@
 .end method
 
 .method private getMonthAndYearString(Ljava/util/Calendar;)Ljava/lang/String;
-    .locals 9
+    .locals 10
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    iget-boolean v0, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsFarsiLanguage:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v8, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v0, "LLLL y"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v4
+
+    invoke-direct {v8, v0, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    invoke-virtual {p1}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
+
+    move-result-object v0
+
+    invoke-virtual {v8, v0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    new-instance v9, Ljava/lang/StringBuilder;
 
     const/16 v0, 0x32
 
-    invoke-direct {v8, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v9, v0}, Ljava/lang/StringBuilder;-><init>(I)V
 
     new-instance v1, Ljava/util/Formatter;
 
@@ -2879,13 +2956,13 @@
 
     move-result-object v0
 
-    invoke-direct {v1, v8, v0}, Ljava/util/Formatter;-><init>(Ljava/lang/Appendable;Ljava/util/Locale;)V
+    invoke-direct {v1, v9, v0}, Ljava/util/Formatter;-><init>(Ljava/lang/Appendable;Ljava/util/Locale;)V
 
     const/16 v6, 0x24
 
     const/4 v0, 0x0
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->setLength(I)V
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->setLength(I)V
 
     invoke-virtual {p1}, Ljava/util/Calendar;->getTimeInMillis()J
 
@@ -3156,6 +3233,26 @@
     goto :goto_0
 .end method
 
+.method private isFarsiLanguage()Z
+    .locals 2
+
+    const-string/jumbo v0, "fa"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private isRTL()Z
     .locals 6
 
@@ -3206,6 +3303,56 @@
 
     :cond_2
     move v2, v3
+
+    goto :goto_0
+.end method
+
+.method private isSimplifiedChinese()Z
+    .locals 2
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->SIMPLIFIED_CHINESE:Ljava/util/Locale;
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -4596,9 +4743,25 @@
 
     iput-boolean v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsRTL:Z
 
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePicker;->isFarsiLanguage()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsFarsiLanguage:Z
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePicker;->isSimplifiedChinese()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsSimplifiedChinese:Z
+
+    iget-boolean v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mIsSimplifiedChinese:Z
+
+    if-eqz v2, :cond_1
+
     new-instance v2, Ljava/text/SimpleDateFormat;
 
-    const-string/jumbo v3, "EEE"
+    const-string/jumbo v3, "EEEEE"
 
     iget-object v4, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
@@ -4606,6 +4769,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mDayFormatter:Ljava/text/SimpleDateFormat;
 
+    :goto_0
     iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -4774,6 +4938,19 @@
     invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePicker;->checkMaxFontSize()V
 
     return-void
+
+    :cond_1
+    new-instance v2, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v3, "EEE"
+
+    iget-object v4, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-direct {v2, v3, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    iput-object v2, p0, Lcom/samsung/android/widget/SemDatePicker;->mDayFormatter:Ljava/text/SimpleDateFormat;
+
+    goto/16 :goto_0
 .end method
 
 .method public onDayClick(Lcom/samsung/android/widget/SemSimpleMonthView;Ljava/util/Calendar;)V

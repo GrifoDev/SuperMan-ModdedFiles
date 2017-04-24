@@ -8,6 +8,8 @@
 
 .field public static final ALL_SOUND_MUTE:Ljava/lang/String; = "all_sound_mute"
 
+.field public static final ENABLE_FLOATING_BUTTON:Ljava/lang/String; = "enable_floating_button"
+
 .field public static final GET_APP_VOLUME_LIST:Ljava/lang/String; = "get_app_volume_list"
 
 .field public static final MODE_ADJUST_MEDIA_VOLUME_ONLY:I = 0x1

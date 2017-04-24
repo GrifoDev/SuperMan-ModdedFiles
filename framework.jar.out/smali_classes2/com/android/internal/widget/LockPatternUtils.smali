@@ -8422,6 +8422,17 @@
 
     invoke-direct {p0}, Lcom/android/internal/widget/LockPatternUtils;->throwIfCalledOnMainThread()V
 
+    if-nez p1, :cond_0
+
+    const-string/jumbo v2, "LockPatternUtils"
+
+    const-string/jumbo v3, "verifyPattern - pattern is null"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v4
+
+    :cond_0
     :try_start_0
     invoke-direct {p0}, Lcom/android/internal/widget/LockPatternUtils;->getLockSettings()Lcom/android/internal/widget/ILockSettings;
 
@@ -8435,16 +8446,16 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     return-object v4
 
-    :cond_0
+    :cond_1
     invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->getResponseCode()I
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->getPayload()[B
 
@@ -8452,14 +8463,14 @@
 
     return-object v2
 
-    :cond_1
+    :cond_2
     invoke-virtual {v1}, Lcom/android/internal/widget/VerifyCredentialResponse;->getResponseCode()I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_3
 
     new-instance v2, Lcom/android/internal/widget/LockPatternUtils$RequestThrottledException;
 
@@ -8478,7 +8489,7 @@
 
     return-object v4
 
-    :cond_2
+    :cond_3
     return-object v4
 .end method
 

@@ -110,7 +110,7 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v0}, Landroid/widget/TextView;->-wrap9(Landroid/widget/TextView;)Z
+    invoke-static {v0}, Landroid/widget/TextView;->-wrap8(Landroid/widget/TextView;)Z
 
     move-result v0
 
@@ -126,7 +126,7 @@
     :cond_2
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/TextView;->-wrap12(Landroid/widget/TextView;Ljava/lang/CharSequence;III)V
+    invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/TextView;->-wrap11(Landroid/widget/TextView;Ljava/lang/CharSequence;III)V
 
     return-void
 .end method

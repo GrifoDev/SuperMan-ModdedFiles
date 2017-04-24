@@ -735,7 +735,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x58
+    const/16 v4, 0x59
 
     const/4 v5, 0x0
 
@@ -1484,7 +1484,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6b
+    const/16 v4, 0x6c
 
     const/4 v5, 0x0
 
@@ -1596,7 +1596,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x72
+    const/16 v4, 0x73
 
     const/4 v5, 0x0
 
@@ -2139,7 +2139,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x64
+    const/16 v4, 0x65
 
     const/4 v5, 0x0
 
@@ -2446,7 +2446,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x60
+    const/16 v4, 0x61
 
     const/4 v5, 0x0
 
@@ -2509,7 +2509,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x70
+    const/16 v4, 0x71
 
     const/4 v5, 0x0
 
@@ -2572,7 +2572,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x65
+    const/16 v4, 0x66
 
     const/4 v5, 0x0
 
@@ -2715,7 +2715,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x68
+    const/16 v4, 0x69
 
     const/4 v5, 0x0
 
@@ -2784,7 +2784,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x55
+    const/16 v4, 0x56
 
     const/4 v5, 0x0
 
@@ -2918,7 +2918,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6d
+    const/16 v4, 0x6e
 
     const/4 v5, 0x0
 
@@ -2971,7 +2971,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x62
+    const/16 v4, 0x63
 
     const/4 v5, 0x0
 
@@ -3024,7 +3024,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5c
+    const/16 v4, 0x5d
 
     const/4 v5, 0x0
 
@@ -3077,7 +3077,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5e
+    const/16 v4, 0x5f
 
     const/4 v5, 0x0
 
@@ -3130,7 +3130,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5a
+    const/16 v4, 0x5b
 
     const/4 v5, 0x0
 
@@ -3183,7 +3183,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6e
+    const/16 v4, 0x6f
 
     const/4 v5, 0x0
 
@@ -3360,7 +3360,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4b
+    const/16 v4, 0x4c
 
     const/4 v5, 0x0
 
@@ -3431,7 +3431,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4c
+    const/16 v4, 0x4d
 
     const/4 v5, 0x0
 
@@ -3606,7 +3606,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4e
+    const/16 v4, 0x4f
 
     const/4 v5, 0x0
 
@@ -3781,7 +3781,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4d
+    const/16 v4, 0x4e
 
     const/4 v5, 0x0
 
@@ -3834,7 +3834,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x52
+    const/16 v4, 0x53
 
     const/4 v5, 0x0
 
@@ -3940,7 +3940,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x69
+    const/16 v4, 0x6a
 
     const/4 v5, 0x0
 
@@ -4062,7 +4062,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x77
+    const/16 v4, 0x78
 
     const/4 v5, 0x0
 
@@ -4235,7 +4235,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x76
+    const/16 v4, 0x77
 
     const/4 v5, 0x0
 
@@ -4300,7 +4300,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x73
+    const/16 v4, 0x74
 
     const/4 v5, 0x0
 
@@ -4426,7 +4426,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x71
+    const/16 v4, 0x72
 
     const/4 v5, 0x0
 
@@ -4552,7 +4552,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x74
+    const/16 v4, 0x75
 
     const/4 v5, 0x0
 
@@ -4615,7 +4615,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x75
+    const/16 v4, 0x76
 
     const/4 v5, 0x0
 
@@ -4804,7 +4804,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6a
+    const/16 v4, 0x6b
 
     const/4 v5, 0x0
 
@@ -5385,7 +5385,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x56
+    const/16 v4, 0x57
 
     const/4 v5, 0x0
 
@@ -5702,7 +5702,7 @@
     :goto_0
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x57
+    const/16 v4, 0x58
 
     const/4 v5, 0x0
 
@@ -5731,6 +5731,73 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public semGetConfiguredNetworks(I)Ljava/util/List;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/WifiConfiguration;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.net.wifi.IWifiManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x4b
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    sget-object v3, Landroid/net/wifi/WifiConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
 
     :catchall_0
     move-exception v3
@@ -5878,7 +5945,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x63
+    const/16 v4, 0x64
 
     const/4 v5, 0x0
 
@@ -6075,7 +6142,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5f
+    const/16 v4, 0x60
 
     const/4 v5, 0x0
 
@@ -6147,7 +6214,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x66
+    const/16 v4, 0x67
 
     const/4 v5, 0x0
 
@@ -6219,7 +6286,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6c
+    const/16 v4, 0x6d
 
     const/4 v5, 0x0
 
@@ -6284,7 +6351,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x61
+    const/16 v4, 0x62
 
     const/4 v5, 0x0
 
@@ -6349,7 +6416,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5b
+    const/16 v4, 0x5c
 
     const/4 v5, 0x0
 
@@ -6414,7 +6481,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5d
+    const/16 v4, 0x5e
 
     const/4 v5, 0x0
 
@@ -6479,7 +6546,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x59
+    const/16 v4, 0x5a
 
     const/4 v5, 0x0
 
@@ -6544,7 +6611,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6f
+    const/16 v4, 0x70
 
     const/4 v5, 0x0
 
@@ -6609,7 +6676,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4f
+    const/16 v3, 0x50
 
     const/4 v4, 0x0
 
@@ -6728,7 +6795,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x50
+    const/16 v3, 0x51
 
     const/4 v4, 0x0
 
@@ -6863,7 +6930,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x51
+    const/16 v3, 0x52
 
     const/4 v4, 0x0
 
@@ -6993,7 +7060,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x67
+    const/16 v4, 0x68
 
     const/4 v5, 0x0
 
@@ -7067,7 +7134,7 @@
     :goto_0
     iget-object v2, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x53
+    const/16 v3, 0x54
 
     const/4 v4, 0x0
 
@@ -7268,7 +7335,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/IWifiManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x54
+    const/16 v3, 0x55
 
     const/4 v4, 0x0
 

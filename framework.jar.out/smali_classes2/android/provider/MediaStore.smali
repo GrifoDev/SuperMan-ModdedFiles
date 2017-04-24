@@ -29,6 +29,8 @@
 
 .field public static final BACKUP_ALL:Ljava/lang/String; = "backup_all"
 
+.field public static final CHANGE_AUDIO_DATE_MODIFIED:Ljava/lang/String; = "change_audio_date_modified"
+
 .field public static final CHANGE_STORAGE_ID:Ljava/lang/String; = "change_storageid"
 
 .field private static final CONTENT_AUTHORITY_SLASH:Ljava/lang/String; = "content://media/"

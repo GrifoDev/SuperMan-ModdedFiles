@@ -79,19 +79,19 @@
 
 .field public static final SC_BA_MT:I = 0x1040750
 
-.field public static final SS_BLUETOOTH_TETHERING_ENABLED_M_NOUN:I = 0x104087e
+.field public static final SS_BLUETOOTH_TETHERING_ENABLED_M_NOUN:I = 0x1040880
 
-.field public static final SS_MOBILE_HOTSPOT_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x1040880
+.field public static final SS_MOBILE_HOTSPOT_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x1040882
 
-.field public static final SS_MOBILE_HOTSPOT_USB_TETHERING_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x1040881
+.field public static final SS_MOBILE_HOTSPOT_USB_TETHERING_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x1040883
 
-.field public static final SS_TETHERING_ENABLED_HWI_FI_AND_USB:I = 0x1040882
+.field public static final SS_TETHERING_ENABLED_HWI_FI_AND_USB:I = 0x1040884
 
-.field public static final SS_USB_TETHERING_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x104087f
+.field public static final SS_USB_TETHERING_AND_BLUETOOTH_TETHERING_ENABLED_M_NOUN_ABB:I = 0x1040881
 
-.field public static final SS_USB_TETHERING_ENABLED:I = 0x104087c
+.field public static final SS_USB_TETHERING_ENABLED:I = 0x104087e
 
-.field public static final SS_WI_FI_TETHERING_ENABLED:I = 0x104087d
+.field public static final SS_WI_FI_TETHERING_ENABLED:I = 0x104087f
 
 .field public static final SetupCallDefault:I = 0x10404f9
 
@@ -171,9 +171,9 @@
 
 .field public static final accessibility_enabled:I = 0x1040538
 
-.field public static final account_addition_restrict:I = 0x10409ba
+.field public static final account_addition_restrict:I = 0x10409bb
 
-.field public static final account_removal_restrict:I = 0x10409b9
+.field public static final account_removal_restrict:I = 0x10409ba
 
 .field public static final action_bar_home_description:I = 0x10404cc
 
@@ -199,11 +199,11 @@
 
 .field public static final add_account_button_label:I = 0x10404aa
 
-.field public static final add_contact_to_sim_restriction:I = 0x10409f7
+.field public static final add_contact_to_sim_restriction:I = 0x10409f8
 
-.field public static final admin_device_poweroff:I = 0x1040a0a
+.field public static final admin_device_poweroff:I = 0x1040a0b
 
-.field public static final admin_device_restart:I = 0x1040a09
+.field public static final admin_device_restart:I = 0x1040a0a
 
 .field public static final aerr_application:I = 0x104039b
 
@@ -237,9 +237,9 @@
 
 .field public static final airbutton_overlay_help_text_message:I = 0x104068f
 
-.field public static final airplanemode_restrict:I = 0x10409bf
+.field public static final airplanemode_restrict:I = 0x10409c0
 
-.field public static final allow_settings_changes:I = 0x10409c3
+.field public static final allow_settings_changes:I = 0x10409c4
 
 .field public static final alternate_eri_file:I = 0x1040482
 
@@ -275,19 +275,19 @@
 
 .field public static final anr_title:I = 0x10403a6
 
-.field public static final app_install_restrict:I = 0x10409c0
+.field public static final app_install_restrict:I = 0x10409c1
 
 .field public static final app_running_notification_text:I = 0x104037c
 
 .field public static final app_running_notification_title:I = 0x104037b
 
-.field public static final application_default_restrict:I = 0x1040a0c
+.field public static final application_default_restrict:I = 0x1040a0d
 
 .field public static final audit_safemode_notification:I = 0x1040600
 
 .field public static final audit_safemode_notification_details:I = 0x1040601
 
-.field public static final authentication_failed_tce:I = 0x1040825
+.field public static final authentication_failed_tce:I = 0x1040827
 
 .field public static final autofill_address_line_1_label_re:I = 0x1040305
 
@@ -405,7 +405,7 @@
 
 .field public static final autofill_zip_code_re:I = 0x1040309
 
-.field public static final backup_restrict:I = 0x10409f4
+.field public static final backup_restrict:I = 0x10409f5
 
 .field public static final badPin:I = 0x10400b1
 
@@ -433,95 +433,95 @@
 
 .field public static final bluetooth_a2dp_audio_route_name:I = 0x1040502
 
-.field public static final bluetooth_a2dp_restrict:I = 0x10409dd
+.field public static final bluetooth_a2dp_restrict:I = 0x10409de
 
-.field public static final bluetooth_avrcp_restrict:I = 0x10409e0
+.field public static final bluetooth_avrcp_restrict:I = 0x10409e1
 
-.field public static final bluetooth_bpp_restrict:I = 0x10409e5
+.field public static final bluetooth_bpp_restrict:I = 0x10409e6
 
-.field public static final bluetooth_china_popup_message:I = 0x104081b
+.field public static final bluetooth_china_popup_message:I = 0x104081d
 
-.field public static final bluetooth_china_popup_title:I = 0x104081c
+.field public static final bluetooth_china_popup_title:I = 0x104081e
 
-.field public static final bluetooth_data_transfer_restrict:I = 0x10409ea
+.field public static final bluetooth_data_transfer_restrict:I = 0x10409eb
 
-.field public static final bluetooth_desktop_restrict:I = 0x10409e6
+.field public static final bluetooth_desktop_restrict:I = 0x10409e7
 
-.field public static final bluetooth_device_restrict:I = 0x10409e8
+.field public static final bluetooth_device_restrict:I = 0x10409e9
 
-.field public static final bluetooth_dun_restrict:I = 0x10409e1
+.field public static final bluetooth_dun_restrict:I = 0x10409e2
 
-.field public static final bluetooth_ftp_restrict:I = 0x10409e2
+.field public static final bluetooth_ftp_restrict:I = 0x10409e3
 
-.field public static final bluetooth_hfp_restrict:I = 0x10409df
+.field public static final bluetooth_hfp_restrict:I = 0x10409e0
 
-.field public static final bluetooth_hsp_restrict:I = 0x10409de
+.field public static final bluetooth_hsp_restrict:I = 0x10409df
 
-.field public static final bluetooth_outgoing_call_restrict:I = 0x10409e9
+.field public static final bluetooth_outgoing_call_restrict:I = 0x10409ea
 
-.field public static final bluetooth_pairing_restrict:I = 0x10409e7
+.field public static final bluetooth_pairing_restrict:I = 0x10409e8
 
-.field public static final bluetooth_pbap_restrict:I = 0x10409dc
+.field public static final bluetooth_pbap_restrict:I = 0x10409dd
 
-.field public static final bluetooth_permission_request:I = 0x1040819
+.field public static final bluetooth_permission_request:I = 0x104081b
 
-.field public static final bluetooth_restrict:I = 0x10409db
+.field public static final bluetooth_restrict:I = 0x10409dc
 
-.field public static final bluetooth_sap_restrict:I = 0x10409e4
+.field public static final bluetooth_sap_restrict:I = 0x10409e5
 
 .field public static final bluetooth_security_mode_disable:I = 0x10406b8
 
 .field public static final bluetooth_security_mode_handsfree:I = 0x10406b9
 
-.field public static final bluetooth_spp_restrict:I = 0x10409e3
+.field public static final bluetooth_spp_restrict:I = 0x10409e4
 
-.field public static final booster_message_download_mobile_only:I = 0x1040841
+.field public static final booster_message_download_mobile_only:I = 0x1040843
 
-.field public static final booster_message_download_wifi_only:I = 0x1040840
+.field public static final booster_message_download_wifi_only:I = 0x1040842
 
-.field public static final booster_message_enable:I = 0x1040836
+.field public static final booster_message_enable:I = 0x1040838
 
-.field public static final booster_message_low_mobile_speed:I = 0x104083f
+.field public static final booster_message_low_mobile_speed:I = 0x1040841
 
-.field public static final booster_message_low_wifi_speed:I = 0x104083e
+.field public static final booster_message_low_wifi_speed:I = 0x1040840
 
-.field public static final booster_message_server_error:I = 0x1040838
+.field public static final booster_message_server_error:I = 0x104083a
 
-.field public static final booster_message_server_error_download_mobile:I = 0x1040839
+.field public static final booster_message_server_error_download_mobile:I = 0x104083b
 
-.field public static final booster_message_siop_error:I = 0x104083c
+.field public static final booster_message_siop_error:I = 0x104083e
 
-.field public static final booster_message_siop_error_download_mobile:I = 0x104083d
+.field public static final booster_message_siop_error_download_mobile:I = 0x104083f
 
-.field public static final booster_message_turn_on_mobile:I = 0x104083b
+.field public static final booster_message_turn_on_mobile:I = 0x104083d
 
-.field public static final booster_message_turn_on_wifi:I = 0x104083a
+.field public static final booster_message_turn_on_wifi:I = 0x104083c
 
-.field public static final booster_message_working:I = 0x1040837
+.field public static final booster_message_working:I = 0x1040839
 
-.field public static final booster_name:I = 0x1040834
+.field public static final booster_name:I = 0x1040836
 
-.field public static final booster_name_capital:I = 0x1040835
+.field public static final booster_name_capital:I = 0x1040837
 
-.field public static final booster_notification_booster_speed:I = 0x1040843
+.field public static final booster_notification_booster_speed:I = 0x1040845
 
-.field public static final booster_notification_lte:I = 0x1040845
+.field public static final booster_notification_lte:I = 0x1040847
 
-.field public static final booster_notification_mbps:I = 0x1040847
+.field public static final booster_notification_mbps:I = 0x1040849
 
-.field public static final booster_notification_num_mbps:I = 0x1040848
+.field public static final booster_notification_num_mbps:I = 0x104084a
 
-.field public static final booster_notification_second:I = 0x1040849
+.field public static final booster_notification_second:I = 0x104084b
 
-.field public static final booster_notification_timeleft:I = 0x104084a
+.field public static final booster_notification_timeleft:I = 0x104084c
 
-.field public static final booster_notification_title:I = 0x1040842
+.field public static final booster_notification_title:I = 0x1040844
 
-.field public static final booster_notification_umts:I = 0x1040846
+.field public static final booster_notification_umts:I = 0x1040848
 
-.field public static final booster_notification_wifi:I = 0x1040844
+.field public static final booster_notification_wifi:I = 0x1040846
 
-.field public static final browser_module:I = 0x10409c7
+.field public static final browser_module:I = 0x10409c8
 
 .field public static final bugreport_message:I = 0x1040139
 
@@ -547,7 +547,7 @@
 
 .field public static final callsettings_callwaiting_notsubscribed:I = 0x104077a
 
-.field public static final camera_restrict:I = 0x10409ef
+.field public static final camera_restrict:I = 0x10409f0
 
 .field public static final cancel:I = 0x1040000
 
@@ -593,37 +593,37 @@
 
 .field public static final carrier_app_notification_title:I = 0x1040412
 
-.field public static final cert_fail_reason:I = 0x10409cc
+.field public static final cert_fail_reason:I = 0x10409cd
 
-.field public static final cert_fail_reason_alg_non_fips_approved:I = 0x10409d6
+.field public static final cert_fail_reason_alg_non_fips_approved:I = 0x10409d7
 
-.field public static final cert_fail_reason_altsuject_mismatch:I = 0x10409d3
+.field public static final cert_fail_reason_altsuject_mismatch:I = 0x10409d4
 
-.field public static final cert_fail_reason_bad_certificate:I = 0x10409d4
+.field public static final cert_fail_reason_bad_certificate:I = 0x10409d5
 
-.field public static final cert_fail_reason_expired:I = 0x10409d1
+.field public static final cert_fail_reason_expired:I = 0x10409d2
 
-.field public static final cert_fail_reason_install_parse_failed_certificate_encoding:I = 0x10409d9
+.field public static final cert_fail_reason_install_parse_failed_certificate_encoding:I = 0x10409da
 
-.field public static final cert_fail_reason_install_parse_failed_inconsistent_certificates:I = 0x10409d8
+.field public static final cert_fail_reason_install_parse_failed_inconsistent_certificates:I = 0x10409d9
 
-.field public static final cert_fail_reason_install_parse_failed_no_certificates:I = 0x10409d7
+.field public static final cert_fail_reason_install_parse_failed_no_certificates:I = 0x10409d8
 
-.field public static final cert_fail_reason_not_yet_valid:I = 0x10409d0
+.field public static final cert_fail_reason_not_yet_valid:I = 0x10409d1
 
-.field public static final cert_fail_reason_revoked:I = 0x10409cf
+.field public static final cert_fail_reason_revoked:I = 0x10409d0
 
-.field public static final cert_fail_reason_server_chain_probe:I = 0x10409d5
+.field public static final cert_fail_reason_server_chain_probe:I = 0x10409d6
 
-.field public static final cert_fail_reason_subject_mismatch:I = 0x10409d2
+.field public static final cert_fail_reason_subject_mismatch:I = 0x10409d3
 
-.field public static final cert_fail_reason_unable_check_revocation:I = 0x10409da
+.field public static final cert_fail_reason_unable_check_revocation:I = 0x10409db
 
-.field public static final cert_fail_reason_unspecified:I = 0x10409cd
+.field public static final cert_fail_reason_unspecified:I = 0x10409ce
 
-.field public static final cert_fail_reason_untrusted:I = 0x10409ce
+.field public static final cert_fail_reason_untrusted:I = 0x10409cf
 
-.field public static final certificate_untrusted:I = 0x10409c4
+.field public static final certificate_untrusted:I = 0x10409c5
 
 .field public static final cfTemplateForwarded:I = 0x10400f8
 
@@ -681,15 +681,15 @@
 
 .field public static final clearDefaultHintMsg:I = 0x1040397
 
-.field public static final clearDefaultHintMsgNotSupportEasymode:I = 0x104081e
+.field public static final clearDefaultHintMsgNotSupportEasymode:I = 0x1040820
 
-.field public static final clearDefaultHintMsgUI2013:I = 0x10408c0
+.field public static final clearDefaultHintMsgUI2013:I = 0x10408c2
 
-.field public static final clearDefaultHintMsg_knox:I = 0x1040822
+.field public static final clearDefaultHintMsg_knox:I = 0x1040824
 
-.field public static final clearcache_application_restrict:I = 0x10409b0
+.field public static final clearcache_application_restrict:I = 0x10409b1
 
-.field public static final cleardata_application_restrict:I = 0x10409af
+.field public static final cleardata_application_restrict:I = 0x10409b0
 
 .field public static final clipboard_copied_to_clipboard:I = 0x104060f
 
@@ -699,7 +699,7 @@
 
 .field public static final clipboard_restrict:I = 0x1040612
 
-.field public static final close:I = 0x10408bf
+.field public static final close:I = 0x10408c1
 
 .field public static final cmcc_operator_name:I = 0x104078e
 
@@ -763,13 +763,13 @@
 
 .field public static final config_fusedLocationProviderPackageNameForUlp:I = 0x1040047
 
-.field public static final config_fusedLocationProviderPackageName_nsflp:I = 0x1040a36
+.field public static final config_fusedLocationProviderPackageName_nsflp:I = 0x1040a37
 
 .field public static final config_geocoderProviderPackageName:I = 0x1040043
 
-.field public static final config_geocoderProviderPackageName_autonavi:I = 0x1040a35
+.field public static final config_geocoderProviderPackageName_autonavi:I = 0x1040a36
 
-.field public static final config_geocoderProviderPackageName_baidu:I = 0x1040a34
+.field public static final config_geocoderProviderPackageName_baidu:I = 0x1040a35
 
 .field public static final config_geofenceProviderPackageName:I = 0x1040044
 
@@ -789,13 +789,13 @@
 
 .field public static final config_networkLocationProviderPackageName:I = 0x1040040
 
-.field public static final config_networkLocationProviderPackageName_autonavi:I = 0x1040a33
+.field public static final config_networkLocationProviderPackageName_autonavi:I = 0x1040a34
 
-.field public static final config_networkLocationProviderPackageName_baidu:I = 0x1040a32
+.field public static final config_networkLocationProviderPackageName_baidu:I = 0x1040a33
 
-.field public static final config_networkLocationProviderPackageName_gms:I = 0x1040a37
+.field public static final config_networkLocationProviderPackageName_gms:I = 0x1040a38
 
-.field public static final config_networkLocationProviderPackageName_nlphub:I = 0x1040a31
+.field public static final config_networkLocationProviderPackageName_nlphub:I = 0x1040a32
 
 .field public static final config_ntpServer:I = 0x1040056
 
@@ -843,7 +843,7 @@
 
 .field public static final connect:I = 0x1040644
 
-.field public static final constrained_status_bar_device_locked:I = 0x1040a0d
+.field public static final constrained_status_bar_device_locked:I = 0x1040a0e
 
 .field public static final contentServiceSync:I = 0x104010d
 
@@ -875,7 +875,7 @@
 
 .field public static final cut:I = 0x1040003
 
-.field public static final data_call_restriction:I = 0x10409ed
+.field public static final data_call_restriction:I = 0x10409ee
 
 .field public static final data_saver_description:I = 0x10405c3
 
@@ -985,7 +985,7 @@
 
 .field public static final description_target_unlock_tablet:I = 0x10404c9
 
-.field public static final device_disabled:I = 0x10409c2
+.field public static final device_disabled:I = 0x10409c3
 
 .field public static final dial_number_using:I = 0x104046e
 
@@ -993,23 +993,23 @@
 
 .field public static final dictionary:I = 0x10407df
 
-.field public static final digital_signature_failure_user_notification:I = 0x10409c5
+.field public static final digital_signature_failure_user_notification:I = 0x10409c6
 
-.field public static final direction_view_description_text:I = 0x1040877
+.field public static final direction_view_description_text:I = 0x1040879
 
-.field public static final direction_view_diagonal_msg:I = 0x1040876
+.field public static final direction_view_diagonal_msg:I = 0x1040878
 
-.field public static final direction_view_down:I = 0x1040875
+.field public static final direction_view_down:I = 0x1040877
 
-.field public static final direction_view_left:I = 0x1040874
+.field public static final direction_view_left:I = 0x1040876
 
-.field public static final direction_view_right:I = 0x1040873
+.field public static final direction_view_right:I = 0x1040875
 
-.field public static final direction_view_up:I = 0x1040872
+.field public static final direction_view_up:I = 0x1040874
 
 .field public static final disable:I = 0x104062a
 
-.field public static final disableupdate_application_restrict:I = 0x10409c1
+.field public static final disableupdate_application_restrict:I = 0x10409c2
 
 .field public static final display_manager_built_in_display_name:I = 0x104050f
 
@@ -1043,23 +1043,23 @@
 
 .field public static final double_tap_toast:I = 0x10402fa
 
-.field public static final dpm_wifi_blocked_network:I = 0x1040908
+.field public static final dpm_wifi_blocked_network:I = 0x1040909
 
-.field public static final dpm_wifi_misc_network_insecure:I = 0x104090a
+.field public static final dpm_wifi_misc_network_insecure:I = 0x104090b
 
-.field public static final dpm_wifi_misc_wifi_disabled:I = 0x1040909
+.field public static final dpm_wifi_misc_wifi_disabled:I = 0x104090a
 
-.field public static final dpm_wifi_user_profiles_denied:I = 0x104090b
+.field public static final dpm_wifi_user_profiles_denied:I = 0x104090c
 
-.field public static final dragndroplist_description:I = 0x10408de
+.field public static final dragndroplist_description:I = 0x10408e0
 
-.field public static final dragndroplist_description_exp_by_touch:I = 0x10408dd
+.field public static final dragndroplist_description_exp_by_touch:I = 0x10408df
 
-.field public static final dragndroplist_drag_release:I = 0x10408df
+.field public static final dragndroplist_drag_release:I = 0x10408e1
 
-.field public static final dragndroplist_drag_start:I = 0x10408e1
+.field public static final dragndroplist_drag_start:I = 0x10408e3
 
-.field public static final dragndroplist_item_cannot_be_dragged:I = 0x10408e0
+.field public static final dragndroplist_item_cannot_be_dragged:I = 0x10408e2
 
 .field public static final dump_heap_notification:I = 0x10403ca
 
@@ -1093,9 +1093,9 @@
 
 .field public static final durationSeconds:I = 0x10400a6
 
-.field public static final easy_mode_string_for_mobile_keyboard:I = 0x1040888
+.field public static final easy_mode_string_for_mobile_keyboard:I = 0x104088a
 
-.field public static final edit_contact_at_sim_restriction:I = 0x10409f8
+.field public static final edit_contact_at_sim_restriction:I = 0x10409f9
 
 .field public static final elapsed_time_short_format_h_mm_ss:I = 0x104036d
 
@@ -1115,9 +1115,9 @@
 
 .field public static final emergency_calls_only:I = 0x10402b1
 
-.field public static final emergency_mode_noti_detail:I = 0x10408ad
+.field public static final emergency_mode_noti_detail:I = 0x10408af
 
-.field public static final emergency_mode_noti_title:I = 0x10408ac
+.field public static final emergency_mode_noti_title:I = 0x10408ae
 
 .field public static final emptyPhoneNumber:I = 0x1040006
 
@@ -1131,7 +1131,7 @@
 
 .field public static final enable_explore_by_touch_warning_title:I = 0x1040351
 
-.field public static final enabling_shared_devices:I = 0x104088d
+.field public static final enabling_shared_devices:I = 0x104088f
 
 .field public static final enterpriseBilling_notification_disabled:I = 0x10406f2
 
@@ -1147,9 +1147,9 @@
 
 .field public static final error_message_title:I = 0x104053e
 
-.field public static final ethernet_cable_connected_notification_message:I = 0x10408af
+.field public static final ethernet_cable_connected_notification_message:I = 0x10408b1
 
-.field public static final ethernet_cable_connected_notification_title:I = 0x10408ae
+.field public static final ethernet_cable_connected_notification_title:I = 0x10408b0
 
 .field public static final eventTypeAnniversary:I = 0x104025f
 
@@ -1161,9 +1161,9 @@
 
 .field public static final expand_action_accessibility:I = 0x10405dc
 
-.field public static final expandablelist_collapse:I = 0x10408dc
+.field public static final expandablelist_collapse:I = 0x10408de
 
-.field public static final expandablelist_expand:I = 0x10408db
+.field public static final expandablelist_expand:I = 0x10408dd
 
 .field public static final ext_media_badremoval_notification_message:I = 0x1040443
 
@@ -1267,7 +1267,7 @@
 
 .field public static final factory_reset_warning:I = 0x1040118
 
-.field public static final factoryreset_restrict:I = 0x10409f9
+.field public static final factoryreset_restrict:I = 0x10409fa
 
 .field public static final factorytest_failed:I = 0x10402ed
 
@@ -1309,7 +1309,7 @@
 
 .field public static final fingerprint_name_template:I = 0x10401f8
 
-.field public static final firmwarerecovery_restrict:I = 0x10409fa
+.field public static final firmwarerecovery_restrict:I = 0x10409fb
 
 .field public static final floating_toolbar_close_overflow_description:I = 0x10405e1
 
@@ -1323,9 +1323,9 @@
 
 .field public static final format_error_usbhost:I = 0x1040a70
 
-.field public static final forward_intent_from:I = 0x1040823
+.field public static final forward_intent_from:I = 0x1040825
 
-.field public static final forward_intent_from_knox:I = 0x1040821
+.field public static final forward_intent_from_knox:I = 0x1040823
 
 .field public static final forward_intent_to_owner:I = 0x1040477
 
@@ -1339,23 +1339,23 @@
 
 .field public static final global_action_assist:I = 0x1040147
 
-.field public static final global_action_bikemode:I = 0x104089e
+.field public static final global_action_bikemode:I = 0x10408a0
 
-.field public static final global_action_bikemode_earphone_disabled:I = 0x10408a7
+.field public static final global_action_bikemode_earphone_disabled:I = 0x10408a9
 
-.field public static final global_action_bikemode_off_status:I = 0x10408a0
+.field public static final global_action_bikemode_off_status:I = 0x10408a2
 
-.field public static final global_action_bikemode_on_status:I = 0x104089f
+.field public static final global_action_bikemode_on_status:I = 0x10408a1
 
-.field public static final global_action_bikemode_popup_cancel:I = 0x10408a5
+.field public static final global_action_bikemode_popup_cancel:I = 0x10408a7
 
-.field public static final global_action_bikemode_popup_disable:I = 0x10408a4
+.field public static final global_action_bikemode_popup_disable:I = 0x10408a6
 
-.field public static final global_action_bikemode_popup_enable:I = 0x10408a3
+.field public static final global_action_bikemode_popup_enable:I = 0x10408a5
 
-.field public static final global_action_bikemode_turning_off_msg:I = 0x10408a2
+.field public static final global_action_bikemode_turning_off_msg:I = 0x10408a4
 
-.field public static final global_action_bikemode_turning_on_msg:I = 0x10408a1
+.field public static final global_action_bikemode_turning_on_msg:I = 0x10408a3
 
 .field public static final global_action_bug_report:I = 0x1040137
 
@@ -1383,27 +1383,27 @@
 
 .field public static final global_action_power_off:I = 0x1040135
 
-.field public static final global_action_power_off_disabled:I = 0x1040907
+.field public static final global_action_power_off_disabled:I = 0x1040908
 
-.field public static final global_action_pro_kiosk_mode_enter_passcode:I = 0x1040904
+.field public static final global_action_pro_kiosk_mode_enter_passcode:I = 0x1040905
 
-.field public static final global_action_pro_kiosk_mode_off_status:I = 0x1040902
+.field public static final global_action_pro_kiosk_mode_off_status:I = 0x1040903
 
-.field public static final global_action_pro_kiosk_mode_on_status:I = 0x1040901
+.field public static final global_action_pro_kiosk_mode_on_status:I = 0x1040902
 
-.field public static final global_action_pro_kiosk_mode_title:I = 0x1040903
+.field public static final global_action_pro_kiosk_mode_title:I = 0x1040904
 
 .field public static final global_action_reboot:I = 0x1040136
 
 .field public static final global_action_restart:I = 0x10406ee
 
-.field public static final global_action_sealed_mode_enter_passcode:I = 0x10408ff
+.field public static final global_action_sealed_mode_enter_passcode:I = 0x1040900
 
-.field public static final global_action_sealed_mode_off_status:I = 0x10408fd
+.field public static final global_action_sealed_mode_off_status:I = 0x10408fe
 
-.field public static final global_action_sealed_mode_on_status:I = 0x10408fc
+.field public static final global_action_sealed_mode_on_status:I = 0x10408fd
 
-.field public static final global_action_sealed_mode_title:I = 0x10408fe
+.field public static final global_action_sealed_mode_title:I = 0x10408ff
 
 .field public static final global_action_settings:I = 0x1040146
 
@@ -1413,9 +1413,9 @@
 
 .field public static final global_action_toggle_data_mode:I = 0x10407d3
 
-.field public static final global_action_toggle_pro_kiosk_mode:I = 0x1040900
+.field public static final global_action_toggle_pro_kiosk_mode:I = 0x1040901
 
-.field public static final global_action_toggle_sealed_mode:I = 0x10408fb
+.field public static final global_action_toggle_sealed_mode:I = 0x10408fc
 
 .field public static final global_action_toggle_silent_mode:I = 0x1040140
 
@@ -1439,7 +1439,7 @@
 
 .field public static final global_actions_airplane_mode_on_status_confirm_wifi:I = 0x10407b7
 
-.field public static final global_actions_emergency_mode_cannot_enabled_while_sbike_mode_enable:I = 0x10408a6
+.field public static final global_actions_emergency_mode_cannot_enabled_while_sbike_mode_enable:I = 0x10408a8
 
 .field public static final global_actions_longlife_mode_off_status:I = 0x10407be
 
@@ -1467,7 +1467,7 @@
 
 .field public static final globalactions_unable_emergency_msg_fmm:I = 0x10407a6
 
-.field public static final globalactions_unable_flight_mode_warning:I = 0x1040869
+.field public static final globalactions_unable_flight_mode_warning:I = 0x104086b
 
 .field public static final globalactions_unable_power_off_msg:I = 0x10407a1
 
@@ -1499,7 +1499,7 @@
 
 .field public static final hardware:I = 0x1040434
 
-.field public static final hardware_key_restrict:I = 0x10409ab
+.field public static final hardware_key_restrict:I = 0x10409ac
 
 .field public static final hdmi_connect:I = 0x1040624
 
@@ -1513,19 +1513,19 @@
 
 .field public static final hdmi_wfd_terminate:I = 0x1040629
 
-.field public static final head_up_noti_close_button:I = 0x10408ab
+.field public static final head_up_noti_close_button:I = 0x10408ad
 
-.field public static final head_up_noti_settings_button:I = 0x10408aa
+.field public static final head_up_noti_settings_button:I = 0x10408ac
 
-.field public static final head_up_noti_text:I = 0x10408a9
+.field public static final head_up_noti_text:I = 0x10408ab
 
-.field public static final head_up_noti_title:I = 0x10408a8
+.field public static final head_up_noti_title:I = 0x10408aa
 
 .field public static final heavy_weight_notification:I = 0x10403c2
 
 .field public static final heavy_weight_notification_detail:I = 0x10403c3
 
-.field public static final home_key_restrict:I = 0x10409b8
+.field public static final home_key_restrict:I = 0x10409b9
 
 .field public static final hour_picker_description:I = 0x10405a9
 
@@ -1565,7 +1565,7 @@
 
 .field public static final imProtocolCustom:I = 0x104026e
 
-.field public static final imProtocolFacebook:I = 0x10408bc
+.field public static final imProtocolFacebook:I = 0x10408be
 
 .field public static final imProtocolGoogleTalk:I = 0x1040274
 
@@ -1581,7 +1581,7 @@
 
 .field public static final imProtocolSkype:I = 0x1040272
 
-.field public static final imProtocolWhatsApp:I = 0x10408bb
+.field public static final imProtocolWhatsApp:I = 0x10408bd
 
 .field public static final imProtocolYahoo:I = 0x1040271
 
@@ -1621,7 +1621,7 @@
 
 .field public static final install_blocked_by_eas_policy:I = 0x10406b4
 
-.field public static final installer_module:I = 0x10409c9
+.field public static final installer_module:I = 0x10409ca
 
 .field public static final invalidPin:I = 0x10400b4
 
@@ -1633,7 +1633,7 @@
 
 .field public static final invalid_sim_notification_title_vzw:I = 0x1040781
 
-.field public static final iriscamera_restrict:I = 0x10409f0
+.field public static final iriscamera_restrict:I = 0x10409f1
 
 .field public static final js_dialog_before_unload:I = 0x10402f8
 
@@ -1665,7 +1665,7 @@
 
 .field public static final keyboardview_keycode_shift:I = 0x10404c2
 
-.field public static final keyguard_signature_toast_for_only_pen_action:I = 0x104086a
+.field public static final keyguard_signature_toast_for_only_pen_action:I = 0x104086c
 
 .field public static final kg_reordering_delete_drop_target_text:I = 0x1040535
 
@@ -1675,11 +1675,11 @@
 
 .field public static final kilobyteShort:I = 0x1040096
 
-.field public static final knox_custom_protected_app_enter_password:I = 0x1040905
+.field public static final knox_custom_protected_app_enter_password:I = 0x1040906
 
-.field public static final knox_custom_protected_app_invalid_password:I = 0x1040906
+.field public static final knox_custom_protected_app_invalid_password:I = 0x1040907
 
-.field public static final knox_feature_disabled_toast:I = 0x10409aa
+.field public static final knox_feature_disabled_toast:I = 0x10409ab
 
 .field public static final knoxvpn_proxy_text:I = 0x1040631
 
@@ -1711,7 +1711,7 @@
 
 .field public static final launch_warning_title:I = 0x10403af
 
-.field public static final letter_tile_letter_font_family:I = 0x104089d
+.field public static final letter_tile_letter_font_family:I = 0x104089f
 
 .field public static final locale_codes:I = 0x104007b
 
@@ -1783,11 +1783,11 @@
 
 .field public static final managed_profile_label_badge:I = 0x10405b0
 
-.field public static final mcc_setting_dialog_body:I = 0x10408e3
+.field public static final mcc_setting_dialog_body:I = 0x10408e5
 
-.field public static final mcc_setting_dialog_body_vzw:I = 0x10408e4
+.field public static final mcc_setting_dialog_body_vzw:I = 0x10408e6
 
-.field public static final mcc_setting_toast_notification:I = 0x10408e6
+.field public static final mcc_setting_toast_notification:I = 0x10408e8
 
 .field public static final media_bad_removal:I = 0x1040a69
 
@@ -1815,7 +1815,7 @@
 
 .field public static final media_unknown_state:I = 0x1040a6d
 
-.field public static final mediaplayer_restrict:I = 0x10409f5
+.field public static final mediaplayer_restrict:I = 0x10409f6
 
 .field public static final mediasize_chinese_om_dai_pa_kai:I = 0x104057d
 
@@ -1993,7 +1993,7 @@
 
 .field public static final menu_space_shortcut_label:I = 0x1040348
 
-.field public static final microphone_restrict:I = 0x10409f1
+.field public static final microphone_restrict:I = 0x10409f2
 
 .field public static final midnight:I = 0x104036a
 
@@ -2009,7 +2009,7 @@
 
 .field public static final mmiFdnError:I = 0x10400a9
 
-.field public static final mobile_data_warning_toast_enable_during_volte:I = 0x104084d
+.field public static final mobile_data_warning_toast_enable_during_volte:I = 0x104084f
 
 .field public static final mobile_provisioning_apn:I = 0x104004c
 
@@ -2017,87 +2017,87 @@
 
 .field public static final month_day_year:I = 0x104007e
 
-.field public static final more:I = 0x10408be
+.field public static final more:I = 0x10408c0
 
 .field public static final more_item_label:I = 0x1040346
 
-.field public static final mptcp_application_name:I = 0x104084e
+.field public static final mptcp_application_name:I = 0x1040850
 
-.field public static final mptcp_message_MA_setting_off_before_reboot:I = 0x1040859
+.field public static final mptcp_message_MA_setting_off_before_reboot:I = 0x104085b
 
-.field public static final mptcp_message_address_type_not_supported:I = 0x1040857
+.field public static final mptcp_message_address_type_not_supported:I = 0x1040859
 
-.field public static final mptcp_message_busy_ntime_wait:I = 0x1040858
+.field public static final mptcp_message_busy_ntime_wait:I = 0x104085a
 
-.field public static final mptcp_message_cmd_not_supported:I = 0x1040856
+.field public static final mptcp_message_cmd_not_supported:I = 0x1040858
 
-.field public static final mptcp_message_connection_not_allowed_by_ruleset:I = 0x1040851
+.field public static final mptcp_message_connection_not_allowed_by_ruleset:I = 0x1040853
 
-.field public static final mptcp_message_connection_not_stabile:I = 0x1040866
+.field public static final mptcp_message_connection_not_stabile:I = 0x1040868
 
-.field public static final mptcp_message_connection_refused:I = 0x1040854
+.field public static final mptcp_message_connection_refused:I = 0x1040856
 
-.field public static final mptcp_message_data_usage_limit:I = 0x1040865
+.field public static final mptcp_message_data_usage_limit:I = 0x1040867
 
-.field public static final mptcp_message_host_unreachable:I = 0x1040853
+.field public static final mptcp_message_host_unreachable:I = 0x1040855
 
-.field public static final mptcp_message_mptcp_capability_LteRegistered:I = 0x104085e
+.field public static final mptcp_message_mptcp_capability_LteRegistered:I = 0x1040860
 
-.field public static final mptcp_message_mptcp_capability_Roaming:I = 0x104085d
+.field public static final mptcp_message_mptcp_capability_Roaming:I = 0x104085f
 
-.field public static final mptcp_message_mptcp_capability_TetheringMode:I = 0x104085f
+.field public static final mptcp_message_mptcp_capability_TetheringMode:I = 0x1040861
 
-.field public static final mptcp_message_mptcp_capability_WifiDirect:I = 0x1040860
+.field public static final mptcp_message_mptcp_capability_WifiDirect:I = 0x1040862
 
-.field public static final mptcp_message_mptcp_capability_airplane:I = 0x104085a
+.field public static final mptcp_message_mptcp_capability_airplane:I = 0x104085c
 
-.field public static final mptcp_message_mptcp_capability_getMobileDataEnabled:I = 0x104085c
+.field public static final mptcp_message_mptcp_capability_getMobileDataEnabled:I = 0x104085e
 
-.field public static final mptcp_message_mptcp_capability_noresponse:I = 0x1040861
+.field public static final mptcp_message_mptcp_capability_noresponse:I = 0x1040863
 
-.field public static final mptcp_message_mptcp_capability_sendfail:I = 0x1040862
+.field public static final mptcp_message_mptcp_capability_sendfail:I = 0x1040864
 
-.field public static final mptcp_message_mptcp_capability_simstatus:I = 0x104085b
+.field public static final mptcp_message_mptcp_capability_simstatus:I = 0x104085d
 
-.field public static final mptcp_message_network_unreachable:I = 0x1040852
+.field public static final mptcp_message_network_unreachable:I = 0x1040854
 
-.field public static final mptcp_message_non_mptcp_plan:I = 0x104084f
+.field public static final mptcp_message_non_mptcp_plan:I = 0x1040851
 
-.field public static final mptcp_message_operation_disabled_overheating:I = 0x1040864
+.field public static final mptcp_message_operation_disabled_overheating:I = 0x1040866
 
-.field public static final mptcp_message_server_error:I = 0x1040850
+.field public static final mptcp_message_server_error:I = 0x1040852
 
-.field public static final mptcp_message_setting_disabled_overheating:I = 0x1040863
+.field public static final mptcp_message_setting_disabled_overheating:I = 0x1040865
 
-.field public static final mptcp_message_ttl_expired:I = 0x1040855
+.field public static final mptcp_message_ttl_expired:I = 0x1040857
 
-.field public static final multi_user_capability_restrict:I = 0x10409b4
+.field public static final multi_user_capability_restrict:I = 0x10409b5
 
-.field public static final multi_user_creation_restrict:I = 0x10409b5
+.field public static final multi_user_creation_restrict:I = 0x10409b6
 
-.field public static final multi_user_default_name:I = 0x10409b7
+.field public static final multi_user_default_name:I = 0x10409b8
 
-.field public static final multi_user_removal_restrict:I = 0x10409b6
+.field public static final multi_user_removal_restrict:I = 0x10409b7
 
-.field public static final multi_window_restrict:I = 0x10409bd
+.field public static final multi_window_restrict:I = 0x10409be
 
-.field public static final multisound_app_deleted_toast:I = 0x10408ed
+.field public static final multisound_app_deleted_toast:I = 0x10408ef
 
-.field public static final multisound_bluetooth:I = 0x10408f0
+.field public static final multisound_bluetooth:I = 0x10408f2
 
-.field public static final multisound_description:I = 0x10408ea
+.field public static final multisound_description:I = 0x10408ec
 
-.field public static final multisound_go_to_settings:I = 0x10408e8
+.field public static final multisound_go_to_settings:I = 0x10408ea
 
-.field public static final multisound_headset:I = 0x10408ef
+.field public static final multisound_headset:I = 0x10408f1
 
-.field public static final multisound_my_device:I = 0x10408ee
+.field public static final multisound_my_device:I = 0x10408f0
 
-.field public static final multisound_sound_plays_via_other_sound:I = 0x10408ec
+.field public static final multisound_sound_plays_via_other_sound:I = 0x10408ee
 
-.field public static final multisound_title:I = 0x10408eb
+.field public static final multisound_title:I = 0x10408ed
 
-.field public static final multisound_turn_off_multisound:I = 0x10408e9
+.field public static final multisound_turn_off_multisound:I = 0x10408eb
 
 .field public static final muted_by:I = 0x10405d1
 
@@ -2123,7 +2123,7 @@
 
 .field public static final new_sms_notification_title:I = 0x10405f3
 
-.field public static final nfc_restrict:I = 0x10409b3
+.field public static final nfc_restrict:I = 0x10409b4
 
 .field public static final no:I = 0x1040009
 
@@ -2137,9 +2137,9 @@
 
 .field public static final nosim_limited_service:I = 0x1040779
 
-.field public static final notification_header_collapse_button:I = 0x1040a1f
+.field public static final notification_header_collapse_button:I = 0x1040a20
 
-.field public static final notification_header_expand_button:I = 0x1040a1e
+.field public static final notification_header_expand_button:I = 0x1040a1f
 
 .field public static final notification_hidden_by_policy_text:I = 0x104014c
 
@@ -2187,7 +2187,7 @@
 
 .field public static final package_installed_device_owner:I = 0x10405bf
 
-.field public static final package_module:I = 0x10409c8
+.field public static final package_module:I = 0x10409c9
 
 .field public static final package_updated_device_owner:I = 0x10405c0
 
@@ -2205,163 +2205,163 @@
 
 .field public static final peerTtyModeVco:I = 0x10400da
 
-.field public static final permMessage_mdmDualSim:I = 0x1040993
+.field public static final permMessage_mdmDualSim:I = 0x1040994
 
-.field public static final permVoiceCall_mdmDualSim:I = 0x1040992
+.field public static final permVoiceCall_mdmDualSim:I = 0x1040993
 
 .field public static final perm_blocked_sim_notification_text:I = 0x104077f
 
-.field public static final permdesc_custom_rubense_features:I = 0x1040a14
+.field public static final permdesc_custom_rubense_features:I = 0x1040a15
 
-.field public static final permdesc_enterpriseBilling:I = 0x104090d
+.field public static final permdesc_enterpriseBilling:I = 0x104090e
 
-.field public static final permdesc_enterpriseContainer:I = 0x1040953
+.field public static final permdesc_enterpriseContainer:I = 0x1040954
 
-.field public static final permdesc_knoxContainerVpn:I = 0x104093f
+.field public static final permdesc_knoxContainerVpn:I = 0x1040940
 
-.field public static final permdesc_knoxCustomProKioskMode:I = 0x10408fa
+.field public static final permdesc_knoxCustomProKioskMode:I = 0x10408fb
 
-.field public static final permdesc_knoxCustomSealedMode:I = 0x10408f8
+.field public static final permdesc_knoxCustomSealedMode:I = 0x10408f9
 
-.field public static final permdesc_knoxCustomSetting:I = 0x10408f4
+.field public static final permdesc_knoxCustomSetting:I = 0x10408f5
 
-.field public static final permdesc_knoxCustomSystem:I = 0x10408f6
+.field public static final permdesc_knoxCustomSystem:I = 0x10408f7
 
-.field public static final permdesc_knoxGenericVpn:I = 0x104093d
+.field public static final permdesc_knoxGenericVpn:I = 0x104093e
 
-.field public static final permdesc_knoxNetworkTrafficAgent:I = 0x1040941
+.field public static final permdesc_knoxNetworkTrafficAgent:I = 0x1040942
 
-.field public static final permdesc_mdmAnalytics:I = 0x1040965
+.field public static final permdesc_mdmAnalytics:I = 0x1040966
 
-.field public static final permdesc_mdmApnSettings:I = 0x1040931
+.field public static final permdesc_mdmApnSettings:I = 0x1040932
 
-.field public static final permdesc_mdmApplicationBackup:I = 0x1040915
+.field public static final permdesc_mdmApplicationBackup:I = 0x1040916
 
-.field public static final permdesc_mdmApplications:I = 0x1040913
+.field public static final permdesc_mdmApplications:I = 0x1040914
 
-.field public static final permdesc_mdmApplicationsPerm:I = 0x1040917
+.field public static final permdesc_mdmApplicationsPerm:I = 0x1040918
 
-.field public static final permdesc_mdmAuditLog:I = 0x1040955
+.field public static final permdesc_mdmAuditLog:I = 0x1040956
 
-.field public static final permdesc_mdmBluetooth:I = 0x1040919
+.field public static final permdesc_mdmBluetooth:I = 0x104091a
 
-.field public static final permdesc_mdmBluetoothSecureMode:I = 0x1040967
+.field public static final permdesc_mdmBluetoothSecureMode:I = 0x1040968
 
-.field public static final permdesc_mdmBrowserProxy:I = 0x1040937
+.field public static final permdesc_mdmBrowserProxy:I = 0x1040938
 
-.field public static final permdesc_mdmBrowserSettings:I = 0x1040935
+.field public static final permdesc_mdmBrowserSettings:I = 0x1040936
 
-.field public static final permdesc_mdmCalling:I = 0x104092b
+.field public static final permdesc_mdmCalling:I = 0x104092c
 
-.field public static final permdesc_mdmCcm:I = 0x104097b
+.field public static final permdesc_mdmCcm:I = 0x104097c
 
-.field public static final permdesc_mdmCertificate:I = 0x1040959
+.field public static final permdesc_mdmCertificate:I = 0x104095a
 
-.field public static final permdesc_mdmDLP:I = 0x10409a1
+.field public static final permdesc_mdmDLP:I = 0x10409a2
 
-.field public static final permdesc_mdmDateTime:I = 0x1040939
+.field public static final permdesc_mdmDateTime:I = 0x104093a
 
-.field public static final permdesc_mdmDeActivateLicense:I = 0x1040977
+.field public static final permdesc_mdmDeActivateLicense:I = 0x1040978
 
-.field public static final permdesc_mdmDeviceInventory:I = 0x104091b
+.field public static final permdesc_mdmDeviceInventory:I = 0x104091c
 
-.field public static final permdesc_mdmDualSim:I = 0x104095d
+.field public static final permdesc_mdmDualSim:I = 0x104095e
 
-.field public static final permdesc_mdmELMLog:I = 0x1040997
+.field public static final permdesc_mdmELMLog:I = 0x1040998
 
-.field public static final permdesc_mdmEmailAccount:I = 0x104092d
+.field public static final permdesc_mdmEmailAccount:I = 0x104092e
 
-.field public static final permdesc_mdmEnterpriseAdmin:I = 0x1040945
+.field public static final permdesc_mdmEnterpriseAdmin:I = 0x1040946
 
-.field public static final permdesc_mdmEnterpriseContainer:I = 0x104094d
+.field public static final permdesc_mdmEnterpriseContainer:I = 0x104094e
 
-.field public static final permdesc_mdmEnterpriseISL:I = 0x104094f
+.field public static final permdesc_mdmEnterpriseISL:I = 0x1040950
 
-.field public static final permdesc_mdmEnterpriseSSO:I = 0x104094b
+.field public static final permdesc_mdmEnterpriseSSO:I = 0x104094c
 
-.field public static final permdesc_mdmEnterpriseVpn:I = 0x104093b
+.field public static final permdesc_mdmEnterpriseVpn:I = 0x104093c
 
-.field public static final permdesc_mdmExchangeAccount:I = 0x104091d
+.field public static final permdesc_mdmExchangeAccount:I = 0x104091e
 
-.field public static final permdesc_mdmFirewall:I = 0x1040943
+.field public static final permdesc_mdmFirewall:I = 0x1040944
 
-.field public static final permdesc_mdmGeofencing:I = 0x1040961
+.field public static final permdesc_mdmGeofencing:I = 0x1040962
 
-.field public static final permdesc_mdmGlobalProxy:I = 0x1040a1a
+.field public static final permdesc_mdmGlobalProxy:I = 0x1040a1b
 
-.field public static final permdesc_mdmHWControl:I = 0x1040925
+.field public static final permdesc_mdmHWControl:I = 0x1040926
 
-.field public static final permdesc_mdmKeystore:I = 0x1040986
+.field public static final permdesc_mdmKeystore:I = 0x1040987
 
-.field public static final permdesc_mdmKeystorePerApp:I = 0x1040987
+.field public static final permdesc_mdmKeystorePerApp:I = 0x1040988
 
-.field public static final permdesc_mdmKioskMode:I = 0x1040949
+.field public static final permdesc_mdmKioskMode:I = 0x104094a
 
-.field public static final permdesc_mdmKnoxActivateDevicePermissions:I = 0x1040991
+.field public static final permdesc_mdmKnoxActivateDevicePermissions:I = 0x1040992
 
-.field public static final permdesc_mdmKnoxAttestation:I = 0x1040969
+.field public static final permdesc_mdmKnoxAttestation:I = 0x104096a
 
-.field public static final permdesc_mdmKnoxRCPSync:I = 0x104096f
+.field public static final permdesc_mdmKnoxRCPSync:I = 0x1040970
 
-.field public static final permdesc_mdmKnoxRestrictionPermission:I = 0x1040979
+.field public static final permdesc_mdmKnoxRestrictionPermission:I = 0x104097a
 
-.field public static final permdesc_mdmLDAPSettings:I = 0x104095b
+.field public static final permdesc_mdmLDAPSettings:I = 0x104095c
 
-.field public static final permdesc_mdmLSO:I = 0x1040999
+.field public static final permdesc_mdmLSO:I = 0x104099a
 
-.field public static final permdesc_mdmLSOEmergencyPhone:I = 0x104099d
+.field public static final permdesc_mdmLSOEmergencyPhone:I = 0x104099e
 
-.field public static final permdesc_mdmLSOFoundInfo:I = 0x104099c
+.field public static final permdesc_mdmLSOFoundInfo:I = 0x104099d
 
-.field public static final permdesc_mdmLSOPropertyInfo:I = 0x104099a
+.field public static final permdesc_mdmLSOPropertyInfo:I = 0x104099b
 
-.field public static final permdesc_mdmLSOUnauthorizedAccess:I = 0x104099b
+.field public static final permdesc_mdmLSOUnauthorizedAccess:I = 0x104099c
 
-.field public static final permdesc_mdmLocation:I = 0x1040929
+.field public static final permdesc_mdmLocation:I = 0x104092a
 
-.field public static final permdesc_mdmMultiUser:I = 0x1040963
+.field public static final permdesc_mdmMultiUser:I = 0x1040964
 
-.field public static final permdesc_mdmPhoneRestriction:I = 0x1040933
+.field public static final permdesc_mdmPhoneRestriction:I = 0x1040934
 
-.field public static final permdesc_mdmRefreshUI:I = 0x104099f
+.field public static final permdesc_mdmRefreshUI:I = 0x10409a0
 
-.field public static final permdesc_mdmRemoteControlSettings:I = 0x1040947
+.field public static final permdesc_mdmRemoteControlSettings:I = 0x1040948
 
-.field public static final permdesc_mdmRestriction:I = 0x1040927
+.field public static final permdesc_mdmRestriction:I = 0x1040928
 
-.field public static final permdesc_mdmRoaming:I = 0x104091f
+.field public static final permdesc_mdmRoaming:I = 0x1040920
 
-.field public static final permdesc_mdmSDP:I = 0x10409a3
+.field public static final permdesc_mdmSDP:I = 0x10409a4
 
-.field public static final permdesc_mdmSEAndroid:I = 0x1040957
+.field public static final permdesc_mdmSEAndroid:I = 0x1040958
 
-.field public static final permdesc_mdmSSO:I = 0x1040973
+.field public static final permdesc_mdmSSO:I = 0x1040974
 
-.field public static final permdesc_mdmScep:I = 0x104098b
+.field public static final permdesc_mdmScep:I = 0x104098c
 
-.field public static final permdesc_mdmSeamsPermission:I = 0x104098d
+.field public static final permdesc_mdmSeamsPermission:I = 0x104098e
 
-.field public static final permdesc_mdmSeamsSepolicyPermission:I = 0x104098f
+.field public static final permdesc_mdmSeamsSepolicyPermission:I = 0x1040990
 
-.field public static final permdesc_mdmSecurity:I = 0x1040923
+.field public static final permdesc_mdmSecurity:I = 0x1040924
 
-.field public static final permdesc_mdmSetProxyCredential:I = 0x1040975
+.field public static final permdesc_mdmSetProxyCredential:I = 0x1040976
 
-.field public static final permdesc_mdmSmartCardPolicy:I = 0x1040995
+.field public static final permdesc_mdmSmartCardPolicy:I = 0x1040996
 
-.field public static final permdesc_mdmTrustedPinPad:I = 0x1040989
+.field public static final permdesc_mdmTrustedPinPad:I = 0x104098a
 
-.field public static final permdesc_mdmUcmPrivileged:I = 0x1040983
+.field public static final permdesc_mdmUcmPrivileged:I = 0x1040984
 
-.field public static final permdesc_mdmUcsmEse:I = 0x104097d
+.field public static final permdesc_mdmUcsmEse:I = 0x104097e
 
-.field public static final permdesc_mdmUcsmOther:I = 0x104097f
+.field public static final permdesc_mdmUcsmOther:I = 0x1040980
 
-.field public static final permdesc_mdmVpn:I = 0x104092f
+.field public static final permdesc_mdmVpn:I = 0x1040930
 
-.field public static final permdesc_mdmWifi:I = 0x1040921
+.field public static final permdesc_mdmWifi:I = 0x1040922
 
-.field public static final permdesc_mountUnmountEncryptfsStorage:I = 0x1040951
+.field public static final permdesc_mountUnmountEncryptfsStorage:I = 0x1040952
 
 .field public static final permdesc_mount_format_filesystems:I = 0x1040a3e
 
@@ -2371,167 +2371,167 @@
 
 .field public static final permdesc_sdcardWrite:I = 0x1040202
 
-.field public static final permdesc_sharedDevice:I = 0x1040a16
+.field public static final permdesc_sharedDevice:I = 0x1040a17
 
-.field public static final permdesc_spdControl:I = 0x1040a18
+.field public static final permdesc_spdControl:I = 0x1040a19
 
-.field public static final permdesc_ucsPlugin:I = 0x1040981
+.field public static final permdesc_ucsPlugin:I = 0x1040982
 
-.field public static final permgroupdesc_mdm:I = 0x1040911
+.field public static final permgroupdesc_mdm:I = 0x1040912
 
 .field public static final permgroupdesc_storage:I = 0x104015a
 
-.field public static final permgrouplab_mdm:I = 0x1040910
+.field public static final permgrouplab_mdm:I = 0x1040911
 
 .field public static final permgrouplab_storage:I = 0x1040159
 
 .field public static final permission_request_notification_with_subtitle:I = 0x1040476
 
-.field public static final permlab_custom_rubense_features:I = 0x1040a13
+.field public static final permlab_custom_rubense_features:I = 0x1040a14
 
-.field public static final permlab_enterpriseBilling:I = 0x104090c
+.field public static final permlab_enterpriseBilling:I = 0x104090d
 
-.field public static final permlab_enterpriseContainer:I = 0x1040952
+.field public static final permlab_enterpriseContainer:I = 0x1040953
 
-.field public static final permlab_knoxContainerVpn:I = 0x104093e
+.field public static final permlab_knoxContainerVpn:I = 0x104093f
 
-.field public static final permlab_knoxCustomProKioskMode:I = 0x10408f9
+.field public static final permlab_knoxCustomProKioskMode:I = 0x10408fa
 
-.field public static final permlab_knoxCustomSealedMode:I = 0x10408f7
+.field public static final permlab_knoxCustomSealedMode:I = 0x10408f8
 
-.field public static final permlab_knoxCustomSetting:I = 0x10408f3
+.field public static final permlab_knoxCustomSetting:I = 0x10408f4
 
-.field public static final permlab_knoxCustomSystem:I = 0x10408f5
+.field public static final permlab_knoxCustomSystem:I = 0x10408f6
 
-.field public static final permlab_knoxGenericVpn:I = 0x104093c
+.field public static final permlab_knoxGenericVpn:I = 0x104093d
 
-.field public static final permlab_knoxNetworkTrafficAgent:I = 0x1040940
+.field public static final permlab_knoxNetworkTrafficAgent:I = 0x1040941
 
-.field public static final permlab_mdmAnalytics:I = 0x1040964
+.field public static final permlab_mdmAnalytics:I = 0x1040965
 
-.field public static final permlab_mdmApnSettings:I = 0x1040930
+.field public static final permlab_mdmApnSettings:I = 0x1040931
 
-.field public static final permlab_mdmApplicationBackup:I = 0x1040914
+.field public static final permlab_mdmApplicationBackup:I = 0x1040915
 
-.field public static final permlab_mdmApplications:I = 0x1040912
+.field public static final permlab_mdmApplications:I = 0x1040913
 
-.field public static final permlab_mdmApplicationsPerm:I = 0x1040916
+.field public static final permlab_mdmApplicationsPerm:I = 0x1040917
 
-.field public static final permlab_mdmAuditLog:I = 0x1040954
+.field public static final permlab_mdmAuditLog:I = 0x1040955
 
-.field public static final permlab_mdmBluetooth:I = 0x1040918
+.field public static final permlab_mdmBluetooth:I = 0x1040919
 
-.field public static final permlab_mdmBluetoothSecureMode:I = 0x1040966
+.field public static final permlab_mdmBluetoothSecureMode:I = 0x1040967
 
-.field public static final permlab_mdmBrowserProxy:I = 0x1040936
+.field public static final permlab_mdmBrowserProxy:I = 0x1040937
 
-.field public static final permlab_mdmBrowserSettings:I = 0x1040934
+.field public static final permlab_mdmBrowserSettings:I = 0x1040935
 
-.field public static final permlab_mdmCalling:I = 0x104092a
+.field public static final permlab_mdmCalling:I = 0x104092b
 
-.field public static final permlab_mdmCcm:I = 0x104097a
+.field public static final permlab_mdmCcm:I = 0x104097b
 
-.field public static final permlab_mdmCertificate:I = 0x1040958
+.field public static final permlab_mdmCertificate:I = 0x1040959
 
-.field public static final permlab_mdmDLP:I = 0x10409a0
+.field public static final permlab_mdmDLP:I = 0x10409a1
 
-.field public static final permlab_mdmDateTime:I = 0x1040938
+.field public static final permlab_mdmDateTime:I = 0x1040939
 
-.field public static final permlab_mdmDeActivateLicense:I = 0x1040976
+.field public static final permlab_mdmDeActivateLicense:I = 0x1040977
 
-.field public static final permlab_mdmDeviceInventory:I = 0x104091a
+.field public static final permlab_mdmDeviceInventory:I = 0x104091b
 
-.field public static final permlab_mdmDualSim:I = 0x104095c
+.field public static final permlab_mdmDualSim:I = 0x104095d
 
-.field public static final permlab_mdmELMLog:I = 0x1040996
+.field public static final permlab_mdmELMLog:I = 0x1040997
 
-.field public static final permlab_mdmEmailAccount:I = 0x104092c
+.field public static final permlab_mdmEmailAccount:I = 0x104092d
 
-.field public static final permlab_mdmEnterpriseAdmin:I = 0x1040944
+.field public static final permlab_mdmEnterpriseAdmin:I = 0x1040945
 
-.field public static final permlab_mdmEnterpriseContainer:I = 0x104094c
+.field public static final permlab_mdmEnterpriseContainer:I = 0x104094d
 
-.field public static final permlab_mdmEnterpriseISL:I = 0x104094e
+.field public static final permlab_mdmEnterpriseISL:I = 0x104094f
 
-.field public static final permlab_mdmEnterpriseSSO:I = 0x104094a
+.field public static final permlab_mdmEnterpriseSSO:I = 0x104094b
 
-.field public static final permlab_mdmEnterpriseVpn:I = 0x104093a
+.field public static final permlab_mdmEnterpriseVpn:I = 0x104093b
 
-.field public static final permlab_mdmExchangeAccount:I = 0x104091c
+.field public static final permlab_mdmExchangeAccount:I = 0x104091d
 
-.field public static final permlab_mdmFirewall:I = 0x1040942
+.field public static final permlab_mdmFirewall:I = 0x1040943
 
-.field public static final permlab_mdmGeofencing:I = 0x1040960
+.field public static final permlab_mdmGeofencing:I = 0x1040961
 
-.field public static final permlab_mdmGlobalProxy:I = 0x1040a19
+.field public static final permlab_mdmGlobalProxy:I = 0x1040a1a
 
-.field public static final permlab_mdmHWControl:I = 0x1040924
+.field public static final permlab_mdmHWControl:I = 0x1040925
 
-.field public static final permlab_mdmKeystore:I = 0x1040984
+.field public static final permlab_mdmKeystore:I = 0x1040985
 
-.field public static final permlab_mdmKeystorePerApp:I = 0x1040985
+.field public static final permlab_mdmKeystorePerApp:I = 0x1040986
 
-.field public static final permlab_mdmKioskMode:I = 0x1040948
+.field public static final permlab_mdmKioskMode:I = 0x1040949
 
-.field public static final permlab_mdmKnoxActivateDevicePermissions:I = 0x1040990
+.field public static final permlab_mdmKnoxActivateDevicePermissions:I = 0x1040991
 
-.field public static final permlab_mdmKnoxAttestation:I = 0x1040968
+.field public static final permlab_mdmKnoxAttestation:I = 0x1040969
 
-.field public static final permlab_mdmKnoxRCPSync:I = 0x104096e
+.field public static final permlab_mdmKnoxRCPSync:I = 0x104096f
 
-.field public static final permlab_mdmKnoxRestrictionPermission:I = 0x1040978
+.field public static final permlab_mdmKnoxRestrictionPermission:I = 0x1040979
 
-.field public static final permlab_mdmLDAPSettings:I = 0x104095a
+.field public static final permlab_mdmLDAPSettings:I = 0x104095b
 
-.field public static final permlab_mdmLSO:I = 0x1040998
+.field public static final permlab_mdmLSO:I = 0x1040999
 
-.field public static final permlab_mdmLocation:I = 0x1040928
+.field public static final permlab_mdmLocation:I = 0x1040929
 
-.field public static final permlab_mdmMultiUser:I = 0x1040962
+.field public static final permlab_mdmMultiUser:I = 0x1040963
 
-.field public static final permlab_mdmPhoneRestriction:I = 0x1040932
+.field public static final permlab_mdmPhoneRestriction:I = 0x1040933
 
-.field public static final permlab_mdmRefreshUI:I = 0x104099e
+.field public static final permlab_mdmRefreshUI:I = 0x104099f
 
-.field public static final permlab_mdmRemoteControlSettings:I = 0x1040946
+.field public static final permlab_mdmRemoteControlSettings:I = 0x1040947
 
-.field public static final permlab_mdmRestriction:I = 0x1040926
+.field public static final permlab_mdmRestriction:I = 0x1040927
 
-.field public static final permlab_mdmRoaming:I = 0x104091e
+.field public static final permlab_mdmRoaming:I = 0x104091f
 
-.field public static final permlab_mdmSDP:I = 0x10409a2
+.field public static final permlab_mdmSDP:I = 0x10409a3
 
-.field public static final permlab_mdmSEAndroid:I = 0x1040956
+.field public static final permlab_mdmSEAndroid:I = 0x1040957
 
-.field public static final permlab_mdmSSO:I = 0x1040972
+.field public static final permlab_mdmSSO:I = 0x1040973
 
-.field public static final permlab_mdmScep:I = 0x104098a
+.field public static final permlab_mdmScep:I = 0x104098b
 
-.field public static final permlab_mdmSeamsPermission:I = 0x104098c
+.field public static final permlab_mdmSeamsPermission:I = 0x104098d
 
-.field public static final permlab_mdmSeamsSepolicyPermission:I = 0x104098e
+.field public static final permlab_mdmSeamsSepolicyPermission:I = 0x104098f
 
-.field public static final permlab_mdmSecurity:I = 0x1040922
+.field public static final permlab_mdmSecurity:I = 0x1040923
 
-.field public static final permlab_mdmSetProxyCredential:I = 0x1040974
+.field public static final permlab_mdmSetProxyCredential:I = 0x1040975
 
-.field public static final permlab_mdmSmartCardPolicy:I = 0x1040994
+.field public static final permlab_mdmSmartCardPolicy:I = 0x1040995
 
-.field public static final permlab_mdmTrustedPinPad:I = 0x1040988
+.field public static final permlab_mdmTrustedPinPad:I = 0x1040989
 
-.field public static final permlab_mdmUcmPrivileged:I = 0x1040982
+.field public static final permlab_mdmUcmPrivileged:I = 0x1040983
 
-.field public static final permlab_mdmUcsmEse:I = 0x104097c
+.field public static final permlab_mdmUcsmEse:I = 0x104097d
 
-.field public static final permlab_mdmUcsmOther:I = 0x104097e
+.field public static final permlab_mdmUcsmOther:I = 0x104097f
 
-.field public static final permlab_mdmVpn:I = 0x104092e
+.field public static final permlab_mdmVpn:I = 0x104092f
 
-.field public static final permlab_mdmWifi:I = 0x1040920
+.field public static final permlab_mdmWifi:I = 0x1040921
 
 .field public static final permlab_modifyAudioSettings:I = 0x10401b3
 
-.field public static final permlab_mountUnmountEncryptfsStorage:I = 0x1040950
+.field public static final permlab_mountUnmountEncryptfsStorage:I = 0x1040951
 
 .field public static final permlab_mount_format_filesystems:I = 0x1040a3d
 
@@ -2541,11 +2541,11 @@
 
 .field public static final permlab_sdcardWrite:I = 0x1040201
 
-.field public static final permlab_sharedDevice:I = 0x1040a15
+.field public static final permlab_sharedDevice:I = 0x1040a16
 
-.field public static final permlab_spdControl:I = 0x1040a17
+.field public static final permlab_spdControl:I = 0x1040a18
 
-.field public static final permlab_ucsPlugin:I = 0x1040980
+.field public static final permlab_ucsPlugin:I = 0x1040981
 
 .field public static final perms_description_app:I = 0x104041e
 
@@ -2561,7 +2561,7 @@
 
 .field public static final phoneTypeCompanyMain:I = 0x1040252
 
-.field public static final phoneTypeConference:I = 0x10408bd
+.field public static final phoneTypeConference:I = 0x10408bf
 
 .field public static final phoneTypeCustom:I = 0x1040248
 
@@ -2703,9 +2703,9 @@
 
 .field public static final policylab_wipeData_secondaryUser:I = 0x104023c
 
-.field public static final popup_notification_title:I = 0x10408e2
+.field public static final popup_notification_title:I = 0x10408e4
 
-.field public static final popup_set_manually_button_vzw:I = 0x10408e5
+.field public static final popup_set_manually_button_vzw:I = 0x10408e7
 
 .field public static final postalTypeCustom:I = 0x1040266
 
@@ -2745,7 +2745,7 @@
 
 .field public static final prohibit_manual_network_selection_in_gobal_mode:I = 0x1040069
 
-.field public static final pwd_change_enforced:I = 0x10409f6
+.field public static final pwd_change_enforced:I = 0x10409f7
 
 .field public static final quick_contacts_not_available:I = 0x104028e
 
@@ -2811,13 +2811,13 @@
 
 .field public static final report:I = 0x10403ac
 
-.field public static final requested_service_not_subscribed_tce:I = 0x1040826
+.field public static final requested_service_not_subscribed_tce:I = 0x1040828
 
 .field public static final rescan_network:I = 0x1040731
 
 .field public static final reset:I = 0x104048d
 
-.field public static final resolver_guide_title:I = 0x104081d
+.field public static final resolver_guide_title:I = 0x104081f
 
 .field public static final restart_confirm:I = 0x10406d7
 
@@ -2835,55 +2835,55 @@
 
 .field public static final restrict_backgroud_data_kor_lgt_title:I = 0x1040785
 
-.field public static final restrict_network_toast_data:I = 0x1040896
+.field public static final restrict_network_toast_data:I = 0x1040898
 
-.field public static final restrict_network_toast_wifi:I = 0x1040897
+.field public static final restrict_network_toast_wifi:I = 0x1040899
 
-.field public static final restriction_Activation_Lock:I = 0x10409fd
+.field public static final restriction_Activation_Lock:I = 0x10409fe
 
-.field public static final restriction_AndroidBeam:I = 0x10409a9
+.field public static final restriction_AndroidBeam:I = 0x10409aa
 
-.field public static final restriction_CC_Mode:I = 0x1040a01
+.field public static final restriction_CC_Mode:I = 0x1040a02
 
-.field public static final restriction_Fast_Encryption:I = 0x1040a00
+.field public static final restriction_Fast_Encryption:I = 0x1040a01
 
-.field public static final restriction_Firmware_AutoUpdate:I = 0x10409fc
+.field public static final restriction_Firmware_AutoUpdate:I = 0x10409fd
 
-.field public static final restriction_Headphone:I = 0x10409fe
+.field public static final restriction_Headphone:I = 0x10409ff
 
-.field public static final restriction_SBeam:I = 0x10409a8
+.field public static final restriction_SBeam:I = 0x10409a9
 
-.field public static final restriction_SDCard_Move:I = 0x10409ff
+.field public static final restriction_SDCard_Move:I = 0x1040a00
 
-.field public static final restriction_VPN_allowUserAddProfiles:I = 0x1040a04
+.field public static final restriction_VPN_allowUserAddProfiles:I = 0x1040a05
 
-.field public static final restriction_VPN_allowUserChangeProfiles:I = 0x1040a03
+.field public static final restriction_VPN_allowUserChangeProfiles:I = 0x1040a04
 
-.field public static final restriction_VPN_allowUserSetAlwaysOn:I = 0x1040a02
+.field public static final restriction_VPN_allowUserSetAlwaysOn:I = 0x1040a03
 
-.field public static final restriction_admin_activation:I = 0x1040a05
+.field public static final restriction_admin_activation:I = 0x1040a06
 
-.field public static final restriction_admin_installation:I = 0x1040a06
+.field public static final restriction_admin_installation:I = 0x1040a07
 
-.field public static final restriction_allowWifiDirect:I = 0x10409a6
+.field public static final restriction_allowWifiDirect:I = 0x10409a7
 
-.field public static final restriction_audio_record:I = 0x10409a4
+.field public static final restriction_audio_record:I = 0x10409a5
 
-.field public static final restriction_ccmode_support:I = 0x1040a07
+.field public static final restriction_ccmode_support:I = 0x1040a08
 
-.field public static final restriction_developer_mode:I = 0x10409fb
+.field public static final restriction_developer_mode:I = 0x10409fc
 
-.field public static final restriction_msg_already_installed:I = 0x1040a10
+.field public static final restriction_msg_already_installed:I = 0x1040a11
 
-.field public static final restriction_msg_app_installed:I = 0x1040a0e
+.field public static final restriction_msg_app_installed:I = 0x1040a0f
 
-.field public static final restriction_msg_app_not_installed:I = 0x1040a0f
+.field public static final restriction_msg_app_not_installed:I = 0x1040a10
 
-.field public static final restriction_msg_check_connection:I = 0x1040a11
+.field public static final restriction_msg_check_connection:I = 0x1040a12
 
-.field public static final restriction_msg_download_fail:I = 0x1040a12
+.field public static final restriction_msg_download_fail:I = 0x1040a13
 
-.field public static final restriction_video_record:I = 0x10409a5
+.field public static final restriction_video_record:I = 0x10409a6
 
 .field public static final restricts_use_of_external_sd_card_msg:I = 0x1040a86
 
@@ -2947,7 +2947,7 @@
 
 .field public static final screen_curtain_mode_text:I = 0x104067e
 
-.field public static final screencapture_restrict:I = 0x10409f2
+.field public static final screencapture_restrict:I = 0x10409f3
 
 .field public static final sdcard_batch_decrypt_noti_content:I = 0x104067c
 
@@ -2979,47 +2979,47 @@
 
 .field public static final search_language_hint:I = 0x10405ec
 
-.field public static final secure_folder:I = 0x1040824
+.field public static final secure_folder:I = 0x1040826
 
-.field public static final securekeypad_restrict:I = 0x10409be
+.field public static final securekeypad_restrict:I = 0x10409bf
 
 .field public static final security_policy_summary:I = 0x1040670
 
 .field public static final security_policy_title:I = 0x104066f
 
-.field public static final securitymanager_content_enabled:I = 0x1040a23
+.field public static final securitymanager_content_enabled:I = 0x1040a24
 
-.field public static final securitymanager_content_enforced:I = 0x1040a24
+.field public static final securitymanager_content_enforced:I = 0x1040a25
 
-.field public static final securitymanager_content_ready:I = 0x1040a22
+.field public static final securitymanager_content_ready:I = 0x1040a23
 
-.field public static final securitymanager_st_direction_lock:I = 0x1040a2f
+.field public static final securitymanager_st_direction_lock:I = 0x1040a30
 
-.field public static final securitymanager_st_disable:I = 0x1040a27
+.field public static final securitymanager_st_disable:I = 0x1040a28
 
-.field public static final securitymanager_st_enable:I = 0x1040a26
+.field public static final securitymanager_st_enable:I = 0x1040a27
 
-.field public static final securitymanager_st_encryption_device:I = 0x1040a2e
+.field public static final securitymanager_st_encryption_device:I = 0x1040a2f
 
-.field public static final securitymanager_st_encryption_sd:I = 0x1040a2d
+.field public static final securitymanager_st_encryption_sd:I = 0x1040a2e
 
-.field public static final securitymanager_st_header:I = 0x1040a25
+.field public static final securitymanager_st_header:I = 0x1040a26
 
-.field public static final securitymanager_st_pw_history:I = 0x1040a2b
+.field public static final securitymanager_st_pw_history:I = 0x1040a2c
 
-.field public static final securitymanager_st_pw_recovery:I = 0x1040a2a
+.field public static final securitymanager_st_pw_recovery:I = 0x1040a2b
 
-.field public static final securitymanager_st_pw_retry:I = 0x1040a28
+.field public static final securitymanager_st_pw_retry:I = 0x1040a29
 
-.field public static final securitymanager_st_pw_screenlock:I = 0x1040a29
+.field public static final securitymanager_st_pw_screenlock:I = 0x1040a2a
 
-.field public static final securitymanager_st_revocation:I = 0x1040a2c
+.field public static final securitymanager_st_revocation:I = 0x1040a2d
 
-.field public static final securitymanager_st_tampered:I = 0x1040a30
+.field public static final securitymanager_st_tampered:I = 0x1040a31
 
-.field public static final securitymanager_title_enabled_n_ready:I = 0x1040a20
+.field public static final securitymanager_title_enabled_n_ready:I = 0x1040a21
 
-.field public static final securitymanager_title_enforced:I = 0x1040a21
+.field public static final securitymanager_title_enforced:I = 0x1040a22
 
 .field public static final selectAll:I = 0x104000d
 
@@ -3027,9 +3027,9 @@
 
 .field public static final select_day:I = 0x10405ad
 
-.field public static final select_external_keyboard_type_notification_message:I = 0x104088c
+.field public static final select_external_keyboard_type_notification_message:I = 0x104088e
 
-.field public static final select_external_keyboard_type_notification_title:I = 0x104088b
+.field public static final select_external_keyboard_type_notification_title:I = 0x104088d
 
 .field public static final select_hours:I = 0x10405ab
 
@@ -3049,25 +3049,25 @@
 
 .field public static final sem_colorpicker_recent_color_view_string_tap_to_apply:I = 0x104041c
 
-.field public static final sem_date_picker_day_name:I = 0x10408d5
+.field public static final sem_date_picker_day_name:I = 0x10408d7
 
-.field public static final sem_date_picker_decrement_month_button_text:I = 0x10408d2
+.field public static final sem_date_picker_decrement_month_button_text:I = 0x10408d4
 
-.field public static final sem_date_picker_increment_month_button_text:I = 0x10408d1
+.field public static final sem_date_picker_increment_month_button_text:I = 0x10408d3
 
-.field public static final sem_date_picker_month_name:I = 0x10408d6
+.field public static final sem_date_picker_month_name:I = 0x10408d8
 
-.field public static final sem_date_picker_switch_to_calendar_view_description:I = 0x10408d4
+.field public static final sem_date_picker_switch_to_calendar_view_description:I = 0x10408d6
 
-.field public static final sem_date_picker_switch_to_wheel_view_description:I = 0x10408d3
+.field public static final sem_date_picker_switch_to_wheel_view_description:I = 0x10408d5
 
-.field public static final sem_date_picker_year_name:I = 0x10408d7
+.field public static final sem_date_picker_year_name:I = 0x10408d9
 
-.field public static final sem_hour_picker_name:I = 0x10408d8
+.field public static final sem_hour_picker_name:I = 0x10408da
 
-.field public static final sem_minute_picker_name:I = 0x10408d9
+.field public static final sem_minute_picker_name:I = 0x10408db
 
-.field public static final sem_number_picker_invalid_value_entered_toast:I = 0x10408da
+.field public static final sem_number_picker_invalid_value_entered_toast:I = 0x10408dc
 
 .field public static final sem_resolver_navigation_desc:I = 0x10406ed
 
@@ -3143,7 +3143,7 @@
 
 .field public static final shareactionprovider_share_with_application:I = 0x10404c7
 
-.field public static final sharelist_restrict:I = 0x10409bc
+.field public static final sharelist_restrict:I = 0x10409bd
 
 .field public static final sharing_remote_bugreport_notification_title:I = 0x104042d
 
@@ -3153,7 +3153,7 @@
 
 .field public static final shutdown_progress:I = 0x104012a
 
-.field public static final signature_identity_toast:I = 0x1040a0b
+.field public static final signature_identity_toast:I = 0x1040a0c
 
 .field public static final simRefresh:I = 0x1040752
 
@@ -3161,9 +3161,9 @@
 
 .field public static final sim_added_message:I = 0x104040d
 
-.field public static final sim_added_message_ext_cpt:I = 0x10408c4
+.field public static final sim_added_message_ext_cpt:I = 0x10408c6
 
-.field public static final sim_added_message_ext_cpt_tab:I = 0x10408c5
+.field public static final sim_added_message_ext_cpt_tab:I = 0x10408c7
 
 .field public static final sim_added_title:I = 0x104040c
 
@@ -3175,7 +3175,7 @@
 
 .field public static final sim_removed_message:I = 0x104040a
 
-.field public static final sim_removed_message_ext_cpt:I = 0x10408c3
+.field public static final sim_removed_message_ext_cpt:I = 0x10408c5
 
 .field public static final sim_removed_message_hotswap:I = 0x1040788
 
@@ -3189,7 +3189,7 @@
 
 .field public static final sim_restart_button:I = 0x104040e
 
-.field public static final sim_restart_title:I = 0x10408c2
+.field public static final sim_restart_title:I = 0x10408c4
 
 .field public static final sipAddressTypeCustom:I = 0x104028a
 
@@ -3199,15 +3199,15 @@
 
 .field public static final sipAddressTypeWork:I = 0x104028c
 
-.field public static final smart_patterns_date_format:I = 0x1040a1c
+.field public static final smart_patterns_date_format:I = 0x1040a1d
 
-.field public static final smart_patterns_time_format:I = 0x1040a1d
+.field public static final smart_patterns_time_format:I = 0x1040a1e
 
-.field public static final smartbonding_dialog_title:I = 0x104084b
+.field public static final smartbonding_dialog_title:I = 0x104084d
 
-.field public static final smartbonding_dialog_wifi_text:I = 0x104084c
+.field public static final smartbonding_dialog_wifi_text:I = 0x104084e
 
-.field public static final smartclip_restrict:I = 0x1040a08
+.field public static final smartclip_restrict:I = 0x1040a09
 
 .field public static final sms_control_message:I = 0x10403fd
 
@@ -3237,7 +3237,7 @@
 
 .field public static final smv_process:I = 0x10403b8
 
-.field public static final sound_off_toast:I = 0x10408e7
+.field public static final sound_off_toast:I = 0x10408e9
 
 .field public static final ssl_ca_cert_noti_by_administrator:I = 0x1040112
 
@@ -3265,7 +3265,7 @@
 
 .field public static final status_bar_data_saver:I = 0x104001b
 
-.field public static final status_bar_expansion_restrict:I = 0x10409b2
+.field public static final status_bar_expansion_restrict:I = 0x10409b3
 
 .field public static final status_bar_headset:I = 0x104001a
 
@@ -3317,9 +3317,9 @@
 
 .field public static final stk_cc_ussd_to_ussd:I = 0x10405d6
 
-.field public static final stms_appgroup:I = 0x1040868
+.field public static final stms_appgroup:I = 0x104086a
 
-.field public static final stop_application_restrict:I = 0x10409ae
+.field public static final stop_application_restrict:I = 0x10409af
 
 .field public static final storage_go_to_myfiles:I = 0x1040a87
 
@@ -3347,7 +3347,7 @@
 
 .field public static final suspended_widget_accessibility:I = 0x1040602
 
-.field public static final svoice_restrict:I = 0x10409a7
+.field public static final svoice_restrict:I = 0x10409a8
 
 .field public static final sync_binding_label:I = 0x104047a
 
@@ -3367,15 +3367,15 @@
 
 .field public static final taking_remote_bugreport_notification_title:I = 0x104042b
 
-.field public static final task_manager_restrict:I = 0x10409ad
+.field public static final task_manager_restrict:I = 0x10409ae
 
 .field public static final terabyteShort:I = 0x1040099
 
-.field public static final tether_bluetooth_restrict:I = 0x10409f3
+.field public static final tether_bluetooth_restrict:I = 0x10409f4
 
-.field public static final tether_usb_restrict:I = 0x10409eb
+.field public static final tether_usb_restrict:I = 0x10409ec
 
-.field public static final tether_wifi_restrict:I = 0x10409ec
+.field public static final tether_wifi_restrict:I = 0x10409ed
 
 .field public static final tethered_notification_lowbattery:I = 0x10406c2
 
@@ -3425,9 +3425,9 @@
 
 .field public static final toast_keyboard_dock_connected:I = 0x104065d
 
-.field public static final touchpad_turned_off:I = 0x104088a
+.field public static final touchpad_turned_off:I = 0x104088c
 
-.field public static final touchpad_turned_on:I = 0x1040889
+.field public static final touchpad_turned_on:I = 0x104088b
 
 .field public static final translate:I = 0x10407e1
 
@@ -3461,41 +3461,41 @@
 
 .field public static final tw_clipboard_unlock_tts:I = 0x104061f
 
-.field public static final tw_global_actions_airplane_mode_on_status_confirm_china:I = 0x104087b
+.field public static final tw_global_actions_airplane_mode_on_status_confirm_china:I = 0x104087d
 
-.field public static final tw_global_actions_airplane_mode_on_status_confirm_volte:I = 0x104087a
+.field public static final tw_global_actions_airplane_mode_on_status_confirm_volte:I = 0x104087c
 
-.field public static final tw_global_actions_airplane_mode_on_status_confirm_vzw:I = 0x1040879
+.field public static final tw_global_actions_airplane_mode_on_status_confirm_vzw:I = 0x104087b
 
-.field public static final tw_global_actions_toggle_airplane_mode_enable_vzw:I = 0x1040878
+.field public static final tw_global_actions_toggle_airplane_mode_enable_vzw:I = 0x104087a
 
 .field public static final tw_ids_com_body_delete_from_clipboard:I = 0x104060c
 
 .field public static final tw_ids_com_header_clipboard_options:I = 0x104060b
 
-.field public static final tw_lock_to_app_description:I = 0x1040829
+.field public static final tw_lock_to_app_description:I = 0x104082b
 
-.field public static final tw_lock_to_app_description_accessible:I = 0x104082a
+.field public static final tw_lock_to_app_description_accessible:I = 0x104082c
 
-.field public static final tw_lock_to_app_title_enable:I = 0x104082b
+.field public static final tw_lock_to_app_title_enable:I = 0x104082d
 
-.field public static final tw_lock_to_app_title_pin_windows:I = 0x104082c
+.field public static final tw_lock_to_app_title_pin_windows:I = 0x104082e
 
-.field public static final tw_lock_to_app_toast:I = 0x1040827
+.field public static final tw_lock_to_app_toast:I = 0x1040829
 
-.field public static final tw_lock_to_app_toast_accessible:I = 0x1040828
+.field public static final tw_lock_to_app_toast_accessible:I = 0x104082a
 
-.field public static final tw_lock_to_app_unlock_fingerprint:I = 0x1040830
+.field public static final tw_lock_to_app_unlock_fingerprint:I = 0x1040832
 
-.field public static final tw_lock_to_app_unlock_password:I = 0x104082f
+.field public static final tw_lock_to_app_unlock_password:I = 0x1040831
 
-.field public static final tw_lock_to_app_unlock_pattern:I = 0x104082e
+.field public static final tw_lock_to_app_unlock_pattern:I = 0x1040830
 
-.field public static final tw_lock_to_app_unlock_pin:I = 0x104082d
+.field public static final tw_lock_to_app_unlock_pin:I = 0x104082f
 
-.field public static final tw_lock_to_app_unlock_template:I = 0x1040831
+.field public static final tw_lock_to_app_unlock_template:I = 0x1040833
 
-.field public static final tw_preferencecategory_added_title:I = 0x1040871
+.field public static final tw_preferencecategory_added_title:I = 0x1040873
 
 .field public static final tw_resolver_RemoteShare_RecentHistoryDefault:I = 0x10406dc
 
@@ -3523,11 +3523,11 @@
 
 .field public static final twmobile_operator_name:I = 0x1040794
 
-.field public static final unable_to_capture_screen_emergencymode:I = 0x1040816
+.field public static final unable_to_capture_screen_emergencymode:I = 0x1040818
 
-.field public static final unable_to_capture_screen_ultrapowersaving_mode:I = 0x1040817
+.field public static final unable_to_capture_screen_ultrapowersaving_mode:I = 0x1040819
 
-.field public static final unalbe_to_use_mobile_keyboard:I = 0x1040887
+.field public static final unalbe_to_use_mobile_keyboard:I = 0x1040889
 
 .field public static final undo:I = 0x1040371
 
@@ -3541,7 +3541,7 @@
 
 .field public static final upload_file:I = 0x104048b
 
-.field public static final url_restrict:I = 0x10409b1
+.field public static final url_restrict:I = 0x10409b2
 
 .field public static final usb_30_mtp_notification_title:I = 0x1040a50
 
@@ -3567,7 +3567,7 @@
 
 .field public static final usb_charging_notification_title:I = 0x1040422
 
-.field public static final usb_charing_only_notification_title:I = 0x1040883
+.field public static final usb_charing_only_notification_title:I = 0x1040885
 
 .field public static final usb_host_Unknown_device_connected_notification_title:I = 0x1040a7f
 
@@ -3583,7 +3583,7 @@
 
 .field public static final usb_keyboard_disconnected_notification_title:I = 0x1040a84
 
-.field public static final usb_mass_storage_restrict:I = 0x10409ee
+.field public static final usb_mass_storage_restrict:I = 0x10409ef
 
 .field public static final usb_midi_notification_title:I = 0x1040426
 
@@ -3663,7 +3663,7 @@
 
 .field public static final usb_water_notification_title:I = 0x1040a5d
 
-.field public static final usbhostStorage_restrict:I = 0x10409bb
+.field public static final usbhostStorage_restrict:I = 0x10409bc
 
 .field public static final user_creation_account_exists:I = 0x10405e8
 
@@ -3675,7 +3675,7 @@
 
 .field public static final user_encrypted_title:I = 0x10405f5
 
-.field public static final user_guest:I = 0x1040886
+.field public static final user_guest:I = 0x1040888
 
 .field public static final user_logging_out_message:I = 0x104053c
 
@@ -3707,17 +3707,17 @@
 
 .field public static final volume_music:I = 0x10403d0
 
-.field public static final volume_warning_message:I = 0x1040811
+.field public static final volume_warning_message:I = 0x1040813
 
-.field public static final volumepanel_media:I = 0x1040813
+.field public static final volumepanel_media:I = 0x1040815
 
-.field public static final volumepanel_notification:I = 0x1040814
+.field public static final volumepanel_notification:I = 0x1040816
 
-.field public static final volumepanel_ringtone:I = 0x1040812
+.field public static final volumepanel_ringtone:I = 0x1040814
 
-.field public static final volumepanel_system:I = 0x1040815
+.field public static final volumepanel_system:I = 0x1040817
 
-.field public static final vpn_allowOnlySecureConnection:I = 0x10409ca
+.field public static final vpn_allowOnlySecureConnection:I = 0x10409cb
 
 .field public static final vpn_error_text:I = 0x104062d
 
@@ -3749,15 +3749,15 @@
 
 .field public static final vzw_cooldown_mode_ok:I = 0x10406cb
 
-.field public static final vzw_restart_confirm:I = 0x1040884
+.field public static final vzw_restart_confirm:I = 0x1040886
 
 .field public static final wait:I = 0x10403ad
 
 .field public static final wallpaper_binding_label:I = 0x104047c
 
-.field public static final wallpaper_changes_restrict:I = 0x10409ac
+.field public static final wallpaper_changes_restrict:I = 0x10409ad
 
-.field public static final warning_alert_check:I = 0x1040867
+.field public static final warning_alert_check:I = 0x1040869
 
 .field public static final web_user_agent:I = 0x10402f1
 
@@ -3853,9 +3853,9 @@
 
 .field public static final wifi_ap_max_sta_reached_title:I = 0x10406c4
 
-.field public static final wifi_authentication_failed:I = 0x1040893
+.field public static final wifi_authentication_failed:I = 0x1040895
 
-.field public static final wifi_authentication_failed_kt:I = 0x1040894
+.field public static final wifi_authentication_failed_kt:I = 0x1040896
 
 .field public static final wifi_available_sign_in:I = 0x10403e2
 
@@ -3867,19 +3867,19 @@
 
 .field public static final wifi_connect_default_application:I = 0x10403ec
 
-.field public static final wifi_hs20_noti_connected_msg:I = 0x1040892
+.field public static final wifi_hs20_noti_connected_msg:I = 0x1040894
 
-.field public static final wifi_hs20_noti_connected_operator_msg:I = 0x1040890
+.field public static final wifi_hs20_noti_connected_operator_msg:I = 0x1040892
 
-.field public static final wifi_hs20_noti_connected_skt_msg:I = 0x1040891
+.field public static final wifi_hs20_noti_connected_skt_msg:I = 0x1040893
 
-.field public static final wifi_hs20_noti_connected_title:I = 0x104088e
+.field public static final wifi_hs20_noti_connected_title:I = 0x1040890
 
-.field public static final wifi_hs20_noti_connected_venue_title:I = 0x104088f
+.field public static final wifi_hs20_noti_connected_venue_title:I = 0x1040891
 
 .field public static final wifi_malicious_hotspot_detected_title:I = 0x1040654
 
-.field public static final wifi_module:I = 0x10409c6
+.field public static final wifi_module:I = 0x10409c7
 
 .field public static final wifi_no_internet:I = 0x10403e5
 
@@ -3889,17 +3889,17 @@
 
 .field public static final wifi_notification_auto_wifi_title:I = 0x1040a39
 
-.field public static final wifi_notification_captive_portal_detail:I = 0x1040806
+.field public static final wifi_notification_captive_portal_detail:I = 0x1040808
 
-.field public static final wifi_notification_captive_portal_disabled_button_dismiss:I = 0x1040809
+.field public static final wifi_notification_captive_portal_disabled_button_dismiss:I = 0x104080b
 
-.field public static final wifi_notification_captive_portal_disabled_button_signin:I = 0x104080a
+.field public static final wifi_notification_captive_portal_disabled_button_signin:I = 0x104080c
 
-.field public static final wifi_notification_captive_portal_disabled_detail:I = 0x1040808
+.field public static final wifi_notification_captive_portal_disabled_detail:I = 0x104080a
 
-.field public static final wifi_notification_captive_portal_disabled_title:I = 0x1040807
+.field public static final wifi_notification_captive_portal_disabled_title:I = 0x1040809
 
-.field public static final wifi_notification_captive_portal_title:I = 0x1040805
+.field public static final wifi_notification_captive_portal_title:I = 0x1040807
 
 .field public static final wifi_notification_connected:I = 0x10407f7
 
@@ -3913,13 +3913,13 @@
 
 .field public static final wifi_notification_not_connected_message:I = 0x10407f6
 
-.field public static final wifi_notification_sns_exception_hun_detail:I = 0x1040a38
+.field public static final wifi_notification_sns_exception_hun_detail:I = 0x1040803
 
-.field public static final wifi_notification_sns_exception_title:I = 0x1040801
+.field public static final wifi_notification_sns_exception_title:I = 0x1040802
 
-.field public static final wifi_notification_sns_go_wifi_settings:I = 0x10408f1
+.field public static final wifi_notification_sns_go_wifi_settings:I = 0x1040801
 
-.field public static final wifi_open_wifiap_insecure:I = 0x10409cb
+.field public static final wifi_open_wifiap_insecure:I = 0x10409cc
 
 .field public static final wifi_p2p_auto_disabling_confirmation:I = 0x1040647
 

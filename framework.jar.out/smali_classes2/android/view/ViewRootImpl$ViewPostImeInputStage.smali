@@ -153,7 +153,7 @@
 
     iget-object v4, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v4}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v4}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -495,14 +495,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    if-ne v0, v4, :cond_1
-
-    :cond_0
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v6}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/view/ViewRootImpl;->-get2(Landroid/view/ViewRootImpl;)Landroid/view/ViewRootImpl$MotionEventMonitor;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-static {v6}, Landroid/view/ViewRootImpl;->-get2(Landroid/view/ViewRootImpl;)Landroid/view/ViewRootImpl$MotionEventMonitor;
+
+    move-result-object v6
+
+    iget-object v7, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
+
+    invoke-virtual {v6, v7}, Landroid/view/ViewRootImpl$MotionEventMonitor;->dispatchInputEvent(Landroid/view/InputEvent;)V
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    if-ne v0, v4, :cond_2
+
+    :cond_1
+    iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-static {v6}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -526,7 +545,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v6, v6, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -539,13 +558,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v6, v6, Landroid/view/ViewRootImpl;->mCapturingView:Landroid/view/View;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -576,29 +595,29 @@
 
     iget-boolean v6, v6, Landroid/view/View$AttachInfo;->mUnbufferedDispatchRequested:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-boolean v6, v6, Landroid/view/ViewRootImpl;->mUnbufferedInputDispatch:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
-    :cond_2
+    :cond_3
     :goto_1
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     :goto_2
     return v4
 
-    :cond_3
+    :cond_4
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v2, v6, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iput-boolean v4, v6, Landroid/view/ViewRootImpl;->mUnbufferedInputDispatch:Z
@@ -607,7 +626,7 @@
 
     iget-boolean v6, v6, Landroid/view/ViewRootImpl;->mConsumeBatchedInputScheduled:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iget-object v6, p0, Landroid/view/ViewRootImpl$ViewPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -615,7 +634,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move v4, v5
 
     goto :goto_2

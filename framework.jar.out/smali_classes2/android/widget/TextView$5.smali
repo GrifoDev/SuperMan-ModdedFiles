@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Landroid/widget/TextView;
 
+.field final synthetic val$inputDevice:Landroid/view/InputDevice;
+
 
 # direct methods
-.method constructor <init>(Landroid/widget/TextView;)V
+.method constructor <init>(Landroid/widget/TextView;Landroid/view/InputDevice;)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/TextView$5;->this$0:Landroid/widget/TextView;
+
+    iput-object p2, p0, Landroid/widget/TextView$5;->val$inputDevice:Landroid/view/InputDevice;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,30 +39,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
-
-    const/4 v1, 0x1
-
-    const/16 v2, 0x4e22
-
-    :try_start_0
-    invoke-static {v1, v2}, Landroid/text/MultiSelection;->setTextViewHovered(ZI)V
+    .locals 2
 
     const/16 v1, 0x4e22
 
-    const/4 v2, -0x1
+    const/4 v0, 0x1
 
-    invoke-static {v1, v2}, Landroid/view/PointerIcon;->setHoveringSpenIcon(II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v1}, Landroid/text/MultiSelection;->setTextViewHovered(ZI)V
 
-    :goto_0
+    iget-object v0, p0, Landroid/widget/TextView$5;->val$inputDevice:Landroid/view/InputDevice;
+
+    invoke-virtual {v0, v1}, Landroid/view/InputDevice;->setPointerType(I)V
+
     return-void
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    goto :goto_0
 .end method

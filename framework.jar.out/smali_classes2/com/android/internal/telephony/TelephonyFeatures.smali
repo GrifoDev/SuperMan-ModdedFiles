@@ -806,6 +806,63 @@
     return v2
 .end method
 
+.method public static isOpenMarket()Z
+    .locals 3
+
+    const/4 v2, 0x1
+
+    const-string/jumbo v0, "XSA"
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
+
+    :cond_0
+    const-string/jumbo v0, "BTU"
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "XEU"
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "XEO"
+
+    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    return v2
+
+    :cond_2
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isSimHotswapSupported()Z
     .locals 1
 
@@ -1466,63 +1523,8 @@
 .end method
 
 .method public static showEpdgNetName(I)Z
-    .locals 5
+    .locals 2
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
-
-    const-string/jumbo v0, "BTU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "XEU"
-
-    sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_0
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const-string/jumbo v1, "23430"
-
-    aput-object v1, v0, v3
-
-    const-string/jumbo v1, "23433"
-
-    aput-object v1, v0, v4
-
-    const-string/jumbo v1, "23486"
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isIccOperatorNumericSpecific(I[Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    return v4
-
-    :cond_1
-    return v3
-
-    :cond_2
     const-string/jumbo v0, "EUR"
 
     sget-object v1, Lcom/android/internal/telephony/TelephonyFeatures;->mMainOperator:Ljava/lang/String;
@@ -1531,7 +1533,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
     const-string/jumbo v0, "TMO"
 
@@ -1541,13 +1543,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
-    :cond_3
-    return v4
+    :cond_0
+    const/4 v0, 0x1
 
-    :cond_4
-    return v3
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public static showEpdgNetNameWhenOos(I)Z

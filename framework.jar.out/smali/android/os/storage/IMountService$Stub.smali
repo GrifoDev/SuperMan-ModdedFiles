@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "IMountService"
 
+.field static final TRANSACTION_addPrivateVolume:I = 0x6a
+
 .field static final TRANSACTION_addUserKeyAuth:I = 0x47
 
 .field static final TRANSACTION_benchmark:I = 0x3c
@@ -153,6 +155,8 @@
 .field static final TRANSACTION_prepareUserStorage:I = 0x43
 
 .field static final TRANSACTION_registerListener:I = 0x1
+
+.field static final TRANSACTION_removePrivateVolume:I = 0x6b
 
 .field static final TRANSACTION_renameSecureContainer:I = 0x11
 
@@ -1558,6 +1562,36 @@
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IMountService$Stub;->addPrivateVolume()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :sswitch_26
+    const-string/jumbo v6, "IMountService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IMountService$Stub;->removePrivateVolume()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :sswitch_27
+    const-string/jumbo v6, "IMountService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IMountService$Stub;->getPasswordType()I
 
     move-result v58
@@ -1574,7 +1608,7 @@
 
     return v6
 
-    :sswitch_26
+    :sswitch_28
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1597,7 +1631,7 @@
 
     return v6
 
-    :sswitch_27
+    :sswitch_29
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1612,7 +1646,7 @@
 
     return v6
 
-    :sswitch_28
+    :sswitch_2a
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1641,7 +1675,7 @@
 
     return v6
 
-    :sswitch_29
+    :sswitch_2b
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1672,7 +1706,7 @@
 
     return v6
 
-    :sswitch_2a
+    :sswitch_2c
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1705,7 +1739,7 @@
 
     goto :goto_d
 
-    :sswitch_2b
+    :sswitch_2d
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1742,7 +1776,7 @@
 
     return v6
 
-    :sswitch_2c
+    :sswitch_2e
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1765,7 +1799,7 @@
 
     return v6
 
-    :sswitch_2d
+    :sswitch_2f
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1780,7 +1814,7 @@
 
     return v6
 
-    :sswitch_2e
+    :sswitch_30
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1795,7 +1829,7 @@
 
     return v6
 
-    :sswitch_2f
+    :sswitch_31
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1820,7 +1854,7 @@
 
     return v6
 
-    :sswitch_30
+    :sswitch_32
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1853,7 +1887,7 @@
 
     return v6
 
-    :sswitch_31
+    :sswitch_33
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1886,7 +1920,7 @@
 
     return v6
 
-    :sswitch_32
+    :sswitch_34
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1909,7 +1943,7 @@
 
     return v6
 
-    :sswitch_33
+    :sswitch_35
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1932,7 +1966,7 @@
 
     return v6
 
-    :sswitch_34
+    :sswitch_36
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1955,7 +1989,7 @@
 
     return v6
 
-    :sswitch_35
+    :sswitch_37
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -1986,7 +2020,7 @@
 
     return v6
 
-    :sswitch_36
+    :sswitch_38
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2009,7 +2043,7 @@
 
     return v6
 
-    :sswitch_37
+    :sswitch_39
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2032,7 +2066,7 @@
 
     return v6
 
-    :sswitch_38
+    :sswitch_3a
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2061,7 +2095,7 @@
 
     return v6
 
-    :sswitch_39
+    :sswitch_3b
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2090,7 +2124,7 @@
 
     return v6
 
-    :sswitch_3a
+    :sswitch_3c
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2125,7 +2159,7 @@
 
     return v6
 
-    :sswitch_3b
+    :sswitch_3d
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2148,7 +2182,7 @@
 
     return v6
 
-    :sswitch_3c
+    :sswitch_3e
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2163,7 +2197,7 @@
 
     return v6
 
-    :sswitch_3d
+    :sswitch_3f
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2192,7 +2226,7 @@
 
     return v6
 
-    :sswitch_3e
+    :sswitch_40
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2215,7 +2249,7 @@
 
     return v6
 
-    :sswitch_3f
+    :sswitch_41
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2248,7 +2282,7 @@
 
     return v6
 
-    :sswitch_40
+    :sswitch_42
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2293,70 +2327,6 @@
 
     goto :goto_e
 
-    :sswitch_41
-    const-string/jumbo v6, "IMountService"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v71
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v71
-
-    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->destroyUserKey(I)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v6, 0x1
-
-    return v6
-
-    :sswitch_42
-    const-string/jumbo v6, "IMountService"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v71
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v64
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v68
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v63
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v71
-
-    move/from16 v2, v64
-
-    move-object/from16 v3, v68
-
-    move-object/from16 v4, v63
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/storage/IMountService$Stub;->addUserKeyAuth(II[B[B)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v6, 0x1
-
-    return v6
-
     :sswitch_43
     const-string/jumbo v6, "IMountService"
 
@@ -2372,7 +2342,7 @@
 
     move/from16 v1, v71
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->fixateNewestUserKeyAuth(I)V
+    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->destroyUserKey(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2413,7 +2383,7 @@
 
     move-object/from16 v4, v63
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/storage/IMountService$Stub;->unlockUserKey(II[B[B)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/storage/IMountService$Stub;->addUserKeyAuth(II[B[B)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2436,7 +2406,7 @@
 
     move/from16 v1, v71
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->lockUserKey(I)V
+    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->fixateNewestUserKeyAuth(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2445,6 +2415,70 @@
     return v6
 
     :sswitch_46
+    const-string/jumbo v6, "IMountService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v71
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v64
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v68
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v63
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v71
+
+    move/from16 v2, v64
+
+    move-object/from16 v3, v68
+
+    move-object/from16 v4, v63
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/storage/IMountService$Stub;->unlockUserKey(II[B[B)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :sswitch_47
+    const-string/jumbo v6, "IMountService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v71
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v71
+
+    invoke-virtual {v0, v1}, Landroid/os/storage/IMountService$Stub;->lockUserKey(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :sswitch_48
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2483,7 +2517,7 @@
 
     goto :goto_f
 
-    :sswitch_47
+    :sswitch_49
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2524,7 +2558,7 @@
 
     return v6
 
-    :sswitch_48
+    :sswitch_4a
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2559,7 +2593,7 @@
 
     return v6
 
-    :sswitch_49
+    :sswitch_4b
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2592,7 +2626,7 @@
 
     return v6
 
-    :sswitch_4a
+    :sswitch_4c
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2629,7 +2663,7 @@
 
     return v6
 
-    :sswitch_4b
+    :sswitch_4d
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2660,7 +2694,7 @@
 
     return v6
 
-    :sswitch_4c
+    :sswitch_4e
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2697,7 +2731,7 @@
 
     return v6
 
-    :sswitch_4d
+    :sswitch_4f
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2738,7 +2772,7 @@
 
     goto :goto_10
 
-    :sswitch_4e
+    :sswitch_50
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2761,7 +2795,7 @@
 
     return v6
 
-    :sswitch_4f
+    :sswitch_51
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2784,7 +2818,7 @@
 
     return v6
 
-    :sswitch_50
+    :sswitch_52
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2815,7 +2849,7 @@
 
     return v6
 
-    :sswitch_51
+    :sswitch_53
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2838,7 +2872,7 @@
 
     return v6
 
-    :sswitch_52
+    :sswitch_54
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2875,7 +2909,7 @@
 
     return v6
 
-    :sswitch_53
+    :sswitch_55
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2906,7 +2940,7 @@
 
     return v6
 
-    :sswitch_54
+    :sswitch_56
     const-string/jumbo v6, "IMountService"
 
     move-object/from16 v0, p2
@@ -2965,56 +2999,58 @@
         0x20 -> :sswitch_21
         0x22 -> :sswitch_22
         0x23 -> :sswitch_23
-        0x24 -> :sswitch_25
-        0x25 -> :sswitch_26
-        0x26 -> :sswitch_27
-        0x27 -> :sswitch_28
-        0x28 -> :sswitch_29
-        0x29 -> :sswitch_2b
-        0x2a -> :sswitch_2c
-        0x2b -> :sswitch_2d
-        0x2c -> :sswitch_2e
-        0x2d -> :sswitch_2f
-        0x2e -> :sswitch_30
-        0x2f -> :sswitch_31
-        0x30 -> :sswitch_32
-        0x31 -> :sswitch_33
-        0x32 -> :sswitch_34
-        0x33 -> :sswitch_36
-        0x34 -> :sswitch_37
-        0x35 -> :sswitch_38
-        0x36 -> :sswitch_39
-        0x37 -> :sswitch_3a
-        0x38 -> :sswitch_3b
-        0x39 -> :sswitch_3c
-        0x3a -> :sswitch_3e
-        0x3b -> :sswitch_3f
-        0x3c -> :sswitch_35
-        0x3d -> :sswitch_3d
-        0x3e -> :sswitch_40
-        0x3f -> :sswitch_41
-        0x40 -> :sswitch_44
-        0x41 -> :sswitch_45
-        0x42 -> :sswitch_46
-        0x43 -> :sswitch_47
-        0x44 -> :sswitch_48
-        0x45 -> :sswitch_2a
-        0x46 -> :sswitch_49
-        0x47 -> :sswitch_42
-        0x48 -> :sswitch_43
+        0x24 -> :sswitch_27
+        0x25 -> :sswitch_28
+        0x26 -> :sswitch_29
+        0x27 -> :sswitch_2a
+        0x28 -> :sswitch_2b
+        0x29 -> :sswitch_2d
+        0x2a -> :sswitch_2e
+        0x2b -> :sswitch_2f
+        0x2c -> :sswitch_30
+        0x2d -> :sswitch_31
+        0x2e -> :sswitch_32
+        0x2f -> :sswitch_33
+        0x30 -> :sswitch_34
+        0x31 -> :sswitch_35
+        0x32 -> :sswitch_36
+        0x33 -> :sswitch_38
+        0x34 -> :sswitch_39
+        0x35 -> :sswitch_3a
+        0x36 -> :sswitch_3b
+        0x37 -> :sswitch_3c
+        0x38 -> :sswitch_3d
+        0x39 -> :sswitch_3e
+        0x3a -> :sswitch_40
+        0x3b -> :sswitch_41
+        0x3c -> :sswitch_37
+        0x3d -> :sswitch_3f
+        0x3e -> :sswitch_42
+        0x3f -> :sswitch_43
+        0x40 -> :sswitch_46
+        0x41 -> :sswitch_47
+        0x42 -> :sswitch_48
+        0x43 -> :sswitch_49
+        0x44 -> :sswitch_4a
+        0x45 -> :sswitch_2c
+        0x46 -> :sswitch_4b
+        0x47 -> :sswitch_44
+        0x48 -> :sswitch_45
         0x49 -> :sswitch_1d
         0x69 -> :sswitch_24
-        0xc9 -> :sswitch_4a
-        0xca -> :sswitch_4b
-        0xcb -> :sswitch_4d
-        0xcc -> :sswitch_4c
-        0xcd -> :sswitch_4e
-        0xce -> :sswitch_4f
-        0xcf -> :sswitch_52
-        0xd0 -> :sswitch_53
-        0xd1 -> :sswitch_50
-        0xd2 -> :sswitch_51
-        0xd3 -> :sswitch_54
+        0x6a -> :sswitch_25
+        0x6b -> :sswitch_26
+        0xc9 -> :sswitch_4c
+        0xca -> :sswitch_4d
+        0xcb -> :sswitch_4f
+        0xcc -> :sswitch_4e
+        0xcd -> :sswitch_50
+        0xce -> :sswitch_51
+        0xcf -> :sswitch_54
+        0xd0 -> :sswitch_55
+        0xd1 -> :sswitch_52
+        0xd2 -> :sswitch_53
+        0xd3 -> :sswitch_56
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

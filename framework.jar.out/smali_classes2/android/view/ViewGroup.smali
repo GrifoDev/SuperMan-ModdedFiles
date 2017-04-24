@@ -8503,9 +8503,9 @@
 
     const/4 v5, 0x0
 
-    sget v4, Landroid/view/ViewGroup;->sSpenUspLevel:I
+    sget-boolean v4, Landroid/view/ViewGroup;->sIsSpenUspLevel3:Z
 
-    if-gtz v4, :cond_0
+    if-nez v4, :cond_0
 
     return v5
 

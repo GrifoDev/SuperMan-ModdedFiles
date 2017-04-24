@@ -2326,13 +2326,11 @@
 .end method
 
 .method private isQCSupported()Z
-    .locals 2
+    .locals 1
 
-    sget v0, Landroid/widget/ScrollView;->sSpenUspLevel:I
+    sget-boolean v0, Landroid/widget/ScrollView;->sIsSpenUspLevel3:Z
 
-    const/4 v1, 0x3
-
-    if-lt v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/widget/ScrollView;->mSemFollow2016A:Z
 

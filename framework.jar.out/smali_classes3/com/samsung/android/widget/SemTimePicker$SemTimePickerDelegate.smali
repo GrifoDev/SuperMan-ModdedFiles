@@ -63,9 +63,6 @@
 .method public abstract onRestoreInstanceState(Landroid/os/Parcelable;)V
 .end method
 
-.method public abstract onRtlPropertiesChanged(I)V
-.end method
-
 .method public abstract onSaveInstanceState(Landroid/os/Parcelable;)Landroid/os/Parcelable;
 .end method
 

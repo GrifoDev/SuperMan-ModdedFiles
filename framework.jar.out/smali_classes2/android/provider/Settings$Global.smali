@@ -684,8 +684,6 @@
 
 .field public static final WIFI_SETTINGS_RUN_FOREGROUND:Ljava/lang/String; = "wifi_settings_run_foreground"
 
-.field public static final WIFI_SETUPWIZARD_COMPLETE_TIME_MILLIS:Ljava/lang/String; = "wifi_setupwizard_complete_time_millis"
-
 .field public static final WIFI_SHARE_PROFILE:Ljava/lang/String; = "wifi_share_profile"
 
 .field public static final WIFI_SLEEP_POLICY:Ljava/lang/String; = "wifi_sleep_policy"

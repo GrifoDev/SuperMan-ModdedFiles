@@ -460,11 +460,27 @@
     return v13
 
     :pswitch_0
-    const/4 v13, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawXForScaledWindow()F
+
+    move-result v13
+
+    iget v14, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionX:I
+
+    int-to-float v14, v14
+
+    sub-float/2addr v13, v14
 
     iput v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchToWindowOffsetX:F
 
-    const/4 v13, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawYForScaledWindow()F
+
+    move-result v13
+
+    iget v14, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionY:I
+
+    int-to-float v14, v14
+
+    sub-float/2addr v13, v14
 
     iput v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchToWindowOffsetY:F
 
@@ -549,9 +565,13 @@
     goto :goto_1
 
     :pswitch_1
-    const/4 v8, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawXForScaledWindow()F
 
-    const/4 v9, 0x0
+    move-result v8
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawYForScaledWindow()F
+
+    move-result v9
 
     iget v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchToWindowOffsetY:F
 
@@ -565,9 +585,7 @@
 
     int-to-float v13, v13
 
-    const/4 v14, 0x0
-
-    sub-float v13, v14, v13
+    sub-float v13, v9, v13
 
     iget v14, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mLastParentY:I
 
@@ -602,9 +620,7 @@
 
     iget v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchToWindowOffsetX:F
 
-    const/4 v14, 0x0
-
-    sub-float v13, v14, v13
+    sub-float v13, v8, v13
 
     iget v14, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mHotspotX:I
 
@@ -614,9 +630,7 @@
 
     iget v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchToWindowOffsetY:F
 
-    const/4 v14, 0x0
-
-    sub-float v13, v14, v13
+    sub-float v13, v9, v13
 
     iget v14, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mTouchOffsetY:F
 
@@ -722,6 +736,8 @@
     iput-boolean v13, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mIsDragging:Z
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

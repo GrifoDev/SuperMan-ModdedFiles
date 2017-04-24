@@ -571,7 +571,7 @@
 
     const/16 v4, 0x65
 
-    const v5, 0x1080afa
+    const v5, 0x1080af9
 
     invoke-direct {v0, v4, v5, v3}, Lcom/samsung/android/share/SShareMoreActions$ActionItem;-><init>(IILjava/lang/String;)V
 

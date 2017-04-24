@@ -7388,7 +7388,7 @@
 .method public setAppVolume(II)V
     .locals 5
 
-    const/16 v2, 0x96
+    const/16 v2, 0x64
 
     if-gt p2, v2, :cond_0
 

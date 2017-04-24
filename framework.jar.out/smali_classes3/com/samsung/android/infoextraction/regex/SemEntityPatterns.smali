@@ -513,7 +513,7 @@
 .method public static getCountryDateString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const v0, 0x1040a1c
+    const v0, 0x1040a1d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -525,7 +525,7 @@
 .method public static getCountryTimeString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const v0, 0x1040a1d
+    const v0, 0x1040a1e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -537,7 +537,7 @@
 .method public static getSmartPatternsForDate(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
 
-    const v0, 0x1040a1c
+    const v0, 0x1040a1d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -575,7 +575,7 @@
 .method public static getSmartPatternsForTime(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
 
-    const v0, 0x1040a1d
+    const v0, 0x1040a1e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

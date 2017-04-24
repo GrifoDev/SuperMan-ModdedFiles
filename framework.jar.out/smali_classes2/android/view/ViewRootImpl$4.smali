@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get3(Landroid/view/ViewRootImpl;)Z
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get4(Landroid/view/ViewRootImpl;)Z
 
     move-result v0
 
@@ -71,7 +71,7 @@
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get2(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
+    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get3(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
 
     move-result-object v1
 

@@ -12,8 +12,6 @@
 
 
 # static fields
-.field private static TAG:Ljava/lang/String;
-
 .field private static sKnownAppList:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -38,8 +36,6 @@
 .field private mHandler:Landroid/os/Handler;
 
 .field private mKnownAppSipScenario:Z
-
-.field private mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
 
 .field private mSipTextLen:I
 
@@ -107,14 +103,6 @@
     const-string/jumbo v1, "com.facebook.katana"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    const-class v0, Landroid/widget/EditText;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/widget/EditText;->TAG:Ljava/lang/String;
 
     return-void
 .end method
@@ -467,71 +455,6 @@
     const/4 v1, 0x2
 
     goto :goto_1
-.end method
-
-.method public onHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->isHoveringUIEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    const/16 v1, 0x9
-
-    if-ne v0, v1, :cond_1
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->isTextEditable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Landroid/widget/EditText$3;
-
-    invoke-direct {v0, p0}, Landroid/widget/EditText$3;-><init>(Landroid/widget/EditText;)V
-
-    iput-object v0, p0, Landroid/widget/EditText;->mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
-
-    iget-object v0, p0, Landroid/widget/EditText;->mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
-    :goto_0
-    invoke-super {p0, p1}, Landroid/widget/TextView;->onHoverEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    const/16 v1, 0xa
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Landroid/widget/EditText;->mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/widget/EditText;->mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v0}, Landroid/widget/EditText;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    iput-object v2, p0, Landroid/widget/EditText;->mSetSPenIconCursorRunnable:Ljava/lang/Runnable;
-
-    goto :goto_0
 .end method
 
 .method public onInitializeAccessibilityNodeInfoInternal(Landroid/view/accessibility/AccessibilityNodeInfo;)V

@@ -322,18 +322,6 @@
     return-void
 .end method
 
-.method public onRtlPropertiesChanged(I)V
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRtlPropertiesChanged(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemTimePicker;->mDelegate:Lcom/samsung/android/widget/SemTimePicker$SemTimePickerDelegate;
-
-    invoke-interface {v0, p1}, Lcom/samsung/android/widget/SemTimePicker$SemTimePickerDelegate;->onRtlPropertiesChanged(I)V
-
-    return-void
-.end method
-
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
     .locals 2
 

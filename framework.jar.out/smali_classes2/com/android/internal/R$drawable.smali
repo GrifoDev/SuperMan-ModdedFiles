@@ -137,7 +137,7 @@
 
 .field public static final decor_maximize_button_light:I = 0x108029a
 
-.field public static final default_lock_wallpaper:I = 0x1080b0f
+.field public static final default_lock_wallpaper:I = 0x1080b0e
 
 .field public static final default_wallpaper:I = 0x10802a0
 
@@ -733,9 +733,9 @@
 
 .field public static final notification_material_action_background_show:I = 0x10805a4
 
-.field public static final notification_template_icon_bg:I = 0x1080b08
+.field public static final notification_template_icon_bg:I = 0x1080b07
 
-.field public static final notification_template_icon_low_bg:I = 0x1080b09
+.field public static final notification_template_icon_low_bg:I = 0x1080b08
 
 .field public static final picture_emergency:I = 0x10805f5
 
@@ -1240,109 +1240,107 @@
 
 .field public static final tw_scrubber_control_vertical_material_anim:I = 0x1080a92
 
-.field public static final tw_scrubber_progress_auto_brightness:I = 0x1080a94
+.field public static final tw_scrubber_progress_horizontal_material_extra:I = 0x1080a95
 
-.field public static final tw_scrubber_progress_horizontal_material_extra:I = 0x1080a96
+.field public static final tw_scrubber_progress_vertical_material:I = 0x1080a96
 
-.field public static final tw_scrubber_progress_vertical_material:I = 0x1080a97
+.field public static final tw_scrubber_progress_vertical_material_extra:I = 0x1080a97
 
-.field public static final tw_scrubber_progress_vertical_material_extra:I = 0x1080a98
+.field public static final tw_seek_bar_background_borderless_material:I = 0x1080a9b
 
-.field public static final tw_seek_bar_background_borderless_material:I = 0x1080a9c
+.field public static final tw_spinner_show_button_background_material:I = 0x1080aa7
 
-.field public static final tw_spinner_show_button_background_material:I = 0x1080aa8
+.field public static final tw_split_seekbar_background_progress_material:I = 0x1080aa8
 
-.field public static final tw_split_seekbar_background_progress_material:I = 0x1080aa9
+.field public static final tw_split_seekbar_primary_progress_material:I = 0x1080aa9
 
-.field public static final tw_split_seekbar_primary_progress_material:I = 0x1080aaa
+.field public static final tw_split_seekbar_vertical_bar_material:I = 0x1080aaa
 
-.field public static final tw_split_seekbar_vertical_bar_material:I = 0x1080aab
+.field public static final tw_suggestions_popup_background_material:I = 0x1080aab
 
-.field public static final tw_suggestions_popup_background_material:I = 0x1080aac
+.field public static final tw_switch_thumb_material_anim:I = 0x1080ab0
 
-.field public static final tw_switch_thumb_material_anim:I = 0x1080ab1
+.field public static final tw_switch_thumb_material_anim_us:I = 0x1080ab1
 
-.field public static final tw_switch_thumb_material_anim_us:I = 0x1080ab2
+.field public static final tw_switch_track_material:I = 0x1080aba
 
-.field public static final tw_switch_track_material:I = 0x1080abb
+.field public static final tw_switch_track_material_us:I = 0x1080abb
 
-.field public static final tw_switch_track_material_us:I = 0x1080abc
+.field public static final tw_switch_track_mtrl_alpha_off:I = 0x1080ac0
 
-.field public static final tw_switch_track_mtrl_alpha_off:I = 0x1080ac1
+.field public static final tw_switch_track_mtrl_alpha_on:I = 0x1080ac2
 
-.field public static final tw_switch_track_mtrl_alpha_on:I = 0x1080ac3
+.field public static final tw_text_action_btn_material_light:I = 0x1080ac6
 
-.field public static final tw_text_action_btn_material_light:I = 0x1080ac7
+.field public static final tw_text_magnifier_popup_background:I = 0x1080acb
 
-.field public static final tw_text_magnifier_popup_background:I = 0x1080acc
+.field public static final tw_toolbox_edit_area_bg:I = 0x1080ad5
 
-.field public static final tw_toolbox_edit_area_bg:I = 0x1080ad6
+.field public static final tw_toolbox_edit_btn:I = 0x1080ad6
 
-.field public static final tw_toolbox_edit_btn:I = 0x1080ad7
+.field public static final tw_toolbox_edit_btn_focus:I = 0x1080ad7
 
-.field public static final tw_toolbox_edit_btn_focus:I = 0x1080ad8
+.field public static final tw_toolbox_floating_background:I = 0x1080ad8
 
-.field public static final tw_toolbox_floating_background:I = 0x1080ad9
+.field public static final tw_toolbox_floating_btn:I = 0x1080ad9
 
-.field public static final tw_toolbox_floating_btn:I = 0x1080ada
+.field public static final tw_toolbox_floating_btn_open:I = 0x1080ada
 
-.field public static final tw_toolbox_floating_btn_open:I = 0x1080adb
+.field public static final tw_toolbox_function_ic_action_memo:I = 0x1080adb
 
-.field public static final tw_toolbox_function_ic_action_memo:I = 0x1080adc
+.field public static final tw_toolbox_function_ic_magnifier:I = 0x1080adc
 
-.field public static final tw_toolbox_function_ic_magnifier:I = 0x1080add
+.field public static final tw_toolbox_function_ic_quick_connect:I = 0x1080add
 
-.field public static final tw_toolbox_function_ic_quick_connect:I = 0x1080ade
+.field public static final tw_toolbox_function_ic_s_finder:I = 0x1080ade
 
-.field public static final tw_toolbox_function_ic_s_finder:I = 0x1080adf
+.field public static final tw_toolbox_function_ic_scrapbook:I = 0x1080adf
 
-.field public static final tw_toolbox_function_ic_scrapbook:I = 0x1080ae0
+.field public static final tw_toolbox_function_ic_screen_write:I = 0x1080ae0
 
-.field public static final tw_toolbox_function_ic_screen_write:I = 0x1080ae1
+.field public static final tw_toolbox_function_ic_torch_light_off:I = 0x1080ae1
 
-.field public static final tw_toolbox_function_ic_torch_light_off:I = 0x1080ae2
+.field public static final tw_toolbox_function_ic_torch_light_on:I = 0x1080ae2
 
-.field public static final tw_toolbox_function_ic_torch_light_on:I = 0x1080ae3
+.field public static final tw_toolbox_hide_area_bg:I = 0x1080ae3
 
-.field public static final tw_toolbox_hide_area_bg:I = 0x1080ae4
+.field public static final tw_toolbox_remove_area_bg:I = 0x1080ae4
 
-.field public static final tw_toolbox_remove_area_bg:I = 0x1080ae5
+.field public static final tw_toolbox_remove_btn:I = 0x1080ae5
 
-.field public static final tw_toolbox_remove_btn:I = 0x1080ae6
+.field public static final tw_toolbox_remove_btn_focus:I = 0x1080ae6
 
-.field public static final tw_toolbox_remove_btn_focus:I = 0x1080ae7
+.field public static final tw_toolbox_remove_btn_focus_cover:I = 0x1080ae7
 
-.field public static final tw_toolbox_remove_btn_focus_cover:I = 0x1080ae8
+.field public static final unknown_image:I = 0x1080aed
 
-.field public static final unknown_image:I = 0x1080aee
+.field public static final unlock_default:I = 0x1080aee
 
-.field public static final unlock_default:I = 0x1080aef
+.field public static final unlock_halo:I = 0x1080aef
 
-.field public static final unlock_halo:I = 0x1080af0
+.field public static final unlock_ring:I = 0x1080af0
 
-.field public static final unlock_ring:I = 0x1080af1
+.field public static final unlock_wave:I = 0x1080af1
 
-.field public static final unlock_wave:I = 0x1080af2
+.field public static final usb_ethernet:I = 0x1080af2
 
-.field public static final usb_ethernet:I = 0x1080af3
+.field public static final video_hdr_ic_video:I = 0x1080af7
 
-.field public static final video_hdr_ic_video:I = 0x1080af8
+.field public static final view_content_on_shareport_ic:I = 0x1080af9
 
-.field public static final view_content_on_shareport_ic:I = 0x1080afa
+.field public static final vpn_connected:I = 0x1080afa
 
-.field public static final vpn_connected:I = 0x1080afb
+.field public static final vpn_disconnected:I = 0x1080afb
 
-.field public static final vpn_disconnected:I = 0x1080afc
+.field public static final vpn_icon:I = 0x1080afc
 
-.field public static final vpn_icon:I = 0x1080afd
+.field public static final wb_hover_button:I = 0x1080afd
 
-.field public static final wb_hover_button:I = 0x1080afe
-
-.field public static final wb_tap_button:I = 0x1080aff
+.field public static final wb_tap_button:I = 0x1080afe
 
 .field public static final zoom_plate:I = 0x1080097
 
-.field public static final zzz_stat_sys_no_sim:I = 0x1080b01
+.field public static final zzz_stat_sys_no_sim:I = 0x1080b00
 
 
 # direct methods

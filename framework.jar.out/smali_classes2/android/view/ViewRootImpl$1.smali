@@ -39,7 +39,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {}, Landroid/view/ViewRootImpl;->-get6()Z
+    invoke-static {}, Landroid/view/ViewRootImpl;->-get7()Z
 
     move-result v2
 

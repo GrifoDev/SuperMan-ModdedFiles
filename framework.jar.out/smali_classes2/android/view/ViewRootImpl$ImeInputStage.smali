@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v1
 

@@ -2922,6 +2922,9 @@
 .method private final native native_setup()V
 .end method
 
+.method public static native notifyStopAll()V
+.end method
+
 .method public static native notifyUnmount(Ljava/lang/String;)V
 .end method
 

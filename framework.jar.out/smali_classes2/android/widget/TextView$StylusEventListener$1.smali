@@ -65,7 +65,7 @@
 
     move-result v6
 
-    invoke-static {v4, v5, v6}, Landroid/widget/TextView;->-wrap8(Landroid/widget/TextView;II)Z
+    invoke-static {v4, v5, v6}, Landroid/widget/TextView;->-wrap7(Landroid/widget/TextView;II)Z
 
     move-result v2
 
@@ -99,7 +99,7 @@
 
     iget-object v4, v4, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v4}, Landroid/widget/TextView;->-wrap13(Landroid/widget/TextView;)V
+    invoke-static {v4}, Landroid/widget/TextView;->-wrap12(Landroid/widget/TextView;)V
 
     :try_start_0
     new-instance v1, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;

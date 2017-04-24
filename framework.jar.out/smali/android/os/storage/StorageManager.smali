@@ -871,6 +871,38 @@
 
 
 # virtual methods
+.method public addPrivateVolume()V
+    .locals 3
+
+    iget-object v1, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
+
+    invoke-interface {v1}, Landroid/os/storage/IMountService;->addPrivateVolume()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "StorageManager"
+
+    const-string/jumbo v2, "Failed to addPrivateVolume"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public benchmark(Ljava/lang/String;)J
     .locals 4
 
@@ -2292,6 +2324,38 @@
     monitor-exit v3
 
     throw v2
+.end method
+
+.method public removePrivateVolume()V
+    .locals 3
+
+    iget-object v1, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/os/storage/StorageManager;->mMountService:Landroid/os/storage/IMountService;
+
+    invoke-interface {v1}, Landroid/os/storage/IMountService;->removePrivateVolume()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "StorageManager"
+
+    const-string/jumbo v2, "Failed to removePrivateVolume"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public setPrimaryStorageUuid(Ljava/lang/String;Landroid/content/pm/IPackageMoveObserver;)V

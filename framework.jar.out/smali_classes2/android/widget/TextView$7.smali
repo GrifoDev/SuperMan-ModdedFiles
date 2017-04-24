@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/TextView$7;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v0}, Landroid/widget/TextView;->-wrap14(Landroid/widget/TextView;)V
+    invoke-static {v0}, Landroid/widget/TextView;->-wrap13(Landroid/widget/TextView;)V
 
     return-void
 .end method

@@ -46,7 +46,7 @@
 
 .field static final TRANSACTION_callSECStringApi:I = 0x4a
 
-.field static final TRANSACTION_checkWarningPopup:I = 0x58
+.field static final TRANSACTION_checkWarningPopup:I = 0x59
 
 .field static final TRANSACTION_clearBlacklist:I = 0x33
 
@@ -72,11 +72,11 @@
 
 .field static final TRANSACTION_enableWifiConnectivityManager:I = 0x44
 
-.field static final TRANSACTION_enableWifiSharing:I = 0x6b
+.field static final TRANSACTION_enableWifiSharing:I = 0x6c
 
 .field static final TRANSACTION_factoryReset:I = 0x47
 
-.field static final TRANSACTION_fetchHs20OsuProviders:I = 0x72
+.field static final TRANSACTION_fetchHs20OsuProviders:I = 0x73
 
 .field static final TRANSACTION_getAggressiveHandover:I = 0x3f
 
@@ -94,7 +94,7 @@
 
 .field static final TRANSACTION_getCountryCode:I = 0x1d
 
-.field static final TRANSACTION_getCountryRev:I = 0x64
+.field static final TRANSACTION_getCountryRev:I = 0x65
 
 .field static final TRANSACTION_getCurrentNetwork:I = 0x48
 
@@ -104,85 +104,85 @@
 
 .field static final TRANSACTION_getFrequencyBand:I = 0x1f
 
-.field static final TRANSACTION_getFullRoamScanPeriod:I = 0x60
+.field static final TRANSACTION_getFullRoamScanPeriod:I = 0x61
 
-.field static final TRANSACTION_getHs20OsuProviders:I = 0x70
+.field static final TRANSACTION_getHs20OsuProviders:I = 0x71
 
-.field static final TRANSACTION_getLinkStatus:I = 0x65
+.field static final TRANSACTION_getLinkStatus:I = 0x66
 
 .field static final TRANSACTION_getMatchingWifiConfig:I = 0x6
 
-.field static final TRANSACTION_getNetworkInfo:I = 0x68
+.field static final TRANSACTION_getNetworkInfo:I = 0x69
 
-.field static final TRANSACTION_getPPPOEInfo:I = 0x55
+.field static final TRANSACTION_getPPPOEInfo:I = 0x56
 
 .field static final TRANSACTION_getPrivilegedConfiguredNetworks:I = 0x5
 
-.field static final TRANSACTION_getProvisionSuccess:I = 0x6d
+.field static final TRANSACTION_getProvisionSuccess:I = 0x6e
 
-.field static final TRANSACTION_getRoamBand:I = 0x62
+.field static final TRANSACTION_getRoamBand:I = 0x63
 
-.field static final TRANSACTION_getRoamDelta:I = 0x5c
+.field static final TRANSACTION_getRoamDelta:I = 0x5d
 
-.field static final TRANSACTION_getRoamScanPeriod:I = 0x5e
+.field static final TRANSACTION_getRoamScanPeriod:I = 0x5f
 
-.field static final TRANSACTION_getRoamTrigger:I = 0x5a
+.field static final TRANSACTION_getRoamTrigger:I = 0x5b
 
-.field static final TRANSACTION_getRvfMode:I = 0x6e
+.field static final TRANSACTION_getRvfMode:I = 0x6f
 
 .field static final TRANSACTION_getSBlacklist:I = 0x36
 
 .field static final TRANSACTION_getScanResults:I = 0x15
 
-.field static final TRANSACTION_getSpecificNetwork:I = 0x4b
+.field static final TRANSACTION_getSpecificNetwork:I = 0x4c
 
-.field static final TRANSACTION_getSpecificPasspointNetwork:I = 0x4c
+.field static final TRANSACTION_getSpecificPasspointNetwork:I = 0x4d
 
 .field static final TRANSACTION_getSupportedFeatures:I = 0x1
 
 .field static final TRANSACTION_getVerboseLoggingLevel:I = 0x3d
 
-.field static final TRANSACTION_getWifiApConfigTxPower:I = 0x4e
+.field static final TRANSACTION_getWifiApConfigTxPower:I = 0x4f
 
 .field static final TRANSACTION_getWifiApConfiguration:I = 0x2e
 
 .field static final TRANSACTION_getWifiApEnabledState:I = 0x2d
 
-.field static final TRANSACTION_getWifiApStaList:I = 0x4d
+.field static final TRANSACTION_getWifiApStaList:I = 0x4e
 
-.field static final TRANSACTION_getWifiApTimeOut:I = 0x52
+.field static final TRANSACTION_getWifiApTimeOut:I = 0x53
 
 .field static final TRANSACTION_getWifiEnabledState:I = 0x1b
 
-.field static final TRANSACTION_getWifiIBSSEnabledState:I = 0x69
+.field static final TRANSACTION_getWifiIBSSEnabledState:I = 0x6a
 
 .field static final TRANSACTION_getWifiServiceMessenger:I = 0x37
 
-.field static final TRANSACTION_getWifiWatchdogMessenger:I = 0x77
+.field static final TRANSACTION_getWifiWatchdogMessenger:I = 0x78
 
 .field static final TRANSACTION_getWpsNfcConfigurationToken:I = 0x3b
 
 .field static final TRANSACTION_initializeMulticastFiltering:I = 0x28
 
-.field static final TRANSACTION_isCaptivePortalException:I = 0x76
+.field static final TRANSACTION_isCaptivePortalException:I = 0x77
 
-.field static final TRANSACTION_isDetectedAsMaliciousHotspot:I = 0x73
+.field static final TRANSACTION_isDetectedAsMaliciousHotspot:I = 0x74
 
 .field static final TRANSACTION_isDualBandSupported:I = 0x20
 
-.field static final TRANSACTION_isHs20OsuProviderAvailable:I = 0x71
+.field static final TRANSACTION_isHs20OsuProviderAvailable:I = 0x72
 
 .field static final TRANSACTION_isMulticastEnabled:I = 0x29
 
-.field static final TRANSACTION_isPasspointDefaultOn:I = 0x74
+.field static final TRANSACTION_isPasspointDefaultOn:I = 0x75
 
-.field static final TRANSACTION_isPasspointMenuVisible:I = 0x75
+.field static final TRANSACTION_isPasspointMenuVisible:I = 0x76
 
 .field static final TRANSACTION_isScanAlwaysAvailable:I = 0x24
 
 .field static final TRANSACTION_isSupportBackupAndRestore:I = 0x21
 
-.field static final TRANSACTION_isWifiSharingEnabled:I = 0x6a
+.field static final TRANSACTION_isWifiSharingEnabled:I = 0x6b
 
 .field static final TRANSACTION_matchProviderWithCurrentNetwork:I = 0xb
 
@@ -202,7 +202,7 @@
 
 .field static final TRANSACTION_removeNetwork:I = 0xd
 
-.field static final TRANSACTION_removeNetworkByMDM:I = 0x56
+.field static final TRANSACTION_removeNetworkByMDM:I = 0x57
 
 .field static final TRANSACTION_reportActivityInfo:I = 0x2
 
@@ -212,55 +212,57 @@
 
 .field static final TRANSACTION_saveConfiguration:I = 0x22
 
-.field static final TRANSACTION_saveNetworkByMDM:I = 0x57
+.field static final TRANSACTION_saveNetworkByMDM:I = 0x58
+
+.field static final TRANSACTION_semGetConfiguredNetworks:I = 0x4b
 
 .field static final TRANSACTION_setAllowScansWithTraffic:I = 0x40
 
 .field static final TRANSACTION_setCountryCode:I = 0x1c
 
-.field static final TRANSACTION_setCountryRev:I = 0x63
+.field static final TRANSACTION_setCountryRev:I = 0x64
 
 .field static final TRANSACTION_setEnableAutoJoinWhenAssociated:I = 0x42
 
 .field static final TRANSACTION_setFrequencyBand:I = 0x1e
 
-.field static final TRANSACTION_setFullRoamScanPeriod:I = 0x5f
+.field static final TRANSACTION_setFullRoamScanPeriod:I = 0x60
 
-.field static final TRANSACTION_setIsFmcNetwork:I = 0x66
+.field static final TRANSACTION_setIsFmcNetwork:I = 0x67
 
-.field static final TRANSACTION_setProvisionSuccess:I = 0x6c
+.field static final TRANSACTION_setProvisionSuccess:I = 0x6d
 
-.field static final TRANSACTION_setRoamBand:I = 0x61
+.field static final TRANSACTION_setRoamBand:I = 0x62
 
-.field static final TRANSACTION_setRoamDelta:I = 0x5b
+.field static final TRANSACTION_setRoamDelta:I = 0x5c
 
-.field static final TRANSACTION_setRoamScanPeriod:I = 0x5d
+.field static final TRANSACTION_setRoamScanPeriod:I = 0x5e
 
-.field static final TRANSACTION_setRoamTrigger:I = 0x59
+.field static final TRANSACTION_setRoamTrigger:I = 0x5a
 
-.field static final TRANSACTION_setRvfMode:I = 0x6f
+.field static final TRANSACTION_setRvfMode:I = 0x70
 
-.field static final TRANSACTION_setWifiApConfigTxPower:I = 0x4f
+.field static final TRANSACTION_setWifiApConfigTxPower:I = 0x50
 
 .field static final TRANSACTION_setWifiApConfiguration:I = 0x31
 
-.field static final TRANSACTION_setWifiApConfigurationToDefault:I = 0x50
+.field static final TRANSACTION_setWifiApConfigurationToDefault:I = 0x51
 
 .field static final TRANSACTION_setWifiApEnabled:I = 0x2c
 
-.field static final TRANSACTION_setWifiApTimeOut:I = 0x51
+.field static final TRANSACTION_setWifiApTimeOut:I = 0x52
 
 .field static final TRANSACTION_setWifiEnabled:I = 0x1a
 
-.field static final TRANSACTION_setWifiIBSSEnabled:I = 0x67
+.field static final TRANSACTION_setWifiIBSSEnabled:I = 0x68
 
-.field static final TRANSACTION_startPPPOE:I = 0x53
+.field static final TRANSACTION_startPPPOE:I = 0x54
 
 .field static final TRANSACTION_startPartialChannelScan:I = 0x14
 
 .field static final TRANSACTION_startScan:I = 0x13
 
-.field static final TRANSACTION_stopPPPOE:I = 0x54
+.field static final TRANSACTION_stopPPPOE:I = 0x55
 
 .field static final TRANSACTION_updateWifiLockWorkSource:I = 0x26
 
@@ -3044,6 +3046,37 @@
 
     move-object/from16 v0, p0
 
+    invoke-virtual {v0, v4}, Landroid/net/wifi/IWifiManager$Stub;->semGetConfiguredNetworks(I)Ljava/util/List;
+
+    move-result-object v38
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v38
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+
+    const/16 v41, 0x1
+
+    return v41
+
+    :sswitch_4c
+    const-string/jumbo v41, "android.net.wifi.IWifiManager"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v41
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
     invoke-virtual {v0, v4}, Landroid/net/wifi/IWifiManager$Stub;->getSpecificNetwork(I)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v31
@@ -3086,7 +3119,7 @@
 
     goto :goto_2d
 
-    :sswitch_4c
+    :sswitch_4d
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3143,7 +3176,7 @@
 
     goto :goto_2e
 
-    :sswitch_4d
+    :sswitch_4e
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3168,7 +3201,7 @@
 
     return v41
 
-    :sswitch_4e
+    :sswitch_4f
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3193,7 +3226,7 @@
 
     return v41
 
-    :sswitch_4f
+    :sswitch_50
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3216,7 +3249,7 @@
 
     return v41
 
-    :sswitch_50
+    :sswitch_51
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3233,7 +3266,7 @@
 
     return v41
 
-    :sswitch_51
+    :sswitch_52
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3256,7 +3289,7 @@
 
     return v41
 
-    :sswitch_52
+    :sswitch_53
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3281,7 +3314,7 @@
 
     return v41
 
-    :sswitch_53
+    :sswitch_54
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3324,7 +3357,7 @@
 
     goto :goto_2f
 
-    :sswitch_54
+    :sswitch_55
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3341,7 +3374,7 @@
 
     return v41
 
-    :sswitch_55
+    :sswitch_56
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3392,7 +3425,7 @@
 
     goto :goto_30
 
-    :sswitch_56
+    :sswitch_57
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3433,7 +3466,7 @@
 
     goto :goto_31
 
-    :sswitch_57
+    :sswitch_58
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3484,7 +3517,7 @@
 
     goto :goto_32
 
-    :sswitch_58
+    :sswitch_59
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3519,7 +3552,7 @@
 
     goto :goto_33
 
-    :sswitch_59
+    :sswitch_5a
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3560,7 +3593,7 @@
 
     goto :goto_34
 
-    :sswitch_5a
+    :sswitch_5b
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3585,7 +3618,7 @@
 
     return v41
 
-    :sswitch_5b
+    :sswitch_5c
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3626,7 +3659,7 @@
 
     goto :goto_35
 
-    :sswitch_5c
+    :sswitch_5d
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3651,7 +3684,7 @@
 
     return v41
 
-    :sswitch_5d
+    :sswitch_5e
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3692,7 +3725,7 @@
 
     goto :goto_36
 
-    :sswitch_5e
+    :sswitch_5f
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3717,7 +3750,7 @@
 
     return v41
 
-    :sswitch_5f
+    :sswitch_60
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3758,7 +3791,7 @@
 
     goto :goto_37
 
-    :sswitch_60
+    :sswitch_61
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3783,7 +3816,7 @@
 
     return v41
 
-    :sswitch_61
+    :sswitch_62
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3824,7 +3857,7 @@
 
     goto :goto_38
 
-    :sswitch_62
+    :sswitch_63
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3849,7 +3882,7 @@
 
     return v41
 
-    :sswitch_63
+    :sswitch_64
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3890,7 +3923,7 @@
 
     goto :goto_39
 
-    :sswitch_64
+    :sswitch_65
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3915,7 +3948,7 @@
 
     return v41
 
-    :sswitch_65
+    :sswitch_66
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3940,7 +3973,7 @@
 
     return v41
 
-    :sswitch_66
+    :sswitch_67
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -3991,7 +4024,7 @@
 
     goto :goto_3b
 
-    :sswitch_67
+    :sswitch_68
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4042,7 +4075,7 @@
 
     goto :goto_3d
 
-    :sswitch_68
+    :sswitch_69
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4093,7 +4126,7 @@
 
     goto :goto_3e
 
-    :sswitch_69
+    :sswitch_6a
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4118,7 +4151,7 @@
 
     return v41
 
-    :sswitch_6a
+    :sswitch_6b
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4153,7 +4186,7 @@
 
     goto :goto_3f
 
-    :sswitch_6b
+    :sswitch_6c
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4204,7 +4237,7 @@
 
     goto :goto_41
 
-    :sswitch_6c
+    :sswitch_6d
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4255,7 +4288,7 @@
 
     goto :goto_43
 
-    :sswitch_6d
+    :sswitch_6e
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4280,7 +4313,7 @@
 
     return v41
 
-    :sswitch_6e
+    :sswitch_6f
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4305,7 +4338,7 @@
 
     return v41
 
-    :sswitch_6f
+    :sswitch_70
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4346,7 +4379,7 @@
 
     goto :goto_44
 
-    :sswitch_70
+    :sswitch_71
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4371,7 +4404,7 @@
 
     return v41
 
-    :sswitch_71
+    :sswitch_72
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4406,7 +4439,7 @@
 
     goto :goto_45
 
-    :sswitch_72
+    :sswitch_73
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4441,7 +4474,7 @@
 
     goto :goto_46
 
-    :sswitch_73
+    :sswitch_74
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4482,7 +4515,7 @@
 
     goto :goto_47
 
-    :sswitch_74
+    :sswitch_75
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4517,7 +4550,7 @@
 
     goto :goto_48
 
-    :sswitch_75
+    :sswitch_76
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4552,7 +4585,7 @@
 
     goto :goto_49
 
-    :sswitch_76
+    :sswitch_77
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4587,7 +4620,7 @@
 
     goto :goto_4a
 
-    :sswitch_77
+    :sswitch_78
     const-string/jumbo v41, "android.net.wifi.IWifiManager"
 
     move-object/from16 v0, p2
@@ -4637,8 +4670,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_4b
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -4761,6 +4792,7 @@
         0x75 -> :sswitch_75
         0x76 -> :sswitch_76
         0x77 -> :sswitch_77
+        0x78 -> :sswitch_78
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$2;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->-wrap3(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+    invoke-static {v0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->-wrap2(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$2;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 

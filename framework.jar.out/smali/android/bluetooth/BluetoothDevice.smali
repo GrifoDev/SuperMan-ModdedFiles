@@ -955,7 +955,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v4
 
@@ -2331,7 +2331,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/bluetooth/BluetoothDevice;->getAddressForLog()Ljava/lang/String;
 
     move-result-object v4
 

@@ -63,7 +63,7 @@
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate$3;->this$0:Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->-wrap1(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+    invoke-static {v1}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->-wrap0(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
 
     return-void
 

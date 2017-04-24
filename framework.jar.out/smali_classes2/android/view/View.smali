@@ -861,13 +861,15 @@
 
 .field private static sIgnoreMeasureCache:Z
 
+.field protected static sIsSpenUspLevel3:Z
+
+.field private static sIsSpenUspLevelChecked:Z
+
 .field private static sLayoutParamsAlwaysChanged:Z
 
 .field private static sNextAccessibilityViewId:I
 
 .field private static final sNextGeneratedId:Ljava/util/concurrent/atomic/AtomicInteger;
-
-.field protected static sSpenUspLevel:I
 
 .field static sTextureViewIgnoresDrawableSetters:Z
 
@@ -1443,9 +1445,9 @@
 .method static constructor <clinit>()V
     .locals 7
 
-    const/4 v6, 0x2
+    const/4 v6, 0x3
 
-    const/4 v5, -0x1
+    const/4 v5, 0x2
 
     const/16 v4, 0x8
 
@@ -1583,15 +1585,13 @@
 
     sput-object v0, Landroid/view/View;->WINDOW_FOCUSED_STATE_SET:[I
 
-    invoke-static {v6}, Landroid/util/StateSet;->get(I)[I
+    invoke-static {v5}, Landroid/util/StateSet;->get(I)[I
 
     move-result-object v0
 
     sput-object v0, Landroid/view/View;->SELECTED_STATE_SET:[I
 
-    const/4 v0, 0x3
-
-    invoke-static {v0}, Landroid/util/StateSet;->get(I)[I
+    invoke-static {v6}, Landroid/util/StateSet;->get(I)[I
 
     move-result-object v0
 
@@ -1825,9 +1825,7 @@
 
     sput-object v0, Landroid/view/View;->sThreadLocal:Ljava/lang/ThreadLocal;
 
-    const/4 v0, 0x3
-
-    filled-new-array {v2, v3, v6, v0}, [I
+    filled-new-array {v2, v3, v5, v6}, [I
 
     move-result-object v0
 
@@ -1847,7 +1845,9 @@
 
     sput-object v0, Landroid/view/View;->PFLAG2_TEXT_ALIGNMENT_FLAGS:[I
 
-    sput v5, Landroid/view/View;->sSpenUspLevel:I
+    sput-boolean v2, Landroid/view/View;->sIsSpenUspLevel3:Z
+
+    sput-boolean v2, Landroid/view/View;->sIsSpenUspLevelChecked:Z
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -1953,11 +1953,11 @@
 
     sput v2, Landroid/view/View;->sHoverUIEnableFlag:I
 
-    sput v5, Landroid/view/View;->mHoverUIFeatureLevel:I
+    const/4 v0, -0x1
+
+    sput v0, Landroid/view/View;->mHoverUIFeatureLevel:I
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -2166,166 +2166,166 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 8
+    .locals 9
 
-    const/16 v7, 0x17
+    const/16 v8, 0x17
 
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v3, p0, Landroid/view/View;->mCurrentAnimation:Landroid/view/animation/Animation;
+    iput-object v4, p0, Landroid/view/View;->mCurrentAnimation:Landroid/view/animation/Animation;
 
-    iput-boolean v5, p0, Landroid/view/View;->mRecreateDisplayList:Z
+    iput-boolean v6, p0, Landroid/view/View;->mRecreateDisplayList:Z
 
-    iput v6, p0, Landroid/view/View;->mID:I
+    iput v7, p0, Landroid/view/View;->mID:I
 
-    iput v6, p0, Landroid/view/View;->mAccessibilityViewId:I
+    iput v7, p0, Landroid/view/View;->mAccessibilityViewId:I
 
-    iput v6, p0, Landroid/view/View;->mAccessibilityCursorPosition:I
+    iput v7, p0, Landroid/view/View;->mAccessibilityCursorPosition:I
 
-    iput-object v3, p0, Landroid/view/View;->mTag:Ljava/lang/Object;
+    iput-object v4, p0, Landroid/view/View;->mTag:Ljava/lang/Object;
 
-    iput v5, p0, Landroid/view/View;->mTransientStateCount:I
+    iput v6, p0, Landroid/view/View;->mTransientStateCount:I
 
-    iput-object v3, p0, Landroid/view/View;->mClipBounds:Landroid/graphics/Rect;
+    iput-object v4, p0, Landroid/view/View;->mClipBounds:Landroid/graphics/Rect;
 
-    iput v5, p0, Landroid/view/View;->mPaddingLeft:I
+    iput v6, p0, Landroid/view/View;->mPaddingLeft:I
 
-    iput v5, p0, Landroid/view/View;->mPaddingRight:I
+    iput v6, p0, Landroid/view/View;->mPaddingRight:I
 
-    iput v6, p0, Landroid/view/View;->mLabelForId:I
+    iput v7, p0, Landroid/view/View;->mLabelForId:I
 
-    iput v6, p0, Landroid/view/View;->mAccessibilityTraversalBeforeId:I
+    iput v7, p0, Landroid/view/View;->mAccessibilityTraversalBeforeId:I
 
-    iput v6, p0, Landroid/view/View;->mAccessibilityTraversalAfterId:I
+    iput v7, p0, Landroid/view/View;->mAccessibilityTraversalAfterId:I
 
-    iput-boolean v5, p0, Landroid/view/View;->mLeftPaddingDefined:Z
+    iput-boolean v6, p0, Landroid/view/View;->mLeftPaddingDefined:Z
 
-    iput-boolean v5, p0, Landroid/view/View;->mRightPaddingDefined:Z
+    iput-boolean v6, p0, Landroid/view/View;->mRightPaddingDefined:Z
 
-    const/high16 v2, -0x80000000
+    const/high16 v3, -0x80000000
 
-    iput v2, p0, Landroid/view/View;->mOldWidthMeasureSpec:I
+    iput v3, p0, Landroid/view/View;->mOldWidthMeasureSpec:I
 
-    const/high16 v2, -0x80000000
+    const/high16 v3, -0x80000000
 
-    iput v2, p0, Landroid/view/View;->mOldHeightMeasureSpec:I
+    iput v3, p0, Landroid/view/View;->mOldHeightMeasureSpec:I
 
-    const/high16 v2, 0x7fc00000    # NaNf
+    const/high16 v3, 0x7fc00000    # NaNf
 
-    iput v2, p0, Landroid/view/View;->mLongClickX:F
+    iput v3, p0, Landroid/view/View;->mLongClickX:F
 
-    const/high16 v2, 0x7fc00000    # NaNf
+    const/high16 v3, 0x7fc00000    # NaNf
 
-    iput v2, p0, Landroid/view/View;->mLongClickY:F
+    iput v3, p0, Landroid/view/View;->mLongClickY:F
 
-    iput-object v3, p0, Landroid/view/View;->mDrawableState:[I
+    iput-object v4, p0, Landroid/view/View;->mDrawableState:[I
 
-    sget-object v2, Landroid/view/ViewOutlineProvider;->BACKGROUND:Landroid/view/ViewOutlineProvider;
+    sget-object v3, Landroid/view/ViewOutlineProvider;->BACKGROUND:Landroid/view/ViewOutlineProvider;
 
-    iput-object v2, p0, Landroid/view/View;->mOutlineProvider:Landroid/view/ViewOutlineProvider;
+    iput-object v3, p0, Landroid/view/View;->mOutlineProvider:Landroid/view/ViewOutlineProvider;
 
-    iput v6, p0, Landroid/view/View;->mNextFocusLeftId:I
+    iput v7, p0, Landroid/view/View;->mNextFocusLeftId:I
 
-    iput v6, p0, Landroid/view/View;->mNextFocusRightId:I
+    iput v7, p0, Landroid/view/View;->mNextFocusRightId:I
 
-    iput v6, p0, Landroid/view/View;->mNextFocusUpId:I
+    iput v7, p0, Landroid/view/View;->mNextFocusUpId:I
 
-    iput v6, p0, Landroid/view/View;->mNextFocusDownId:I
+    iput v7, p0, Landroid/view/View;->mNextFocusDownId:I
 
-    iput v6, p0, Landroid/view/View;->mNextFocusForwardId:I
+    iput v7, p0, Landroid/view/View;->mNextFocusForwardId:I
 
-    iput-object v3, p0, Landroid/view/View;->mPendingCheckForTap:Landroid/view/View$CheckForTap;
+    iput-object v4, p0, Landroid/view/View;->mPendingCheckForTap:Landroid/view/View$CheckForTap;
 
-    iput-object v3, p0, Landroid/view/View;->mTouchDelegate:Landroid/view/TouchDelegate;
+    iput-object v4, p0, Landroid/view/View;->mTouchDelegate:Landroid/view/TouchDelegate;
 
-    iput v5, p0, Landroid/view/View;->mDrawingCacheBackgroundColor:I
+    iput v6, p0, Landroid/view/View;->mDrawingCacheBackgroundColor:I
 
-    iput-object v3, p0, Landroid/view/View;->mAnimator:Landroid/view/ViewPropertyAnimator;
+    iput-object v4, p0, Landroid/view/View;->mAnimator:Landroid/view/ViewPropertyAnimator;
 
-    iput v5, p0, Landroid/view/View;->mTwExtraPaddingBottomForPreference:I
+    iput v6, p0, Landroid/view/View;->mTwExtraPaddingBottomForPreference:I
 
-    iput v5, p0, Landroid/view/View;->mLayerType:I
+    iput v6, p0, Landroid/view/View;->mLayerType:I
 
-    iput-object v3, p0, Landroid/view/View;->mRenderNodeImageFilter:Lcom/samsung/android/graphics/SemImageFilter;
+    iput-object v4, p0, Landroid/view/View;->mRenderNodeImageFilter:Lcom/samsung/android/graphics/SemImageFilter;
 
-    iput-boolean v5, p0, Landroid/view/View;->mEnablePenGesture:Z
+    iput-boolean v6, p0, Landroid/view/View;->mEnablePenGesture:Z
 
-    iput-boolean v4, p0, Landroid/view/View;->mDisablePenGestureforfactorytest:Z
+    iput-boolean v5, p0, Landroid/view/View;->mDisablePenGestureforfactorytest:Z
 
-    iput-boolean v5, p0, Landroid/view/View;->isPenSideButton:Z
+    iput-boolean v6, p0, Landroid/view/View;->isPenSideButton:Z
 
     invoke-static {}, Landroid/view/InputEventConsistencyVerifier;->isInstrumentationEnabled()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_4
 
-    new-instance v2, Landroid/view/InputEventConsistencyVerifier;
+    new-instance v3, Landroid/view/InputEventConsistencyVerifier;
 
-    invoke-direct {v2, p0, v5}, Landroid/view/InputEventConsistencyVerifier;-><init>(Ljava/lang/Object;I)V
+    invoke-direct {v3, p0, v6}, Landroid/view/InputEventConsistencyVerifier;-><init>(Ljava/lang/Object;I)V
 
     :goto_0
-    iput-object v2, p0, Landroid/view/View;->mInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
+    iput-object v3, p0, Landroid/view/View;->mInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    iput v2, p0, Landroid/view/View;->mToolType:I
+    iput v3, p0, Landroid/view/View;->mToolType:I
 
-    iput-object v3, p0, Landroid/view/View;->mImageFilterBridge:Landroid/view/ImageFilterBridge;
+    iput-object v4, p0, Landroid/view/View;->mImageFilterBridge:Landroid/view/ImageFilterBridge;
 
-    iput-boolean v5, p0, Landroid/view/View;->mSemScrollingByScrollbar:Z
+    iput-boolean v6, p0, Landroid/view/View;->mSemScrollingByScrollbar:Z
 
-    iput-boolean v4, p0, Landroid/view/View;->mSemScrollingVertical:Z
+    iput-boolean v5, p0, Landroid/view/View;->mSemScrollingVertical:Z
 
-    new-instance v2, Landroid/graphics/Rect;
+    new-instance v3, Landroid/graphics/Rect;
 
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v2, p0, Landroid/view/View;->mSemVerticalScrollbarRect:Landroid/graphics/Rect;
+    iput-object v3, p0, Landroid/view/View;->mSemVerticalScrollbarRect:Landroid/graphics/Rect;
 
-    new-instance v2, Landroid/graphics/Rect;
+    new-instance v3, Landroid/graphics/Rect;
 
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v2, p0, Landroid/view/View;->mSemHorizontalScrollbarRect:Landroid/graphics/Rect;
+    iput-object v3, p0, Landroid/view/View;->mSemHorizontalScrollbarRect:Landroid/graphics/Rect;
 
-    iput-object v3, p0, Landroid/view/View;->mDirectPenInput:Lcom/samsung/android/directpeninput/SemDirectPenInput;
+    iput-object v4, p0, Landroid/view/View;->mDirectPenInput:Lcom/samsung/android/directpeninput/SemDirectPenInput;
 
-    iput-boolean v5, p0, Landroid/view/View;->mIsDirectPenInputEnabled:Z
+    iput-boolean v6, p0, Landroid/view/View;->mIsDirectPenInputEnabled:Z
 
-    iput-object v3, p0, Landroid/view/View;->mRootViewCheckForDialog:Landroid/view/View;
+    iput-object v4, p0, Landroid/view/View;->mRootViewCheckForDialog:Landroid/view/View;
 
-    iput-boolean v5, p0, Landroid/view/View;->mIsInDialog:Z
+    iput-boolean v6, p0, Landroid/view/View;->mIsInDialog:Z
 
-    iput-boolean v4, p0, Landroid/view/View;->mIsSetFingerHovedInAppWidget:Z
+    iput-boolean v5, p0, Landroid/view/View;->mIsSetFingerHovedInAppWidget:Z
 
-    iput v5, p0, Landroid/view/View;->mScrollBarPositionPadding:I
+    iput v6, p0, Landroid/view/View;->mScrollBarPositionPadding:I
 
-    iput-boolean v5, p0, Landroid/view/View;->mNeededToChangedScrollBarPosition:Z
+    iput-boolean v6, p0, Landroid/view/View;->mNeededToChangedScrollBarPosition:Z
 
-    iput-boolean v5, p0, Landroid/view/View;->mSkipRtlCheck:Z
+    iput-boolean v6, p0, Landroid/view/View;->mSkipRtlCheck:Z
 
-    iput-object v3, p0, Landroid/view/View;->mSmartClipDataTag:Lcom/samsung/android/content/smartclip/SemSmartClipMetaTagArray;
+    iput-object v4, p0, Landroid/view/View;->mSmartClipDataTag:Lcom/samsung/android/content/smartclip/SemSmartClipMetaTagArray;
 
-    iput-object v3, p0, Landroid/view/View;->mSmartClipDataExtractionListener:Lcom/samsung/android/content/smartclip/SemSmartClipDataExtractionListener;
+    iput-object v4, p0, Landroid/view/View;->mSmartClipDataExtractionListener:Lcom/samsung/android/content/smartclip/SemSmartClipDataExtractionListener;
 
-    iput-object v3, p0, Landroid/view/View;->mHoverPopup:Lcom/samsung/android/widget/SemHoverPopupWindow;
+    iput-object v4, p0, Landroid/view/View;->mHoverPopup:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
-    iput-boolean v5, p0, Landroid/view/View;->mIsDetachedFromWindow:Z
+    iput-boolean v6, p0, Landroid/view/View;->mIsDetachedFromWindow:Z
 
-    iput v5, p0, Landroid/view/View;->mHoverPopupType:I
+    iput v6, p0, Landroid/view/View;->mHoverPopupType:I
 
-    iput v5, p0, Landroid/view/View;->mHoverPopupToolTypeByApp:I
+    iput v6, p0, Landroid/view/View;->mHoverPopupToolTypeByApp:I
 
-    iput-object v3, p0, Landroid/view/View;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    iput-object v4, p0, Landroid/view/View;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     iput-object p1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
@@ -2333,210 +2333,231 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v4
 
     :cond_0
-    iput-object v3, p0, Landroid/view/View;->mResources:Landroid/content/res/Resources;
+    iput-object v4, p0, Landroid/view/View;->mResources:Landroid/content/res/Resources;
 
-    const/high16 v2, 0x18000000
+    const/high16 v3, 0x18000000
 
-    iput v2, p0, Landroid/view/View;->mViewFlags:I
+    iput v3, p0, Landroid/view/View;->mViewFlags:I
 
-    const v2, 0x22408
+    const v3, 0x22408
 
-    iput v2, p0, Landroid/view/View;->mPrivateFlags2:I
+    iput v3, p0, Landroid/view/View;->mPrivateFlags2:I
 
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+    invoke-virtual {v3}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Landroid/view/View;->mTouchSlop:I
+    iput v3, p0, Landroid/view/View;->mTouchSlop:I
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->setOverScrollMode(I)V
+    invoke-virtual {p0, v5}, Landroid/view/View;->setOverScrollMode(I)V
 
-    const/high16 v2, -0x80000000
+    const/high16 v3, -0x80000000
 
-    iput v2, p0, Landroid/view/View;->mUserPaddingStart:I
+    iput v3, p0, Landroid/view/View;->mUserPaddingStart:I
 
-    const/high16 v2, -0x80000000
+    const/high16 v3, -0x80000000
 
-    iput v2, p0, Landroid/view/View;->mUserPaddingEnd:I
+    iput v3, p0, Landroid/view/View;->mUserPaddingEnd:I
 
     invoke-virtual {p0}, Landroid/view/View;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2, p0}, Landroid/view/RenderNode;->create(Ljava/lang/String;Landroid/view/View;)Landroid/view/RenderNode;
+    invoke-static {v3, p0}, Landroid/view/RenderNode;->create(Ljava/lang/String;Landroid/view/View;)Landroid/view/RenderNode;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Landroid/view/View;->mRenderNode:Landroid/view/RenderNode;
+    iput-object v3, p0, Landroid/view/View;->mRenderNode:Landroid/view/RenderNode;
 
-    sget-boolean v2, Landroid/view/View;->sCompatibilityDone:Z
+    sget-boolean v3, Landroid/view/View;->sCompatibilityDone:Z
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v1, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget v2, v3, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    const/16 v2, 0x11
+    const/16 v3, 0x11
 
-    if-gt v1, v2, :cond_5
+    if-gt v2, v3, :cond_5
 
-    move v2, v4
+    move v3, v5
 
     :goto_1
-    sput-boolean v2, Landroid/view/View;->sUseBrokenMakeMeasureSpec:Z
+    sput-boolean v3, Landroid/view/View;->sUseBrokenMakeMeasureSpec:Z
 
-    const/16 v2, 0x13
+    const/16 v3, 0x13
 
-    if-ge v1, v2, :cond_6
+    if-ge v2, v3, :cond_6
 
-    move v2, v4
+    move v3, v5
 
     :goto_2
-    sput-boolean v2, Landroid/view/View;->sIgnoreMeasureCache:Z
+    sput-boolean v3, Landroid/view/View;->sIgnoreMeasureCache:Z
 
-    if-ge v1, v7, :cond_7
+    if-ge v2, v8, :cond_7
 
-    move v2, v4
+    move v3, v5
 
     :goto_3
-    sput-boolean v2, Landroid/graphics/Canvas;->sCompatibilityRestore:Z
+    sput-boolean v3, Landroid/graphics/Canvas;->sCompatibilityRestore:Z
 
-    if-ge v1, v7, :cond_8
+    if-ge v2, v8, :cond_8
 
-    move v2, v4
+    move v3, v5
 
     :goto_4
-    sput-boolean v2, Landroid/view/View;->sUseZeroUnspecifiedMeasureSpec:Z
+    sput-boolean v3, Landroid/view/View;->sUseZeroUnspecifiedMeasureSpec:Z
 
-    if-gt v1, v7, :cond_9
+    if-gt v2, v8, :cond_9
 
-    move v2, v4
+    move v3, v5
 
     :goto_5
-    sput-boolean v2, Landroid/view/View;->sAlwaysRemeasureExactly:Z
+    sput-boolean v3, Landroid/view/View;->sAlwaysRemeasureExactly:Z
 
-    if-gt v1, v7, :cond_a
+    if-gt v2, v8, :cond_a
 
-    move v2, v4
+    move v3, v5
 
     :goto_6
-    sput-boolean v2, Landroid/view/View;->sLayoutParamsAlwaysChanged:Z
+    sput-boolean v3, Landroid/view/View;->sLayoutParamsAlwaysChanged:Z
 
-    if-gt v1, v7, :cond_b
+    if-gt v2, v8, :cond_b
 
-    move v2, v4
+    move v3, v5
 
     :goto_7
-    sput-boolean v2, Landroid/view/View;->sTextureViewIgnoresDrawableSetters:Z
+    sput-boolean v3, Landroid/view/View;->sTextureViewIgnoresDrawableSetters:Z
 
-    sput-boolean v4, Landroid/view/View;->sCompatibilityDone:Z
+    sput-boolean v5, Landroid/view/View;->sCompatibilityDone:Z
 
     :cond_1
     if-eqz p1, :cond_3
 
-    sget v2, Landroid/view/View;->sSpenUspLevel:I
+    :try_start_0
+    sget-boolean v3, Landroid/view/View;->sIsSpenUspLevelChecked:Z
 
-    if-ne v2, v6, :cond_2
+    if-nez v3, :cond_2
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v2, "com.sec.feature.spen_usp"
+    const-string/jumbo v3, "com.sec.feature.spen_usp"
 
-    invoke-virtual {v0, v2}, Landroid/content/pm/PackageManager;->getSystemFeatureLevel(Ljava/lang/String;)I
+    const/4 v4, 0x3
 
-    move-result v2
+    invoke-virtual {v1, v3, v4}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
 
-    sput v2, Landroid/view/View;->sSpenUspLevel:I
+    move-result v3
+
+    sput-boolean v3, Landroid/view/View;->sIsSpenUspLevel3:Z
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Landroid/view/View;->sIsSpenUspLevelChecked:Z
+    :try_end_0
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_2
-    sget v2, Landroid/view/View;->sSpenUspLevel:I
+    :goto_8
+    sget-boolean v3, Landroid/view/View;->sIsSpenUspLevel3:Z
 
-    if-lez v2, :cond_3
+    if-eqz v3, :cond_3
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string/jumbo v3, "disable_pen_gesture"
+    const-string/jumbo v4, "disable_pen_gesture"
 
-    invoke-static {v2, v3, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v4, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
-    iput-boolean v4, p0, Landroid/view/View;->mEnablePenGesture:Z
+    iput-boolean v5, p0, Landroid/view/View;->mEnablePenGesture:Z
 
-    iput-boolean v5, p0, Landroid/view/View;->mDisablePenGestureforfactorytest:Z
+    iput-boolean v6, p0, Landroid/view/View;->mDisablePenGestureforfactorytest:Z
 
     :cond_3
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, p0, Landroid/view/View;->mRenderNodeImageFilterClipRects:Ljava/util/ArrayList;
+    iput-object v3, p0, Landroid/view/View;->mRenderNodeImageFilterClipRects:Ljava/util/ArrayList;
 
     return-void
 
     :cond_4
-    move-object v2, v3
+    move-object v3, v4
 
     goto/16 :goto_0
 
     :cond_5
-    move v2, v5
+    move v3, v6
 
     goto :goto_1
 
     :cond_6
-    move v2, v5
+    move v3, v6
 
     goto :goto_2
 
     :cond_7
-    move v2, v5
+    move v3, v6
 
     goto :goto_3
 
     :cond_8
-    move v2, v5
+    move v3, v6
 
     goto :goto_4
 
     :cond_9
-    move v2, v5
+    move v3, v6
 
     goto :goto_5
 
     :cond_a
-    move v2, v5
+    move v3, v6
 
     goto :goto_6
 
     :cond_b
-    move v2, v5
+    move v3, v6
 
     goto :goto_7
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "View"
+
+    const-string/jumbo v4, "AbstractMethodError occured."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_8
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -14286,13 +14307,11 @@
 .end method
 
 .method public dispatchKeyEventTextMultiSelection(Landroid/view/KeyEvent;)Z
-    .locals 2
+    .locals 1
 
-    const/4 v1, 0x0
+    sget-boolean v0, Landroid/view/View;->sIsSpenUspLevel3:Z
 
-    sget v0, Landroid/view/View;->sSpenUspLevel:I
-
-    if-lez v0, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
@@ -14305,7 +14324,9 @@
     return v0
 
     :cond_0
-    return v1
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
@@ -15043,12 +15064,6 @@
     :cond_c
     :goto_1
     if-eqz v2, :cond_2
-
-    invoke-virtual {p0}, Landroid/view/View;->isTextSelectionEnabled()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_d
 
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -20566,36 +20581,53 @@
 .end method
 
 .method protected getHoverUIFeatureLevel()I
-    .locals 4
+    .locals 6
 
-    const/4 v3, 0x2
+    const/4 v5, 0x2
 
-    sget v1, Landroid/view/View;->mHoverUIFeatureLevel:I
+    sget v2, Landroid/view/View;->mHoverUIFeatureLevel:I
 
-    if-gez v1, :cond_0
+    if-gez v2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    :try_start_0
+    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "com.sec.feature.hovering_ui"
+    const-string/jumbo v3, "com.sec.feature.hovering_ui"
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+    const/4 v4, 0x2
 
-    move-result v0
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    sput v3, Landroid/view/View;->mHoverUIFeatureLevel:I
+    :goto_0
+    if-eqz v1, :cond_0
+
+    sput v5, Landroid/view/View;->mHoverUIFeatureLevel:I
 
     :cond_0
-    sget v1, Landroid/view/View;->mHoverUIFeatureLevel:I
+    sget v2, Landroid/view/View;->mHoverUIFeatureLevel:I
 
-    return v1
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "View"
+
+    const-string/jumbo v3, "AbstractMethodError occured."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public getId()I
@@ -25902,13 +25934,11 @@
 .end method
 
 .method protected isMultiPenSelectionEnabled()Z
-    .locals 2
+    .locals 1
 
-    sget v0, Landroid/view/View;->sSpenUspLevel:I
+    sget-boolean v0, Landroid/view/View;->sIsSpenUspLevel3:Z
 
-    const/4 v1, 0x3
-
-    if-lt v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -26445,14 +26475,6 @@
     const/4 v0, 0x0
 
     goto :goto_0
-.end method
-
-.method protected isTextSelectionEnabled()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public isVerticalFadingEdgeEnabled()Z

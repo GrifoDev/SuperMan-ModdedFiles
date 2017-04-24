@@ -148,17 +148,7 @@
     return p1
 .end method
 
-.method static synthetic -wrap0()Z
-    .locals 1
-
-    invoke-static {}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->isMeaLanguage()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap1(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+.method static synthetic -wrap0(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->onTimeChanged()V
@@ -166,7 +156,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+.method static synthetic -wrap1(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->updateAmPmControl()V
@@ -174,7 +164,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+.method static synthetic -wrap2(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->updateInputState()V
@@ -182,7 +172,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;Lcom/samsung/android/widget/SemNumberPicker;Z)V
+.method static synthetic -wrap3(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;Lcom/samsung/android/widget/SemNumberPicker;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->updateModeState(Lcom/samsung/android/widget/SemNumberPicker;Z)V
@@ -190,7 +180,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
+.method static synthetic -wrap4(Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->validCheck()V
@@ -263,7 +253,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408d8
+    const v8, 0x10408da
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -432,7 +422,7 @@
 
     move-result-object v7
 
-    const v8, 0x10408d9
+    const v8, 0x10408db
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -483,6 +473,24 @@
     iget-object v7, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+
+    iget-object v6, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+
+    invoke-static {}, Landroid/view/View;->generateViewId()I
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setId(I)V
+
+    iget-object v6, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
+
+    iget-object v7, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+
+    invoke-virtual {v7}, Landroid/view/View;->getId()I
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->setNextFocusForwardId(I)V
 
     invoke-static {p2}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->getAmPmStrings(Landroid/content/Context;)[Ljava/lang/String;
 
@@ -2150,45 +2158,6 @@
     invoke-virtual {p0, v1}, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->setMinute(I)V
 
     return-void
-.end method
-
-.method public onRtlPropertiesChanged(I)V
-    .locals 3
-
-    const v2, 0x2000006
-
-    const v1, 0x2000005
-
-    packed-switch p1, :pswitch_data_0
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImeOptions(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setImeOptions(I)V
-
-    :goto_0
-    return-void
-
-    :pswitch_0
-    iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setImeOptions(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemTimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImeOptions(I)V
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Parcelable;)Landroid/os/Parcelable;

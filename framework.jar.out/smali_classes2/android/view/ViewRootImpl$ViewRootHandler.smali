@@ -465,7 +465,7 @@
 
     iget-object v2, v0, Landroid/view/ViewRootImpl$ViewRootHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1095,7 +1095,7 @@
 
     iget-object v2, v0, Landroid/view/ViewRootImpl$ViewRootHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get4(Landroid/view/ViewRootImpl;)I
+    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)I
 
     move-result v2
 
@@ -1254,7 +1254,7 @@
 
     iget-object v2, v0, Landroid/view/ViewRootImpl$ViewRootHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1570,7 +1570,7 @@
 
     iget-object v2, v0, Landroid/view/ViewRootImpl$ViewRootHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1603,7 +1603,7 @@
 
     iget-object v2, v0, Landroid/view/ViewRootImpl$ViewRootHandler;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v2}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v2
 

@@ -765,7 +765,7 @@
 
     move-result-object v15
 
-    const v16, 0x1080ac3
+    const v16, 0x1080ac2
 
     move/from16 v0, v16
 
@@ -781,7 +781,7 @@
 
     move-result-object v15
 
-    const v16, 0x1080ac1
+    const v16, 0x1080ac0
 
     move/from16 v0, v16
 

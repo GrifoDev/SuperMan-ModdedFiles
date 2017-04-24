@@ -275,13 +275,7 @@
 
     iput-boolean v12, v7, Landroid/service/notification/ZenModeConfig$XmlV1;->allowEvents:Z
 
-    const-string/jumbo v12, "alarms"
-
-    const/4 v13, 0x1
-
-    invoke-static {p0, v12, v13}, Landroid/service/notification/ZenModeConfig;->-wrap2(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
-
-    move-result v12
+    const/4 v12, 0x1
 
     iput-boolean v12, v7, Landroid/service/notification/ZenModeConfig$XmlV1;->allowAlarms:Z
 

@@ -830,6 +830,24 @@
     .end annotation
 .end method
 
+.method public abstract semGetConfiguredNetworks(I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/WifiConfiguration;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAllowScansWithTraffic(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

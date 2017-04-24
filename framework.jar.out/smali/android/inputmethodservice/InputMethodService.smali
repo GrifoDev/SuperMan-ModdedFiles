@@ -3560,7 +3560,7 @@
 
     if-eq v3, v4, :cond_3
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7
 
     iget-object v3, p0, Landroid/inputmethodservice/InputMethodService;->mSettingsObserver:Landroid/inputmethodservice/InputMethodService$SettingsObserver;
 
@@ -3568,11 +3568,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_7
 
     const-string/jumbo v3, "InputMethodService"
 
     const-string/jumbo v4, " virtual keyboard option is true so show keyboard"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_7
+    if-nez v2, :cond_4
+
+    const-string/jumbo v3, "InputMethodService"
+
+    const-string/jumbo v4, "AccessoryKeyboard is not connected but it can be connect BT mouse with keyboard attribute"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

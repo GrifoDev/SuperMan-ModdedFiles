@@ -462,7 +462,7 @@
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v14}, Landroid/widget/TextView;->-wrap10(Landroid/widget/TextView;)V
+    invoke-static {v14}, Landroid/widget/TextView;->-wrap9(Landroid/widget/TextView;)V
 
     move-object/from16 v0, p0
 
@@ -1492,7 +1492,7 @@
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v14}, Landroid/widget/TextView;->-wrap13(Landroid/widget/TextView;)V
+    invoke-static {v14}, Landroid/widget/TextView;->-wrap12(Landroid/widget/TextView;)V
 
     :try_start_0
     new-instance v7, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
@@ -1594,19 +1594,8 @@
 
     if-ltz v14, :cond_2e
 
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
-
-    invoke-static {v14}, Landroid/widget/TextView;->-wrap7(Landroid/widget/TextView;)Z
-
-    move-result v14
-
-    if-nez v14, :cond_30
-
     if-eqz v8, :cond_2e
 
-    :cond_30
     check-cast v13, Landroid/text/Spannable;
 
     move-object/from16 v0, p0
@@ -1627,7 +1616,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_31
+    if-eqz v14, :cond_30
 
     move-object/from16 v0, p0
 
@@ -1639,7 +1628,7 @@
 
     iget-boolean v14, v14, Landroid/widget/Editor;->mCreatedWithASelection:Z
 
-    if-eqz v14, :cond_31
+    if-eqz v14, :cond_30
 
     move-object/from16 v0, p0
 
@@ -1651,7 +1640,7 @@
 
     invoke-virtual {v14}, Landroid/widget/Editor;->stopTextActionMode()V
 
-    :cond_31
+    :cond_30
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1674,9 +1663,9 @@
 
     move-result v14
 
-    if-eqz v14, :cond_32
+    if-eqz v14, :cond_31
 
-    :cond_32
+    :cond_31
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1689,7 +1678,7 @@
 
     iput-boolean v15, v14, Landroid/widget/Editor;->mCreatedWithASelection:Z
 
-    goto/16 :goto_9
+    goto :goto_9
 
     :sswitch_3
     move-object/from16 v0, p0
@@ -1710,7 +1699,7 @@
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_34
+    if-nez v14, :cond_33
 
     const/4 v14, 0x0
 
@@ -1732,7 +1721,7 @@
 
     move-result v14
 
-    if-lez v14, :cond_33
+    if-lez v14, :cond_32
 
     const/4 v14, 0x1
 
@@ -1741,12 +1730,12 @@
 
     goto/16 :goto_0
 
-    :cond_33
+    :cond_32
     const/4 v14, 0x0
 
     goto :goto_a
 
-    :cond_34
+    :cond_33
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1770,8 +1759,6 @@
     invoke-static {v13, v14}, Landroid/widget/TextView;->semSetSelection(Landroid/text/Spannable;I)V
 
     goto/16 :goto_0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

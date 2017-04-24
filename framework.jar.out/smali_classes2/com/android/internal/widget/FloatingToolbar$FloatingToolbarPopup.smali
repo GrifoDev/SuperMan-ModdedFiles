@@ -1064,7 +1064,7 @@
 
     iget-object v3, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v4, 0x10408bf
+    const v4, 0x10408c1
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1811,7 +1811,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContext:Landroid/content/Context;
 
-    const v3, 0x10408be
+    const v3, 0x10408c0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

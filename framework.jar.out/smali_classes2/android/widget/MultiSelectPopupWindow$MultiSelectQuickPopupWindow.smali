@@ -2073,10 +2073,24 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
+    iget-object v1, p0, Landroid/widget/MultiSelectPopupWindow$MultiSelectQuickPopupWindow;->mMenuTextViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-ne p1, v1, :cond_1
+
+    const v0, 0x102006a
+
+    :cond_0
+    :goto_0
     invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
 
     move-result-object v1
@@ -2084,6 +2098,66 @@
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->onMultiSelectMenuItem(I)Z
 
     return-void
+
+    :cond_1
+    iget-object v1, p0, Landroid/widget/MultiSelectPopupWindow$MultiSelectQuickPopupWindow;->mMenuTextViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-ne p1, v1, :cond_2
+
+    const v0, 0x102006b
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Landroid/widget/MultiSelectPopupWindow$MultiSelectQuickPopupWindow;->mMenuTextViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-ne p1, v1, :cond_3
+
+    const v0, 0x102006e
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v1, p0, Landroid/widget/MultiSelectPopupWindow$MultiSelectQuickPopupWindow;->mMenuTextViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-ne p1, v1, :cond_4
+
+    const v0, 0x102006c
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v1, p0, Landroid/widget/MultiSelectPopupWindow$MultiSelectQuickPopupWindow;->mMenuTextViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-ne p1, v1, :cond_0
+
+    const v0, 0x102006d
+
+    goto :goto_0
 .end method
 
 .method public refreshResource()V

@@ -182,6 +182,8 @@
 
 .field public static final EXTRA_RESULT:Ljava/lang/String; = "operationResult"
 
+.field public static final EXTRA_SHOW_EPDG:Ljava/lang/String; = "showEpdg"
+
 .field public static final EXTRA_SHOW_PLMN:Ljava/lang/String; = "showPlmn"
 
 .field public static final EXTRA_SHOW_SPN:Ljava/lang/String; = "showSpn"

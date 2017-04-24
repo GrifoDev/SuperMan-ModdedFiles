@@ -596,7 +596,15 @@
     return v0
 .end method
 
-.method static synthetic -get2(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
+.method static synthetic -get2(Landroid/view/ViewRootImpl;)Landroid/view/ViewRootImpl$MotionEventMonitor;
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl;->mMotionEventMonitor:Landroid/view/ViewRootImpl$MotionEventMonitor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
     .locals 1
 
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mRenderProfiler:Landroid/view/Choreographer$FrameCallback;
@@ -604,7 +612,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Landroid/view/ViewRootImpl;)Z
+.method static synthetic -get4(Landroid/view/ViewRootImpl;)Z
     .locals 1
 
     iget-boolean v0, p0, Landroid/view/ViewRootImpl;->mRenderProfilingEnabled:Z
@@ -612,7 +620,7 @@
     return v0
 .end method
 
-.method static synthetic -get4(Landroid/view/ViewRootImpl;)I
+.method static synthetic -get5(Landroid/view/ViewRootImpl;)I
     .locals 1
 
     iget v0, p0, Landroid/view/ViewRootImpl;->mResizeMode:I
@@ -620,7 +628,7 @@
     return v0
 .end method
 
-.method static synthetic -get5(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+.method static synthetic -get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Landroid/view/ViewRootImpl;->mTag:Ljava/lang/String;
@@ -628,7 +636,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6()Z
+.method static synthetic -get7()Z
     .locals 1
 
     sget-boolean v0, Landroid/view/ViewRootImpl;->sAODEnabled:Z
@@ -865,9 +873,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/Display;)V
-    .locals 8
+    .locals 10
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
     const/4 v6, 0x1
 
@@ -1037,7 +1045,7 @@
 
     new-instance v0, Landroid/graphics/PointF;
 
-    invoke-direct {v0, v7, v7}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {v0, v9, v9}, Landroid/graphics/PointF;-><init>(FF)V
 
     iput-object v0, p0, Landroid/view/ViewRootImpl;->mTranslatedPoint:Landroid/graphics/PointF;
 
@@ -1059,7 +1067,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     new-instance v0, Landroid/view/InputEventConsistencyVerifier;
 
@@ -1336,12 +1344,50 @@
 
     iput-object v0, p0, Landroid/view/ViewRootImpl;->mSmartClipDispatcherProxy:Landroid/view/ViewRootImpl$SmartClipRemoteRequestDispatcherProxy;
 
-    return-void
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    :try_start_0
+    const-string/jumbo v0, "com.sec.feature.spen_usp"
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v8, v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Landroid/view/ViewRootImpl$MotionEventMonitor;
+
+    invoke-direct {v0}, Landroid/view/ViewRootImpl$MotionEventMonitor;-><init>()V
+
+    iput-object v0, p0, Landroid/view/ViewRootImpl;->mMotionEventMonitor:Landroid/view/ViewRootImpl$MotionEventMonitor;
+    :try_end_0
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
     move-object v0, v1
 
     goto/16 :goto_0
+
+    :catch_0
+    move-exception v7
+
+    const-string/jumbo v0, "ViewRootImpl"
+
+    const-string/jumbo v1, "AbstractMethodError occured."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method
 
 .method public static addConfigCallback(Landroid/content/ComponentCallbacks;)V
@@ -14221,23 +14267,64 @@
 .end method
 
 .method handleAppVisibility(Z)V
-    .locals 1
+    .locals 4
+
+    const/4 v3, 0x1
 
     iget-boolean v0, p0, Landroid/view/ViewRootImpl;->mAppVisible:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_1
 
     iput-boolean p1, p0, Landroid/view/ViewRootImpl;->mAppVisible:Z
 
+    iget v0, p0, Landroid/view/ViewRootImpl;->mViewVisibility:I
+
+    if-nez v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    const-string/jumbo v0, "ViewRootImpl"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "handleAppVisibility() force relayout and redraw for same visibility window : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/view/ViewRootImpl;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual {v2}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v3, p0, Landroid/view/ViewRootImpl;->mForceNextWindowRelayout:Z
+
+    iput-boolean v3, p0, Landroid/view/ViewRootImpl;->mReportNextDraw:Z
+
+    :cond_0
     invoke-virtual {p0}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
 
     iget-boolean v0, p0, Landroid/view/ViewRootImpl;->mAppVisible:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     invoke-static {}, Landroid/view/WindowManagerGlobal;->trimForeground()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 

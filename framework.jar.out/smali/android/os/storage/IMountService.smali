@@ -37,6 +37,14 @@
 
 
 # virtual methods
+.method public abstract addPrivateVolume()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract addUserKeyAuth(II[B[B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -542,6 +550,14 @@
 .end method
 
 .method public abstract registerListener(Landroid/os/storage/IMountServiceListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract removePrivateVolume()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
