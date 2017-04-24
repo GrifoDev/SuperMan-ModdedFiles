@@ -344,11 +344,11 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f0800ac
+    const v1, 0x7f0800ad
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->addPreferencesFromResource(I)V
 
-    const v1, 0x7f0b1a5f
+    const v1, 0x7f0b1b88
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -417,7 +417,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->mNfcOsaifuSettingsData:Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettingsData;
 
-    const v1, 0x7f0b1a60
+    const v1, 0x7f0b1b89
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -431,7 +431,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->pNFcTypeABF:Landroid/preference/CheckBoxPreference;
 
-    const v1, 0x7f0b1a61
+    const v1, 0x7f0b1b8a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -445,7 +445,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->pNFcTypeAF:Landroid/preference/CheckBoxPreference;
 
-    const v1, 0x7f0b1a62
+    const v1, 0x7f0b1b8b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -483,7 +483,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->alertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b1a63
+    const v2, 0x7f0b1b8c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -493,7 +493,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->alertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b1a64
+    const v2, 0x7f0b1b8d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 
@@ -507,7 +507,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->alertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b1a65
+    const v2, 0x7f0b1b8e
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/nfc/NfcListenStatusChange;->getString(I)Ljava/lang/String;
 

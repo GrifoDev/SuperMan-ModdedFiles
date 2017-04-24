@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s orqali ulangan</string>
     <string name="available_via_passpoint">%1$s orqali ishlaydi</string>
     <string name="wifi_connected_no_internet">Ulangan, lekin internet aloqasi yo‘q</string>
+    <string name="wifi_internet_may_not_be_available">Internet yo‘q bo‘lishi mumkin</string>
     <string name="wifi_reconnecting">Tarmoq sifati yaxshilanganda, ulanishga tayyor</string>
     <string name="wifi_connected_checking_quality">Internet ulanishingiz sifati tekshirilmoqda…</string>
     <string name="wifi_sign_in_to_the_network">Tarmoqqa kiring.</string>
@@ -865,6 +866,14 @@ Ilova ma’lumotlari kontaktlar, xabarlar va rasmlar kabi shaxsiy ma’lumotlarn
     <string name="content_description_hand">Ekranning markazida joylashgan ko‘k aylanani bosib turing.</string>
     <string name="nearby_scanning_help_msg_sub">Yaqin-atrofdagi qurilmani qidirish Bluetooth Kam Quvvat skanerlanishi va mikrofondan foydalanadi. Ushbu qurilmada Bluetooth o‘chirilgan bo‘lsa ham, Bluetooth Kam Quvvat skanerlanishidan foydalanish mumkin bo‘ladi.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth qurilmalari topilmadi</string>
+    <string name="bt_tether_title">Bluetooth bog‘lanishi</string>
+    <string name="bt_tether_settings_on">Yoq</string>
+    <string name="bt_tether_settings_off">O‘ch</string>
+    <string name="bt_tether_off_brief_text_phone">Bluetooth yordamida telefoningiz internet ulanishini boshqa qurilmalar bilan ulashing.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bluetooth yordamida planshetingiz internet ulanishini boshqa qurilmalar bilan ulashing.</string>
+    <string name="bt_tether_preference_tethered_device_list">Bog‘langan qurilmalar</string>
+    <string name="bt_tether_server_description_phone">Bluetooth yordamida boshqa qurilma bilan bog‘lanish orqali telefoningiz internet ulanishini ulashing. Agar qurilma avval bog‘langan bo‘lsa, uni Bog‘langan qurilmalar ro‘yxatidan tanlash orqali bog‘lashingiz mumkin.</string>
+    <string name="bt_tether_server_description_tablet">Bluetooth yordamida boshqa qurilma bilan bog‘lanish orqali planshetingiz internet ulanishini ulashing. Agar qurilma avval bog‘langan bo‘lsa, uni Bog‘langan qurilmalar ro‘yxatidan tanlash orqali bog‘lashingiz mumkin.</string>
     <string name="bluetooth_consent_pairing_msg">%s bilan bog‘lanish uchun OK’ga teging.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s SIM-kartangizga kirish uchun ruxsat so‘ramoqda. Ushbu so‘rovga ruxsat berish qo‘ng‘iroq va xabarlar funksiyalarini hamda qurilmangizdagi Mobil ma’lumotni o‘chiradi. Ruxsat berilsinmi?
 
@@ -2161,7 +2170,7 @@ Ba’zi NFC tranzaksiyalari va mobil to‘lov xizmatlari boshqa NFC qayta ishlas
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">"Qurilma boshqa qurilmaga tekkanida ma'lumot almashinuviga ruxsat beradi."</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Mobil to‘lov xizmatlaridan foydalaning, NFC teglarni o‘qing va yozing va NFC-imkoniyatiga ega qurilmalar o‘rtasida ma’lumotlarni almashing.</string>
+    <string name="nfc_settings_title">Mobil to‘lovlarni amalga oshiring, ma’lumotlarni ulashing va NFC teglarini o‘qing yoki yozing.</string>
     <string name="nfc_settings_rw_p2p_summary">Siz teglarni yozishingiz va o‘qishingiz hamda qurilmalar o‘rtasida ma’lumot almashishingiz mumkin.</string>
     <string name="nfcpayment_quick_toggle_title">NFC va to‘lov</string>
     <string name="nfc_mode_general_title">NFC rejimi</string>
@@ -2172,19 +2181,21 @@ Ba’zi NFC tranzaksiyalari va mobil to‘lov xizmatlari boshqa NFC qayta ishlas
     <string name="nfc_payment_enable_summary">Birlamchi mobil to‘lov xizmatingizni tanlang.</string>
     <string name="nfc_payment_title">To‘lov</string>
     <string name="nfc_others_title">Boshqalar</string>
-    <string name="nfc_other_no_apps">O‘rnatilgan to‘lov xizmati ilovalari yo‘q</string>
+    <string name="nfc_other_no_apps">Xizmat ilovalari o‘rnatilmagan</string>
     <string name="nfc_payment_open_app">Agar ochiq ilova Teg va to‘la’ni qo‘llab-quvvatlasa</string>
     <string name="nfc_payment_favor_open_default_unknown">Ochiq ilovadan foydalanish</string>
     <string name="nfc_payment_favor_default_default_unknown">Birlamchi to‘lov xizmati yo‘q</string>
     <string name="nfc_tts_tab_n_of_n">Ilova %1$d/%2$d.</string>
+    <string name="nfc_payment_replace_default_label">Birlamchi to‘lov ilovasi almashtirilsinmi?</string>
+    <string name="nfc_payment_replace">Almashtirish</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Afzal ko‘rilgan SIM-karta</string>
     <string name="nfc_please_wait">Iltimos, kuting…</string>
     <string name="nfc_payment_no_sim_card">SIM-karta yo‘q</string>
-    <string name="nfc_disable_service_title">Birlamchi NFC uslubini o‘zgartirish</string>
-    <string name="nfc_disable_service_msg">Birlamchi NFC birlamchi qayta ishlash usulini o‘zgartirish uchun BOSHQALAR panelidagi ayrim xizmatlar o‘chirilishi yoki yoqilishi mumkin. Bu parametrlarni boshqarish uchun NFC va to‘lov > Teg va to‘la > BOSHQALAR tugmasiga o‘ting, so‘ngra uni yoqish yoki o‘chirish uchun har bir xizmatni tanlang.</string>
+    <string name="nfc_disable_service_title">Birlamchi NFC uslubi o‘zgartirilsinmi?</string>
+    <string name="nfc_disable_service_msg">Birlamchi NFC birlamchi qayta ishlash usulini o‘zgartirish uchun BOSHQALAR panelidagi ayrim xizmatlar o‘chirilishi yoki yoqilishi mumkin. Bu xizmatlarni boshqarish uchun NFC va to‘lov > Teg va to‘la > BOSHQALAR tugmasiga o‘ting, so‘ngra uni yoqish yoki o‘chirish uchun har bir xizmatni tanlang.</string>
     <string name="nfc_settings_advanced_setting">Birlamchi NFC uslubi</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kartasi</string>
     <string name="nfc_settings_advanced_uicc_TTS">Xavfsiz element SIM-kartasi</string>
@@ -2196,7 +2207,7 @@ Ba’zi NFC tranzaksiyalari va mobil to‘lov xizmatlari boshqa NFC qayta ishlas
     <string name="nfc_settings_tag_message">Karta rejimiga o‘tsangiz, NFC teglarni o‘qish, ularga ma’lumotlar yozish yoki qurilmalar o‘rtasida ma’lumotlar almashish imkoniga ega bo‘lmaysiz.</string>
     <string name="nfc_show_alert_dialog_title">Ultra quvvat tejash rjm</string>
     <string name="nfc_show_alert_dialog_message">%sni ochib bo‘lmayapti.</string>
-    <string name="android_beam_explained">NFC funksiyasiga ega qurilmalarni bir-biriga yaqin olib kelish orqali ular o‘rtasida fayllarni ulashing. Undan so‘ng veb-sahifa havolalari, kontaktlar va boshqa narsalarni ulashishingiz mumkin.</string>
+    <string name="android_beam_explained">Telefoningizni NFC yoqilgan qurilma yonida ushlab turish orqali veb-sahifa havolalarini, kontaktlarni va boshqa narsalarni ulashishingiz mumkin.</string>
     <string name="android_beam_explained_1">Qurilmalarni orqasini-orqasiga qilib olib keling.</string>
     <string name="android_beam_explained_2">Ekranga teging.</string>
     <string name="guide_dialog_attention_title">Diqqat</string>
@@ -2205,7 +2216,7 @@ Ba’zi NFC tranzaksiyalari va mobil to‘lov xizmatlari boshqa NFC qayta ishlas
     <string name="cannot_use_card_without_NFC">NFC o‘chirilganda, ba‘zi tarkibni ulashish usullari va NFC to‘lovi kabi NFCga aloqador funksiyalardan foydalanib bo‘lmaydi.</string>
     <string name="limit_app_contents_transfer">Android Beam o‘chirilganda, tarkibni NFC orqali ulashish cheklanadi.</string>
     <string name="nfc_payment_dialog_favor_open">Hozirda ochiq bo‘lgan ilova Teg va to‘la funksiyasini qo‘llab-quvvatlasa, %s o‘rniga u ishlatiladi.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Hozirda ochiq bo‘lgan ilova Teg va to‘la funksiyasini qo‘llab-quvvatlasa, u ishlatiladi.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Agar hozirda ochiq bo‘lgan ilova Tegish va to‘lash funksiyasini qo‘llab-quvvatlasa, u to‘lovlar uchun ishlatiladi.</string>
     <string name="folder_sounds">Jildni och/yop ovozlari</string>
     <string name="folder_sounds_summary">Jildni ochayotganda yoki yopayotganda, ovoz chiqarish.</string>
     <string name="sound_category_calls_title">Kiruvchi qo‘ng‘iroqlar</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Qurilma %d dan ko‘proq vaqt davomida bloklangan bo‘lganda, ilovalar tomonidan Wi-Fi yoki mobil tarmoq orqali ishlatilgan ma’lumot hajmi ko‘rsatilgan bildirishnomalarni oling.</string>
     <string name="data_usage_reminder_description">Quyidagi ilovalar qurilma bloklangan vaqtda jami %s ma’lumotni ishlatdi:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ha</string>
     <string name="no">Yo‘q</string>
     <string name="create">Yaratish</string>
@@ -3559,7 +3571,6 @@ Buni keyinroq Bluetooth parametrlarida o‘zgartirishingiz mumkin."</string>
     <string name="phone_info_label">Qurilma ma’lumoti</string>
     <string name="proxy_settings_label">Proksi parametrlari</string>
     <string name="cancel">Bekor qilish</string>
-    <string name="okay">OK</string>
     <string name="save">Saqlash</string>
     <string name="done">OK</string>
     <string name="settings_label">Parametrlar</string>
@@ -4813,13 +4824,13 @@ Istalgan foydalanuvchi yangilangan ilova ruxsatlarini boshqa barcha foydalanuvch
     <string name="global_change_warning">Bu parametr ushbu qurilmadagi barcha foydalanuvchilarga ta’sir qiladi.</string>
     <string name="global_locale_change_title">Tilni o‘zgartirish</string>
     <string name="nfc_payment_settings_title">Bosish va to‘lash</string>
-    <string name="nfc_payment_no_apps">O‘rnatilgan to‘lov xizmati ilovalari yo‘q</string>
+    <string name="nfc_payment_no_apps">To‘lov ilovalari o‘rnatilmagan</string>
     <string name="nfc_payment_favor_default">%s’dan foydalanishda davom etish</string>
     <string name="nfc_payment_favor_open">%s o‘rniga ochiq ilovani ishlating</string>
     <string name="nfc_how_it_works_got_it">Tushundim</string>
-    <string name="nfc_payment_set_default_label">Birlamchi sifatida o‘rnat</string>
-    <string name="nfc_payment_set_default">%s Tegish va to‘lash tranzaksiyalari uchun birlamchi to‘lov usuli sifatida o‘rnatiladi.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s Tegish va to‘lash tranzaksiyalari birlamchi to‘lov usuli bo‘lgan %2$sni alamshtiradi.</string>
+    <string name="nfc_payment_set_default_label">Birlamchi to‘lov ilovasi o‘rnatilsinmi?</string>
+    <string name="nfc_payment_set_default">%s Tegish va to‘lash funksiyasi uchun birlamchi to‘lov ilovasi sifatida o‘rnatiladi.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s Tegish va to‘lash tranzaksiyalari birlamchi to‘lov ilovasi bo‘lgan %2$s’ni almashtiradi.</string>
     <string name="help_label">Yordam</string>
     <string name="user_restrictions_title">Ilova/tarkib cheklovlari</string>
     <string name="user_restrictions_controlled_by">%1$s orqali boshqariladi</string>
@@ -5125,7 +5136,7 @@ Qurilma ishga tushirilguniga qadar qo‘ng‘iroq, xabar yoki bildirishnomalarni
     <string name="location_off_summary">O‘chirilgan</string>
     <string name="backup_disabled">Avtomatik arxivlash o‘chirilgan</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Amalni bajarib bo‘lmaydi</string>
+    <string name="disabled_by_policy_title">Harakat amalga oshmaydi</string>
     <string name="default_admin_support_msg">Bu amalni bajarish uchun ruxsatingiz yo‘q. Qo‘shimcha ma’lumot olish uchun tashkilotingiz AT ma’muriga murojaat qiling.</string>
     <string name="admin_support_more_info">Ko‘proq tafsilotlar</string>
     <string name="admin_profile_owner_message">Ma’mur ilovalar va ish profilingiz bilan bog‘langan ma’lumotlarni, jumladan, parametrlar, ruxsatlar, korporativ kirish huquqi, tarmoq faolligi va qurilma joylashuvini, nazorat qilishi va boshqarishi mumkin.</string>

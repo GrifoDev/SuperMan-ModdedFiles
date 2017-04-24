@@ -758,7 +758,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b084f
+    const v19, 0x7f0b085b
 
     invoke-virtual/range {v18 .. v19}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
 
@@ -931,7 +931,7 @@
 
     if-eqz v9, :cond_1a
 
-    const v18, 0x7f0b18af
+    const v18, 0x7f0b19ca
 
     :goto_4
     move-object/from16 v0, v19
@@ -1099,7 +1099,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b03f3
+    const v19, 0x7f0b03fe
 
     invoke-virtual/range {v18 .. v19}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -1181,7 +1181,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b084a
+    const v19, 0x7f0b0856
 
     invoke-virtual/range {v18 .. v19}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1249,7 +1249,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b0814
+    const v19, 0x7f0b0820
 
     invoke-virtual/range {v18 .. v19}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 
@@ -1557,7 +1557,7 @@
     goto/16 :goto_3
 
     :cond_1a
-    const v18, 0x7f0b1838
+    const v18, 0x7f0b1953
 
     goto/16 :goto_4
 
@@ -1601,7 +1601,7 @@
     goto/16 :goto_6
 
     :cond_1e
-    const v18, 0x7f0b03f2
+    const v18, 0x7f0b03fd
 
     move-object/from16 v0, p0
 
@@ -1619,7 +1619,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b03f0
+    const v20, 0x7f0b03fb
 
     move-object/from16 v0, p0
 
@@ -1633,7 +1633,7 @@
 
     aput-object v20, v19, v21
 
-    const v20, 0x7f0b03f4
+    const v20, 0x7f0b03ff
 
     move-object/from16 v0, p0
 
@@ -1695,7 +1695,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b0849
+    const v19, 0x7f0b0855
 
     invoke-virtual/range {v18 .. v19}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1718,7 +1718,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b071e
+    const v19, 0x7f0b0729
 
     invoke-virtual/range {v18 .. v19}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -2465,7 +2465,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0814
+    const v21, 0x7f0b0820
 
     invoke-virtual/range {v20 .. v21}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummaryOff(I)V
 
@@ -3233,7 +3233,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b038f
+    const v21, 0x7f0b0390
 
     invoke-virtual/range {v20 .. v21}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummaryOff(I)V
 
@@ -3744,7 +3744,7 @@
 
     iput-boolean v0, v1, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mSecureProfile:Z
 
-    const v17, 0x7f0800f5
+    const v17, 0x7f0800f6
 
     move-object/from16 v0, p0
 
@@ -3784,7 +3784,7 @@
 
     if-eqz v17, :cond_1
 
-    const v11, 0x7f0800dd
+    const v11, 0x7f0800de
 
     :cond_1
     move-object/from16 v0, p0
@@ -3853,7 +3853,7 @@
 
     if-eqz v17, :cond_2
 
-    const v17, 0x7f08010d
+    const v17, 0x7f08010e
 
     move-object/from16 v0, p0
 
@@ -3861,7 +3861,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->addPreferencesFromResource(I)V
 
-    const v17, 0x7f080113
+    const v17, 0x7f080114
 
     move-object/from16 v0, p0
 
@@ -3911,7 +3911,7 @@
 
     invoke-direct {v0, v12, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->maybeAddFingerprintPreference(Landroid/preference/PreferenceGroup;I)V
 
-    const v17, 0x7f0800d8
+    const v17, 0x7f0800d9
 
     move-object/from16 v0, p0
 
@@ -3951,7 +3951,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0b13cc
+    const v18, 0x7f0b14e7
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4092,10 +4092,10 @@
 
     if-eqz v17, :cond_e
 
-    const v9, 0x7f0b1075
+    const v9, 0x7f0b1190
 
     :goto_4
-    const v17, 0x7f080095
+    const v17, 0x7f080096
 
     move-object/from16 v0, p0
 
@@ -4264,7 +4264,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f0b082c
+    const v18, 0x7f0b0838
 
     invoke-virtual/range {v17 .. v18}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -4274,7 +4274,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f0b082d
+    const v18, 0x7f0b0839
 
     invoke-virtual/range {v17 .. v18}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -4356,7 +4356,7 @@
     goto/16 :goto_3
 
     :cond_e
-    const v9, 0x7f0b1076
+    const v9, 0x7f0b1191
 
     goto/16 :goto_4
 
@@ -4378,32 +4378,32 @@
     goto/16 :goto_4
 
     :sswitch_0
-    const v9, 0x7f0b0273
+    const v9, 0x7f0b0274
 
     goto/16 :goto_4
 
     :sswitch_1
-    const v9, 0x7f0b0822
+    const v9, 0x7f0b082e
 
     goto/16 :goto_4
 
     :sswitch_2
-    const v9, 0x7f0b1069
+    const v9, 0x7f0b1184
 
     goto/16 :goto_4
 
     :sswitch_3
-    const v9, 0x7f0b106b
+    const v9, 0x7f0b1186
 
     goto/16 :goto_4
 
     :sswitch_4
-    const v9, 0x7f0b106d
+    const v9, 0x7f0b1188
 
     goto/16 :goto_4
 
     :sswitch_5
-    const v9, 0x7f0b0815
+    const v9, 0x7f0b0821
 
     goto/16 :goto_4
 
@@ -4426,7 +4426,7 @@
 
     if-eqz v17, :cond_11
 
-    const v17, 0x7f0800fc
+    const v17, 0x7f0800fd
 
     move-object/from16 v0, p0
 
@@ -4477,7 +4477,7 @@
 
     if-nez v13, :cond_12
 
-    const v17, 0x7f080102
+    const v17, 0x7f080103
 
     move-object/from16 v0, p0
 
@@ -4507,7 +4507,7 @@
     goto/16 :goto_5
 
     :cond_11
-    const v17, 0x7f080112
+    const v17, 0x7f080113
 
     move-object/from16 v0, p0
 
@@ -4564,7 +4564,7 @@
 
     if-eqz v17, :cond_15
 
-    const v17, 0x7f080110
+    const v17, 0x7f080111
 
     move-object/from16 v0, p0
 
@@ -4587,7 +4587,7 @@
 
     if-eqz v17, :cond_14
 
-    const v17, 0x7f08010f
+    const v17, 0x7f080110
 
     move-object/from16 v0, p0
 
@@ -4598,7 +4598,7 @@
     goto :goto_7
 
     :cond_14
-    const v17, 0x7f08010e
+    const v17, 0x7f08010f
 
     move-object/from16 v0, p0
 
@@ -4609,7 +4609,7 @@
     goto :goto_7
 
     :cond_15
-    const v17, 0x7f08010e
+    const v17, 0x7f08010f
 
     move-object/from16 v0, p0
 
@@ -4620,7 +4620,7 @@
     goto/16 :goto_7
 
     :cond_16
-    const v17, 0x7f08010f
+    const v17, 0x7f080110
 
     move-object/from16 v0, p0
 
@@ -4705,7 +4705,7 @@
 
     move-result v1
 
-    const v3, 0x7f0b0405
+    const v3, 0x7f0b0410
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5005,7 +5005,7 @@
 
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v6, 0x7f0b0661
+    const v6, 0x7f0b066c
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5018,7 +5018,7 @@
 
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v6, 0x7f0b073e
+    const v6, 0x7f0b0749
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5056,7 +5056,7 @@
     goto :goto_0
 
     :sswitch_0
-    const v6, 0x7f0b0273
+    const v6, 0x7f0b0274
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5067,7 +5067,7 @@
     goto :goto_1
 
     :sswitch_1
-    const v6, 0x7f0b0822
+    const v6, 0x7f0b082e
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5078,7 +5078,7 @@
     goto :goto_1
 
     :sswitch_2
-    const v6, 0x7f0b1069
+    const v6, 0x7f0b1184
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5089,7 +5089,7 @@
     goto :goto_1
 
     :sswitch_3
-    const v6, 0x7f0b106b
+    const v6, 0x7f0b1186
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5100,7 +5100,7 @@
     goto :goto_1
 
     :sswitch_4
-    const v6, 0x7f0b106d
+    const v6, 0x7f0b1188
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5111,7 +5111,7 @@
     goto :goto_1
 
     :sswitch_5
-    const v6, 0x7f0b0815
+    const v6, 0x7f0b0821
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5161,7 +5161,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0b1075
+    const v3, 0x7f0b1190
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5171,7 +5171,7 @@
     return-object v2
 
     :cond_0
-    const v3, 0x7f0b1076
+    const v3, 0x7f0b1191
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -5291,7 +5291,7 @@
 
     if-nez v0, :cond_1
 
-    const v1, 0x7f080100
+    const v1, 0x7f080101
 
     :goto_1
     return v1
@@ -5308,12 +5308,12 @@
 
     if-eqz v2, :cond_2
 
-    const v1, 0x7f0800e2
+    const v1, 0x7f0800e3
 
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0800e0
+    const v1, 0x7f0800e1
 
     goto :goto_1
 
@@ -5327,43 +5327,43 @@
     goto :goto_1
 
     :sswitch_0
-    const v1, 0x7f0800e2
+    const v1, 0x7f0800e3
 
     goto :goto_1
 
     :sswitch_1
     if-eqz v0, :cond_4
 
-    const v1, 0x7f0800e5
+    const v1, 0x7f0800e6
 
     goto :goto_1
 
     :cond_4
-    const v1, 0x7f080107
+    const v1, 0x7f080108
 
     goto :goto_1
 
     :sswitch_2
     if-eqz v0, :cond_5
 
-    const v1, 0x7f0800e7
+    const v1, 0x7f0800e8
 
     goto :goto_1
 
     :cond_5
-    const v1, 0x7f08010b
+    const v1, 0x7f08010c
 
     goto :goto_1
 
     :sswitch_3
     if-eqz v0, :cond_6
 
-    const v1, 0x7f0800e4
+    const v1, 0x7f0800e5
 
     goto :goto_1
 
     :cond_6
-    const v1, 0x7f080104
+    const v1, 0x7f080105
 
     goto :goto_1
 
@@ -5403,11 +5403,11 @@
 .method private initLockscreenNotificationsForProfile()V
     .locals 11
 
-    const v10, 0x7f0b183c
+    const v10, 0x7f0b1957
 
-    const v9, 0x7f0b183b
+    const v9, 0x7f0b1956
 
-    const v8, 0x7f0b183a
+    const v8, 0x7f0b1955
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
@@ -5791,7 +5791,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1060
+    const v3, 0x7f0b117b
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -5830,7 +5830,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1061
+    const v3, 0x7f0b117c
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -5940,7 +5940,7 @@
     :goto_0
     sget-object v4, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b01e8
+    const v5, 0x7f0b01e9
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5982,7 +5982,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b0432
+    const v6, 0x7f0b043d
 
     invoke-virtual {v4, v6, v5}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -6008,7 +6008,7 @@
 
     invoke-direct {v5, p0, p1, p2}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$6;-><init>(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;II)V
 
-    const v6, 0x7f0b0421
+    const v6, 0x7f0b042c
 
     invoke-virtual {v4, v6, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6043,7 +6043,7 @@
 
     sget-object v4, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b022c
+    const v5, 0x7f0b022d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6054,7 +6054,7 @@
     :cond_1
     sget-object v4, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b14d7
+    const v5, 0x7f0b15f2
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6076,7 +6076,7 @@
 
     invoke-direct {v0, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0662
+    const v2, 0x7f0b066d
 
     invoke-virtual {v0, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -6119,7 +6119,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mPrivateMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b18af
+    const v2, 0x7f0b19ca
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -6129,7 +6129,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mPrivateMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b18b0
+    const v2, 0x7f0b19cb
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -6196,7 +6196,7 @@
 
     iput-object v1, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v8, 0x7f0b0a7b
+    const v8, 0x7f0b0a89
 
     iput v8, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -6232,7 +6232,7 @@
 
     iput-object v2, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v8, 0x7f0b0813
+    const v8, 0x7f0b081f
 
     iput v8, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -6253,7 +6253,7 @@
 
     iput-object v0, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v8, 0x7f0b101a
+    const v8, 0x7f0b1135
 
     iput v8, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -6416,7 +6416,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06dc
+    const v3, 0x7f0b06e7
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -6486,7 +6486,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06dc
+    const v3, 0x7f0b06e7
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -6622,7 +6622,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b105a
+    const v3, 0x7f0b1175
 
     const/16 v4, 0x7b
 
@@ -6658,7 +6658,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b105b
+    const v3, 0x7f0b1176
 
     const/16 v4, 0x7f
 
@@ -6725,7 +6725,7 @@
 
     if-nez v0, :cond_3
 
-    const v4, 0x7f0b0402
+    const v4, 0x7f0b040d
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -6781,7 +6781,7 @@
 
     if-ne v0, v4, :cond_4
 
-    const v4, 0x7f0b0403
+    const v4, 0x7f0b040e
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -6796,7 +6796,7 @@
 
     if-ne v0, v4, :cond_0
 
-    const v4, 0x7f0b0404
+    const v4, 0x7f0b040f
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -6816,7 +6816,7 @@
     :cond_6
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mAlwaysOnScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v5, 0x7f0b03f1
+    const v5, 0x7f0b03fc
 
     invoke-virtual {v4, v5}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -6837,7 +6837,7 @@
 
     if-eqz v4, :cond_8
 
-    const v4, 0x7f0b18af
+    const v4, 0x7f0b19ca
 
     :goto_5
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -6845,7 +6845,7 @@
     goto :goto_4
 
     :cond_8
-    const v4, 0x7f0b18b0
+    const v4, 0x7f0b19cb
 
     goto :goto_5
 .end method
@@ -6888,7 +6888,7 @@
     :goto_0
     if-nez v1, :cond_3
 
-    const v2, 0x7f0b183c
+    const v2, 0x7f0b1957
 
     :goto_1
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mLockscreenSelectedValueProfile:I
@@ -6919,12 +6919,12 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    const v2, 0x7f0b183a
+    const v2, 0x7f0b1955
 
     goto :goto_1
 
     :cond_4
-    const v2, 0x7f0b183b
+    const v2, 0x7f0b1956
 
     goto :goto_1
 .end method
@@ -6971,7 +6971,7 @@
 
     const/4 v4, 0x0
 
-    const v0, 0x7f0b13d6
+    const v0, 0x7f0b14f1
 
     const v1, 0x104000a
 
@@ -6981,9 +6981,9 @@
 
     if-eqz v2, :cond_0
 
-    const v0, 0x7f0b13d7
+    const v0, 0x7f0b14f2
 
-    const v1, 0x7f0b07aa
+    const v1, 0x7f0b07b6
 
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mWarnInstallApps:Landroid/content/DialogInterface;
@@ -7019,7 +7019,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b13d2
+    const v3, 0x7f0b14ed
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -7113,11 +7113,11 @@
 
     if-eqz v5, :cond_1
 
-    const v5, 0x7f0b13d7
+    const v5, 0x7f0b14f2
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v4, 0x7f0b07aa
+    const v4, 0x7f0b07b6
 
     :cond_1
     new-instance v5, Landroid/app/AlertDialog$Builder;
@@ -7128,7 +7128,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b13d2
+    const v6, 0x7f0b14ed
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -7270,7 +7270,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b0716
+    const v3, 0x7f0b0721
 
     const/4 v6, 0x0
 
@@ -7320,7 +7320,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b0716
+    const v3, 0x7f0b0721
 
     const/4 v6, 0x0
 
@@ -7558,7 +7558,7 @@
     iput-boolean v1, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->mFromCoverSetting:Z
 
     :cond_0
-    const v1, 0x7f0b084e
+    const v1, 0x7f0b085a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->getString(I)Ljava/lang/String;
 
@@ -7824,7 +7824,7 @@
 
     if-eqz v9, :cond_5
 
-    const v18, 0x7f0b18af
+    const v18, 0x7f0b19ca
 
     :goto_3
     move-object/from16 v0, v19
@@ -7900,7 +7900,7 @@
     goto/16 :goto_2
 
     :cond_5
-    const v18, 0x7f0b1838
+    const v18, 0x7f0b1953
 
     goto :goto_3
 
@@ -7969,7 +7969,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b0537
+    const v19, 0x7f0b0542
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7981,7 +7981,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b03f0
+    const v19, 0x7f0b03fb
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8082,7 +8082,7 @@
 
     const/16 v18, 0x0
 
-    const v19, 0x7f0b03f0
+    const v19, 0x7f0b03fb
 
     move-object/from16 v0, p0
 
@@ -8116,7 +8116,7 @@
 
     const/16 v18, 0x1
 
-    const v19, 0x7f0b03f0
+    const v19, 0x7f0b03fb
 
     move-object/from16 v0, p0
 
@@ -8135,7 +8135,7 @@
 
     const/16 v18, 0x2
 
-    const v19, 0x7f0b03f0
+    const v19, 0x7f0b03fb
 
     move-object/from16 v0, p0
 
@@ -8347,7 +8347,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b1060
+    const v19, 0x7f0b117b
 
     invoke-virtual/range {v18 .. v19}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -8413,7 +8413,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b1060
+    const v3, 0x7f0b117b
 
     const/16 v4, 0x7b
 
@@ -8477,7 +8477,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b105b
+    const v3, 0x7f0b1176
 
     const/16 v4, 0x7f
 
@@ -8666,7 +8666,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0537
+    const v1, 0x7f0b0542
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8678,7 +8678,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b03f0
+    const v1, 0x7f0b03fb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

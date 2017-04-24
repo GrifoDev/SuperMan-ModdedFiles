@@ -262,7 +262,7 @@
 
     iget-object v12, v0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v12}, Lcom/android/settings/TetherSettings;->-get8(Lcom/android/settings/TetherSettings;)Z
+    invoke-static {v12}, Lcom/android/settings/TetherSettings;->-get9(Lcom/android/settings/TetherSettings;)Z
 
     move-result v12
 
@@ -348,7 +348,7 @@
 
     iget-object v13, v0, Lcom/android/settings/TetherSettings$TetherChangeReceiver;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v13}, Lcom/android/settings/TetherSettings;->-get7(Lcom/android/settings/TetherSettings;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+    invoke-static {v13}, Lcom/android/settings/TetherSettings;->-get8(Lcom/android/settings/TetherSettings;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v13
 

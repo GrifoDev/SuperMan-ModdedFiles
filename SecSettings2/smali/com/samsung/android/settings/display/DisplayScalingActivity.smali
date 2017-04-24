@@ -589,7 +589,7 @@
 
     if-eqz v4, :cond_0
 
-    const v4, 0x7f0a0285
+    const v4, 0x7f0a0286
 
     :goto_0
     invoke-virtual {v5, v4}, Landroid/content/res/Resources;->getDimension(I)F
@@ -605,7 +605,7 @@
     return-void
 
     :cond_0
-    const v4, 0x7f0a027c
+    const v4, 0x7f0a027d
 
     goto :goto_0
 
@@ -622,7 +622,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x7f0a05d4
+    const v4, 0x7f0a05d5
 
     :goto_3
     invoke-virtual {v5, v4}, Landroid/content/res/Resources;->getDimension(I)F
@@ -634,7 +634,7 @@
     goto :goto_1
 
     :cond_2
-    const v4, 0x7f0a05d1
+    const v4, 0x7f0a05d2
 
     goto :goto_3
 
@@ -2755,7 +2755,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/DisplayScalingActivity;->mSaveButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b1710
+    const v2, 0x7f0b182b
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 

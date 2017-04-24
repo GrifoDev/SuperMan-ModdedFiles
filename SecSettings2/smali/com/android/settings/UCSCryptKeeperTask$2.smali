@@ -90,7 +90,7 @@
 
     iget-object v0, p0, Lcom/android/settings/UCSCryptKeeperTask$2;->this$0:Lcom/android/settings/UCSCryptKeeperTask;
 
-    const v1, 0x7f0b1a46
+    const v1, 0x7f0b1b61
 
     invoke-virtual {v0, v1}, Lcom/android/settings/UCSCryptKeeperTask;->setHintOrMessageText(I)V
 

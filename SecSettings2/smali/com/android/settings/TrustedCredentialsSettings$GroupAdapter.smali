@@ -96,7 +96,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0402e9
+    const v2, 0x7f0402ea
 
     invoke-virtual {v1, v2, p4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -542,7 +542,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b009d
+    const v2, 0x7f0b009e
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -554,7 +554,7 @@
     return-object p3
 
     :cond_1
-    const v2, 0x7f0b009c
+    const v2, 0x7f0b009d
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

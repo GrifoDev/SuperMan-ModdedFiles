@@ -343,7 +343,7 @@
     return v4
 
     :cond_0
-    const v2, 0x7f0b0625
+    const v2, 0x7f0b0630
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -646,7 +646,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0657
+    const v3, 0x7f0b0662
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -816,9 +816,9 @@
     :cond_0
     sparse-switch v3, :sswitch_data_0
 
-    const v4, 0x7f0b18cd
+    const v4, 0x7f0b19e8
 
-    const v2, 0x7f0b18d0
+    const v2, 0x7f0b19eb
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/CryptKeeperInterstitial;->getActivity()Landroid/app/Activity;
@@ -887,23 +887,23 @@
     return-object v5
 
     :sswitch_0
-    const v4, 0x7f0b18cc
+    const v4, 0x7f0b19e7
 
-    const v2, 0x7f0b18cf
+    const v2, 0x7f0b19ea
 
     goto :goto_0
 
     :sswitch_1
-    const v4, 0x7f0b065b
+    const v4, 0x7f0b0666
 
-    const v2, 0x7f0b065c
+    const v2, 0x7f0b0667
 
     goto :goto_0
 
     :sswitch_2
-    const v4, 0x7f0b18cb
+    const v4, 0x7f0b19e6
 
-    const v2, 0x7f0b18ce
+    const v2, 0x7f0b19e9
 
     goto :goto_0
 
@@ -937,7 +937,7 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0658
+    const v6, 0x7f0b0663
 
     invoke-virtual {p0, v6}, Lcom/android/settings/CryptKeeperInterstitial;->getString(I)Ljava/lang/String;
 
@@ -1300,9 +1300,9 @@
     iget v11, v0, Lcom/android/settings/CryptKeeperInterstitial;->mRequestedPasswordQuality:I
 
     :cond_0
-    const v2, 0x7f0b065a
+    const v2, 0x7f0b0665
 
-    const v1, 0x7f0b18be
+    const v1, 0x7f0b19d9
 
     sparse-switch v11, :sswitch_data_0
 
@@ -1310,10 +1310,10 @@
 
     if-ne v5, v13, :cond_e
 
-    const v9, 0x7f0b18c4
+    const v9, 0x7f0b19df
 
     :goto_0
-    const v4, 0x7f0b18c7
+    const v4, 0x7f0b19e2
 
     :goto_1
     move-object/from16 v0, p0
@@ -1332,7 +1332,7 @@
 
     iget-object v13, v0, Lcom/android/settings/CryptKeeperInterstitial;->mChangePWButton:Landroid/widget/Button;
 
-    const v14, 0x7f0b18be
+    const v14, 0x7f0b19d9
 
     invoke-virtual {v13, v14}, Landroid/widget/Button;->setText(I)V
 
@@ -1363,7 +1363,7 @@
 
     iget-object v13, v0, Lcom/android/settings/CryptKeeperInterstitial;->mDontRequirePasswordToDecryptButton:Landroid/widget/CheckedTextView;
 
-    const v14, 0x7f0b065a
+    const v14, 0x7f0b0665
 
     invoke-virtual {v13, v14}, Landroid/widget/CheckedTextView;->setText(I)V
 
@@ -1517,7 +1517,7 @@
 
     if-eqz v13, :cond_4
 
-    const v9, 0x7f0b0655
+    const v9, 0x7f0b0660
 
     :goto_5
     move-object/from16 v0, p0
@@ -1545,17 +1545,17 @@
     return-void
 
     :cond_4
-    const v9, 0x7f0b0654
+    const v9, 0x7f0b065f
 
     goto :goto_5
 
     :cond_5
-    const v9, 0x7f0b0653
+    const v9, 0x7f0b065e
 
     goto :goto_5
 
     :cond_6
-    const v9, 0x7f0b0656
+    const v9, 0x7f0b0661
 
     goto :goto_5
 
@@ -1564,10 +1564,10 @@
 
     if-ne v5, v13, :cond_7
 
-    const v9, 0x7f0b18c3
+    const v9, 0x7f0b19de
 
     :goto_6
-    const v4, 0x7f0b18c6
+    const v4, 0x7f0b19e1
 
     goto/16 :goto_1
 
@@ -1576,12 +1576,12 @@
 
     if-ne v6, v13, :cond_8
 
-    const v9, 0x7f0b0650
+    const v9, 0x7f0b065b
 
     goto :goto_6
 
     :cond_8
-    const v9, 0x7f0b18c0
+    const v9, 0x7f0b19db
 
     goto :goto_6
 
@@ -1590,10 +1590,10 @@
 
     if-ne v5, v13, :cond_9
 
-    const v9, 0x7f0b064e
+    const v9, 0x7f0b0659
 
     :goto_7
-    const v4, 0x7f0b0659
+    const v4, 0x7f0b0664
 
     goto/16 :goto_1
 
@@ -1602,12 +1602,12 @@
 
     if-ne v6, v13, :cond_a
 
-    const v9, 0x7f0b0652
+    const v9, 0x7f0b065d
 
     goto :goto_7
 
     :cond_a
-    const v9, 0x7f0b064d
+    const v9, 0x7f0b0658
 
     goto :goto_7
 
@@ -1616,10 +1616,10 @@
 
     if-ne v5, v13, :cond_b
 
-    const v9, 0x7f0b18c2
+    const v9, 0x7f0b19dd
 
     :goto_8
-    const v4, 0x7f0b18c5
+    const v4, 0x7f0b19e0
 
     goto/16 :goto_1
 
@@ -1628,12 +1628,12 @@
 
     if-ne v6, v13, :cond_c
 
-    const v9, 0x7f0b064f
+    const v9, 0x7f0b065a
 
     goto :goto_8
 
     :cond_c
-    const v9, 0x7f0b18bf
+    const v9, 0x7f0b19da
 
     goto :goto_8
 
@@ -1644,14 +1644,14 @@
 
     if-eqz v7, :cond_d
 
-    const v9, 0x7f0b18bf
+    const v9, 0x7f0b19da
 
-    const v4, 0x7f0b18c7
+    const v4, 0x7f0b19e2
 
     goto/16 :goto_1
 
     :cond_d
-    const v9, 0x7f0b0653
+    const v9, 0x7f0b065e
 
     move-object/from16 v0, p0
 
@@ -1682,12 +1682,12 @@
 
     if-ne v6, v13, :cond_f
 
-    const v9, 0x7f0b0651
+    const v9, 0x7f0b065c
 
     goto/16 :goto_0
 
     :cond_f
-    const v9, 0x7f0b18c1
+    const v9, 0x7f0b19dc
 
     goto/16 :goto_0
 

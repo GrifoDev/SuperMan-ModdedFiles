@@ -57,7 +57,7 @@
 
     iput-object p7, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mFragmentArguments:Landroid/os/Bundle;
 
-    const v0, 0x7f0402ef
+    const v0, 0x7f0402f0
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->setLayoutResource(I)V
 
@@ -77,15 +77,78 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .locals 8
+    .locals 13
 
-    const/4 v4, 0x0
+    const/4 v12, 0x1
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mFragment:Ljava/lang/String;
+    const/4 v4, 0x0
+
+    const-string/jumbo v8, "com.osp.app.signin"
+
+    iget-object v0, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mTitleResPackageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/Utils;->checkSamsungBackup(Landroid/content/Context;)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mFragmentArguments:Landroid/os/Bundle;
+
+    const-string/jumbo v1, "android.intent.extra.USER"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v11
+
+    check-cast v11, Landroid/os/UserHandle;
+
+    invoke-virtual {v11}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v9, Landroid/content/Intent;
+
+    invoke-direct {v9}, Landroid/content/Intent;-><init>()V
+
+    invoke-virtual {v9, v8}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "com.msc.action.samsungaccount.accountsetting"
+
+    invoke-virtual {v9, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "extra_preference"
+
+    const-string/jumbo v1, "setting"
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    invoke-virtual {p0}, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v9, v11}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return v12
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->mFragment:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/accounts/AccountSettings$AccountPreference;->getContext()Landroid/content/Context;
 
@@ -103,10 +166,8 @@
 
     invoke-static/range {v0 .. v7}, Lcom/android/settings/Utils;->startWithFragment(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Fragment;ILjava/lang/String;ILjava/lang/CharSequence;)V
 
-    const/4 v0, 0x1
+    return v12
 
-    return v0
-
-    :cond_0
+    :cond_1
     return v4
 .end method

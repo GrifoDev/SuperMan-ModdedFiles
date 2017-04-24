@@ -3,6 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     <PreferenceScreen android:title="@string/phone_language" android:key="phone_language" android:fragment="com.android.settings.localepicker.LocaleListEditor" />
+    <PreferenceScreen android:title="@string/current_input_method" android:key="current_input_method" />
     <PreferenceScreen android:persistent="false" android:title="@string/spellcheckers_settings_title" android:key="spellcheckers_settings" />
     <PreferenceScreen android:title="@string/user_dict_settings_title" android:key="key_user_dictionary_settings" />
     <PreferenceCategory android:title="@string/keyboard_and_input_methods_category" android:key="keyboard_and_input_methods_category">

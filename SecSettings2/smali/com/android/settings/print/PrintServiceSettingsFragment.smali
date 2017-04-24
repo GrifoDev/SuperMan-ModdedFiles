@@ -40,6 +40,8 @@
 
 .field public mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
+.field private mHandler:Landroid/os/Handler;
+
 .field private mLastUnfilteredItemCount:I
 
 .field private mOldActivityTitle:Ljava/lang/CharSequence;
@@ -142,6 +144,12 @@
     invoke-direct {v0, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$1;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
 
     iput-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mDataObserver:Landroid/database/DataSetObserver;
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mHandler:Landroid/os/Handler;
 
     new-instance v0, Lcom/android/settings/print/PrintServiceSettingsFragment$2;
 
@@ -281,9 +289,9 @@
 .method private updateEmptyView()V
     .locals 10
 
-    const v9, 0x7f0b152a
+    const v9, 0x7f0b1645
 
-    const v8, 0x7f0b1521
+    const v8, 0x7f0b163c
 
     const v7, 0x7f0400e6
 
@@ -782,17 +790,17 @@
 
     iget-object v3, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mSearchView:Landroid/widget/SearchView;
 
-    new-instance v4, Lcom/android/settings/print/PrintServiceSettingsFragment$5;
+    new-instance v4, Lcom/android/settings/print/PrintServiceSettingsFragment$6;
 
-    invoke-direct {v4, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$5;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
+    invoke-direct {v4, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$6;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
 
     invoke-virtual {v3, v4}, Landroid/widget/SearchView;->setOnQueryTextListener(Landroid/widget/SearchView$OnQueryTextListener;)V
 
     iget-object v3, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mSearchView:Landroid/widget/SearchView;
 
-    new-instance v4, Lcom/android/settings/print/PrintServiceSettingsFragment$6;
+    new-instance v4, Lcom/android/settings/print/PrintServiceSettingsFragment$7;
 
-    invoke-direct {v4, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$6;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
+    invoke-direct {v4, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$7;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
 
     invoke-virtual {v3, v4}, Landroid/widget/SearchView;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
@@ -929,7 +937,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_1
 
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -938,11 +946,24 @@
     check-cast v4, Landroid/printservice/PrintServiceInfo;
 
     :cond_0
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->finishFragment()V
+    iget-object v6, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mHandler:Landroid/os/Handler;
+
+    new-instance v7, Lcom/android/settings/print/PrintServiceSettingsFragment$5;
+
+    invoke-direct {v7, p0}, Lcom/android/settings/print/PrintServiceSettingsFragment$5;-><init>(Lcom/android/settings/print/PrintServiceSettingsFragment;)V
+
+    invoke-virtual {v6, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
 
     :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {v4}, Landroid/printservice/PrintServiceInfo;->isEnabled()Z
 
     move-result v6
@@ -991,7 +1012,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     invoke-interface {v3, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1003,11 +1024,11 @@
 
     iget-boolean v6, v6, Landroid/content/pm/ActivityInfo;->exported:Z
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     iput-object v5, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mSettingsIntent:Landroid/content/Intent;
 
-    :cond_2
+    :cond_3
     :goto_1
     invoke-virtual {v4}, Landroid/printservice/PrintServiceInfo;->getAddPrintersActivityName()Ljava/lang/String;
 
@@ -1051,7 +1072,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_4
 
     invoke-interface {v3, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1063,20 +1084,15 @@
 
     iget-boolean v6, v6, Landroid/content/pm/ActivityInfo;->exported:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iput-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mAddPrintersIntent:Landroid/content/Intent;
 
-    :cond_3
+    :cond_4
     :goto_2
     invoke-direct {p0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->updateUiForServiceState()V
 
     return-void
-
-    :cond_4
-    add-int/lit8 v1, v1, 0x1
-
-    goto/16 :goto_0
 
     :cond_5
     iput-object v9, p0, Lcom/android/settings/print/PrintServiceSettingsFragment;->mSettingsIntent:Landroid/content/Intent;

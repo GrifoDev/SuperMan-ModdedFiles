@@ -199,7 +199,7 @@
 
     invoke-direct {v8, v11}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v11, 0x7f04021f
+    const v11, 0x7f040220
 
     invoke-virtual {v8, v11}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -229,7 +229,7 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b0ca3
+    const v13, 0x7f0b0cb1
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b0ca4
+    const v13, 0x7f0b0cb2
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_1
@@ -317,7 +317,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;-><init>(Landroid/content/Context;I)V
 
-    const v1, 0x7f0b0ca5
+    const v1, 0x7f0b0cb3
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;->setTitle(I)V
 
@@ -349,7 +349,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080151
+    const v0, 0x7f080152
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiControlHistory;->addPreferencesFromResource(I)V
 
@@ -438,7 +438,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0ca5
+    const v3, 0x7f0b0cb3
 
     move-object v5, v4
 

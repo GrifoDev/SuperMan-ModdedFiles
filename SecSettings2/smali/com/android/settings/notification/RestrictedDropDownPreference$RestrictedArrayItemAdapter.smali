@@ -33,7 +33,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/RestrictedDropDownPreference$RestrictedArrayItemAdapter;->this$0:Lcom/android/settings/notification/RestrictedDropDownPreference;
 
-    const v0, 0x7f0402a0
+    const v0, 0x7f0402a1
 
     const v1, 0x1020014
 

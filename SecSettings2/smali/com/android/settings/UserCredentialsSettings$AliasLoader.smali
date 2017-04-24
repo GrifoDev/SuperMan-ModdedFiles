@@ -1175,7 +1175,7 @@
 
     check-cast v1, [Lcom/android/settings/UserCredentialsSettings$Credential;
 
-    const v5, 0x7f040301
+    const v5, 0x7f040302
 
     invoke-direct {v3, v4, v5, v1}, Lcom/android/settings/UserCredentialsSettings$CredentialAdapter;-><init>(Landroid/content/Context;I[Lcom/android/settings/UserCredentialsSettings$Credential;)V
 

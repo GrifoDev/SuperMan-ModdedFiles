@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Csatlakozva a következőn keresztül: %1$s</string>
     <string name="available_via_passpoint">Elérhető a következőn keresztül: %1$s</string>
     <string name="wifi_connected_no_internet">Csatlakozva, nincs internetelérés</string>
+    <string name="wifi_internet_may_not_be_available">Az internet esetleg nem elérh.</string>
     <string name="wifi_reconnecting">Kész a kapcsolódásra a hálózat minőségének javulása esetén</string>
     <string name="wifi_connected_checking_quality">Az internetkapcsolat minőségének ellenőrzése…</string>
     <string name="wifi_sign_in_to_the_network">Jelentkezzen be a hálózatra.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d kapcsolódó elem</string>
     <string name="no_results_found">Nincs találat</string>
     <string name="menu_edit">Szerkeszt</string>
-    <string name="reset">Visszaállít</string>
+    <string name="reset">Visszaállítás</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">A Voice Assistant fel fogja ismerni, ha ön egy alkalmazást használ.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Rajzolja le az egyes irányokat az e szöveg és a lenti gombok közötti területen.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Megerősítés gomb a képernyő jobb alsó sarkában.</string>
@@ -865,6 +866,14 @@ Az alkalmazásadatok között személyes adatok, úgymint névjegyek, üzenetek 
     <string name="content_description_hand">Tartsa ujját a kék körön a képernyő közepén.</string>
     <string name="nearby_scanning_help_msg_sub">A közeli eszközök keresése a Bluetooth Low Energy-keresést, valamint a mikrofont használja. A Bluetooth Low Energy-keresés akkor is használható, ha az eszközön ki van kapcsolva a Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nem található Bluetooth-eszköz</string>
+    <string name="bt_tether_title">Bluetooth internetmegosztás</string>
+    <string name="bt_tether_settings_on">Be</string>
+    <string name="bt_tether_settings_off">Ki</string>
+    <string name="bt_tether_off_brief_text_phone">A telefon internetkapcsolatát megoszthatja más eszközökkel Bluetooth-on keresztül.</string>
+    <string name="bt_tether_off_brief_text_tablet">A táblagép internetkapcsolatát megoszthatja más eszközökkel Bluetooth-on keresztül.</string>
+    <string name="bt_tether_preference_tethered_device_list">Megosztott internetet használó eszközök</string>
+    <string name="bt_tether_server_description_phone">A telefon internetkapcsolatát megoszthatja úgy, hogy párosítja a telefont egy másik eszközzel Bluetooth-on keresztül. Ha a két eszközt már összekapcsolta korábban, akkor az internetmegosztáshoz elég kiválasztani a másik eszközt a Megosztott internetet használó eszközök listából.</string>
+    <string name="bt_tether_server_description_tablet">A táblagép internetkapcsolatát megoszthatja úgy, hogy párosítja a táblagépet egy másik eszközzel Bluetooth-on keresztül. Ha a két eszközt már összekapcsolta korábban, akkor az internetmegosztáshoz elég kiválasztani a másik eszközt a Megosztott internetet használó eszközök listából.</string>
     <string name="bluetooth_consent_pairing_msg">A(z) %s eszközzel történő párosításhoz érintse meg az OK gombot.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"A(z) %s szeretne hozzáférni a SIM-kártyához. Az engedélyezéssel kikapcsolja az eszköz hívás- és üzenetfunkcióit, valamint a mobilinternet-kapcsolatot. Megadja az engedélyt?
 
@@ -2161,7 +2170,7 @@ Egyes NFC-tranzakciók és mobilfizetési szolgáltatások eltérő alapértelme
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Engedélyezi az adatcserét, ha az eszköz hozzáér egy másik eszközhöz.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Mobilfizetési szolgáltatásokat használhat, NFC-címkéket olvashat és írhat, valamint adatokat cserélhet az NFC-kompatibilis eszközök között.</string>
+    <string name="nfc_settings_title">Használható a mobilfizetés, megoszthatók az adatok, valamint írhatók és olvashatók az NFC-címkék is.</string>
     <string name="nfc_settings_rw_p2p_summary">Címkéket olvashat és írhat, és adatokat vihet át az eszközök között.</string>
     <string name="nfcpayment_quick_toggle_title">NFC és fizetés</string>
     <string name="nfc_mode_general_title">NFC üzemmód</string>
@@ -2177,14 +2186,16 @@ Egyes NFC-tranzakciók és mobilfizetési szolgáltatások eltérő alapértelme
     <string name="nfc_payment_favor_open_default_unknown">Megnyitott alkalmazás használata</string>
     <string name="nfc_payment_favor_default_default_unknown">Nincs alapért. fizet. szolg.</string>
     <string name="nfc_tts_tab_n_of_n">%1$d számú lap a %2$d közül.</string>
+    <string name="nfc_payment_replace_default_label">Lecseréli az alapért. fizetési alkalmazást?</string>
+    <string name="nfc_payment_replace">Csere</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferált SIM-kártya</string>
     <string name="nfc_please_wait">Kérem, várjon…</string>
     <string name="nfc_payment_no_sim_card">Nincs SIM-kártya</string>
-    <string name="nfc_disable_service_title">Alapértelmezett NFC-mód megváltoztatása</string>
-    <string name="nfc_disable_service_msg">Ha megváltoztatja az alapértelmezett NFC-feldolgozási módszert, akkor az EGYEBEK lapon szereplő egyes szolgáltatások be- vagy kikapcsolódnak. E szolgáltatások kezeléséhez nyissa meg az NFC és fizetés > Érintéses fizetés > EGYEBEK menüpontot, majd jelölje ki az egyes szolgáltatásokat a be- és kikapcsoláshoz.</string>
+    <string name="nfc_disable_service_title">Módosítja az alapértelmezett NFC-módot?</string>
+    <string name="nfc_disable_service_msg">Ha módosítja az alapértelmezett NFC-feldolgozási módszert, akkor az EGYÉB lapon szereplő bizonyos szolgáltatások be- vagy kikapcsolódnak. A szolgáltatások kezeléséhez nyissa meg az NFC és fizetés > Érintéses fizetést > EGYÉB lapot, majd válassza ki az egyes szolgáltatásokat a be- vagy kikapcsoláshoz.</string>
     <string name="nfc_settings_advanced_setting">Alapértelmezett NFC-mód</string>
     <string name="nfc_settings_advanced_uicc">Biztons. elem SIM-kártya</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-kártya biztonsági elemmel</string>
@@ -2196,8 +2207,8 @@ Egyes NFC-tranzakciók és mobilfizetési szolgáltatások eltérő alapértelme
     <string name="nfc_settings_tag_message">Ha átkapcsol Kártya üzemmódba, nem fog tudni NFC-címkéket írni és olvasni, sem pedig adatokat cserélni az eszközök között.</string>
     <string name="nfc_show_alert_dialog_title">Ultratakarékos üzemmód</string>
     <string name="nfc_show_alert_dialog_message">A(z) %s nem nyitható meg.</string>
-    <string name="android_beam_explained">Az NFC-kompatibilis eszközöket egymáshoz tartva fájlokat oszthat meg közöttük. Ezután weboldalakra mutató hivatkozásokat, névjegyeket és egyebeket is megoszthat.</string>
-    <string name="android_beam_explained_1">Érintse az eszközöket háttal egymáshoz.</string>
+    <string name="android_beam_explained">A telefont egy NFC-kompatibilis eszközhöz közel tartva weboldalakra mutató hivatkozásokat, névjegyeket és egyebeket oszthat meg.</string>
+    <string name="android_beam_explained_1">Érintse egymáshoz az eszközök hátoldalát.</string>
     <string name="android_beam_explained_2">Érintse meg a képernyőt.</string>
     <string name="guide_dialog_attention_title">Figyelem</string>
     <string name="nfc_off_popup_title">NFC kikapcsolása</string>
@@ -2205,7 +2216,7 @@ Egyes NFC-tranzakciók és mobilfizetési szolgáltatások eltérő alapértelme
     <string name="cannot_use_card_without_NFC">Az NFC kikapcsolása esetén nem lesznek elérhetők az NFC-hez kapcsolódó funkciók, például bizonyos tartalommegosztási módszerek és az NFC-fizetés.</string>
     <string name="limit_app_contents_transfer">Az Android Beam kikapcsolása esetén az NFC-tartalommegosztás működése korlátozott lesz.</string>
     <string name="nfc_payment_dialog_favor_open">Ha a jelenleg megnyitott alkalmazás támogatja az érintéses fizetést, akkor a rendszer azt fogja használni a(z) %s helyett.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ha a jelenleg megnyitott alkalmazás támogatja az érintéses fizetést, akkor a rendszer használni fogja.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ha a jelenleg megnyitott alkalmazás támogatja az érintéses fizetést, akkor a rendszer azt fogja használni a fizetéshez.</string>
     <string name="folder_sounds">Mappanyitás/-bezárás hang</string>
     <string name="folder_sounds_summary">Mappa megnyitásakor és bezárásakor hangot játszik le.</string>
     <string name="sound_category_calls_title">Bejövő hívások</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Értesítéseket jelenít meg az alkalmazások Wi-Fi- vagy mobilhálózaton keresztüli adatforgalmáról, ha az eszköz %d percnél hosszabb ideig le van zárva.</string>
     <string name="data_usage_reminder_description">A következő alkalmazások összesen %s adatot használtak, amíg az eszköz zárolva volt:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="create">Új</string>
@@ -3560,7 +3572,6 @@ Ezt később módosíthatja a Bluetooth-beállításokban."</string>
     <string name="phone_info_label">Eszköz adatai</string>
     <string name="proxy_settings_label">Proxybeállítások</string>
     <string name="cancel">Mégse</string>
-    <string name="okay">OK</string>
     <string name="save">Mentés</string>
     <string name="done">Kész</string>
     <string name="settings_label">Beállítások</string>
@@ -4814,13 +4825,13 @@ Frissített alkalmazásengedélyt bármely felhasználó elfogadhat a többiek n
     <string name="global_change_warning">Ez a beállítás az eszköz minden felhasználóját érinti.</string>
     <string name="global_locale_change_title">Nyelvváltás</string>
     <string name="nfc_payment_settings_title">Érintéses fizetés</string>
-    <string name="nfc_payment_no_apps">Nincs telepített fizetési szolgáltatási alkalmazás</string>
+    <string name="nfc_payment_no_apps">Nincs telepítve fizetési alkalmazás</string>
     <string name="nfc_payment_favor_default">Így is a(z) %s alkalmazást használja</string>
     <string name="nfc_payment_favor_open">A megnyitott alkalmazást használja a(z) %s helyett</string>
     <string name="nfc_how_it_works_got_it">Értem</string>
-    <string name="nfc_payment_set_default_label">Legyen alapértelmezett</string>
-    <string name="nfc_payment_set_default">A(z) %s lesz az érintéses fizetési tranzakciók alapértelmezett fizetési módja.</string>
-    <string name="nfc_payment_set_default_instead_of">A(z) %2$s helyett a(z) %1$s lesz az érintéses fizetési tranzakciók alapértelmezett fizetési módja.</string>
+    <string name="nfc_payment_set_default_label">Beállít alapértelm. fizetési alkalmazást?</string>
+    <string name="nfc_payment_set_default">A(z) %s lesz az alapértelmezett érintéses fizetési alkalmazás.</string>
+    <string name="nfc_payment_set_default_instead_of">A(z) %2$s helyett a(z) %1$s lesz az érintéses fizetés alapértelmezett fizetési alkalmazása.</string>
     <string name="help_label">Súgó</string>
     <string name="user_restrictions_title">Alkalmazás/tartalom korlátozásai</string>
     <string name="user_restrictions_controlled_by">A(z) %1$s vezérli</string>
@@ -5126,7 +5137,7 @@ Amíg az eszköz el nem indul, nem fogadhat hívást, üzenetet és értesítés
     <string name="location_off_summary">Letiltva</string>
     <string name="backup_disabled">Kikapcsolta az automatikus biztonsági mentést</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Nem lehet végrehajtani a műveletet</string>
+    <string name="disabled_by_policy_title">A művelet nem hajtható végre</string>
     <string name="default_admin_support_msg">Nincs engedélye a művelet elvégzéséhez. További információért forduljon a szervezet rendszergazdájához.</string>
     <string name="admin_support_more_info">További részletek</string>
     <string name="admin_profile_owner_message">A rendszergazda megfigyelheti és kezelheti az ehhez a munkaprofilhoz társított alkalmazásokat és adatokat, többek között a beállításokat, az engedélyeket, a vállalati hozzáférést, a hálózati tevékenységet, valamint az eszköz helyadatait.</string>

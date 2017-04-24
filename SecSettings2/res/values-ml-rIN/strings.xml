@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s വഴി ബന്ധിപ്പിച്ചു</string>
     <string name="available_via_passpoint">%1$s വഴി ലഭ്യം</string>
     <string name="wifi_connected_no_internet">കണക്റ്റുചെയ്തിരിക്കുന്നു, ഇന്റർനെറ്റില്ല</string>
+    <string name="wifi_internet_may_not_be_available">ഇന്‍റർനെറ്റ് ലഭ്യമായേക്കില്ല</string>
     <string name="wifi_reconnecting">നെറ്റ്‌വർക്ക് മേന്മ മെച്ചപ്പെടുമ്പോൾ ബന്ധിപ്പിക്കാൻ തയ്യാർ</string>
     <string name="wifi_connected_checking_quality">നിങ്ങളുടെ ഇന്‍റര്‍നെറ്റ് കണക്ഷന്‍റെ ഗുണമേന്മ പരിശോധിക്കുന്നു…</string>
     <string name="wifi_sign_in_to_the_network">നെറ്റ്‍വർക്കിൽ സൈൻ ഇൻ ചെയ്യുക.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d ബന്ധപ്പെട്ട ഇനങ്ങൾ</string>
     <string name="no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
     <string name="menu_edit">എഡിറ്റുചെയ്യുക</string>
-    <string name="reset">റീസെറ്റ്</string>
+    <string name="reset">പുനഃക്രരിക്കുക</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">നിങ്ങൾ ഒരു ആപ്ലിക്കേഷൻ ഉപയോഗിക്കുന്നത് എപ്പോഴാണെന്നറിയാൻ Voice Assistant-നെ അനുവദിക്കുന്നു.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">ഈ ടെക്സ്റ്റിന് താഴെയുള്ളതും സ്ക്രീനിന് താഴ്ഭാഗത്ത് സ്ഥിതിചെയ്യുന്ന ബട്ടണുകൾക്ക് മുകളിലുള്ളതുമായ ഭാഗത്ത് ദിശകൾ വരയ്ക്കുക.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">സ്ഥിരീകരിക്കുക ബട്ടൺ സ്ഥിതിചെയ്യുന്നത് സ്ക്രീനിന് താഴ്ഭാഗത്ത് വലത് കോണിലാണ്.</string>
@@ -865,6 +866,14 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="content_description_hand">സ്ക്രീനിന്‍റെ മധ്യത്തിലുള്ള നീല വൃത്തത്തിൽ സ്പർശിച്ചുപിടിക്കുക.</string>
     <string name="nearby_scanning_help_msg_sub">ചുറ്റുവട്ട ഉപകരണ സ്കാനിംഗ് ഉപയോഗിക്കുന്നത് ബ്ലൂടൂത്ത് ലോ എനർജി സ്കാനിംഗ്, മൈക്രോഫോൺ എന്നിവയെയാണ്. ഈ ഉപകരണത്തിൽ ബ്ലൂടൂത്ത് ഓഫ് ചെയ്തിരിക്കുന്ന സമയത്ത് പോലും ബ്ലൂടൂത്ത് ലോ എനർജി സ്കാനിംഗ് ഉപയോഗിക്കാവുന്നതാണ്.</string>
     <string name="sec_bluetooth_no_devices_found">ബ്ലൂടൂത്ത് ഉപകരണങ്ങള്‍ ഒന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="bt_tether_title">ബ്ലൂടൂത്ത് ടെതറിംഗ്</string>
+    <string name="bt_tether_settings_on">ഓണ്‍‌</string>
+    <string name="bt_tether_settings_off">ഓഫ്</string>
+    <string name="bt_tether_off_brief_text_phone">നിങ്ങളുടെ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് മറ്റ് ഉപകരണങ്ങളുമായി പങ്കിടുക.</string>
+    <string name="bt_tether_off_brief_text_tablet">നിങ്ങളുടെ ടാബ്‌ലെറ്റിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് മറ്റ് ഉപകരണങ്ങളുമായി പങ്കിടുക.</string>
+    <string name="bt_tether_preference_tethered_device_list">ടെതർ ചെയ്ത ഉപകരണങ്ങൾ</string>
+    <string name="bt_tether_server_description_phone">ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് മറ്റൊരു ഉപകരണവുമായി ജോഡിയാക്കി നിങ്ങളുടെ ഫോണിന്‍റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടുക. ഉപകരണം മുമ്പ് ടെതർ ചെയ്തിട്ടുണ്ടെങ്കിൽ, ടെതർ ചെയ്ത ഉപകരണങ്ങൾ ലിസ്റ്റിൽ നിന്നും ഇത് തിരഞ്ഞെടുത്തുകൊണ്ട് നിങ്ങൾക്ക് വീണ്ടും ടെതർ ചെയ്യാനാകും.</string>
+    <string name="bt_tether_server_description_tablet">ബ്ലൂടൂത്ത് ഉപയോഗിച്ച് മറ്റൊരു ഉപകരണവുമായി ജോഡിയാക്കി നിങ്ങളുടെ ടാബ്‌ലെറ്റിന്റെ ഇന്‍റർനെറ്റ് കണക്ഷൻ പങ്കിടുക. ഉപകരണം മുമ്പ് ടെതർ ചെയ്തിട്ടുണ്ടെങ്കിൽ, ടെതർ ചെയ്ത ഉപകരണങ്ങൾ ലിസ്റ്റിൽ നിന്നും ഇത് തിരഞ്ഞെടുത്തുകൊണ്ട് നിങ്ങൾക്ക് വീണ്ടും ടെതർ ചെയ്യാനാകും.</string>
     <string name="bluetooth_consent_pairing_msg">%s-മായി ബന്ധിപ്പിക്കുന്നതിന് “ശരി” എന്നതിൽ സ്പർശിക്കുക.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"നിങ്ങളുടെ SIM കാർഡ് ആക്സസ് ചെയ്യുന്നതിന് %s അനുമതി അഭ്യർത്ഥിക്കുന്നു. ഈ അഭ്യർത്ഥന അനുവദിക്കുന്നത് കോൾ ചെയ്യൽ, സന്ദേശമയയ്ക്കൽ പ്രവർത്തനങ്ങളെ അപ്രാപ്തമാക്കും, കൂടാതെ നിങ്ങളുടെ ഉപകരണത്തിലെ മൊബൈൽ ഡാറ്റയെ ഓഫ് ചെയ്യും. അനുവദിക്കണോ?
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">ഉപകരണം മറ്റൊരു ഉപകരണത്തെ സ്പര്‍ശിക്കുമ്പോള്‍ ഡാറ്റാ എക്സ്ചേഞ്ച് അനുവദിക്കുക.</string>
     <string name="android_beam_settings_title">ആന്‍ഡ്രോയിഡ് ബീം</string>
-    <string name="nfc_settings_title">മൊബൈൽ പണമടയ്ക്കൽ സേവനങ്ങൾ ഉപയോഗിക്കുക, NFC ടാഗുകൾ വായിക്കുകയും എഴുതുകയും ചെയ്യുക, NFC-ക്ഷമതയുള്ള ഉപകരണങ്ങൾ തമ്മിൽ ഡാറ്റ കൈമാറുക.</string>
+    <string name="nfc_settings_title">മൊബൈൽ പണമടയ്ക്കലുകൾ നടത്തുക, ഡാറ്റ പങ്കിടുക, NFC ടാഗുകൾ വായിക്കുക അല്ലെങ്കിൽ എഴുതുക.</string>
     <string name="nfc_settings_rw_p2p_summary">നിങ്ങള്‍ക്ക് ടാഗുകള്‍ വായിക്കാനും എഴുതാനും ഉപകരണങ്ങള്‍ക്കിടെ ഡാറ്റ കൈമാറ്റം ചെയ്യാനും കഴിയും.</string>
     <string name="nfcpayment_quick_toggle_title">NFC-യും പണമടയ്ക്കലും</string>
     <string name="nfc_mode_general_title">NFC മോഡ്</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">നിങ്ങളുടെ ഡിഫോൾട്ട് പണമടയ്ക്കൽ സേവനത്തെ തിരഞ്ഞെടുക്കുക.</string>
     <string name="nfc_payment_title">പണമടയ്ക്കൽ</string>
     <string name="nfc_others_title">മറ്റുള്ളവ</string>
-    <string name="nfc_other_no_apps">ഇൻസ്റ്റാൾ ചെയ്ത സേവന ആപ്ലിക്കേഷനുകൾ ഒന്നുമില്ല</string>
+    <string name="nfc_other_no_apps">സേവന ആപ്ലിക്കേഷനുകൾ ഒന്നും ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
     <string name="nfc_payment_open_app">തുറന്ന ആപ്ലിക്കേഷന് ടാപ്പ്‌-ആൻഡ്-പേ പിന്തുണയുണ്ടെങ്കിൽ</string>
     <string name="nfc_payment_favor_open_default_unknown">തുറന്ന ആപ്ലിക്കേഷൻ ഉപയോഗിക്കുക</string>
     <string name="nfc_payment_favor_default_default_unknown">ഡിഫോൾട്ട് പണമടയ്ക്കല്‍ സേവനം ഒന്നുമില്ല</string>
     <string name="nfc_tts_tab_n_of_n">%2$d-ന്‍റെ %1$d ടാബ്.</string>
+    <string name="nfc_payment_replace_default_label">ഡിഫോൾട്ട് പണമടയ്ക്കൽ ആപ്പ് പ്രതിസ്ഥാപിക്കണോ?</string>
+    <string name="nfc_payment_replace">പ്രതിസ്ഥാപിക്കുക</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">ഇഷ്ടപ്പെട്ട SIM കാർഡ്</string>
     <string name="nfc_please_wait">ദയവായി കാത്തിരിക്കുക…</string>
     <string name="nfc_payment_no_sim_card">SIM കാർഡ് ഇല്ല</string>
-    <string name="nfc_disable_service_title">ഡിഫോൾട്ട് NFC രീതി മാറ്റുക</string>
-    <string name="nfc_disable_service_msg">ഡിഫോൾട്ട് NFC പ്രോസസിംഗ് രീതി നിങ്ങൾ മാറ്റുകയാണെങ്കിൽ, മറ്റുള്ളവ എന്ന ടാബിലെ ഏതാനും സേവനങ്ങൾ അപ്രാപ്തമാക്കപ്പെടും അല്ലെങ്കിൽ പ്രാപ്തമാക്കപ്പെടും. ഈ സേവനങ്ങൾ മാനേജ് ചെയ്യുന്നതിന്, NFC-യും പണമടയ്ക്കലും > ടാപ്പ്‌-ആന്‍ഡ്‌-പേ > മറ്റുള്ളവ എന്നിവയിലേക്ക് പോവുക, തുടർന്ന് പ്രാപ്തമാക്കാനുള്ള അല്ലെങ്കിൽ അപ്രാപ്തമാക്കാനുള്ള ഓരോ സേവനവും തിരഞ്ഞെടുക്കുക.</string>
+    <string name="nfc_disable_service_title">ഡിഫോൾട്ട് NFC രീതി മാറ്റണോ?</string>
+    <string name="nfc_disable_service_msg">ഡിഫോൾട്ട് NFC പ്രോസസിംഗ് രീതി നിങ്ങൾ മാറ്റുകയാണെങ്കിൽ, മറ്റുള്ളവ എന്ന ടാബിലെ എതാനും സേവനങ്ങൾ ഓണോ ഓഫോ ചെയ്യപ്പെടും. ഈ ക്രമീകരണങ്ങൾ മാറ്റുന്നതിന്, NFC-യും പണമടയ്ക്കലും > ടാപ്പ്‌-ആന്‍ഡ്‌-പേ > മറ്റുള്ളവ എന്നിവയിലേക്ക് പോവുക, തുടർന്ന് ഓണോ ഓഫോ ചെയ്യാനുള്ള ഓരോ സേവനവും തിരഞ്ഞെടുക്കുക.</string>
     <string name="nfc_settings_advanced_setting">ഡിഫോൾട്ട് NFC രീതി</string>
     <string name="nfc_settings_advanced_uicc">SE SIM കാർഡ്</string>
     <string name="nfc_settings_advanced_uicc_TTS">സുരക്ഷിത ഘടക SIM കാർഡ്</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">നിങ്ങൾ കാർഡ് മോഡിലേക്ക് മാറുകയാണെങ്കിൽ, NFC ടാഗുകൾ വായിക്കാനോ അവയിലേക്ക് ഡാറ്റ എഴുതാനോ, അല്ലെങ്കിൽ ഉപകരണങ്ങൾ തമ്മിൽ ഡാറ്റ കൈമാറാനോ മേലിൽ നിങ്ങൾക്ക് സാധിക്കില്ല.</string>
     <string name="nfc_show_alert_dialog_title">അൾട്രാ പവർ സേവിംഗ് മോഡ്</string>
     <string name="nfc_show_alert_dialog_message">%s തുറക്കാനാവില്ല.</string>
-    <string name="android_beam_explained">NFC-ക്ഷമതയുള്ള ഉപകരണങ്ങൾ പരസ്പരം ചേർത്തുപിടിച്ചുകൊണ്ട് അവ തമ്മിൽ ഫയലുകൾ കൈമാറുക. തുടർന്ന് നിങ്ങൾക്ക് വെബ് പേജ് ലിങ്കുകൾ, കോൺടാക്ടുകൾ, കൂടാതെ മറ്റ് പലതും പങ്കിടാനാവും.</string>
+    <string name="android_beam_explained">NFC-ക്ഷമതയുള്ള ഉപകരണങ്ങളോട് അടുപ്പിച്ച് പിടിച്ചുകൊണ്ട് വെബ്‌പേജ് ലിങ്കുകളും കോൺടാക്ടുകളും മറ്റും നിങ്ങൾക്ക് പങ്കിടാവുന്നതാണ്.</string>
     <string name="android_beam_explained_1">ഉപകരണങ്ങൾ ഒന്നിച്ച് കൊണ്ടുവന്ന് പുറകുവശം ചേർത്തുവെയ്ക്കുക.</string>
     <string name="android_beam_explained_2">നിങ്ങളുടെ സ്ക്രീനിൽ സ്പർശിക്കുക.</string>
     <string name="guide_dialog_attention_title">ശ്രദ്ധിക്കുക</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">ഉള്ളടക്കം പങ്കിടലിന്‍റെയും NFC പണമടയ്ക്കലിന്‍റെയും ചില രീതികള്‍ പോലുള്ള NFC അനുബന്ധ ഫംഗ്ഷനുകള്‍ NFC ഓഫായിരിക്കുമ്പോള്‍ ലഭ്യമായിരിക്കില്ല.</string>
     <string name="limit_app_contents_transfer">ആന്‍ഡ്രോയിഡ് ബീം ഓഫായിരിക്കുമ്പോള്‍ NFC വഴി ഉള്ളടക്കം പങ്കിടുന്നത് പരിമിതപ്പെടുത്തും.</string>
     <string name="nfc_payment_dialog_favor_open">നിലവിൽ തുറന്നിട്ടുള്ള ആപ്ലിക്കേഷൻ ടാപ്പ് ആൻഡ് പേയെ പിന്തുണയ്ക്കുമെങ്കിൽ, %s-ന് പകരം അത് ഉപയോഗിക്കപ്പെടും.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">നിലവിൽ തുറന്നിട്ടുള്ള ആപ്ലിക്കേഷൻ ടാപ്പ് ആൻഡ് പേയെ പിന്തുണയ്ക്കുമെങ്കിൽ, അത് ഉപയോഗിക്കപ്പെടും.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">നിലവിൽ തുറന്നിട്ടുള്ള ആപ്ലിക്കേഷൻ സ്പർശിച്ച് പണമടയ്ക്കുക എന്നതിനെ പിന്തുണയ്ക്കുമെങ്കിൽ, പണമടയ്ക്കലിനായി അത് ഉപയോഗിക്കപ്പെടും.</string>
     <string name="folder_sounds">ഫോള്‍ഡര്‍ തുറക്കല്‍/അടയ്ക്കല്‍ ശബ്ദങ്ങള്‍</string>
     <string name="folder_sounds_summary">ഫോള്‍ഡര്‍ തുറക്കുമ്പോഴും അടയ്ക്കുമ്പോഴും ശബ്ദങ്ങള്‍ പ്ലേ ചെയ്യുക.</string>
     <string name="sound_category_calls_title">ഇന്‍‌കമിംഗ് കോളുകള്‍</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">ഉപകരണം ലോക്ക് ചെയ്തിട്ട് %d മിനിറ്റിലധികമാവുമ്പോൾ ആപ്ലിക്കേഷനുകൾ ഉപയോഗിച്ച Wi-Fi അല്ലെങ്കിൽ മൊബൈൽ നെറ്റ്‌വർക്കുകൾ വഴിയുള്ള ഡാറ്റയുടെ തോത് കാണിക്കുന്ന അറിയിപ്പുകൾ സ്വീകരിക്കുക.</string>
     <string name="data_usage_reminder_description">ഉപകരണം ലോക്ക് ചെയ്തിരുന്ന സമയത്ത് ഇനിപ്പറയുന്ന ആപ്ലിക്കേഷനുകൾ ഡാറ്റയുടെ %s മൊത്തത്തിൽ ഉപയോഗിച്ചു:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ശരി</string>
     <string name="yes">അതെ</string>
     <string name="no">ഇല്ല</string>
     <string name="create">സൃ..</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">ഉപകരണ വിവരം</string>
     <string name="proxy_settings_label">പ്രോക്സി ക്രമീകരണങ്ങള്‍</string>
     <string name="cancel">റദ്ദാക്കുക</string>
-    <string name="okay">ശരി</string>
     <string name="save">സംരക്ഷിക്കുക</string>
     <string name="done">ചെയ്തു</string>
     <string name="settings_label">ക്രമീകരണങ്ങള്‍</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ഈ ക്രമീകരണം ഉപകരണത്തിലെ എല്ലാ ഉപയോക്താക്കള്‍ക്കും ബാധകമാകും.</string>
     <string name="global_locale_change_title">ഭാഷ മാറ്റുക</string>
     <string name="nfc_payment_settings_title">ടാപ്പ്‌ ആന്‍ഡ്‌ പേ</string>
-    <string name="nfc_payment_no_apps">ഇൻസ്റ്റാൾ ചെയ്ത പെയ്‌മെന്‍റ് സേവന ആപ്ലിക്കേഷനുകൾ ഒന്നുമില്ല</string>
+    <string name="nfc_payment_no_apps">പണമടയ്ക്കൽ ആപ്ലിക്കേഷനുകൾ ഒന്നും ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
     <string name="nfc_payment_favor_default">ഇപ്പോഴും %s ഉപയോഗിക്കുന്നു</string>
     <string name="nfc_payment_favor_open">%s-ന് പകരം തുറന്ന ആപ്ലിക്കേഷൻ ഉപയോഗിക്കുക</string>
     <string name="nfc_how_it_works_got_it">മനസ്സിലായി</string>
-    <string name="nfc_payment_set_default_label">ഡിഫോൾട്ടായി ക്രമീകരിക്കുക</string>
-    <string name="nfc_payment_set_default">ടാപ്പ്‌ ആന്‍ഡ്‌ പേ ഇടപാടുകൾക്കായുള്ള നിങ്ങളുടെ ഡിഫോൾട്ട് പണമടയ്ക്കൽ രീതിയായി %s ക്രമീകരിക്കപ്പെടും.</string>
-    <string name="nfc_payment_set_default_instead_of">ടാപ്പ്‌ ആന്‍ഡ്‌ പേ ഇടപാടുകൾക്കായുള്ള നിങ്ങളുടെ ഡിഫോൾട്ട് പണമടയ്ക്കൽ രീതിയായി %2$s-ന്‍റെ സ്ഥാനത്ത് %1$s സ്ഥാപിക്കപ്പെടും.</string>
+    <string name="nfc_payment_set_default_label">ഡിഫോൾട്ട് പണമടയ്ക്കല്‍ ആപ്പ് ക്രമീകരിക്കണോ?</string>
+    <string name="nfc_payment_set_default">ടാപ്പ്‌ ആന്‍ഡ്‌ പേ ഇടപാടുകൾക്കായുള്ള നിങ്ങളുടെ ഡിഫോൾട്ട് പണമടയ്ക്കൽ ആപ്പായി %s ക്രമീകരിക്കപ്പെടും.</string>
+    <string name="nfc_payment_set_default_instead_of">ടാപ്പ്‌ ആന്‍റ് പേ ഇടപാടുകൾക്കായുള്ള നിങ്ങളുടെ ഡിഫോൾട്ട് പണമടയ്ക്കൽ ആപ്പായി%2$s സ്ഥാനത്ത് %1$s സ്ഥാപിക്കപ്പെടും.</string>
     <string name="help_label">സഹായം</string>
     <string name="user_restrictions_title">ആപ്ലിക്കേഷൻ/ഉള്ളടക്ക നിയന്ത്രണങ്ങൾ</string>
     <string name="user_restrictions_controlled_by">%1$s വഴി നിയന്ത്രിക്കപ്പെടുന്നു</string>

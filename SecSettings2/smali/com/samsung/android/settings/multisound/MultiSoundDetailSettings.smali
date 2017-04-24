@@ -41,7 +41,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundDetailSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0800a4
+    const v0, 0x7f0800a5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/multisound/MultiSoundDetailSettings;->addPreferencesFromResource(I)V
 
@@ -132,7 +132,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/multisound/MultiSoundDetailSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b09cb
+    const v5, 0x7f0b09d9
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -147,7 +147,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/multisound/MultiSoundDetailSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b09cc
+    const v5, 0x7f0b09da
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 

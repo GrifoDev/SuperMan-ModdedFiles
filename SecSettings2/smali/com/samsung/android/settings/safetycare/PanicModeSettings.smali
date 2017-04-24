@@ -154,7 +154,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b18af
+    const v1, 0x7f0b19ca
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -168,7 +168,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b18b0
+    const v1, 0x7f0b19cb
 
     goto :goto_1
 .end method
@@ -257,7 +257,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800b3
+    const v0, 0x7f0800b4
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/safetycare/PanicModeSettings;->addPreferencesFromResource(I)V
 
@@ -453,7 +453,7 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f0b0477
+    const v4, 0x7f0b0482
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -476,7 +476,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b0476
+    const v4, 0x7f0b0481
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

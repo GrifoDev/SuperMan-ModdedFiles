@@ -252,7 +252,7 @@
 
     invoke-direct {v2, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f080046
+    const v4, 0x7f080047
 
     iput v4, v2, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -305,7 +305,7 @@
 
     invoke-direct {v2, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f080048
+    const v4, 0x7f080049
 
     iput v4, v2, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -322,7 +322,7 @@
 
     invoke-direct {v2, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f08004f
+    const v4, 0x7f080050
 
     iput v4, v2, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -344,7 +344,7 @@
 
     invoke-direct {v2, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f08004e
+    const v4, 0x7f08004f
 
     iput v4, v2, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

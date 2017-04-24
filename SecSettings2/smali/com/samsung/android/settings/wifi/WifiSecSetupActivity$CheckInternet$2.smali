@@ -45,7 +45,7 @@
 
     const/4 v0, 0x0
 
-    const v2, 0x7f0b0c5c
+    const v2, 0x7f0b0c6a
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$CheckInternet$2;->val$result:Ljava/lang/Integer;
 
@@ -71,7 +71,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v2, 0x7f0b0c5b
+    const v2, 0x7f0b0c69
 
     :pswitch_3
     const/4 v0, 0x1

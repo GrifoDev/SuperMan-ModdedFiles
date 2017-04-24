@@ -266,7 +266,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0285
+    const v2, 0x7f0b0286
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0273
+    const v4, 0x7f0b0274
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -310,7 +310,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b028b
+    const v3, 0x7f0b028c
 
     invoke-virtual {v1, v3, v2}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0281
+    const v2, 0x7f0b0282
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -350,7 +350,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0284
+    const v2, 0x7f0b0285
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -643,7 +643,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800f8
+    const v0, 0x7f0800f9
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSplashActivity;->addPreferencesFromResource(I)V
 
@@ -779,7 +779,7 @@
 
     const-string/jumbo v2, "com.android.settings.ChooseLockGeneric$ChooseLockGenericFragment"
 
-    const v3, 0x7f0b1060
+    const v3, 0x7f0b117b
 
     const/16 v4, 0x7b
 

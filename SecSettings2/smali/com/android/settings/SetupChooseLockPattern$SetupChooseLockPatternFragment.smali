@@ -225,7 +225,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 3
 
-    const v1, 0x7f040281
+    const v1, 0x7f040282
 
     const/4 v2, 0x0
 

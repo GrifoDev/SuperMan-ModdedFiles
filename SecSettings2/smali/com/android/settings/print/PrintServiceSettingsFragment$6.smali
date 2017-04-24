@@ -3,7 +3,7 @@
 .source "PrintServiceSettingsFragment.java"
 
 # interfaces
-.implements Landroid/view/View$OnAttachStateChangeListener;
+.implements Landroid/widget/SearchView$OnQueryTextListener;
 
 
 # annotations
@@ -34,80 +34,30 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 2
+.method public onQueryTextChange(Ljava/lang/String;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-virtual {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getActivity()Landroid/app/Activity;
+    invoke-static {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-get4(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+    invoke-virtual {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;->getFilter()Landroid/widget/Filter;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+    invoke-virtual {v0, p1}, Landroid/widget/Filter;->filter(Ljava/lang/CharSequence;)V
 
-    move-result v0
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
-
-    const v1, 0x7f0b1534
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    return-void
+    return v0
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 3
+.method public onQueryTextSubmit(Ljava/lang/String;)Z
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
+    const/4 v0, 0x1
 
-    invoke-virtual {v1}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$6;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
-
-    const v2, 0x7f0b1535
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/print/PrintServiceSettingsFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
+    return v0
 .end method

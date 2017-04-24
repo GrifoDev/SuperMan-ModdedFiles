@@ -45,7 +45,7 @@
 
     move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap4(Landroid/content/Context;Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap6(Landroid/content/Context;Z)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$21;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 

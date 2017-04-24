@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s аркылуу жеткиликтүү</string>
     <string name="available_via_passpoint">%1$s аркылуу жеткиликтүү</string>
     <string name="wifi_connected_no_internet">Туташып турат, Интернет жок</string>
+    <string name="wifi_internet_may_not_be_available">Интернет байкалбашы мүмкүн</string>
     <string name="wifi_reconnecting">Качан тармак сапаты көтөрүлгөндө байланышууга даяр</string>
     <string name="wifi_connected_checking_quality">Интернет туташууңуздун сапатын текшерүүдө…</string>
     <string name="wifi_sign_in_to_the_network">Тармакка кириңиз.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d байланышкан нерселер</string>
     <string name="no_results_found">Эч натыйжа табылган жок</string>
     <string name="menu_edit">Оңдоо</string>
-    <string name="reset">Кайра коюу</string>
+    <string name="reset">Кайра кой</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Voice Assistant’ка сиздин колдонмону качан колдонуп жаткандыгыңыз тууралуу билүүгө уруксат берет.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Бул тексттин түбүндө жана экрандын түбүндө жайгашкан баскычтарды өйдөсүндөгү аймакка багытоолорду тартыңыз.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Ырастоо баскычы экрандын түпкү оң бурчунда жайгашкан.</string>
@@ -820,7 +821,7 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="default_app_selection">Баштап. колд. тандоосу</string>
     <string name="default_app_selection_auto_set">Баштапкы колдонмо. авт. түрдө орнотуу</string>
     <string name="default_app_selection_ask">Баштапкы колдонмо. орнот. мурун суроо</string>
-    <string name="launch_application_settings">Негизги колдонмолор</string>
+    <string name="launch_application_settings">Баштапкы колдонмолор</string>
     <string name="launch_application_settings_summary">Колдонмолорду белгилүү бир тапшырмаларга дайындоо.</string>
     <string name="home_settings_header">Башкы экранды өзгөртүү</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="content_description_hand">Экрандын ортосунда көк тегеректи таптап, жана кармаңыз.</string>
     <string name="nearby_scanning_help_msg_sub">Жакынкы түзмөк издөөсү, Bluetooth Төмөн Кубаттуулук издөөсүн жана микрофонду колдонот. Bluetooth, бул түзмөктөн өчүрүлгөн учурда дагы Bluetooth Төмөн Кубаттуулук издөөсүн колдонууга болот.</string>
     <string name="sec_bluetooth_no_devices_found">Эч кандай Bluetooth түзмөк табылган жок</string>
+    <string name="bt_tether_title">Bluetooth таратуусу</string>
+    <string name="bt_tether_settings_on">Күйүк</string>
+    <string name="bt_tether_settings_off">Өчүк</string>
+    <string name="bt_tether_off_brief_text_phone">"Сиз телефонуңуздун интернет туташуусун башка түзмөктөр менен Bluetooth'ду колдонуп, бөлүшө аласыз."</string>
+    <string name="bt_tether_off_brief_text_tablet">"Сиз планшетиңиздин интернет туташуусун башка түзмөктөр менен Bluetooth'ду колдонуп, бөлүшө аласыз."</string>
+    <string name="bt_tether_preference_tethered_device_list">Таратылган түзмөктөр</string>
+    <string name="bt_tether_server_description_phone">"Телефонуңуздун интернет туташуусун башка түзмөк менен Bluetooth'ду колдонуу аркылуу байланыштырып бөлүшуңүз. Эгер түзмөк мурун таратылган болсо, сиз аны кайра Таратылган түзмөктөр тизмесинен тандай аласыз."</string>
+    <string name="bt_tether_server_description_tablet">"Планшетиңиздин интернет туташуусун башка түзмөк менен Bluetooth'ду колдонуу аркылуу байланыштырып бөлүшуңүз. Эгер түзмөк мурун таратылган болсо, сиз аны кайра Таратылган түзмөктөр тизмесинен тандай аласыз."</string>
     <string name="bluetooth_consent_pairing_msg">"%s байланышуу үчүн, ОК'ди басыңыз."</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s SIM картаңызга кошулуу үчүн уруксат суроодо. Бул сурамга уруксат берүү чалуу жана билдирүү алмашуу иш-милдеттерин иштен чыгарат жана түзмөгүңүздөгү Мобилдик маалыматтарды өчүрөт. Уруксатпы?
 
@@ -1039,7 +1048,7 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="active_key_title">Активдүү баскыч</string>
     <string name="about_phone">Телефон жөнүндө</string>
     <string name="theme_settings">Темалар</string>
-    <string name="wifi_calling_title">Wi-Fi Чалуусу</string>
+    <string name="wifi_calling_title">Wi-Fi чалуусу</string>
     <string name="tab_category_connections">Байланыштар</string>
     <string name="festival_effect_settings_title">Фестивалдын эффекти</string>
     <string name="user_manual">Колдонуучу көрсөтмөсү</string>
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Тузмөк башка түзмөккө жакындаганда маалыматтарды бөлүшүүгө уруксат берет</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Мобилдик төлөм кызматтарын колдонуңуз, NFC тэгдерин окуңуз жана жазыңыз, жана NFC жөндөмдүү түзмөктөрдөн маалымат алмашыңыз.</string>
+    <string name="nfc_settings_title">Мобилдик төлөмдөрдү жасаңыз, маалымат бөлүшүңүз, жана NFC тэгдерин окуңуз же жазыңыз.</string>
     <string name="nfc_settings_rw_p2p_summary">Сиз түзмөктөр ортосунда тэгдерди окуп жана жазып, жана айтымдар өткөрө аласыз.</string>
     <string name="nfcpayment_quick_toggle_title">NFC жана төлөм</string>
     <string name="nfc_mode_general_title">NFC режими</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">Негизги мобилдик төлөө кызматыңызды тандаңыз.</string>
     <string name="nfc_payment_title">Төлөм</string>
     <string name="nfc_others_title">Башкалар</string>
-    <string name="nfc_other_no_apps">Орнотулган кызмат колдонмолору жок</string>
+    <string name="nfc_other_no_apps">Эч кандай кызмат колдонмосу орнотулган жок</string>
     <string name="nfc_payment_open_app">Эгерде ачык болсо колдонмо Басуу жана төлөөнү колдоого алат</string>
     <string name="nfc_payment_favor_open_default_unknown">Ачык колдонмону колдонуу</string>
     <string name="nfc_payment_favor_default_default_unknown">Баштапкы төлөө кызматы жок</string>
     <string name="nfc_tts_tab_n_of_n">%2$d ичинен %1$d таптаңыз</string>
+    <string name="nfc_payment_replace_default_label">Баштапкы төлөө колдонмосун алмаштыруубу?</string>
+    <string name="nfc_payment_replace">Алмаштыруу</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Артык көргөн SIM карта</string>
     <string name="nfc_please_wait">Күтө туруңуз…</string>
     <string name="nfc_payment_no_sim_card">SIM карта жок</string>
-    <string name="nfc_disable_service_title">Баштапкы NFC ыкмасын өзгөртүңүз</string>
-    <string name="nfc_disable_service_msg">Эгерде сиз баштапкы NFC процесстөө ыкмасын өзгөртө турган болсоңуз, анда БАШКАЛАР кыстырмасындагы айрым кызматтар иштен чыгарылат же иштетилет. Бул кызматтарды башкаруу үчүн, NFC жана төлөм > Басуу жана төлөө > БАШКАЛАРГА барыңыз, андан соң аны иштен чыгарууга же иштетүүгө ар бир кызматты өзүнчө тандаңыз.</string>
+    <string name="nfc_disable_service_title">Баштапкы NFC ыкмасын өзгөртүүбү?</string>
+    <string name="nfc_disable_service_msg">Эгерде сиз, баштапкы NFC процесстөө ыкмасын өзгөртө турган болсоңуз, анда БАШКАЛАР кыстырмасындагы айрым кызматтар күйгүзүлөт же өчүрүлөт. Бул кызматтарды башкаруу үчүн, NFC жана төлөм > Басуу жана төлөө > БАШКАЛАРГА барыңыз, андан соң аны күйгүзүү же өчүрүү үчүн, ар бир кызматты өзүнчө тандаңыз.</string>
     <string name="nfc_settings_advanced_setting">Баштапкы NFC ыкмасы</string>
     <string name="nfc_settings_advanced_uicc">SE SIM картасы</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM картасынын коопсуз Элементи</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Эгерде сиз Карта режимине которулсаңыз, NFC тэгдерин башка окуй албай, аларга маалымат жаза же түзмөктөрдүн арасында маалымат алмаша албай каласыз.</string>
     <string name="nfc_show_alert_dialog_title">Ультра кубат сактоо режим</string>
     <string name="nfc_show_alert_dialog_message">%s ачуу мүмкүн эмес.</string>
-    <string name="android_beam_explained">Файлдар менен NFC укуктуу түзмөктөрдү, аларды бирге жакын кармоо аркылуу бөлүшүңүз. Сиз андан кийин веб-барак шилтемелерин, катыштарды, жана дагы башка көп нерселерди бөлүшө аласыз.</string>
+    <string name="android_beam_explained">Сиз, телефонуңузду NFC жөндөмдүү түзмөктөргө жакын кармоо менен веб-барак шилтемелерин, катыштарды, жана дагы башка көп нерселерди бөлүшө аласыз.</string>
     <string name="android_beam_explained_1">Түзмөктөрдү биринин аркасына бирин жакын коюңуз.</string>
     <string name="android_beam_explained_2">Экраныңызды басыңыз.</string>
     <string name="guide_dialog_attention_title">Көңүл буруңуз</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">NFC өчүрүлгөндө, NFC менен мазмунду бөлүшүү жана NFC төлөмү сыяктуу функциялар иштебейт</string>
     <string name="limit_app_contents_transfer">Android Beam өчүрүлгөндө, NFC аркылуу мазмун бөлүшүүсү чектелет</string>
     <string name="nfc_payment_dialog_favor_open">Эгерде учурдагы ачылып турган колдонмо Басуу жана төлөөнү колдоого алса, анда %s ордуна ал колдонулат.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Эгерде учурдагы ачылып турган колдонмо Басуу жана төлөөнү колдоого алса, анда ал колдонулат.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Эгр учурда ачык колдонмо Басуу жаана төлөөну колдосо, бул төлөө үчүн колдонулушу мүмкүн.</string>
     <string name="folder_sounds">Папка добуштарын ач/жап</string>
     <string name="folder_sounds_summary">Папканы ачуу же жабууда добуштарды ойнотуу</string>
     <string name="sound_category_calls_title">Кирүүчү чалуулар</string>
@@ -2419,7 +2430,7 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
     <string name="boost_mode_entertainment_summary">Музыка жана видеолоруңуздун ультра жогорку сапаттагы үн, байытылган сүрөттөр жана максималдык дисплей орнотуулары аркылуу ырахатын алыңыз.</string>
     <string name="boost_mode_game_title">Оюн режими</string>
     <string name="boost_mode_game_summary">Оюн ойноо тажрыйбаңызды, оюндарды бир калыпта аткаргыдай кылыңыз. Game Launcher күйгүзулөт жана Game Tools баскычы колдонмолордун көбундө пайда болот.</string>
-    <string name="boost_mode_warning_summary">Мындайда батареяңыздын кубатын азайтууда болушу мүмкүн.</string>
+    <string name="boost_mode_warning_summary">Бул батареяңыздын кубатын азайтуу мүмкүн.</string>
     <string name="boost_mode_exclusive_popup_title">%s өчүрүүбү?</string>
     <string name="boost_mode_exclusive_popup_text">%1$s колдонуу үчүн, %2$s өчүрүлүшү керек.</string>
     <string name="boost_mode_change_process_disabling_description">%s өчүрүүдө…</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Түзмөк %d мүнөттөн көп убакытка кулпуланганда Wi-Fi же мобилдик тармактар аркылуу колдонулган маалыматтардын көлөмүн көрсөтүүчү эскертүүлөрдү кабыл алуу.</string>
     <string name="data_usage_reminder_description">Түзмөк кулпуланган учурда, жалпысынан маалыматтардын %s төмөнкү колдонмолор тарабынан колдонулду:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ОК</string>
     <string name="yes">Ооба</string>
     <string name="no">Жок</string>
     <string name="create">Түзүү</string>
@@ -3559,7 +3571,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Түзмөк маалыматы</string>
     <string name="proxy_settings_label">Прокси орнотуулары</string>
     <string name="cancel">Артка</string>
-    <string name="okay">ОК</string>
     <string name="save">Сактоо</string>
     <string name="done">Бүттү</string>
     <string name="settings_label">Орнотуулар</string>
@@ -4813,13 +4824,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Бул орнотуу, бул түзмөктөгү бардык колдонуучуларга таасирин тийгизет</string>
     <string name="global_locale_change_title">Тилди өзгөртүү</string>
     <string name="nfc_payment_settings_title">Басуу жана төлөө</string>
-    <string name="nfc_payment_no_apps">Орнотулган төлөө кызматы колдонмолору жок</string>
+    <string name="nfc_payment_no_apps">Эч кандай төлөө колдонмосу орнотулган жок</string>
     <string name="nfc_payment_favor_default">Кандай болсо дагы %s колдонуу</string>
     <string name="nfc_payment_favor_open">%s ордуна ачык колдонмону колдонуу</string>
     <string name="nfc_how_it_works_got_it">Түшүндүм</string>
-    <string name="nfc_payment_set_default_label">Айласыз катары коюу</string>
-    <string name="nfc_payment_set_default">%s, айласыз төлөм ыкмасы катары Таптап, төлөө транзакциялар үчүн коюлат.</string>
-    <string name="nfc_payment_set_default_instead_of">"%1$s, айласыз төлөм ыкмасы катары Таптап, төлөө транзакциялар үчүн %2$s'дын ордун басат."</string>
+    <string name="nfc_payment_set_default_label">Баштапкы төлөө колдонмосу коюлсунбу?</string>
+    <string name="nfc_payment_set_default">%s, баштапкы төлөм колдонмосу катары Басуу жана төлөө коюлат.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s, Басуу жана төлөөнүн баштапкы төлөө колдонмосу катары %2$s менен алмаштырылат.</string>
     <string name="help_label">Жардам</string>
     <string name="user_restrictions_title">Сунуучу/мазмун чектөөлөрү</string>
     <string name="user_restrictions_controlled_by">%1$s тарабынан башкарылат</string>
@@ -5125,7 +5136,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">Иштен чыгарылды</string>
     <string name="backup_disabled">Авто камдык сактоо иштен чыгарылды</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Иш-аракетти аткаруу мүмкүн эмес</string>
+    <string name="disabled_by_policy_title">Аракетти аткаруу мүмкүн эмес</string>
     <string name="default_admin_support_msg">Бул иш-аракетти аткарууга сиздин уруксатыңыз жок. Дагы маалымат алууга, уюмуңуздун IT администратору менен байланышыңыз.</string>
     <string name="admin_support_more_info">Дагы маалымат</string>
     <string name="admin_profile_owner_message">Администратор, орнотуулар, уруксаттар, жалпы кошулуу, тармак иш-аракети, жана түзмөктүн жайгашуу маалыматын камтыган иш профилиңизге байланышы бар колдонмолорду жана маалыматтарды байкап, башкара алат.</string>

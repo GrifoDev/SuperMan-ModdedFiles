@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings$11;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get9(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v0
 
@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings$11;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get9(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v0
 

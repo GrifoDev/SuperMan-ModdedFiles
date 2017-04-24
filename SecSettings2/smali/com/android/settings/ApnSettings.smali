@@ -853,7 +853,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_16
 
     const-string/jumbo v2, "ApnSettings"
 
@@ -1025,7 +1025,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_12
 
     const/4 v2, 0x1
 
@@ -1170,13 +1170,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_b
 
     invoke-static {}, Lcom/android/settings/Utils;->isVZWConcept()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     :cond_6
     new-instance v25, Lcom/android/settings/ApnPreference;
@@ -1242,17 +1242,26 @@
 
     invoke-virtual {v0, v6}, Lcom/android/settings/ApnPreference;->setTitle(Ljava/lang/CharSequence;)V
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
+
+    if-nez v2, :cond_7
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/settings/ApnPreference;->setNullPreferAPN()V
+
+    :cond_7
     invoke-static {}, Lcom/android/settings/Utils;->isJapanKDIModel()Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_8
 
     invoke-static {}, Lcom/android/settings/Utils;->isJapanSBMModel()Z
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
     const-string/jumbo v2, "fourgsmartphone"
 
@@ -1260,7 +1269,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
     const-string/jumbo v2, "Application"
 
@@ -1268,7 +1277,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
     const-string/jumbo v2, "ApnSettings"
 
@@ -1276,7 +1285,7 @@
 
     invoke-static {v2, v4}, Lcom/samsung/android/settings/LogMsg;->out(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_7
+    :cond_8
     :goto_2
     const-string/jumbo v2, "ApnSettings"
 
@@ -1462,13 +1471,13 @@
 
     aget-boolean v2, v29, v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_10
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/ApnSettings;->mSelectedKey:Ljava/lang/String;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     move-object/from16 v0, p0
 
@@ -1478,18 +1487,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     invoke-virtual/range {v25 .. v25}, Lcom/android/settings/ApnPreference;->setChecked()V
 
-    :cond_8
+    :cond_9
     invoke-static {}, Lcom/android/settings/Utils;->isSupport3LM()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/ApnSettings;->tabHandler:Lcom/samsung/android/settings/multisim/MultiSimTabHandler;
@@ -1504,13 +1513,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_f
 
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/ApnSettings;->tIntent:Landroid/content/Intent;
@@ -1519,7 +1528,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_c
 
     move-object/from16 v0, p0
 
@@ -1529,15 +1538,15 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_d
 
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_d
 
-    :cond_b
+    :cond_c
     new-instance v25, Lcom/android/settings/ApnPreference;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getActivity()Landroid/app/Activity;
@@ -1560,7 +1569,7 @@
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_d
     new-instance v25, Lcom/android/settings/ApnPreference;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getActivity()Landroid/app/Activity;
@@ -1583,14 +1592,14 @@
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, v25
 
     invoke-virtual {v0, v7}, Lcom/android/settings/ApnPreference;->setSummary(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_f
     move-object/from16 v10, p0
 
     move-object/from16 v11, v25
@@ -1612,7 +1621,7 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/settings/ApnSettings;->tabHandler:Lcom/samsung/android/settings/multisim/MultiSimTabHandler;
@@ -1627,13 +1636,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_11
 
     invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_11
     move-object/from16 v10, p0
 
     move-object/from16 v11, v25
@@ -1652,53 +1661,25 @@
 
     goto :goto_3
 
-    :cond_11
+    :cond_12
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     invoke-virtual/range {v21 .. v21}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_13
 
     move-object/from16 v18, v21
 
     move-object/from16 v19, v23
 
-    :cond_12
+    :cond_13
     invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v27
 
     :goto_4
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_13
-
-    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Lcom/android/settings/ApnPreference;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
-
-    goto :goto_4
-
-    :cond_13
-    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v27
-
-    :goto_5
     invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -1719,9 +1700,37 @@
 
     invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_14
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v27
+
+    :goto_5
+    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_15
+
+    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v26
+
+    check-cast v26, Lcom/android/settings/ApnPreference;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/settings/ApnSettings;->apnList:Landroid/preference/PreferenceGroup;
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z
+
+    goto :goto_5
+
+    :cond_15
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/ApnSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v2
@@ -1750,7 +1759,7 @@
 
     invoke-virtual {v2, v0}, Landroid/preference/PreferenceGroup;->setEnabled(Z)V
 
-    :cond_15
+    :cond_16
     return-void
 .end method
 
@@ -1864,7 +1873,7 @@
 
     invoke-virtual {v3, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b041e
+    const v4, 0x7f0b0429
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2623,7 +2632,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0abe
+    const v1, 0x7f0b0acc
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2631,7 +2640,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/ApnSettings$9;-><init>(Lcom/android/settings/ApnSettings;)V
 
-    const v2, 0x7f0b041c
+    const v2, 0x7f0b0427
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2715,7 +2724,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00a5
+    const v1, 0x7f0b00a6
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -3094,7 +3103,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1314
+    const v2, 0x7f0b142f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3121,7 +3130,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 7
 
-    const v6, 0x7f0b041e
+    const v6, 0x7f0b0429
 
     const/4 v5, 0x2
 
@@ -3184,7 +3193,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1315
+    const v2, 0x7f0b1430
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

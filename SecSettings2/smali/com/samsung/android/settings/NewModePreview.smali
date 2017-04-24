@@ -306,7 +306,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0584
+    const v5, 0x7f0b058f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     new-array v6, v6, [Ljava/lang/Object;
 
-    const v7, 0x7f0b0599
+    const v7, 0x7f0b05a4
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -332,7 +332,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1414
+    const v5, 0x7f0b152f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1413
+    const v5, 0x7f0b152e
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/NewModePreview;->getString(I)Ljava/lang/String;
 
@@ -426,7 +426,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05c1
+    const v3, 0x7f0b05cc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -442,7 +442,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05c0
+    const v3, 0x7f0b05cb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -458,7 +458,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05c2
+    const v3, 0x7f0b05cd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -474,7 +474,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05c3
+    const v3, 0x7f0b05ce
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -508,13 +508,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045d
+    const v2, 0x7f0a045e
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -522,7 +522,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046c
+    const v2, 0x7f0a046d
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -658,11 +658,11 @@
 
     check-cast v12, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0539
+    const v1, 0x7f0b0544
 
     invoke-virtual {v8, v1}, Landroid/widget/TextView;->setText(I)V
 
-    const v1, 0x7f0b053a
+    const v1, 0x7f0b0545
 
     invoke-virtual {v12, v1}, Landroid/widget/TextView;->setText(I)V
 

@@ -34,7 +34,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
 
-    const v7, 0x7f0b01c3
+    const v7, 0x7f0b01c4
 
     const/16 v6, 0x64
 
@@ -252,7 +252,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b01c2
+    const v3, 0x7f0b01c3
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

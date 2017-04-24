@@ -1248,7 +1248,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v5, 0x7f0a05d6
+    const v5, 0x7f0a05d7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2263,7 +2263,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a05d6
+    const v2, 0x7f0a05d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2792,7 +2792,7 @@
 .method private InitUI()V
     .locals 4
 
-    const v3, 0x7f040279
+    const v3, 0x7f04027a
 
     invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->GetWindowSize()V
 
@@ -5408,7 +5408,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 2
 
-    const v0, 0x7f0b041c
+    const v0, 0x7f0b0427
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -5434,7 +5434,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->frag_Act:Landroid/app/Activity;
 
-    const v0, 0x7f040278
+    const v0, 0x7f040279
 
     const/4 v1, 0x0
 

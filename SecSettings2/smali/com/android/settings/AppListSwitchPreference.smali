@@ -13,7 +13,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f0f021f
+    const v1, 0x7f0f0220
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/android/settings/AppListPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 

@@ -788,7 +788,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0877
+    const v10, 0x7f0b0883
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1243,13 +1243,13 @@
 
     move-result-object v12
 
-    const v0, 0x7f0a0467
+    const v0, 0x7f0a0468
 
     invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v1, 0x7f0a045d
+    const v1, 0x7f0a045e
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1351,7 +1351,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v5, 0x7f0800dc
+    const v5, 0x7f0800dd
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->addPreferencesFromResource(I)V
 
@@ -1413,7 +1413,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f0277
+    const v7, 0x7f0f0278
 
     invoke-direct {v5, v6, v7}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 

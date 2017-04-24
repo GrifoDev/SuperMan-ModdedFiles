@@ -45,11 +45,11 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/SecRadioButtonPreference;->mListener:Lcom/samsung/android/settings/SecRadioButtonPreference$OnClickListener;
 
-    const v0, 0x7f0401f1
+    const v0, 0x7f0401f2
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecRadioButtonPreference;->setLayoutResource(I)V
 
-    const v0, 0x7f040212
+    const v0, 0x7f040213
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecRadioButtonPreference;->setWidgetLayoutResource(I)V
 

@@ -175,7 +175,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080165
+    const v0, 0x7f080166
 
     invoke-virtual {p0, v0}, Lcom/android/settings/LedIndicatorSettings;->addPreferencesFromResource(I)V
 
@@ -420,7 +420,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1a99
+    const v5, 0x7f0b1bc2
 
     invoke-static {v4, v5, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

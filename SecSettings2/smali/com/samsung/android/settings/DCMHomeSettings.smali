@@ -703,7 +703,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/DCMHomeSettings;->mHomeApps:Ljava/util/List;
 
-    const v3, 0x7f08007f
+    const v3, 0x7f080080
 
     invoke-direct {v0, p0, v1, v3, v2}, Lcom/samsung/android/settings/DCMHomeSettings$HomeAdapter;-><init>(Lcom/samsung/android/settings/DCMHomeSettings;Landroid/content/Context;ILjava/util/List;)V
 
@@ -1182,7 +1182,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b03a5
+    const v5, 0x7f0b03a6
 
     invoke-virtual {p0, v5, v4}, Lcom/samsung/android/settings/DCMHomeSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1219,7 +1219,7 @@
     return-void
 
     :pswitch_0
-    const v3, 0x7f0b039f
+    const v3, 0x7f0b03a0
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/DCMHomeSettings;->getString(I)Ljava/lang/String;
 
@@ -1228,7 +1228,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v3, 0x7f0b03a1
+    const v3, 0x7f0b03a2
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/DCMHomeSettings;->getString(I)Ljava/lang/String;
 
@@ -1241,7 +1241,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b03a3
+    const v3, 0x7f0b03a4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/DCMHomeSettings;->getString(I)Ljava/lang/String;
 

@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">‏تم الاتصال عبر %1$s</string>
     <string name="available_via_passpoint">‏متوفرة عبر %1$s</string>
     <string name="wifi_connected_no_internet">متصلة، ولا يتوفر إنترنت</string>
+    <string name="wifi_internet_may_not_be_available">قد لا يتوفر الإنترنت</string>
     <string name="wifi_reconnecting">جاهز للاتصال عندما تتحسن جودة الشبكة</string>
     <string name="wifi_connected_checking_quality">جار فحص جودة اتصال الإنترنت…</string>
     <string name="wifi_sign_in_to_the_network">تسجيل الدخول إلى الشبكة.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d من العناصر ذات الصلة</string>
     <string name="no_results_found">لم يتم العثور علي اي نتيجة</string>
     <string name="menu_edit">تعديل</string>
-    <string name="reset">إرجاع</string>
+    <string name="reset">إعادة الضبط</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">السماح لـ Voice Assistant لمعرفة متى تستخدم تطبيق.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">ارسم اتجاهات في منطقة تحت هذا النص وفوق الأزرار الموجودة في أسفل الشاشة.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">إن زر التأكيد موجود في الزاوية السفلية اليمنى من الشاشة.</string>
@@ -865,6 +866,14 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">انقر مع الاستمرار فوق الدائرة الزرقاء في منتصف الشاشة.</string>
     <string name="nearby_scanning_help_msg_sub">يستخدم مسح الأجهزة المجاورة الميكروفون والمسح عبر تقنية البلوتوث باستهلاك منخفض للطاقة. يمكن استخدام المسح عبر تقنية البلوتوث باستهلاك منخفض للطاقة حتى أثناء إيقاف تشغيل البلوتوث على هذا الجهاز.</string>
     <string name="sec_bluetooth_no_devices_found">تعذر العثور على أجهزة البلوتوث</string>
+    <string name="bt_tether_title">تقييد البلوتوث</string>
+    <string name="bt_tether_settings_on">تشغيل</string>
+    <string name="bt_tether_settings_off">إيقاف التشغيل</string>
+    <string name="bt_tether_off_brief_text_phone">يمكنك مشاركة اتصال الإنترنت الخاص بهاتفك مع أجهزة أخرى باستخدام البلوتوث.</string>
+    <string name="bt_tether_off_brief_text_tablet">يمكنك مشاركة اتصال الإنترنت الخاص بجهازك اللوحي مع أجهزة أخرى باستخدام البلوتوث.</string>
+    <string name="bt_tether_preference_tethered_device_list">الأجهزة المقيّدة</string>
+    <string name="bt_tether_server_description_phone">يمكنك مشاركة اتصال الإنترنت الخاص بهاتفك عبر إقرانه بجهاز آخر باستخدام البلوتوث. إذا تم تقييد الجهاز مسبقاً، فيمكنك تقييده مجدداً عبر تحديده من قائمة الأجهزة المقيّدة.</string>
+    <string name="bt_tether_server_description_tablet">يمكنك مشاركة اتصال الإنترنت الخاص بجهازك اللوحي عبر إقرانه بجهاز آخر باستخدام البلوتوث. إذا تم تقييد الجهاز مسبقاً، فيمكنك تقييده مجدداً عبر تحديده من قائمة الأجهزة المقيّدة.</string>
     <string name="bluetooth_consent_pairing_msg">انقر فوق ”موافق“ للاقتران بـ %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"لديك طلب من %s للحصول على إذن من أجل الوصول إلى بطاقة SIM. سيؤدي السماح بهذا الطلب إلى إلغاء تفعيل وظائف الاتصال والمراسلة، وإيقاف تشغيل بيانات الهاتف المحمول على جهازك. هل تريد السماح بذلك؟
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">السماح بتبادل البيانات عند ملامسة الجهاز لجهاز آخر.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">استخدم خدمات الدفع عبر المحمول واقرأ علامات NFC واكتبها وتبادل البيانات بين الأجهزة المزوّدة بتقنية NFC.</string>
+    <string name="nfc_settings_title">سدد الدفعات عبر المحمول، وشارك البيانات، واقرأ علامات NFC أو اكتبها.</string>
     <string name="nfc_settings_rw_p2p_summary">يمكنك قراءة العلامات وكتابتها ونقل البيانات بين الأجهزة.</string>
     <string name="nfcpayment_quick_toggle_title">‏NFC والدفع</string>
     <string name="nfc_mode_general_title">وضع NFC</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">حدّد خدمة الدفع الافتراضية للمحمول.</string>
     <string name="nfc_payment_title">الدفع</string>
     <string name="nfc_others_title">أخرى</string>
-    <string name="nfc_other_no_apps">لم يتم تثبيت أي تطبيقات خدمة</string>
+    <string name="nfc_other_no_apps">ما من تطبيقات خدمة مثبّتة</string>
     <string name="nfc_payment_open_app">إذا كان التطبيق المفتوح يدعم خدمة انقر وادفع</string>
     <string name="nfc_payment_favor_open_default_unknown">استخدام تطبيق مفتوح</string>
     <string name="nfc_payment_favor_default_default_unknown">ما من خدمة دفع افتراضية</string>
     <string name="nfc_tts_tab_n_of_n">علامة تبويب %1$d من %2$d.</string>
+    <string name="nfc_payment_replace_default_label">هل تريد استبدال تطبيق الدفع الافتراضي؟</string>
+    <string name="nfc_payment_replace">استبدال</string>
     <string name="nfc_payment_services_title">خدمات الدفع بتقنية NFC</string>
     <string name="nfc_payment_services_fail">فشل ضبط بطاقة %s‏ SIM لاستخدامها مع خدمات الدفع بتقنية NFC. حاول مرة أخرى.</string>
     <string name="nfc_payment_services_success">تم ضبط بطاقة %s‏ SIM لاستخدامها مع خدمات الدفع بتقنية NFC.</string>
     <string name="nfc_preferred_general_title">بطاقة SIM المفضلة</string>
     <string name="nfc_please_wait">يرجى الانتظار …</string>
     <string name="nfc_payment_no_sim_card">لا توجد بطاقة SIM</string>
-    <string name="nfc_disable_service_title">تغيير طريقة NFC الافتراضية</string>
-    <string name="nfc_disable_service_msg">إذا قمت بتغيير طريقة معالجة NFC الافتراضية، فسوف يتم إلغاء تفعيل بعض الخدمات في علامة تبويب غير ذلك أو تفعيلها. لإدارة هذه الخدمات، انتقل إلى NFC والدفع > انقر وادفع > غير ذلك، ثم حدد كل خدمة لتفعيلها أو لإلغاء تفعيلها.</string>
+    <string name="nfc_disable_service_title">هل تريد تغيير طريقة NFC الافتراضية؟</string>
+    <string name="nfc_disable_service_msg">إذا قمت بتغيير طريقة معالجة NFC الافتراضية، فسيتم تشغيل بعض الخدمات في علامة تبويب غير ذلك أو إيقاف تشغيلها. لإدارة هذه الخدمات، انتقل إلى NFC والدفع > انقر وادفع > غير ذلك، ثم حدد كل خدمة لتشغيلها أو إيقاف تشغيلها.</string>
     <string name="nfc_settings_advanced_setting">طريقة NFC الافتراضية</string>
     <string name="nfc_settings_advanced_uicc">بطاقة SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">عنصر الأمان لبطاقة SIM</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">في حال التبديل إلى وضع البطاقة، لن يعود بإمكانك قراءة علامات NFC أو كتابة بيانات عليها أو تبادل بيانات بين الأجهزة.</string>
     <string name="nfc_show_alert_dialog_title">وضع التوفير الفائق للطاقة</string>
     <string name="nfc_show_alert_dialog_message">يتعذر فتح %s.</string>
-    <string name="android_beam_explained">شارك الملفات بين جهازين مزودين بميزة NFC عن طريق تقريبهما من بعضهما بعضاً. يمكنك مشاركة روابط صفحات الويب وجهات الاتصال وغيرها.</string>
+    <string name="android_beam_explained">يمكنك مشاركة ارتباطات صفحات الويب، وجهات الاتصال، والمزيد غير ذلك من خلال تقريب الهاتف من جهاز مزود بتقنية NFC.</string>
     <string name="android_beam_explained_1">قرّب الجهازين من بعضهما بعضاً، من الخلف.</string>
     <string name="android_beam_explained_2">انقر فوق شاشتك.</string>
     <string name="guide_dialog_attention_title">انتباه</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">لن تتوفر الوظائف المرتبطة بعلامة NFC، مثل بعض طرق مشاركة المحتوى والدفع عبر NFC، عند إيقاف تشغيل NFC.</string>
     <string name="limit_app_contents_transfer">سوف يتم تقييد مشاركة المحتوى عبر NFC عند إيقاف تشغيل Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">إذا كان التطبيق المفتوح حالياً يدعم خدمة انقر وادفع، فسيتم استخدامه بدلاً من %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">إذا كان التطبيق المفتوح حالياً يدعم خدمة انقر وادفع، فسيتم استخدامه.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">إذا كان التطبيق المفتوح حالياً يدعم خدمة انقر وادفع، فسيتم استخدامه للدفع.</string>
     <string name="folder_sounds">أصوات فتح/إغلاق المجلد</string>
     <string name="folder_sounds_summary">قم بتشغيل أصوات عند فتح المجلد وإغلاقه.</string>
     <string name="sound_category_calls_title">المكالمات الواردة</string>
@@ -3463,6 +3474,7 @@ Wi-Fi is now on."</string>
     <string name="data_usage_reminder_item_summary">يمكنك تلقي إشعارات تعرض كمية البيانات المُستخدمة من تطبيقات مثل شبكة Wi-Fi أو شبكات الهاتف المحمول، عندما يكون الجهاز مقفلاً لأكثر من %d من الدقائق.</string>
     <string name="data_usage_reminder_description">استخدمت التطبيقات التالية %s من البيانات بشكلٍ إجمالي عندما كان الجهاز مقفلاً:</string>
     <string name="google_settings_popup_msg">يتوفر عدد محدود فقط من ضبط Google. قد لا يعمل بعض الإجراءات.</string>
+    <string name="okay">موافق</string>
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="create">إنشاء</string>
@@ -3560,7 +3572,6 @@ Wi-Fi is now on."</string>
     <string name="phone_info_label">معلومات الجهاز</string>
     <string name="proxy_settings_label">ضبط التفويض</string>
     <string name="cancel">إلغاء</string>
-    <string name="okay">موافق</string>
     <string name="save">حفظ</string>
     <string name="done">تم</string>
     <string name="settings_label">الضبط</string>
@@ -4814,13 +4825,13 @@ Wi-Fi is now on."</string>
     <string name="global_change_warning">يؤثر هذا الإعداد على جميع المستخدمين على هذا الجهاز.</string>
     <string name="global_locale_change_title">تغيير اللغة</string>
     <string name="nfc_payment_settings_title">انقر وادفع</string>
-    <string name="nfc_payment_no_apps">لم يتم تثبيت أي تطبيقات خدمة الدفع</string>
+    <string name="nfc_payment_no_apps">لا يوجد تطبيقات دفع مثبّتة</string>
     <string name="nfc_payment_favor_default">الاستمرار في استخدام %s</string>
     <string name="nfc_payment_favor_open">استخدام التطبيق المفتوح بدلاً من %s</string>
     <string name="nfc_how_it_works_got_it">لقد فهمت</string>
-    <string name="nfc_payment_set_default_label">الضبط كطريقة الدفع الافتراضية</string>
-    <string name="nfc_payment_set_default">سيتم ضبط %s كطريقة الدفع الافتراضية لمعاملات القبول والدفع.</string>
-    <string name="nfc_payment_set_default_instead_of">سيتم استبدال %2$s بـ %1$s كطريقة الدفع الافتراضية لمعاملات القبول والدفع.</string>
+    <string name="nfc_payment_set_default_label">هل تريد ضبط تطبيق الدفع الافتراضي؟</string>
+    <string name="nfc_payment_set_default">سيتم ضبط %s كتطبيق الدفع الافتراضي لخدمة انقر وادفع.</string>
+    <string name="nfc_payment_set_default_instead_of">سيتم استبدال %2$s بـ %1$s كتطبيق الدفع الافتراضي لمعاملات انقر وادفع.</string>
     <string name="help_label">مساعدة</string>
     <string name="user_restrictions_title">قيود التطبيق/المحتوى</string>
     <string name="user_restrictions_controlled_by">يتم التحكم عبر %1$s</string>

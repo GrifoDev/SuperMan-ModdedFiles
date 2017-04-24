@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s vasitəsilə qoşuludur</string>
     <string name="available_via_passpoint">%1$s vasitəsilə əlçatandır</string>
     <string name="wifi_connected_no_internet">Qoşuludur, internet yoxdur</string>
+    <string name="wifi_internet_may_not_be_available">İnternet mövcud olmaya bilər</string>
     <string name="wifi_reconnecting">Şəbəkə keyfiyyəti artdıqda bağlanmağa hazır</string>
     <string name="wifi_connected_checking_quality">İnternet bağlantınızın keyfiyyəti yoxlanılır…</string>
     <string name="wifi_sign_in_to_the_network">Şəbəkəyə daxil ol.</string>
@@ -819,7 +820,7 @@ Wi-Fi və Bluetooth da eyni zamanda sönəcəkdir, lakin yenidən Parametrlərd�
     <string name="default_app_selection">Defolt proqram seçimi</string>
     <string name="default_app_selection_auto_set">Defolt proqramları avtomatik qur</string>
     <string name="default_app_selection_ask">Defolt proqram qurmazdan öncə soruş</string>
-    <string name="launch_application_settings">Standart proqramlar</string>
+    <string name="launch_application_settings">Defolt proqramlar</string>
     <string name="launch_application_settings_summary">Müəyyən tapşırıqlar üçün proqramlar təyin et.</string>
     <string name="home_settings_header">Başlanğıcı dəyiş</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -864,6 +865,14 @@ Proqram məlumatı kontaktlar, mesajlar və şəkillər kimi şəxsi məlumatdan
     <string name="content_description_hand">Ekranın ortasındakı mavi dairəyə vurub saxlayın.</string>
     <string name="nearby_scanning_help_msg_sub">Yaxın cihaz axtarışı Bluetooth Aşağı Enerji axtarış və mikrofondan istifadə edir. Bu cihazda Bluetooth sönülü olduqda belə bu funksiya Bluetooth Aşağı Enerji skanlamasından istifadə edir.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth cihazı tapılmadı</string>
+    <string name="bt_tether_title">Bluetooth bağlanması</string>
+    <string name="bt_tether_settings_on">İşlək</string>
+    <string name="bt_tether_settings_off">Qeyri-işlək</string>
+    <string name="bt_tether_off_brief_text_phone">Bluetooth vasitəsilə telefonun internet bağlantısını başqa cihazlarla paylaşın.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bluetooth vasitəsilə tabletin internet bağlantısını başqa cihazlarla paylaşın.</string>
+    <string name="bt_tether_preference_tethered_device_list">Bağlanan cihazlar</string>
+    <string name="bt_tether_server_description_phone">Bluetooth vasitəsilə başqa cihazla cütləşdirməklə telefonun internet bağlantısını paylaşın. Cihaz əvvəl bağlanmış olarsa, onu Bağlanmış cihazlar siyahısından seçməklə yenidən bağlaya bilərsiniz.</string>
+    <string name="bt_tether_server_description_tablet">Bluetooth vasitəsilə başqa cihazla cütləşdirməklə tabletin internet bağlantısını paylaşın. Cihaz əvvəl bağlanmış olarsa, onu Bağlanmış cihazlar siyahısından seçməklə yenidən bağlaya bilərsiniz.</string>
     <string name="bluetooth_consent_pairing_msg">%s ilə cütləşdirmək üçün OK vur.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s sizin SIM kartınıza çıxış icazəsi istəyir. Sorğuya icazə verilməsi zəng və mesajlaşma funksiyalarını qeyri-aktiv edəcək və cihazınızda Mobil tarifi söndürəcəkdir. İcazə verilsin?
 
@@ -1038,7 +1047,7 @@ Hətta ağıllı çəkim qeyri-aktiv edilən zaman Hava əmri ilə onun funksiya
     <string name="active_key_title">Aktiv düymə</string>
     <string name="about_phone">Telefon haqqında</string>
     <string name="theme_settings">Mövzular</string>
-    <string name="wifi_calling_title">Wi-Fi Zəng edir</string>
+    <string name="wifi_calling_title">Wi-Fi zəng</string>
     <string name="tab_category_connections">Bağlantılar</string>
     <string name="festival_effect_settings_title">Festival effekti</string>
     <string name="user_manual">İstifadəçi təlimatları</string>
@@ -2160,7 +2169,7 @@ Bəzi NFC əməliyyatları və mobil ödəniş xidmətləri fərqli defolt NFC i
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Cihaz başqa bir cihaza toxunduqda məlumat mübadiləsinə icazə verilsin.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Mobil ödəniş xidmətlərindən istifadə edin, NFC teqlərini yazın və oxuyun və NFC imkanlı cihazlar arasında məlumat mübadiləsi edin.</string>
+    <string name="nfc_settings_title">Mobi ödənişlər edin, məlumatı paylaşın və NFC teqləri yazın və ya oxuyun.</string>
     <string name="nfc_settings_rw_p2p_summary">Siz etiketləri oxuya və yaza, cihazlar arasında məlumat ötürə bilərsiniz.</string>
     <string name="nfcpayment_quick_toggle_title">NFC və ödəniş</string>
     <string name="nfc_mode_general_title">NFC rejimi</string>
@@ -2171,19 +2180,21 @@ Bəzi NFC əməliyyatları və mobil ödəniş xidmətləri fərqli defolt NFC i
     <string name="nfc_payment_enable_summary">Defolt mobil ödəniş xidmətini seçin.</string>
     <string name="nfc_payment_title">Ödəniş</string>
     <string name="nfc_others_title">Digərləri</string>
-    <string name="nfc_other_no_apps">Quraşdırılmış xidmət proqramı yoxdur</string>
+    <string name="nfc_other_no_apps">Xidmət proqramı quraşdırılmayıb</string>
     <string name="nfc_payment_open_app">Əgər açıq proqram Vur və ödə seçimini dəstəkləyirsə</string>
     <string name="nfc_payment_favor_open_default_unknown">Açıq proqramdan istifadə et</string>
     <string name="nfc_payment_favor_default_default_unknown">Defolt ödəniş xidməti yoxdur</string>
     <string name="nfc_tts_tab_n_of_n">Panel %1$d/ %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Defolt ödəniş proqramının yerini dəyişsin?</string>
+    <string name="nfc_payment_replace">Əvəz et</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Üstün tutulan SIM kart</string>
     <string name="nfc_please_wait">Xahiş edirik gözləyin…</string>
     <string name="nfc_payment_no_sim_card">SIM kart yox</string>
-    <string name="nfc_disable_service_title">Defolt NFC metodunu dəyiş</string>
-    <string name="nfc_disable_service_msg">Defolt NFC işləmə metodunu dəyişsəniz, BAŞQALARI bölməsindəki bəzi xidmətlər qeyri-aktiv və ya aktiv ediləcək. Bu parametrləri idarə etmək üçün NFC və ödəniş > Vur və ödə > BAŞQALARI və aktiv və ya qeyri-aktiv etmək üçün hər xidməti seçin.</string>
+    <string name="nfc_disable_service_title">Standart NFC metodu dəyişdirilsin?</string>
+    <string name="nfc_disable_service_msg">Defolt NFC işləmə metodunu dəyişsəniz, BAŞQALARI bölməsindəki bəzi xidmətlər yandırılacaq və ya söndürüləcək. Bu parametrləri idarə etmək üçün NFC və ödəniş > Vur və ödə > BAŞQALARI və yandırıb söndürmək üçün hər xidməti seçin.</string>
     <string name="nfc_settings_advanced_setting">Defolt NFC metodu</string>
     <string name="nfc_settings_advanced_uicc">SE SIM kartı</string>
     <string name="nfc_settings_advanced_uicc_TTS">Təhlükəsizlik Elementinin SIM kartı</string>
@@ -2195,8 +2206,8 @@ Bəzi NFC əməliyyatları və mobil ödəniş xidmətləri fərqli defolt NFC i
     <string name="nfc_settings_tag_message">Kart rejiminə keçsəniz, artıq NFC teqlərini oxuya, onlara məlumat yaza və ya cihazlar arasında məlumatı mübadilə edə bilməyəcəksiniz.</string>
     <string name="nfc_show_alert_dialog_title">Ultra enerj qən rej</string>
     <string name="nfc_show_alert_dialog_message">%s açmaq mümkün deyil.</string>
-    <string name="android_beam_explained">NFC imkanlı cihazlar arasında faylları paylaşmaq üçün onları yaxın tutun. Daha sonra siz keçidlər, əlaqələr və daha çoxunu paylaşa bilərsiniz.</string>
-    <string name="android_beam_explained_1">Cihazları arxa arxaya yaxınlaşdır.</string>
+    <string name="android_beam_explained">Vebkeçid keçidləri, kontaktlar və daha çoxunu telefonu NFC imkanlı cihaza yaxın tutaraq paylaşa bilərsiniz.</string>
+    <string name="android_beam_explained_1">Cihazları arxa arxaya yaxınlaşdırın.</string>
     <string name="android_beam_explained_2">Ekrana vur.</string>
     <string name="guide_dialog_attention_title">Diqqət</string>
     <string name="nfc_off_popup_title">NFC-i söndür</string>
@@ -2204,7 +2215,7 @@ Bəzi NFC əməliyyatları və mobil ödəniş xidmətləri fərqli defolt NFC i
     <string name="cannot_use_card_without_NFC">NFC qeyri-aktiv olduqda, məzmunun paylaşması və NFC ödəniş üsulları kimi NFC ilə bağlı funksiyalar işləməyəcəkdir.</string>
     <string name="limit_app_contents_transfer">Android Beam qeyri-aktiv olduqda, NFC vasitəsilə məzmunun paylaşması məhdudlaşdırılacaqdır.</string>
     <string name="nfc_payment_dialog_favor_open">Hazırda açıq olan proqram Vur və ödəni dəstəkləyirsə, %s-in əvəzinə ondan istifadə ediləcək.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Hazırda açıq olan proqram Vur və ödəni dəstəkləyirsə, ondan istifadə ediləcək.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Hazırda açıq olan proqram Vur və ödəni dəstəkləyirsə, ondan ödəniş üçün istifadə ediləcək.</string>
     <string name="folder_sounds">Qovl açıl/bağl səs</string>
     <string name="folder_sounds_summary">Qovluğu açan və bağlayan zaman səslər oxudulsun.</string>
     <string name="sound_category_calls_title">Gələn zənglər</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Cihaz %d dəqiqədən çox kilidli olduqda proqramların Wi-Fi və ya mobil şəbəkələrdə istifadə etdiyi məbləği göstərən bildirişlər al.</string>
     <string name="data_usage_reminder_description">Aşağıdakı proqramlar cihaz kilidli olan zaman cəmi %s datadan istifadə edib:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Bəli</string>
     <string name="no">Xeyr</string>
     <string name="create">Yarat</string>
@@ -3559,7 +3571,6 @@ Siz bunu daha sonra Bluetooth parametrlərindən dəyişə bilərsiniz."</string
     <string name="phone_info_label">Cihaza dair məlumat</string>
     <string name="proxy_settings_label">Proksi parametrləri</string>
     <string name="cancel">Ləğv et</string>
-    <string name="okay">OK</string>
     <string name="save">Saxla</string>
     <string name="done">Tamam</string>
     <string name="settings_label">Param-lər</string>
@@ -4813,13 +4824,13 @@ Hər hansı istifadəçi bütün digər istifadəçilərin adından yenilənmiş
     <string name="global_change_warning">Bu parametr bu cihazdakı bütün istifadəçilərə təsir edir.</string>
     <string name="global_locale_change_title">Dili dəyişdir</string>
     <string name="nfc_payment_settings_title">Vur və ödə</string>
-    <string name="nfc_payment_no_apps">Quraşdırılmış ödəniş xidməti proqramı yoxdur</string>
+    <string name="nfc_payment_no_apps">Ödəniş proqramı quraşdırılmayıb</string>
     <string name="nfc_payment_favor_default">Hələ də %s istifadə edir</string>
     <string name="nfc_payment_favor_open">%s əvəzində açıq proqramdan istifadə edin</string>
     <string name="nfc_how_it_works_got_it">Oldu</string>
-    <string name="nfc_payment_set_default_label">Defolt kimi qur</string>
-    <string name="nfc_payment_set_default">%s sizin Vur və ödə tranzaksiyalarınız üçün defolt ödəniş metodu kimi qurulacaq.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s %2$s-i sizin Vur və ödə tranzaksiyalarınız üçün defolt ödəniş metodu kimi əvəz edəcək.</string>
+    <string name="nfc_payment_set_default_label">Defolt ödəniş proqramı qurulsun?</string>
+    <string name="nfc_payment_set_default">%s Vur və ödə üçün defolt ödəniş metodu kimi qurulacaq.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s %2$s-i sizin Vur və ödə üçün defolt ödəniş metodu kimi əvəz edəcək.</string>
     <string name="help_label">Yardım</string>
     <string name="user_restrictions_title">Əlavə/məzmunla bağlı qadağalar</string>
     <string name="user_restrictions_controlled_by">%1$s vasitəsilə idarə edilir</string>
@@ -5125,7 +5136,7 @@ Cihaz işə salınanadək siz heç bir zəng, mesaj və ya bildiriş və siqnal 
     <string name="location_off_summary">Qeyri-aktivdir</string>
     <string name="backup_disabled">Avtomatik nüsxələmə qeyri-aktivdir</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Əməliyyatı keçirmək olmadı</string>
+    <string name="disabled_by_policy_title">Əməliyyatı icra etmək olmadı</string>
     <string name="default_admin_support_msg">Bu əməliyyatı keçirmək icazəniz yoxdur. Əlavə məlumat üçün təşkilatın İT administratoru ilə əlaqə saxlayın.</string>
     <string name="admin_support_more_info">Ətraflı məlumat</string>
     <string name="admin_profile_owner_message">Administrator iş profili ilə bağlı proqram və məlumatları, eləcə də parametrlər, icazələr, korporativ çıxış, şəbəkə fəaliyyəti və cihazın yeri barədə məlumatı yoxlaya və idarə edə bilər.</string>

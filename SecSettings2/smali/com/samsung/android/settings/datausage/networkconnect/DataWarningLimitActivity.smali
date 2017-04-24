@@ -1278,7 +1278,7 @@
 .method public onResume()V
     .locals 12
 
-    const v11, 0x7f0b0c32
+    const v11, 0x7f0b0c40
 
     const/4 v6, 0x1
 
@@ -1485,7 +1485,7 @@
 
     if-eqz v0, :cond_4
 
-    const v6, 0x7f0b18af
+    const v6, 0x7f0b19ca
 
     :goto_3
     invoke-virtual {v7, v6}, Landroid/widget/TextView;->setText(I)V
@@ -1557,7 +1557,7 @@
     throw v6
 
     :cond_4
-    const v6, 0x7f0b18b0
+    const v6, 0x7f0b19cb
 
     goto :goto_3
 .end method

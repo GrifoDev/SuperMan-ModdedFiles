@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings$14;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Z
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get7(Lcom/android/settings/TetherSettings;)Z
 
     move-result v0
 

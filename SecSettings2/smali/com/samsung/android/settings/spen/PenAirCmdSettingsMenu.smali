@@ -639,7 +639,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0be3
+    const v23, 0x7f0b0bf1
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -652,7 +652,7 @@
 
     move-object/from16 v22, v0
 
-    const v23, 0x7f0b0be3
+    const v23, 0x7f0b0bf1
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -795,7 +795,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/spen/PenAirCmdSettingsMenu;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0800b4
+    const v0, 0x7f0800b5
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/spen/PenAirCmdSettingsMenu;->addPreferencesFromResource(I)V
 

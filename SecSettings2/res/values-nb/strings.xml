@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Tilkoblet via %1$s</string>
     <string name="available_via_passpoint">Tilgjengelig via %1$s</string>
     <string name="wifi_connected_no_internet">Tilkoblet – ingen Internett-forbindelse</string>
+    <string name="wifi_internet_may_not_be_available">Internett kanskje ikke tilgj.</string>
     <string name="wifi_reconnecting">Klar til å koble til når nettverkskvaliteten blir bedre</string>
     <string name="wifi_connected_checking_quality">Kontrollerer kvaliteten på Internett-tilkoblingen …</string>
     <string name="wifi_sign_in_to_the_network">Logg på nettverket.</string>
@@ -865,6 +866,14 @@ Appdata kan omfatte personlig informasjon som kontakter, meldinger og bilder."</
     <string name="content_description_hand">Trykk på og hold den blå sirkelen i midten av skjermen.</string>
     <string name="nearby_scanning_help_msg_sub">Søk etter enheter i nærheten bruker Bluetooth Low Energy-søking og mikrofonen. Bluetooth Low Energy-søking kan brukes selv når Bluetooth er slått av på denne enheten.</string>
     <string name="sec_bluetooth_no_devices_found">Fant ingen Bluetooth-enheter</string>
+    <string name="bt_tether_title">Internettdeling via Bluetooth</string>
+    <string name="bt_tether_settings_on">På</string>
+    <string name="bt_tether_settings_off">Av</string>
+    <string name="bt_tether_off_brief_text_phone">Del telefonens Internettilkobling med andre enheter ved å bruke Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Del nettbrettets Internettilkobling med andre enheter ved å bruke Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Enheter som kan bruke Internettdeling</string>
+    <string name="bt_tether_server_description_phone">Del telefonens Internettilkobling ved å koble sammen med en annen enhet ved å bruke Bluetooth. Hvis enheten har delt Internettilkoblingen før, kan du dele Internett igjen ved å velge den fra listen over enheter som kan bruke Internettdeling.</string>
+    <string name="bt_tether_server_description_tablet">Del nettbrettets Internettilkobling ved å koble sammen med en annen enhet ved å bruke Bluetooth. Hvis enheten har delt Internettilkoblingen før, kan du dele Internett igjen ved å velge den fra listen over enheter som kan bruke Internettdeling.</string>
     <string name="bluetooth_consent_pairing_msg">Trykk på OK for å koble sammen med %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s ber om tilgang til SIM-kortet ditt. Gir du tilgang til dette, deaktiveres anrops- og meldingsfunksjonene og Mobildata slås av på enheten din. Gi tilgang?
 
@@ -1039,8 +1048,7 @@ Selv om Smart bilde av skjermen er deaktivert, har du tilgang til funksjonene vi
     <string name="active_key_title">Aktiv-tast</string>
     <string name="about_phone">Om telefonen</string>
     <string name="theme_settings">Tema</string>
-    <string name="wifi_calling_title">"Wi-Fi-
-tale"</string>
+    <string name="wifi_calling_title">Wi-Fi-tale</string>
     <string name="tab_category_connections">Tilkoblinger</string>
     <string name="festival_effect_settings_title">Festivaleffekt</string>
     <string name="user_manual">Brukerhåndbok</string>
@@ -2162,7 +2170,7 @@ Enkelte NFC-transaksjoner og mobilbetalingstjenester kan kreve en annen standard
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Tillat datautveksling når enheten berører en annen enhet.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Bruk mobilbetalingstjenester, les og skriv NFC-tagger og utveksle data mellom NFC-aktiverte enheter.</string>
+    <string name="nfc_settings_title">Foreta mobilbetalinger, del data og les eller skriv NFC-tagger.</string>
     <string name="nfc_settings_rw_p2p_summary">Du kan lese og skrive tagger og overføre data mellom enheter.</string>
     <string name="nfcpayment_quick_toggle_title">NFC og betaling</string>
     <string name="nfc_mode_general_title">NFC-modus</string>
@@ -2173,19 +2181,21 @@ Enkelte NFC-transaksjoner og mobilbetalingstjenester kan kreve en annen standard
     <string name="nfc_payment_enable_summary">Velg standard mobilbetalingsløsning.</string>
     <string name="nfc_payment_title">Betaling</string>
     <string name="nfc_others_title">Andre</string>
-    <string name="nfc_other_no_apps">Ingen installerte tjenesteapper</string>
+    <string name="nfc_other_no_apps">Ingen tjenesteapper er installert</string>
     <string name="nfc_payment_open_app">Hvis åpen app støtter Trykk og betal</string>
     <string name="nfc_payment_favor_open_default_unknown">Bruk åpen app</string>
     <string name="nfc_payment_favor_default_default_unknown">Ingen stnd. betalingstjeneste</string>
     <string name="nfc_tts_tab_n_of_n">Fane %1$d av %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Vil du erstatte standard betalingsapp?</string>
+    <string name="nfc_payment_replace">Erstatt</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Foretrukket SIM-kort</string>
     <string name="nfc_please_wait">Vent litt…</string>
     <string name="nfc_payment_no_sim_card">Ingen SIM-kort</string>
-    <string name="nfc_disable_service_title">Endre standard NFC-metode</string>
-    <string name="nfc_disable_service_msg">Hvis du endrer standard NFC-behandlingsmetode, blir enkelte tjenester i ANDRE-fanen aktivert eller deaktivert. For å administrere disse tjenestene går du til NFC og betaling > Trykk og betal > ANDRE og velger deretter hver tjeneste for å aktivere eller deaktivere den.</string>
+    <string name="nfc_disable_service_title">Vil du endre standard NFC-metode?</string>
+    <string name="nfc_disable_service_msg">Hvis du endrer standard NFC-behandlingsmetode, blir enkelte tjenester i ANDRE-fanen slått av eller på. For å administrere disse tjenestene går du til NFC og betaling > Trykk og betal > ANDRE og velger deretter hver tjeneste for å slå den av eller på.</string>
     <string name="nfc_settings_advanced_setting">Standard NFC-metode</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kort</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-kort for sikkert element</string>
@@ -2197,7 +2207,7 @@ Enkelte NFC-transaksjoner og mobilbetalingstjenester kan kreve en annen standard
     <string name="nfc_settings_tag_message">Hvis du bytter til Kortmodus, vil du ikke lenger kunne lese NFC-tagger, skrive data til dem eller utveksle data mellom enheter.</string>
     <string name="nfc_show_alert_dialog_title">Ultra strømsparingsmodus</string>
     <string name="nfc_show_alert_dialog_message">Kan ikke åpne %s.</string>
-    <string name="android_beam_explained">Del filer mellom NFC-aktiverte enheter ved å holde dem i nærheten av hverandre. Deretter kan du dele koblinger til nettsider, kontakter og mer.</string>
+    <string name="android_beam_explained">Du kan dele nettsidekoblinger, kontakter og mer ved å holde telefonen i nærheten av en enhet med NFC.</string>
     <string name="android_beam_explained_1">Før enhetene sammen, bakside mot bakside.</string>
     <string name="android_beam_explained_2">Trykk på skjermen.</string>
     <string name="guide_dialog_attention_title">OBS!</string>
@@ -2206,7 +2216,7 @@ Enkelte NFC-transaksjoner og mobilbetalingstjenester kan kreve en annen standard
     <string name="cannot_use_card_without_NFC">NFC-relaterte funksjoner, som for eksempel enkelte metoder for innholdsdeling og NFC-betaling, vil ikke være tilgjengelig så lenge NFC er slått av.</string>
     <string name="limit_app_contents_transfer">Deling av innhold via NFC vil være begrenset når Android Beam er slått av.</string>
     <string name="nfc_payment_dialog_favor_open">Hvis appen som for øyeblikket er åpen, støtter Trykk og betal, blir den brukt i stedet for %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Hvis appen som for øyeblikket er åpen, støtter Trykk og betal, blir den brukt.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Hvis appen som for øyeblikket er åpen, støtter Trykk og betal, blir den brukt til betaling.</string>
     <string name="folder_sounds">Åpne/lukke mappe-lyder</string>
     <string name="folder_sounds_summary">Spill av lyder når du åpner og lukker mapper.</string>
     <string name="sound_category_calls_title">Innkommende samtaler</string>
@@ -3464,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Motta varsler som viser mengden data som er brukt av apper via Wi-Fi eller mobilnett, når enheten var låst i mer enn %d minutter.</string>
     <string name="data_usage_reminder_description">Følgende apper brukte %s data totalt mens enheten var låst:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nei</string>
     <string name="create">Opprett</string>
@@ -3561,7 +3572,6 @@ Du kan endre dette senere i Bluetooth-innstillinger."</string>
     <string name="phone_info_label">Enhetsinformasjon</string>
     <string name="proxy_settings_label">Proxyinnstillinger</string>
     <string name="cancel">Avbryt</string>
-    <string name="okay">OK</string>
     <string name="save">Lagre</string>
     <string name="done">OK</string>
     <string name="settings_label">Innstillinger</string>
@@ -4815,13 +4825,13 @@ Alle brukere kan godta oppdaterte apptillatelser på vegne av alle andre brukere
     <string name="global_change_warning">Denne innstillingen har innvirkning på alle brukere av enheten.</string>
     <string name="global_locale_change_title">Bytt språk</string>
     <string name="nfc_payment_settings_title">Trykk og betal</string>
-    <string name="nfc_payment_no_apps">Ingen installerte betalingstjenesteapper</string>
+    <string name="nfc_payment_no_apps">Ingen betalingsapper er installert</string>
     <string name="nfc_payment_favor_default">Bruk fortsatt %s</string>
     <string name="nfc_payment_favor_open">Bruk åpen app i stedet for %s</string>
     <string name="nfc_how_it_works_got_it">Skjønte det</string>
-    <string name="nfc_payment_set_default_label">Angi som standard</string>
-    <string name="nfc_payment_set_default">%s blir angitt som standard betalingsmetode for Trykk på og betal-transaksjoner.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s erstatter %2$s som standard betalingsmetode for Trykk på og betal-transaksjoner.</string>
+    <string name="nfc_payment_set_default_label">Vil du angi standard betalingsapp?</string>
+    <string name="nfc_payment_set_default">%s blir angitt som standard betalingsapp for Trykk og betal.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s erstatter %2$s som standard betalingsapp for Trykk og betal.</string>
     <string name="help_label">Hjelp</string>
     <string name="user_restrictions_title">App-/innholdsbegrensninger</string>
     <string name="user_restrictions_controlled_by">Kontrollert via %1$s</string>

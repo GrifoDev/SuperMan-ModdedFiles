@@ -202,7 +202,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b188e
+    const v2, 0x7f0b19a9
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b188f
+    const v2, 0x7f0b19aa
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -226,7 +226,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1890
+    const v2, 0x7f0b19ab
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b083d
+    const v2, 0x7f0b0849
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -282,7 +282,9 @@
 .end method
 
 .method private createPreferenceHierarchy()Landroid/preference/PreferenceScreen;
-    .locals 7
+    .locals 8
+
+    const/4 v7, 0x0
 
     const/4 v4, 0x1
 
@@ -295,7 +297,7 @@
     invoke-virtual {v1}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v2, 0x7f08015c
+    const v2, 0x7f08015d
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->addPreferencesFromResource(I)V
 
@@ -477,11 +479,9 @@
 
     move-result-object v5
 
-    const/4 v6, 0x0
+    aput-object v5, v4, v7
 
-    aput-object v5, v4, v6
-
-    const v5, 0x7f0b1898
+    const v5, 0x7f0b19b3
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -515,6 +515,10 @@
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
 
+    iget-object v2, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mAlarm:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v2, v7}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
     invoke-static {}, Lcom/android/settings/Utils;->isAllNAVendor()Z
 
     move-result v2
@@ -536,7 +540,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mEvents:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b09b6
+    const v3, 0x7f0b09c4
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -549,13 +553,13 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mNoException:Lcom/samsung/android/settings/notification/RadioPreference;
 
-    const v3, 0x7f0b09b9
+    const v3, 0x7f0b09c7
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/notification/RadioPreference;->setSummary(I)V
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mAlarm:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b09ae
+    const v3, 0x7f0b09bc
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -836,7 +840,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/ZenModeDNDPrioritySettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b187f
+    const v1, 0x7f0b199a
 
     const/4 v2, 0x0
 

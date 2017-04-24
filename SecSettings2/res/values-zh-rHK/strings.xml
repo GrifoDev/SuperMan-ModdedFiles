@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">已透過 %1$s 連線</string>
     <string name="available_via_passpoint">可透過 %1$s 連線</string>
     <string name="wifi_connected_no_internet">已連線，沒有互聯網</string>
+    <string name="wifi_internet_may_not_be_available">互聯網可能不可用</string>
     <string name="wifi_reconnecting">在網絡品質提升時連接</string>
     <string name="wifi_connected_checking_quality">正在檢查互聯網連線品質…</string>
     <string name="wifi_sign_in_to_the_network">登入至網絡。</string>
@@ -864,6 +865,14 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="content_description_hand">輕觸並按住螢幕中央的藍色圓圈。</string>
     <string name="nearby_scanning_help_msg_sub">附近裝置掃描使用藍牙低功耗掃描與話筒。即使藍牙已在此裝置上關閉，仍然可以使用藍牙低功耗掃描。</string>
     <string name="sec_bluetooth_no_devices_found">找不到藍牙裝置</string>
+    <string name="bt_tether_title">藍牙網絡共享</string>
+    <string name="bt_tether_settings_on">開啟</string>
+    <string name="bt_tether_settings_off">關閉</string>
+    <string name="bt_tether_off_brief_text_phone">使用藍牙與其他裝置共享手機的互聯網連接。</string>
+    <string name="bt_tether_off_brief_text_tablet">使用藍牙與其他裝置共享平板電腦的互聯網連接。</string>
+    <string name="bt_tether_preference_tethered_device_list">已網絡共享的裝置</string>
+    <string name="bt_tether_server_description_phone">透過使用藍牙與其他裝置配對來共享您手機的互聯網連接。若裝置之前已進行網絡共享，您可透過從已網絡共享的裝置清單中選擇裝置以再次共享其網絡。</string>
+    <string name="bt_tether_server_description_tablet">透過使用藍牙與其他裝置配對來共享您平板電腦的互聯網連接。若裝置之前已進行網絡共享，您可透過從已網絡共享的裝置清單中選擇裝置以再次共享其網絡。</string>
     <string name="bluetooth_consent_pairing_msg">輕觸 [確定] 以與 %s 配對。</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s正在請求權限以存取您 SIM 卡。允許此請求將停用通話與訊息功能並關閉裝置上的流動數據。允許嗎？
 
@@ -1038,7 +1047,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="active_key_title">啟動鍵</string>
     <string name="about_phone">關於手機</string>
     <string name="theme_settings">主題</string>
-    <string name="wifi_calling_title">WI-FI 通話</string>
+    <string name="wifi_calling_title">Wi-Fi 通話</string>
     <string name="tab_category_connections">連接</string>
     <string name="festival_effect_settings_title">節日效果</string>
     <string name="user_manual">用戶手冊</string>
@@ -2160,7 +2169,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">允許裝置在觸碰另一部裝置時交換數據。</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">使用手機付款服務、讀取與寫入 NFC 標籤及在支援 NFC 的裝置之間交換數據。</string>
+    <string name="nfc_settings_title">進行手機付款、共享數據及讀取或寫入 NFC 標籤。</string>
     <string name="nfc_settings_rw_p2p_summary">可讀取並寫入標籤和在裝置間傳輸數據。</string>
     <string name="nfcpayment_quick_toggle_title">NFC 與付款</string>
     <string name="nfc_mode_general_title">NFC 模式</string>
@@ -2171,19 +2180,21 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="nfc_payment_enable_summary">選擇預設流動付款服務。</string>
     <string name="nfc_payment_title">付款</string>
     <string name="nfc_others_title">其他</string>
-    <string name="nfc_other_no_apps">無已安裝的服務應用程式</string>
+    <string name="nfc_other_no_apps">未安裝服務應用程式</string>
     <string name="nfc_payment_open_app">如果開啟應用程式支援輕觸並付款</string>
     <string name="nfc_payment_favor_open_default_unknown">使用開啟的應用程式</string>
     <string name="nfc_payment_favor_default_default_unknown">無預設付款服務</string>
     <string name="nfc_tts_tab_n_of_n">標籤 %2$d 之 %1$d。</string>
+    <string name="nfc_payment_replace_default_label">取代預設付款應用程式嗎？</string>
+    <string name="nfc_payment_replace">取代</string>
     <string name="nfc_payment_services_title">NFC 付款服務</string>
     <string name="nfc_payment_services_fail">設定 %s SIM 卡以用於 NFC 付款服務失敗。請重試。</string>
     <string name="nfc_payment_services_success">已設定 %s SIM 卡用於 NFC 付款服務。</string>
     <string name="nfc_preferred_general_title">偏好 SIM 卡</string>
     <string name="nfc_please_wait">請稍候…</string>
     <string name="nfc_payment_no_sim_card">無 SIM 卡</string>
-    <string name="nfc_disable_service_title">變更預設 NFC 方式</string>
-    <string name="nfc_disable_service_msg">如果您變更預設 NFC 處理方式，[其他] 標籤中的部分服務將被停用或啟用。若要管理這些服務，請前往 [NFC 與付款] > [輕觸並付款] > [其他]，然後選擇要啟用或停用的服務。</string>
+    <string name="nfc_disable_service_title">變更預設 NFC 方式嗎？</string>
+    <string name="nfc_disable_service_msg">若您變更預設 NFC 處理方式，[其他] 標籤中的部分服務將被開啟或關閉。若要管理這些服務，請前往 [NFC 與付款] > [輕觸並付款] > [其他]，然後選擇要開啟或關閉的每個服務。</string>
     <string name="nfc_settings_advanced_setting">預設 NFC 方式</string>
     <string name="nfc_settings_advanced_uicc">SE SIM 卡</string>
     <string name="nfc_settings_advanced_uicc_TTS">安全元件 SIM 卡</string>
@@ -2195,7 +2206,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="nfc_settings_tag_message">若切換至卡片模式，您將無法再讀取 NFC 標籤、寫入數據或在裝置之間交換數據。</string>
     <string name="nfc_show_alert_dialog_title">超級省電模式</string>
     <string name="nfc_show_alert_dialog_message">無法開啟%s。</string>
-    <string name="android_beam_explained">透過將裝置緊靠在一起，在具備 NFC 功能的裝置之間共享檔案，您可以共享網頁連結、聯絡人等。</string>
+    <string name="android_beam_explained">您可透過將您的手機與支援 NFC 的裝置靠近來共享網頁連結、聯絡人及其他內容。</string>
     <string name="android_beam_explained_1">將裝置背對背靠在一起。</string>
     <string name="android_beam_explained_2">輕觸您的螢幕。</string>
     <string name="guide_dialog_attention_title">注意</string>
@@ -2204,7 +2215,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="cannot_use_card_without_NFC">NFC 關閉時將無法使用 NFC 相關功能，例如部分共享內容與 NFC 付款的方式。</string>
     <string name="limit_app_contents_transfer">當 Android Beam 關閉時透過 NFC 共享的內容將受限制。</string>
     <string name="nfc_payment_dialog_favor_open">如果目前開啟的應用程式支援輕觸並付款，則使用此應用程式以取代 %s。</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">如果目前開啟的應用程式支援輕觸並付款，則將使用此應用程式。</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">如果目前開啟的應用程式支援輕觸並付款，其將被用於付款。</string>
     <string name="folder_sounds">翻蓋打開/關閉音效</string>
     <string name="folder_sounds_summary">打開與關閉翻蓋時播放音效</string>
     <string name="sound_category_calls_title">來電</string>
@@ -3461,6 +3472,7 @@ Wi-Fi 現已開啟。"</string>
     <string name="data_usage_reminder_item_summary">如果裝置鎖定時間超過 %d 分鐘，解鎖後將會收到關於應用程式在熒幕鎖定期間使用 Wi-Fi 或流動網絡數據用量的通知。</string>
     <string name="data_usage_reminder_description">裝置已鎖定時，以下應用程式總共已使用 %s 的數據：</string>
     <string name="google_settings_popup_msg">僅有限數量的 Google 設定可用。部分操作可能無法使用。</string>
+    <string name="okay">確定</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="create">建立</string>
@@ -3558,7 +3570,6 @@ Wi-Fi 現已開啟。"</string>
     <string name="phone_info_label">裝置資訊</string>
     <string name="proxy_settings_label">代理伺服器設定</string>
     <string name="cancel">取消</string>
-    <string name="okay">確定</string>
     <string name="save">儲存</string>
     <string name="done">完成</string>
     <string name="settings_label">設定</string>
@@ -4810,13 +4821,13 @@ Wi-Fi 現已開啟。"</string>
     <string name="global_change_warning">此設定將影響所有此裝置上的用戶。</string>
     <string name="global_locale_change_title">更改語言</string>
     <string name="nfc_payment_settings_title">輕觸並付款</string>
-    <string name="nfc_payment_no_apps">無已安裝的付款服務應用程式</string>
+    <string name="nfc_payment_no_apps">未安裝付款應用程式</string>
     <string name="nfc_payment_favor_default">仍然使用%s</string>
     <string name="nfc_payment_favor_open">使用開啟的應用程式而非%s</string>
     <string name="nfc_how_it_works_got_it">瞭解了</string>
-    <string name="nfc_payment_set_default_label">設定為預設</string>
-    <string name="nfc_payment_set_default">%s將設定為輕觸並付款交易的預設付款方式。</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s 將取代 %2$s 作為輕觸並付款交易的預設付款方式。</string>
+    <string name="nfc_payment_set_default_label">設定預設付款應用程式嗎？</string>
+    <string name="nfc_payment_set_default">%s 將被設定為用於輕觸並付款的預設付款應用程式。</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s 將取代 %2$s 作為輕觸並付款的預設付款應用程式。</string>
     <string name="help_label">說明</string>
     <string name="user_restrictions_title">應用程式/內容限制</string>
     <string name="user_restrictions_controlled_by">透過 %1$s 控制</string>
@@ -5122,7 +5133,7 @@ Wi-Fi 現已開啟。"</string>
     <string name="location_off_summary">已停用</string>
     <string name="backup_disabled">已停用自動備份</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">無法執行操作</string>
+    <string name="disabled_by_policy_title">無法執行動作</string>
     <string name="default_admin_support_msg">您沒有執行此操作的權限。請聯絡您組織的 IT 管理員以取得更多資訊。</string>
     <string name="admin_support_more_info">更多詳情</string>
     <string name="admin_profile_owner_message">管理員可以監控與管理與您的工作設定檔相關的應用程式與數據，包括設定、權限、企業存取、網絡活動與裝置的位置資訊。</string>

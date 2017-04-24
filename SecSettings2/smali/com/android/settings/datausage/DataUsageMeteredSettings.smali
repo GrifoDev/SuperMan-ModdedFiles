@@ -262,7 +262,7 @@
 
     invoke-virtual {v1}, Lcom/android/settingslib/NetworkPolicyEditor;->read()V
 
-    const v1, 0x7f08004d
+    const v1, 0x7f08004e
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/DataUsageMeteredSettings;->addPreferencesFromResource(I)V
 

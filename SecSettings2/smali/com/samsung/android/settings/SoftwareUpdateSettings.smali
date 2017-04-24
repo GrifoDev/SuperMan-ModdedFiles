@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/SoftwareUpdateSettings;->mSoftwareUpdatePref:Landroid/preference/Preference;
 
-    const v1, 0x7f040204
+    const v1, 0x7f040205
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -245,53 +245,41 @@
 .end method
 
 .method private applySoftwareUpdatePolicy()V
-    .locals 13
+    .locals 12
 
-    const/4 v12, 0x1
+    const/4 v11, 0x1
 
-    const/4 v11, 0x0
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    new-array v6, v12, [Ljava/lang/String;
+    new-array v5, v11, [Ljava/lang/String;
 
-    const-string/jumbo v8, "false"
+    const-string/jumbo v7, "false"
 
-    aput-object v8, v6, v7
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "content://com.sec.knox.provider/RestrictionPolicy3"
-
-    const-string/jumbo v10, "isOTAUpgradeAllowed"
-
-    invoke-static {v8, v9, v10, v11}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
-
-    move-result v4
+    aput-object v7, v5, v6
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string/jumbo v9, "content://com.sec.knox.provider/RestrictionPolicy2"
+    const-string/jumbo v8, "content://com.sec.knox.provider/RestrictionPolicy3"
 
-    const-string/jumbo v10, "isFirmwareRecoveryAllowed"
+    const-string/jumbo v9, "isOTAUpgradeAllowed"
 
-    invoke-static {v8, v9, v10, v6}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-static {v7, v8, v9, v10}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v3
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->getActivity()Landroid/app/Activity;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string/jumbo v9, "content://com.sec.knox.provider/RestrictionPolicy2"
+    const-string/jumbo v8, "content://com.sec.knox.provider/RestrictionPolicy2"
 
-    const-string/jumbo v10, "isFirmwareAutoUpdateAllowed"
+    const-string/jumbo v9, "isFirmwareAutoUpdateAllowed"
 
-    invoke-static {v8, v9, v10, v6}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-static {v7, v8, v9, v5}, Lcom/android/settings/Utils;->getEnterprisePolicyEnabled(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v2
 
@@ -299,71 +287,68 @@
 
     const/4 v0, 0x1
 
-    if-eqz v4, :cond_0
+    if-nez v3, :cond_0
 
-    if-nez v3, :cond_1
+    const-string/jumbo v7, "SoftwareUpdateSettings"
 
-    :cond_0
-    const-string/jumbo v8, "SoftwareUpdateSettings"
+    const-string/jumbo v8, "FOTA is disabled by policy"
 
-    const-string/jumbo v9, "FOTA is disabled by policy"
-
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v1, 0x0
 
-    :cond_1
-    if-ne v2, v12, :cond_2
+    :cond_0
+    if-ne v2, v11, :cond_1
 
-    const-string/jumbo v8, "SoftwareUpdateSettings"
+    const-string/jumbo v7, "SoftwareUpdateSettings"
 
-    const-string/jumbo v9, "FOTA AutoUpdate is fixed by policy"
+    const-string/jumbo v8, "FOTA AutoUpdate is fixed by policy"
 
-    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
-    :cond_2
-    const-string/jumbo v8, "update"
-
-    invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_3
-
-    invoke-virtual {v5, v1}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    :cond_3
-    const-string/jumbo v8, "wifi_only"
-
-    invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_4
-
-    if-eqz v1, :cond_6
-
-    :goto_0
-    invoke-virtual {v5, v0}, Landroid/preference/Preference;->setEnabled(Z)V
-
-    :cond_4
-    const-string/jumbo v7, "scheduled_update"
+    :cond_1
+    const-string/jumbo v7, "update"
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v4
 
-    if-eqz v5, :cond_5
+    if-eqz v4, :cond_2
 
-    invoke-virtual {v5, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual {v4, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
-    :cond_5
+    :cond_2
+    const-string/jumbo v7, "wifi_only"
+
+    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_3
+
+    if-eqz v1, :cond_5
+
+    :goto_0
+    invoke-virtual {v4, v0}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_3
+    const-string/jumbo v6, "scheduled_update"
+
+    invoke-virtual {p0, v6}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {v4, v1}, Landroid/preference/Preference;->setEnabled(Z)V
+
+    :cond_4
     return-void
 
-    :cond_6
-    move v0, v7
+    :cond_5
+    move v0, v6
 
     goto :goto_0
 .end method
@@ -422,7 +407,7 @@
     invoke-virtual {v4}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v5, 0x7f08011e
+    const v5, 0x7f08011f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->addPreferencesFromResource(I)V
 
@@ -537,7 +522,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1252
+    const v11, 0x7f0b136d
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1269,7 +1254,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04bf
+    const v10, 0x7f0b04ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
     :try_end_0
@@ -1370,7 +1355,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04be
+    const v10, 0x7f0b04c9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1389,7 +1374,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b04c1
+    const v12, 0x7f0b04cc
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1442,7 +1427,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04bf
+    const v10, 0x7f0b04ca
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1455,7 +1440,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04be
+    const v10, 0x7f0b04c9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1498,7 +1483,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b04c0
+    const v10, 0x7f0b04cb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1736,7 +1721,7 @@
 
     const/4 v4, 0x1
 
-    const v5, 0x7f0b0425
+    const v5, 0x7f0b0430
 
     invoke-interface {p1, v2, v3, v4, v5}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

@@ -936,7 +936,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f08011f
+    const v2, 0x7f080120
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/notification/SoundEffectSettings;->addPreferencesFromResource(I)V
 

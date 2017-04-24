@@ -250,7 +250,7 @@
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->mAddVirtualKeyboardScreen:Landroid/preference/Preference;
 
-    const v5, 0x7f0402ef
+    const v5, 0x7f0402f0
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -290,13 +290,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -386,7 +386,7 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    const v1, 0x7f08013a
+    const v1, 0x7f08013b
 
     invoke-virtual {p0, v1}, Lcom/android/settings/inputmethod/VirtualKeyboardFragment;->addPreferencesFromResource(I)V
 

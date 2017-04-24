@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/NotificationApps$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b19a6
+    const v2, 0x7f0b1ac1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f130021
+    const v3, 0x7f130022
 
     invoke-virtual {v1, v3, p1, v2}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 

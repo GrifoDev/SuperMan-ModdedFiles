@@ -645,7 +645,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f040352
+    const v8, 0x7f040353
 
     invoke-virtual {v7, v8, p1, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -867,7 +867,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0158
+    const v8, 0x7f0b0159
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -953,7 +953,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0155
+    const v8, 0x7f0b0156
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1102,7 +1102,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04036a
+    const v3, 0x7f04036b
 
     invoke-direct {v0, v1, v3, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
@@ -1459,7 +1459,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040352
+    const v9, 0x7f040353
 
     const/4 v10, 0x0
 
@@ -1608,7 +1608,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040344
+    const v3, 0x7f040345
 
     invoke-virtual {v2, v3, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1646,7 +1646,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040345
+    const v3, 0x7f040346
 
     invoke-virtual {v2, v3, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3550,7 +3550,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b114d
+    const v11, 0x7f0b1268
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3581,7 +3581,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b114c
+    const v11, 0x7f0b1267
 
     invoke-virtual {p0, v4, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3627,7 +3627,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1151
+    const v11, 0x7f0b126c
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3641,7 +3641,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b1153
+    const v11, 0x7f0b126e
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3661,7 +3661,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1152
+    const v11, 0x7f0b126d
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3744,7 +3744,7 @@
     :cond_7
     if-eqz v7, :cond_1
 
-    const v10, 0x7f0b114d
+    const v10, 0x7f0b1268
 
     invoke-virtual {p0, v3, v10, v7}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3779,7 +3779,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1151
+    const v11, 0x7f0b126c
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3802,7 +3802,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c17
+    const v11, 0x7f0b0c25
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3817,7 +3817,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1192
+    const v11, 0x7f0b12ad
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3832,7 +3832,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1190
+    const v11, 0x7f0b12ab
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3847,7 +3847,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1191
+    const v11, 0x7f0b12ac
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3870,21 +3870,21 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c18
+    const v11, 0x7f0b0c26
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
     goto/16 :goto_2
 
     :cond_e
-    const v10, 0x7f0b0c46
+    const v10, 0x7f0b0c54
 
     invoke-virtual {p0, v3, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addGatewayRow(Landroid/view/ViewGroup;I)V
 
     goto/16 :goto_3
 
     :cond_f
-    const v10, 0x7f0b0c46
+    const v10, 0x7f0b0c54
 
     invoke-direct {p0, v4, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addCaptivePortalRow(Landroid/view/ViewGroup;I)V
 
@@ -3932,7 +3932,7 @@
 
     aput-object v1, v3, v5
 
-    const v4, 0x7f0b0c15
+    const v4, 0x7f0b0c23
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4159,7 +4159,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b0cb3
+    const v1, 0x7f0b0cc1
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -4233,7 +4233,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b15f3
+    const v2, 0x7f0b170e
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4264,7 +4264,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b1162
+    const v1, 0x7f0b127d
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -4361,7 +4361,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mSsidView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b114b
+    const v1, 0x7f0b1266
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -5685,7 +5685,7 @@
 
     if-eqz v11, :cond_1
 
-    const v11, 0x7f0b118c    # 1.848538E38f
+    const v11, 0x7f0b12a7
 
     return v11
 
@@ -5696,7 +5696,7 @@
 
     if-nez v7, :cond_2
 
-    const v11, 0x7f0b118c    # 1.848538E38f
+    const v11, 0x7f0b12a7
 
     return v11
 
@@ -5745,7 +5745,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0158
+    const v13, 0x7f0b0159
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5766,19 +5766,19 @@
     if-le v10, v11, :cond_7
 
     :cond_5
-    const v11, 0x7f0b118f
+    const v11, 0x7f0b12aa
 
     return v11
 
     :catch_0
     move-exception v3
 
-    const v11, 0x7f0b118c    # 1.848538E38f
+    const v11, 0x7f0b12a7
 
     return v11
 
     :cond_6
-    const v11, 0x7f0b118f
+    const v11, 0x7f0b12aa
 
     return v11
 
@@ -5807,14 +5807,14 @@
 
     if-eqz v11, :cond_8
 
-    const v11, 0x7f0b118d
+    const v11, 0x7f0b12a8
 
     return v11
 
     :catch_1
     move-exception v4
 
-    const v11, 0x7f0b118f
+    const v11, 0x7f0b12aa
 
     return v11
 
@@ -5862,14 +5862,14 @@
 
     if-eqz v11, :cond_9
 
-    const v11, 0x7f0b118e
+    const v11, 0x7f0b12a9
 
     return v11
 
     :catch_2
     move-exception v3
 
-    const v11, 0x7f0b118d
+    const v11, 0x7f0b12a8
 
     return v11
 
@@ -5919,7 +5919,7 @@
     :catch_3
     move-exception v3
 
-    const v11, 0x7f0b118e
+    const v11, 0x7f0b12a9
 
     return v11
 
@@ -5937,7 +5937,7 @@
     :catch_4
     move-exception v3
 
-    const v11, 0x7f0b118e
+    const v11, 0x7f0b12a9
 
     return v11
 .end method

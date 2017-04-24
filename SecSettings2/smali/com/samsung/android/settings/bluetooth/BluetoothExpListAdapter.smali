@@ -428,7 +428,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f01dd
+    const v9, 0x7f0f01de
 
     invoke-virtual {v7, v8, v9}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -569,7 +569,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0f01de
+    const v9, 0x7f0f01df
 
     invoke-virtual {v7, v8, v9}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -1028,13 +1028,13 @@
 
     iget-object v14, v5, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->title:Landroid/widget/TextView;
 
-    const v15, 0x7f0f01d7
+    const v15, 0x7f0f01d8
 
     invoke-virtual {v14, v15}, Landroid/widget/TextView;->setTextAppearance(I)V
 
     iget-object v14, v5, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter$ViewHolder;->summary:Landroid/widget/TextView;
 
-    const v15, 0x7f0f01d8
+    const v15, 0x7f0f01d9
 
     invoke-virtual {v14, v15}, Landroid/widget/TextView;->setTextAppearance(I)V
 
@@ -1312,7 +1312,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10d2
+    const v2, 0x7f0b11ed
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1351,7 +1351,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/bluetooth/BluetoothExpListAdapter;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b10d1    # 1.8485E38f
+    const v2, 0x7f0b11ec
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

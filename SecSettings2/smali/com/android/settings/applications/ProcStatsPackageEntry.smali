@@ -202,7 +202,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b191e
+    const v1, 0x7f0b1a39
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b191f
+    const v1, 0x7f0b1a3a
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -250,7 +250,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b1920
+    const v1, 0x7f0b1a3b
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 
     iput-object v1, p0, Lcom/android/settings/applications/ProcStatsPackageEntry;->mUiTargetApp:Landroid/content/pm/ApplicationInfo;
 
-    const v1, 0x7f0b159f
+    const v1, 0x7f0b16ba
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

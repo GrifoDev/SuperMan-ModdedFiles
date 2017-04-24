@@ -332,11 +332,11 @@
 
     iput v0, p0, Lcom/android/settings/datausage/AppDataUsage;->RESTRICTION_DURING_ROAMING:I
 
-    const v0, 0x7f0b0497
+    const v0, 0x7f0b04a2
 
-    const v1, 0x7f0b0498
+    const v1, 0x7f0b04a3
 
-    const v2, 0x7f0b0499
+    const v2, 0x7f0b04a4
 
     filled-new-array {v0, v1, v2}, [I
 
@@ -1924,7 +1924,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0497
+    const v24, 0x7f0b04a2
 
     move-object/from16 v0, p0
 
@@ -1938,7 +1938,7 @@
 
     aput-object v24, v23, v25
 
-    const v24, 0x7f0b0498
+    const v24, 0x7f0b04a3
 
     move-object/from16 v0, p0
 
@@ -1952,7 +1952,7 @@
 
     aput-object v24, v23, v25
 
-    const v24, 0x7f0b0499
+    const v24, 0x7f0b04a4
 
     move-object/from16 v0, p0
 
@@ -2322,7 +2322,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0073
+    const v23, 0x7f0b0074
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2403,7 +2403,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0078
+    const v23, 0x7f0b0079
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2442,7 +2442,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b016b
+    const v23, 0x7f0b016c
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

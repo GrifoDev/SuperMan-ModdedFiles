@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s ਰਾਹੀਂ ਕਨੈਕਟ ਕੀਤਾ</string>
     <string name="available_via_passpoint">%1$s ਰਾਹੀਂ ਉਪਲਬਧ</string>
     <string name="wifi_connected_no_internet">ਕਨੈਕਟ ਕੀਤਾ, ਕੋਈ ਇੰਟਰਨੈਟ ਨਹੀਂ</string>
+    <string name="wifi_internet_may_not_be_available">ਹੋ ਸਕਦਾ ਹੈ ਇੰਟਰਨੈੱਟ ਉਪਲਬਧ ਨਾ ਹੋਵੇ</string>
     <string name="wifi_reconnecting">ਨੈੱਟਵਰਕ ਦੀ ਗੁਣਵੱਤਾ ਵਿੱਚ ਸੁਧਾਰ ਹੋਣ ਤੇ ਕਨੈਕਟ ਕਰਨ ਲਈ ਤਿਆਰ ਹੈ</string>
     <string name="wifi_connected_checking_quality">ਤੁਹਾਡੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਦੀ ਗੁਣਵੱਤਾ ਦੀ ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ…</string>
     <string name="wifi_sign_in_to_the_network">ਨੈੱਟਵਰਕ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ।</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d ਸੰਬੰਧਿਤ ਆਈਟਮਸ</string>
     <string name="no_results_found">ਕੋਈ ਪਰਿਣਾਮ ਨਹੀਂ ਮਿਲਿਆ</string>
     <string name="menu_edit">ਸੰਪਾਦਿਤ ਕਰੋ</string>
-    <string name="reset">ਰੀਸੈੱਟ</string>
+    <string name="reset">ਰੀਸੈੱਟ ਕਰੋ</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">ਤੁਹਾਡੇ ਦੁਆਰਾ ਕਿਸੇ ਐਪ ਦਾ ਉਪਯੋਗ ਕਰਨ ਤੇ Voice Assistant ਨੂੰ ਜਾਣਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">ਇਸ ਟੈਕਸਟ ਅਤੇ ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਾਂ ਸਥਿਤ ਬਟਨਾਂ ਦੇ ਉੱਪਰ ਖੇਤਰ ਵਿੱਚ ਦਿਸ਼ਾਵਾਂ ਡ੍ਰਾਅ ਕਰੋ।</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">ਪੁਸ਼ਟੀ ਕਰੋ ਬਟਨ ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਾਂ ਸੱਜੇ ਕੋਨੇ ਤੇ ਸਥਿਤ ਹੈ।</string>
@@ -820,7 +821,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="default_app_selection">ਡਿਫਾੱਲਟ ਐਪ ਚੋਣ</string>
     <string name="default_app_selection_auto_set">ਡਿਫਾੱਲਟ ਐਪਸ ਸਵੈਚਲਿਤ ਸੈੱਟ ਕਰੋ</string>
     <string name="default_app_selection_ask">ਡਿਫਾੱਲਟ ਐਪਸ ਸੈੱਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੁੱਛੋ</string>
-    <string name="launch_application_settings">ਡਿਫਾੱਲਟ ਅਨੁਪ੍ਰਯੋਗ</string>
+    <string name="launch_application_settings">ਡਿਫਾੱਲਟ ਐਪਸ</string>
     <string name="launch_application_settings_summary">ਨਿਸ਼ਚਿਤ ਕਾਰਜਾਂ ਲਈ ਐਪਸ ਨਿਰਧਾਰਿਤ ਕਰੋ।</string>
     <string name="home_settings_header">ਹੋਮ ਬਦਲੋ</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="content_description_hand">ਸਕ੍ਰੀਨ ਦੇ ਮੱਧ ਵਿੱਚ ਨੀਲੇ ਚੱਕਰ ਨੂੰ ਟੈਪ ਕਰਕੇ ਰੱਖੋ।</string>
     <string name="nearby_scanning_help_msg_sub">ਨੇੜਲਾ ਡਿਵਾਈਸ ਸਕੈਨਿੰਗ ਬਲੂਟੁੱਥ ਘੱਟ ਊਰਜਾ ਸਕੈਨਿੰਗ ਅਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ। ਬਲੂਟੁੱਥ ਘੱਟ ਊਰਜਾ ਸਕੈਨਿੰਗ ਦੀ ਵਰਤੋਂ ਉਦੋਂ ਵੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ ਜਦੋਂ ਇਸ ਡਿਵਾਈਸ ਤੇ ਬਲੂਟੁੱਥ ਬੰਦ ਹੁੰਦਾ ਹੈ।</string>
     <string name="sec_bluetooth_no_devices_found">ਕੋਈ ਬਲੂਟੁੱਥ ਡਿਵਾਈਸਿਸ ਨਹੀਂ ਮਿਲੇ</string>
+    <string name="bt_tether_title">ਬਲੂਟੁੱਥ ਟੈਥਰਿੰਗ</string>
+    <string name="bt_tether_settings_on">ਚਾਲੂ</string>
+    <string name="bt_tether_settings_off">ਬੰਦ</string>
+    <string name="bt_tether_off_brief_text_phone">ਬਲੂਟੁੱਥ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨੂੰ ਹੋਰ ਡਿਵਾਈਸਿਸ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
+    <string name="bt_tether_off_brief_text_tablet">ਬਲੂਟੁੱਥ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੇ ਟੈਬਲੇਟ ਦੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨੂੰ ਹੋਰ ਡਿਵਾਈਸਿਸ ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
+    <string name="bt_tether_preference_tethered_device_list">ਟੈਥਰ ਕੀਤੇ ਡਿਵਾਈਸਿਸ</string>
+    <string name="bt_tether_server_description_phone">ਬਲੂਟੁੱਥ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕਿਸੇ ਹੋਰ ਡਿਵਾਈਸ ਨਾਲ ਜੋੜਾ ਬਣਾ ਕੇ ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨੂੰ ਸਾਂਝਾ ਕਰੋ। ਜੇਕਰ ਡਿਵਾਈਸ ਨੂੰ ਪਹਿਲਾਂ ਕਦੇ ਟੈਥਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਉਸ ਨੂੰ ਟੈਥਰ ਕੀਤੇ ਡਿਵਾਈਸਿਸ ਦੀ ਸੂਚੀ ਵਿੱਚੋਂ ਚੁਣ ਕੇ ਉਸ ਨੂੰ ਦੁਬਾਰਾ ਟੈਥਰ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="bt_tether_server_description_tablet">ਬਲੂਟੁੱਥ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕਿਸੇ ਹੋਰ ਡਿਵਾਈਸ ਨਾਲ ਜੋੜਾ ਬਣਾ ਕੇ ਆਪਣੇ ਟੈਬਲੇਟ ਦੇ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨੂੰ ਸਾਂਝਾ ਕਰੋ। ਜੇਕਰ ਡਿਵਾਈਸ ਨੂੰ ਪਹਿਲਾਂ ਕਦੇ ਟੈਥਰ ਕੀਤਾ ਗਿਆ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਉਸ ਨੂੰ ਟੈਥਰ ਕੀਤੇ ਡਿਵਾਈਸਿਸ ਦੀ ਸੂਚੀ ਵਿੱਚੋਂ ਚੁਣ ਕੇ ਉਸ ਨੂੰ ਦੁਬਾਰਾ ਟੈਥਰ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="bluetooth_consent_pairing_msg">%s ਨਾਲ ਜੋੜਾ ਬਣਾਉਣ ਲਈ “ਓਕੇ” ਟੈਪ ਕਰੋ।</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s ਤੁਹਾਡੇ SIM ਕਾਰਡ ਨੂੰ ਐਕਸੈੱਸ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਲੈਣ ਲਈ ਬੇਨਤੀ ਕਰ ਰਿਹਾ ਹੈ। ਇਸ ਬੇਨਤੀ ਨੂੰ ਇਜਾਜ਼ਤ ਦੇਣ ਨਾਲ ਕਾੱਲਿੰਗ ਅਤੇ ਸੰਦੇਸ਼ ਭੇਜਣ ਦੇ ਕਾਰਜ ਅਸਮਰੱਥ ਹੋ ਜਾਣਗੇ, ਅਤੇ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਤੇ ਮੋਬਾਈਲ ਡੈਟਾ ਬੰਦ ਹੋ ਜਾਵੇਗਾ। ਇਜਾਜ਼ਤ ਦੇਣੀ ਹੈ?
 
@@ -973,7 +982,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="downloadable_dialog_popup_text_wifi">ਹੋਰ ਮਦਦ ਸਮੱਗਰੀ ਡਾਉਨਲੋਡ ਕੀਤੀ ਜਾਣੀ ਚਾਹੀਦੀ ਹੈ। ਡਿਵਾਈਸ ਨੂੰ ਕਿਸੇ Wi-Fi ਨੈੱਟਵਰਕ ਦੇ ਨਾਲ ਕਨੈਕਟ ਕੀਤਾ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਤੁਹਾਨੂੰ ਡਾਉਨਲੋਡ ਸਕ੍ਰੀਨ ਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ।</string>
     <string name="back_button_label">ਵਾਪਸ ਜਾਉ</string>
     <string name="next_button_label">ਅੱਗੇ</string>
-    <string name="category_applications">ਅਨੁਪ੍ਰਯੋਗ</string>
+    <string name="category_applications">ਐਪਸ</string>
     <string name="data_connection_title">ਖਰਚਿਆਂ ਦੀ ਸੂਚਨਾ</string>
     <string name="data_connection_message">ਮੋਬਾਈਲ ਨੈੱਟਵਰਕਸ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਨਾਲ ਅਤਿਰਿਕਤ ਖਰਚੇ ਲੱਗ ਸਕਦੇ ਹਨ।</string>
     <string name="none_package">ਕਿਸੇ ਪ੍ਰਤਿਬੰਧਿਤ ਪ੍ਰੋਫਾਈਲ ਦਾ ਉਪਯੋਗ ਕਰਦੇ ਹੋਏ ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">ਜਦੋਂ ਡਿਵਾਈਸ ਕਿਸੇ ਹੋਰ ਡਿਵਾਈਸ ਨੂੰ ਟੱਚ ਕਰਦਾ ਹੈ ਤਾਂ ਡੈਟਾ ਵਟਾਂਦਰਾ ਦੀ ਆਗਿਆ ਦਿਉ।</string>
     <string name="android_beam_settings_title">ਐਂਡ੍ਰੋਇਡ ਬੀਮ</string>
-    <string name="nfc_settings_title">ਮੋਬਾਈਲ ਭੁਗਤਾਨ ਸੇਵਾਵਾਂ, NFC ਟੈਗਸ ਪੜ੍ਹੋ ਅਤੇ ਲਿਖੋ, ਅਤੇ NFC-ਸਮਰੱਥ ਡਿਵਾਈਸਿਸ ਵਿਚਕਾਰ ਡੈਟਾ ਵਟਾਂਦਰਾ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
+    <string name="nfc_settings_title">ਮੋਬਾਈਲ ਭੁਗਤਾਨ ਕਰੋ, ਡੈਟਾ ਸਾਂਝਾ ਕਰੋ, ਅਤੇ NFC ਟੈਗਸ ਨੂੰ ਪੜ੍ਹੋ ਜਾਂ ਲਿਖੋ।</string>
     <string name="nfc_settings_rw_p2p_summary">ਤੁਸੀਂ ਟੈਗਸ ਨੂੰ ਪੜ੍ਹ ਅਤੇ ਲਿਖ ਸਕਦੇ ਹੋ ਅਤੇ ਡਿਵਾਈਸਿਸ ਦੇ ਵਿਚਕਾਰ ਡੈਟਾ ਟ੍ਰਾਂਸਫਰ ਕਰ ਸਕਦੇ ਹੋ।</string>
     <string name="nfcpayment_quick_toggle_title">NFC ਅਤੇ ਭੁਗਤਾਨ</string>
     <string name="nfc_mode_general_title">NFC ਮੋਡ</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">ਆਪਣੀ ਡਿਫਾੱਲਟ ਮੋਬਾਈਲ ਭੁਗਤਾਨ ਸੇਵਾ ਚੁਣੋ।</string>
     <string name="nfc_payment_title">ਭੁਗਤਾਨ</string>
     <string name="nfc_others_title">ਹੋਰ</string>
-    <string name="nfc_other_no_apps">ਕੋਈ ਸਥਾਪਿਤ ਕੀਤੇ ਸੇਵਾ ਐਪਸ ਨਹੀਂ ਹਨ</string>
+    <string name="nfc_other_no_apps">ਕੋਈ ਵੀ ਸੇਵਾ ਐਪਸ ਸਥਾਪਿਤ ਨਹੀਂ ਹਨ</string>
     <string name="nfc_payment_open_app">ਜੇਕਰ ਖੁੱਲ੍ਹੀ ਐਪ ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ</string>
     <string name="nfc_payment_favor_open_default_unknown">ਐਪ ਖੋਲ੍ਹੋ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="nfc_payment_favor_default_default_unknown">ਕੋਈ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਸੇਵਾ ਨਹੀਂ</string>
     <string name="nfc_tts_tab_n_of_n">%2$d ਦਾ %1$d ਟੈਬ</string>
+    <string name="nfc_payment_replace_default_label">ਕੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਐਪ ਨੂੰ ਬਦਲਣਾ ਹੈ?</string>
+    <string name="nfc_payment_replace">ਬਦਲੋ</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">ਤਰਜੀਹੀ SIM ਕਾਰਡ</string>
     <string name="nfc_please_wait">ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ…</string>
     <string name="nfc_payment_no_sim_card">ਕੋਈ ਵੀ SIM ਕਾਰਡ ਨਹੀਂ</string>
-    <string name="nfc_disable_service_title">ਡਿਫਾੱਲਟ NFC ਵਿਧੀ ਬਦਲੋ</string>
-    <string name="nfc_disable_service_msg">ਜੇਕਰ ਤੁਸੀਂ ਡਿਫਾੱਲਟ NFC ਪ੍ਰਕਿਰਿਆ ਵਿਧੀ ਨੂੰ ਬਦਲਦੇ ਹੋ, ਤਾਂ ਹੋਰ ਟੈਬ ਦੀਆਂ ਕੁਝ ਸੇਵਾਵਾਂ ਅਸਮਰੱਥ ਜਾਂ ਸਮਰੱਥ ਹੋ ਜਾਣਗੀਆਂ। ਇਨ੍ਹਾਂ ਸੇਵਾਵਾਂ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਲਈ , NFC ਅਤੇ ਭੁਗਤਾਨ > ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ > ਹੋਰ ਤੇ ਜਾਉ, ਫਿਰ ਹਰ ਸੇਵਾ ਨੂੰ ਸਮਰੱਥ ਜਾਂ ਅਸਮਰੱਥ ਕਰਨ ਲਈ ਸੇਵਾ ਨੂੰ ਚੁਣੋ।</string>
+    <string name="nfc_disable_service_title">ਕੀ ਡਿਫਾੱਲਟ NFC ਵਿਧੀ ਨੂੰ ਬਦਲਣਾ ਹੈ?</string>
+    <string name="nfc_disable_service_msg">ਜੇਕਰ ਤੁਸੀਂ ਡਿਫਾੱਲਟ NFC ਪ੍ਰਕਿਰਿਆ ਵਿਧੀ ਨੂੰ ਬਦਲਦੇ ਹੋ, ਤਾਂ ਹੋਰ ਟੈਬ ਵਿੱਚ ਮੌਜੂਦ ਕੁਝ ਸੇਵਾਵਾਂ ਚਾਲੂ ਜਾਂ ਬੰਦ ਹੋ ਜਾਣਗੀਆਂ। ਇਨ੍ਹਾਂ ਸੇਵਾਵਾਂ ਨਾਲ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਲਈ, NFC ਅਤੇ ਭੁਗਤਾਨ > ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ > ਹੋਰ ਤੇ ਜਾਉ, ਫਿਰ ਹਰ ਸੇਵਾ ਨੂੰ ਚਾਲੂ ਜਾਂ ਬੰਦ ਕਰਨ ਲਈ ਉਸ ਨੂੰ ਚੁਣੋ।</string>
     <string name="nfc_settings_advanced_setting">ਡਿਫਾੱਲਟ NFC ਵਿਧੀ</string>
     <string name="nfc_settings_advanced_uicc">SE SIM ਕਾਰਡ</string>
     <string name="nfc_settings_advanced_uicc_TTS">ਸਿਕਿਊਰ ਐਲੀਮੈਂਟ SIM ਕਾਰਡ</string>
@@ -2196,8 +2207,8 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">ਜੇਕਰ ਤੁਸੀਂ ਕਾਰਡ ਮੋਡ ਤੇ ਸਵਿੱਚ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਹੁਣ NFC ਟੈਗਸ ਨੂੰ ਪੜ੍ਹਨ, ਉਨ੍ਹਾਂ ਉੱਤੇ ਡੈਟਾ ਲਿਖਣ, ਜਾਂ ਡਿਵਾਈਸਿਸ ਵਿਚਕਾਰ ਡੈਟਾ ਦਾ ਵਟਾਂਦਰਾ ਕਰਨ ਵਿੱਚ ਸਮਰੱਥ ਨਹੀਂ ਹੋਵੋਗੇ।</string>
     <string name="nfc_show_alert_dialog_title">ਅਲਟ੍ਰਾ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ</string>
     <string name="nfc_show_alert_dialog_message">%s ਨੂੰ ਖੋਲ੍ਹਣ ਵਿੱਚ ਅਸਮਰੱਥ।</string>
-    <string name="android_beam_explained">ਫਾਈਲਾਂ ਨੂੰ ਨੇੜੇ ਰੱਖ ਕੇ NFC-ਸਮਰੱਥ ਡਿਵਾਈਸਿਸ ਦੇ ਵਿੱਚਕਾਰ ਉਹਨਾਂ ਨੂੰ ਸਾਂਝਾ ਕਰੋ। ਤੁਸੀਂ ਫਿਰ ਵੈੱਬਪੰਨੇ ਲਿੰਕਸ, ਸੰਪਰਕਾਂ, ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ ਨੂੰ ਸਾਂਝਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="android_beam_explained_1">ਡਿਵਾਈਸਿਸ ਨੂੰ ਪਿੱਠ ਨਾਲ ਪਿੱਠ ਜੋੜ ਕੇ, ਇੱਕਠੇ ਲਿਆਉ।</string>
+    <string name="android_beam_explained">ਤੁਸੀਂ ਆਪਣੇ ਫ਼ੋਨ ਨੂੰ NFC-ਸਮਰੱਥ ਡਿਵਾਈਸ ਦੇ ਨੇੜੇ ਹੋਲਡ ਕਰਕੇ ਵੈੱਬਪੰਨੇ ਦੇ ਲਿੰਕਸ, ਸੰਪਰਕ, ਅਤੇ ਹੋਰ ਚੀਜ਼ਾਂ ਨੂੰ ਸਾਂਝਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="android_beam_explained_1">ਡਿਵਾਈਸਿਸ ਦੇ ਪਿਛਲੇ ਭਾਗ ਨੂੰ ਇੱਕ ਦੂਜੇ ਦੇ ਨੇੜੇ ਲਿਆਉ।</string>
     <string name="android_beam_explained_2">ਆਪਣੀ ਸਕ੍ਰੀਨ ਨੂੰ ਟੈਪ ਕਰੋ।</string>
     <string name="guide_dialog_attention_title">ਧਿਆਨ ਦਿਉ</string>
     <string name="nfc_off_popup_title">NFC ਬੰਦ ਕਰੋ</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">NFC-ਸੰਬੰਧਤ ਫੰਕਸ਼ਨਸ, ਜਿਵੇਂ ਕਿ ਸਮੱਗਰੀ ਸਾਂਝੀ ਕਰਨ ਦੇ ਕੁਝ ਤਰੀਕੇ ਅਤੇ NFC ਭੁਗਤਾਨ, NFC ਦੇ ਬੰਦ ਹੋਣ ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੋਣਗੇ।</string>
     <string name="limit_app_contents_transfer">ਐਂਡ੍ਰੌਇਡ ਬੀਮ ਦੇ ਬੰਦ ਹੋਣ ਤੇ NFC ਰਾਹੀਂ ਸਮੱਗਰੀ ਸਾਂਝੀ ਕਰਨਾ ਸੀਮਤ ਹੋ ਜਾਵੇਗਾ।</string>
     <string name="nfc_payment_dialog_favor_open">ਜੇਕਰ ਇਸ ਸਮੇਂ ਖੁੱਲ੍ਹੀ ਹੋਈ ਐਪ ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ, ਤਾਂ %s ਦੀ ਬਜਾਏ ਉਸ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ।</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">ਜੇਕਰ ਇਸ ਸਮੇਂ ਖੁੱਲ੍ਹੀ ਹੋਈ ਐਪ ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ, ਤਾਂ ਉਸ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ।</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">ਜੇਕਰ ਇਸ ਸਮੇਂ ਖੁੱਲ੍ਹੀ ਹੋਈ ਐਪ ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਦਾ ਸਮਰਥਨ ਕਰਦੀ ਹੈ, ਤਾਂ ਉਸ ਦੀ ਵਰਤੋਂ ਭੁਗਤਾਨ ਕਰਨ ਲਈ ਕੀਤੀ ਜਾਵੇਗੀ।</string>
     <string name="folder_sounds">ਫੋਲਡਰ ਖੋਲ੍ਹੋ/ਬੰਦ ਕਰੋ ਧੁਨੀਆਂ</string>
     <string name="folder_sounds_summary">ਫੋਲਡਰ ਨੂੰ ਖੋਲ੍ਹਦੇ ਅਤੇ ਬੰਦ ਕਰਦੇ ਸਮੇਂ ਧੁਨੀਆਂ ਚਲਾਉ।</string>
     <string name="sound_category_calls_title">ਇਨਕਮਿੰਗ ਕਾੱਲਸ</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">ਡਿਵਾਈਸ ਦੇ %d ਮਿੰਟ ਤੋਂ ਜ਼ਿਆਦਾ ਤੋਂ ਲੌਕ ਕੀਤੇ ਹੋਣ ਦੌਰਾਨ, ਐਪਸ ਦੁਆਰਾ Wi-Fi ਜਾਂ ਮੋਬਾਈਲ ਨੈੱਟਵਰਕਸ ਰਾਹੀਂ ਵਰਤੇ ਗਏ ਡੈਟਾ ਦੀ ਮਾਤਰਾ ਨੂੰ ਦਿਖਾਉਣ ਵਾਲੀਆਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਾਪਤ ਕਰੋ।</string>
     <string name="data_usage_reminder_description">ਡਿਵਾਈਸ ਦੇ ਲੌਕ ਹੋਣ ਦੌਰਾਨ ਨਿਮਨਲਿਖਤ ਐਪਸ ਨੇ ਕੁੱਲ %s ਡੈਟਾ ਦੀ ਵਰਤੋਂ ਕੀਤੀ:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ਓਕੇ</string>
     <string name="yes">ਹਾਂ</string>
     <string name="no">ਨਹੀਂ</string>
     <string name="create">ਬਣਾਉ</string>
@@ -3559,7 +3571,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">ਡਿਵਾਈਸ ਜਾਣਕਾਰੀ</string>
     <string name="proxy_settings_label">ਪ੍ਰੌਕਸੀ ਸੈੱਟਿੰਗਸ</string>
     <string name="cancel">ਰੱਦ ਕਰੋ</string>
-    <string name="okay">ਓਕੇ</string>
     <string name="save">ਸੇਵ ਕਰੋ</string>
     <string name="done">ਪੂਰਨ</string>
     <string name="settings_label">ਸੈੱਟਿੰਗਸ</string>
@@ -4813,13 +4824,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ਇਹ ਸੈੱਟਿੰਗ ਇਸ ਡਿਵਾਈਸ ਦੇ ਸਾਰੇ ਉਪਯੋਗਕਰਤਾਵਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀ ਹੈ।</string>
     <string name="global_locale_change_title">ਭਾਸ਼ਾ ਬਦਲੋ</string>
     <string name="nfc_payment_settings_title">ਟੈਪ ਕਰੋ ਅਤੇ ਭੁਗਤਾਨ ਕਰੋ</string>
-    <string name="nfc_payment_no_apps">ਕੋਈ ਵੀ ਸਥਾਪਿਤ ਕੀਤੇ ਭੁਗਤਾਨ ਸੇਵਾ ਐਪਸ ਨਹੀਂ ਹਨ</string>
+    <string name="nfc_payment_no_apps">ਕੋਈ ਵੀ ਭੁਗਤਾਨ ਐਪਸ ਸਥਾਪਿਤ ਨਹੀਂ ਹਨ</string>
     <string name="nfc_payment_favor_default">ਫਿਰ ਵੀ %s ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="nfc_payment_favor_open">%s ਦੀ ਬਜਾਏ ਖੁੱਲ੍ਹੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="nfc_how_it_works_got_it">ਸਮਝ ਗਏ</string>
-    <string name="nfc_payment_set_default_label">ਡਿਫਾੱਲਟ ਵਜੋਂ ਸੈੱਟ ਕਰੋ</string>
-    <string name="nfc_payment_set_default">ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਲਈ %s ਨੂੰ ਤੁਹਾਡੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਵਿਧੀ ਵਜੋਂ ਸੈੱਟ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
-    <string name="nfc_payment_set_default_instead_of">ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਲਈ %1$s %2$s ਨੂੰ ਤੁਹਾਡੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਵਿਧੀ ਵਜੋਂ ਬਦਲਿਆ ਜਾਵੇਗਾ।</string>
+    <string name="nfc_payment_set_default_label">ਕੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਐਪ ਨੂੰ ਸੈੱਟ ਕਰਨਾ ਹੈ?</string>
+    <string name="nfc_payment_set_default">ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਲਈ %s ਨੂੰ ਤੁਹਾਡੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਐਪ ਵਜੋਂ ਸੈੱਟ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
+    <string name="nfc_payment_set_default_instead_of">ਟੈਪ ਕਰਕੇ ਭੁਗਤਾਨ ਕਰੋ ਦੇ ਲਈ ਤੁਹਾਡੀ ਡਿਫਾੱਲਟ ਭੁਗਤਾਨ ਐਪ ਨੂੰ %2$s ਤੋਂ %1$s ਤੇ ਬਦਲ ਦਿੱਤਾ ਜਾਵੇਗਾ।</string>
     <string name="help_label">ਮਦਦ</string>
     <string name="user_restrictions_title">ਅਨੁਪ੍ਰਯੋਗ/ਸਮੱਗਰੀ ਪ੍ਰਤੀਬੰਧ</string>
     <string name="user_restrictions_controlled_by">%1$s ਦੁਆਰਾ ਨਿਯੰਤ੍ਰਿਤ</string>

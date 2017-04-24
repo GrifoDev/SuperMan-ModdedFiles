@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Падлучана праз %1$s</string>
     <string name="available_via_passpoint">Даступна праз %1$s</string>
     <string name="wifi_connected_no_internet">Падлучана, няма інтэрнэту</string>
+    <string name="wifi_internet_may_not_be_available">Інтэрнэт можа быць недаступны</string>
     <string name="wifi_reconnecting">Падлучэнне адбудзецца пры паляпшэнні якасці сеткі</string>
     <string name="wifi_connected_checking_quality">Праверка якасці інтэрнэт-злучэння…</string>
     <string name="wifi_sign_in_to_the_network">Увайдзіце ў сетку.</string>
@@ -865,6 +866,14 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
     <string name="content_description_hand">Націсніце і ўтрымлівайце сіні круг ў цэнтры экрана.</string>
     <string name="nearby_scanning_help_msg_sub">Пошук прылад паблізу выкарыстоўвае пошук Bluetooth з нізкім расходваннем энергіі і мікрафон. Пошук Bluetooth з нізкім расходваннем энергіі можа быць выкарыстаны, нават калі Bluetooth на гэтай прыладзе выключаны.</string>
     <string name="sec_bluetooth_no_devices_found">Не знойдзена прылад Bluetooth</string>
+    <string name="bt_tether_title">Ужыванне ў якасці Bluetooth-мадэма</string>
+    <string name="bt_tether_settings_on">Укл.</string>
+    <string name="bt_tether_settings_off">Выкл.</string>
+    <string name="bt_tether_off_brief_text_phone">Абагульвайце інтэрнэт-злучэнне вашага тэлефона з іншымі прыладамі з дапамогай Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Абагульвайце інтэрнэт-злучэнне вашага планшэта з іншымі прыладамі з дапамогай Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Звязаныя прылады</string>
+    <string name="bt_tether_server_description_phone">Каб абагуліць інтэрнэт-злучэнне вашага тэлефона, спалучыцеся з іншай прыладай з дапамогай Bluetooth. Калі прылада ўжо звязвалася па мадэме раней, вы можаце зноў звязаць яе: выберыце яе са спіса звязаных прылад.</string>
+    <string name="bt_tether_server_description_tablet">Каб абагуліць інтэрнэт-злучэнне вашага планшэта, спалучыцеся з іншай прыладай з дапамогай Bluetooth. Калі прылада ўжо звязвалася па мадэме раней, вы можаце зноў звязаць яе: выберыце яе са спіса звязаных прылад.</string>
     <string name="bluetooth_consent_pairing_msg">Націсніце «OK», каб спалучыцца з %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s запытвае дазвол на доступ да SIM-карты. Калі прыняць гэты запыт, на прыладзе адключацца функцыі тэлефанавання, абмену паведамленнямі і перадачы мабільных даных. Дазволіць?
 
@@ -1039,7 +1048,7 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
     <string name="active_key_title">Актыўная клавіша</string>
     <string name="about_phone">Пра тэлефон</string>
     <string name="theme_settings">Тэмы</string>
-    <string name="wifi_calling_title">Wi-Fi Calling</string>
+    <string name="wifi_calling_title">Выклікі праз Wi-Fi</string>
     <string name="tab_category_connections">Злучэнні</string>
     <string name="festival_effect_settings_title">Святочны эфект</string>
     <string name="user_manual">Дапаможнік карыстальніка</string>
@@ -2162,7 +2171,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Дазволіць абмен данымі пры дотыку адной прылады да іншай.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Выкарыстоўвайце сэрвісы мабільных плацяжоў, чытайце цэтлікі NFC, запісвайце на іх даныя і абменьвайцеся данымі паміж прыладамі, якія падтрымліваюць NFC.</string>
+    <string name="nfc_settings_title">Рабіце мабільныя плацяжы, абагульвайце даныя і чытайце або запісвайце цэтлікі NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Можна чытаць і запісваць цэтлікі і перадаваць даныя між прыладамі.</string>
     <string name="nfcpayment_quick_toggle_title">NFC і аплата</string>
     <string name="nfc_mode_general_title">Рэжым NFC</string>
@@ -2178,14 +2187,16 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_favor_open_default_unknown">Выкарыстоўваць адкрытую праграму</string>
     <string name="nfc_payment_favor_default_default_unknown">Няма станд. сэрв. маб. плац.</string>
     <string name="nfc_tts_tab_n_of_n">Укладка %1$d з %2$d</string>
+    <string name="nfc_payment_replace_default_label">Замяніць стандартную праграму для аплаты?</string>
+    <string name="nfc_payment_replace">Замяніць</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Прыярытэтная SIM-карта</string>
     <string name="nfc_please_wait">Пачакайце…</string>
     <string name="nfc_payment_no_sim_card">Няма SIM-карты</string>
-    <string name="nfc_disable_service_title">Змяніць спосаб апрацоўкі NFC па змаўчанні</string>
-    <string name="nfc_disable_service_msg">Калі змяніць стандартны спосаб апрацоўкі NFC, некаторыя сэрвісы на ўкладцы «Іншыя» будуць адключаны або ўключаны. Каб кіраваць гэтымі сэрвісамі, перайдзіце ў раздзел NFC і аплата > Аплата дотыкам > Іншыя, затым выберыце кожны сэрвіс, каб выключыць або ўключыць яго.</string>
+    <string name="nfc_disable_service_title">Змяніць спосаб апрацоўкі NFC па змаўчанні?</string>
+    <string name="nfc_disable_service_msg">Калі змяніць стандартны спосаб апрацоўкі NFC, некаторыя сэрвісы на ўкладцы «Іншыя» будуць выключаны або ўключаны. Каб кіраваць гэтымі сэрвісамі, перайдзіце ў раздзел NFC і аплата > Аплата дотыкам > Іншыя, затым выберыце кожны сэрвіс, каб выключыць або ўключыць яго.</string>
     <string name="nfc_settings_advanced_setting">Спосаб апрацоўкі NFC па змаўчанні</string>
     <string name="nfc_settings_advanced_uicc">SIM-карта з абар. элем.</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-карта абароненага элемента</string>
@@ -2197,7 +2208,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Калі пераключыцца на рэжым карты, вы больш не зможаце чытаць цэтлікі NFC, запісваць на іх даныя або абменьвацца данымі паміж прыладамі.</string>
     <string name="nfc_show_alert_dialog_title">Рэжым макс. энергазбер.</string>
     <string name="nfc_show_alert_dialog_message">Немагчыма адкрыць «%s».</string>
-    <string name="android_beam_explained">Абменьвайцеся файламі паміж прыладамі, якія падтрымліваюць NFC. Для гэтага дастаткова паднесці іх адну да адной. Тады вы зможаце дзяліцца спасылкамі на вэб-старонкі, кантактамі і іншым.</string>
+    <string name="android_beam_explained">Можна дзяліцца спасылкамі на вэб-старонкі, кантактамі і іншым: трымайце тэлефон блізка да прылады з падтрымкай NFC.</string>
     <string name="android_beam_explained_1">Паднясіце прылады адну да адной заднімі панэлямі.</string>
     <string name="android_beam_explained_2">Націсніце на экран.</string>
     <string name="guide_dialog_attention_title">Увага</string>
@@ -2206,7 +2217,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">Функцыі, звязаныя з NFC, такія як некаторыя метады абагулення змесціва і аплаты праз NFC, не будуць даступны, калі NFC выключана.</string>
     <string name="limit_app_contents_transfer">Калі функцыя Android Beam выключана, абагуленне змесціва праз NFC будзе абмежавана.</string>
     <string name="nfc_payment_dialog_favor_open">Калі праграма зараз падтрымлівае аплату дотыкам, яна будзе выкарыстана замест %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Калі праграма зараз падтрымлівае аплату дотыкам, яна будзе выкарыстана.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Калі праграма зараз падтрымлівае аплату дотыкам, яна будзе выкарыстана для аплаты.</string>
     <string name="folder_sounds">Гукі адкр. і закр. папкі</string>
     <string name="folder_sounds_summary">Прайграваць гукавыя сігналы пры адкрыцці і закрыцці папкі.</string>
     <string name="sound_category_calls_title">Уваходныя выклікі</string>
@@ -3464,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Атрымлівайце апавяшчэнні, якія паказваюць колькасць даных, выкарыстаных праграмамі праз Wi-Fi або мабільныя сеткі, калі прылада была заблакіравана больш чым %d хвілін(ы).</string>
     <string name="data_usage_reminder_description">Наступныя праграмы у агульным выкарысталі %s, калі прылада была заблакіравана:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ОК</string>
     <string name="yes">Так</string>
     <string name="no">Не</string>
     <string name="create">Стварыць</string>
@@ -3563,7 +3575,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Звесткі пра прыладу</string>
     <string name="proxy_settings_label">Налады проксі</string>
     <string name="cancel">Скасаваць</string>
-    <string name="okay">ОК</string>
     <string name="save">Захаваць</string>
     <string name="done">Гатова</string>
     <string name="settings_label">Налады</string>
@@ -4822,13 +4833,13 @@ SD-карту"</string>
     <string name="global_change_warning">Гэтая налада распаўсюджваецца на ўсіх карыстальнікаў гэтай прылады.</string>
     <string name="global_locale_change_title">Змяніць мову</string>
     <string name="nfc_payment_settings_title">Аплата дотыкам</string>
-    <string name="nfc_payment_no_apps">Няма ўсталяваных праграм сэрвісаў аплаты</string>
+    <string name="nfc_payment_no_apps">Праграмы для аплаты не ўсталяваны</string>
     <string name="nfc_payment_favor_default">Яшчэ выкарыстоўвае %s</string>
     <string name="nfc_payment_favor_open">Замест праграмы %s карыстацца адкрытай праграмай</string>
     <string name="nfc_how_it_works_got_it">Добра</string>
-    <string name="nfc_payment_set_default_label">Зрабіць стандартным</string>
-    <string name="nfc_payment_set_default">Стандартным спосабам аплаты дотыкам стане %s.</string>
-    <string name="nfc_payment_set_default_instead_of">%2$s больш не будзе стандартным спосабам для аплаты дотыкам, ім стане %1$s.</string>
+    <string name="nfc_payment_set_default_label">Задаць стандартную праграму для аплаты?</string>
+    <string name="nfc_payment_set_default">Стандартнай праграмай аплаты дотыкам стане %s.</string>
+    <string name="nfc_payment_set_default_instead_of">%2$s больш не будзе стандартнай праграмай для аплаты дотыкам, ёй стане %1$s.</string>
     <string name="help_label">Даведка</string>
     <string name="user_restrictions_title">Абмежаванні праграм/змесціва</string>
     <string name="user_restrictions_controlled_by">Кіруецца праз %1$s</string>

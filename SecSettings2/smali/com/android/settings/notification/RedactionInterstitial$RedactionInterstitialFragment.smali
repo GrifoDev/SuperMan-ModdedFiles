@@ -257,7 +257,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f040230
+    const v0, 0x7f040231
 
     const/4 v1, 0x0
 
@@ -377,19 +377,19 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x7f0b183d
+    const v4, 0x7f0b1958
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mShowAllButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v4, 0x7f0b183a
+    const v4, 0x7f0b1955
 
     invoke-virtual {v2, v4}, Lcom/android/settings/RestrictedRadioButton;->setText(I)V
 
     iget-object v2, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mRedactSensitiveButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v4, 0x7f0b183b
+    const v4, 0x7f0b1956
 
     invoke-virtual {v2, v4}, Lcom/android/settings/RestrictedRadioButton;->setText(I)V
 
@@ -401,7 +401,7 @@
 
     check-cast v2, Landroid/widget/RadioButton;
 
-    const v4, 0x7f0b183c
+    const v4, 0x7f0b1957
 
     invoke-virtual {v2, v4}, Landroid/widget/RadioButton;->setText(I)V
 

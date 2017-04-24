@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Yhdistetty seuraavan kautta: %1$s</string>
     <string name="available_via_passpoint">Käytettävissä seuraavan kautta: %1$s</string>
     <string name="wifi_connected_no_internet">Yhdistetty, ei internetyhteyttä.</string>
+    <string name="wifi_internet_may_not_be_available">Internet ei ehkä ole käytett.</string>
     <string name="wifi_reconnecting">Valmis muodostamaan yhteyden, kun verkon laatu paranee</string>
     <string name="wifi_connected_checking_quality">Tarkistetaan Internet-yhteyden laatua…</string>
     <string name="wifi_sign_in_to_the_network">Kirjaudu verkkoon.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d liittyvää kohdetta</string>
     <string name="no_results_found">Tuloksia ei löytynyt</string>
     <string name="menu_edit">Muokkaa</string>
-    <string name="reset">Nollaa</string>
+    <string name="reset">Palauta</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Antaa Voice Assistantin tietää, kun käytät sovellusta.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Piirrä suuntia tämän tekstin alla olevalle alueelle ja näytön alaosassa olevien painikkeiden yläpuolelle.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Vahvista-painike sijaitsee näytön oikeassa alakulmassa.</string>
@@ -865,6 +866,14 @@ Sovellustiedoissa voi olla henkilökohtaisia tietoja, kuten yhteystietoja, viest
     <string name="content_description_hand">Paina näytön keskellä olevaa sinistä ympyrää jonkin aikaa.</string>
     <string name="nearby_scanning_help_msg_sub">Läheisten laitteiden haku -toiminto käyttää Bluetooth Low Energy -hakua ja mikrofonia. Bluetooth Low Energy -hakua voidaan käyttää myös silloin, kun Bluetooth-toiminto on poistettu laitteessa käytöstä.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth-laitteita ei löytynyt</string>
+    <string name="bt_tether_title">Bluetooth-liitos</string>
+    <string name="bt_tether_settings_on">Käytössä</string>
+    <string name="bt_tether_settings_off">Ei käytössä</string>
+    <string name="bt_tether_off_brief_text_phone">Jaa puhelimesi Internet-yhteys muiden laitteiden kanssa Bluetooth-yhteyden välityksellä.</string>
+    <string name="bt_tether_off_brief_text_tablet">Jaa tablet-laitteesi Internet-yhteys muiden laitteiden kanssa Bluetooth-yhteyden välityksellä.</string>
+    <string name="bt_tether_preference_tethered_device_list">Jaettua yhteyttä käyttävät laitteet</string>
+    <string name="bt_tether_server_description_phone">Jaa puhelimesi Internet-yhteys muodostamalla pariliitos toiseen laitteeseen Bluetooth-yhteyden välityksellä. Jos laitteesta on jo aikaisemmin muodostettu jaettu yhteys, voit muodostaa jaetun yhteyden uudelleen valitsemalla laitteen jaettua yhteyttä käyttävien laitteiden luettelosta.</string>
+    <string name="bt_tether_server_description_tablet">Jaa tablet-laitteesi Internet-yhteys muodostamalla pariliitos toiseen laitteeseen Bluetooth-yhteyden välityksellä. Jos laitteesta on jo aikaisemmin muodostettu jaettu yhteys, voit muodostaa jaetun yhteyden uudelleen valitsemalla laitteen jaettua yhteyttä käyttävien laitteiden luettelosta.</string>
     <string name="bluetooth_consent_pairing_msg">Muodosta pariliitos laitteen %s kanssa napauttamalla OK.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s pyytää lupaa SIM-kortin käyttöön. Jos sallit tämän pyynnön, puhelu- ja viestitoiminnot sekä laitteen mobiilidata poistetaan käytöstä. Sallitaanko?
 
@@ -1039,8 +1048,7 @@ Vaikka Älykäs näyttökuva on poistettu käytöstä, voit käyttää sen toimi
     <string name="active_key_title">Aktiivinen näppäin</string>
     <string name="about_phone">Tietoja puhelimesta</string>
     <string name="theme_settings">Teemat</string>
-    <string name="wifi_calling_title">"Wi-Fi-
-puhelu"</string>
+    <string name="wifi_calling_title">Wi-Fi-puhelu</string>
     <string name="tab_category_connections">Yhteydet</string>
     <string name="festival_effect_settings_title">Festivaalitehoste</string>
     <string name="user_manual">Käyttöopas</string>
@@ -2162,7 +2170,7 @@ Jotkin NFC-tapahtumat ja mobiilimaksupalvelut voivat vaatia toisen NFC-oletuskä
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Salli tiedonvaihto, kun laitteet koskettavat toisiaan.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Käytä mobiilimaksupalveluita, lue NFC-tunnisteita ja kirjoita niihin sekä vaihda tietoja NFC-toimintoa tukevien laitteiden kesken.</string>
+    <string name="nfc_settings_title">Suorita mobiilimaksuja, jaa tietoja ja lue tai kirjoita NFC-tunnisteita.</string>
     <string name="nfc_settings_rw_p2p_summary">Voit lukea ja kirjoittaa tunnisteita sekä siirtää tietoja laitteiden välillä.</string>
     <string name="nfcpayment_quick_toggle_title">NFC ja maksu</string>
     <string name="nfc_mode_general_title">NFC-tila</string>
@@ -2173,19 +2181,21 @@ Jotkin NFC-tapahtumat ja mobiilimaksupalvelut voivat vaatia toisen NFC-oletuskä
     <string name="nfc_payment_enable_summary">Valitse oletusmobiilimaksupalvelu.</string>
     <string name="nfc_payment_title">Maksu</string>
     <string name="nfc_others_title">Muut</string>
-    <string name="nfc_other_no_apps">Asennettuja palvelusovelluksia ei ole</string>
+    <string name="nfc_other_no_apps">Palvelusovelluksia ei ole asennettu</string>
     <string name="nfc_payment_open_app">Jos avattu sovellus tukee Napauta ja maksa -toimintoa</string>
     <string name="nfc_payment_favor_open_default_unknown">Käytä avattua sovellusta</string>
     <string name="nfc_payment_favor_default_default_unknown">Oletusmaksupalvelua ei ole</string>
     <string name="nfc_tts_tab_n_of_n">Välilehti %1$d/%2$d</string>
+    <string name="nfc_payment_replace_default_label">Korvataanko oletusmaksusovellus?</string>
+    <string name="nfc_payment_replace">Korvaa</string>
     <string name="nfc_payment_services_title">NFC-maksupalvelut</string>
     <string name="nfc_payment_services_fail">SIM-kortin %s asettaminen NFC-maksupalveluja varten epäonnistui. Yritä uudelleen.</string>
     <string name="nfc_payment_services_success">SIM-kortti %s asetettu NFC-maksupalveluja varten.</string>
     <string name="nfc_preferred_general_title">Ensisijainen SIM-kortti</string>
     <string name="nfc_please_wait">Ole hyvä ja odota…</string>
     <string name="nfc_payment_no_sim_card">SIM-korttia ei ole</string>
-    <string name="nfc_disable_service_title">Vaihda NFC-oletusmenetelmä</string>
-    <string name="nfc_disable_service_msg">Jos muutat NFC-oletuskäsittelytapaa, jotkin MUUT-välilehdessä olevat palvelut poistetaan käytöstä tai otetaan käyttöön. Jos haluat hallita näitä palveluita, valitse NFC ja maksu > Napauta ja maksa > MUUT ja valitse käyttöön otettavat tai käytöstä poistettavat palvelut.</string>
+    <string name="nfc_disable_service_title">Vaihdetaanko NFC-oletusmenetelmä?</string>
+    <string name="nfc_disable_service_msg">Jos muutat NFC-oletuskäsittelytapaa, jotkin MUUT-välilehdessä olevat palvelut otetaan käyttöön tai poistetaan käytöstä. Jos haluat hallita näitä palveluita, valitse NFC ja maksu > Napauta ja maksa > MUUT ja valitse käyttöön otettavat tai käytöstä poistettavat palvelut.</string>
     <string name="nfc_settings_advanced_setting">NFC-oletustapa</string>
     <string name="nfc_settings_advanced_uicc">SE-SIM-kortti</string>
     <string name="nfc_settings_advanced_uicc_TTS">Suojatun elementin SIM-kortti</string>
@@ -2197,7 +2207,7 @@ Jotkin NFC-tapahtumat ja mobiilimaksupalvelut voivat vaatia toisen NFC-oletuskä
     <string name="nfc_settings_tag_message">Jos siirryt korttitilaan, et enää pysty lukemaan NFC-tunnisteita, kirjoittamaan tietoja niihin tai vaihtamaan tietoja laitteiden kesken.</string>
     <string name="nfc_show_alert_dialog_title">Eritt. teh. virransäästö</string>
     <string name="nfc_show_alert_dialog_message">Sovellusta %s ei voi avata.</string>
-    <string name="android_beam_explained">Jaa tiedostoja NFC-laitteiden välillä pitämällä laitteita lähellä toisiaan. Voit tämän jälkeen jakaa esimerkiksi verkkosivujen linkkejä ja yhteystietoja.</string>
+    <string name="android_beam_explained">Voit jakaa esimerkiksi verkkosivujen linkkejä ja yhteystietoja pitämällä puhelinta NFC-laitteen lähellä.</string>
     <string name="android_beam_explained_1">Aseta laitteet lähelle toisiaan, niiden takaosat vastakkain.</string>
     <string name="android_beam_explained_2">Napauta näyttöä.</string>
     <string name="guide_dialog_attention_title">Huomio</string>
@@ -2206,7 +2216,7 @@ Jotkin NFC-tapahtumat ja mobiilimaksupalvelut voivat vaatia toisen NFC-oletuskä
     <string name="cannot_use_card_without_NFC">NFC:hen liittyvät toiminnot, kuten jotkin sisällön jakotavat ja NFC-maksu, eivät ole käytettävissä, kun NFC on poistettu käytöstä.</string>
     <string name="limit_app_contents_transfer">Sisällön jakamista NFC:n kautta rajoitetaan, kun Android Beam on poistettu käytöstä.</string>
     <string name="nfc_payment_dialog_favor_open">Palvelun %s sijaan käytetään Napauta ja maksa -palvelua, jos sovellus tukee sitä.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Käytetään Napauta ja maksa -palvelua, jos sovellus tukee sitä.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Jos sovellus tukee Napauta ja maksa -palvelua, maksuihin käytetään sitä.</string>
     <string name="folder_sounds">Kansion avaus-/sulk.äänet</string>
     <string name="folder_sounds_summary">Toista ääni kansiota avattaessa ja suljettaessa.</string>
     <string name="sound_category_calls_title">Saapuvat puhelut</string>
@@ -3464,6 +3474,7 @@ Tekstiviestin vastaanottaminen"</string>
     <string name="data_usage_reminder_item_summary">Vastaanota ilmoituksia sovellusten Wi-Fi- tai matkapuhelinverkkojen kautta käyttämästä datamäärästä, kun laite on ollut lukittuna yli %d minuutin ajan.</string>
     <string name="data_usage_reminder_description">Seuraavat sovellukset käyttivät yhteensä %s dataa laitteen ollessa lukittuna:</string>
     <string name="google_settings_popup_msg">Käytettävissä on vain osa Googlen asetuksista. Jotkin toiminnot eivät ehkä toimi.</string>
+    <string name="okay">OK</string>
     <string name="yes">Kyllä</string>
     <string name="no">Ei</string>
     <string name="create">Luo</string>
@@ -3561,7 +3572,6 @@ Voit muuttaa tätä asetusta myöhemmin Bluetooth-asetukset-kohdassa."</string>
     <string name="phone_info_label">Laitteen tiedot</string>
     <string name="proxy_settings_label">Välityspalvelimen asetukset</string>
     <string name="cancel">Peruuta</string>
-    <string name="okay">OK</string>
     <string name="save">Tallenna</string>
     <string name="done">Valmis</string>
     <string name="settings_label">Asetukset</string>
@@ -4815,13 +4825,13 @@ Kaikki käyttäjät voivat hyväksyä päivitettyjen sovellusten käyttöoikeuks
     <string name="global_change_warning">Tämä asetus vaikuttaa kaikkiin laitteen käyttäjiin.</string>
     <string name="global_locale_change_title">Vaihda kieltä</string>
     <string name="nfc_payment_settings_title">Napauta ja maksa</string>
-    <string name="nfc_payment_no_apps">Asennettuja maksupalvelusovelluksia ei ole</string>
+    <string name="nfc_payment_no_apps">Maksusovelluksia ei ole asennettu</string>
     <string name="nfc_payment_favor_default">Jatka sovelluksen %s käyttöä</string>
     <string name="nfc_payment_favor_open">Käytä avattua sovellusta sovelluksen %s sijaan</string>
     <string name="nfc_how_it_works_got_it">Selvä</string>
-    <string name="nfc_payment_set_default_label">Aseta oletukseksi</string>
-    <string name="nfc_payment_set_default">Napautus- ja maksutapahtumien oletusmaksutavaksi asetetaan %s.</string>
-    <string name="nfc_payment_set_default_instead_of">Napautus- ja maksutapahtumien oletusmaksutapa %2$s korvataan maksutavalla %1$s.</string>
+    <string name="nfc_payment_set_default_label">Asetetaanko oletusmaksusovellus?</string>
+    <string name="nfc_payment_set_default">Napauta ja maksa -toiminnon oletusmaksusovellukseksi asetetaan %s.</string>
+    <string name="nfc_payment_set_default_instead_of">Oletusnapautus- ja maksusovellus %2$s korvataan sovelluksella %1$s.</string>
     <string name="help_label">Ohje</string>
     <string name="user_restrictions_title">Sovellus- ja sisältörajoitukset</string>
     <string name="user_restrictions_controlled_by">Hallittu sovelluksella %1$s</string>

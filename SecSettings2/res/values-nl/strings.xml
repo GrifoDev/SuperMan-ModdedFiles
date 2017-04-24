@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Verbonden via %1$s</string>
     <string name="available_via_passpoint">Beschikbaar via %1$s</string>
     <string name="wifi_connected_no_internet">Verbonden, geen internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet missch niet beschikb.</string>
     <string name="wifi_reconnecting">Klaar om te verbinden wanneer de netwerkkwaliteit verbetert</string>
     <string name="wifi_connected_checking_quality">De kwaliteit van uw internetverbinding controleren…</string>
     <string name="wifi_sign_in_to_the_network">Log in bij het netwerk.</string>
@@ -821,7 +822,7 @@ Wi-Fi en Bluetooth worden ook uitgeschakeld, maar kunnen opnieuw worden ingescha
     <string name="default_app_selection">Selectie standaard-app</string>
     <string name="default_app_selection_auto_set">Standaard-apps automatisch instellen</string>
     <string name="default_app_selection_ask">Vragen voor instellen standaard-apps</string>
-    <string name="launch_application_settings">Standaardapplicaties</string>
+    <string name="launch_application_settings">Standaard-apps</string>
     <string name="launch_application_settings_summary">Wijs apps toe voor bepaalde taken.</string>
     <string name="home_settings_header">Startpagina wijzigen</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -866,6 +867,14 @@ App-gegevens kunnen persoonlijke gegevens bevatten, zoals contacten, berichten e
     <string name="content_description_hand">Tik op de blauwe cirkel en houd deze in het midden van het scherm vast.</string>
     <string name="nearby_scanning_help_msg_sub">Apparaten in de buurt gebruikt Bluetooth Low Energy-scannen en de microfoon. Bluetooth Low Energy-scannen kan zelfs worden gebruikt terwijl Bluetooth is uitgeschakeld op dit apparaat.</string>
     <string name="sec_bluetooth_no_devices_found">Geen Bluetooth-apparaten gevonden</string>
+    <string name="bt_tether_title">Bluetooth-tethering</string>
+    <string name="bt_tether_settings_on">Aan</string>
+    <string name="bt_tether_settings_off">Uit</string>
+    <string name="bt_tether_off_brief_text_phone">Deel de internetverbinding van uw telefoon met andere apparaten via Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Deel de internetverbinding van uw tablet met andere apparaten via Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Tethering-apparaten</string>
+    <string name="bt_tether_server_description_phone">Deel de internetverbinding van uw telefoon door te koppelen met een ander apparaat via Bluetooth. Als u eerder tethering voor het apparaat hebt gebruikt, kunt u opnieuw tethering toepassen door het apparaat te selecteren in de lijst Tethering-apparaten.</string>
+    <string name="bt_tether_server_description_tablet">Deel de internetverbinding van uw tablet door te koppelen met een ander apparaat via Bluetooth. Als u eerder tethering voor het apparaat hebt gebruikt, kunt u opnieuw tethering toepassen door het apparaat te selecteren in de lijst Tethering-apparaten.</string>
     <string name="bluetooth_consent_pairing_msg">Tik op OK om te koppelen met %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s vraagt toestemming voor toegang tot uw SIM-kaart. Als u dit verzoek toestaat, worden bel- en berichtfuncties, en Mobiele gegevens op uw apparaat uitgeschakeld. Toestaan?
 
@@ -974,7 +983,7 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
     <string name="downloadable_dialog_popup_text_wifi">Extra Help-inhoud moet worden gedownload. Apparaat moet verbonden zijn met een Wi-Fi-netwerk. U gaat naar het downloadscherm.</string>
     <string name="back_button_label">Terug</string>
     <string name="next_button_label">Volgende</string>
-    <string name="category_applications">Applicaties</string>
+    <string name="category_applications">Apps</string>
     <string name="data_connection_title">Melding van kosten</string>
     <string name="data_connection_message">Verbinding met mobiele netwerken kan extra kosten met zich meebrengen.</string>
     <string name="none_package">Deze actie kan niet worden uitgevoerd als u een beperkt profiel gebruikt.</string>
@@ -1040,7 +1049,7 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
     <string name="active_key_title">Actieve toets</string>
     <string name="about_phone">Over het toestel</string>
     <string name="theme_settings">"Thema's"</string>
-    <string name="wifi_calling_title">Bel via Wi-Fi</string>
+    <string name="wifi_calling_title">Bellen via Wi-Fi</string>
     <string name="tab_category_connections">Verbindingen</string>
     <string name="festival_effect_settings_title">Festivaleffect</string>
     <string name="user_manual">Gebruiksaanwijzing</string>
@@ -2162,7 +2171,7 @@ Voor bepaalde NFC-transacties en mobiele betaalservices kan een andere standaard
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Sta gegevensuitwisseling toe wanneer apparaat ander apparaat aanraakt.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Gebruik mobiele betaalservices, lees en schrijf NFC-tags en wissel gegevens uit tussen NFC-apparaten.</string>
+    <string name="nfc_settings_title">Voer mobiele betalingen uit, deel gegevens en lees of schrijf NFC-tags.</string>
     <string name="nfc_settings_rw_p2p_summary">U kunt tags lezen en schrijven en gegevens tussen apparaten overzetten.</string>
     <string name="nfcpayment_quick_toggle_title">NFC en betaling</string>
     <string name="nfc_mode_general_title">NFC-stand</string>
@@ -2173,19 +2182,21 @@ Voor bepaalde NFC-transacties en mobiele betaalservices kan een andere standaard
     <string name="nfc_payment_enable_summary">Selecteer uw standaard mobiele betaalservice.</string>
     <string name="nfc_payment_title">Betaling</string>
     <string name="nfc_others_title">Overige</string>
-    <string name="nfc_other_no_apps">Geen geïnstalleerde service-apps</string>
+    <string name="nfc_other_no_apps">Geen service-apps geïnstalleerd</string>
     <string name="nfc_payment_open_app">Als open app Tikken en betalen ondersteunt</string>
     <string name="nfc_payment_favor_open_default_unknown">Geopende app gebruiken</string>
     <string name="nfc_payment_favor_default_default_unknown">Geen standaard betaalservice</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d van %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Standaardbetaal-app vervangen?</string>
+    <string name="nfc_payment_replace">Vervangen</string>
     <string name="nfc_payment_services_title">NFC-betaalservices</string>
     <string name="nfc_payment_services_fail">Kan SIM-kaart %s niet instellen voor gebruik met NFC-betaalservices. Probeer het opnieuw.</string>
     <string name="nfc_payment_services_success">SIM-kaart %s ingesteld voor gebruik met NFC-betaalservices.</string>
     <string name="nfc_preferred_general_title">Gewenste SIM-kaart</string>
     <string name="nfc_please_wait">Even geduld…</string>
     <string name="nfc_payment_no_sim_card">Geen SIM-kaart</string>
-    <string name="nfc_disable_service_title">Standaard NFC-methode wijzigen</string>
-    <string name="nfc_disable_service_msg">Als u de standaard NFC-verwerkingsmethode wijzigt, worden sommige services in het tabblad OVERIGE uitgeschakeld of ingeschakeld. Als u deze services wilt beheren, gaat u naar NFC en betaling > Tikken en betalen > OVERIGE en selecteert u de services die u wilt in- of uitschakelen.</string>
+    <string name="nfc_disable_service_title">Standaard NFC-methode wijzigen?</string>
+    <string name="nfc_disable_service_msg">Als u de standaard NFC-verwerkingsmethode wijzigt, worden sommige services in het tabblad OVERIGE in- of uitgeschakeld. Als u deze services wilt beheren, gaat u naar NFC en betaling > Tikken en betalen > OVERIGE en selecteert u de services die u wilt in- of uitschakelen.</string>
     <string name="nfc_settings_advanced_setting">Standaard NFC-methode</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kaart</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-kaart beveiligd element</string>
@@ -2197,7 +2208,7 @@ Voor bepaalde NFC-transacties en mobiele betaalservices kan een andere standaard
     <string name="nfc_settings_tag_message">Als u overschakelt naar Kaartstand, kunt u NFC-tags niet meer lezen, er geen gegevens meer naar schrijven of gegevens tussen apparaten uitwisselen.</string>
     <string name="nfc_show_alert_dialog_title">Extra energiebesparende stand</string>
     <string name="nfc_show_alert_dialog_message">Kan %s niet openen.</string>
-    <string name="android_beam_explained">"Deel bestanden tussen NFC-apparaten door ze dicht bij elkaar te houden. U kunt daarna koppelingen naar webpagina's, contacten en meer delen."</string>
+    <string name="android_beam_explained">"U kunt koppelingen naar webpagina's, contacten en meer delen door uw telefoon dichtbij een NFC-apparaat te houden."</string>
     <string name="android_beam_explained_1">Houd de apparaten met de rug bij elkaar.</string>
     <string name="android_beam_explained_2">Tik op uw scherm.</string>
     <string name="guide_dialog_attention_title">Let op</string>
@@ -2206,7 +2217,7 @@ Voor bepaalde NFC-transacties en mobiele betaalservices kan een andere standaard
     <string name="cannot_use_card_without_NFC">Met NFC gerelateerde functies, zoals bepaalde methoden voor inhoud delen en NFC-betalingen, zijn niet beschikbaar wanneer NFC is uitgeschakeld.</string>
     <string name="limit_app_contents_transfer">Inhoud delen via NFC is beperkt, wanneer Android Beam is uitgeschakeld.</string>
     <string name="nfc_payment_dialog_favor_open">Als de momenteel geopende app Tikken en betalen ondersteunt, wordt die functie gebruikt in plaats van %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Als de momenteel geopende app Tikken en betalen ondersteunt, wordt die functie gebruikt.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Als de momenteel geopende app Tikken en betalen ondersteunt, wordt deze gebruikt om te betalen.</string>
     <string name="folder_sounds">Geluiden map open/sluiten</string>
     <string name="folder_sounds_summary">Speel geluiden af bij openen en sluiten van map.</string>
     <string name="sound_category_calls_title">Inkomende oproepen</string>
@@ -3464,6 +3475,7 @@ Sms ontvangen"</string>
     <string name="data_usage_reminder_item_summary">Ontvang meldingen met de hoeveelheid gegevens die is gebruikt door apps via Wi-Fi of mobiele netwerken, wanneer het apparaat voor meer dan %d minuten vergrendeld is geweest.</string>
     <string name="data_usage_reminder_description">De volgende apps hebben %s gegevens in totaal gebruikt, terwijl het apparaat was vergrendeld:</string>
     <string name="google_settings_popup_msg">Er is slechts een beperkt aantal Google-instellingen beschikbaar. Bepaalde acties werken mogelijk niet.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nee</string>
     <string name="create">Nieuw</string>
@@ -3561,7 +3573,6 @@ U kunt dit later wijzigen via Bluetooth-instellingen."</string>
     <string name="phone_info_label">Apparaatinfo</string>
     <string name="proxy_settings_label">Proxy-instellingen</string>
     <string name="cancel">Annuleren</string>
-    <string name="okay">OK</string>
     <string name="save">Opslaan</string>
     <string name="done">Gereed</string>
     <string name="settings_label">Instellingen</string>
@@ -4815,13 +4826,13 @@ Elke gebruiker kan bijgewerkte appmachtigingen accepteren uit naam van alle ande
     <string name="global_change_warning">Deze instelling is van invloed op alle gebruikers op dit apparaat.</string>
     <string name="global_locale_change_title">Taal wijzigen</string>
     <string name="nfc_payment_settings_title">Tikken en betalen</string>
-    <string name="nfc_payment_no_apps">Geen geïnstalleerde apps voor betaalservices</string>
+    <string name="nfc_payment_no_apps">Geen betaal-apps geïnstalleerd</string>
     <string name="nfc_payment_favor_default">Nog steeds %s gebruiken</string>
     <string name="nfc_payment_favor_open">Geopende app gebruiken in plaats van %s</string>
     <string name="nfc_how_it_works_got_it">Gelukt</string>
-    <string name="nfc_payment_set_default_label">Instellen als standaard</string>
-    <string name="nfc_payment_set_default">%s wordt ingesteld als uw standaard betaalmethode voor Tik en betaal-transacties.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s vervangt %2$s als uw standaard betaalmethode voor Tik en betaal-transacties.</string>
+    <string name="nfc_payment_set_default_label">Standaard betaal-app instellen?</string>
+    <string name="nfc_payment_set_default">%s wordt ingesteld als uw standaard betaal-app voor Tik en betaal-transacties.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s vervangt %2$s als uw standaard betaal-app voor Tikken en betalen.</string>
     <string name="help_label">Help</string>
     <string name="user_restrictions_title">Beperkingen voor applicatie/inhoud</string>
     <string name="user_restrictions_controlled_by">Bediend via %1$s</string>

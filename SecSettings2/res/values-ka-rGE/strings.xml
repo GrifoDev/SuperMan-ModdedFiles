@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s-ით დაკავშირებული</string>
     <string name="available_via_passpoint">ხელმისაწვდომია %1$s-ით</string>
     <string name="wifi_connected_no_internet">დაკავშირებულია, ინტერნეტის გარეშე</string>
+    <string name="wifi_internet_may_not_be_available">შესაძლოა, ინტერნეტი არ იყოს</string>
     <string name="wifi_reconnecting">მზადაა რომ დაკავშირდეს, როდესაც გაუმჯობესდება ქსელის ხარისხი</string>
     <string name="wifi_connected_checking_quality">მოწმდება თქვენი ინტერნეტ-კავშირის ხარისხი…</string>
     <string name="wifi_sign_in_to_the_network">შედით ქსელში.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d შესაბამისი ელემენტი</string>
     <string name="no_results_found">შედეგები ვერ მოიძებნა</string>
     <string name="menu_edit">შეცვლა</string>
-    <string name="reset">გაუქმება</string>
+    <string name="reset">პარამეტრების თავიდან დაყენება</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">საშუალებას აძლევს Voice Assistant-ს იცოდეს, როდის იყენებთ აპლიკაციას.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">დახაზეთ მიმართულებები ამ ტექსტის ქვემოთ და ეკრანის ძირში განთავსებული ღილაკების ზემოთ მოცემულ არეში.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">დადასტურების ღილაკი მოთავსებულია ეკრანის ქვედა მარჯვენა კუთხეში.</string>
@@ -820,7 +821,7 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="default_app_selection">ნაგულისხმევი აპის არჩევა</string>
     <string name="default_app_selection_auto_set">ნაგულისხმევი აპის ავტომატური დაყენება</string>
     <string name="default_app_selection_ask">მკითხე ნაგულისხმევი აპის დაყენებამდე</string>
-    <string name="launch_application_settings">ნაგულისხმევი პროგრამები</string>
+    <string name="launch_application_settings">ნაგულისხმევი აპლიკაციები</string>
     <string name="launch_application_settings_summary">დანიშნეთ აპლიკაციები კონკრეტული დავალებებისთვის.</string>
     <string name="home_settings_header">საწყისი გვერდის შეცვლა</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="content_description_hand">ხანგრძლივად შეეხეთ ლურჯ წრეს ეკრანის ცენტრში.</string>
     <string name="nearby_scanning_help_msg_sub">„ახლო მოწყობილობის ძებნა“ იყენებს „Bluetooth-ის დაბალენერგიულ ძებნასა“ და მიკროფონს. „Bluetooth-ის დაბალენერგიული ძებნის“ გამოყენება შესაძლებელია მაშინაც კი, როცა Bluetooth გამორთულია ამ მოწყობილობაში.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth მოწყობილობები ვერ მოიძებნა</string>
+    <string name="bt_tether_title">მობილური ინტერნეტის გაზიარება Bluetooth-ით</string>
+    <string name="bt_tether_settings_on">ჩართვა</string>
+    <string name="bt_tether_settings_off">გამორთვა</string>
+    <string name="bt_tether_off_brief_text_phone">გაუზიარეთ ტელეფონის ინტერნეტ-კავშირი სხვა მოწყობილობებს Bluetooth-ის გამოყენებით.</string>
+    <string name="bt_tether_off_brief_text_tablet">გაუზიარეთ პლანშეტის ინტერნეტ-კავშირი სხვა მოწყობილობებს Bluetooth-ის გამოყენებით.</string>
+    <string name="bt_tether_preference_tethered_device_list">ინტერნეტის გაზიარებისთვის დაწყვილებული მოწყობილობები</string>
+    <string name="bt_tether_server_description_phone">გააზიარეთ ტელეფონის ინტერნეტ-კავშირი, რისთვისაც Bluetooth-ის გამოყენებით დააწყვილეთ იგი სხვა მოწყობილობასთან. თუ ამ მოწყობილობასთან ადრე უკვე გქონდათ გაზიარებული ინტერნეტი, მასთან ინტერნეტის ხელახლა გასაზიარებლად, აირჩიეთ იგი „ინტერნეტის გაზიარებისთვის დაწყვილებული მოწყობილობების“ სიაში.</string>
+    <string name="bt_tether_server_description_tablet">გააზიარეთ პლანშეტის ინტერნეტ-კავშირი, რისთვისაც Bluetooth-ის გამოყენებით დააწყვილეთ იგი სხვა მოწყობილობასთან. თუ ამ მოწყობილობასთან ადრე უკვე გქონდათ გაზიარებული ინტერნეტი, მასთან ინტერნეტის ხელახლა გასაზიარებლად, აირჩიეთ იგი „ინტერნეტის გაზიარებისთვის დაწყვილებული მოწყობილობების“ სიაში.</string>
     <string name="bluetooth_consent_pairing_msg">შეეხეთ OK-ს, რომ დაწყვილდეს %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s ითხოვს თქვენს SIM ბარათზე წვდომის ნებართვას. ამ მოთხოვნის დაკმაყოფილებით გამოირთვება დარეკვისა და შეტყობინებების ფუნქციები და გამოირთვება მობილური მონაცემები თქვენს მოწყობილობაში. დართავთ ნებას?
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">მიეცეს მონაცემთა გაცვლის უფლება, როცა მოწყობილობა შეეხება სხვა მოწყობილობას.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">გამოიყენეთ მობილური გადახდის სერვისები, წაიკითხეთ და დაწერეთ NFC იარლიყები და გაცვალეთ მონაცემები NFC-ის მქონე მოწყობილობებს შორის.</string>
+    <string name="nfc_settings_title">გადაიხადეთ მობილურით, გააზიარეთ მონაცემები და წაიკითხეთ ან ჩაწერეთ NFC იარლიყებზე.</string>
     <string name="nfc_settings_rw_p2p_summary">შეგიძლიათ წაიკითხოთ და დაწეროთ იარლიყები და გადასცეთ მონაცემები მოწყობილობებს შორის.</string>
     <string name="nfcpayment_quick_toggle_title">NFC და გადახდა</string>
     <string name="nfc_mode_general_title">NFC რეჟიმი</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">აირჩიეთ თქვენი ნაგულისხმევი მობილური გადახდის სერვისი.</string>
     <string name="nfc_payment_title">გადახდა</string>
     <string name="nfc_others_title">სხვები</string>
-    <string name="nfc_other_no_apps">სერვისის აპლიკაცია არ არის დაინსტალირებული</string>
+    <string name="nfc_other_no_apps">სერვისის აპლიკაციები არ არის დაინსტალირებული</string>
     <string name="nfc_payment_open_app">თუ გახსნილ აპს აქვს შეხებით გადახდის შესაძლებლობა</string>
     <string name="nfc_payment_favor_open_default_unknown">აპლიკაციის გახსნის გამოყენება</string>
     <string name="nfc_payment_favor_default_default_unknown">ნაგულისხმევი სერვისი არაა</string>
     <string name="nfc_tts_tab_n_of_n">ჩანართი %1$d/%2$d.</string>
+    <string name="nfc_payment_replace_default_label">შეცვლით ნაგულისხმევ გადახდის აპლიკაციას?</string>
+    <string name="nfc_payment_replace">შეცვლა</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">უპირატესი SIM ბარათი</string>
     <string name="nfc_please_wait">გთხოვთ, დაელოდოთ…</string>
     <string name="nfc_payment_no_sim_card">SIM ბარათი არ დევს</string>
-    <string name="nfc_disable_service_title">ნაგულისხმევი NFC მეთოდის შეცვლა</string>
-    <string name="nfc_disable_service_msg">თუ ნაგულისხმევ NFC დამუშავების მეთოდს შეცვლით, ზოგიერთი სერვისი გამოირთვება ან ჩაირთვება ჩანართში „სხვები“. ამ სერვისების სამართავად, გახსენით „NFC და გადახდა“ > „შეხებით გადახდა“ > „სხვები“, შემდეგ კი აირჩიეთ თითოეული სერვისი, მის ჩასართავად ან გამოსართავად.</string>
+    <string name="nfc_disable_service_title">გსურთ ნაგულისხმევი NFC მეთოდის შეცვლა?</string>
+    <string name="nfc_disable_service_msg">თუ ნაგულისხმევ NFC დამუშავების მეთოდს შეცვლით, ზოგიერთი სერვისი ჩაირთვება ან გამოირთვება ჩანართში „სხვები“. ამ სერვისების სამართავად, გახსენით „NFC და გადახდა“ > „შეხებით გადახდა“ > „სხვები“, შემდეგ კი აირჩიეთ თითოეული სერვისი, მის ჩასართავად ან გამოსართავად.</string>
     <string name="nfc_settings_advanced_setting">ნაგულისხმევი NFC მეთოდი</string>
     <string name="nfc_settings_advanced_uicc">SE SIM ბარათი</string>
     <string name="nfc_settings_advanced_uicc_TTS">დაცული ელემენტის SIM ბარათი</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">თუ „ბარათს რეჟიმს“ გამორთავთ, ვეღარ წაიკითხავთ NFC იარლიყებს, ვეღარ ჩაწერთ მონაცემებს მასზე და ვერ გაცვლით მონაცემებს მოწყობილობებს შორის.</string>
     <string name="nfc_show_alert_dialog_title">დაზოგვის ულტრა რეჟიმი</string>
     <string name="nfc_show_alert_dialog_message">%s ვერ იხსნება.</string>
-    <string name="android_beam_explained">გააზიარეთ ფაილები NFC-ის მქონე მოწყობილობებს შორის, მათი ერთმანეთთან ზურგით მიდებით. შემდეგ შეძლებთ, გააზიაროთ ვებგვერდის ბმულები, კონტაქტები და ა.შ.</string>
+    <string name="android_beam_explained">შეგიძლიათ გააზიაროთ ვებგვერდის ბმულები, კონტაქტები და სხვა რამ, რისთვისაც ტელეფონი უნდა მიიტანოთ NFC-ის მქონე მოწყობილობასთან.</string>
     <string name="android_beam_explained_1">ზურგებით მიადეთ მოწყობილობები ერთმანეთს.</string>
     <string name="android_beam_explained_2">შეეხეთ თქვენს ეკრანს.</string>
     <string name="guide_dialog_attention_title">ყურადღება</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">NFC-სთან დაკავშირებულ ფუნქციებს, როგორიცაა მასალის გაზიარების ზოგიერთი მეთოდი და NFC გადახდა, ვერ გამოიყენებთ, როდესაც გამორთულია NFC.</string>
     <string name="limit_app_contents_transfer">მასალის გაზიარება NFC-ით შეიზღუდება, როდესაც გამორთულია Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">თუ ამჟამად გახსნილ აპლიკაციას აქვს „შეხებით გადახდის“ მხარდაჭერა, მოხდება მისი გამოყენება იმის ნაცვლად, რომ გამოიყენოს %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">თუ ამჟამად გახსნილ აპლიკაციას აქვს „შეხებით გადახდის“ მხარდაჭერა, მოხდება მისი გამოყენება.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">თუ ამჟამად გახსნილ აპლიკაციას აქვს „შეხებით გადახდის“ მხარდაჭერა, ის გამოყენებული იქნება გადახდისთვის.</string>
     <string name="folder_sounds">გახსნა-დახურვის ხმები</string>
     <string name="folder_sounds_summary">გაისმას ხმა საქაღალდის გახსნის და დაკეტვის დროს.</string>
     <string name="sound_category_calls_title">შემოსული ზარები</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">მიიღეთ შეტყობინებები, რომლებშიც ნაჩვენებია აპლიკაციების მიერ Wi-Fi ან მობილური ქსელებით გამოყენებული მონაცემები, როდესაც მოწყობილობა დაბლოკილი იყო %d წუთზე მეტი ხნით.</string>
     <string name="data_usage_reminder_description">შემდეგი აპლიკაციების მიერ გამოყენებულ მონაცემთა რაოდენობაა %s, სანამ მოწყობილობა დაბლოკილი იყო:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">კი</string>
     <string name="no">არა</string>
     <string name="create">შექმნა</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">მოწყობილობის ინფო</string>
     <string name="proxy_settings_label">პროქსი სერვერის პარამეტრები</string>
     <string name="cancel">გაუქმება</string>
-    <string name="okay">OK</string>
     <string name="save">შენახვა</string>
     <string name="done">შესრულდა</string>
     <string name="settings_label">პარამეტრ.</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ეს პარამეტრები გავრცელდება ამ მოწყობილობის ყველა მომხმარებელზე.</string>
     <string name="global_locale_change_title">ენის შეცვლა</string>
     <string name="nfc_payment_settings_title">შეხება და გადახდა</string>
-    <string name="nfc_payment_no_apps">გადახდის სერვისის აპლიკაცია არ არის დაინსტალირებული</string>
+    <string name="nfc_payment_no_apps">გადახდის აპლიკაციები არ არის დაინსტალირებული</string>
     <string name="nfc_payment_favor_default">კვლავ გამოიყენეთ %s</string>
     <string name="nfc_payment_favor_open">გახსნილი აპლიკაციის გამოყენება %s-ის ნაცვლად</string>
     <string name="nfc_how_it_works_got_it">მიღებულია</string>
-    <string name="nfc_payment_set_default_label">ნაგულისხმევად დაყენება</string>
-    <string name="nfc_payment_set_default">%s დაყენდება, როგორც გადახდის ნაგულისხმევი მეთოდი, „შეხება და გადახდა“ ტრანზაქციის დროს.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s შეცვლის %2$s-ს და შეირჩევა როგორც გადახდის ნაგულისხმევი მეთოდი, „შეხება და გადახდა“ ტრანზაქციის დროს.</string>
+    <string name="nfc_payment_set_default_label">დააყენებთ ნაგულისხმევ გადახდის აპლიკაციას?</string>
+    <string name="nfc_payment_set_default">%s დაყენდება, როგორც გადახდის ნაგულისხმევი აპლიკაცია „შეხებით გადახდისთვის“.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s შეცვლის %2$s-ს და შეირჩევა როგორც გადახდის ნაგულისხმევი აპლიკაცია „შეხებით გადახდისთვის“.</string>
     <string name="help_label">დახმარება</string>
     <string name="user_restrictions_title">პროგრამის/მასალის შეზღუდვები</string>
     <string name="user_restrictions_controlled_by">კონტროლისთვის გამოიყენება %1$s</string>

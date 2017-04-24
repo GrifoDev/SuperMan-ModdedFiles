@@ -233,7 +233,7 @@
     goto :goto_3
 
     :cond_e
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
     goto :goto_4
 
@@ -274,7 +274,7 @@
 
     iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v1, 0x7f08012c
+    const v1, 0x7f08012d
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

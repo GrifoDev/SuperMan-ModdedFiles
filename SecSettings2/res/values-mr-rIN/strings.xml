@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s द्वारे कनेक्‍ट केले</string>
     <string name="available_via_passpoint">%1$s द्वारे उपलब्‍ध</string>
     <string name="wifi_connected_no_internet">कनेक्‍ट केले, इंटरनेट नाही</string>
+    <string name="wifi_internet_may_not_be_available">इंटरनेट कदाचित उपलब्ध नसेल</string>
     <string name="wifi_reconnecting">नेटवर्क दर्जा सुधारल्‍यावर कनेक्‍ट करण्‍यासाठी तयार.</string>
     <string name="wifi_connected_checking_quality">आपल्‍या इंटरनेट कनेक्‍शनची गुणवत्‍ता तपासत आहे…</string>
     <string name="wifi_sign_in_to_the_network">नेटवर्कवर साइन इन करा.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d संबंधित आयटम्स</string>
     <string name="no_results_found">कोणतेही परिणाम आढळले नाही</string>
     <string name="menu_edit">संपादित करा</string>
-    <string name="reset">पुन्हा मांडणी करा.</string>
+    <string name="reset">पुन्हा मांडणी करा</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">आपण अनुप्रयोग कधी वापराल हे जाणून घेण्‍याची Voice Assistant ला अनुमती देते.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">या मजकूराच्या खाली आणि स्क्रीनच्या तळाशी असलेल्या बटण्याच्या वरील क्षेत्रामध्ये दिशा रेखांकित करा.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">स्‍क्रीनच्‍या तळाशी उजव्‍या कोपर्‍यात स्थित असलेल्‍या बटणाची पुष्‍टी करा.</string>
@@ -865,6 +866,14 @@ Wi-Fi आणि ब्‍लुटूथ देखील बंद होईल,
     <string name="content_description_hand">स्‍क्रीनच्‍या मध्‍यभागी निळे वर्तुळ टॅप आणि होल्‍ड करा.</string>
     <string name="nearby_scanning_help_msg_sub">जवळपासचे उपकरण स्कॅनिंग ब्लुटूथ कमी ऊर्जा स्कॅनिंग आणि मायक्रोफोन वापरते. ब्लुटूथ कमी ऊर्जा स्कॅनिंग या उपकरणावर ब्लुटूथ बंद असताना देखील वापरले जाऊ शकते.</string>
     <string name="sec_bluetooth_no_devices_found">कोणतीही ब्लुटूथ उपकरणे सापडली नाहीत</string>
+    <string name="bt_tether_title">ब्लुटूथ टेथरिंग</string>
+    <string name="bt_tether_settings_on">चालू</string>
+    <string name="bt_tether_settings_off">बंद</string>
+    <string name="bt_tether_off_brief_text_phone">ब्लुटूथ वापरून आपल्या फोनचे इंटरनेट कनेक्शन अन्य उपकरणांसह सामायिक करा.</string>
+    <string name="bt_tether_off_brief_text_tablet">ब्लुटूथ वापरून आपल्या टॅबलेटचे इंटरनेट कनेक्शन अन्य उपकरणांसह सामायिक करा.</string>
+    <string name="bt_tether_preference_tethered_device_list">टेथर केलेली उपकरणे</string>
+    <string name="bt_tether_server_description_phone">ब्लुटूथ वापरून दुसर्‍या उपकरणाशी पेअर करून आपल्या फोनचे इंटरनेट कनेक्शन सामायिक करा. उपकरण यापूर्वी टेथर केले असल्यास, टेथर केलेल्या उपकरणाच्या यादी मधून निवडून तो पुन्हा टेथर करू शकता.</string>
+    <string name="bt_tether_server_description_tablet">ब्लुटूथ वापरून अन्य उपकरणासह पेअर करून आपल्या टॅबलेटचे इंटरनेट कनेक्शन अन्य उपकरणांसह सामायिक करा. उपकरण यापूर्वी टेथर केले असल्यास, टेथर केलेल्या उपकरणाच्या यादी मधून निवडून तो पुन्हा टेथर करू शकता.</string>
     <string name="bluetooth_consent_pairing_msg">%s शी पेअर करण्यासाठी “ठीक” टॅप करा.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s आपले SIM कार्ड ऍक्‍सेस करण्‍यासाठी परवानगीची विनंती करत आहे. ही विनंती अनुमत करणे कॉलिंग आणि संदेश प्रेषण फंक्‍शन्‍स अक्षम करेल आणि आपल्‍या उपकरणावर मोबाईल डेटा बंद करेल. अनुमती द्यायची?
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">उपकरणाने अन्य उपकरणाला स्पर्श केल्यावर डेटा अदलाबदली अनुमत करा.</string>
     <string name="android_beam_settings_title">एनड्रॉइड बीम</string>
-    <string name="nfc_settings_title">मोबाईल देय ,सेवा वापरा, NFC टॅग्स वाचा आणि लिहा आणि NFC-कॅपेबल उपकरणांच्या दरम्‍यान डेटा हस्तांतरित करा.</string>
+    <string name="nfc_settings_title">मोबाईल देयके द्या, डेटा सामायिक करा आणि NFC टॅग्स वाचा किंवा लिहा.</string>
     <string name="nfc_settings_rw_p2p_summary">आपण टॅग्स वाचू आणि लिहू शकता आणि उपकरणांन दरम्यान डेटा स्थानांतरित करू शकता.</string>
     <string name="nfcpayment_quick_toggle_title">NFC आणि देय</string>
     <string name="nfc_mode_general_title">NFC मोड</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">आपली डिफॉल्ट देय सेवा निवडा.</string>
     <string name="nfc_payment_title">देय</string>
     <string name="nfc_others_title">अन्य</string>
-    <string name="nfc_other_no_apps">कोणतेही इन्स्टॉल केलेले अनुप्रयोग नाहीत</string>
+    <string name="nfc_other_no_apps">सेवा अनुप्रयोग इन्स्टॉल केलेले नाहीत</string>
     <string name="nfc_payment_open_app">जर उघडलेला अनुप्रयोग टॅप करण्यास आणि देय देण्यास समर्थन देत असेल</string>
     <string name="nfc_payment_favor_open_default_unknown">अनुप्रयोग उघडा वापरा</string>
     <string name="nfc_payment_favor_default_default_unknown">कोणतीही डिफॉल्ट देय सेवा नाही</string>
     <string name="nfc_tts_tab_n_of_n">%2$d पैकी %1$d टॅब करा</string>
+    <string name="nfc_payment_replace_default_label">डिफॉल्ट देयक अनुप्रयोग बदलायचा?</string>
+    <string name="nfc_payment_replace">बदला</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">प्राधान्य असलेले SIM कार्ड</string>
     <string name="nfc_please_wait">कृपया वाट पहा…</string>
     <string name="nfc_payment_no_sim_card">कोणतेही SIM कार्ड नाही</string>
-    <string name="nfc_disable_service_title">डिफॉल्ट NFC पद्धत बदला</string>
-    <string name="nfc_disable_service_msg">आपण डिफॉल्ट NFC प्रक्रिया पद्धत बदलल्यास, अन्य टॅबमधील काही सेवा अक्षम किंवा सक्षम केल्या जातील. या सेवा व्यवस्थापित करण्यासाठी, NFC आणि देय > टॅप आणि देय > अन्यांवर जा, नंतर ते सक्षम किंवा अक्षम करण्यासाठी प्रत्येक सेवा निवडा.</string>
+    <string name="nfc_disable_service_title">डिफॉल्ट NFC पद्धत बदलायची?</string>
+    <string name="nfc_disable_service_msg">आपण डिफॉल्ट NFC प्रक्रिया पद्धत बदलल्यास, इतर टॅब मधील काही सेवा चालू किंवा बंद करण्‍यात येतील. या सेटिंग्स व्यवस्थापित करण्या साठी, NFC आणि देय > टॅप करा आणि देय द्या > इतर वर जा, नंतर ती चालू किंवा बंद करण्या साठी प्रत्येक सेवा निवडा.</string>
     <string name="nfc_settings_advanced_setting">डिफॉल्ट NFC पद्धत</string>
     <string name="nfc_settings_advanced_uicc">SE SIM कार्ड</string>
     <string name="nfc_settings_advanced_uicc_TTS">सुरक्षित घटक SIM कार्ड</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">आपण कार्ड मोड वर स्विच केल्यास, आपण NFC टॅग्‍स वाचण्‍यास, त्‍यावर डेटा लिहिण्‍यास किंवा उपकरणां दरम्‍यान डेटा अदलाबदली करण्‍यात सक्षम नसाल.</string>
     <string name="nfc_show_alert_dialog_title">अल्ट्रा पॉवर सेव्हिंग मोड</string>
     <string name="nfc_show_alert_dialog_message">%s उघडण्‍यामध्‍ये अक्षम.</string>
-    <string name="android_beam_explained">NFC-कॅपेबल उपकरणे एकत्र होल्‍ड करून त्यांच्या दरम्यान फाइल्‍स सामायिक करा. आपण नंतर वेबपृष्ठ लिंक्स, संपर्क आणि अधिक सामयिक करू शकता.</string>
+    <string name="android_beam_explained">आपला फोन NFC-सक्षम उपकरणाच्या जवळ धरून वेबपृष्ठ लिंक्स, संपर्क आणि अधिक सामायिक करू शकता.</string>
     <string name="android_beam_explained_1">उपकरणे एकामागे एक एकत्र आणा.</string>
     <string name="android_beam_explained_2">आपली स्क्रीन टॅप करा.</string>
     <string name="guide_dialog_attention_title">लक्ष द्या</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">NFC-संबंधित वैशिष्‍ट्ये, जसे कि सामग्री शेअर करण्‍याच्‍या काही पद्धती आणि NFC देय, NFC बंद असताना उपलब्‍ध असणार नाही.</string>
     <string name="limit_app_contents_transfer">अॅन्‍ड्राइड बीम बंद असताना NFC द्वारे सामग्री शेअर करत आहे.</string>
     <string name="nfc_payment_dialog_favor_open">सध्या खुला अनुप्रयोग टॅप आणि देय देण्याचे समर्थन करत असल्यास, तो %s ऐवजी वापरला जाईल.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">सध्या खुला अनुप्रयोग टॅप आणि देय देण्याचे समर्थन करत असल्यास, तो वापरला जाईल.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">सध्या खुला अनुप्रयोग टॅप आणि देय देण्याचे समर्थन करत असल्यास, तो देय देण्या साठी वापरला जाईल.</string>
     <string name="folder_sounds">फोल्‍डर ध्‍वनी खुले/बंद करते</string>
     <string name="folder_sounds_summary">फोल्‍डर उघडत आणि बंद होत असताना ध्‍वनी प्‍ले करा.</string>
     <string name="sound_category_calls_title">येणारे कॉल</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">जेव्हा उपकरण %d पेक्षा जास्त मिनिटे लॉक होते, तेव्हा Wi-Fi किंवा मोबाईल नेटवर्क्‍सद्वारे अनुप्रयोगाने वापरलेल्या डेटाची मात्रा दर्शवणा-या अधिसूचना प्राप्‍त करा.</string>
     <string name="data_usage_reminder_description">उपकरण लॉक असताना खालील एकूण अनुप्रयोगांमध्ये डेटाचे %s वापरले:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ठीक</string>
     <string name="yes">होय</string>
     <string name="no">नाही</string>
     <string name="create">तयार करा</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">उपकरणाची माहिती.</string>
     <string name="proxy_settings_label">प्रॉक्सी सेटिंग</string>
     <string name="cancel">रद्द</string>
-    <string name="okay">ठीक</string>
     <string name="save">जतन करा</string>
     <string name="done">झाले</string>
     <string name="settings_label">सेटिंग्स</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">हे सेटिंग्स या उपकरण वरील सर्व प्रयोक्त्यांना प्रभावित करते.</string>
     <string name="global_locale_change_title">भाषा बदला</string>
     <string name="nfc_payment_settings_title">टॅप करा आणि देय द्या</string>
-    <string name="nfc_payment_no_apps">कोणतेही इन्‍स्‍टॉल केलेले देय सेवा अनुप्रयोग नाहीत</string>
+    <string name="nfc_payment_no_apps">देयक अनुप्रयोग इन्स्टॉल केलेले नाहीत</string>
     <string name="nfc_payment_favor_default">अजूनही %s वापरा</string>
     <string name="nfc_payment_favor_open">%s च्याऐवजी अनुप्रयोग उघडा वापरा</string>
     <string name="nfc_how_it_works_got_it">समजले</string>
-    <string name="nfc_payment_set_default_label">डिफॉल्ट म्हणून सेट करा</string>
-    <string name="nfc_payment_set_default">टॅप करा आणि देय करा व्यवहारासाठी %s ला आपली डिफॉल्ट देय पध्दत म्हणून सेट करेल.</string>
-    <string name="nfc_payment_set_default_instead_of">टॅप करा आणि देय करा व्यवहारासाठी %1$s ला %2$s ने आपली डिफॉल्ट देय पध्दत म्हणून बदलेल.</string>
+    <string name="nfc_payment_set_default_label">डिफॉल्‍ट देय पद्धत सेट करायची?</string>
+    <string name="nfc_payment_set_default">टॅप करा आणि देय देण्या साठी %s ला आपली डिफॉल्ट देय पध्दत म्हणून सेट करेल.</string>
+    <string name="nfc_payment_set_default_instead_of">टॅप करून देय देण्या साठी %1$s %2$s ला आपला डिफॉल्ट देयक अनुप्रयोग म्हणून बदलेल.</string>
     <string name="help_label">मदत</string>
     <string name="user_restrictions_title">अनुप्रयोग/सामग्री प्रतिबंध</string>
     <string name="user_restrictions_controlled_by">%1$s द्वारे नियंत्रित</string>
@@ -5126,7 +5137,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">अक्षम केले</string>
     <string name="backup_disabled">स्वयं बॅकअप अक्षम केले</string>
     <string name="about_summary">एनड्रॉइड %s</string>
-    <string name="disabled_by_policy_title">कृती करण्यास अक्षम</string>
+    <string name="disabled_by_policy_title">क्रिया करण्यात अक्षम</string>
     <string name="default_admin_support_msg">आपल्याला ही कृती करण्याची परवानगी नाही. अधिक माहिती साठी आपल्या संघटनेच्या IT प्रशासकाशी संपर्क साधा.</string>
     <string name="admin_support_more_info">अधिक तपशील</string>
     <string name="admin_profile_owner_message">प्रशासक अनुप्रयोग आणि आपल्या कार्य प्रोफाइलशी संबंधित डेटा मॉनिटर आणि नियंत्रित करू शकतो, ज्यात सेटिंग्स, परवानग्या, कॉर्पोरेट ऍक्सेस, नेटवर्क क्रिया आणि उपकरण स्थान माहितीचा समावेश आहे.</string>

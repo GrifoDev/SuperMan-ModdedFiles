@@ -125,7 +125,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0402dd
+    const v7, 0x7f0402de
 
     invoke-virtual {v6, v7, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -199,7 +199,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b18b0
+    const v7, 0x7f0b19cb
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -211,7 +211,7 @@
 
     iget-object v7, p0, Lcom/android/settings/widget/SwitchBar;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f0f0295
+    const v8, 0x7f0f0296
 
     invoke-direct {v6, v7, v8}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -931,7 +931,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b18af
+    const v0, 0x7f0b19ca
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -945,7 +945,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b18b0
+    const v0, 0x7f0b19cb
 
     goto :goto_0
 .end method

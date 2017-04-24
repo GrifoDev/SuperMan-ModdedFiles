@@ -39,7 +39,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040284
+    const v2, 0x7f040285
 
     const/4 v3, 0x0
 
@@ -124,7 +124,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setEnabled(Z)V
 
-    const v4, 0x7f0b18bd
+    const v4, 0x7f0b19d8
 
     invoke-virtual {v1, v4}, Lcom/android/setupwizardlib/SetupWizardPreferenceLayout;->setHeaderText(I)V
 

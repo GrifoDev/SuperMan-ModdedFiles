@@ -1,4 +1,4 @@
-.class Lcom/android/settings/inputmethod/InputMethodPreference;
+.class public Lcom/android/settings/inputmethod/InputMethodPreference;
 .super Lcom/android/settingslib/SecRestrictedSwitchPreference;
 .source "InputMethodPreference.java"
 
@@ -77,7 +77,7 @@
 
     iput-object v5, p0, Lcom/android/settings/inputmethod/InputMethodPreference;->mDialog:Landroid/app/AlertDialog;
 
-    const v3, 0x7f0402ef
+    const v3, 0x7f0402f0
 
     invoke-virtual {p0, v3}, Lcom/android/settings/inputmethod/InputMethodPreference;->setLayoutResource(I)V
 
@@ -345,7 +345,7 @@
 
     aput-object v2, v3, v4
 
-    const v4, 0x7f0b147b
+    const v4, 0x7f0b1596
 
     invoke-virtual {v1, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -579,7 +579,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b147f
+    const v5, 0x7f0b159a
 
     invoke-virtual {v0, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

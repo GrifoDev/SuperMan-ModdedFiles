@@ -39,7 +39,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/EdgeTypePreference;->setDialogLayoutResource(I)V
 
-    const v1, 0x7f040221
+    const v1, 0x7f040222
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accessibility/EdgeTypePreference;->setListItemLayoutResource(I)V
 
@@ -93,7 +93,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a03c0
+    const v6, 0x7f0a03c1
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

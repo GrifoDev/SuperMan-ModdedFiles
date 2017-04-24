@@ -61,13 +61,13 @@
 
     iget-object v5, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;->val$activity:Landroid/app/Activity;
 
-    invoke-static {v4, v5}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap7(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/content/Context;)V
+    invoke-static {v4, v5}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap8(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/content/Context;)V
 
     iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;->this$0:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
 
     const-string/jumbo v5, "textservices"
 
-    invoke-static {v4, v5}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap2(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v4, v5}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap3(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -81,19 +81,19 @@
 
     invoke-virtual {v3}, Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     const-string/jumbo v4, "com.sec.android.inputmethod"
 
-    invoke-virtual {v0}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
     iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;->this$0:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
 
@@ -103,7 +103,7 @@
 
     move-result-object v2
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     if-eqz v2, :cond_0
 
@@ -113,7 +113,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0, v4}, Landroid/view/textservice/SpellCheckerInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v1, v4}, Landroid/view/textservice/SpellCheckerInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v4
 

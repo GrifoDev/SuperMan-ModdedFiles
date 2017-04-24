@@ -1028,7 +1028,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b05b9
+    const v6, 0x7f0b05c4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1111,7 +1111,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0b05ca
+    const v6, 0x7f0b05d5
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1425,7 +1425,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v5, 0x7f0b0fd9
+    const v5, 0x7f0b10f5
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -1433,7 +1433,7 @@
 
     iput-object v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v5, 0x7f0b1413
+    const v5, 0x7f0b152e
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/FontPreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -1551,7 +1551,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b01f8
+    const v6, 0x7f0b01f9
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1567,7 +1567,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b01fc
+    const v6, 0x7f0b01fd
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1595,7 +1595,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0b05c8
+    const v7, 0x7f0b05d3
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1624,7 +1624,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0b05c9
+    const v7, 0x7f0b05d4
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1846,7 +1846,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05ab
+    const v3, 0x7f0b05b6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1977,7 +1977,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b05ac
+    const v3, 0x7f0b05b7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2203,13 +2203,13 @@
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b05b7
+    const v3, 0x7f0b05c2
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b05b8
+    const v3, 0x7f0b05c3
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3131,7 +3131,7 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 10
 
-    const v9, 0x7f0b0597
+    const v9, 0x7f0b05a2
 
     const/4 v8, 0x6
 
@@ -3446,7 +3446,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/FontPreviewTablet;->mSaveButton:Landroid/widget/Button;
 
-    const v2, 0x7f0b1710
+    const v2, 0x7f0b182b
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 
@@ -3575,7 +3575,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b05cc
+    const v16, 0x7f0b05d7
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -3600,7 +3600,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b05b2
+    const v16, 0x7f0b05bd
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -3640,7 +3640,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b05b1
+    const v16, 0x7f0b05bc
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -3756,7 +3756,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b05ae
+    const v16, 0x7f0b05b9
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -3945,7 +3945,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b05b0
+    const v16, 0x7f0b05bb
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -4687,7 +4687,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0b129a
+    const v6, 0x7f0b13b5
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

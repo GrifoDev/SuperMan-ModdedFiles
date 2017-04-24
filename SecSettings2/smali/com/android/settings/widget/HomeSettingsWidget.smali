@@ -55,7 +55,7 @@
 
     const-string/jumbo v3, "android.intent.extra.shortcut.NAME"
 
-    const v4, 0x7f0b039e
+    const v4, 0x7f0b039f
 
     invoke-virtual {p0, v4}, Lcom/android/settings/widget/HomeSettingsWidget;->getString(I)Ljava/lang/String;
 

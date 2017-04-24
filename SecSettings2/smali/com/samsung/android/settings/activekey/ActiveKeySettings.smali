@@ -69,7 +69,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0347
+    const v7, 0x7f0b0348
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -79,7 +79,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0348
+    const v7, 0x7f0b0349
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -89,7 +89,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0349
+    const v7, 0x7f0b034a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -99,7 +99,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b034a
+    const v7, 0x7f0b034b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b034c
+    const v6, 0x7f0b034d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -266,7 +266,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b034b
+    const v6, 0x7f0b034c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0b0337
+    const v5, 0x7f0b0338
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->getString(I)Ljava/lang/String;
 
@@ -316,7 +316,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b033c
+    const v5, 0x7f0b033d
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->getString(I)Ljava/lang/String;
 
@@ -338,11 +338,11 @@
 .method private updatePressActionItems()V
     .locals 11
 
-    const v10, 0x7f0b044b
+    const v10, 0x7f0b0456
 
-    const v9, 0x7f0b0352
+    const v9, 0x7f0b0353
 
-    const v8, 0x7f0b0351
+    const v8, 0x7f0b0352
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -626,9 +626,9 @@
 .method private updatePressActionItemsGridViewConcept()V
     .locals 12
 
-    const v11, 0x7f0b0828
+    const v11, 0x7f0b0834
 
-    const v10, 0x7f0b0827
+    const v10, 0x7f0b0833
 
     const/4 v9, 0x1
 
@@ -651,7 +651,7 @@
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mShortPress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18b0
+    const v5, 0x7f0b19cb
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -669,7 +669,7 @@
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mLongPress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18b0
+    const v5, 0x7f0b19cb
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -689,7 +689,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->mDoublePress:Landroid/preference/PreferenceScreen;
 
-    const v5, 0x7f0b18b0
+    const v5, 0x7f0b19cb
 
     invoke-virtual {v4, v5}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1111,7 +1111,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f08015a
+    const v0, 0x7f08015b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/activekey/ActiveKeySettings;->addPreferencesFromResource(I)V
 

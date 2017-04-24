@@ -183,7 +183,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0f0282
+    const v6, 0x7f0f0283
 
     iput v6, v5, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -215,7 +215,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setNavigationOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v5, 0x7f0b0b1c
+    const v5, 0x7f0b0b2a
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 

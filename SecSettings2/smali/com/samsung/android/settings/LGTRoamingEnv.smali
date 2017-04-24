@@ -451,13 +451,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b01c6
+    const v1, 0x7f0b01c7
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0e8b
+    const v1, 0x7f0b0e99
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -623,7 +623,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b01bc
+    const v1, 0x7f0b01bd
 
     const/4 v2, 0x0
 
@@ -639,7 +639,7 @@
     :cond_0
     sget-object v0, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b01bd
+    const v1, 0x7f0b01be
 
     const/4 v2, 0x0
 
@@ -679,7 +679,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b01be
+    const v1, 0x7f0b01bf
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -752,7 +752,7 @@
 
     sget-object v1, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b01bf
+    const v2, 0x7f0b01c0
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -803,13 +803,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b096d
+    const v1, 0x7f0b097b
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0e8c
+    const v1, 0x7f0b0e9a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -874,7 +874,7 @@
 
     sput-object v0, Lcom/samsung/android/settings/LGTRoamingEnv;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f08008c
+    const v0, 0x7f08008d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/LGTRoamingEnv;->addPreferencesFromResource(I)V
 

@@ -516,7 +516,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b02e5
+    const v3, 0x7f0b02e6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -771,7 +771,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f08006b
+    const v2, 0x7f08006c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/assistantmenu/AssistantPlusFragment;->addPreferencesFromResource(I)V
 
@@ -1003,7 +1003,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b02e4
+    const v2, 0x7f0b02e5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

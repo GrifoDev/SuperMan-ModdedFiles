@@ -785,7 +785,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177a
+    const v0, 0x7f0b1895
 
     return v0
 .end method
@@ -904,7 +904,7 @@
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/settings/vpn2/VpnSettings;->setHasOptionsMenu(Z)V
 
-    const v1, 0x7f08013f
+    const v1, 0x7f080140
 
     invoke-virtual {p0, v1}, Lcom/android/settings/vpn2/VpnSettings;->addPreferencesFromResource(I)V
 
@@ -916,13 +916,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0469
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1447,7 +1447,7 @@
 .method public onResume()V
     .locals 7
 
-    const v6, 0x7f0f0266
+    const v6, 0x7f0f0267
 
     const/4 v5, 0x0
 
@@ -1489,7 +1489,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b00a3
+    const v3, 0x7f0b00a4
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -1517,7 +1517,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b16f0
+    const v3, 0x7f0b180b
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

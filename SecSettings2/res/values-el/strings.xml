@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Συνδέθηκε μέσω %1$s</string>
     <string name="available_via_passpoint">Διαθέσιμο μέσω %1$s</string>
     <string name="wifi_connected_no_internet">Συνδέθηκε, χωρίς διαδίκτυο</string>
+    <string name="wifi_internet_may_not_be_available">Το Internet ίσως δεν είναι διαθέσ.</string>
     <string name="wifi_reconnecting">Έτοιμο για σύνδεση μόλις βελτιωθεί η ποιότητα του δικτύου</string>
     <string name="wifi_connected_checking_quality">Έλεγχος ποιότητας της σύνδεσής σας στο Internet…</string>
     <string name="wifi_sign_in_to_the_network">Συνδεθείτε στο δίκτυο.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d σχετικά στοιχεία</string>
     <string name="no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
     <string name="menu_edit">Επεξεργασία</string>
-    <string name="reset">Μηδενισμός</string>
+    <string name="reset">Επαναφορά</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Επιτρέπει στο Voice Assistant να γνωρίζει πότε χρησιμοποιείτε μια εφαρμογή.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Σχεδιάστε κατευθύνσεις στην περιοχή κάτω από αυτό το κείμενο και πάνω από τα κουμπιά που βρίσκονται στο κάτω μέρος της οθόνης.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Κουμπί επιβεβαίωσης στην κάτω δεξιά γωνία της οθόνης.</string>
@@ -820,7 +821,7 @@ Enter the code you get from Verizon:"</string>
     <string name="default_app_selection">Επιλογή προεπ. εφαρμογής</string>
     <string name="default_app_selection_auto_set">Αυτόματος ορισμός προεπιλ. εφαρμογών</string>
     <string name="default_app_selection_ask">Ερώτηση πριν το ορισμό προεπ. εφαρμ.</string>
-    <string name="launch_application_settings">Προεπ/νες εφαρμογές</string>
+    <string name="launch_application_settings">Προεπιλεγμένες εφαρμογές</string>
     <string name="launch_application_settings_summary">Ορίστε εφαρμογές για συγκεκριμένες εργασίες.</string>
     <string name="home_settings_header">Αλλαγή αρχικής σελίδας</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">Πατήστε παρατεταμένα τον μπλε κύκλο στο κέντρο της οθόνης.</string>
     <string name="nearby_scanning_help_msg_sub">Η σάρωση κοντινής συσκευής χρησιμοποιεί σάρωση Bluetooth Low Energy και το μικρόφωνο. Η σάρωση Bluetooth Low Energy μπορεί να χρησιμοποιηθεί ακόμη και όταν το Bluetooth είναι απενεργοποιημένο σε αυτήν τη συσκευή.</string>
     <string name="sec_bluetooth_no_devices_found">Δεν βρέθηκαν συσκευές Bluetooth</string>
+    <string name="bt_tether_title">Tethering μέσω Bluetooth</string>
+    <string name="bt_tether_settings_on">Ενεργό</string>
+    <string name="bt_tether_settings_off">Ανενεργό</string>
+    <string name="bt_tether_off_brief_text_phone">Μοιραστείτε τη σύνδεση Internet του τηλεφώνου σας με άλλες συσκευές μέσω Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Μοιραστείτε τη σύνδεση Internet του tablet σας με άλλες συσκευές μέσω Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Συσκευές συνδεδεμένες μέσω tethering</string>
+    <string name="bt_tether_server_description_phone">Μοιραστείτε τη σύνδεση Internet του τηλεφώνου σας, αντιστοιχίζοντάς το με κάποια άλλη συσκευή μέσω Bluetooth. Αν η συσκευή είχε συνδεθεί και παλαιότερα μέσω tethering, μπορείτε να τη συνδέσετε ξανά, επιλέγοντας την από τη λίστα «Συνδεδεμένες συσκευές μέσω tethering».</string>
+    <string name="bt_tether_server_description_tablet">Μοιραστείτε τη σύνδεση Internet του tablet σας, αντιστοιχίζοντάς το με κάποια άλλη συσκευή μέσω Bluetooth. Αν η συσκευή είχε συνδεθεί και παλαιότερα μέσω tethering, μπορείτε να τη συνδέσετε ξανά, επιλέγοντας την από τη λίστα «Συνδεδεμένες συσκευές μέσω tethering».</string>
     <string name="bluetooth_consent_pairing_msg">Πατήστε OK για αντιστοίχιση με τη συσκευή %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"Η συσκευή %s ζήτα άδεια για πρόσβαση στην κάρτα SIM σας. Αν αποδεχτείτε το αίτημα, θα απενεργοποιηθούν οι λειτουργίες κλήσεων και ανταλλαγής μηνυμάτων καθώς και τα δεδομένα κινητής τηλεφωνίας στη συσκευή σας. Να επιτρέπεται;
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Να επιτρέπεται η ανταλλαγή δεδομένων, όταν η συσκευή έρχεται σε επαφή με άλλη συσκευή.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Χρησιμοποιήστε τις υπηρεσίες πληρωμής για κινητές συσκευές, κάντε ανάγνωση και εγγραφή ετικετών NFC και ανταλλαγή δεδομένων μεταξύ συσκευών με δυνατότητα NFC.</string>
+    <string name="nfc_settings_title">Κάντε πληρωμές μέσω κινητών συσκευών, μοιραστείτε δεδομένα, διαβάστε και εγγράψτε ετικέτες NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Μπορείτε να διαβάσετε και να γράψετε ετικέτες και να μεταφέρετε δεδομένα μεταξύ συσκευών.</string>
     <string name="nfcpayment_quick_toggle_title">NFC και πληρωμή</string>
     <string name="nfc_mode_general_title">Λειτουργία NFC</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">Επιλέξτε την προεπιλεγμένη υπηρεσία πληρωμών για κινητές συσκευές.</string>
     <string name="nfc_payment_title">Πληρωμή</string>
     <string name="nfc_others_title">Άλλες</string>
-    <string name="nfc_other_no_apps">Καμία εγκατεστημένη εφαρμογή υπηρεσίας</string>
+    <string name="nfc_other_no_apps">Δεν έχουν εγκατασταθεί εφαρμογές υπηρεσιών</string>
     <string name="nfc_payment_open_app">Αν η ανοιχτή εφαρμογή υποστηρίζει τη λειτουργία «Πάτημα και πληρωμή»</string>
     <string name="nfc_payment_favor_open_default_unknown">Χρήση ανοιχτής εφαρμογής</string>
     <string name="nfc_payment_favor_default_default_unknown">Καμία προεπιλ. υπηρ. πληρωμών</string>
     <string name="nfc_tts_tab_n_of_n">Καρτέλα %1$d από %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Αντικατάσταση προεπιλ. εφαρμογής πληρωμής;</string>
+    <string name="nfc_payment_replace">Αντικατάσταση</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Προτιμώμενη κάρτα SIM</string>
     <string name="nfc_please_wait">Περιμένετε…</string>
     <string name="nfc_payment_no_sim_card">Λειτουργία χωρίς SIM</string>
-    <string name="nfc_disable_service_title">Αλλαγή της προεπιλεγμένης μεθόδου NFC</string>
-    <string name="nfc_disable_service_msg">Αν αλλάξετε την προεπιλεγμένη μέθοδο επεξεργασίας NFC, ορισμένες υπηρεσίες στην καρτέλα ΑΛΛΑ θα απενεργοποιηθούν ή θα ενεργοποιηθούν. Για να διαχειριστείτε αυτές τις υπηρεσίες, μεταβείτε στο μενού NFC και πληρωμή > Πάτημα και πληρωμή > ΑΛΛΑ και, στη συνέχεια, επιλέξτε κάθε μία από τις υπηρεσίες για να την ενεργοποιήσετε ή να την απενεργοποιήσετε.</string>
+    <string name="nfc_disable_service_title">Αλλαγή της προεπιλεγμένης μεθόδου NFC;</string>
+    <string name="nfc_disable_service_msg">Αν αλλάξετε την προεπιλεγμένη μέθοδο επεξεργασίας NFC, ορισμένες υπηρεσίες στην καρτέλα ΑΛΛΑ θα ενεργοποιηθούν ή θα απενεργοποιηθούν. Για να διαχειριστείτε αυτές τις υπηρεσίες, μεταβείτε στο μενού NFC και πληρωμή > Πάτημα και πληρωμή > ΑΛΛΑ και, στη συνέχεια, επιλέξτε κάθε μία από τις υπηρεσίες για να την ενεργοποιήσετε ή να την απενεργοποιήσετε.</string>
     <string name="nfc_settings_advanced_setting">Προεπιλεγμένη μέθοδος NFC</string>
     <string name="nfc_settings_advanced_uicc">Κάρτα SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">Κάρτα SIM ασφαλών στοιχείων</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Αν επιλέξετε τη λειτουργία κάρτας, δεν θα μπορείτε πλέον να διαβάζετε ετικέτες NFC, να εγγράφετε δεδομένα στις ετικέτες ή να ανταλλάσσετε δεδομένα μεταξύ συσκευών.</string>
     <string name="nfc_show_alert_dialog_title">Λειτ. εξοικ. ενέργ. Ultra</string>
     <string name="nfc_show_alert_dialog_message">Δεν είναι δυνατό το άνοιγμα του %s.</string>
-    <string name="android_beam_explained">Μοιραστείτε αρχεία μεταξύ συσκευών με δυνατότητα NFC, φέρνοντάς τις κοντά. Στη συνέχεια, θα μπορείτε να μοιράζεστε συνδέσεις ιστοσελίδων, επαφές κ.ά.</string>
+    <string name="android_beam_explained">Μπορείτε να μοιράζεστε συνδέσεις ιστοσελίδων, επαφές κ.ά. κρατώντας το τηλέφωνό σας κοντά σε μια συσκευή που υποστηρίζει NFC.</string>
     <string name="android_beam_explained_1">Φέρτε τις συσκευές κοντά, «πλάτη με πλάτη».</string>
     <string name="android_beam_explained_2">Πατήστε την οθόνη.</string>
     <string name="guide_dialog_attention_title">Προσοχή</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">Οι λειτουργίες σχετικές με το NFC, όπως κάποιοι τρόποι κοινής χρήσης περιεχομένου και πληρωμής NFC, δεν θα είναι διαθέσιμες όταν το NFC είναι απενεργοποιημένο.</string>
     <string name="limit_app_contents_transfer">Η κοινή χρήση περιεχομένου μέσω NFC θα είναι περιορισμένη, όταν το Android Beam είναι απενεργοποιημένο.</string>
     <string name="nfc_payment_dialog_favor_open">Αν η τρέχουσα ανοιχτή εφαρμογή υποστηρίζει τη λειτουργία «Πάτημα και πληρωμή», θα χρησιμοποιηθεί αντί της λειτουργίας %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Θα χρησιμοποιηθεί η λειτουργία «Πάτημα και πληρωμή», αν η τρέχουσα ανοιχτή εφαρμογή την υποστηρίζει.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Αν η τρέχουσα ανοιχτή εφαρμογή υποστηρίζει τη λειτουργία «Πάτημα και πληρωμή», θα χρησιμοποιηθεί για την πληρωμή.</string>
     <string name="folder_sounds">Ήχοι ανοίγμ./κλεισ. φακ.</string>
     <string name="folder_sounds_summary">Αναπαραγωγή ήχων κατά το άνοιγμα και το κλείσιμο φακέλου.</string>
     <string name="sound_category_calls_title">Εισερχόμενες κλήσεις</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Λάβετε ειδοποιήσεις που δείχνουν τον όγκο των δεδομένων που χρησιμοποιήθηκαν από εφαρμογές μέσω Wi-Fi ή δικτύων κινητής τηλεφωνίας όταν η συσκευή ήταν κλειδωμένη για περισσότερα από %d λεπτά.</string>
     <string name="data_usage_reminder_description">Οι παρακάτω εφαρμογές χρησιμοποίησαν συνολικά %s δεδομένων όσο η συσκευή ήταν κλειδωμένη:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ναι</string>
     <string name="no">Όχι</string>
     <string name="create">Δημ/γία</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Πληροφορίες συσκευής</string>
     <string name="proxy_settings_label">Pυθμίσεις Proxy</string>
     <string name="cancel">Άκυρο</string>
-    <string name="okay">OK</string>
     <string name="save">Αποθήκ.</string>
     <string name="done">Τέλος</string>
     <string name="settings_label">Ρυθμίσεις</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Αυτή η ρύθμιση επηρεάζει όλους τους χρήστες σε αυτήν τη συσκευή.</string>
     <string name="global_locale_change_title">Αλλαγή γλώσσας</string>
     <string name="nfc_payment_settings_title">Πατήστε και πληρώστε</string>
-    <string name="nfc_payment_no_apps">Δεν υπάρχουν εγκατεστημένες εφαρμογές υπηρεσιών πληρωμών</string>
+    <string name="nfc_payment_no_apps">Δεν έχουν εγκατασταθεί εφαρμογές πληρωμών</string>
     <string name="nfc_payment_favor_default">Να χρησιμοποιείται η εφαρμογή %s</string>
     <string name="nfc_payment_favor_open">Να χρησιμοποιείται η ανοιχτή εφαρμογή αντί της εφαρμογής %s</string>
     <string name="nfc_how_it_works_got_it">Το κατάλαβα</string>
-    <string name="nfc_payment_set_default_label">Ορισμός ως προεπιλογή</string>
-    <string name="nfc_payment_set_default">Το %s θα οριστεί ως προεπιλεγμένη μέθοδος πληρωμής για συναλλαγές της μορφής «Πάτημα και πληρωμή».</string>
-    <string name="nfc_payment_set_default_instead_of">Το %1$s θα αντικαταστήσει την επιλογή %2$s ως προεπιλεγμένη μέθοδο πληρωμής για συναλλαγές της μορφής «Πάτημα και πληρωμή».</string>
+    <string name="nfc_payment_set_default_label">Ορισμός προεπιλεγμένης εφαρμογής πληρωμής;</string>
+    <string name="nfc_payment_set_default">Το %s θα οριστεί ως προεπιλεγμένη εφαρμογή πληρωμής για τη λειτουργία «Πάτημα και πληρωμή».</string>
+    <string name="nfc_payment_set_default_instead_of">Η εφαρμογή %1$s θα αντικαταστήσει την προεπιλεγμένη εφαρμογή πληρωμών %2$s στη λειτουργία «Πάτημα και πληρωμή».</string>
     <string name="help_label">Βοήθεια</string>
     <string name="user_restrictions_title">Περιορισμοί εφαρμογών/περιεχομένου</string>
     <string name="user_restrictions_controlled_by">Ελέγχεται μέσω %1$s</string>
@@ -5126,7 +5137,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">Απενεργοποιήθηκε</string>
     <string name="backup_disabled">Η αυτόματη δημιουργία αντιγράφου ασφαλείας είναι απενεργοποιημένη</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Δεν είναι δυνατή η εκτέλεση της ενέργειας</string>
+    <string name="disabled_by_policy_title">Αδύνατη η εκτέλεση ενέργειας</string>
     <string name="default_admin_support_msg">Δεν έχετε δικαίωμα εκτέλεσης αυτής της ενέργειας. Επικοινωνήστε με τον διαχειριστή IT του οργανισμού σας για περισσότερες πληροφορίες.</string>
     <string name="admin_support_more_info">Περισσότερες λεπτομέρειες</string>
     <string name="admin_profile_owner_message">Ο διαχειριστής μπορεί να παρακολουθεί και να διαχειρίζεται εφαρμογές και δεδομένα που σχετίζονται με το προφίλ εργασίας, όπως είναι οι ρυθμίσεις, τα δικαιώματα, η εταιρική πρόσβαση, η δραστηριότητα δικτύου και οι πληροφορίες τοποθεσίας της συσκευής.</string>

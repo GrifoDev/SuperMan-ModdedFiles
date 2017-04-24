@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Conectado a través de %1$s</string>
     <string name="available_via_passpoint">Dispoñible a través de %1$s</string>
     <string name="wifi_connected_no_internet">Conectado, pero sen Internet</string>
+    <string name="wifi_internet_may_not_be_available">Pode que Internet non dispoñ.</string>
     <string name="wifi_reconnecting">Listo para conectarse cando a calidade da rede mellore</string>
     <string name="wifi_connected_checking_quality">Comprobando a calidade da súa conexión á Internet…</string>
     <string name="wifi_sign_in_to_the_network">Inicia sesión na rede.</string>
@@ -820,7 +821,7 @@ A Wi-Fi e o Bluetooth tamén se desactivarán, pero poden volver activarse en Ax
     <string name="default_app_selection">Selección aplic. predet.</string>
     <string name="default_app_selection_auto_set">Definir aplicacións predeterm. auto.</string>
     <string name="default_app_selection_ask">Preguntar antes de defin. apl. prede.</string>
-    <string name="launch_application_settings">Aplicacións predetermin.</string>
+    <string name="launch_application_settings">Aplicacións predeterminadas</string>
     <string name="launch_application_settings_summary">Designa aplicacións para determinadas tarefas.</string>
     <string name="home_settings_header">Cambiar inicio</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,15 @@ Os datos de aplicacións poden incluír información persoal como contactos, men
     <string name="content_description_hand">Mantén tocado o círculo azul do centro da pantalla</string>
     <string name="nearby_scanning_help_msg_sub">A busca de dispositivos próximos usa o escaneo de baixo consumo de Bluetooth e o micrófono. O escaneo de baixo consumo de Bluetooth pode usarse incluído co Bluetooth desactivado neste dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">Non se atoparon dispositivos Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Non hai dispositivos</string>
+    <string name="bt_tether_title">Ancoraxe á rede do Bluetooth</string>
+    <string name="bt_tether_settings_on">Activar</string>
+    <string name="bt_tether_settings_off">Desactivar</string>
+    <string name="bt_tether_off_brief_text_phone">Comparte a conexión a Internet do teu teléfono con outros dispositivos mediante Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Comparte a conexión a Internet da túa tableta con outros dispositivos mediante Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Dispositivos ancorados á rede</string>
+    <string name="bt_tether_server_description_phone">Comparte a conexión a Internet do teu teléfono vinculándote con outro dispositivo mediante Bluetooth. Se o dispositivo non se ancorou á rede anteriormente, podes realizala de novo seleccionándoo na lista de Dispositivos ancorados á rede.</string>
+    <string name="bt_tether_server_description_tablet">Comparte a conexión a Internet da túa tableta vinculándote con outro dispositivo mediante Bluetooth. Se o dispositivo non se ancorou á rede anteriormente, podes realizala de novo seleccionándoo na lista de Dispositivos ancorados á rede.</string>
     <string name="bluetooth_consent_pairing_msg">Toca ACEPTAR para vincularte con %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s está solicitando permiso para acceder á túa tarxeta SIM. Se se permite esta solicitude, desactivaranse as funcións de chamadas e mensaxes e os datos móbiles no teu dispositivo. Permitir?
 
@@ -2161,7 +2171,7 @@ Os datos móbiles desactivaranse."</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Permite o intercambio de datos cando un dispositivo toca outro dispositivo.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Utiliza servizos de pago móbil, le e escribe etiquetas NFC e intercambia datos entre dispositivos compatibles con NFC.</string>
+    <string name="nfc_settings_title">Realiza pagos móbiles, comparte datos e le ou escribe etiquetas NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Podes ler e escribir etiquetas e transferir datos entre os dispositivos.</string>
     <string name="nfcpayment_quick_toggle_title">NFC e pago</string>
     <string name="nfc_mode_general_title">Modo NFC</string>
@@ -2177,13 +2187,15 @@ Os datos móbiles desactivaranse."</string>
     <string name="nfc_payment_favor_open_default_unknown">Usar aplicación aberta</string>
     <string name="nfc_payment_favor_default_default_unknown">Ningún servizo pago predet.</string>
     <string name="nfc_tts_tab_n_of_n">Pestana %1$d de %2$d</string>
+    <string name="nfc_payment_replace_default_label">Queres substituír aplicación pago predet.?</string>
+    <string name="nfc_payment_replace">Substituír</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Tarxeta SIM preferida</string>
     <string name="nfc_please_wait">Por favor, espere…</string>
     <string name="nfc_payment_no_sim_card">Non hai tarxeta SIM</string>
-    <string name="nfc_disable_service_title">Cambiar método NFC predeterminado</string>
+    <string name="nfc_disable_service_title">Cambiar o método NFC predeterminado?</string>
     <string name="nfc_disable_service_msg">Se cambias o método de procesamento de NFC predeterminado, desactivaranse ou activaranse algúns servizos na pestana OUTROS. Para xestionar estes servizos, vai a NFC e pago > Tocar e pagar > OUTROS e, a continuación, selecciona cada servizo para activalo ou desactivalo.</string>
     <string name="nfc_settings_advanced_setting">Método NFC predeterminado</string>
     <string name="nfc_settings_advanced_uicc">Tarxeta SIM SE</string>
@@ -2196,7 +2208,7 @@ Os datos móbiles desactivaranse."</string>
     <string name="nfc_settings_tag_message">Si cambias ao modo Tarxeta, non poderás volver ler as etiquetas NFC, escribir datos nelas nin intercambiar datos entre dispositivos.</string>
     <string name="nfc_show_alert_dialog_title">Modo Aforro enerxía ultra</string>
     <string name="nfc_show_alert_dialog_message">Non se pode abrir %s.</string>
-    <string name="android_beam_explained">Comparte arquivos entre dispositivos compatibles con NFC manténdoos preto o un do outro. A continuación, podes compartir ligazóns a páxinas web, contactos, etc.</string>
+    <string name="android_beam_explained">Podes compartir ligazóns a páxinas web, contactos, etc. sostendo o teléfono preto dun dispositivo compatible con NFC.</string>
     <string name="android_beam_explained_1">Xunta os dispositivos pola parte traseira.</string>
     <string name="android_beam_explained_2">Toca a pantalla.</string>
     <string name="guide_dialog_attention_title">Atención</string>
@@ -2205,7 +2217,7 @@ Os datos móbiles desactivaranse."</string>
     <string name="cannot_use_card_without_NFC">As funcións relacionadas con NFC, como algúns métodos de uso compartido de contidos e pago NFC non estarán dispoñibles con NFC desactivado</string>
     <string name="limit_app_contents_transfer">O uso compartido de contidos a través de NFC estará limitado cando Android Beam estea desactivado</string>
     <string name="nfc_payment_dialog_favor_open">Se a aplicación aberta actualmente é compatible con Tocar e pagar, usarase no canto de %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Se a aplicación aberta actualmente é compatible con Tocar e pagar, usarase.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Se a aplicación aberta actualmente é compatible con Tocar e pagar, usarase para os pagos.</string>
     <string name="folder_sounds">Sons abrir/pechar carpe.</string>
     <string name="folder_sounds_summary">Reproducir sons ao abrir e pechar carpeta</string>
     <string name="sound_category_calls_title">Chamadas entrantes</string>
@@ -3463,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Recibe notificacións que mostren a cantidade de datos utilizada polas aplicacións a través de redes Wi-Fi ou móbiles cando o dispositivo leve bloqueado máis de %d minutos.</string>
     <string name="data_usage_reminder_description">As aplicacións seguintes consumiron %s dos datos en total co dispositivo bloqueado:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Aceptar</string>
     <string name="yes">Si</string>
     <string name="no">Non</string>
     <string name="create">Crear</string>
@@ -3560,7 +3573,6 @@ Podes cambiar isto máis tarde nos axustes do Bluetooth."</string>
     <string name="phone_info_label">Información de dispositivo</string>
     <string name="proxy_settings_label">Axustes do proxy</string>
     <string name="cancel">Cancelar</string>
-    <string name="okay">Aceptar</string>
     <string name="save">Gardar</string>
     <string name="done">Feito</string>
     <string name="settings_label">Axustes</string>
@@ -4813,13 +4825,13 @@ Todos os usuarios poden aceptar os permisos de aplicacións actualizados en nome
     <string name="global_change_warning">Este axuste afecta a todos os usuarios deste dispositivo</string>
     <string name="global_locale_change_title">Cambiar idioma</string>
     <string name="nfc_payment_settings_title">Tocar e pagar</string>
-    <string name="nfc_payment_no_apps">Non hai ningunha aplicación de servizo de pago instalada</string>
+    <string name="nfc_payment_no_apps">Non hai ningunha aplicación de pago instalada</string>
     <string name="nfc_payment_favor_default">Seguir a usar %s</string>
     <string name="nfc_payment_favor_open">Utilizar aplicación aberta no canto de %s</string>
     <string name="nfc_how_it_works_got_it">De acordo</string>
-    <string name="nfc_payment_set_default_label">Definir como predeterm.</string>
-    <string name="nfc_payment_set_default">%s definirase como o teu método de pago predeterminado para as transaccións de Tocar e pagar.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s substituirá a %2$s como o teu método de pago predeterminado para as transaccións de Tocar e pagar.</string>
+    <string name="nfc_payment_set_default_label">Definir a aplicación de pago predeterminada?</string>
+    <string name="nfc_payment_set_default">%s definirase como a túa aplicación de pago predeterminada para Tocar e pagar.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s substituirá a %2$s como a túa aplicación de pago predeterminada para Tocar e pagar.</string>
     <string name="help_label">Axuda</string>
     <string name="user_restrictions_title">Restricións de aplicacións/contido</string>
     <string name="user_restrictions_controlled_by">Controlado mediante %1$s</string>
@@ -5125,7 +5137,7 @@ Non recibirás ningunha chamada, mensaxe ou notificación e as alarmas non soar�
     <string name="location_off_summary">Desactivada</string>
     <string name="backup_disabled">Copia de seguridade automática desactivada</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Non se pode realizar a acción</string>
+    <string name="disabled_by_policy_title">Non se pode facer a acción</string>
     <string name="default_admin_support_msg">Non tes permiso para levar a cabo esta acción. Contacta co administrador de TI da organización para obter máis información.</string>
     <string name="admin_support_more_info">Máis detalles</string>
     <string name="admin_profile_owner_message">O administrador pode supervisar e xestionar aplicacións e os datos asociados co teu perfil de traballo, incluídos os axustes, os permisos, o acceso corporativo, a actividade na rede e a información de localización do dispositivo.</string>

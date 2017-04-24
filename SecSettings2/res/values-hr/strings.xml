@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Povezano putem %1$s</string>
     <string name="available_via_passpoint">Dostupno putem %1$s</string>
     <string name="wifi_connected_no_internet">Povezano, bez interneta</string>
+    <string name="wifi_internet_may_not_be_available">Internet možda nije dostupan</string>
     <string name="wifi_reconnecting">Spremno za spajanje kad se poboljša kvaliteta mreže</string>
     <string name="wifi_connected_checking_quality">Provjera kvalitete internet veze…</string>
     <string name="wifi_sign_in_to_the_network">Prijavite se na mrežu.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">Povezanih stavki: %d</string>
     <string name="no_results_found">Nema rezultata</string>
     <string name="menu_edit">Uredi</string>
-    <string name="reset">Poništi</string>
+    <string name="reset">Ponovno postavljanje</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Dopušta aplikaciji Voice Assistant da sazna kad upotrebljavate aplikaciju.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Nacrtajte smjerove u polju ispod ovog teksta te iznad gumba koji se nalaze na dnu zaslona.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Gumb za potvrdu nalazi se u donjem desnom kutu zaslona.</string>
@@ -865,6 +866,14 @@ Podaci aplikacija mogu uključivati osobne podatke poput kontakata, poruka i sli
     <string name="content_description_hand">Dodirnite i držite plavi krug u središtu zaslona.</string>
     <string name="nearby_scanning_help_msg_sub">Za traženje uređaja u blizini upotrebljavaju se pretraživanje s niskom razinom energije za Bluetooth i mikrofon. Pretraživanje s niskom razinom energije za Bluetooth može se upotrebljavati čak i kada je na uređaju isključen Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nema pronađenih Bluetooth uređaja</string>
+    <string name="bt_tether_title">Bluetooth dijeljenje</string>
+    <string name="bt_tether_settings_on">Uključen</string>
+    <string name="bt_tether_settings_off">Isključen</string>
+    <string name="bt_tether_off_brief_text_phone">Podijelite internetsku vezu telefona s drugim uređajima putem Bluetootha.</string>
+    <string name="bt_tether_off_brief_text_tablet">Podijelite internetsku vezu tableta s drugim uređajima putem Bluetootha.</string>
+    <string name="bt_tether_preference_tethered_device_list">Dijeljeni uređaji</string>
+    <string name="bt_tether_server_description_phone">Podijelite internetsku vezu telefona tako da se uparite s drugim uređajem putem Bluetootha. Ako je uređaj već dijelio vezu, možete ponovno pokrenuti dijeljenje tako da ga odaberete s popisa dijeljenih uređaja.</string>
+    <string name="bt_tether_server_description_tablet">Podijelite internetsku vezu tableta tako da se uparite s drugim uređajem putem Bluetootha. Ako je uređaj već dijelio vezu, možete ponovno pokrenuti dijeljenje tako da ga odaberete s popisa dijeljenih uređaja.</string>
     <string name="bluetooth_consent_pairing_msg">Dodirnite U REDU za uparivanje s uređajem %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s traži dopuštenje za pristup vašoj SIM kartici. Ako odobrite ovaj zahtjev, na uređaju će se isključiti funkcije pozivanja i slanja poruka te Mobilni podaci. Dopustiti?
 
@@ -2161,7 +2170,7 @@ Neke transakcije NFC-a i usluge mobilnog plaćanja mogu zahtijevati drugačiju z
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Dopusti razmjenu podataka pri dodiru sa drugim uređajem.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Upotrijebite usluge mobilnog plaćanja, čitajte i pišite oznake NFC i razmjenjujte podatke među uređajima koji podržavaju NFC.</string>
+    <string name="nfc_settings_title">Izvršavajte mobilna plaćanja, dijelite podatke te pišite ili čitajte NFC oznake.</string>
     <string name="nfc_settings_rw_p2p_summary">Možete čitati i upisivati oznake te prenositi podatke s jednog uređaja na drugi.</string>
     <string name="nfcpayment_quick_toggle_title">NFC i plaćanje</string>
     <string name="nfc_mode_general_title">Način NFC</string>
@@ -2177,14 +2186,16 @@ Neke transakcije NFC-a i usluge mobilnog plaćanja mogu zahtijevati drugačiju z
     <string name="nfc_payment_favor_open_default_unknown">Upotrijebi otvorenu aplikaciju</string>
     <string name="nfc_payment_favor_default_default_unknown">Nema zadane usluge plaćanja</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d of %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Zamijeniti zadanu aplikaciju za plaćanje?</string>
+    <string name="nfc_payment_replace">Zamijeni</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferirana SIM kartica</string>
     <string name="nfc_please_wait">Pričekajte…</string>
     <string name="nfc_payment_no_sim_card">Nema SIM kartice</string>
-    <string name="nfc_disable_service_title">Promjena zadanog NFC načina</string>
-    <string name="nfc_disable_service_msg">Ako promijenite zadani NFC način obrade, neke će se usluge iz kartice OSTALO isključiti ili uključiti. Da biste upravljali ovim uslugama, idite na NFC i plaćanje > Dodirni i plati > OSTALO i zatim odaberite svaku uslugu da biste je uključili ili isključili.</string>
+    <string name="nfc_disable_service_title">Promijeniti zadani NFC način?</string>
+    <string name="nfc_disable_service_msg">Ako promijenite zadani način obrade za NFC, neke će se usluge iz kartice OSTALO uključiti ili isključiti. Da biste upravljali ovim uslugama, idite na NFC i plaćanje > Dodirni i plati > OSTALO i zatim odaberite svaku uslugu da biste je uključili ili isključili.</string>
     <string name="nfc_settings_advanced_setting">Zadani NFC način</string>
     <string name="nfc_settings_advanced_uicc">SE SIM kartica</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM kartica sigurnosnog elementa</string>
@@ -2196,7 +2207,7 @@ Neke transakcije NFC-a i usluge mobilnog plaćanja mogu zahtijevati drugačiju z
     <string name="nfc_settings_tag_message">Ako se prebacite na Način kartice, više nećete moći čitati oznake NFC, pisati podatke na njima ili razmjenjivati podatke među uređajima.</string>
     <string name="nfc_show_alert_dialog_title">Maks. štednja baterije</string>
     <string name="nfc_show_alert_dialog_message">Nemoguće otvoriti %s.</string>
-    <string name="android_beam_explained">Dijelite datoteke između uređaja koji podržavaju NFC tako da ih prislonite jedan uz drugi. Zatim možete dijeliti poveznice web-stranica, kontakte i više.</string>
+    <string name="android_beam_explained">Možete dijelite poveznice za web-stranice, kontakte i više tako da držite telefon blizu uređaja koji podržava NFC.</string>
     <string name="android_beam_explained_1">Prislonite stražnje strane uređaja.</string>
     <string name="android_beam_explained_2">Dodirnite svoj zaslon.</string>
     <string name="guide_dialog_attention_title">Pozor</string>
@@ -2205,7 +2216,7 @@ Neke transakcije NFC-a i usluge mobilnog plaćanja mogu zahtijevati drugačiju z
     <string name="cannot_use_card_without_NFC">Funkcije vezane uz NFC, poput metoda dijeljenja sadržaja i NFC plaćanje, neće biti dostupne kada je NFC isključen.</string>
     <string name="limit_app_contents_transfer">Dijeljenje sadržaja preko NFC ograničeno je kada je Android Beam isključen.</string>
     <string name="nfc_payment_dialog_favor_open">Ako trenutačno otvorena aplikacija podržava opciju Dodirni i plati, opcija će se upotrijebiti umjesto usluge %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ako trenutačno otvorena aplikacija podržava opciju Dodirni i plati, opcija će se upotrijebiti.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ako trenutačno otvorena aplikacija podržava opciju Dodirni i plati, upotrijebit će se za plaćanje.</string>
     <string name="folder_sounds">Zvukovi otv. i zatv. mape</string>
     <string name="folder_sounds_summary">Reproduciraj zvukove pri otvaranju i zatvaranju mape.</string>
     <string name="sound_category_calls_title">Dolazni pozivi</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Primajte obavijesti s prikazom količine podataka koju troše aplikacije putem Wi-Fi ili mobilne mreže kada je uređaj zaključan više od %d min.</string>
     <string name="data_usage_reminder_description">Sljedeće aplikacije potrošile su ukupno %s podataka dok je uređaj bio zaključan:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">U redu</string>
     <string name="yes">Da</string>
     <string name="no">Ne</string>
     <string name="create">Novi</string>
@@ -3560,7 +3572,6 @@ Možete to kasnije promijeniti odlaskom na postavke Bluetootha."</string>
     <string name="phone_info_label">Info o uređaju</string>
     <string name="proxy_settings_label">Proxy postavke</string>
     <string name="cancel">Prekid</string>
-    <string name="okay">U redu</string>
     <string name="save">Spremi</string>
     <string name="done">OK</string>
     <string name="settings_label">Postavke</string>
@@ -4814,13 +4825,13 @@ Svi korisnici mogu prihvatiti dopuštenja za ažuriranje aplikacija u ime svih d
     <string name="global_change_warning">Postavka utječe na sve korisnike ovog uređaja.</string>
     <string name="global_locale_change_title">Promjena jezika</string>
     <string name="nfc_payment_settings_title">Dodirni i plati</string>
-    <string name="nfc_payment_no_apps">Nema instaliranih aplikacija za usluge plaćanja</string>
+    <string name="nfc_payment_no_apps">Nema instaliranih aplikacija za plaćanje</string>
     <string name="nfc_payment_favor_default">Još uvijek upotrebljavaj %s</string>
     <string name="nfc_payment_favor_open">Upotrijebi otvorenu aplikaciju umjesto %s</string>
     <string name="nfc_how_it_works_got_it">Shvaćam</string>
-    <string name="nfc_payment_set_default_label">Postavi kao zadano</string>
-    <string name="nfc_payment_set_default">%s će biti postavljen kao vaša zadana metoda plaćanja za transakcije Dodirni i plati.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s će zamijeniti %2$s i postati vaša zadana metoda plaćanja za transakcije Dodirni i plati.</string>
+    <string name="nfc_payment_set_default_label">Postaviti zadanu aplikaciju za plaćanje?</string>
+    <string name="nfc_payment_set_default">Aplikacija %s postavit će se kao zadana aplikacija za plaćanje za funkciju Dodirni i plati.</string>
+    <string name="nfc_payment_set_default_instead_of">Aplikaciju %1$s zamijenit će %2$s i postati zadana aplikacija plaćanja za funkciju Dodirni i plati.</string>
     <string name="help_label">Upute</string>
     <string name="user_restrictions_title">Ograničenja na aplikaciju i sadržaj</string>
     <string name="user_restrictions_controlled_by">Kontrolira %1$s</string>

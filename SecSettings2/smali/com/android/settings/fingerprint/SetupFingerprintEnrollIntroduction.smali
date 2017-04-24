@@ -68,7 +68,7 @@
 
     check-cast v4, Lcom/android/setupwizardlib/items/Item;
 
-    const v5, 0x7f0b102c
+    const v5, 0x7f0b1147
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 
@@ -84,7 +84,7 @@
 
     check-cast v1, Lcom/android/setupwizardlib/items/Item;
 
-    const v5, 0x7f0b102b
+    const v5, 0x7f0b1146
 
     invoke-virtual {p0, v5}, Lcom/android/settings/fingerprint/SetupFingerprintEnrollIntroduction;->getText(I)Ljava/lang/CharSequence;
 

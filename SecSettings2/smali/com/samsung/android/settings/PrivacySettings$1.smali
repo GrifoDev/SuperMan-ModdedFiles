@@ -136,7 +136,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/PrivacySettings$1;->this$0:Lcom/samsung/android/settings/PrivacySettings;
 
-    const v9, 0x7f0b0b02
+    const v9, 0x7f0b0b10
 
     invoke-virtual {v8, v9}, Lcom/samsung/android/settings/PrivacySettings;->getString(I)Ljava/lang/String;
 
@@ -150,7 +150,7 @@
 
     aput-object v0, v9, v10
 
-    const v10, 0x7f0b0431
+    const v10, 0x7f0b043c
 
     invoke-virtual {v8, v10, v9}, Lcom/samsung/android/settings/PrivacySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -180,7 +180,7 @@
 
     invoke-direct {v9, p0}, Lcom/samsung/android/settings/PrivacySettings$1$1;-><init>(Lcom/samsung/android/settings/PrivacySettings$1;)V
 
-    const v10, 0x7f0b05ac
+    const v10, 0x7f0b05b7
 
     invoke-virtual {v8, v10, v9}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

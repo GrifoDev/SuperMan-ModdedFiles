@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s မှတစ်ဆင့် ချိတ်ဆက်ထားသည်</string>
     <string name="available_via_passpoint">%1$s မှတစ်ဆင့်ရနိုင်သည်</string>
     <string name="wifi_connected_no_internet">ချိတ်ဆက်ထားသည်၊ အင်တာနက်မရှိ</string>
+    <string name="wifi_internet_may_not_be_available">အင်တာနက် အရန်သင့် ရချင်မှ ရလိမ့်မည်</string>
     <string name="wifi_reconnecting">ကွန်ရက် အရည်အသွေး ပိုကောင်းလာသည့်အခါ ချိတ်ဆက်ရန် အဆင်သင့်</string>
     <string name="wifi_connected_checking_quality">သင့် အင်တာနက် ချိတ်ဆက်မှု အရည်အသွေး စစ်ဆေးနေသည်…</string>
     <string name="wifi_sign_in_to_the_network">ကွန်ယက်သို့ ဝင်ရောက်ပါ။</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">သက်ဆိုင်ရာ အရာဝတ္ထု %d ခု</string>
     <string name="no_results_found">ရလဒ်များ မတွေ့ပါ</string>
     <string name="menu_edit">တည်းဖြတ်</string>
-    <string name="reset">ပြန်သတ်မှတ်ပါ</string>
+    <string name="reset">ပြန်လည်သတ်မှတ်ပါ</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">သင် အက်ပ်တစ်ခု သုံးနေစဉ် သိရန် Voice Assistant ကို ခွင့်ပြုသည်။</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">လမ်းညွှန်ချက်များကို ဤစာသားအောက်နှင့် ဖန်သားပြင် အောက်ခြေတွင်ရှိသော ခလုတ်များအပေါ်ရှိ ဧရိယာတွင် ရေးဆွဲပါ။</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">ဖန်သားပြင်၏ အောက်ခြေ ညာဖက်ထောင့်တွင်ရှိသော ခလုတ်ကို အတည်ပြုပါ။</string>
@@ -820,7 +821,7 @@ Wi-Fi နှင့် ဘလူးတုသ်တို့ကိုလည်း 
     <string name="default_app_selection">မူရင်းပါပုံစံ အက်ပ် ရွေးချယ်ချက်</string>
     <string name="default_app_selection_auto_set">မူရင်းပါပုံစံ အက်ပ်များကို အလိုအလျောက် သတ်မှတ်ပါ</string>
     <string name="default_app_selection_ask">မူရင်းပါပုံစံ အက်ပ်များ သတ်မှတ်ခြင်းမပြုမီ မေးမြန်းပါ</string>
-    <string name="launch_application_settings">ပါရှိပြီး အပလီကေးရှင်းများ</string>
+    <string name="launch_application_settings">မူရင်းပါပုံစံ အက်ပ်များ</string>
     <string name="launch_application_settings_summary">သေချာသည့် လုပ်ငန်းဆောင်တာများအတွက် အက်ပ်များသတ်မှတ်ထားသည်။</string>
     <string name="home_settings_header">နေအိမ် ပြောင်းပါ</string>
     <string name="home_settings_customer_mode_summary">ဒိုကိုမို မူလ ဖန်သားပြင်ဖြင့် သုံးရန် သင့်ဖုန်းအား ရိုးရှင်းစေရန်နှင့် သဘာဝဆန်စေရန် လုပ်ပါ</string>
@@ -865,6 +866,14 @@ Wi-Fi နှင့် ဘလူးတုသ်တို့ကိုလည်း 
     <string name="content_description_hand">ဖန်သားပြင် အလယ်ရှိ အပြာရောင် စက်ဝိုင်းကို နှိပ်၍ ကိုင်ထားပါ။</string>
     <string name="nearby_scanning_help_msg_sub">အနီးဝန်းကျင်ရှိ ကိရိယာရှာဖွေမှုသည် ဘလူးတုသ် စွမ်းအင်နိမ့်ရှာဖွေမှုနှင့် မိုက်ကရိုဖုန်းကို အသုံးပြုသည်။ ဤကိရိယာတွင် ဘလူးတုသ်ကိုပိတ်ထားလင့်ကစား ဘလူးတုသ် စွမ်းအင်နိမ့်ရှာဖွေမှုကို အသုံးပြုနိုင်သည်။</string>
     <string name="sec_bluetooth_no_devices_found">မည်သည့် ဘလူးတုသ်ကိရိယာများကိုမှ ရှာမတွေ့ပါ</string>
+    <string name="bt_tether_title">ဘလူးတုသ်ဖြင့် မျှဝေအသုံးပြုခြင်း</string>
+    <string name="bt_tether_settings_on">ဖွင့်</string>
+    <string name="bt_tether_settings_off">ပိတ်</string>
+    <string name="bt_tether_off_brief_text_phone">ဖုန်း၏ အင်တာနက်ချိတ်ဆက်မှုကို အခြားကိရိယာများသို့ ဘလူးတုသ်သုံး၍ မျှဝေပါ။</string>
+    <string name="bt_tether_off_brief_text_tablet">တက်ဘလက်၏ အင်တာနက်ချိတ်ဆက်မှုကို အခြားကိရိယာများသို့ ဘလူးတုသ်သုံး၍ မျှဝေပါ။</string>
+    <string name="bt_tether_preference_tethered_device_list">အင်တာနက်မျှသုံးထားသော ကိရိယာများ</string>
+    <string name="bt_tether_server_description_phone">ဖုန်း၏ အင်တာနက်ချိတ်ဆက်မှုကို အခြားကိရိယာသို့ ဘလူးတုသ်သုံး၍ အတွဲချိတ်ခြင်းဖြင့် မျှဝေပါ။ အကယ်၍ ကိရိယာဖြင့် ယခင်က အင်တာနက်မျှသုံးထားဖူးလျှင်၊ ၎င်းကို အင်တာနက်မျှသုံးသော ကိရိယာများစာရင်းမှ ရွေးခြင်းဖြင့် ၎င်းနှင့် ပြန်၍ အင်တာနက်မျှသုံးနိုင်သည်။</string>
+    <string name="bt_tether_server_description_tablet">တက်ဘလက်၏ အင်တာနက်ချိတ်ဆက်မှုကို အခြားကိရိယာသို့ ဘလူးတုသ်သုံး၍ အတွဲချိတ်ခြင်းဖြင့် မျှဝေပါ။ အကယ်၍ ကိရိယာဖြင့် ယခင်က အင်တာနက်မျှသုံးထားဖူးလျှင်၊ ၎င်းကို အင်တာနက်မျှသုံးသော ကိရိယာများစာရင်းမှ ရွေးခြင်းဖြင့် ၎င်းနှင့် ပြန်၍ အင်တာနက်မျှသုံးနိုင်သည်။</string>
     <string name="bluetooth_consent_pairing_msg">%s ဖြင့် အတွဲချိန်ရန် “အိုကေ” ကို နှိပ်ပါ။</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s သည် သင့် SIM ကဒ် သုံးခွင့်ရရန် ခွင့်ပြုချက် တောင်းဆိုနေသည်။ ဤတောင်းဆိုချက်ကို ခွင့်ပြုခြင်းသည် ခေါ်ဆိုခြင်းနှင့် မက်ဆေ့ချ်ပို့ လုပ်ဆောင်ချက်များကို ပိတ်သွားမည်ဖြစ်ကာ သင့်ကိရိယာပေါ်တွင် မိုဘိုင်း ဒေတာကို ပိတ်သွားမည်။ ခွင့်ပြုမလား?
 
@@ -973,7 +982,7 @@ Smart capture ကို ပိတ်ထားလင့်ကစား ၎င်�
     <string name="downloadable_dialog_popup_text_wifi">အပို အကူအညီ ပါဝင်မှုကို ဒေါင်းလုတ် လုပ်ရမည်။ ကိရိယာကို Wi-Fi ကွန်ယက် တစ်ခုဖြင့် ချိတ်ဆက်ထားရမည်။ ဒေါင်းလုတ် ဖန်သားပြင်ဆီသို့ သင့်ကို ပို့လိမ့်မည်။</string>
     <string name="back_button_label">နောက်သို့</string>
     <string name="next_button_label">နောက်</string>
-    <string name="category_applications">အပလီကေးရှင်းများ</string>
+    <string name="category_applications">အက်ပ်များ</string>
     <string name="data_connection_title">အဖိုးအခများအတွက် အကြောင်းကြားချက်</string>
     <string name="data_connection_message">မိုဘိုင်း ကွန်ယက်ကို ဆက်သွယ်မှုကြောင့် အခကြေးငွေ ပိုပြီး ပေးဆောင်လာရနိုင်သည်။</string>
     <string name="none_package">ကန့်သတ် ပရိုဖိုင်းတစ်ခုကို သုံးနေစဉ်မှာ ဤလုပ်ဆောင်ချက်ကို ဆောင်ရွက်လို့ မရပါ။</string>
@@ -1039,7 +1048,7 @@ Smart capture ကို ပိတ်ထားလင့်ကစား ၎င်�
     <string name="active_key_title">သက်ဝင် ကီး</string>
     <string name="about_phone">ဖုန်းအကြောင်း</string>
     <string name="theme_settings">ပြင်ဆင်မှုများ</string>
-    <string name="wifi_calling_title">Wi-Fi Calling</string>
+    <string name="wifi_calling_title">Wi-Fi ဖြင့် ခေါ်ဆိုမှု</string>
     <string name="tab_category_connections">ချိတ်ဆက်မှုများ</string>
     <string name="festival_effect_settings_title">ပွဲလမ်း အထူးပြုလုပ်ချက်</string>
     <string name="user_manual">သုံးသူ လက်စွဲ</string>
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">ကိရိယာက အခြားကိရိယာကို ထိသည့်အခါ ဒေတာ ဖလှယ်မှု ခွင့်ပြုပါ။</string>
     <string name="android_beam_settings_title">အင်းဒရွိုက် ဘင်း</string>
-    <string name="nfc_settings_title">မိုဘိုင်းငွေပေးချေခြင်း ဝန်ဆောင်မှုများကိုအသုံးပြုရန်၊ NFC တဂ်များကို ဖတ်ရှုပြီး ရေးသားပါ၊ NFC-စွမ်းနိုင်မှု ကိရိယာများအကြား ဒေတာဖလှယ်ပါ။</string>
+    <string name="nfc_settings_title">မိုဘိုင်း ငွေပေးချေမှုများ ပြုလုပ်ပါ၊ ဒေတာ မျှဝေပါ၊ NFC တဂ်များကို ဖတ် (သို့) ရေးပါ။</string>
     <string name="nfc_settings_rw_p2p_summary">သင်သည် တဲဂ်များကို ရေးခြင်း ဖတ်ခြင်း လုပ်နိုင်ပြီး ကိရိယာများ အကြားမှ ဒေတာများကို လွှဲပြောင်းနိုင်။</string>
     <string name="nfcpayment_quick_toggle_title">NFC နှင့် ငွေပေးချေမှု</string>
     <string name="nfc_mode_general_title">NFC အနေအထား</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">သင့် အသင့်သွင်း မိုဘိုင်း ငွေပေးချေခြင်း ဝန်ဆောင်မှု ရွေးပါ။</string>
     <string name="nfc_payment_title">ငွေပေးချေမှု</string>
     <string name="nfc_others_title">အခြားအရာများ</string>
-    <string name="nfc_other_no_apps">မည်သည့် ဝန်ဆောင်မှု အက်ပ်များမျှ ထည့်သွင်းမထားပါ</string>
+    <string name="nfc_other_no_apps">မည်သည့် ဝန်ဆောင်မှုအက်ပ်ကိုမျှ ထည့်သွင်းမထားပါ</string>
     <string name="nfc_payment_open_app">ပွင့်နေပါက အက်ပ်သည် နှိပ်ပြီး ပေးခြင်းကို ပံ့ပိုးပေးသည်</string>
     <string name="nfc_payment_favor_open_default_unknown">ပွင့်လင်း အက်ပ်ကို အသုံးပြုပါ</string>
     <string name="nfc_payment_favor_default_default_unknown">မူရင်းပါပုံစံ ​ငွေပေးချေရေးဝန်ဆောင်မှု မရှိပါ</string>
     <string name="nfc_tts_tab_n_of_n">%2$d ၏ %1$d တက်</string>
+    <string name="nfc_payment_replace_default_label">မူလသတ်မှတ် ငွေပေးချေအက်ပ်ကို အစားထိုးမလား?</string>
+    <string name="nfc_payment_replace">အစားထိုးပါ</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">ဦးစားပေး SIM ကတ်</string>
     <string name="nfc_please_wait">ကျေးဇူးပြု၍စောင့်ပါ….</string>
     <string name="nfc_payment_no_sim_card">မည်သည့် SIM ကတ်မှ မရှိပါ</string>
-    <string name="nfc_disable_service_title">မူရင်းပါပုံစံ NFC နည်းလမ်းပြောင်းပါ</string>
-    <string name="nfc_disable_service_msg">အကယ်၍ မူရင်းပါပုံစံ NFC လုပ်ငန်းစဉ်နည်းလမ်းကိုပြောင်းပါက၊ အခြားအရာများ တဘ်ရှိ အချို့ဝန်ဆောင်မှုများသည် ပိတ်သွားမည် (သို့) ပွင့်သွားမည်ဖြစ်သည်။ ဤဝန်ဆောင်မှုများကို စီမံရန်၊ NFC နှင့် ငွေပေးချေမှု > နှိပ်ပြီးပေးချေပါ > အခြားအရာများသို့သွားရောက်ပြီး၊ ၎င်းကိုဖွင့်ရန် (သို့) ပိတ်ရန် ဝန်ဆောင်မှုအသီးသီးကိုရွေးချယ်ပါ။</string>
+    <string name="nfc_disable_service_title">မူရင်းပါပုံစံ NFC နည်းလမ်းကို ပြောင်းမလား?</string>
+    <string name="nfc_disable_service_msg">အကယ်၍ မူရင်းပါပုံစံ NFC လုပ်ငန်းစဉ်နည်းလမ်းကိုပြောင်းပါက အခြားအရာများ တဘ်ရှိ အချို့ဝန်ဆောင်မှုများသည် ပိတ်သွားမည် (သို့) ပွင့်သွားမည်ဖြစ်သည်။ ဤဝန်ဆောင်မှုများကို စီမံရန်၊ NFC နှင့် ငွေပေးချေမှု > နှိပ်ပြီးပေးချေပါ > အခြားအရာများသို့သွားရောက်ပြီး ၎င်းကိုဖွင့်ရန် (သို့) ပိတ်ရန် ဝန်ဆောင်မှုအသီးသီးကိုရွေးချယ်ပါ။</string>
     <string name="nfc_settings_advanced_setting">မူရင်းပါပုံစံ NFC နည်းလမ်း</string>
     <string name="nfc_settings_advanced_uicc">SE SIM ကတ်</string>
     <string name="nfc_settings_advanced_uicc_TTS">စိတ်ချရသော အခြေခံ SIM ကဒ်</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">ကဒ်၏ကုဒ်သို့ သင်ကူးပြောင်းလျှင်၊ NFC တဘ်များ ဖတ်ရန်၊ ၎င်းတို့ထဲ ဒေတာရေးသွင်းရန်၊ (သို့) ကိရိယာများအကြား၌ ဒေတာဖလှယ်ရန်အတွက် ပြုလုပ်နိုင်တော့မည်မဟုတ်ပါ။</string>
     <string name="nfc_show_alert_dialog_title">အလွန် ပါဝင်ချွေတာခြင်း အနေအထား</string>
     <string name="nfc_show_alert_dialog_message">%s ကို ဖွင့်မရပါ။</string>
-    <string name="android_beam_explained">NFC-ကေဘယ်ကိရိယာများကို အတူတကွနီးကပ်စွာကိုထားခြင်းဖြင့် ၎င်းတို့အကြားဖိုင်များမျှဝေပါ။ ဝဘ်စာမျက်နှာလင့်ခ်များ၊ အဆက်အသွယ်များ၊ နှင့် နောက်ထပ်များစွာကို သင်မျှဝေနိုင်သည်။</string>
+    <string name="android_beam_explained">သင့်ဖုန်းကို NFC-အသုံးပြုနိုင်သည့် ကိရိယာ၏ အနီးတွင် ကိုင်ထားပြီး ဝဘ်စာမျက်နှာ လင့်ခ်များ၊ အဆက်အသွယ်များနှင့် နောက်ထပ်အရာများကို မျှဝေနိုင်သည်။</string>
     <string name="android_beam_explained_1">ကိရိယာများကို အတူတကွ၊ ကျောချင်းကပ်ထားပါ။</string>
     <string name="android_beam_explained_2">သင့်ဖန်သားပြင်ကို နှိပ်ပါ။</string>
     <string name="guide_dialog_attention_title">သတိ</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">ပါဝင်မှု မျှဝေနည်းများနှင့် NFC ငွေပေးချေခြင်းကဲ့သို့ NFC-ဆက်နွှယ် လုပ်ဆောင်မှုများကို NFC ပိတ်ထားစဉ် မရနိုင်ပါ။</string>
     <string name="limit_app_contents_transfer">Android Beam ပိတ်ထားစဉ် NFC မှတဆင့် ပါဝင်မှု မျှဝေခြင်းကို အကန့်အသတ်လုပ်ထားမည်။</string>
     <string name="nfc_payment_dialog_favor_open">အကယ်၍ လက်ရှိပွင့်နေသော အက်ပ်က နှိပ်ပြီးပေးပါကို ပံ့ပိုးပေးပါက ၎င်းကို %s အစား အသုံးပြုနိုင်ပါမည်။</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">အကယ်၍ လက်ရှိပွင့်နေသော အက်ပ်က နှိပ်ပြီးပေးပါကို ပံ့ပိုးပေးပါက ၎င်းကို အသုံးပြုနိုင်ပါမည်။</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">လက်ရှိ ဖွင့်ထားသော အက်ပ်သည် နှိပ်၍ငွေသွင်းပါကို ပံ့ပိုးပေးလျှင်၊ ၎င်းကို ငွေပေးချေမှုအတွက် သုံးနိုင်ပါမည်။</string>
     <string name="folder_sounds">ဖိုင်တွဲ အဖွင့်/အပိတ် အသံများ</string>
     <string name="folder_sounds_summary">ဖိုင်တွဲ ဖွင့်ခြင်းနှင့် ပိတ်ခြင်းတွင် အသံများ ဖွင့်ပါ</string>
     <string name="sound_category_calls_title">အဝင် ဖုန်းခေါ်ဆိုမှုများ</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">ကိရိယာကို %d မိနစ်ကြာ သော့ချထားသည့်အခါ Wi-Fi (သို့) မိုဘိုင်းကွန်ယက်များမှတဆင့် အက်ပ်များ အသုံးပြုထားသည့် ဒေတာ ပမာဏကို ပြသထားသော အသိပေးချက်များ လက်ခံရယူပါ။</string>
     <string name="data_usage_reminder_description">အောက်ပါအက်ပ်များသည် ကိရိယာကိုသော့ချထားစဉ်တွင် စုစုပေါင်း ဒေတာ %s ကိုအသုံးပြုထားသည် :</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">အိုကေ</string>
     <string name="yes">ဟုတ်ကဲ့</string>
     <string name="no">မဟုတ်ပါ</string>
     <string name="create">ဖန်တီးပါ</string>
@@ -3559,7 +3571,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">ကိရိယာ သတင်း အချက်အလက်</string>
     <string name="proxy_settings_label">ကိုယ်စားလှယ် သတ်မှတ်ချက်</string>
     <string name="cancel">ပယ်ဖျက်ပါ</string>
-    <string name="okay">အိုကေ</string>
     <string name="save">သိမ်းဆည်းပါ</string>
     <string name="done">ပြီးပါပြီ</string>
     <string name="settings_label">သတ်မှတ်ချက်များ</string>
@@ -4813,13 +4824,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ဤဆက်တင်က ဤကိရိယာပေါ်ရှိ သုံးသူ အားလုံးကို သက်ရောက်သည်။</string>
     <string name="global_locale_change_title">ဘာသာစကားပြောင်းပါ</string>
     <string name="nfc_payment_settings_title">နှိပ်၍ ပေး</string>
-    <string name="nfc_payment_no_apps">ငွေပေးချေရေး ဝန်ဆောင်မှု အက်ပ်များ ထည့်သွင်းမထားပါ</string>
+    <string name="nfc_payment_no_apps">မည်သည့် ငွေပေးချေ အက်ပ်ကိုမျှ ထည့်သွင်းမထားပါ</string>
     <string name="nfc_payment_favor_default">%s ကိုအသုံးပြုနေပါ</string>
     <string name="nfc_payment_favor_open">%s အစား အက်ပ်ဖွင့်ပါကို သုံးပါ</string>
     <string name="nfc_how_it_works_got_it">နားလည်ပါသည်</string>
-    <string name="nfc_payment_set_default_label">အသင့်လုပ်ပြီးအဖြစ် သတ်မှတ်ပါ</string>
-    <string name="nfc_payment_set_default">%s ကို နှိပ်ပြီး အပေးအယူလုပ်ခြင်းများအတွက် သင့် အသင့်သွင်း ပေးချေနည်းအဖြစ် သတ်မှတ်မည်။</string>
-    <string name="nfc_payment_set_default_instead_of">နှိပ်ပြီး အပေးအယူလုပ်ခြင်းများအတွက် %1$s မှ %2$s ကို သင့် အသင့်သွင်း ပေးချေနည်းအဖြစ် အစားထိုးမည်။</string>
+    <string name="nfc_payment_set_default_label">မူရင်းပါပုံစံ ငွေပေးချေအက်ပ်အဖြစ် သတ်မှတ်မလား?</string>
+    <string name="nfc_payment_set_default">နှိပ်၍ငွေပေးရန်အနေဖြင့် %s ကို သင်၏မူရင်းပါပုံစံ ငွေပေးချေအက်ပ်အနေနှင့် ပြန်သတ်မှတ်ပါမည်။</string>
+    <string name="nfc_payment_set_default_instead_of">နှိပ်ပြီးပေးချေပါအတွက် သင့်မူလသတ်မှတ် ငွေပေးချေအက်ပ်အဖြစ် %1$s က %2$s ကို အစားထိုးပါမည်။</string>
     <string name="help_label">အကူအညီ</string>
     <string name="user_restrictions_title">အပလီကေးရှင်း/ပါဝင်မှု ကန့်သတ်ချက်များ</string>
     <string name="user_restrictions_controlled_by">%1$s မှတဆင့် ထိန်းချုပ်ထားသည်</string>
@@ -5125,7 +5136,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">ပိတ်ထားသည်</string>
     <string name="backup_disabled">အော်တိုအရန်သိမ်းခြင်းကို ပိတ်ထားသည်</string>
     <string name="about_summary">အန်းဒရွိုက် %s</string>
-    <string name="disabled_by_policy_title">လုပ်ဆောင်၍ မရပါ</string>
+    <string name="disabled_by_policy_title">ဆောင်ရွက်ချက်ကို လုပ်ဆောင်၍ မရနိုင်ပါ</string>
     <string name="default_admin_support_msg">ဤလုပ်ဆောင်ချက်ကိုသင်ဆောင်ရွက်ရန်ခွင့်ပြုချက်မရှိပါ။ နောက်ထက်အချက်အလက်များသိရှိရန် သင့် အဖွဲ့အစည်း၏ IT စီမံခန့်ခွဲသူထံ ဆက်သွယ်ပါ။</string>
     <string name="admin_support_more_info">နောက်ထပ် အသေးစိတ်အချက်များ</string>
     <string name="admin_profile_owner_message">စီမံခန့်ခွဲသူသည် သတ်မှတ်ချက်များ၊ ခွင့်ပြုချက်များ၊ ကော်ပိုရိတ်ဝင်သုံးခွင့်၊ ကွန်ယက်လုပ်ဆောင်မှု နှင့်၊ ကိရိယာ၏ တည်နေရာအချက်အလက်တို့ အပါအဝင်၊ ဤအလုပ်ပရိုင်ဖိုင်နှင့် တွဲသုံးထားသော အက်ပ်များနှင့်ဒေတာတို့ကို စောင့်ကြည့်မှတ်သားနိုင်ပြီး စီမံနိုင်သည်။</string>

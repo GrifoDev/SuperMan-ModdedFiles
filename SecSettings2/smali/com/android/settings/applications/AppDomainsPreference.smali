@@ -23,7 +23,7 @@
 
     if-nez v3, :cond_0
 
-    const v3, 0x7f0b1900
+    const v3, 0x7f0b1a1b
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -40,7 +40,7 @@
 
     if-ne v3, v5, :cond_1
 
-    const v2, 0x7f0b1901
+    const v2, 0x7f0b1a1c
 
     :goto_0
     new-array v3, v5, [Ljava/lang/Object;
@@ -54,7 +54,7 @@
     return-object v3
 
     :cond_1
-    const v2, 0x7f0b1902
+    const v2, 0x7f0b1a1d
 
     goto :goto_0
 .end method

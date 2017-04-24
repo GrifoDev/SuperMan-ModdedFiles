@@ -84,7 +84,7 @@
 
     iput-object v5, p0, Lcom/android/settings/deviceinfo/PrivateVolumeForget;->mRecord:Landroid/os/storage/VolumeRecord;
 
-    const v5, 0x7f0402a2
+    const v5, 0x7f0402a3
 
     invoke-virtual {p1, v5, p2, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -118,7 +118,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b12c2
+    const v6, 0x7f0b13dd
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/deviceinfo/PrivateVolumeForget;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -195,7 +195,7 @@
     :goto_2
     invoke-virtual {p0, v5}, Lcom/android/settings/notification/ZenModeAutomationSettings$ZenRulePreference;->setSelectable(Z)V
 
-    const v10, 0x7f040375
+    const v10, 0x7f040376
 
     invoke-virtual {p0, v10}, Lcom/android/settings/notification/ZenModeAutomationSettings$ZenRulePreference;->setWidgetLayoutResource(I)V
 

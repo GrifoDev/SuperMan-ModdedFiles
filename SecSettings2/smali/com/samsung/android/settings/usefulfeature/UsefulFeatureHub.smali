@@ -243,7 +243,7 @@
     invoke-virtual {p2}, Landroid/view/ViewGroup;->removeAllViewsInLayout()V
 
     :cond_0
-    const v5, 0x7f040300
+    const v5, 0x7f040301
 
     invoke-virtual {p1, v5, p2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -553,7 +553,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b0414
+    const v3, 0x7f0b041f
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -567,7 +567,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0415
+    const v3, 0x7f0b0420
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -577,7 +577,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v5, 0x7f0b08f4
+    const v5, 0x7f0b0900
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -611,7 +611,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$6;-><init>(Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;)V
 
-    const v5, 0x7f0b0416
+    const v5, 0x7f0b0421
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -651,7 +651,7 @@
 .method private maketurnOffUniversalPopup()V
     .locals 8
 
-    const v7, 0x7f0b023f
+    const v7, 0x7f0b0240
 
     const/4 v6, 0x1
 
@@ -659,7 +659,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->dismissAllDialog()V
 
-    const v2, 0x7f0b0414
+    const v2, 0x7f0b041f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -677,7 +677,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0415
+    const v2, 0x7f0b0420
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -687,7 +687,7 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const v4, 0x7f0b08f4
+    const v4, 0x7f0b0900
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -725,7 +725,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$9;-><init>(Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;)V
 
-    const v4, 0x7f0b0416
+    const v4, 0x7f0b0421
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -767,11 +767,11 @@
 
     const v7, 0x7f10019e
 
-    const v6, 0x7f0b0906
+    const v6, 0x7f0b0912
 
-    const v5, 0x7f0b0905
+    const v5, 0x7f0b0911
 
-    const v4, 0x7f0b03ff
+    const v4, 0x7f0b040a
 
     const/high16 v3, 0x200000
 
@@ -816,7 +816,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_0
-    const v1, 0x7f0b08f1
+    const v1, 0x7f0b08fd
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -845,7 +845,7 @@
     if-eqz v1, :cond_a
 
     :cond_0
-    const v1, 0x7f0b0901
+    const v1, 0x7f0b090d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -930,7 +930,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_2
-    const v1, 0x7f0b08f2
+    const v1, 0x7f0b08fe
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -959,7 +959,7 @@
     if-eqz v1, :cond_c
 
     :cond_2
-    const v1, 0x7f0b0903
+    const v1, 0x7f0b090f
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1042,7 +1042,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_4
-    const v1, 0x7f0b08f3
+    const v1, 0x7f0b08ff
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -1166,11 +1166,11 @@
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
-    const v1, 0x7f0b08f4
+    const v1, 0x7f0b0900
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
-    const v1, 0x7f0b0904
+    const v1, 0x7f0b0910
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1245,11 +1245,11 @@
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
-    const v1, 0x7f0b08f7
+    const v1, 0x7f0b0903
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
-    const v1, 0x7f0b08f8
+    const v1, 0x7f0b0904
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1333,7 +1333,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_7
-    const v1, 0x7f0b03eb
+    const v1, 0x7f0b03f6
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -1351,7 +1351,7 @@
 
     if-eqz v1, :cond_15
 
-    const v1, 0x7f0b03f8
+    const v1, 0x7f0b0403
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1417,7 +1417,7 @@
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
-    const v1, 0x7f0b03fe
+    const v1, 0x7f0b0409
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -1445,7 +1445,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0401
+    const v2, 0x7f0b040c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1504,7 +1504,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const v1, 0x7f0b0900
+    const v1, 0x7f0b090c
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1522,7 +1522,7 @@
     goto/16 :goto_2
 
     :cond_c
-    const v1, 0x7f0b0902
+    const v1, 0x7f0b090e
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1570,7 +1570,7 @@
     goto/16 :goto_4
 
     :cond_10
-    const v1, 0x7f0b0907
+    const v1, 0x7f0b0913
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1623,7 +1623,7 @@
     goto/16 :goto_7
 
     :cond_15
-    const v1, 0x7f0b03f9
+    const v1, 0x7f0b0404
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1634,7 +1634,7 @@
     goto/16 :goto_8
 
     :cond_16
-    const v1, 0x7f0b03f7
+    const v1, 0x7f0b0402
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1663,7 +1663,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0400
+    const v2, 0x7f0b040b
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1689,7 +1689,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b03eb
+    const v9, 0x7f0b03f6
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1707,7 +1707,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b022c
+    const v9, 0x7f0b022d
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1775,7 +1775,7 @@
 
     aput-object v5, v9, v10
 
-    const v10, 0x7f0b0293
+    const v10, 0x7f0b0294
 
     invoke-virtual {v8, v10, v9}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -217,13 +217,13 @@
 
     iget-object v10, v9, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference$ViewHolder;->mainTextView:Landroid/widget/TextView;
 
-    const v11, 0x7f0f01d7
+    const v11, 0x7f0f01d8
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setTextAppearance(I)V
 
     iget-object v10, v9, Lcom/samsung/android/settings/bluetooth/BluetoothNoItemPreference$ViewHolder;->secondaryTextView:Landroid/widget/TextView;
 
-    const v11, 0x7f0f01d8
+    const v11, 0x7f0f01d9
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setTextAppearance(I)V
 

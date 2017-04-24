@@ -11,6 +11,7 @@
     <string name="wifi_disabled_password_failure">Anyklaýyşda ýalňyşlyk ýüze çykdy</string>
     <string name="wifi_empty_list_wifi_on">Wi-Fi ulgamlary gözleýär…</string>
     <string name="wifi_auto_reconnect_disabled">Awto-täzeden birikme ýapyk</string>
+    <string name="wifi_internet_may_not_be_available">Internet elýeterli bolman biler</string>
     <string name="wifi_reconnecting">Ulgamyň hili özgeren wagty baglanmak üçin taýýar</string>
     <string name="wifi_connected_checking_quality">Internet baglanyşygyňyzyň hili barlanýar…</string>
     <string name="wifi_sign_in_to_the_network">Tora hasaba giriň.</string>
@@ -684,7 +685,7 @@ Wi-Fi bilen Bluetooth hem ýapylar, ýöne olary Sazlamalardan ýa-da çalt sazl
     <string name="default_app_selection">Standart goýma saýlawy</string>
     <string name="default_app_selection_auto_set">Standart goýmalary awtomatik belle</string>
     <string name="default_app_selection_ask">Standart goýmalar bellemezden öň sora</string>
-    <string name="launch_application_settings">Deslapky goýmalar</string>
+    <string name="launch_application_settings">Standart goýmalar</string>
     <string name="launch_application_settings_summary">Käbir ýumuşlara goýmalary belläň.</string>
     <string name="home_settings_header">Öýi çalyş</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -729,6 +730,14 @@ Goýma maglumatyna şahsy maglumatlar (mes. kontaktlar, hatlar we suratlar) degi
     <string name="content_description_hand">Ekranyň ortasyndaky gök tegelege basyp saklaň.</string>
     <string name="nearby_scanning_help_msg_sub">Golaýdan enjam skanlamak Bluetooth Pes-energiýa skany we mikrofony ulanýar. Bluetooth Pes-energiýa skany bu enjamda Bluetooth ýapyk wagty hem ulanyp bolýar.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth enjamy tapylmady</string>
+    <string name="bt_tether_title">Bluetooth baglanmasy</string>
+    <string name="bt_tether_settings_on">Açyk</string>
+    <string name="bt_tether_settings_off">Ýap</string>
+    <string name="bt_tether_off_brief_text_phone">Bluetooth arkaly telefonyňyzyň internet birikmesini başga enjamlar bilen paýlaşyň.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bluetooth arkaly planşetiňiziň internet birikmesini başga enjamlar bilen paýlaşyň.</string>
+    <string name="bt_tether_preference_tethered_device_list">Baglanan enjamlar</string>
+    <string name="bt_tether_server_description_phone">Bluetooth arkaly başga enjam bilen jübütläp, telefonyňyzyň internet birikmesini paýlaşyň. Eger enjam öň baglanan bolsa, ony Baglanan enjamlar sanawyndan saýlap, täzeden baglap bilersiňiz.</string>
+    <string name="bt_tether_server_description_tablet">Bluetooth arkaly başga enjam bilen jübütläp, planşetiňiziň internet birikmesini paýlaşyň. Eger enjam öň baglanan bolsa, ony Baglanan enjamlar sanawyndan saýlap, täzeden baglap bilersiňiz.</string>
     <string name="bluetooth_consent_pairing_msg">%s bilen jübütlemek üçin, OK-e basyň.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s SIM kartaňyza girmäge rugsat bermegiňizi soraýar. Bu haýyşa rugsat berseňiz, enjamyňyzda jaň we hat funksiýalary, şeýle hem mobil maglumat ýapylar. Rugsat bermelimi?
 
@@ -903,7 +912,7 @@ Smart-düşüriş ýapyk hem bolsa, Degmeýän buýruk arkaly onuň funksiýalar
     <string name="active_key_title">Işjeň düwme</string>
     <string name="about_phone">Telefon barada</string>
     <string name="theme_settings">Temalar</string>
-    <string name="wifi_calling_title">Wi-Fi Jaň ediş</string>
+    <string name="wifi_calling_title">Wi-Fi jaňy</string>
     <string name="tab_category_connections">Birikdirmeler</string>
     <string name="festival_effect_settings_title">Baýramçylyk täsiri</string>
     <string name="user_manual">Ulanyjynyň gollanmasy</string>
@@ -2025,7 +2034,7 @@ Käbir NFC amallary we mobil töleg hyzmatlary üçin başga bir standart NFC i�
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Enjam başga bir enjama gabatlaşanda, maglumat alyş çalşygyna rugsat beriş</string>
     <string name="android_beam_settings_title">Android Esasy Şöhleler Toplumy</string>
-    <string name="nfc_settings_title">Mobil töleg hyzmatlaryny ulan, NFC bellijeklerini oka we ýaz, NFC-ukyply enjamlaryň arasynda maglumat alyş.</string>
+    <string name="nfc_settings_title">Mobil tölegleri geçiriň, maglumat paýlaşyň we NFC bellijeklerini okaň ýa-da ýazyň.</string>
     <string name="nfc_settings_rw_p2p_summary">Enjamlaryň arasynda bellik okap-ýazyp we maglumat geçirip bilersiňiz.</string>
     <string name="nfcpayment_quick_toggle_title">NFC we töleg</string>
     <string name="nfc_mode_general_title">NFC tertibi</string>
@@ -2036,19 +2045,21 @@ Käbir NFC amallary we mobil töleg hyzmatlary üçin başga bir standart NFC i�
     <string name="nfc_payment_enable_summary">Standart telefon töleg hyzmatyňyzy saýlaň.</string>
     <string name="nfc_payment_title">Töleg</string>
     <string name="nfc_others_title">Beýlekiler</string>
-    <string name="nfc_other_no_apps">Gurnalgy hyzmat goýmasy ýok</string>
+    <string name="nfc_other_no_apps">Hyzmat goýmasy gurnalmadyk</string>
     <string name="nfc_payment_open_app">Eger açyk goýma Bas we tölä-ni goldaýan bolsa</string>
     <string name="nfc_payment_favor_open_default_unknown">Açyk goýma ulan</string>
     <string name="nfc_payment_favor_default_default_unknown">Standart töleg hyzmaty ýok</string>
     <string name="nfc_tts_tab_n_of_n">%2$d-niň %1$d-sine basyň</string>
+    <string name="nfc_payment_replace_default_label">Standart töleg goýmasyny çalşyrmalymy?</string>
+    <string name="nfc_payment_replace">Çalşyr</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Makul bilinen SIM karta</string>
     <string name="nfc_please_wait">Garaşyň…</string>
     <string name="nfc_payment_no_sim_card">SIM karta ýok</string>
-    <string name="nfc_disable_service_title">Standart NFC usulyny üýtget</string>
-    <string name="nfc_disable_service_msg">Standart NFC işleýiş usulyny üýtgetseňiz, BAŞGALAR tabyndaky käbir hyzmatlar ýapylar ýa-da açylar. Bu hyzmatlary dolandyrmak üçin, NFC we töleg > Bas we töle > BAŞGALAR-a baryp, işletmek ýa-da ýapmak üçin, her bir hyzmaty saýlaň.</string>
+    <string name="nfc_disable_service_title">Standart NFC usulyny üýtgetmelimi?</string>
+    <string name="nfc_disable_service_msg">Standart NFC işleýiş usulyny üýtgetseňiz, BAŞGALAR tabyndaky käbir hyzmatlar açylar ýa-da ýapylar. Bu hyzmatlary dolandyrmak üçin, NFC we töleg > Bas we töle > BAŞGALAR-a baryp, açmak ýa-da ýapmak üçin, her bir hyzmaty saýlaň.</string>
     <string name="nfc_settings_advanced_setting">Standart NFC usuly</string>
     <string name="nfc_settings_advanced_uicc">SE SIM karty</string>
     <string name="nfc_settings_advanced_uicc_TTS">Goragly element SIM kartasy</string>
@@ -2060,7 +2071,7 @@ Käbir NFC amallary we mobil töleg hyzmatlary üçin başga bir standart NFC i�
     <string name="nfc_settings_tag_message">Kart tertibine geçseňiz, soň NFC bellijeklerini okap, olara maglumat ýazyp ýa-da enjamlaryň arasynda maglumat alşyp bilmersiňiz.</string>
     <string name="nfc_show_alert_dialog_title">Ultra güýç tygş. tertip</string>
     <string name="nfc_show_alert_dialog_message">%s-y(i) açyp bolmaýar.</string>
-    <string name="android_beam_explained">NFC ukyply enjamlary biri-birine ýakyn saklap, olaryň arasynda faýllary paýlaşyň. Soňra web-sahypa baglaryny, kontaktlary we ş.m. paýlaşyp bilersiňiz.</string>
+    <string name="android_beam_explained">Telefonyňyzy NFC-ukyply enjama golaý saklap, web-sahypa baglaryny, kontaktlary we ş.m. paýlaşyp bilersiňiz.</string>
     <string name="android_beam_explained_1">Enjamlary biri-biriniň arkasyna degrip saklaň.</string>
     <string name="android_beam_explained_2">Ekranyňyza basyň.</string>
     <string name="guide_dialog_attention_title">Üns beriň</string>
@@ -2069,7 +2080,7 @@ Käbir NFC amallary we mobil töleg hyzmatlary üçin başga bir standart NFC i�
     <string name="cannot_use_card_without_NFC">Mazmun paýlaşmagyň käbir usullary we NFC tölegi ýaly NFC-ä degişli funksiýalar, NFC ýapyk wagty elýeterli bolmaýar</string>
     <string name="limit_app_contents_transfer">NFC üsti bilen mazmun paýlaşmak Android Toplumy öçürilen wagty çäklendiriler</string>
     <string name="nfc_payment_dialog_favor_open">Şu wagt açyk duran goýma Bas we töle goldaýan bolsa, %s derek ol ulanylar.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Şu wagt açyk duran goýma Bas we töle goldaýan bolsa, ol ulanylar.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Şu wagt açyk duran goýma Bas we töle goldaýan bolsa, ol töleg üçin ulanylar.</string>
     <string name="folder_sounds">Papkany açýan /ýapýan sesler</string>
     <string name="folder_sounds_summary">Bukjalar açylyp-ýapylanda sesleri oýnatdyrmak.</string>
     <string name="sound_category_calls_title">Gelýän jaňlar</string>
@@ -3326,6 +3337,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Enjam %d minutdan köp wagt gulply bolanda, Wi-Fi ýa-da mobil torlar arkaly goýmalaryň ulanýan maglumaty hakda habarnamalary alyň.</string>
     <string name="data_usage_reminder_description">Enjam gulply wagty, şu goýmalar jemi %s maglumat ulandylar:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Hawa</string>
     <string name="no">Ýok</string>
     <string name="create">Döret</string>
@@ -3423,7 +3435,6 @@ Ony soň Bluetooth sazlamalaryna baryp hem düzedip bilersiňiz."</string>
     <string name="phone_info_label">Enjam maglumaty</string>
     <string name="proxy_settings_label">Proksi sazlamalary</string>
     <string name="cancel">Ýatyr</string>
-    <string name="okay">OK</string>
     <string name="save">Ýatda sakla</string>
     <string name="done">Tamam</string>
     <string name="settings_label">Sazlamalar</string>
@@ -4662,13 +4673,13 @@ Islendik ulanyjy beýleki ähli ulanyjylaryň adyndan täzelenen gollanmalaryň 
     <string name="global_change_warning">Bu sazlama bu enjamdaky ähli ulanyjylara täsir eder</string>
     <string name="global_locale_change_title">Dili üýtgetmek</string>
     <string name="nfc_payment_settings_title">Bas we töle</string>
-    <string name="nfc_payment_no_apps">Gurnalgy töleg hyzmaty goýmasy ýok</string>
+    <string name="nfc_payment_no_apps">Töleg goýmalary gurnalmadyk</string>
     <string name="nfc_payment_favor_default">Şonda-da, %s ulan</string>
     <string name="nfc_payment_favor_open">%s derek açyk goýmany ulan</string>
     <string name="nfc_how_it_works_got_it">Düşnükli</string>
-    <string name="nfc_payment_set_default_label">Esasy hökmünde bellemek</string>
-    <string name="nfc_payment_set_default">%s Siziň esasy töleg usulyňyz hökmünde Bas we töleg geçirimleriňiz üçin düzüler.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s Bas we töle geçirimleriňiz üçin Siziň esasy töleg usulyňyz hökmünde %2$s -niň ýerine geçer.</string>
+    <string name="nfc_payment_set_default_label">Standart töleg goýmasyny bellemelimi?</string>
+    <string name="nfc_payment_set_default">Bas we töle üçin %s standart töleg goýmasy edip belleniler.</string>
+    <string name="nfc_payment_set_default_instead_of">Bas we töle üçin %2$s deregine %1$s standart töleg goýmasy bolar.</string>
     <string name="help_label">Kömek</string>
     <string name="user_restrictions_title">Goşundylar/mazmun gadaganlyklary</string>
     <string name="user_restrictions_controlled_by">%1$s arkaly dolandyrylýar</string>

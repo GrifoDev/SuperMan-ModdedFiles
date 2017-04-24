@@ -279,7 +279,7 @@
 .method private refreshWifiInfo()V
     .locals 9
 
-    const v8, 0x7f0b1279
+    const v8, 0x7f0b1394
 
     const/4 v7, 0x0
 
@@ -515,7 +515,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f08014e
+    const v0, 0x7f08014f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/ConfigureWifiSettings;->addPreferencesFromResource(I)V
 
@@ -648,7 +648,7 @@
     :catch_0
     move-exception v2
 
-    const v7, 0x7f0b1122
+    const v7, 0x7f0b123d
 
     invoke-static {v1, v7, v10}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s経由で接続</string>
     <string name="available_via_passpoint">%1$s経由で使用可能</string>
     <string name="wifi_connected_no_internet">接続済み、インターネットは利用できません</string>
+    <string name="wifi_internet_may_not_be_available">ｲﾝﾀｰﾈｯﾄ接続が不安定です</string>
     <string name="wifi_reconnecting">ネットワークの品質が向上すると接続</string>
     <string name="wifi_connected_checking_quality">インターネット接続の品質を確認中…</string>
     <string name="wifi_sign_in_to_the_network">ネットワークにサインイン</string>
@@ -819,7 +820,7 @@ Wi-FiとBluetoothもOFFになりますが、設定またはクイック設定パ
     <string name="default_app_selection">標準アプリ選択</string>
     <string name="default_app_selection_auto_set">標準アプリを自動的に設定</string>
     <string name="default_app_selection_ask">標準アプリを設定する前に確認</string>
-    <string name="launch_application_settings">標準アプリケーション</string>
+    <string name="launch_application_settings">標準アプリ</string>
     <string name="launch_application_settings_summary">特定のタスクにアプリを指定します。</string>
     <string name="home_settings_header">ホーム切替</string>
     <string name="home_settings_customer_mode_summary">ドコモが提供するホーム画面です。シンプルで直感的に操作することができます。</string>
@@ -864,6 +865,15 @@ Wi-FiとBluetoothもOFFになりますが、設定またはクイック設定パ
     <string name="content_description_hand">画面の中央にある青色の円を長押ししてください。</string>
     <string name="nearby_scanning_help_msg_sub">[近くのデバイスをスキャン]では、Bluetooth省電力スキャンおよびマイクを使用します。この端末でBluetoothがOFFの場合でも、Bluetooth省電力スキャンは使用できます。</string>
     <string name="sec_bluetooth_no_devices_found">Bluetoothデバイスが見つかりません</string>
+    <string name="sec_bluetooth_no_tethered_devices">デバイスがありません</string>
+    <string name="bt_tether_title">Bluetoothテザリング</string>
+    <string name="bt_tether_settings_on">ON</string>
+    <string name="bt_tether_settings_off">OFF</string>
+    <string name="bt_tether_off_brief_text_phone">この端末のインターネット接続を他のデバイスとBluetoothで共有します。</string>
+    <string name="bt_tether_off_brief_text_tablet">このタブレットのインターネット接続を他のデバイスとBluetoothで共有します。</string>
+    <string name="bt_tether_preference_tethered_device_list">以前にテザリングしたデバイス</string>
+    <string name="bt_tether_server_description_phone">Bluetoothで他のデバイスとペアリングして、この端末のインターネット接続を共有します。以前にテザリングしたことがあるデバイスであれば、[以前にテザリングしたデバイス]のリストから再度そのデバイスを選択することができます。</string>
+    <string name="bt_tether_server_description_tablet">Bluetoothで他のデバイスとペアリングして、このタブレットのインターネット接続を共有します。以前にテザリングしたことがあるデバイスであれば、[以前にテザリングしたデバイス]のリストから再度そのデバイスを選択することができます。</string>
     <string name="bluetooth_consent_pairing_msg">%sとペアリングするには、[OK]をタップしてください。</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%sがSIMカードへのアクセス許可を要求しています。この要求を許可すると、通話やメッセージ機能が無効になり、端末のモバイルデータ機能がOFFになります。許可しますか？
 
@@ -972,7 +982,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="downloadable_dialog_popup_text_wifi">追加のヘルプコンテンツをダウンロードする必要があります。端末をWi-Fiネットワークに接続してください。ダウンロード画面に移動します。</string>
     <string name="back_button_label">戻る</string>
     <string name="next_button_label">次へ</string>
-    <string name="category_applications">アプリケーション</string>
+    <string name="category_applications">アプリ</string>
     <string name="data_connection_title">料金通知</string>
     <string name="data_connection_message">モバイルネットワークへの接続は追加料金が発生する可能性があります。</string>
     <string name="none_package">制限されたプロファイルを使用中は、この操作を実行することができません。</string>
@@ -2160,7 +2170,7 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">端末を他のデバイスにタッチさせてデータを交換できるように設定します。</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">モバイル決済サービスの使用、NFCタグの読み取りや書き込み、NFC対応端末間でのデータ交換ができます。</string>
+    <string name="nfc_settings_title">モバイル決済、データの共有、NFCタグの読み取りや書き込みを行うことができます。</string>
     <string name="nfc_settings_rw_p2p_summary">タグを読み書きしたり、デバイス間でデータを転送できます。</string>
     <string name="nfcpayment_quick_toggle_title">NFCと決済</string>
     <string name="nfc_mode_general_title">NFCモード</string>
@@ -2176,14 +2186,16 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
     <string name="nfc_payment_favor_open_default_unknown">起動しているアプリを使用</string>
     <string name="nfc_payment_favor_default_default_unknown">標準決済サービスなし</string>
     <string name="nfc_tts_tab_n_of_n">%2$d件中%1$d件目のタブ</string>
+    <string name="nfc_payment_replace_default_label">標準の決済アプリを置き換えますか？</string>
+    <string name="nfc_payment_replace">置き換え</string>
     <string name="nfc_payment_services_title">NFC決済サービス</string>
     <string name="nfc_payment_services_fail">NFC決済サービスで%sのSIMカードを使用する設定に失敗しました。再度実行してください。</string>
     <string name="nfc_payment_services_success">%sのSIMカードをNFC決済サービスで使用できるように設定しました。</string>
     <string name="nfc_preferred_general_title">優先SIMカード</string>
     <string name="nfc_please_wait">し​ば​らく​お​待ち​く​ださ​い…</string>
     <string name="nfc_payment_no_sim_card">SIMカードがありません</string>
-    <string name="nfc_disable_service_title">標準のNFC処理方法を変更</string>
-    <string name="nfc_disable_service_msg">標準のNFC処理方法を変更すると、[その他]タブの一部のサービスが無効または有効になります。それらのサービスを管理するには、[NFCと決済] > [タップ&amp;ペイ] > [その他]に移動し、各サービスを選択して、有効/無効を切り替えてください。</string>
+    <string name="nfc_disable_service_title">標準のNFC処理方法を変更しますか？</string>
+    <string name="nfc_disable_service_msg">標準のNFC処理方法を変更すると、[その他]タブの一部のサービスがONまたはOFFになります。それらのサービスを管理するには、[NFCと決済] > [タップ&amp;ペイ] > [その他]に移動した後、各サービスを選択し、ON/OFFを切り替えてください。</string>
     <string name="nfc_settings_advanced_setting">標準のNFC処理方法</string>
     <string name="nfc_settings_advanced_uicc">SE SIMカード</string>
     <string name="nfc_settings_advanced_uicc_TTS">セキュアエレメントSIMカード</string>
@@ -2195,7 +2207,7 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
     <string name="nfc_settings_tag_message">カードモードに切り替えると、NFCタグの読み取りやデータの書き込み、デバイス間でデータ交換できなくなります。</string>
     <string name="nfc_show_alert_dialog_title">ウルトラ省電力モード</string>
     <string name="nfc_show_alert_dialog_message">%sを起動できません。</string>
-    <string name="android_beam_explained">NFC対応の端末同士を近づけることで、端末間でファイル、Webページのリンク、連絡先などを共有できます。</string>
+    <string name="android_beam_explained">端末を他のNFC対応端末に近づけることで、Webページのリンクや連絡先などを共有することができます。</string>
     <string name="android_beam_explained_1">端末の背面を互いに近づけてください。</string>
     <string name="android_beam_explained_2">画面をタップしてください。</string>
     <string name="guide_dialog_attention_title">注意</string>
@@ -2204,7 +2216,7 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
     <string name="cannot_use_card_without_NFC">コンテンツの共有やNFC決済など、いくつかのNFC関連機能はNFCがOFFのときは利用できません。</string>
     <string name="limit_app_contents_transfer">NFCによるコンテンツの共有は、Android BeamがOFFのときに限定されます。</string>
     <string name="nfc_payment_dialog_favor_open">現在起動中のアプリがタップ&amp;ペイに対応している場合、%sの代わりにそのアプリを使用します。</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">現在起動中のアプリがタップ&amp;ペイに対応している場合、そのアプリを使用します。</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">現在起動中のアプリがタップ&amp;ペイに対応している場合、そのアプリを決済に使用します。</string>
     <string name="folder_sounds">端末開閉音</string>
     <string name="folder_sounds_summary">端末の開閉時に音を再生</string>
     <string name="sound_category_calls_title">着信</string>
@@ -3461,6 +3473,7 @@ SMS受信"</string>
     <string name="data_usage_reminder_item_summary">端末がロックされてから%d分以上経過すると、アプリがWi-Fiまたはモバイルネットワークで使用したデータ量を示す通知を受信します。</string>
     <string name="data_usage_reminder_description">以下のアプリは、端末のロック中に合計%sのデータを使用しました。</string>
     <string name="google_settings_popup_msg">限られた件数のGoogle設定のみ利用できます。一部の操作は機能しない場合があります。</string>
+    <string name="okay">OK</string>
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
     <string name="create">作成</string>
@@ -3558,7 +3571,6 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="phone_info_label">端末情報</string>
     <string name="proxy_settings_label">プロキシ設定</string>
     <string name="cancel">キャンセル</string>
-    <string name="okay">OK</string>
     <string name="save">保存</string>
     <string name="done">完了</string>
     <string name="settings_label">設定</string>
@@ -4810,13 +4822,13 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="global_change_warning">この設定は全てのユーザーに影響を与えます。</string>
     <string name="global_locale_change_title">言語を変更</string>
     <string name="nfc_payment_settings_title">タップしてお支払い</string>
-    <string name="nfc_payment_no_apps">インストールされた決済サービスアプリはありません</string>
+    <string name="nfc_payment_no_apps">決済アプリがインストールされていません</string>
     <string name="nfc_payment_favor_default">今後も%sを使用</string>
     <string name="nfc_payment_favor_open">%sの代わりに起動しているアプリを使用</string>
     <string name="nfc_how_it_works_got_it">OK</string>
-    <string name="nfc_payment_set_default_label">標準に設定</string>
-    <string name="nfc_payment_set_default">タップしてお支払いの標準の決済方法として%sが設定されます。</string>
-    <string name="nfc_payment_set_default_instead_of">タップしてお支払いの標準の決済方法が%2$sから%1$sに置き換えられます。</string>
+    <string name="nfc_payment_set_default_label">標準の決済アプリを設定しますか？</string>
+    <string name="nfc_payment_set_default">%sをタップ&amp;ペイの標準の決済アプリに設定します。</string>
+    <string name="nfc_payment_set_default_instead_of">タップ&amp;ペイの標準の決済アプリが、%2$sから%1$sに置き換えられます。</string>
     <string name="help_label">ヘルプ</string>
     <string name="user_restrictions_title">アプリケーション/コンテンツ制限</string>
     <string name="user_restrictions_controlled_by">%1$sで制御</string>

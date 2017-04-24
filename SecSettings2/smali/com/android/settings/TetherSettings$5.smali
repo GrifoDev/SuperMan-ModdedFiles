@@ -35,494 +35,450 @@
 
 # virtual methods
 .method public onStateReceived()V
-    .locals 12
+    .locals 5
 
-    const/4 v11, 0x2
+    const/4 v4, 0x1
 
-    const/4 v10, 0x0
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    const/4 v9, 0x0
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    move-result-object v1
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
+    const-string/jumbo v1, "TetheringSettings"
 
-    move-result-object v4
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "TetheringSettings"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "onStateReceived : stateId - "
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "onStateReceived : stateId - "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v6, "BluetoothTetheringOn"
-
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    const-string/jumbo v7, "device_policy"
-
-    invoke-static {v6, v7}, Lcom/android/settings/TetherSettings;->-wrap0(Lcom/android/settings/TetherSettings;Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {v3, v10}, Landroid/app/admin/DevicePolicyManager;->semGetAllowInternetSharing(Landroid/content/ComponentName;)Z
-
-    move-result v1
-
-    invoke-virtual {v3, v10}, Landroid/app/admin/DevicePolicyManager;->semGetAllowBluetoothMode(Landroid/content/ComponentName;)I
-
-    move-result v0
-
-    if-eqz v1, :cond_0
-
-    if-eq v0, v11, :cond_1
-
-    :cond_0
-    const-string/jumbo v6, "TetherSettings"
-
-    const-string/jumbo v7, "Internet Sharing is restricted by MDM."
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get3(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "bluetooth.pan.tether_on"
-
-    invoke-static {v7, v9}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-virtual {v6}, Lcom/android/settings/TetherSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    iget-object v7, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-virtual {v7}, Lcom/android/settings/TetherSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v7
-
-    const v8, 0x1040660
-
-    invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/widget/Toast;->show()V
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
-
-    return-void
-
-    :cond_1
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    const-string/jumbo v7, "phone"
-
-    invoke-static {v6, v7}, Lcom/android/settings/TetherSettings;->-wrap0(Lcom/android/settings/TetherSettings;Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/telephony/TelephonyManager;
-
-    const-string/jumbo v6, "VZW"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-virtual {v5}, Landroid/telephony/TelephonyManager;->getSimState()I
-
-    move-result v6
-
-    const/4 v7, 0x5
-
-    if-eq v6, v7, :cond_2
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get3(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "bluetooth.pan.tether_on"
-
-    invoke-static {v7, v9}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    const/4 v7, 0x6
-
-    invoke-static {v6, v7}, Lcom/android/settings/TetherSettings;->-wrap5(Lcom/android/settings/TetherSettings;I)V
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
-
-    return-void
-
-    :cond_2
-    const-string/jumbo v6, "bluetooth.pan.tether_on"
-
-    invoke-static {v6, v9}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "BluetoothTethering"
-
-    const-string/jumbo v8, "AlreadyON"
-
-    const-string/jumbo v9, "yes"
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_3
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
-
-    return-void
-
-    :cond_4
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6, v11}, Lcom/android/settings/TetherSettings;->-wrap6(Lcom/android/settings/TetherSettings;I)V
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "BluetoothTethering"
-
-    const-string/jumbo v8, "AlreadyON"
-
-    const-string/jumbo v9, "no"
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_5
-    const-string/jumbo v6, "BluetoothTetheringOff"
-
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
-
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get2(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    check-cast v2, Landroid/bluetooth/BluetoothPan;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v2, :cond_8
+    move-result-object v2
 
-    const-string/jumbo v6, "bluetooth.pan.tether_on"
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v6, v9}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v2
 
-    move-result v6
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v6, :cond_7
+    const-string/jumbo v1, "BluetoothTethering"
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result v1
 
-    move-result-object v6
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v7, "BluetoothTethering"
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    const-string/jumbo v8, "AlreadyOFF"
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get3(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    const-string/jumbo v9, "yes"
+    move-result-object v1
 
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    :goto_1
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get3(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-virtual {v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    move-result v6
+    invoke-virtual {v2}, Lcom/android/settings/TetherSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
-    if-eqz v6, :cond_6
+    move-result-object v2
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    move-result-object v6
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    invoke-virtual {v6, v4}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    move-result-object v1
 
-    :cond_6
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    move-result v1
 
-    move-result-object v6
+    if-eqz v1, :cond_0
 
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    :goto_2
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    :cond_1
+    :goto_0
     return-void
 
-    :cond_7
-    invoke-virtual {v2, v9}, Landroid/bluetooth/BluetoothPan;->setBluetoothTethering(Z)V
+    :cond_2
+    const-string/jumbo v1, "HotspotSettings"
 
-    const-string/jumbo v6, "TetheringSettings"
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v7, "bluetoothPan is null. request turn off when binding is done!!"
+    move-result v1
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v1, :cond_5
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get11(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v6
+    move-result-object v1
 
-    const-string/jumbo v7, "BluetoothTethering"
+    if-eqz v1, :cond_4
 
-    const-string/jumbo v8, "AlreadyOFF"
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    const-string/jumbo v9, "no"
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get11(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v6, v7, v8, v9}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->setNlgScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-virtual {v2}, Lcom/android/settings/TetherSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "HotspotSettings"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    :goto_1
+    return-void
+
+    :cond_4
+    const-string/jumbo v1, "TetheringSettings"
+
+    const-string/jumbo v2, "mWifiApSettings is null!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "HotspotSettings"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
 
     goto :goto_1
 
+    :cond_5
+    const-string/jumbo v1, "USBTetheringOn"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_8
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isChecked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const-string/jumbo v1, "TetheringSettings"
+
+    const-string/jumbo v2, "mUsbTether is checked!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    const-string/jumbo v1, "TetheringSettings"
+
+    const-string/jumbo v2, "USBTetheringOn is not enabled!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    goto/16 :goto_0
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v2
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/settings/TetherSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    goto/16 :goto_0
+
     :cond_8
-    const-string/jumbo v6, "TetheringSettings"
+    const-string/jumbo v1, "TetheringSettings"
 
-    const-string/jumbo v7, "bluetoothPan is null"
+    const-string/jumbo v2, "mUsbTether is null!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v6
+    move-result-object v1
 
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v6, "HotspotSettings"
+    const-string/jumbo v1, "USBTetheringOff"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v1
 
-    if-eqz v6, :cond_c
+    if-eqz v1, :cond_1
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v6
+    move-result-object v1
 
-    if-eqz v6, :cond_b
+    if-eqz v1, :cond_c
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v6
+    move-result-object v1
 
-    iget-object v7, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isChecked()Z
 
-    invoke-virtual {v7}, Lcom/android/settings/TetherSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result v1
 
-    move-result-object v7
+    if-nez v1, :cond_a
 
-    invoke-virtual {v6, v7}, Landroid/preference/SwitchPreference;->performClick(Landroid/preference/PreferenceScreen;)V
+    const-string/jumbo v1, "TetheringSettings"
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    const-string/jumbo v2, "mUsbTether is not checked!!"
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v6
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-virtual {v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result v6
+    move-result-object v1
 
-    if-eqz v6, :cond_a
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "MobileHotspotAndTethering"
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    goto/16 :goto_0
 
     :cond_a
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    move-result-object v6
+    move-result-object v1
 
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+    invoke-virtual {v1}, Landroid/preference/SwitchPreference;->isEnabled()Z
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+    move-result v1
 
-    :goto_3
-    return-void
+    if-nez v1, :cond_b
+
+    const-string/jumbo v1, "TetheringSettings"
+
+    const-string/jumbo v2, "USBTetheringOn is not enabled!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    goto/16 :goto_0
 
     :cond_b
-    const-string/jumbo v6, "TetheringSettings"
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    const-string/jumbo v7, "mWifiApSettings is null!!"
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->-get10(Lcom/android/settings/TetherSettings;)Landroid/preference/SwitchPreference;
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    move-result-object v2
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const/4 v3, 0x0
 
-    move-result-object v6
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string/jumbo v7, "MobileHotspotAndTethering"
+    move-result-object v3
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Lcom/android/settings/TetherSettings;->onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
 
-    iget-object v6, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v6}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    move-result-object v6
+    move-result-object v1
 
-    sget-object v7, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
 
-    goto :goto_3
+    goto/16 :goto_0
 
     :cond_c
-    return-void
+    const-string/jumbo v1, "TetheringSettings"
+
+    const-string/jumbo v2, "mUsbTether is null!!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$5;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_FAILURE:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+
+    goto/16 :goto_0
 .end method

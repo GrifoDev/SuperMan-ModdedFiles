@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Conexión a través de %1$s</string>
     <string name="available_via_passpoint">Disponible a través de %1$s</string>
     <string name="wifi_connected_no_internet">Conectado a Wi-Fi, sin conexión a Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet no está disponible</string>
     <string name="wifi_reconnecting">Listo para conectar cuando la calidad de la red mejore</string>
     <string name="wifi_connected_checking_quality">Comprobando la calidad de su conexión de Internet…</string>
     <string name="wifi_sign_in_to_the_network">Inicie sesión en la red.</string>
@@ -820,7 +821,7 @@ También se desactivarán Wi-Fi y Bluetooth, pero se pueden volver a activar en 
     <string name="default_app_selection">Seleccionar</string>
     <string name="default_app_selection_auto_set">Definir automáticamente</string>
     <string name="default_app_selection_ask">Preguntar antes de definir</string>
-    <string name="launch_application_settings">Predeterminadas</string>
+    <string name="launch_application_settings">Aplicaciones predeterminadas</string>
     <string name="launch_application_settings_summary">Designar aplicaciones para determinadas tareas.</string>
     <string name="home_settings_header">Modificar inicio</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Los datos del dispositivo pueden incluir información personal como contactos, m
     <string name="content_description_hand">Mantenga pulsado el círculo azul en el centro de la pantalla</string>
     <string name="nearby_scanning_help_msg_sub">La función Buscar dispositivos cercanos usa búsquedas vía Bluetooth de baja energía y el micrófono. Es posible usar Bluetooth de baja energía aunque la conexión Bluetooth esté desactivada en este dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">No se encontraron dispositivos Bluetooth</string>
+    <string name="bt_tether_title">Anclaje a red Bluetooth</string>
+    <string name="bt_tether_settings_on">Activado</string>
+    <string name="bt_tether_settings_off">Desactivado</string>
+    <string name="bt_tether_off_brief_text_phone">Comparta la conexión a internet de su teléfono con otros dispositivos a través de Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Comparta la conexión a internet de su tableta con otros dispositivos a través de Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Dispositivos anclados a red</string>
+    <string name="bt_tether_server_description_phone">Comparta la conexión a Internet de su teléfono vinculándolo a otro dispositivo a través de Bluetooth. Si el dispositivo ya se ancló a la red anteriormente, puede volver a hacerlo seleccionándolo en la lista de Dispositivos anclados a red.</string>
+    <string name="bt_tether_server_description_tablet">Comparta la conexión a Internet de su tableta vinculándola a otro dispositivo a través de Bluetooth. Si el dispositivo ya se ancló a la red anteriormente, puede volver a hacerlo seleccionándolo en la lista de Dispositivos anclados a red.</string>
     <string name="bluetooth_consent_pairing_msg">Pulse ACEPTAR para vincular con %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s solicita permiso para acceder a su tarjeta SIM. Si acepta esta solicitud, se desactivarán las funciones de llamadas y mensajes, y se desactivarán los datos móviles en el dispositivo. ¿Desea permitirlo?
 
@@ -1039,8 +1048,7 @@ Aun si la función Captura inteligente está desactivada, puede acceder a sus fu
     <string name="active_key_title">Tecla de activación</string>
     <string name="about_phone">Acerca del teléfono</string>
     <string name="theme_settings">Temas</string>
-    <string name="wifi_calling_title">"Llamada
-Wi-Fi"</string>
+    <string name="wifi_calling_title">Llamadas Wi-Fi</string>
     <string name="tab_category_connections">Conexiones</string>
     <string name="festival_effect_settings_title">Efecto de festival</string>
     <string name="user_manual">Manual de usuario</string>
@@ -2165,7 +2173,7 @@ Es posible que algunas transacciones NFC y servicios de pago móvil requieran ot
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Permitir el intercambio de datos cuando el dispositivo toca otro dispositivo.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Permite usar servicios de pago móvil, leer y escribir etiquetas NFC e intercambiar datos entre dispositivos compatibles con la funcionalidad NFC.</string>
+    <string name="nfc_settings_title">Hacer pagos móviles, compartir datos, y leer o escribir etiquetas NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Puede leer y escribir etiquetas y transferir datos entre dispositivos.</string>
     <string name="nfcpayment_quick_toggle_title">NFC y pago</string>
     <string name="nfc_mode_general_title">Modo NFC</string>
@@ -2181,14 +2189,16 @@ Es posible que algunas transacciones NFC y servicios de pago móvil requieran ot
     <string name="nfc_payment_favor_open_default_unknown">Usar aplicación abierta</string>
     <string name="nfc_payment_favor_default_default_unknown">No hay pago predeterminado</string>
     <string name="nfc_tts_tab_n_of_n">Ficha %1$d de %2$d</string>
+    <string name="nfc_payment_replace_default_label">¿Cambiar aplicación de pago predeterminada?</string>
+    <string name="nfc_payment_replace">Sustituir</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Tarjeta SIM preferida</string>
     <string name="nfc_please_wait">Por favor, espere…</string>
     <string name="nfc_payment_no_sim_card">No hay tarjeta SIM</string>
-    <string name="nfc_disable_service_title">Cambiar método NFC predeterminado</string>
-    <string name="nfc_disable_service_msg">Si cambia el método de procesamiento NFC predeterminado, se desactivarán o activarán algunos servicios de la pestaña OTROS. Para administrar estos servicios, vaya a NFC y pago > Pulsar y pagar > OTROS, y seleccione cada servicio para activarlo o desactivarlo.</string>
+    <string name="nfc_disable_service_title">¿Cambiar el método NFC predeterminado?</string>
+    <string name="nfc_disable_service_msg">Si cambia el método de procesamiento NFC predeterminado, se desactivarán o activarán algunos servicios de la pestaña OTROS. Para administrar estos servicios, vaya a NFC y pago > Pulsar y pagar > OTROS y seleccione cada servicio para activarlo o desactivarlo.</string>
     <string name="nfc_settings_advanced_setting">Método NFC predeterminado</string>
     <string name="nfc_settings_advanced_uicc">Tarjeta SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">Tarjeta SIM de Elemento seguro</string>
@@ -2200,7 +2210,7 @@ Es posible que algunas transacciones NFC y servicios de pago móvil requieran ot
     <string name="nfc_settings_tag_message">Si cambia al modo Tarjeta, no podrá seguir leyendo las etiquetas NFC, escribir datos en ellas ni intercambiar datos entre dispositivos.</string>
     <string name="nfc_show_alert_dialog_title">Modo Ultra ahorro energía</string>
     <string name="nfc_show_alert_dialog_message">No se puede abrir %s.</string>
-    <string name="android_beam_explained">Comparta archivos entre dispositivos compatibles con NFC sosteniéndolos uno junto al otro. Podrá compartir vínculos a páginas web, contactos y muchas otras cosas.</string>
+    <string name="android_beam_explained">Puede compartir vínculos a páginas web, contactos y mucho más sosteniendo su teléfono cerca de un dispositivo compatible con NFC.</string>
     <string name="android_beam_explained_1">Junte los dispositivos por la parte posterior.</string>
     <string name="android_beam_explained_2">Pulse su pantalla.</string>
     <string name="guide_dialog_attention_title">Atención</string>
@@ -2209,7 +2219,7 @@ Es posible que algunas transacciones NFC y servicios de pago móvil requieran ot
     <string name="cannot_use_card_without_NFC">Las funciones relacionadas con NFC, como algunos métodos para compartir contenido o el pago NFC, no estarán disponibles cuando NFC esté desactivado.</string>
     <string name="limit_app_contents_transfer">Compartir contenido mediante NFC estará limitado cuando Android Beam esté desactivado.</string>
     <string name="nfc_payment_dialog_favor_open">Si la aplicación abierta admite Pulsar y pagar, se usará en lugar de %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Si la aplicación abierta admite Pulsar y pagar, se usará.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Si la aplicación abierta admite Pulsar y pagar, se usará para hacer pagos.</string>
     <string name="folder_sounds">Sonidos abrir/cerrar folder</string>
     <string name="folder_sounds_summary">Reproducir sonidos al abrir y cerrar folder.</string>
     <string name="sound_category_calls_title">Llamadas entrantes</string>
@@ -3466,6 +3476,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Cuando el dispositivo haya estado bloqueado durante más de %d minutos, recibir notificaciones con la cantidad de datos usados por las aplicaciones vía Wi-Fi o redes móviles.</string>
     <string name="data_usage_reminder_description">Las siguientes aplicaciones usaron un total de %s de datos mientras el dispositivo estuvo bloqueado:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Aceptar</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
     <string name="create">Crear</string>
@@ -3563,7 +3574,6 @@ Puede cambiar esta opción más tarde desde los ajustes de Bluetooth."</string>
     <string name="phone_info_label">Información del dispositivo</string>
     <string name="proxy_settings_label">Ajustes de Proxy</string>
     <string name="cancel">Cancelar</string>
-    <string name="okay">Aceptar</string>
     <string name="save">Guardar</string>
     <string name="done">Realiz.</string>
     <string name="settings_label">Ajustes</string>
@@ -4814,13 +4824,13 @@ Cualquier usuario puede aceptar los permisos de aplicaciones actualizadas en nom
     <string name="global_change_warning">Esta configuración afecta a todos los usuarios de este dispositivo.</string>
     <string name="global_locale_change_title">Cambiar idioma</string>
     <string name="nfc_payment_settings_title">Pulsar y pagar</string>
-    <string name="nfc_payment_no_apps">No hay aplicaciones de servicio de pago instaladas</string>
+    <string name="nfc_payment_no_apps">No hay aplicaciones de pago instaladas</string>
     <string name="nfc_payment_favor_default">Seguir usando %s</string>
     <string name="nfc_payment_favor_open">Usar la aplicación abierta en lugar de %s</string>
     <string name="nfc_how_it_works_got_it">Entendido</string>
-    <string name="nfc_payment_set_default_label">Conf. como predeterminado</string>
-    <string name="nfc_payment_set_default">%s se definirá como método de pago predeterminado para las transacciones de Pulsar y pagar.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s reemplazará %2$s como método de pago predeterminado para las transacciones de Pulsar y pagar.</string>
+    <string name="nfc_payment_set_default_label">¿Definir aplicación de pago predeterminada?</string>
+    <string name="nfc_payment_set_default">%s se definirá como aplicación de pago predeterminada de Pulsar y pagar.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s sustituirá a %2$s como aplicación de pago predeterminada de Pulsar y pagar.</string>
     <string name="help_label">Ayuda</string>
     <string name="user_restrictions_title">Restricciones aplicación/contenido</string>
     <string name="user_restrictions_controlled_by">Controlado a través de %1$s</string>
@@ -5126,7 +5136,7 @@ No recibirá llamadas, mensajes ni notificaciones, y no sonarán las alarmas, ha
     <string name="location_off_summary">Desactivado</string>
     <string name="backup_disabled">Copia de seguridad automática desactivada</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">No es posible realizar la acción</string>
+    <string name="disabled_by_policy_title">Imposible realizar la acción</string>
     <string name="default_admin_support_msg">No tiene permiso para realizar esta acción. Comuníquese con el administrador de TI de su organización para obtener más información.</string>
     <string name="admin_support_more_info">Más detalles</string>
     <string name="admin_profile_owner_message">El administrador puede supervisar y administrar aplicaciones y datos asociados con este perfil de trabajo, incluidos los ajustes, permisos, acceso corporativo, actividad de red e información de ubicación del dispositivo.</string>

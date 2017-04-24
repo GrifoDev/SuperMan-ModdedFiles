@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap3(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap4(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 

@@ -3,12 +3,12 @@
 .source "PrintServiceSettingsFragment.java"
 
 # interfaces
-.implements Landroid/widget/SearchView$OnQueryTextListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/settings/print/PrintServiceSettingsFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
+    value = Lcom/android/settings/print/PrintServiceSettingsFragment;->onLoadFinished(Landroid/content/Loader;Ljava/util/List;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,30 +34,12 @@
 
 
 # virtual methods
-.method public onQueryTextChange(Ljava/lang/String;)Z
+.method public run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settings/print/PrintServiceSettingsFragment$5;->this$0:Lcom/android/settings/print/PrintServiceSettingsFragment;
 
-    invoke-static {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->-get4(Lcom/android/settings/print/PrintServiceSettingsFragment;)Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;
+    invoke-virtual {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment;->finishFragment()V
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settings/print/PrintServiceSettingsFragment$PrintersAdapter;->getFilter()Landroid/widget/Filter;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/widget/Filter;->filter(Ljava/lang/CharSequence;)V
-
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method public onQueryTextSubmit(Ljava/lang/String;)Z
-    .locals 1
-
-    const/4 v0, 0x1
-
-    return v0
+    return-void
 .end method

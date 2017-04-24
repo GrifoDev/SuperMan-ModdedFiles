@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">‏متصل از طریق %1$s</string>
     <string name="available_via_passpoint">‏در دسترس از طریق %1$s</string>
     <string name="wifi_connected_no_internet">متصل، بدون اینترنت</string>
+    <string name="wifi_internet_may_not_be_available">ممکن است اینترنت دردسترس نباشد</string>
     <string name="wifi_reconnecting">وقتی کیفیت شبکه بهبود می‌یابد شبکه آماده اتصال شود</string>
     <string name="wifi_connected_checking_quality">در حال بررسی کیفیت اتصال اینترنت شما…</string>
     <string name="wifi_sign_in_to_the_network">وارد شبکه شوید.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d مورد مرتبط</string>
     <string name="no_results_found">نتیجه‌ای یافت نشد</string>
     <string name="menu_edit">ویرایش</string>
-    <string name="reset">تنظیم مجدد</string>
+    <string name="reset">بازنشانی</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">اجازه دهید Voice Assistant بداند چه موقع از از برنامه‌ای استفاده می‌کنید.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">در زیر این متن و بالای دکمه‌های واقع در زیر صفحه، جهت‌ها را ترسیم کنید.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">دکه تأیید در گوشه سمت راست پایین صفحه قرار دارد.</string>
@@ -865,6 +866,14 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">به دایره آبی در مرکز صفحه ضربه بزنيد و نگهدارید.</string>
     <string name="nearby_scanning_help_msg_sub">اسکن دستگاه‌های نزدیک از اسکن بلوتوث با مصرف انرژی کم و میکروفن استفاده می‌کند. از اسکن بلوتوث با مصرف انرژی کم حتی وقتی بلوتوث در این دستگاه خاموش است نیز می‌توان استفاده نمود.</string>
     <string name="sec_bluetooth_no_devices_found">هیچ دستگاه بلوتوثی یافت نشد</string>
+    <string name="bt_tether_title">اشتراک گذاری اینترنت با بلوتوث</string>
+    <string name="bt_tether_settings_on">روشن</string>
+    <string name="bt_tether_settings_off">خاموش</string>
+    <string name="bt_tether_off_brief_text_phone">اتصال اینترنت تلفن خود را با استفاده از بلوتوث با دستگاه‌های دیگر به اشتراک بگذارید.</string>
+    <string name="bt_tether_off_brief_text_tablet">اتصال اینترنت تبلت خود را با استفاده از بلوتوث با دستگاه‌های دیگر به اشتراک بگذارید.</string>
+    <string name="bt_tether_preference_tethered_device_list">دستگاه‌های متصل شده</string>
+    <string name="bt_tether_server_description_phone">با استفاده از بلوتوث با دستگاه دیگر جفت شوید و اتصال اینترنت تلفن خود را با آن به اشتراک بگذارید. اگر دستگاه قبلاً برای استفاده از اینترنت با تلفن شما جفت شده است، می‌توانید آن را از لیست دستگاه‌های متصل شده انتخاب کرده و دوباره اینترنت را برای آن به اشتراک بگذارید.</string>
+    <string name="bt_tether_server_description_tablet">با استفاده از بلوتوث با دستگاه دیگر جفت شوید و اتصال اینترنت تبلت خود را با آن به اشتراک بگذارید. اگر دستگاه قبلاً برای استفاده از اینترنت با تلفن شما جفت شده است، می‌توانید آن را از لیست دستگاه‌های متصل شده انتخاب کرده و دوباره اینترنت را برای آن به اشتراک بگذارید.</string>
     <string name="bluetooth_consent_pairing_msg">برای جفت‌سازی با %s، روی &lt;تأیید> ضربه بزنید.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"‎%s برای دسترسی به سیم‌کارت شما اجازه می‌خواهد. با پذیرفتن این درخواست، عملکردهای تماس و پیام‌رسانی غیرفعال شده و داده تلفن همراه در دستگاهتان خاموش می‌شود. اجازه می‌دهید؟‎
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">وقتی دستگاه، دستگاه دیگری را لمس کند تبادل داده انجام شود.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">از سرویس‌های پرداخت با تلفن همراه، خواندن و نوشتن برچسب‌های NFC استفاده کنید و به تبادل اطلاعات بین دستگاه‌های دارای ویژگی NFC بپردازید.</string>
+    <string name="nfc_settings_title">به پرداخت با تلفن همراه، اشتراک‌گذاری اطلاعات و خواندن یا نوشتن برچسب‌های NFC بپردازید.</string>
     <string name="nfc_settings_rw_p2p_summary">شما می‌توانید برچسب ها را بخوانید و بنویسید و داده ها را بین دستگاهها جابجا کنید.</string>
     <string name="nfcpayment_quick_toggle_title">‏NFC و پرداخت</string>
     <string name="nfc_mode_general_title">حالت NFC</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">سرویس پرداخت پیش‌فرض تلفن همراه خود را انتخاب کنید.</string>
     <string name="nfc_payment_title">پرداخت</string>
     <string name="nfc_others_title">موارد دیگر</string>
-    <string name="nfc_other_no_apps">برنامه سرویس نصب شده‌ای وجود ندارد</string>
+    <string name="nfc_other_no_apps">هیچ برنامه سرویسی نصب نشده است</string>
     <string name="nfc_payment_open_app">اگر برنامه باز از ضربه و پرداخت پشتیبانی کند</string>
     <string name="nfc_payment_favor_open_default_unknown">استفاده از برنامه باز</string>
     <string name="nfc_payment_favor_default_default_unknown">بدون سرویس پرداخت پیش‌فرض</string>
     <string name="nfc_tts_tab_n_of_n">به %1$d از %2$d ضربه بزنید.</string>
+    <string name="nfc_payment_replace_default_label">برنامه پرداخت پیش‌فرض جایگزین شود؟</string>
+    <string name="nfc_payment_replace">جایگزین کردن</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">سیم‌کارت برگزیده</string>
     <string name="nfc_please_wait">کمی صبر کنيد…</string>
     <string name="nfc_payment_no_sim_card">سیم‌کارت وجود ندارد</string>
-    <string name="nfc_disable_service_title">تغییر روش NFC پیش‌فرض</string>
-    <string name="nfc_disable_service_msg">اگر روش پردازش NFC پیش‌فرض را تغییر دهید، برخی سرویس‌ها در زبانه موارد دیگر غیرفعال یا فعال می‌شوند. برای مدیریت این سرویس‌ها، به NFC و پرداخت > ضربه و پرداخت > موارد دیگر بروید، سپس با انتخاب هر سرویس، آن را فعال یا غیرفعال کنید.</string>
+    <string name="nfc_disable_service_title">روش NFC پیش‌فرض تغییر کند؟</string>
+    <string name="nfc_disable_service_msg">اگر روش پردازش پیش‌فرض NFC را تغییر دهید، برخی سرویس‌ها در زبانه موارد دیگر روشن یا خاموش خواهند شد. برای مدیریت این سرویس‌ها، به NFC و پرداخت > ضربه و پرداخت > موارد دیگر بروید، سپس یک سرویس را برای روشن یا خاموش کردن انتخاب کنید.</string>
     <string name="nfc_settings_advanced_setting">روش NFC پیش‌فرض</string>
     <string name="nfc_settings_advanced_uicc">سیم‌کارت SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">سیم‌کارت عنصر ایمن</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">اگر به حالت کارت تغییر وضعیت دهید، دیگر نمی‌توانید به خواندن برچسب‌های NFC، نوشتن اطلاعات بر روی آنها یا تبادل اطلاعات بین دستگاه‌ها بپردازید.</string>
     <string name="nfc_show_alert_dialog_title">حالت ذخیره نیروی بیشتر</string>
     <string name="nfc_show_alert_dialog_message">بازکردن ‎%s ممکن نیست.</string>
-    <string name="android_beam_explained">با نگهداشتن دستگاه‌های دارای NFC فعال نزدیک به هم، فایل‌ها را بین آنها اشتراک‌گذاری کنید. سپس می‌توانید لینک‌های صفحه وب، مخاطبین و غیره را اشتراک‌گذاری کنید.</string>
+    <string name="android_beam_explained">با نگهداشتن تلفن نزدیک به دستگاه دارای قابلیت NFC، می‌توانید لینک‌های صفحه وب، مخاطبین و موارد دیگر را به اشتراک بگذارید.</string>
     <string name="android_beam_explained_1">دستگاه‌ها را پشت به پشت یکدیگر قرار دهید.</string>
     <string name="android_beam_explained_2">روی صفحه خود ضربه بزنید.</string>
     <string name="guide_dialog_attention_title">توجه</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">عملکردهای مربوط به NFC، مانند برخی از روش های اشتراک گذاری محتوا و پرداخت NFC، زمان خاموش بودن NFC موجود نیست.</string>
     <string name="limit_app_contents_transfer">زمان خاموش بودن Android Beam، اشتراک محتوا از طریق NFC محدود می‌شود.</string>
     <string name="nfc_payment_dialog_favor_open">اگر برنامه‌ای که باز است، از قابلیت ضربه و پرداخت پشتیبانی کند، از آن به جای %s استفاده می‌شود.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">اگر برنامه‌ای که باز است، از قابلیت ضربه و پرداخت پشتیبانی کند، از آن استفاده می‌شود.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">اگر برنامه‌ای که اکنون باز است از قابلیت ضربه و پرداخت پشتیبانی کند، از آن برای پرداخت استفاده می‌شود.</string>
     <string name="folder_sounds">صداهای باز/بسته شدن پوشه</string>
     <string name="folder_sounds_summary">هنگام باز و بسته کردن پوشه صدا پخش شود.</string>
     <string name="sound_category_calls_title">تماس های دریافتی</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">وقتی دستگاه برای بیشتر از %d دقیقه قفل بود، اعلان‌های مربوط به میزان اینترنت همراه استفاده شده توسط Wi-Fi یا شبکه تلفن همراه را دریافت می‌کنید.</string>
     <string name="data_usage_reminder_description">برنامه‌های زیر %s از اینترنت همراه را در هنگام قفل بودن دستگاه مصرف کردند:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">تأیید</string>
     <string name="yes">بلی</string>
     <string name="no">خیر</string>
     <string name="create">ايجاد</string>
@@ -3559,7 +3571,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">اطلاعات دستگاه</string>
     <string name="proxy_settings_label">تنظيمات پراکسی</string>
     <string name="cancel">خیر</string>
-    <string name="okay">تأیید</string>
     <string name="save">ذخیره</string>
     <string name="done">انجام شد</string>
     <string name="settings_label">تنظیمات</string>
@@ -4813,13 +4824,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">این تنظیم همه کاربران این دستگاه را تحت تأثیر قرار می‌دهد.</string>
     <string name="global_locale_change_title">تغییر زبان</string>
     <string name="nfc_payment_settings_title">ضربه و پرداخت</string>
-    <string name="nfc_payment_no_apps">برنامه سرویس پرداخت نصب شده‌ای وجود ندارد</string>
+    <string name="nfc_payment_no_apps">هیچ برنامه پرداختی نصب نشده است</string>
     <string name="nfc_payment_favor_default">همچنان از %s استفاده شود</string>
     <string name="nfc_payment_favor_open">به جای %s از برنامه باز استفاده شود</string>
     <string name="nfc_how_it_works_got_it">دریافت شد</string>
-    <string name="nfc_payment_set_default_label">تنظیم به عنوان پیش‌فرض</string>
-    <string name="nfc_payment_set_default">‎%s به عنوان روش پرداخت پیش‌فرض شما در تراکنش‌های ضربه و پرداخت تنظیم خواهد شد.</string>
-    <string name="nfc_payment_set_default_instead_of">‎%1$s به عنوان روش پرداخت پیش‌فرض شما در تراکنش‌های ضربه و پرداخت جایگزین ‎%2$s خواهد شد.</string>
+    <string name="nfc_payment_set_default_label">برنامه پرداخت پیش‌فرض تنظیم شود؟</string>
+    <string name="nfc_payment_set_default">%s به عنوان برنامه پرداخت پیش‌فرض شما در تراکنش‌های ضربه و پرداخت تنظیم خواهد شد.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s به عنوان برنامه پرداخت پیش‌فرض شما در تراکنش‌های ضربه و پرداخت جایگزین ‎%2$s خواهد شد.</string>
     <string name="help_label">راهنما</string>
     <string name="user_restrictions_title">محدودیت برنامه/محتوا</string>
     <string name="user_restrictions_controlled_by">کنترل شده از طریق %1$s</string>
@@ -5125,7 +5136,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">غیرفعال شد</string>
     <string name="backup_disabled">پشتیبان‌گیری خودکار غیرفعال شد</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">انجام عملکرد ممکن نیست</string>
+    <string name="disabled_by_policy_title">انجام کار ممکن نیست</string>
     <string name="default_admin_support_msg">شما اجازهٔ انجام این عملکرد را ندارید. برای اطلاعات بیشتر، با مدیر IT سازمان خود تماس بگیرید.</string>
     <string name="admin_support_more_info">جزئیات بیشتر</string>
     <string name="admin_profile_owner_message">مدیر می‌تواند برنامه‌ها و اطلاعات مربوط به نمایه کاری شما، شامل تنظیمات، مجوزها، دسترسی به شرکت، فعالیت شبکه و اطلاعات مکان دستگاه را کنترل و مدیریت کند.</string>

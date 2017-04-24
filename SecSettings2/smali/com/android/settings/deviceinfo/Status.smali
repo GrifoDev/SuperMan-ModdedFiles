@@ -410,7 +410,7 @@
 .method private changeSysScopeStatus()V
     .locals 15
 
-    const v14, 0x7f0b0514
+    const v14, 0x7f0b051f
 
     const/4 v13, 0x2
 
@@ -462,7 +462,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f0b0516
+    const v7, 0x7f0b0521
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -485,7 +485,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f0b0515
+    const v3, 0x7f0b0520
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -519,7 +519,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f0b0516
+    const v7, 0x7f0b0521
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -540,7 +540,7 @@
 
     invoke-virtual {v3, v10}, Lcom/samsung/android/settings/deviceinfo/AvoidRootPreference;->setAvoidRootVisible(Z)V
 
-    const v3, 0x7f0b0517
+    const v3, 0x7f0b0522
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -564,7 +564,7 @@
 
     if-ne v3, v13, :cond_6
 
-    const v3, 0x7f0b0515
+    const v3, 0x7f0b0520
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -577,7 +577,7 @@
 
     if-ne v3, v12, :cond_7
 
-    const v3, 0x7f0b0517
+    const v3, 0x7f0b0522
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -1221,7 +1221,7 @@
 .method private setSysScopeStatus()V
     .locals 2
 
-    const v1, 0x7f0b0517
+    const v1, 0x7f0b0522
 
     iget-boolean v0, p0, Lcom/android/settings/deviceinfo/Status;->sysscopeForChnRoot:Z
 
@@ -1962,7 +1962,7 @@
 
     iget-object v7, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v8, 0x7f0b0510
+    const v8, 0x7f0b051b
 
     invoke-virtual {v7, v8}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2091,7 +2091,7 @@
 
     iget-object v7, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v8, 0x7f0b0511
+    const v8, 0x7f0b051c
 
     invoke-virtual {v7, v8}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2100,7 +2100,7 @@
     :cond_3
     iget-object v7, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v8, 0x7f0b0512
+    const v8, 0x7f0b051d
 
     invoke-virtual {v7, v8}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2149,7 +2149,7 @@
     :cond_6
     const-string/jumbo v7, "factorydatareset"
 
-    const v8, 0x7f0b007b
+    const v8, 0x7f0b007c
 
     invoke-virtual {p0, v8}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -2346,7 +2346,7 @@
 
     iput-object v1, p0, Lcom/android/settings/deviceinfo/Status;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const v1, 0x7f08005b
+    const v1, 0x7f08005c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/Status;->addPreferencesFromResource(I)V
 
@@ -2406,7 +2406,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b0f07
+    const v2, 0x7f0b1023
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2416,7 +2416,7 @@
 
     iget-object v1, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v2, 0x7f0b1279
+    const v2, 0x7f0b1394
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2821,7 +2821,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b0c94
+    const v0, 0x7f0b0ca2
 
     :goto_0
     const-string/jumbo v1, "ims_reg"
@@ -2837,19 +2837,19 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0c95
+    const v0, 0x7f0b0ca3
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const v0, 0x7f0b050e
+    const v0, 0x7f0b0519
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b050f
+    const v0, 0x7f0b051a
 
     goto :goto_0
 .end method

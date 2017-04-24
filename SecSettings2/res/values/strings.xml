@@ -50,6 +50,7 @@
     <string name="settings_package">com.android.settings</string>
     <string name="certinstaller_package">com.android.certinstaller</string>
     <string name="wifi_connected_no_internet">Connected, no Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet may not be available</string>
     <string name="wifi_reconnecting">Ready to connect when network quality improves</string>
     <string name="wifi_connected_checking_quality">Checking the quality of your Internet connection...</string>
     <string name="wifi_setup_title_connected_network">Connected to Wi‑Fi network %s</string>
@@ -964,7 +965,7 @@ Wi-Fi and Bluetooth will also be turned off, but can be turned on again in Setti
     <string name="default_app_selection">Default app selection</string>
     <string name="default_app_selection_auto_set">Set default apps automatically</string>
     <string name="default_app_selection_ask">Ask before setting default apps</string>
-    <string name="launch_application_settings">Default applications</string>
+    <string name="launch_application_settings">Default apps</string>
     <string name="launch_application_settings_summary">Designate apps for certain tasks.</string>
     <string name="home_settings_header">Change home</string>
     <string name="home_settings_customer_mode">docomo LIVE UX</string>
@@ -1011,6 +1012,15 @@ App data may include personal information such as contacts, messages, and pictur
     <string name="content_description_hand">Tap and hold the blue circle in the centre of the screen.</string>
     <string name="nearby_scanning_help_msg_sub">Nearby device scanning uses Bluetooth Low Energy scanning and the microphone. Bluetooth Low Energy scanning can be used even while Bluetooth is turned off on this device.</string>
     <string name="sec_bluetooth_no_devices_found">No Bluetooth devices found</string>
+    <string name="sec_bluetooth_no_tethered_devices">No device has been tethered</string>
+    <string name="bt_tether_title">Bluetooth tethering</string>
+    <string name="bt_tether_settings_on">On</string>
+    <string name="bt_tether_settings_off">Off</string>
+    <string name="bt_tether_off_brief_text_phone">"Share your phone's internet connection with other devices using Bluetooth."</string>
+    <string name="bt_tether_off_brief_text_tablet">"Share your tablet's internet connection with other devices using Bluetooth."</string>
+    <string name="bt_tether_preference_tethered_device_list">Tethered devices</string>
+    <string name="bt_tether_server_description_phone">"Share your phone's internet connection by pairing with another device using Bluetooth. If the device has been tethered before, you can tether it again by selecting it from the Tethered devices list."</string>
+    <string name="bt_tether_server_description_tablet">"Share your tablet's internet connection by pairing with another device using Bluetooth. If the device has been tethered before, you can tether it again by selecting it from the Tethered devices list."</string>
     <string name="bluetooth_consent_pairing_msg">Tap OK to pair with %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s is requesting permission to access your SIM card. Allowing this request will disable calling and messaging functions, and turn off Mobile data on your device. Allow?
 
@@ -1022,6 +1032,7 @@ You can change this later by going to Bluetooth settings."</string>
     <string name="do_not_allow">Do not allow</string>
     <string name="bluetooth_pan_connecting_error_message">"Unable to connect to %1$s.
 Enable Bluetooth tethering on %2$s."</string>
+    <string name="bluetooth_pan_nap_connecting_error_message">Unable to connect to %1$s.</string>
     <string name="bluetooth_help">Help</string>
     <string name="ask_to_use_bluetooth">Ask to use Bluetooth</string>
     <string name="bluetooth_control_history_not_found">No apps</string>
@@ -1126,7 +1137,7 @@ Even while Smart capture is disabled, you can access its features via Air comman
     <string name="downloadable_dialog_popup_text_wifi">Additional help content must be downloaded. Device must be connected to a Wi-Fi network. You will be taken to the download screen.</string>
     <string name="back_button_label">Back</string>
     <string name="next_button_label">Next</string>
-    <string name="category_applications">Applications</string>
+    <string name="category_applications">Apps</string>
     <string name="data_connection_title">Notification of charges</string>
     <string name="data_connection_message">Connecting to mobile networks may incur additional charges</string>
     <string name="none_package">Current profile can not execute this function</string>
@@ -2081,7 +2092,8 @@ Alternative security options are available on your device. Please follow all the
     <string name="use_iris_first_lock">Use iris on the first lock screen</string>
     <string name="knox_twofactor_bio_description">Select your biometric lock type and second lock type to unlock %s.</string>
     <string name="fingerprint_registered">Registered fingerprints will be used with selected unlock method.</string>
-    <string name="knox_twofactor_description">Use two lock types to make KNOX even more secure. Your fingerprints will be used as the first lock type. Select a second lock type below.</string>
+    <string name="knox_twofactor_description">Select your biometrics and a second lock type to unlock %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Use your fingerprints and select a second lock type to unlock %s.</string>
     <string name="two_factor_setup">Setup</string>
     <string name="icon">Icons</string>
     <string name="vibration">Vibration</string>
@@ -2543,7 +2555,7 @@ Some NFC transactions and mobile payment services may require a different defaul
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Allow data exchange when device touches another device.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Use mobile payment services, read and write NFC tags, and exchange data between NFC-capable devices.</string>
+    <string name="nfc_settings_title">Make mobile payments, share data, and read or write NFC tags.</string>
     <string name="nfc_settings_rw_p2p_summary">You can read and write tags and transfer data between devices.</string>
     <string name="nfcpayment_quick_toggle_title">NFC and payment</string>
     <string name="nfc_mode_general_title">NFC mode</string>
@@ -2560,14 +2572,16 @@ Some NFC transactions and mobile payment services may require a different defaul
     <string name="nfc_payment_favor_default_default_unknown">No default payment service</string>
     <string name="nfc_payment_menu_item_add_service">Find apps</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d of %2$d</string>
+    <string name="nfc_payment_replace_default_label">Replace default payment app?</string>
+    <string name="nfc_payment_replace">REPLACE</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %1$s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%1$s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferred SIM card</string>
     <string name="nfc_please_wait">Please wait...</string>
     <string name="nfc_payment_no_sim_card">No SIM card</string>
-    <string name="nfc_disable_service_title">Change default NFC method</string>
-    <string name="nfc_disable_service_msg">If you change the default NFC processing method, some services in the OTHERS tab will be disabled or enabled. To manage these services, go to NFC and payment > Tap and pay > OTHERS, then select each service to enable or disable it.</string>
+    <string name="nfc_disable_service_title">Change default NFC method?</string>
+    <string name="nfc_disable_service_msg">If you change the default NFC processing method, some services in the OTHERS tab will be turned on or off. To manage these services, go to NFC and payment > Tap and pay > OTHERS, then select each service to turn it on or off.</string>
     <string name="nfc_settings_advanced_setting">Default NFC method</string>
     <string name="nfc_settings_advanced_uicc">SE SIM card</string>
     <string name="nfc_settings_advanced_uicc_TTS">Secure Element SIM card</string>
@@ -2579,7 +2593,7 @@ Some NFC transactions and mobile payment services may require a different defaul
     <string name="nfc_settings_tag_message">If you switch to Card mode, you will no longer be able to read NFC tags, write data to them, or exchange data between devices.</string>
     <string name="nfc_show_alert_dialog_title">Ultra power saving mode</string>
     <string name="nfc_show_alert_dialog_message">Unable to open %s</string>
-    <string name="android_beam_explained">Share files between NFC-capable devices by holding them close together. You can then share webpage links, contacts, and more.</string>
+    <string name="android_beam_explained">You can share webpage links, contacts, and more by holding your phone close to an NFC-capable device.</string>
     <string name="android_beam_explained_1">Bring the devices together, back to back.</string>
     <string name="android_beam_explained_2">Tap your screen.</string>
     <string name="guide_dialog_attention_title">Attention</string>
@@ -2591,7 +2605,7 @@ Some NFC transactions and mobile payment services may require a different defaul
     <string name="android_beam_off_summary">Off</string>
     <string name="android_beam_disabled_summary">Android Beam not available. NFC turned off.</string>
     <string name="nfc_payment_dialog_favor_open">If the app currently open supports Tap and pay, it will be used instead of %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">If the app currently open supports Tap and pay, it will be used.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">If the app currently open supports Tap and pay, it will be used for payment.</string>
     <string name="folder_sounds">Folder open/close sounds</string>
     <string name="folder_sounds_summary">Play sounds when opening and closing folder</string>
     <string name="sound_category_calls_title">Incoming calls</string>
@@ -4064,7 +4078,10 @@ Incorrect"</string>
     <string name="text_two_locktype">Fingerprint and %s</string>
     <string name="pref_lock_type_title">Change Lock Type</string>
     <string name="pref_lock_type_summary">Lock Type</string>
-    <string name="pref_Biometrics_summary">Add your fingerprints to unlock %1$s as well as your %2$s. When you do this, you need to set your screen lock type.</string>
+    <string name="pref_Biometrics_summary">"Add your fingerprints as another way to unlock %s. You'll also need to set a password, pattern, or PIN as your screen lock."</string>
+    <string name="pref_Biometrics_summary_multibio">"Add your fingerprints or irises as another way to unlock %s. You'll also need to set a password, pattern, or PIN as your screen lock."</string>
+    <string name="pref_Biometrics_summary_twostep">Fingerprints has been used for Two-step verification. If you turn off fingerprints, the lock type will be changed to %s.</string>
+    <string name="pref_Biometrics_summary_twostep_multibio">Biometrics have been used for Two-step verification. If you turn off biometrics, the lock type will be changed to %s.</string>
     <string name="vzw_wifi_scan">Refresh List</string>
     <string name="vzw_wifi_setup_screentitle">Set Up Wi-Fi</string>
     <string name="no_netowrks_found">No networks found.</string>
@@ -4130,9 +4147,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Receive notifications showing the amount of data used by apps when the device was locked for more than %d minutes.</string>
     <string name="data_usage_reminder_description">The following applications used %s of data in total while the device was locked:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
-    <item type="string" name="APKTOOL_DUMMY_efd">false</item>
-    <item type="string" name="APKTOOL_DUMMY_efe">false</item>
-    <item type="string" name="APKTOOL_DUMMY_eff">false</item>
+    <string name="okay">OK</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="create">Create</string>
@@ -4362,7 +4377,6 @@ You can change this later by going to Bluetooth settings."</string>
     <string name="sd_card_settings_label">SD card</string>
     <string name="proxy_settings_label">Proxy settings</string>
     <string name="cancel">Cancel</string>
-    <string name="okay">OK</string>
     <string name="forget">FORGET</string>
     <string name="save">Save</string>
     <string name="done">Done</string>
@@ -6411,7 +6425,7 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="global_locale_change_title">Change language</string>
     <string name="nfc_payment_settings_title">Tap and pay</string>
     <string name="nfc_payment_how_it_works">How it works</string>
-    <string name="nfc_payment_no_apps">No installed payment service apps</string>
+    <string name="nfc_payment_no_apps">No payment apps installed</string>
     <string name="nfc_payment_default">Payment default</string>
     <string name="nfc_payment_default_not_set">Not set</string>
     <string name="nfc_payment_app_and_desc">%1$s - %2$s</string>
@@ -6423,9 +6437,9 @@ Any user can accept updated app permissions on behalf of all other users."</stri
     <string name="nfc_how_it_works_content">Set up a payment app. Then just hold the back of your phone up to any terminal with the contactless symbol.</string>
     <string name="nfc_how_it_works_got_it">Got it</string>
     <string name="nfc_more_title">More...</string>
-    <string name="nfc_payment_set_default_label">Set as default</string>
+    <string name="nfc_payment_set_default_label">Set default payment app?</string>
     <string name="nfc_payment_set_default">%s will be set as your default payment method for Tap and pay transactions.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s will replace %2$s as your default payment method for Tap and pay transactions.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s will replace %2$s as your default payment app for Tap and pay.</string>
     <string name="restriction_settings_title">Restrictions</string>
     <string name="restriction_menu_reset">Remove restrictions</string>
     <string name="restriction_menu_change_pin">Change PIN</string>
@@ -7032,7 +7046,7 @@ You will not receive any calls, messages, or notifications, and alarms will not 
     <string name="location_off_summary">Disabled</string>
     <string name="backup_disabled">Auto back up disabled</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Uable to perform action</string>
+    <string name="disabled_by_policy_title">Unable to perform action</string>
     <string name="default_admin_support_msg">"You do not have permission to perform this action. Contact your organisation's IT administrator for more information."</string>
     <string name="admin_support_more_info">More details</string>
     <string name="admin_profile_owner_message">"The administrator can monitor and manage apps and data associated with your work profile, including settings, permissions, corporate access, network activity, and the device's location information."</string>
@@ -7244,9 +7258,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">SuperMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V2.4.1</string>
+    <string name="rom_ver_details">V2.5.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">29.03.17</string>
+    <string name="rom_date_details">27.04.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="autostarts_title">Autostarts</string>

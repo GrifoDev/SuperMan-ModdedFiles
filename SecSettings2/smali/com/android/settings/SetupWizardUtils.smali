@@ -59,12 +59,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f02ba
+    const v0, 0x7f0f02bb
 
     return v0
 
     :cond_0
-    const v0, 0x7f0f02b9
+    const v0, 0x7f0f02ba
 
     return v0
 .end method
@@ -80,12 +80,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f02bf
+    const v0, 0x7f0f02c0
 
     return v0
 
     :cond_0
-    const v0, 0x7f0f02be
+    const v0, 0x7f0f02bf
 
     return v0
 .end method

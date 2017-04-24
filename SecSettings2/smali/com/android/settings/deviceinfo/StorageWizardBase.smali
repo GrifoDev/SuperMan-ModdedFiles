@@ -218,7 +218,7 @@
 
     :cond_1
     :goto_0
-    const v2, 0x7f0f0298
+    const v2, 0x7f0f0299
 
     invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setTheme(I)V
 
@@ -393,7 +393,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0402ab
+    const v4, 0x7f0402ac
 
     invoke-virtual {v3, v4, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

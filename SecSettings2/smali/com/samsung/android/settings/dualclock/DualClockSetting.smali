@@ -93,7 +93,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08012d
+    const v7, 0x7f08012e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -895,7 +895,7 @@
     invoke-virtual {v1, v2}, Landroid/app/Activity;->sendBroadcast(Landroid/content/Intent;)V
 
     :cond_0
-    const v1, 0x7f08006a
+    const v1, 0x7f08006b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/dualclock/DualClockSetting;->addPreferencesFromResource(I)V
 
@@ -1023,7 +1023,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b0859
+    const v5, 0x7f0b0865
 
     move-object v0, p0
 

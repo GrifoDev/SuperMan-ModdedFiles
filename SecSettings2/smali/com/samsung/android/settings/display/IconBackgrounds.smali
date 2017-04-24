@@ -337,7 +337,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 7
 
-    const v6, 0x7f0b0227
+    const v6, 0x7f0b0228
 
     const v5, 0x7f020508
 
@@ -468,7 +468,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0418
+    const v4, 0x7f0b0423
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/IconBackgrounds;->getString(I)Ljava/lang/String;
 
@@ -508,7 +508,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b0419
+    const v4, 0x7f0b0424
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/IconBackgrounds;->getString(I)Ljava/lang/String;
 

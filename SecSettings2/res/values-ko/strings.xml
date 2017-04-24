@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s을(를) 통해 연결됨</string>
     <string name="available_via_passpoint">%1$s을(를) 통해 사용 가능</string>
     <string name="wifi_connected_no_internet">인터넷을 사용하지 않고 연결됨</string>
+    <string name="wifi_internet_may_not_be_available">인터넷 연결 확실치 않음</string>
     <string name="wifi_reconnecting">네트워크 품질이 좋아지면 이 네트워크에 연결합니다.</string>
     <string name="wifi_connected_checking_quality">인터넷 연결 상태 확인 중…</string>
     <string name="wifi_sign_in_to_the_network">네트워크에 로그인하세요.</string>
@@ -819,7 +820,7 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="default_app_selection">기본 앱 선택</string>
     <string name="default_app_selection_auto_set">기본 앱으로 자동으로 설정</string>
     <string name="default_app_selection_ask">기본 앱으로 설정하기 전에 확인</string>
-    <string name="launch_application_settings">기본 애플리케이션</string>
+    <string name="launch_application_settings">기본 앱</string>
     <string name="launch_application_settings_summary">특정 작업에 앱을 지정합니다.</string>
     <string name="home_settings_header">홈 변경</string>
     <string name="home_settings_customer_mode_summary">docomo 홈 화면을 이용해 내 디바이스를 보다 간편하고 쉽게 사용해 보세요</string>
@@ -864,6 +865,15 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="content_description_hand">화면 중앙의 파란 원을 길게 누르세요.</string>
     <string name="nearby_scanning_help_msg_sub">이 기능은 블루투스 저전력 찾기 및 마이크를 사용합니다. 블루투스가 해제된 경우에도 이 기능을 사용하여 주변 디바이스를 찾을 수 있습니다.</string>
     <string name="sec_bluetooth_no_devices_found">블루투스 디바이스를 찾을 수 없습니다</string>
+    <string name="sec_bluetooth_no_tethered_devices">디바이스가 없습니다</string>
+    <string name="bt_tether_title">블루투스 테더링</string>
+    <string name="bt_tether_settings_on">사용 중</string>
+    <string name="bt_tether_settings_off">사용 안 함</string>
+    <string name="bt_tether_off_brief_text_phone">블루투스 기능을 사용하여 내 휴대전화의 인터넷 연결을 다른 디바이스와 공유합니다.</string>
+    <string name="bt_tether_off_brief_text_tablet">블루투스 기능을 사용하여 내 태블릿의 인터넷 연결을 다른 디바이스와 공유합니다.</string>
+    <string name="bt_tether_preference_tethered_device_list">테더링된 디바이스</string>
+    <string name="bt_tether_server_description_phone">블루투스 기능을 사용하여 다른 디바이스를 등록하고 내 휴대전화의 인터넷 연결을 공유합니다. 테더링한 기록이 있을 경우, 테더링된 디바이스 목록에서 디바이스를 선택하여 다시 테더링할 수 있습니다.</string>
+    <string name="bt_tether_server_description_tablet">블루투스 기능을 사용하여 다른 디바이스를 등록하고 내 태블릿의 인터넷 연결을 공유합니다. 테더링한 기록이 있을 경우, 테더링된 디바이스 목록에서 디바이스를 선택하여 다시 테더링할 수 있습니다.</string>
     <string name="bluetooth_consent_pairing_msg">%s 디바이스와 등록하려면 확인 버튼을 누르세요.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s에서 SIM 카드에 접근 권한을 요청합니다. 허용할까요?이 접근 권한을 허용하면 전화 및 메시지 기능을 사용할 수 없고 모바일 데이터 기능이 해제됩니다.
 
@@ -972,7 +982,7 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="downloadable_dialog_popup_text_wifi">추가 도움말 콘텐츠를 다운로드하세요.디바이스가 Wi-Fi 네트워크에 연결되어야 합니다. 다운로드 화면으로 이동합니다.</string>
     <string name="back_button_label">뒤로가기</string>
     <string name="next_button_label">다음</string>
-    <string name="category_applications">애플리케이션 관리</string>
+    <string name="category_applications">애플리케이션</string>
     <string name="data_connection_title">요금 알림</string>
     <string name="data_connection_message">모바일 네트워크에 연결할 경우 추가요금이 부과될 수 있습니다.</string>
     <string name="none_package">제한된 프로필 사용 중에는 실행할 수 없는 기능입니다.</string>
@@ -2163,7 +2173,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">내 디바이스를 다른 디바이스에 맞대면 데이터를 교환할 수 있습니다.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">NFC가 지원되는 두 디바이스 간 데이터를 교환하거나, NFC 태그 읽기 및 쓰기, 모바일 결제 서비스를 사용합니다.</string>
+    <string name="nfc_settings_title">모바일 결제, 데이터 공유, NFC 태그 읽기 및 쓰기 기능을 사용합니다.</string>
     <string name="nfc_settings_rw_p2p_summary">태그를 읽고 쓸 수 있으며 다른 디바이스와 데이터를 교환할 수 있습니다.</string>
     <string name="nfcpayment_quick_toggle_title">NFC 및 결제</string>
     <string name="nfc_mode_general_title">NFC 모드</string>
@@ -2174,11 +2184,13 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="nfc_payment_enable_summary">기본으로 설정할 모바일 결제 서비스를 선택하세요.</string>
     <string name="nfc_payment_title">결제</string>
     <string name="nfc_others_title">기타</string>
-    <string name="nfc_other_no_apps">설치한 서비스 앱이 없습니다</string>
+    <string name="nfc_other_no_apps">설치된 서비스 앱이 없습니다</string>
     <string name="nfc_payment_open_app">모바일 결제가 지원되는 앱 실행 시</string>
     <string name="nfc_payment_favor_open_default_unknown">실행 중인 앱 사용</string>
     <string name="nfc_payment_favor_default_default_unknown">기본 결제 서비스 없음</string>
     <string name="nfc_tts_tab_n_of_n">탭 %2$d개 중 %1$d번째 탭입니다.</string>
+    <string name="nfc_payment_replace_default_label">기본 결제 앱 변경</string>
+    <string name="nfc_payment_replace">대체</string>
     <string name="nfc_payment_services_title">NFC 결제 서비스</string>
     <string name="nfc_payment_services_fail">NFC 결제 서비스에 %s SIM 카드를 사용하도록 설정하지 못했습니다. 다시 시도하세요.</string>
     <string name="nfc_payment_services_success">NFC 결제 서비스에 %s SIM 카드를 사용하도록 설정했습니다.</string>
@@ -2186,7 +2198,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="nfc_please_wait">잠시 기다리세요…</string>
     <string name="nfc_payment_no_sim_card">SIM 카드 없음</string>
     <string name="nfc_disable_service_title">기본 NFC 설정 변경</string>
-    <string name="nfc_disable_service_msg">기본 NFC 설정을 변경하면, 기타 탭의 일부 서비스가 해제되거나 실행됩니다. 이 서비스 앱을 관리하려면 [NFC 및 결제 > 모바일 결제 > 기타]에서 실행하거나 해제하려는 서비스를 선택하세요.</string>
+    <string name="nfc_disable_service_msg">기본 NFC 설정을 변경하면, 기타 탭의 일부 서비스가 해제되거나 실행됩니다. 이 서비스 앱을 관리하려면 [NFC 결제 > 모바일 결제 > 기타]에서 실행하거나 해제하려는 서비스를 선택하세요.</string>
     <string name="nfc_settings_advanced_setting">기본 NFC 설정</string>
     <string name="nfc_settings_advanced_uicc">SE SIM 카드</string>
     <string name="nfc_settings_advanced_uicc_TTS">보안 요소 SIM 카드</string>
@@ -2198,8 +2210,8 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="nfc_settings_tag_message">카드 모드로 전환하면 태그를 읽거나 쓸 수 없으며 다른 디바이스와 데이터를 주고받을 수 없습니다.</string>
     <string name="nfc_show_alert_dialog_title">초절전 모드</string>
     <string name="nfc_show_alert_dialog_message">%s 애플리케이션을 실행할 수 없습니다.</string>
-    <string name="android_beam_explained">NFC 기능이 지원되는 두 디바이스를 서로 맞대면 파일, 웹페이지 링크, 연락처 등을 공유할 수 있습니다.</string>
-    <string name="android_beam_explained_1">두 디바이스의 뒷면을 서로 맞대세요.</string>
+    <string name="android_beam_explained">휴대전화와 NFC 기능이 지원되는 디바이스의 뒷면을 서로 맞대면 웹페이지 링크, 연락처 등을 공유할 수 있습니다.</string>
+    <string name="android_beam_explained_1">두 디바이스의 뒷면을 맞대세요.</string>
     <string name="android_beam_explained_2">화면을 누르세요.</string>
     <string name="guide_dialog_attention_title">주의</string>
     <string name="nfc_off_popup_title">NFC 해제</string>
@@ -2207,7 +2219,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="cannot_use_card_without_NFC">NFC를 해제하면 교통 및 신용카드 등의 결제 기능을 사용할 수 없습니다.</string>
     <string name="limit_app_contents_transfer">NFC를 통한 앱 콘텐츠 전송 기능이 제한됩니다.</string>
     <string name="nfc_payment_dialog_favor_open">모바일 결제가 지원되는 앱이 실행 중인 경우 %s 대신 해당 앱으로 결제됩니다.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">모바일 결제가 지원되는 앱이 실행 중인 경우 해당 앱으로 결제됩니다.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">모바일 결제 기능이 지원되는 앱이 실행 중인 경우 해당 앱으로 결제됩니다.</string>
     <string name="folder_sounds">폴더 열림/닫힘 알림음</string>
     <string name="folder_sounds_summary">폴더를 열거나 닫을 때 소리로 알려줍니다.</string>
     <string name="sound_category_calls_title">수신전화</string>
@@ -2290,7 +2302,7 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
     <string name="scheduling_switch_summary">예약한 시간에 맞춰 [방해 금지]를 자동으로 실행하고 해제합니다.</string>
     <string name="no_exceptions_summary">모든 전화, 알림, 미디어를 무음으로 처리합니다.</string>
     <string name="alarms_only_summary">[방해 금지] 실행 중에 알람만 소리 및 진동으로 알려줍니다.</string>
-    <string name="custrom_summary">[방해 금지] 실행 중에 소리 및 진동 알림을 허용할 예외 항목을 직접 설정합니다.</string>
+    <string name="custrom_summary">방해 금지 모드 실행 중에 소리 및 진동 알림을 허용할 예외 항목을 직접 설정합니다.</string>
     <string name="zen_mode_events_summary">S플래너 및 기타 캘린더 일정 알림을 허용합니다.</string>
     <string name="zen_mode_events_summary_na">캘린더 앱의 일정 및 할 일 알림을 허용합니다.</string>
     <string name="zen_mode_reminders_summary">리마인더 기능이 지원되는 앱의 리마인더를 허용합니다.</string>
@@ -3465,6 +3477,7 @@ SMS 수신"</string>
     <string name="data_usage_reminder_item_summary">디바이스가 %d분 이상 잠겨있으면, 앱에서 Wi-Fi 또는 모바일 네트워크로 사용한 데이터양을 알려주는 알림을 받습니다.</string>
     <string name="data_usage_reminder_description">디바이스가 잠겨 있는 동안, 다음 앱에서 데이터를 %s 사용했습니다.</string>
     <string name="google_settings_popup_msg">변경할 수 있는 Google 설정 항목이 제한되며, 일부 작업은 수행할 수 없습니다.</string>
+    <string name="okay">확인</string>
     <string name="yes">예</string>
     <string name="no">아니요</string>
     <string name="create">추가</string>
@@ -3562,7 +3575,6 @@ SMS 수신"</string>
     <string name="phone_info_label">디바이스 정보</string>
     <string name="proxy_settings_label">프록시 설정</string>
     <string name="cancel">취소</string>
-    <string name="okay">확인</string>
     <string name="save">저장</string>
     <string name="done">완료</string>
     <string name="settings_label">설정</string>
@@ -4815,13 +4827,13 @@ SMS 수신"</string>
     <string name="global_change_warning">이 설정은 디바이스에 연결된 모든 사용자에게 영향을 줍니다.</string>
     <string name="global_locale_change_title">언어 변경</string>
     <string name="nfc_payment_settings_title">모바일 결제</string>
-    <string name="nfc_payment_no_apps">설치한 결제 서비스 앱이 없습니다</string>
+    <string name="nfc_payment_no_apps">설치된 결제 앱이 없습니다</string>
     <string name="nfc_payment_favor_default">%s 계속 사용</string>
     <string name="nfc_payment_favor_open">%s 대신 실행 중인 앱 사용</string>
     <string name="nfc_how_it_works_got_it">확인</string>
-    <string name="nfc_payment_set_default_label">기본으로 설정</string>
-    <string name="nfc_payment_set_default">%s 앱을 모바일 결제의 기본 결제수단으로 설정합니다.</string>
-    <string name="nfc_payment_set_default_instead_of">%2$s 앱 대신 %1$s 앱을 모바일 결제의 기본 결제수단으로 설정합니다.</string>
+    <string name="nfc_payment_set_default_label">기본 결제 앱으로 설정</string>
+    <string name="nfc_payment_set_default">%s 앱을 모바일 결제 기능의 기본 결제 앱으로 설정합니다.</string>
+    <string name="nfc_payment_set_default_instead_of">%2$s 앱 대신 %1$s 앱을 기본 모바일 결제 앱으로 변경합니다.</string>
     <string name="help_label">도움말</string>
     <string name="user_restrictions_title">애플리케이션/콘텐츠 제한</string>
     <string name="user_restrictions_controlled_by">%1$s에서 제어함</string>

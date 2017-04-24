@@ -2019,7 +2019,7 @@
 .method private updateLayoutComponent(Landroid/content/res/Configuration;)V
     .locals 14
 
-    const v9, 0x7f040363
+    const v9, 0x7f040364
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity;->setContentView(I)V
 
@@ -2039,7 +2039,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a069f
+    const v10, 0x7f0a06a0
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2053,7 +2053,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a06a0
+    const v10, 0x7f0a06a1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2272,7 +2272,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c68
+    const v11, 0x7f0b0c76
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2316,7 +2316,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b042c
+    const v11, 0x7f0b0437
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2336,7 +2336,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0227
+    const v11, 0x7f0b0228
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2360,7 +2360,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b042c
+    const v11, 0x7f0b0437
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2456,7 +2456,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c68
+    const v11, 0x7f0b0c76
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2476,7 +2476,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0227
+    const v11, 0x7f0b0228
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2727,7 +2727,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1128
+    const v13, 0x7f0b1243
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2743,7 +2743,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b112b
+    const v13, 0x7f0b1246
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2769,7 +2769,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b112d
+    const v13, 0x7f0b1248
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2786,7 +2786,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b0c7a
+    const v13, 0x7f0b0c88
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2802,7 +2802,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1120
+    const v13, 0x7f0b123b
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2856,7 +2856,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1766
+    const v13, 0x7f0b1881
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
     :try_end_0
@@ -3181,7 +3181,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b1131
+    const v5, 0x7f0b124c
 
     move-object v0, p0
 
@@ -3299,9 +3299,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b1180
+    const v1, 0x7f0b129b
 
-    const v2, 0x7f0b1180
+    const v2, 0x7f0b129b
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;
 
@@ -3700,9 +3700,9 @@
     goto :goto_1
 
     :cond_7
-    const v1, 0x7f0b0c56
+    const v1, 0x7f0b0c64
 
-    const v2, 0x7f0b0c56
+    const v2, 0x7f0b0c64
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;
 

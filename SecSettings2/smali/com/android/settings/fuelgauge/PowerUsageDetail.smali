@@ -351,18 +351,18 @@
 
     :array_0
     .array-data 4
-        0x7f0b1578
-        0x7f0b1579
-        0x7f0b1577
-        0x7f0b157f
-        0x7f0b1581
-        0x7f0b157b
-        0x7f0b157d
-        0x7f0b1584
-        0x7f0b1588
-        0x7f0b1589
-        0x7f0b158b
-        0x7f0b157c
+        0x7f0b1693
+        0x7f0b1694
+        0x7f0b1692
+        0x7f0b169a
+        0x7f0b169c
+        0x7f0b1696
+        0x7f0b1698    # 1.8488E38f
+        0x7f0b169f
+        0x7f0b16a3
+        0x7f0b16a4
+        0x7f0b16a6
+        0x7f0b1697
     .end array-data
 .end method
 
@@ -741,7 +741,7 @@
 
     iget-object v5, p0, Lcom/android/settings/fuelgauge/PowerUsageDetail;->mForceStopButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b13e5
+    const v8, 0x7f0b1500
 
     invoke-virtual {v5, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -761,7 +761,7 @@
 
     iget-object v5, p0, Lcom/android/settings/fuelgauge/PowerUsageDetail;->mReportButton:Landroid/widget/Button;
 
-    const v8, 0x7f0b0ed6
+    const v8, 0x7f0b0ee7
 
     invoke-virtual {v5, v8}, Landroid/widget/Button;->setText(I)V
 
@@ -989,7 +989,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b11e2
+    const v3, 0x7f0b12fd
 
     move-object v4, v2
 
@@ -1006,7 +1006,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b110a
+    const v3, 0x7f0b1225
 
     move-object v4, v2
 
@@ -1023,7 +1023,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b10b3
+    const v3, 0x7f0b11ce
 
     move-object v4, v2
 
@@ -1040,7 +1040,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0fe1
+    const v3, 0x7f0b10fc
 
     move-object v4, v2
 
@@ -1062,7 +1062,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b101a
+    const v3, 0x7f0b1135
 
     move-object v4, v2
 
@@ -1228,9 +1228,9 @@
 
     if-ne v8, v10, :cond_4
 
-    const v8, 0x7f0b1572
+    const v8, 0x7f0b168d
 
-    const v9, 0x7f0b1585
+    const v9, 0x7f0b16a0
 
     const/4 v10, 0x5
 
@@ -1247,9 +1247,9 @@
 
     if-eqz v8, :cond_0
 
-    const v8, 0x7f0b101a
+    const v8, 0x7f0b1135
 
-    const v9, 0x7f0b1586
+    const v9, 0x7f0b16a1
 
     const/4 v10, 0x6
 
@@ -1260,9 +1260,9 @@
     goto :goto_2
 
     :pswitch_2
-    const v8, 0x7f0b1212
+    const v8, 0x7f0b132d
 
-    const v9, 0x7f0b157e
+    const v9, 0x7f0b1699
 
     const/4 v10, 0x1
 
@@ -1273,9 +1273,9 @@
     goto :goto_2
 
     :pswitch_3
-    const v8, 0x7f0b110a
+    const v8, 0x7f0b1225
 
-    const v9, 0x7f0b1580
+    const v9, 0x7f0b169b
 
     const/4 v10, 0x2
 
@@ -1286,9 +1286,9 @@
     goto :goto_2
 
     :pswitch_4
-    const v8, 0x7f0b10b3
+    const v8, 0x7f0b11ce
 
-    const v9, 0x7f0b1582
+    const v9, 0x7f0b169d
 
     const/4 v10, 0x3
 
@@ -1307,9 +1307,9 @@
 
     if-lez v8, :cond_0
 
-    const v8, 0x7f0b0fe2
+    const v8, 0x7f0b10fd
 
-    const v9, 0x7f0b157a
+    const v9, 0x7f0b1695
 
     const/4 v10, 0x4
 
@@ -1472,7 +1472,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b158c
+    const v8, 0x7f0b16a7
 
     invoke-virtual {v6, v8, v7}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1489,7 +1489,7 @@
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x7f0b1560
+    .packed-switch 0x7f0b167b
         :pswitch_4
         :pswitch_0
         :pswitch_0
@@ -1555,7 +1555,7 @@
     return-void
 
     :pswitch_0
-    const v1, 0x7f0b158a
+    const v1, 0x7f0b16a5
 
     invoke-direct {p0, v1}, Lcom/android/settings/fuelgauge/PowerUsageDetail;->addMessage(I)V
 
@@ -2007,7 +2007,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b13da
+    const v3, 0x7f0b14f5
 
     move-object v5, v4
 
@@ -2200,9 +2200,9 @@
     packed-switch v2, :pswitch_data_0
 
     :pswitch_0
-    const v2, 0x7f0b156c
+    const v2, 0x7f0b1687
 
-    const v3, 0x7f0b156f
+    const v3, 0x7f0b168a
 
     filled-new-array {v2, v3}, [I
 
@@ -2260,7 +2260,7 @@
 
     invoke-direct {v10, v0}, Landroid/os/UserHandle;-><init>(I)V
 
-    const v8, 0x7f0b154f
+    const v8, 0x7f0b166a
 
     const/4 v9, 0x0
 
@@ -2567,13 +2567,13 @@
     goto/16 :goto_1
 
     :pswitch_2
-    const v2, 0x7f0b156c
+    const v2, 0x7f0b1687
 
-    const v3, 0x7f0b156d
+    const v3, 0x7f0b1688
 
-    const v5, 0x7f0b1565
+    const v5, 0x7f0b1680
 
-    const v6, 0x7f0b156f
+    const v6, 0x7f0b168a
 
     filled-new-array {v2, v3, v5, v6}, [I
 
@@ -2874,11 +2874,11 @@
     goto/16 :goto_1
 
     :pswitch_5
-    const v2, 0x7f0b156e
+    const v2, 0x7f0b1689
 
-    const v3, 0x7f0b156f
+    const v3, 0x7f0b168a
 
-    const v5, 0x7f0b1570
+    const v5, 0x7f0b168b
 
     filled-new-array {v2, v3, v5}, [I
 
@@ -2921,11 +2921,11 @@
     goto/16 :goto_1
 
     :pswitch_6
-    const v2, 0x7f0b156e
+    const v2, 0x7f0b1689
 
-    const v3, 0x7f0b156f
+    const v3, 0x7f0b168a
 
-    const v5, 0x7f0b1570
+    const v5, 0x7f0b168b
 
     filled-new-array {v2, v3, v5}, [I
 
@@ -2983,47 +2983,47 @@
 
     :array_0
     .array-data 4
-        0x7f0b155d
-        0x7f0b155e
-        0x7f0b155f
-        0x7f0b1560
-        0x7f0b1561
-        0x7f0b1564
-        0x7f0b1563
-        0x7f0b1565
-        0x7f0b1567
-        0x7f0b1566
-        0x7f0b1568
-        0x7f0b1569
-        0x7f0b156a
-        0x7f0b156b
-        0x7f0b156f
+        0x7f0b1678
+        0x7f0b1679
+        0x7f0b167a
+        0x7f0b167b
+        0x7f0b167c
+        0x7f0b167f
+        0x7f0b167e
+        0x7f0b1680
+        0x7f0b1682
+        0x7f0b1681
+        0x7f0b1683
+        0x7f0b1684
+        0x7f0b1685
+        0x7f0b1686
+        0x7f0b168a
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f0b1561
-        0x7f0b155d
-        0x7f0b155e
-        0x7f0b155f
-        0x7f0b1564
-        0x7f0b1563
-        0x7f0b1567
-        0x7f0b1566
-        0x7f0b156f
+        0x7f0b167c
+        0x7f0b1678
+        0x7f0b1679
+        0x7f0b167a
+        0x7f0b167f
+        0x7f0b167e
+        0x7f0b1682
+        0x7f0b1681
+        0x7f0b168a
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f0b156c
-        0x7f0b155d
-        0x7f0b155e
-        0x7f0b155f
-        0x7f0b1564
-        0x7f0b1563
-        0x7f0b1567
-        0x7f0b1566
-        0x7f0b156f
+        0x7f0b1687
+        0x7f0b1678
+        0x7f0b1679
+        0x7f0b167a
+        0x7f0b167f
+        0x7f0b167e
+        0x7f0b1682
+        0x7f0b1681
+        0x7f0b168a
     .end array-data
 .end method
 
@@ -3113,7 +3113,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/PowerUsageDetail;->mDpm:Landroid/app/admin/DevicePolicyManager;
 
-    const v0, 0x7f0800b9
+    const v0, 0x7f0800ba
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/PowerUsageDetail;->addPreferencesFromResource(I)V
 

@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s bidez konektatuta</string>
     <string name="available_via_passpoint">%1$s bidez erabilgarri</string>
     <string name="wifi_connected_no_internet">Konektatuta, ez dago Interneteko konexiorik</string>
+    <string name="wifi_internet_may_not_be_available">Baliteke Internet erabilgarri ez egotea</string>
     <string name="wifi_reconnecting">Sare kalitatea hobetzen denean konektatzeko prest</string>
     <string name="wifi_connected_checking_quality">Zure Internet konexioaren kalitatea egiaztatzen…</string>
     <string name="wifi_sign_in_to_the_network">Hasi saioa sarean.</string>
@@ -820,7 +821,7 @@ Wi-Fi eta Bluetooth ere itzaliko dira, baina berriro pitz daitezke Ezarpenak ata
     <string name="default_app_selection">Aplik. lehenets. hautaketa</string>
     <string name="default_app_selection_auto_set">Ezarri aplikazio lehenetsiak auto.</string>
     <string name="default_app_selection_ask">Galdetu aplikazioak lehenetsi aurretik</string>
-    <string name="launch_application_settings">Lehenetsitako aplikazioak</string>
+    <string name="launch_application_settings">Aplikazio lehenetsiak</string>
     <string name="launch_application_settings_summary">Aukeratu ataza jakinak egiteko aplikazioak.</string>
     <string name="home_settings_header">Aldatu hasiera pantaila</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Aplikazio datuen artean datu pertsonalak egon litezke, hala nola kontaktuak, mez
     <string name="content_description_hand">Ukitu eta eutsi zirkulu urdina pantailaren erdian</string>
     <string name="nearby_scanning_help_msg_sub">Inguruko gailuen bilaketak Bluetooth Low Energy bilaketa eta mikrofonoa darabiltza. Gailuan Bluetooth desaktibatuta dagoenean ere erabil daiteke Bluetooth Low Energy bilaketa.</string>
     <string name="sec_bluetooth_no_devices_found">Ez da Bluetooth gailurik aurkitu</string>
+    <string name="bt_tether_title">Bluetooth ainguraketa</string>
+    <string name="bt_tether_settings_on">Piztuta</string>
+    <string name="bt_tether_settings_off">Itzalita</string>
+    <string name="bt_tether_off_brief_text_phone">Partekatu telefonoaren Internet konexioa beste gailu batzuekin Bluetooth bidez.</string>
+    <string name="bt_tether_off_brief_text_tablet">Partekatu tabletaren Internet konexioa beste gailu batzuekin Bluetooth bidez.</string>
+    <string name="bt_tether_preference_tethered_device_list">Parekatutako gailuak</string>
+    <string name="bt_tether_server_description_phone">Partekatu telefonoaren Internet konexioa Bluetooth bidez beste gailu batekin parekatuta. Gailuaren konexioa aldez aurretik partekatu bada, parekatzeko, hauta ezazu Konexioa partekatutako gailuen zerrendan.</string>
+    <string name="bt_tether_server_description_tablet">Partekatu tabletaren Internet konexioa Bluetooth bidez beste gailu batekin parekatuta. Gailuaren konexioa aldez aurretik partekatu bada, parekatzeko, hauta ezazu Konexioa partekatutako gailuen zerrendan.</string>
     <string name="bluetooth_consent_pairing_msg">%s gailuarekin parekatzeko, ukitu ADOS.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s zure SIM txartelera sartzeko baimena eskatzen ari da. Eskaera baimenduz gero, dei eta mezularitza funtzioak desgaituko dira eta zure gailuko datu mugikorrak desaktibatuko dira. Baimendu?
 
@@ -2162,7 +2171,7 @@ NFC transakzio eta mugikorreko ordainketa zerbitzu batzuek NFC prozesatzeko best
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Baimena eman datuak trukatzeko gailuak beste gailu bat ukitzen duenean.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Erabili mugikorrarekin ordaintzeko zerbitzuak, irakurri eta idatzi NFC etiketak, eta trukatu datuak NFC gaitasuneko gailuen artean.</string>
+    <string name="nfc_settings_title">Egin mugikorreko ordainketak, partekatu datuak, eta irakurri edo idatzi NFC etiketak.</string>
     <string name="nfc_settings_rw_p2p_summary">Etiketak irakurri eta idatzi eta gailuen artean datuak transferitu ditzakezu.</string>
     <string name="nfcpayment_quick_toggle_title">NFC eta ordainketa</string>
     <string name="nfc_mode_general_title">NFC modua</string>
@@ -2173,19 +2182,21 @@ NFC transakzio eta mugikorreko ordainketa zerbitzu batzuek NFC prozesatzeko best
     <string name="nfc_payment_enable_summary">Hautatu lehenetsitako mugikor ordainketa zerbitzua.</string>
     <string name="nfc_payment_title">Ordainketa</string>
     <string name="nfc_others_title">Beste batzuk</string>
-    <string name="nfc_other_no_apps">Ez dago zerbitzuen aplikaziorik instalatuta</string>
+    <string name="nfc_other_no_apps">Ez da zerbitzu aplikaziorik instalatu</string>
     <string name="nfc_payment_open_app">Irekitako aplikazioak Ukitu eta ordaindu onartzen badu</string>
     <string name="nfc_payment_favor_open_default_unknown">Erabili irekitako aplikazioa</string>
     <string name="nfc_payment_favor_default_default_unknown">Ordainketa zerb. lehenets. ez</string>
     <string name="nfc_tts_tab_n_of_n">%1$d. etiketa %2$d-(e)tik</string>
+    <string name="nfc_payment_replace_default_label">Ordainketa aplikazio lehenetsia ordeztu?</string>
+    <string name="nfc_payment_replace">Ordeztu</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">SIM txartel lehenetsia</string>
     <string name="nfc_please_wait">Zain…</string>
     <string name="nfc_payment_no_sim_card">Ez dago SIM txartelik</string>
-    <string name="nfc_disable_service_title">Aldatu NFC metodo lehenetsia</string>
-    <string name="nfc_disable_service_msg">NFC prozesatzeko metodo lehenetsia aldatzen baduzu, BESTE BATZUK fitxako zenbait zerbitzu desgaituko edo gaituko dira. Zerbitzu horiek kudeatzeko, zoaz NFC eta ordainketa > Ukitu eta ordaindu > BESTE BATZUK aukerara eta hautatu gaitu edo desgaitu nahi duzun zerbitzua.</string>
+    <string name="nfc_disable_service_title">NFC metodo lehenetsia aldatu?</string>
+    <string name="nfc_disable_service_msg">NFC prozesatzeko metodo lehenetsia aldatuz gero, BESTE BATZUK fitxako zerbitzu batzuk aktibatu edo desaktibatuko dira. Zerbitzu horiek kudeatzeko, zoaz NFC eta ordainketa > Ukitu eta ordaindu > BESTE BATZUK atalera, eta hautatu aktibatu edo desaktibatu beharreko zerbitzuak.</string>
     <string name="nfc_settings_advanced_setting">NFC metodo lehenetsia</string>
     <string name="nfc_settings_advanced_uicc">ES SIM txartela</string>
     <string name="nfc_settings_advanced_uicc_TTS">Elementu seguruaren SIM txartela</string>
@@ -2197,7 +2208,7 @@ NFC transakzio eta mugikorreko ordainketa zerbitzu batzuek NFC prozesatzeko best
     <string name="nfc_settings_tag_message">Auto modura aldatuz gero, ezin izango duzu NFC etiketarik irakurri, haietan daturik idatzi, edo gailuen artean daturik trukatu.</string>
     <string name="nfc_show_alert_dialog_title">Bat. ultraaurrezt. modua</string>
     <string name="nfc_show_alert_dialog_message">Ezin da %s ireki.</string>
-    <string name="android_beam_explained">Partekatu fitxategiak NFC onartzen duten gailuen artean haiek elkartuta. Ondoren, web orrien estekak, kontaktuak eta bestelakoak partekatu ahal izango dituzu.</string>
+    <string name="android_beam_explained">Partekatu web orrien estekak, kontaktuak eta beste zure telefonoa NFC onartzen duen gailu batera hurbilduta.</string>
     <string name="android_beam_explained_1">Elkartu gailuak, atzeko aldeak hurbilduta.</string>
     <string name="android_beam_explained_2">Ukitu zure pantaila.</string>
     <string name="guide_dialog_attention_title">Oharra</string>
@@ -2206,7 +2217,7 @@ NFC transakzio eta mugikorreko ordainketa zerbitzu batzuek NFC prozesatzeko best
     <string name="cannot_use_card_without_NFC">NFC-rekin lotutako funtzioak, adibidez, edukia partekatzeko zenbait metodo eta NFC ordainketa, ez dira erabilgarri izango NFC itzalita dagoenean</string>
     <string name="limit_app_contents_transfer">NFC bidez edukia partekatzea mugatuko da Android Beam itzalita dagoenean</string>
     <string name="nfc_payment_dialog_favor_open">Irekita dagoen aplikazioa Ukitu eta ordaindu eginbidearekin bateragarria bada, hura erabiliko da, eta ez %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Irekita dagoen aplikazioa Ukitu eta ordaindu eginbidearekin bateragarria bada, hura erabiliko da.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Irekita dagoen aplikazioa Ukitu eta ordaindu eginbidearekin bateragarria bada, ordaintzeko erabiliko da.</string>
     <string name="folder_sounds">Karp. ireki/ixteko soinuak</string>
     <string name="folder_sounds_summary">Erreproduzitu soinuak karpeta bat irekitzean eta ixtean</string>
     <string name="sound_category_calls_title">Sarrerako deiak</string>
@@ -3464,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Jaso aplikazioek Wi-Fi edo sare mugikorren bidez erabilitako datu kopurua erakusten duten jakinarazpenak, gailua %d minutuz baino gehiagoz blokeatuta egon denean.</string>
     <string name="data_usage_reminder_description">Aplikazio hauek datuen %s erabili dituzte guztira gailua blokeatuta egon den bitartean:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Ados</string>
     <string name="yes">Bai</string>
     <string name="no">Ez</string>
     <string name="create">Sortu</string>
@@ -3561,7 +3573,6 @@ Aukera hori geroago alda dezakezu, Bluetooth ezarpenetara joanda."</string>
     <string name="phone_info_label">Gailuaren informazioa</string>
     <string name="proxy_settings_label">Proxy ezarpenak</string>
     <string name="cancel">Ezeztatu</string>
-    <string name="okay">Ados</string>
     <string name="save">Gorde</string>
     <string name="done">Egina</string>
     <string name="settings_label">Ezarpenak</string>
@@ -4815,13 +4826,13 @@ Edozer erabiltzailek eguneratutako aplikazio baimenak onartu ditzake besteen ize
     <string name="global_change_warning">Ezarpen honek gailu honetako erabiltzaile guztiei eragingo die</string>
     <string name="global_locale_change_title">Hizkuntza aldatu</string>
     <string name="nfc_payment_settings_title">Ukitu eta ordaindu</string>
-    <string name="nfc_payment_no_apps">Ez dago ordainketa zerbitzuen aplikaziorik instalatuta</string>
+    <string name="nfc_payment_no_apps">Ez dago ordaintzeko aplikaziorik instalatuta</string>
     <string name="nfc_payment_favor_default">Erabili %s halere</string>
     <string name="nfc_payment_favor_open">Erabili irekitako aplikazioa %s ordez</string>
     <string name="nfc_how_it_works_got_it">Ados</string>
-    <string name="nfc_payment_set_default_label">Ezarri lehenetsi gisa</string>
-    <string name="nfc_payment_set_default">%s ezarriko da ordainketa metodo lehenetsi gisa Ukitu eta ordaindu gisako transakzioetan.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s-ek ordezkatu du %2$s ordainketa metodo lehenetsi gisa Ukitu eta ordaindu gisako transakzioetan.</string>
+    <string name="nfc_payment_set_default_label">Ordainketa aplikazio lehenetsia ezarri?</string>
+    <string name="nfc_payment_set_default">%s ezarriko da ordainketa aplikazio lehenetsi gisa Ukitu eta ordaindu eginbidean.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s-ek %2$s ordeztuko du ordainketa aplikazio lehenetsi gisa Ukitu eta ordaindu erabiltzean.</string>
     <string name="help_label">Laguntza</string>
     <string name="user_restrictions_title">Aplikazio/eduki mugak</string>
     <string name="user_restrictions_controlled_by">%1$s bidez kontrolatuta</string>

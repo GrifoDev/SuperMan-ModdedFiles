@@ -1167,7 +1167,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b18b0
+    const v10, 0x7f0b19cb
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1234,7 +1234,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b16b3
+    const v11, 0x7f0b17ce
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1561,7 +1561,7 @@
 
     iput-object v1, p0, Lcom/android/settings/datausage/BillingCycleChnSettings;->mShp:Landroid/content/SharedPreferences;
 
-    const v1, 0x7f08012f
+    const v1, 0x7f080130
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/BillingCycleChnSettings;->addPreferencesFromResource(I)V
 
@@ -1827,7 +1827,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b0eda
+    const v3, 0x7f0b0eeb
 
     const/4 v4, 0x0
 
@@ -1857,7 +1857,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f0b0eda
+    const v4, 0x7f0b0eeb
 
     const/4 v5, 0x0
 
@@ -1892,7 +1892,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b0eda
+    const v5, 0x7f0b0eeb
 
     const/4 v6, 0x0
 
@@ -1921,7 +1921,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f0b0eda
+    const v4, 0x7f0b0eeb
 
     const/4 v5, 0x0
 

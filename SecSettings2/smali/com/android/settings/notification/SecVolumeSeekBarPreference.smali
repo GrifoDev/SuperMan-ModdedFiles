@@ -238,7 +238,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->mAudioManager:Landroid/media/AudioManager;
 
-    const v0, 0x7f04020d
+    const v0, 0x7f04020e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/notification/SecVolumeSeekBarPreference;->setLayoutResource(I)V
 

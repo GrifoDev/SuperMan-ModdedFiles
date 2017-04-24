@@ -49,7 +49,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v2, 0x7f04031c
+    const v2, 0x7f04031d
 
     invoke-virtual {p0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

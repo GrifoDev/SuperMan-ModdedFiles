@@ -61,7 +61,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecRestrictedSettingsFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080140
+    const v0, 0x7f080141
 
     invoke-virtual {p0, v0}, Lcom/android/settings/vpn2/VpnSettingsForATT;->addPreferencesFromResource(I)V
 

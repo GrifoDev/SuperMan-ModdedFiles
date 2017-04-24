@@ -89,7 +89,7 @@
 
     iget-object v0, p0, Lcom/android/settings/TetherSettings$15;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get12(Lcom/android/settings/TetherSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/android/settings/TetherSettings;->-get13(Lcom/android/settings/TetherSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 

@@ -76,7 +76,7 @@
 .method public getButtonDescription()I
     .locals 1
 
-    const v0, 0x7f0b15d6
+    const v0, 0x7f0b16f1    # 1.848818E38f
 
     return v0
 .end method

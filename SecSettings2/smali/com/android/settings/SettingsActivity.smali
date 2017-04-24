@@ -327,7 +327,7 @@
 
     sput-object v0, Lcom/android/settings/SettingsActivity;->ENTRY_EXTRA_FOR_SEARCH:[Ljava/lang/String;
 
-    const/16 v0, 0x5d
+    const/16 v0, 0x5e
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -831,57 +831,63 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.StatusVZW"
+    const-string/jumbo v1, "com.samsung.android.settings.bluetooth.tethering.BtTetherSettings"
 
     const/16 v2, 0x55
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.location.LocationUseInBackground"
+    const-string/jumbo v1, "com.samsung.android.settings.deviceinfo.StatusVZW"
 
     const/16 v2, 0x56
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.location.LocationUseInBackground"
 
     const/16 v2, 0x57
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDList"
+    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDSettings"
 
     const/16 v2, 0x58
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenNotificationApplist"
+    const-string/jumbo v1, "com.samsung.android.settings.accessories.LedCoverCallerIDList"
 
     const/16 v2, 0x59
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.NavigationBarSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.lockscreen.LockscreenNotificationApplist"
 
     const/16 v2, 0x5a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.PressureTouchActionSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.NavigationBarSettings"
 
     const/16 v2, 0x5b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.samsung.android.settings.DeviceMaintenanceSettings"
+    const-string/jumbo v1, "com.samsung.android.settings.navigationbar.PressureTouchActionSettings"
 
     const/16 v2, 0x5c
 
     aput-object v1, v0, v2
 
+    const-string/jumbo v1, "com.samsung.android.settings.DeviceMaintenanceSettings"
+
+    const/16 v2, 0x5d
+
+    aput-object v1, v0, v2
+
     sput-object v0, Lcom/android/settings/SettingsActivity;->SAMSUNG_ENTRY_FRAGMENTS:[Ljava/lang/String;
 
-    const/16 v0, 0x5c
+    const/16 v0, 0x5d
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -965,7 +971,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/vpn2/VpnSettings;
+    const-class v1, Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -975,7 +981,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/localepicker/LocaleListEditor;
+    const-class v1, Lcom/android/settings/vpn2/VpnSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -985,7 +991,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
+    const-class v1, Lcom/android/settings/localepicker/LocaleListEditor;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -995,7 +1001,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/AvailableVirtualKeyboardFragment;
+    const-class v1, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1005,7 +1011,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/SpellCheckersSettings;
+    const-class v1, Lcom/android/settings/inputmethod/AvailableVirtualKeyboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1015,7 +1021,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/UserDictionaryList;
+    const-class v1, Lcom/android/settings/inputmethod/SpellCheckersSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1025,7 +1031,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/UserDictionarySettings;
+    const-class v1, Lcom/android/settings/inputmethod/UserDictionaryList;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1035,7 +1041,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/HomeSettings;
+    const-class v1, Lcom/android/settings/UserDictionarySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1045,7 +1051,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/DeviceInfoSettings;
+    const-class v1, Lcom/android/settings/HomeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1055,7 +1061,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/ManageApplications;
+    const-class v1, Lcom/android/settings/DeviceInfoSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1065,7 +1071,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/NotificationApps;
+    const-class v1, Lcom/android/settings/applications/ManageApplications;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1075,7 +1081,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/ManageAssist;
+    const-class v1, Lcom/android/settings/applications/NotificationApps;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1085,7 +1091,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
+    const-class v1, Lcom/android/settings/applications/ManageAssist;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1095,7 +1101,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/NotificationStation;
+    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1105,7 +1111,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/location/LocationSettings;
+    const-class v1, Lcom/android/settings/notification/NotificationStation;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1115,7 +1121,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/SecuritySettings;
+    const-class v1, Lcom/android/settings/location/LocationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1125,7 +1131,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/UsageAccessDetails;
+    const-class v1, Lcom/android/settings/SecuritySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1135,7 +1141,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/DeviceAdminSettings;
+    const-class v1, Lcom/android/settings/applications/UsageAccessDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1145,7 +1151,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;
+    const-class v1, Lcom/android/settings/DeviceAdminSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1155,7 +1161,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accessibility/CaptionPropertiesFragment;
+    const-class v1, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1165,7 +1171,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;
+    const-class v1, Lcom/android/settings/accessibility/CaptionPropertiesFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1175,7 +1181,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
+    const-class v1, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1185,7 +1191,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/StorageSettings;
+    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1195,7 +1201,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeForget;
+    const-class v1, Lcom/android/settings/deviceinfo/StorageSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1205,7 +1211,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;
+    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeForget;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1215,7 +1221,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/PublicVolumeSettings;
+    const-class v1, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1225,7 +1231,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/DevelopmentSettings;
+    const-class v1, Lcom/android/settings/deviceinfo/PublicVolumeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1235,7 +1241,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/samsung/android/settings/nfc/AndroidBeam;
+    const-class v1, Lcom/android/settings/DevelopmentSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1245,7 +1251,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/wfd/WifiDisplaySettings;
+    const-class v1, Lcom/samsung/android/settings/nfc/AndroidBeam;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1255,7 +1261,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageSummary;
+    const-class v1, Lcom/android/settings/wfd/WifiDisplaySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1265,7 +1271,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accounts/AccountSyncSettings;
+    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1275,7 +1281,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accounts/AccountSettings;
+    const-class v1, Lcom/android/settings/accounts/AccountSyncSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1285,7 +1291,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/CryptKeeperSettings;
+    const-class v1, Lcom/android/settings/accounts/AccountSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1295,7 +1301,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/CryptKeeperInterstitial;
+    const-class v1, Lcom/android/settings/CryptKeeperSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1305,7 +1311,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/encryption/CryptSDCardSettings;
+    const-class v1, Lcom/android/settings/CryptKeeperInterstitial;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1315,7 +1321,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/datausage/DataUsageSummary;
+    const-class v1, Lcom/android/settings/encryption/CryptSDCardSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1325,7 +1331,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/DreamSettings;
+    const-class v1, Lcom/android/settings/datausage/DataUsageSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1335,7 +1341,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/users/UserSettings;
+    const-class v1, Lcom/android/settings/DreamSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1345,7 +1351,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/NotificationAccessSettings;
+    const-class v1, Lcom/android/settings/users/UserSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1355,7 +1361,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenAccessSettings;
+    const-class v1, Lcom/android/settings/notification/NotificationAccessSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1365,7 +1371,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/print/PrintSettingsFragment;
+    const-class v1, Lcom/android/settings/notification/ZenAccessSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1375,7 +1381,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/print/PrintJobSettingsFragment;
+    const-class v1, Lcom/android/settings/print/PrintSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1385,7 +1391,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/TrustedCredentialsSettings;
+    const-class v1, Lcom/android/settings/print/PrintJobSettingsFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1395,7 +1401,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/samsung/android/settings/nfc/PaymentSettings;
+    const-class v1, Lcom/android/settings/TrustedCredentialsSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1405,7 +1411,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment;
+    const-class v1, Lcom/samsung/android/settings/nfc/PaymentSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1415,7 +1421,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment2;
+    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1425,7 +1431,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;
+    const-class v1, Lcom/android/settings/inputmethod/KeyboardLayoutPickerFragment2;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1435,7 +1441,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModeSettings;
+    const-class v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1445,7 +1451,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ConfigureNotificationSettings;
+    const-class v1, Lcom/android/settings/notification/ZenModeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1455,7 +1461,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;
+    const-class v1, Lcom/android/settings/notification/ConfigureNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1465,7 +1471,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;
+    const-class v1, Lcom/android/settings/ChooseLockPassword$ChooseLockPasswordFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1475,7 +1481,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/InstalledAppDetails;
+    const-class v1, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1485,7 +1491,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/fuelgauge/BatterySaverSettings;
+    const-class v1, Lcom/android/settings/applications/InstalledAppDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1495,7 +1501,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/AppNotificationSettings;
+    const-class v1, Lcom/android/settings/fuelgauge/BatterySaverSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1505,7 +1511,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/OtherSoundSettings;
+    const-class v1, Lcom/android/settings/notification/AppNotificationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1515,7 +1521,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/samsung/android/settings/notification/SoundEffectSettings;
+    const-class v1, Lcom/android/settings/notification/OtherSoundSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1525,7 +1531,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/ApnSettings;
+    const-class v1, Lcom/samsung/android/settings/notification/SoundEffectSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1535,7 +1541,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/ApnEditor;
+    const-class v1, Lcom/android/settings/ApnSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1545,7 +1551,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/WifiCallingSettings;
+    const-class v1, Lcom/android/settings/ApnEditor;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1555,7 +1561,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModePrioritySettings;
+    const-class v1, Lcom/android/settings/WifiCallingSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1565,7 +1571,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModeAutomationSettings;
+    const-class v1, Lcom/android/settings/notification/ZenModePrioritySettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1575,7 +1581,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModeScheduleRuleSettings;
+    const-class v1, Lcom/android/settings/notification/ZenModeAutomationSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1585,7 +1591,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModeEventRuleSettings;
+    const-class v1, Lcom/android/settings/notification/ZenModeScheduleRuleSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1595,7 +1601,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/notification/ZenModeVisualInterruptionSettings;
+    const-class v1, Lcom/android/settings/notification/ZenModeEventRuleSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1605,7 +1611,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
+    const-class v1, Lcom/android/settings/notification/ZenModeVisualInterruptionSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1615,7 +1621,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageDetail;
+    const-class v1, Lcom/android/settings/applications/ProcessStatsUi;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1625,7 +1631,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/ProcessStatsSummary;
+    const-class v1, Lcom/android/settings/fuelgauge/PowerUsageDetail;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1635,7 +1641,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/DrawOverlayDetails;
+    const-class v1, Lcom/android/settings/applications/ProcessStatsSummary;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1645,7 +1651,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/WriteSettingsDetails;
+    const-class v1, Lcom/android/settings/applications/DrawOverlayDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1655,7 +1661,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/AdvancedAppSettings;
+    const-class v1, Lcom/android/settings/applications/WriteSettingsDetails;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1665,7 +1671,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/WallpaperTypeSettings;
+    const-class v1, Lcom/android/settings/applications/AdvancedAppSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1675,7 +1681,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/applications/VrListenerSettings;
+    const-class v1, Lcom/android/settings/WallpaperTypeSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1685,7 +1691,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accounts/ManagedProfileSettings;
+    const-class v1, Lcom/android/settings/applications/VrListenerSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1695,7 +1701,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/accounts/ChooseAccountActivity;
+    const-class v1, Lcom/android/settings/accounts/ManagedProfileSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1705,7 +1711,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/IccLockSettings;
+    const-class v1, Lcom/android/settings/accounts/ChooseAccountActivity;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1715,7 +1721,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/ImeiInformation;
+    const-class v1, Lcom/android/settings/IccLockSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1725,7 +1731,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/SimStatus;
+    const-class v1, Lcom/android/settings/deviceinfo/ImeiInformation;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1735,7 +1741,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/deviceinfo/Status;
+    const-class v1, Lcom/android/settings/deviceinfo/SimStatus;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1745,7 +1751,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/TestingSettings;
+    const-class v1, Lcom/android/settings/deviceinfo/Status;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1755,7 +1761,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/wifi/WifiAPITest;
+    const-class v1, Lcom/android/settings/TestingSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1765,7 +1771,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/wifi/WifiInfo;
+    const-class v1, Lcom/android/settings/wifi/WifiAPITest;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1775,7 +1781,7 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/TetherSettings;
+    const-class v1, Lcom/android/settings/wifi/WifiInfo;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
@@ -1785,13 +1791,23 @@
 
     aput-object v1, v0, v2
 
-    const-class v1, Lcom/android/settings/UserCredentialsSettings;
+    const-class v1, Lcom/android/settings/TetherSettings;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     const/16 v2, 0x5b
+
+    aput-object v1, v0, v2
+
+    const-class v1, Lcom/android/settings/UserCredentialsSettings;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/16 v2, 0x5c
 
     aput-object v1, v0, v2
 
@@ -3798,7 +3814,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f0b089f
+    const v2, 0x7f0b08ab
 
     :goto_0
     return v2
@@ -3806,12 +3822,12 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    const v2, 0x7f0b089d
+    const v2, 0x7f0b08a9
 
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b089e
+    const v2, 0x7f0b08aa
 
     goto :goto_0
 .end method
@@ -3837,13 +3853,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b107d
+    const v1, 0x7f0b1198
 
     :goto_0
     return v1
 
     :cond_0
-    const v1, 0x7f0b107c
+    const v1, 0x7f0b1197
 
     goto :goto_0
 .end method
@@ -4803,7 +4819,7 @@
     move v7, v4
 
     :goto_1
-    const v5, 0x7f0b17da
+    const v5, 0x7f0b18f5
 
     move-object v0, p0
 
@@ -4848,7 +4864,7 @@
 
     iget v0, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
-    const v1, 0x7f0b0661
+    const v1, 0x7f0b066c
 
     if-ne v1, v0, :cond_0
 
@@ -5139,7 +5155,7 @@
 
     iget v0, p0, Lcom/android/settings/SettingsActivity;->mInitialTitleResId:I
 
-    const v1, 0x7f0b073e
+    const v1, 0x7f0b0749
 
     if-ne v1, v0, :cond_0
 
@@ -5740,7 +5756,7 @@
 
     move-result v20
 
-    const v21, 0x7f0f0213
+    const v21, 0x7f0f0214
 
     move/from16 v0, v21
 
@@ -5954,7 +5970,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a0534
+    const v21, 0x7f0a0535
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -5964,7 +5980,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0a05b4
+    const v21, 0x7f0a05b5
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6653,19 +6669,19 @@
 
     move-result v43
 
-    const v2, 0x7f0f02d5
+    const v2, 0x7f0f02d6
 
     move/from16 v0, v43
 
     if-eq v0, v2, :cond_6
 
-    const v2, 0x7f0f02dd
+    const v2, 0x7f0f02de
 
     move/from16 v0, v43
 
     if-eq v0, v2, :cond_6
 
-    const v2, 0x7f0f02cb
+    const v2, 0x7f0f02cc
 
     move-object/from16 v0, p0
 
@@ -6686,7 +6702,7 @@
 
     if-eqz v2, :cond_17
 
-    const v2, 0x7f040274
+    const v2, 0x7f040275
 
     :goto_4
     move-object/from16 v0, p0
@@ -6788,7 +6804,7 @@
 
     iget-object v2, v0, Lcom/android/settings/SettingsActivity;->mLeftPaneToolbar:Landroid/widget/Toolbar;
 
-    const v5, 0x7f0b0fde
+    const v5, 0x7f0b10f9
 
     invoke-virtual {v2, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 
@@ -6884,7 +6900,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f0213
+    const v5, 0x7f0f0214
 
     if-eq v5, v2, :cond_8
 
@@ -6892,7 +6908,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f02d5
+    const v5, 0x7f0f02d6
 
     if-ne v5, v2, :cond_1b
 
@@ -7401,7 +7417,7 @@
 
     iput-boolean v2, v0, Lcom/android/settings/SettingsActivity;->mIsShowingDashboard:Z
 
-    const v2, 0x7f0f02db
+    const v2, 0x7f0f02dc
 
     move-object/from16 v0, p0
 
@@ -7425,7 +7441,7 @@
     goto/16 :goto_3
 
     :cond_17
-    const v2, 0x7f040276
+    const v2, 0x7f040277
 
     goto/16 :goto_4
 
@@ -7440,7 +7456,7 @@
 
     if-eqz v2, :cond_19
 
-    const v2, 0x7f040275
+    const v2, 0x7f040276
 
     :goto_c
     invoke-virtual {v5, v2}, Landroid/view/Window;->setContentView(I)V
@@ -7448,7 +7464,7 @@
     goto/16 :goto_5
 
     :cond_19
-    const v2, 0x7f040277
+    const v2, 0x7f040278
 
     goto :goto_c
 
@@ -7492,7 +7508,7 @@
 
     move-result v2
 
-    const v5, 0x7f0f02dd
+    const v5, 0x7f0f02de
 
     if-ne v5, v2, :cond_9
 
@@ -7621,7 +7637,7 @@
 
     if-eqz v2, :cond_22
 
-    const v2, 0x7f0b0fde
+    const v2, 0x7f0b10f9
 
     move-object/from16 v0, p0
 
@@ -7827,7 +7843,7 @@
 
     const/4 v9, 0x0
 
-    const v10, 0x7f0b17d9
+    const v10, 0x7f0b18f4
 
     const/4 v11, 0x0
 
@@ -8174,7 +8190,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0ef4
+    const v4, 0x7f0b0f05
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8184,7 +8200,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0ef5
+    const v4, 0x7f0b0f06
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8327,7 +8343,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1221
+    const v0, 0x7f0b133c
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -9379,7 +9395,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b0468
+    const v3, 0x7f0b0473
 
     const/4 v6, 0x0
 
@@ -9518,7 +9534,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b01d3
+    const v10, 0x7f0b01d4
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9701,7 +9717,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b0ef4
+    const v11, 0x7f0b0f05
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -9730,7 +9746,7 @@
 
     const/4 v10, 0x0
 
-    const v11, 0x7f0b0ef5
+    const v11, 0x7f0b0f06
 
     invoke-interface {p1, v8, v9, v10, v11}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

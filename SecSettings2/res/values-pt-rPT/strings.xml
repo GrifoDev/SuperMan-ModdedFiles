@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Ligado através de %1$s</string>
     <string name="available_via_passpoint">Disponível através de %1$s</string>
     <string name="wifi_connected_no_internet">Ligado, sem Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet pode não estar disp.</string>
     <string name="wifi_reconnecting">Pronto a estabelecer ligação quando a qualidade da rede melhorar</string>
     <string name="wifi_connected_checking_quality">A verificar a qualidade da sua ligação de Internet…</string>
     <string name="wifi_sign_in_to_the_network">Inicie sessão na rede.</string>
@@ -865,6 +866,14 @@ Os dados das aplicações podem incluir informações pessoais como contactos, m
     <string name="content_description_hand">Toque sem soltar no círculo azul no centro do ecrã.</string>
     <string name="nearby_scanning_help_msg_sub">A pesquisa de dispositivos próximos utiliza a pesquisa Bluetooth Low Energy e o microfone. A pesquisa Bluetooth Low Energy pode ser utilizada mesmo quando o Bluetooth está desligado neste dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">Nenhum dispositivo Bluetooth encontrado</string>
+    <string name="bt_tether_title">Ancoragem Bluetooth</string>
+    <string name="bt_tether_settings_on">Ligado</string>
+    <string name="bt_tether_settings_off">Desligado</string>
+    <string name="bt_tether_off_brief_text_phone">Partilhe a ligação de Internet do seu telefone com outros dispositivos via Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Partilhe a ligação de Internet do seu tablet com outros dispositivos via Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Dispositivos ancorados</string>
+    <string name="bt_tether_server_description_phone">Partilhe a ligação de Internet do seu telefone emparelhando-o com outro dispositivo via Bluetooth. Se o dispositivo já tiver sido ancorado anteriormente, pode ancorá-lo de novo seleccionando-o a partir da Lista de dispositivos ancorados.</string>
+    <string name="bt_tether_server_description_tablet">Partilhe a ligação de Internet do seu tablet emparelhando-o com outro dispositivo via Bluetooth. Se o dispositivo já tiver sido ancorado anteriormente, pode ancorá-lo de novo seleccionando-o a partir da Lista de dispositivos ancorados.</string>
     <string name="bluetooth_consent_pairing_msg">Toque em OK para emparelhar com %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s está a pedir permissão para aceder ao seu cartão SIM. Se autorizar este pedido, desactivará as funções de chamadas, mensagens e dados móveis no seu dispositivo. Permitir?
 
@@ -2161,7 +2170,7 @@ Alguns serviços de pagamento móvel e transacções NFC podem exigir um método
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Permitir troca de dados quando o dispositivo toca noutro dispositivo.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Utilizar serviços de pagamento móvel, ler e escrever etiquetas NFC, e trocar dados entre dispositivos com capacidade NFC.</string>
+    <string name="nfc_settings_title">Fazer pagamentos móveis, partilhar dados e ler ou escrever etiquetas NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Pode ler e escrever etiquetas e transferir dados entre dispositivos.</string>
     <string name="nfcpayment_quick_toggle_title">NFC e pagamento</string>
     <string name="nfc_mode_general_title">Modo NFC</string>
@@ -2177,14 +2186,16 @@ Alguns serviços de pagamento móvel e transacções NFC podem exigir um método
     <string name="nfc_payment_favor_open_default_unknown">Utilizar aplicação aberta</string>
     <string name="nfc_payment_favor_default_default_unknown">Sem serviço de pagamento padrão</string>
     <string name="nfc_tts_tab_n_of_n">Separador %1$d de %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Substituir aplicação de pagamento padrão?</string>
+    <string name="nfc_payment_replace">Substituir</string>
     <string name="nfc_payment_services_title">Serviços de pagamento NFC</string>
     <string name="nfc_payment_services_fail">Falha ao definir cartão SIM %s para utilização com serviços de pagamento NFC. Tente novamente.</string>
     <string name="nfc_payment_services_success">Cartão SIM %s definido para utilização com serviços de pagamento NFC.</string>
     <string name="nfc_preferred_general_title">Cartão SIM preferido</string>
     <string name="nfc_please_wait">Aguarde por favor…</string>
     <string name="nfc_payment_no_sim_card">Sem cartão SIM</string>
-    <string name="nfc_disable_service_title">Alterar método NFC padrão</string>
-    <string name="nfc_disable_service_msg">Se alterar o método de processamento NFC padrão, alguns serviços no separador OUTROS serão desactivados ou activados. Para gerir estes serviços, aceda a NFC e pagamento > Tocar e pagar > OUTROS, e depois seleccione cada um dos serviços a activar ou desactivar.</string>
+    <string name="nfc_disable_service_title">Alterar método NFC padrão?</string>
+    <string name="nfc_disable_service_msg">Se alterar o método de processamento NFC padrão, alguns serviços no separador OUTROS serão ligados ou desligados. Para gerir estes serviços, aceda a NFC e pagamento > Tocar e pagar > OUTROS, e depois seleccione cada um dos serviços a ligar ou desligar.</string>
     <string name="nfc_settings_advanced_setting">Método NFC padrão</string>
     <string name="nfc_settings_advanced_uicc">Cartão SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">Cartão SIM Secure Element</string>
@@ -2196,7 +2207,7 @@ Alguns serviços de pagamento móvel e transacções NFC podem exigir um método
     <string name="nfc_settings_tag_message">Se mudar para o Modo de cartão, deixará de poder ler etiquetas NFC, escrever dados nas mesmas ou trocar dados entre dispositivos.</string>
     <string name="nfc_show_alert_dialog_title">Modo ultra-econ. energia</string>
     <string name="nfc_show_alert_dialog_message">Impossível abrir %s.</string>
-    <string name="android_beam_explained">Partilhe ficheiros entre dispositivos com capacidade NFC mantendo-os próximos. Poderá então partilhar ligações de página Web, contactos e muito mais.</string>
+    <string name="android_beam_explained">Pode partilhar ligações de páginas Web, contactos e muito mais, aproximando o telefone de um dispositivo com capacidade NFC.</string>
     <string name="android_beam_explained_1">Aproxime os dispositivos, costas com costas.</string>
     <string name="android_beam_explained_2">Toque no seu ecrã.</string>
     <string name="guide_dialog_attention_title">Atenção</string>
@@ -2205,7 +2216,7 @@ Alguns serviços de pagamento móvel e transacções NFC podem exigir um método
     <string name="cannot_use_card_without_NFC">Funções relacionadas com NFC, como é o caso de alguns métodos de partilha de conteúdos e de pagamento NFC, não estarão disponíveis quando NFC estiver desligado.</string>
     <string name="limit_app_contents_transfer">A partilha de conteúdos através de NFC será limitada quando o Android Beam estiver desligado.</string>
     <string name="nfc_payment_dialog_favor_open">Se a aplicação actualmente aberta suportar Tocar e pagar, esta função será utilizada em vez de %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Se a aplicação actualmente aberta suportar Tocar e pagar, esta função será utilizada.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Se a aplicação actualmente aberta suportar Tocar e pagar, esta função será utilizada para pagamento.</string>
     <string name="folder_sounds">Sons pasta aberta/fechada</string>
     <string name="folder_sounds_summary">Reproduzir sons ao abrir e fechar pasta.</string>
     <string name="sound_category_calls_title">Chamadas recebidas</string>
@@ -3463,6 +3474,7 @@ Recepção de SMS"</string>
     <string name="data_usage_reminder_item_summary">Receber notificações indicando a quantidade de dados utilizada pelas aplicações via Wi-Fi ou redes móveis, quando o dispositivo está bloqueado durante mais de %d minutos.</string>
     <string name="data_usage_reminder_description">As seguintes aplicações utilizaram %s de dados no total quando o dispositivo esteve bloqueado:</string>
     <string name="google_settings_popup_msg">Só está disponível um número limitado de definições Google. Algumas acções podem não funcionar.</string>
+    <string name="okay">OK</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="create">Criar</string>
@@ -3560,7 +3572,6 @@ Pode alterar este parâmetro mais tarde nas Definições de Bluetooth."</string>
     <string name="phone_info_label">Informações de dispositivo</string>
     <string name="proxy_settings_label">Definições de proxy</string>
     <string name="cancel">Cancelar</string>
-    <string name="okay">OK</string>
     <string name="save">Guardar</string>
     <string name="done">Concluir</string>
     <string name="settings_label">Definições</string>
@@ -4814,13 +4825,13 @@ Qualquer utilizador pode aceitar autorizações de aplicações actualizadas em 
     <string name="global_change_warning">Esta definição afecta todos os utilizadores neste dispositivo.</string>
     <string name="global_locale_change_title">Alterar idioma</string>
     <string name="nfc_payment_settings_title">Tocar e pagar</string>
-    <string name="nfc_payment_no_apps">Sem aplicações de serviços de pagamento instaladas</string>
+    <string name="nfc_payment_no_apps">Nenhuma aplicação de pagamento instalada</string>
     <string name="nfc_payment_favor_default">Continuar a utilizar %s</string>
     <string name="nfc_payment_favor_open">Utilizar aplicação aberta em vez de %s</string>
     <string name="nfc_how_it_works_got_it">Entendido</string>
-    <string name="nfc_payment_set_default_label">Definir como padrão</string>
-    <string name="nfc_payment_set_default">%s irá ser definido como o modo de pagamento padrão nas transacções Tocar e pagar.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s irá substituir %2$s como o modo de pagamento padrão nas transacções Tocar e pagar.</string>
+    <string name="nfc_payment_set_default_label">Definir aplicação de pagamento padrão?</string>
+    <string name="nfc_payment_set_default">%s será definido como a aplicação de pagamento padrão para Tocar e pagar.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s irá substituir %2$s como a sua aplicação de pagamento padrão de Tocar e pagar.</string>
     <string name="help_label">Ajuda</string>
     <string name="user_restrictions_title">Restrições de aplicação/conteúdo</string>
     <string name="user_restrictions_controlled_by">Controlado via %1$s</string>
@@ -5126,7 +5137,7 @@ Não receberá chamadas, mensagens ou notificações, e os alarmes não irão so
     <string name="location_off_summary">Desactivado</string>
     <string name="backup_disabled">Cópia de segurança automática desactivada</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Impossível executar acção</string>
+    <string name="disabled_by_policy_title">Impossível executar a acção</string>
     <string name="default_admin_support_msg">Não tem permissão para executar esta acção. Contacte o administrador de TI da sua organização para obter mais informações.</string>
     <string name="admin_support_more_info">Mais detalhes</string>
     <string name="admin_profile_owner_message">O administrador pode monitorizar e gerir aplicações e dados associados ao seu perfil de trabalho, incluindo definições, permissões, acesso empresarial, actividade de rede e informações de localização do dispositivo.</string>

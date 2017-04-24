@@ -448,7 +448,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v3, 0x7f0b046b
+    const v3, 0x7f0b0476
 
     iput v3, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -512,7 +512,7 @@
 
     move-result v9
 
-    const v20, 0x7f080043
+    const v20, 0x7f080044
 
     move-object/from16 v0, p0
 
@@ -980,7 +980,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0aa0
+    const v21, 0x7f0b0aae
 
     invoke-virtual/range {v20 .. v21}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 
@@ -1228,7 +1228,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0077
+    const v21, 0x7f0b0078
 
     invoke-virtual/range {v20 .. v21}, Lcom/samsung/android/settingslib/RestrictedPreference;->setTitle(I)V
 

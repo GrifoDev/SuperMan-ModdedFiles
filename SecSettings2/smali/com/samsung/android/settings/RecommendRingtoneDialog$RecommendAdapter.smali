@@ -91,7 +91,7 @@
 
     if-nez p1, :cond_2
 
-    const v5, 0x7f0b09dc
+    const v5, 0x7f0b09ea
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -122,7 +122,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f04022f
+    const v6, 0x7f040230
 
     invoke-virtual {v5, v6, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -131,13 +131,13 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f0b09dd
+    const v5, 0x7f0b09eb
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v5, 0x7f0b09de
+    const v5, 0x7f0b09ec
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(I)V
 

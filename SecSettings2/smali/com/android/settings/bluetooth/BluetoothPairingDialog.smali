@@ -117,7 +117,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b10b6
+    const v1, 0x7f0b11d1
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b0421
+    const v1, 0x7f0b042c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -141,7 +141,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0418
+    const v1, 0x7f0b0423
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b10b6
+    const v1, 0x7f0b11d1
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -177,7 +177,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b0421
+    const v1, 0x7f0b042c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -187,7 +187,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0418
+    const v1, 0x7f0b0423
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b10b6
+    const v2, 0x7f0b11d1
 
     invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -223,7 +223,7 @@
 
     iput-object v2, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v2, 0x7f0b0418
+    const v2, 0x7f0b0423
 
     invoke-virtual {p0, v2}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -278,7 +278,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b03db
+    const v1, 0x7f0b03e6
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b0421
+    const v1, 0x7f0b042c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0418
+    const v1, 0x7f0b0423
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/EditText;->setPrivateImeOptions(Ljava/lang/String;)V
 
-    const v4, 0x7f0b10ba
+    const v4, 0x7f0b11d5
 
     iget v8, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mType:I
 
@@ -460,10 +460,10 @@
     return-object v13
 
     :sswitch_0
-    const v4, 0x7f0b10bb
+    const v4, 0x7f0b11d6
 
     :sswitch_1
-    const v3, 0x7f0b03d8
+    const v3, 0x7f0b03e3
 
     const/16 v2, 0x11
 
@@ -549,7 +549,7 @@
     return-object v7
 
     :sswitch_2
-    const v3, 0x7f0b10b8
+    const v3, 0x7f0b11d3
 
     const/4 v2, 0x6
 
@@ -574,7 +574,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b10b6
+    const v1, 0x7f0b11d1
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -588,7 +588,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x7f0b0421
+    const v1, 0x7f0b042c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -598,7 +598,7 @@
 
     iput-object p0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f0b0418
+    const v1, 0x7f0b0423
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I)Ljava/lang/String;
 
@@ -634,7 +634,7 @@
 
     const/4 v12, 0x0
 
-    const v11, 0x7f0b10be
+    const v11, 0x7f0b11d9
 
     const/4 v10, 0x2
 
@@ -762,7 +762,7 @@
 
     aput-object v3, v5, v9
 
-    const v6, 0x7f0b10c0
+    const v6, 0x7f0b11db
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -793,7 +793,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b10be
+    const v6, 0x7f0b11d9
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
@@ -827,7 +827,7 @@
 
     aput-object v3, v5, v8
 
-    const v6, 0x7f0b03c9
+    const v6, 0x7f0b03d3
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -840,7 +840,7 @@
 
     aput-object v3, v5, v8
 
-    const v6, 0x7f0b03d9
+    const v6, 0x7f0b03e4
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/bluetooth/BluetoothPairingDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

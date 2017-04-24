@@ -199,13 +199,7 @@
 
     sget-object v7, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
-    if-ne v6, v7, :cond_2
-
-    invoke-static {}, Lcom/android/settingslib/bluetooth/Utils;->isTablet()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
+    if-ne v6, v7, :cond_1
 
     new-instance v5, Landroid/view/ContextThemeWrapper;
 
@@ -223,41 +217,27 @@
 
     invoke-virtual {v6}, Landroid/widget/Toast;->show()V
 
-    :goto_0
     return v9
 
     :cond_1
-    iget-object v6, p0, Lcom/android/settingslib/bluetooth/PanProfile;->mContext:Landroid/content/Context;
-
-    sget v7, Lcom/android/settingslib/R$string;->bluetooth_tethering_cannot_connect_while_connected_to_wifi:I
-
-    invoke-static {v6, v7, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
-
-    :cond_2
     iget-object v6, p0, Lcom/android/settingslib/bluetooth/PanProfile;->mService:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v6}, Landroid/bluetooth/BluetoothPan;->getConnectedDevices()Ljava/util/List;
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    :goto_1
+    :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -269,18 +249,18 @@
 
     invoke-virtual {v6, v2}, Landroid/bluetooth/BluetoothPan;->disconnect(Landroid/bluetooth/BluetoothDevice;)Z
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_3
+    :cond_2
     invoke-virtual {p0, p1}, Lcom/android/settingslib/bluetooth/PanProfile;->getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_4
 
     sget-boolean v6, Lcom/android/settingslib/bluetooth/Utils;->DEBUG:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     const-string/jumbo v6, "PanProfile"
 
@@ -308,7 +288,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_3
     iget-object v6, p0, Lcom/android/settingslib/bluetooth/PanProfile;->mService:Landroid/bluetooth/BluetoothPan;
 
     invoke-virtual {v6, p1}, Landroid/bluetooth/BluetoothPan;->connect(Landroid/bluetooth/BluetoothDevice;)Z
@@ -317,10 +297,10 @@
 
     return v6
 
-    :cond_5
+    :cond_4
     sget-boolean v6, Lcom/android/settingslib/bluetooth/Utils;->DEBUG:Z
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_5
 
     const-string/jumbo v6, "PanProfile"
 
@@ -354,7 +334,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     return v9
 .end method
 

@@ -1518,7 +1518,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b177b
+    const v0, 0x7f0b1896
 
     return v0
 .end method
@@ -1542,7 +1542,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 7
 
-    const v6, 0x7f0b09d9
+    const v6, 0x7f0b09e7
 
     const/4 v5, 0x0
 
@@ -2014,7 +2014,7 @@
 
     iput-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    const v9, 0x7f0800af
+    const v9, 0x7f0800b0
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->addPreferencesFromResource(I)V
 
@@ -2365,7 +2365,7 @@
 
     if-nez v1, :cond_b
 
-    const v9, 0x7f0b044c
+    const v9, 0x7f0b0457
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2382,7 +2382,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0973
+    const v11, 0x7f0b0981
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2440,7 +2440,7 @@
 
     if-nez v1, :cond_e
 
-    const v9, 0x7f0b044e
+    const v9, 0x7f0b0459
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2465,7 +2465,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0973
+    const v11, 0x7f0b0981
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2508,7 +2508,7 @@
 
     if-nez v1, :cond_10
 
-    const v9, 0x7f0b044d
+    const v9, 0x7f0b0458
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2533,7 +2533,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0973
+    const v11, 0x7f0b0981
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2551,7 +2551,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mEmail:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0974
+    const v10, 0x7f0b0982
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2668,7 +2668,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtonePreference_DS:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0961
+    const v10, 0x7f0b096f
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2689,7 +2689,7 @@
 
     const-string/jumbo v10, "UPSM"
 
-    const v11, 0x7f0800ae
+    const v11, 0x7f0800af
 
     invoke-static {v9, v11, v10}, Lcom/android/settings/Utils;->getRemovePreferenceInOtherMode(Landroid/content/Context;ILjava/lang/String;)Ljava/util/ArrayList;
 
@@ -2769,7 +2769,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtoneCategory:Landroid/preference/PreferenceCategory;
 
-    const v10, 0x7f0b0986
+    const v10, 0x7f0b0994
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -2970,7 +2970,7 @@
 
     const-string/jumbo v2, "extra_prefs_set_back_text"
 
-    const v3, 0x7f0b162e
+    const v3, 0x7f0b1749
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -3564,7 +3564,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b11ee
+    const v6, 0x7f0b1309
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4437,7 +4437,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b11ee
+    const v6, 0x7f0b1309
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

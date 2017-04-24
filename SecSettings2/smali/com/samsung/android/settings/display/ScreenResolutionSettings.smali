@@ -222,7 +222,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->mSaveButton:Landroid/widget/Button;
 
-    const v6, 0x7f0b0420
+    const v6, 0x7f0b042b
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->getString(I)Ljava/lang/String;
 
@@ -298,7 +298,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0800d1
+    const v1, 0x7f0800d2
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->addPreferencesFromResource(I)V
 

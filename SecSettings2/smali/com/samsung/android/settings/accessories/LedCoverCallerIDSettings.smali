@@ -831,7 +831,7 @@
 
     invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const v1, 0x7f0b032d
+    const v1, 0x7f0b032e
 
     move-object/from16 v0, p0
 
@@ -897,7 +897,7 @@
 
     invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const v1, 0x7f0b032d
+    const v1, 0x7f0b032e
 
     move-object/from16 v0, p0
 
@@ -994,11 +994,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b02f8
+    const v1, 0x7f0b02f9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b02f9
+    const v1, 0x7f0b02fa
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1006,7 +1006,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings$11;-><init>(Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;)V
 
-    const v2, 0x7f0b05ac
+    const v2, 0x7f0b05b7
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1150,7 +1150,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044a
+    const v19, 0x7f0a044b
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1168,7 +1168,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044b
+    const v19, 0x7f0a044c
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1186,7 +1186,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044d
+    const v19, 0x7f0a044e
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1204,7 +1204,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a044c
+    const v19, 0x7f0a044d
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1443,7 +1443,7 @@
     move-result-object v0
 
     :cond_1
-    const v1, 0x7f0b02fb
+    const v1, 0x7f0b02fc
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2119,7 +2119,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b18e0
+    const v5, 0x7f0b19fb
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2333,12 +2333,12 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mSelectedContactTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b032c
+    const v1, 0x7f0b032d
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v0, 0x7f0b0417
+    const v0, 0x7f0b0422
 
     invoke-interface {p1, v3, v4, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2346,7 +2346,7 @@
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v0, 0x7f0b041f
+    const v0, 0x7f0b042a
 
     invoke-interface {p1, v3, v5, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2895,7 +2895,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b032a
+    const v4, 0x7f0b032b
 
     invoke-virtual {v2, v4, v3}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2933,7 +2933,7 @@
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->mSelectedContactTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b032c
+    const v2, 0x7f0b032d
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

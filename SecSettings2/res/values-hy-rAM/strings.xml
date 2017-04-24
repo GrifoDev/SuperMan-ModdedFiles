@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Կապակցված է %1$s-ի միջոցով</string>
     <string name="available_via_passpoint">Հասանելի է %1$s-ի միջոցով</string>
     <string name="wifi_connected_no_internet">Կապակցված է առանց համացանցի</string>
+    <string name="wifi_internet_may_not_be_available">Համացանցը կարող է անմատչելի լինել</string>
     <string name="wifi_reconnecting">Պատրաստ է միանալու, երբ ցանցի որակը բարելավվի</string>
     <string name="wifi_connected_checking_quality">Ստուգվում է Ձեր ինտերնետի միացման որակը…</string>
     <string name="wifi_sign_in_to_the_network">Մտեք ցանց:</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d առնչվող տարր</string>
     <string name="no_results_found">Արդյունքներ չեն գտնվել</string>
     <string name="menu_edit">Խմբագրել</string>
-    <string name="reset">Զրոյացնել</string>
+    <string name="reset">Հետադարձել</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Թույլ է տալիս, որ, երբ ծրագիր եք օգտագործում, Voice Assistant-մ իմանա այդ մասին:</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Ուղղությունները գծեք այս տեքստից ներքև և էկրանի ներքևի մասում գտնվող կոճակներից վերև ընկած տարածքում:</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">«Հաստատել» կոճակը գտնվում է էկրանի ստորին աջ անկյունում:</string>
@@ -865,6 +866,14 @@ Wi-Fi-ն ու Bluetooth-ը նույնպես կանջատվեն, բայց կար�
     <string name="content_description_hand">Թակեք և պահեք էկրանի կենտրոնում գտնվող կապույտ շրջանը:</string>
     <string name="nearby_scanning_help_msg_sub">Մոտակա սարքերի տեսածրումն օգտագործում է Bluetooth Ցածր էներգիայի տեսածրում և միկրոֆոն: Bluetooth Ցածր էներգիայի տեսածրումը կարելի է օգտագործել, նույնիսկ երբ Bluetooth-ն անջատված է այս սարքում:</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth սարքեր չեն գտնվել</string>
+    <string name="bt_tether_title">Bluetooth տեղակապում</string>
+    <string name="bt_tether_settings_on">Միացված</string>
+    <string name="bt_tether_settings_off">Անջատված</string>
+    <string name="bt_tether_off_brief_text_phone">Bluetooth-ի միջոցով համօգտագործեք Ձեր հեռախոսի ինտերնետային միացումն այլ սարքերի հետ:</string>
+    <string name="bt_tether_off_brief_text_tablet">Bluetooth-ի միջոցով համօգտագործեք Ձեր պլանշետի ինտերնետային միացումն այլ սարքերի հետ:</string>
+    <string name="bt_tether_preference_tethered_device_list">Տեղակապված սարքեր</string>
+    <string name="bt_tether_server_description_phone">Համօգտագործեք Ձեր հեռախոսի ինտերնետային միացումը՝ Bluetooth-ի միջոցով մեկ այլ սարքի հետ զուգտակելով: Եթե սարքը նախկինում տեղակապվել է, այն կարող եք նորից տեղակապել՝ սարքն ընտրելով Տեղակապված սարքերի ցուցակից:</string>
+    <string name="bt_tether_server_description_tablet">Համօգտագործեք Ձեր պլանշետի ինտերնետային միացումը՝ Bluetooth-ի միջոցով մեկ այլ սարքի հետ զուգտակելով: Եթե սարքը նախկինում տեղակապվել է, այն կարող եք նորից տեղակապել՝ սարքն ընտրելով Տեղակապված սարքերի ցուցակից:</string>
     <string name="bluetooth_consent_pairing_msg">%s-ի հետ զուգտակելու համար թակեք OK:</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s-ը հարցնում է Ձեր SIM քարտը մուտք գործելու թույլտվություն: Այս հարցումը թույլ տալը կկասեցնի զանգահարման ու հաղորդագրման գործառույթները և կանջատի Շարժական տվյալները Ձեր սարքում. թույլ տա՞լ:
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Թույլ տալ տվյալների փոխանակում, երբ սարքը հպվում է այլ սարքի:</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Օգտագործել շարժական վճարային ծառայություններ, կարդալ և գրել NFC պիտակներ, տվյալներ փոխանակել NFC ապահովող սարքերի միջև:</string>
+    <string name="nfc_settings_title">Կատարել շարժական վճարումներ, համօգտագործել տվյալներ և կարդալ կամ գրել NFC պիտակներ:</string>
     <string name="nfc_settings_rw_p2p_summary">Դուք կարող եք կարդալ ու գրել պիտակներ և տվյալներ փոխանցել սարքերի միջև:</string>
     <string name="nfcpayment_quick_toggle_title">NFC և վճարում</string>
     <string name="nfc_mode_general_title">NFC ռեժիմ</string>
@@ -2177,14 +2186,16 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_favor_open_default_unknown">Օգտագործել բաց ծրագիրը</string>
     <string name="nfc_payment_favor_default_default_unknown">Կանխադրված վճարային ծառ. չկա</string>
     <string name="nfc_tts_tab_n_of_n">Ներդիր %1$d՝ %2$d-ից:</string>
+    <string name="nfc_payment_replace_default_label">Փոխարինե՞լ վճարման կանխադրված ծրագիրը:</string>
+    <string name="nfc_payment_replace">Փոխարինել</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Նախընտրելի SIM քարտ</string>
     <string name="nfc_please_wait">Սպասեք…</string>
     <string name="nfc_payment_no_sim_card">SIM քարտ չկա</string>
-    <string name="nfc_disable_service_title">Փոխել կանխադրված NFC եղանակը</string>
-    <string name="nfc_disable_service_msg">Եթե փոխեք NFC-ի կանխադրված մշակման եղանակը, ԱՅԼ ներդիրում առկա որոշ ծառայություններ կկասեցվեն կամ կմիացվեն: Այդ ծառայությունները կառավարելու համար գնացեք NFC և վճարում > Թակիր և վճարիր > ԱՅԼ, այնուհետև ընտրեք յուրաքանչյուր ծառայությունը՝ այն միացնելու կամ կասեցնելու համար:</string>
+    <string name="nfc_disable_service_title">Փոխե՞լ կանխադրված NFC եղանակը:</string>
+    <string name="nfc_disable_service_msg">Եթե փոխեք NFC-ի կանխադրված մշակման եղանակը, ԱՅԼ ներդիրում առկա որոշ ծառայություններ կմիացվեն կամ կանջատվեն: Այդ ծառայությունները կառավարելու համար գնացեք NFC և վճարում > Թակիր և վճարիր > ԱՅԼ, այնուհետև ընտրեք յուրաքանչյուր ծառայությունը՝ այն միացնելու կամ անջատելու համար:</string>
     <string name="nfc_settings_advanced_setting">Կանխադրված NFC եղանակ</string>
     <string name="nfc_settings_advanced_uicc">SE SIM քարտ</string>
     <string name="nfc_settings_advanced_uicc_TTS">Պաշտպանված մոդուլի SIM քարտ</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Եթե փոխեք Քարտի ռեժիմի, այլևս չեք կարողանա կարդալ NFC պիտակները, տվյալներ գրել դրանցում կամ տվյալներ փոխանակել սարքերի միջև:</string>
     <string name="nfc_show_alert_dialog_title">Էներգիայի գերխն-ն ռեժիմ</string>
     <string name="nfc_show_alert_dialog_message">Անհնար է բացել %s-ը:</string>
-    <string name="android_beam_explained">Համօգտագործեք ֆայլեր NFC-ի ունակ սարքերի միջև՝ դրանք իրար մոտ պահելով: Այնուհետև կարող եք համօգտագործել կայքէջերի հղումներ, կոնտակտներ և ավելին:</string>
+    <string name="android_beam_explained">Կարող եք համօգտագործել կայքէջերի հղումներ, կոնտակտներ և ավելին՝ հեռախոսը NFC-ի ունակ սարքին մոտ պահելով:</string>
     <string name="android_beam_explained_1">Իրար կցեք սարքերը՝ հետևը հետևին:</string>
     <string name="android_beam_explained_2">Թակեք էկրանը:</string>
     <string name="guide_dialog_attention_title">Ուշադրություն</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">NFC-ին վերաբերող գործառույթները, ինչպես օրինակ, բովանդակության համօգտագործման որոշ եղանակները և NFC վճարումը մատչելի չեն, երբ NFC-ն անջատված է:</string>
     <string name="limit_app_contents_transfer">Համօգտագործեք բովանդակությունը NFC-ի միջոցով, երբ Android Beam-ն անջատված է:</string>
     <string name="nfc_payment_dialog_favor_open">Եթե ներկա պահին բաց ծրագիրն ապահովում է «Թակիր և վճարիր», այն կօգտագործվի %s-ի փոխարեն:</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Եթե ներկա պահին բաց ծրագիրն ապահովում է «Թակիր և վճարիր», այն կօգտագործվի:</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Եթե ներկա պահին բաց ծրագիրն ապահովում է «Թակիր և վճարիր», այն կօգտագործվի վճարման համար:</string>
     <string name="folder_sounds">Պանակի բաց./փակման ձայներ</string>
     <string name="folder_sounds_summary">Պանակ բացելիս կամ փակելիս նվագարկել ձայներ:</string>
     <string name="sound_category_calls_title">Մուտքային կանչ</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Ստանալ ծանուցումներ, որոնք ցույց են տալիս ծրագրերի կողմից Wi-Fi-ով կամ շարժական կապի ցանցերի միջոցով օգտագործված տվյալների քանակը, երբ սարքը կողպված է եղել %d րոպեից ավելի:</string>
     <string name="data_usage_reminder_description">Հետևյալ ծրագրերն օգտագործել են ընդամենը %s տվյալներ, երբ սարքը կողպված է եղել՝</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Այո</string>
     <string name="no">Ոչ</string>
     <string name="create">Ստղծլ</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Սարքի տեղեկություն</string>
     <string name="proxy_settings_label">Պրոքսիի կայանքներ</string>
     <string name="cancel">Չեղարկել</string>
-    <string name="okay">OK</string>
     <string name="save">Պահպանել</string>
     <string name="done">Արված է</string>
     <string name="settings_label">Կայանքներ</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Այս դրվածքը վերաբերում է այս սարքի բոլոր օգտվողներին:</string>
     <string name="global_locale_change_title">Փոխել լեզուն</string>
     <string name="nfc_payment_settings_title">Թակիր և վճարիր</string>
-    <string name="nfc_payment_no_apps">Վճարային ծառայության տեղադրված ծրագրեր չկան</string>
+    <string name="nfc_payment_no_apps">Վճարման ծրագրեր տեղադրված չեն</string>
     <string name="nfc_payment_favor_default">Դեռ օգտագործել %s</string>
     <string name="nfc_payment_favor_open">%s-ի փոխարեն օգտագործեք բաց ծրագիրը</string>
     <string name="nfc_how_it_works_got_it">Եղավ</string>
-    <string name="nfc_payment_set_default_label">Դնել որպես կանխադրված</string>
-    <string name="nfc_payment_set_default">%s կտեղակայվի որպես ձեր վճարման լռելյայն եղանակ՝ Տոփիր եւ վճարիր փոխանցումների համար։</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s կփոխարինի %2$s-ը որպես ձեր վճարման լռելյայն եղանակ՝ Հպիր եւ վճարիր փոխանցումների համար։</string>
+    <string name="nfc_payment_set_default_label">Դնե՞լ վճարման կանխադրված ծրագիր:</string>
+    <string name="nfc_payment_set_default">%s-ը կդրվի որպես վճարման կանխադրված ծրագիր «Թակիր և վճարիր» ծառայության համար:</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s-ը կփոխարինի %2$s-ին՝ որպես վճարման կանխադրված ծրագիր «Թակիր և վճարիր» ծառայության համար:</string>
     <string name="help_label">Օգնություն</string>
     <string name="user_restrictions_title">Ծրագրի/բովանդակության սահմանափակում</string>
     <string name="user_restrictions_controlled_by">Կառավարվում է %1$s-ի միջոցով</string>
@@ -5126,7 +5137,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">Անջատված է</string>
     <string name="backup_disabled">Ինքնաբար կրկնօրինակումը կասեցված է</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Անհնար է կատարել գործողությունը</string>
+    <string name="disabled_by_policy_title">Անհնար է կատարել գործողութ.</string>
     <string name="default_admin_support_msg">Դուք չունեք այս գործողությունը կատարելու թույլտվություն: Լրացուցիչ տեղեկությունների համար դիմեք ձեր կազմակերպության ՏՏ վարիչին:</string>
     <string name="admin_support_more_info">Այլ մանրամասներ</string>
     <string name="admin_profile_owner_message">Վարիչը կարող է մշտադիտարկել և կառավարել Ձեր աշխատանքի պրոֆիլին առնչվող ծրագրեր ու տվյալներ, ներառյալ դրվածքները, թույլտվությունները, կորպորատիվ մուտքը, ցանցային գործունեությունը և սարքի տեղի մասին տեղեկատվությունը:</string>

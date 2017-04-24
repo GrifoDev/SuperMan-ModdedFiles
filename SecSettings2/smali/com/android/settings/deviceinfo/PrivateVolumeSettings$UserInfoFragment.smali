@@ -68,7 +68,7 @@
 
     aput-object v3, v4, v5
 
-    const v5, 0x7f0b12cd
+    const v5, 0x7f0b13e8
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$UserInfoFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

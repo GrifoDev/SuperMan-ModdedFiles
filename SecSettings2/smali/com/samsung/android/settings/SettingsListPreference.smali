@@ -337,13 +337,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045d
+    const v2, 0x7f0a045e
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -351,7 +351,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046c
+    const v2, 0x7f0a046d
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -498,7 +498,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0f0282
+    const v5, 0x7f0f0283
 
     iput v5, v4, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 

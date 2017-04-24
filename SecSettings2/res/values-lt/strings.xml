@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Prisijungta naudojant „%1$s“</string>
     <string name="available_via_passpoint">Pasiekiama naudojant „%1$s“</string>
     <string name="wifi_connected_no_internet">Prisijungta, nėra interneto</string>
+    <string name="wifi_internet_may_not_be_available">Internetas gali būti nepasiek.</string>
     <string name="wifi_reconnecting">Parengta prisijungti, kai pagerės tinklo kokybė</string>
     <string name="wifi_connected_checking_quality">Tikrinama interneto ryšio kokybė…</string>
     <string name="wifi_sign_in_to_the_network">Prisijunkite prie tinklo.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">Susijusių elementų: %d</string>
     <string name="no_results_found">Rezultatų nerasta</string>
     <string name="menu_edit">Redaguoti</string>
-    <string name="reset">Atstatyti</string>
+    <string name="reset">Atkurti</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Leidžia „Voice Assistant“ žinoti, kai jūs naudojate programą.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Pieškite kryptis po šiuo tekstu esančioje srityje arba virš ekrano apačioje esančių mygtukų.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Mygtukas „Patvirtinti“ yra ekrano apatiniame dešiniajame kampe.</string>
@@ -865,6 +866,14 @@ Programų duomenyse gali būti asmeninės informacijos, pvz., adresatų, žinuč
     <string name="content_description_hand">Bakstelėkite ir palaikykite mėlyną apskritimą ekrano centre.</string>
     <string name="nearby_scanning_help_msg_sub">Įrenginių netoliese ieška naudoja „Bluetooth“ mažų energijos sąnaudų nuskaitymą ir mikrofoną. „Bluetooth“ mažų energijos sąnaudų nuskaitymo režimą galima naudoti, net jei šiame įrenginyje „Bluetooth“ yra išjungtas.</string>
     <string name="sec_bluetooth_no_devices_found">Neaptikta „Bluetooth“ įrenginių</string>
+    <string name="bt_tether_title">„Bluetooth“ siejimas</string>
+    <string name="bt_tether_settings_on">Įjungta</string>
+    <string name="bt_tether_settings_off">Išjungta</string>
+    <string name="bt_tether_off_brief_text_phone">Bendrinkite savo telefono interneto ryšį su kitais įrenginiais naudodami „Bluetooth“.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bendrinkite savo planšetinio kompiuterio interneto ryšį su kitais įrenginiais naudodami „Bluetooth“.</string>
+    <string name="bt_tether_preference_tethered_device_list">Susieti įrenginiai</string>
+    <string name="bt_tether_server_description_phone">Bendrinkite telefono interneto ryšį susiedami jį su kitu įrenginiu „Bluetooth“ ryšiu. Jei įrenginys buvo susietas anksčiau, galite jį vėl susieti pasirinkdami jį susietų įrenginių sąraše.</string>
+    <string name="bt_tether_server_description_tablet">Bendrinkite planšetinio kompiuterio interneto ryšį susiedami jį su kitu įrenginiu „Bluetooth“ ryšiu. Jei įrenginys buvo susietas anksčiau, galite jį vėl susieti pasirinkdami jį susietų įrenginių sąraše.</string>
     <string name="bluetooth_consent_pairing_msg">Bakstelėkite „Gerai“ ir susiekite su %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s prašo leidimo prieiti prie jūsų SIM kortelės. Sutikus su šia užklausa, bus išjungtos skambinimo ir žinučių siuntimo funkcijos ir jūsų įrenginyje bus išjungti mobilieji duomenys. Leisti?
 
@@ -1039,7 +1048,7 @@ Net jei išmaniojo fiksavimo funkcija yra išjungta, jūs galite pasiekti funkci
     <string name="active_key_title">Aktyvus mygtukas</string>
     <string name="about_phone">Apie telefoną</string>
     <string name="theme_settings">Temos</string>
-    <string name="wifi_calling_title">Skamb.per„Wi-Fi“</string>
+    <string name="wifi_calling_title">Skambinimas per „Wi-Fi“</string>
     <string name="tab_category_connections">Ryšiai</string>
     <string name="festival_effect_settings_title">Šventinis efektas</string>
     <string name="user_manual">Naudotojo vadovas</string>
@@ -2162,7 +2171,7 @@ Kai kurioms NFC operacijoms ir mobiliųjų mokėjimų paslaugoms gali reikėti k
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Įrenginiui palietus kitą įrenginį, leiskite keistis duomenimis.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Naudokitės mobiliųjų mokėjimų paslaugomis, nuskaitykite ir įrašykite NFC žymas bei keiskitės duomenimis tarp įrenginių su NFC funkcija.</string>
+    <string name="nfc_settings_title">Atlikite mobiliuosius mokėjimus, bendrinkite duomenis ir nuskaitykite ar įrašykite NFC žymas.</string>
     <string name="nfc_settings_rw_p2p_summary">Galite skaityti ir rašyti žymas bei perduoti duomenis iš vieno įrenginio į kitą.</string>
     <string name="nfcpayment_quick_toggle_title">NFC ir mokėjimas</string>
     <string name="nfc_mode_general_title">NFC režimas</string>
@@ -2178,13 +2187,15 @@ Kai kurioms NFC operacijoms ir mobiliųjų mokėjimų paslaugoms gali reikėti k
     <string name="nfc_payment_favor_open_default_unknown">Naudoti atidarytą programą</string>
     <string name="nfc_payment_favor_default_default_unknown">Nėra numatyt. mok. paslaugos</string>
     <string name="nfc_tts_tab_n_of_n">%1$d skirtukas iš %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Pakeisti numatytąją mokėjimų programą?</string>
+    <string name="nfc_payment_replace">Pakeisti</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Pageidaujama SIM kortelė</string>
     <string name="nfc_please_wait">Palaukite…</string>
     <string name="nfc_payment_no_sim_card">Nėra SIM</string>
-    <string name="nfc_disable_service_title">Keisti numatytąjį NFC būdą</string>
+    <string name="nfc_disable_service_title">Keisti numatytąjį NFC būdą?</string>
     <string name="nfc_disable_service_msg">Jei pakeisite numatytąjį NFC apdorojimo būdą, kai kurios paslaugos skirtuke KITA bus išjungtos ar įjungtos. Jei norite tvarkyti šias paslaugas, eikite į NFC ir mokėjimas > Bakstelėti ir mokėti > KITA, tada pasirinkite kiekvieną paslaugą ir ją įjunkite arba išjunkite.</string>
     <string name="nfc_settings_advanced_setting">Numatytasis NFC būdas</string>
     <string name="nfc_settings_advanced_uicc">SE SIM kortelė</string>
@@ -2197,7 +2208,7 @@ Kai kurioms NFC operacijoms ir mobiliųjų mokėjimų paslaugoms gali reikėti k
     <string name="nfc_settings_tag_message">Jei įjungsite kortelės režimą, nebegalėsite skaityti NFC žymų, įrašyti jose duomenų ar keistis duomenimis su kitais įrenginiais.</string>
     <string name="nfc_show_alert_dialog_title">Ypat.energ.taupymo režim.</string>
     <string name="nfc_show_alert_dialog_message">Neįmanoma atidaryti %s.</string>
-    <string name="android_beam_explained">Bendrinkite failus tarp NFC palaikančių įrenginių laikydami juos vieną prie kito. Tuomet galėsite bendrinti tinklalapio nuorodas, adresatus ir pan.</string>
+    <string name="android_beam_explained">Savo telefoną palaikydami prie įrenginio su NFC funkcija galite bendrinti tinklalapių nuorodas, adresatus ir pan.</string>
     <string name="android_beam_explained_1">Suglauskite įrenginius nugarėlėmis.</string>
     <string name="android_beam_explained_2">Bakstelėkite savo ekraną.</string>
     <string name="guide_dialog_attention_title">Dėmesio</string>
@@ -2206,7 +2217,7 @@ Kai kurioms NFC operacijoms ir mobiliųjų mokėjimų paslaugoms gali reikėti k
     <string name="cannot_use_card_without_NFC">Su NFC susijusios funkcijos, pvz., tam tikri turinio bendrinimo būdai ir NFC mokėjimas, nebus galimos išjungus NFC.</string>
     <string name="limit_app_contents_transfer">Turinio bendrinimas per NFC bus apribotas išjungus „Android Beam“.</string>
     <string name="nfc_payment_dialog_favor_open">Jei šiuo metu atidaryta programa palaiko funkciją „Bakstelėti ir mokėti“, ji bus naudojama vietoje %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Jei šiuo metu atidaryta programa palaiko funkciją „Bakstelėti ir mokėti“, ji bus ir naudojama.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Jei šiuo metu atidaryta programa palaiko funkciją „Bakstelėti ir mokėti“, ji bus naudojama mokėjimui.</string>
     <string name="folder_sounds">Aplanko atid./užd.garsai</string>
     <string name="folder_sounds_summary">Leisti garsus atidarant ir uždarant aplanką.</string>
     <string name="sound_category_calls_title">Gaunami skambučiai</string>
@@ -3464,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Gaukite pranešimus apie duomenų kiekį, kurį išnaudojo programos per „Wi-Fi“ ar mobiliuosius tinklus, kai įrenginys buvo užrakintas ilgiau nei %d min.</string>
     <string name="data_usage_reminder_description">Kol įrenginys buvo užrakintas, nurodytos programos iš viso išnaudojo %s duomenų:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">GERAI</string>
     <string name="yes">Taip</string>
     <string name="no">Ne</string>
     <string name="create">Sukurti</string>
@@ -3561,7 +3573,6 @@ Pakeisti galėsite ir vėliau nuėję į „Bluetooth“ nustatymus."</string>
     <string name="phone_info_label">Įrenginio informacija</string>
     <string name="proxy_settings_label">PROXY serv. nustat.</string>
     <string name="cancel">Atšaukti</string>
-    <string name="okay">GERAI</string>
     <string name="save">Išsaugoti</string>
     <string name="done">Atlikta</string>
     <string name="settings_label">Nustatymai</string>
@@ -4815,13 +4826,13 @@ Bet kuris naudotojas gali priimti atnaujintų programų leidimus visų kitų nau
     <string name="global_change_warning">Šis nustatymas taikomas visiems įrenginio naudotojams.</string>
     <string name="global_locale_change_title">Keisti kalbą</string>
     <string name="nfc_payment_settings_title">Bakstelėti ir mokėti</string>
-    <string name="nfc_payment_no_apps">Nėra įdiegtų mokėjimo paslaugų programų</string>
+    <string name="nfc_payment_no_apps">Neįdiegta jokia mokėjimo programa</string>
     <string name="nfc_payment_favor_default">Toliau naudoti %s</string>
     <string name="nfc_payment_favor_open">Naudoti atidarytą programą vietoje %s</string>
     <string name="nfc_how_it_works_got_it">Supratau</string>
-    <string name="nfc_payment_set_default_label">Nustatyti numatytuoju</string>
-    <string name="nfc_payment_set_default">%s bus nustatytas kaip numatytasis mokėjimo būdas „Bakstelėti ir mokėti“ operacijoms.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s bus pakeistas į %2$s ir nustatytas kaip numatytasis mokėjimo būdas „Bakstelėti ir mokėti“ operacijoms.</string>
+    <string name="nfc_payment_set_default_label">Nustatyti numatytąją mokėjimo programą?</string>
+    <string name="nfc_payment_set_default">%s bus nustatyta kaip numatytoji funkcijos „Bakstelėti ir mokėti“ mokėjimo programa.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s pakeis %2$s, kurią naudojate kaip numatytąją mokėjimų programą funkcijai „Bakstelėti ir mokėti“.</string>
     <string name="help_label">Žinynas</string>
     <string name="user_restrictions_title">Programos / turinio apribojimai</string>
     <string name="user_restrictions_controlled_by">Valdoma naudojant %1$s</string>

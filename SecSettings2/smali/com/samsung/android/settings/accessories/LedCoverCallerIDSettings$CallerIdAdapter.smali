@@ -264,7 +264,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings$CallerIdAdapter;->this$0:Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;
 
-    const v4, 0x7f0b032d
+    const v4, 0x7f0b032e
 
     invoke-virtual {v2, v4}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;->getString(I)Ljava/lang/String;
 

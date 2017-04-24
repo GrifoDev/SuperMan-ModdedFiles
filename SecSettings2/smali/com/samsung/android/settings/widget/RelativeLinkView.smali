@@ -45,7 +45,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040233
+    const v1, 0x7f040234
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -155,7 +155,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/widget/RelativeLinkView;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f0270
+    const v4, 0x7f0f0271
 
     invoke-virtual {v1, v3, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -212,7 +212,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0554
+    const v4, 0x7f0a0555
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

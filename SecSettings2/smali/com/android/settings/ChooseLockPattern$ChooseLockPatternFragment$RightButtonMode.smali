@@ -61,7 +61,7 @@
 
     const-string/jumbo v1, "Continue"
 
-    const v2, 0x7f0b13b5
+    const v2, 0x7f0b14d0
 
     invoke-direct {v0, v1, v4, v2, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;-><init>(Ljava/lang/String;IIZ)V
 
@@ -71,7 +71,7 @@
 
     const-string/jumbo v1, "ContinueDisabled"
 
-    const v2, 0x7f0b13b5
+    const v2, 0x7f0b14d0
 
     invoke-direct {v0, v1, v3, v2, v4}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;-><init>(Ljava/lang/String;IIZ)V
 
@@ -81,7 +81,7 @@
 
     const-string/jumbo v1, "Confirm"
 
-    const v2, 0x7f0b13b2
+    const v2, 0x7f0b14cd
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;-><init>(Ljava/lang/String;IIZ)V
 
@@ -91,7 +91,7 @@
 
     const-string/jumbo v1, "ConfirmDisabled"
 
-    const v2, 0x7f0b13b2
+    const v2, 0x7f0b14cd
 
     invoke-direct {v0, v1, v6, v2, v4}, Lcom/android/settings/ChooseLockPattern$ChooseLockPatternFragment$RightButtonMode;-><init>(Ljava/lang/String;IIZ)V
 

@@ -506,9 +506,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0c4e
+    const v0, 0x7f0b0c5c
 
-    const v1, 0x7f0b0c51
+    const v1, 0x7f0b0c5f
 
     const/4 v2, 0x0
 
@@ -558,7 +558,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f040356
+    const v2, 0x7f040357
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -658,7 +658,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mNoDevicesPreference:Landroid/preference/Preference;
 
-    const v1, 0x7f04035b
+    const v1, 0x7f04035c
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setLayoutResource(I)V
 
@@ -668,7 +668,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0cae
+    const v2, 0x7f0b0cbc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1318,7 +1318,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->progressBarItem:Landroid/view/MenuItem;
 
-    const v1, 0x7f04035c
+    const v1, 0x7f04035d
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setActionView(I)Landroid/view/MenuItem;
 
@@ -1574,7 +1574,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v1, 0x7f0b0c47
+    const v1, 0x7f0b0c55
 
     invoke-virtual {p0, v1}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->getString(I)Ljava/lang/String;
 
@@ -1814,7 +1814,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mPassCreate:Z
 
-    const v0, 0x7f0800ef
+    const v0, 0x7f0800f0
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->addPreferencesFromResource(I)V
 
@@ -1987,7 +1987,7 @@
 
     const/4 v3, 0x0
 
-    const v2, 0x7f04035c
+    const v2, 0x7f04035d
 
     const/4 v1, 0x0
 
@@ -3190,7 +3190,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c4d
+    const v11, 0x7f0b0c5b
 
     const/4 v12, 0x1
 
@@ -3219,7 +3219,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c50
+    const v11, 0x7f0b0c5e
 
     const/4 v12, 0x1
 

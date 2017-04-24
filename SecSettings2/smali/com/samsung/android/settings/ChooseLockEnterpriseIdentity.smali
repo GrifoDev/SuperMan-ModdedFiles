@@ -747,7 +747,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b086e
+    const v9, 0x7f0b087a
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -784,7 +784,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b086d
+    const v9, 0x7f0b0879
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -821,7 +821,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b0870
+    const v9, 0x7f0b087c
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -838,7 +838,7 @@
 
     if-eqz v8, :cond_3
 
-    const v8, 0x7f0b086f
+    const v8, 0x7f0b087b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 
@@ -873,7 +873,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b0871
+    const v9, 0x7f0b087d
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -890,7 +890,7 @@
 
     if-nez v8, :cond_5
 
-    const v8, 0x7f0b0872
+    const v8, 0x7f0b087e
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 
@@ -928,7 +928,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b1099
+    const v9, 0x7f0b11b4
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -961,7 +961,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b109c
+    const v9, 0x7f0b11b7
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1006,7 +1006,7 @@
     if-le v0, v8, :cond_a
 
     :cond_9
-    const v8, 0x7f0b10a0
+    const v8, 0x7f0b11bb
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 
@@ -1080,7 +1080,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinLetters:I
 
-    const v10, 0x7f130006
+    const v10, 0x7f130007
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1117,7 +1117,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinNumeric:I
 
-    const v10, 0x7f130009
+    const v10, 0x7f13000a
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1154,7 +1154,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinLowerCase:I
 
-    const v10, 0x7f130007
+    const v10, 0x7f130008
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1191,7 +1191,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinUpperCase:I
 
-    const v10, 0x7f130008
+    const v10, 0x7f130009
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1228,7 +1228,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinSymbols:I
 
-    const v10, 0x7f13000a
+    const v10, 0x7f13000b
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1265,7 +1265,7 @@
 
     iget v9, p0, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->mPasswordMinNonLetter:I
 
-    const v10, 0x7f13000b
+    const v10, 0x7f13000c
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -1337,7 +1337,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b086e
+    const v9, 0x7f0b087a
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1402,7 +1402,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b086d
+    const v9, 0x7f0b0879
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1439,7 +1439,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b0870
+    const v9, 0x7f0b087c
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1456,7 +1456,7 @@
 
     if-eqz v8, :cond_1b
 
-    const v8, 0x7f0b086f
+    const v8, 0x7f0b087b
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 
@@ -1491,7 +1491,7 @@
 
     aput-object v9, v8, v10
 
-    const v9, 0x7f0b0871
+    const v9, 0x7f0b087d
 
     invoke-virtual {p0, v9, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1508,7 +1508,7 @@
 
     if-nez v8, :cond_17
 
-    const v8, 0x7f0b0872
+    const v8, 0x7f0b087e
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/ChooseLockEnterpriseIdentity;->getString(I)Ljava/lang/String;
 

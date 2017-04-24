@@ -213,7 +213,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0800a6
+    const v1, 0x7f0800a7
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanning;->addPreferencesFromResource(I)V
 

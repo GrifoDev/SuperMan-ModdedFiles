@@ -61,7 +61,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/AppDataUsagePreference;->setLayoutResource(I)V
 
-    const v1, 0x7f04031b
+    const v1, 0x7f04031c
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/AppDataUsagePreference;->setWidgetLayoutResource(I)V
 
@@ -112,7 +112,7 @@
 
     if-gtz v1, :cond_2
 
-    const v1, 0x7f0b1695
+    const v1, 0x7f0b17b0
 
     invoke-virtual {p0, v1}, Lcom/android/settings/datausage/AppDataUsagePreference;->setSummary(I)V
 

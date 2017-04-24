@@ -35,7 +35,7 @@
 
     iput p2, p0, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;->mDividerHeight:I
 
-    const v0, 0x7f040220
+    const v0, 0x7f040221
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/WifiNoItemsPreference;->setLayoutResource(I)V
 

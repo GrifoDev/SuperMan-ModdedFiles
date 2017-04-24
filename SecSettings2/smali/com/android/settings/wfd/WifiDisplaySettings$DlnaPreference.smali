@@ -147,7 +147,7 @@
 
     :cond_0
     :goto_0
-    const v5, 0x7f040314
+    const v5, 0x7f040315
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$DlnaPreference;->setLayoutResource(I)V
 
@@ -163,7 +163,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e26
+    const v6, 0x7f0b0e34
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

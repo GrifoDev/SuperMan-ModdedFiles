@@ -166,7 +166,7 @@
 
     const/4 v2, 0x0
 
-    const v6, 0x7f080142
+    const v6, 0x7f080143
 
     const/4 v7, 0x0
 

@@ -43,7 +43,7 @@
 
     const v0, 0x7f01008e
 
-    const v1, 0x7f0f02b2
+    const v1, 0x7f0f02b3
 
     invoke-direct {p0, p1, p2, v0, v1}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03ab
+    const v1, 0x7f0a03ac
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -145,7 +145,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04f0
+    const v3, 0x7f0a04f1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -423,7 +423,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0f07
+    const v8, 0x7f0b1023
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -935,7 +935,7 @@
 
     aput-object v1, v5, v6
 
-    const v6, 0x7f0b04b9
+    const v6, 0x7f0b04c4
 
     invoke-virtual {v4, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

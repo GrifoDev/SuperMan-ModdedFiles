@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Під’єднано через %1$s</string>
     <string name="available_via_passpoint">Доступ через %1$s</string>
     <string name="wifi_connected_no_internet">Під’єднано, але немає доступу до Інтернету</string>
+    <string name="wifi_internet_may_not_be_available">Інтернет може бути недоступний</string>
     <string name="wifi_reconnecting">Підключення буде встановлено після покращення якості мережі</string>
     <string name="wifi_connected_checking_quality">Триває перевірка якості підключення до Інтернету…</string>
     <string name="wifi_sign_in_to_the_network">Увійдіть до мережі.</string>
@@ -868,6 +869,14 @@ Wi-Fi та Bluetooth також буде вимкнено, але їх можн�
     <string name="content_description_hand">Натисніть та утримуйте блакитне коло в центрі екрана.</string>
     <string name="nearby_scanning_help_msg_sub">Пошук пристроїв поблизу використовує Bluetooth із низьким енергоспоживанням та мікрофон. Пошук Bluetooth із низьким енергоспоживанням можна використовувати навіть коли Bluetooth на цьому пристрої вимкнено.</string>
     <string name="sec_bluetooth_no_devices_found">Не знайдено пристроїв Bluetooth</string>
+    <string name="bt_tether_title">Прив’язка Bluetooth</string>
+    <string name="bt_tether_settings_on">Увімкнено</string>
+    <string name="bt_tether_settings_off">Вимкнено</string>
+    <string name="bt_tether_off_brief_text_phone">Надайте іншим пристроям доступ до інтернет-підключення на своєму телефоні через Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Надайте іншим пристроям доступ до інтернет-підключення на своєму планшеті через Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Пристрої, що підключалися в режимі модема</string>
+    <string name="bt_tether_server_description_phone">Надайте іншим пристроям доступ до інтернет-підключення на своєму телефоні через Bluetooth. Якщо з пристроєм вже встановлювалося підключення в режимі модема, ви можете використати його знову, вибравши зі списку «Пристрої, що підключалися в режимі модема».</string>
+    <string name="bt_tether_server_description_tablet">Надайте іншим пристроям доступ до інтернет-підключення на своєму планшеті через Bluetooth. Якщо з пристроєм вже встановлювалося підключення в режимі модема, ви можете використати його знову, вибравши зі списку «Пристрої, що підключалися в режимі модема».</string>
     <string name="bluetooth_consent_pairing_msg">Торкніться OK для створення пари з %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s запитує дозвіл на отримання доступу до SIM-карти. Дозвіл у відповідь на цей запит призведе до вимкнення функцій викликів, надсилання повідомлень та використання мобільних даних. Дозволити?
 
@@ -1042,8 +1051,7 @@ Wi-Fi та Bluetooth також буде вимкнено, але їх можн�
     <string name="active_key_title">Активна клавіша</string>
     <string name="about_phone">Відомості про телефон</string>
     <string name="theme_settings">Теми</string>
-    <string name="wifi_calling_title">"Викл.чер
-Wi-Fi"</string>
+    <string name="wifi_calling_title">Здійсн. викл. через Wi-Fi</string>
     <string name="tab_category_connections">Підключення</string>
     <string name="festival_effect_settings_title">Святковий ефект</string>
     <string name="user_manual">Посібник користувача</string>
@@ -2164,7 +2172,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Увімкнувши цей параметр, ви дозволите обмін даними через NFC.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Використання мобільних служб оплати, читання та запис тегів NFC, а також обмін даними між пристроями з підтримкою NFC.</string>
+    <string name="nfc_settings_title">Здійснюйте мобільні платежі, надсилайте дані, а також зчитуйте або записуйте теги NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Можна читати та писати теги та передавати дані між пристроями.</string>
     <string name="nfcpayment_quick_toggle_title">NFC та оплата</string>
     <string name="nfc_mode_general_title">Режим NFC</string>
@@ -2175,19 +2183,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">Виберіть стандартну програму для здійснення платежів.</string>
     <string name="nfc_payment_title">Оплата</string>
     <string name="nfc_others_title">Інші</string>
-    <string name="nfc_other_no_apps">Немає інстальованих службових програм</string>
+    <string name="nfc_other_no_apps">Не встановлено програми для цієї послуги</string>
     <string name="nfc_payment_open_app">Якщо відкрита програма підтримує функцію «Торкніться і сплатіть»</string>
     <string name="nfc_payment_favor_open_default_unknown">Використовувати відкриту програму</string>
     <string name="nfc_payment_favor_default_default_unknown">Немає станд. платіжної служби</string>
     <string name="nfc_tts_tab_n_of_n">Вкладка %1$d з %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Замін. станд. прогр. для обробки платежів?</string>
+    <string name="nfc_payment_replace">Замінити</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Основна SIM-карта</string>
     <string name="nfc_please_wait">Зачекайте…</string>
     <string name="nfc_payment_no_sim_card">Немає SIM-карти</string>
-    <string name="nfc_disable_service_title">Зміна стандартного способу NFC</string>
-    <string name="nfc_disable_service_msg">Якщо змінити стандартний спосіб обробки NFC, деякі служби на вкладці ІНШЕ буде ввімкнено або вимкнено. Для керування цими службами перейдіть до меню «NFC та оплата» > «Торкніться і сплатіть» > ІНШЕ і виберіть кожну окрему службу, щоб увімкнути або вимкнути її.</string>
+    <string name="nfc_disable_service_title">Змінити стандартний спосіб використ. NFC?</string>
+    <string name="nfc_disable_service_msg">Якщо змінити стандартний спосіб обробки NFC, деякі служби на вкладці ІНШЕ буде ввімкнено або вимкнено. Для керування цими службами перейдіть до меню «NFC та оплата» > «Безконтактні платежі» > ІНШЕ та виберіть кожну службу окремо, щоб увімкнути або вимкнути її.</string>
     <string name="nfc_settings_advanced_setting">Стандартний спосіб NFC</string>
     <string name="nfc_settings_advanced_uicc">Захищена SIM-карта</string>
     <string name="nfc_settings_advanced_uicc_TTS">Захищений елемент: SIM-карта</string>
@@ -2199,8 +2209,8 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">У разі переходу в режим оплати картами ви більше не зможете зчитувати NFC-мітки, записувати у них дані або проводити обмін даних між пристроями.</string>
     <string name="nfc_show_alert_dialog_title">Удоск.режим енергозбереж.</string>
     <string name="nfc_show_alert_dialog_message">Неможливо запустити програму %s.</string>
-    <string name="android_beam_explained">Поділитися файлами з пристроями, що підтримують технологію NFC, приклавши їх один до одного. У подальшому можна поділитись посиланнями на веб-сторінки, контактами та ін.</string>
-    <string name="android_beam_explained_1">Прикладіть пристрої один до одного задніми панелями, щоб підключити їх.</string>
+    <string name="android_beam_explained">Тримаючи телефон біля пристроїв з підтримкою NFC, ви можете надсилати посилання на веб-сторінки, контакти та робити багато іншого.</string>
+    <string name="android_beam_explained_1">Прикладіть пристрої один до одного задніми панелями.</string>
     <string name="android_beam_explained_2">Торкніться екрана.</string>
     <string name="guide_dialog_attention_title">Увага</string>
     <string name="nfc_off_popup_title">Вимкнення NFC</string>
@@ -2208,7 +2218,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">"Функції, пов'язані з NFC, наприклад деякі способи надання спільного доступу до вмісту та оплата за допомогою NFC, не будуть доступні за вимкненої функції NFC."</string>
     <string name="limit_app_contents_transfer">Надання спільного доступу до вмісту через NFC буде обмежено у разі вимкнення Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">Відкриту програму буде використано замість %s, якщо вона підтримує «Безконтактні платежі».</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Відкриту програму буде використано, якщо вона підтримує «Безконтактні платежі».</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Якщо відкрита програма підтримує безконтактні платежі, її буде використано для оплати.</string>
     <string name="folder_sounds">Зв.під ч.відк./закр.пап.</string>
     <string name="folder_sounds_summary">Відтворення звуків під час відкриття та закриття папки.</string>
     <string name="sound_category_calls_title">Вхідні виклики</string>
@@ -3466,6 +3476,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Отримування повідомлень, які показують об’єм трафіку, використаного програмами через Wi-Fi або мобільні мережі, якщо пристрій було заблоковано довше %d хв.</string>
     <string name="data_usage_reminder_description">Такі програми використали %s трафіку, поки пристрій було заблоковано:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Так</string>
     <string name="no">Ні</string>
     <string name="create">Створити</string>
@@ -3563,7 +3574,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Інформація про пристрій</string>
     <string name="proxy_settings_label">Установки проксі</string>
     <string name="cancel">Скасувати</string>
-    <string name="okay">OK</string>
     <string name="save">Зберегти</string>
     <string name="done">Готово</string>
     <string name="settings_label">Налаштування</string>
@@ -4818,13 +4828,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Застосовується до всіх користувачів, які використовують цей пристрій.</string>
     <string name="global_locale_change_title">Змінити мову</string>
     <string name="nfc_payment_settings_title">Безконтактний платіж</string>
-    <string name="nfc_payment_no_apps">Немає встановлених програм для оплати</string>
+    <string name="nfc_payment_no_apps">Програми для обробки платежів не встановлено</string>
     <string name="nfc_payment_favor_default">Все ще використ. %s</string>
     <string name="nfc_payment_favor_open">Використати відкриту програму замість %s</string>
     <string name="nfc_how_it_works_got_it">Зрозуміло</string>
-    <string name="nfc_payment_set_default_label">Встановити як стандартний</string>
-    <string name="nfc_payment_set_default">%s буде встановлено як стандартний спосіб платежу під час здійснення транзакцій за допомогою служби Tap and pay.</string>
-    <string name="nfc_payment_set_default_instead_of">%2$s буде замінено на %1$s як стандартний спосіб платежу під час здійснення транзакцій за допомогою служби Tap and pay.</string>
+    <string name="nfc_payment_set_default_label">Установити стандартну платіжну програму?</string>
+    <string name="nfc_payment_set_default">%s буде встановлено як стандартну програму для безконтактних платежів.</string>
+    <string name="nfc_payment_set_default_instead_of">Замість %2$s для виконання безконтактних платежів за замовчуванням використовуватиметься програма %1$s.</string>
     <string name="help_label">Довідка</string>
     <string name="user_restrictions_title">Обмеження програми/вмісту</string>
     <string name="user_restrictions_controlled_by">Керовані за допомогою %1$s</string>

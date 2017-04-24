@@ -133,7 +133,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    const v5, 0x7f0b12c5
+    const v5, 0x7f0b13e0
 
     const/4 v0, 0x1
 
@@ -145,15 +145,15 @@
 
     sput-object v0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->ITEMS_NO_SHOW_SHARED:[I
 
-    const v0, 0x7f0b1280
+    const v0, 0x7f0b139b
 
-    const v1, 0x7f0b127e
+    const v1, 0x7f0b1399
 
-    const v2, 0x7f0b04df
+    const v2, 0x7f0b04ea
 
-    const v3, 0x7f0b04de
+    const v3, 0x7f0b04e9
 
-    const v4, 0x7f0b12ca
+    const v4, 0x7f0b13e5
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -161,9 +161,9 @@
 
     sput-object v0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->ITEMS_SHOW_SHARED:[I
 
-    const v0, 0x7f0b04e0
+    const v0, 0x7f0b04eb
 
-    const v1, 0x7f0b12c8
+    const v1, 0x7f0b13e3
 
     filled-new-array {v5, v0, v1}, [I
 
@@ -185,13 +185,13 @@
 
     :array_0
     .array-data 4
-        0x7f0b1280
-        0x7f0b127e
-        0x7f0b04df
-        0x7f0b12c5
-        0x7f0b04e0
-        0x7f0b12c8
-        0x7f0b12ca
+        0x7f0b139b
+        0x7f0b1399
+        0x7f0b04ea
+        0x7f0b13e0
+        0x7f0b04eb
+        0x7f0b13e3
+        0x7f0b13e5
     .end array-data
 .end method
 
@@ -328,13 +328,13 @@
 
     aget v2, v1, v0
 
-    const v3, 0x7f0b04de
+    const v3, 0x7f0b04e9
 
     if-eq v2, v3, :cond_1
 
     aget v2, v1, v0
 
-    const v3, 0x7f0b04e0
+    const v3, 0x7f0b04eb
 
     if-ne v2, v3, :cond_6
 
@@ -367,7 +367,7 @@
     :cond_6
     aget v2, v1, v0
 
-    const v3, 0x7f0b12c8
+    const v3, 0x7f0b13e3
 
     if-ne v2, v3, :cond_2
 
@@ -412,7 +412,7 @@
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setKey(Ljava/lang/String;)V
 
     :goto_1
-    const v1, 0x7f0b1280
+    const v1, 0x7f0b139b
 
     if-ne p2, v1, :cond_2
 
@@ -456,7 +456,7 @@
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0b127e
+    const v1, 0x7f0b1399
 
     if-ne p2, v1, :cond_3
 
@@ -467,7 +467,7 @@
     goto :goto_2
 
     :cond_3
-    const v1, 0x7f0b04df
+    const v1, 0x7f0b04ea
 
     if-ne p2, v1, :cond_4
 
@@ -478,7 +478,7 @@
     goto :goto_2
 
     :cond_4
-    const v1, 0x7f0b1281
+    const v1, 0x7f0b139c
 
     invoke-virtual {v0, v1}, Lcom/android/settings/deviceinfo/StorageItemPreference;->setSummary(I)V
 
@@ -688,7 +688,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b04e2
+    const v5, 0x7f0b04ed
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b007a
+    const v5, 0x7f0b007b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -735,7 +735,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0ab2
+    const v5, 0x7f0b0ac0
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1018,7 +1018,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b04de
+    const v1, 0x7f0b04e9
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1314,18 +1314,18 @@
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_c
-        0x7f0b04de -> :sswitch_b
-        0x7f0b04df -> :sswitch_a
-        0x7f0b04e0 -> :sswitch_1
-        0x7f0b04e1 -> :sswitch_7
-        0x7f0b127e -> :sswitch_9
-        0x7f0b1280 -> :sswitch_8
-        0x7f0b12c5 -> :sswitch_0
-        0x7f0b12c6 -> :sswitch_2
-        0x7f0b12c7 -> :sswitch_3
-        0x7f0b12c8 -> :sswitch_4
-        0x7f0b12c9 -> :sswitch_6
-        0x7f0b12ca -> :sswitch_5
+        0x7f0b04e9 -> :sswitch_b
+        0x7f0b04ea -> :sswitch_a
+        0x7f0b04eb -> :sswitch_1
+        0x7f0b04ec -> :sswitch_7
+        0x7f0b1399 -> :sswitch_9
+        0x7f0b139b -> :sswitch_8
+        0x7f0b13e0 -> :sswitch_0
+        0x7f0b13e1 -> :sswitch_2
+        0x7f0b13e2 -> :sswitch_3
+        0x7f0b13e3 -> :sswitch_4
+        0x7f0b13e4 -> :sswitch_6
+        0x7f0b13e5 -> :sswitch_5
     .end sparse-switch
 .end method
 
@@ -1500,7 +1500,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f08005e
+    const v1, 0x7f08005f
 
     invoke-virtual {p0, v1}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->addPreferencesFromResource(I)V
 
@@ -1661,7 +1661,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b129e
+    const v3, 0x7f0b13b9
 
     move-object v0, p0
 
@@ -1688,7 +1688,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b129f
+    const v3, 0x7f0b13ba
 
     move-object v0, p0
 
@@ -1864,7 +1864,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b12c5
+    const v6, 0x7f0b13e0
 
     const/4 v7, 0x0
 
@@ -2334,7 +2334,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b04de
+    const v8, 0x7f0b04e9
 
     const/4 v9, 0x0
 
@@ -2408,16 +2408,16 @@
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_a
-        0x7f0b04de -> :sswitch_9
-        0x7f0b04e0 -> :sswitch_8
-        0x7f0b04e1 -> :sswitch_7
-        0x7f0b12a5 -> :sswitch_6
-        0x7f0b12c5 -> :sswitch_0
-        0x7f0b12c6 -> :sswitch_1
-        0x7f0b12c7 -> :sswitch_2
-        0x7f0b12c8 -> :sswitch_3
-        0x7f0b12c9 -> :sswitch_5
-        0x7f0b12ca -> :sswitch_4
+        0x7f0b04e9 -> :sswitch_9
+        0x7f0b04eb -> :sswitch_8
+        0x7f0b04ec -> :sswitch_7
+        0x7f0b13c0 -> :sswitch_6
+        0x7f0b13e0 -> :sswitch_0
+        0x7f0b13e1 -> :sswitch_1
+        0x7f0b13e2 -> :sswitch_2
+        0x7f0b13e3 -> :sswitch_3
+        0x7f0b13e4 -> :sswitch_5
+        0x7f0b13e5 -> :sswitch_4
     .end sparse-switch
 .end method
 
@@ -2490,7 +2490,7 @@
     invoke-interface {v0, v8}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     :goto_0
-    const v6, 0x7f0b12a0
+    const v6, 0x7f0b13bb
 
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -3006,7 +3006,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b12b2
+    const v24, 0x7f0b13cd
 
     move-object/from16 v0, p0
 
@@ -3076,7 +3076,7 @@
 
     aput-object v25, v24, v26
 
-    const v25, 0x7f0b12b3
+    const v25, 0x7f0b13ce
 
     move-object/from16 v0, p0
 
@@ -3420,7 +3420,7 @@
 
     if-lez v23, :cond_16
 
-    const v23, 0x7f0b12ae
+    const v23, 0x7f0b13c9
 
     move-object/from16 v0, p0
 
@@ -3528,7 +3528,7 @@
     invoke-direct {v0, v12, v1}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings;->addCategory(Landroid/preference/PreferenceGroup;Ljava/lang/CharSequence;)Landroid/preference/PreferenceCategory;
 
     :cond_16
-    const v23, 0x7f0b12c9
+    const v23, 0x7f0b13e4
 
     const/16 v24, 0x0
 
@@ -3577,7 +3577,7 @@
 
     :cond_18
     :goto_c
-    const v23, 0x7f0b12a5
+    const v23, 0x7f0b13c0
 
     move-object/from16 v0, p0
 
@@ -3658,7 +3658,7 @@
     return-void
 
     :cond_1b
-    const v23, 0x7f0b04e1
+    const v23, 0x7f0b04ec
 
     const/16 v24, 0x0
 

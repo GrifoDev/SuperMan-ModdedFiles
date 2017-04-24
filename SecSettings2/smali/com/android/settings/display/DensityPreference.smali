@@ -25,7 +25,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b1a23
+    const v1, 0x7f0b1b3e
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

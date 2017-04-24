@@ -6,6 +6,7 @@
 .implements Landroid/preference/Preference$OnPreferenceChangeListener;
 .implements Landroid/preference/Preference$OnPreferenceClickListener;
 .implements Lcom/android/settings/tts/TtsEnginePreference$RadioButtonGroupState;
+.implements Lcom/android/settings/search/Indexable;
 
 
 # annotations
@@ -13,9 +14,14 @@
     value = {
         Lcom/android/settings/tts/TextToSpeechSettings$1;,
         Lcom/android/settings/tts/TextToSpeechSettings$2;,
-        Lcom/android/settings/tts/TextToSpeechSettings$3;
+        Lcom/android/settings/tts/TextToSpeechSettings$3;,
+        Lcom/android/settings/tts/TextToSpeechSettings$4;
     }
 .end annotation
+
+
+# static fields
+.field public static final SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/Indexable$SearchIndexProvider;
 
 
 # instance fields
@@ -124,6 +130,18 @@
     return-void
 .end method
 
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$3;
+
+    invoke-direct {v0}, Lcom/android/settings/tts/TextToSpeechSettings$3;-><init>()V
+
+    sput-object v0, Lcom/android/settings/tts/TextToSpeechSettings;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/Indexable$SearchIndexProvider;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -155,9 +173,9 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mUpdateListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
 
-    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$3;
+    new-instance v0, Lcom/android/settings/tts/TextToSpeechSettings$4;
 
-    invoke-direct {v0, p0}, Lcom/android/settings/tts/TextToSpeechSettings$3;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    invoke-direct {v0, p0}, Lcom/android/settings/tts/TextToSpeechSettings$4;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
@@ -205,7 +223,7 @@
 
     invoke-direct {p0, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
-    const v3, 0x7f0b0093
+    const v3, 0x7f0b0094
 
     invoke-direct {p0, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -335,7 +353,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b008e
+    const v4, 0x7f0b008f
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -369,7 +387,7 @@
 .method private evaluateDefaultLocale()Z
     .locals 11
 
-    const v10, 0x7f0b0093
+    const v10, 0x7f0b0094
 
     const/4 v9, 0x1
 
@@ -549,7 +567,7 @@
 
     if-eqz v6, :cond_8
 
-    const v6, 0x7f0b0092
+    const v6, 0x7f0b0093
 
     invoke-direct {p0, v6}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -559,7 +577,7 @@
     return v9
 
     :cond_8
-    const v6, 0x7f0b0091
+    const v6, 0x7f0b0092
 
     invoke-direct {p0, v6}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -650,7 +668,7 @@
     move-exception v1
 
     :cond_1
-    const v5, 0x7f0b008f
+    const v5, 0x7f0b0090
 
     invoke-virtual {p0, v5}, Lcom/android/settings/tts/TextToSpeechSettings;->getString(I)Ljava/lang/String;
 
@@ -1282,9 +1300,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$4;
+    new-instance v1, Lcom/android/settings/tts/TextToSpeechSettings$5;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$4;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/tts/TextToSpeechSettings$5;-><init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
 
     invoke-virtual {v0, v1}, Landroid/speech/tts/TextToSpeech;->setOnUtteranceProgressListener(Landroid/speech/tts/UtteranceProgressListener;)I
 
@@ -1355,7 +1373,7 @@
 
     invoke-direct {p0, v2}, Lcom/android/settings/tts/TextToSpeechSettings;->updateWidgetState(Z)V
 
-    const v2, 0x7f0b0094
+    const v2, 0x7f0b0095
 
     invoke-direct {p0, v2}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 
@@ -1672,7 +1690,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080132
+    const v0, 0x7f080133
 
     invoke-virtual {p0, v0}, Lcom/android/settings/tts/TextToSpeechSettings;->addPreferencesFromResource(I)V
 
@@ -1764,7 +1782,7 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEngineStatus:Landroid/preference/Preference;
 
-    const v0, 0x7f0b0094
+    const v0, 0x7f0b0095
 
     invoke-direct {p0, v0}, Lcom/android/settings/tts/TextToSpeechSettings;->updateEngineStatus(I)V
 

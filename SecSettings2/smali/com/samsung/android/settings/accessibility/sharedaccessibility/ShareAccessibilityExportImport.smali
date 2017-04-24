@@ -283,7 +283,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0267
+    const v3, 0x7f0b0268
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -385,7 +385,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b026d
+    const v7, 0x7f0b026e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -403,7 +403,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0263
+    const v7, 0x7f0b0264
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0265
+    const v8, 0x7f0b0266
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -621,7 +621,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b026d
+    const v4, 0x7f0b026e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -641,7 +641,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0264
+    const v4, 0x7f0b0265
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -683,7 +683,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0266
+    const v5, 0x7f0b0267
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -715,7 +715,7 @@
 
     const-wide/16 v8, 0x0
 
-    const v7, 0x7f0b0262
+    const v7, 0x7f0b0263
 
     const/4 v6, 0x1
 
@@ -774,7 +774,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0269
+    const v5, 0x7f0b026a
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -853,7 +853,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b026a
+    const v5, 0x7f0b026b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1147,7 +1147,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f0b0262
+    const v3, 0x7f0b0263
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1157,7 +1157,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b026c
+    const v4, 0x7f0b026d
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1398,7 +1398,7 @@
     return-void
 
     :cond_3
-    const v4, 0x7f0b0262
+    const v4, 0x7f0b0263
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1408,7 +1408,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b026c
+    const v5, 0x7f0b026d
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;->getText(I)Ljava/lang/CharSequence;
 
@@ -1688,7 +1688,7 @@
     return-object v0
 
     :pswitch_0
-    const v2, 0x7f0b025a
+    const v2, 0x7f0b025b
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1698,7 +1698,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport$2;-><init>(Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;)V
 
-    const v4, 0x7f0b1414
+    const v4, 0x7f0b152f
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1708,7 +1708,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport$3;-><init>(Lcom/samsung/android/settings/accessibility/sharedaccessibility/ShareAccessibilityExportImport;)V
 
-    const v4, 0x7f0b026b
+    const v4, 0x7f0b026c
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

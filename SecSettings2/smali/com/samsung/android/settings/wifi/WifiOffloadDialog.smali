@@ -210,7 +210,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0a0672
+    const v2, 0x7f0a0673
 
     invoke-direct {p0, v2}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->getDimension(I)I
 
@@ -291,7 +291,7 @@
 
     iput-object p0, p0, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040351
+    const v1, 0x7f040352
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/wifi/WifiOffloadDialog;->setContentView(I)V
 

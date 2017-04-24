@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Terhubung melalui %1$s</string>
     <string name="available_via_passpoint">Tersedia melalui %1$s</string>
     <string name="wifi_connected_no_internet">Tersambung, tidak ada internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet mgkn tdk tersedia</string>
     <string name="wifi_reconnecting">Siap menyambung saat kualitas jaringan lebih baik</string>
     <string name="wifi_connected_checking_quality">Memeriksa kualitas koneksi Internet Anda…</string>
     <string name="wifi_sign_in_to_the_network">Masuk ke jaringan.</string>
@@ -865,6 +866,14 @@ Data aplikasi mungkin mencakup informasi pribadi seperti kontak, pesan, dan gamb
     <string name="content_description_hand">Ketuk dan tahan lingkaran biru di bagian tengah layar.</string>
     <string name="nearby_scanning_help_msg_sub">Pemindaian perangkat terdekat menggunakan pemindaian Bluetooth Hemat Energi dan mikrofon. Pemindaian Bluetooth Hemat Energi dapat digunakan bahkan saat Bluetooth di perangkat ini nonaktif.</string>
     <string name="sec_bluetooth_no_devices_found">Perangkat Bluetooth tidak ditemukan</string>
+    <string name="bt_tether_title">Bluetooth tethering</string>
+    <string name="bt_tether_settings_on">Hidup</string>
+    <string name="bt_tether_settings_off">Tidak aktif</string>
+    <string name="bt_tether_off_brief_text_phone">Bagikan koneksi internet ponsel dengan memasangkan perangkat lain menggunakan Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bagikan koneksi internet tablet dengan perangkat lain menggunakan Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Perangkat yang ditambatkan</string>
+    <string name="bt_tether_server_description_phone">Bagikan koneksi internet ponsel dengan memasangkan perangkat lain menggunakan Bluetooth. Jika perangkat sudah pernah ditambatkan, tambatkan lagi dengan memilihnya dari Daftar perangkat yang ditambatkan.</string>
+    <string name="bt_tether_server_description_tablet">Bagikan koneksi internet tablet dengan memasangkan perangkat lain menggunakan Bluetooth. Jika perangkat sudah pernah ditambatkan, tambatkan lagi dengan memilihnya dari Daftar perangkat yang ditambatkan.</string>
     <string name="bluetooth_consent_pairing_msg">Ketuk OK untuk dipasangkan dengan %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s meminta izin untuk mengakses kartu SIM Anda. Mengizinkan permintaan ini akan menonaktifkan fungsi panggilan dan pesan, dan mematikan Data seluler pada perangkat Anda. Izinkan?
 
@@ -2162,7 +2171,7 @@ Beberapa layanan transaksi NFC dan pembayaran seluler mungkin memerlukan metode 
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Bolehkan pertukaran data saat perangkat menyentuh perangkat lainnya.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Menggunakan layanan pembayaran seluler, membaca dan menulis tag NFC, dan bertukar data antar perangkat berkemampuan NFC.</string>
+    <string name="nfc_settings_title">Melakukan pembayaran seluler, berbagi data, dan membaca atau menulis tag NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Anda dapat membaca dan menulis tag dan mentransfer data antar-perangkat.</string>
     <string name="nfcpayment_quick_toggle_title">NFC dan pembayaran</string>
     <string name="nfc_mode_general_title">Mode NFC</string>
@@ -2178,14 +2187,16 @@ Beberapa layanan transaksi NFC dan pembayaran seluler mungkin memerlukan metode 
     <string name="nfc_payment_favor_open_default_unknown">Gunakan aplikasi terbuka</string>
     <string name="nfc_payment_favor_default_default_unknown">Tdk ada lyn pmbayaran default</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d dari %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Ganti aplikasi pembayaran default?</string>
+    <string name="nfc_payment_replace">Ganti</string>
     <string name="nfc_payment_services_title">Layanan pembayaran NFC</string>
     <string name="nfc_payment_services_fail">Gagal mengatur kartu SIM %s untuk digunakan dengan layanan pembayaran NFC. Coba lagi.</string>
     <string name="nfc_payment_services_success">Kartu SIM %s diatur untuk penggunaan dengan layanan pembayaran NFC.</string>
     <string name="nfc_preferred_general_title">Kartu SIM pilihan</string>
     <string name="nfc_please_wait">Silahkan tunggu…</string>
     <string name="nfc_payment_no_sim_card">Tidak ada kartu SIM</string>
-    <string name="nfc_disable_service_title">Ubah metode NFC default</string>
-    <string name="nfc_disable_service_msg">Jika Anda mengubah metode pemrosesan NFC default, beberapa layanan di tab LAINNYA akan dinonaktifkan atau diaktifkan. Untuk mengelola layanan ini, buka NFC dan pembayaran > Ketuk dan bayar > LAINNYA, lalu pilih masing-masing layanan untuk mengaktifkan atau menonaktifkannya.</string>
+    <string name="nfc_disable_service_title">Ubah metode NFC default?</string>
+    <string name="nfc_disable_service_msg">Jika mengubah metode pemrosesan NFC default, beberapa layanan di tab LAINNYA akan diaktifkan atau dinonaktifkan. Untuk mengelola layanan ini, buka NFC dan pembayaran > Ketuk dan bayar > LAINNYA, lalu pilih tiap layanan untuk mengaktifkan atau menonaktifkannya.</string>
     <string name="nfc_settings_advanced_setting">Metode NFC default</string>
     <string name="nfc_settings_advanced_uicc">Kartu SIM SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">Kartu SIM Elemen Aman</string>
@@ -2197,8 +2208,8 @@ Beberapa layanan transaksi NFC dan pembayaran seluler mungkin memerlukan metode 
     <string name="nfc_settings_tag_message">Apabila beralih ke Mode kartu, Anda tidak lagi dapat membaca tag NFC, menulis data ke tag, atau bertukar data antar perangkat.</string>
     <string name="nfc_show_alert_dialog_title">Mode Hemat daya ultra</string>
     <string name="nfc_show_alert_dialog_message">Tidak dapat membuka %s.</string>
-    <string name="android_beam_explained">Bagikan file antara perangkat berkemampuan NFC dengan memegangnya berdekatan. Anda dapat berbagi tautan halaman web, kontak, dan lainnya.</string>
-    <string name="android_beam_explained_1">Dekatkan perangkat, saling memunggungi.</string>
+    <string name="android_beam_explained">Anda dapat membagikan tautan halaman web, kontak, dan lainnya dengan mendekatkan ponsel ke perangkat berkemampuan NFC.</string>
+    <string name="android_beam_explained_1">Dekatkan perangkat, saling membelakangi.</string>
     <string name="android_beam_explained_2">Ketuk layar.</string>
     <string name="guide_dialog_attention_title">Perhatian</string>
     <string name="nfc_off_popup_title">Matikan NFC</string>
@@ -2206,7 +2217,7 @@ Beberapa layanan transaksi NFC dan pembayaran seluler mungkin memerlukan metode 
     <string name="cannot_use_card_without_NFC">Fungsi terkait NFC, seperti beberapa metode berbagi konten dan pembayaran NFC, tidak akan tersedia saat NFC dimatikan.</string>
     <string name="limit_app_contents_transfer">Berbagi konten melalui NFC akan dibatasi saat Android Beam dimatikan.</string>
     <string name="nfc_payment_dialog_favor_open">Jika aplikasi yang sedang terbuka mendukung Ketuk dan bayar, fitur itu akan digunakan sebagai ganti %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Jika aplikasi yang sedang terbuka mendukung Ketuk dan bayar, fitur itu akan digunakan.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Jika aplikasi yang sedang terbuka mendukung Ketuk dan bayar, fitur itu akan digunakan untuk membayar.</string>
     <string name="folder_sounds">Suara buka/tutup folder</string>
     <string name="folder_sounds_summary">Putar suara saat membuka dan menutup folder.</string>
     <string name="sound_category_calls_title">Panggilan masuk</string>
@@ -3464,6 +3475,7 @@ Menerima SMS"</string>
     <string name="data_usage_reminder_item_summary">Terima notifikasi yang menunjukkan jumlah penggunaan data berdasarkan aplikasi lewat Wi-Fi atau jaringan seluler, saat perangkat dikunci lebih dari %d menit.</string>
     <string name="data_usage_reminder_description">Aplikasi berikut menggunakan total %s data saat perangkat dikunci:</string>
     <string name="google_settings_popup_msg">Hanya pengaturan Google tertentu yang tersedia. Beberapa tindakan mungkin tidak berfungsi.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
     <string name="create">Membuat</string>
@@ -3561,7 +3573,6 @@ Anda dapat mengubahnya nanti dengan membuka pengaturan Bluetooth."</string>
     <string name="phone_info_label">Info peralatan</string>
     <string name="proxy_settings_label">Pengaturan proksi</string>
     <string name="cancel">Batal</string>
-    <string name="okay">OK</string>
     <string name="save">Simpan</string>
     <string name="done">Selesai</string>
     <string name="settings_label">Pengaturan</string>
@@ -4815,13 +4826,13 @@ Setiap pengguna dapat menerima izin aplikasi terbaru atas nama semua pengguna la
     <string name="global_change_warning">Pengaturan ini berdampak pada semua pengguna di perangkat ini.</string>
     <string name="global_locale_change_title">Ubah bahasa</string>
     <string name="nfc_payment_settings_title">Ketuk dan bayar</string>
-    <string name="nfc_payment_no_apps">Tidak ada aplikasi layanan pembayaran yang diinstal</string>
+    <string name="nfc_payment_no_apps">Tidak ada aplikasi pembayaran yang diinstal</string>
     <string name="nfc_payment_favor_default">Masih menggunakan %s</string>
     <string name="nfc_payment_favor_open">Gunakan aplikasi yang terbuka daripada %s</string>
     <string name="nfc_how_it_works_got_it">Mengerti</string>
-    <string name="nfc_payment_set_default_label">Atur sebagai default</string>
-    <string name="nfc_payment_set_default">%s akan diatur sebagai metode pembayaran default Anda untuk Transaksi ketuk dan bayar.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s akan mengganti %2$s sebagai metode pembayaran default Anda untuk Transaksi ketuk dan beli.</string>
+    <string name="nfc_payment_set_default_label">Atur aplikasi pembayaran default?</string>
+    <string name="nfc_payment_set_default">%s akan diatur sebagai aplikasi pembayaran default Anda untuk Transaksi ketuk dan bayar.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s akan menggantikan %2$s sebagai aplikasi pembayaran default Anda untuk Ketuk dan bayar.</string>
     <string name="help_label">Bantuan</string>
     <string name="user_restrictions_title">Pembatasan aplikasi/konten</string>
     <string name="user_restrictions_controlled_by">Dikontrol lewat %1$s</string>
@@ -5127,7 +5138,7 @@ Anda tidak akan menerima panggilan, pesan, atau notifikasi apa pun, alarm juga t
     <string name="location_off_summary">Dinonaktifkan</string>
     <string name="backup_disabled">Pencadangan otomatis nonaktif</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Tidak dapat melakukan tindakan</string>
+    <string name="disabled_by_policy_title">Tdk dpt melakukan tindakan</string>
     <string name="default_admin_support_msg">Anda tidak memiliki izin untuk melakukan tindakan ini. Hubungi administrator TI pada organisasi anda untuk informasi selengkapnya.</string>
     <string name="admin_support_more_info">Rincian lainnya</string>
     <string name="admin_profile_owner_message">Administrator dapat mengawasi dan mengelola aplikasi serta data yang terkait dengan profil kerja Anda, termasuk pengaturan, izin, akses perusahaan, aktivitas jaringan, dan informasi lokasi perangkat.</string>

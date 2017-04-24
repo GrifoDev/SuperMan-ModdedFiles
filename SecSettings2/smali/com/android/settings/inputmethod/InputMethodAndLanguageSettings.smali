@@ -159,7 +159,17 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)Ljava/lang/Object;
+.method static synthetic -wrap2(Landroid/content/Context;)Z
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->isSpCheckerAndDictDisplayed(Landroid/content/Context;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap3(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
 
     invoke-virtual {p0, p1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -169,7 +179,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap3(Landroid/content/Context;)Ljava/lang/String;
+.method static synthetic -wrap4(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
     invoke-static {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getLocaleNames(Landroid/content/Context;)Ljava/lang/String;
@@ -179,7 +189,7 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap4(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+.method static synthetic -wrap5(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->onSpeedChanged()V
@@ -187,7 +197,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/hardware/input/InputDeviceIdentifier;)V
+.method static synthetic -wrap6(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/hardware/input/InputDeviceIdentifier;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->showKeyboardLayoutDialog(Landroid/hardware/input/InputDeviceIdentifier;)V
@@ -195,7 +205,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+.method static synthetic -wrap7(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateCurrentImeName()V
@@ -203,7 +213,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/content/Context;)V
+.method static synthetic -wrap8(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputMethodPreferenceViews(Landroid/content/Context;)V
@@ -343,7 +353,7 @@
 
     iget-object v4, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSpellCheckCachedPref:Landroid/preference/Preference;
 
-    const v5, 0x7f0b18b0
+    const v5, 0x7f0b19cb
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -513,6 +523,153 @@
     const/4 v3, 0x0
 
     return v3
+.end method
+
+.method private static isSpCheckerAndDictDisplayed(Landroid/content/Context;)Z
+    .locals 10
+
+    const/4 v9, 0x0
+
+    const-string/jumbo v6, "textservices"
+
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/textservice/TextServicesManager;
+
+    invoke-static {p0}, Lcom/android/settings/Utils;->isInstalledAnySpellCheckerPakcage(Landroid/content/Context;)Z
+
+    move-result v1
+
+    sget-object v6, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isInstalledAnySpellCheckerPakcage = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v1, :cond_0
+
+    if-nez v5, :cond_1
+
+    :cond_0
+    sget-object v6, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "cannot find spellcheckerinfo, tsm="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_1
+    invoke-virtual {v5}, Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo;
+
+    move-result-object v4
+
+    const-string/jumbo v6, "input_method"
+
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->isCurrentInputMethodAsSamsungKeyboard()Z
+
+    move-result v2
+
+    :cond_2
+    if-eqz v4, :cond_3
+
+    const-string/jumbo v6, "com.sec.android.inputmethod"
+
+    invoke-virtual {v4}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    :cond_3
+    sget-object v6, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isSamsungKeyboard = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ", isSamsungSpellChecker = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v2, :cond_4
+
+    return v9
+
+    :cond_4
+    const/4 v6, 0x1
+
+    return v6
 .end method
 
 .method private loadPreviouslyEnabledSubtypeIdsMap()Ljava/util/HashMap;
@@ -768,7 +925,9 @@
 .end method
 
 .method private updateCurrentImeName()V
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x1
 
     invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
 
@@ -795,6 +954,8 @@
     move-result-object v2
 
     if-eqz v2, :cond_2
+
+    invoke-virtual {v2, v5}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
     iget-object v3, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
@@ -848,9 +1009,7 @@
     throw v3
 
     :cond_4
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setEnabled(Z)V
+    invoke-virtual {v2, v5}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -1035,7 +1194,7 @@
     goto :goto_2
 
     :cond_4
-    const v10, 0x7f0b1494
+    const v10, 0x7f0b15af
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1177,6 +1336,8 @@
     .locals 14
 
     const/4 v13, 0x0
+
+    invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateCurrentImeName()V
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mKeyboardSettingsCategory:Landroid/preference/PreferenceCategory;
 
@@ -1424,7 +1585,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b146e
+    const v1, 0x7f0b1589
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1520,7 +1681,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v9, 0x7f08008a
+    const v9, 0x7f08008b
 
     invoke-virtual {p0, v9}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->addPreferencesFromResource(I)V
 
@@ -1578,7 +1739,7 @@
 
     iput-object v9, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->um:Landroid/os/UserManager;
 
-    const v9, 0x7f0b01a9
+    const v9, 0x7f0b01aa
 
     :try_start_0
     invoke-virtual {p0, v9}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getString(I)Ljava/lang/String;
@@ -1771,7 +1932,7 @@
 
     const-string/jumbo v9, ":settings:show_fragment_title_resid"
 
-    const v10, 0x7f0b1705
+    const v10, 0x7f0b1820
 
     invoke-virtual {v4, v9, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -2112,7 +2273,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker(Z)V
 
-    const-string/jumbo v2, "InputMethodAndLanguageSettings"
+    sget-object v2, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->TAG:Ljava/lang/String;
 
     const-string/jumbo v3, "onPreferenceTreeClick : after showInputMethodPicker"
 
@@ -2176,406 +2337,224 @@
 .end method
 
 .method public onResume()V
-    .locals 14
+    .locals 12
 
-    const/4 v13, 0x1
+    const/4 v11, 0x1
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
     invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContext()Landroid/content/Context;
 
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const-string/jumbo v10, "pointer_speed"
-
-    invoke-static {v10}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v10
-
-    iget-object v11, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSpeedObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v4, v10, v13, v11}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
-
-    invoke-virtual {v10}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->resume()V
-
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
-
-    invoke-virtual {v10, p0, v12}, Landroid/hardware/input/InputManager;->registerInputDeviceListener(Landroid/hardware/input/InputManager$InputDeviceListener;Landroid/os/Handler;)V
-
-    const-string/jumbo v10, "spellcheckers_settings"
-
-    invoke-virtual {p0, v10}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v7
-
-    const-string/jumbo v10, "key_user_dictionary_settings"
-
-    invoke-virtual {p0, v10}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v9
-
-    if-eqz v7, :cond_2
-
-    const-string/jumbo v10, "textservices"
-
-    invoke-virtual {p0, v10}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
     move-result-object v8
 
-    check-cast v8, Landroid/view/textservice/TextServicesManager;
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v10
-
-    invoke-static {v10}, Lcom/android/settings/Utils;->isInstalledAnySpellCheckerPakcage(Landroid/content/Context;)Z
-
-    move-result v2
-
-    invoke-virtual {v8}, Landroid/view/textservice/TextServicesManager;->isSpellCheckerEnabled()Z
-
-    move-result v10
-
-    if-nez v10, :cond_9
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "Spell checker is not enabled"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v7, :cond_0
-
-    if-eqz v2, :cond_7
-
-    :cond_0
-    :goto_0
-    if-eqz v9, :cond_1
-
-    if-eqz v2, :cond_8
-
-    :cond_1
-    :goto_1
-    const v10, 0x7f0b18b0
-
-    invoke-virtual {v7, v10}, Landroid/preference/Preference;->setSummary(I)V
-
-    :cond_2
-    :goto_2
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    if-eqz v10, :cond_4
-
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mImm:Landroid/view/inputmethod/InputMethodManager;
-
-    invoke-virtual {v10}, Landroid/view/inputmethod/InputMethodManager;->isCurrentInputMethodAsSamsungKeyboard()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_10
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "Current IME is Samsung Keyboard"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v7, :cond_3
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "spellChecker removed because Samsung Keyboard"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    :cond_3
-    if-eqz v9, :cond_4
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "userDic removed because Samsung Keyboard"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    :cond_4
-    :goto_3
-    iget-boolean v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mShowsOnlyFullImeAndKeyboardList:Z
-
-    if-nez v10, :cond_6
-
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
-
-    if-eqz v10, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
-
-    move-result-object v10
-
-    invoke-static {v10}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getLocaleNames(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+    const-string/jumbo v8, "pointer_speed"
 
-    invoke-virtual {v10, v3}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-static {v8}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+    move-result-object v8
 
-    invoke-virtual {v10, v13}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    iget-object v9, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSpeedObserver:Landroid/database/ContentObserver;
 
-    :cond_5
-    if-eqz v9, :cond_6
+    invoke-virtual {v3, v8, v11, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    invoke-direct {p0, v9}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateUserDictionaryPreference(Landroid/preference/Preference;)V
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mSettingsObserver:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;
 
-    :cond_6
+    invoke-virtual {v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->resume()V
+
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mIm:Landroid/hardware/input/InputManager;
+
+    invoke-virtual {v8, p0, v10}, Landroid/hardware/input/InputManager;->registerInputDeviceListener(Landroid/hardware/input/InputManager$InputDeviceListener;Landroid/os/Handler;)V
+
+    const-string/jumbo v8, "spellcheckers_settings"
+
+    invoke-virtual {p0, v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    const-string/jumbo v8, "key_user_dictionary_settings"
+
+    invoke-virtual {p0, v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v7
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->isSpCheckerAndDictDisplayed(Landroid/content/Context;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v5}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    :cond_0
+    if-eqz v7, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    :cond_1
+    :goto_0
+    iget-boolean v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mShowsOnlyFullImeAndKeyboardList:Z
+
+    if-nez v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+
+    if-eqz v8, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-static {v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getLocaleNames(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+
+    invoke-virtual {v8, v2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mLanguagePref:Landroid/preference/Preference;
+
+    invoke-virtual {v8, v11}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
+    :cond_2
+    if-eqz v7, :cond_3
+
+    invoke-direct {p0, v7}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateUserDictionaryPreference(Landroid/preference/Preference;)V
+
+    :cond_3
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputDevices()V
 
     invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->um:Landroid/os/UserManager;
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->um:Landroid/os/UserManager;
 
-    invoke-static {v10}, Lcom/android/settings/Utils;->isKnoxContainer(Landroid/os/UserManager;)Z
+    invoke-static {v8}, Lcom/android/settings/Utils;->isKnoxContainer(Landroid/os/UserManager;)Z
 
-    move-result v10
+    move-result v8
 
-    if-nez v10, :cond_11
+    if-nez v8, :cond_6
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v10
+    move-result v8
 
-    const/16 v11, 0x64
+    const/16 v9, 0x64
 
-    if-ge v10, v11, :cond_11
+    if-ge v8, v9, :cond_6
 
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mInputMethodSettingValues:Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;
 
-    invoke-virtual {v10}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->refreshAllInputMethodAndSubtypes()V
+    invoke-virtual {v8}, Lcom/android/settings/inputmethod/InputMethodSettingValuesWrapper;->refreshAllInputMethodAndSubtypes()V
 
     invoke-direct {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->updateInputMethodPreferenceViews()V
 
-    :goto_4
-    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    :goto_1
+    iget-object v8, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getContext()Landroid/content/Context;
 
-    move-result-object v11
+    move-result-object v9
 
-    iget-object v12, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
+    iget-object v10, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->mEmCallback:Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
-    const-string/jumbo v13, "LanguageAndInput"
+    const-string/jumbo v11, "LanguageAndInput"
 
-    invoke-virtual {v10, v11, v12, v13}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
+    invoke-virtual {v8, v9, v10, v11}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->bindEmService(Landroid/content/Context;Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;Ljava/lang/Object;)V
 
     return-void
 
-    :cond_7
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
+    :cond_4
+    invoke-virtual {v5, v11}, Landroid/preference/Preference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const-string/jumbo v11, "diable spellchecker pref because there isnot available SpellCheckerInfo"
+    const-string/jumbo v8, "textservices"
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v8}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    move-result-object v6
 
-    move-result-object v10
+    check-cast v6, Landroid/view/textservice/TextServicesManager;
 
-    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v6}, Landroid/view/textservice/TextServicesManager;->isSpellCheckerEnabled()Z
 
-    goto/16 :goto_0
+    move-result v8
 
-    :cond_8
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
+    if-nez v8, :cond_5
 
-    const-string/jumbo v11, "diable UserDIct pref because there isnot available SpellCheckerInfo"
+    const v8, 0x7f0b19cb
 
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v8}, Landroid/preference/Preference;->setSummary(I)V
 
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+    goto :goto_0
 
-    move-result-object v10
+    :cond_5
+    invoke-virtual {v6}, Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo;
 
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    move-result-object v4
 
-    goto/16 :goto_1
+    if-eqz v4, :cond_1
 
-    :cond_9
-    invoke-virtual {v8}, Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_d
-
-    const-string/jumbo v10, "com.sec.android.inputmethod"
-
-    invoke-virtual {v5}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_a
+    if-eqz v5, :cond_1
 
     invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v5, v10}, Landroid/view/textservice/SpellCheckerInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v4, v8}, Landroid/view/textservice/SpellCheckerInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v7, v10}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v8}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    :cond_a
-    const-string/jumbo v10, ""
-
-    invoke-virtual {v7, v10}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
-
-    if-eqz v7, :cond_b
-
-    if-eqz v2, :cond_c
-
-    :cond_b
-    :goto_5
-    if-eqz v9, :cond_2
-
-    if-nez v2, :cond_2
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "diable UserDIct pref because there isnot available SpellCheckerInfo"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto/16 :goto_2
-
-    :cond_c
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "diable spellchecker pref because there isnot available SpellCheckerInfo"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto :goto_5
-
-    :cond_d
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "cannot find spellcheckerinfo"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v7, :cond_e
-
-    if-eqz v2, :cond_f
-
-    :cond_e
-    :goto_6
-    if-eqz v9, :cond_2
-
-    if-nez v2, :cond_2
-
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "diable UserDIct pref because there isnot available SpellCheckerInfo"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v9}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto/16 :goto_2
-
-    :cond_f
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "diable spellchecker pref because there isnot available SpellCheckerInfo"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v7}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
-
-    goto :goto_6
-
-    :cond_10
-    const-string/jumbo v10, "InputMethodAndLanguageSettings"
-
-    const-string/jumbo v11, "Current IME can show SpellPref, UserDic"
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_3
-
-    :cond_11
+    :cond_6
     :try_start_0
-    new-instance v10, Landroid/os/Handler;
+    new-instance v8, Landroid/os/Handler;
 
-    invoke-direct {v10}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v8}, Landroid/os/Handler;-><init>()V
 
-    new-instance v11, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;
+    new-instance v9, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;
 
-    invoke-direct {v11, p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;-><init>(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/app/Activity;)V
+    invoke-direct {v9, p0, v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$6;-><init>(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/app/Activity;)V
 
-    const-wide/16 v12, 0xfa
+    const-wide/16 v10, 0xfa
 
-    invoke-virtual {v10, v11, v12, v13}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v8, v9, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto/16 :goto_4
+    goto :goto_1
 
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto/16 :goto_4
+    goto :goto_1
 .end method
 
 .method public onSaveInputMethodPreference(Lcom/android/settings/inputmethod/InputMethodPreference;)V

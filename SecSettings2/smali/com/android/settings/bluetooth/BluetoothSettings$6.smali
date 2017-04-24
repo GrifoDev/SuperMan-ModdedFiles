@@ -3,7 +3,7 @@
 .source "BluetoothSettings.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/settings/LinkifyUtils$OnClickListener;
 
 
 # annotations
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public onClick()V
     .locals 7
 
     const/4 v2, 0x0
@@ -53,7 +53,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b07b4
+    const v3, 0x7f0b07c0
 
     const/4 v6, 0x0
 

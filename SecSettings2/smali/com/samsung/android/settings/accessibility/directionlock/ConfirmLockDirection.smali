@@ -1122,7 +1122,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0278
+    const v3, 0x7f0a0279
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1132,7 +1132,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0276
+    const v4, 0x7f0a0277
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0277
+    const v4, 0x7f0a0278
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1305,7 +1305,7 @@
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->setContentView(I)V
 
-    const v1, 0x7f0b0282
+    const v1, 0x7f0b0283
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->getText(I)Ljava/lang/CharSequence;
 
@@ -1511,7 +1511,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0278
+    const v1, 0x7f0a0279
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1525,7 +1525,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0276
+    const v1, 0x7f0a0277
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1539,7 +1539,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0277
+    const v1, 0x7f0a0278
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2177,7 +2177,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0272
+    const v1, 0x7f0b0273
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2219,7 +2219,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b01da
+    const v3, 0x7f0b01db
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2285,7 +2285,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/directionlock/ConfirmLockDirection;->mHeaderTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0270
+    const v1, 0x7f0b0271
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

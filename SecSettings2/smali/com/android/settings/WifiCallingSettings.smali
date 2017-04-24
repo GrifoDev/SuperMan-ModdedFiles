@@ -296,7 +296,7 @@
 
     iget-object v1, p0, Lcom/android/settings/WifiCallingSettings;->mEmptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b11e0
+    const v2, 0x7f0b12fb
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -308,7 +308,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v3, 0x7f08014d
+    const v3, 0x7f08014e
 
     invoke-virtual {p0, v3}, Lcom/android/settings/WifiCallingSettings;->addPreferencesFromResource(I)V
 

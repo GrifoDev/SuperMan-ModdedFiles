@@ -212,7 +212,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b101b
+    const v4, 0x7f0b1136
 
     iput v4, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -244,7 +244,7 @@
 
     iput-object v0, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b0a7b
+    const v4, 0x7f0b0a89
 
     iput v4, v2, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -265,7 +265,7 @@
 
     iput-object v0, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v4, 0x7f0b1677
+    const v4, 0x7f0b1792
 
     iput v4, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -321,7 +321,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f080077
+    const v7, 0x7f080078
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/GeneralDeviceSettings;->addPreferencesFromResource(I)V
 

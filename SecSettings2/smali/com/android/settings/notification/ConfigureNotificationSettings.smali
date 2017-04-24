@@ -171,11 +171,11 @@
 .method private initLockscreenNotifications()V
     .locals 11
 
-    const v10, 0x7f0b1837
+    const v10, 0x7f0b1952
 
-    const v9, 0x7f0b1836
+    const v9, 0x7f0b1951
 
-    const v8, 0x7f0b1835
+    const v8, 0x7f0b1950
 
     invoke-virtual {p0}, Lcom/android/settings/notification/ConfigureNotificationSettings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
@@ -347,11 +347,11 @@
 .method private initLockscreenNotificationsForProfile()V
     .locals 12
 
-    const v11, 0x7f0b183c
+    const v11, 0x7f0b1957
 
-    const v9, 0x7f0b183b
+    const v9, 0x7f0b1956
 
-    const v8, 0x7f0b183a
+    const v8, 0x7f0b1955
 
     const/4 v10, 0x0
 
@@ -680,7 +680,7 @@
     :goto_0
     if-nez v1, :cond_2
 
-    const v2, 0x7f0b1837
+    const v2, 0x7f0b1952
 
     :goto_1
     iput v2, p0, Lcom/android/settings/notification/ConfigureNotificationSettings;->mLockscreenSelectedValue:I
@@ -705,12 +705,12 @@
     :cond_2
     if-eqz v0, :cond_3
 
-    const v2, 0x7f0b1835
+    const v2, 0x7f0b1950
 
     goto :goto_1
 
     :cond_3
-    const v2, 0x7f0b1836
+    const v2, 0x7f0b1951
 
     goto :goto_1
 .end method
@@ -753,7 +753,7 @@
     :goto_0
     if-nez v1, :cond_3
 
-    const v2, 0x7f0b183c
+    const v2, 0x7f0b1957
 
     :goto_1
     iput v2, p0, Lcom/android/settings/notification/ConfigureNotificationSettings;->mLockscreenSelectedValueProfile:I
@@ -778,12 +778,12 @@
     :cond_3
     if-eqz v0, :cond_4
 
-    const v2, 0x7f0b183a
+    const v2, 0x7f0b1955
 
     goto :goto_1
 
     :cond_4
-    const v2, 0x7f0b183b
+    const v2, 0x7f0b1956
 
     goto :goto_1
 .end method
@@ -930,7 +930,7 @@
     :goto_1
     iput-boolean v2, p0, Lcom/android/settings/notification/ConfigureNotificationSettings;->mSecureProfile:Z
 
-    const v2, 0x7f080041
+    const v2, 0x7f080042
 
     invoke-virtual {p0, v2}, Lcom/android/settings/notification/ConfigureNotificationSettings;->addPreferencesFromResource(I)V
 
@@ -942,7 +942,7 @@
 
     if-eq v2, v5, :cond_1
 
-    const v2, 0x7f080042
+    const v2, 0x7f080043
 
     invoke-virtual {p0, v2}, Lcom/android/settings/notification/ConfigureNotificationSettings;->addPreferencesFromResource(I)V
 

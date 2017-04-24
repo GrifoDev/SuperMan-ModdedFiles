@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">‏מחובר דרך %1$s</string>
     <string name="available_via_passpoint">‏זמינה דרך %1$s</string>
     <string name="wifi_connected_no_internet">מחובר. אין אינטרנט</string>
+    <string name="wifi_internet_may_not_be_available">ייתכן שלא תהיה זמינות אינטרנט</string>
     <string name="wifi_reconnecting">מוכן להתחברות כאשר איכות הרשת תשתפר</string>
     <string name="wifi_connected_checking_quality">בודק את האיכות של החיבור שלך לאינטרנט…</string>
     <string name="wifi_sign_in_to_the_network">היכנס לרשת.</string>
@@ -865,6 +866,14 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">הקש ממושכות על העיגול הכחול במרכז המסך.</string>
     <string name="nearby_scanning_help_msg_sub">סריקה לאיתור מכשירים סמוכים נעזרת בסריקת Bluetooth באנרגיה נמוכה ובמיקרופון. ניתן להשתמש בסריקת Bluetooth באנרגיה נמוכה אפילו כאשר ה-Bluetooth כבוי במכשיר זה.</string>
     <string name="sec_bluetooth_no_devices_found">לא נמצאו מכשירי Bluetooth</string>
+    <string name="bt_tether_title">שימוש כמודם Bluetooth</string>
+    <string name="bt_tether_settings_on">מופעל</string>
+    <string name="bt_tether_settings_off">כבוי</string>
+    <string name="bt_tether_off_brief_text_phone">שתף את חיבור האינטרנט של הטלפון שלך עם מכשירים אחרים המשתמשים ב-Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">שתף את חיבור האינטרנט של הטאבלט שלך עם מכשירים אחרים המשתמשים ב-Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">מכשירים קשורים</string>
+    <string name="bt_tether_server_description_phone">"שתף את חיבור האינטרנט של הטלפון על ידי שיוך עם מכשיר אחר המשתמש ב-Bluetooth. אם המכשיר כבר חובר בעבר, תוכל לחבר אותו שוב על ידי בחירתו מתוך רשימת 'מכשירים מחוברים'."</string>
+    <string name="bt_tether_server_description_tablet">"שתף את חיבור האינטרנט של הטאבלט על ידי שיוך עם מכשיר אחר המשתמש ב-Bluetooth. אם המכשיר כבר חובר בעבר, תוכל לחבר אותו שוב על ידי בחירתו מתוך רשימת 'מכשירים מחוברים'."</string>
     <string name="bluetooth_consent_pairing_msg">"לשיוך עם %s, הקש על 'אישור'."</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s מבקש אישור גישה אל כרטיס ה-SIM שלך. אישור הבקשה יגרום להשבתת פונקציות השיחה והעברת ההודעות וישבית את הפונקציה 'נתונים ניידים' במכשיר שלך. לאפשר?
 
@@ -2162,7 +2171,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">אפשר חילופי נתונים כאשר המכשיר נוגע במכשיר אחר.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">השתמש בשירותי תשלום נייד, קרא וכתוב תגיות NFC ובצע חילופי נתונים בין מכשירים התומכים ב-NFC.</string>
+    <string name="nfc_settings_title">בצע תשלומים ניידים, שתף נתונים וקרא או כתוב תגיות NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">תוכל לקרוא ולכתוב תגיות ולהעביר נתונים בין מכשירים.</string>
     <string name="nfcpayment_quick_toggle_title">‏NFC ותשלום</string>
     <string name="nfc_mode_general_title">מצב NFC</string>
@@ -2178,14 +2187,16 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_favor_open_default_unknown">השתמש ביישום הפתוח</string>
     <string name="nfc_payment_favor_default_default_unknown">אין ברירת מחדל לשירות תשלומים</string>
     <string name="nfc_tts_tab_n_of_n">כרטיסיה %1$d מתוך %2$d.</string>
+    <string name="nfc_payment_replace_default_label">האם להחליף את יישום ברירת המחדל לתשלומים?</string>
+    <string name="nfc_payment_replace">החלף</string>
     <string name="nfc_payment_services_title">שירותי תשלום NFC</string>
     <string name="nfc_payment_services_fail">נכשלה הגדרת כרטיס SIM %s לשימוש עם שירותי תשלום באמצעות NFC. נסה שוב.</string>
     <string name="nfc_payment_services_success">כרטיס ה-SIM %s הוגדר לשימוש עם שירותי תשלום באמצעות NFC.</string>
     <string name="nfc_preferred_general_title">כרטיס SIM מועדף</string>
     <string name="nfc_please_wait">אנא המתן…</string>
     <string name="nfc_payment_no_sim_card">אין כרטיס SIM</string>
-    <string name="nfc_disable_service_title">החלפת שיטת ה-NFC המוגדרת כברירת מחדל</string>
-    <string name="nfc_disable_service_msg">"אם תשנה את שיטת ברירת המחדל לעיבוד NFC, שירותים מסוימים בכרטיסייה 'אחרים' יושבתו או יופעלו. כדי לנהל שירותים אלה, עבור אל 'NFC ותשלומים' > 'הקש ושלם' > 'אחרים' ובחר בשירותים בזה אחר זה כדי להפעיל או להשבית כל אחד מהם."</string>
+    <string name="nfc_disable_service_title">"האם להחליף את שיטת NFC המוגדרת כבר' מחדל?"</string>
+    <string name="nfc_disable_service_msg">"שינוי שיטת ברירת המחדל לעיבוד NFC תגרום להשבתה או הפעלה של שירותים מסוימים בכרטיסייה 'אחרים'. כדי לנהל שירותים אלה, עבור אל 'NFC ותשלומים' > 'הקש ושלם' > 'אחרים' ובחר כל שירות בנפרד כדי להפעיל או להשבית אותו."</string>
     <string name="nfc_settings_advanced_setting">ברירת מחדל של שיטת NFC</string>
     <string name="nfc_settings_advanced_uicc">כרטיס SIM של SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">כרטיס SIM עם רכיב אבטחה</string>
@@ -2197,8 +2208,8 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">"אם תעבור למצב 'כרטיס', לא תוכל עוד לקרוא תגיות NFC, לכתוב בהן נתונים או לבצע חילופי נתונים בין מכשירים."</string>
     <string name="nfc_show_alert_dialog_title">מצב חיסכון מרבי בחשמל</string>
     <string name="nfc_show_alert_dialog_message">לא ניתן לפתוח את %s.</string>
-    <string name="android_beam_explained">קרב מכשירים תומכי NFC אחד לשני כדי לשתף קבצים ביניהם. לאחר מכן תוכל לשתף קישורים לדפי אינטרנט, אנשי קשר ועוד.</string>
-    <string name="android_beam_explained_1">הצמד את המכשירים גב אל גב.</string>
+    <string name="android_beam_explained">תוכל לשתף קישורים לדפי אינטרנט ופריטים נוספים על ידי קירוב הטלפון שלך אל מכשיר התומך ב-NFC.</string>
+    <string name="android_beam_explained_1">קרב את המכשירים זה לזה, גב אל גב.</string>
     <string name="android_beam_explained_2">הקש על המסך.</string>
     <string name="guide_dialog_attention_title">שים לב</string>
     <string name="nfc_off_popup_title">כבה NFC</string>
@@ -2206,7 +2217,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">יישומים הקשורים ל-NFC, כגון שיטות מסוימות לשיתוף תוכן ותשלום NFC, לא יהיו זמינות כאשר NFC יהיה כבוי.</string>
     <string name="limit_app_contents_transfer">שיתוף תוכן דרך NFC יהיה מוגבל כאשר Android Beam יהיה כבוי.</string>
     <string name="nfc_payment_dialog_favor_open">"אם היישום הפתוח כרגע תומך ביישום 'הקש ושלם', ייעשה בו שימוש במקום ב-%s."</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">"אם היישום הפתוח כרגע תומך ביישום 'הקש ושלם', ייעשה בו שימוש."</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">"אם היישום הפתוח כרגע תומך ב'הקש ושלם', התשלום יבוצע באמצעותו."</string>
     <string name="folder_sounds">צלילי פתיחה/סגירה לתיקייה</string>
     <string name="folder_sounds_summary">השמע צלילים בעת פתיחה וסגירה של תיקיות.</string>
     <string name="sound_category_calls_title">שיחות נכנסות</string>
@@ -3464,6 +3475,7 @@ Wi-Fi is now on."</string>
     <string name="data_usage_reminder_item_summary">קבל התראות המראות את כמות הנתונים שנוצלו על ידי יישומים באמצעות Wi-Fi או רשתות סלולריות כאשר המכשיר היה נעול במשך יותר מ-%d דקות.</string>
     <string name="data_usage_reminder_description">היישומים הבאים ניצלו נתונים בהיקף של %s בעת שהמכשיר היה נעול:</string>
     <string name="google_settings_popup_msg">מספר הגדרות Google הזמינות מוגבל. ייתכן שפעולות מסוימות לא יפעלו.</string>
+    <string name="okay">אישור</string>
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="create">צור</string>
@@ -3561,7 +3573,6 @@ Wi-Fi is now on."</string>
     <string name="phone_info_label">פרטי מכשיר</string>
     <string name="proxy_settings_label">הגדרות Proxy</string>
     <string name="cancel">ביטול</string>
-    <string name="okay">אישור</string>
     <string name="save">שמור</string>
     <string name="done">סיום</string>
     <string name="settings_label">הגדרות</string>
@@ -4815,13 +4826,13 @@ Wi-Fi is now on."</string>
     <string name="global_change_warning">הגדרה זו משפיעה על כל המשתמשים במכשיר זה.</string>
     <string name="global_locale_change_title">שנה שפה</string>
     <string name="nfc_payment_settings_title">הקש ושלם</string>
-    <string name="nfc_payment_no_apps">אין יישומי שירות תשלומים מותקנים</string>
+    <string name="nfc_payment_no_apps">אין יישומי תשלומים מותקנים</string>
     <string name="nfc_payment_favor_default">השתמש ב%s בכל זאת</string>
     <string name="nfc_payment_favor_open">השתמש ביישום הפתוח במקום ב-%s</string>
     <string name="nfc_how_it_works_got_it">קיבלתי</string>
-    <string name="nfc_payment_set_default_label">הגדר כברירת מחדל</string>
-    <string name="nfc_payment_set_default">"%s יוגדר כשיטת ברירת המחדל שלך לתשלום בעסקאות 'הקש ושלם'."</string>
-    <string name="nfc_payment_set_default_instead_of">"%1$s יחליף את %2$s כשיטת ברירת המחדל שלך לתשלום בעסקאות 'הקש ושלם'."</string>
+    <string name="nfc_payment_set_default_label">האם להגדיר יישום ברירת מחדל לתשלומים?</string>
+    <string name="nfc_payment_set_default">"%s יוגדר כיישום ברירת המחדל שלך לתשלום בעסקאות 'הקש ושלם'."</string>
+    <string name="nfc_payment_set_default_instead_of">"%1$s יחליף את %2$s כיישום ברירת המחדל שלך לתשלום בעסקאות 'הקש ושלם'."</string>
     <string name="help_label">עזרה</string>
     <string name="user_restrictions_title">מגבלות יישום/תוכן</string>
     <string name="user_restrictions_controlled_by">בשליטה של %1$s</string>
@@ -5127,7 +5138,7 @@ Wi-Fi is now on."</string>
     <string name="location_off_summary">מושבת</string>
     <string name="backup_disabled">גיבוי אוטומטי מושבת</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">לא ניתן לבצע את הפעולה</string>
+    <string name="disabled_by_policy_title">לא ניתן לבצע פעולה</string>
     <string name="default_admin_support_msg">אין לך הרשאה לביצוע פעולה זו. לקבלת מידע נוסף פנה אל מנהל ה-IT בארגונך.</string>
     <string name="admin_support_more_info">פרטים נוספים</string>
     <string name="admin_profile_owner_message">מנהל המערכת מורשה לפקח על ולנהל יישומים ונתונים הקשורים בפרופיל העבודה שלך, כולל הגדרות, הרשאות, גישה של החברה, פעילות ברשת ופרטי המיקום של המכשיר.</string>

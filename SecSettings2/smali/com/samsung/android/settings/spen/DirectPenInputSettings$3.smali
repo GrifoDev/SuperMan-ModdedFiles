@@ -37,7 +37,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 12
 
-    const v11, 0x7f0b0bc9
+    const v11, 0x7f0b0bd7
 
     const/4 v10, 0x1
 
@@ -237,7 +237,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$3;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v8, 0x7f0b0bd3
+    const v8, 0x7f0b0be1
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 
@@ -289,7 +289,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$3;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v8, 0x7f0b0244
+    const v8, 0x7f0b0245
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 
@@ -340,7 +340,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$3;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v8, 0x7f0b0243
+    const v8, 0x7f0b0244
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 
@@ -381,7 +381,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b14d7
+    const v8, 0x7f0b15f2
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -429,7 +429,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$3;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v8, 0x7f0b022c
+    const v8, 0x7f0b022d
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 
@@ -453,7 +453,7 @@
     :cond_c
     iget-object v6, p0, Lcom/samsung/android/settings/spen/DirectPenInputSettings$3;->this$0:Lcom/samsung/android/settings/spen/DirectPenInputSettings;
 
-    const v7, 0x7f0b0bd4
+    const v7, 0x7f0b0be2
 
     invoke-virtual {v6, v7}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getString(I)Ljava/lang/String;
 

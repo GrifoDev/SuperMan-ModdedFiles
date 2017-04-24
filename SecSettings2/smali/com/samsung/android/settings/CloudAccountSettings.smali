@@ -170,7 +170,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v2, 0x7f0b101a
+    const v2, 0x7f0b1135
 
     iput v2, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -207,7 +207,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f080039
+    const v1, 0x7f08003a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/CloudAccountSettings;->addPreferencesFromResource(I)V
 
@@ -430,7 +430,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b0b02
+    const v6, 0x7f0b0b10
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/CloudAccountSettings;->getString(I)Ljava/lang/String;
 
@@ -442,7 +442,7 @@
 
     aput-object v0, v6, v7
 
-    const v7, 0x7f0b0431
+    const v7, 0x7f0b043c
 
     invoke-virtual {p0, v7, v6}, Lcom/samsung/android/settings/CloudAccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -470,7 +470,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/CloudAccountSettings$4;-><init>(Lcom/samsung/android/settings/CloudAccountSettings;)V
 
-    const v8, 0x7f0b05ac
+    const v8, 0x7f0b05b7
 
     invoke-virtual {v6, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

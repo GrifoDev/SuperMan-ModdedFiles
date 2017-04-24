@@ -72,7 +72,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1777
+    const v0, 0x7f0b1892
 
     return v0
 .end method
@@ -126,7 +126,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080045
+    const v0, 0x7f080046
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/DataSaverSummary;->addPreferencesFromResource(I)V
 
@@ -329,7 +329,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f130022
+    const v8, 0x7f130023
 
     invoke-virtual {v6, v8, v2, v7}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 

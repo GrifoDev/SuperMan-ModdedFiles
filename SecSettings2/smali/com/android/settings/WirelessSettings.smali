@@ -92,7 +92,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1779
+    const v0, 0x7f0b1894
 
     return v0
 .end method
@@ -283,7 +283,7 @@
 
     iput-object v0, v1, Lcom/android/settings/WirelessSettings;->mUm:Landroid/os/UserManager;
 
-    const v18, 0x7f080159
+    const v18, 0x7f08015a
 
     move-object/from16 v0, p0
 
@@ -301,7 +301,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b0472
+    const v19, 0x7f0b047d
 
     invoke-virtual/range {v18 .. v19}, Landroid/support/v7/preference/PreferenceScreen;->setTitle(I)V
 
@@ -1036,7 +1036,7 @@
 .method public onManageMobilePlanClick()V
     .locals 13
 
-    const v12, 0x7f0b134f
+    const v12, 0x7f0b146a
 
     const/4 v9, 0x0
 
@@ -1244,7 +1244,7 @@
 
     if-eqz v8, :cond_5
 
-    const v8, 0x7f0b134e
+    const v8, 0x7f0b1469
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1289,7 +1289,7 @@
 
     if-nez v8, :cond_8
 
-    const v8, 0x7f0b1350
+    const v8, 0x7f0b146b
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1300,7 +1300,7 @@
     goto/16 :goto_0
 
     :cond_8
-    const v8, 0x7f0b1351
+    const v8, 0x7f0b146c
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

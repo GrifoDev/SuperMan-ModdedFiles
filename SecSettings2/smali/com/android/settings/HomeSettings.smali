@@ -360,7 +360,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0b11ed
+    const v8, 0x7f0b1308
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -629,13 +629,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0469
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045d
+    const v2, 0x7f0a045e
 
     invoke-virtual {v12, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -643,7 +643,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046c
+    const v2, 0x7f0a046d
 
     invoke-virtual {v12, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -706,7 +706,7 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    const v1, 0x7f0b03a6
+    const v1, 0x7f0b03a7
 
     invoke-virtual {v8, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -779,7 +779,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f08007d
+    const v1, 0x7f08007e
 
     invoke-virtual {p0, v1}, Lcom/android/settings/HomeSettings;->addPreferencesFromResource(I)V
 

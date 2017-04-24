@@ -128,7 +128,7 @@
 
     move-result-object v20
 
-    const v3, 0x7f0a0467
+    const v3, 0x7f0a0468
 
     move-object/from16 v0, v20
 
@@ -136,7 +136,7 @@
 
     move-result v3
 
-    const v4, 0x7f0a045d
+    const v4, 0x7f0a045e
 
     move-object/from16 v0, v20
 
@@ -146,7 +146,7 @@
 
     add-int/2addr v3, v4
 
-    const v4, 0x7f0a046c
+    const v4, 0x7f0a046d
 
     move-object/from16 v0, v20
 

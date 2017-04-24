@@ -535,7 +535,7 @@
 
     const-string/jumbo v3, "noaction"
 
-    const v4, 0x7f0b0351
+    const v4, 0x7f0b0352
 
     move-object/from16 v0, p0
 
@@ -567,7 +567,7 @@
 
     const-string/jumbo v3, "torch"
 
-    const v4, 0x7f0b0352
+    const v4, 0x7f0b0353
 
     move-object/from16 v0, p0
 
@@ -634,7 +634,7 @@
 
     move-result-object v31
 
-    const v2, 0x7f0a0467
+    const v2, 0x7f0a0468
 
     move-object/from16 v0, v31
 

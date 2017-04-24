@@ -1,9 +1,6 @@
-.class Lcom/android/settings/tts/TextToSpeechSettings$3;
-.super Ljava/lang/Object;
+.class final Lcom/android/settings/tts/TextToSpeechSettings$3;
+.super Lcom/android/settings/search/BaseSearchIndexProvider;
 .source "TextToSpeechSettings.java"
-
-# interfaces
-.implements Lcom/samsung/android/settings/bixby/EmSettingsManager$IEmCallback;
 
 
 # annotations
@@ -12,220 +9,161 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/settings/tts/TextToSpeechSettings;)V
+.method constructor <init>()V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onStateReceived()V
+.method public getNonIndexableKeys(Landroid/content/Context;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    return-object v0
+.end method
+
+.method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;
     .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/settings/search/SearchIndexableRaw;",
+            ">;"
+        }
+    .end annotation
 
-    const/4 v6, 0x0
+    new-instance v5, Ljava/util/ArrayList;
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {v5}, Lcom/android/settings/tts/TextToSpeechSettings;->-get2(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    const/4 v4, 0x0
 
-    move-result-object v5
+    const v7, 0x7f0b0098
 
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
+    invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    const/4 v3, 0x0
+    new-instance v3, Landroid/speech/tts/TtsEngines;
 
-    const-string/jumbo v5, "TextToSpeechSet"
+    invoke-direct {v3, p1}, Landroid/speech/tts/TtsEngines;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3}, Landroid/speech/tts/TtsEngines;->getEngines()Ljava/util/List;
 
-    move-result v5
+    move-result-object v2
 
-    if-eqz v5, :cond_1
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    move-result-object v1
 
-    invoke-static {v5}, Lcom/android/settings/tts/TextToSpeechSettings;->-get2(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v5
+    move-result v7
 
-    invoke-virtual {v5}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamsSize()I
+    if-eqz v7, :cond_0
 
-    move-result v5
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    if-lez v5, :cond_0
+    move-result-object v0
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    check-cast v0, Landroid/speech/tts/TextToSpeech$EngineInfo;
 
-    invoke-static {v5}, Lcom/android/settings/tts/TextToSpeechSettings;->-get2(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    new-instance v4, Lcom/android/settings/search/SearchIndexableRaw;
 
-    move-result-object v5
+    invoke-direct {v4, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getParamInt(I)I
+    iget-object v7, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->name:Ljava/lang/String;
 
-    move-result v1
+    iput-object v7, v4, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    mul-int/lit8 v3, v1, 0x6
+    iget-object v7, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->label:Ljava/lang/String;
+
+    invoke-virtual {v7}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v4, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
+
+    iput-object v6, v4, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
+
+    invoke-interface {v5, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     :cond_0
-    :goto_0
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    return-object v5
+.end method
 
-    const-string/jumbo v6, "tts_default_rate"
+.method public getXmlResourcesToIndex(Landroid/content/Context;Z)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Z)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/provider/SearchIndexableResource;",
+            ">;"
+        }
+    .end annotation
 
-    invoke-static {v5, v6, v3}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap0(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
+    new-instance v0, Landroid/provider/SearchIndexableResource;
 
-    move-result v2
+    invoke-direct {v0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    const-class v1, Lcom/android/settings/tts/TextToSpeechSettings;
 
-    invoke-static {v5}, Lcom/android/settings/tts/TextToSpeechSettings;->-get1(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/android/settings/SeekBarPreference;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v2}, Lcom/android/settings/SeekBarPreference;->setProgress(I)V
+    iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    const v1, 0x7f080133
 
-    invoke-static {v5, v2}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap2(Lcom/android/settings/tts/TextToSpeechSettings;I)V
+    iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
+    const/4 v1, 0x1
 
-    invoke-static {v5}, Lcom/android/settings/tts/TextToSpeechSettings;->-get2(Lcom/android/settings/tts/TextToSpeechSettings;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    new-array v1, v1, [Landroid/provider/SearchIndexableResource;
 
-    move-result-object v5
+    const/4 v2, 0x0
 
-    sget-object v6, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;
+    aput-object v0, v1, v2
 
-    invoke-virtual {v5, v6}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/app/executor/ExecutorMediator$ResponseResults;)V
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    return-void
+    move-result-object v1
 
-    :cond_1
-    const-string/jumbo v5, "TextToSpeechUp"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-    const-string/jumbo v6, "tts_default_rate"
-
-    iget-object v7, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-    invoke-static {v7}, Lcom/android/settings/tts/TextToSpeechSettings;->-get0(Lcom/android/settings/tts/TextToSpeechSettings;)I
-
-    move-result v7
-
-    invoke-static {v5, v6, v7}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap1(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
-
-    move-result v0
-
-    add-int/lit8 v3, v0, 0x14
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v5, "TextToSpeechDown"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    iget-object v5, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-    const-string/jumbo v6, "tts_default_rate"
-
-    iget-object v7, p0, Lcom/android/settings/tts/TextToSpeechSettings$3;->this$0:Lcom/android/settings/tts/TextToSpeechSettings;
-
-    invoke-static {v7}, Lcom/android/settings/tts/TextToSpeechSettings;->-get0(Lcom/android/settings/tts/TextToSpeechSettings;)I
-
-    move-result v7
-
-    invoke-static {v5, v6, v7}, Lcom/android/settings/tts/TextToSpeechSettings;->-wrap1(Lcom/android/settings/tts/TextToSpeechSettings;Ljava/lang/String;I)I
-
-    move-result v0
-
-    add-int/lit8 v3, v0, -0x14
-
-    const-string/jumbo v5, "TextToSpeechSettings"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "onStateReceived: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " curruentSpeech : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_3
-    const-string/jumbo v5, "TextToSpeechMax"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    const/16 v3, 0x258
-
-    goto/16 :goto_0
-
-    :cond_4
-    const-string/jumbo v5, "TextToSpeechMin"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const/16 v3, 0xa
-
-    goto/16 :goto_0
+    return-object v1
 .end method

@@ -63,7 +63,7 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const v4, 0x7f0b00f2
+    const v4, 0x7f0b00f3
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;->getString(I)Ljava/lang/String;
 
@@ -71,7 +71,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b0131
+    const v4, 0x7f0b0132
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f0b012f
+    const v0, 0x7f0b0130
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/ToggleDaltonizerPreferenceFragment;->getString(I)Ljava/lang/String;
 

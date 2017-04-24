@@ -101,7 +101,7 @@
 
     if-eqz v5, :cond_0
 
-    const v4, 0x7f130017
+    const v4, 0x7f130018
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/MonitoringCertInfoActivity;->getResources()Landroid/content/res/Resources;
@@ -126,7 +126,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f130017
+    const v6, 0x7f130018
 
     invoke-virtual {v5, v6, v2}, Landroid/content/res/Resources;->getQuantityText(II)Ljava/lang/CharSequence;
 
@@ -134,7 +134,7 @@
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f0b0fd9
+    const v5, 0x7f0b10f5
 
     invoke-virtual {v0, v5, v9}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -162,7 +162,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f130016
+    const v7, 0x7f130017
 
     invoke-virtual {v5, v7, v2, v6}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -176,7 +176,7 @@
     return-void
 
     :cond_0
-    const v4, 0x7f130014
+    const v4, 0x7f130015
 
     goto :goto_0
 
@@ -199,7 +199,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f130015
+    const v7, 0x7f130016
 
     invoke-virtual {v5, v7, v2, v6}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f0b1711
+    const v5, 0x7f0b182c
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

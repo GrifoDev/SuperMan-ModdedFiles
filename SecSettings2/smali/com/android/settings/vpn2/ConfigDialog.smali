@@ -499,7 +499,7 @@
 
     move-result-object v3
 
-    const v7, 0x7f0b1163
+    const v7, 0x7f0b127e
 
     invoke-virtual {v3, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1741,7 +1741,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f04030d
+    const v26, 0x7f04030e
 
     const/16 v27, 0x0
 
@@ -2633,7 +2633,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b16d9
+    const v28, 0x7f0b17f4
 
     move-object/from16 v0, p0
 
@@ -2667,7 +2667,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b16da
+    const v28, 0x7f0b17f5
 
     move-object/from16 v0, p0
 
@@ -2992,7 +2992,7 @@
 
     if-eqz v25, :cond_12
 
-    const v25, 0x7f0b16e0
+    const v25, 0x7f0b17fb
 
     :goto_6
     move-object/from16 v0, p0
@@ -3109,7 +3109,7 @@
 
     if-eqz v25, :cond_4
 
-    const v25, 0x7f0b16e1
+    const v25, 0x7f0b17fc
 
     move/from16 v0, v25
 
@@ -3200,7 +3200,9 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelection(I)V
 
-    const v25, 0x7f0b16dd
+    invoke-virtual/range {v17 .. v17}, Landroid/widget/EditText;->requestFocus()Z
+
+    const v25, 0x7f0b17f8
 
     move/from16 v0, v25
 
@@ -3227,7 +3229,7 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/settings/vpn2/ConfigDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     :goto_8
-    const v25, 0x7f0b16db
+    const v25, 0x7f0b17f6
 
     move/from16 v0, v25
 
@@ -3933,7 +3935,7 @@
     goto/16 :goto_5
 
     :cond_12
-    const v25, 0x7f0b0c0e
+    const v25, 0x7f0b0c1c
 
     goto/16 :goto_6
 
@@ -4035,7 +4037,7 @@
 
     aput-object v26, v25, v27
 
-    const v26, 0x7f0b16e2
+    const v26, 0x7f0b17fd
 
     move/from16 v0, v26
 
@@ -4051,7 +4053,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/vpn2/ConfigDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v25, 0x7f0b16de
+    const v25, 0x7f0b17f9
 
     move/from16 v0, v25
 
@@ -4195,7 +4197,7 @@
 
     iget-object v3, v3, Lcom/android/internal/net/VpnProfile;->ipsecCaCert:Ljava/lang/String;
 
-    const v4, 0x7f0b16d9
+    const v4, 0x7f0b17f4
 
     invoke-direct {p0, v1, v2, v4, v3}, Lcom/android/settings/vpn2/ConfigDialog;->loadCertificates(Landroid/widget/Spinner;Ljava/lang/String;ILjava/lang/String;)V
 

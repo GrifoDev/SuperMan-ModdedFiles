@@ -424,7 +424,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080127
+    const v5, 0x7f080128
 
     invoke-direct {v1, v0, v4, v5}, Lcom/android/settingslib/SuggestionParser;-><init>(Landroid/content/Context;Landroid/content/SharedPreferences;I)V
 
@@ -532,7 +532,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1768
+    const v2, 0x7f0b1883
 
     invoke-static {v0, p1, v2, v1}, Lcom/android/settingslib/HelpUtils;->prepareHelpMenuItem(Landroid/app/Activity;Landroid/view/Menu;ILjava/lang/String;)Z
 

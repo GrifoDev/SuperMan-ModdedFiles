@@ -184,7 +184,7 @@
 
     aput-object v10, v9, v7
 
-    const v10, 0x7f0b13bd
+    const v10, 0x7f0b14d8
 
     invoke-virtual {p0, v10, v9}, Lcom/android/settings/SecuritySettings$SecuritySubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -335,17 +335,17 @@
     return v0
 
     :sswitch_0
-    const v0, 0x7f080108
+    const v0, 0x7f080109
 
     return v0
 
     :sswitch_1
-    const v0, 0x7f08010c
+    const v0, 0x7f08010d
 
     return v0
 
     :sswitch_2
-    const v0, 0x7f080105
+    const v0, 0x7f080106
 
     return v0
 
@@ -367,7 +367,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f080111
+    const v0, 0x7f080112
 
     return v0
 
@@ -717,7 +717,7 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b1013
+    const v0, 0x7f0b112e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SecuritySettings$SecuritySubSettings;->getString(I)Ljava/lang/String;
 

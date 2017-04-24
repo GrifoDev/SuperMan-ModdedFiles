@@ -1418,7 +1418,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->mLoadPreference:Landroid/preference/Preference;
 
-    const v7, 0x7f0b020d
+    const v7, 0x7f0b020e
 
     invoke-virtual {v6, v7}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -1428,7 +1428,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->mPreferenceFragmentActivity:Landroid/app/Activity;
 
-    const v6, 0x7f0800ad
+    const v6, 0x7f0800ae
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1534,7 +1534,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->settingCategory:Landroid/preference/PreferenceCategory;
 
-    const v7, 0x7f0b020e
+    const v7, 0x7f0b020f
 
     invoke-virtual {v6, v7}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -1587,7 +1587,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->summaryPreference:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v7, 0x7f0b020f
+    const v7, 0x7f0b0210
 
     invoke-virtual {v6, v7}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 

@@ -274,7 +274,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a59
+    const v2, 0x7f0b0a67
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a5b
+    const v2, 0x7f0b0a69
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04be
+    const v2, 0x7f0a04bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -543,7 +543,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04bc
+    const v3, 0x7f0a04bd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

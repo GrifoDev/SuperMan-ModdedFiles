@@ -152,7 +152,7 @@
 .method private getCurrentSecurityTitle()Ljava/lang/String;
     .locals 6
 
-    const v5, 0x7f0b087f
+    const v5, 0x7f0b088b
 
     const/4 v4, 0x1
 
@@ -171,7 +171,7 @@
     sparse-switch v0, :sswitch_data_0
 
     :cond_0
-    const v1, 0x7f0b087e
+    const v1, 0x7f0b088a
 
     invoke-virtual {p0, v1}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -182,7 +182,7 @@
     :sswitch_0
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106b
+    const v2, 0x7f0b1186
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
     :sswitch_1
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b106d
+    const v2, 0x7f0b1188
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -228,7 +228,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1069
+    const v2, 0x7f0b1184
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -281,7 +281,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b087e
+    const v2, 0x7f0b088a
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 
@@ -334,7 +334,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b087c
+    const v9, 0x7f0b0888
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -348,7 +348,7 @@
 
     aput-object v5, v9, v11
 
-    const v10, 0x7f0b0432
+    const v10, 0x7f0b043d
 
     invoke-virtual {v8, v10, v9}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -386,7 +386,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b02b4
+    const v10, 0x7f0b02b5
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -453,7 +453,7 @@
 
     aput-object v5, v9, v11
 
-    const v10, 0x7f0b0293
+    const v10, 0x7f0b0294
 
     invoke-virtual {v8, v10, v9}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -573,6 +573,8 @@
     const-string/jumbo v4, "android.app.action.SET_NEW_PASSWORD"
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const/high16 v2, 0x10000
 
     const/high16 v2, 0x10000
 
@@ -722,7 +724,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f040263
+    const v9, 0x7f040264
 
     const/4 v10, 0x0
 
@@ -758,7 +760,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b087c
+    const v9, 0x7f0b0888
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -820,7 +822,7 @@
 
     if-eqz v8, :cond_0
 
-    const v8, 0x7f0b0880
+    const v8, 0x7f0b088c
 
     :goto_0
     invoke-virtual {v10, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -841,7 +843,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0882
+    const v10, 0x7f0b088e
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -916,7 +918,7 @@
 
     aput-object v6, v10, v11
 
-    const v11, 0x7f0b0883
+    const v11, 0x7f0b088f
 
     invoke-virtual {v9, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -966,7 +968,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0884
+    const v10, 0x7f0b0890
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1016,7 +1018,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0885
+    const v10, 0x7f0b0891
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1079,7 +1081,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0886
+    const v10, 0x7f0b0892
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1152,7 +1154,7 @@
     return-void
 
     :cond_0
-    const v8, 0x7f0b0881
+    const v8, 0x7f0b088d
 
     goto/16 :goto_0
 
@@ -1214,7 +1216,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800d0
+    const v0, 0x7f0800d1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ScreenPinningSettings;->addPreferencesFromResource(I)V
 

@@ -228,7 +228,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b02a6
+    const v6, 0x7f0b02a7
 
     invoke-virtual {p0, v6, v5}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 .method private createConfirmCredentialReasonMessage()Ljava/lang/String;
     .locals 4
 
-    const v0, 0x7f0b1516
+    const v0, 0x7f0b1631
 
     iget-object v1, p0, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -445,12 +445,12 @@
     return-object v1
 
     :sswitch_0
-    const v0, 0x7f0b1514
+    const v0, 0x7f0b162f
 
     goto :goto_0
 
     :sswitch_1
-    const v0, 0x7f0b1515
+    const v0, 0x7f0b1630
 
     goto :goto_0
 
@@ -531,7 +531,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1512
+    const v19, 0x7f0b162d
 
     move-object/from16 v0, p0
 
@@ -588,7 +588,7 @@
 
     aput-object v19, v18, v20
 
-    const v19, 0x7f0b1510
+    const v19, 0x7f0b162b
 
     move-object/from16 v0, p0
 
@@ -695,7 +695,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->setCapabilitiesText(Landroid/widget/TextView;Z)V
 
-    const v18, 0x7f0b1517
+    const v18, 0x7f0b1632
 
     move-object/from16 v0, p0
 
@@ -741,7 +741,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0b0244
+    const v19, 0x7f0b0245
 
     move-object/from16 v0, p0
 
@@ -757,7 +757,7 @@
 
     if-eqz v18, :cond_2
 
-    const v18, 0x7f0b01d8
+    const v18, 0x7f0b01d9
 
     move-object/from16 v0, p0
 
@@ -917,7 +917,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v18, 0x7f0b1518
+    const v18, 0x7f0b1633
 
     move-object/from16 v0, p0
 
@@ -1183,7 +1183,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a024d
+    const v3, 0x7f0a024e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2337,7 +2337,7 @@
 
     aput-object v18, v17, v19
 
-    const v18, 0x7f0b151a
+    const v18, 0x7f0b1635
 
     move-object/from16 v0, p0
 
@@ -2398,7 +2398,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b0bc7
+    const v16, 0x7f0b0bd5
 
     move-object/from16 v0, p0
 
@@ -2408,7 +2408,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b0bc8
+    const v16, 0x7f0b0bd6
 
     move-object/from16 v0, p0
 
@@ -2447,7 +2447,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b16f9
+    const v17, 0x7f0b1814
 
     move-object/from16 v0, v16
 
@@ -2494,7 +2494,7 @@
 
     if-nez v16, :cond_4
 
-    const v16, 0x7f0b02a8
+    const v16, 0x7f0b02a9
 
     move-object/from16 v0, p0
 
@@ -2504,7 +2504,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02a9
+    const v16, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
@@ -2548,7 +2548,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1463
+    const v17, 0x7f0b157e
 
     move-object/from16 v0, v16
 
@@ -2560,7 +2560,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b041a
+    const v17, 0x7f0b0425
 
     move-object/from16 v0, v16
 
@@ -2601,7 +2601,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0245
+    const v17, 0x7f0b0246
 
     move-object/from16 v0, p0
 
@@ -2615,7 +2615,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b05d9
+    const v17, 0x7f0b05e4
 
     move-object/from16 v0, p0
 
@@ -2627,7 +2627,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02a9
+    const v16, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
@@ -2640,7 +2640,7 @@
     goto :goto_1
 
     :cond_5
-    const v16, 0x7f0b02a7
+    const v16, 0x7f0b02a8
 
     move-object/from16 v0, p0
 
@@ -2650,7 +2650,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b02a9
+    const v16, 0x7f0b02aa
 
     move-object/from16 v0, p0
 
@@ -2695,7 +2695,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02a6
+    const v17, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
@@ -2743,7 +2743,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02ad
+    const v17, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
@@ -2766,7 +2766,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b02aa
+    const v16, 0x7f0b02ab
 
     move-object/from16 v0, p0
 
@@ -2784,7 +2784,7 @@
 
     if-nez v16, :cond_8
 
-    const v16, 0x7f0b02a8
+    const v16, 0x7f0b02a9
 
     move-object/from16 v0, p0
 
@@ -2806,7 +2806,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02ac
+    const v17, 0x7f0b02ad
 
     move-object/from16 v0, p0
 
@@ -2852,7 +2852,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1463
+    const v17, 0x7f0b157e
 
     move-object/from16 v0, v16
 
@@ -2864,7 +2864,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b041a
+    const v17, 0x7f0b0425
 
     move-object/from16 v0, v16
 
@@ -2905,7 +2905,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0245
+    const v17, 0x7f0b0246
 
     move-object/from16 v0, p0
 
@@ -2919,7 +2919,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b05d9
+    const v17, 0x7f0b05e4
 
     move-object/from16 v0, p0
 
@@ -2939,7 +2939,7 @@
 
     move-object/from16 v16, v0
 
-    const v17, 0x7f0b0245
+    const v17, 0x7f0b0246
 
     move-object/from16 v0, p0
 
@@ -2957,7 +2957,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02ad
+    const v17, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
@@ -2972,7 +2972,7 @@
     goto/16 :goto_2
 
     :cond_9
-    const v16, 0x7f0b02a7
+    const v16, 0x7f0b02a8
 
     move-object/from16 v0, p0
 
@@ -2994,7 +2994,7 @@
 
     aput-object v5, v16, v17
 
-    const v17, 0x7f0b02ab
+    const v17, 0x7f0b02ac
 
     move-object/from16 v0, p0
 
@@ -3041,7 +3041,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02a6
+    const v17, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
@@ -3089,7 +3089,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02ad
+    const v17, 0x7f0b02ae
 
     move-object/from16 v0, p0
 
@@ -3161,7 +3161,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b05d9
+    const v17, 0x7f0b05e4
 
     move-object/from16 v0, p0
 
@@ -3205,7 +3205,7 @@
 
     aput-object v17, v16, v18
 
-    const v17, 0x7f0b02a6
+    const v17, 0x7f0b02a7
 
     move-object/from16 v0, p0
 
@@ -3228,7 +3228,7 @@
 
     iput v0, v1, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->mShownDialogId:I
 
-    const v16, 0x7f0b023d
+    const v16, 0x7f0b023e
 
     move-object/from16 v0, p0
 
@@ -3238,7 +3238,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b023e
+    const v16, 0x7f0b023f
 
     move-object/from16 v0, p0
 
@@ -3420,7 +3420,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b023d
+    const v17, 0x7f0b023e
 
     move-object/from16 v0, v16
 
@@ -3432,7 +3432,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0b1414
+    const v17, 0x7f0b152f
 
     move-object/from16 v0, v16
 

@@ -43,7 +43,7 @@
 
     iget-object v4, p0, Lcom/android/settings/TetherSettings$10;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -85,7 +85,7 @@
 
     iget-object v4, p0, Lcom/android/settings/TetherSettings$10;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get12(Lcom/android/settings/TetherSettings;)Landroid/net/wifi/WifiManager;
+    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get13(Lcom/android/settings/TetherSettings;)Landroid/net/wifi/WifiManager;
 
     move-result-object v4
 
@@ -101,7 +101,7 @@
     :goto_0
     iget-object v4, p0, Lcom/android/settings/TetherSettings$10;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get5(Lcom/android/settings/TetherSettings;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -139,7 +139,7 @@
     :cond_1
     iget-object v4, p0, Lcom/android/settings/TetherSettings$10;->this$0:Lcom/android/settings/TetherSettings;
 
-    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get6(Lcom/android/settings/TetherSettings;)Z
+    invoke-static {v4}, Lcom/android/settings/TetherSettings;->-get7(Lcom/android/settings/TetherSettings;)Z
 
     move-result v4
 

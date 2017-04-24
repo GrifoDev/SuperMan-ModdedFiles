@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Über %1$s verbunden</string>
     <string name="available_via_passpoint">Verfügbar über %1$s</string>
     <string name="wifi_connected_no_internet">Verbunden, kein Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet event. nicht verfügbar</string>
     <string name="wifi_reconnecting">Bereit zur Verbindung, wenn die Netzwerkqualität besser wird</string>
     <string name="wifi_connected_checking_quality">Die Qualität Ihrer Internetverbindung wird überprüft…</string>
     <string name="wifi_sign_in_to_the_network">Im Netzwerk anmelden.</string>
@@ -821,7 +822,7 @@ WLAN und Bluetooth werden ebenfalls deaktiviert, können aber unter „Einstellu
     <string name="default_app_selection">Standard-App-Auswahl</string>
     <string name="default_app_selection_auto_set">Standard-Apps automatisch festlegen</string>
     <string name="default_app_selection_ask">Vor Standard-App-Festlegung fragen</string>
-    <string name="launch_application_settings">Standardanwendungen</string>
+    <string name="launch_application_settings">Standard-Apps</string>
     <string name="launch_application_settings_summary">Apps für bestimmte Aufgaben zuweisen.</string>
     <string name="home_settings_header">Startbildschirm ändern</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -866,6 +867,14 @@ App-Daten können persönliche Informationen, wie Kontakte, Nachrichten und Bild
     <string name="content_description_hand">Auf den blauen Kreis in der Mitte des Bildschirms tippen und halten.</string>
     <string name="nearby_scanning_help_msg_sub">Suche nach Geräten in der Nähe verwendet Bluetooth Low Energy-Scanning und das Mikrofon. Bluetooth Low Energy-Scanning kann auch verwendet werden, wenn Bluetooth auf diesem Gerät ausgeschaltet ist.</string>
     <string name="sec_bluetooth_no_devices_found">Keine Bluetooth-Geräte gefunden.</string>
+    <string name="bt_tether_title">Bluetooth-Tethering</string>
+    <string name="bt_tether_settings_on">An</string>
+    <string name="bt_tether_settings_off">Aus</string>
+    <string name="bt_tether_off_brief_text_phone">Geben Sie die Internetverbindung Ihres Telefons für andere Geräte über Bluetooth frei.</string>
+    <string name="bt_tether_off_brief_text_tablet">Geben Sie die Internetverbindung Ihres Tablets für andere Geräte über Bluetooth frei.</string>
+    <string name="bt_tether_preference_tethered_device_list">Tethering-Geräte</string>
+    <string name="bt_tether_server_description_phone">Geben Sie die Internetverbindung Ihres Telefons frei, indem Sie es über Bluetooth mit anderen Geräten koppeln. Wenn über das Gerät zuvor eine Tethering-Verbindung hergestellt wurde, ist dies erneut möglich, indem Sie es aus der Liste mit Tethering-Geräten auswählen.</string>
+    <string name="bt_tether_server_description_tablet">Geben Sie die Internetverbindung Ihres Tablets frei, indem Sie es über Bluetooth mit anderen Geräten koppeln. Wenn über das Gerät zuvor eine Tethering-Verbindung hergestellt wurde, ist dies erneut möglich, indem Sie es aus der Liste mit Tethering-Geräten auswählen.</string>
     <string name="bluetooth_consent_pairing_msg">Tippen Sie zum Koppeln mit %s auf „OK“.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s möchte auf Ihre SIM-Karte zugreifen. Wenn sie dies zulassen, werden Anruf- und Nachrichtenfunktionen deaktiviert und mobile Daten auf Ihrem Gerät ausgeschaltet. Zulassen?
 
@@ -974,7 +983,7 @@ Auch wenn Smart-Aufnahme deaktiviert ist, können Sie auf diese Funktionen über
     <string name="downloadable_dialog_popup_text_wifi">Es müssen weitere Hilfedateien heruntergeladen werden. Das Gerät muss mit einem WLAN-Netzwerk verbunden sein. Sie werden zum Download-Bildschirm weitergeleitet.</string>
     <string name="back_button_label">Zurück</string>
     <string name="next_button_label">Weiter</string>
-    <string name="category_applications">Anwendungen</string>
+    <string name="category_applications">Apps</string>
     <string name="data_connection_title">Gebühreninformation</string>
     <string name="data_connection_message">Eine Verbindung mit einem mobilen Netzwerk kann zusätzliche Kosten verursachen.</string>
     <string name="none_package">Diese Aktion kann mit eingeschränktem Profil nicht durchgeführt werden.</string>
@@ -1040,7 +1049,7 @@ Auch wenn Smart-Aufnahme deaktiviert ist, können Sie auf diese Funktionen über
     <string name="active_key_title">Aktive Taste</string>
     <string name="about_phone">Telefoninfo</string>
     <string name="theme_settings">Themes</string>
-    <string name="wifi_calling_title">WiFi Calling</string>
+    <string name="wifi_calling_title">WLAN-Anrufe</string>
     <string name="tab_category_connections">Verbindungen</string>
     <string name="festival_effect_settings_title">Fest-Effekt</string>
     <string name="user_manual">Benutzerhandbuch</string>
@@ -2162,7 +2171,7 @@ Für einige NFC-Transaktionen und mobile Zahlungsdienste ist möglicherweise ein
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Datenaustausch mit anderen NFC-fähigen Geräten zulassen</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Verwenden Sie mobile Zahlungsdienste, lesen oder schreiben Sie NFC-Tags und tauschen Sie Daten zwischen NFC-fähigen Geräten aus.</string>
+    <string name="nfc_settings_title">Nehmen Sie mobile Zahlungen vor, geben Sie Daten frei und lesen oder schreiben Sie NFC-Tags.</string>
     <string name="nfc_settings_rw_p2p_summary">Sie können Tags lesen und schreiben und Daten zwischen den Geräten übertragen</string>
     <string name="nfcpayment_quick_toggle_title">NFC und Zahlung</string>
     <string name="nfc_mode_general_title">NFC-Modus</string>
@@ -2173,19 +2182,21 @@ Für einige NFC-Transaktionen und mobile Zahlungsdienste ist möglicherweise ein
     <string name="nfc_payment_enable_summary">Standard-Zahlungsdienst auswählen.</string>
     <string name="nfc_payment_title">Zahlung</string>
     <string name="nfc_others_title">Sonstige</string>
-    <string name="nfc_other_no_apps">Keine installierten Dienst-Apps</string>
+    <string name="nfc_other_no_apps">Keine Dienst-Apps installiert.</string>
     <string name="nfc_payment_open_app">Falls geöffnete App „Tippen und bezahlen“ unterstützt.</string>
     <string name="nfc_payment_favor_open_default_unknown">Geöffnete App verwenden</string>
     <string name="nfc_payment_favor_default_default_unknown">Kein Standardzahlungsdienst</string>
     <string name="nfc_tts_tab_n_of_n">Registerkarte %1$d von %2$d</string>
+    <string name="nfc_payment_replace_default_label">Standardzahlungs-App ersetzen?</string>
+    <string name="nfc_payment_replace">Ersetzen</string>
     <string name="nfc_payment_services_title">NFC-Zahlungsdienste</string>
     <string name="nfc_payment_services_fail">Fehler beim Festlegen der %s-SIM-Karte zur Verwendung mit NFC-Zahlungsdiensten. Versuchen Sie es erneut.</string>
     <string name="nfc_payment_services_success">%s-SIM-Karte zur Verwendung mit NFC-Zahlungsdiensten festgelegt.</string>
     <string name="nfc_preferred_general_title">Bevorzugte SIM-Karte</string>
     <string name="nfc_please_wait">Bitte warten…</string>
     <string name="nfc_payment_no_sim_card">Keine SIM-Karte</string>
-    <string name="nfc_disable_service_title">Ändern der Standard-NFC-Methode</string>
-    <string name="nfc_disable_service_msg">Wenn Sie die Standard-Verarbeitungsmethode für NFC ändern, werden einige Dienste in der Registerkarte „SONSTIGE“ deaktiviert oder aktiviert. Wechseln Sie zum Verwalten dieser Dienste zu „NFC und Zahlung > Tippen und zahlen > SONSTIGE“ und wählen Sie jeden zu deaktivierenden oder aktivierenden Dienst aus.</string>
+    <string name="nfc_disable_service_title">Standard-NFC-Methode ändern?</string>
+    <string name="nfc_disable_service_msg">Wenn Sie die Standard-Verarbeitungsmethode für NFC ändern, werden einige Dienste in der Registerkarte „SONSTIGE“ aus- oder eingeschaltet. Wechseln Sie zum Verwalten dieser Dienste zu „NFC und Zahlung > Tippen und zahlen > SONSTIGE“ und wählen Sie jeden ein- oder auszuschaltenden Dienst aus.</string>
     <string name="nfc_settings_advanced_setting">Standard-NFC-Methode</string>
     <string name="nfc_settings_advanced_uicc">SE-SIM-Karte</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-Karte für sichere Elemente</string>
@@ -2197,7 +2208,7 @@ Für einige NFC-Transaktionen und mobile Zahlungsdienste ist möglicherweise ein
     <string name="nfc_settings_tag_message">Wenn Sie in den Kartenmodus wechseln, ist es nicht mehr möglich NFC-Tags zu lesen, Daten in sie zu schreiben oder Daten zwischen Geräten auszutauschen.</string>
     <string name="nfc_show_alert_dialog_title">Ultra-Energiesparmodus</string>
     <string name="nfc_show_alert_dialog_message">%s kann nicht geöffnet werden.</string>
-    <string name="android_beam_explained">Tauschen Sie Dateien zwischen NFC-fähigen Geräten aus, indem Sie die Geräte nahe aneinander halten. Sie können dann Webseiten-Links, Kontakte usw. austauschen.</string>
+    <string name="android_beam_explained">Sie können Webseitenlinks, Kontakte und mehr freigeben, indem Sie Ihr Telefon nah an ein NFC-fähiges Gerät halten.</string>
     <string name="android_beam_explained_1">Halten Sie die Geräte mit den Rückseiten aneinander.</string>
     <string name="android_beam_explained_2">Tippen Sie auf den Bildschirm.</string>
     <string name="guide_dialog_attention_title">Information</string>
@@ -2206,7 +2217,7 @@ Für einige NFC-Transaktionen und mobile Zahlungsdienste ist möglicherweise ein
     <string name="cannot_use_card_without_NFC">Wenn NFC-ausgeschaltet ist, sind keine NFC-bezogenen Funktionen wie Freigabe von Inhalten und NFC-Zahlung verfügbar.</string>
     <string name="limit_app_contents_transfer">Die Freigabe von Inhalten mit NFC wird eingeschränkt, wenn Android Beam ausgeschaltet ist.</string>
     <string name="nfc_payment_dialog_favor_open">Wenn die aktuell geöffnete App „Tippen und zahlen“ unterstützt, wird sie anstelle von %s verwendet.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Wenn die aktuell geöffnete App „Tippen und zahlen“ unterstützt, wird sie verwendet.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Wenn die aktuell geöffnete App „Tippen und zahlen“ unterstützt, wird sie für die Zahlung verwendet.</string>
     <string name="folder_sounds">Ton bei Ordner öff./schl.</string>
     <string name="folder_sounds_summary">Ton wiedergeben, wenn ein Ordner geöffnet oder geschlossen wird.</string>
     <string name="sound_category_calls_title">Eingehende Anrufe</string>
@@ -2289,6 +2300,7 @@ Für einige NFC-Transaktionen und mobile Zahlungsdienste ist möglicherweise ein
     <string name="scheduling_switch_summary">„Nicht stören“ zu geplanten Zeiten automatisch aktivieren und deaktivieren.</string>
     <string name="no_exceptions_summary">Alle Anrufe, Alarme und Medien stummschalten.</string>
     <string name="alarms_only_summary">Nur Alarmen erlauben bei aktiviertem „Nicht stören“-Modus zu klingeln oder zu vibrieren.</string>
+    <string name="custrom_summary">Benutzerdefinierte Ausnahmen festlegen, die bei aktiviertem „Nicht stören“-Modus klingeln und vibrieren dürfen.</string>
     <string name="zen_mode_events_summary">Benachrichtigungen von S Planner und andere Kalenderereignisse zulassen.</string>
     <string name="zen_mode_events_summary_na">Benachrichtigungen von Kalenderereignissen und Aufgaben zulassen.</string>
     <string name="zen_mode_reminders_summary">Erinnerungen von Apps zulassen, die sie unterstützen.</string>
@@ -3463,6 +3475,7 @@ Empfangen von SMS"</string>
     <string name="data_usage_reminder_item_summary">Benachrichtigungen erhalten, die die Menge an Daten anzeigen, die von Apps über WLAN oder mobile Netze verwendet wurden, wenn das Gerät mehr als %d Minuten gesperrt war.</string>
     <string name="data_usage_reminder_description">Die folgenden Apps haben insgesamt %s an Daten verwendet, während das Gerät gesperrt war:</string>
     <string name="google_settings_popup_msg">Es ist nur eine begrenzte Anzahl an Google-Einstellungen verfügbar. Einige Aktionen funktionieren möglicherweise nicht.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="create">Erstellen</string>
@@ -3560,7 +3573,6 @@ Sie können diese Einstellungen später unter den Bluetooth-Einstellungen änder
     <string name="phone_info_label">Geräteinfo</string>
     <string name="proxy_settings_label">Proxy-Einstellungen</string>
     <string name="cancel">Abbrechen</string>
-    <string name="okay">OK</string>
     <string name="save">Speichern</string>
     <string name="done">Fertig</string>
     <string name="settings_label">Einstellungen</string>
@@ -4812,13 +4824,13 @@ Benutzer können aktualisierte App-Berechtigungen im Namen aller anderen Benutze
     <string name="global_change_warning">Diese Einstellung betrifft alle Benutzer auf diesem Gerät.</string>
     <string name="global_locale_change_title">Sprache ändern</string>
     <string name="nfc_payment_settings_title">Tippen und bezahlen</string>
-    <string name="nfc_payment_no_apps">Keine installierten Bezahldienst-Apps</string>
+    <string name="nfc_payment_no_apps">Keine Zahlungs-Apps installiert.</string>
     <string name="nfc_payment_favor_default">Weiterhin %s verwenden</string>
     <string name="nfc_payment_favor_open">Offene App statt %s verwenden</string>
     <string name="nfc_how_it_works_got_it">Alles klar</string>
-    <string name="nfc_payment_set_default_label">Als Standard festlegen</string>
-    <string name="nfc_payment_set_default">%s wird als Ihre Standardzahlungsmethode für „Tippen und bezahlen“ eingerichtet.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s wird %2$s als Ihre Standardzahlungsmethode für „Tippen und bezahlen“ ersetzen.</string>
+    <string name="nfc_payment_set_default_label">Standardzahlungs-App festlegen?</string>
+    <string name="nfc_payment_set_default">%s wird als Ihre Standardzahlungs-App für „Tippen und bezahlen“ festgelegt.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s wird %2$s als Ihre Standardzahlungs-App für „Tippen und bezahlen“ ersetzten.</string>
     <string name="help_label">Hilfe</string>
     <string name="user_restrictions_title">Inhalts-/Anwendungsbeschränkungen</string>
     <string name="user_restrictions_controlled_by">Gesteuert über %1$s</string>
@@ -5124,7 +5136,7 @@ Sie erhalten keine Anrufe, Nachrichten oder Benachrichtigungen und es werden kei
     <string name="location_off_summary">Deaktiviert</string>
     <string name="backup_disabled">Automatische Sicherung deaktiviert</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Aktion nicht durchführbar</string>
+    <string name="disabled_by_policy_title">Aktion nicht möglich</string>
     <string name="default_admin_support_msg">Sie haben keine Berechtigung zur Durchführung dieser Aktion. Wenden Sie sich für weitere Informationen an den IT-Administrator Ihrer Organisation.</string>
     <string name="admin_support_more_info">Mehr Details</string>
     <string name="admin_profile_owner_message">Der Administrator kann Apps und Daten überwachen und verwalten, die Ihrem Arbeitsprofil zugeordnet sind. Dazu zählen Einstellungen, Berechtigungen, Unternehmenszugriff, Netzwerkaktivität und die Standortinformationen des Geräts.</string>

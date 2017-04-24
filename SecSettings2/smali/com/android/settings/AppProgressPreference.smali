@@ -17,7 +17,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AppProgressPreference;->setLayoutResource(I)V
 
-    const v0, 0x7f04031b
+    const v0, 0x7f04031c
 
     invoke-virtual {p0, v0}, Lcom/android/settings/AppProgressPreference;->setWidgetLayoutResource(I)V
 

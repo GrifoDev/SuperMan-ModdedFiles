@@ -11,6 +11,7 @@
     <string name="wifi_disabled_password_failure">Tharla earráid fhíordheimhnithe</string>
     <string name="wifi_empty_list_wifi_on">Ag scanadh le haghaidh líonraí Wi-Fi…</string>
     <string name="wifi_auto_reconnect_disabled">Uath-athnasc díchumasaithe</string>
+    <string name="wifi_internet_may_not_be_available">Seans nach bhfuil Idirlíon ar fáil</string>
     <string name="wifi_reconnecting">Réidh le nascadh nuair a fheabhsaítear caighdeán an líonra</string>
     <string name="wifi_connected_checking_quality">Cáilíocht do naisc Idirlín á seiceáil…</string>
     <string name="wifi_sign_in_to_the_network">Sínigh isteach chuig an líonra.</string>
@@ -729,6 +730,14 @@ Is féidir go n-áireofaí le sonraí feidhmchláir faisnéis phearsanta amhail 
     <string name="content_description_hand">Tapáil agus coinnigh an ciorcal gorm i lár an scáileáin.</string>
     <string name="nearby_scanning_help_msg_sub">Úsáideann Scanadh do gharghléasanna Scanadh Bluetooth Ísealfhuinnimh agus an micreafón. Is féidir Scanadh Bluetooth Ísealfhuinnimh a úsáid ar an ngléas seo fiú nuair atá Bluetooth casta as.</string>
     <string name="sec_bluetooth_no_devices_found">Níor aimsíodh gléasanna Bluetooth</string>
+    <string name="bt_tether_title">Nascaireacht Bluetooth</string>
+    <string name="bt_tether_settings_on">Air</string>
+    <string name="bt_tether_settings_off">As</string>
+    <string name="bt_tether_off_brief_text_phone">"Comhroinn nasc Idirlín d'fhóin le gléasanna eile trí Bluetooth."</string>
+    <string name="bt_tether_off_brief_text_tablet">Comhroinn nasc Idirlín do tháibléid le gléasanna eile trí Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Gléasanna ar a bhfuil nascaireacht déanta</string>
+    <string name="bt_tether_server_description_phone">"Comhroinn nasc Idirlín d'fhóin trí phéireáil le gléas eile le Bluetooth. Má rinneadh nascaireacht ar do ghléas roimhe, is féidir leat é sin a dhéanamh arís trína roghnú ó Liosta na ngléasanna ar a bhfuil nascaireacht déanta."</string>
+    <string name="bt_tether_server_description_tablet">Comhroinn nasc Idirlín do tháibléid trí phéireáil le gléas eile le Bluetooth. Má rinneadh nascaireacht ar do ghléas roimhe, is féidir leat é sin a dhéanamh arís trína roghnú ó Liosta na ngléasanna ar a bhfuil nascaireacht déanta.</string>
     <string name="bluetooth_consent_pairing_msg">Tapáil OK le péireáil le %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"Tá %s ag iarraidh ceada le do chárta SIM a rochtain. Má cheadaítear an t-iarratas seo, díchumasófar feidhmeanna curtha glaonna agus seolta teachtaireachtaí, agus casfar as Sonraí móibíleacha ar do ghléas. Ceadaigh?
 
@@ -2025,7 +2034,7 @@ Is féidir go mbeidh modh próiseála NFC réamhshocraithe éagsúil de dhíth a
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Ceadaítear malartú sonraí ar thadhall don ghléas le gléas eile.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Úsáid seirbhísí íocaíochta móibíleacha, léigh agus scríobh clibeanna NFC, agus malartaigh sonraí idir gléasanna NFC-chumasaithe.</string>
+    <string name="nfc_settings_title">Déan íocaíochtaí móibíleacha, comhroinn sonraí, agus léigh nó scríobh clibeanna NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Is féidir leat clibeanna a léamh agus a scríobh agus sonraí a aistriú idir gléasanna.</string>
     <string name="nfcpayment_quick_toggle_title">NFC agus íocaíocht</string>
     <string name="nfc_mode_general_title">Mód NFC</string>
@@ -2036,19 +2045,21 @@ Is féidir go mbeidh modh próiseála NFC réamhshocraithe éagsúil de dhíth a
     <string name="nfc_payment_enable_summary">Roghnaigh do sheirbhís íocaíochta mhóibíleach réamhshocraithe.</string>
     <string name="nfc_payment_title">Íocaíocht</string>
     <string name="nfc_others_title">Eile</string>
-    <string name="nfc_other_no_apps">Níl aon fheidhmchlár seirbhíse suiteáilte</string>
+    <string name="nfc_other_no_apps">Níl aon fheidhmchláir seirbhíse suiteáilte</string>
     <string name="nfc_payment_open_app">Má bhíonn tacú ann san fheidhmchlár atá ar oscailt do Thapáil agus íoc</string>
     <string name="nfc_payment_favor_open_default_unknown">Úsáid an feidhmchlár atá ar oscailt</string>
     <string name="nfc_payment_favor_default_default_unknown">Níl seirbhís íoc. r.shoc. ann</string>
     <string name="nfc_tts_tab_n_of_n">Táb %1$d as %2$d</string>
+    <string name="nfc_payment_replace_default_label">Ionadaigh an f.chlár íocaíochta r.shoc.?</string>
+    <string name="nfc_payment_replace">Ionadaigh</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Cárta SIM sainroghnaithe</string>
     <string name="nfc_please_wait">Fan go fóill…</string>
     <string name="nfc_payment_no_sim_card">Níl cárta SIM ann</string>
-    <string name="nfc_disable_service_title">Athraigh an modh NFC réamhshocraithe</string>
-    <string name="nfc_disable_service_msg">Má athraíonn tú an modh próiseála NFC réamhshocraithe, díchumasófar nó cumasófar roinnt seirbhísí faoin táb EILE. Leis na seirbhísí seo a bhainistiú, gabh chuig NFC agus íocaíocht > Tapáil agus íoc > EILE, ansin roghnaigh gach seirbhís lena cumasú nó lena díchumasú.</string>
+    <string name="nfc_disable_service_title">Athraigh an modh NFC réamhshocraithe?</string>
+    <string name="nfc_disable_service_msg">Má athraíonn tú an modh próiseála NFC réamhshocraithe, casfar air nó as roinnt seirbhísí faoin táb EILE. Leis na seirbhísí sin a bhainistiú, gabh chuig NFC agus íocaíocht > Tapáil agus íoc > EILE, ansin roghnaigh gach seirbhís lena casadh air nó as.</string>
     <string name="nfc_settings_advanced_setting">Modh NFC réamhshocraithe</string>
     <string name="nfc_settings_advanced_uicc">Cárta SIM SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">Cárta SIM Eilimint Shlán</string>
@@ -2060,7 +2071,7 @@ Is féidir go mbeidh modh próiseála NFC réamhshocraithe éagsúil de dhíth a
     <string name="nfc_settings_tag_message">Má athraíonn tú chuig Mód cárta, ní bheidh tú in ann clibeanna NFC a léamh, sonraí a scríobh chucu, ná sonraí a mhalartú idir gléasanna a thuilleadh.</string>
     <string name="nfc_show_alert_dialog_title">Ultramhód coig. cumhachta</string>
     <string name="nfc_show_alert_dialog_message">Ní féidir %s a oscailt.</string>
-    <string name="android_beam_explained">Comhroinn comhaid idir gléasanna NFC-chumasaithe trína gcoinneáil gar dá chéile. Beidh tú in ann naisc chuig leathanaigh ghréasáin, teagmhálaithe, agus tuilleadh a chomhroinnt ansin.</string>
+    <string name="android_beam_explained">"Is féidir leat naisc chuig leathanaigh ghréasáin, teagmhálaithe, agus tuilleadh a chomhroinnt trí d'fhón a thabhairt gar do ghléas NFC-chumasaithe."</string>
     <string name="android_beam_explained_1">Tabhair na gléasanna le chéile, cúl le cúl.</string>
     <string name="android_beam_explained_2">Tapáil do scáileán.</string>
     <string name="guide_dialog_attention_title">Aire</string>
@@ -2069,7 +2080,7 @@ Is féidir go mbeidh modh próiseála NFC réamhshocraithe éagsúil de dhíth a
     <string name="cannot_use_card_without_NFC">Ní bheidh feidhmeanna a bhaineann le NFC, cosúil le roinnt modhanna a bhaineann le hinneachar a chomhroinnt agus íocaíocht NFC, ar fáil nuair atá NFC múchta</string>
     <string name="limit_app_contents_transfer">Beidh teorainn le hinneachar a chomhroinnt trí NFC nuair atá Android Beam múchta</string>
     <string name="nfc_payment_dialog_favor_open">Má tá tacú san fheidhmchlár atá ar oscailt faoi láthair do Tapáil agus íoc, úsáidfear in ionad %s é.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Má tá tacú san fheidhmchlár atá ar oscailt faoi láthair do Tapáil agus íoc, úsáidfear é.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Má tá tacú san fheidhmchlár atá ar oscailt faoi láthair do Thapáil agus íoc, úsáidfear le híoc é.</string>
     <string name="folder_sounds">Fuaim ar oscailt/dúnadh</string>
     <string name="folder_sounds_summary">Seinn fuaimeanna agus an fillteán á oscailt agus á dhúnadh.</string>
     <string name="sound_category_calls_title">Glaonna isteach</string>
@@ -3327,6 +3338,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">"Faigh fógraí ina dtaispeántar an méid sonraí a d'úsáid feidhmchláir trí líonraí Wi-Fi nó móibíleacha, nuair a bhí an gléas glasáilte le breis is %d nóiméad."</string>
     <string name="data_usage_reminder_description">"D'úsáid na feidhmchláir seo a leanas %s de shonraí ar an iomlán agus an gléas glasáilte:"</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Déan é</string>
     <string name="no">Ná déan é</string>
     <string name="create">Déan</string>
@@ -3424,7 +3436,6 @@ Is féidir é seo a athrú ar ball i socruithe Bluetooth."</string>
     <string name="phone_info_label">Faisnéis faoin ngléas</string>
     <string name="proxy_settings_label">Socruithe seachfhreastalaí</string>
     <string name="cancel">Cuir ar ceal</string>
-    <string name="okay">OK</string>
     <string name="save">Sábháil</string>
     <string name="done">Déanta</string>
     <string name="settings_label">Socruithe</string>
@@ -4663,13 +4674,13 @@ Is féidir le gach úsáideoir ceadanna feidhmchláir nuashonraithe a ghlacadh t
     <string name="global_change_warning">Rachaidh an socrú seo i bhfeidhm ar gach úsáideoir ar an ngléas seo</string>
     <string name="global_locale_change_title">Athraigh teanga</string>
     <string name="nfc_payment_settings_title">Tapáil agus íoc</string>
-    <string name="nfc_payment_no_apps">Níl aon fheidhmchlár seirbhíse íocaíochta suiteáilte</string>
+    <string name="nfc_payment_no_apps">Níl aon fheidhmchláir íocaíochta suiteáilte</string>
     <string name="nfc_payment_favor_default">Úsáid %s fós</string>
     <string name="nfc_payment_favor_open">Úsáid an feidhmchlár atá ar oscailt in ionad %s</string>
     <string name="nfc_how_it_works_got_it">Tuigim</string>
-    <string name="nfc_payment_set_default_label">Socraigh mar réamhshocrú</string>
-    <string name="nfc_payment_set_default">Socrófar %s mar do mhodh íocaíochta réamhshocraithe le idirbhearta Tapáil agus íoc.</string>
-    <string name="nfc_payment_set_default_instead_of">Cuirfear %1$s in ionad %2$s mar do mhodh íocaíochta réamhshocraithe le hidirbhearta Tapáil agus íoc.</string>
+    <string name="nfc_payment_set_default_label">Socraigh f.chlár íocaíochta r.shocraithe?</string>
+    <string name="nfc_payment_set_default">"Socrófar %s mar d'fheidhmchlár íocaíochta réamhshocraithe le haghaidh Tapáil agus íoc."</string>
+    <string name="nfc_payment_set_default_instead_of">"Cuirfear %1$s in ionad %2$s mar d'fheidhmchlár íocaíochta réamhshocraithe do Thapáil agus íoc."</string>
     <string name="help_label">Cuidiú</string>
     <string name="user_restrictions_title">Srianta iarratais/inneachair</string>
     <string name="user_restrictions_controlled_by">Rialaithe trí %1$s</string>
@@ -4975,7 +4986,7 @@ Ní bhfaighidh tú glaonna, teachtaireachtaí, ná fógraí, agus ní bhuailfear
     <string name="location_off_summary">Díchumasaithe</string>
     <string name="backup_disabled">Cúltacú uathoibríoch díchumasaithe</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Ní féidir an gníomh a dhéanamh</string>
+    <string name="disabled_by_policy_title">Ní féidir gníomh a dhéanamh</string>
     <string name="default_admin_support_msg">"Níl cead agat an gníomh seo a dhéanamh. Déan teagmháil le riarthóir TF d'eagraíochta le tuilleadh faisnéise a fháil."</string>
     <string name="admin_support_more_info">Tuilleadh sonraí</string>
     <string name="admin_profile_owner_message">Is féidir leis an riarthóir monatóireacht a dhéanamh ar fheidhmchláir agus ar shonraí a bhaineann le do phróifíl oibre, agus iad a bhainistiú, lena n-áirítear socruithe, ceadanna, rochtain chorparáideach, gníomhaíocht líonra, agus faisnéis faoi shuíomh an ghléis.</string>

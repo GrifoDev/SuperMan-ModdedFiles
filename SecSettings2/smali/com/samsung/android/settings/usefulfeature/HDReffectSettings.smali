@@ -86,13 +86,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0467
+    const v3, 0x7f0a0468
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    const v4, 0x7f0a045d
+    const v4, 0x7f0a045e
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -160,7 +160,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->mHDRSummary:Landroid/widget/TextView;
 
-    const v4, 0x7f0b040b
+    const v4, 0x7f0b0416
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->getString(I)Ljava/lang/String;
 
@@ -610,7 +610,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f08007b
+    const v0, 0x7f08007c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/HDReffectSettings;->addPreferencesFromResource(I)V
 

@@ -157,7 +157,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1a8c
+    const v2, 0x7f0b1bb5
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 
@@ -472,7 +472,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0b1a8e
+    const v0, 0x7f0b1bb6
 
     :goto_0
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
@@ -494,7 +494,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1a8d
+    const v0, 0x7f0b1bb6
 
     goto :goto_0
 .end method
@@ -508,7 +508,7 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040389
+    const v1, 0x7f04038a
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -623,7 +623,7 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1a8d
+    const v2, 0x7f0b1bb6
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -646,7 +646,7 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1a8d
+    const v2, 0x7f0b1bb6
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -872,7 +872,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1a8c
+    const v2, 0x7f0b1bb5
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 

@@ -108,11 +108,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b02f8
+    const v1, 0x7f0b02f9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b02f9
+    const v1, 0x7f0b02fa
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -120,7 +120,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DockSettings$3;-><init>(Lcom/samsung/android/settings/DockSettings;)V
 
-    const v2, 0x7f0b05ac
+    const v2, 0x7f0b05b7
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -266,7 +266,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b02ea
+    const v2, 0x7f0b02eb
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -515,7 +515,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b02f1
+    const v2, 0x7f0b02f2
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -619,7 +619,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b02f2
+    const v2, 0x7f0b02f3
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -632,7 +632,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b02f0
+    const v2, 0x7f0b02f1
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -731,7 +731,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0b13
+    const v2, 0x7f0b0b21
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -745,7 +745,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0b16
+    const v2, 0x7f0b0b24
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -767,7 +767,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080066
+    const v0, 0x7f080067
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/DockSettings;->addPreferencesFromResource(I)V
 
@@ -1229,7 +1229,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0858
+    const v9, 0x7f0b0864
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1249,7 +1249,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0ad7
+    const v9, 0x7f0b0ae5
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1376,7 +1376,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
 
-    const v6, 0x7f0b02f6
+    const v6, 0x7f0b02f7
 
     invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1452,7 +1452,7 @@
     :cond_c
     iget-object v5, p0, Lcom/samsung/android/settings/DockSettings;->mLedCoverNotifications:Landroid/preference/PreferenceScreen;
 
-    const v6, 0x7f0b02f7
+    const v6, 0x7f0b02f8
 
     invoke-virtual {v5, v6}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 

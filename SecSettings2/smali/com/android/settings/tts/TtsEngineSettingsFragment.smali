@@ -281,7 +281,7 @@
 
     iget-object v0, p0, Lcom/android/settings/tts/TtsEngineSettingsFragment;->mLocalePreference:Landroid/preference/ListPreference;
 
-    const v1, 0x7f0b0087
+    const v1, 0x7f0b0088
 
     invoke-virtual {v0, v1}, Landroid/preference/ListPreference;->setSummary(I)V
 
@@ -438,7 +438,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0086
+    const v10, 0x7f0b0087
 
     invoke-virtual {v9, v10}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -839,7 +839,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v4, 0x7f080131
+    const v4, 0x7f080132
 
     invoke-virtual {p0, v4}, Lcom/android/settings/tts/TtsEngineSettingsFragment;->addPreferencesFromResource(I)V
 
@@ -947,7 +947,7 @@
 
     aput-object v10, v9, v7
 
-    const v10, 0x7f0b0095
+    const v10, 0x7f0b0096
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

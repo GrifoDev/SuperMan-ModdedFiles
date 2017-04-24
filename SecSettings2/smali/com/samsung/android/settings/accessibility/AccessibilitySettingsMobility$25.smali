@@ -41,7 +41,7 @@
 
     const/4 v1, 0x7
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap2(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;I)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap3(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$25;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 

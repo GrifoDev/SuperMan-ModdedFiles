@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Được kết nối qua %1$s</string>
     <string name="available_via_passpoint">Có sẵn qua %1$s</string>
     <string name="wifi_connected_no_internet">Đã kết nối, không có Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet có thể không có sẵn</string>
     <string name="wifi_reconnecting">Sẵn sàng kết nối khi chất lượng mạng cải thiện</string>
     <string name="wifi_connected_checking_quality">Đang kiểm tra chất lượng kết nối Internet của bạn…</string>
     <string name="wifi_sign_in_to_the_network">Đăng nhập vào mạng.</string>
@@ -383,7 +384,7 @@ Hãy nhập mã mà bạn nhận được từ Verizon:"</string>
     <string name="related_results">%d mục liên quan</string>
     <string name="no_results_found">Không tìm thấy kết quả</string>
     <string name="menu_edit">Sửa</string>
-    <string name="reset">Xóa</string>
+    <string name="reset">Đặt lại</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Cho phép Voice Assistant biết khi bạn đang dùng một ứng dụng.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Vẽ các hướng trong khu vực bên dưới văn bản này và trên các phím ở dưới cùng màn hình.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Phím xác nhận nằm ở góc phải phía dưới màn hình.</string>
@@ -865,6 +866,14 @@ Dữ liệu ứng dụng có thể bao gồm thông tin cá nhân như danh bạ
     <string name="content_description_hand">Chạm và giữ vòng tròn màu xanh ở giữa màn hình.</string>
     <string name="nearby_scanning_help_msg_sub">Dò tìm thiết bị ở gần bằng tính năng Dò tìm Bluetooth tiết kiệm năng lượng và micro. Dò tìm Bluetooth tiết kiệm năng lượng có thể được dùng ngay cả khi Bluetooth tắt trên thiết bị này.</string>
     <string name="sec_bluetooth_no_devices_found">Không tìm thấy thiết bị Bluetooth</string>
+    <string name="bt_tether_title">Kết nối Bluetooth internet</string>
+    <string name="bt_tether_settings_on">Bật</string>
+    <string name="bt_tether_settings_off">Tắt</string>
+    <string name="bt_tether_off_brief_text_phone">Chia sẻ kết nối internet của điện thoại với thiết bị khác qua Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Chia sẻ kết nối internet của máy tính bảng với thiết bị khác qua Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Thiết bị được chia sẻ kết nối internet</string>
+    <string name="bt_tether_server_description_phone">Chia sẻ kết nối internet của điện thoại bằng cách ghép đôi với thiết bị khác qua Bluetooth. Nếu thiết bị đã được chia sẻ kết nối trước đây, bạn có thể chia sẻ lại bằng cách chọn thiết bị đó từ Danh sách thiết bị đã chia sẻ kết nối internet.</string>
+    <string name="bt_tether_server_description_tablet">Chia sẻ kết nối internet của máy tính bảng bằng cách ghép đôi với thiết bị khác qua Bluetooth. Nếu thiết bị đã được chia sẻ kết nối trước đây, bạn có thể chia sẻ lại bằng cách chọn thiết bị đó từ Danh sách thiết bị đã chia sẻ kết nối internet.</string>
     <string name="bluetooth_consent_pairing_msg">Chạm OK để ghép đôi với %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s đang yêu cầu cấp quyền truy cập thẻ SIM của bạn. Việc cho phép yêu cầu này sẽ tắt chức năng gọi điện và nhắn tin, đồng thời tắt Dữ liệu di động trên thiết bị của bạn. Cho phép?
 
@@ -1039,7 +1048,7 @@ Ngay cả khi tắt Chụp thông minh, bạn vẫn có thể truy cập các t�
     <string name="active_key_title">Phím hoạt động</string>
     <string name="about_phone">Thông tin điện thoại</string>
     <string name="theme_settings">Theme</string>
-    <string name="wifi_calling_title">Cuộc gọi Wi-Fi</string>
+    <string name="wifi_calling_title">Cuộc gọi qua Wi-Fi</string>
     <string name="tab_category_connections">Kết nối</string>
     <string name="festival_effect_settings_title">Hiệu ứng lễ hội</string>
     <string name="user_manual">Sách hướng dẫn sử dụng</string>
@@ -2161,7 +2170,7 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Cho phép trao đổi dữ liệu khi thiết bị chạm thiết bị khác.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Sử dụng dịch vụ thanh toán di động, đọc và ghi tag NFC và trao đổi dữ liệu giữa các thiết bị có hỗ trợ NFC.</string>
+    <string name="nfc_settings_title">Thực hiện thanh toán di động, chia sẻ dữ liệu và đọc hoặc ghi tag NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Bạn có thể đọc và viết tag cũng như truyền dữ liệu giữa các thiết bị.</string>
     <string name="nfcpayment_quick_toggle_title">NFC và thanh toán</string>
     <string name="nfc_mode_general_title">Chế độ NFC</string>
@@ -2172,19 +2181,21 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
     <string name="nfc_payment_enable_summary">Chọn dịch vụ thanh toán di động mặc định.</string>
     <string name="nfc_payment_title">Thanh toán</string>
     <string name="nfc_others_title">Khác</string>
-    <string name="nfc_other_no_apps">Chưa cài đặt các ứng dụng dịch vụ</string>
+    <string name="nfc_other_no_apps">Chưa cài đặt ứng dụng dịch vụ</string>
     <string name="nfc_payment_open_app">Nếu ứng dụng đang mở hỗ trợ Chạm và thanh toán</string>
     <string name="nfc_payment_favor_open_default_unknown">Sử dụng ứng dụng mở</string>
     <string name="nfc_payment_favor_default_default_unknown">Không có dv thanh toán m.định</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d của %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Thay thế ứng dụng thanh toán mặc định?</string>
+    <string name="nfc_payment_replace">Thay thế</string>
     <string name="nfc_payment_services_title">Dịch vụ thanh toán NFC</string>
     <string name="nfc_payment_services_fail">Có lỗi khi thiết lập thẻ SIM %s để sử dụng với dịch vụ thanh toán NFC. Hãy thử lại.</string>
     <string name="nfc_payment_services_success">Đã thiết lập thẻ SIM %s để sử dụng với dịch vụ thanh toán NFC.</string>
     <string name="nfc_preferred_general_title">Thẻ SIM ưu tiên</string>
     <string name="nfc_please_wait">Xin chờ…</string>
     <string name="nfc_payment_no_sim_card">Không có thẻ SIM</string>
-    <string name="nfc_disable_service_title">Thay đổi phương pháp NFC mặc định</string>
-    <string name="nfc_disable_service_msg">Nếu bạn thay đổi phương pháp xử lý NFC mặc định, một số dịch vụ trong tab KHÁC sẽ tắt hoặc bật. Để quản lý các dịch vụ này, hãy đi đến NFC và thanh toán > Chạm và thanh toán > KHÁC, rồi chọn từng dịch vụ để bật hoặc tắt.</string>
+    <string name="nfc_disable_service_title">Thay đổi phương pháp NFC mặc định?</string>
+    <string name="nfc_disable_service_msg">Nếu bạn thay đổi phương pháp xử lý NFC mặc định, một số dịch vụ trong tab KHÁC sẽ bật hoặc tắt. Để quản lý các dịch vụ này, hãy đi đến NFC và thanh toán > Chạm và thanh toán > KHÁC, rồi chọn từng dịch vụ để bật hoặc tắt.</string>
     <string name="nfc_settings_advanced_setting">Phương pháp NFC mặc định</string>
     <string name="nfc_settings_advanced_uicc">Thẻ SIM SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">Thẻ SIM thành phần bảo mật</string>
@@ -2196,8 +2207,8 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
     <string name="nfc_settings_tag_message">Nếu chuyển sang chế độ Thẻ, bạn sẽ không thể tiếp tục đọc tag NFC, ghi dữ liệu vào tag hoặc trao đổi dữ liệu giữa các thiết bị.</string>
     <string name="nfc_show_alert_dialog_title">Chế độ Siêu tiết kiệm pin</string>
     <string name="nfc_show_alert_dialog_message">Không thể mở %s.</string>
-    <string name="android_beam_explained">Chia sẻ file giữa các thiết bị có hỗ trợ NFC bằng cách đưa chúng lại gần nhau. Bạn có thể chia sẻ các liên kết trang web, danh bạ và nhiều hơn nữa.</string>
-    <string name="android_beam_explained_1">Hãy đặt các thiết bị gần nhau và xoay lưng vào nhau.</string>
+    <string name="android_beam_explained">Bạn có thể chia sẻ liên kết trang web, danh bạ và nhiều hơn nữa bằng cách giữ điện thoại ở gần thiết bị có hỗ trợ NFC.</string>
+    <string name="android_beam_explained_1">Mang các thiết bị lại gần nhau và xoay lưng vào nhau.</string>
     <string name="android_beam_explained_2">Chạm màn hình của bạn.</string>
     <string name="guide_dialog_attention_title">Chú ý</string>
     <string name="nfc_off_popup_title">Tắt NFC</string>
@@ -2205,7 +2216,7 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
     <string name="cannot_use_card_without_NFC">Các chức năng liên quan đến NFC như một số phương thức chia sẻ nội dung và thanh toán NFC sẽ không hoạt động khi tắt NFC.</string>
     <string name="limit_app_contents_transfer">Chia sẻ nội dung qua NFC sẽ bị hạn chế khi tắt Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">Nếu ứng dụng đang mở có hỗ trợ Chạm và thanh toán, chức năng này sẽ được sử dụng thay cho %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Nếu ứng dụng đang mở có hỗ trợ Chạm và thanh toán, chức năng này sẽ được sử dụng.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Nếu ứng dụng đang mở hỗ trợ Chạm và thanh toán, nó sẽ được dùng để thanh toán.</string>
     <string name="folder_sounds">Âm mở/đóng thư mục</string>
     <string name="folder_sounds_summary">Phát âm thanh khi mở và đóng thư mục.</string>
     <string name="sound_category_calls_title">Các cuộc gọi đến</string>
@@ -3463,6 +3474,7 @@ Nhận tin nhắn SMS"</string>
     <string name="data_usage_reminder_item_summary">Nhận thông báo số lượng dữ liệu mà các ứng dụng đã dùng qua Wi-Fi hoặc mạng di động khi thiết bị ở trạng thái khóa trong hơn %d phút.</string>
     <string name="data_usage_reminder_description">Các ứng dụng sau đã dùng tổng cộng %s dữ liệu trong khi thiết bị được khóa:</string>
     <string name="google_settings_popup_msg">Chỉ một số lượng giới hạn các cài đặt Google khả dụng. Một số thao tác có thể không hoạt động.</string>
+    <string name="okay">OK</string>
     <string name="yes">OK</string>
     <string name="no">Không</string>
     <string name="create">Tạo mới</string>
@@ -3560,7 +3572,6 @@ Bạn có thể thay đổi điều này bằng cách đến Cài đặt Bluetoo
     <string name="phone_info_label">Thông tin thiết bị</string>
     <string name="proxy_settings_label">Cài đặt proxy</string>
     <string name="cancel">Thoát</string>
-    <string name="okay">OK</string>
     <string name="save">Lưu</string>
     <string name="done">H.tất</string>
     <string name="settings_label">Cài đặt</string>
@@ -4814,13 +4825,13 @@ Bất kỳ người dùng nào cũng có thể thay mặt tất cả người d�
     <string name="global_change_warning">Cài đặt này ảnh hưởng đến tất cả người dùng trên thiết bị này.</string>
     <string name="global_locale_change_title">Đổi ngôn ngữ</string>
     <string name="nfc_payment_settings_title">Chạm và thanh toán</string>
-    <string name="nfc_payment_no_apps">Chưa cài đặt ứng dụng dịch vụ thanh toán</string>
+    <string name="nfc_payment_no_apps">Chưa cài đặt ứng dụng thanh toán</string>
     <string name="nfc_payment_favor_default">Vẫn dùng %s</string>
     <string name="nfc_payment_favor_open">Dùng ứng dụng đang mở thay cho %s</string>
     <string name="nfc_how_it_works_got_it">Đã hiểu</string>
-    <string name="nfc_payment_set_default_label">Đặt mặc định</string>
-    <string name="nfc_payment_set_default">%s sẽ được đặt làm phương thức thanh toán mặc định cho giao dịch Chạm và thanh toán.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s sẽ thay thế %2$s làm phương thức thanh toán mặc định cho giao dịch Chạm và thanh toán.</string>
+    <string name="nfc_payment_set_default_label">Đặt ứng dụng thanh toán mặc định?</string>
+    <string name="nfc_payment_set_default">%s sẽ được đặt làm ứng dụng thanh toán mặc định của bạn cho Chạm và thanh toán.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s sẽ thay thế %2$s làm ứng dụng thanh toán mặc định của bạn cho Chạm và thanh toán.</string>
     <string name="help_label">Trợ giúp</string>
     <string name="user_restrictions_title">Hạn chế ứng dụng/nội dung</string>
     <string name="user_restrictions_controlled_by">Được điều khiển qua %1$s</string>

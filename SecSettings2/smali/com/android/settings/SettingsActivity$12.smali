@@ -53,7 +53,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f0a05b4
+    const v31, 0x7f0a05b5
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -121,7 +121,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f0a0534
+    const v31, 0x7f0a0535
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

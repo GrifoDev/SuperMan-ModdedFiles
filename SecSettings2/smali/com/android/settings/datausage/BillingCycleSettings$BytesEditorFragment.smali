@@ -53,133 +53,114 @@
 .end method
 
 .method private setupPicker(Landroid/widget/EditText;Landroid/widget/Spinner;)V
-    .locals 10
+    .locals 12
+
+    const/4 v11, 0x0
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->getTargetFragment()Landroid/app/Fragment;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Lcom/android/settings/datausage/BillingCycleSettings;
+    check-cast v5, Lcom/android/settings/datausage/BillingCycleSettings;
 
-    iget-object v8, v6, Lcom/android/settings/datausage/BillingCycleSettings;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
+    iget-object v9, v5, Lcom/android/settings/datausage/BillingCycleSettings;->services:Lcom/android/settings/datausage/TemplatePreference$NetworkServices;
 
-    iget-object v2, v8, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mPolicyEditor:Lcom/android/settingslib/NetworkPolicyEditor;
-
-    invoke-virtual {p0}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "template"
-
-    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/net/NetworkTemplate;
+    iget-object v3, v9, Lcom/android/settings/datausage/TemplatePreference$NetworkServices;->mPolicyEditor:Lcom/android/settingslib/NetworkPolicyEditor;
 
     invoke-virtual {p0}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->getArguments()Landroid/os/Bundle;
 
+    move-result-object v9
+
+    const-string/jumbo v10, "template"
+
+    invoke-virtual {v9, v10}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
     move-result-object v8
 
-    const-string/jumbo v9, "limit"
+    check-cast v8, Landroid/net/NetworkTemplate;
 
-    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->getArguments()Landroid/os/Bundle;
 
-    move-result v3
+    move-result-object v9
 
-    if-eqz v3, :cond_2
+    const-string/jumbo v10, "limit"
 
-    invoke-virtual {v2, v7}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyLimitBytes(Landroid/net/NetworkTemplate;)J
+    invoke-virtual {v9, v10}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {v3, v8}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyLimitBytes(Landroid/net/NetworkTemplate;)J
 
     move-result-wide v0
 
     :goto_0
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     :cond_0
-    const-wide/16 v4, -0x1
+    const-wide/16 v6, -0x1
 
-    long-to-float v8, v0
+    long-to-float v9, v0
 
-    const/high16 v9, 0x4ec00000
+    const/high16 v10, 0x4ec00000
 
-    cmpl-float v8, v8, v9
+    cmpl-float v9, v9, v10
 
-    if-lez v8, :cond_3
+    if-lez v9, :cond_2
 
-    long-to-float v8, v0
+    long-to-float v9, v0
 
-    const/high16 v9, 0x51c80000
+    const/high16 v10, 0x4e800000
 
-    cmpl-float v8, v8, v9
+    div-float/2addr v9, v10
 
-    if-lez v8, :cond_1
+    invoke-direct {p0, v9}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->formatText(F)Ljava/lang/String;
 
-    const-wide v0, 0x1900000000L
+    move-result-object v2
 
-    :cond_1
-    long-to-float v8, v0
+    invoke-virtual {p1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    const/high16 v9, 0x4e800000
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    div-float/2addr v8, v9
+    move-result v9
 
-    invoke-direct {p0, v8}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->formatText(F)Ljava/lang/String;
+    invoke-virtual {p1, v11, v9}, Landroid/widget/EditText;->setSelection(II)V
 
-    move-result-object v8
+    const/4 v9, 0x1
 
-    invoke-virtual {p1, v8}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Landroid/text/Editable;->length()I
-
-    move-result v8
-
-    invoke-virtual {p1, v8}, Landroid/widget/EditText;->setSelection(I)V
-
-    const/4 v8, 0x1
-
-    invoke-virtual {p2, v8}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {p2, v9}, Landroid/widget/Spinner;->setSelection(I)V
 
     :goto_1
     return-void
 
-    :cond_2
-    invoke-virtual {v2, v7}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyWarningBytes(Landroid/net/NetworkTemplate;)J
+    :cond_1
+    invoke-virtual {v3, v8}, Lcom/android/settingslib/NetworkPolicyEditor;->getPolicyWarningBytes(Landroid/net/NetworkTemplate;)J
 
     move-result-wide v0
 
     goto :goto_0
 
-    :cond_3
-    long-to-float v8, v0
+    :cond_2
+    long-to-float v9, v0
 
-    const/high16 v9, 0x49800000    # 1048576.0f
+    const/high16 v10, 0x49800000    # 1048576.0f
 
-    div-float/2addr v8, v9
+    div-float/2addr v9, v10
 
-    invoke-direct {p0, v8}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->formatText(F)Ljava/lang/String;
+    invoke-direct {p0, v9}, Lcom/android/settings/datausage/BillingCycleSettings$BytesEditorFragment;->formatText(F)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-virtual {p1, v8}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result-object v8
+    move-result v9
 
-    invoke-interface {v8}, Landroid/text/Editable;->length()I
+    invoke-virtual {p1, v11, v9}, Landroid/widget/EditText;->setSelection(II)V
 
-    move-result v8
-
-    invoke-virtual {p1, v8}, Landroid/widget/EditText;->setSelection(I)V
-
-    const/4 v8, 0x0
-
-    invoke-virtual {p2, v8}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {p2, v11}, Landroid/widget/Spinner;->setSelection(I)V
 
     goto :goto_1
 .end method
@@ -331,7 +312,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_2
 
     const-wide/32 v10, 0x100000
 
@@ -343,18 +324,7 @@
     float-to-long v0, v10
 
     :goto_1
-    long-to-float v10, v0
-
-    const/high16 v11, 0x51c80000
-
-    cmpl-float v10, v10, v11
-
-    if-lez v10, :cond_2
-
-    const-wide v0, 0x1900000000L
-
-    :cond_2
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     const-string/jumbo v10, "BillingCycleSettings"
 
@@ -385,7 +355,7 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     const-wide/32 v10, 0x40000000
 
     goto :goto_0
@@ -403,7 +373,7 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     const-string/jumbo v10, "BillingCycleSettings"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -504,7 +474,7 @@
 
     if-eqz v3, :cond_0
 
-    const v4, 0x7f0b16b6
+    const v4, 0x7f0b17d1
 
     :goto_0
     invoke-virtual {v5, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -517,7 +487,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b16b4
+    const v5, 0x7f0b17cf
 
     invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -530,7 +500,7 @@
     return-object v4
 
     :cond_0
-    const v4, 0x7f0b16b5
+    const v4, 0x7f0b17d0
 
     goto :goto_0
 .end method

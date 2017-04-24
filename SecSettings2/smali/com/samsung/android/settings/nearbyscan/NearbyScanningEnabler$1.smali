@@ -80,7 +80,15 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get2(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/samsung/android/settings/SettingsSwitchPreference;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
 
@@ -90,10 +98,10 @@
 
     if-ne v0, v2, :cond_1
 
-    move v1, v2
+    const v1, 0x7f0b19ca
 
     :goto_0
-    invoke-virtual {v4, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+    invoke-virtual {v4, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
     iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
 
@@ -103,69 +111,53 @@
 
     if-ne v0, v2, :cond_2
 
-    const v1, 0x7f0b18af
+    move v1, v2
 
     :goto_1
-    invoke-virtual {v4, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get2(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/samsung/android/settings/SettingsSwitchPreference;
-
-    move-result-object v1
-
-    if-ne v0, v2, :cond_3
-
-    :goto_2
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
+    invoke-virtual {v4, v1}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setChecked(Z)V
 
     :cond_0
-    :goto_3
+    :goto_2
     return-void
 
     :cond_1
-    move v1, v3
+    const v1, 0x7f0b19cb
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b18b0
+    move v1, v3
 
     goto :goto_1
 
     :cond_3
-    move v2, v3
+    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get3(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/android/settings/widget/SwitchBar;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get3(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/android/settings/widget/SwitchBar;
+
+    move-result-object v1
+
+    if-ne v0, v2, :cond_4
+
+    :goto_3
+    invoke-virtual {v1, v2}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
 
     goto :goto_2
 
     :cond_4
-    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get3(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/android/settings/widget/SwitchBar;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get3(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Lcom/android/settings/widget/SwitchBar;
-
-    move-result-object v1
-
-    if-ne v0, v2, :cond_5
-
-    :goto_4
-    invoke-virtual {v1, v2}, Lcom/android/settings/widget/SwitchBar;->setChecked(Z)V
+    move v2, v3
 
     goto :goto_3
 
     :cond_5
-    move v2, v3
-
-    goto :goto_4
-
-    :cond_6
     iget-object v1, p0, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler$1;->this$0:Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;
 
     invoke-static {v1}, Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;->-get1(Lcom/samsung/android/settings/nearbyscan/NearbyScanningEnabler;)Landroid/preference/SwitchPreference;
@@ -180,15 +172,15 @@
 
     move-result-object v1
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_6
 
-    :goto_5
+    :goto_4
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_7
+    :cond_6
     move v2, v3
 
-    goto :goto_5
+    goto :goto_4
 .end method

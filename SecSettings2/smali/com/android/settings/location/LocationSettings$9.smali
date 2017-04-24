@@ -82,7 +82,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b18af
+    const v1, 0x7f0b19ca
 
     :goto_1
     invoke-virtual {v3, v1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
@@ -96,7 +96,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b18b0
+    const v1, 0x7f0b19cb
 
     goto :goto_1
 .end method

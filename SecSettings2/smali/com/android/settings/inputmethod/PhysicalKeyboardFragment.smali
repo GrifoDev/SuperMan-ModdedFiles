@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/hardware/input/InputManager$InputDeviceListener;
+.implements Lcom/android/settings/search/Indexable;
 
 
 # annotations
@@ -12,6 +13,7 @@
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$-void_onLoadFinishedInternal_int_loaderId_java_util_List_keyboardsList_LambdaImpl0;,
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$1;,
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$2;,
+        Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$3;,
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$Callbacks;,
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$HardKeyboardDeviceInfo;,
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$KeyboardInfoPreference;,
@@ -19,6 +21,10 @@
         Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$Keyboards;
     }
 .end annotation
+
+
+# static fields
+.field public static final SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/Indexable$SearchIndexProvider;
 
 
 # instance fields
@@ -91,6 +97,18 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->updateShowVirtualKeyboardSwitch()V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$3;
+
+    invoke-direct {v0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$3;-><init>()V
+
+    sput-object v0, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->SEARCH_INDEX_DATA_PROVIDER:Lcom/android/settings/search/Indexable$SearchIndexProvider;
 
     return-void
 .end method
@@ -475,7 +493,7 @@
 
     check-cast v7, Landroid/app/Activity;
 
-    const v0, 0x7f0800b8
+    const v0, 0x7f0800b9
 
     invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->addPreferencesFromResource(I)V
 
@@ -559,9 +577,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$3;
+    new-instance v1, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$4;
 
-    invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$3;-><init>(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
+    invoke-direct {v1, p0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment$4;-><init>(Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 

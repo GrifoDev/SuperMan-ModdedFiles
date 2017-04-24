@@ -51,7 +51,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f0402a1
+    const v3, 0x7f0402a2
 
     invoke-virtual {p0, v3}, Lcom/android/settings/utils/ProfileSettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 

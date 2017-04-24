@@ -345,7 +345,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a024d
+    const v3, 0x7f0a024e
 
     invoke-virtual {v1, v3, v0, v4}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -663,7 +663,7 @@
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->removeDialog(I)V
 
     :cond_0
-    const v4, 0x7f0402e3
+    const v4, 0x7f0402e4
 
     invoke-virtual {v1, v4, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -781,7 +781,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a029a
+    const v7, 0x7f0a029b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -832,7 +832,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0299
+    const v5, 0x7f0a029a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -873,7 +873,7 @@
 
     iput v2, p0, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->mShownDialogId:I
 
-    const v2, 0x7f0b0209
+    const v2, 0x7f0b020a
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->getString(I)Ljava/lang/String;
 
@@ -895,7 +895,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b130d
+    const v3, 0x7f0b1428
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -907,7 +907,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b130e
+    const v3, 0x7f0b1429
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -942,7 +942,7 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/accessibility/touchsensibility/TapAndHoldDelayCustomFragment;->initDP()V
 
-    const v2, 0x7f0402e3
+    const v2, 0x7f0402e4
 
     const/4 v3, 0x0
 
@@ -1046,7 +1046,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a029a
+    const v5, 0x7f0a029b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1103,7 +1103,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0299
+    const v3, 0x7f0a029a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1211,7 +1211,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b14e6
+    const v2, 0x7f0b1601
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

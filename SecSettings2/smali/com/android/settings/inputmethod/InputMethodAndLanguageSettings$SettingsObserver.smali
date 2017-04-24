@@ -40,7 +40,7 @@
 
     iget-object v0, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$SettingsObserver;->this$0:Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;
 
-    invoke-static {v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap6(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
+    invoke-static {v0}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap7(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;)V
 
     return-void
 .end method

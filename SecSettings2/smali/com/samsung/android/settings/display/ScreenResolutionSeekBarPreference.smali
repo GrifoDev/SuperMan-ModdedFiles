@@ -30,7 +30,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f040202
+    const v5, 0x7f040203
 
     const v6, 0x7f11056e
 

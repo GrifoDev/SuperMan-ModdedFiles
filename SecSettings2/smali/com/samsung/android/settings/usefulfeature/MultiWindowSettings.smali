@@ -293,7 +293,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0908
+    const v6, 0x7f0b0914
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -478,7 +478,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0800a3
+    const v0, 0x7f0800a4
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->addPreferencesFromResource(I)V
 
@@ -548,7 +548,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b0425
+    const v2, 0x7f0b0430
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -641,9 +641,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 10
 
-    const v6, 0x7f0b18b0
+    const v6, 0x7f0b19cb
 
-    const v5, 0x7f0b18af
+    const v5, 0x7f0b19ca
 
     const/4 v4, 0x1
 
@@ -826,13 +826,15 @@
 .method public onResume()V
     .locals 10
 
-    const v4, 0x7f0b18af
+    const v4, 0x7f0b19ca
 
-    const/4 v9, 0x0
-
-    const v5, 0x7f0b18b0
+    const/4 v9, 0x1
 
     const/4 v8, 0x0
+
+    const v5, 0x7f0b19cb
+
+    const/4 v7, 0x0
 
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onResume()V
 
@@ -878,11 +880,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mPopupGesture:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v8}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mPopupGesture:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v8}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mPopupGesture:Landroid/preference/SwitchPreference;
 
@@ -904,11 +906,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mSplitScreen:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v8}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mSplitScreen:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v3, v8}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v3, v7}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mSplitScreen:Landroid/preference/SwitchPreference;
 
@@ -916,6 +918,14 @@
 
     :cond_3
     :goto_1
+    iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mPopupGesture:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v3, v9}, Landroid/preference/SwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
+    iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mSplitScreen:Landroid/preference/SwitchPreference;
+
+    invoke-virtual {v3, v9}, Landroid/preference/SwitchPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
+
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -930,7 +940,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {v3, v4, v0, v9, v9}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual {v3, v4, v0, v8, v8}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
@@ -953,9 +963,7 @@
 
     const-string/jumbo v6, "db_popup_view_shortcut"
 
-    const/4 v7, 0x1
-
-    invoke-static {v3, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v6, v9}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
@@ -996,7 +1004,7 @@
 
     const-string/jumbo v6, "db_split_screen_view_shortcut"
 
-    invoke-static {v3, v6, v8}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v3, v6, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 

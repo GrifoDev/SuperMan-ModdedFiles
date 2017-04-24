@@ -511,37 +511,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b04e6
+    const v0, 0x7f0b04f1
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b04e8
+    const v0, 0x7f0b04f3
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193e
+    const v0, 0x7f0b1a59
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b04ea
+    const v0, 0x7f0b04f5
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1946
+    const v0, 0x7f0b1a61
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b04ec
+    const v0, 0x7f0b04f7
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04ee
+    const v0, 0x7f0b04f9
 
     return v0
 
@@ -578,37 +578,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b04e6
+    const v0, 0x7f0b04f1
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b04e7
+    const v0, 0x7f0b04f2
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193e
+    const v0, 0x7f0b1a59
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b04e9
+    const v0, 0x7f0b04f4
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1945
+    const v0, 0x7f0b1a60
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b04eb
+    const v0, 0x7f0b04f6
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04ee
+    const v0, 0x7f0b04f9
 
     return v0
 
@@ -645,37 +645,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b190b
+    const v0, 0x7f0b1a26
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b193b
+    const v0, 0x7f0b1a56
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193d
+    const v0, 0x7f0b1a58
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1940
+    const v0, 0x7f0b1a5b
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1943
+    const v0, 0x7f0b1a5e
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1948
+    const v0, 0x7f0b1a63
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04ed
+    const v0, 0x7f0b04f8
 
     return v0
 
@@ -712,37 +712,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b190b
+    const v0, 0x7f0b1a26
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b193b
+    const v0, 0x7f0b1a56
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b193d
+    const v0, 0x7f0b1a58
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b193f
+    const v0, 0x7f0b1a5a
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1942
+    const v0, 0x7f0b1a5d
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1947
+    const v0, 0x7f0b1a62
 
     return v0
 
     :pswitch_6
-    const v0, 0x7f0b04ed
+    const v0, 0x7f0b04f8
 
     return v0
 
@@ -767,7 +767,7 @@
 
     iget-object v3, p0, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040240
+    const v4, 0x7f040241
 
     const/4 v5, 0x0
 
@@ -1057,13 +1057,13 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b194a    # 1.84894E38f
+    const v4, 0x7f0b1a65
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v4, 0x7f0402fd
+    const v4, 0x7f0402fe
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
@@ -1081,7 +1081,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity$6;-><init>(Lcom/android/settings/deviceinfo/UsbModeChooserActivity;)V
 
-    const v5, 0x7f0b0fd9
+    const v5, 0x7f0b10f5
 
     invoke-virtual {v1, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1325,7 +1325,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0423
+    const v3, 0x7f0b042e
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity;->getString(I)Ljava/lang/String;
 

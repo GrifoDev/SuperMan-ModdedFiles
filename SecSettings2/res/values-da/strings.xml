@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Tilsluttet via %1$s</string>
     <string name="available_via_passpoint">Tilgængelig via %1$s</string>
     <string name="wifi_connected_no_internet">Tilsluttet – intet internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet muligvis ikke tilg.</string>
     <string name="wifi_reconnecting">Parat til at tilslutte når netværkskvalitet forbedres</string>
     <string name="wifi_connected_checking_quality">Kontrollerer kvaliteten af din internetforbindelse …</string>
     <string name="wifi_sign_in_to_the_network">Log på netværket.</string>
@@ -821,7 +822,7 @@ Wi-Fi og Bluetooth vil også blive slået fra, men kan slås til igen under Inds
     <string name="default_app_selection">Standardappvalg</string>
     <string name="default_app_selection_auto_set">Angiv standardapps automatisk</string>
     <string name="default_app_selection_ask">Spørg, før der angives standardapps</string>
-    <string name="launch_application_settings">Standardapplikationer</string>
+    <string name="launch_application_settings">Standardapps</string>
     <string name="launch_application_settings_summary">Tildel apps til bestemte opgaver.</string>
     <string name="home_settings_header">Skift start</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -866,6 +867,14 @@ Appdata kan omfatte personlige oplysninger såsom kontakter, beskeder og billede
     <string name="content_description_hand">Tryk og hold på den blå cirkel i midten af skærmen.</string>
     <string name="nearby_scanning_help_msg_sub">Enheder i nærheden bruger BLE-søgning (Bluetooth Low Energy) og mikrofonen. BLE-søgning kan bruges, selvom Bluetooth er deaktiveret på denne enhed.</string>
     <string name="sec_bluetooth_no_devices_found">Der blev ikke fundet Bluetooth-enheder</string>
+    <string name="bt_tether_title">Bluetooth-internetdeling</string>
+    <string name="bt_tether_settings_on">Til</string>
+    <string name="bt_tether_settings_off">Fra</string>
+    <string name="bt_tether_off_brief_text_phone">Del din telefons internetforbindelse med andre enheder via Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Del din tablets internetforbindelse med andre enheder via Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Delte enheder</string>
+    <string name="bt_tether_server_description_phone">Del din telefons internetforbindelse ved at parre den med en anden enhed via Bluetooth. Hvis enheden er blevet delt før, kan du dele den igen ved at vælge den på listen Delte enheder.</string>
+    <string name="bt_tether_server_description_tablet">Del din tablets internetforbindelse ved at parre den med en anden enhed via Bluetooth. Hvis enheden er blevet delt før, kan du dele den igen ved at vælge den på listen Delte enheder.</string>
     <string name="bluetooth_consent_pairing_msg">Tryk på OK for at parre med %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s anmoder om tilladelse til at få adgang til dit SIM-kort. Tilladelse af dette vil deaktivere opkalds- og beskedfunktioner og slå Mobile data fra på din enhed. Vil du tillade det?
 
@@ -974,7 +983,7 @@ Selvom Smart skærmbillede er deaktiveret, har du stadig adgang til dets funktio
     <string name="downloadable_dialog_popup_text_wifi">Yderligere hjælp skal downloades. Enhed skal sluttes til et Wi-Fi-netværk. Du bliver ført videre til downloadskærmen.</string>
     <string name="back_button_label">Tilbage</string>
     <string name="next_button_label">Næste</string>
-    <string name="category_applications">Applikationer</string>
+    <string name="category_applications">Apps</string>
     <string name="data_connection_title">Underretn. om gebyrer</string>
     <string name="data_connection_message">Forbindelse til mobile netværk kan medføre yderligere gebyrer.</string>
     <string name="none_package">Denne handling kan ikke udføres, når en begrænset profil bruges.</string>
@@ -1040,8 +1049,7 @@ Selvom Smart skærmbillede er deaktiveret, har du stadig adgang til dets funktio
     <string name="active_key_title">Aktivtast</string>
     <string name="about_phone">Om enheden</string>
     <string name="theme_settings">Temaer</string>
-    <string name="wifi_calling_title">"Wi-Fi-
-opkald"</string>
+    <string name="wifi_calling_title">Wi-Fi-opkald</string>
     <string name="tab_category_connections">Forbindelse</string>
     <string name="festival_effect_settings_title">Festivaleffekt</string>
     <string name="user_manual">Brugervejledning</string>
@@ -2163,7 +2171,7 @@ Nogle NFC-transaktions- og mobilbetalingstjenester kan kræve en anden standardb
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Tillad dataudveksling, når enhed rører ved anden enhed.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Brug mobilbetalingstjenester, læs og skriv NFC-tags, og udveksl data mellem NFC-kompatible enheder.</string>
+    <string name="nfc_settings_title">Foretag mobilbetalinger, del data, og læs eller skriv NFC-tags.</string>
     <string name="nfc_settings_rw_p2p_summary">Du kan læse og skrive tags og overføre data mellem enheder.</string>
     <string name="nfcpayment_quick_toggle_title">NFC og betaling</string>
     <string name="nfc_mode_general_title">NFC-tilstand</string>
@@ -2174,18 +2182,20 @@ Nogle NFC-transaktions- og mobilbetalingstjenester kan kræve en anden standardb
     <string name="nfc_payment_enable_summary">Vælg din standard mobile betalingstjeneste.</string>
     <string name="nfc_payment_title">Betaling</string>
     <string name="nfc_others_title">Andre</string>
-    <string name="nfc_other_no_apps">Ingen installerede tjenesteapps</string>
+    <string name="nfc_other_no_apps">Der er ikke installeret tjenesteapps</string>
     <string name="nfc_payment_open_app">Hvis den åbne app understøtter Tryk og betal</string>
     <string name="nfc_payment_favor_open_default_unknown">Brug åben app</string>
     <string name="nfc_payment_favor_default_default_unknown">Ingen stand.betalingstjeneste</string>
     <string name="nfc_tts_tab_n_of_n">Fane %1$d af %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Vil du skifte standardbetalingsapp?</string>
+    <string name="nfc_payment_replace">Erstat</string>
     <string name="nfc_payment_services_title">NFC-betalingstjenester</string>
     <string name="nfc_payment_services_fail">Kunne ikke angive %s-SIM-kort til brug med NFC-betalingstjenester. Prøv igen.</string>
     <string name="nfc_payment_services_success">%s-SIM-kort angivet til brug med NFC-betalingstjenester.</string>
     <string name="nfc_preferred_general_title">Foretrukket SIM-kort</string>
     <string name="nfc_please_wait">Vent…</string>
     <string name="nfc_payment_no_sim_card">Intet SIM-kort</string>
-    <string name="nfc_disable_service_title">Skift standard-NFC-metode</string>
+    <string name="nfc_disable_service_title">Vil du skifte standard-NFC-metode?</string>
     <string name="nfc_disable_service_msg">Hvis du ændrer standardbehandlingsmetoden for NFC, vil nogle tjenester under fanen ANDRE blive aktiveret eller deaktiveret. For at administrere disse indstillinger skal du gå til NFC og betaling > Tryk og betal > ANDRE og derefter vælge hver enkelt tjeneste for at aktivere eller deaktivere den.</string>
     <string name="nfc_settings_advanced_setting">Standard-NFC-metode</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kort</string>
@@ -2198,8 +2208,8 @@ Nogle NFC-transaktions- og mobilbetalingstjenester kan kræve en anden standardb
     <string name="nfc_settings_tag_message">Hvis du skifter til Korttilstand, vil du ikke længere kunne læse NFC-tags, skrive data til dem eller udveksle data mellem enheder.</string>
     <string name="nfc_show_alert_dialog_title">Ultrastrømbes. tilstand</string>
     <string name="nfc_show_alert_dialog_message">Kunne ikke åbne: %s.</string>
-    <string name="android_beam_explained">Del filer mellem NFC-kompatible enheder ved at holde dem tæt sammen. Du kan derefter dele links til websider, kontakter og mere.</string>
-    <string name="android_beam_explained_1">Før enhederne sammen bagside mod bagside.</string>
+    <string name="android_beam_explained">Du kan derefter dele links til websider, kontakter og mere ved at holde din telefon tæt på en NFC-kompatibel enhed.</string>
+    <string name="android_beam_explained_1">Hold enhederne tæt sammen bagside mod bagside.</string>
     <string name="android_beam_explained_2">Tryk på din skærm.</string>
     <string name="guide_dialog_attention_title">Bemærk!</string>
     <string name="nfc_off_popup_title">Deaktiver NFC</string>
@@ -2207,7 +2217,7 @@ Nogle NFC-transaktions- og mobilbetalingstjenester kan kræve en anden standardb
     <string name="cannot_use_card_without_NFC">NFC-relaterede funktioner, såsom nogle metoder til at dele indhold og NFC-betaling, vil ikke være tilgængelige, når NFC er deaktiveret.</string>
     <string name="limit_app_contents_transfer">Deling af indhold via NFC vil være begrænset, når Android Beam er deaktiveret.</string>
     <string name="nfc_payment_dialog_favor_open">Hvis den åbne app understøtter Tryk og betal, vil den blive brugt i stedet for %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Hvis den åbne app understøtter Tryk og betal, vil den blive brugt.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Hvis den åbne app understøtter Tryk og betal, vil den blive brugt til betaling.</string>
     <string name="folder_sounds">Åbne/lukke mappe-lyde</string>
     <string name="folder_sounds_summary">Afspil lyd ved åbning og lukning af mappe.</string>
     <string name="sound_category_calls_title">Indgående opkald</string>
@@ -3465,6 +3475,7 @@ Modtager sms"</string>
     <string name="data_usage_reminder_item_summary">Modtag meddelelser, som viser hvor meget data, der er blevet brugt af apps via Wi-Fi eller mobile netværk, mens enheden var låst i mere end %d minutter.</string>
     <string name="data_usage_reminder_description">Følgende apps brugte i alt %s data, mens enheden var låst:</string>
     <string name="google_settings_popup_msg">Der er kun et begrænset antal Google-indstillinger tilgængelige. Visse handlinger fungerer muligvis ikke.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ja</string>
     <string name="no">Nej</string>
     <string name="create">Opret</string>
@@ -3562,7 +3573,6 @@ Du vil ikke kunne bruge krypterede filer på SD-kortet, når du har nulstillet d
     <string name="phone_info_label">Enhedsinfo</string>
     <string name="proxy_settings_label">Proxy-indstillinger</string>
     <string name="cancel">Annuller</string>
-    <string name="okay">OK</string>
     <string name="save">Gem</string>
     <string name="done">Udført</string>
     <string name="settings_label">Indstillinger</string>
@@ -4816,13 +4826,13 @@ Enhver bruger kan acceptere opdaterede programtilladelser på vegne af alle andr
     <string name="global_change_warning">Denne indstilling påvirker alle brugere af denne enhed.</string>
     <string name="global_locale_change_title">Skift sprog</string>
     <string name="nfc_payment_settings_title">Tryk og betal</string>
-    <string name="nfc_payment_no_apps">Ingen installerede betalingstjenesteapps</string>
+    <string name="nfc_payment_no_apps">Der er ikke installeret nogen betalingsapps</string>
     <string name="nfc_payment_favor_default">Brug stadig %s</string>
     <string name="nfc_payment_favor_open">Brug den åbne app i stedet for %s</string>
     <string name="nfc_how_it_works_got_it">OK</string>
-    <string name="nfc_payment_set_default_label">Angiv som standard</string>
-    <string name="nfc_payment_set_default">%s bliver indstillet som din standardbetalingsmetode for Tryk-og-betal-transaktioner.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s erstatter %2$s som din standardbetalingsmetode for Tryk-og-betal-transaktioner.</string>
+    <string name="nfc_payment_set_default_label">Angiv standardbetalingsapp?</string>
+    <string name="nfc_payment_set_default">%s bliver indstillet som din standardbetalingsapp for Tryk og betal.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s vil erstatte %2$s som din standardbetalingsapp for Tryk og betal.</string>
     <string name="help_label">Hjælp</string>
     <string name="user_restrictions_title">Begrænsninger i program/indhold</string>
     <string name="user_restrictions_controlled_by">Styret via %1$s</string>

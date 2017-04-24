@@ -71,7 +71,7 @@
 
     iget-object v5, p0, Lcom/android/settings/location/LocationSettings$PackageEntryClickedListener;->mUserHandle:Landroid/os/UserHandle;
 
-    const v3, 0x7f0b13da
+    const v3, 0x7f0b14f5
 
     const/4 v4, 0x0
 

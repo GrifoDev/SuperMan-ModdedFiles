@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">​ເຊື່ອມຕໍ່​ຜ່ານ %1$s ​ແລ້ວ</string>
     <string name="available_via_passpoint">ມີ​ໃຫ້​ຜ່ານ %1$s</string>
     <string name="wifi_connected_no_internet">​ເຊື່ອມ​ຕໍ່​ແລ້ວ,​ ບໍ່​ມີ​ອິນ​ເຕີ​ເນັດ</string>
+    <string name="wifi_internet_may_not_be_available">ອາດຈະບໍ່ມີອິນເຕີເນັດຢູ່</string>
     <string name="wifi_reconnecting">ພ້ອມເຊື່ອມຕໍ່ ເມື່ອຄຸນນະພາບເຄືອຂ່າຍດີຂຶ້ນ</string>
     <string name="wifi_connected_checking_quality">ກໍາລັງກວດສອບຄຸນນະພາບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ…</string>
     <string name="wifi_sign_in_to_the_network">ລົງຊື່ເຂົ້າໃຊ້ເຄືອຂ່າຍ.</string>
@@ -382,7 +383,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d ລາຍການທີ່ກ່ຽວຂ້ອງ</string>
     <string name="no_results_found">ບໍ່ພົບຜົນໄດ້ຮັບ</string>
     <string name="menu_edit">​ແກ້​ໄຂ</string>
-    <string name="reset">ຕັ້ງຄ່າ​ຄືນ​ໃໝ່</string>
+    <string name="reset">ຕັ້ງຄືນ​ໃໝ່</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">ອະນຸຍາດໃຫ້ Voice Assistant ຮູ້ ເມື່ອທ່ານກໍາລັງໃຊ້ແອັບ.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">ແຕ້ມ​ທິດ​ທາງ​ຢູ່​ໃນ​ພື້ນ​ທີ່​ລຸ່ມ​ຂໍ້​ຄວາມ​ນີ້ ແລະ​ເທິງ​ປຸ່ມ​ທີ່​ຕັ້ງ​ຢູ່​ເທິງ​ໜ້າ​ຈໍ.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">ຢືນ​ຢັນປຸ່ມທີ່​ຕັ້ງຢູ່ໃນມຸມຂວາດ້ານລຸ່ມຂອງໜ້າຈໍ.</string>
@@ -819,7 +820,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="default_app_selection">ການເລືອກແອັບມາດຕະຖານ</string>
     <string name="default_app_selection_auto_set">ຕັ້ງແອັບມາດຕະຖານໂດຍອັດຕະໂນມັດ</string>
     <string name="default_app_selection_ask">ຖາມກ່ອນຕັ້ງຄ່າແອັບມາດຕະຖານ</string>
-    <string name="launch_application_settings">ແອພພລິເຄຊັນເລີ່ມຕົ້ນ</string>
+    <string name="launch_application_settings">ແອັບມາດຕະຖານ</string>
     <string name="launch_application_settings_summary">ລະບຸແອັບສຳລັບໜ້າວຽກບາງຢ່າງ.</string>
     <string name="home_settings_header">ປ່ຽນໜ້າຈໍຫຼັກ</string>
     <string name="home_settings_customer_mode_summary">ເຮັດໃຫ້ໂທລະສັບຂອງທ່ານງ່າຍຂຶ້ນ ແລະຮູ້ສຶກໄດ້ເອງຫຼາຍຂຶ້ນ ເພື່ອໃຊ້ກັບໜ້າຈໍຫຼັກໂດໂຄໂມ</string>
@@ -864,6 +865,14 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="content_description_hand">ແຕະວົງມົນສີຟ້າຢູ່ໃຈກາງຂອງໜ້າຈໍຄ້າງໄວ້.</string>
     <string name="nearby_scanning_help_msg_sub">ການສະແກນອຸປະກອນໃກ້ຄຽງໃຊ້ການສະແກນບລູທູດແລະໄມໂຄຣໂຟນທີ່ໃຊ້ພະລັງຕ່ຳ. ການສະແກນບລູທູດທີ່ໃຊ້ພະລັງງານຕ່ຳສາມາດໃຊ້ແມ້ກະທັ້ງໃນຂະນະທີ່ບລູທູດປິດຢູ່ໃນອຸປະກອນນີ້.</string>
     <string name="sec_bluetooth_no_devices_found">ບໍ່ພົບອຸປະກອນບລູທູດ</string>
+    <string name="bt_tether_title">ການເຊື່ອມໂຍງເຄືອຂ່າຍດ້ວຍບລູທູດ</string>
+    <string name="bt_tether_settings_on">ເປີດ</string>
+    <string name="bt_tether_settings_off">ປິດ</string>
+    <string name="bt_tether_off_brief_text_phone">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດໂທລະສັບຂອງທ່ານກັບອຸປະກອນອື່ນໂດຍໃຊ້ບລູທູດ.</string>
+    <string name="bt_tether_off_brief_text_tablet">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດແທັບເລັດຂອງທ່ານກັບອຸປະກອນອື່ນໂດຍໃຊ້ບລູທູດ.</string>
+    <string name="bt_tether_preference_tethered_device_list">ອຸປະກອນທີ່ຖືກເຊື່ອມໂຍງ</string>
+    <string name="bt_tether_server_description_phone">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດໂທລະສັບຂອງທ່ານໂດຍການຈັບຄູ່ກັບອຸປະກອນອື່ນໂດຍໃຊ້ບລູທູດ. ຖ້າອຸປະກອນໄດ້ຖືກເຊື່ອມໂຍງກ່ອນແລ້ວ, ທ່ານສາມາດເຊື່ອມໂຍງມັນອີກຄັ້ງໂດຍການເລືອກມັນຈາກລາຍການອຸປະກອນທີ່ເຊື່ອມໂຍງແລ້ວ.</string>
+    <string name="bt_tether_server_description_tablet">ແຊຣ໌ການເຊື່ອມຕໍ່ອິນເຕີເນັດແທັບເລັດຂອງທ່ານໂດຍການຈັບຄູ່ກັບອຸປະກອນອື່ນໂດຍໃຊ້ບລູທູດ. ຖ້າອຸປະກອນໄດ້ຖືກເຊື່ອມໂຍງກ່ອນແລ້ວ, ທ່ານສາມາດເຊື່ອມໂຍງມັນອີກຄັ້ງໂດຍການເລືອກມັນຈາກລາຍການອຸປະກອນທີ່ເຊື່ອມໂຍງແລ້ວ.</string>
     <string name="bluetooth_consent_pairing_msg">ແຕະ [ຕົກລົງ] ເພື່ອຈັບຄູ່ກັບ %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s ກໍາລັງຂໍການອະນຸຍາດເຂົ້າໃຊ້ແຜ່ນ SIM ຂອງທ່ານ. ການອະນຸຍາດໃຫ້ຄໍາຂໍນີ້ຈະປິດໃຊ້ງານຟັງຄ໌ຊັນການໂທ ແລະການສົ່ງຂໍ້ຄວາມ, ແລະປິດຂໍ້ມູນມືຖືຢູ່ໃນອຸປະກອນຂອງທ່ານ. ອະ​ນຸ​ຍາດ​ບໍ?
 
@@ -972,7 +981,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="downloadable_dialog_popup_text_wifi">ຕ້ອງດາວໂຫຼດເນື້ອໃນຊ່ວຍເພີ່ມເຕີມ. ຕ້ອງເຊື່ອມຕໍ່ເຄື່ອງກັບເຄືອຂ່າຍ Wi-Fi. ທ່ານຈະຖືກນໍາພາໄປຫາໜ້າຈໍດາວໂຫຼດ.</string>
     <string name="back_button_label">ກັບ​ຄືນ</string>
     <string name="next_button_label">ຕໍ່ໄປ</string>
-    <string name="category_applications">ແອພພລິເຄຊັນ</string>
+    <string name="category_applications">ແອັບ</string>
     <string name="data_connection_title">ການແຈ້ງເລື່ອງການເກັບຄ່າ</string>
     <string name="data_connection_message">ການເຊື່ອມຕໍ່ໃສ່ເຄືອຂ່າຍໂທລະສັບມືຖືອາດຈະເຮັດໃຫ້ມີຄ່າໃຊ້ຈ່າຍເພີ່ມຂຶ້ນ.</string>
     <string name="none_package">ການກະທໍານີ້ບໍ່ສາມາດເຮັດໄດ້ ໃນຂະນະທີ່ກໍາລັງໃຊ້ໂປຣໄຟລ໌ທີ່ຖືກຈໍາກັດໄວ້.</string>
@@ -2159,7 +2168,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">ອະນຸຍາດໃຫ້ມີການແລກປ່ຽນຂໍ້ມູນ ເມື່ອເຄື່ອງສໍາຜັດກັບເຄື່ອງອື່ນ.</string>
     <string name="android_beam_settings_title">ແອນດຣອຍບີມ</string>
-    <string name="nfc_settings_title">ໃຊ້ການບໍລິການຊຳລະມືຖື, ອ່ານແລະຂຽນແທັກ NFC, ແລະແລກປ່ຽນຂໍ້ມູນລະຫວ່າງອຸປະກອນ NFC-ທີ່ສາມາດໃຊ້ໄດ້.</string>
+    <string name="nfc_settings_title">ເຮັດການຊຳລະມືຖື, ແຊຣ໌ຂໍ້ມູນ, ແລະອ່ານ ຫຼື ຂຽນແທັກ NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">ທ່ານສາມາດອ່ານ ແລະຂຽນແທັກບອກ ແລະໂອນຂໍ້ມູນລະຫວ່າງເຄື່ອງໄດ້.</string>
     <string name="nfcpayment_quick_toggle_title">NFC ແລະການຊຳ​ລະ</string>
     <string name="nfc_mode_general_title">ໂໝດ NFC</string>
@@ -2170,19 +2179,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">ເລືອກການບໍລິການຊໍາລະມາດຕະຖານຂອງທ່ານ.</string>
     <string name="nfc_payment_title">ການຊໍາລະ</string>
     <string name="nfc_others_title">ອື່ນໆ</string>
-    <string name="nfc_other_no_apps">ບໍ່​ມີ​ແອັບ​ການ​ບໍ​ລິ​ການ​​ຖືກຕິດ​ຕັ້ງ</string>
+    <string name="nfc_other_no_apps">ບໍ່​ມີ​ແອັບການບໍລິການຖືກຕິດຕັ້ງ</string>
     <string name="nfc_payment_open_app">ຖ້າເປີດການຮອງຮັບແອັບ ແຕະແລະຊຳລະ</string>
     <string name="nfc_payment_favor_open_default_unknown">ໃຊ້ແອັບທີ່ເປີດຢູ່</string>
     <string name="nfc_payment_favor_default_default_unknown">ບໍ່ມີການບໍລິການການຊຳລະມາດຕະຖານ</string>
     <string name="nfc_tts_tab_n_of_n">ແຕະ %1$d ໃນ %2$d.</string>
+    <string name="nfc_payment_replace_default_label">ປ່ຽນແທນແອັບການຊຳລະມາດຕະຖານບໍ?</string>
+    <string name="nfc_payment_replace">ປ່ຽນແທນ</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">SIM ທີ່ເລືອກ</string>
     <string name="nfc_please_wait">ກະລຸນາ ລໍຖ້າ…</string>
     <string name="nfc_payment_no_sim_card">ບໍ່ມີແຜ່ນ SIM</string>
-    <string name="nfc_disable_service_title">ປ່ຽນວິທີ NFC ມາດຕະຖານ</string>
-    <string name="nfc_disable_service_msg">ຖ້າທ່ານປ່ຽນວິທີການປະມວນຜົນ NFC ມາດຕະຖານ, ການບໍລິການບາງຢ່າງໃນແທັບອື່ນຈະຖືກປິດໃຊ້ງານຫຼືເປີດໃຊ້ງານ. ເພື່ອຈັດການການບໍລິການເຫຼົ່ານີ້, ໄປທີ່ NFC ແລະການຊຳລະ > ແຕະແລະຊຳລະ > ອື່ນໆ, ຈາກນັ້ນເລືອກແຕ່ລະການບໍລິການເພື່ອເປີດໃຊ້ງານຫຼືປິດໃຊ້ງານມັນ.</string>
+    <string name="nfc_disable_service_title">ປ່ຽນວິທີ NFC ມາດຕະຖານບໍ?</string>
+    <string name="nfc_disable_service_msg">ຖ້າທ່ານປ່ຽນແປງວິທີການດຳເນີນການ NFC ມາດຕະຖານ, ການບໍລິການບາງຢ່າງໃນແຖບອື່ນຈະຖືກເປີດ ຫຼື ປິດ. ເພື່ອຈັດການການບໍ​ລິ​ການເຫຼົ່ານີ້, ໄປທີ່ NFC ແລະການຊຳລະ > ແຕະແລະຊຳລະ > ອື່ນໆ, ຈາກນັ້ນເລືອກແຕ່ລະການບໍລິການເພື່ອເປີດ ຫຼື ປິດມັນ.</string>
     <string name="nfc_settings_advanced_setting">ວິທີ NFC ມາດຕະຖານ</string>
     <string name="nfc_settings_advanced_uicc">ແຜ່ນ SIM ຂອງ SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">ແຜ່ນ SIM ທີ່ມີອົງປະກອບປອດໄພ</string>
@@ -2194,7 +2205,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">ຖ້າ​ທ່ານ​ສັບ​ປ່ຽນ​ເປັນ​ໂໝດ​ບັດ, ທ່ານ​ຈະ​ບໍ່​ສາ​ມາດ​ອ່ານ​ແທັກ NFC, ຂຽນ​ຂໍ້​ມູນ​ໃສ່ພວກ​ມັນ​, ຫຼື​ແລກ​ປ່ຽນ​ຂໍ້​ມູນ​ລະ​ຫວ່າງ​ອຸ​ປະ​ກອນ​ໄດ້ອີກ​ຕໍ່​ໄປ.</string>
     <string name="nfc_show_alert_dialog_title">ໂໝດປະຢັດໄຟພິເສດ</string>
     <string name="nfc_show_alert_dialog_message">ບໍ່ສາມາດເປີດ %s ໄດ້.</string>
-    <string name="android_beam_explained">ແຊຣ໌ໄຟລ໌ລະຫວ່າງອຸປະກອນທີ່ສາມາດໃຊ້ NFC ໄດ້ໂດຍຖືພວກມັນເຂົ້າມາໃກ້ກັນ. ຈາກນັ້ນທ່ານສາມາດແຊຣ໌ລິ້ງໜ້າເວັບ, ຜູ້ຕິດຕໍ່, ແລະອື່ນໆ.</string>
+    <string name="android_beam_explained">ທ່ານສາມາດແຊຣ໌ລິ້ງໜ້າເວັບ, ຜູ້ຕິດຕໍ່, ແລະອື່ນໆໂດຍການຖືໂທລະສັບຂອງທ່ານໃກ້ກັບອຸປະກອນ NFC-ທີ່ເຂົ້າກັນໄດ້.</string>
     <string name="android_beam_explained_1">ເອົາອຸປະກອນມາເຂົ້າໃສ່ກັນ, ເອົາເບື້ອງຫຼັງແປະກັນ.</string>
     <string name="android_beam_explained_2">ແຕະໜ້າຈໍຂອງທ່ານ.</string>
     <string name="guide_dialog_attention_title">ຂໍ້ຄວນຄຳນຶງ</string>
@@ -2203,7 +2214,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">ຟັງຄ໌ຊັນທີ່ກ່ຽວຂ້ອງກັບ NFC ເຊັ່ນ: ການແຊຣ໌ເນື້ອໃນ ແລະການຊໍາລະ NFC ບາງວິທີແມ່ນຈະບໍ່ມີ ເມື່ອ NFC ປິດ.</string>
     <string name="limit_app_contents_transfer">ການແຊຣ໌ເນື້ອໃນຜ່ານ NFC ຈະຖືກຈໍາກັດເມື່ອແອນດຣອຍບີມປິດ.</string>
     <string name="nfc_payment_dialog_favor_open">ຖ້າແອັບທີ່ເປີດຢູ່ໃນປະຈຸບັນຮອງຮັບ ແຕະແລະຫຼິ້ນ, ມັນຈະຖືກນຳໃຊ້ແທນ %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">ຖ້າແອັບທີ່ເປີດຢູ່ໃນປະຈຸບັນຮອງຮັບ ແຕະແລະຫຼິ້ນ, ມັນຈະຖືກນຳໃຊ້.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">ຖ້າແອັບທີ່ເປີດຢູ່ໃນປະຈຸບັນຮອງຮັບ ແຕະແລະຫຼິ້ນ, ມັນຈະຖືກໃຊ້ສຳລັບການຊຳລະ.</string>
     <string name="folder_sounds">ສຽງເປີດ/ປິດໂຟລເດີ</string>
     <string name="folder_sounds_summary">ຫຼິ້ນສຽງເມື່ອເປີດແລະປິດໂຟລເດີ</string>
     <string name="sound_category_calls_title">ສາຍໂທເຂົ້າຕ່າງໆ</string>
@@ -3460,6 +3471,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">ຮັບການແຈ້ງເຕືອນທີ່ສະແດງຈຳນວນຂໍ້ມູນທີ່ໃຊ້ໂດຍແອັບຜ່ານ Wi-Fi ຫຼືເຄືອຂ່າຍມືຖື, ເມື່ອອຸປະກອນຖືກລັອກຫຼາຍກວ່າ %d ນາທີ.</string>
     <string name="data_usage_reminder_description">ແອັບຕໍ່ໄປນີ້ທີ່ໃຊ້ %s ຂອງຂໍ້ມູນທັງໝົດ ໃນຂະນະທີ່ອຸປະກອນຖືກລັອກ:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ຕົກລົງ</string>
     <string name="yes">ແມ່ນ</string>
     <string name="no">ບໍ່</string>
     <string name="create">ສ້າງ</string>
@@ -3557,7 +3569,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">ຂໍ້ມູນເຄື່ອງ</string>
     <string name="proxy_settings_label">ຕັ້ງຄ່າ ພຣັອກຊີ</string>
     <string name="cancel">ຍົກເລີກ</string>
-    <string name="okay">ຕົກລົງ</string>
     <string name="save">ບັນທຶກ</string>
     <string name="done">ສໍາເລັດແລ້ວ</string>
     <string name="settings_label">ຕັ້ງຄ່າ</string>
@@ -4812,13 +4823,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ການຕັ້ງຄ່ານີ້ກະທົບຕໍ່ກັບຜູ້ໃຊ້ເຄື່ອງນີ້ທຸກຄົນ.</string>
     <string name="global_locale_change_title">ປ່ຽນພາສາ</string>
     <string name="nfc_payment_settings_title">ແຕະ ແລະຈ່າຍ</string>
-    <string name="nfc_payment_no_apps">ບໍ່​ມີ​ແອັບ​ການ​ບໍ​ລິ​ການ​ຊຳ​ລະ​ຖືກ​ຕັ້ງ​ໄວ້</string>
+    <string name="nfc_payment_no_apps">ບໍ່​ມີ​ແອັບການຊຳລະຖືກຕິດຕັ້ງ</string>
     <string name="nfc_payment_favor_default">ຍັງໃຊ້ %s</string>
     <string name="nfc_payment_favor_open">ໃຊ້ແອັບເປີດແທນ %s</string>
     <string name="nfc_how_it_works_got_it">ເຂົ້າໃຈ</string>
-    <string name="nfc_payment_set_default_label">ຕັ້ງເປັນຄ່າມາດຕະຖານ</string>
-    <string name="nfc_payment_set_default">%s ຈະຖືກຕັ້ງເປັນວິທີການຊໍາລະມາດຕະຖານຂອງທ່ານສໍາລັບການແຕະ ແລະຈ່າຍການດໍາເນີນການ.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s ຈະປ່ຽນແທນ %2$s ເປັນວິທີການຊໍາລະມາດຕະຖານຂອງທ່ານສໍາລັບການແຕະ ແລະຈ່າຍການດໍາເນີນການ.</string>
+    <string name="nfc_payment_set_default_label">ຕັ້ງແອັບການຊໍາລະມາດຕະຖານບໍ?</string>
+    <string name="nfc_payment_set_default">%s ຈະຖືກຕັ້ງເປັນແອັບການຊໍາລະມາດຕະຖານຂອງທ່ານສໍາລັບ ແຕະແລະຊຳລະ.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s ຈະປ່ຽນແທນ %2$s ເປັນແອັບການຊໍາລະມາດຕະຖານຂອງທ່ານສໍາລັບການແຕະແລະຊຳລະ.</string>
     <string name="help_label">ຊ່ວຍ​ເຫຼືອ</string>
     <string name="user_restrictions_title">ຂໍ້ຫ້າມແອພພລິເຄຊັນ/ເນື້ອໃນ</string>
     <string name="user_restrictions_controlled_by">ໄດ້ຄວບຄຸມຜ່ານ %1$s</string>
@@ -5124,7 +5135,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">ປິດໃຊ້ງານແລ້ວ</string>
     <string name="backup_disabled">ປິດໃຊ້ງານແບັກອັບອັດຕະໂນມັດແລ້ວ</string>
     <string name="about_summary">ແອນດຣອຍ %s</string>
-    <string name="disabled_by_policy_title">ບໍ່ສາມາດດຳເນີນການກະທຳໄດ້</string>
+    <string name="disabled_by_policy_title">ບໍ່ສາມາດປະຕິບັດການດໍາເນີນການໄດ້</string>
     <string name="default_admin_support_msg">ທ່ານບໍ່ມີການອະນຸຍາດໃຫ້ດຳເນີນການກະທຳນີ້. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ ຕິດຕໍ່ຜູ້ເບິ່ງແຍງລະບົບ IT ຂອງອົງການທ່ານ.</string>
     <string name="admin_support_more_info">ລາຍລະອຽດເພີ່ມເຕີມ</string>
     <string name="admin_profile_owner_message">ຜູ້ເບິ່ງແຍງລະບົບສາມາດຕິດຕາມແລະຈັດການແອັບແລະຂໍ້ມູນທີ່ກ່ຽວຂ້ອງກັບໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຂອງທ່ານ, ລວມທັງການຕັ້ງຄ່າ, ການອະນຸຍາດ, ການເຂົ້າເຖິງຂອງບໍລິສັດ, ກິດຈະກຳເຄືອຂ່າຍ, ແລະຂໍ້ມູນຈຸດທີ່ຕັ້ງຂອງອຸປະກອນ.</string>

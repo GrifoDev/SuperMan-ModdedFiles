@@ -221,7 +221,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mDiscoveryHelpMsgPreference:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
-    const v1, 0x7f0401d5
+    const v1, 0x7f0401d6
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->setLayoutResource(I)V
 
@@ -232,7 +232,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0f5b
+    const v2, 0x7f0b1077
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -385,7 +385,7 @@
 
     iget-object v2, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
-    const v3, 0x7f0401f7
+    const v3, 0x7f0401f8
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->setLayoutResource(I)V
 
@@ -408,7 +408,7 @@
 
     iget v3, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mFilterType:I
 
-    const v4, 0x7f0b10d2
+    const v4, 0x7f0b11ed
 
     invoke-direct {p0, v2, v4, v3}, Lcom/android/settings/bluetooth/DevicePickerFragment;->addDeviceCategory(Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;II)V
 
@@ -468,7 +468,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b03bf
+    const v3, 0x7f0b03c0
 
     invoke-static {v2, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -522,7 +522,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b03c0
+    const v3, 0x7f0b03c1
 
     invoke-static {v2, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -616,7 +616,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 5
 
-    const v4, 0x7f0b0f60
+    const v4, 0x7f0b107c
 
     const/16 v2, 0xc
 
@@ -660,7 +660,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b10b3
+    const v2, 0x7f0b11ce
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -737,7 +737,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0b1462
+    const v1, 0x7f0b157d
 
     :goto_0
     invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
@@ -768,7 +768,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0b0f4b
+    const v1, 0x7f0b1067
 
     goto :goto_0
 
@@ -1174,7 +1174,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mScan:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b0f4b
+    const v2, 0x7f0b1067
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -1367,7 +1367,7 @@
 
     if-eqz p1, :cond_1
 
-    const v4, 0x7f0b1462
+    const v4, 0x7f0b157d
 
     :goto_0
     invoke-interface {v6, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1388,7 +1388,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b0f4b
+    const v4, 0x7f0b1067
 
     goto :goto_0
 

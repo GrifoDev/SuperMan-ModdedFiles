@@ -402,11 +402,7 @@
 
     move-result-object v21
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    invoke-static {v0, v1}, Landroid/os/FactoryTest;->isFactoryMode(Landroid/content/Context;Landroid/telephony/TelephonyManager;)Z
+    invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v13
 
@@ -444,7 +440,7 @@
 
     iget-object v2, v0, Lcom/android/settingslib/drawer/Tile;->support:Ljava/lang/String;
 
-    const-string/jumbo v4, "KNOXCUSTOM_PROKIOSK"
+    const-string/jumbo v4, "KNOXCUSTOM_KIOSK"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -481,7 +477,7 @@
 
     iget-object v2, v0, Lcom/android/settingslib/drawer/Tile;->support:Ljava/lang/String;
 
-    const-string/jumbo v4, "KNOXCUSTOM_PROKIOSK"
+    const-string/jumbo v4, "KNOXCUSTOM_KIOSK"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 

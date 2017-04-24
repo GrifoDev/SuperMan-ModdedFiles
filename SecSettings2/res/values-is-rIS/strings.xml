@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Tengt í gegnum %1$s</string>
     <string name="available_via_passpoint">Í boði í gegnum %1$s</string>
     <string name="wifi_connected_no_internet">Tengt, enginn internetaðgangur</string>
+    <string name="wifi_internet_may_not_be_available">Net er hugsanlega ekki í boði</string>
     <string name="wifi_reconnecting">Tilbúið til tengingar þegar netgæði hafa aukist</string>
     <string name="wifi_connected_checking_quality">Athuga gæði nettengingarinnar þinnar…</string>
     <string name="wifi_sign_in_to_the_network">Skráðu þig inn á kerfið.</string>
@@ -866,6 +867,14 @@ Forritagögn geta innhaldið persónuupplýsingar líkt og tengiliði, skilaboð
     <string name="content_description_hand">Haltu fingri á bláa hringnum á miðjum skjánum.</string>
     <string name="nearby_scanning_help_msg_sub">Leit að nálægum tækjum notar Bluetooth Low Energy-leit og hljóðnemann. Hægt er að nota Bluetooth Low Energy-leit jafnvel þótt slökkt sé á Bluetooth í tækinu.</string>
     <string name="sec_bluetooth_no_devices_found">Engin Bluetooth-tæki fundust</string>
+    <string name="bt_tether_title">Bluetooth-tjóðrun</string>
+    <string name="bt_tether_settings_on">Kveikt</string>
+    <string name="bt_tether_settings_off">Slökkt</string>
+    <string name="bt_tether_off_brief_text_phone">Deildu internettengingu símans með öðrum tækjum í gegnum Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Deildu internettengingu spjaldtölvunnar með öðrum tækjum í gegnum Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Tjóðruð tæki</string>
+    <string name="bt_tether_server_description_phone">Deildu internettengingu símans með því að para hann við annað tæki með Bluetooth. Ef tækið hefur áður verið tjóðrað er hægt að tjóðra það aftur með því að velja það af listanum „Tjóðruð tæki“.</string>
+    <string name="bt_tether_server_description_tablet">Deildu internettengingu spjaldtölvunnar með því að para hana við annað tæki með Bluetooth. Ef tækið hefur áður verið tjóðrað er hægt að tjóðra það aftur með því að velja það af listanum „Tjóðruð tæki“.</string>
     <string name="bluetooth_consent_pairing_msg">Pikkaðu á Í LAGI til að para við %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s biður um leyfi til að fá aðgang að SIM-kortinu þínu. Ef þú verður við beiðninni verður slökkt á símtala- og skilaboðaeiginleikum og farsímagögnum í tækinu. Viltu leyfa það?
 
@@ -2162,7 +2171,7 @@ Sumar NFC-færslur og farsímagreiðsluþjónustur kunna að krefjast annarrar s
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Leyfa gagnaflutning þegar tækið snertir annað tæki.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Nota farsímagreiðsluþjónustu, lesa og skrifa NFC-merki og skiptast á gögnum milli tækja sem styðja NFC.</string>
+    <string name="nfc_settings_title">Greiða með farsímanum, deila gögnum og lesa eða skrifa NFC-merki.</string>
     <string name="nfc_settings_rw_p2p_summary">Hægt er að lesa og skrifa merki og flytja gögn á milli tækja.</string>
     <string name="nfcpayment_quick_toggle_title">NFC og greiðsla</string>
     <string name="nfc_mode_general_title">NFC-stilling</string>
@@ -2173,19 +2182,21 @@ Sumar NFC-færslur og farsímagreiðsluþjónustur kunna að krefjast annarrar s
     <string name="nfc_payment_enable_summary">Veldu sjálfgefna farsímagreiðsluþjónustu.</string>
     <string name="nfc_payment_title">Greiðsla</string>
     <string name="nfc_others_title">Annað</string>
-    <string name="nfc_other_no_apps">Engin uppsett þjónustuforrit</string>
+    <string name="nfc_other_no_apps">Engin þjónustuforrit uppsett</string>
     <string name="nfc_payment_open_app">Ef opið forrit styður snertigreiðslu</string>
     <string name="nfc_payment_favor_open_default_unknown">Nota opið forrit</string>
     <string name="nfc_payment_favor_default_default_unknown">Engin sjálfgefin greiðsluþj.</string>
     <string name="nfc_tts_tab_n_of_n">Flipi %1$d af %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Viltu skipta um sjálfgefið greiðsluforrit?</string>
+    <string name="nfc_payment_replace">Skipta út</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Valið SIM-kort</string>
     <string name="nfc_please_wait">Augnablik…</string>
     <string name="nfc_payment_no_sim_card">Ekkert SIM-kort</string>
-    <string name="nfc_disable_service_title">Breyta sjálfgefnum NFC-máta</string>
-    <string name="nfc_disable_service_msg">Ef skipt er um sjálfgefna NFC-úrvinnsluaðferð er mögulega slökkt eða kveikt á einhverri þjónustu á flipanum „ANNAÐ“. Til að stjórna þessari þjónustu skaltu fara í „NFC og greiðsla > Pikka og greiða > ANNAÐ“ og velja svo hverja þjónustu fyrir sig til að kveikja eða slökkva á henni.</string>
+    <string name="nfc_disable_service_title">Viltu breyta sjálfgefnum NFC-máta?</string>
+    <string name="nfc_disable_service_msg">Ef skipt er um sjálfgefna NFC-úrvinnsluaðferð er mögulega slökkt eða kveikt á einhverri þjónustu á flipanum ANNAÐ. Til að stjórna þessari þjónustu skaltu fara í „NFC og greiðsla > Snertigreiðsla > ANNAÐ“ og velja svo hverja þjónustu fyrir sig til að kveikja eða slökkva á henni.</string>
     <string name="nfc_settings_advanced_setting">Sjálfgefinn NFC-máti</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kort</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM-kort fyrir örugga einingu</string>
@@ -2197,7 +2208,7 @@ Sumar NFC-færslur og farsímagreiðsluþjónustur kunna að krefjast annarrar s
     <string name="nfc_settings_tag_message">Ef þú skiptir yfir í kortastillingu geturðu ekki lengur lesið NFC-merki, skrifað gögn í þau eða skipst á gögnum milli tækja.</string>
     <string name="nfc_show_alert_dialog_title">Ofursparnaðarstilling</string>
     <string name="nfc_show_alert_dialog_message">Ekki er hægt að opna %s.</string>
-    <string name="android_beam_explained">Deildu skrám á milli tækja sem styðja NFC með því að halda þeim nálægt hvort öðru. Þá geturðu deilt tenglum á vefsíður, tengiliðum og fleiru.</string>
+    <string name="android_beam_explained">Þú getur deilt tenglum á vefsíður, tengiliðum og fleiru með því að halda símanum þínum nálægt tæki sem styður NFC.</string>
     <string name="android_beam_explained_1">Haltu tækjunum nálægt hvort öðru, bak í bak.</string>
     <string name="android_beam_explained_2">Pikkaðu á skjáinn.</string>
     <string name="guide_dialog_attention_title">Athuga</string>
@@ -2206,7 +2217,7 @@ Sumar NFC-færslur og farsímagreiðsluþjónustur kunna að krefjast annarrar s
     <string name="cannot_use_card_without_NFC">Eiginleikar tengdir NFC, s.s. sumar aðferðir til að deila efni og NFC-greiðslur, eru ekki í boði þegar slökkt er á NFC.</string>
     <string name="limit_app_contents_transfer">Þegar slökkt er á Android Beam er deiling efnis um NFC takmörkuð.</string>
     <string name="nfc_payment_dialog_favor_open">Ef opna forritið styður snertigreiðslu verður það notað í staðinn fyrir %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ef opna forritið styður snertigreiðslu verður það notað.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ef opna forritið styður snertigreiðslu verður það notað til að greiða.</string>
     <string name="folder_sounds">Hljóð v. opnun/lokun möppu</string>
     <string name="folder_sounds_summary">Spila hljóð við opnun og lokun möppu.</string>
     <string name="sound_category_calls_title">Innhringing</string>
@@ -3464,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Fáðu tilkynningar sem sýna hversu mikið af gögnum forrit notuðu gegnum Wi-Fi eða farsímakerfi þegar tækið var læst í meira en %d mínútur.</string>
     <string name="data_usage_reminder_description">Eftirfarandi forrit notuðu %s af gögnum alls á meðan tækið var læst:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Í lagi</string>
     <string name="yes">Já</string>
     <string name="no">Nei</string>
     <string name="create">Búa til</string>
@@ -3561,7 +3573,6 @@ Hægt er að breyta þessu síðar í stillingum Bluetooth."</string>
     <string name="phone_info_label">Um tækið</string>
     <string name="proxy_settings_label">Stilling staðgengilsnetþjóns</string>
     <string name="cancel">Hætta við</string>
-    <string name="okay">Í lagi</string>
     <string name="save">Vista</string>
     <string name="done">Lokið</string>
     <string name="settings_label">Stillingar</string>
@@ -4813,13 +4824,13 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="global_change_warning">Þessi stilling hefur áhrif á alla notendur þessa tækis.</string>
     <string name="global_locale_change_title">Skipta um tungumál</string>
     <string name="nfc_payment_settings_title">Pikka og greiða</string>
-    <string name="nfc_payment_no_apps">Engin uppsett greiðsluþjónustuforrit</string>
+    <string name="nfc_payment_no_apps">Engin greiðsluforrit eru uppsett</string>
     <string name="nfc_payment_favor_default">Nota %s áfram</string>
     <string name="nfc_payment_favor_open">Nota opið forrit í staðinn fyrir %s</string>
     <string name="nfc_how_it_works_got_it">Ég skil</string>
-    <string name="nfc_payment_set_default_label">Nota sem sjálfgefið</string>
-    <string name="nfc_payment_set_default">%s verður notað sem sjálfgefinn greiðslumáti þinn fyrir „Pikka og greiða“-færslur.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s kemur í stað %2$s sem sjálfgefinn greiðslumáti þinn fyrir „Pikka og greiða“-færslur.</string>
+    <string name="nfc_payment_set_default_label">Viltu velja sjálfgefið greiðsluforrit?</string>
+    <string name="nfc_payment_set_default">„%s“ verður valið sem sjálfgefið greiðsluforrit fyrir snertigreiðslur.</string>
+    <string name="nfc_payment_set_default_instead_of">„%1$s“ kemur í stað „%2$s“ sem sjálfgefið greiðsluforrit fyrir snertigreiðslur.</string>
     <string name="help_label">Hjálp</string>
     <string name="user_restrictions_title">Takmarkanir forrita og efnis</string>
     <string name="user_restrictions_controlled_by">Stjórnað af %1$s</string>
@@ -5125,7 +5136,7 @@ Hvaða notandi sem er getur samþykkt uppfærðar forritsheimildir fyrir hönd a
     <string name="location_off_summary">Óvirkt</string>
     <string name="backup_disabled">Slökkt á sjálfvirkri afritun</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Ekki er hægt að framkvæma aðgerðina</string>
+    <string name="disabled_by_policy_title">Ekki hægt að framkvæma</string>
     <string name="default_admin_support_msg">Þú ert ekki með heimild fyrir þessa aðgerð. Frekari upplýsingar fást hjá kerfisstjóra viðkomandi fyrirtækis.</string>
     <string name="admin_support_more_info">Frekari upplýsingar</string>
     <string name="admin_profile_owner_message">Stjórnandinn getur fylgst með og stjórnað forritum og gögnum tengdum vinnuprófílnum, þ.m.t. stillingum, heimildum, fyrirtækjaaðgangi, netvirkni og staðsetningarupplýsingum tækisins.</string>

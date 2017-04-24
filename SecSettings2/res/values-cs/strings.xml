@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Připojeno prostřednictvím %1$s</string>
     <string name="available_via_passpoint">Dostupné prostřednictvím %1$s</string>
     <string name="wifi_connected_no_internet">Připojeno, není k dispozici internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet nemusí být dostupný</string>
     <string name="wifi_reconnecting">Připraven k připojení až se zlepší kvalita sítě</string>
     <string name="wifi_connected_checking_quality">Probíhá kontrola kvality připojení k Internetu…</string>
     <string name="wifi_sign_in_to_the_network">Přihlaste se k síti.</string>
@@ -865,6 +866,14 @@ Data aplikací mohou zahrnovat osobní informace, například kontakty, zprávy 
     <string name="content_description_hand">Klepněte na modrý kruh uprostřed obrazovky a přidržte ho.</string>
     <string name="nearby_scanning_help_msg_sub">Hledání nedalekých zařízení používá vyhledávání pomocí Bluetooth Low Energy a mikrofon. Vyhledávání pomocí Bluetooth Low Energy lze použít i když je Bluetooth v zařízení vypnuté.</string>
     <string name="sec_bluetooth_no_devices_found">Nebyla nalezena žádná zařízení Bluetooth</string>
+    <string name="bt_tether_title">Sdílení připojení Bluetooth</string>
+    <string name="bt_tether_settings_on">Zapnuto</string>
+    <string name="bt_tether_settings_off">Vypnuto</string>
+    <string name="bt_tether_off_brief_text_phone">Sdílejte připojení tohoto telefonu k Internetu s jinými zařízeními pomocí Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Sdílejte připojení tohoto tabletu k Internetu s jinými zařízeními pomocí Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Zařízení sdílející připojení k Internetu</string>
+    <string name="bt_tether_server_description_phone">Můžete sdílet připojení k Internetu navázané pomocí telefonu spárováním s jiným zařízením pomocí Bluetooth. Pokud již zařízení sdílelo připojení k Internetu, můžete připojení sdílet znovu po zvolení zařízení v seznamu Zařízení sdílející připojení k Internetu.</string>
+    <string name="bt_tether_server_description_tablet">Můžete sdílet připojení k Internetu navázané pomocí tabletu spárováním s jiným zařízením pomocí Bluetooth. Pokud již zařízení sdílelo připojení k Internetu, můžete připojení sdílet znovu po zvolení zařízení v seznamu Zařízení sdílející připojení k Internetu.</string>
     <string name="bluetooth_consent_pairing_msg">Klepnutím na OK proveďte spárování se zařízením %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s žádá o povolení přístupu k SIM kartě. Povolením tohoto požadavku vypnete funkce volání a posílání zpráv a vypnete Mobilní data v zařízení. Povolit?
 
@@ -1039,7 +1048,7 @@ I když je Inteligentní zachycení vypnuté, budete mít přístup k jeho funkc
     <string name="active_key_title">Aktivní tlačítko</string>
     <string name="about_phone">O telefonu</string>
     <string name="theme_settings">Schémata</string>
-    <string name="wifi_calling_title">Wi-Fi volání</string>
+    <string name="wifi_calling_title">Volání Wi-Fi</string>
     <string name="tab_category_connections">Připojení</string>
     <string name="festival_effect_settings_title">Sváteční efekt</string>
     <string name="user_manual">Uživatelská příručka</string>
@@ -2161,7 +2170,7 @@ Některé transakce NFC a služby mobilních plateb mohou vyžadovat jinou vých
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Umožní výměnu dat, když se zařízením dotknete jiného zařízení.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Umožňuje použití mobilních platebních služeb, čtení značek NFC a jejich zápis a výměnu dat mezi zařízeními, která podporují NFC.</string>
+    <string name="nfc_settings_title">Umožňuje provádět mobilní platby, sdílet data a číst nebo zapisovat značky NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Můžete číst a psát značky a přenášet data mezi zařízeními.</string>
     <string name="nfcpayment_quick_toggle_title">NFC a platba</string>
     <string name="nfc_mode_general_title">Režim NFC</string>
@@ -2177,14 +2186,16 @@ Některé transakce NFC a služby mobilních plateb mohou vyžadovat jinou vých
     <string name="nfc_payment_favor_open_default_unknown">Použít spuštěnou aplikaci</string>
     <string name="nfc_payment_favor_default_default_unknown">Žádná výchozí platební služba</string>
     <string name="nfc_tts_tab_n_of_n">Karta %1$d z %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Nahradit výchozí platební aplikaci?</string>
+    <string name="nfc_payment_replace">Nahradit</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferovaná SIM karta</string>
     <string name="nfc_please_wait">Čekejte prosím…</string>
     <string name="nfc_payment_no_sim_card">Není vložena SIM karta</string>
-    <string name="nfc_disable_service_title">Změnit výchozí metodu NFC</string>
-    <string name="nfc_disable_service_msg">Pokud změníte výchozí metodu zpracování NFC, mohou být některé služby na kartě JINÉ vypnuty nebo zapnuty. Chcete-li tyto služby spravovat, přejděte na NFC a platba > Klepnout a zaplatit > JINÉ, a potom vyberte jednotlivé služby a zapněte je nebo vypněte.</string>
+    <string name="nfc_disable_service_title">Změnit výchozí metodu NFC?</string>
+    <string name="nfc_disable_service_msg">Pokud změníte výchozí metodu zpracování NFC, mohou být některé služby na kartě JINÉ zapnuty nebo vypnuty. Chcete-li tyto služby spravovat, přejděte na NFC a platba > Klepnout a zaplatit > JINÉ, a potom vyberte jednotlivé služby a zapněte je nebo vypněte.</string>
     <string name="nfc_settings_advanced_setting">Výchozí metoda NFC</string>
     <string name="nfc_settings_advanced_uicc">SE SIM karta</string>
     <string name="nfc_settings_advanced_uicc_TTS">Zabezpečený prvek SIM karta</string>
@@ -2196,7 +2207,7 @@ Některé transakce NFC a služby mobilních plateb mohou vyžadovat jinou vých
     <string name="nfc_settings_tag_message">Když přepnete do Režimu karty, nebudete moci číst značky NFC, zapisovat do nich data nebo vyměňovat data mezi zařízeními.</string>
     <string name="nfc_show_alert_dialog_title">Ultra úsporný režim</string>
     <string name="nfc_show_alert_dialog_message">%s nelze spustit.</string>
-    <string name="android_beam_explained">Umožňuje sdílení souborů mezi zařízeními podporujícími NFC tím, že je podržíte u sebe. Potom můžete sdílet odkazy na webové stránky, kontakty a další.</string>
+    <string name="android_beam_explained">Můžete sdílet odkazy na webové stránky, kontakty a další položky, když podržíte telefon u zařízení podporujícího NFC.</string>
     <string name="android_beam_explained_1">Přidržte zařízení zadními stranami u sebe.</string>
     <string name="android_beam_explained_2">Klepněte na obrazovku.</string>
     <string name="guide_dialog_attention_title">Pozor</string>
@@ -2205,7 +2216,7 @@ Některé transakce NFC a služby mobilních plateb mohou vyžadovat jinou vých
     <string name="cannot_use_card_without_NFC">Funkce související s NFC, např. některé metody sdílení obsahu a platba NFC, nebudou po vypnutí NFC k dispozici.</string>
     <string name="limit_app_contents_transfer">Sdílení obsahu prostřednictvím NFC bude po vypnutí Android Beam omezeno.</string>
     <string name="nfc_payment_dialog_favor_open">Pokud aktuálně spuštěná aplikace podporuje metodu Klepnout a zaplatit, bude použita místo %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Pokud aktuálně spuštěná aplikace podporuje metodu Klepnout a zaplatit, bude použita.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Pokud aktuálně spuštěná aplikace podporuje metodu Klepnout a zaplatit, bude použita pro zaplacení.</string>
     <string name="folder_sounds">Zvuky při otev./zav. tel.</string>
     <string name="folder_sounds_summary">Přehrát zvuky při otevírání a zavírání telefonu.</string>
     <string name="sound_category_calls_title">Příchozí hovory</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Umožňuje přijímat upozornění zobrazující objem dat použitých aplikacemi prostřednictvím Wi-Fi nebo mobilních sítí, když je zařízení zamknuté déle než %d minut.</string>
     <string name="data_usage_reminder_description">Následující aplikace využily celkem %s dat, když bylo zařízení zamknuté:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Ano</string>
     <string name="no">Ne</string>
     <string name="create">Vytv.</string>
@@ -3560,7 +3572,6 @@ Nastavení můžete později změnit pomocí nastavení Bluetooth."</string>
     <string name="phone_info_label">Informace o zařízení</string>
     <string name="proxy_settings_label">Nastavení proxy</string>
     <string name="cancel">Zrušit</string>
-    <string name="okay">OK</string>
     <string name="save">Uložit</string>
     <string name="done">Hot.</string>
     <string name="settings_label">Nastavení</string>
@@ -4814,13 +4825,13 @@ Každý uživatel může přijmout aktualizovanou aplikaci jménem všech ostatn
     <string name="global_change_warning">Toto nastavení ovlivní všechny uživatele zařízení.</string>
     <string name="global_locale_change_title">Změnit jazyk</string>
     <string name="nfc_payment_settings_title">Klepnout a zaplatit</string>
-    <string name="nfc_payment_no_apps">Nejsou instalovány žádné aplikace platebních služeb</string>
+    <string name="nfc_payment_no_apps">Nejsou nainstalovány žádné platební aplikace</string>
     <string name="nfc_payment_favor_default">Stále se používá %s</string>
     <string name="nfc_payment_favor_open">Použít spuštěnou aplikaci místo %s</string>
     <string name="nfc_how_it_works_got_it">Hotovo</string>
-    <string name="nfc_payment_set_default_label">Nastavit jako výchozí</string>
-    <string name="nfc_payment_set_default">%s bude nastaven jako výchozí způsob platby pro transakce Klepnout a zaplatit.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s nahradí %2$s jako výchozí způsob platby pro transakce Klepnout a zaplatit.</string>
+    <string name="nfc_payment_set_default_label">Nastavit výchozí platební aplikaci?</string>
+    <string name="nfc_payment_set_default">%s bude nastavena jako výchozí platební aplikace pro metodu Klepnout a zaplatit.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s nahradí %2$s jako výchozí platební aplikace pro metodu Klepnout a zaplatit.</string>
     <string name="help_label">Nápověda</string>
     <string name="user_restrictions_title">Omezení aplikace/obsahu</string>
     <string name="user_restrictions_controlled_by">Řízeno prostřednictvím %1$s</string>

@@ -123,7 +123,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f130013
+    const v7, 0x7f130014
 
     invoke-virtual {v5, v7, v1, v6}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 

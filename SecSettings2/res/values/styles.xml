@@ -1890,6 +1890,9 @@
         <item name="android:textColor">@color/progres_state_text_color</item>
         <item name="android:fontFamily">sec-roboto-light</item>
     </style>
+    <style name="BluetoothActionBarStyle" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title.Inverse">
+        <item name="android:textAllCaps">false</item>
+    </style>
     <style name="BluetoothNoItemText">
         <item name="android:textSize">@dimen/bluetooth_no_nearby_text_size</item>
         <item name="android:textColor">@color/bluetooth_no_nearby_text_color</item>
@@ -2925,7 +2928,7 @@
     </style>
     <style name="choose_lock_activity_style" parent="@style/Theme.Settings.SinglePreference" />
     <style name="pattern_lock_background">
-        <item name="android:background">@drawable/lock_settings_pattern_bg</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
     <style name="custom_tap_and_hold_time_text_style">
         <item name="android:textSize">@dimen/custom_tap_and_hold_time_text_size</item>
@@ -3473,6 +3476,12 @@
         <item name="suwDividerCondition">both</item>
         <item name="suwListItemIconColor">?android:colorAccent</item>
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
+    </style>
+    <style name="Theme.BluetoothSettings" parent="@style/Theme.Settings">
+        <item name="android:actionBarStyle">@style/Theme.Bluetooth.ActionBarStyle</item>
+    </style>
+    <style name="Theme.Bluetooth.ActionBarStyle" parent="@style/Theme.ActionBar">
+        <item name="android:titleTextStyle">@style/BluetoothActionBarStyle</item>
     </style>
     <style name="FallbackHome" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/transparent</item>

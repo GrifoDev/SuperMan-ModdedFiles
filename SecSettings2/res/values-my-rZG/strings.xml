@@ -11,6 +11,7 @@
     <string name="wifi_disabled_password_failure">အေထာက္အထားျပျခင္း အမွား ျဖစ္သြားသည္</string>
     <string name="wifi_empty_list_wifi_on">Wi-Fi ကြန္ရက္မ်ားအတြက္ စကဲန္လုပ္ေန…</string>
     <string name="wifi_auto_reconnect_disabled">အလုိအေလ်ာက္ ခ်ိတ္ဆက္မႈကုိ ပိတ္ထားသည္</string>
+    <string name="wifi_internet_may_not_be_available">အင္တာနက္ အရန္သင့္ ရခ်င္မွ ရလိမ့္မည္</string>
     <string name="wifi_reconnecting">ကြန္ရက္ အရည္အေသြး ပိုေကာင္းလာသည့္အခါ ခ်ိတ္ဆက္ရန္ အဆင္သင့္</string>
     <string name="wifi_connected_checking_quality">သင့္ အင္တာနက္ ခ်ိတ္ဆက္မႈ အရည္အေသြး စစ္ေဆးေနသည္…</string>
     <string name="wifi_sign_in_to_the_network">ကြန္ယက္သို႔ ဝင္ေရာက္ပါ။</string>
@@ -247,7 +248,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">သက္ဆိုင္ရာ အရာဝတၳဳ %d ခု</string>
     <string name="no_results_found">ရလဒ္မ်ား မေတြ႔ပါ</string>
     <string name="menu_edit">တည္းျဖတ္</string>
-    <string name="reset">ျပန္သတ္မွတ္ပါ</string>
+    <string name="reset">ျပန္လည္သတ္မွတ္ပါ</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">သင္ အက္ပ္တစ္ခု သုံးေနစဥ္ သိရန္ Voice Assistant ကို ခြင့္ျပဳသည္။</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">လမ္းၫႊန္ခ်က္မ်ားကို ဤစာသားေအာက္ႏွင့္ ဖန္သားျပင္ ေအာက္ေျခတြင္ရွိေသာ ခလုတ္မ်ားအေပၚရွိ ဧရိယာတြင္ ေရးဆြဲပါ။</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">ဖန္သားျပင္၏ ေအာက္ေျခ ညာဖက္ေထာင့္တြင္ရွိေသာ ခလုတ္ကို အတည္ျပဳပါ။</string>
@@ -684,7 +685,7 @@ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း 
     <string name="default_app_selection">မူရင္းပါပုံစံ အက္ပ္ ေရြးခ်ယ္ခ်က္</string>
     <string name="default_app_selection_auto_set">မူရင္းပါပုံစံ အက္ပ္မ်ားကို အလိုအေလ်ာက္ သတ္မွတ္ပါ</string>
     <string name="default_app_selection_ask">မူရင္းပါပုံစံ အက္ပ္မ်ား သတ္မွတ္ျခင္းမျပဳမီ ေမးျမန္းပါ</string>
-    <string name="launch_application_settings">အသင့္လုပ္ၿပီး အပလီေကးရွင္းမ်ား</string>
+    <string name="launch_application_settings">မူရင္းပါပုံစံ အက္ပ္မ်ား</string>
     <string name="launch_application_settings_summary">ေသခ်ာသည့္ လုပ္ငန္းေဆာင္တာမ်ားအတြက္ အက္ပ္မ်ားသတ္မွတ္ထားသည္။</string>
     <string name="home_settings_header">ေနအိမ္ ေျပာင္းပါ</string>
     <string name="home_settings_customer_mode_summary">ဒိုကိုမို မူလ ဖန္သားျပင္ျဖင့္ သံုးရန္ သင့္ဖုန္းအား ရိုးရွင္းေစရန္ႏွင့္ သဘာဝဆန္ေစရန္ လုပ္ပါ</string>
@@ -729,6 +730,14 @@ Wi-Fi ႏွင့္ ဘလူးတုသ္တို႔ကိုလည္း 
     <string name="content_description_hand">ဖန္သားျပင္ အလယ္ရွိ အျပာေရာင္ စက္ဝိုင္းကို ႏွိပ္၍ ကိုင္ထားပါ။</string>
     <string name="nearby_scanning_help_msg_sub">အနီးဝန္းက်င္ရွိ ကိရိယာရွာေဖြမႈသည္ ဘလူးတုသ္ စြမ္းအင္နိမ့္ရွာေဖြမႈႏွင့္ မိုက္က႐ိုဖုန္းကို အသုံးျပဳသည္။ ဤကိရိယာတြင္ ဘလူးတုသ္ကိုပိတ္ထားလင့္ကစား ဘလူးတုသ္ စြမ္းအင္နိမ့္ရွာေဖြမႈကို အသုံးျပဳႏိုင္သည္။</string>
     <string name="sec_bluetooth_no_devices_found">မည္သည့္ ဘလူးတုသ္ကိရိယာမ်ားကိုမွ ရွာမေတြ႕ပါ</string>
+    <string name="bt_tether_title">ဘလူးတုသ္ျဖင့္ မွ်ေဝအသံုးျပဳျခင္း</string>
+    <string name="bt_tether_settings_on">ဖြင့္</string>
+    <string name="bt_tether_settings_off">ပိတ္</string>
+    <string name="bt_tether_off_brief_text_phone">ဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကို အျခားကိရိယာမ်ားသို႔ ဘလူးတုသ္သုံး၍ မွ်ေဝပါ။</string>
+    <string name="bt_tether_off_brief_text_tablet">တက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကို အျခားကိရိယာမ်ားသို႔ ဘလူးတုသ္သုံး၍ မွ်ေဝပါ။</string>
+    <string name="bt_tether_preference_tethered_device_list">အင္တာနက္မွ်သုံးထားေသာ ကိရိယာမ်ား</string>
+    <string name="bt_tether_server_description_phone">ဖုန္း၏ အင္တာနက္ခ်ိတ္ဆက္မႈကို အျခားကိရိယာသို႔ ဘလူးတုသ္သုံး၍ အတြဲခ်ိတ္ျခင္းျဖင့္ မွ်ေဝပါ။ အကယ္၍ ကိရိယာျဖင့္ ယခင္က အင္တာနက္မွ်သုံးထားဖူးလွ်င္၊ ၎ကို အင္တာနက္မွ်သုံးေသာ ကိရိယာမ်ားစာရင္းမွ ေ႐ြးျခင္းျဖင့္ ၎ႏွင့္ ျပန္၍ အင္တာနက္မွ်သုံးႏိုင္သည္။</string>
+    <string name="bt_tether_server_description_tablet">တက္ဘလက္၏ အင္တာနက္ခ်ိတ္ဆက္မႈကို အျခားကိရိယာသို႔ ဘလူးတုသ္သုံး၍ အတြဲခ်ိတ္ျခင္းျဖင့္ မွ်ေဝပါ။ အကယ္၍ ကိရိယာျဖင့္ ယခင္က အင္တာနက္မွ်သုံးထားဖူးလွ်င္၊ ၎ကို အင္တာနက္မွ်သုံးေသာ ကိရိယာမ်ားစာရင္းမွ ေ႐ြးျခင္းျဖင့္ ၎ႏွင့္ ျပန္၍ အင္တာနက္မွ်သုံးႏိုင္သည္။</string>
     <string name="bluetooth_consent_pairing_msg">%s ျဖင့္ အတြဲခ်ိန္ရန္ “အုိေက” ကုိ ႏွိပ္ပါ။</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s သည္ သင့္ SIM ကဒ္ သုံးခြင့္ရရန္ ခြင့္ျပဳခ်က္ ေတာင္းဆိုေနသည္။ ဤေတာင္းဆိုခ်က္ကို ခြင့္ျပဳျခင္းသည္ ေခၚဆိုျခင္းႏွင့္ မက္ေဆ့ခ္်ပို႔ လုပ္ေဆာင္ခ်က္မ်ားကို ပိတ္သြားမည္ျဖစ္ကာ သင့္ကိရိယာေပၚတြင္ မိုဘိုင္း ေဒတာကို ပိတ္သြားမည္။ ခြင့္ျပဳမလား?
 
@@ -837,7 +846,7 @@ Smart capture ကို ပိတ္ထားလင့္ကစား ၎၏ဝ�
     <string name="downloadable_dialog_popup_text_wifi">အပို အကူအညီ ပါဝင္မႈကို ေဒါင္းလုတ္ လုပ္ရမည္။ ကိရိယာကို Wi-Fi ကြန္ယက္ တစ္ခုျဖင့္ ခ်ိတ္ဆက္ထားရမည္။ ေဒါင္းလုတ္ ဖန္သားျပင္ဆီသို႔ သင့္ကို ပို႔လိမ့္မည္။</string>
     <string name="back_button_label">ေနာက္သို႔</string>
     <string name="next_button_label">ေနာက္</string>
-    <string name="category_applications">အပလီေကးရွင္းမ်ား</string>
+    <string name="category_applications">အက္ပ္မ်ား</string>
     <string name="data_connection_title">အဖိုးအခမ်ားအတြက္ အေၾကာင္းၾကားခ်က္</string>
     <string name="data_connection_message">မိုဘိုင္း ကြန္ယက္ကို ဆက္သြယ္မႈေၾကာင့္ အခေၾကးေငြ ပိုၿပီး ေပးေဆာင္လာရႏိုင္သည္။</string>
     <string name="none_package">ကန္႔သတ္ ပရိုဖုိင္းတစ္ခုကို သုံးေနစဥ္မွာ ဤလုပ္ေဆာင္ခ်က္ကို ေဆာင္ရြက္လို႔ မရပါ။</string>
@@ -2025,7 +2034,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">ကိရိယာက အျခားကိရိယာကို ထိသည့္အခါ ေဒတာ ဖလွယ္မႈ ခြင့္ျပဳပါ။</string>
     <string name="android_beam_settings_title">အင္းဒရြိဳက္ ဘင္း</string>
-    <string name="nfc_settings_title">မိုဘိုင္းေငြေပးေခ်ျခင္း ဝန္ေဆာင္မႈမ်ားကိုအသုံးျပဳရန္၊ NFC တဂ္မ်ားကို ဖတ္႐ႈၿပီး ေရးသားပါ၊ NFC-စြမ္းႏိုင္မႈ ကိရိယာမ်ားအၾကား ေဒတာဖလွယ္ပါ။</string>
+    <string name="nfc_settings_title">မုိဘုိင္း ေငြေပးေခ်မႈမ်ား ျပဳလုပ္ပါ၊ ေဒတာ မွ်ေဝပါ၊ NFC တဂ္မ်ားကုိ ဖတ္ (သုိ႔) ေရးပါ။</string>
     <string name="nfc_settings_rw_p2p_summary">သင္သည္ တဲဂ္်ားကို ေရးျခင္း ဖတ္ျခင္း လုပ္ႏိုင္ၿပီး ကိရိယာမ်ား အၾကားမွ ေဒတာမ်ားကို လႊဲေျပာင္းႏိုင္။</string>
     <string name="nfcpayment_quick_toggle_title">NFC ႏွင့္ ေငြေပးေခ်မႈ</string>
     <string name="nfc_mode_general_title">NFC အေနအထား</string>
@@ -2036,19 +2045,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">သင့္ အသင့္သြင္း မိုဘိုင္း ေငြေပးေခ်ျခင္း ဝန္ေဆာင္မႈ ေရြးပါ။</string>
     <string name="nfc_payment_title">ေငြေပးေခ်မႈ</string>
     <string name="nfc_others_title">အျခားအရာမ်ား</string>
-    <string name="nfc_other_no_apps">မည္သည့္ ဝန္ေဆာင္မႈ အက္ပ္မ်ားမွ် ထည့္သြင္းမထားပါ</string>
+    <string name="nfc_other_no_apps">မည္သည့္ ဝန္ေဆာင္မႈအက္ပ္ကုိမွ် ထည့္သြင္းမထားပါ</string>
     <string name="nfc_payment_open_app">ပြင့္ေနပါက အက္ပ္သည္ ႏွိပ္ၿပီး ေပးျခင္းကုိ ပံ့ပုိးေပးသည္</string>
     <string name="nfc_payment_favor_open_default_unknown">ပြင့္လင္း အက္ပ္ကို အသုံးျပဳပါ</string>
     <string name="nfc_payment_favor_default_default_unknown">မူရင္းပါပုံစံ ေငြေပးေခ်ေရးဝန္ေဆာင္မႈ မရွိပါ</string>
     <string name="nfc_tts_tab_n_of_n">%2$d ၏ %1$d တက္</string>
+    <string name="nfc_payment_replace_default_label">မူလသတ္မွတ္ ေငြေပးေခ်အက္ပ္ကုိ အစားထုိးမလား?</string>
+    <string name="nfc_payment_replace">အစားထုိးပါ</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">ဦးစားေပး SIM ကတ္</string>
     <string name="nfc_please_wait">ေက်းဇူးျပဳ၍ေစာင့္ပါ….</string>
     <string name="nfc_payment_no_sim_card">မည္သည့္ SIM ကတ္မွ မရွိပါ</string>
-    <string name="nfc_disable_service_title">မူရင္းပါပုံစံ NFC နည္းလမ္းေျပာင္းပါ</string>
-    <string name="nfc_disable_service_msg">အကယ္၍ မူရင္းပါပုံစံ NFC လုပ္ငန္းစဥ္နည္းလမ္းကိုေျပာင္းပါက၊ အျခားအရာမ်ား တဘ္ရွိ အခ်ိဳ႕ဝန္ေဆာင္မႈမ်ားသည္ ပိတ္သြားမည္ (သို႔) ပြင့္သြားမည္ျဖစ္သည္။ ဤဝန္ေဆာင္မႈမ်ားကို စီမံရန္၊ NFC ႏွင့္ ေငြေပးေခ်မႈ > ႏွိပ္ၿပီးေပးေခ်ပါ > အျခားအရာမ်ားသို႔သြားေရာက္ၿပီး၊ ၎ကိုဖြင့္ရန္ (သို႔) ပိတ္ရန္ ဝန္ေဆာင္မႈအသီးသီးကိုေရြးခ်ယ္ပါ။</string>
+    <string name="nfc_disable_service_title">မူရင္းပါပုံစံ NFC နည္းလမ္းကုိ ေျပာင္းမလား?</string>
+    <string name="nfc_disable_service_msg">အကယ္၍ မူရင္းပါပုံစံ NFC လုပ္ငန္းစဥ္နည္းလမ္းကိုေျပာင္းပါက အျခားအရာမ်ား တဘ္ရွိ အခ်ိဳ႕ဝန္ေဆာင္မႈမ်ားသည္ ပိတ္သြားမည္ (သို႔) ပြင့္သြားမည္ျဖစ္သည္။ ဤဝန္ေဆာင္မႈမ်ားကို စီမံရန္၊ NFC ႏွင့္ ေငြေပးေခ်မႈ > ႏွိပ္ၿပီးေပးေခ်ပါ > အျခားအရာမ်ားသို႔သြားေရာက္ၿပီး ၎ကိုဖြင့္ရန္ (သို႔) ပိတ္ရန္ ဝန္ေဆာင္မႈအသီးသီးကိုေရြးခ်ယ္ပါ။</string>
     <string name="nfc_settings_advanced_setting">မူရင္းပါပုံစံ NFC နည္းလမ္း</string>
     <string name="nfc_settings_advanced_uicc">SE SIM ကတ္</string>
     <string name="nfc_settings_advanced_uicc_TTS">စိတ္ခ်ရေသာ အေျခခံ SIM ကဒ္</string>
@@ -2060,7 +2071,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">ကဒ္၏ကုဒ္သို႔ သင္ကူးေျပာင္းလွ်င္၊ NFC တဘ္မ်ား ဖတ္ရန္၊ ၎တို႔ထဲ ေဒတာေရးသြင္းရန္၊ (သို႔) ကိရိယာမ်ားအၾကား၌ ေဒတာဖလွယ္ရန္အတြက္ ျပဳလုပ္ႏုိင္ေတာ့မည္မဟုတ္ပါ။</string>
     <string name="nfc_show_alert_dialog_title">အလြန္ ပါ၀င္ေခၽြတာျခင္း အေနအထား</string>
     <string name="nfc_show_alert_dialog_message">%s ကို ဖြင့္မရပါ။</string>
-    <string name="android_beam_explained">NFC-ေကဘယ္ကိရိယာမ်ားကို အတူတကြနီးကပ္စြာကိုထားျခင္းျဖင့္ ၎တို႔အၾကားဖိုင္မ်ားမၽွေဝပါ။ ဝဘ္စာမ်က္ႏွာလင့္ခ္မ်ား၊ အဆက္အသြယ္မ်ား၊ ႏွင့္ ေနာက္ထပ္မ်ားစြာကို သင္မၽွေဝႏိုင္သည္။</string>
+    <string name="android_beam_explained">သင့္ဖုန္းကုိ NFC-အသံုးျပဳႏုိင္သည့္ ကိရိယာ၏ အနီးတြင္ ကုိင္ထားၿပီး ဝဘ္စာမ်က္ႏွာ လင့္ခ္မ်ား၊ အဆက္အသြယ္မ်ားႏွင့္ ေနာက္ထပ္အရာမ်ားကုိ မွ်ေဝႏုိင္သည္။</string>
     <string name="android_beam_explained_1">ကိရိယာမ်ားကို အတူတကြ၊ ေက်ာခ်င္းကပ္ထားပါ။</string>
     <string name="android_beam_explained_2">သင့္ဖန္သားျပင္ကို ႏွိပ္ပါ။</string>
     <string name="guide_dialog_attention_title">သတိ</string>
@@ -2069,7 +2080,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">ပါဝင္မႈ မွ်ေဝနည္းမ်ားႏွင့္ NFC ေငြေပးေခ်ျခင္းကဲ့သို႔ NFC-ဆက္ႏႊယ္ လုပ္ေဆာင္မႈမ်ားကို NFC ပိတ္ထားစဥ္ မရႏိုင္ပါ။</string>
     <string name="limit_app_contents_transfer">Android Beam ပိတ္ထားစဥ္ NFC မွတဆင့္ ပါဝင္မႈ မွ်ေဝျခင္းကို အကန္႔အသတ္လုပ္ထားမည္။</string>
     <string name="nfc_payment_dialog_favor_open">အကယ္၍ လက္ရွိပြင့္ေနေသာ အက္ပ္က ႏွိပ္ၿပီးေပးပါကို ပံ့ပုိးေပးပါက ၎ကုိ %s အစား အသံုးျပဳႏုိင္ပါမည္။</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">အကယ္၍ လက္ရွိပြင့္ေနေသာ အက္ပ္က ႏွိပ္ၿပီးေပးပါကို ပံ့ပုိးေပးပါက ၎ကုိ အသံုးျပဳႏုိင္ပါမည္။</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">လက္ရွိ ဖြင့္ထားေသာ အက္ပ္သည္ ႏွိပ္၍ေငြသြင္းပါကို ပံ့ပိုးေပးလွ်င္၊ ၎ကို ေငြေပးေခ်မႈအတြက္ သုံးႏိုင္ပါမည္။</string>
     <string name="folder_sounds">ဖိုင္တြဲ အဖြင့္/အပိတ္ အသံမ်ား</string>
     <string name="folder_sounds_summary">ဖိုင္တြဲ ဖြင့္ျခင္းႏွင့္ ပိတ္ျခင္းတြင္ အသံမ်ား ဖြင့္ပါ</string>
     <string name="sound_category_calls_title">အ၀င္ ဖုန္းေခၚဆုိမႈမ်ား</string>
@@ -3326,6 +3337,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">ကိရိယာကို %d မိနစ္ၾကာ ေသာ့ခ်ထားသည့္အခါ Wi-Fi (သို႔) မိုဘိုင္းကြန္ယက္မ်ားမွတဆင့္ အက္ပ္မ်ား အသုံးျပဳထားသည့္ ေဒတာ ပမာဏကို ျပသထားေသာ အသိေပးခ်က္မ်ား လက္ခံရယူပါ။</string>
     <string name="data_usage_reminder_description">ေအာက္ပါအက္ပ္မ်ားသည္ ကိရိယာကိုေသာ့ခ်ထားစဥ္တြင္ စုစုေပါင္း ေဒတာ %s ကိုအသုံးျပဳထားသည္ :</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">အိုေက</string>
     <string name="yes">ဟုတ္ကဲ့</string>
     <string name="no">မဟုတ္ပါ</string>
     <string name="create">ဖန္တီးပါ</string>
@@ -3423,7 +3435,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">ကိရိယာ သတင္း အခ်က္အလက္</string>
     <string name="proxy_settings_label">ကုိယ္စားလွယ္ သတ္မွတ္ခ်က္</string>
     <string name="cancel">ပယ္ဖ်က္</string>
-    <string name="okay">အိုေက</string>
     <string name="save">သိမ္းဆည္းပါ</string>
     <string name="done">ၿပီးပါၿပီ</string>
     <string name="settings_label">သတ္မွတ္ခ်က္မ်ား</string>
@@ -4664,13 +4675,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">ဤဆက္တင္က ဤကိရိယာေပၚရွိ သံုးသူ အားလံုးကို သက္ေရာက္သည္။</string>
     <string name="global_locale_change_title">ဘာသာစကားေျပာင္းပါ</string>
     <string name="nfc_payment_settings_title">ႏွိပ္ၿပီး ေပးေဆာင္ပါ</string>
-    <string name="nfc_payment_no_apps">ေငြေပးေခ်ေရး ဝန္ေဆာင္မႈ အက္ပ္မ်ား ထည့္သြင္းမထားပါ</string>
+    <string name="nfc_payment_no_apps">မည္သည့္ ေငြေပးေခ် အက္ပ္ကုိမွ် ထည့္သြင္းမထားပါ</string>
     <string name="nfc_payment_favor_default">%s ကုိအသံုးျပဳေနပါ</string>
     <string name="nfc_payment_favor_open">%s အစား အက္ပ္ဖြင့္ပါကုိ သံုးပါ</string>
     <string name="nfc_how_it_works_got_it">နားလည္ပါသည္</string>
-    <string name="nfc_payment_set_default_label">အသင့္လုပ္ၿပီးအျဖစ္ သတ္မွတ္ပါ</string>
-    <string name="nfc_payment_set_default">%s ကို ႏွိပ္ျပီး အေပးအယူလုပ္ျခင္းမ်ားအတြက္ သင့္ အသင့္သြင္း ေပးေခ်နည္းအျဖစ္ သတ္မွတ္မည္။</string>
-    <string name="nfc_payment_set_default_instead_of">ႏွိပ္ျပီး အေပးအယူလုပ္ျခင္းမ်ားအတြက္ %1$s မွ %2$s ကို သင့္ အသင့္သြင္း ေပးေခ်နည္းအျဖစ္ အစားထိုးမည္။</string>
+    <string name="nfc_payment_set_default_label">မူရင္းပါပုံစံ ေငြေပးေခ်အက္ပ္အျဖစ္ သတ္မွတ္မလား?</string>
+    <string name="nfc_payment_set_default">ႏွိပ္၍ေငြေပးရန္အေနျဖင့္ %s ကို သင္၏မူရင္းပါပုံစံ ေငြေပးေခ်အက္ပ္အေနႏွင့္ ျပန္သတ္မွတ္ပါမည္။</string>
+    <string name="nfc_payment_set_default_instead_of">ႏွိပ္ၿပီးေပးေခ်ပါအတြက္ သင့္မူလသတ္မွတ္ ေငြေပးေခ်အက္ပ္အျဖစ္ %1$s က %2$s ကို အစားထုိးပါမည္။</string>
     <string name="help_label">အကူအညီ</string>
     <string name="user_restrictions_title">အပလီေကးရွင္း/ပါဝင္မႈ ကန္႔သတ္ခ်က္မ်ား</string>
     <string name="user_restrictions_controlled_by">%1$s မွတဆင့္ ထိန္းခ်ဳပ္ထားသည္</string>
@@ -4976,7 +4987,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">ပိတ္ထားသည္</string>
     <string name="backup_disabled">ေအာ္တိုအရန္သိမ္းျခင္းကို ပိတ္ထားသည္</string>
     <string name="about_summary">အန္းဒရြိဳက္ %s</string>
-    <string name="disabled_by_policy_title">လုပ္ေဆာင္၍ မရပါ</string>
+    <string name="disabled_by_policy_title">ေဆာင္႐ြက္ခ်က္ကို လုပ္ေဆာင္၍ မရႏိုင္ပါ</string>
     <string name="default_admin_support_msg">ဤလုပ္ေဆာင္ခ်က္ကိုသင္ေဆာင္႐ြက္ရန္ခြင့္ျပဳခ်က္မရွိပါ။ ေနာက္ထက္အခ်က္အလက္မ်ားသိရွိရန္ သင့္ အဖြဲ႕အစည္း၏ IT စီမံခန္႔ခြဲသူထံ ဆက္သြယ္ပါ။</string>
     <string name="admin_support_more_info">ေနာက္ထပ္ အေသးစိတ္အခ်က္မ်ား</string>
     <string name="admin_profile_owner_message">စီမံခန္႔ခြဲသူသည္ သတ္မွတ္ခ်က္မ်ား၊ ခြင့္ျပဳခ်က္မ်ား၊ ေကာ္ပိုရိတ္ဝင္သုံးခြင့္၊ ကြန္ယက္လုပ္ေဆာင္မႈ ႏွင့္၊ ကိရိယာ၏ တည္ေနရာအခ်က္အလက္တို႔ အပါအဝင္၊ ဤအလုပ္ပ႐ိုင္ဖုိင္ႏွင့္ တြဲသုံးထားေသာ အက္ပ္မ်ားႏွင့္ေဒတာတို႔ကို ေစာင့္ၾကည့္မွတ္သားႏိုင္ၿပီး စီမံႏုိင္သည္။</string>

@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$7;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap5(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap7(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
 
     return-void
 .end method

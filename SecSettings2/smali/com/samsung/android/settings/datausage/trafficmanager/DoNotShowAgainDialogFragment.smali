@@ -438,7 +438,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b0ee9
+    const v20, 0x7f0b0efa
 
     invoke-virtual/range {v19 .. v20}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -460,7 +460,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f0b137f
+    const v18, 0x7f0b149a
 
     invoke-virtual/range {v17 .. v18}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

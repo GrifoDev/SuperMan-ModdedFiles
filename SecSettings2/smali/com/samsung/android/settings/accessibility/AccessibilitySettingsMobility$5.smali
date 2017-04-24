@@ -32,11 +32,43 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$5;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap5(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$5;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
 
+    invoke-static {v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap7(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)V
+
+    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$5;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap0(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "access_control_use"
+
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    iget-object v1, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$5;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    iget-object v2, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility$5;->this$0:Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;
+
+    invoke-static {v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap1(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;)Z
+
+    move-result v2
+
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;->-wrap4(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsMobility;Z)V
+
+    :cond_1
     return-void
 .end method

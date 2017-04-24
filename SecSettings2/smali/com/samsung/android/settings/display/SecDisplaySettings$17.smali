@@ -595,9 +595,7 @@
 
     iput-object v4, v2, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const/4 v4, 0x2
-
-    iput v4, v2, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
+    iput v6, v2, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
 
     const-string/jumbo v4, "com.android.settings"
 
@@ -659,7 +657,7 @@
 
     iput-object v5, v4, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v5, 0x7f0800da
+    const v5, 0x7f0800db
 
     iput v5, v4, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -677,7 +675,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0599
+    const v6, 0x7f0b05a4
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

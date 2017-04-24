@@ -581,7 +581,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->mHeading:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1392
+    const v5, 0x7f0b14ad
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -879,7 +879,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b086e
+    const v28, 0x7f0b087a
 
     move-object/from16 v0, p0
 
@@ -918,7 +918,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b086d
+    const v28, 0x7f0b0879
 
     move-object/from16 v0, p0
 
@@ -955,7 +955,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0870
+    const v28, 0x7f0b087c
 
     move-object/from16 v0, p0
 
@@ -976,7 +976,7 @@
 
     if-ne v12, v0, :cond_3
 
-    const v27, 0x7f0b086f
+    const v27, 0x7f0b087b
 
     move-object/from16 v0, p0
 
@@ -1011,7 +1011,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0871
+    const v28, 0x7f0b087d
 
     move-object/from16 v0, p0
 
@@ -1028,7 +1028,7 @@
     :cond_4
     if-nez v17, :cond_5
 
-    const v27, 0x7f0b0872
+    const v27, 0x7f0b087e
 
     move-object/from16 v0, p0
 
@@ -1068,7 +1068,7 @@
 
     if-eqz v27, :cond_7
 
-    const v27, 0x7f0b06e5
+    const v27, 0x7f0b06f0
 
     :goto_0
     move-object/from16 v0, p0
@@ -1082,7 +1082,7 @@
     return-object v27
 
     :cond_7
-    const v27, 0x7f0b08b3
+    const v27, 0x7f0b08bf
 
     goto :goto_0
 
@@ -1101,7 +1101,7 @@
 
     if-eqz v27, :cond_9
 
-    const v27, 0x7f0b0700
+    const v27, 0x7f0b070b
 
     :goto_1
     move-object/from16 v0, p0
@@ -1115,7 +1115,7 @@
     return-object v27
 
     :cond_9
-    const v27, 0x7f0b08b2
+    const v27, 0x7f0b08be
 
     goto :goto_1
 
@@ -1158,7 +1158,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b1099
+    const v28, 0x7f0b11b4
 
     move-object/from16 v0, p0
 
@@ -1211,7 +1211,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b109c
+    const v28, 0x7f0b11b7
 
     move-object/from16 v0, p0
 
@@ -1272,7 +1272,7 @@
     if-le v6, v0, :cond_e
 
     :cond_d
-    const v27, 0x7f0b10a0
+    const v27, 0x7f0b11bb
 
     move-object/from16 v0, p0
 
@@ -1394,7 +1394,7 @@
 
     if-gtz v27, :cond_15
 
-    const v27, 0x7f0b109e
+    const v27, 0x7f0b11b9
 
     move-object/from16 v0, p0
 
@@ -1433,7 +1433,7 @@
 
     if-le v0, v1, :cond_24
 
-    const v27, 0x7f0b10a5
+    const v27, 0x7f0b11c0
 
     move-object/from16 v0, p0
 
@@ -1482,7 +1482,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f130006
+    const v29, 0x7f130007
 
     move-object/from16 v0, v27
 
@@ -1545,7 +1545,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f130009
+    const v29, 0x7f13000a
 
     move-object/from16 v0, v27
 
@@ -1608,7 +1608,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f130007
+    const v29, 0x7f130008
 
     move-object/from16 v0, v27
 
@@ -1671,7 +1671,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f130008
+    const v29, 0x7f130009
 
     move-object/from16 v0, v27
 
@@ -1734,7 +1734,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f13000a
+    const v29, 0x7f13000b
 
     move-object/from16 v0, v27
 
@@ -1797,7 +1797,7 @@
 
     move/from16 v28, v0
 
-    const v29, 0x7f13000b
+    const v29, 0x7f13000c
 
     move-object/from16 v0, v27
 
@@ -1869,7 +1869,7 @@
     if-lez v25, :cond_1e
 
     :cond_1d
-    const v27, 0x7f0b0866
+    const v27, 0x7f0b0872
 
     move-object/from16 v0, p0
 
@@ -1928,7 +1928,7 @@
     :cond_20
     if-nez v18, :cond_23
 
-    const v27, 0x7f0b10a1
+    const v27, 0x7f0b11bc
 
     move-object/from16 v0, p0
 
@@ -1955,7 +1955,7 @@
 
     if-nez v21, :cond_24
 
-    const v27, 0x7f0b10a2
+    const v27, 0x7f0b11bd
 
     move-object/from16 v0, p0
 
@@ -1992,7 +1992,7 @@
 
     if-eqz v27, :cond_25
 
-    const v27, 0x7f0b109c
+    const v27, 0x7f0b11b7
 
     :goto_6
     const/16 v28, 0x1
@@ -2030,7 +2030,7 @@
     return-object v27
 
     :cond_25
-    const v27, 0x7f0b109d
+    const v27, 0x7f0b11b8
 
     goto :goto_6
 
@@ -2102,7 +2102,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07a1
+    const v3, 0x7f0b07ad
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2183,7 +2183,7 @@
 
     aput-object v8, v5, v7
 
-    const v8, 0x7f0b07a2
+    const v8, 0x7f0b07ae
 
     invoke-virtual {p0, v8, v5}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2571,7 +2571,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0b0771
+    const v8, 0x7f0b077c
 
     invoke-virtual {p0, v8, v6}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2771,7 +2771,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0b067c
+    const v8, 0x7f0b0687
 
     invoke-virtual {p0, v8, v6}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

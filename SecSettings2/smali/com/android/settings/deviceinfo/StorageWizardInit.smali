@@ -72,7 +72,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0402a9
+    const v0, 0x7f0402aa
 
     invoke-virtual {p0, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->setContentView(I)V
 
@@ -109,7 +109,7 @@
 
     aput-object v3, v0, v1
 
-    const v3, 0x7f0b12ce
+    const v3, 0x7f0b13e9
 
     invoke-virtual {p0, v3, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->setHeaderText(I[Ljava/lang/String;)V
 

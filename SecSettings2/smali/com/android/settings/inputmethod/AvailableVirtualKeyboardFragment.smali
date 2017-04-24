@@ -326,13 +326,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -424,7 +424,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1483
+    const v2, 0x7f0b159e
 
     invoke-virtual {v0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

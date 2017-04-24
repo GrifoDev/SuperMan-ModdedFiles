@@ -3,8 +3,8 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/tts_engine_preference_section_title" android:key="tts_engine_preference_section" />
     <PreferenceCategory android:title="@string/tts_general_section_title" android:key="tts_general_section">
-        <com.android.settings.SeekBarPreference android:layout="@layout/preference_iconless_slider" android:max="600" android:title="@string/tts_default_rate_title" android:key="tts_default_rate" android:summary="@string/tts_default_rate_summary" android:defaultValue="50" />
-        <com.android.settings.SeekBarPreference android:layout="@layout/preference_iconless_slider" android:max="400" android:title="@string/tts_default_pitch_title" android:key="tts_default_pitch" android:summary="@string/tts_default_pitch_summary" android:defaultValue="100" />
+        <com.android.settings.SeekBarPreference android:layout="@layout/preference_iconless_slider" android:max="600" android:title="@string/tts_default_rate_title" android:key="tts_default_rate" android:defaultValue="50" />
+        <com.android.settings.SeekBarPreference android:layout="@layout/preference_iconless_slider" android:max="400" android:title="@string/tts_default_pitch_title" android:key="tts_default_pitch" android:defaultValue="100" />
         <Preference android:persistent="false" android:title="@string/tts_reset_speech_rate_title" android:key="reset_speech_rate" android:summary="@string/tts_reset_speech_rate_summary" />
         <Preference android:persistent="false" android:title="@string/tts_reset_speech_pitch_title" android:key="reset_speech_pitch" android:summary="@string/tts_reset_speech_pitch_summary" />
     </PreferenceCategory>

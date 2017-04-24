@@ -554,7 +554,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040339
+    const v5, 0x7f04033a
 
     const/4 v6, 0x0
 
@@ -771,7 +771,7 @@
 
     if-nez v4, :cond_3
 
-    const v4, 0x7f0b0ce9
+    const v4, 0x7f0b0cf7
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApWhitelistDialog;->setTitle(I)V
 
@@ -795,7 +795,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b041e
+    const v5, 0x7f0b0429
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -810,7 +810,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0fd9
+    const v5, 0x7f0b10f5
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -873,7 +873,7 @@
 
     if-ne v4, v11, :cond_4
 
-    const v4, 0x7f0b0ce9
+    const v4, 0x7f0b0cf7
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApWhitelistDialog;->setTitle(I)V
 
@@ -901,7 +901,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b041e
+    const v5, 0x7f0b0429
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -920,7 +920,7 @@
 
     if-ne v4, v5, :cond_5
 
-    const v4, 0x7f0b0d0f
+    const v4, 0x7f0b0d1d
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApWhitelistDialog;->setTitle(I)V
 
@@ -958,7 +958,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0da1
+    const v6, 0x7f0b0daf
 
     invoke-static {v5, v6}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -1010,7 +1010,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b041f
+    const v5, 0x7f0b042a
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1023,7 +1023,7 @@
     goto/16 :goto_2
 
     :cond_5
-    const v4, 0x7f0b0417
+    const v4, 0x7f0b0422
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/wifi/mobileap/WifiApWhitelistDialog;->setTitle(I)V
 
@@ -1099,7 +1099,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0417
+    const v5, 0x7f0b0422
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

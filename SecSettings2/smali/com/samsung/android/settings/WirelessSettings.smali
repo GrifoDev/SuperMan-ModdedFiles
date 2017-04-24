@@ -1054,7 +1054,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1779
+    const v0, 0x7f0b1894
 
     return v0
 .end method
@@ -1266,7 +1266,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/WirelessSettings;->mContext:Landroid/content/Context;
 
-    const v32, 0x7f0800f1
+    const v32, 0x7f0800f2
 
     move-object/from16 v0, p0
 
@@ -1418,7 +1418,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b18b0
+    const v33, 0x7f0b19cb
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1428,7 +1428,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b18b0
+    const v33, 0x7f0b19cb
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -2082,7 +2082,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b0078
+    const v33, 0x7f0b0079
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -2092,7 +2092,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b0b43
+    const v33, 0x7f0b0b51
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2983,7 +2983,7 @@
 
     move-object/from16 v32, v0
 
-    const v33, 0x7f0b0077
+    const v33, 0x7f0b0078
 
     invoke-virtual/range {v32 .. v33}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -3042,7 +3042,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f080145
+    const v34, 0x7f080146
 
     const/16 v35, 0x0
 
@@ -3360,7 +3360,7 @@
 
     check-cast v17, Landroid/preference/PreferenceScreen;
 
-    const v32, 0x7f0b0b8b
+    const v32, 0x7f0b0b99
 
     move-object/from16 v0, v17
 
@@ -3914,7 +3914,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mWifiApSettings:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b0df7
+    const v16, 0x7f0b0e05
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4165,7 +4165,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mScreenSharingReady:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b18b0
+    const v16, 0x7f0b19cb
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4203,7 +4203,7 @@
 
     if-eqz v15, :cond_17
 
-    const v15, 0x7f0b18af
+    const v15, 0x7f0b19ca
 
     :goto_6
     invoke-virtual {v10, v15}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -4278,7 +4278,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/settings/WirelessSettings;->mWifiApSettings:Landroid/preference/PreferenceScreen;
 
-    const v16, 0x7f0b0df8
+    const v16, 0x7f0b0e06
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4366,7 +4366,7 @@
     goto :goto_7
 
     :cond_17
-    const v15, 0x7f0b18b0
+    const v15, 0x7f0b19cb
 
     goto/16 :goto_6
 

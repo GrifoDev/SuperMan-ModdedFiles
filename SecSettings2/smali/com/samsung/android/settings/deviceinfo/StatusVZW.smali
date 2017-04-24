@@ -639,7 +639,7 @@
 
     const-wide/16 v10, 0x3e8
 
-    const v9, 0x7f0b0515
+    const v9, 0x7f0b0520
 
     const/4 v8, -0x1
 
@@ -700,7 +700,7 @@
 
     if-ne v6, v8, :cond_2
 
-    const v6, 0x7f0b0517
+    const v6, 0x7f0b0522
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->getString(I)Ljava/lang/String;
 
@@ -709,7 +709,7 @@
     goto :goto_0
 
     :cond_2
-    const v6, 0x7f0b0514
+    const v6, 0x7f0b051f
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->getString(I)Ljava/lang/String;
 
@@ -1696,7 +1696,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b051a
+    const v3, 0x7f0b0525
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1740,7 +1740,7 @@
     :cond_5
     iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b051b
+    const v3, 0x7f0b0526
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1768,7 +1768,7 @@
     :cond_7
     iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b051c
+    const v3, 0x7f0b0527
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1796,7 +1796,7 @@
     :cond_9
     iget-object v2, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b051d
+    const v3, 0x7f0b0528
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1822,7 +1822,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0b0f25
+    const v1, 0x7f0b1041
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1833,7 +1833,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0b0f18
+    const v1, 0x7f0b1034
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1844,7 +1844,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0b0f19
+    const v1, 0x7f0b1035
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1855,7 +1855,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v1, 0x7f0b0f1b
+    const v1, 0x7f0b1037
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2340,7 +2340,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0517
+    const v1, 0x7f0b0522
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->getString(I)Ljava/lang/String;
 
@@ -2427,7 +2427,7 @@
 .method private updateDataState()V
     .locals 6
 
-    const v5, 0x7f0b0f23
+    const v5, 0x7f0b103f
 
     iget v3, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mActivePhone:I
 
@@ -2449,7 +2449,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0f25
+    const v4, 0x7f0b1041
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2499,7 +2499,7 @@
     :pswitch_1
     iget-object v3, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0f24
+    const v4, 0x7f0b1040
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2510,7 +2510,7 @@
     :pswitch_2
     iget-object v3, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0f22
+    const v4, 0x7f0b103e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2521,7 +2521,7 @@
     :pswitch_3
     iget-object v3, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0b0f21
+    const v4, 0x7f0b103d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3007,9 +3007,9 @@
 .method private updateServiceState(Landroid/telephony/ServiceState;)V
     .locals 6
 
-    const v5, 0x7f0b0f1d
+    const v5, 0x7f0b1039
 
-    const v4, 0x7f0b0f1c
+    const v4, 0x7f0b1038
 
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getState()I
 
@@ -3304,7 +3304,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b126b
+    const v23, 0x7f0b1386
 
     invoke-virtual/range {v22 .. v23}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -4869,7 +4869,7 @@
 
     iput-object v10, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const v10, 0x7f08005c
+    const v10, 0x7f08005d
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->addPreferencesFromResource(I)V
 
@@ -4929,7 +4929,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v11, 0x7f0b0f07
+    const v11, 0x7f0b1023
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4939,7 +4939,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->mRes:Landroid/content/res/Resources;
 
-    const v11, 0x7f0b1279
+    const v11, 0x7f0b1394
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5127,7 +5127,7 @@
     :cond_6
     const-string/jumbo v10, "factorydatareset"
 
-    const v11, 0x7f0b007b
+    const v11, 0x7f0b007c
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/deviceinfo/StatusVZW;->getString(I)Ljava/lang/String;
 
@@ -5665,7 +5665,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b0c94
+    const v0, 0x7f0b0ca2
 
     :goto_0
     const-string/jumbo v1, "ims_reg"
@@ -5681,19 +5681,19 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0c95
+    const v0, 0x7f0b0ca3
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const v0, 0x7f0b050e
+    const v0, 0x7f0b0519
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b050f
+    const v0, 0x7f0b051a
 
     goto :goto_0
 .end method
@@ -5855,7 +5855,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0f28
+    const v9, 0x7f0b1044
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5885,7 +5885,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0f29
+    const v9, 0x7f0b1045
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5980,7 +5980,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0f28
+    const v9, 0x7f0b1044
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6010,7 +6010,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0f29
+    const v9, 0x7f0b1045
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6052,7 +6052,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0f28
+    const v10, 0x7f0b1044
 
     invoke-virtual {v3, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6082,7 +6082,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0f29
+    const v10, 0x7f0b1045
 
     invoke-virtual {v3, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6201,7 +6201,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0f28
+    const v3, 0x7f0b1044
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6231,7 +6231,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0f29
+    const v3, 0x7f0b1045
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

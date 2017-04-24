@@ -120,11 +120,11 @@
 
     move-result-object v1
 
-    const v2, 0x7f04022b
+    const v2, 0x7f04022c
 
     invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
-    const v1, 0x7f0b01b3
+    const v1, 0x7f0b01b4
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -132,7 +132,7 @@
 
     invoke-virtual {v0, v5, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a1b
+    const v1, 0x7f0b0a29
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -150,7 +150,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a1d
+    const v1, 0x7f0b0a2b
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -168,7 +168,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f0b0a1c
+    const v1, 0x7f0b0a2a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -899,7 +899,7 @@
 
     aput-object v4, v12, v13
 
-    const v13, 0x7f0b01b3
+    const v13, 0x7f0b01b4
 
     invoke-virtual {v5, v13, v12}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -980,7 +980,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->mContext:Landroid/content/Context;
 
-    const v12, 0x7f0b01b4
+    const v12, 0x7f0b01b5
 
     invoke-virtual {v5, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1012,7 +1012,7 @@
 
     invoke-virtual {v0, v1}, Landroid/service/quicksettings/Tile;->setIcon(Landroid/graphics/drawable/Icon;)V
 
-    const v1, 0x7f0b01b0
+    const v1, 0x7f0b01b1
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getText(I)Ljava/lang/CharSequence;
 
@@ -1349,7 +1349,7 @@
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
-    const v0, 0x7f0b0a0a
+    const v0, 0x7f0b0a18
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/powersaving/PowerSavingTile;->getString(I)Ljava/lang/String;
 

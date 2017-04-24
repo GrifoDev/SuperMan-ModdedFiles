@@ -412,7 +412,7 @@
 
     if-nez v3, :cond_0
 
-    const v3, 0x7f0b044e
+    const v3, 0x7f0b0459
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -421,7 +421,7 @@
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
     :cond_0
-    const v3, 0x7f0b0975
+    const v3, 0x7f0b0983
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -460,7 +460,7 @@
 
     iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v1, 0x7f0800af
+    const v1, 0x7f0800b0
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

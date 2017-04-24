@@ -403,19 +403,19 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b00b1
+    const v3, 0x7f0b00b2
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b00b2
+    const v3, 0x7f0b00b3
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b13ef
+    const v3, 0x7f0b150a
 
     invoke-virtual {v2, v3, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -467,19 +467,19 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1a1f
+    const v3, 0x7f0b1b3a
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b1a20
+    const v3, 0x7f0b1b3b
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0fda
+    const v3, 0x7f0b0f9d
 
     invoke-virtual {v2, v3, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1434,7 +1434,7 @@
 
     invoke-direct {v0, v1, p0}, Lcom/android/settings/ChooseLockSettingsHelper;-><init>(Landroid/app/Activity;Landroid/app/Fragment;)V
 
-    const v1, 0x7f0b00af
+    const v1, 0x7f0b00b0
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1496,7 +1496,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b194c
+    const v3, 0x7f0b1a67
 
     const/4 v6, 0x0
 
@@ -1526,7 +1526,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0118
+    const v3, 0x7f0b0119
 
     const/4 v6, 0x0
 
@@ -2318,7 +2318,7 @@
 
     aput-object v3, v8, v6
 
-    const v6, 0x7f0b00d9
+    const v6, 0x7f0b00da
 
     invoke-virtual {v7, v6, v8}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2362,7 +2362,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0b00d8
+    const v7, 0x7f0b00d9
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2970,7 +2970,7 @@
 
     aput-object v4, v9, v11
 
-    const v10, 0x7f0b00b5
+    const v10, 0x7f0b00b6
 
     invoke-virtual {p0, v10, v9}, Lcom/android/settings/DevelopmentSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2986,7 +2986,7 @@
     :cond_3
     iget-object v8, p0, Lcom/android/settings/DevelopmentSettings;->mMockLocationAppPref:Landroid/preference/Preference;
 
-    const v9, 0x7f0b00b4
+    const v9, 0x7f0b00b5
 
     invoke-virtual {p0, v9}, Lcom/android/settings/DevelopmentSettings;->getString(I)Ljava/lang/String;
 
@@ -3177,7 +3177,7 @@
 
     iget-object v1, p0, Lcom/android/settings/DevelopmentSettings;->mPassword:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b0114
+    const v2, 0x7f0b0115
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -3187,7 +3187,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/DevelopmentSettings;->mPassword:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b0113
+    const v2, 0x7f0b0114
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
     :try_end_0
@@ -3507,7 +3507,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v7, 0x7f0b012f
+    const v7, 0x7f0b0130
 
     invoke-virtual {p0, v7}, Lcom/android/settings/DevelopmentSettings;->getString(I)Ljava/lang/String;
 
@@ -3515,7 +3515,7 @@
 
     aput-object v7, v4, v5
 
-    const v5, 0x7f0b0131
+    const v5, 0x7f0b0132
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/DevelopmentSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4326,7 +4326,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b19ce
+    const v1, 0x7f0b1ae9
 
     const/4 v2, 0x1
 
@@ -6471,7 +6471,7 @@
 
     if-eqz v11, :cond_b
 
-    const v11, 0x7f080052
+    const v11, 0x7f080053
 
     invoke-virtual {p0, v11}, Lcom/android/settings/DevelopmentSettings;->addPreferencesFromResource(I)V
 
@@ -7409,7 +7409,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0124
+    const v12, 0x7f0b0125
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7667,7 +7667,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0121
+    const v6, 0x7f0b0122
 
     invoke-static {v5, v6, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7911,7 +7911,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b00cb
+    const v5, 0x7f0b00cc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7921,7 +7921,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0b00ca
+    const v4, 0x7f0b00cb
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -7998,7 +7998,7 @@
 
     invoke-direct {v2, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b00cc
+    const v4, 0x7f0b00cd
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -8640,7 +8640,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f0b00a2
+    const v14, 0x7f0b00a3
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setText(I)V
 
@@ -9152,7 +9152,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b00ce
+    const v2, 0x7f0b00cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9162,7 +9162,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b00cd
+    const v1, 0x7f0b00ce
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

@@ -285,7 +285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04d6
+    const v3, 0x7f0a04d7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -295,7 +295,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04d7
+    const v3, 0x7f0a04d8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -340,7 +340,7 @@
 
     invoke-direct {v2, v14}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1016
+    const v3, 0x7f0b1131
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s üzerinden bağlı</string>
     <string name="available_via_passpoint">%1$s üzerinden kullanılabilir</string>
     <string name="wifi_connected_no_internet">Bağlı, İnternet yok</string>
+    <string name="wifi_internet_may_not_be_available">İnternet kullanılamıyor</string>
     <string name="wifi_reconnecting">Ağ kalitesi arttığında bağlanmaya hazır</string>
     <string name="wifi_connected_checking_quality">İnternet bağlantınızın kalitesi kontrol ediliyor…</string>
     <string name="wifi_sign_in_to_the_network">Ağda oturum açın.</string>
@@ -865,6 +866,14 @@ Uygulama verileri, kişiler, mesajlar ve fotoğraflar gibi kişisel bilgileri i�
     <string name="content_description_hand">Ekranın ortasındaki mavi daireye basın ve öyle tutun.</string>
     <string name="nearby_scanning_help_msg_sub">Yakındaki cihazı tarama, Bluetooth Düşük Enerji taramasını ve mikrofonu kullanır. Bluetooth Düşük Enerji taraması, bu cihazda Bluetooth kapalıyken bile kullanılabilir.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth cihazı bulunamadı</string>
+    <string name="bt_tether_title">Bluetooth bağlantısı</string>
+    <string name="bt_tether_settings_on">Açık</string>
+    <string name="bt_tether_settings_off">Kapalı</string>
+    <string name="bt_tether_off_brief_text_phone">Bluetooth kullanarak telefonunuzun İnternet bağlantısını diğer cihazlarla paylaşın.</string>
+    <string name="bt_tether_off_brief_text_tablet">Bluetooth kullanarak tabletinizin İnternet bağlantısını diğer cihazlarla paylaşın.</string>
+    <string name="bt_tether_preference_tethered_device_list">İnternet paylaşımı yapılan cihazlar</string>
+    <string name="bt_tether_server_description_phone">Bluetooth kullanarak başka bir cihazla eşleştirerek telefonunuzun İnternet bağlantısını paylaşın. Cihazda daha önce İnternet paylaşımı yapıldıysa İnternet paylaşımı yapılan cihazlar listesinden seçerek tekrar paylaşabilirsiniz.</string>
+    <string name="bt_tether_server_description_tablet">Bluetooth kullanarak başka bir cihazla eşleştirerek tabletinizin İnternet bağlantısını paylaşın. Cihazda daha önce İnternet paylaşımı yapıldıysa İnternet paylaşımı yapılan cihazlar listesinden seçerek tekrar paylaşabilirsiniz.</string>
     <string name="bluetooth_consent_pairing_msg">%s ile eşleştirme için Tamam öğesine dokunun.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s, SIM kartınıza erişim izni istiyor. Bu isteğe izin vermek, arama ve mesajlaşma işlevlerini devre dışı bırakır ve cihazınızda Mobil verileri kapatır. İzin verilsin mi?
 
@@ -1039,7 +1048,7 @@ Akıllı yakalama devre dışıyken bile Temassız komut yoluyla özelliklerine 
     <string name="active_key_title">Etkin tuş</string>
     <string name="about_phone">Telefon hakkında</string>
     <string name="theme_settings">Temalar</string>
-    <string name="wifi_calling_title">Wi-Fi Araması</string>
+    <string name="wifi_calling_title">Wi-Fi araması</string>
     <string name="tab_category_connections">Bağlantılar</string>
     <string name="festival_effect_settings_title">Festival efekti</string>
     <string name="user_manual">Cep Telefonu Kullanım Kılavuzu</string>
@@ -2161,7 +2170,7 @@ Bazı NFC işlemleri ve mobil ödeme servisleri farklı bir varsayılan NFC işl
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Cihaz başka bir cihaza dokunduğunda veri değiş tokuşuna izin ver.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Mobil ödeme servislerini kullanın, NFC etiketlerini okuyup yazın ve NFC özellikli cihazlar arasında veri alışverişi yapın.</string>
+    <string name="nfc_settings_title">Mobil ödemeler yapın, veri paylaşın ve NFC etiketlerini okuyun veya yazın.</string>
     <string name="nfc_settings_rw_p2p_summary">Etiket okuyup yazabilir ve cihazlar arasında veri aktarabilirsiniz.</string>
     <string name="nfcpayment_quick_toggle_title">NFC ve ödeme</string>
     <string name="nfc_mode_general_title">NFC modu</string>
@@ -2177,14 +2186,16 @@ Bazı NFC işlemleri ve mobil ödeme servisleri farklı bir varsayılan NFC işl
     <string name="nfc_payment_favor_open_default_unknown">Açık uygulamayı kullan</string>
     <string name="nfc_payment_favor_default_default_unknown">Varsayılan ödeme servisi yok</string>
     <string name="nfc_tts_tab_n_of_n">Sekme %1$d / %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Varsayılan ödeme uygulaması değiştrlsn mi?</string>
+    <string name="nfc_payment_replace">Değiştir</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Tercih edilen SIM kartı</string>
     <string name="nfc_please_wait">Lütfen bekleyin…</string>
     <string name="nfc_payment_no_sim_card">SIM kart yok</string>
-    <string name="nfc_disable_service_title">Varsayılan NFC yöntemini değiştir</string>
-    <string name="nfc_disable_service_msg">Varsayılan NFC işleme yöntemini değiştirirseniz DİĞER sekmesindeki bazı servisler devre dışı bırakılır veya etkinleştirilir. Bu servisleri yönetmek için NFC ve ödeme > Dokun ve öde > DİĞER bölümüne gidin, ardından etkinleştirmek veya devre dışı bırakmak için her bir servisi seçin.</string>
+    <string name="nfc_disable_service_title">Varsayılan NFC yöntemi değiştirilsin mi?</string>
+    <string name="nfc_disable_service_msg">Varsayılan NFC işleme yöntemini değiştirirseniz DİĞER sekmesindeki bazı servisler açılır veya kapatılır. Bu servisleri yönetmek için NFC ve ödeme > Dokun ve öde > DİĞER bölümüne gidip açılacak veya kapatılacak her bir servisi seçin.</string>
     <string name="nfc_settings_advanced_setting">Varsayılan NFC yöntemi</string>
     <string name="nfc_settings_advanced_uicc">SE SIM kartı</string>
     <string name="nfc_settings_advanced_uicc_TTS">Güvenli Öğe SIM kartı</string>
@@ -2196,7 +2207,7 @@ Bazı NFC işlemleri ve mobil ödeme servisleri farklı bir varsayılan NFC işl
     <string name="nfc_settings_tag_message">Kart moduna geçerseniz artık NFC etiketlerini okuyamaz, bunlara veri yazamaz ya da cihazlar arasında veri alışverişi yapamazsınız.</string>
     <string name="nfc_show_alert_dialog_title">Ultra güç tasarrufu modu</string>
     <string name="nfc_show_alert_dialog_message">%s açılamıyor.</string>
-    <string name="android_beam_explained">Birbirlerine yakın tutarak NFC özellikli cihazlar arasında dosya paylaşın. Böylece web sayfası bağlantılarını, kişileri ve daha fazlasını paylaşabilirsiniz.</string>
+    <string name="android_beam_explained">Telefonunuzu NFC özellikli bir cihaza yakın tutarak web sayfası bağlantılarını, kişileri ve daha fazlasını paylaşabilirsiniz.</string>
     <string name="android_beam_explained_1">Cihazları arka arkaya temas edecek şekilde bir araya getirin.</string>
     <string name="android_beam_explained_2">Ekranınıza dokunun.</string>
     <string name="guide_dialog_attention_title">Dikkat</string>
@@ -2205,7 +2216,7 @@ Bazı NFC işlemleri ve mobil ödeme servisleri farklı bir varsayılan NFC işl
     <string name="cannot_use_card_without_NFC">Bazı içerik paylaşma ve NFC ödemesi yöntemleri gibi NFC ile ilgili işlevler, NFC kapatıldığında kullanılamaz olacaklardır.</string>
     <string name="limit_app_contents_transfer">Android Beam kapatıldığında, NFC üzerinden içerik paylaşımı sınırlanır.</string>
     <string name="nfc_payment_dialog_favor_open">"Şu anda açık olan uygulama Dokun ve öde'yi destekliyorsa %s yerine bu kullanılacaktır."</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">"Şu anda açık olan uygulama Dokun ve öde'yi destekliyorsa bu kullanılacaktır."</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">"Şu anda açık olan uygulama Dokun ve öde'yi destekliyorsa ödeme için bu kullanılır."</string>
     <string name="folder_sounds">Klasör açma/kapama seslri</string>
     <string name="folder_sounds_summary">Klasörü açarken ve kapatırken ses çal.</string>
     <string name="sound_category_calls_title">Gelen aramalar</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Cihaz %d dakikadan uzun süre kilitliyken Wi-Fi veya mobil ağlar yoluyla kullanılan veri miktarını gösteren bildirimler alın.</string>
     <string name="data_usage_reminder_description">Cihaz kilitliyken aşağıdaki uygulamalar toplamda %s oranında veri kullandı:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Tamam</string>
     <string name="yes">Evet</string>
     <string name="no">Hayır</string>
     <string name="create">Oluştur</string>
@@ -3560,7 +3572,6 @@ Bunu daha sonra Bluetooth ayarlarına giderek değiştirebilirsiniz."</string>
     <string name="phone_info_label">Cihaz bilgisi</string>
     <string name="proxy_settings_label">Proxy ayarları</string>
     <string name="cancel">İptal</string>
-    <string name="okay">Tamam</string>
     <string name="save">Kaydet</string>
     <string name="done">Tamam</string>
     <string name="settings_label">Ayarlar</string>
@@ -4814,13 +4825,13 @@ Tüm kullanıcılar tüm diğer kullanıcıların adına güncellenmiş uygulama
     <string name="global_change_warning">Bu ayar bu cihazdaki tüm kullanıcıları etkiler.</string>
     <string name="global_locale_change_title">Dili değiştir</string>
     <string name="nfc_payment_settings_title">Dokun ve öde</string>
-    <string name="nfc_payment_no_apps">Yüklü ödeme servisi uygulaması yok</string>
+    <string name="nfc_payment_no_apps">Yüklü ödeme uygulaması yok</string>
     <string name="nfc_payment_favor_default">Yine de %s kullan</string>
     <string name="nfc_payment_favor_open">%s yerine açık uygulamayı kullan</string>
     <string name="nfc_how_it_works_got_it">Anladım</string>
-    <string name="nfc_payment_set_default_label">Varsayılan olarak ata</string>
-    <string name="nfc_payment_set_default">%s Dokun ve öde işlemleri için varsayılan ödeme yönteminiz olarak ayarlanacak.</string>
-    <string name="nfc_payment_set_default_instead_of">Dokun ve öde işlemleri için varsayılan ödeme yöntemi olarak %1$s öğesi %2$s yerine ayarlanacak.</string>
+    <string name="nfc_payment_set_default_label">Varsayılan ödeme uygulaması ayarlansın mı?</string>
+    <string name="nfc_payment_set_default">%s, Dokun ve öde için varsayılan ödeme yönteminiz olarak ayarlanacak.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s, Dokun ve öde için varsayılan ödeme yönteminiz olarak %2$s yerine ayarlanacak.</string>
     <string name="help_label">Yardım</string>
     <string name="user_restrictions_title">Uygulama/içerik sınırlamaları</string>
     <string name="user_restrictions_controlled_by">%1$s ile kontrol edilir</string>
@@ -5126,7 +5137,7 @@ Cihaz başlatılana kadar arama, mesaj veya bildirim almazsınız ve alarmlar ç
     <string name="location_off_summary">Devre dışı bırakıldı</string>
     <string name="backup_disabled">Otomatik yedekleme devre dışı</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">İşlem gerçekleştirilemiyor</string>
+    <string name="disabled_by_policy_title">Eylem gerçekleştirilemiyor</string>
     <string name="default_admin_support_msg">Bu işlemi gerçekleştirme izniniz yok. Daha fazla bilgi için kuruluşunuzun BT yöneticisiyle iletişim kurun.</string>
     <string name="admin_support_more_info">Daha fazla ayrıntı</string>
     <string name="admin_profile_owner_message">Yönetici; ayarlar, izinler, kurumsal erişim, ağ etkinliği ve cihazın konum bilgileri dahil olmak üzere iş profilinizle ilişkilendirilen uygulamaları ve verileri izleyebilir ve yönetebilir.</string>

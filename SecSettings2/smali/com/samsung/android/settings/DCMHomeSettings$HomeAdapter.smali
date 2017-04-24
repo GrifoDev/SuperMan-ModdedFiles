@@ -97,7 +97,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08007e
+    const v6, 0x7f08007f
 
     const/4 v7, 0x0
 
@@ -189,11 +189,11 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v5, 0x7f0b039f
+    const v5, 0x7f0b03a0
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v5, 0x7f0b03a0
+    const v5, 0x7f0b03a1
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -214,11 +214,11 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v5, 0x7f0b03a1
+    const v5, 0x7f0b03a2
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v5, 0x7f0b03a2
+    const v5, 0x7f0b03a3
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -239,11 +239,11 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v5, 0x7f0b03a3
+    const v5, 0x7f0b03a4
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
-    const v5, 0x7f0b03a4
+    const v5, 0x7f0b03a5
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -268,7 +268,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08007f
+    const v6, 0x7f080080
 
     const/4 v7, 0x0
 

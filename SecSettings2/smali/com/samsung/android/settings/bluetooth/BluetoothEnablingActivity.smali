@@ -88,7 +88,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/bluetooth/BluetoothEnablingActivity;->alertDialog:Landroid/app/AlertDialog;
 
-    const v3, 0x7f0b03c1
+    const v3, 0x7f0b03c2
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -106,7 +106,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0b03c2
+    const v2, 0x7f0b03c3
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/bluetooth/BluetoothEnablingActivity;->getString(I)Ljava/lang/String;
 

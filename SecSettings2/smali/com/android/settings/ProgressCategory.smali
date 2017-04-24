@@ -35,7 +35,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/ProgressCategory;->mDivider:Z
 
-    const v0, 0x7f0401f7
+    const v0, 0x7f0401f8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ProgressCategory;->setLayoutResource(I)V
 
@@ -69,7 +69,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/ProgressCategory;->mDivider:Z
 
-    const v0, 0x7f0401f7
+    const v0, 0x7f0401f8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/ProgressCategory;->setLayoutResource(I)V
 

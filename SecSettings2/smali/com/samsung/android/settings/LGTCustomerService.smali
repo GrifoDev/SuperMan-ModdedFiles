@@ -52,7 +52,7 @@
 
     sput-object v0, Lcom/samsung/android/settings/LGTCustomerService;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f08008b
+    const v0, 0x7f08008c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/LGTCustomerService;->addPreferencesFromResource(I)V
 
@@ -82,14 +82,14 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/LGTCustomerService;->mCustomerService:Landroid/preference/Preference;
 
-    const v1, 0x7f0b0ff3
+    const v1, 0x7f0b110e
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/LGTCustomerService;->mCustomerService:Landroid/preference/Preference;
 
-    const v1, 0x7f0b0e65
+    const v1, 0x7f0b0e73
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/LGTCustomerService;->getString(I)Ljava/lang/String;
 

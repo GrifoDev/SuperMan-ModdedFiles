@@ -100,7 +100,7 @@
 
     if-ge v0, v2, :cond_0
 
-    const v2, 0x7f0f02ea
+    const v2, 0x7f0f02eb
 
     invoke-virtual {p0, v2}, Lcom/android/settings/ConfirmDeviceCredentialBaseActivity;->setTheme(I)V
 

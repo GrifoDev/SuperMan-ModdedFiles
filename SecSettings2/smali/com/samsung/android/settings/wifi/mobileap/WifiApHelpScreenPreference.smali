@@ -17,7 +17,7 @@
 
     iput v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->mMaxClient:I
 
-    const v0, 0x7f04032b
+    const v0, 0x7f04032c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApHelpScreenPreference;->setLayoutResource(I)V
 
@@ -29,7 +29,7 @@
 .method public onBindView(Landroid/view/View;)V
     .locals 10
 
-    const v9, 0x7f0b0cf0
+    const v9, 0x7f0b0cfe
 
     const/4 v7, 0x1
 
@@ -152,7 +152,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0b0cf1
+    const v4, 0x7f0b0cff
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -195,7 +195,7 @@
 
     if-nez v4, :cond_5
 
-    const v4, 0x7f0b0dea
+    const v4, 0x7f0b0df8
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -250,7 +250,7 @@
     goto :goto_1
 
     :cond_5
-    const v4, 0x7f0b0de8
+    const v4, 0x7f0b0df6
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -265,7 +265,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0de5
+    const v5, 0x7f0b0df3
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

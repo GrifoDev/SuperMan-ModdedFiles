@@ -207,7 +207,7 @@
 
     const/4 v7, 0x0
 
-    const v11, 0x7f080143
+    const v11, 0x7f080144
 
     const/4 v12, 0x0
 
@@ -277,7 +277,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0a02de
+    const v12, 0x7f0a02df
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -806,7 +806,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b04a3
+    const v13, 0x7f0b04ae
 
     invoke-virtual {p0, v13}, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->getString(I)Ljava/lang/String;
 

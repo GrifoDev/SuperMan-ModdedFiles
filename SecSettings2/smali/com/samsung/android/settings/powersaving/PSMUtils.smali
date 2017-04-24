@@ -52,7 +52,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b0a07
+    const v11, 0x7f0b0a15
 
     invoke-virtual {v8, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -247,7 +247,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b0a08
+    const v11, 0x7f0b0a16
 
     invoke-virtual {v8, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -276,7 +276,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b0a09
+    const v11, 0x7f0b0a17
 
     invoke-virtual {v8, v11, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1088,9 +1088,9 @@
 .method public static getTimeString(Landroid/content/Context;IZ)Ljava/lang/String;
     .locals 10
 
-    const v6, 0x7f0b0a07
+    const v6, 0x7f0b0a15
 
-    const v9, 0x7f0b0a08
+    const v9, 0x7f0b0a16
 
     const/4 v8, 0x1
 
@@ -1240,7 +1240,7 @@
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f0b0a09
+    const v3, 0x7f0b0a17
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1292,7 +1292,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v3, 0x7f0b01cc
+    const v3, 0x7f0b01cd
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1342,7 +1342,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a26
+    const v2, 0x7f0b0a34
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1385,7 +1385,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b0a25
+    const v2, 0x7f0b0a33
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2960,7 +2960,7 @@
 .method public static showTurnOffBoost(Landroid/content/Context;Landroid/app/AlertDialog;ILjava/lang/String;Lcom/samsung/android/settings/powersaving/BrightnessSolutionManager;)Landroid/app/AlertDialog;
     .locals 7
 
-    const v6, 0x7f0b0a4b
+    const v6, 0x7f0b0a59
 
     const/4 v5, 0x0
 
@@ -2975,7 +2975,7 @@
     :cond_0
     if-ne p2, v4, :cond_1
 
-    const v1, 0x7f0b0a35
+    const v1, 0x7f0b0a43
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2998,7 +2998,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0a58
+    const v3, 0x7f0b0a66
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3016,7 +3016,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f0b0a57
+    const v3, 0x7f0b0a65
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3030,7 +3030,7 @@
 
     invoke-direct {v2, p4, p0, p2, p3}, Lcom/samsung/android/settings/powersaving/PSMUtils$1;-><init>(Lcom/samsung/android/settings/powersaving/BrightnessSolutionManager;Landroid/content/Context;ILjava/lang/String;)V
 
-    const v3, 0x7f0b0acd
+    const v3, 0x7f0b0adb
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -3067,7 +3067,7 @@
     return-object p1
 
     :cond_1
-    const v1, 0x7f0b0a36
+    const v1, 0x7f0b0a44
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

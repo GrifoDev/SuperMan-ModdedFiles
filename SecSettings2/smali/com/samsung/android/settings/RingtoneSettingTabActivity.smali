@@ -57,9 +57,9 @@
 .method private getSimName(I)Ljava/lang/String;
     .locals 8
 
-    const v7, 0x7f0b051f
+    const v7, 0x7f0b052a
 
-    const v6, 0x7f0b051e
+    const v6, 0x7f0b0529
 
     const/4 v5, 0x0
 
@@ -540,7 +540,7 @@
     :cond_0
     new-instance v1, Landroid/content/IntentFilter;
 
-    const-string/jumbo v6, "com.samsung.intent.action.QCOMHOTSWAP"
+    const-string/jumbo v6, "com.samsung.intent.action.SIMHOTSWAP"
 
     invoke-direct {v1, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 

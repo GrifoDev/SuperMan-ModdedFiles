@@ -217,7 +217,7 @@
 .method private resetLaunchDefaultsUi(Landroid/widget/TextView;)V
     .locals 2
 
-    const v0, 0x7f0b0165
+    const v0, 0x7f0b0166
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -430,7 +430,7 @@
     :goto_1
     if-eqz v13, :cond_a
 
-    const v21, 0x7f0b13dd
+    const v21, 0x7f0b14f8
 
     move/from16 v0, v21
 
@@ -455,7 +455,7 @@
 
     if-eqz v8, :cond_2
 
-    const v21, 0x7f0b13f2
+    const v21, 0x7f0b150d
 
     move/from16 v0, v21
 
@@ -523,7 +523,7 @@
     :cond_2
     if-eqz v13, :cond_4
 
-    const v21, 0x7f0b13f3
+    const v21, 0x7f0b150e
 
     move/from16 v0, v21
 
@@ -763,7 +763,7 @@
     goto/16 :goto_1
 
     :cond_a
-    const v21, 0x7f0b18ff
+    const v21, 0x7f0b1a1a
 
     move/from16 v0, v21
 

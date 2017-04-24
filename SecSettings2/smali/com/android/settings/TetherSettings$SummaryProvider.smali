@@ -49,7 +49,7 @@
 
     iget-object v2, p0, Lcom/android/settings/TetherSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0d9c
+    const v3, 0x7f0b0daa
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -71,7 +71,7 @@
 
     iget-object v2, p0, Lcom/android/settings/TetherSettings$SummaryProvider;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0077
+    const v3, 0x7f0b0078
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

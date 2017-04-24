@@ -213,6 +213,14 @@
 
     const/4 v1, 0x0
 
+    iget-object v2, p0, Lcom/android/settings/accounts/ManageAccountsSettings;->mUserHandle:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     if-eqz p1, :cond_0
 
     const-string/jumbo v2, "AccountSettings"
@@ -667,7 +675,7 @@
 
     iput-object v12, p0, Lcom/android/settings/accounts/ManageAccountsSettings;->mFirstAccount:Landroid/accounts/Account;
 
-    const v1, 0x7f08009a
+    const v1, 0x7f08009b
 
     invoke-virtual {p0, v1}, Lcom/android/settings/accounts/ManageAccountsSettings;->addPreferencesFromResource(I)V
 
@@ -1495,7 +1503,7 @@
 
     aput-object v31, v35, v36
 
-    const v36, 0x7f0b1656
+    const v36, 0x7f0b1771
 
     move-object/from16 v0, v34
 
@@ -1626,7 +1634,7 @@
 
     iget-object v4, v3, Landroid/accounts/Account;->name:Ljava/lang/String;
 
-    const v3, 0x7f0b1647
+    const v3, 0x7f0b1762
 
     move-object v5, p0
 
@@ -1691,7 +1699,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b101a
+    const v7, 0x7f0b1135
 
     invoke-direct {v5, p0, v6, v7}, Lcom/android/settings/accounts/ManageAccountsSettings$FragmentStarter;-><init>(Lcom/android/settings/accounts/ManageAccountsSettings;Ljava/lang/String;I)V
 
@@ -1943,7 +1951,7 @@
     iput-object v2, p0, Lcom/android/settings/accounts/ManageAccountsSettings;->mAccountType:Ljava/lang/String;
 
     :cond_0
-    const v2, 0x7f08009a
+    const v2, 0x7f08009b
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/ManageAccountsSettings;->addPreferencesFromResource(I)V
 
@@ -2004,7 +2012,7 @@
 
     const/4 v4, 0x0
 
-    const v2, 0x7f0b0331
+    const v2, 0x7f0b0332
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/ManageAccountsSettings;->getString(I)Ljava/lang/String;
 
@@ -2016,7 +2024,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0332
+    const v2, 0x7f0b0333
 
     invoke-virtual {p0, v2}, Lcom/android/settings/accounts/ManageAccountsSettings;->getString(I)Ljava/lang/String;
 

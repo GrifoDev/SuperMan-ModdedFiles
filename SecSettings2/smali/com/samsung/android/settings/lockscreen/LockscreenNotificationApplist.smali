@@ -440,14 +440,14 @@
 .method private getLockOptionValues(I)I
     .locals 3
 
-    const v2, 0x7f0b1837
+    const v2, 0x7f0b1952
 
     if-eq p1, v2, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    const v2, 0x7f0b1835
+    const v2, 0x7f0b1950
 
     if-ne p1, v2, :cond_1
 
@@ -891,7 +891,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0877
+    const v10, 0x7f0b0883
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1195,7 +1195,7 @@
 
     invoke-virtual {v8, v11}, Lcom/samsung/android/settings/lockscreen/LockNotiRestrictedPreference;->semSetSummaryColorToColorPrimaryDark(Z)V
 
-    const v8, 0x7f0b1835
+    const v8, 0x7f0b1950
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1213,7 +1213,7 @@
 
     invoke-direct {p0, v4, v5, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1836
+    const v8, 0x7f0b1951
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1231,7 +1231,7 @@
 
     invoke-direct {p0, v2, v3, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->setRestrictedIfNotificationFeaturesDisabled(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
-    const v8, 0x7f0b1837
+    const v8, 0x7f0b1952
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->getString(I)Ljava/lang/String;
 
@@ -1337,7 +1337,7 @@
 
     if-nez v1, :cond_1
 
-    const v2, 0x7f0b1837
+    const v2, 0x7f0b1952
 
     :goto_0
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->mLockOptionResID:I
@@ -1367,12 +1367,12 @@
     :cond_1
     if-eqz v0, :cond_2
 
-    const v2, 0x7f0b1835
+    const v2, 0x7f0b1950
 
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b1836
+    const v2, 0x7f0b1951
 
     goto :goto_0
 .end method
@@ -1519,13 +1519,13 @@
 
     move-result-object v11
 
-    const v0, 0x7f0a0467
+    const v0, 0x7f0a0468
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v1, 0x7f0a045d
+    const v1, 0x7f0a045e
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1607,7 +1607,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v5, 0x7f080096
+    const v5, 0x7f080097
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->addPreferencesFromResource(I)V
 
@@ -1669,7 +1669,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f0277
+    const v7, 0x7f0f0278
 
     invoke-direct {v5, v6, v7}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 

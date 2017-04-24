@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">已通过%1$s连接</string>
     <string name="available_via_passpoint">可通过%1$s连接</string>
     <string name="wifi_connected_no_internet">已连接，但无法访问互联网</string>
+    <string name="wifi_internet_may_not_be_available">互联网可能不可用</string>
     <string name="wifi_reconnecting">准备好在网络质量改善时连接</string>
     <string name="wifi_connected_checking_quality">正在检查您的互联网连接的质量…</string>
     <string name="wifi_sign_in_to_the_network">登录网络</string>
@@ -864,6 +865,14 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="content_description_hand">长按屏幕中心的蓝色圆圈。</string>
     <string name="nearby_scanning_help_msg_sub">附近设备扫描使用蓝牙低功耗扫描和麦克风。蓝牙低功耗扫描即使在设备上已关闭蓝牙时也可以使用。</string>
     <string name="sec_bluetooth_no_devices_found">未找到蓝牙设备</string>
+    <string name="bt_tether_title">蓝牙网络共享</string>
+    <string name="bt_tether_settings_on">开</string>
+    <string name="bt_tether_settings_off">关闭</string>
+    <string name="bt_tether_off_brief_text_phone">通过蓝牙与其他设备共享您手机的网络连接。</string>
+    <string name="bt_tether_off_brief_text_tablet">通过蓝牙与其他设备共享您平板电脑的网络连接。</string>
+    <string name="bt_tether_preference_tethered_device_list">已共享网络的设备</string>
+    <string name="bt_tether_server_description_phone">通过使用蓝牙与其他设备配对来共享您的手机的网络连接。如果您的网络曾经给该设备共享过，您可以从已共享网络的设备列表中选择它来允许其使用您的网络。</string>
+    <string name="bt_tether_server_description_tablet">通过使用蓝牙与其他设备配对来共享您平板电脑的网络连接。如果您的网络曾经给该设备共享过，您可以从已共享网络的设备列表中选择它来允许其使用您的网络。</string>
     <string name="bluetooth_consent_pairing_msg">点击【确定】可与 %s 配对。</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s正在请求访问您 SIM 卡的许可。允许该请求将禁用通话和信息功能并关闭设备上的移动数据。是否允许？
 
@@ -1038,7 +1047,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="active_key_title">活动键</string>
     <string name="about_phone">关于手机</string>
     <string name="theme_settings">主题</string>
-    <string name="wifi_calling_title">Wi-Fi 通话</string>
+    <string name="wifi_calling_title"><cst>Wi-Fi</cst> 通话</string>
     <string name="tab_category_connections">连接</string>
     <string name="festival_effect_settings_title">节日效果</string>
     <string name="user_manual">用户手册</string>
@@ -2160,7 +2169,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">当靠近另一设备时允许数据交换</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">使用手机支付服务、读写 NFC 标签以及在支持 NFC 的设备之间交换数据。</string>
+    <string name="nfc_settings_title">手机支付、分享数据以及读取和写入 NFC 标签。</string>
     <string name="nfc_settings_rw_p2p_summary">您可读写标签和在设备之间传输数据。</string>
     <string name="nfcpayment_quick_toggle_title">NFC 和支付</string>
     <string name="nfc_mode_general_title">NFC 模式</string>
@@ -2171,19 +2180,21 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="nfc_payment_enable_summary">选择默认移动支付服务。</string>
     <string name="nfc_payment_title">支付</string>
     <string name="nfc_others_title">其他</string>
-    <string name="nfc_other_no_apps">没有安装服务应用程序</string>
+    <string name="nfc_other_no_apps">未安装服务应用程序</string>
     <string name="nfc_payment_open_app">如果打开的应用程序支持点击支付</string>
     <string name="nfc_payment_favor_open_default_unknown">使用运行中的应用程序</string>
     <string name="nfc_payment_favor_default_default_unknown">没有默认支付服务</string>
     <string name="nfc_tts_tab_n_of_n">分页第 %1$d 页，共 %2$d 页。</string>
+    <string name="nfc_payment_replace_default_label">是否替换默认支付应用程序？</string>
+    <string name="nfc_payment_replace">替换</string>
     <string name="nfc_payment_services_title">NFC 支付服务</string>
     <string name="nfc_payment_services_fail">将 %s SIM 卡设为可与 NFC 支付服务一起使用时失败，请重试。</string>
     <string name="nfc_payment_services_success">将使用 %s 进行 NFC 支付</string>
     <string name="nfc_preferred_general_title">首选的 SIM 卡</string>
     <string name="nfc_please_wait">请稍等…</string>
     <string name="nfc_payment_no_sim_card">无 SIM 卡</string>
-    <string name="nfc_disable_service_title">更改默认 NFC 方式</string>
-    <string name="nfc_disable_service_msg">如果您更改默认的 NFC 处理方式，将禁用或启用【其他】页面中的部分服务。若要管理这些设置，请进入【NFC 和支付】>【点击支付】>【其他】，然后选择要启用或禁用的服务。</string>
+    <string name="nfc_disable_service_title">是否更改默认 NFC 方式？</string>
+    <string name="nfc_disable_service_msg">如果您更改默认的 NFC 处理方式，【其他】标签中的部分服务将被开启或关闭。若要管理这些服务，请进入【NFC 与支付】>【点击支付】>【其他】，然后选择要开启或关闭的服务。</string>
     <string name="nfc_settings_advanced_setting">默认 NFC 方式</string>
     <string name="nfc_settings_advanced_uicc">安全模块 SIM 卡</string>
     <string name="nfc_settings_advanced_uicc_TTS">安全元件 SIM 卡</string>
@@ -2195,7 +2206,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="nfc_settings_tag_message">如果切换至银行卡模式，您将不能再读取 NFC 标签、向其写入数据或在设备之间交换数据。</string>
     <string name="nfc_show_alert_dialog_title">超级省电模式</string>
     <string name="nfc_show_alert_dialog_message">无法打开%s</string>
-    <string name="android_beam_explained">通过将支持 NFC 的设备背对背放在一起来分享文件。然后您便可以分享网页链接、联系人等。</string>
+    <string name="android_beam_explained">您可以通过将手机靠近支持 NFC 的设备来分享网页链接、联系人及更多内容。</string>
     <string name="android_beam_explained_1">将设备背对背放在一起。</string>
     <string name="android_beam_explained_2">点击您的屏幕。</string>
     <string name="guide_dialog_attention_title">注意</string>
@@ -2204,7 +2215,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="cannot_use_card_without_NFC">NFC 关闭时，分享内容和 NFC 支付的某些方式等 NFC 相关功能将无法使用。</string>
     <string name="limit_app_contents_transfer">当 Android Beam 关闭时通过 NFC 分享的内容将受限制。</string>
     <string name="nfc_payment_dialog_favor_open">如果当前打开的应用程序支持点击支付，将使用它代替 %s。</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">如果当前打开的应用程序支持点击支付，将加以使用。</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">如果当前打开的应用程序支持点击支付，将使用该方式进行支付。</string>
     <string name="folder_sounds">翻盖打开/关闭音效</string>
     <string name="folder_sounds_summary">打开与关闭翻盖时播放音效</string>
     <string name="sound_category_calls_title">来电</string>
@@ -3461,6 +3472,7 @@ Wi-Fi 已开启。"</string>
     <string name="data_usage_reminder_item_summary">如果设备锁定超过 %d 分钟，解锁后将会收到关于应用程序在锁屏期间使用 Wi-Fi 和移动网络数据使用量的通知。</string>
     <string name="data_usage_reminder_description">下列应用程序在设备锁定期间共使用了 %s 流量：</string>
     <string name="google_settings_popup_msg">Google 设置中部分项目受到限制，将无法操作。</string>
+    <string name="okay">确定</string>
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="create">创建</string>
@@ -3558,7 +3570,6 @@ Wi-Fi 已开启。"</string>
     <string name="phone_info_label">设备信息</string>
     <string name="proxy_settings_label">代理设置</string>
     <string name="cancel">取消</string>
-    <string name="okay">确定</string>
     <string name="save">保存</string>
     <string name="done">完成</string>
     <string name="settings_label">设置</string>
@@ -4810,13 +4821,13 @@ Wi-Fi 已开启。"</string>
     <string name="global_change_warning">该设置影响该设备上的所有用户。</string>
     <string name="global_locale_change_title">更改语言</string>
     <string name="nfc_payment_settings_title">点击支付</string>
-    <string name="nfc_payment_no_apps">没有已安装的支付服务应用程序</string>
+    <string name="nfc_payment_no_apps">未安装支付应用程序</string>
     <string name="nfc_payment_favor_default">仍然使用%s</string>
     <string name="nfc_payment_favor_open">使用打开的应用程序代替%s</string>
     <string name="nfc_how_it_works_got_it">知道了</string>
-    <string name="nfc_payment_set_default_label">设置为默认</string>
-    <string name="nfc_payment_set_default">%s将设置为您点击支付交易的默认支付方式。</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s 将取代 %2$s 作为您点击支付交易的默认支付方式。</string>
+    <string name="nfc_payment_set_default_label">是否设置默认支付应用程序？</string>
+    <string name="nfc_payment_set_default">%s 将设为您点击支付交易的默认支付方式。</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s将取代%2$s作为您点击支付交易的默认支付应用程序。</string>
     <string name="help_label">帮助</string>
     <string name="user_restrictions_title">应用程序/内容限制</string>
     <string name="user_restrictions_controlled_by">通过 %1$s 控制</string>
@@ -5122,7 +5133,7 @@ Wi-Fi 已开启。"</string>
     <string name="location_off_summary">已禁用</string>
     <string name="backup_disabled">已禁用自动备份</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">无法执行操作</string>
+    <string name="disabled_by_policy_title">无法执行动作</string>
     <string name="default_admin_support_msg">您没有执行此操作的权限。请联系您所在组织的 IT 管理员获取更多信息。</string>
     <string name="admin_support_more_info">更多详情</string>
     <string name="admin_profile_owner_message">管理员可以监视和管理与您的工作配置文件相关联的应用程序和数据，包括设置、权限、企业访问、网络活动和设备的位置信息。</string>

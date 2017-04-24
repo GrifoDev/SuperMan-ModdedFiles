@@ -35,12 +35,51 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .locals 3
 
-    if-eqz p1, :cond_0
+    const/4 v2, 0x1
 
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+    if-nez p1, :cond_0
+
+    return-void
 
     :cond_0
+    iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$8;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
+
+    invoke-virtual {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
     return-void
+
+    :cond_1
+    if-ne p2, v2, :cond_2
+
+    const-string/jumbo v1, "bluetooth_security_on_check"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :goto_0
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    return-void
+
+    :cond_2
+    const-string/jumbo v1, "bluetooth_security_on_check"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
 .end method

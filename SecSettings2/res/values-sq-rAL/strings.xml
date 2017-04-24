@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">E lidhur përmes %1$s</string>
     <string name="available_via_passpoint">E mundshme përmes %1$s</string>
     <string name="wifi_connected_no_internet">U lidh, nuk ka internet</string>
+    <string name="wifi_internet_may_not_be_available">Mund të mos ketë Internet</string>
     <string name="wifi_reconnecting">"Gati për t'u lidhur sapo të përmirësohet cilësia e rrjetit"</string>
     <string name="wifi_connected_checking_quality">Duke kontrolluar cilësinë e lidhjes tënde në Internet…</string>
     <string name="wifi_sign_in_to_the_network">Lidhu në rrjet.</string>
@@ -382,7 +383,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d objekte të ndërlidhura</string>
     <string name="no_results_found">Nuk u gjetën rezultate</string>
     <string name="menu_edit">Ndrysho</string>
-    <string name="reset">Ricilëso</string>
+    <string name="reset">Reseto</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Lejon Voice Assistant të dijë se kur je duke përdorur një app.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Vizato drejtimet në zonën poshtë këtij teksti dhe mbi butonat që gjenden në fund të ekranit.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Butoni i konfirmimit gjendet në cepin poshtë djathtas të ekranit.</string>
@@ -864,6 +865,14 @@ Të dhënat e app-eve mund të përfshijnë informacion personal, të tillë si 
     <string name="content_description_hand">Trokit dhe mbaj rrethin e kaltër në qendër të ekranit</string>
     <string name="nearby_scanning_help_msg_sub">Skanimi për pajisje të afërta përdor skanim Bluetooth me Energji të Ulët dhe mikrofonin. Skanimi Bluetooth me Energji të Ulët mund të përdoret edhe kur Bluetooth është fikur në këtë pajisje.</string>
     <string name="sec_bluetooth_no_devices_found">Nuk u gjet asnjë pajisje Bluetooth</string>
+    <string name="bt_tether_title">Lidhje Bluetooth</string>
+    <string name="bt_tether_settings_on">Ndezur</string>
+    <string name="bt_tether_settings_off">Fikur</string>
+    <string name="bt_tether_off_brief_text_phone">Përbashko me pajisje të tjera, duke përdorur Bluetooth, lidhjen e telefonit tënd në Internet.</string>
+    <string name="bt_tether_off_brief_text_tablet">Përbashko me pajisje të tjera, duke përdorur Bluetooth, lidhjen e tabletës sate në Internet.</string>
+    <string name="bt_tether_preference_tethered_device_list">Pajisjet e tetheruara</string>
+    <string name="bt_tether_server_description_phone">Përbashkoje lidhjen e telefonit tënd në Internet duke u çiftuar me një pajisje tjetër me anë të Bluetooth. Në qoftë se pajisja është tetheruar më parë, mund ta tetherosh sërish duke e përzgjedhur nga lista Pajisjet e tetheruara.</string>
+    <string name="bt_tether_server_description_tablet">Përbashkoje lidhjen e tabletës sate në Internet duke u çiftuar me një pajisje tjetër me anë të Bluetooth. Në qoftë se pajisja është tetheruar më parë, mund ta tetherosh sërish duke e përzgjedhur nga lista Pajisjet e tetheruara.</string>
     <string name="bluetooth_consent_pairing_msg">Trokit mbi OK për çiftim me %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s po kërkon leje për akses në kartën tënde SIM. Po ta lejosh këtë kërkesë, funksionet e thirrjeve dhe mesazhimit do të paaftësohen dhe Të dhënat celulare në pajisjen tënde do të fiken. Ta lejoj?
 
@@ -972,7 +981,7 @@ Edhe kur Kapja inteligjente është paaftësuar, mund t‘ia aksesosh funksional
     <string name="downloadable_dialog_popup_text_wifi">Duhen shkarkuar materiale të mëtejshme të ndihmës. Pajisja duhet të jetë e lidhur me një rrjet Wi-Fi. Do të çohesh në ekranin e shkarkimit.</string>
     <string name="back_button_label">Prapa</string>
     <string name="next_button_label">Tjetri</string>
-    <string name="category_applications">Aplikacionet</string>
+    <string name="category_applications">App-et</string>
     <string name="data_connection_title">Njoftimi për faturime</string>
     <string name="data_connection_message">Lidhja me rrjetet celulare mund të kërkojë tarifa shtesë.</string>
     <string name="none_package">Ky veprim nuk mund të kryhet kur po përdoret një profil i kufizuar.</string>
@@ -1038,7 +1047,7 @@ Edhe kur Kapja inteligjente është paaftësuar, mund t‘ia aksesosh funksional
     <string name="active_key_title">Tasti aktiv</string>
     <string name="about_phone">Rreth telefonit</string>
     <string name="theme_settings">Temat</string>
-    <string name="wifi_calling_title">Thirrjet Wi-Fi</string>
+    <string name="wifi_calling_title">Thirrja Wi-Fi</string>
     <string name="tab_category_connections">Lidhjet</string>
     <string name="festival_effect_settings_title">Efekti festival</string>
     <string name="user_manual">manuali i përdoruesit</string>
@@ -2160,7 +2169,7 @@ Disa transaksione NFC dhe shërbime të pagesës celulare mund të kërkojnë nj
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Lejo shkëmbimin e të dhënave kur pajisja prek pajisje tjetër.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Përdor shërbime të pagesës celulare, lexo dhe shkruaj etiketa NFC dhe shkëmbe të dhëna midis pajisjeve që përdorin NFC.</string>
+    <string name="nfc_settings_title">Bëj pagesa celulare, përbashko të dhëna dhe lexo ose shkruaj etiketa NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Mund të lexosh dhe të shkruash etiketa, si dhe të shkëmbesh të dhëna midis pajisjeve.</string>
     <string name="nfcpayment_quick_toggle_title">NFC dhe pagesa</string>
     <string name="nfc_mode_general_title">Regjimi NFC</string>
@@ -2176,14 +2185,16 @@ Disa transaksione NFC dhe shërbime të pagesës celulare mund të kërkojnë nj
     <string name="nfc_payment_favor_open_default_unknown">Përdor app të hapur</string>
     <string name="nfc_payment_favor_default_default_unknown">S‘ka shërbim me parazgjedhje</string>
     <string name="nfc_tts_tab_n_of_n">Skeda %1$d nga %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Ta zëvend. app-in e parazgj. për pagesat?</string>
+    <string name="nfc_payment_replace">Zëvendëso</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Karta SIM e preferuar</string>
     <string name="nfc_please_wait">Prisni…</string>
     <string name="nfc_payment_no_sim_card">"S'ka kartë SIM"</string>
-    <string name="nfc_disable_service_title">Ndrysho mënyrën NFC të parazgjedhur</string>
-    <string name="nfc_disable_service_msg">Në qoftë se e ndryshon mënyrën e parazgjedhur të përpunimit NFC, disa shërbime në skedën TË TJERA do të paaftësohen ose do të aftësohen. Për t‘i menaxhuar këto shërbime, shko te NFC dhe pagesa > Trokit dhe paguaj > TË TJERA, pastaj përzgjidh çdo shërbim për ta aftësuar ose paaftësuar.</string>
+    <string name="nfc_disable_service_title">Ta ndryshoj mënyrën NFC të parazgjedhur?</string>
+    <string name="nfc_disable_service_msg">Në qoftë se e ndryshon mënyrën e parazgjedhur të përpunimit NFC, disa shërbime në skedën TË TJERA do të ndizen ose do të fiken. Për t‘i menaxhuar këto shërbime, shko te NFC dhe pagesa > Trokit dhe paguaj > TË TJERA, pastaj përzgjidh çdo shërbim për ta ndezur ose fikur.</string>
     <string name="nfc_settings_advanced_setting">Mënyra NFC e parazgjedhur</string>
     <string name="nfc_settings_advanced_uicc">Karta SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">Kartë SIM me Element të sigurt</string>
@@ -2195,7 +2206,7 @@ Disa transaksione NFC dhe shërbime të pagesës celulare mund të kërkojnë nj
     <string name="nfc_settings_tag_message">Në qoftë se kalon në Regjimin kartë, nuk do të jesh më në gjendje të lexosh etiketa NFC, të shkruash atje të dhëna ose të shkëmbesh të dhëna midis pajisjeve.</string>
     <string name="nfc_show_alert_dialog_title">Regjimi Kurs. ener. ultra</string>
     <string name="nfc_show_alert_dialog_message">Nuk mund ta hap %s.</string>
-    <string name="android_beam_explained">Përbashko skedarë midis pajisjeve që kanë NFC, duke i mbajtur ato afër njëra-tjetrës. Pas kësaj, mund të përbashkosh lidhje faqesh ueb, kontakte dhe më shumë.</string>
+    <string name="android_beam_explained">Mund të përbashkosh linke drejt faqesh në ueb, kontakte dhe më shumë, duke e mbajtur telefonin afër një pajisjeje të aftësuar për NFC.</string>
     <string name="android_beam_explained_1">Afroji pajisjet me njëra-tjetrën, shpinë më shpinë.</string>
     <string name="android_beam_explained_2">Trokit mbi ekran.</string>
     <string name="guide_dialog_attention_title">Kujdes</string>
@@ -2204,7 +2215,7 @@ Disa transaksione NFC dhe shërbime të pagesës celulare mund të kërkojnë nj
     <string name="cannot_use_card_without_NFC">Funksionet e ndërlidhura me NFC, si disa mënyra për përbashkim materialesh dhe pagesa NFC, nuk do të mund të përdoren kur NFC është fikur.</string>
     <string name="limit_app_contents_transfer">Përbashkimi i materialeve me NFC do të kufizohet, kur Android Beam të jetë fikur.</string>
     <string name="nfc_payment_dialog_favor_open">Në qoftë se app-i aktualisht i hapur mbështet Trokit dhe paguaj, do të përdoret në vend të %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Në qoftë se app-i aktualisht i hapur mbështet Trokit dhe paguaj, do të përdoret.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Në qoftë se app-i aktualisht i hapur mbështet Trokit dhe paguaj, do të përdoret për pagesën.</string>
     <string name="folder_sounds">Tingujt e hap/mbyll dosjen</string>
     <string name="folder_sounds_summary">Luaj tinguj kur hap ose mbyll dosjen.</string>
     <string name="sound_category_calls_title">Telefonatat në hyrje</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Merr njoftime që tregojnë sasinë e të dhënave të përdorura nga app-et përmes Wi-Fi ose rrjeteve celulare, kur pajisja ishte e bllokuar për më shumë se %d minuta.</string>
     <string name="data_usage_reminder_description">App-et e mëposhtme përdorën %s të dhëna gjithsej, kur pajisja ishte e bllokuar:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Po</string>
     <string name="no">Jo</string>
     <string name="create">Krijo</string>
@@ -3559,7 +3571,6 @@ Mund ta ndryshosh këtë më vonë që nga cilësimet Bluetooth."</string>
     <string name="phone_info_label">Të dhëna për pajisjen</string>
     <string name="proxy_settings_label">Percaktimet e opsioneve proxy-t</string>
     <string name="cancel">Anullo</string>
-    <string name="okay">OK</string>
     <string name="save">Ruaj</string>
     <string name="done">Kryer</string>
     <string name="settings_label">Cilësimet</string>
@@ -4813,13 +4824,13 @@ Pasi të krijosh një përdorues të ri, ky person duhet të kryejë një proces
     <string name="global_change_warning">Ky cilësim prek të gjithë përdoruesit në këtë pajisje.</string>
     <string name="global_locale_change_title">Ndërro gjuhën</string>
     <string name="nfc_payment_settings_title">Trokit dhe paguaj</string>
-    <string name="nfc_payment_no_apps">Nuk ka app-e të instaluara për shërbime pagesash</string>
+    <string name="nfc_payment_no_apps">Nuk ka app-e pagesash të instaluara</string>
     <string name="nfc_payment_favor_default">Vazhdo të përdorësh %s</string>
     <string name="nfc_payment_favor_open">Përdor app-in e hapur në vend të %s</string>
     <string name="nfc_how_it_works_got_it">E kuptova</string>
-    <string name="nfc_payment_set_default_label">Cilëso si parazgjedhje</string>
-    <string name="nfc_payment_set_default">%s do të cilësohet si mënyrë pagese e parazgjedhur për transaksionet Trokit dhe paguaj.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s do të zëvendësojë %2$s si mënyrë pagese e parazgjedhur për transaksionet Trokit dhe paguaj.</string>
+    <string name="nfc_payment_set_default_label">Të cilësoj app-in e parazgj. për pagesat?</string>
+    <string name="nfc_payment_set_default">%s do të cilësohet si app pagese i parazgjedhur për Trokit dhe paguaj.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s do të zëvendësojë %2$s si app-i yt i parazgjedhur për Trokit dhe paguaj.</string>
     <string name="help_label">Ndihmë</string>
     <string name="user_restrictions_title">Kufizime të aplikacionit/materialit</string>
     <string name="user_restrictions_controlled_by">Komanduar përmes %1$s</string>

@@ -157,7 +157,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0a06a8
+    const v11, 0x7f0a06a9
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -248,7 +248,7 @@
 
     move v9, v4
 
-    const v10, 0x7f040376
+    const v10, 0x7f040377
 
     const/4 v11, 0x0
 
@@ -343,7 +343,7 @@
     goto :goto_1
 
     :cond_4
-    const v10, 0x7f0b0b1e
+    const v10, 0x7f0b0b2c
 
     invoke-virtual {v1, v10}, Landroid/widget/CheckBox;->setText(I)V
 

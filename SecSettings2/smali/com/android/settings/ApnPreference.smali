@@ -659,6 +659,24 @@
     return-void
 .end method
 
+.method public setNullPreferAPN()V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v0, "ApnPreference"
+
+    const-string/jumbo v1, "no prefer set!: "
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    sput-object v2, Lcom/android/settings/ApnPreference;->mCurrentChecked:Landroid/widget/CompoundButton;
+
+    sput-object v2, Lcom/android/settings/ApnPreference;->mSelectedKey:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public setSelectable(Z)V
     .locals 0
 

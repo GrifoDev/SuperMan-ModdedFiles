@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Ühendatud üksuse %1$s kaudu</string>
     <string name="available_via_passpoint">Saadaval üksuse %1$s kaudu</string>
     <string name="wifi_connected_no_internet">Ühendatud, Interneti-ühendus puudub</string>
+    <string name="wifi_internet_may_not_be_available">Internet ei pruugi olla saad.</string>
     <string name="wifi_reconnecting">Valmis ühenduse loomiseks, kui võrgukvaliteet paraneb</string>
     <string name="wifi_connected_checking_quality">Internetiühenduse kvaliteedi kontrollimine…</string>
     <string name="wifi_sign_in_to_the_network">Saate võrku sisse logida.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d seotud üksust</string>
     <string name="no_results_found">Tulemusi ei leitud</string>
     <string name="menu_edit">Muuda</string>
-    <string name="reset">Lähtesta</string>
+    <string name="reset">Lähtestamine</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Lubab rakendusel Voice Assistant saada teada, millal te rakendust kasutate.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Joonistage suunad alasse, mis asub sellest tekstist allpool ja ekraani all olevatest nuppudest ülalpool.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Nupp Kinnita asub ekraani alaosa paremas nurgas.</string>
@@ -865,6 +866,14 @@ Rakenduste andmete hulgas võib olla isiklikku teavet, nt kontaktid, sõnumid ja
     <string name="content_description_hand">Toksake ja hoidke sõrme ekraani keskel oleval sinisel ringil.</string>
     <string name="nearby_scanning_help_msg_sub">Lähedalasuvate seadmete otsimine kasutab Bluetoothi madala energiaga otsimist ja mikrofoni. Bluetoothi madala energiaga otsimist saab kasutada isegi siis, kui Bluetooth on selles seadmes välja lülitatud.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth-seadmeid ei leitud</string>
+    <string name="bt_tether_title">Bluetooth-jagamine</string>
+    <string name="bt_tether_settings_on">Sees</string>
+    <string name="bt_tether_settings_off">Väljas</string>
+    <string name="bt_tether_off_brief_text_phone">Jagage oma telefoni internetiühendust teiste seadmetega, kasutades Bluetoothi.</string>
+    <string name="bt_tether_off_brief_text_tablet">Jagage oma tahvelseadme internetiühendust teiste seadmetega, kasutades Bluetoothi.</string>
+    <string name="bt_tether_preference_tethered_device_list">Modemiseadmed</string>
+    <string name="bt_tether_server_description_phone">Jagage oma telefoni internetiühendust, sidudes selle Bluetoothi abil mõne muu seadmega. Kui seadmega on ka varem modem-ühendus loodud, saate seadmega ühenduse taas luua, kui valite selle modemiseadmete loendist.</string>
+    <string name="bt_tether_server_description_tablet">Jagage oma tahvelseadme internetiühendust, sidudes selle Bluetoothi abil mõne muu seadmega. Kui seadmega on ka varem modem-ühendus loodud, saate seadmega ühenduse taas luua, kui valite selle modemiseadmete loendist.</string>
     <string name="bluetooth_consent_pairing_msg">Toksake valikut OK, et siduda seadmega %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s soovib luba juurdepääsuks teie SIM-kaardile. Selle lubamisel desaktiveeritakse teie seadmes helistamine ja sõnumside ning lülitatakse välja mobiilne andmeside. Luba?
 
@@ -1039,7 +1048,7 @@ Isegi kui nutikas jäädvustamine on inaktiveeritud, pääsete ligi selle funkts
     <string name="active_key_title">Aktiivne klahv</string>
     <string name="about_phone">Teave telefoni kohta</string>
     <string name="theme_settings">Teemad</string>
-    <string name="wifi_calling_title">Wi-Fi helist.</string>
+    <string name="wifi_calling_title">Wi-Fi helistamine</string>
     <string name="tab_category_connections">Ühendused</string>
     <string name="festival_effect_settings_title">Pidustuste efekt</string>
     <string name="user_manual">Kasutusjuhend</string>
@@ -2161,7 +2170,7 @@ Osad NFC-tehingud ja mobiilimakseteenused võivad vajada teistsugust NFC-töötl
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Lubab andmete vahetust, kui telefon puudutab teist seadet.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Kasutage mobiilimakseteenuseid, lugege ja kirjutage NFC-silte ja vahetage andmeid NFC-võimalusega seadmete vahel.</string>
+    <string name="nfc_settings_title">Saate teha mobiilimakseid, jagada andmeid ja lugeda või kirjutada NFC-silte.</string>
     <string name="nfc_settings_rw_p2p_summary">Saate lugeda ja kirjutada silte ning edastada andmeid seadmete vahel.</string>
     <string name="nfcpayment_quick_toggle_title">NFC ja maksed</string>
     <string name="nfc_mode_general_title">NFC-režiim</string>
@@ -2172,19 +2181,21 @@ Osad NFC-tehingud ja mobiilimakseteenused võivad vajada teistsugust NFC-töötl
     <string name="nfc_payment_enable_summary">Valige oma vaikimisi mobiilimakseteenus.</string>
     <string name="nfc_payment_title">Makse</string>
     <string name="nfc_others_title">Muud</string>
-    <string name="nfc_other_no_apps">Ühtegi teenuserakendust pole installitud</string>
+    <string name="nfc_other_no_apps">Ühtki teenindusrakendust pole installitud</string>
     <string name="nfc_payment_open_app">Kui avatud rakendus toetab teenust Toksa ja maksa</string>
     <string name="nfc_payment_favor_open_default_unknown">Kasuta avatud rakendust</string>
     <string name="nfc_payment_favor_default_default_unknown">Vaikimisi makseteenus puudub</string>
     <string name="nfc_tts_tab_n_of_n">Vahekaart %1$d/%2$d.</string>
+    <string name="nfc_payment_replace_default_label">Kas asendada vaikimisi makserakendus?</string>
+    <string name="nfc_payment_replace">Asenda</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Eelistatud SIM-kaart</string>
     <string name="nfc_please_wait">Palun oodake…</string>
     <string name="nfc_payment_no_sim_card">SIM-kaarti pole</string>
-    <string name="nfc_disable_service_title">Vaikimisi NFC viisi muutmine</string>
-    <string name="nfc_disable_service_msg">Kui muudate NFC-töötlemise vaikeviisi, inaktiveeritakse või aktiveeritakse mõned teenused vahekaardil MUUD. Nende teenuste haldamiseks avage menüü NFC ja maksed > Toksa ja maksa > MUUD, seejärel valige iga teenus, et seda aktiveerida või inaktiveerida.</string>
+    <string name="nfc_disable_service_title">Kas muuta NFC vaikemeetodit?</string>
+    <string name="nfc_disable_service_msg">Kui muudate NFC-töötlemise vaikeviisi, lülitatakse mõned teenused vahekaardil MUUD sisse või välja. Nende teenuste haldamiseks avage menüü NFC ja maksed > Toksa ja maksa > MUUD, seejärel valige iga teenus, et seda sisse või välja lülitada.</string>
     <string name="nfc_settings_advanced_setting">Vaikimisi NFC viis</string>
     <string name="nfc_settings_advanced_uicc">SE SIM-kaart</string>
     <string name="nfc_settings_advanced_uicc_TTS">Turvaelemendi SIM-kaart</string>
@@ -2196,8 +2207,8 @@ Osad NFC-tehingud ja mobiilimakseteenused võivad vajada teistsugust NFC-töötl
     <string name="nfc_settings_tag_message">Kui lülitate kaardirežiimi sisse, ei saa te enam lugeda NFC-silte, kirjutada neile andmeid või vahetada andmeid seadmete vahel.</string>
     <string name="nfc_show_alert_dialog_title">Ülim energiasäästurežiim</string>
     <string name="nfc_show_alert_dialog_message">Rakendust %s ei saa avada.</string>
-    <string name="android_beam_explained">Saate jagada faile NFC-võimalusega seadmete vahel, hoides neid üksteise lähedal. Seejärel saate jagada veebilehtede linke, kontakte ja muudki.</string>
-    <string name="android_beam_explained_1">Asetage seadmed seljakuti üksteise vastu.</string>
+    <string name="android_beam_explained">Saate jagada veebilehtede linke, kontakte ja muudki, kui hoiate oma telefoni NFC-võimalusega seadme lähedal.</string>
+    <string name="android_beam_explained_1">Asetage seadmed üksteise lähedale tagaküljed kohakuti.</string>
     <string name="android_beam_explained_2">Toksake oma ekraani.</string>
     <string name="guide_dialog_attention_title">Tähelepanu!</string>
     <string name="nfc_off_popup_title">Lülita NFC välja</string>
@@ -2205,7 +2216,7 @@ Osad NFC-tehingud ja mobiilimakseteenused võivad vajada teistsugust NFC-töötl
     <string name="cannot_use_card_without_NFC">NFC-ga seotud funktsioonid, naiteks teatud sisujagamis- ja NFC-maksete meetodid, pole NFC valjalulitamisel saadaval.</string>
     <string name="limit_app_contents_transfer">Sisu jagamine NFC kaudu on piiratud, kui Android Beam on valja lulitatud.</string>
     <string name="nfc_payment_dialog_favor_open">Kui praegu avatud rakendus toetab funktsiooni Toksa ja maksa, kasutatakse seda teenuse %s asemel.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Kui praegu avatud rakendus toetab funktsiooni Toksa ja maksa, kasutatakse seda.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Kui praegu avatud rakendus toetab funktsiooni Toksa ja maksa, kasutatakse maksmiseks seda.</string>
     <string name="folder_sounds">Klapi avam./sulgem. helid</string>
     <string name="folder_sounds_summary">Esita helisid kausta avamisel ja sulgemisel.</string>
     <string name="sound_category_calls_title">Saabuvad kõned</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Saate võtta vastu teavitusi, mis näitavad, kui palju kasutasid rakendused andmehulka Wi-Fi või mobiilsidevõrkudes ajal, kui seade oli lukustatud üle %d minuti.</string>
     <string name="data_usage_reminder_description">Järgmised rakendused kasutasid kokku %s andmeid ajal, kui seade oli lukustatud:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Jah</string>
     <string name="no">Ei</string>
     <string name="create">Loo</string>
@@ -3560,7 +3572,6 @@ Saate seda seadet hiljem muuta Bluetoothi seadetes."</string>
     <string name="phone_info_label">Seadme teave</string>
     <string name="proxy_settings_label">Puhverserveri seaded</string>
     <string name="cancel">Tühista</string>
-    <string name="okay">OK</string>
     <string name="save">Salvesta</string>
     <string name="done">Valmis</string>
     <string name="settings_label">Seaded</string>
@@ -4814,13 +4825,13 @@ Kõik kasutajad saavad nõustuda värskendatud rakenduste lubadega kõigi teiste
     <string name="global_change_warning">See seadistus mojutab koiki selle seadme kasutajaid.</string>
     <string name="global_locale_change_title">Muuda keelt</string>
     <string name="nfc_payment_settings_title">Toksa ja maksa</string>
-    <string name="nfc_payment_no_apps">Ühtegi makseteenuste rakendust pole installitud</string>
+    <string name="nfc_payment_no_apps">Ükski makserakendus pole installitud</string>
     <string name="nfc_payment_favor_default">Kasuta ikkagi rakendust %s</string>
     <string name="nfc_payment_favor_open">Kasuta rakenduse %s asemel avatud rakendust</string>
     <string name="nfc_how_it_works_got_it">Sain aru</string>
-    <string name="nfc_payment_set_default_label">Määra vaikimisi</string>
-    <string name="nfc_payment_set_default">%s määratakse teie vaikimisi vaikemeetodiks funktsiooni Toksa ja maksa tehingute jaoks.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s asendab rakenduse %2$s teie vaikimisi maksemeetodina funktsiooni Toksa ja maksa tehingute jaoks.</string>
+    <string name="nfc_payment_set_default_label">Kas määrata vaikimisi makserakendus?</string>
+    <string name="nfc_payment_set_default">%s määratakse teie vaikimisi makserakenduseks funktsiooni Toksa ja maksa jaoks.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s asendab rakenduse %2$s teie vaikimisi makserakendusena Toksa ja maksa jaoks.</string>
     <string name="help_label">Spikker</string>
     <string name="user_restrictions_title">Rakenduse-/sisupiirangud</string>
     <string name="user_restrictions_controlled_by">Juhitud rakenduse %1$s poolt</string>
@@ -5126,7 +5137,7 @@ Kuni seade pole käivitunud, ei saa te kõnesid, sõnumeid ega teavitusi vastu v
     <string name="location_off_summary">Desaktiveeritud</string>
     <string name="backup_disabled">Automaatne varundamine on inaktiveeritud</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Toimingut ei saa teostada</string>
+    <string name="disabled_by_policy_title">Toimingut ei saa teha</string>
     <string name="default_admin_support_msg">Teil pole luba seda toimingut teostada. Lisateabe saamiseks pöörduge oma organisatsiooni IT-administraatori poole.</string>
     <string name="admin_support_more_info">Rohkem üksikasju</string>
     <string name="admin_profile_owner_message">Administraator saab jälgida ja hallata selle tööprofiiliga seotud rakendusi ja andmeid, sh seaded, load, ettevõtte juurdepääs, võrgutegevus ja seadme asukoha teave.</string>

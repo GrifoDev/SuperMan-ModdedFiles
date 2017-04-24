@@ -327,7 +327,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0946
+    const v3, 0x7f0b0954
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0948
+    const v3, 0x7f0b0956
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0949
+    const v3, 0x7f0b0957
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -412,7 +412,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b094b
+    const v3, 0x7f0b0959
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -440,13 +440,13 @@
 
     move-result-object v10
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0469
 
     invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a045d
+    const v2, 0x7f0a045e
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -454,7 +454,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a046c
+    const v2, 0x7f0a046d
 
     invoke-virtual {v10, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -890,13 +890,13 @@
 
     invoke-direct {v2, p0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b0943
+    const v3, 0x7f0b0951
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0944
+    const v3, 0x7f0b0952
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -906,7 +906,7 @@
 
     invoke-direct {v3, p0, p1, v1}, Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting$1;-><init>(Lcom/samsung/android/settings/nfc/NfcAdvancedRoutingSetting;Ljava/lang/String;I)V
 
-    const v4, 0x7f0b18e0
+    const v4, 0x7f0b19fb
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

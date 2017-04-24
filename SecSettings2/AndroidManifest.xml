@@ -589,7 +589,7 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.ApnSettings"/>
         </activity>
-        <activity android:configChanges="density|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="@bool/hardwareAccelerated" android:icon="@drawable/st_ic_bluetooth" android:label="@string/bluetooth_settings_title" android:name="com.android.settings.Settings$BluetoothSettingsActivity" android:parentActivityName="com.android.settings.Settings$ConnectionsSettingsActivity" android:permission="android.permission.BLUETOOTH_ADMIN" android:taskAffinity="" android:theme="@style/Theme.Settings">
+        <activity android:configChanges="density|keyboard|keyboardHidden|mcc|mnc|navigation|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="@bool/hardwareAccelerated" android:icon="@drawable/st_ic_bluetooth" android:label="@string/bluetooth_settings_title" android:name="com.android.settings.Settings$BluetoothSettingsActivity" android:parentActivityName="com.android.settings.Settings$ConnectionsSettingsActivity" android:permission="android.permission.BLUETOOTH_ADMIN" android:taskAffinity="" android:theme="@style/Theme.BluetoothSettings">
             <intent-filter android:priority="1">
                 <action android:name="android.settings.BLUETOOTH_SETTINGS"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -651,6 +651,11 @@
 <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:label="@string/device_picker" android:name="com.samsung.android.settings.bluetooth.CheckBluetoothStateActivity" android:permission="android.permission.BLUETOOTH" android:theme="@style/Theme.Dialog.NoWindowDisplay">
             <intent-filter>
                 <action android:name="android.bluetooth.devicepicker.action.LAUNCH"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="@string/bt_tether_title" android:name="com.samsung.android.settings.bluetooth.tethering.BtTetherSettings" android:permission="android.permission.BLUETOOTH" android:theme="@style/Theme.BluetoothSettings">
+            <intent-filter>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
@@ -2444,7 +2449,7 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.boostmode.BoostModeCustomFragment"/>
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID" android:value="battery_settings"/>
         </activity>
-        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_powersave" android:label="@string/quick_settings_power_saving_label" android:name="com.samsung.android.settings.powersaving.PowerSavingTile" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_powersave" android:label="@string/quick_settings_power_saving_label" android:name="com.samsung.android.settings.powersaving.PowerSavingTile" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:process=":QuickSettingsTile">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
@@ -2548,7 +2553,7 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/header_add_an_account" android:name="com.android.settings.Settings$ChooseAccountActivity" android:theme="@style/Theme.SubSettingsDialogWhenLarge">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.android.settings.accounts.ChooseAccountActivity"/>
         </activity>
-        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_sync" android:label="@string/gadget_sync" android:name="com.samsung.android.settings.qstile.SecAccountTiles" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_sync" android:label="@string/gadget_sync" android:name="com.samsung.android.settings.qstile.SecAccountTiles" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:process=":QuickSettingsTile">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
@@ -3140,12 +3145,12 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
-        <service android:enabled="@bool/support_bluelight_filter" android:icon="@drawable/quick_panel_icon_blue_light_filter" android:label="@string/blue_light_filter_title" android:name="com.samsung.android.settings.qstile.BluelightFilterTiles" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:enabled="@bool/support_bluelight_filter" android:icon="@drawable/quick_panel_icon_blue_light_filter" android:label="@string/blue_light_filter_title" android:name="com.samsung.android.settings.qstile.BluelightFilterTiles" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:process=":QuickSettingsTile">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
-        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_private_mode" android:label="@string/personal_page" android:name="com.samsung.android.settings.qstile.PersonalModeTile" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:enabled="true" android:icon="@drawable/quick_panel_icon_private_mode" android:label="@string/personal_page" android:name="com.samsung.android.settings.qstile.PersonalModeTile" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:process=":QuickSettingsTile">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>

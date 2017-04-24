@@ -864,7 +864,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0270
+    const v2, 0x7f0b0271
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -889,7 +889,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0272
+    const v2, 0x7f0b0273
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -935,7 +935,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b01da
+    const v3, 0x7f0b01db
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1344,7 +1344,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0278
+    const v3, 0x7f0a0279
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1354,7 +1354,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0276
+    const v4, 0x7f0a0277
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1366,7 +1366,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0277
+    const v4, 0x7f0a0278
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1543,7 +1543,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->attachListeners()V
 
-    const v0, 0x7f0b0275
+    const v0, 0x7f0b0276
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->setTitle(I)V
 
@@ -1681,9 +1681,9 @@
 .method private loadDimensAndBitmap()V
     .locals 5
 
-    const v3, 0x7f0a0271
+    const v3, 0x7f0a0272
 
-    const v2, 0x7f0a0270
+    const v2, 0x7f0a0271
 
     const-string/jumbo v0, "ChooseLockDirection"
 
@@ -1705,7 +1705,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0278
+    const v1, 0x7f0a0279
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1719,7 +1719,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0276
+    const v1, 0x7f0a0277
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1733,7 +1733,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0277
+    const v1, 0x7f0a0278
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2156,7 +2156,7 @@
 .method private setInitialState()V
     .locals 12
 
-    const v7, 0x7f0a0468
+    const v7, 0x7f0a0469
 
     const/4 v6, 0x6
 
@@ -2220,7 +2220,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0278
+    const v6, 0x7f0b0279
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2240,7 +2240,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b01d9
+    const v6, 0x7f0b01da
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2295,7 +2295,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0273
+    const v8, 0x7f0b0274
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2303,7 +2303,7 @@
 
     aput-object v7, v6, v9
 
-    const v7, 0x7f0b08b0
+    const v7, 0x7f0b08bc
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2409,7 +2409,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0276
+    const v6, 0x7f0b0277
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2429,7 +2429,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b01d9
+    const v6, 0x7f0b01da
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2460,7 +2460,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0278
+    const v5, 0x7f0b0279
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2477,7 +2477,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0276
+    const v5, 0x7f0b0277
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2533,7 +2533,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->mRightButton:Landroid/widget/Button;
 
-    const v4, 0x7f0b0277
+    const v4, 0x7f0b0278
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(I)V
 

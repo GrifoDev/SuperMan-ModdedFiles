@@ -681,7 +681,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f08013e
+    const v0, 0x7f08013f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/vpn2/AppManagementFragment;->addPreferencesFromResource(I)V
 
@@ -899,7 +899,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b16e5
+    const v4, 0x7f0b1800
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

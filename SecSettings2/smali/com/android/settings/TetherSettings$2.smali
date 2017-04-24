@@ -41,11 +41,13 @@
 
     invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get2(Lcom/android/settings/TetherSettings;)Ljava/util/concurrent/atomic/AtomicReference;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast p2, Landroid/bluetooth/BluetoothPan;
+    move-object v1, p2
 
-    invoke-virtual {v1, p2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+    check-cast v1, Landroid/bluetooth/BluetoothPan;
+
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
 
@@ -88,6 +90,14 @@
 
     iget-object v1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
 
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get1(Lcom/android/settings/TetherSettings;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
+
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Lcom/android/settings/TetherSettings;->-set1(Lcom/android/settings/TetherSettings;Z)Z
@@ -98,6 +108,23 @@
     invoke-static {v1}, Lcom/android/settings/TetherSettings;->-wrap8(Lcom/android/settings/TetherSettings;)V
 
     :cond_2
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v1}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;
+
+    check-cast p2, Landroid/bluetooth/BluetoothPan;
+
+    invoke-static {p2}, Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;->setBluetoothPanProxy(Landroid/bluetooth/BluetoothPan;)V
+
+    :cond_3
     return-void
 .end method
 
@@ -155,5 +182,20 @@
     const/4 v1, 0x0
 
     :cond_2
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/settings/TetherSettings$2;->this$0:Lcom/android/settings/TetherSettings;
+
+    invoke-static {v2}, Lcom/android/settings/TetherSettings;->-get4(Lcom/android/settings/TetherSettings;)Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;
+
+    invoke-static {}, Lcom/samsung/android/settings/bluetooth/tethering/BtTetherSettingsAdapter;->removeBluetoothPanProxy()V
+
+    :cond_3
     return-void
 .end method

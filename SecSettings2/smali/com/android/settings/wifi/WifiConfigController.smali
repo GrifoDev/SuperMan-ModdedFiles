@@ -207,7 +207,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f04036a
+    const v23, 0x7f04036b
 
     move-object/from16 v0, v20
 
@@ -251,7 +251,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f04036a
+    const v23, 0x7f04036b
 
     move-object/from16 v0, v20
 
@@ -285,7 +285,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1163
+    const v21, 0x7f0b127e
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -303,7 +303,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1164
+    const v21, 0x7f0b127f
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -321,7 +321,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1165
+    const v21, 0x7f0b1280
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -339,7 +339,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1166
+    const v21, 0x7f0b1281
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1167
+    const v21, 0x7f0b1282
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -432,7 +432,7 @@
 
     move-object/from16 v21, v0
 
-    const v22, 0x7f0b1128
+    const v22, 0x7f0b1243
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -491,7 +491,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -560,7 +560,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b117c
+    const v21, 0x7f0b1297
 
     move/from16 v0, v21
 
@@ -895,7 +895,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b117a
+    const v21, 0x7f0b1295
 
     move/from16 v0, v21
 
@@ -1492,7 +1492,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -1550,7 +1550,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c16
+    const v21, 0x7f0b0c24
 
     move/from16 v0, v21
 
@@ -1569,7 +1569,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1178
+    const v21, 0x7f0b1293
 
     move/from16 v0, v21
 
@@ -1604,7 +1604,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -1720,7 +1720,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -1871,7 +1871,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1178
+    const v21, 0x7f0b1293
 
     move/from16 v0, v21
 
@@ -1892,7 +1892,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -1925,7 +1925,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1178
+    const v21, 0x7f0b1293
 
     move/from16 v0, v21
 
@@ -1945,7 +1945,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c16
+    const v21, 0x7f0b0c24
 
     move/from16 v0, v21
 
@@ -1978,7 +1978,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1176
+    const v21, 0x7f0b1291
 
     move/from16 v0, v21
 
@@ -1998,7 +1998,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c16
+    const v21, 0x7f0b0c24
 
     move/from16 v0, v21
 
@@ -2017,7 +2017,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b1178
+    const v21, 0x7f0b1293
 
     move/from16 v0, v21
 
@@ -2379,7 +2379,7 @@
     :catch_0
     move-exception v6
 
-    const v8, 0x7f0b0f90
+    const v8, 0x7f0b10ac
 
     goto :goto_1
 
@@ -3088,7 +3088,7 @@
 
     check-cast v27, [Ljava/lang/String;
 
-    const v28, 0x7f04036a
+    const v28, 0x7f04036b
 
     move/from16 v0, v28
 
@@ -5483,9 +5483,11 @@
 .end method
 
 .method protected isSubmittable()Z
-    .locals 6
+    .locals 8
 
-    const/4 v4, 0x1
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
 
     const/16 v5, 0x8
 
@@ -5495,20 +5497,22 @@
 
     if-eqz v3, :cond_0
 
-    return v4
+    return v6
 
     :cond_0
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
+    iget v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mMode:I
 
-    if-eqz v3, :cond_1
+    const/16 v4, 0xa
+
+    if-ne v3, v4, :cond_7
 
     iget v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v7, :cond_6
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
 
@@ -5516,15 +5520,24 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-lez v3, :cond_6
+
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
+
+    invoke-virtual {v3}, Landroid/widget/EditText;->length()I
+
+    move-result v3
+
+    if-ge v3, v5, :cond_6
 
     :goto_0
     const/4 v2, 0x1
 
     :cond_1
+    :goto_1
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mSsidView:Landroid/widget/EditText;
 
@@ -5532,15 +5545,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_9
 
-    :goto_1
+    :cond_2
     const/4 v1, 0x0
 
     :goto_2
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapCaCertSpinner:Landroid/widget/Spinner;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mView:Landroid/view/View;
 
@@ -5554,7 +5567,7 @@
 
     move-result v3
 
-    if-eq v3, v5, :cond_3
+    if-eq v3, v5, :cond_4
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapCaCertSpinner:Landroid/widget/Spinner;
 
@@ -5570,20 +5583,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    :cond_2
+    :cond_3
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mUseSystemCertsString:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapDomainView:Landroid/widget/TextView;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mView:Landroid/view/View;
 
@@ -5597,7 +5610,7 @@
 
     move-result v3
 
-    if-eq v3, v5, :cond_3
+    if-eq v3, v5, :cond_4
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapDomainView:Landroid/widget/TextView;
 
@@ -5613,14 +5626,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const/4 v1, 0x0
 
-    :cond_3
+    :cond_4
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapUserCertSpinner:Landroid/widget/Spinner;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mView:Landroid/view/View;
 
@@ -5634,7 +5647,7 @@
 
     move-result v3
 
-    if-eq v3, v5, :cond_4
+    if-eq v3, v5, :cond_5
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mEapUserCertSpinner:Landroid/widget/Spinner;
 
@@ -5650,17 +5663,52 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
-
-    :cond_4
-    return v1
+    if-eqz v3, :cond_5
 
     :cond_5
+    return v1
+
+    :cond_6
     iget v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
 
-    const/4 v4, 0x2
+    if-ne v3, v6, :cond_1
 
-    if-ne v3, v4, :cond_1
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
+
+    invoke-virtual {v3}, Landroid/widget/EditText;->length()I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    goto/16 :goto_0
+
+    :cond_7
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
+
+    if-eqz v3, :cond_1
+
+    iget v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
+
+    if-ne v3, v6, :cond_8
+
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
+
+    invoke-virtual {v3}, Landroid/widget/EditText;->length()I
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    :goto_3
+    const/4 v2, 0x1
+
+    goto/16 :goto_1
+
+    :cond_8
+    iget v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPointSecurity:I
+
+    if-ne v3, v7, :cond_1
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mPasswordView:Landroid/widget/EditText;
 
@@ -5670,12 +5718,12 @@
 
     if-ge v3, v5, :cond_1
 
-    goto/16 :goto_0
+    goto :goto_3
 
-    :cond_6
+    :cond_9
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_b
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
@@ -5683,19 +5731,34 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_b
 
-    :cond_7
+    :goto_4
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
+
+    if-eqz v3, :cond_a
+
+    iget-object v3, p0, Lcom/android/settings/wifi/WifiConfigController;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
+
+    invoke-virtual {v3}, Lcom/android/settingslib/wifi/AccessPoint;->isSaved()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    if-nez v2, :cond_2
+
+    :cond_a
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiConfigController;->ipAndProxyFieldsAreValid()Z
 
     move-result v1
 
     goto/16 :goto_2
 
-    :cond_8
-    if-eqz v2, :cond_7
+    :cond_b
+    if-nez v2, :cond_2
 
-    goto/16 :goto_1
+    goto :goto_4
 .end method
 
 .method protected showEapFieldsByMethod(I)V
@@ -7394,7 +7457,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f04036a
+    const v5, 0x7f04036b
 
     invoke-direct {v10, v2, v5, v4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
@@ -7695,7 +7758,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f04036a
+    const v4, 0x7f04036b
 
     move-object/from16 v0, v20
 

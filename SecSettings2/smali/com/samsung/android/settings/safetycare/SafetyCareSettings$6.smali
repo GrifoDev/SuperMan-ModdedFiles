@@ -468,7 +468,7 @@
         }
     .end annotation
 
-    const v4, 0x7f0b0a75
+    const v4, 0x7f0b0a83
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -490,7 +490,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v3, 0x7f0b13d2
+    const v3, 0x7f0b14ed
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -504,7 +504,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b0814
+    const v3, 0x7f0b0820
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v3, 0x7f0b082c
+    const v3, 0x7f0b0838
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -543,7 +543,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v3, 0x7f0b082d
+    const v3, 0x7f0b0839
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -563,7 +563,7 @@
     return-object v2
 
     :cond_1
-    const v3, 0x7f0b038f
+    const v3, 0x7f0b0390
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -608,7 +608,7 @@
 
     iput-object v6, v5, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v6, 0x7f0800cd
+    const v6, 0x7f0800ce
 
     iput v6, v5, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -656,7 +656,7 @@
 
     if-eqz v6, :cond_4
 
-    const v3, 0x7f0800fc
+    const v3, 0x7f0800fd
 
     :goto_1
     new-instance v5, Landroid/provider/SearchIndexableResource;
@@ -705,7 +705,7 @@
 
     if-eqz v6, :cond_5
 
-    const v3, 0x7f08010e
+    const v3, 0x7f08010f
 
     :goto_2
     new-instance v5, Landroid/provider/SearchIndexableResource;
@@ -730,12 +730,12 @@
     goto :goto_0
 
     :cond_4
-    const v3, 0x7f080112
+    const v3, 0x7f080113
 
     goto :goto_1
 
     :cond_5
-    const v3, 0x7f08010f
+    const v3, 0x7f080110
 
     goto :goto_2
 .end method

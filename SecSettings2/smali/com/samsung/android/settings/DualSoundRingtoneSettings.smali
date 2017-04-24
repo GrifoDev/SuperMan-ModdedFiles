@@ -768,7 +768,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 8
 
-    const v7, 0x7f0b09d9
+    const v7, 0x7f0b09e7
 
     const/4 v6, 0x0
 
@@ -1235,7 +1235,7 @@
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/DualSoundRingtoneSettings;->setTitle(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const v5, 0x7f080069
+    const v5, 0x7f08006a
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/DualSoundRingtoneSettings;->addPreferencesFromResource(I)V
 
@@ -1328,7 +1328,7 @@
 
     new-instance v1, Landroid/content/IntentFilter;
 
-    const-string/jumbo v5, "com.samsung.intent.action.QCOMHOTSWAP"
+    const-string/jumbo v5, "com.samsung.intent.action.SIMHOTSWAP"
 
     invoke-direct {v1, v5}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 

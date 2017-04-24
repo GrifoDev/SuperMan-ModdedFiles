@@ -141,7 +141,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v6, 0x7f0800fd
+    const v6, 0x7f0800fe
 
     invoke-virtual {p0, v6}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->addPreferencesFromResource(I)V
 
@@ -219,12 +219,12 @@
 
     if-eqz v2, :cond_2
 
-    const v5, 0x7f0b18c4
+    const v5, 0x7f0b19df
 
     :goto_0
-    const v1, 0x7f0b18c7
+    const v1, 0x7f0b19e2
 
-    const v0, 0x7f0b18ca
+    const v0, 0x7f0b19e5
 
     :goto_1
     invoke-virtual {p0}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->createHeaderView()Landroid/widget/TextView;
@@ -264,39 +264,39 @@
     :sswitch_0
     if-eqz v2, :cond_0
 
-    const v5, 0x7f0b18c3
+    const v5, 0x7f0b19de
 
     :goto_2
-    const v1, 0x7f0b18c6
+    const v1, 0x7f0b19e1
 
-    const v0, 0x7f0b18c9
+    const v0, 0x7f0b19e4
 
     goto :goto_1
 
     :cond_0
-    const v5, 0x7f0b18c0
+    const v5, 0x7f0b19db
 
     goto :goto_2
 
     :sswitch_1
     if-eqz v2, :cond_1
 
-    const v5, 0x7f0b18c2
+    const v5, 0x7f0b19dd
 
     :goto_3
-    const v1, 0x7f0b18c5
+    const v1, 0x7f0b19e0
 
-    const v0, 0x7f0b18c8
+    const v0, 0x7f0b19e3
 
     goto :goto_1
 
     :cond_1
-    const v5, 0x7f0b18bf
+    const v5, 0x7f0b19da
 
     goto :goto_3
 
     :cond_2
-    const v5, 0x7f0b18c1
+    const v5, 0x7f0b19dc
 
     goto :goto_0
 
@@ -330,9 +330,9 @@
 
     sparse-switch v4, :sswitch_data_0
 
-    const v3, 0x7f0b18cd
+    const v3, 0x7f0b19e8
 
-    const v2, 0x7f0b18d0
+    const v2, 0x7f0b19eb
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/settings/EncryptionInterstitial$EncryptionInterstitialFragment;->getActivity()Landroid/app/Activity;
@@ -405,16 +405,16 @@
     return-object v4
 
     :sswitch_0
-    const v3, 0x7f0b18cc
+    const v3, 0x7f0b19e7
 
-    const v2, 0x7f0b18cf
+    const v2, 0x7f0b19ea
 
     goto :goto_0
 
     :sswitch_1
-    const v3, 0x7f0b18cb
+    const v3, 0x7f0b19e6
 
-    const v2, 0x7f0b18ce
+    const v2, 0x7f0b19e9
 
     goto :goto_0
 

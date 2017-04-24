@@ -57,23 +57,57 @@
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .locals 2
+    .locals 6
 
     invoke-super {p0, p1}, Landroid/preference/EditTextPreference;->onBindDialogView(Landroid/view/View;)V
 
-    const v1, 0x1020003
+    const v3, 0x102000b
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/widget/EditText;
+    check-cast v2, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    const v3, 0x7f0f0261
 
-    const/16 v1, 0x12
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
+    invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->getEditText()Landroid/widget/EditText;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    const/16 v3, 0x12
+
+    invoke-virtual {v1, v3}, Landroid/widget/EditText;->setInputType(I)V
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Landroid/text/InputFilter;
+
+    new-instance v4, Landroid/text/InputFilter$LengthFilter;
+
+    const/16 v5, 0x8
+
+    invoke-direct {v4, v5}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {v1, v3}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+
+    const/16 v3, 0x11
+
+    invoke-virtual {v1, v3}, Landroid/widget/EditText;->setGravity(I)V
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->length()I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setSelection(I)V
 
     :cond_0
     return-void
@@ -114,7 +148,9 @@
 .end method
 
 .method public showPinDialog()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->getDialog()Landroid/app/Dialog;
 
@@ -132,7 +168,7 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/settings/EditPinPreference;->onClick()V
+    invoke-virtual {p0, v2}, Lcom/android/settings/EditPinPreference;->showDialog(Landroid/os/Bundle;)V
 
     goto :goto_0
 .end method

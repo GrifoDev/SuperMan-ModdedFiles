@@ -347,7 +347,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->mProcessingDescTv:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0a3b
+    const v2, 0x7f0b0a49
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I)Ljava/lang/String;
 
@@ -476,7 +476,7 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->mProcessingDescTv:Landroid/widget/TextView;
 
-    const v5, 0x7f0b0a3a
+    const v5, 0x7f0b0a48
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I)Ljava/lang/String;
 
@@ -505,7 +505,7 @@
 
     aput-object v4, v2, v3
 
-    const v4, 0x7f0b0a3e
+    const v4, 0x7f0b0a4c
 
     invoke-virtual {p0, v4, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -530,7 +530,7 @@
     :cond_5
     iget-object v1, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->mRemainTimeInCircleTv:Landroid/widget/TextView;
 
-    const v2, 0x7f0b01cc
+    const v2, 0x7f0b01cd
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I)Ljava/lang/String;
 
@@ -552,7 +552,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0519
+    const v5, 0x7f0a051a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -609,7 +609,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04c0
+    const v3, 0x7f0a04c1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -894,7 +894,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04be
+    const v2, 0x7f0a04bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -904,7 +904,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04bc
+    const v3, 0x7f0a04bd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -956,7 +956,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->mProcessingDescTv:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0a3a
+    const v1, 0x7f0b0a48
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerModeChangeProcessingActivity;->getString(I)Ljava/lang/String;
 

@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s арқылы қосылған</string>
     <string name="available_via_passpoint">%1$s арқылы қолжетімді</string>
     <string name="wifi_connected_no_internet">Қосылған, интернет жоқ</string>
+    <string name="wifi_internet_may_not_be_available">Инт.қол жетімсіз болуы мүмкін</string>
     <string name="wifi_reconnecting">Желі сапасы жақсарғанда қосылуға дайын</string>
     <string name="wifi_connected_checking_quality">Интернет қосылымыңыздың сапасы тексерілуде…</string>
     <string name="wifi_sign_in_to_the_network">Желіге кіріңіз.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d қатысты элемент</string>
     <string name="no_results_found">Нәтиже жоқ</string>
     <string name="menu_edit">Өзгерту</string>
-    <string name="reset">Жаңарту</string>
+    <string name="reset">Бастапқы қалпына келтіру</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Voice Assistant қызметіне қолданбаны пайдалану уақытын білуге мүмкіндік береді.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Осы мәтіннің төменгі жағындағы және экранның төмен жағында орналасқан түймелердің жоғарғы жағындағы аумақта бағыттарды салыңыз.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Растау түймесі экранның төменгі оң жақ бұрышында орналасқан.</string>
@@ -820,7 +821,7 @@ Wi-Fi және Bluetooth құрылғылары да өшіріледі, бір�
     <string name="default_app_selection">Әдепкі қолданбаны таңдау</string>
     <string name="default_app_selection_auto_set">Әдепкі қолданбаларды автоматты орнату</string>
     <string name="default_app_selection_ask">Әдепкі қолданбаны орнату алдын сұрау</string>
-    <string name="launch_application_settings">Әдепкі бағдарламалар</string>
+    <string name="launch_application_settings">Әдепкі қолданбалар</string>
     <string name="launch_application_settings_summary">Нақты тапсырмалар үшін қолданбаларды белгілеңіз.</string>
     <string name="home_settings_header">Бастапқысын өзгерту</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Wi-Fi және Bluetooth құрылғылары да өшіріледі, бір�
     <string name="content_description_hand">Экран ортасындағы көк шеңберді басып ұстап тұрыңыз.</string>
     <string name="nearby_scanning_help_msg_sub">“Жақын жердегі құрылғыны сканерлеу” опциясы Bluetooth төмен қуатты сканерлеуі мен микрофонды пайдаланады. Bluetooth төмен қуатты сканерлеуін, тіпті осы құрылғыда Bluetooth опциясы өшірулі кезде де пайдалануға болады.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth құрылғылары табылмады</string>
+    <string name="bt_tether_title">Bluetooth бекіту</string>
+    <string name="bt_tether_settings_on">Қосулы</string>
+    <string name="bt_tether_settings_off">Өшірулі</string>
+    <string name="bt_tether_off_brief_text_phone">Телефоныңыздың Интернет қосылымын басқа құрылғылармен Bluetooth арқылы бөлісіңіз.</string>
+    <string name="bt_tether_off_brief_text_tablet">Планшетіңіздің Интернет қосылымын басқа құрылғылармен Bluetooth арқылы бөлісіңіз.</string>
+    <string name="bt_tether_preference_tethered_device_list">Байланыстырылған құрылғылар</string>
+    <string name="bt_tether_server_description_phone">Телефоныңыздың Интернет қосылымын Bluetooth көмегімен басқа құрылғымен жұптастыру арқылы бөлісіңіз. Егер құрылғы бұрын байланыстырылып қойған болса, онда оны “Байланыстырылған құрылғылар” тізімінен таңдау арқылы қайтадан байланыстыруға болады.</string>
+    <string name="bt_tether_server_description_tablet">Планшетіңіздің Интернет қосылымын Bluetooth көмегімен басқа құрылғымен жұптастыру арқылы бөлісіңіз. Егер құрылғы бұрын байланыстырылып қойған болса, онда оны “Байланыстырылған құрылғылар” тізімінен таңдау арқылы қайтадан байланыстыруға болады.</string>
     <string name="bluetooth_consent_pairing_msg">%s түрімен жұптастыру үшін, ОК түймесін түртіңіз.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s SIM картаңызға қатынасуға рұқсат сұрауда. Бұл сұрауға рұқсат беру қоңырау шалуыңыз бен хабар жіберу функцияларын өшіріп, құрылғыңыздағы мобильді деректерді өшіреді. Рұқсат ету керек пе?
 
@@ -973,7 +982,7 @@ Wi-Fi және Bluetooth құрылғылары да өшіріледі, бір�
     <string name="downloadable_dialog_popup_text_wifi">Қосымша анықтамалық мазмұн жүктелуі тиіс. Құрылғы Wi-Fi желісіне қосулы болуы тиіс. Сіз жүктеу экранына өтесіз.</string>
     <string name="back_button_label">Артқа</string>
     <string name="next_button_label">Сосын</string>
-    <string name="category_applications">Бағдарламалар</string>
+    <string name="category_applications">Қолданбалар</string>
     <string name="data_connection_title">Ақылар туралы хабарлау</string>
     <string name="data_connection_message">Ұялы байланыс желілеріне қосылуға қосымша ақылар алынуы мүмкін.</string>
     <string name="none_package">Шектелген профильді пайдалану кезінде осы әрекетті орындау мүмкін емес.</string>
@@ -1039,7 +1048,7 @@ Wi-Fi және Bluetooth құрылғылары да өшіріледі, бір�
     <string name="active_key_title">Белсенді перне</string>
     <string name="about_phone">Телефон туралы</string>
     <string name="theme_settings">Тақырыптар</string>
-    <string name="wifi_calling_title">Wi-Fi қоң.шалу</string>
+    <string name="wifi_calling_title">Wi-Fi қоңырау шалу</string>
     <string name="tab_category_connections">Қосылымдар</string>
     <string name="festival_effect_settings_title">Фестиваль әсері</string>
     <string name="user_manual">Пайдаланушы нұсқаулығы</string>
@@ -2162,7 +2171,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Құрылғы екінші құрылғыға тигенде деректер алмасуға рұқсат ету.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Ұялы байланыс төлемінің қызметтерін пайдаланыңыз, NFC тегтерін оқыңыз және жазыңыз, NFC үйлесімді құрылғыларының арасында деректермен алмасыңыз.</string>
+    <string name="nfc_settings_title">Мобильді төлемдерді жасайды, деректерді бөліседі және NFC тегтерін оқиды не жазады.</string>
     <string name="nfc_settings_rw_p2p_summary">Тегтерді оқуға және жазуға және құрылғылар арасында деректер тасымалдауға болады.</string>
     <string name="nfcpayment_quick_toggle_title">NFC және төлем</string>
     <string name="nfc_mode_general_title">NFC режимі</string>
@@ -2173,18 +2182,20 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">Әдепкі мобильді төлем қызметіңізді таңдаңыз.</string>
     <string name="nfc_payment_title">Төлем</string>
     <string name="nfc_others_title">Басқалар</string>
-    <string name="nfc_other_no_apps">Орнатылған қызмет қолданбалары жоқ</string>
+    <string name="nfc_other_no_apps">Қызмет қолданбалары орнатылмаған</string>
     <string name="nfc_payment_open_app">Түрту және төлеу опциясына қолдау көрсететін қолданбаны ашқан жағдайда</string>
     <string name="nfc_payment_favor_open_default_unknown">Қолданбаны ашу опциясын пайдалану</string>
     <string name="nfc_payment_favor_default_default_unknown">Әдепкі төлем қызметі жоқ</string>
     <string name="nfc_tts_tab_n_of_n">%2$d ішіндегі %1$d жиекбелгі.</string>
+    <string name="nfc_payment_replace_default_label">Әдепкі төлем қолданбаны ауыстыру керек пе?</string>
+    <string name="nfc_payment_replace">Орнын ауыстыру</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Таңдаулы SIM карта</string>
     <string name="nfc_please_wait">Күте тұрыңыз…</string>
     <string name="nfc_payment_no_sim_card">SIM карта жоқ</string>
-    <string name="nfc_disable_service_title">Әдепкі NFC әдісін өзгерту</string>
+    <string name="nfc_disable_service_title">Әдепкі NFC әдісін өзгерту керек пе?</string>
     <string name="nfc_disable_service_msg">Егер әдепкі NFC өңдеу әдісін өзгертсеңіз, онда БАСҚАЛАР қойындысындағы кейбір қызметтер өшіріледі немесе қосылады. Осы қызметтерді басқару үшін, NFC және төлем > Түрту арқылы төлеу > БАСҚАЛАР бөліміне өтіп, қосылатын немесе өшірілетін әрбір қызметті таңдаңыз.</string>
     <string name="nfc_settings_advanced_setting">Әдепкі NFC әдісі</string>
     <string name="nfc_settings_advanced_uicc">SE SIM картасы</string>
@@ -2197,7 +2208,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Карта режиміне ауыссаңыз, NFC тегтерін оқу, оған деректер жазу немесе құрылғылар арасында деректермен алмасу мүмкін болмайды.</string>
     <string name="nfc_show_alert_dialog_title">Ультра қуат үнемдеу реж.</string>
     <string name="nfc_show_alert_dialog_message">%s ашу мүмкін емес.</string>
-    <string name="android_beam_explained">Файлдарды NFC-үйлесімді құрылғылары арасында оларды бір-біріне жақын ұстау арқылы бөлісіңіз. Одан кейін веб-беттің сілтемелерін, контактілерді және тағы басқаларды бөлісуге болады.</string>
+    <string name="android_beam_explained">Телефоныңызды NFC мүмкіндігіне ие құрылғыларға жақын ұстау арқылы веб-бет сілтемелерін, контактілерді және тағы басқаны бөлісуге болады.</string>
     <string name="android_beam_explained_1">Құрылғыларды бір-біріне артқы жақтарымен жақындатыңыз.</string>
     <string name="android_beam_explained_2">Экранды түртіңіз.</string>
     <string name="guide_dialog_attention_title">Назар аударыңыз</string>
@@ -2206,7 +2217,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">Бөлісу мазмұны мен NFC төлемінің кейбір әдістері сияқты NFC қатысты функциялар NFC өшірулі болғанда қол жетімді болмайды.</string>
     <string name="limit_app_contents_transfer">Android Beam өшірулі кезінде NFC арқылы бөлісу мазмұны шектеледі.</string>
     <string name="nfc_payment_dialog_favor_open">Ағымдағы ашық қолданба түрту және төлеу мүмкіндігіне қолдау көрсетсе, ол %s орнына пайдаланылады.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ағымдағы ашық қолданба түрту және төлеу мүмкіндігіне қолдау көрсетсе, ол пайдаланылады.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ағымдағы ашық қолданба түрту және төлеу мүмкіндігіне қолдау көрсетсе, ол төлем кезінде пайдаланылады.</string>
     <string name="folder_sounds">Қалт.ашу/жабу дыбыстары</string>
     <string name="folder_sounds_summary">Қалтаны ашу және жабу кезінде дыбыс ойнатыңыз.</string>
     <string name="sound_category_calls_title">Кірген қоңыраулар</string>
@@ -3464,6 +3475,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Құрылғы %d минуттан көп уақыт бойы құлыпталған кезде қолданбалар Wi-Fi немесе ұялы байланыс желілері арқылы пайдаланған деректердің көлемін көрсететін хабарландыруларды алыңыз.</string>
     <string name="data_usage_reminder_description">Құрылғы құлыптаулы кезде, келесі қолданбалар жалпы алғанда деректердің %s көлемін пайдаланды:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Иә</string>
     <string name="no">Жоқ</string>
     <string name="create">Жзу</string>
@@ -3561,7 +3573,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Құрылғы ақпараты</string>
     <string name="proxy_settings_label">Прокси баптаулары</string>
     <string name="cancel">Тоқтату</string>
-    <string name="okay">OK</string>
     <string name="save">Сақтау</string>
     <string name="done">Дайын</string>
     <string name="settings_label">Қон-лар</string>
@@ -4815,13 +4826,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Бұл параметр осы құрылғыдағы барлық пайдаланушыларға әсер етеді.</string>
     <string name="global_locale_change_title">Тілді өзгерту</string>
     <string name="nfc_payment_settings_title">Түрту және төлеу</string>
-    <string name="nfc_payment_no_apps">Орнатылған төлем қызметтері жоқ</string>
+    <string name="nfc_payment_no_apps">Төлем қолданбалары орнатылмаған</string>
     <string name="nfc_payment_favor_default">%s қолданбасын әлі пайдалану</string>
     <string name="nfc_payment_favor_open">%s қолданбасының орнына ашу қолданбасын пайдалану</string>
     <string name="nfc_how_it_works_got_it">Түсінікті</string>
-    <string name="nfc_payment_set_default_label">Әдепкі ретінде орнату</string>
-    <string name="nfc_payment_set_default">%s Түрту және төлеу транзакцияларына арналған әдепкі төлем әдісі ретінде орнатылады.</string>
-    <string name="nfc_payment_set_default_instead_of">Түрту және төлеу транзакциялары үшін әдепкі төлем әдісі ретінде %1$s орнына %2$s қойылады.</string>
+    <string name="nfc_payment_set_default_label">Әдепкі төлем қолданбасын орнату керек пе?</string>
+    <string name="nfc_payment_set_default">%s түрту және төлеу үшін әдепкі төлем әдісі ретінде орнатылады.</string>
+    <string name="nfc_payment_set_default_instead_of">“Түрту арқылы төлеу” қызметі үшін әдепкі төлем қолданбаңыз ретінде %1$s орнына %2$s ауыстырылады.</string>
     <string name="help_label">Анықтама</string>
     <string name="user_restrictions_title">Бағдарлама/мазмұн шектеулері</string>
     <string name="user_restrictions_controlled_by">%1$s арқылы басқарылады</string>
@@ -5127,7 +5138,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">Өшірілді</string>
     <string name="backup_disabled">“Автоматты сақтық көшірмелеу” функциясы өшірілді</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Әрекетті орындау мүмкін болмады</string>
+    <string name="disabled_by_policy_title">Әрекетті орындау мүмкін емес</string>
     <string name="default_admin_support_msg">Осы әрекетті орындауға сіздің рұқсатыңыз жоқ. Қосымша ақпарат алу үшін, ұйымыңыздың АТ әкімшісіне хабарласыңыз.</string>
     <string name="admin_support_more_info">Қосымша мәліметтер</string>
     <string name="admin_profile_owner_message">Әкімші жұмыс профиліңізбен байланыстырылған қолданбалар мен деректерді, оның ішінде параметрлерді, рұқсаттарды, корпоративті қатынасты, желі әрекеті мен құрылғының орны туралы ақпаратты қоса алғанда, бақылап басқара алады.</string>

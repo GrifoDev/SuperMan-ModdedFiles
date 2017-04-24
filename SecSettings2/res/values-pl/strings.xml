@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Połączono przez %1$s</string>
     <string name="available_via_passpoint">Dostępne przez %1$s</string>
     <string name="wifi_connected_no_internet">Połączono, brak internetu</string>
+    <string name="wifi_internet_may_not_be_available">Internet może być niedostępny</string>
     <string name="wifi_reconnecting">Gotowy do połączenia, kiedy poprawi się jakość sieci</string>
     <string name="wifi_connected_checking_quality">Sprawdzanie jakości połączenia z Internetem…</string>
     <string name="wifi_sign_in_to_the_network">Zaloguj do sieci.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">Powiązanych elementów: %d</string>
     <string name="no_results_found">Nie znaleziono wyników</string>
     <string name="menu_edit">Edytuj</string>
-    <string name="reset">Wyzeruj</string>
+    <string name="reset">Resetowanie</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Informuje funkcję Voice Assistant, kiedy używasz aplikacji.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Narysuj kierunki w obszarze poniżej tego tekstu oraz nad przyciskami znajdującymi się w dolnej części ekranu.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Przycisk Potwierdź znajdujący się w prawym dolnym rogu ekranu.</string>
@@ -820,7 +821,7 @@ Sieć Wi-Fi oraz połączenie Bluetooth również zostaną wyłączone, ale moż
     <string name="default_app_selection">Wybór domyślnej aplikacji</string>
     <string name="default_app_selection_auto_set">Automatyczn. ustaw domyślne aplikacje</string>
     <string name="default_app_selection_ask">Pytaj przed ustaw. domyśln. aplikacji</string>
-    <string name="launch_application_settings">Aplikacje domyślne</string>
+    <string name="launch_application_settings">Domyślne aplikacje</string>
     <string name="launch_application_settings_summary">Wyznacz aplikacje dla określonych zadań.</string>
     <string name="home_settings_header">Zmień ekran startowy</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Dane aplikacji mogą obejmować informacje osobiste, takie jak kontakty, wiadomo
     <string name="content_description_hand">Dotknij niebieskiego kółka na środku ekranu i przytrzymaj je.</string>
     <string name="nearby_scanning_help_msg_sub">Podczas skanowania urządzeń w pobliżu używane jest skanowanie Bluetooth Low Energy i mikrofon. Skanowanie Bluetooth Low Energy może być używane nawet po wyłączeniu funkcji Bluetooth na urządzeniu.</string>
     <string name="sec_bluetooth_no_devices_found">Nie znaleziono urządzeń Bluetooth</string>
+    <string name="bt_tether_title">Router Bluetooth</string>
+    <string name="bt_tether_settings_on">Włączony</string>
+    <string name="bt_tether_settings_off">Wyłączony</string>
+    <string name="bt_tether_off_brief_text_phone">Udostępnij połączenie internetowe telefonu innym urządzeniom przy użyciu funkcji Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Udostępnij połączenie internetowe tabletu innym urządzeniom przy użyciu funkcji Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Podłączone urządzenia</string>
+    <string name="bt_tether_server_description_phone">Udostępnij połączenie internetowe telefonu dzięki powiązaniu z innym urządzeniem przy użyciu funkcji Bluetooth. Jeśli urządzenie było wcześniej podłączone, możesz je ponownie podłączyć po wybraniu z listy podłączonych urządzeń.</string>
+    <string name="bt_tether_server_description_tablet">Udostępnij połączenie internetowe tabletu dzięki powiązaniu z innym urządzeniem przy użyciu funkcji Bluetooth. Jeśli urządzenie było wcześniej podłączone, możesz je ponownie podłączyć po wybraniu z listy podłączonych urządzeń.</string>
     <string name="bluetooth_consent_pairing_msg">Dotknij przycisku OK, aby powiązać z urządzeniem %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"Urządzenie %s prosi o zezwolenie na dostęp do Twojej karty SIM. Zgoda na dostęp spowoduje wyłączenie funkcji połączeń oraz przesyłania wiadomości, a także funkcji Dane komórkowe w Twoim urządzeniu. Zezwolić?
 
@@ -1039,7 +1048,7 @@ Nawet po wyłączeniu funkcji Przechwytywanie inteligentne można uzyskiwać dos
     <string name="active_key_title">Klawisz aktywny</string>
     <string name="about_phone">O telefonie</string>
     <string name="theme_settings">Motywy</string>
-    <string name="wifi_calling_title">Połącz. Wi-Fi</string>
+    <string name="wifi_calling_title">Połącz. przez sieć Wi-Fi</string>
     <string name="tab_category_connections">Połączenia</string>
     <string name="festival_effect_settings_title">Efekt festiwalu</string>
     <string name="user_manual">Instrukcja obsługi</string>
@@ -2161,7 +2170,7 @@ Niektóre transakcje NFC i usługi płatności mobilnych mogą wymagać innej do
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Zezwól na wymianę danych, gdy urządzenie dotknie drugiego urządzenia.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Korzystaj z usług płatności mobilnych, odczytuj i zapisuj etykiety NFC i wymieniaj dane między urządzeniami obsługującymi NFC.</string>
+    <string name="nfc_settings_title">Dokonuj płatności mobilnych, udostępniaj dane oraz odczytuj lub zapisuj etykiety NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Możesz odczytywać i zapisywać etykiety oraz przesyłać dane między urządzeniami.</string>
     <string name="nfcpayment_quick_toggle_title">NFC i płatności</string>
     <string name="nfc_mode_general_title">Tryb NFC</string>
@@ -2177,14 +2186,16 @@ Niektóre transakcje NFC i usługi płatności mobilnych mogą wymagać innej do
     <string name="nfc_payment_favor_open_default_unknown">Użyj otwartej aplikacji</string>
     <string name="nfc_payment_favor_default_default_unknown">Brak domyślnej usł. płatności</string>
     <string name="nfc_tts_tab_n_of_n">Karta %1$d z %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Zastąpić domyślną aplikację płatności?</string>
+    <string name="nfc_payment_replace">Zastąp</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferowana karta SIM</string>
     <string name="nfc_please_wait">Proszę czekać…</string>
     <string name="nfc_payment_no_sim_card">Brak karty SIM</string>
-    <string name="nfc_disable_service_title">Zmiana domyślnej metody NFC</string>
-    <string name="nfc_disable_service_msg">Jeśli zmienisz domyślną metodę przetwarzania NFC, niektóre usługi na karcie INNE zostaną wyłączone lub włączone. Aby zarządzać tymi usługami, przejdź do menu NFC i płatności > Dotknij i zapłać > INNE, a następnie zaznacz poszczególne usługi w celu ich włączenia lub wyłączenia.</string>
+    <string name="nfc_disable_service_title">Zmienić domyślną metodę NFC?</string>
+    <string name="nfc_disable_service_msg">Jeśli zmienisz domyślną metodę przetwarzania NFC, niektóre usługi na karcie INNE zostaną włączone lub wyłączone. Aby zarządzać tymi usługami, przejdź do menu NFC i płatności > Dotknij i zapłać > INNE, a następnie zaznacz poszczególne usługi w celu ich włączenia lub wyłączenia.</string>
     <string name="nfc_settings_advanced_setting">Domyślna metoda NFC</string>
     <string name="nfc_settings_advanced_uicc">Karta SIM jako zab. elem.</string>
     <string name="nfc_settings_advanced_uicc_TTS">Karta SIM elementu zabezpieczającego</string>
@@ -2196,7 +2207,7 @@ Niektóre transakcje NFC i usługi płatności mobilnych mogą wymagać innej do
     <string name="nfc_settings_tag_message">Jeśli przełączysz tryb na Tryb karty, nie będzie już można odczytywać etykiet NFC, zapisywać do nich danych ani wymieniać danych między urządzeniami.</string>
     <string name="nfc_show_alert_dialog_title">Tr. b. nisk. zuż. energii</string>
     <string name="nfc_show_alert_dialog_message">Nie można otworzyć aplikacji %s.</string>
-    <string name="android_beam_explained">Udostępniaj pliki między urządzeniami obsługującymi technologię NFC, trzymając je blisko siebie. Możesz wówczas udostępniać łącza do stron WWW, kontakty itp.</string>
+    <string name="android_beam_explained">Możesz udostępniać łącza do stron WWW, kontakty i inne elementy, trzymając telefon blisko urządzenia obsługującego technologię NFC.</string>
     <string name="android_beam_explained_1">Zbliż urządzenia tylnymi stronami.</string>
     <string name="android_beam_explained_2">Dotknij ekranu.</string>
     <string name="guide_dialog_attention_title">Uwaga</string>
@@ -2205,7 +2216,7 @@ Niektóre transakcje NFC i usługi płatności mobilnych mogą wymagać innej do
     <string name="cannot_use_card_without_NFC">Funkcje związane z NFC, np. metody udostępniania zawartości i płatności NFC, będą niedostępne, gdy obsługa NFC zostanie wyłączona.</string>
     <string name="limit_app_contents_transfer">Udostępnianie zawartości przez NFC będzie ograniczone, gdy obsługa Android Beam zostanie wyłączona.</string>
     <string name="nfc_payment_dialog_favor_open">Jeśli obecnie otwarta aplikacja obsługuje metodę Dotknij i zapłać, zostanie użyta zamiast %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Jeśli obecnie otwarta aplikacja obsługuje metodę Dotknij i zapłać, zostanie użyta.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Jeśli obecnie otwarta aplikacja obsługuje metodę Dotknij i zapłać, zostanie użyta podczas płatności.</string>
     <string name="folder_sounds">Dźw. otw./zamk. katalogu</string>
     <string name="folder_sounds_summary">Odtwarzaj dźwięki podczas otwierania i zamykania katalogu.</string>
     <string name="sound_category_calls_title">Połączenie</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Odbieraj powiadomienia pokazujące ilość danych użytych przez aplikacje w sieciach Wi-Fi lub komórkowych, gdy urządzenie jest zablokowane przez ponad %d min.</string>
     <string name="data_usage_reminder_description">Następujące aplikacje wykorzystały łącznie %s danych, kiedy urządzenie było zablokowane:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
     <string name="create">Utwórz</string>
@@ -3560,7 +3572,6 @@ Możesz zmienić to później, przechodząc do ustawień Bluetooth."</string>
     <string name="phone_info_label">Informacje o urządzeniu</string>
     <string name="proxy_settings_label">Ustawienia serwera proxy</string>
     <string name="cancel">Anuluj</string>
-    <string name="okay">OK</string>
     <string name="save">Zapisz</string>
     <string name="done">Gotowe</string>
     <string name="settings_label">Ustawienia</string>
@@ -4814,13 +4825,13 @@ Każdy użytkownik może akceptować uprawnienia do zaktualizowanych aplikacji w
     <string name="global_change_warning">To ustawienie ma wpływ na wszystkich użytkowników urządzenia.</string>
     <string name="global_locale_change_title">Zmiana języka</string>
     <string name="nfc_payment_settings_title">Dotknij i zapłać</string>
-    <string name="nfc_payment_no_apps">Nie zainstalowano aplikacji usług płatności</string>
+    <string name="nfc_payment_no_apps">Brak zainstalowanych aplikacji płatności</string>
     <string name="nfc_payment_favor_default">Nadal używaj aplikacji %s</string>
     <string name="nfc_payment_favor_open">Użyj otwartej aplikacji zamiast aplikacji %s</string>
     <string name="nfc_how_it_works_got_it">Rozumiem</string>
-    <string name="nfc_payment_set_default_label">Ustawianie jako domyślne</string>
-    <string name="nfc_payment_set_default">Usługa %s zostanie ustawiona jako Twoja domyślna metoda płatności dla transakcji Dotknij i zapłać.</string>
-    <string name="nfc_payment_set_default_instead_of">Usługa %1$s zastąpi usługę %2$s jako Twoją domyślną metodę płatności dla transakcji Dotknij i zapłać.</string>
+    <string name="nfc_payment_set_default_label">Ustawić domyślną aplikację płatności?</string>
+    <string name="nfc_payment_set_default">Usługa %s zostanie ustawiona jako Twoja domyślna aplikacja płatności dla funkcji Dotknij i zapłać.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s zastąpi %2$s jako Twoją domyślną aplikację płatności dla transakcji Dotknij i zapłać.</string>
     <string name="help_label">Pomoc</string>
     <string name="user_restrictions_title">Ograniczenia aplikacji/zawartości</string>
     <string name="user_restrictions_controlled_by">Sterowane przez %1$s</string>
@@ -5126,7 +5137,7 @@ Nie będziesz odbierać żadnych połączeń, wiadomości czy powiadomień ani s
     <string name="location_off_summary">Wyłączone</string>
     <string name="backup_disabled">Wyłączono automatyczną kopię zapasową</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Nie można wykonać akcji</string>
+    <string name="disabled_by_policy_title">Nie można wykonać czynności</string>
     <string name="default_admin_support_msg">Nie masz uprawnień do wykonywania tej akcji. Skontaktuj się z administratorem IT w swojej organizacji, aby uzyskać więcej informacji.</string>
     <string name="admin_support_more_info">Więcej szczegółów</string>
     <string name="admin_profile_owner_message">Administrator może monitorować aplikacje i dane skojarzone z tym profilem służbowym, w tym ustawienia, uprawnienia, dostęp firmowy, aktywność sieciową i informacje o lokalizacji urządzenia, oraz zarządzać nimi.</string>

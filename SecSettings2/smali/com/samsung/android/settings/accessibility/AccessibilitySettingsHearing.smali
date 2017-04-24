@@ -406,7 +406,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mAudioBalancePref:Lcom/samsung/android/settings/accessibility/AudioBalanceSeekbarPreference;
 
-    const v3, 0x7f0b01e5
+    const v3, 0x7f0b01e6
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->getString(I)Ljava/lang/String;
 
@@ -678,9 +678,9 @@
 .method private updateDefaultPreferences()V
     .locals 8
 
-    const v7, 0x7f0b18b0
+    const v7, 0x7f0b19cb
 
-    const v6, 0x7f0b18af
+    const v6, 0x7f0b19ca
 
     const/4 v2, 0x1
 
@@ -1076,7 +1076,7 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
-    const v10, 0x7f0401df
+    const v10, 0x7f0401e0
 
     const/4 v11, 0x0
 
@@ -1125,7 +1125,7 @@
 
     invoke-direct {v11, p0, v2, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing$5;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;)V
 
-    const v12, 0x7f0b13ef
+    const v12, 0x7f0b150a
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1164,7 +1164,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b024b
+    const v11, 0x7f0b024c
 
     invoke-virtual {v10, v11}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1206,7 +1206,7 @@
 
     aput-object v9, v12, v13
 
-    const v13, 0x7f0b024d
+    const v13, 0x7f0b024e
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1220,7 +1220,7 @@
 
     invoke-direct {v11, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing$8;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;)V
 
-    const v12, 0x7f0b0fda
+    const v12, 0x7f0b0f9d
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1563,7 +1563,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0251
+    const v13, 0x7f0b0252
 
     invoke-virtual {v12, v13}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1760,7 +1760,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0b03e8
+    const v15, 0x7f0b03f3
 
     invoke-virtual {v14, v15}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1770,7 +1770,7 @@
 
     aput-object v14, v13, v15
 
-    const v14, 0x7f0b01e7
+    const v14, 0x7f0b01e8
 
     invoke-virtual {v12, v14, v13}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2171,7 +2171,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b18af
+    const v12, 0x7f0b19ca
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2235,7 +2235,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b18b0
+    const v12, 0x7f0b19cb
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2289,7 +2289,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mSamsungCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b18af
+    const v12, 0x7f0b19ca
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2353,7 +2353,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mSamsungCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b18b0
+    const v12, 0x7f0b19cb
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 

@@ -19,15 +19,15 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    const v0, 0x7f13000e
+    const v0, 0x7f13000f
 
-    const v1, 0x7f13000f
+    const v1, 0x7f130010
 
-    const v2, 0x7f130010
+    const v2, 0x7f130011
 
-    const v3, 0x7f130011
+    const v3, 0x7f130012
 
-    const v4, 0x7f130012
+    const v4, 0x7f130013
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -348,7 +348,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f0b14e9
+    const v0, 0x7f0b1604
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/ToggleAutoclickPreferenceFragment;->getString(I)Ljava/lang/String;
 

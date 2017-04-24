@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Nakakonekta sa pamamagitan ng %1$s</string>
     <string name="available_via_passpoint">Available sa pamamagitan ng %1$s</string>
     <string name="wifi_connected_no_internet">Nakakonekta, walang Internet</string>
+    <string name="wifi_internet_may_not_be_available">Maaaring walang Internet</string>
     <string name="wifi_reconnecting">Handang kumonekta kapag gumanda ang kalidad ng network</string>
     <string name="wifi_connected_checking_quality">Sinusuri ang kalidad ng iyong koneksyon sa Internet…</string>
     <string name="wifi_sign_in_to_the_network">Mag-sign in sa network.</string>
@@ -820,7 +821,7 @@ Wi-Fi at Bluetooth ay mao-off, ngunit mao-on muli sa mga Setting o sa panel ng m
     <string name="default_app_selection">Pagpili ng default na app</string>
     <string name="default_app_selection_auto_set">Awtomatikong i-set, mga default na app</string>
     <string name="default_app_selection_ask">Itanong bago i-set ang mga default na app</string>
-    <string name="launch_application_settings">Mga default application</string>
+    <string name="launch_application_settings">Mga default na app</string>
     <string name="launch_application_settings_summary">Magtalaga ng mga app para sa ilang gawain.</string>
     <string name="home_settings_header">Palitan ang home</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Maaaring kasama sa data ng App ang personal na impormasyon gaya ng mga contact, 
     <string name="content_description_hand">I-tap nang matagal ang asul na bilog sa gitna ng screen.</string>
     <string name="nearby_scanning_help_msg_sub">Ginagamit ng Nearby device scanning ang Bluetooth Low Energy scanning at mikropono. Magagamit ang Bluetooth Low Energy scanning kahit na naka-off ang Bluetooth sa device na ito.</string>
     <string name="sec_bluetooth_no_devices_found">Walang nakitang mga Bluetooth device</string>
+    <string name="bt_tether_title">Pag-tether sa pamamagitan ng Bluetooth</string>
+    <string name="bt_tether_settings_on">Naka-on</string>
+    <string name="bt_tether_settings_off">Naka-off</string>
+    <string name="bt_tether_off_brief_text_phone">Ibahagi ang koneksiyon sa internet ng telepono mo sa iba pang device na gumagamit ng Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Ibahagi ang koneksiyon sa internet ng tablet mo sa iba pang device na gumagamit ng Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Mga naka-tether (nakatali) na device</string>
+    <string name="bt_tether_server_description_phone">Ibahagi ang koneksiyon sa internet ng telepono mo sa pamamagitan ng pag-pair sa isa pang device na gumagamit ng Bluetooth. Kung naitali na ang device noon, muli mo itong maitatali sa pamamagitan ng pagpili rito mula sa lista ng Mga naka-tether na device.</string>
+    <string name="bt_tether_server_description_tablet">Ibahagi ang koneksiyon sa internet ng tablet mo sa pamamagitan ng pag-pair sa isa pang device na gumagamit ng Bluetooth. Kung naitali na ang device noon, muli mo itong maitatali sa pamamagitan ng pagpili rito mula sa lista ng Mga naka-tether na device.</string>
     <string name="bluetooth_consent_pairing_msg">I-tap ang OK para i-pair sa %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s ay humihiling ng pahintulot upang i-access ang iyong SIM card. Pagpayag sa kahilingang ito ay magpapawalang gana sa mga function ng pagtawag at messaging at mai-off ang Mobile data sa iyong device. Payagan?
 
@@ -973,7 +982,7 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
     <string name="downloadable_dialog_popup_text_wifi">Dapat na mag-download ng karagdagang content ng tulong. Nakakonekta dapat sa isang Wi-Fi network ang device. Dadalhin ka sa screen para sa pag-download.</string>
     <string name="back_button_label">Balik</string>
     <string name="next_button_label">Susunod</string>
-    <string name="category_applications">Mga application</string>
+    <string name="category_applications">Mga app</string>
     <string name="data_connection_title">Notification ng singil</string>
     <string name="data_connection_message">Ang pagkonekta sa mga mobile network ay maaaring magdulot ng mga dagdag na singil.</string>
     <string name="none_package">Hindi magagawa ang aksyon na ito habang gumagamit ng pinaghihigpitang profile.</string>
@@ -1039,7 +1048,7 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
     <string name="active_key_title">Aktibong key</string>
     <string name="about_phone">Tungkol sa telepono</string>
     <string name="theme_settings">Mga Tema</string>
-    <string name="wifi_calling_title">Wi-Fi Calling</string>
+    <string name="wifi_calling_title">Pagtawag sa Wi-Fi</string>
     <string name="tab_category_connections">Mga Koneksyon</string>
     <string name="festival_effect_settings_title">Festival effect</string>
     <string name="user_manual">Manual ng user</string>
@@ -2161,7 +2170,7 @@ Ilang mga trasaksyon ng NFC at serbisyo sa pagabayad sa mobile ay kailangan ng i
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Allow data exchange when device touches another device.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Gamitin ang mga serbisyo sa mobile na pagbabayad, basahin at sumulat ng mga NFC tag at magpalitan ng data sa pagitan ng mga device na may kakayahan sa NFC.</string>
+    <string name="nfc_settings_title">Magsagawa ng mga mobile na pagbayad, magbahagi ng data at magbasa o sumulat ng mga NFC tag.</string>
     <string name="nfc_settings_rw_p2p_summary">Maaari kang magbasa at magsulat ng mga tag at maglipat ng data sa pagitan ng mga device.</string>
     <string name="nfcpayment_quick_toggle_title">NFC at Pagbabayad</string>
     <string name="nfc_mode_general_title">NFC mode</string>
@@ -2172,19 +2181,21 @@ Ilang mga trasaksyon ng NFC at serbisyo sa pagabayad sa mobile ay kailangan ng i
     <string name="nfc_payment_enable_summary">Piliin ang iyong default na serbisyo ng mobile na pagbabayad.</string>
     <string name="nfc_payment_title">Pagbabayad</string>
     <string name="nfc_others_title">Iba pa</string>
-    <string name="nfc_other_no_apps">Walang naka-install na app ng serbisyo</string>
+    <string name="nfc_other_no_apps">Walang naka-install na service app</string>
     <string name="nfc_payment_open_app">Kung suportado ng bukas na app ang Tap at pay</string>
     <string name="nfc_payment_favor_open_default_unknown">Gamitin ang bukas na app</string>
     <string name="nfc_payment_favor_default_default_unknown">Walang default na serbisyo sa pagbabayad</string>
     <string name="nfc_tts_tab_n_of_n">Tab %1$d ng %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Palitan ang default na app sa pagbabayad?</string>
+    <string name="nfc_payment_replace">Palitan</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Gustong SIM card</string>
     <string name="nfc_please_wait">Mangyaring maghintay…</string>
     <string name="nfc_payment_no_sim_card">Walang SIM card</string>
-    <string name="nfc_disable_service_title">Baguhin ang default na paraan ng NFC</string>
-    <string name="nfc_disable_service_msg">Kung babaguhin mo ang default na paraan ng pagproseso ng NFC, hindi gagana o gagana ang ilang serbisyong nasa OTHERS tab. Para pamahalaan ang mga serbisyong ito, pumunta sa NFC and payment > Tap at pay > OTHERS, tapos piliin ang bawat serbisyo para paganahin o hindi paganahin ito.</string>
+    <string name="nfc_disable_service_title">Baguhin ang default na paraan ng NFC?</string>
+    <string name="nfc_disable_service_msg">Kung babaguhin mo ang default na paraan ng pagproseso sa NFC, io-on o io-off ang ilang serbisyong nasa OTHERS tab. Para pamahalaan ang mga serbisyong ito, pumunta sa NFC at payment > Tap at pay > OTHERS, tapos piliin ang bawat serbisyo para i-on o i-off ito.</string>
     <string name="nfc_settings_advanced_setting">Default na paraan ng NFC</string>
     <string name="nfc_settings_advanced_uicc">SE SIM card</string>
     <string name="nfc_settings_advanced_uicc_TTS">Ikabit ang Element SIM card</string>
@@ -2196,8 +2207,8 @@ Ilang mga trasaksyon ng NFC at serbisyo sa pagabayad sa mobile ay kailangan ng i
     <string name="nfc_settings_tag_message">Kung lilipat ka sa Card mode, hindi ka na makababasa ng mga NFC tag, makapagsusulat ng data sa mga ito o makipagpalitan ng data sa pagitan ng mga device.</string>
     <string name="nfc_show_alert_dialog_title">Ultra power saving mode</string>
     <string name="nfc_show_alert_dialog_message">Hindi mabuksan ang %s.</string>
-    <string name="android_beam_explained">Magbahagi ng mga file sa pagitan ng mga device na may kakayahang NFC sa pamamagitan ng paglapit sa mga ito. Pagkatapos ay makapagbabahagi ka na ng mga link ng webpage, mga contact at marami pa.</string>
-    <string name="android_beam_explained_1">Pagdikitin ang mga device nang magkatalikod.</string>
+    <string name="android_beam_explained">Makababahagi ka ng mga webpage link, contact at marami pa sa pamamagitan ng paglapit ng telepono mo sa isang device na may kakayahan sa NFC.</string>
+    <string name="android_beam_explained_1">Pagdikitin ang mga device, nang magkatalikod.</string>
     <string name="android_beam_explained_2">I-tap ang screen mo.</string>
     <string name="guide_dialog_attention_title">Atensyon</string>
     <string name="nfc_off_popup_title">I-off ang NFC</string>
@@ -2205,7 +2216,7 @@ Ilang mga trasaksyon ng NFC at serbisyo sa pagabayad sa mobile ay kailangan ng i
     <string name="cannot_use_card_without_NFC">Hindi magiging available ang mga function na nauugnay sa NFC, tulad ng ilang paraan ng pagbabahagi ng content at pagbabayad gamit ang NFC, kapag naka-off ang NFC.</string>
     <string name="limit_app_contents_transfer">Limitado ang pagbabahagi ng content sa pamamagitan ng NFC kapag naka-off ang Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">Kung suportado ng kasalukuyang nakabukas na app ang Tap at pay, gagamitin ito sa halip na %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Kung suportado ng kasalukuyang nakabukas na app ang Tap at pay, gagamitin ito.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Kung suportado ng kasalukuyang nakabukas na app ang Tap at pay, gagamitin ito sa pagbabayad.</string>
     <string name="folder_sounds">Tunog bukas/sara folder</string>
     <string name="folder_sounds_summary">Mag-play ng mga tunog kapag binubuksan at isinasara ang folder.</string>
     <string name="sound_category_calls_title">Mga papasok na tawag</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Tumanggap ng mga notification na nagpapakita sa dami ng data na ginamit ng mga app gamit ang Wi-Fi o mga mobile network, kapag naka-lock ang device nang higit sa %d minuto.</string>
     <string name="data_usage_reminder_description">Gumamit ang mga sumusunod na app ng kabuuang %s na data habang naka-lock ang device:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Oo</string>
     <string name="no">Hindi</string>
     <string name="create">Lumikha</string>
@@ -3559,7 +3571,6 @@ Maaari mong palitan ito mamaya sa pagpunta sa mga setting ng Bluetooth."</string
     <string name="phone_info_label">Impormasyon ng device</string>
     <string name="proxy_settings_label">Mga setting ng proxy</string>
     <string name="cancel">Ikansela</string>
-    <string name="okay">OK</string>
     <string name="save">I-save</string>
     <string name="done">Tapos na</string>
     <string name="settings_label">Mga Setting</string>
@@ -4813,13 +4824,13 @@ Ang sinumang user ay makakatanggap ng mga na-update na pahintulot sa app sa ngal
     <string name="global_change_warning">Nakakaapekto sa lahat ng user sa device na ito ang setting na ito.</string>
     <string name="global_locale_change_title">Palitan ang wika</string>
     <string name="nfc_payment_settings_title">I-tap at magbayad</string>
-    <string name="nfc_payment_no_apps">Walang naka-install na apps ng serbisyo sa pagbabayad</string>
+    <string name="nfc_payment_no_apps">Walang naka-install na app sa pagbabayad</string>
     <string name="nfc_payment_favor_default">Gamitin pa rin ang %s</string>
     <string name="nfc_payment_favor_open">Gamitin ang bukas na app sa halip na %s</string>
     <string name="nfc_how_it_works_got_it">Kuha ko na</string>
-    <string name="nfc_payment_set_default_label">Itakda bilang default</string>
-    <string name="nfc_payment_set_default">Itatakda ang %s bilang iyong default na paraan ng pagbabayad para sa Mag-tap at magbayad na mga transaksyon.</string>
-    <string name="nfc_payment_set_default_instead_of">Papalitan ng %1$s ang %2$s bilang iyong default na paraan ng pagbabayad para sa Mag-tap at magbayad na mga transaksyon.</string>
+    <string name="nfc_payment_set_default_label">Mag-set ng default na app sa pagbabayad?</string>
+    <string name="nfc_payment_set_default">Itatakda ang %s bilang default na app ng pagbabayad mo para sa Tap at pay.</string>
+    <string name="nfc_payment_set_default_instead_of">Papalitan ng %1$s ang %2$s bilang default na paraan mo ng pagbabayad para sa Tap at pay.</string>
     <string name="help_label">Tulong</string>
     <string name="user_restrictions_title">Paghihigpit sa application/content</string>
     <string name="user_restrictions_controlled_by">Kinokontrol gamit ang %1$s</string>
@@ -5125,7 +5136,7 @@ Hindi ka makatatanggap ng anumang tawag, mensahe o notification at hindi tutunog
     <string name="location_off_summary">Hindi pinagana</string>
     <string name="backup_disabled">Hindi pinagana ang Awto back up</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Hindi magawa ang aksiyon</string>
+    <string name="disabled_by_policy_title">Hindi maisagawa ang aksiyon</string>
     <string name="default_admin_support_msg">Wala kang pahintulot na gawin ang aksiyon na ito. Makipag-ugnayan sa IT administrator ng organisasyon ninyo para sa dagdag na impormasyon.</string>
     <string name="admin_support_more_info">Marami pang detalye</string>
     <string name="admin_profile_owner_message">Kayang manmanan at pamahalaan ng administrator ang mga app at data na kaugnay ng profile mo sa trabaho, kabilang ang mga setting, mga pahintulot, access ng kompanya, aktibidad sa network at impormasyon sa lokasyon ng device.</string>

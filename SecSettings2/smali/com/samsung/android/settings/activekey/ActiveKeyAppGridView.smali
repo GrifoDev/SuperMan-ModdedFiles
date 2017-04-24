@@ -587,7 +587,7 @@
 
     invoke-direct {v1, p1}, Lcom/samsung/android/settings/IconResizer;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0a0479
+    const v2, 0x7f0a047a
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/IconResizer;->setIconSize(I)V
 
@@ -739,7 +739,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v3, 0x7f0b0829
+    const v3, 0x7f0b0835
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 

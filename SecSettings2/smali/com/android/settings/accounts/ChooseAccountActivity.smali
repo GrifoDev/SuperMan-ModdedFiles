@@ -1428,7 +1428,7 @@
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 14
 
-    const v13, 0x7f0a045a
+    const v13, 0x7f0a045b
 
     const/4 v2, 0x0
 
@@ -1442,13 +1442,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1507,7 +1507,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a045b
+    const v3, 0x7f0a045c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1525,7 +1525,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0459
+    const v6, 0x7f0a045a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

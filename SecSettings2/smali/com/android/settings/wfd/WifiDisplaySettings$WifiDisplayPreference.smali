@@ -71,7 +71,7 @@
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f040314
+    const v5, 0x7f040315
 
     invoke-virtual {p0, v5}, Lcom/android/settings/wfd/WifiDisplaySettings$WifiDisplayPreference;->setLayoutResource(I)V
 
@@ -182,7 +182,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0e27
+    const v6, 0x7f0b0e35
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

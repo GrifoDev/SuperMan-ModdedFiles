@@ -563,6 +563,7 @@
     <dimen name="body_margin_first">56.0dip</dimen>
     <dimen name="body_text_bottom_padding">16.0dip</dimen>
     <dimen name="body_text_line_spacing_extra">4.0sp</dimen>
+    <dimen name="body_text_left_padding">24.0dip</dimen>
     <dimen name="body_text_side_padding">24.0dip</dimen>
     <dimen name="body_text_size">15.0sp</dimen>
     <dimen name="body_text_top_padding">16.0dip</dimen>

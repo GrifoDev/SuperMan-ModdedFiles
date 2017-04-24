@@ -1052,7 +1052,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f080074
+    const v1, 0x7f080075
 
     invoke-virtual {p0, v1}, Lcom/android/settings/fingerprint/FingerprintSettings;->addPreferencesFromResource(I)V
 
@@ -1077,7 +1077,7 @@
     return-object v0
 
     :cond_2
-    const v1, 0x7f080073
+    const v1, 0x7f080074
 
     invoke-virtual {p0, v1}, Lcom/android/settings/fingerprint/FingerprintSettings;->addPreferencesFromResource(I)V
 
@@ -1809,7 +1809,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b06dc
+    const v4, 0x7f0b06e7
 
     invoke-virtual {p0, v4}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -2465,7 +2465,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06cc
+    const v8, 0x7f0b06d7
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2477,7 +2477,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b06cb
+    const v10, 0x7f0b06d6
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2924,7 +2924,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06d3
+    const v8, 0x7f0b06de
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -2934,7 +2934,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b06d4
+    const v8, 0x7f0b06df
 
     invoke-virtual {p0, v8}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -3074,7 +3074,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0b0661
+    const v3, 0x7f0b066c
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I)Ljava/lang/String;
 
@@ -3082,7 +3082,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b06f5
+    const v3, 0x7f0b0700
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/fingerprint/FingerprintSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3399,7 +3399,7 @@
 
     const-string/jumbo v1, "com.android.settings.fingerprint.FingerprintSettings_MultiSelect"
 
-    const v3, 0x7f0b0661
+    const v3, 0x7f0b066c
 
     const/4 v4, 0x0
 
@@ -3421,7 +3421,7 @@
 
     const/16 v4, 0x3ef
 
-    const v5, 0x7f0b0661
+    const v5, 0x7f0b066c
 
     const/4 v6, 0x0
 
@@ -3530,7 +3530,7 @@
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v5, 0x7f0b06ad
+    const v5, 0x7f0b06b8
 
     invoke-virtual {v3, v5}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -3727,7 +3727,7 @@
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v5, 0x7f0b06a8
+    const v5, 0x7f0b06b3
 
     invoke-virtual {v4, v5}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -4207,11 +4207,11 @@
 .method private updateOptionsMenu(Landroid/view/Menu;)V
     .locals 9
 
-    const v8, 0x7f0b0425
+    const v8, 0x7f0b0430
 
     const/4 v7, 0x2
 
-    const v6, 0x7f0b0417
+    const v6, 0x7f0b0422
 
     const/4 v5, 0x1
 
@@ -4525,7 +4525,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1787
+    const v0, 0x7f0b18a2
 
     return v0
 .end method
@@ -5809,7 +5809,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f080074
+    const v3, 0x7f080075
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings;->addPreferencesFromResource(I)V
 
@@ -5859,7 +5859,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f080073
+    const v3, 0x7f080074
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintSettings;->addPreferencesFromResource(I)V
 

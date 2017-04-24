@@ -754,7 +754,7 @@
 
     iget-object v3, p0, Lcom/android/settings/datausage/DataSaverBackend;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b03c1
+    const v4, 0x7f0b03c2
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

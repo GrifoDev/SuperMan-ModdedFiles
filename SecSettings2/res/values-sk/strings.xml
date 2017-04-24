@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Pripojené prostredníctvom %1$s</string>
     <string name="available_via_passpoint">K dispozícii prostredníctvom %1$s</string>
     <string name="wifi_connected_no_internet">Pripojené, žiadny internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet nemusí byť dostupný</string>
     <string name="wifi_reconnecting">Pripravené na pripojenie, keď sa zlepší kvalita siete</string>
     <string name="wifi_connected_checking_quality">Kontroluje sa kvalita internetového pripojenia…</string>
     <string name="wifi_sign_in_to_the_network">Prihláste sa k sieti.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">Súvisiace položky: %d</string>
     <string name="no_results_found">Nenašli sa žiadne výsledky</string>
     <string name="menu_edit">Upraviť</string>
-    <string name="reset">Vynulovať</string>
+    <string name="reset">Resetovanie</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Umožňuje funkcii Voice Assistant zistiť, kedy používate nejakú aplikáciu.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Smerové čiary kreslite v oblasti pod týmto textom a nad tlačidlami umiestnenými v dolnej časti obrazovky.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Tlačidlo Potvrdiť umiestnené v pravom dolnom rohu obrazovky.</string>
@@ -865,6 +866,14 @@ Tiež sa vypnú funkcie Wi-Fi a Bluetooth, môžete ich však znova zapnúť v m
     <string name="content_description_hand">Ťuknite na modrý kruh v strede obrazovky a podržte ho.</string>
     <string name="nearby_scanning_help_msg_sub">Funkcia Hľadanie blízkych zariadení používa vyhľadávanie cez Bluetooth Low Energy a mikrofón. Vyhľadávanie cez Bluetooth Low Energy možno použiť aj vtedy, keď je v zariadení vypnuté rozhranie Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nenašli sa žiadne zariadenia Bluetooth</string>
+    <string name="bt_tether_title">Zdieľanie pripojenia Bluetooth</string>
+    <string name="bt_tether_settings_on">Zapnúť</string>
+    <string name="bt_tether_settings_off">Vypnúť</string>
+    <string name="bt_tether_off_brief_text_phone">Po spárovaním s inými zariadeniami cez Bluetooth môžete zdieľať internetové pripojenie svojho telefónu.</string>
+    <string name="bt_tether_off_brief_text_tablet">Po spárovaním s inými zariadeniami cez Bluetooth môžete zdieľať internetové pripojenie svojho tabletu.</string>
+    <string name="bt_tether_preference_tethered_device_list">Zariadenia, s ktorými sa zdieľa internetové pripojenie</string>
+    <string name="bt_tether_server_description_phone">Po spárovaním s iným zariadením cez Bluetooth môžete zdieľať internetové pripojenie svojho telefónu. Ak ste už predtým zdieľali internetové pripojenie s daným zariadením, môžete ho s ním zdieľať znova jeho výberom v zozname Zariadenia, s ktorými sa zdieľa internetové pripojenie.</string>
+    <string name="bt_tether_server_description_tablet">Po spárovaním s iným zariadením cez Bluetooth môžete zdieľať internetové pripojenie svojho tabletu. Ak ste už predtým zdieľali internetové pripojenie s daným zariadením, môžete ho s ním zdieľať znova jeho výberom v zozname Zariadenia, s ktorými sa zdieľa internetové pripojenie.</string>
     <string name="bluetooth_consent_pairing_msg">Ťuknutím na tlačidlo OK vykonajte spárovanie so zariadením %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s žiada o povolenie na prístup ku karte SIM. Povolením tejto žiadosti sa vypnú funkcie volaní a správ a vypne sa mobilné dátové pripojenie vo vašom zariadení. Povoliť?
 
@@ -1039,7 +1048,7 @@ Aj keď je funkcia Inteligentné snímanie vypnutá, môžete pristupovať k jej
     <string name="active_key_title">Aktívne tlačidlo</string>
     <string name="about_phone">O telefóne</string>
     <string name="theme_settings">Témy</string>
-    <string name="wifi_calling_title">Volanie Wi-Fi</string>
+    <string name="wifi_calling_title">Volanie cez Wi-Fi</string>
     <string name="tab_category_connections">Pripojenia</string>
     <string name="festival_effect_settings_title">Efekt sviatku</string>
     <string name="user_manual">Používateľská príručka</string>
@@ -2161,7 +2170,7 @@ Niektoré služby mobilných platieb a transakcie uskutočňované cez NFC môž
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Povolenie výmeny údajov, keď sa zariadenie dotkne iného zariadenia.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Môžete používať služby mobilných platieb, čítať a zapisovať značky NFC a vymieňať údaje medzi zariadeniami podporujúcich funkciu NFC.</string>
+    <string name="nfc_settings_title">Môžete uskutočňovať mobilné platby, zdieľať údaje a čítať alebo zapisovať značky NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Môžete čítať a zapisovať značky a prenášať údaje medzi zariadeniami.</string>
     <string name="nfcpayment_quick_toggle_title">NFC a platba</string>
     <string name="nfc_mode_general_title">Režim NFC</string>
@@ -2172,19 +2181,21 @@ Niektoré služby mobilných platieb a transakcie uskutočňované cez NFC môž
     <string name="nfc_payment_enable_summary">Vyberte predvolenú službu mobilných platieb.</string>
     <string name="nfc_payment_title">Platba</string>
     <string name="nfc_others_title">Ostatné</string>
-    <string name="nfc_other_no_apps">Žiadne nainštalované servisné aplikácie</string>
+    <string name="nfc_other_no_apps">Nie sú nainštalované žiadne servisné aplikácie</string>
     <string name="nfc_payment_open_app">Ak otvorená aplikácia podporuje funkciu Ťuknúť a zaplatiť</string>
     <string name="nfc_payment_favor_open_default_unknown">Použiť otvorenú aplikáciu</string>
     <string name="nfc_payment_favor_default_default_unknown">Žiadna predv. platobná služba</string>
     <string name="nfc_tts_tab_n_of_n">Karta %1$d z %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Nahradiť predvolenú platobnú aplikáciu?</string>
+    <string name="nfc_payment_replace">Nahradiť</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Preferovaná karta SIM</string>
     <string name="nfc_please_wait">Čakajte prosím…</string>
     <string name="nfc_payment_no_sim_card">Žiadna karta SIM</string>
-    <string name="nfc_disable_service_title">Zmena predvoleného spôsobu platieb cez NFC</string>
-    <string name="nfc_disable_service_msg">Ak zmeníte predvolený spôsob spracovania platieb cez NFC, niektoré služby na karte OSTATNÉ sa vypnú alebo zapnú. Ak chcete spravovať tieto služby, prejdite do menu NFC a platby > Ťuknúť a zaplatiť > OSTATNÉ a potom vyberte jednotlivé služby, ktoré chcete zapnúť alebo vypnúť.</string>
+    <string name="nfc_disable_service_title">Zmeniť predvolený spôsob platieb cez NFC?</string>
+    <string name="nfc_disable_service_msg">Ak zmeníte predvolený spôsob spracovania platieb cez NFC, niektoré služby na karte OSTATNÉ sa zapnú alebo vypnú. Ak chcete spravovať tieto služby, prejdite do menu NFC a platby > Ťuknúť a zaplatiť > OSTATNÉ a potom vyberte jednotlivé služby, ktoré chcete zapnúť alebo vypnúť.</string>
     <string name="nfc_settings_advanced_setting">Predvolený spôsob platieb cez NFC</string>
     <string name="nfc_settings_advanced_uicc">Karta SE SIM</string>
     <string name="nfc_settings_advanced_uicc_TTS">Karta SIM s bezpečným prvkom</string>
@@ -2196,7 +2207,7 @@ Niektoré služby mobilných platieb a transakcie uskutočňované cez NFC môž
     <string name="nfc_settings_tag_message">Ak prepnete do režimu karty, nebudete už môcť čítať značky NFC, zapisovať do nich údaje ani vymieňať údaje medzi zariadeniami.</string>
     <string name="nfc_show_alert_dialog_title">Režim extr. šetr. energie</string>
     <string name="nfc_show_alert_dialog_message">Súbor %s sa nedá otvoriť.</string>
-    <string name="android_beam_explained">Po podržaní zariadení podporujúcich funkciu NFC blízko seba môžete medzi nimi zdieľať súbory. Potom môžete zdieľať prepojenia na webové stránky, kontakty a ďalší obsah.</string>
+    <string name="android_beam_explained">Podržaním telefónu v blízkosti zariadenia s rozhraním NFC môžete zdieľať prepojenia na webové stránky, kontakty a ďalšie informácie.</string>
     <string name="android_beam_explained_1">Dajte zariadenia tesne k sebe zadným stranami.</string>
     <string name="android_beam_explained_2">Ťuknite na obrazovku.</string>
     <string name="guide_dialog_attention_title">Pozor</string>
@@ -2205,7 +2216,7 @@ Niektoré služby mobilných platieb a transakcie uskutočňované cez NFC môž
     <string name="cannot_use_card_without_NFC">Funkcie súvisiace s pripojením cez NFC, ako napríklad niektoré metódy zdieľania obsahu a platba cez NFC, nebudú k dispozícii, keď je vypnutá funkcia NFC.</string>
     <string name="limit_app_contents_transfer">Zdieľanie obsahu cez NFC bude obmedzené, keď je vypnutá funkcia Android Beam.</string>
     <string name="nfc_payment_dialog_favor_open">Ak aktuálne otvorená aplikácia podporuje funkciu Ťuknúť a zaplatiť, použije sa namiesto služby %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ak aktuálne otvorená aplikácia podporuje funkciu Ťuknúť a zaplatiť, použije sa.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ak aktuálne otvorená aplikácia podporuje funkciu Ťuknúť a zaplatiť, použije sa na zaplatenie.</string>
     <string name="folder_sounds">Zvuky zatv./otvor. vykl. krytu</string>
     <string name="folder_sounds_summary">Prehrávanie zvukov pri otvorení a zatvorení vyklápacieho krytu.</string>
     <string name="sound_category_calls_title">Prichádzajúce hovory</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Umožňuje prijímať oznámenia o množstve dát spotrebovanom aplikáciami cez siete Wi-Fi alebo mobilné siete, keď bolo zariadenie zamknuté po dobu viac než %d minút.</string>
     <string name="data_usage_reminder_description">Nasledujúce aplikácie spotrebovali spolu %s dát, kým bolo zariadenie zamknuté:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Áno</string>
     <string name="no">Nie</string>
     <string name="create">Vytv.</string>
@@ -3560,7 +3572,6 @@ Môžete to neskôr zmeniť v menu Nastavenia rozhrania Bluetooth."</string>
     <string name="phone_info_label">Informácie o zariadení</string>
     <string name="proxy_settings_label">Nastavenia proxy</string>
     <string name="cancel">Zrušiť</string>
-    <string name="okay">OK</string>
     <string name="save">Uložiť</string>
     <string name="done">Hotovo</string>
     <string name="settings_label">Nastavenia</string>
@@ -4814,13 +4825,13 @@ Po vytvorení nového používateľa musí daná osoba prejsť procesom nastaven
     <string name="global_change_warning">Toto nastavenie ovplyvní všetkých používateľov v tomto zariadení.</string>
     <string name="global_locale_change_title">Zmeniť jazyk</string>
     <string name="nfc_payment_settings_title">Ťuknúť a zaplatiť</string>
-    <string name="nfc_payment_no_apps">Žiadne nainštalované aplikácie platobných služieb</string>
+    <string name="nfc_payment_no_apps">Žiadne nainštalované platobné aplikácie</string>
     <string name="nfc_payment_favor_default">Stále používať: %s</string>
     <string name="nfc_payment_favor_open">Použiť otvorenú aplikáciu namiesto aplikácie %s</string>
     <string name="nfc_how_it_works_got_it">Rozumiem</string>
-    <string name="nfc_payment_set_default_label">Predvoliť</string>
-    <string name="nfc_payment_set_default">%s sa nastaví ako predvolený spôsob platby pre transakcie pomocou funkcie Ťuknúť a zaplatiť.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s nahradí %2$s ako predvolený spôsob platby pre transakcie pomocou funkcie Ťuknúť a zaplatiť.</string>
+    <string name="nfc_payment_set_default_label">Nastaviť predvolenú platobnú aplikáciu?</string>
+    <string name="nfc_payment_set_default">%s sa nastaví ako predvolená platobná aplikácia pre funkciu Ťuknúť a zaplatiť.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s sa bude používať namiesto aplikácie %2$s ako predvolená platobná aplikácia pre funkciu Ťuknúť a zaplatiť.</string>
     <string name="help_label">Pomoc</string>
     <string name="user_restrictions_title">Obmedzenia aplikácií/obsahu</string>
     <string name="user_restrictions_controlled_by">Ovládané prostredníctvom %1$s</string>

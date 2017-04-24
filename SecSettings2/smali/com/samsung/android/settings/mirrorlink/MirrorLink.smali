@@ -428,7 +428,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b133c
+    const v6, 0x7f0b1457
 
     invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -658,7 +658,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f0b08e0
+    const v18, 0x7f0b08ec
 
     move-object/from16 v0, p0
 
@@ -672,7 +672,7 @@
 
     aput-object v18, v17, v19
 
-    const v18, 0x7f0b08e2
+    const v18, 0x7f0b08ee
 
     move-object/from16 v0, p0
 
@@ -761,7 +761,7 @@
 
     invoke-virtual/range {v15 .. v16}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v16, 0x7f0b08de
+    const v16, 0x7f0b08ea
 
     move-object/from16 v0, p0
 
@@ -1364,7 +1364,7 @@
 
     iget-object v14, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v15, 0x7f0b08eb
+    const v15, 0x7f0b08f7
 
     invoke-virtual {v14, v15}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1476,7 +1476,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b08e7
+    const v10, 0x7f0b08f3
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1537,7 +1537,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b03e2
+    const v10, 0x7f0b03ed
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1548,7 +1548,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b08e7
+    const v10, 0x7f0b08f3
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1583,7 +1583,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b03e2
+    const v10, 0x7f0b03ed
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1604,7 +1604,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b133c
+    const v10, 0x7f0b1457
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1638,7 +1638,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b1339
+    const v10, 0x7f0b1454
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1674,7 +1674,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b03de
+    const v10, 0x7f0b03e9
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1685,7 +1685,7 @@
 
     iget-object v9, v0, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->mUsbTether:Landroid/preference/SwitchPreference;
 
-    const v10, 0x7f0b133a
+    const v10, 0x7f0b1455
 
     invoke-virtual {v9, v10}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1758,7 +1758,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f08009d
+    const v2, 0x7f08009e
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/mirrorlink/MirrorLink;->addPreferencesFromResource(I)V
 
@@ -1882,7 +1882,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f0b08ea
+    const v0, 0x7f0b08f6
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1945,7 +1945,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b08ea
+    const v3, 0x7f0b08f6
 
     const/4 v6, 0x0
 

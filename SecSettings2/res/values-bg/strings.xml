@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Установена е връзка през „%1$s“</string>
     <string name="available_via_passpoint">Мрежата е достъпна през „%1$s“</string>
     <string name="wifi_connected_no_internet">Установена е връзка – няма достъп до интернет</string>
+    <string name="wifi_internet_may_not_be_available">Интернет може да не е достъпен</string>
     <string name="wifi_reconnecting">Готовност за свързване, когато качеството на мрежата се подобри</string>
     <string name="wifi_connected_checking_quality">Качеството на вашата Интернет връзка се проверява…</string>
     <string name="wifi_sign_in_to_the_network">Влезте в мрежата.</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d свързани елемента</string>
     <string name="no_results_found">Няма намерени резултати</string>
     <string name="menu_edit">Редакт.</string>
-    <string name="reset">Нyлиране</string>
+    <string name="reset">Нулиране</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">Позволява на Voice Assistant да знае, когато използвате дадено приложение.</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">Начертайте посоки в областта под този текст и над бутоните, намиращи се в дъното на екрана.</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">Бутонът за потвърждаване се намира в долния десен ъгъл на екрана.</string>
@@ -820,7 +821,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="default_app_selection">Избор приложение по подр.</string>
     <string name="default_app_selection_auto_set">Авто задаване на приложения по подр.</string>
     <string name="default_app_selection_ask">Питане преди зад. приложения по подр.</string>
-    <string name="launch_application_settings">Приложения по подразбир.</string>
+    <string name="launch_application_settings">Приложения по подразб.</string>
     <string name="launch_application_settings_summary">Обозначавайте приложения за определени задачи.</string>
     <string name="home_settings_header">Смяна на началото</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="content_description_hand">Чукнете и задръжте синия кръг в центъра на екрана.</string>
     <string name="nearby_scanning_help_msg_sub">Сканирането на устройства наблизо използва сканиране с Bluetooth с ниска енергия и микрофона. Сканирането с Bluetooth с ниска енергия може да се използва дори когато Bluetooth е изключен на устройството.</string>
     <string name="sec_bluetooth_no_devices_found">Няма открити Bluetooth устройства</string>
+    <string name="bt_tether_title">Bluetooth привързване</string>
+    <string name="bt_tether_settings_on">Включено</string>
+    <string name="bt_tether_settings_off">Изключено</string>
+    <string name="bt_tether_off_brief_text_phone">Споделете интернет връзката на телефона си с други устройства чрез Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Споделете интернет връзката на таблета си с други устройства чрез Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Устройства в тетъринг</string>
+    <string name="bt_tether_server_description_phone">Споделете интернет връзката на телефона си, като го сдвоите с друго устройство чрез Bluetooth. Ако устройството вече е било сдвоявано, може да го сдвоите отново, като го изберете от списъка с устройства в тетъринг.</string>
+    <string name="bt_tether_server_description_tablet">Споделете интернет връзката на таблета си, като го сдвоите с друго устройство чрез Bluetooth. Ако устройството вече е било сдвоявано, може да го сдвоите отново, като го изберете от списъка с устройства в тетъринг.</string>
     <string name="bluetooth_consent_pairing_msg">Докоснете OK за сдвояване с %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s иска разрешение за достъп до вашата SIM карта. Даването на разрешение ще деактивира разговорите и функциите за съобщения и ще изключи мобилните данни на устройството ви. Разрешавате ли?
 
@@ -1039,7 +1048,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="active_key_title">Активен бутон</string>
     <string name="about_phone">Относно телефона</string>
     <string name="theme_settings">Теми</string>
-    <string name="wifi_calling_title">Wi-Fi разгов.</string>
+    <string name="wifi_calling_title">Wi-Fi разговори</string>
     <string name="tab_category_connections">Връзки</string>
     <string name="festival_effect_settings_title">Празничен ефект</string>
     <string name="user_manual">Ръководство на потребителя</string>
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Позволява обмен на данни, когато устройството докосне друго устройство.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Използвайте услугите за мобилно плащане, четете и записвайте NFC обозначения и обменяйте данни между устройства с възможност за NFC.</string>
+    <string name="nfc_settings_title">Извършвайте мобилни плащания, споделяйте данни и четете и записвайте NFC обозначения.</string>
     <string name="nfc_settings_rw_p2p_summary">Можете да четете и пишете тагове и да прехвърляте данни между устройства.</string>
     <string name="nfcpayment_quick_toggle_title">NFC и плащане</string>
     <string name="nfc_mode_general_title">Режим NFC</string>
@@ -2177,14 +2186,16 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_favor_open_default_unknown">Използване на отвореното приложение</string>
     <string name="nfc_payment_favor_default_default_unknown">Няма усл. за плащане по подр.</string>
     <string name="nfc_tts_tab_n_of_n">Раздел %1$d от %2$d.</string>
+    <string name="nfc_payment_replace_default_label">Смяна приложение за плащане по подразб.?</string>
+    <string name="nfc_payment_replace">Заместване</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Предпочитана SIM карта</string>
     <string name="nfc_please_wait">Изчакайте…</string>
     <string name="nfc_payment_no_sim_card">Няма SIM карта</string>
-    <string name="nfc_disable_service_title">Промяна на метода на NFC по подразбиране</string>
-    <string name="nfc_disable_service_msg">Ако промените метода на NFC обработка по подразбиране, някои услуги в раздела ДРУГИ ще се деактивират или активират. За да управлявате тези услуги, отидете на NFC и плащане > Докосване и плащане > ДРУГИ, след което изберете всяка услуга, за да я активирате или деактивирате.</string>
+    <string name="nfc_disable_service_title">Промяна на метода на NFC по подразбиране?</string>
+    <string name="nfc_disable_service_msg">Ако промените метода на NFC обработка по подразбиране, някои услуги в раздела ДРУГИ ще се включат или изключат. За да управлявате тези услуги, отидете на NFC и плащане > Докосване и плащане > ДРУГИ, след което изберете всяка услуга, за да я включите или изключите.</string>
     <string name="nfc_settings_advanced_setting">Метод на NFC по подразбиране</string>
     <string name="nfc_settings_advanced_uicc">SE SIM карта</string>
     <string name="nfc_settings_advanced_uicc_TTS">SIM карта за защитен елемент</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">Ако превключите на Режим на карта, вече няма да можете да четете NFC обозначения, да записвате данни към тях или да обменяте данни между устройствата.</string>
     <string name="nfc_show_alert_dialog_title">Реж. ултра пест. енергия</string>
     <string name="nfc_show_alert_dialog_message">Не може да се отвори %s.</string>
-    <string name="android_beam_explained">Споделяйте файлове между устройства с NFC поддръжка, като ги държите близо едно до друго. След това можете да споделяте връзки към уеб страници, контакти и др.</string>
+    <string name="android_beam_explained">Може да споделяте връзки към уеб страници, контакти и др., като задържите телефона близо до устройство с възможност за NFC.</string>
     <string name="android_beam_explained_1">Доближете устройствата гръб в гръб.</string>
     <string name="android_beam_explained_2">Докоснете своя екран.</string>
     <string name="guide_dialog_attention_title">Внимание</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">Функции, свързани с NFC, като някои методи на споделяне на съдържание и NFC плащане, няма да са достъпни, когато NFC е изключено.</string>
     <string name="limit_app_contents_transfer">Споделянето на съдържание през NFC ще бъде ограничено, когато Android Beam е изключен.</string>
     <string name="nfc_payment_dialog_favor_open">Ако текущо отвореното приложение поддържа „Докосване и плащане“, то ще се използва вместо %s.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">Ако текущо отвореното приложение поддържа „Докосване и плащане“, то ще се използва.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">Ако текущо отвореното приложение поддържа „Докосване и плащане“, то ще се използва за плащане.</string>
     <string name="folder_sounds">Звуци за отв./затв. папка</string>
     <string name="folder_sounds_summary">Възпроизвеждане на звуци при отваряне и затваряне на папка.</string>
     <string name="sound_category_calls_title">Входящи повиквания</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Получавайте уведомления, показващи обема данни, използвани от приложението чрез Wi-Fi или мобилни мрежи, докато устройството е било заключено за повече от %d минути.</string>
     <string name="data_usage_reminder_description">Следните приложения са използвали общо %s данни, докато устройството е било заключено:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">OK</string>
     <string name="yes">Да</string>
     <string name="no">Не</string>
     <string name="create">Създай</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">Информация за устройството</string>
     <string name="proxy_settings_label">Настройки на прокси</string>
     <string name="cancel">Отмени</string>
-    <string name="okay">OK</string>
     <string name="save">Запази</string>
     <string name="done">Готово</string>
     <string name="settings_label">Настройки</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">Тази настройка влияе на всички потребители на това устройство.</string>
     <string name="global_locale_change_title">Промяна на езика</string>
     <string name="nfc_payment_settings_title">Чукване и плащане</string>
-    <string name="nfc_payment_no_apps">Няма инсталирани приложения с услуги за плащане</string>
+    <string name="nfc_payment_no_apps">Няма инсталирани приложения за плащане</string>
     <string name="nfc_payment_favor_default">Все още да се използва %s</string>
     <string name="nfc_payment_favor_open">Да се използва отвореното приложение вместо %s</string>
     <string name="nfc_how_it_works_got_it">Готово</string>
-    <string name="nfc_payment_set_default_label">Задаване по подразбиране</string>
-    <string name="nfc_payment_set_default">%s ще бъде зададен като ваш метод на плащане по подразбиране за трансакции на Чукване и плащане.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s ще замени %2$s като ваш метод на плащане по подразбиране за трансакции на Чукване и плащане.</string>
+    <string name="nfc_payment_set_default_label">Задаване приложение за плащане по подр.?</string>
+    <string name="nfc_payment_set_default">%s ще бъде зададено като приложение за плащане по подразбиране за „Докосване и плащане“.</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s ще замени %2$s като приложение за плащане по подразбиране за „Докосване и плащане“.</string>
     <string name="help_label">Помощ</string>
     <string name="user_restrictions_title">Огранич. за приложение/съдържание</string>
     <string name="user_restrictions_controlled_by">Контролирано чрез %1$s</string>
@@ -5126,7 +5137,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">Деактивирано</string>
     <string name="backup_disabled">Автоматичното архивиране e деактивирано</string>
     <string name="about_summary">Android %s</string>
-    <string name="disabled_by_policy_title">Действието не може да се извърши</string>
+    <string name="disabled_by_policy_title">Действието не се извършва</string>
     <string name="default_admin_support_msg">Нямате разрешение за извършване на това действие. Свържете се с ИТ администратора на вашата организация за повече информация.</string>
     <string name="admin_support_more_info">Още подробности</string>
     <string name="admin_profile_owner_message">Администраторът може да следи и управлява приложенията и данните, свързани със служебния ви профил, включително настройки, разрешения, корпоративен достъп, мрежова дейност и информация за местоположението на устройството.</string>

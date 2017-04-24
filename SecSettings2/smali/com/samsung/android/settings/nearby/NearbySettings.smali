@@ -858,7 +858,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nearby/NearbySettings;->mAcceptDevice:Lcom/samsung/android/settings/nearby/AcceptListPreference;
 
-    const v2, 0x7f0b0371
+    const v2, 0x7f0b0372
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/nearby/AcceptListPreference;->setPositiveButtonText(I)V
 
@@ -878,7 +878,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/nearby/NearbySettings;->mRejectDevice:Lcom/samsung/android/settings/nearby/RejectListPreference;
 
-    const v2, 0x7f0b0371
+    const v2, 0x7f0b0372
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/nearby/RejectListPreference;->setPositiveButtonText(I)V
 
@@ -945,7 +945,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/samsung/android/settings/nearby/DLog;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v1, 0x7f0b0388
+    const v1, 0x7f0b0389
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nearby/NearbySettings;->getString(I)Ljava/lang/String;
 
@@ -980,7 +980,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0b0387
+    const v1, 0x7f0b0388
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/nearby/NearbySettings;->getString(I)Ljava/lang/String;
 
@@ -1119,7 +1119,7 @@
     if-eqz v2, :cond_1
 
     :cond_0
-    const v0, 0x7f0b0388
+    const v0, 0x7f0b0389
 
     :goto_1
     invoke-static {v0}, Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;->newInstance(I)Lcom/samsung/android/settings/deviceinfo/DeviceNameSettings;
@@ -1137,7 +1137,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0b0387
+    const v0, 0x7f0b0388
 
     goto :goto_1
 

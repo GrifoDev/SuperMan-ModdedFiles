@@ -156,15 +156,15 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b10b3
+    const v3, 0x7f0b11ce
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0f4b
+    const v3, 0x7f0b1067
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0fd9
+    const v3, 0x7f0b10f5
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -310,7 +310,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b1462
+    const v1, 0x7f0b157d
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -321,7 +321,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b0f4b
+    const v1, 0x7f0b1067
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -857,7 +857,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/DevicePickerActivity;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b0f4b
+    const v1, 0x7f0b1067
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -1143,7 +1143,7 @@
 
     if-eqz p1, :cond_1
 
-    const v0, 0x7f0b03ba
+    const v0, 0x7f0b03bb
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 
@@ -1152,7 +1152,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0b03bb
+    const v0, 0x7f0b03bc
 
     invoke-virtual {p0, v0, v1}, Lcom/android/settings/bluetooth/DevicePickerActivity;->showHelpDialog(II)V
 

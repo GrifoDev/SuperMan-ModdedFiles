@@ -807,7 +807,7 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b03bf
+    const v1, 0x7f0b03c0
 
     move-object/from16 v0, p0
 

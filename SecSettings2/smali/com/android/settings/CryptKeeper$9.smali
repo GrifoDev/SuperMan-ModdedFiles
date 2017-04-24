@@ -338,7 +338,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b0640
+    const v5, 0x7f0b064b
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
@@ -548,7 +548,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b0641
+    const v5, 0x7f0b064c
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
@@ -577,7 +577,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b0642
+    const v5, 0x7f0b064d
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 
@@ -592,7 +592,7 @@
 
     iget-object v2, p0, Lcom/android/settings/CryptKeeper$9;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v5, 0x7f0b063f
+    const v5, 0x7f0b064a
 
     invoke-static {v2, v5}, Lcom/android/settings/CryptKeeper;->-set3(Lcom/android/settings/CryptKeeper;I)I
 

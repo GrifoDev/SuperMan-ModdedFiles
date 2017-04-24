@@ -51,7 +51,7 @@
 
     iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v1, 0x7f0800a9
+    const v1, 0x7f0800aa
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

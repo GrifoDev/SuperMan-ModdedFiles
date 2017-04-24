@@ -607,7 +607,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v3, 0x7f0b0077
+    const v3, 0x7f0b0078
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -661,7 +661,7 @@
 
     iput-object v1, v0, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v1, 0x7f080043
+    const v1, 0x7f080044
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

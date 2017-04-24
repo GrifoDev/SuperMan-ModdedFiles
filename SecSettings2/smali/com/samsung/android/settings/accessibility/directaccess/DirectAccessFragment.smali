@@ -1391,7 +1391,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0241
+    const v1, 0x7f0b0242
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1465,7 +1465,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b02d2
+    const v1, 0x7f0b02d3
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->getString(I)Ljava/lang/String;
 
@@ -2746,7 +2746,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mColorAdjustmentSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02cc
+    const v11, 0x7f0b02cd
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -2773,7 +2773,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mAccessControlSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02cf
+    const v11, 0x7f0b02d0
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -2786,7 +2786,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mPageReaderSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02cd
+    const v11, 0x7f0b02ce
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->getString(I)Ljava/lang/String;
 
@@ -3013,7 +3013,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mColorAdjustmentSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02cc
+    const v11, 0x7f0b02cd
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -3040,7 +3040,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessFragment;->mAccessControlSwitch:Landroid/preference/SwitchPreference;
 
-    const v11, 0x7f0b02cf
+    const v11, 0x7f0b02d0
 
     invoke-virtual {v10, v11}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

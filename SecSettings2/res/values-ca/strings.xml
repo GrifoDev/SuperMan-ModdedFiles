@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">Connectada mitjançant %1$s</string>
     <string name="available_via_passpoint">Disponible mitjançant %1$s</string>
     <string name="wifi_connected_no_internet">Connectada, sense Internet</string>
+    <string name="wifi_internet_may_not_be_available">Internet potser no disponible</string>
     <string name="wifi_reconnecting">Preparat per connectar quan millori la qualitat de la xarxa</string>
     <string name="wifi_connected_checking_quality">Comprovant la qualitat de la seva connexió a Internet…</string>
     <string name="wifi_sign_in_to_the_network">Iniciar sessió a la xarxa.</string>
@@ -820,7 +821,7 @@ El Wi-Fi i el Bluetooth també es desactivaran, però es poden tornar a activar 
     <string name="default_app_selection">"Selecció d'app predeterm"</string>
     <string name="default_app_selection_auto_set">Establir apps predet automàticament</string>
     <string name="default_app_selection_ask">Preguntar abans establir apps predet</string>
-    <string name="launch_application_settings">Aplicació predeterminada</string>
+    <string name="launch_application_settings">Apps predeterminades</string>
     <string name="launch_application_settings_summary">Designi aplicacions per a determinades tasques.</string>
     <string name="home_settings_header">Canviar inici</string>
     <string name="home_settings_customer_mode_summary">Make your phone simpler and more intuitive to use with the docomo home screen</string>
@@ -865,6 +866,14 @@ Les dades d'aplicacions poden incloure informació personal, com contactes, miss
     <string name="content_description_hand">Mantingui tocat el cercle de color blau del centre de la pantalla</string>
     <string name="nearby_scanning_help_msg_sub">"Cercar dispositius propers utilitza la cerca Bluetooth Low Energy i el micròfon. La cerca Bluetooth Low Energy es pot utilitzar fins i tot quan el Bluetooth d'aquest dispositiu està desactivat."</string>
     <string name="sec_bluetooth_no_devices_found">"No s'han trobat dispositius Bluetooth"</string>
+    <string name="bt_tether_title">Tethering Bluetooth</string>
+    <string name="bt_tether_settings_on">Activat</string>
+    <string name="bt_tether_settings_off">Desactivat</string>
+    <string name="bt_tether_off_brief_text_phone">Comparteixi la connexió a Internet del telèfon amb altres dispositius utilitzant el Bluetooth.</string>
+    <string name="bt_tether_off_brief_text_tablet">Comparteixi la connexió a Internet de la tablet amb altres dispositius utilitzant el Bluetooth.</string>
+    <string name="bt_tether_preference_tethered_device_list">Dispositius vinculats</string>
+    <string name="bt_tether_server_description_phone">"Comparteixi la connexió a Internet del telèfon vinculant-lo amb un altre dispositiu utilitzant el Bluetooth. Si el dispositiu s'ha vinculat anteriorment, ho pot tornar a fer seleccionat-lo de la llista de dispositius vinculats."</string>
+    <string name="bt_tether_server_description_tablet">"Comparteixi la connexió a Internet de la tablet vinculant-la amb un altre dispositiu utilitzant el Bluetooth. Si el dispositiu s'ha vinculat anteriorment, ho pot tornar a fer seleccionat-lo de la llista de dispositius vinculats."</string>
     <string name="bluetooth_consent_pairing_msg">Toqui ACCEPTAR per vincular amb %s.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s està sol·licitant permís per accedir a la targeta SIM. Si permet aquesta sol·licitud, es deshabilitaran les funcions de trucades i missatgeria i s'apagaran les Dades mòbils del dispositiu. Permetre?
 
@@ -2161,7 +2170,7 @@ Es desactivaran les dades mòbils."</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">Permet intercanvi de dades quan el dispositiu en toca un altre.</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">Utilitzi els serveis de pagament mòbil, llegeixi i escrigui les etiquetes NFC i intercanviï dades entre els dispositius amb funcionalitat NFC.</string>
+    <string name="nfc_settings_title">Realitzi els pagaments amb el mòbil, comparteixi les dades i llegeixi o escrigui etiquetes NFC.</string>
     <string name="nfc_settings_rw_p2p_summary">Pot llegir i escriure etiquetes i transferir dades entre dispositius.</string>
     <string name="nfcpayment_quick_toggle_title">NFC i pagament</string>
     <string name="nfc_mode_general_title">Mode NFC</string>
@@ -2172,19 +2181,21 @@ Es desactivaran les dades mòbils."</string>
     <string name="nfc_payment_enable_summary">Seleccioni el servei de pagament mòbil predeterminat.</string>
     <string name="nfc_payment_title">Pagament</string>
     <string name="nfc_others_title">Altres</string>
-    <string name="nfc_other_no_apps">Aplicacions de serveis no instal·lades</string>
+    <string name="nfc_other_no_apps">"No s'ha instal·lat cap servei d'aplicació"</string>
     <string name="nfc_payment_open_app">"Si l'aplicació oberta és compatible amb Tocar i pagar"</string>
     <string name="nfc_payment_favor_open_default_unknown">Utilitzar una aplicació oberta</string>
     <string name="nfc_payment_favor_default_default_unknown">No hi ha serv pagam predeterm</string>
     <string name="nfc_tts_tab_n_of_n">Pestanya %1$d de %2$d</string>
+    <string name="nfc_payment_replace_default_label">Substituir app de pagament predeterminada?</string>
+    <string name="nfc_payment_replace">Substituir</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">Targeta SIM preferida</string>
     <string name="nfc_please_wait">Esperi…</string>
     <string name="nfc_payment_no_sim_card">Cap targeta SIM</string>
-    <string name="nfc_disable_service_title">Canviar mètode predeterminat NFC</string>
-    <string name="nfc_disable_service_msg">"Si canvia el mètode de processament NFC predeterminat, es desactivaran o s'activaran alguns serveis de la pestanya ALTRES. Per gestionar aquests serveis, vagi a NFC i pagament > Tocar i pagar > ALTRES i, a continuació, seleccioni cadascun dels serveis per activar-lo o desactivar-lo."</string>
+    <string name="nfc_disable_service_title">Vol canviar el mètode predeterminat NFC?</string>
+    <string name="nfc_disable_service_msg">"Si canvia el mètode de processament NFC predeterminat, s'activaran o es desactivaran alguns serveis de la pestanya ALTRES. Per gestionar aquests serveis, vagi a NFC i pagament > Tocar i pagar > ALTRES i, a continuació, seleccioni cadascun dels serveis per activar-lo o desactivar-lo."</string>
     <string name="nfc_settings_advanced_setting">Mètode NFC predeterminat</string>
     <string name="nfc_settings_advanced_uicc">Targeta SIM SE</string>
     <string name="nfc_settings_advanced_uicc_TTS">"Targeta SIM d'element segur"</string>
@@ -2196,7 +2207,7 @@ Es desactivaran les dades mòbils."</string>
     <string name="nfc_settings_tag_message">Si canvia al mode de targeta, ja no podrà llegir les etiquetes NFC, escriure-hi dades o intercanviar dades entre dispositius.</string>
     <string name="nfc_show_alert_dialog_title">Mode estalvi ultra energ</string>
     <string name="nfc_show_alert_dialog_message">No es pot obrir %s.</string>
-    <string name="android_beam_explained">"Comparteixi fitxers entre els dispositius compatibles amb NFC; per aconseguir-ho, subjecti'ls l'un a prop de l'altre. Després podrà compartir enllaços a pàgines web i contactes, entre d'altres."</string>
+    <string name="android_beam_explained">"Pot compartir enllaços a pàgines web, contactes i més mantenint el telèfon a prop d'un dispositiu amb funcionalitat NFC."</string>
     <string name="android_beam_explained_1">"Acosti els dispositius, la part posterior de l'un contra la de l'altre."</string>
     <string name="android_beam_explained_2">Toqui la pantalla.</string>
     <string name="guide_dialog_attention_title">Atenció</string>
@@ -2205,7 +2216,7 @@ Es desactivaran les dades mòbils."</string>
     <string name="cannot_use_card_without_NFC">Les funcions relacionades amb NFC, com ara alguns mètodes de compartir contingut i pagament NFC, no estaran disponibles quan NFC estigui apagat</string>
     <string name="limit_app_contents_transfer">Compartir contingut mitjançant NFC estarà limitat quan Android Beam estigui apagat</string>
     <string name="nfc_payment_dialog_favor_open">"Si l'aplicació actualment oberta admet Tocar i pagar, s'utilitzarà en comptes de %s."</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">"Si l'aplicació actualment oberta admet Tocar i pagar, s'utilitzarà."</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">"Si l'aplicació actualment oberta admet Tocar i pagar, s'utilitzarà per al pagament."</string>
     <string name="folder_sounds">Sons obrir/tancar carpeta</string>
     <string name="folder_sounds_summary">Reproduir sons quan en obrir i tancar la carpeta</string>
     <string name="sound_category_calls_title">"Trucades d'entrada"</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">Rebi notificacions que mostrin la quantitat de dades utilitzades per les apps mitjançant les xarxes Wi-Fi o mòbils quan el dispositiu ha estat bloquejat durant més de %d minuts.</string>
     <string name="data_usage_reminder_description">Les apps següents han utilitzat %s de dades en total mentre el dispositiu estava bloquejat:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">Acceptar</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
     <string name="create">Crea</string>
@@ -3560,7 +3572,6 @@ Ho pot canviar més tard anant als ajustaments de Bluetooth."</string>
     <string name="phone_info_label">Informació de dispositiu</string>
     <string name="proxy_settings_label">Ajustaments de proxy</string>
     <string name="cancel">Cancel·lar</string>
-    <string name="okay">Acceptar</string>
     <string name="save">Desar</string>
     <string name="done">Fet</string>
     <string name="settings_label">Ajustaments</string>
@@ -4813,13 +4824,13 @@ Qualsevol usuari pot acceptar permisos actualitzats d'aplicacions en nom de tots
     <string name="global_change_warning">Aquest ajustament afecta a tots els usuaris del dispositiu</string>
     <string name="global_locale_change_title">Canviar idioma</string>
     <string name="nfc_payment_settings_title">Tocar i pagar</string>
-    <string name="nfc_payment_no_apps">Aplicacions de serveis de pagament no instal·lades</string>
+    <string name="nfc_payment_no_apps">"No s'ha instal·lat cap aplicació de pagament"</string>
     <string name="nfc_payment_favor_default">Seguir utilitzant %s</string>
     <string name="nfc_payment_favor_open">"Utilitzi l'aplicació oberta en comptes de %s"</string>
     <string name="nfc_how_it_works_got_it">Entès</string>
-    <string name="nfc_payment_set_default_label">Definir com a predet</string>
-    <string name="nfc_payment_set_default">%s es definirà com al seu mètode de pagament per Tocar i pagar transaccions.</string>
-    <string name="nfc_payment_set_default_instead_of">%1$s substituirà %2$s com al seu mètode de pagament per Tocar i pagar transaccions.</string>
+    <string name="nfc_payment_set_default_label">Vol establir app pagament predeterminada?</string>
+    <string name="nfc_payment_set_default">"%s s'establirà com a aplicació de pagament predeterminada per a Tocar i pagar."</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s substituirà %2$s com a aplicació de pagament predeterminada per Tocar i pagar.</string>
     <string name="help_label">Ajuda</string>
     <string name="user_restrictions_title">"Restriccions d'aplicació/contingut"</string>
     <string name="user_restrictions_controlled_by">Controlat mitjançant %1$s</string>

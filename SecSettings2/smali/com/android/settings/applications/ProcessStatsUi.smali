@@ -175,13 +175,13 @@
 
     move-result-object v11
 
-    const v1, 0x7f0a0467
+    const v1, 0x7f0a0468
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -291,7 +291,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/ProcessStatsUi;->mPm:Landroid/content/pm/PackageManager;
 
-    const v0, 0x7f0800c7
+    const v0, 0x7f0800c8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/applications/ProcessStatsUi;->addPreferencesFromResource(I)V
 
@@ -321,7 +321,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1959
+    const v1, 0x7f0b1a74    # 1.8490004E38f
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -331,7 +331,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b195a
+    const v1, 0x7f0b1a75    # 1.8490006E38f
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -493,7 +493,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f0b1953
+    const v3, 0x7f0b1a6e    # 1.8489992E38f
 
     :goto_0
     invoke-virtual {v6, v3}, Landroid/preference/PreferenceGroup;->setTitle(I)V
@@ -536,7 +536,7 @@
     goto :goto_1
 
     :cond_0
-    const v3, 0x7f0b1952
+    const v3, 0x7f0b1a6d    # 1.848999E38f
 
     goto :goto_0
 

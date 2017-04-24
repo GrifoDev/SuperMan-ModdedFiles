@@ -104,7 +104,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v1, 0x7f0b18af
+    const v1, 0x7f0b19ca
 
     :goto_1
     invoke-virtual {v4, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -125,7 +125,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b05db
+    const v1, 0x7f0b05e6
 
     goto :goto_1
 

@@ -427,7 +427,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x7f040360
+    const v3, 0x7f040361
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setContentView(I)V
 
@@ -436,7 +436,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    const v3, 0x7f0b110a
+    const v3, 0x7f0b1225
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setTitle(I)V
 
@@ -475,7 +475,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f04035f
+    const v3, 0x7f040360
 
     :try_start_1
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/wifi/WifiPickerDialog;->setContentView(I)V

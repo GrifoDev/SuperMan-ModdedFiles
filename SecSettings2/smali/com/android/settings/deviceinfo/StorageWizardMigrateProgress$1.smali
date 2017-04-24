@@ -141,7 +141,7 @@
     :cond_2
     iget-object v3, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;
 
-    const v4, 0x7f0b142c
+    const v4, 0x7f0b1547
 
     invoke-virtual {v3, v4}, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;->getString(I)Ljava/lang/String;
 

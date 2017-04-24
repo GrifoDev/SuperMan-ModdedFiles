@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings$8;->val$identifier:Landroid/hardware/input/InputDeviceIdentifier;
 
-    invoke-static {v0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap5(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/hardware/input/InputDeviceIdentifier;)V
+    invoke-static {v0, v1}, Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;->-wrap6(Lcom/android/settings/inputmethod/InputMethodAndLanguageSettings;Landroid/hardware/input/InputDeviceIdentifier;)V
 
     const/4 v0, 0x1
 

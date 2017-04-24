@@ -179,7 +179,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1226
+    const v3, 0x7f0b1341
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1225
+    const v3, 0x7f0b1340
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
 
     iget-object v2, p0, Lcom/android/settings/DreamSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b1224
+    const v3, 0x7f0b133f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1229
+    const v3, 0x7f0b1344
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -313,7 +313,7 @@
 
     if-nez v1, :cond_0
 
-    const v2, 0x7f0b1227
+    const v2, 0x7f0b1342
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -470,7 +470,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1781
+    const v0, 0x7f0b189c
 
     return v0
 .end method
@@ -524,7 +524,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f026d
+    const v7, 0x7f0f026e
 
     invoke-virtual {v0, v6, v7}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -544,7 +544,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a024c
+    const v7, 0x7f0a024d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -562,7 +562,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a024e
+    const v7, 0x7f0a024f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -582,7 +582,7 @@
 
     if-nez v6, :cond_0
 
-    const v6, 0x7f0b0aba
+    const v6, 0x7f0b0ac8
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -612,7 +612,7 @@
     return-void
 
     :cond_0
-    const v6, 0x7f0b0ab9
+    const v6, 0x7f0b0ac7
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -754,7 +754,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/settings/DreamSettings$1;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v2, 0x7f0b122a
+    const v2, 0x7f0b1345
 
     move-object v0, p0
 
@@ -796,7 +796,7 @@
 
     invoke-direct {v10, p0}, Lcom/android/settings/DreamSettings$2;-><init>(Lcom/android/settings/DreamSettings;)V
 
-    const v7, 0x7f0b1229
+    const v7, 0x7f0b1344
 
     const/4 v8, 0x0
 

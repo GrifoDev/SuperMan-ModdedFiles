@@ -66,7 +66,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x7f040307
+    const v1, 0x7f040308
 
     invoke-virtual {p0, v1}, Lcom/android/settings/users/RestrictedProfileSettings;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -142,13 +142,13 @@
 
     move-result-object v12
 
-    const v1, 0x7f0a0468
+    const v1, 0x7f0a0469
 
     invoke-virtual {v12, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v3, 0x7f0a045d
+    const v3, 0x7f0a045e
 
     invoke-virtual {v12, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -331,7 +331,7 @@
 
     iget-object v6, p0, Lcom/android/settings/users/RestrictedProfileSettings;->mUser:Landroid/os/UserHandle;
 
-    const v4, 0x7f0b1016
+    const v4, 0x7f0b1131
 
     move-object v1, p0
 
@@ -367,7 +367,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0c08
+    const v1, 0x7f0b0c16
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

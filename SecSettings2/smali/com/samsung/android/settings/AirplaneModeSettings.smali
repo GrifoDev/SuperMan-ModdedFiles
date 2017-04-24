@@ -330,7 +330,7 @@
 
     const/4 v3, 0x0
 
-    const v0, 0x7f0b035f
+    const v0, 0x7f0b0360
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/AirplaneModeSettings;->getActivity()Landroid/app/Activity;
 
@@ -386,7 +386,7 @@
 
     if-nez v1, :cond_0
 
-    const v0, 0x7f0b0365
+    const v0, 0x7f0b0366
 
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/settings/AirplaneModeSettings;->airplaneModeDesc:Landroid/widget/TextView;
@@ -396,7 +396,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0363
+    const v0, 0x7f0b0364
 
     goto :goto_0
 
@@ -417,12 +417,12 @@
 
     if-nez v1, :cond_2
 
-    const v0, 0x7f0b0364
+    const v0, 0x7f0b0365
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b0362
+    const v0, 0x7f0b0363
 
     goto :goto_0
 
@@ -449,12 +449,12 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f0b0360
+    const v0, 0x7f0b0361
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f0b0369
+    const v0, 0x7f0b036a
 
     goto :goto_0
 
@@ -475,17 +475,17 @@
 
     if-eqz v1, :cond_6
 
-    const v0, 0x7f0b035f
+    const v0, 0x7f0b0360
 
     goto :goto_0
 
     :cond_6
-    const v0, 0x7f0b0366
+    const v0, 0x7f0b0367
 
     goto :goto_0
 
     :cond_7
-    const v0, 0x7f0b0368
+    const v0, 0x7f0b0369
 
     goto :goto_0
 .end method

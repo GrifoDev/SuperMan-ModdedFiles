@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">%1$s வழியாக இணைக்கப்பட்டது</string>
     <string name="available_via_passpoint">%1$s வழியாகக் கிடைக்கிறது</string>
     <string name="wifi_connected_no_internet">இணைக்கப்பட்டது, இணையம் இல்லை</string>
+    <string name="wifi_internet_may_not_be_available">இணையதளம் கிடைக்காமல் போகலாம்</string>
     <string name="wifi_reconnecting">நெட்வொர்க் தரம் மேம்படும் போது இணைக்கத் தயாராகவும்</string>
     <string name="wifi_connected_checking_quality">உங்கள் இணைய இணைப்பின் தரத்தைச் சரிபார்க்கிறது…</string>
     <string name="wifi_sign_in_to_the_network">நெட்வொர்க்கில் உள்நுழையவும்.</string>
@@ -865,6 +866,14 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="content_description_hand">திரையின் மையத்தில் நீலநிற வட்டத்தை டேப் செய்து பிடிக்கவும்.</string>
     <string name="nearby_scanning_help_msg_sub">அருகாமையிலுள்ள சாதனங்கள் ஸ்கேனிங், ப்ளூடூத் குறைவு சக்தி ஸ்கேனிங் மற்றும் மைக்ரோஃபோனை பயன்படுத்துகிறது. ப்ளூடூத் குறைவு சக்தி ஸ்கேனிங், இந்தச் சாதனத்தில் ப்ளூடூத் ஆஃப் செய்யப்பட்டிருக்கும் போதும் பயன்படுத்தப்படும்.</string>
     <string name="sec_bluetooth_no_devices_found">ப்ளூடூத் சாதனங்கள் ஏதுமில்லை</string>
+    <string name="bt_tether_title">ப்ளூடூத் டித்தரிங்</string>
+    <string name="bt_tether_settings_on">ஆன்</string>
+    <string name="bt_tether_settings_off">ஆஃப்</string>
+    <string name="bt_tether_off_brief_text_phone">ப்ளூடூத்தைப் பயன்படுத்தி உங்கள் ஃபோனை பிற சாதனங்களுடன் இணைப்பதன் மூலம் அதன் இணைய இணைப்பைப் பகிரவும்.</string>
+    <string name="bt_tether_off_brief_text_tablet">ப்ளூடூத்தைப் பயன்படுத்தி உங்கள் டேப்லெட்டை பிற சாதனங்களுடன் இணைப்பதன் மூலம் அதன் இணைய இணைப்பைப் பகிரவும்.</string>
+    <string name="bt_tether_preference_tethered_device_list">டித்தர் செய்யப்பட்ட சாதனங்கள்</string>
+    <string name="bt_tether_server_description_phone">ப்ளூடூத்தைப் பயன்படுத்தி உங்கள் ஃபோனை வேறொரு சாதனத்துடன் இணைப்பதன் மூலம் அதன் இணைய இணைப்பைப் பகிரவும். சாதனம் ஏற்கனவே டித்தர் செய்யப்பட்டிருந்தால், டித்தர் செய்த சாதனங்கள் பட்டியலில் அதனைத் தேர்வுசெய்து மீண்டும் டித்தர் செய்யலாம்.</string>
+    <string name="bt_tether_server_description_tablet">ப்ளூடூத்தைப் பயன்படுத்தி உங்கள் டேப்லெட்டை வேறொரு சாதனத்துடன் இணைப்பதன் மூலம் அதன் இணைய இணைப்பைப் பகிரவும். சாதனம் ஏற்கனவே டித்தர் செய்யப்பட்டிருந்தால், டித்தர் செய்த சாதனங்கள் பட்டியலில் அதனைத் தேர்வுசெய்து மீண்டும் டித்தர் செய்யலாம்.</string>
     <string name="bluetooth_consent_pairing_msg">%s உடன் பிணைக்க “சரி” என்பதை டேப் செய்க.</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"உங்கள் SIM அட்டையை அணுக %s அனுமதி கோருகிறது. இந்த கோரிக்கையை அனுமதிப்பது, அழைத்தல் மற்றும் மெசேஜிங் செயல்பாடுகளை செயல்நீக்கும் மற்றும் உங்கள் சாதனத்தில் மொபைல் தரவு ஆஃப் செய்யும். அனுமதிக்கவா?
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">சாதனம் மற்றொரு சாதனத்தை தொடும்போது தரவு பரிமாற்றத்தை அனுமதிக்கவும்.</string>
     <string name="android_beam_settings_title">ஆண்ட்ராய்டு பீம்</string>
-    <string name="nfc_settings_title">மொபைல் கட்டண சேவைகளைப் பயன்படுத்தவும், NFC டேகுகளை வாசிக்கவும் மற்றும் எழுதவும் மற்றும் NFC-திறன் சாதனங்களுக்கிடையில் தரவை பரிமாற்றவும்.</string>
+    <string name="nfc_settings_title">மொபைல் கட்டணங்களை மேற்கொள்ளலாம், தரவைப் பகிரலாம் மற்றும் NFC டேக்குகளை வாசிக்கலாம் அல்லது எழுதலாம்.</string>
     <string name="nfc_settings_rw_p2p_summary">நீங்கள் டேக்குகளை வாசிக்கலாம் மற்றும் படிக்கலாம் மற்றும் சாதனங்களுக்கு இடையே தரவை இடம் மாற்றலாம்.</string>
     <string name="nfcpayment_quick_toggle_title">NFC மற்றும் பணமளிப்பு</string>
     <string name="nfc_mode_general_title">NFC முறை</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">உங்கள் டீஃபால்ட் மொபைல் பணம் செலுத்தல் சேவையைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="nfc_payment_title">பணமளிப்பு</string>
     <string name="nfc_others_title">மற்றவை</string>
-    <string name="nfc_other_no_apps">நிறுவிய சேவைப் பயன்பாடுகள் எதுவுமில்லை</string>
+    <string name="nfc_other_no_apps">சேவை பயன்பாடுகள் எதுவும் நிறுவப்படவில்லை</string>
     <string name="nfc_payment_open_app">டேப் செய்து பணம் செலுத்தவும் என்பதை திறந்துள்ள பயன்பாடு ஆதரித்தால்</string>
     <string name="nfc_payment_favor_open_default_unknown">திறந்தநிலை பயன்பாட்டை பயன்படுத்துக</string>
     <string name="nfc_payment_favor_default_default_unknown">டீஃபால்ட் கட்டணச் சேவை இல்லை</string>
     <string name="nfc_tts_tab_n_of_n">%2$d என்பதில் டேப் %1$d.</string>
+    <string name="nfc_payment_replace_default_label">டீஃபால்ட் கட்டண பயன்பாட்டை இடமாற்றவா?</string>
+    <string name="nfc_payment_replace">மாற்றுக</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">விருப்பமான SIM அட்டை</string>
     <string name="nfc_please_wait">தயவுசெய்து காத்திருக்கவும்…</string>
     <string name="nfc_payment_no_sim_card">SIM அட்டை ஏதுமில்லை</string>
-    <string name="nfc_disable_service_title">டீஃபால்ட் NFC முறையை மாற்றவும்</string>
-    <string name="nfc_disable_service_msg">டீஃபால்ட் NFC செயலாக்க முறையை மாற்றினால், மற்றவை டேபில் உள்ள சில சேவைகள் செயல்நீக்கப்படும் அல்லது செயல்படுத்தப்படும். இந்த சேவைகளை நிர்வகிக்க, NFC மற்றும் கட்டணம் > டேப் செய்து பணம் செலுத்தவும் > “மற்றவை” என்பதற்குச் சென்று, அதை செயல்படுத்த அல்லது செயல்நீக ஒவ்வொரு சேவையையும் தேர்வுசெய்யவும்.</string>
+    <string name="nfc_disable_service_title">டீஃபால்ட் NFC முறையை மாற்றவா?</string>
+    <string name="nfc_disable_service_msg">நீங்கள் டீஃபால்ட் NFC செயலாக்க முறையை மாற்றினால், மற்றவை டேபில் உள்ள சில சேவைகள் ஆன் அல்லது ஆஃப் செய்யப்படும். இந்தச் சேவைகளை நிர்வகிக்க, NFC மற்றும் கட்டணம் > டேப் செய்து பணம் செலுத்தவும் > மற்றவை என்பதற்குச் சென்று, பிறகு ஒவ்வொரு சேவையையும் அதை ஆன் அல்லது ஆஃப் செய்ய தேர்வுசெய்யவும்.</string>
     <string name="nfc_settings_advanced_setting">டீஃபால்ட் NFC முறை</string>
     <string name="nfc_settings_advanced_uicc">SE SIM அட்டை</string>
     <string name="nfc_settings_advanced_uicc_TTS">பாதுகாப்புக் கூறு SIM அட்டை</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">அட்டை முறைக்கு மாறிவிட்டால், உங்களால் இனிமேல் NFC டேக்குகளை வாசிக்க, அவற்றில் தரவை எழுத அல்லது சாதனங்களுக்கு இடையே தரவைப் பரிமாற்ற இயலாது.</string>
     <string name="nfc_show_alert_dialog_title">அல்ட்ரா பவர் சேமிப்பு முறை</string>
     <string name="nfc_show_alert_dialog_message">%s திறக்க இயலவில்லை.</string>
-    <string name="android_beam_explained">NFC திறனுடைய சாதனங்களை ஒன்றாக நெருக்கமாய் பிடிப்பதன் மூலம் அவற்றிற்கிடையில் கோப்புகளைப் பகிர்க. பிறகு நீங்கள் வலைப் பக்கம் இணைப்புகள், தொடர்புகள் மற்றும் பலவற்றை பகிரலாம்.</string>
+    <string name="android_beam_explained">NFC-ஏற்புத்திறனுள்ள சாதனத்திற்கு அருகில் உங்கள் ஃபோனை பிடிப்பதன் மூலம் வலைப் பக்க இணைப்புகள், தொடர்புகள் மற்றும் பலவற்றை நீங்கள் பகிரலாம்.</string>
     <string name="android_beam_explained_1">பின்னுக்குப் பின், சாதனங்களை ஒன்றாக கொண்டுவாருங்கள்.</string>
     <string name="android_beam_explained_2">உங்கள் திரையை டேப் செய்யவும்.</string>
     <string name="guide_dialog_attention_title">கவனம்</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">உள்ளடக்கத்தைப் பகிர்வதன் மற்றும் NFC பேமெண்டின் சில முறைகள் போன்ற NFC-சம்மந்தப்பட்ட செயல்பாடுகள், NFCயை அணைக்கும்போது கிடைக்காது.</string>
     <string name="limit_app_contents_transfer">NFC வழியாக உள்ளடக்கத்தைப் பகிர்வது, ஆண்ட்ராய்டு பீமை அணைக்கும்போது வரம்பிற்குட்படுத்தப்படும்.</string>
     <string name="nfc_payment_dialog_favor_open">தற்போது திறந்துள்ள பயன்பாடு, டேப் செய்து பணம் செலுத்தவும் வசதியை ஆதரித்தால், இது %s-க்குப் பதிலாகப் பயன்படுத்தப்படும்.</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">தற்போது திறந்துள்ள பயன்பாடு, டேப் செய்து பணம் செலுத்தவும் வசதியை ஆதரித்தால், அது பயன்படுத்தப்படும்.</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">தற்போது திறந்துள்ள பயன்பாடு, டேப் செய்து பணம் செலுத்தவும் வசதியை ஆதரித்தால், பணம் செலுத்த அது பயன்படுத்தப்படும்.</string>
     <string name="folder_sounds">கோப்புறை திறந்து/மூடுதல் ஒலிகள்</string>
     <string name="folder_sounds_summary">கோப்புறையை மூடும்போது அல்லது திறக்கும்போது ஒலிகளை இயக்கும்.</string>
     <string name="sound_category_calls_title">உள்வரும் அழைப்புகள்</string>
@@ -3463,6 +3474,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">சாதனம் %d நிமிடங்களுக்கும் மேல் பூட்டப்பட்டிருக்கும் போது, Wi-Fi அல்லது மொபைல் நெட்வொர்க்குகள் வழியே பயன்பாடுகளைப் பயன்படுத்திய தரவின் அளவைக் காட்டும் அறிவிப்புகளை பெறவும்.</string>
     <string name="data_usage_reminder_description">சாதனம் பூட்டப்பட்டுள்ள போது பின்வரும் பயன்பாடுகள் மொத்தத் தரவில், %s தரவைப் பயன்படுத்தப்படும்:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">சரி</string>
     <string name="yes">ஆம்</string>
     <string name="no">இல்லை</string>
     <string name="create">உரு.</string>
@@ -3560,7 +3572,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">சாதன விவரம்</string>
     <string name="proxy_settings_label">ப்ராக்ஸி அமைவுகள்</string>
     <string name="cancel">ரத்து</string>
-    <string name="okay">சரி</string>
     <string name="save">சேமி</string>
     <string name="done">முடிந்தது</string>
     <string name="settings_label">அமைவுகள்</string>
@@ -4814,13 +4825,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">இச்சாதனத்திலுள்ள அனைத்து பயனர்களையும் இந்த அமைவு பாதிக்கிறது.</string>
     <string name="global_locale_change_title">மொழியை மாற்றுக</string>
     <string name="nfc_payment_settings_title">டேப் செய்து பணம் செலுத்தவும்</string>
-    <string name="nfc_payment_no_apps">பணமளிப்பு சேவை பயன்பாடுகள் நிறுவப்படவில்லை</string>
+    <string name="nfc_payment_no_apps">கட்டணப் பயன்பாடுகள் எதுவும் நிறுவப்படவில்லை</string>
     <string name="nfc_payment_favor_default">%s பயன்படுத்தவும்</string>
     <string name="nfc_payment_favor_open">%s-க்கு பதிலாக, திறப்பு பயன்பாட்டைப் பயன்படுத்தவும்</string>
     <string name="nfc_how_it_works_got_it">சரி</string>
-    <string name="nfc_payment_set_default_label">டீஃபால்டாக அமைக்கவும்</string>
-    <string name="nfc_payment_set_default">டேப் செய்து செலுத்துக என்னும் பரிவர்த்தனைகளுக்கு %s ஆனது உங்களது டீஃபால்ட் பணமளிப்பு முறையாக இடம்மாற்றும்.</string>
-    <string name="nfc_payment_set_default_instead_of">டேப் செய்து செலுத்துக என்னும் பரிவர்த்தனைகளுக்கு %1$s ஆனது %2$s என்பதை உங்களது டீஃபால்ட் பணமளிப்பு முறையாக இடம்மாற்றும்.</string>
+    <string name="nfc_payment_set_default_label">டீஃபால்ட் பணம் செலுத்துதல் பயன்பாட்டை அமைக்கவா?</string>
+    <string name="nfc_payment_set_default">டேப் செய்து செலுத்துக பரிவர்த்தனைகளுக்கு %s-ஆனது உங்களது டீஃபால்ட் பணம் செலுத்துதல் பயன்பாடாக அமைக்கப்படும்.</string>
+    <string name="nfc_payment_set_default_instead_of">டேப் செய்து பணம் செலுத்தவும் என்பதற்காக %1$s ஆனது %2$s என்பதை உங்களது டீஃபால்ட் பணம் செலுத்தல் பயன்பாடாக இடமாற்றும்.</string>
     <string name="help_label">உதவி</string>
     <string name="user_restrictions_title">பயன்பாட்டு/உள்ளடக்க வரம்புகள்</string>
     <string name="user_restrictions_controlled_by">%1$s வழியாக கட்டுப்படுத்தப்பட்டது</string>
@@ -5126,7 +5137,7 @@ Receiving SMS"</string>
     <string name="location_off_summary">செயல்நீக்கப்பட்டது</string>
     <string name="backup_disabled">தானியங்கி பின்சேமிப்பு செயல்நீக்கப்பட்டது</string>
     <string name="about_summary">ஆண்ட்ராய்டு %s</string>
-    <string name="disabled_by_policy_title">செயலைச் செய்ய இயலவில்லை</string>
+    <string name="disabled_by_policy_title">செயலைச் செய்ய இயலாது</string>
     <string name="default_admin_support_msg">இதைச் செய்வதற்கு உங்களுக்கு அனுமதி இல்லை. மேலும் விவரத்திற்கு உங்கள் நிறுவனத்தின் IT நிர்வாகியைத் தொடர்புகொள்ளவும்.</string>
     <string name="admin_support_more_info">மேலும் விவரங்கள்</string>
     <string name="admin_profile_owner_message">அமைவுகள், அனுமதிகள், பெருநிறுவன அணுகல், நெட்வொர்க் செயல்பாடு மற்றும் சாதனத்தின் இருப்பிடத் தகவல்கள் உட்பட உங்கள் பணி ப்ரொஃபைலுடன் தொடர்புடைய பயன்பாடுகள் மற்றும் தரவை நிர்வாகியால் கண்காணிக்க முடியும்.</string>

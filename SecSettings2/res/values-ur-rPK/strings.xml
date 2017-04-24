@@ -22,6 +22,7 @@
     <string name="connected_via_passpoint">‏منسلک بذریعہ ‎%1$s</string>
     <string name="available_via_passpoint">‏دستیاب بذریعہ ‎%1$s</string>
     <string name="wifi_connected_no_internet">منسلک، انٹرنیٹ نہیں ہے</string>
+    <string name="wifi_internet_may_not_be_available">ہو سکتا ہے انٹرنیٹ دستیاب نہ ہو</string>
     <string name="wifi_reconnecting">نیٹ ورک کے معیار کے بہتر ہونے پر کنیکٹ ہونے کے لئے تیار</string>
     <string name="wifi_connected_checking_quality">آپ کے انٹرنیٹ کنکشن کی کوالٹی کی پڑتال کی جارہی ہے…</string>
     <string name="wifi_sign_in_to_the_network">نیٹ ورک میں سائن ان کریں۔</string>
@@ -383,7 +384,7 @@ Enter the code you get from Verizon:"</string>
     <string name="related_results">%d سے متعلقہ اشیاء</string>
     <string name="no_results_found">کوئی نتائج نہیں ملے</string>
     <string name="menu_edit">تدوین</string>
-    <string name="reset">دوبارہ سیٹ</string>
+    <string name="reset">پھرسیٹ</string>
     <string name="capability_desc_receiveAccessibilityEvents_galaxy_talkback">جب آپ ایپلیکیشن استعمال کررہے ہوں تو Voice Assistant کو جاننے کی اجازت دیتا ہے۔</string>
     <string name="direction_lock_set_screen_talkback_instruction_one">اس متن کے نیچے کے حصے میں اور اسکرین کے نچلے حصے میں واقع بٹنز کے اورپر سمتیں بنائیں۔</string>
     <string name="direction_lock_set_screen_talkback_instruction_four">تصدیق والا بٹن اسکرین کے نچلے دائیں کونے میں واقع ہے۔</string>
@@ -865,6 +866,14 @@ Wi-Fi اور بلیوٹوتھ کو بھی آف کر دیا جائے گا لیک�
     <string name="content_description_hand">اسکرین کے مرکز میں نیلے دائرے کو تھپتھپائیں اور تھام کر رکھیں۔</string>
     <string name="nearby_scanning_help_msg_sub">قریبی آلہ کی اسکیننگ بلیوٹوتھ لو اینرجی اسکیننگ اور مائیکروفون استعمال کرتی ہے۔ اس آلہ پر بلیوٹوتھ کے آف ہونے پر بھی بلیوٹوتھ لو اینرجی اسکیننگ کا استعمال کیا جا سکتا ہے۔</string>
     <string name="sec_bluetooth_no_devices_found">کوئی بلیوٹوتھ آلات نہیں پائے گئے</string>
+    <string name="bt_tether_title">بلیوٹوتھ ٹیتھرنگ</string>
+    <string name="bt_tether_settings_on">آن</string>
+    <string name="bt_tether_settings_off">آف</string>
+    <string name="bt_tether_off_brief_text_phone">کسی دوسرے آلات سے بلیوٹوتھ استعمال کرکے اپنے فون کا انٹرنیٹ کنیکشن شیئر کریں۔</string>
+    <string name="bt_tether_off_brief_text_tablet">کسی دوسرے آلات سے بلیوٹوتھ استعمال کرکے اپنے ٹیبلیٹ کا انٹرنیٹ کنیکشن شیئر کریں۔</string>
+    <string name="bt_tether_preference_tethered_device_list">جڑے ہوئے آلات</string>
+    <string name="bt_tether_server_description_phone">بلیوٹوتھ استعمال کرتے ہوئے کسی دوسرے آلہ سے جوڑ کر اپنے فون کا انٹرنیٹ کنیکشن شیئر کریں۔ اگر آلہ کو پہلے ہی جوڑدیا گيا ہے، تو آپ اسے جڑے ہوئے آلات کی فہرست سے منتخب کرکے دوبارہ جوڑ سکتے ہیں۔</string>
+    <string name="bt_tether_server_description_tablet">بلیوٹوتھ استعمال کرتے ہوئے کسی دوسرے آلہ سے جوڑ کر اپنے ٹیبلیٹ کا انٹرنیٹ کنیکشن شیئر کریں۔ اگر آلہ کو پہلے ہی جوڑدیا گيا ہے، تو آپ اسے جڑے ہوئے آلات کی فہرست سے منتخب کرکے دوبارہ جوڑ سکتے ہیں۔.</string>
     <string name="bluetooth_consent_pairing_msg">%s کے ساتھ جوڑی بنانے کے لئے [اوکے] پر تھپکی دیں۔</string>
     <string name="sec_bluetooth_sap_acceptance_dialog_text">"%s آپ کے SIM کارڈ تک رسائی کیلئے اجازت کی درخواست کر رہا ہے۔ اس درخواست کی اجازت دینے سے کالنگ اور پیغام رسانی کے فنکشنز غیر فعال ہو جائیں گے اور آپ کے آلہ پر موبائل ڈیٹا بند ہو جائے گا۔ اجازت دیں؟
 
@@ -2161,7 +2170,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_quick_toggle_title">NFC</string>
     <string name="nfc_quick_toggle_summary">جب آلہ دوسرے آلہ کو چھوتا ہے تو ڈیٹا مبادلہ کی اجازت دیتا ہے۔</string>
     <string name="android_beam_settings_title">Android Beam</string>
-    <string name="nfc_settings_title">موبائل ادائیگی خدمات استعمال کریں، NFC ٹیگز پڑھیں اور لھکیں، اور NFC کیبل آلات کے درمیان ڈیٹا اکسچینج کریں۔</string>
+    <string name="nfc_settings_title">موبائل سے ادائیگی کریں، ڈیٹا شیئر کریں، اور NFC ٹیگز پڑھیں یا لکھیں۔</string>
     <string name="nfc_settings_rw_p2p_summary">آپ ٹیگز پڑھ اور لکھ سکتے ہیں اور آلات کے درمیان ڈیٹا منتقل کر سکتے ہیں۔</string>
     <string name="nfcpayment_quick_toggle_title">‏NFC اور ادائیگی</string>
     <string name="nfc_mode_general_title">‏NFC موڈ</string>
@@ -2172,19 +2181,21 @@ Turn off Mobile data?"</string>
     <string name="nfc_payment_enable_summary">اپنی ڈیفالٹ موبائل ادائیگی کی سروس کو منتخب کریں۔</string>
     <string name="nfc_payment_title">ادائیگی</string>
     <string name="nfc_others_title">دیگر</string>
-    <string name="nfc_other_no_apps">کوئی نصب شدہ خدمت کے ایپلیکیشنز نہیں ہيں</string>
+    <string name="nfc_other_no_apps">کوئی خدمت ایپلیکیشنز تنصیب شدہ نہیں ہیں</string>
     <string name="nfc_payment_open_app">اگر ایپلیکیشن کی تائید کھولیں تھپکی دیں اور چلائیں</string>
     <string name="nfc_payment_favor_open_default_unknown">کھولے ہوئے ایپلیکیشن استعمال کریں</string>
     <string name="nfc_payment_favor_default_default_unknown">کوئی ڈیفالٹ ادائیگی کی خدمت نہیں</string>
     <string name="nfc_tts_tab_n_of_n">ٹیب %1$d از %2$d۔</string>
+    <string name="nfc_payment_replace_default_label">ڈیفالٹ ادائیگی ایپلیکیشن کو بدل دیں؟</string>
+    <string name="nfc_payment_replace">بدل دیں</string>
     <string name="nfc_payment_services_title">NFC payment services</string>
     <string name="nfc_payment_services_fail">Failed to set %s SIM card for use with NFC payment services. Try again.</string>
     <string name="nfc_payment_services_success">%s SIM card set for use with NFC payment services.</string>
     <string name="nfc_preferred_general_title">ترجیح دیا گیا SIM کارڈ</string>
     <string name="nfc_please_wait">انتظار کریں…</string>
     <string name="nfc_payment_no_sim_card">کوئی SIM کارڈ نہیں</string>
-    <string name="nfc_disable_service_title">ڈیفالٹ NFC طریقہ کو تبدیل کریں</string>
-    <string name="nfc_disable_service_msg">اگر آپ ڈیفالٹ NFC کارروائی طریقہ تبدیل کرتے ہیں، تو دوسرے ٹیب میں کچھ خدمات نااہل یا اہل ہو جائیں گے۔ ان خدمات کا نظم کرنے کے لیے، NFC اور ادائیگی > تھپکی دیں اور ادا کریں > دیگر پر جائیں، پھر ہر ایک خدمت کو اہل یا نااہل کرنے کے لیے منتخب کریں۔</string>
+    <string name="nfc_disable_service_title">ڈیفالٹ NFC طریقہ کو تبدیل کریں؟</string>
+    <string name="nfc_disable_service_msg">اگر آپ ڈیفالٹ NFC کارروائی کا طریقہ تبدیل کرتے ہیں، تو دوسرے ٹیب میں کچھ خدمات آن یا آف ہوجائیں گے۔ ان خدمات کا نظم کرنے کے لیے، NFC اور ادائیگی پر جائیں > تھپکی دیں اور >دوسروں کو ادا کریں، پھر اسے آن یا آف کرنے کے لیے ہر خدمت کو منتخب کریں۔</string>
     <string name="nfc_settings_advanced_setting">ڈیفالٹ NFC طریقہ</string>
     <string name="nfc_settings_advanced_uicc">‏SIM SE چیک کریں</string>
     <string name="nfc_settings_advanced_uicc_TTS">محفوظ عنصر SIM کارڈ</string>
@@ -2196,7 +2207,7 @@ Turn off Mobile data?"</string>
     <string name="nfc_settings_tag_message">اگر آپ کارڈ موڈ میں سوئچ کرتے ہیں، تو آپ NFC ٹیگز پڑھنے، ان پر ڈیٹا لکھنے، یا آلات کے درمیان تبادلے کے مزید قابل نہ ہوں گے۔</string>
     <string name="nfc_show_alert_dialog_title">الٹرا پاور بچت موڈ</string>
     <string name="nfc_show_alert_dialog_message">%s کو کھولنے سے قاصر۔</string>
-    <string name="android_beam_explained">‏NFC کی صلاحیت رکھنے والے آلات کو ایک ساتھ تھام کر ان کے درمیان فائلیں شیئر کریں۔ آپ پھر ویب صفحہ کی لنک، روابط، اور مزید شیئر کرسکتے ہیں۔</string>
+    <string name="android_beam_explained">آپ ویب صفحہ لنکس، روابط، اور اپنے فون کو کسی NFC کیبل آلہ سے قریب ہولڈ کرکے مزید شیئر کرسکتے ہیں۔</string>
     <string name="android_beam_explained_1">آلات کو ایک ساتھ لائیں، پشت سے پشت ملا کر۔</string>
     <string name="android_beam_explained_2">اپنی اسکرین پر تھپکی دیں۔</string>
     <string name="guide_dialog_attention_title">توجہ</string>
@@ -2205,7 +2216,7 @@ Turn off Mobile data?"</string>
     <string name="cannot_use_card_without_NFC">‏NFC-متعلقہ فنکشنز، جیسے کہ مشمول شراکت کرنے اور NFC ادائیگی کے کچھ طریقے، اس وقت دستیاب نہیں ہوں گے جب NFC آف کیا گیا ہو</string>
     <string name="limit_app_contents_transfer">براستہ NFC مشمول شراکت کرنا محدود ہوجائے گا جب Android Beam آف کردیا گیا ہو</string>
     <string name="nfc_payment_dialog_favor_open">اگر حالیہ ایپلیکیشن کھلی حمایت کرتا ہے تو تھپکی دیں اور اداکریں، یہ %s کے علاوہ استعمال کیاجائیگا۔</string>
-    <string name="nfc_payment_dialog_favor_open_default_unknown">اگر حالیہ ایپلیکیشن کھلی حمایت کرتا ہے تو تھپکی دیں اور اداکریں، یہ استعمال کیاجائیگا۔</string>
+    <string name="nfc_payment_dialog_favor_open_default_unknown">اگر ایپلیکیشن فی الحال کھلی حمایت کرتا ہے تو تھپکی دیں اور ادا کریں، یہ ادائیگی کے لیے استعمال کیا جائے گا۔</string>
     <string name="folder_sounds">فولڈر کھولیں/بند کریں آوازیں</string>
     <string name="folder_sounds_summary">جب فولڈر کھولیں اور بند کریں تو آواز چلائیں۔</string>
     <string name="sound_category_calls_title">وصول ہونے والی کالیں</string>
@@ -3462,6 +3473,7 @@ Receiving SMS"</string>
     <string name="data_usage_reminder_item_summary">جب آلہ %d منٹ سے زیادہ لاک ہو، تو Wi-Fi یا موبائل نیٹ ورک کے ذریعے ایپلیکیشنز سے استعمال کردہ ڈیٹا کی مقدار کی نوٹیفکیشنز وصول کریں۔</string>
     <string name="data_usage_reminder_description">آلہ لاک ہونے کے دوران درج ذیل ایپلیکیشنز نے کل %s ڈیٹا استعمال کیا:</string>
     <string name="google_settings_popup_msg">Only a limited number of Google settings are available. Some actions may not work.</string>
+    <string name="okay">ٹھیک ہے</string>
     <string name="yes">ہاں</string>
     <string name="no">نہیں</string>
     <string name="create">تخلیق</string>
@@ -3559,7 +3571,6 @@ Receiving SMS"</string>
     <string name="phone_info_label">آلہ کی معلومات</string>
     <string name="proxy_settings_label">سیٹینگ پروکسی</string>
     <string name="cancel">منسوخ</string>
-    <string name="okay">ٹھیک ہے</string>
     <string name="save">محفوظ کریں</string>
     <string name="done">مکمل</string>
     <string name="settings_label">سیٹنگز</string>
@@ -4813,13 +4824,13 @@ Receiving SMS"</string>
     <string name="global_change_warning">یہ سیٹنگ اس آلہ پر تمام صارفین کو متاثر کرتی ہے</string>
     <string name="global_locale_change_title">زبان بدلیں</string>
     <string name="nfc_payment_settings_title">تھپتھپائیں اور ادا کریں</string>
-    <string name="nfc_payment_no_apps">کوئی نصب شدہ ادائیگی کی سروس کے اپلیکیشنز نہیں ہیں</string>
+    <string name="nfc_payment_no_apps">کوئی ادائیگی ایپلیکیشنز نصب نہیں کیا گیا</string>
     <string name="nfc_payment_favor_default">پھر بھی %s استعمال کریں</string>
     <string name="nfc_payment_favor_open">%s کی بجائے ایپلیکیشن کھولیں استعمال کریں</string>
     <string name="nfc_how_it_works_got_it">اسے سمجھ گیا</string>
-    <string name="nfc_payment_set_default_label">بطور ڈیفالٹ مقرر کریں</string>
-    <string name="nfc_payment_set_default">ٹیپ اور لین دین کی ادائیگیوں کے لئے %s آپ کی ادائیگی کے ڈیفالٹ طریقے کے طور پر مقرر ہوجائے گا۔</string>
-    <string name="nfc_payment_set_default_instead_of">ٹیپ اور لین دین کی ادائیگیوں کے لئے آپ کے ڈیفالٹ ادائیگی کے طریقے کے طور پر %1$s، %2$s کی جگہ لے لیگا۔</string>
+    <string name="nfc_payment_set_default_label">ڈیفالٹ ادائیگی ایپلیکیشن کو سیٹ کریں؟</string>
+    <string name="nfc_payment_set_default">%s آپ کے ڈیفالٹ ادائیگی ایپلیکیشن کے طورپر تھپکی دینے اور ادا کرنے کے لیے سیٹ ہوجائے گا۔</string>
+    <string name="nfc_payment_set_default_instead_of">%1$s ٹیپ اور ادائیگی کے لئے آپ کے ڈیفالٹ ادائیگی ایپلیکیشن کے طور پر %2$s کو بدل دے گا۔</string>
     <string name="help_label">مدد</string>
     <string name="user_restrictions_title">ایپلیکیشن/مشمول پابندیاں</string>
     <string name="user_restrictions_controlled_by">کنٹرول کردہ براستہ %1$s</string>

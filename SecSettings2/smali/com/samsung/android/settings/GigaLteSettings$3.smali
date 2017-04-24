@@ -39,9 +39,9 @@
         }
     .end annotation
 
-    const v5, 0x7f0b0b8b
+    const v5, 0x7f0b0b99
 
-    const v4, 0x7f0b0b7c
+    const v4, 0x7f0b0b8a
 
     new-instance v2, Ljava/util/ArrayList;
 

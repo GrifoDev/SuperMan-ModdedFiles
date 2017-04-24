@@ -194,7 +194,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b145e
+    const v3, 0x7f0b1579
 
     const/4 v6, 0x0
 
@@ -249,7 +249,7 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    const v4, 0x7f040248
+    const v4, 0x7f040249
 
     invoke-virtual {v2, v4, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -298,7 +298,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    const v4, 0x7f040246
+    const v4, 0x7f040247
 
     invoke-virtual {v2, v4, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -652,7 +652,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b145b
+    const v16, 0x7f0b1576
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -668,7 +668,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b145c
+    const v16, 0x7f0b1577
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -795,7 +795,7 @@
 
     aput-object v10, v16, v17
 
-    const v17, 0x7f0b145d
+    const v17, 0x7f0b1578
 
     move/from16 v0, v17
 
@@ -839,7 +839,7 @@
 
     aput-object v10, v16, v17
 
-    const v17, 0x7f0b145d
+    const v17, 0x7f0b1578
 
     move/from16 v0, v17
 
@@ -883,7 +883,7 @@
 
     aput-object v10, v16, v17
 
-    const v17, 0x7f0b145d
+    const v17, 0x7f0b1578
 
     move/from16 v0, v17
 
@@ -950,7 +950,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b1458
+    const v16, 0x7f0b1573
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -966,7 +966,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f0b1459
+    const v16, 0x7f0b1574
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
