@@ -49,7 +49,7 @@
 
     iget-object v2, p3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     iget-object v0, p3, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
@@ -99,6 +99,26 @@
 
     move-result-object v1
 
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    # getter for: Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
+    invoke-static {p1}, Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->access$100(Lcom/android/launcher2/AvailableShortcutWidgetListProvider;)Lcom/android/launcher2/PkgResCache;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher2/AvailableShortcutWidgetListProvider$AvailableShortcutWidget;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher2/PkgResCache;->remove(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+
+    :cond_0
     # getter for: Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
     invoke-static {p1}, Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->access$100(Lcom/android/launcher2/AvailableShortcutWidgetListProvider;)Lcom/android/launcher2/PkgResCache;
 
@@ -114,7 +134,7 @@
 
     iget-object v2, v2, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Lcom/android/launcher2/AvailableShortcutWidgetListProvider$AvailableShortcutWidget;->mTitleAndIcon:Lcom/android/launcher2/PkgResCache$TitleIconInfo;
 
@@ -124,12 +144,12 @@
 
     iput-object v3, v2, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    :cond_0
+    :cond_1
     iget-object v2, p0, Lcom/android/launcher2/AvailableShortcutWidgetListProvider$AvailableShortcutWidget;->mTitleAndIcon:Lcom/android/launcher2/PkgResCache$TitleIconInfo;
 
     iget-object v2, v2, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     iget-object v2, p0, Lcom/android/launcher2/AvailableShortcutWidgetListProvider$AvailableShortcutWidget;->mTitleAndIcon:Lcom/android/launcher2/PkgResCache$TitleIconInfo;
 
@@ -141,10 +161,10 @@
 
     iput-object v3, v2, Lcom/android/launcher2/PkgResCache$TitleIconInfo;->mTitle:Ljava/lang/String;
 
-    :cond_1
+    :cond_2
     return-void
 
-    :cond_2
+    :cond_3
     iget-object v0, p3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     goto :goto_0

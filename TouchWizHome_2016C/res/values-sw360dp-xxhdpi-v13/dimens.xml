@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">0.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">55.0dip</dimen>
     <dimen name="badge_fontsize_default">14.0dip</dimen>
@@ -426,7 +427,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">0.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">4.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -450,6 +450,8 @@
     <dimen name="home_4x5_cellHeight_port">87.0dip</dimen>
     <dimen name="home_5x5_cellGapY">4.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">88.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">307.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">180.0dip</dimen>
     <dimen name="home_pageIndicatorTopScreenGrid">445.0dip</dimen>
     <item type="dimen" name="hotseat_barSize_drag">@dimen/hotseat_barSize</item>
     <dimen name="hotseat_icon_size_4">55.0dip</dimen>
@@ -513,6 +515,7 @@
     <dimen name="popup_menu_listView_offsetX">4.0dip</dimen>
     <dimen name="folder_multi_header_line_height">2.0px</dimen>
     <dimen name="folder_multi_icon_layout_height">100.0dip</dimen>
+    <dimen name="home_icon_text_theme_extra_padding">0.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">16.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom_extra">7.0dip</dimen>
@@ -526,7 +529,6 @@
     <dimen name="badge_clear_popup_margin_top">11.0dip</dimen>
     <dimen name="badge_clear_popup_xoffset_left">-2.5dip</dimen>
     <dimen name="badge_clear_popup_xoffset_right">2.5dip</dimen>
-    <dimen name="home_icon_text_theme_extra_padding">0.0dip</dimen>
     <dimen name="menuWidgets_previewImageWidth">144.0dip</dimen>
     <dimen name="status_bar_height">24.0dip</dimen>
     <dimen name="widget_folder_open_grid_padding_top">8.0dip</dimen>

@@ -44,6 +44,13 @@
             <TextView android:id="@id/move_apps_text" android:text="@string/move_apps" style="@style/HomeEditDragBarIcon" />
         </LinearLayout>
     </FrameLayout>
+    <FrameLayout android:id="@id/hide_container" android:visibility="gone" style="@style/HomeEditDragBarItemContainer">
+        <ImageView android:id="@id/hide_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
+        <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/hide_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_edit_hide" />
+            <TextView android:id="@id/hide_text" android:text="@string/hide" style="@style/HomeEditDragBarIcon" />
+        </LinearLayout>
+    </FrameLayout>
     <FrameLayout android:id="@id/lock_container" android:visibility="gone" style="@style/HomeEditDragBarItemContainer">
         <ImageView android:id="@id/lock_anim_background" android:src="@drawable/circle_shape_normal" android:alpha="0.0" style="@style/EditBarCircle" />
         <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">

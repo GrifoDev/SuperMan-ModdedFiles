@@ -34,14 +34,17 @@
     <string name="all_apps_title">Ilovalar</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABDEFGHIJKLMNOPQRSTUVXYZO‘G‘ChShNgABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABDEFGHIJKLMNOPQRSTUVXYZO‘G‘ChShNgABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s yashirin.</string>
+    <string name="app_locked_toast">%s bloklandi.</string>
     <string name="app_search">Qidirish</string>
     <string name="app_search_no_apps">Asosiy ekranga qidiruv natijalaridan yorliqlar qo‘shishingiz mumkin.</string>
     <string name="app_search_no_results_found">Natijalar topilmadi</string>
+    <string name="app_unlocked_toast">%s blokdan chiqarildi.</string>
     <string name="apply">Qo‘llash</string>
     <string name="available_galaxyapps">Galaxy Apps’da mavjud</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Har bir ilova uchun yorliqlar yashirilishini yoki ko‘rsatilishini tanlang.</string>
+    <string name="badge_manage_summary">Har bir ilova uchun yorliqlar yashirilishini yoki ko‘rsatilishini tanlang.</string>
+    <string name="badge_manage_title">Ilova yorliqlarini boshqarish</string>
     <string name="cancel">Bekor qilish</string>
     <string name="change_home_screen_settings">As. ekran param-ni o‘zgar</string>
     <string name="change_home_screen_settings_info">Bu ilova asosiy ekran parametrlari va yorliqlarini o‘zgartirishi mumkin.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Bevosita terish</string>
     <string name="direct_message">Bevosita xabar</string>
     <string name="disable_message">%1$s va unga tegishli barcha funksiyalar o‘chiriladi. Ilovani yana yoqish uchun Parametrlar > Ilovalarga o‘ting, so‘ngra %2$s’ni tanlang.</string>
+    <string name="disable_message_att">%s va unga aloqador barcha funksiyalar o‘chiriladi. Uni qayta yoqish uchun Parametrlar > Qurilma > Ilovalar > Ilova menejeriga o‘ting.</string>
     <string name="disable_message_vzw">%s va unga tegishli barcha funksiyalar o‘chiriladi. Uni qayta yoqish uchun Parametrlar > Ilovalar > Ilova menejeriga o‘ting.</string>
     <string name="disable_messange_knox">%s va unga tegishli barcha funksiyalar o‘chiriladi. Uni qayta yoqish uchun KNOX parametrlari > Ilova menejeriga o‘ting.</string>
     <string name="disable_title">Ilovani o‘chirish</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Vidjet o‘lchamini o‘zgartirish uchun chegara chizig‘ini yuqoriga, pastga, ichkariga yoki tashqariga suring.</string>
     <string name="guide_tap_here">Ilovalar ikonachasiga teging.</string>
     <string name="guide_widgets_tap_area">Vidjet tahrirlanishi mumkin bo‘lguniga qadar bosib turing, so‘ngra qo‘yib yuboring.</string>
+    <string name="hide">Yashir</string>
+    <string name="hide_confirm_continue">Davom ettirish</string>
+    <string name="hide_confirm_message">Ayni vaqtda %s ilovasi bloklangan. Agar bu ilovani yashirsangiz, u blokdan chiqariladi.</string>
+    <string name="hide_confirm_title">Ilovani yashirish</string>
     <string name="home_edit_add_to_personal">Shaxsiyga qo‘sh</string>
     <string name="home_edit_bar_delete_title">Yorliq ol/tashla</string>
     <string name="home_edit_bar_delete_title_vzw">Yorliq ol/tashla</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidjeti avvalroq asosiy ekranga qo‘shilgan.</string>
     <string name="open_folder">Jildni ochish</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Ilovalarni ko‘rish</string>
     <string name="option_menu_contact_up">Biz bilan bog‘lanish</string>
     <string name="option_tray_screengrid">Ekran to‘ri</string>
     <string name="options_home_set_theme">Mavzular</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Vidjetlar qo‘shish</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Ilova tezkor opsiyalarini ko‘rish uchun ilova yorlig‘ini pastga suring. Tezkor opsiyalar ilovalarni oson boshqarish imkonini beradi.</string>
+    <string name="quickoption_sleep">Uyqu</string>
     <string name="quickoptions_add_apps">Ilovalar qo‘shish</string>
     <string name="quickoptions_add_to_secure_folder">"Xavfsiz jildga
 qo‘shish"</string>
     <string name="quickoptions_app_info">"Ilova ma'lumoti"</string>
     <string name="quickoptions_clear_badge">Yorliqni o‘chirish</string>
     <string name="quickoptions_disable">O‘chirish</string>
-    <string name="quickoptions_put_to_sleep">Uyqu rejimiga qo‘yish</string>
-    <string name="quickoptions_put_to_sleep_alert">Ushbu ilovani uyqu rejimiga qo‘yish uning fonda batareya quvvatidan foydalanishiga yo‘l qo‘ymaydi. Uyqu ilovalari yangilanishlarni olmaydi yoki sizga bildirishnomalar yubormaydi, lekin ularni ochganingizda, sizni uyg‘otadi.</string>
+    <string name="quickoptions_sleep_alert">Ushbu ilovani uyqu rejimiga qo‘yish uning fonda batareya quvvatidan foydalanishiga yo‘l qo‘ymaydi. Uyqu ilovalari yangilanishlarni olmaydi yoki sizga bildirishnomalar yubormaydi, lekin ularni ochganingizda, sizni uyg‘otadi.</string>
     <string name="quickoptions_uninstall">Olib tashlash</string>
     <string name="quickview_delete_toast_msg">Sahifani ol/tashlash u-n uni Olib tashlashga tortib olib keling.</string>
     <string name="quickview_drag_bar_delete_title">Olib tashla</string>
@@ -172,9 +180,9 @@ qo‘shish"</string>
     <string name="remove_app_folder_confirm">O‘chirish</string>
     <string name="remove_app_folder_confirm_VZW">Olib tashlash</string>
     <string name="remove_app_folder_message">%s jildi o‘chirib tashlanadi. Ushbu jilddagi ilovalarni Ilovalar ekranida topish mumkin bo‘ladi.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s jildi olib tashlanadi. Bu jilddagi ilovalar ro‘yxatining oxiriga joylashtiriladi.</string>
     <string name="remove_app_folder_message_no_title">Ushbu jild olib tashlanadi. Ushbu jilddagi ilovalar o‘rnatilmaydi</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Bu jild olib tashlanadi. Bu jilddagi ilovalar ro‘yxatining oxiriga joylashtiriladi.</string>
     <string name="remove_app_folder_title">"Jildni o'chirib tashlash"</string>
     <string name="remove_app_folder_title_VZW">Jildni olib tashlash</string>
     <string name="remove_home_folder_message">%s jildi o‘chirib tashlanadi. Ushbu jilddagi ilovalarni Ilovalar ekranida topish mumkin bo‘ladi.</string>
@@ -187,7 +195,7 @@ qo‘shish"</string>
     <string name="search_for_apps">Ilovalarni qidirish</string>
     <string name="search_for_widgets">Vidjetlarni qidirish</string>
     <string name="search_result_found">%d topildi</string>
-    <string name="search_result_founds">%dta topildi</string>
+    <string name="search_result_founds">%d topildi</string>
     <string name="select_all_app">Barcha</string>
     <string name="select_app_add">QO‘SHISH</string>
     <string name="selected">Tanlangan</string>
@@ -229,11 +237,11 @@ qo‘shish"</string>
     <string name="viewtype_custom_grid">Maxsus buyurtma</string>
     <string name="widget_duplicate">%s vidjeti asosiy ekranda oldindan mavjud.</string>
     <string name="work_folder_name">Ish</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Elementlarni qo‘shish uchun ekranni bosib turing</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Yuklab ol</string>
+    <string name="zeropage_download_msg">Ushbu funksiyadan foydalanish uchun %1$s’ni o‘rnatishingiz lozim. %2$s’ni yuklab olish va o‘rnatish uchun YUKLAB OLISH tugmasiga teging.</string>
     <string name="zeropage_notice_msg">"%s yangiliklari xizmatidan endi foydalanish mumkin. Undan Qisqa ko‘rsatma o‘rniga foydalanish uchun OK'ga teging."</string>
     <string name="zeropage_setting_dialog_no">Bekor qilish</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu Yangiliklari</string>
 </resources>

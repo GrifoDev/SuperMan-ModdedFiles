@@ -382,354 +382,385 @@
 .end method
 
 .method public static getLiveIcon(Landroid/content/Context;Ljava/lang/String;ILcom/android/launcher2/compat/LauncherActivityInfoCompat;)Landroid/graphics/Bitmap;
-    .locals 11
+    .locals 13
 
-    sget-boolean v5, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
+    sget-boolean v7, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_0
 
-    const-string v5, "Launcher.LiveIconUtils"
+    const-string v7, "Launcher.LiveIconUtils"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "["
+    const-string v11, "["
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string v9, "] getLiveIcon  start"
+    const-string v11, "] getLiveIcon  start"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    const-wide/16 v6, -0x1
+    const-wide/16 v8, -0x1
 
     if-eqz p3, :cond_1
 
     invoke-static {p0}, Lcom/android/launcher2/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/compat/UserManagerCompat;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher2/compat/UserHandleCompat;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v5, v8}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
+    invoke-virtual {v7, v10}, Lcom/android/launcher2/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher2/compat/UserHandleCompat;)J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    const-wide/16 v8, 0x64
+    const-wide/16 v10, 0x64
 
-    cmp-long v5, v6, v8
+    cmp-long v7, v8, v10
 
-    if-ltz v5, :cond_1
+    if-ltz v7, :cond_1
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
     :cond_1
-    sget-object v8, Lcom/android/launcher2/utils/LiveIconUtils;->mLiveIconBmp:Ljava/util/HashMap;
+    sget-object v10, Lcom/android/launcher2/utils/LiveIconUtils;->mLiveIconBmp:Ljava/util/HashMap;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v11
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "_"
+    const-string v12, "_"
 
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
     :goto_0
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v8, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v10, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    check-cast v1, Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
-    sget-boolean v5, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
+    sget-boolean v7, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v7, :cond_2
 
-    const-string v5, "Launcher.LiveIconUtils"
+    const-string v7, "Launcher.LiveIconUtils"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "["
+    const-string v11, "["
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    const-string v9, "] getLiveIcon : already has bmp"
+    const-string v11, "] getLiveIcon : already has bmp"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     :goto_1
-    return-object v0
+    return-object v1
 
     :cond_3
-    const-string v5, ""
+    const-string v7, ""
 
     goto :goto_0
 
     :cond_4
+    const/4 v3, 0x0
+
     if-eqz p3, :cond_5
 
-    if-nez v2, :cond_8
+    if-nez v4, :cond_9
 
     :cond_5
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p1}, Landroid/content/pm/PackageManager;->getApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, p1}, Landroid/content/pm/PackageManager;->getApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    :goto_2
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v7
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, p1, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    iget v7, v0, Landroid/content/pm/ApplicationInfo;->flags:I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v4
+    const/high16 v10, 0x40000000    # 2.0f
 
-    :goto_2
-    invoke-static {v4, p0, p2, p2}, Lcom/android/launcher2/Utilities;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;II)Landroid/graphics/Bitmap;
+    and-int/2addr v7, v10
 
-    move-result-object v3
+    if-eqz v7, :cond_a
 
-    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeLoader()Lcom/android/launcher2/theme/OpenThemeLoader;
-
-    move-result-object v5
-
-    sget-object v8, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
-
-    invoke-virtual {v8}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
-
-    move-result v8
-
-    invoke-virtual {v5, v8}, Lcom/android/launcher2/theme/OpenThemeLoader;->getIsTheme(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    if-eqz v2, :cond_6
-
-    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
-
-    move-result-object v5
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v5, v3, v8}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeIconWithBg(Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v3
+    const/4 v3, 0x1
 
     :cond_6
-    sget-object v8, Lcom/android/launcher2/utils/LiveIconUtils;->mLiveIconBmp:Ljava/util/HashMap;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    if-eqz v2, :cond_9
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "_"
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
     :goto_3
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v6, p0, p2, p2, v3}, Lcom/android/launcher2/Utilities;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;IIZ)Landroid/graphics/Bitmap;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeLoader()Lcom/android/launcher2/theme/OpenThemeLoader;
+
+    move-result-object v7
+
+    sget-object v10, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
+
+    invoke-virtual {v10}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
+
+    move-result v10
+
+    invoke-virtual {v7, v10}, Lcom/android/launcher2/theme/OpenThemeLoader;->getIsTheme(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    if-eqz v4, :cond_7
+
+    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
+
+    move-result-object v7
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v7, v5, v10}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeIconWithBg(Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
 
     move-result-object v5
-
-    invoke-virtual {v8, v5, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-boolean v5, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
-
-    if-eqz v5, :cond_7
-
-    const-string v5, "Launcher.LiveIconUtils"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "["
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, "] getLiveIcon : return bmp"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v5, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
-    move-object v0, v3
+    sget-object v10, Lcom/android/launcher2/utils/LiveIconUtils;->mLiveIconBmp:Ljava/util/HashMap;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    if-eqz v4, :cond_b
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "_"
+
+    invoke-virtual {v7, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    :goto_4
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v10, v7, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-boolean v7, Lcom/android/launcher2/utils/LiveIconUtils;->DEBUGGABLE:Z
+
+    if-eqz v7, :cond_8
+
+    const-string v7, "Launcher.LiveIconUtils"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "["
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, "] getLiveIcon : return bmp"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v7, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    move-object v1, v5
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_9
     :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v5, v8}, Landroid/content/pm/PackageManager;->getApplicationIcon(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, v10}, Landroid/content/pm/PackageManager;->getApplicationIcon(Landroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v4
+    move-result-object v6
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher2/compat/UserHandleCompat;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v8}, Lcom/android/launcher2/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+    invoke-virtual {v10}, Lcom/android/launcher2/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-virtual {v5, v4, v8}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, v6, v10}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result-object v4
+    move-result-object v6
 
     goto/16 :goto_2
 
+    :cond_a
+    const/4 v3, 0x0
+
+    goto/16 :goto_3
+
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    const-string v5, "Launcher.LiveIconUtils"
+    const-string v7, "Launcher.LiveIconUtils"
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
-    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v7
 
-    const/high16 v8, 0x10d0000
+    const/high16 v10, 0x10d0000
 
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v7, v10}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_9
-    const-string v5, ""
+    :cond_b
+    const-string v7, ""
 
-    goto :goto_3
+    goto :goto_4
 .end method
 
 .method public static getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;)Landroid/graphics/Bitmap;
@@ -739,7 +770,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090004
+    const v2, 0x7f090005
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

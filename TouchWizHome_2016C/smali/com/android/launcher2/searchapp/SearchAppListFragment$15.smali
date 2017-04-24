@@ -93,7 +93,7 @@
 
     check-cast v2, Landroid/widget/FrameLayout;
 
-    const v4, 0x7f1000f7
+    const v4, 0x7f1000fb
 
     invoke-virtual {v2, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 

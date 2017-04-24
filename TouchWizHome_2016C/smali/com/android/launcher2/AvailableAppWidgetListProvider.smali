@@ -84,6 +84,9 @@
 
     aput-object v1, v2, v4
 
+    monitor-enter p0
+
+    :try_start_0
     sget-object v1, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
 
     invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -107,10 +110,12 @@
     move-result-object v7
 
     check-cast v7, Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v6, 0x0
 
-    :try_start_0
+    :try_start_1
     sget-object v1, Lcom/android/launcher2/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v4, 0x1
@@ -185,34 +190,45 @@
     move-result-object v4
 
     invoke-virtual {v10, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_1
 
     :catch_0
     move-exception v8
 
-    :try_start_1
+    :try_start_2
     invoke-virtual {v8}, Ljava/lang/IllegalStateException;->printStackTrace()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     if-eqz v6, :cond_0
 
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    goto :goto_0
-
-    :cond_1
-    if-eqz v6, :cond_0
-
+    :try_start_3
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
     :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw v1
+
+    :cond_1
+    if-eqz v6, :cond_0
+
+    :try_start_4
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catchall_1
     move-exception v1
 
     if-eqz v6, :cond_2
@@ -246,10 +262,12 @@
     move-result-object v9
 
     check-cast v9, Ljava/lang/String;
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     const/4 v6, 0x0
 
-    :try_start_2
+    :try_start_5
     sget-object v1, Lcom/android/launcher2/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v4, 0x1
@@ -324,22 +342,23 @@
     move-result-object v4
 
     invoke-virtual {v10, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2
-    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_5
+    .catch Ljava/lang/IllegalStateException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     goto :goto_3
 
     :catch_1
     move-exception v8
 
-    :try_start_3
+    :try_start_6
     invoke-virtual {v8}, Ljava/lang/IllegalStateException;->printStackTrace()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     if-eqz v6, :cond_4
 
+    :try_start_7
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_2
@@ -351,7 +370,7 @@
 
     goto :goto_2
 
-    :catchall_1
+    :catchall_2
     move-exception v1
 
     if-eqz v6, :cond_6
@@ -362,6 +381,10 @@
     throw v1
 
     :cond_7
+    monitor-exit p0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
     return-void
 .end method
 
@@ -567,12 +590,12 @@
 
     move-result-object v12
 
-    if-nez v12, :cond_1
+    if-nez v12, :cond_0
 
-    :cond_0
+    :goto_0
     return-object v10
 
-    :cond_1
+    :cond_0
     new-instance v4, Ljava/util/HashSet;
 
     invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
@@ -593,24 +616,24 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_1
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v19
 
-    if-nez v19, :cond_2
+    if-nez v19, :cond_1
 
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v19
 
-    :goto_0
+    :goto_1
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    if-eqz v20, :cond_1
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -646,9 +669,9 @@
 
     invoke-interface {v4, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_1
     new-instance v7, Ljava/util/HashSet;
 
     invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
@@ -661,7 +684,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_3
+    if-eqz v19, :cond_2
 
     new-instance v19, Landroid/content/ComponentName;
 
@@ -675,7 +698,7 @@
 
     invoke-interface {v7, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/AvailableAppWidgetListProvider;->mContext:Landroid/content/Context;
@@ -694,13 +717,13 @@
 
     move-result-object v19
 
-    :cond_4
-    :goto_1
+    :cond_3
+    :goto_2
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_9
+    if-eqz v20, :cond_8
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -720,7 +743,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_5
+    if-nez v20, :cond_4
 
     move-object/from16 v0, v17
 
@@ -734,7 +757,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_5
+    if-nez v20, :cond_4
 
     const-string v20, "com.sec.android.widget.myeventwidget"
 
@@ -752,12 +775,12 @@
 
     move-result v20
 
-    if-eqz v20, :cond_6
+    if-eqz v20, :cond_5
 
-    :cond_5
+    :cond_4
     sget-boolean v20, Lcom/android/launcher2/AvailableAppWidgetListProvider;->DEBUGGABLE:Z
 
-    if-eqz v20, :cond_4
+    if-eqz v20, :cond_3
 
     const-string v20, "AvailableAppWidgetListProvider"
 
@@ -791,16 +814,16 @@
 
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_6
+    :cond_5
     move-object/from16 v0, v17
 
     iget v0, v0, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
 
     move/from16 v20, v0
 
-    if-lez v20, :cond_7
+    if-lez v20, :cond_6
 
     move-object/from16 v0, v17
 
@@ -808,12 +831,12 @@
 
     move/from16 v20, v0
 
-    if-gtz v20, :cond_8
+    if-gtz v20, :cond_7
 
-    :cond_7
+    :cond_6
     sget-boolean v20, Lcom/android/launcher2/AvailableAppWidgetListProvider;->DEBUGGABLE:Z
 
-    if-eqz v20, :cond_4
+    if-eqz v20, :cond_3
 
     const-string v20, "AvailableAppWidgetListProvider"
 
@@ -847,9 +870,9 @@
 
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_8
+    :cond_7
     move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
@@ -878,7 +901,7 @@
 
     sget-boolean v20, Lcom/android/launcher2/AvailableAppWidgetListProvider;->DEBUGGABLE:Z
 
-    if-eqz v20, :cond_4
+    if-eqz v20, :cond_3
 
     const-string v20, "AvailableAppWidgetListProvider"
 
@@ -934,9 +957,9 @@
 
     invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     new-instance v13, Landroid/content/Intent;
 
     const-string v19, "com.sec.launcher.action.APPWIDGET_SINGLE_INSTANCE"
@@ -953,25 +976,28 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_b
+    monitor-enter p0
 
+    if-eqz v14, :cond_a
+
+    :try_start_0
     invoke-interface {v14}, Ljava/util/List;->isEmpty()Z
 
     move-result v19
 
-    if-nez v19, :cond_b
+    if-nez v19, :cond_a
 
     invoke-interface {v14}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v19
 
-    :cond_a
-    :goto_2
+    :cond_9
+    :goto_3
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_b
+    if-eqz v20, :cond_a
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1007,7 +1033,7 @@
 
     invoke-direct {v9, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_9
 
     sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
 
@@ -1019,7 +1045,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_a
+    if-nez v20, :cond_9
 
     const-string v20, "AvailableAppWidgetListProvider"
 
@@ -1059,9 +1085,19 @@
 
     invoke-virtual/range {v20 .. v22}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_b
+    :catchall_0
+    move-exception v19
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v19
+
+    :cond_a
+    :try_start_1
     new-instance v15, Landroid/content/Intent;
 
     const-string v19, "com.sec.launcher.action.APPWIDGET_SINGLE_INSTANCE_PACKAGE"
@@ -1078,25 +1114,25 @@
 
     move-result-object v16
 
-    if-eqz v16, :cond_0
+    if-eqz v16, :cond_c
 
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->isEmpty()Z
 
     move-result v19
 
-    if-nez v19, :cond_0
+    if-nez v19, :cond_c
 
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v19
 
-    :cond_c
-    :goto_3
+    :cond_b
+    :goto_4
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_0
+    if-eqz v20, :cond_c
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1120,7 +1156,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_c
+    if-nez v20, :cond_b
 
     const-string v20, "AvailableAppWidgetListProvider"
 
@@ -1172,7 +1208,14 @@
 
     invoke-virtual/range {v20 .. v22}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_4
+
+    :cond_c
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto/16 :goto_0
 .end method
 
 .method public isShortcutWidget(Ljava/lang/String;)Z

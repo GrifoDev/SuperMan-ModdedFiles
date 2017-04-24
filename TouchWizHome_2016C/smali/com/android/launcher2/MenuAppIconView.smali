@@ -209,7 +209,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800b2
+    const v2, 0x7f0800ba
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08003d
+    const v2, 0x7f080041
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -268,7 +268,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800de
+    const v2, 0x7f0800e6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -277,6 +277,24 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_1
+.end method
+
+.method public applyStyle(Landroid/content/res/TypedArray;Landroid/content/res/TypedArray;)V
+    .locals 2
+
+    invoke-static {p1, p0}, Lcom/android/launcher2/RotateHelper;->setViewAttributes(Landroid/content/res/TypedArray;Landroid/view/View;)V
+
+    const v1, 0x7f100090
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuAppIconView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-static {p2, v0}, Lcom/android/launcher2/RotateHelper;->setTextViewAttributes(Landroid/content/res/TypedArray;Landroid/widget/TextView;)V
+
+    return-void
 .end method
 
 .method public drawUninstallIcon(Landroid/graphics/Canvas;)V
@@ -723,7 +741,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f10008c
+    const v0, 0x7f100090
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/MenuAppIconView;->findViewById(I)Landroid/view/View;
 

@@ -34,9 +34,12 @@
     <string name="all_apps_title">アプリ</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;あかさたなはまやらわABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#あかさたなはまやらわABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%sは非表示です。</string>
+    <string name="app_locked_toast">%sをロックしました。</string>
     <string name="app_search">検索</string>
     <string name="app_search_no_apps">検索結果からホーム画面にショートカットを追加できます。</string>
     <string name="app_search_no_results_found">検索結果がありません</string>
+    <string name="app_unlocked_toast">%sのロックを解除しました。</string>
     <string name="apply">適用</string>
     <string name="available_galaxyapps">Galaxy Appsで入手可能</string>
     <string name="badge_manage_explain">各アプリのバッジを表示するか、非表示にするかを選択してください。</string>
@@ -55,13 +58,14 @@
     <string name="direct_dial">スピードダイヤル</string>
     <string name="direct_message">ダイレクトメッセージ</string>
     <string name="disable_message">%1$sおよび関連する全ての機能が無効になります。再度有効にするには、[設定] > [アプリケーション]に移動し、%2$sを選択してください。</string>
+    <string name="disable_message_att">%sと関連する全ての機能が無効になります。再度有効にするには、[設定] > [デバイス] > [アプリケーション] > [アプリケーション管理]に移動してください。</string>
     <string name="disable_message_vzw">%sと関連する全ての機能が無効になります。再度有効にするには、[設定] > [アプリケーション] > [アプリケーション管理]に移動してください。</string>
     <string name="disable_messange_knox">%sおよび関連する全ての機能が無効になります。再度有効にするには、[KNOX設定] > [アプリケーション管理]に移動してください。</string>
     <string name="disable_title">アプリケーションを無効にする</string>
     <string name="disable_uninstall_message">%sと関連する全ての機能が無効になり、データも削除されます。再度有効にするには、[設定] > [アプリケーション] > [アプリケーション管理]に移動してください。</string>
     <string name="disable_uninstall_reset">ﾘｾｯﾄ</string>
     <string name="disabled">無効</string>
-    <string name="duplcation_widget_instance_allowed_differ_type">天気情報が含まれるウィジェットは、既にホーム画面に追加されています。%sを削除してから、再度実行してください。</string>
+    <string name="duplcation_widget_instance_allowed_differ_type">天気情報が含まれるウィジェットは、既にホーム画面に追加されています。[%s]を削除してから、再度実行してください。</string>
     <string name="enabled">有効</string>
     <string name="folder">フォルダ</string>
     <string name="folder_add_app">フォルダにアプリを追加</string>
@@ -85,6 +89,10 @@
     <string name="guide_resize_widget_step2">ウィジェットのサイズを変更するには、枠線を上下、または内側/外側に移動します。</string>
     <string name="guide_tap_here">アプリアイコンをタップします。</string>
     <string name="guide_widgets_tap_area">編集画面に切り替わるまでウィジェットを長押しした後、指を離します。</string>
+    <string name="hide">非表示</string>
+    <string name="hide_confirm_continue">続行</string>
+    <string name="hide_confirm_message">現在、%sアプリはロックされています。このアプリを非表示にすると、ロックは解除されます。</string>
+    <string name="hide_confirm_title">アプリを非表示</string>
     <string name="home_edit_add_to_personal">パーソナルに追加</string>
     <string name="home_edit_bar_delete_title">ｼｮｰﾄｶｯﾄを削除</string>
     <string name="home_edit_bar_delete_title_vzw">ｼｮｰﾄｶｯﾄを削除</string>
@@ -154,14 +162,14 @@
     <string name="permlab_install_widget">ウィジェットを追加</string>
     <string name="quick_contact">連絡先</string>
     <string name="quick_options_help_text">クイックオプションを表示するには、アプリのショートカットを下にスワイプします。クイックオプションを使用すると、アプリを簡単に管理できます。</string>
+    <string name="quickoption_sleep">スリープ</string>
     <string name="quickoptions_add_apps">アプリを追加</string>
     <string name="quickoptions_add_to_secure_folder">"ｾｷｭﾘﾃｨﾌｫﾙﾀﾞ
 に追加"</string>
     <string name="quickoptions_app_info">アプリケーション情報</string>
     <string name="quickoptions_clear_badge">バッジを消去</string>
     <string name="quickoptions_disable">無効</string>
-    <string name="quickoptions_put_to_sleep">スリープ状態に設定</string>
-    <string name="quickoptions_put_to_sleep_alert">アプリをスリープ状態に設定すると、バックグラウンドでバッテリーを使用しなくなります。スリープ状態のアプリは更新や通知を受信できなくなりますが、使用を再開すると実行されます。</string>
+    <string name="quickoptions_sleep_alert">アプリをスリープ状態に設定すると、バックグラウンドでバッテリーを使用しなくなります。スリープ状態のアプリは更新や通知を受信できなくなりますが、使用を再開すると実行されます。</string>
     <string name="quickoptions_uninstall">アンインストール</string>
     <string name="quickview_delete_toast_msg">ページを削除するには、そのページを[削除]にドラッグしてください。</string>
     <string name="quickview_drag_bar_delete_title">削除</string>
@@ -224,8 +232,8 @@
     <string name="uninstall_title">アプリをアンインストール</string>
     <string name="uninstall_widget">ウィジェットをアンインストール</string>
     <string name="unlock">ロック解除</string>
-    <string name="viewmore_galaxyapps">Galaxy Appsで他のアプリを表示</string>
-    <string name="viewmore_playstore">Playストアで他のアプリを表示</string>
+    <string name="viewmore_galaxyapps">Galaxy Appsでさらに検索</string>
+    <string name="viewmore_playstore">Playストアでさらに検索</string>
     <string name="viewtype_alphabetic_grid">50音順</string>
     <string name="viewtype_custom_grid">カスタム順序</string>
     <string name="widget_duplicate">%sウィジェットは既にホーム画面にあります。</string>

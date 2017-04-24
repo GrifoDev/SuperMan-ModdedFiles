@@ -1307,9 +1307,25 @@
 
     if-nez v3, :cond_0
 
-    const-string v3, "com.samsung.android.app.omcagent"
+    const-string v3, "com.tmobile.pr.adapt"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "com.example.postpositionclient"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "android.uid.system"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 

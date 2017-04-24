@@ -27,6 +27,10 @@
 
 .field public static final FEATURE_NAME_APPS_QUICK_OPTION:Ljava/lang/String; = "APQO"
 
+.field public static final FEATURE_NAME_APP_HIDE:Ljava/lang/String; = "APHD"
+
+.field public static final FEATURE_NAME_APP_LOCK:Ljava/lang/String; = "APLK"
+
 .field public static final FEATURE_NAME_APP_SEARCH:Ljava/lang/String; = "APSC"
 
 .field public static final FEATURE_NAME_ATOZ_APPS_REORDER:Ljava/lang/String; = "AZBT"

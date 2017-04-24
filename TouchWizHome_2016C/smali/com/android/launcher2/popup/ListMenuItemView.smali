@@ -239,7 +239,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v0, 0x7f1000cf
+    const v0, 0x7f1000d3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     :cond_0
-    const v0, 0x7f1000d0
+    const v0, 0x7f1000d4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->findViewById(I)Landroid/view/View;
 

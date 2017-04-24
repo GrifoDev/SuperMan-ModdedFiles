@@ -14,7 +14,11 @@
 # static fields
 .field public static final ACTION_MANAGED_PROFILE_ADDED:Ljava/lang/String; = "android.intent.action.MANAGED_PROFILE_ADDED"
 
+.field public static final ACTION_MANAGED_PROFILE_AVAILABLE:Ljava/lang/String; = "android.intent.action.MANAGED_PROFILE_AVAILABLE"
+
 .field public static final ACTION_MANAGED_PROFILE_REMOVED:Ljava/lang/String; = "android.intent.action.MANAGED_PROFILE_REMOVED"
+
+.field public static final ACTION_MANAGED_PROFILE_UNAVAILABLE:Ljava/lang/String; = "android.intent.action.MANAGED_PROFILE_UNAVAILABLE"
 
 .field private static sInstance:Lcom/android/launcher2/compat/LauncherAppsCompat;
 
@@ -163,6 +167,9 @@
 .end method
 
 .method public abstract resolveActivity(Landroid/content/Intent;Lcom/android/launcher2/compat/UserHandleCompat;)Lcom/android/launcher2/compat/LauncherActivityInfoCompat;
+.end method
+
+.method public abstract showAppDetailsForProfile(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 .end method
 
 .method public abstract startActivityForProfile(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Landroid/graphics/Rect;Landroid/os/Bundle;)V

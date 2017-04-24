@@ -34,14 +34,17 @@
     <string name="all_apps_title">Апликации</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;АБВГДЃЕЖЗЅИЈКЛЉМНЊОПРСТЌУФХЦЧЏШABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#АБВГДЃЕЖЗЅИЈКЛЉМНЊОПРСТЌУФХЦЧЏШABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s е сокриен.</string>
+    <string name="app_locked_toast">%s е заклучено.</string>
     <string name="app_search">Пребарување</string>
     <string name="app_search_no_apps">Можете да додавате кратенки на почетниот екран од резултатите од пребарувањето.</string>
     <string name="app_search_no_results_found">Нема резултати</string>
+    <string name="app_unlocked_toast">%s е отклучена.</string>
     <string name="apply">Примени</string>
     <string name="available_galaxyapps">Достапно во Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Изберете дали да се прикажат или да се скријат значките за секоја апликација.</string>
+    <string name="badge_manage_summary">Изберете дали да се прикажат или да се скријат значките за секоја апликација.</string>
+    <string name="badge_manage_title">Уредувајте значки на апликација</string>
     <string name="cancel">Откажи</string>
     <string name="change_home_screen_settings">Пром. постав. за поч. екран</string>
     <string name="change_home_screen_settings_info">Оваа апликација може да ги менува поставувањата за почетниот екран и кратенките.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Директно бирање</string>
     <string name="direct_message">Директна порака</string>
     <string name="disable_message">Апликацијата %1$s и сите функции поврзани со неа ќе се оневозможат. За да ја овозможите апликацијата повторно, одете во Поставувања > Апликации и изберете %2$s.</string>
+    <string name="disable_message_att">%s и сите негови функции ќе се оневозможат. За да ги овозможите повторно, одете во Поставувања > Уред > Апликации > Управник со апликации.</string>
     <string name="disable_message_vzw">%s и сите функции поврзани со неа ќе се исклучат. За да ја вклучите повторно, одете во Поставувања > Апликации > Управител со апликации.</string>
     <string name="disable_messange_knox">%s и сите поврзани функции ќе се оневозможат. За повторно да ги овозможите, одете во Поставувања за KNOX > Управител со апликации.</string>
     <string name="disable_title">Исклучи апликација</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Повлечете ја границата горе, долу, внатре или надвор за да ја смените големината на виџетот.</string>
     <string name="guide_tap_here">Допрете ја иконата за апликации.</string>
     <string name="guide_widgets_tap_area">Допрете и држете виџет додека да може да се менува, па отпуштете го.</string>
+    <string name="hide">Сокриј</string>
+    <string name="hide_confirm_continue">Продолжи</string>
+    <string name="hide_confirm_message">Апликацијата %s моментално е заклучена. Ако ја сокриете оваа апликација, таа ќе се отклучи.</string>
+    <string name="hide_confirm_title">Скриј апликација</string>
     <string name="home_edit_add_to_personal">Дод.во лично</string>
     <string name="home_edit_bar_delete_title">Отстрани кратенка</string>
     <string name="home_edit_bar_delete_title_vzw">Отстрани кратенка</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виџетот %s веќе е додаден во почетниот екран.</string>
     <string name="open_folder">Отворање папка</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Види апликации</string>
     <string name="option_menu_contact_up">Контактирајте нѐ</string>
     <string name="option_tray_screengrid">Екранска мрежа</string>
     <string name="options_home_set_theme">Теми</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Додај виџети</string>
     <string name="quick_contact">Контакт</string>
     <string name="quick_options_help_text">Поминете надолу на кратенка за апликација за да ги видите нејзините брзи опции. Брзите опции Ви овозможуваат лесно да управувате со апликации.</string>
+    <string name="quickoption_sleep">Спиење</string>
     <string name="quickoptions_add_apps">Додавање апликации</string>
     <string name="quickoptions_add_to_secure_folder">"Додај во
 Безбедната папка"</string>
     <string name="quickoptions_app_info">Инфо. за апликација</string>
     <string name="quickoptions_clear_badge">Избришете значка</string>
     <string name="quickoptions_disable">Исклучи</string>
-    <string name="quickoptions_put_to_sleep">Стави во спиење</string>
-    <string name="quickoptions_put_to_sleep_alert">Ставањето на оваа апликација во спиење ќе ја спречи да ја користи батеријата во заднина. Апликациите што спијат може да не добиваат ажурирања или да Ви испраќаат известувања, но ќе се разбудат кога ќе ги отворите.</string>
+    <string name="quickoptions_sleep_alert">Ставањето на оваа апликација во спиење ќе ја спречи да ја користи батеријата во заднина. Апликациите што спијат може да не добиваат ажурирања или да Ви испраќаат известувања, но ќе се разбудат кога ќе ги отворите.</string>
     <string name="quickoptions_uninstall">Деинсталирај</string>
     <string name="quickview_delete_toast_msg">Повлечете ја страницата на Отстрани за да ја отстраните.</string>
     <string name="quickview_drag_bar_delete_title">Отстрани</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Избриши</string>
     <string name="remove_app_folder_confirm_VZW">Отстрани</string>
     <string name="remove_app_folder_message">Папката %s ќе се избрише. Апликациите во папката ќе бидат достапни на екранот Апликации.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Папката %s ќе се отстрани. Апликациите во папката ќе бидат наведени на крајот на Лентата со апликации.</string>
     <string name="remove_app_folder_message_no_title">Папката ќе се отстрани. Апликациите во оваа папка нема да се одинсталираат.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Папкава ќе се отстрани. Апликациите во папкава ќе бидат наведени на крајот на Лентата со апликации.</string>
     <string name="remove_app_folder_title">Избриши папка</string>
     <string name="remove_app_folder_title_VZW">Отстрани папка</string>
     <string name="remove_home_folder_message">Папката %s ќе се избрише. Апликациите во папката ќе бидат достапни на екранот Апликации.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">Пребарај апликации</string>
     <string name="search_for_widgets">Пребарајте виџети</string>
     <string name="search_result_found">Најден е %d</string>
-    <string name="search_result_founds">%d се најдени</string>
+    <string name="search_result_founds">Најден е %d</string>
     <string name="select_all_app">Сите</string>
     <string name="select_app_add">ДОДАЈ</string>
     <string name="selected">Избрано</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Прилагоден редослед</string>
     <string name="widget_duplicate">Виџетот %s е веќе на почетниот екран.</string>
     <string name="work_folder_name">Работа</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Допрете и држете го екранот за да додавате записи</string>
+    <string name="zeropage_briefing_title">Рапорт</string>
+    <string name="zeropage_download">Преземи</string>
+    <string name="zeropage_download_msg">За да ја користите функцијава, треба да инсталирате %1$s. Допрете ПРЕЗЕМИ за да преземете и инсталирате %2$s.</string>
     <string name="zeropage_notice_msg">Услугата за вести %s сега е достапна. За да ја користите наместо Нотес за известувања, допрете ОК.</string>
     <string name="zeropage_setting_dialog_no">Откажи</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu вести</string>
 </resources>

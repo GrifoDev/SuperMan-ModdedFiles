@@ -34,14 +34,17 @@
     <string name="all_apps_title">એપ્સ</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;અઆઇઈઉઊૠએઍઐઓઑઔકખગઘચછજઝટઠડઢણતથદધનપફબભમયરલવશષસહABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s છુપાવેલ.</string>
+    <string name="app_locked_toast">%s લોક કર્યુ.</string>
     <string name="app_search">શોધો</string>
     <string name="app_search_no_apps">તમે શોધ પરિણામોમાંથી હોમ સ્ક્રીન પર શોર્ટકટ્સ ઉમેરી શકો છો.</string>
     <string name="app_search_no_results_found">કોઈ પરિણામો મળ્યાં નથી</string>
+    <string name="app_unlocked_toast">%s અનલોક છે.</string>
     <string name="apply">લાગુ કરો</string>
     <string name="available_galaxyapps">Galaxy Apps માં ઉપલબ્ધ</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">દરેક એપ માટે બેજેસ બતાવવા કે છુપાવવા તે પસંદ કરો.</string>
+    <string name="badge_manage_summary">દરેક એપ માટે બેજેસ બતાવવા કે છુપાવવા તે પસંદ કરો.</string>
+    <string name="badge_manage_title">એપ બેજીસ સંચાલિત કરો</string>
     <string name="cancel">રદ કરો</string>
     <string name="change_home_screen_settings">હોમ સ્ક્રીન સેટિંગ્સ બદલો</string>
     <string name="change_home_screen_settings_info">આ એપ તમારી હોમ સ્ક્રીન સેટિંગ્સ અને શોર્ટકટ્સ બદલી શકે છે.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">પ્રત્યક્ષ ડાયલ</string>
     <string name="direct_message">સીધો સંદેશ</string>
     <string name="disable_message">%1$s અને તેનાથી સંબંધિત બધા ફંક્શન્સને અક્ષમ કરવામાં આવશે. એપને ફરી સક્ષમ કરવા માટે, સેટિંગ્સ > એપ્લિકેશનો પર જાઓ, પછી %2$s પસંદ કરો.</string>
+    <string name="disable_message_att">%s અને તેનાથી સંબંધિત બધી સુવિધાઓને અક્ષમ કરવામાં આવશે. તેને ફરીથી સક્ષમ કરવા માટે, સેટિંગ્સ > ઉપકરણ > એપ્લિકેશનો > એપ્લિકેશન સંચાલક પર જાઓ.</string>
     <string name="disable_message_vzw">%s અને તેનાથી સંબંધિત બધી સુવિધાઓને અક્ષમ કરવામાં આવશે. તેને ફરીથી સક્ષમ કરવા માટે, સેટિંગ્સ > એપ્લિકેશનો > એપ્લિકેશન સંચાલક પર જાઓ.</string>
     <string name="disable_messange_knox">%s અને તેનાથી સંબંધિત બધી સુવિધાઓને અક્ષમ કરવામાં આવશે. તેને ફરીથી સક્ષમ કરવા માટે, KNOX સેટિંગ્સ > એપ્લિકેશન સંચાલક પર જાઓ.</string>
     <string name="disable_title">એપ્લિકેશન અક્ષમ કરો</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">વિજેટનું કદ બદલવા માટે કિનારીને ઉપર, નીચે, અંદર અથવા બહાર ધકેલો.</string>
     <string name="guide_tap_here">એપ્સના ચિહ્નને ટેપ કરો.</string>
     <string name="guide_widgets_tap_area">જ્યાં સુધી તે સંપાદિત થાય ત્યાં સુધી વિજેટને ટેપ કરો અને હોલ્ડ કરો.</string>
+    <string name="hide">છુપાવો</string>
+    <string name="hide_confirm_continue">ચાલુ રાખો</string>
+    <string name="hide_confirm_message">%s એપ્લિકેશન હાલમાં લોક કરેલી છે. જો તમે આ એપને છુપાવો, તો તેને અનલોક કરવામાં આવશે.</string>
+    <string name="hide_confirm_title">એપ છુપાવો</string>
     <string name="home_edit_add_to_personal">વ્યક્તિગતમાં ઉમેરો</string>
     <string name="home_edit_bar_delete_title">શોર્ટકટ દૂર કરો</string>
     <string name="home_edit_bar_delete_title_vzw">શોર્ટકટ દૂર કરો</string>
@@ -134,7 +142,7 @@
     <string name="ok">ઓકે</string>
     <string name="only_one_widget_instance_allowed">%s વિજેટ અગાઉથી હોમ સ્ક્રીન પર છે.</string>
     <string name="open_folder">ફોલ્ડર ખોલો</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">એપ્સ જુઓ</string>
     <string name="option_menu_contact_up">અમારો સંપર્ક કરો</string>
     <string name="option_tray_screengrid">સ્ક્રીન ગ્રિડ</string>
     <string name="options_home_set_theme">થીમ્સ</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">વિજેટ્સ ઉમેરો</string>
     <string name="quick_contact">સંપર્ક</string>
     <string name="quick_options_help_text">એપ શોર્ટકટના ઝડપી વિકલ્પો જોવા માટે તેને નીચેની તરફ સ્વાઇપ કરો. ઝડપી ઉપયોગ તમને એપ્સ સરળતાથી સંચાલિત કરવાની મંજૂરી આપે છે.</string>
+    <string name="quickoption_sleep">સ્લીપ</string>
     <string name="quickoptions_add_apps">એપ્સ ઉમેરો</string>
     <string name="quickoptions_add_to_secure_folder">"સુરક્ષિત ફોલ્ડરમાં
 ઉમેરો"</string>
     <string name="quickoptions_app_info">એપ માહિતી</string>
     <string name="quickoptions_clear_badge">બેજ સાફ કરો</string>
     <string name="quickoptions_disable">અક્ષમ કરો</string>
-    <string name="quickoptions_put_to_sleep">નિદ્રા અવસ્થામાં મૂકો</string>
-    <string name="quickoptions_put_to_sleep_alert">આ એપને નિદ્રા અવસ્થામાં મૂકવાથી તેને પૃષ્ઠભૂમિમાં બેટરીનો ઉપયોગ કરવાથી અટકાવવામાં આવશે. નિદ્રા અવસ્થામાં હોય તે એપ્સ અપડેટ્સ પ્રાપ્ત કરી અથવા તમને સૂચનાઓ મોકલી શકશે નહીં, પરંતુ તમે તેને ખોલો ત્યારે તે વેક અપ થશે.</string>
+    <string name="quickoptions_sleep_alert">આ એપને નિદ્રા અવસ્થામાં મૂકવાથી તેને પૃષ્ઠભૂમિમાં બેટરીનો ઉપયોગ કરવાથી અટકાવવામાં આવશે. નિદ્રા અવસ્થામાં હોય તે એપ્સ અપડેટ્સ પ્રાપ્ત કરી અથવા તમને સૂચનાઓ મોકલી શકશે નહીં, પરંતુ તમે તેને ખોલો ત્યારે તે વેક અપ થશે.</string>
     <string name="quickoptions_uninstall">અનઇન્સ્ટોલ કરો</string>
     <string name="quickview_delete_toast_msg">પૃષ્ઠને દૂર કરવા માટે તેને દૂર કરો પર ડ્રેગ કરો.</string>
     <string name="quickview_drag_bar_delete_title">કાઢી નાખો</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">હટાવો</string>
     <string name="remove_app_folder_confirm_VZW">દૂર કરો</string>
     <string name="remove_app_folder_message">%s ફોલ્ડર હટાવવામાં આવશે. આ ફોલ્ડરની અંદરની એપ્સ હજી પણ એપ્સ સ્ક્રીન પર ઉપલબ્ધ રહેશે.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ફોલ્ડર દૂર કરવામાં આવશે. આ ફોલ્ડરની અંદરની એપ્સ એપ ટ્રેના અંતમાં સૂચિબદ્ધ કરવામાં આવશે.</string>
     <string name="remove_app_folder_message_no_title">આ ફોલ્ડર દૂર થશે. આ ફોલ્ડરમાંની એપ્લિકેશનો વિસ્થાપિત કરાશે નહીં.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">આ ફોલ્ડર દૂર કરવામાં આવશે. આ ફોલ્ડરની અંદરની એપ્સ એપ ટ્રેના અંતમાં સૂચિબદ્ધ કરવામાં આવશે.</string>
     <string name="remove_app_folder_title">ફોલ્ડર કાઢી નાખો</string>
     <string name="remove_app_folder_title_VZW">ફોલ્ડર દૂર કરો</string>
     <string name="remove_home_folder_message">%s ફોલ્ડર હટાવવામાં આવશે. આ ફોલ્ડરની અંદરની એપ્સ હજી પણ એપ્સ સ્ક્રીન પર ઉપલબ્ધ રહેશે.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">એપ્સ માટે શોધો</string>
     <string name="search_for_widgets">વિજેટ્સ માટે શોધો</string>
     <string name="search_result_found">%d મળ્યું</string>
-    <string name="search_result_founds">%d મળ્યાં</string>
+    <string name="search_result_founds">%d મળ્યું</string>
     <string name="select_all_app">બધા</string>
     <string name="select_app_add">ઉમેરો</string>
     <string name="selected">પસંદ કરેલ</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">કસ્ટમ ક્રમ</string>
     <string name="widget_duplicate">%s વિજેટ અગાઉથી હોમ સ્ક્રીન પર છે.</string>
     <string name="work_folder_name">કાર્ય</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">વસ્તુઓ ઉમેરવા માટે સ્ક્રીન ટચ કરો અને હોલ્ડ કરો</string>
+    <string name="zeropage_briefing_title">સંક્ષિપ્ત કરી રહ્યું છે</string>
+    <string name="zeropage_download">ડાઉનલોડ કરો</string>
+    <string name="zeropage_download_msg">આ ફંક્શનનો ઉપયોગ કરવા માટે, તમારે %1$s ઇન્સ્ટોલ કરવાની જરૂર છે. %2$s ડાઉનલોડ અને ઇન્સ્ટોલ કરવા માટે “ડાઉનલોડ કરો” ટેપ કરો.</string>
     <string name="zeropage_notice_msg">%s સમાચાર સેવા ઉપલબ્ધ નથી. ફ્લિપબોર્ડ બિર્ફિંગને બદલે તેનો ઉપયોગ કરવા માટે, “ઓકે” ટેપ કરો.</string>
     <string name="zeropage_setting_dialog_no">રદ કરો</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">સોહુ સમાચાર</string>
 </resources>

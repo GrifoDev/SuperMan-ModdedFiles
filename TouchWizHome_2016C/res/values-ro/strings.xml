@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplicații</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ascunsă.</string>
+    <string name="app_locked_toast">%s este blocat.</string>
     <string name="app_search">Căutare</string>
     <string name="app_search_no_apps">Puteți adăuga comenzi rapide pe ecranul Acasă din rezultatele căutării.</string>
     <string name="app_search_no_results_found">Nu au fost găsite rezultate</string>
+    <string name="app_unlocked_toast">Categoria %s a fost deblocată.</string>
     <string name="apply">Aplicare</string>
     <string name="available_galaxyapps">Disponibile în Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Selectați dacă doriți să afișați sau să ascundeți insignele pentru fiecare aplicație.</string>
+    <string name="badge_manage_summary">Selectați dacă doriți să afișați sau să ascundeți insignele pentru fiecare aplicație.</string>
+    <string name="badge_manage_title">Gestionare insigne aplicații</string>
     <string name="cancel">Anulare</string>
     <string name="change_home_screen_settings">Schimbare setări ecr. Acasă</string>
     <string name="change_home_screen_settings_info">Această aplicație poate schimba setările și comenzile rapide pentru ecranul Acasă.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Apelare directă</string>
     <string name="direct_message">Mesaj direct</string>
     <string name="disable_message">%1$s și toate funcțiile asociate vor fi dezactivate. Pentru a reactiva aplicația, accesați meniul Setări > Aplicații, apoi selectați %2$s.</string>
+    <string name="disable_message_att">Aplicația %s și toate caracteristicile asociate vor fi dezactivate. Pentru a o reactiva, accesați meniul Setări > Dispozitiv > Aplicații > Manager aplicații.</string>
     <string name="disable_message_vzw">Aplicația %s și toate caracteristicile asociate vor fi dezactivate. Pentru a o reactiva, accesați meniul Setări > Aplicații > Manager aplicații.</string>
     <string name="disable_messange_knox">Aplicaţia %s va fi dezactivată, împreună cu toate caracteristicile asociate. Pentru a o reactiva, accesaţi Setări KNOX > Manager aplicaţii.</string>
     <string name="disable_title">Dezactivare aplicație</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Trageți marginea în sus sau în jos, respectiv la interior sau la exterior, pentru a redimensiona widget-ul.</string>
     <string name="guide_tap_here">Atingeți pictograma aplicații.</string>
     <string name="guide_widgets_tap_area">Apăsați lung pe un widget până când poate fi editat, apoi eliberați-l.</string>
+    <string name="hide">Ascundere</string>
+    <string name="hide_confirm_continue">Continuare</string>
+    <string name="hide_confirm_message">Aplicația %s este blocată în momentul actual. Dacă o ascundeți, aceasta va fi deblocată.</string>
+    <string name="hide_confirm_title">Ascundere aplicație</string>
     <string name="home_edit_add_to_personal">Ad. pe ecr. pers.</string>
     <string name="home_edit_bar_delete_title">Elim. com. rapidă</string>
     <string name="home_edit_bar_delete_title_vzw">Elim. com. rapidă</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget-ul %s a fost deja adăugat la ecranul Acasă.</string>
     <string name="open_folder">Deschidere folder</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Vizualizare aplicații</string>
     <string name="option_menu_contact_up">Contactați-ne</string>
     <string name="option_tray_screengrid">Grilă ecran</string>
     <string name="options_home_set_theme">Teme</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Adăugare widgeturi</string>
     <string name="quick_contact">Contact</string>
     <string name="quick_options_help_text">Glisați în jos comanda rapidă la o aplicație pentru a-i vizualiza opțiunile rapide. Acestea vă permit să gestionați aplicațiile cu ușurință.</string>
+    <string name="quickoption_sleep">Somn</string>
     <string name="quickoptions_add_apps">Adăugare aplicații</string>
     <string name="quickoptions_add_to_secure_folder">"Ad. la Folder
 securizat"</string>
     <string name="quickoptions_app_info">Informații aplicație</string>
     <string name="quickoptions_clear_badge">Eliminare insignă</string>
     <string name="quickoptions_disable">Dezactivare</string>
-    <string name="quickoptions_put_to_sleep">Trecere la inactive</string>
-    <string name="quickoptions_put_to_sleep_alert">Dacă treceți această aplicație la inactive, o împiedicați să utilizeze energia bateriei în fundal. Este posibil ca aplicațiile trecute la inactive să nu primească actualizări sau să nu trimită notificări, dar se vor activa automat imediat ce le utilizați din nou.</string>
+    <string name="quickoptions_sleep_alert">Dacă treceți această aplicație la inactive, o împiedicați să utilizeze energia bateriei în fundal. Este posibil ca aplicațiile trecute la inactive să nu primească actualizări sau să nu trimită notificări, dar se vor activa automat imediat ce le utilizați din nou.</string>
     <string name="quickoptions_uninstall">Dezinstalare</string>
     <string name="quickview_delete_toast_msg">Glisați pagina la Eliminare pentru a o elimina.</string>
     <string name="quickview_drag_bar_delete_title">Eliminare</string>
@@ -172,9 +180,9 @@ securizat"</string>
     <string name="remove_app_folder_confirm">Ștergere</string>
     <string name="remove_app_folder_confirm_VZW">Eliminare</string>
     <string name="remove_app_folder_message">Folderul %s va fi șters. Aplicațiile din acesta vor fi disponibile în continuare pe ecranul Aplicații.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Folderul %s va fi eliminat. Aplicațiile din interiorul folderului vor fi listate la sfârșitul barei Aplicații.</string>
     <string name="remove_app_folder_message_no_title">Acest folder va fi eliminat. Aplicațiile din acest folder nu vor fi dezinstalate.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Acest folder va fi eliminat. Aplicațiile din interiorul folderului vor fi listate la sfârșitul barei Aplicații.</string>
     <string name="remove_app_folder_title">Ștergere Director</string>
     <string name="remove_app_folder_title_VZW">Eliminare folder</string>
     <string name="remove_home_folder_message">Folderul %s va fi șters. Aplicațiile din acesta vor fi disponibile în continuare pe ecranul Aplicații.</string>
@@ -187,7 +195,7 @@ securizat"</string>
     <string name="search_for_apps">Căutare aplicații</string>
     <string name="search_for_widgets">Căutare widgeturi</string>
     <string name="search_result_found">%d nu a fost găsit</string>
-    <string name="search_result_founds">S-au găsit %d</string>
+    <string name="search_result_founds">%d nu a fost găsit</string>
     <string name="select_all_app">Toate</string>
     <string name="select_app_add">ADĂUGARE</string>
     <string name="selected">Selectată</string>
@@ -229,11 +237,11 @@ securizat"</string>
     <string name="viewtype_custom_grid">Ordine personalizată</string>
     <string name="widget_duplicate">Widgetul %s apare deja pe ecranul acasă.</string>
     <string name="work_folder_name">Serviciu</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Mențineți apăsat pe ecran pentru a adăuga elemente</string>
+    <string name="zeropage_briefing_title">Informare</string>
+    <string name="zeropage_download">Descărcare</string>
+    <string name="zeropage_download_msg">Pentru a utiliza această funcție, este necesar să instalați %1$s. Atingeți DESCĂRCARE pentru a descărca și a instala %2$s.</string>
     <string name="zeropage_notice_msg">Serviciul de știri %s este acum disponibil. Pentru a-l utiliza în locul aplicației Informare Flipboard, atingeți OK.</string>
     <string name="zeropage_setting_dialog_no">Anulare</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Știri Sohu</string>
 </resources>

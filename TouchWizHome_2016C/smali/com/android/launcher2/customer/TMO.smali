@@ -12,6 +12,8 @@
 
 .field public static final PREFS_TMO_HOMEFOLDERID:Ljava/lang/String; = "TMOHomeFolderId"
 
+.field private static final SUPPORT_HOME_FOLDER_ADAPT:Z = false
+
 .field private static final TAG:Ljava/lang/String; = "CUSTOMER.TMO"
 
 .field private static final TMO_ADAPT_CLASS_NAME:Ljava/lang/String; = "com.tmobile.pr.adapt"
@@ -156,263 +158,9 @@
 .end method
 
 .method public checkHomeFolderAdapt(Ljava/lang/String;Lcom/android/launcher2/compat/UserHandleCompat;)V
-    .locals 26
+    .locals 0
 
-    move-object/from16 v0, p0
-
-    iget-wide v6, v0, Lcom/android/launcher2/customer/TMO;->mHomeFolderID:J
-
-    const-wide/16 v10, 0x0
-
-    cmp-long v4, v6, v10
-
-    if-gez v4, :cond_1
-
-    :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v22
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    invoke-static {v4}, Lcom/android/launcher2/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/compat/LauncherAppsCompat;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher2/compat/UserHandleCompat;)Ljava/util/List;
-
-    move-result-object v20
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v4, "com.tmobile.pr.adapt"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher2/LauncherApplication;->getModel()Lcom/android/launcher2/LauncherModel;
-
-    move-result-object v21
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, p0
-
-    iget-wide v6, v0, Lcom/android/launcher2/customer/TMO;->mHomeFolderID:J
-
-    invoke-static {v4, v6, v7}, Lcom/android/launcher2/LauncherModel;->getHomeFolderById(Landroid/content/Context;J)Lcom/android/launcher2/HomeFolderItem;
-
-    move-result-object v14
-
-    new-instance v18, Ljava/util/ArrayList;
-
-    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
-
-    if-eqz v14, :cond_0
-
-    invoke-interface/range {v20 .. v20}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v16
-
-    move-object/from16 v2, p2
-
-    invoke-virtual {v0, v6, v1, v2}, Lcom/android/launcher2/LauncherModel;->makeHomeShortcutItem(Landroid/content/Context;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;)Lcom/android/launcher2/HomeShortcutItem;
-
-    move-result-object v6
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_2
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_3
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
-
-    move-result-object v15
-
-    new-instance v23, Lcom/android/launcher2/customer/TMO$1;
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v18
-
-    invoke-direct {v0, v1, v15, v14, v2}, Lcom/android/launcher2/customer/TMO$1;-><init>(Lcom/android/launcher2/customer/TMO;Lcom/android/launcher2/HomeView;Lcom/android/launcher2/HomeFolderItem;Ljava/util/List;)V
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/LauncherModel;->runOnMainThread(Ljava/lang/Runnable;)V
-
-    :cond_3
-    invoke-interface/range {v18 .. v18}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    new-array v0, v4, [Landroid/content/ContentValues;
-
-    move-object/from16 v24, v0
-
-    const/4 v13, 0x0
-
-    invoke-interface/range {v18 .. v18}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v25
-
-    :goto_2
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/launcher2/HomeShortcutItem;
-
-    iget v4, v5, Lcom/android/launcher2/HomeShortcutItem;->mScreen:I
-
-    if-gez v4, :cond_4
-
-    invoke-virtual {v14}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
-
-    move-result v8
-
-    :goto_3
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    iget-wide v6, v14, Lcom/android/launcher2/HomeFolderItem;->mId:J
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x1
-
-    invoke-static/range {v4 .. v12}, Lcom/android/launcher2/LauncherModel;->addItemToDatabase(Landroid/content/Context;Lcom/android/launcher2/HomeItem;JIIIZZ)Landroid/content/ContentValues;
-
-    move-result-object v4
-
-    aput-object v4, v24, v13
-
-    const-string v4, "CUSTOMER.TMO"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "HomeFolderAdapt - added new item : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget-object v7, v5, Lcom/android/launcher2/HomeShortcutItem;->mTitle:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    add-int/lit8 v13, v13, 0x1
-
-    goto :goto_2
-
-    :cond_4
-    iget v8, v5, Lcom/android/launcher2/HomeShortcutItem;->mScreen:I
-
-    goto :goto_3
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, v24
-
-    invoke-static {v4, v0, v6}, Lcom/android/launcher2/LauncherModel;->addBulkItemToDatabase(Landroid/content/Context;[Landroid/content/ContentValues;Z)V
-
-    goto/16 :goto_0
 .end method
 
 .method public disableAppsFolderAdapt()V
@@ -656,33 +404,7 @@
 .end method
 
 .method public enableHomeFolderAdapt(Ljava/lang/String;J)V
-    .locals 4
-
-    iget-object v1, p0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    const-string v2, "com.sec.android.app.launcher.prefs"
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    const-string v1, "TMOHomeFolderId"
-
-    invoke-interface {v0, v1, p2, p3}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    const-string v1, "CUSTOMER.TMO"
-
-    const-string v2, "enableHomeFolderAdapt - enabled."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
 
     return-void
 .end method
@@ -716,31 +438,9 @@
 .end method
 
 .method public getHomeFolderID()J
-    .locals 5
+    .locals 2
 
-    const/4 v4, 0x0
-
-    iget-object v0, p0, Lcom/android/launcher2/customer/TMO;->mContext:Landroid/content/Context;
-
-    const-string v1, "com.sec.android.app.launcher.prefs"
-
-    invoke-virtual {v0, v1, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v1, "TMOHomeFolderId"
-
-    const-wide/16 v2, -0x1
-
-    invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/launcher2/customer/TMO;->mHomeFolderID:J
-
-    iput-boolean v4, p0, Lcom/android/launcher2/customer/TMO;->mSupportHomeFolderAdapt:Z
-
-    iget-wide v0, p0, Lcom/android/launcher2/customer/TMO;->mHomeFolderID:J
+    const-wide/16 v0, -0x1
 
     return-wide v0
 .end method
@@ -791,8 +491,6 @@
 
 .method public setHomeFolderAdaptSupport(Z)V
     .locals 0
-
-    iput-boolean p1, p0, Lcom/android/launcher2/customer/TMO;->mSupportHomeFolderAdapt:Z
 
     return-void
 .end method

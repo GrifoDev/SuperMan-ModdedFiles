@@ -7,7 +7,7 @@
     <dimen name="home_icon_paddingTop">16.0dip</dimen>
     <dimen name="home_pageIndicatorTop">473.0dip</dimen>
     <dimen name="home_pageIndicatorTopDrag">485.0dip</dimen>
-    <dimen name="home_screen_option_menu_icon_width">86.0dip</dimen>
+    <dimen name="home_screen_option_menu_icon_width">88.0dip</dimen>
     <dimen name="home_screen_option_menu_text_padding">12.0dip</dimen>
     <dimen name="homescreen_option_menu_margin_top">0.0dip</dimen>
     <dimen name="hotseat_cellHeight">86.0dip</dimen>

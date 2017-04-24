@@ -129,7 +129,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v1, 0x7f1000c1
+    const v1, 0x7f1000c5
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 
@@ -544,7 +544,7 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v3, 0x7f1000c0
+    const v3, 0x7f1000c4
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 
@@ -966,13 +966,22 @@
 
     invoke-super {p0}, Landroid/app/Fragment;->onResume()V
 
+    iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
+
+    invoke-virtual {v6, v8}, Lcom/android/launcher2/MenuWidgets;->closeFolder(Z)Z
+
+    :cond_0
     iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mTabHost:Lcom/android/launcher2/MenuView;
 
     invoke-virtual {v6}, Lcom/android/launcher2/MenuView;->isVisible()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mTabHost:Lcom/android/launcher2/MenuView;
 
@@ -980,11 +989,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-boolean v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mHomeKeyPressed:Z
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -998,12 +1007,12 @@
 
     invoke-virtual {v6, v7}, Landroid/view/Window;->clearFlags(I)V
 
-    :cond_0
+    :cond_1
     const/4 v4, 0x0
 
     iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgetsFragment;->getWidgetState()Lcom/android/launcher2/MenuWidgets$WidgetState;
 
@@ -1011,7 +1020,7 @@
 
     sget-object v7, Lcom/android/launcher2/MenuWidgets$WidgetState;->UNINSTALL:Lcom/android/launcher2/MenuWidgets$WidgetState;
 
-    if-eq v6, v7, :cond_2
+    if-eq v6, v7, :cond_3
 
     iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
@@ -1019,13 +1028,13 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isTabletModel()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     move-object v1, v3
 
@@ -1069,36 +1078,36 @@
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
 
-    :cond_1
+    :cond_2
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     invoke-virtual {v3}, Landroid/view/View;->hasFocus()Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     const/4 v4, 0x1
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuWidgetsFragment;->setSoftInputParam(Z)V
 
-    :cond_3
+    :cond_4
     iget-boolean v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mHomeKeyPressed:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     iput-boolean v8, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mHomeKeyPressed:Z
 
-    :cond_4
+    :cond_5
     iget-boolean v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPendingPackageUpdate:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iput-boolean v8, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPendingPackageUpdate:Z
 
@@ -1108,7 +1117,7 @@
 
     invoke-virtual {v6, v7}, Lcom/android/launcher2/MenuWidgets;->packagesChanged(Ljava/lang/String;)V
 
-    :cond_5
+    :cond_6
     return-void
 
     :catch_0

@@ -34,14 +34,17 @@
     <string name="all_apps_title">Feidhmchláir</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#AÁBCDEÉFGHIÍJKLMNOÓPQRSTUÚVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s folaithe.</string>
+    <string name="app_locked_toast">%s glasáilte.</string>
     <string name="app_search">Cuardaigh</string>
     <string name="app_search_no_apps">Is féidir leat aicearraí a chur leis ar an scáileán baile ó na torthaí cuardaigh.</string>
     <string name="app_search_no_results_found">Níor aimsíodh torthaí</string>
+    <string name="app_unlocked_toast">%s díghlasáilte.</string>
     <string name="apply">Cuir i bhfeidhm</string>
     <string name="available_galaxyapps">Ar fáil in Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Roghnaigh cibé acu a thaispeánfar nó a fholófar suaitheantais do gach aon fheidhmchlár.</string>
+    <string name="badge_manage_summary">Roghnaigh cibé acu a thaispeánfar nó a fholófar suaitheantais do gach aon fheidhmchlár.</string>
+    <string name="badge_manage_title">Bainistigh suaitheantais feidhmchláir</string>
     <string name="cancel">Cealaigh</string>
     <string name="change_home_screen_settings">Athraigh soc. scáil. baile</string>
     <string name="change_home_screen_settings_info">Is féidir leis an bhfeidhmchlár seo socruithe agus aicearraí do scáileáin baile a athrú.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Diailiú Díreach</string>
     <string name="direct_message">Teachtair. Dhíreach</string>
     <string name="disable_message">Díchumasófar %1$s agus gach gné lena mbaineann. Leis an bhfeidhmchlár a chumasú arís, gabh chuig Socruithe > Feidhmchláir, ansin roghnaigh %2$s.</string>
+    <string name="disable_message_att">Díchumasófar %s agus na gnéithe uile a bhaineann leis. Lena chumasú athuair, gabh chuig Socruithe > Gléas > Feidhmchláir > Bainisteoir feidhmchlár.</string>
     <string name="disable_message_vzw">Díchumasófar %s mar aon leis na gnéithe go léir a bhaineann leis. Lena chumasú arís, gabh chuig Socruithe > Feidhmchláir > Bainisteoir feidhmchlár.</string>
     <string name="disable_messange_knox">Díchumasófar %s mar aon leis na gnéithe go léir a bhaineann leis. Lena chumasú arís, gabh chuig Socruithe KNOX > Bainisteoir feidhmchlár.</string>
     <string name="disable_title">Díchumasaigh feidhmchlár</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Tarraing an t-imeall anuas, aníos, isteach nó amach, leis an ngiuirléid a athmhéidniú.</string>
     <string name="guide_tap_here">Tapáil an t-íocón Feidhmchláir.</string>
     <string name="guide_widgets_tap_area">Tapáil &amp; coinnigh giuirléid go dtí gur féidir í a chur in eagar, agus ansin lig di.</string>
+    <string name="hide">Folaigh</string>
+    <string name="hide_confirm_continue">Ar aghaidh</string>
+    <string name="hide_confirm_message">Tá an feidhmchlár %s glasáilte faoi láthair. Má fholaíonn tú an feidhmchlár sin, díghlasálfar é.</string>
+    <string name="hide_confirm_title">Folaigh feidhmchlár</string>
     <string name="home_edit_add_to_personal">Cuir le pearsanta</string>
     <string name="home_edit_bar_delete_title">Bain aicearra</string>
     <string name="home_edit_bar_delete_title_vzw">Bain aicearra</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Giuirléid %s curtha leis an scáileán baile cheana.</string>
     <string name="open_folder">Oscail fillteán</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Amharc ar fheidhmchláir</string>
     <string name="option_menu_contact_up">Déan teagmháil linn</string>
     <string name="option_tray_screengrid">Greille scáil.</string>
     <string name="options_home_set_theme">Téamaí</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Cuir giuirléidí leis</string>
     <string name="quick_contact">Teagmhálaí</string>
     <string name="quick_options_help_text">Svaidhpeáil aicearra feidhmchláir síos le hamharc ar a mhear-roghanna. Cuireann Mear-roghanna ar do chumas feidhmchláir a bhainistiú go héasca.</string>
+    <string name="quickoption_sleep">Codladh</string>
     <string name="quickoptions_add_apps">Cuir feidhmchláir leis</string>
     <string name="quickoptions_add_to_secure_folder">"Cuir le
 Fillteán Slán"</string>
     <string name="quickoptions_app_info">Faisnéis faoin bhfeidhmchláir</string>
     <string name="quickoptions_clear_badge">Glan suaitheantas</string>
     <string name="quickoptions_disable">Díchumasaigh</string>
-    <string name="quickoptions_put_to_sleep">Cuir a chodladh</string>
-    <string name="quickoptions_put_to_sleep_alert">Má chuirtear an feidhmchlár seo a chodladh cuirfear cosc air an ceallra a úsáid sa chúlra. Is féidir nach bhfaighidh feidhmchláir atá ina gcodladh fógraí, ach músclófar go huathoibríoch iad a luaithe a osclóidh tú iad.</string>
+    <string name="quickoptions_sleep_alert">Má chuirtear an feidhmchlár seo a chodladh cuirfear cosc air an ceallra a úsáid sa chúlra. Is féidir nach bhfaighidh feidhmchláir atá ina gcodladh fógraí, ach músclófar go huathoibríoch iad a luaithe a osclóidh tú iad.</string>
     <string name="quickoptions_uninstall">Díshuiteáil</string>
     <string name="quickview_delete_toast_msg">Tarraing an leathanach chuig Bain lena bhaint.</string>
     <string name="quickview_drag_bar_delete_title">Bain</string>
@@ -172,9 +180,9 @@ Fillteán Slán"</string>
     <string name="remove_app_folder_confirm">Scrios</string>
     <string name="remove_app_folder_confirm_VZW">Bain</string>
     <string name="remove_app_folder_message">Scriosfar an fillteán %s. Beidh na feidhmchláir atá san fhillteán sin ar fáil ar an Scáileán feidhmchlár go fóill.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Scriosfar an fillteán %s. Beidh na feidhmchláir atá san fhillteán sin liostaithe ag deireadh an Tráidire feidhmchlár.</string>
     <string name="remove_app_folder_message_no_title">Bainfear an fillteán seo. Ní dhíshuiteálfar feidhmchláir san fhillteán seo.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Scriosfar an fillteán seo. Beidh na feidhmchláir atá san fhillteán sin liostaithe ag deireadh an Tráidire feidhmchlár.</string>
     <string name="remove_app_folder_title">Scrios fillteán</string>
     <string name="remove_app_folder_title_VZW">Bain fillteán</string>
     <string name="remove_home_folder_message">Scriosfar an fillteán %s. Beidh na feidhmchláir atá san fhillteán sin ar fáil ar an Scáileán feidhmchlár go fóill.</string>
@@ -187,7 +195,7 @@ Fillteán Slán"</string>
     <string name="search_for_apps">Cuardaigh le haghaidh feidhmchlár</string>
     <string name="search_for_widgets">Cuardaigh le haghaidh giuirléidí</string>
     <string name="search_result_found">%d aimsithe</string>
-    <string name="search_result_founds">Aimsíodh %d</string>
+    <string name="search_result_founds">%d aimsithe</string>
     <string name="select_all_app">Gach</string>
     <string name="select_app_add">CUIR LEIS</string>
     <string name="selected">Roghnaithe</string>
@@ -229,11 +237,11 @@ Fillteán Slán"</string>
     <string name="viewtype_custom_grid">Ord saincheaptha</string>
     <string name="widget_duplicate">%s giuirléid ar an scáileán baile cheana.</string>
     <string name="work_folder_name">Obair</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Tadhaill agus coinnigh an scáileán le míreanna a chur leis</string>
+    <string name="zeropage_briefing_title">Faisnéisiú</string>
+    <string name="zeropage_download">Íoslódáil</string>
+    <string name="zeropage_download_msg">Leis an bhfeidhm seo a úsáid, ní foláir duit %1$s a shuiteáil. Tapáil ÍOSLÓDÁIL le %2$s a íoslódáil agus a shuiteáil.</string>
     <string name="zeropage_notice_msg">Tá seirbhís nuachta %s ar fáil anois. Lena húsáid in ionad Faisnéisiú Flipboard, tapáil OK.</string>
     <string name="zeropage_setting_dialog_no">Cealaigh</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Nuacht Sohu</string>
 </resources>

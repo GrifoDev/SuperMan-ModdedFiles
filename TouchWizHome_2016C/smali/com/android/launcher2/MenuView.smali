@@ -578,7 +578,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902c4
+    const v9, 0x7f0902c5
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -587,7 +587,7 @@
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     :goto_0
-    const v8, 0x7f10009a
+    const v8, 0x7f10009e
 
     invoke-virtual {p0, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -599,7 +599,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090176
+    const v9, 0x7f090177
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -621,7 +621,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902fe
+    const v9, 0x7f090300
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -649,7 +649,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09024d
+    const v9, 0x7f09024f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -665,7 +665,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902bb
+    const v9, 0x7f0902bd
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -714,13 +714,13 @@
 
     move-result v1
 
-    const v6, 0x7f090175
+    const v6, 0x7f090176
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v6, 0x7f090342
+    const v6, 0x7f090350
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -907,7 +907,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080084
+    const v1, 0x7f08008c
 
     const/4 v2, 0x0
 
@@ -980,7 +980,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090131
+    const v9, 0x7f090132
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1022,7 +1022,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09012b
+    const v9, 0x7f09012c
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1143,7 +1143,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090344
+    const v8, 0x7f090352
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1967,7 +1967,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/TabHost;->dispatchWindowFocusChanged(Z)V
 
-    const v1, 0x7f1000a3
+    const v1, 0x7f1000a7
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -2004,7 +2004,7 @@
 
     if-ne v1, v2, :cond_1
 
-    const v1, 0x7f10010e
+    const v1, 0x7f100112
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -2640,25 +2640,25 @@
 
     move-result-object v4
 
-    const v13, 0x7f09038f
+    const v13, 0x7f09039e
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v10
 
-    const v13, 0x7f090173
+    const v13, 0x7f090174
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v8
 
-    const v13, 0x7f090174
+    const v13, 0x7f090175
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v9
 
-    const v13, 0x7f090176
+    const v13, 0x7f090177
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2670,7 +2670,7 @@
 
     iget v5, v13, Landroid/content/res/Configuration;->orientation:I
 
-    const v13, 0x7f0903ad
+    const v13, 0x7f0903bc
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2712,14 +2712,14 @@
     if-nez v13, :cond_2
 
     :cond_1
-    const v13, 0x7f090186
+    const v13, 0x7f090187
 
     invoke-virtual {v4, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
     :cond_2
-    const v13, 0x7f10009a
+    const v13, 0x7f10009e
 
     move-object/from16 v0, p0
 
@@ -2906,7 +2906,7 @@
 
     iput-object v13, v0, Lcom/android/launcher2/MenuView;->mTabsView:Landroid/view/View;
 
-    const v13, 0x7f1000a7
+    const v13, 0x7f1000ab
 
     move-object/from16 v0, p0
 
@@ -2918,7 +2918,7 @@
 
     iput-object v13, v0, Lcom/android/launcher2/MenuView;->mTabDivider:Landroid/view/View;
 
-    const v13, 0x7f1000a8
+    const v13, 0x7f1000ac
 
     move-object/from16 v0, p0
 
@@ -2940,7 +2940,7 @@
 
     invoke-virtual {v13, v0}, Lcom/android/launcher2/MenuTitleBarManager;->init(Lcom/android/launcher2/MenuView;)V
 
-    const v13, 0x7f10009e
+    const v13, 0x7f1000a2
 
     move-object/from16 v0, p0
 
@@ -2950,7 +2950,7 @@
 
     check-cast v6, Landroid/widget/FrameLayout;
 
-    const v13, 0x7f1000be
+    const v13, 0x7f1000c2
 
     move-object/from16 v0, p0
 
@@ -2962,7 +2962,7 @@
 
     iput-object v13, v0, Lcom/android/launcher2/MenuView;->mMenuViewDarken:Landroid/view/View;
 
-    const v13, 0x7f100099
+    const v13, 0x7f10009d
 
     move-object/from16 v0, p0
 
@@ -3034,7 +3034,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0800c5
+    const v15, 0x7f0800cd
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3054,7 +3054,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0800d7
+    const v15, 0x7f0800df
 
     const/16 v16, 0x2
 
@@ -3170,7 +3170,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0800d7
+    const v15, 0x7f0800df
 
     const/16 v16, 0x2
 
@@ -3276,7 +3276,7 @@
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
-    const v13, 0x7f10009d
+    const v13, 0x7f1000a1
 
     move-object/from16 v0, p0
 
@@ -3286,7 +3286,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    const v13, 0x7f1000a1
+    const v13, 0x7f1000a5
 
     move-object/from16 v0, p0
 
@@ -3296,7 +3296,7 @@
 
     check-cast v3, Landroid/widget/FrameLayout;
 
-    const v13, 0x7f1000a0
+    const v13, 0x7f1000a4
 
     move-object/from16 v0, p0
 
@@ -3369,7 +3369,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f08008f
+    const v16, 0x7f080097
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3442,7 +3442,7 @@
 
     if-eqz v13, :cond_1
 
-    const v13, 0x7f1000a5
+    const v13, 0x7f1000a9
 
     move-object/from16 v0, p0
 
@@ -3450,7 +3450,7 @@
 
     move-result-object v7
 
-    const v13, 0x7f1000c5
+    const v13, 0x7f1000c9
 
     invoke-virtual {v7, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3470,7 +3470,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f08008f
+    const v15, 0x7f080097
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3512,7 +3512,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f08008f
+    const v15, 0x7f080097
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3555,7 +3555,7 @@
 
     if-eqz v13, :cond_2
 
-    const v13, 0x7f10009c
+    const v13, 0x7f1000a0
 
     move-object/from16 v0, p0
 
@@ -3567,7 +3567,7 @@
 
     if-eqz v8, :cond_2
 
-    const v13, 0x7f1000e5
+    const v13, 0x7f1000e9
 
     invoke-virtual {v8, v13}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -3605,7 +3605,7 @@
 
     invoke-virtual {v5, v13}, Lcom/android/launcher2/Launcher;->setUseAtoZButton(Z)V
 
-    const v13, 0x7f10009b
+    const v13, 0x7f10009f
 
     move-object/from16 v0, p0
 
@@ -3650,7 +3650,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f08008f
+    const v16, 0x7f080097
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4112,7 +4112,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    const v3, 0x7f10009a
+    const v3, 0x7f10009e
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -4758,7 +4758,7 @@
 
     iget v4, v8, Landroid/content/res/Configuration;->orientation:I
 
-    const v8, 0x7f10009a
+    const v8, 0x7f10009e
 
     invoke-virtual {p0, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -4802,7 +4802,7 @@
     invoke-virtual {v8, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_3
-    const v8, 0x7f10009e
+    const v8, 0x7f1000a2
 
     invoke-virtual {p0, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -4824,7 +4824,7 @@
     invoke-virtual {v1, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_5
-    const v8, 0x7f10009d
+    const v8, 0x7f1000a1
 
     invoke-virtual {p0, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -4846,7 +4846,7 @@
     invoke-virtual {v0, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_7
-    const v8, 0x7f10009c
+    const v8, 0x7f1000a0
 
     invoke-virtual {p0, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 

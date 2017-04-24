@@ -571,7 +571,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0800c8
+    const v8, 0x7f0800d0
 
     invoke-virtual {p1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2939,7 +2939,7 @@
 
     if-ne v2, v0, :cond_6
 
-    const v18, 0x7f090234
+    const v18, 0x7f090236
 
     move/from16 v0, v18
 
@@ -3110,7 +3110,7 @@
     return-void
 
     :cond_6
-    const v18, 0x7f09012c
+    const v18, 0x7f09012d
 
     move/from16 v0, v18
 
@@ -3131,7 +3131,7 @@
 
     if-ne v3, v0, :cond_8
 
-    const v18, 0x7f090234
+    const v18, 0x7f090236
 
     move/from16 v0, v18
 
@@ -3161,7 +3161,7 @@
     goto/16 :goto_1
 
     :cond_8
-    const v18, 0x7f09012b
+    const v18, 0x7f09012c
 
     move/from16 v0, v18
 

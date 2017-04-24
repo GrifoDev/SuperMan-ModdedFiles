@@ -34,14 +34,17 @@
     <string name="all_apps_title">ആപ്ലിക്കേഷനുകള്‍</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;അആഇഈഉഊഋഎഏഐഒഓഔകഖഗഘങചഛജഝഞടഠഡഢണതഥദധനപഫബഭമയരലവശഷസഹളഴറABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s മറയ്ക്കപ്പെട്ടു.</string>
+    <string name="app_locked_toast">%s ലോക്കുചെയ്തു.</string>
     <string name="app_search">തിരയുക</string>
     <string name="app_search_no_apps">തിരയൽ ഫലങ്ങളിൽ നിന്ന് ഹോം സ്ക്രീനിലെ എളുപ്പവഴികൾ നിങ്ങൾക്ക് ചേർക്കാനാകും.</string>
     <string name="app_search_no_results_found">ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="app_unlocked_toast">%s ലോക്കുനീക്കി.</string>
     <string name="apply">പ്രയോഗിക്കൂ</string>
     <string name="available_galaxyapps">Galaxy Apps-ൽ ലഭ്യമാകുന്നവ</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ഓരോ ആപ്ലിക്കേഷന്‍റെയും ബാഡ്ജുകൾ കാണിക്കണോ അല്ലെങ്കിൽ മറയ്ക്കണോ എന്ന് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="badge_manage_summary">ഓരോ ആപ്ലിക്കേഷന്‍റെയും ബാഡ്ജുകൾ കാണിക്കണോ അല്ലെങ്കിൽ മറയ്ക്കണോ എന്ന് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="badge_manage_title">ആപ്ലിക്കേഷൻ ബഡ്ജുകൾ മാനേജ് ചെയ്യുക</string>
     <string name="cancel">റദ്ദാക്കുക</string>
     <string name="change_home_screen_settings">ഹോം സ്ക്രീൻ ക്രമീകരണങ്ങൾ മാറ്റുക</string>
     <string name="change_home_screen_settings_info">നിങ്ങളുടെ ഹോംസ്ക്രീൻ ക്രമീകരണങ്ങളെയും എളുപ്പവഴികളെയും മാറ്റാൻ ഈ ആപ്ലിക്കേഷന് സാധിക്കും.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">നേരിട്ട് ഡയല്‍ ചെയ്യുക</string>
     <string name="direct_message">നേരിട്ടുള്ള സന്ദേശം</string>
     <string name="disable_message">%1$s എന്നതും അതുമായി ബന്ധപ്പെട്ട എല്ലാ പ്രവർത്തനങ്ങളും അപ്രാപ്തമാക്കപ്പെടും. ആപ്പ് വീണ്ടും പ്രാപ്തമാക്കാൻ, ക്രമീകരണങ്ങൾ > ആപ്ലിക്കേഷനുകൾ എന്നതിലേക്ക് പോയി, %2$s തിരഞ്ഞെടുക്കുക.</string>
+    <string name="disable_message_att">%s-ഉം അതുമായി ബന്ധപ്പെട്ട എല്ലാ സവിശേഷതകളും അപ്രാപ്തമാക്കപ്പെടും. അത് വീണ്ടും പ്രാപ്തമാക്കുന്നതിന്, ക്രമീകരണങ്ങൾ > ഉപകരണം > ആപ്ലിക്കേഷനുകൾ > ആപ്ലിക്കേഷൻ മാനേജർ എന്നിവയിലേക്ക് പോവുക.</string>
     <string name="disable_message_vzw">%s-ഉം അതുമായി ബന്ധപ്പെട്ട എല്ലാ സവിശേഷതകളും അപ്രാപ്തമാക്കപ്പെടും. അത് വീണ്ടും പ്രാപ്തമാക്കുന്നതിന്, ക്രമീകരണങ്ങൾ > ആപ്ലിക്കേഷനുകൾ > ആപ്ലിക്കേഷൻ മാനേജർ എന്നിവയിലേക്ക് പോവുക.</string>
     <string name="disable_messange_knox">%s-ഉം അതുമായി ബന്ധപ്പെട്ട എല്ലാ സവിശേഷതകളും അപ്രാപ്തമാക്കപ്പെടും. വീണ്ടും പ്രാപ്തമാക്കാൻ, KNOX ക്രമീകരണങ്ങൾ > ആപ്ലിക്കേഷൻ മാനേജർ എന്നതിലേക്ക് പോകുക.</string>
     <string name="disable_title">ആപ്ലിക്കേഷൻ അപ്രാപ്തമാക്കുക</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">വിജറ്റ് വലുപ്പം ക്രമീകരിക്കാനായി ബോര്‍ഡര്‍ മുകളിലേക്കോ താഴേക്കോ ഉള്ളിലേക്കോ പുറത്തേക്കോ വലിക്കുക</string>
     <string name="guide_tap_here">ആപ്ലിക്കേഷനുകളുടെ ഐക്കണിൽ സ്പർശിക്കുക.</string>
     <string name="guide_widgets_tap_area">എഡിറ്റുചെയ്യാന്‍ കഴിയുന്നതുവരെ ഒരു വിജറ്റ് ടാപ്പുചെയ്ത് പിടിക്കുക</string>
+    <string name="hide">മറയ്ക്കുക</string>
+    <string name="hide_confirm_continue">തുടരുക</string>
+    <string name="hide_confirm_message">നിലവിൽ %s ആപ്ലിക്കേഷനെ ലോക്ക് ചെയ്തിട്ടുണ്ട്. ഈ ആപ്ലിക്കേഷനെ നിങ്ങൾ മറയ്ക്കുകയാണെങ്കിൽ, അത് അൺലോക്ക് ചെയ്യപ്പെടും.</string>
+    <string name="hide_confirm_title">ആപ്ലിക്കേഷനെ മറയ്ക്കുക</string>
     <string name="home_edit_add_to_personal">വ്യക്തിപരമായതിലേക്ക് ചേര്‍ക്കുക</string>
     <string name="home_edit_bar_delete_title">എളുപ്പവഴി നീക്കംചെയ്യുക</string>
     <string name="home_edit_bar_delete_title_vzw">എളുപ്പവഴി നീക്കംചെയ്യുക</string>
@@ -134,7 +142,7 @@
     <string name="ok">ശരി</string>
     <string name="only_one_widget_instance_allowed">%s വിജറ്റ് നേരത്തേതന്നെ ഹോം സ്ക്രീനിൽ ചേർത്തിട്ടുണ്ട്.</string>
     <string name="open_folder">ഫോൾഡർ തുറക്കുക</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ആപ്ലിക്കേഷനുകൾ കാണുക</string>
     <string name="option_menu_contact_up">ഞങ്ങളെ ബന്ധപ്പെടുക</string>
     <string name="option_tray_screengrid">സ്ക്രീൻ ഗ്രിഡ്</string>
     <string name="options_home_set_theme">തീമുകള്‍</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">വിജറ്റുകൾ ചേർക്കുക</string>
     <string name="quick_contact">കോണ്‍‌ടാക്ട്</string>
     <string name="quick_options_help_text">ദ്രുത ഓപ്ഷനുകൾ കാണാൻ ആപ്ലിക്കേഷൻ എളുപ്പവഴി താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക. ദ്രുത ഓപ്‌ഷനുകൾ ആപ്ലിക്കേഷനുകളെ എളുപ്പത്തിൽ മാനേജ് ചെയ്യാൻ അനുവദിക്കുന്നു.</string>
+    <string name="quickoption_sleep">ഉറക്കം</string>
     <string name="quickoptions_add_apps">ആപ്ലിക്കേഷനുകൾ ചേർക്കുക</string>
     <string name="quickoptions_add_to_secure_folder">"സുരക്ഷിത ഫോൾഡറിൽ
 ചേർക്കുക"</string>
     <string name="quickoptions_app_info">ആപ് വിവരം</string>
     <string name="quickoptions_clear_badge">ബാഡ്ജ് മായ്ക്കുക</string>
     <string name="quickoptions_disable">അപ്രാപ്തമാക്കുക</string>
-    <string name="quickoptions_put_to_sleep">സ്ലീപ്പിലാക്കുക</string>
-    <string name="quickoptions_put_to_sleep_alert">ഈ ആപ്പ് സ്ലീപ്പിലാക്കുന്നത് പശ്ചാത്തലത്തിൽ ബാറ്ററി ഉപയോഗിക്കുന്നതിൽ നിന്ന് ഇതിനെ തടയും. നിഷ്ക്രിയാവസ്ഥയിലുള്ള ആപ്ലിക്കേഷനുകൾ അപ്ഡേറ്റുകൾ സ്വീകരിക്കുകയോ നിങ്ങൾക്ക് അറിയിപ്പുകൾ അയയ്ക്കുകയോ ചെയ്യില്ലെങ്കിലും നിങ്ങൾ അവയെ തുറക്കുമ്പോൾ അവ ഉണരും.</string>
+    <string name="quickoptions_sleep_alert">ഈ ആപ്പ് സ്ലീപ്പിലാക്കുന്നത് പശ്ചാത്തലത്തിൽ ബാറ്ററി ഉപയോഗിക്കുന്നതിൽ നിന്ന് ഇതിനെ തടയും. നിഷ്ക്രിയാവസ്ഥയിലുള്ള ആപ്ലിക്കേഷനുകൾ അപ്ഡേറ്റുകൾ സ്വീകരിക്കുകയോ നിങ്ങൾക്ക് അറിയിപ്പുകൾ അയയ്ക്കുകയോ ചെയ്യില്ലെങ്കിലും നിങ്ങൾ അവയെ തുറക്കുമ്പോൾ അവ ഉണരും.</string>
     <string name="quickoptions_uninstall">അൺഇൻസ്റ്റാൾ ചെയ്യുക</string>
     <string name="quickview_delete_toast_msg">പേജ് നീക്കംചെയ്യുന്നതിന് നീക്കംചെയ്യുക എന്നതിലേക്ക് അതിനെ ഇഴയ്ക്കുക.</string>
     <string name="quickview_drag_bar_delete_title">നീക്കം ചെയ്യുക</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ഇല്ലാതാക്കുക</string>
     <string name="remove_app_folder_confirm_VZW">നീക്കംചെയ്യുക</string>
     <string name="remove_app_folder_message">%s ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ആപ്സ് സ്ക്രീനിൽ ലഭ്യമാകും.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ഫോൾഡർ നീക്കംചെയ്യപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ ആപ്പ് ട്രേയുടെ അവസാനം ലിസ്റ്റ് ചെയ്യപ്പെടും.</string>
     <string name="remove_app_folder_message_no_title">ഈ ഫോൾഡർ നീക്കംചെയ്യപ്പെടും. ഈ ഫോൾഡറിലെ ആപ്ലിക്കേഷനുകൾ അൺഇൻസ്റ്റാൾ ചെയ്യപ്പെടില്ല.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ഈ ഫോൾഡർ നീക്കംചെയ്യപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ ആപ്പ് ട്രേയുടെ അവസാനം ലിസ്റ്റ് ചെയ്യപ്പെടും.</string>
     <string name="remove_app_folder_title">ഫോള്‍ഡര്‍ ഇല്ലാതാക്കുക</string>
     <string name="remove_app_folder_title_VZW">ഫോൾഡർ നീക്കംചെയ്യുക</string>
     <string name="remove_home_folder_message">%s ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ആപ്സ് സ്ക്രീനിൽ ലഭ്യമാകും.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">ഇച്ഛാനുസൃത ക്രമം</string>
     <string name="widget_duplicate">%s വിജറ്റ് നേരത്തേതന്നെ ഹോം സ്ക്രീനിലുണ്ട്.</string>
     <string name="work_folder_name">ജോലി</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">ഇനങ്ങള്‍ ചേര്‍ക്കുന്നതിന് സ്ക്രീനില്‍ സ്പർശിച്ചുപിടിക്കുക</string>
+    <string name="zeropage_briefing_title">ബ്രീഫിംഗ്</string>
+    <string name="zeropage_download">ഡൗണ്‍‌ലോഡ് ചെയ്യുക</string>
+    <string name="zeropage_download_msg">ഈ പ്രവർത്തനം ഉപയോഗിക്കുന്നതിന്, നിങ്ങൾ %1$s ഇൻസ്റ്റാൾ ചെയ്യേണ്ടതാവശ്യമാണ്. %2$s ഡൗൺലോഡ് ചെയ്ത് ഇൻസ്റ്റാൾ ചെയ്യുന്നതിന് “ഡൗൺലോഡ് ചെയ്യുക” എന്നതിൽ സ്പർശിക്കുക.</string>
     <string name="zeropage_notice_msg">%s വാർത്താ സേവനം ഇപ്പോൾ ലഭ്യമല്ല. ഫ്ലിപ്പ്‌ബോർഡ് ബ്രീഫിംഗിന് പകരം ഉപയോഗിക്കാൻ, “ശരി” സ്പർശിക്കുക.</string>
     <string name="zeropage_setting_dialog_no">റദ്ദാക്കുക</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">സോഹു ന്യൂസ്</string>
 </resources>

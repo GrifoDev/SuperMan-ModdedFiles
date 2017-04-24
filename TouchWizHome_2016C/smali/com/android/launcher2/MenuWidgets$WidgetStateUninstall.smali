@@ -52,7 +52,7 @@
         }
     .end annotation
 
-    const v12, 0x7f080074
+    const v12, 0x7f08007c
 
     const/4 v3, 0x0
 
@@ -105,7 +105,7 @@
 
     invoke-virtual {v9, p2, v7, v3}, Lcom/android/launcher2/MenuTitleBarManager;->changeTitleBar(Ljava/util/List;Landroid/view/View;Z)V
 
-    const v9, 0x7f100096
+    const v9, 0x7f10009a
 
     invoke-virtual {v7, v9}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -161,7 +161,7 @@
 
     invoke-virtual {v5, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v9, 0x7f100097
+    const v9, 0x7f10009b
 
     invoke-virtual {v7, v9}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -177,7 +177,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800a4
+    const v10, 0x7f0800ac
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -235,7 +235,7 @@
 
     if-nez v8, :cond_3
 
-    const v8, 0x7f100095
+    const v8, 0x7f100099
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

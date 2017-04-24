@@ -1,5 +1,5 @@
 .class Lcom/android/launcher2/Launcher$32;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/database/ContentObserver;
 .source "Launcher.java"
 
 
@@ -19,96 +19,209 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/Launcher;)V
+.method constructor <init>(Lcom/android/launcher2/Launcher;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+.method public onChange(Z)V
+    .locals 6
 
-    if-nez p2, :cond_1
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    :cond_0
-    :goto_0
-    return-void
+    invoke-virtual {v3}, Lcom/android/launcher2/Launcher;->getContentResolver()Landroid/content/ContentResolver;
 
-    :cond_1
-    const-string v0, "android.intent.action.MANAGED_PROFILE_AVAILABLE"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    # getter for: Lcom/android/launcher2/Launcher;->DEBUGGABLE:Z
-    invoke-static {}, Lcom/android/launcher2/Launcher;->access$1600()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    const-string v0, "Launcher"
-
-    const-string v1, "MANAGED_PROFILE_AVAILABLE"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
-
-    const/4 v1, 0x1
-
-    # invokes: Lcom/android/launcher2/Launcher;->setWorkIconGray(Z)V
-    invoke-static {v0, v1}, Lcom/android/launcher2/Launcher;->access$1800(Lcom/android/launcher2/Launcher;Z)V
-
-    goto :goto_0
-
-    :cond_3
-    const-string v0, "android.intent.action.MANAGED_PROFILE_UNAVAILABLE"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    # getter for: Lcom/android/launcher2/Launcher;->DEBUGGABLE:Z
-    invoke-static {}, Lcom/android/launcher2/Launcher;->access$1600()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "Launcher"
-
-    const-string v1, "MANAGED_PROFILE_UNAVAILABLE"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    iget-object v0, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+    move-result-object v2
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/launcher2/Launcher;->setWorkIconGray(Z)V
-    invoke-static {v0, v1}, Lcom/android/launcher2/Launcher;->access$1800(Lcom/android/launcher2/Launcher;Z)V
+    :try_start_0
+    const-string v3, "show_button_background"
 
-    goto :goto_0
+    invoke-static {v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const/4 v1, 0x1
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
+    invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
+    invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/android/launcher2/MenuView;->setEditTextBg(Z)V
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
+    invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
+    invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuAppsGrid;->getOpenFolder()Lcom/android/launcher2/Folder;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
+    invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/MenuAppsGrid;->getOpenFolder()Lcom/android/launcher2/Folder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/android/launcher2/Folder;->setEditTextBg(Z)V
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v3}, Lcom/android/launcher2/HomeView;->getHomeScreenOptionMenu()Lcom/android/launcher2/HomeScreenOptionMenu;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v3}, Lcom/android/launcher2/HomeView;->getHomeScreenOptionMenu()Lcom/android/launcher2/HomeScreenOptionMenu;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/android/launcher2/HomeScreenOptionMenu;->setEditTextBg(Z)V
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v3}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v3}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/Workspace;->getOpenFolder()Lcom/android/launcher2/Folder;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
+
+    iget-object v3, v3, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v3}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/Workspace;->getOpenFolder()Lcom/android/launcher2/Folder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/android/launcher2/Folder;->setEditTextBg(Z)V
+
+    :cond_1
+    return-void
+
+    :cond_2
+    const/4 v1, 0x0
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v3, "Launcher"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "mChangeShowButtonBackgroundObserver.onChange SettingNotFoundException : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/samsung/android/util/SemLog;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
 .end method

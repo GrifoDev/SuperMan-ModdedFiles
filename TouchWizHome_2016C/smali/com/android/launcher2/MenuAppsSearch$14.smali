@@ -154,6 +154,21 @@
 
     iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->galaxyItem:Ljava/util/List;
 
+    if-nez v6, :cond_3
+
+    iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    new-instance v7, Ljava/util/ArrayList;
+
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v7, v6, Lcom/android/launcher2/MenuAppsSearch;->galaxyItem:Ljava/util/List;
+
+    :cond_3
+    iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->galaxyItem:Ljava/util/List;
+
     invoke-interface {v6, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
@@ -164,7 +179,7 @@
 
     iput v7, v6, Lcom/android/launcher2/MenuAppsSearch;->called:I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_2
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
@@ -178,7 +193,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_4
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -203,7 +218,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f080027
+    const v8, 0x7f080029
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -215,7 +230,7 @@
 
     if-nez v6, :cond_0
 
-    :cond_3
+    :cond_4
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
     # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleBar:Landroid/widget/LinearLayout;
@@ -227,7 +242,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_5
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -264,7 +279,19 @@
 
     if-nez v6, :cond_0
 
-    :cond_4
+    :cond_5
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->galaxyItem:Ljava/util/List;
+
+    if-eqz v6, :cond_6
+
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
     iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->galaxyItem:Ljava/util/List;
@@ -273,13 +300,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_5
-
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5
+    if-lez v6, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
@@ -288,7 +309,13 @@
     # invokes: Lcom/android/launcher2/MenuAppsSearch;->showGalaxyAppsResult(Z)V
     invoke-static {v6, v7}, Lcom/android/launcher2/MenuAppsSearch;->access$1000(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
-    :cond_5
+    :cond_6
+    iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
+
+    iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->mGalaxyAppsAdapter:Lcom/android/launcher2/MenuAppsSearch$GalaxyAppsResultAdapter;
+
+    if-eqz v6, :cond_0
+
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$14;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
     iget-object v6, v6, Lcom/android/launcher2/MenuAppsSearch;->mGalaxyAppsAdapter:Lcom/android/launcher2/MenuAppsSearch$GalaxyAppsResultAdapter;

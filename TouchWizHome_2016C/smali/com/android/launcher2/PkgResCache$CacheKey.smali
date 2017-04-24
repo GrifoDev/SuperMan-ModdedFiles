@@ -67,6 +67,10 @@
 
     iget-object v2, v0, Lcom/android/launcher2/PkgResCache$CacheKey;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
+    if-eqz v2, :cond_0
+
+    iget-object v2, v0, Lcom/android/launcher2/PkgResCache$CacheKey;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+
     iget-object v3, p0, Lcom/android/launcher2/PkgResCache$CacheKey;->user:Lcom/android/launcher2/compat/UserHandleCompat;
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z

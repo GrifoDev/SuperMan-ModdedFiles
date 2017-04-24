@@ -34,14 +34,17 @@
     <string name="all_apps_title">এপ্প্‌চ</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;কখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযৰলৱশষসহABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#কখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযৰলৱশষসহক্ষড়ঢ়য়ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s লুকাই আছে।</string>
+    <string name="app_locked_toast">%s লক কৰা হৈছে৷</string>
     <string name="app_search">অনুসন্ধান</string>
     <string name="app_search_no_apps">আপুনি অনুসন্ধান ফলাফলৰ পৰা গৃহ স্ক্ৰীণত চৰ্টকাট যোগ কৰিব পাৰে।</string>
     <string name="app_search_no_results_found">কোনো ফলাফল পোৱা নগল</string>
+    <string name="app_unlocked_toast">%s আনলক কৰা হৈছে৷</string>
     <string name="apply">প্ৰয়োগ</string>
     <string name="available_galaxyapps">Galaxy Apps-ত উপলব্ধ</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">প্ৰতিটো এপৰ বাবে বেজ দেখুৱাবনে লুকুৱাব চয়ন কৰক।</string>
+    <string name="badge_manage_summary">প্ৰতিটো এপৰ বাবে বেজ দেখুৱাবনে লুকুৱাব চয়ন কৰক।</string>
+    <string name="badge_manage_title">এপ বেজ পৰিচালনা কৰক</string>
     <string name="cancel">বাতিল</string>
     <string name="change_home_screen_settings">গৃহ স্ক্ৰীণ ছেটিংছ পৰিৱৰ্তন</string>
     <string name="change_home_screen_settings_info">এই এপে আপোনাৰ গৃহ স্ক্ৰীণ ছেটিংছ আৰু চৰ্টকাট পৰিৱৰ্তন কৰিব পাৰে।</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">প্ৰত্যক্ষ ডায়েল</string>
     <string name="direct_message">প্ৰত্যক্ষ মেচেজ</string>
     <string name="disable_message">"ইয়াৰ লগত সম্বন্ধিত %1$s আৰু সকলো ফাংচন অক্ষম হ'ব। এপ পুনঃ সক্ষম কৰিবলৈ, ছেটিংছ > এপ্লিকেশ্বনলৈ যাওক, তাৰপিছত %2$s চয়ন কৰক।"</string>
+    <string name="disable_message_att">"ইয়াৰ লগত সম্বন্ধিত %s আৰু সকলো সুবিধা অক্ষম হ'ব। ইয়াক পুনঃ সক্ষম কৰিবলৈ, ছেটিংছ > ডিভাইচ > এপ্লিকেশ্বন > এপ্লিকেশ্বন মেনেজাৰলৈ যাওক।"</string>
     <string name="disable_message_vzw">"%s আৰু ইয়াৰে সম্বন্ধিত সকলো সুবিধা অক্ষম কৰা হ'ব৷ ইয়াক পুনৰ সক্ষম কৰিবলৈ, ছেটিংছ > এপ্লিকেশ্বনসমূহ > এপ্লিকেশ্বন মেনেজাৰলৈ যাওক৷"</string>
     <string name="disable_messange_knox">"ইয়াৰ লগত সম্বন্ধিত %s আৰু সকলো সুবিধাসমূহ অক্ষম কৰা হ'ব৷ ইয়াক পুনঃ সক্ষম কৰিবলৈ, KNOX ছেটিংছ > এপ্লিকেশ্বন মেনেজাৰলৈ যাওক।"</string>
     <string name="disable_title">এপ্লিকেশ্বন অক্ষম কৰক</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ৱিজিট পুনঃআকাৰ কৰিবৰ বাবে তাৰ সীমান্ত ওপৰ, তল, ভিতৰ বা বাহিৰলৈ টানক।</string>
     <string name="guide_tap_here">এপ্প্‌চ আইকন টিপক৷</string>
     <string name="guide_widgets_tap_area">"এডিট কৰিব পৰা নোহাৱালৈকে ৱিজেট এটি টিপিব আৰু হ'ল্ড কৰিব তাৰ পাছত এইটো ৰিলিজ কৰিব।"</string>
+    <string name="hide">লুকুৱাওক</string>
+    <string name="hide_confirm_continue">জাৰী ৰাখক</string>
+    <string name="hide_confirm_message">"%s এপটো সাম্প্ৰতিকভাৱে লক হৈছে। যদি আপুনি এই এপ লুকুৱাই, তেন্তে এইটো আনলক হ'ব।"</string>
+    <string name="hide_confirm_title">এপ লুকুৱাওক</string>
     <string name="home_edit_add_to_personal">ব্যক্তিগতলৈ যোগ</string>
     <string name="home_edit_bar_delete_title">চৰ্টকাট আঁতৰাওক</string>
     <string name="home_edit_bar_delete_title_vzw">চৰ্টকাট আঁতৰাওক</string>
@@ -134,7 +142,7 @@
     <string name="ok">ঠিক</string>
     <string name="only_one_widget_instance_allowed">%s টা ৱিজেট ইতিমধ্যে গৃহ স্ক্ৰীণত যোগ হৈছে।</string>
     <string name="open_folder">"ফ'ল্ডাৰ খোলক"</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">এপ্প্‌চ দৰ্শন</string>
     <string name="option_menu_contact_up">আমাৰ সৈতে সম্পৰ্ক কৰক</string>
     <string name="option_tray_screengrid">স্ক্ৰীণ গ্ৰীড</string>
     <string name="options_home_set_theme">থীমসমূহ</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ৱিজেট যোগ কৰক</string>
     <string name="quick_contact">সম্পৰ্ক</string>
     <string name="quick_options_help_text">ইয়াৰ ক্ষিপ্ৰ বিকল্প দৰ্শন কৰিবলৈ এটা এপ চৰ্টকাট তললৈ ঘহাঁওক। ক্ষিপ্ৰ বিকল্পই এপ্প্‌চ সহজে পৰিচালনা কৰিবলৈ আপোনাক অনুমতি দিয়ে।</string>
+    <string name="quickoption_sleep">নিদ্ৰা</string>
     <string name="quickoptions_add_apps">এপ্প্‌চ যোগ কৰক</string>
     <string name="quickoptions_add_to_secure_folder">"সুৰক্ষিত ফ'ল্ডাৰ
 ত যোগ কৰক"</string>
     <string name="quickoptions_app_info">এপ্প্‌চৰ তথ্য</string>
     <string name="quickoptions_clear_badge">বেজ পৰিষ্কাৰ কৰক</string>
     <string name="quickoptions_disable">অক্ষম</string>
-    <string name="quickoptions_put_to_sleep">নিদ্ৰাত ৰাখক</string>
-    <string name="quickoptions_put_to_sleep_alert">এই এপ নিদ্ৰাৰ বাবে ৰাখিলে পৃষ্ঠভূমিত বেটাৰী ব্যৱহাৰৰ পৰা ইয়াক প্ৰতিৰোধ কৰিব। নিদ্ৰা এপ্প্‌চে আপডেট প্ৰাপ্ত বা আপোনালৈ অধিসূচনা প্ৰেৰণ নকৰিব পাৰে, কিন্তু আপুনি সেইবিলাকক খোলাৰ পিছত সেইবিলাকে ৱেক আপ কৰিব।</string>
+    <string name="quickoptions_sleep_alert">এই এপ নিদ্ৰাৰ বাবে ৰাখিলে পৃষ্ঠভূমিত বেটাৰী ব্যৱহাৰৰ পৰা ইয়াক প্ৰতিৰোধ কৰিব। নিদ্ৰা এপ্প্‌চে আপডেট প্ৰাপ্ত বা আপোনালৈ অধিসূচনা প্ৰেৰণ নকৰিব পাৰে, কিন্তু আপুনি সেইবিলাকক খোলাৰ পিছত সেইবিলাকে ৱেক আপ কৰিব।</string>
     <string name="quickoptions_uninstall">আনইনষ্টল কৰক</string>
     <string name="quickview_delete_toast_msg">ইয়াক আঁতৰাবলৈ আঁতৰাওকলৈ পৃষ্ঠা টানক।</string>
     <string name="quickview_drag_bar_delete_title">আঁতৰাওক</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">বিলোপ কৰক</string>
     <string name="remove_app_folder_confirm_VZW">আঁতৰাওক</string>
     <string name="remove_app_folder_message">"%s ফ'ল্ডাৰ বিলোপ কৰা হ'ব। এপ্প্‌চ স্ক্ৰীণত এই ফ'ল্ডাৰৰ ভিতৰত থকা এপ্প্‌চ এতিয়াও উপলব্ধ হ'ব।"</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">"%s ফ'ল্ডাৰটো আঁতৰি যাব। এই ফ'ল্ডাৰত থকা এপ্প্‌চ এপ ট্ৰেৰ সমাপ্তিত সূচীবদ্ধ হ'ব।"</string>
     <string name="remove_app_folder_message_no_title">"এই ফ'ল্ডাৰটো আঁতৰোৱা হ'ব৷ এই ফ'ল্ডাৰত থকা এপ্লিকেশ্বনসমূহ আনইনষ্টল কৰা হ'ব৷"</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">"এই ফ'ল্ডাৰটো আঁতৰি যাব। এই ফ'ল্ডাৰত থকা এপ্প্‌চ এপ ট্ৰেৰ সমাপ্তিত সূচীবদ্ধ হ'ব।"</string>
     <string name="remove_app_folder_title">"ফ'ল্ডাৰ বিলোপ কৰক"</string>
     <string name="remove_app_folder_title_VZW">"ফ'ল্ডাৰ আঁতৰাওক"</string>
     <string name="remove_home_folder_message">"%s ফ'ল্ডাৰ বিলোপ কৰা হ'ব। এপ্প্‌চ স্ক্ৰীণত এই ফ'ল্ডাৰৰ ভিতৰত থকা এপ্প্‌চ এতিয়াও উপলব্ধ হ'ব।"</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">এপ্প্‌চৰ বাবে অনুসন্ধান</string>
     <string name="search_for_widgets">ৱিজেটৰ বাবে অনুসন্ধান কৰক</string>
     <string name="search_result_found">%d টা বিচাৰি পালে</string>
-    <string name="search_result_founds">%d টা পোৱা গৈছে</string>
+    <string name="search_result_founds">%d টা বিচাৰি পালে</string>
     <string name="select_all_app">সকলো</string>
     <string name="select_app_add">যোগ কৰক</string>
     <string name="selected">চয়নিত</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">"কাষ্ট'ম অৰ্ডাৰ"</string>
     <string name="widget_duplicate">%s টা ৱিজেট ইতিমধ্যে গৃহ স্ক্ৰীণত আছে৷</string>
     <string name="work_folder_name">কাম</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">আইটেম যোগ কৰিবলৈ স্ক্ৰীণ টাচ্চ্‌ কৰক আৰু ধৰি থাকক</string>
+    <string name="zeropage_briefing_title">ব্ৰিফিং</string>
+    <string name="zeropage_download">ডাউনলোড কৰক</string>
+    <string name="zeropage_download_msg">এই ফাংচন ব্যৱহাৰ কৰিবলৈ, আপুনি %1$s ইনষ্টল কৰাৰ প্ৰয়োজন। %2$s ডাউনলোড আৰু ইনষ্টল কৰিবলৈ “ডাউনলোড” টিপক।</string>
     <string name="zeropage_notice_msg">"%s বাতৰি সেৱা উপলব্ধ নহয়। ফ্লিপব'ৰ্ড ব্ৰিফিঙৰ পৰিৱৰ্তে ইয়াক ব্যৱহাৰ কৰিবলৈ, “ঠিক” টিপক।"</string>
     <string name="zeropage_setting_dialog_no">বাতিল</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">চোহো বাতৰি</string>
 </resources>

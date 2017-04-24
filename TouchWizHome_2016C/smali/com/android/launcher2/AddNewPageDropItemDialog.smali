@@ -249,7 +249,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f080097
+    const v2, 0x7f08009f
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/AddNewPageDropItemDialog;->getString(I)Ljava/lang/String;
 
@@ -259,13 +259,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f080033
+    const v2, 0x7f080036
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f08002e
+    const v2, 0x7f080031
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

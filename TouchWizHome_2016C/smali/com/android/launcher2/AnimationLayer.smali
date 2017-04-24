@@ -47,6 +47,8 @@
 
 .field final mBlockEventsListener:Landroid/animation/AnimatorListenerAdapter;
 
+.field private mCurrentFlipFont:I
+
 .field private mCurrentMobileKeyboard:I
 
 .field private mCurrentOrientation:I
@@ -162,6 +164,18 @@
     iget v0, v0, Landroid/content/res/Configuration;->orientation:I
 
     iput v0, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentOrientation:I
+
+    iget-object v0, p0, Lcom/android/launcher2/AnimationLayer;->mResources:Landroid/content/res/Resources;
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/launcher2/Utilities;->getFlipFontValue(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentFlipFont:I
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportNfcHwKeyboard()Z
 
@@ -281,6 +295,18 @@
     iput v0, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentMobileKeyboard:I
 
     :cond_0
+    iget-object v0, p0, Lcom/android/launcher2/AnimationLayer;->mResources:Landroid/content/res/Resources;
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/launcher2/Utilities;->getFlipFontValue(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentFlipFont:I
+
     check-cast p1, Lcom/android/launcher2/Launcher;
 
     iput-object p1, p0, Lcom/android/launcher2/AnimationLayer;->mLauncher:Lcom/android/launcher2/Launcher;
@@ -452,6 +478,32 @@
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     return-object v0
+.end method
+
+.method private dispatchFlipFontChanged(Landroid/content/res/Configuration;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher2/AnimationLayer;->mResources:Landroid/content/res/Resources;
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/launcher2/Utilities;->getFlipFontValue(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentFlipFont:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher2/AnimationLayer;->mFirstDrawAfterConfigChange:Z
+
+    invoke-virtual {p0}, Lcom/android/launcher2/AnimationLayer;->cancelAnimations()V
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    return-void
 .end method
 
 .method private dispatchOrientationChanged(Landroid/content/res/Configuration;)V
@@ -1991,6 +2043,27 @@
     goto :goto_0
 
     :cond_4
+    iget-object v3, p0, Lcom/android/launcher2/AnimationLayer;->mLauncher:Lcom/android/launcher2/Launcher;
+
+    sget-boolean v3, Lcom/android/launcher2/Launcher;->sIsConfigChanged:Z
+
+    if-eqz v3, :cond_5
+
+    invoke-static {v0}, Lcom/android/launcher2/Utilities;->getFlipFontValue(Landroid/content/res/Configuration;)I
+
+    move-result v3
+
+    iget v4, p0, Lcom/android/launcher2/AnimationLayer;->mCurrentFlipFont:I
+
+    if-eq v3, v4, :cond_5
+
+    invoke-direct {p0, v0}, Lcom/android/launcher2/AnimationLayer;->dispatchFlipFontChanged(Landroid/content/res/Configuration;)V
+
+    invoke-virtual {p0}, Lcom/android/launcher2/AnimationLayer;->requestLayout()V
+
+    goto :goto_1
+
+    :cond_5
     iget-boolean v3, p0, Lcom/android/launcher2/AnimationLayer;->mFirstDrawAfterConfigChange:Z
 
     if-eqz v3, :cond_2

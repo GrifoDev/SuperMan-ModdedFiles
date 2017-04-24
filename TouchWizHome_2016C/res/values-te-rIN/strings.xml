@@ -34,14 +34,17 @@
     <string name="all_apps_title">ఆప్స్</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;కఖగఘఙచఛజఝఞటఠడఢణతథదధనపఫబభమయరలళవశషసహఱABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s దాచబడింది.</string>
+    <string name="app_locked_toast">%s లాక్ చేయబడింది.</string>
     <string name="app_search">శోధన</string>
     <string name="app_search_no_apps">మీరు శోధన ఫలితాల నుండి హోమ్ స్క్రీన్‌లో సత్వరమార్గాలను జోడించవచ్చు.</string>
     <string name="app_search_no_results_found">ఫలితాలు కనుగొనబడలేదు</string>
+    <string name="app_unlocked_toast">%s అన్‌లాక్ చేయబడింది.</string>
     <string name="apply">వర్తించు</string>
     <string name="available_galaxyapps">Galaxy Appsలో అందుబాటులో ఉంటుంది</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ప్రతి అప్లికేషన్ కోసం బ్యాడ్జ్‌లను చూపాలో లేదా దాచాలో ఎంచుకోండి.</string>
+    <string name="badge_manage_summary">ప్రతి అప్లికేషన్ కోసం బ్యాడ్జ్‌లను చూపాలో లేదా దాచాలో ఎంచుకోండి.</string>
+    <string name="badge_manage_title">అప్లికేషన్ బ్యాడ్జ్‌లను నిర్వహించండి</string>
     <string name="cancel">రద్దు</string>
     <string name="change_home_screen_settings">హోమ్ స్క్రీన్ సెట్టింగ్‌లను మార్చు</string>
     <string name="change_home_screen_settings_info">ఈ అప్లికేషన్ మీ హోమ్ స్క్రీన్ సెట్టింగ్‌లు మరియు సత్వరమార్గాలను మార్చవచ్చు.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">ప్రత్యక్ష డయల్</string>
     <string name="direct_message">ప్రత్యక్ష సందేశం</string>
     <string name="disable_message">దీనికి సంబంధించిన %1$s మరియు అన్ని విధులు నిలిపివేయబడతాయి. అప్లికేషన్‌ను మళ్లీ ప్రారంభించడానికి, సెట్టింగ్‌లు > అప్లికేషన్‌లకి వెళ్లి, ఆపై %2$sని ఎంచుకోండి.</string>
+    <string name="disable_message_att">%s మరియు దీనికి సంబంధించిన అన్ని ఫీచర్‌లు నిలిపివేయబడతాయి. దీనిని మళ్లీ ప్రారంభించడానికి, సెట్టింగ్‌లు > పరికరం > అప్లికేషన్‌లు > అప్లికేషన్ నిర్వాహికి వెళ్లండి.</string>
     <string name="disable_message_vzw">%s మరియు దీనికి సంబంధించిన అన్ని ఫీచర్‌లు నిలిపివేయబడతాయి. దీనిని మళ్లీ ప్రారంభించడానికి, సెట్టింగ్‌లు > అప్లికేషన్‌లు > అప్లికేషన్ నిర్వాహికిలోకి వెళ్లండి.</string>
     <string name="disable_messange_knox">%s మరియు దీనికి సంబంధించిన అన్ని లక్షణాలు నిలిపివేయబడతాయి. దీన్ని మళ్లీ ప్రారంభించడానికి, KNOX సెట్టింగ్‌లు > అనువర్తన నిర్వాహికికి వెళ్లండి.</string>
     <string name="disable_title">అప్లికేషన్‌ని నిలిపివేయి</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">విడ్జెట్ పరిమాణాన్ని మార్చడానికి అంచుని పైకి, కిందికి, లోపలికి లేదా బయటికి లాగండి.</string>
     <string name="guide_tap_here">అప్లికేషన్ చిహ్నాన్ని ట్యాప్ చేయండి.</string>
     <string name="guide_widgets_tap_area">విడ్జెట్ ఎడిట్ చేయబడే వరకు దాన్ని ట్యాప్ చేసి, పట్టుకుని, ఆపై దాన్ని విడుదల చేయండి.</string>
+    <string name="hide">దాచు</string>
+    <string name="hide_confirm_continue">కొనసాగు</string>
+    <string name="hide_confirm_message">%s అప్లికేషన్ ప్రస్తుతం లాక్ చేయబడింది. మీరు ఈ అప్లికేషన్‌ని దాస్తే, అది అన్‌లాక్ చేయబడుతుంది.</string>
+    <string name="hide_confirm_title">అప్లికేషన్‌ని దాచు</string>
     <string name="home_edit_add_to_personal">వ్యక్తిగతానికి జోడించు</string>
     <string name="home_edit_bar_delete_title">సత్వరమార్గాన్ని తీసివేయి</string>
     <string name="home_edit_bar_delete_title_vzw">సత్వరమార్గాన్ని తీసివేయి</string>
@@ -134,7 +142,7 @@
     <string name="ok">సరే</string>
     <string name="only_one_widget_instance_allowed">హోమ్ స్క్రీన్‌కు %s విడ్జెట్ ఇప్పటికే జోడించబడింది.</string>
     <string name="open_folder">ఫోల్డర్ తెరవండి</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">అప్లికేషన్‌లను వీక్షించండి</string>
     <string name="option_menu_contact_up">మమ్మల్ని సంప్రదించండి</string>
     <string name="option_tray_screengrid">స్క్రీన్ గ్రిడ్</string>
     <string name="options_home_set_theme">థీమ్‌లు</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">విడ్జెట్‌లను జోడించు</string>
     <string name="quick_contact">పరిచయం</string>
     <string name="quick_options_help_text">అప్లికేషన్ సత్వరమార్గం త్వరిత ఎంపికలను వీక్షించడానికి దాన్ని దిగువకు స్వైప్ చేయండి. త్వరిత ఎంపికలు అప్లికేషన్‌లను సులభంగా నిర్వహించడానికి మిమ్మల్ని అనుమతిస్తాయి.</string>
+    <string name="quickoption_sleep">నిద్ర స్థితి</string>
     <string name="quickoptions_add_apps">అప్లికేషన్‌లను జోడించండి</string>
     <string name="quickoptions_add_to_secure_folder">"సురక్షిత ఫోల్డర్‌కు
 జోడించు"</string>
     <string name="quickoptions_app_info">అప్లికేషన్ సమాచారం</string>
     <string name="quickoptions_clear_badge">బ్యాడ్జ్‌ని క్లియర్ చేయి</string>
     <string name="quickoptions_disable">నిలిపివేయి</string>
-    <string name="quickoptions_put_to_sleep">నిద్ర స్థితిలో ఉంచండి</string>
-    <string name="quickoptions_put_to_sleep_alert">ఈ అప్లికేషన్‌ను నిద్ర స్థితిలో ఉంచడం ద్వారా నేపథ్యంలో బ్యాటరీని ఉపయోగించకుండా దీన్ని నిరోధించవచ్చు. నిద్ర స్థితిలో ఉన్న అప్లికేషన్‌లు అప్‌డేట్‌లను స్వీకరించవు లేదా మీకు నోటిఫికేషన్‌లను పంపవు, కానీ మీరు వాటిని తెరిచినప్పుడు అవి సక్రియం చేయబడతాయి.</string>
+    <string name="quickoptions_sleep_alert">ఈ అప్లికేషన్‌ను నిద్ర స్థితిలో ఉంచడం ద్వారా నేపథ్యంలో బ్యాటరీని ఉపయోగించకుండా దీన్ని నిరోధించవచ్చు. నిద్ర స్థితిలో ఉన్న అప్లికేషన్‌లు అప్‌డేట్‌లను స్వీకరించవు లేదా మీకు నోటిఫికేషన్‌లను పంపవు, కానీ మీరు వాటిని తెరిచినప్పుడు అవి సక్రియం చేయబడతాయి.</string>
     <string name="quickoptions_uninstall">అన్ఇన్‌స్టాల్</string>
     <string name="quickview_delete_toast_msg">పేజీని తీసివేయడం కోసం దానిని తీసివేయి వద్దకు లాగండి.</string>
     <string name="quickview_drag_bar_delete_title">తొలగించు</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">తొలగించు</string>
     <string name="remove_app_folder_confirm_VZW">తీసివేయి</string>
     <string name="remove_app_folder_message">%s ఫోల్డర్ తొలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ అప్లికేషన్‌ల స్క్రీన్‌లో అందుబాటులో ఉన్నాయి.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ఫోల్డర్ తీసివేయబడుతోంది. ఈ ఫోల్డర్‌లో ఉన్న అప్లికేషన్‌లు అప్లికేషన్ ట్రే చివరలో జాబితా చేయబడతాయి.</string>
     <string name="remove_app_folder_message_no_title">ఈ ఫోల్డర్ తీసివేయబడుతుంది. ఈ ఫోల్డర్‌లోని అప్లికేషన్‌లు తొలగించబడవు.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ఈ ఫోల్డర్ తీసివేయబడుతుంది. ఈ ఫోల్డర్‌లో ఉన్న అప్లికేషన్‌లు అప్లికేషన్ ట్రే చివరలో జాబితా చేయబడతాయి.</string>
     <string name="remove_app_folder_title">ఫోల్డర్‌ను తొలగించు</string>
     <string name="remove_app_folder_title_VZW">ఫోల్డరు తొలగించు</string>
     <string name="remove_home_folder_message">%s ఫోల్డర్ తొలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ అప్లికేషన్‌ల స్క్రీన్‌లో అందుబాటులో ఉన్నాయి.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">అప్లికేషన్‌ల కోసం శోధించు</string>
     <string name="search_for_widgets">విడ్జెట్‌ల కోసం శోధించండి</string>
     <string name="search_result_found">%d కనుగొనబడింది</string>
-    <string name="search_result_founds">%d కనుగొనబడ్డాయి</string>
+    <string name="search_result_founds">%d కనుగొనబడింది</string>
     <string name="select_all_app">అన్ని</string>
     <string name="select_app_add">జోడించు</string>
     <string name="selected">ఎంచుకోబడ్డాయి</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">కస్టమ్ ఆర్డర్</string>
     <string name="widget_duplicate">హోమ్ స్క్రీన్‌లో %s విడ్జెట్ ఇప్పటికే ఉంది.</string>
     <string name="work_folder_name">కార్యాలయం</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">అంశాలను జోడించేందుకు స్క్రీన్‌ను నొక్కి, పట్టుకోండి</string>
+    <string name="zeropage_briefing_title">సంక్షిప్త వివరణ</string>
+    <string name="zeropage_download">డౌన్‌లోడ్ చేయి</string>
+    <string name="zeropage_download_msg">మీరు ఈ విధిని ఉపయోగించడం కోసం, మీరు %1$sను ఇన్‌స్టాల్ చేయాలి. %2$sని డౌన్‌లోడ్ చేసి, ఇన్‌స్టాల్ చేయడానికి “డౌన్‌లోడ్ చేయి” ట్యాప్ చేయండి.</string>
     <string name="zeropage_notice_msg">%s వార్తల సేవ ఇప్పుడు అందుబాటులో ఉంది. ఫ్లిప్‌బోర్డ్ సంక్షిప్తానికి బదులుగా దీన్ని ఉపయోగించడానికి, “సరే” ట్యాప్ చేయండి.</string>
     <string name="zeropage_setting_dialog_no">రద్దు</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">సోహు వార్తలు</string>
 </resources>

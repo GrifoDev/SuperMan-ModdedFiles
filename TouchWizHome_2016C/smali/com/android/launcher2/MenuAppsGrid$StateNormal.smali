@@ -61,7 +61,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0200a7
+    const v5, 0x7f0200a8
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -79,7 +79,7 @@
 
     if-eqz v1, :cond_0
 
-    const v4, 0x7f1000c5
+    const v4, 0x7f1000c9
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

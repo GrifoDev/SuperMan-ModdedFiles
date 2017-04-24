@@ -34,14 +34,17 @@
     <string name="all_apps_title">Εφαρμογές</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s κρυμμένες.</string>
+    <string name="app_locked_toast">Η εφαρμογή %s κλειδώθηκε.</string>
     <string name="app_search">Αναζήτηση</string>
     <string name="app_search_no_apps">Μπορείτε να προσθέσετε συντομεύσεις στην αρχική οθόνη από τα αποτελέσματα αναζήτησης.</string>
     <string name="app_search_no_results_found">Δεν βρέθηκαν αποτελέσματα</string>
+    <string name="app_unlocked_toast">Η κατηγορία %s ξεκλειδώθηκε.</string>
     <string name="apply">Εφαρμογή</string>
     <string name="available_galaxyapps">Διαθέσιμο στο Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Επιλέξτε αν θα εμφανίζονται ή όχι τα σήματα για κάθε εφαρμογή.</string>
+    <string name="badge_manage_summary">Επιλέξτε αν θα εμφανίζονται ή όχι τα σήματα για κάθε εφαρμογή.</string>
+    <string name="badge_manage_title">Διαχείριση σημάτων εφαρμογών</string>
     <string name="cancel">Ακύρωση</string>
     <string name="change_home_screen_settings">Αλλαγή ρυθμ. αρχικής οθόνης</string>
     <string name="change_home_screen_settings_info">Αυτή η εφαρμογή μπορεί να αλλάξει τις ρυθμίσεις και τις συντομεύσεις της αρχικής οθόνης.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Απευθείας κλήση</string>
     <string name="direct_message">Άμεσο μήνυμα</string>
     <string name="disable_message">Η εφαρμογή %1$s και όλες οι σχετικές λειτουργίες της θα απενεργοποιηθούν. Για να ενεργοποιήσετε ξανά την εφαρμογή, μεταβείτε στο μενού Ρυθμίσεις > Εφαρμογές και επιλέξτε %2$s.</string>
+    <string name="disable_message_att">Η εφαρμογή %s και όλες οι σχετικές λειτουργίες της θα απενεργοποιηθούν. Για να την ενεργοποιήσετε ξανά, μεταβείτε στο μενού Ρυθμίσεις > Συσκευή > Εφαρμογές > Διαχείριση εφαρμογών.</string>
     <string name="disable_message_vzw">Η εφαρμογή %s και όλες οι σχετικές λειτουργίες της θα απενεργοποιηθούν. Για να την ενεργοποιήσετε ξανά, μεταβείτε στο μενού Ρυθμίσεις > Εφαρμογές > Διαχείριση εφαρμογών.</string>
     <string name="disable_messange_knox">Η εφαρμογή %s και οι σχετικές λειτουργίες της θα απενεργοποιηθούν. Για να την ενεργοποιήσετε ξανά, μεταβείτε στις Ρυθμίσεις KNOX > Διαχείριση εφαρμογών.</string>
     <string name="disable_title">Απενεργοποίηση εφαρμογής</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Μετακινήστε τα όρια προς τα επάνω, προς τα κάτω, προς τα μέσα ή προς τα έξω για να αλλάξετε το μέγεθος του widget.</string>
     <string name="guide_tap_here">Πατήστε το εικονίδιο εφαρμογών.</string>
     <string name="guide_widgets_tap_area">Πατήστε παρατεταμένα ένα widget για να το επεξεργαστείτε και μετά απελευθερώστε το.</string>
+    <string name="hide">Απόκρυψη</string>
+    <string name="hide_confirm_continue">Συνέχεια;</string>
+    <string name="hide_confirm_message">Η εφαρμογή %s είναι κλειδωμένη αυτήν τη στιγμή. Εάν κάνετε απόκρυψη αυτής της εφαρμογής, θα ξεκλειδωθεί.</string>
+    <string name="hide_confirm_title">Απόκρυψη εφαρμογής</string>
     <string name="home_edit_add_to_personal">Προσθ. σε προσωπ.</string>
     <string name="home_edit_bar_delete_title">Κατάργηση συντόμ.</string>
     <string name="home_edit_bar_delete_title_vzw">Κατάργηση συντόμ.</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Το widget %s προστέθηκε ήδη στην αρχική οθόνη.</string>
     <string name="open_folder">Άνοιγμα φακέλου</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Προβολή εφαρμογών</string>
     <string name="option_menu_contact_up">Επικοινωνία</string>
     <string name="option_tray_screengrid">Πλέγμα οθόνης</string>
     <string name="options_home_set_theme">Θέματα</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Προσθήκη widget</string>
     <string name="quick_contact">Επαφή</string>
     <string name="quick_options_help_text">Κάντε σάρωση μιας συντόμευσης εφαρμογής προς τα κάτω για να προβάλετε τις αντίστοιχες γρήγορες επιλογές. Οι γρήγορες επιλογές σάς επιτρέπουν την εύκολη διαχείριση των εφαρμογών.</string>
+    <string name="quickoption_sleep">Αναμονή</string>
     <string name="quickoptions_add_apps">Προσθήκη εφαρμογών</string>
     <string name="quickoptions_add_to_secure_folder">"Προσθ. σε
 Ασφαλή φάκελο"</string>
     <string name="quickoptions_app_info">Πληροφορίες εφαρμογών</string>
     <string name="quickoptions_clear_badge">Εκκαθάριση σήματος</string>
     <string name="quickoptions_disable">Απενεργοπ.</string>
-    <string name="quickoptions_put_to_sleep">Τοποθέτηση σε αδράνεια</string>
-    <string name="quickoptions_put_to_sleep_alert">Αν τη θέσετε σε αδράνεια, θα αποτρέψετε αυτήν την εφαρμογή να χρησιμοποιεί την μπαταρία στο παρασκήνιο. Οι εφαρμογές σε αδράνεια μπορεί να μην λαμβάνουν ενημερώσεις ή να μην στέλνουν ειδοποιήσεις, αλλά θα ενεργοποιούνται αυτόματα μόλις τις ανοίξετε.</string>
+    <string name="quickoptions_sleep_alert">Αν τη θέσετε σε αδράνεια, θα αποτρέψετε αυτήν την εφαρμογή να χρησιμοποιεί την μπαταρία στο παρασκήνιο. Οι εφαρμογές σε αδράνεια μπορεί να μην λαμβάνουν ενημερώσεις ή να μην στέλνουν ειδοποιήσεις, αλλά θα ενεργοποιούνται αυτόματα μόλις τις ανοίξετε.</string>
     <string name="quickoptions_uninstall">Κατάργηση</string>
     <string name="quickview_delete_toast_msg">Σύρετε τη σελίδα στο μενού Κατάργηση για να την καταργήσετε.</string>
     <string name="quickview_drag_bar_delete_title">Κατάργηση</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Διαγραφή</string>
     <string name="remove_app_folder_confirm_VZW">Κατάργηση</string>
     <string name="remove_app_folder_message">Ο φάκελος %s θα διαγραφεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα συνεχίσουν να είναι διαθέσιμες στην οθόνη Εφαρμογών.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Ο φάκελος %s θα καταργηθεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα εμφανίζονται στο τέλος της γραμμής εφαρμογών.</string>
     <string name="remove_app_folder_message_no_title">Αυτός ο φάκελος θα καταργηθεί. Δεν θα καταργηθεί η εγκατάσταση των εφαρμογών που υπάρχουν σε αυτόν το φάκελο.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Αυτός ο φάκελος θα καταργηθεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα εμφανίζονται στο τέλος της γραμμής εφαρμογών.</string>
     <string name="remove_app_folder_title">Διαγραφή φακέλου</string>
     <string name="remove_app_folder_title_VZW">Κατάργηση φακέλου</string>
     <string name="remove_home_folder_message">Ο φάκελος %s θα διαγραφεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα συνεχίσουν να είναι διαθέσιμες στην οθόνη Εφαρμογών.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">Αναζήτηση για εφαρμογές</string>
     <string name="search_for_widgets">Αναζήτηση για widget</string>
     <string name="search_result_found">Βρέθηκε %d</string>
-    <string name="search_result_founds">Βρέθηκαν %d στοιχεία</string>
+    <string name="search_result_founds">Βρέθηκε %d</string>
     <string name="select_all_app">Όλα</string>
     <string name="select_app_add">ΠΡΟΣΘΗΚΗ</string>
     <string name="selected">Επιλέχθηκε</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Προσαρμοσμένη σειρά</string>
     <string name="widget_duplicate">Το widget %s υπάρχει ήδη στην αρχική οθόνη.</string>
     <string name="work_folder_name">Εργασία</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Αγγίξτε παρατεταμένα την οθόνη για να προσθέσετε στοιχεία</string>
+    <string name="zeropage_briefing_title">Ενημέρωση</string>
+    <string name="zeropage_download">Λήψη</string>
+    <string name="zeropage_download_msg">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, πρέπει να εγκαταστήσετε το %1$s. Πατήστε ΛΗΨΗ για να κάνετε λήψη και εγκατάσταση του %2$s.</string>
     <string name="zeropage_notice_msg">Η υπηρεσία ειδήσεων %s είναι τώρα διαθέσιμη. Για να τη χρησιμοποιήσετε αντί του Flipboard Briefing, πατήστε OK.</string>
     <string name="zeropage_setting_dialog_no">Ακύρωση</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Νέα του Sohu</string>
 </resources>

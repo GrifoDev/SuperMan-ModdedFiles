@@ -1285,7 +1285,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800d0
+    const v3, 0x7f0800d8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1333,7 +1333,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080043
+    const v4, 0x7f080047
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1902,11 +1902,11 @@
 .method protected drawShadow(Landroid/graphics/Canvas;)V
     .locals 8
 
-    const v7, 0x7f090248
+    const v7, 0x7f09024a
 
-    const v6, 0x7f090137
+    const v6, 0x7f090138
 
-    const v5, 0x7f09012f
+    const v5, 0x7f090130
 
     iget-boolean v3, p0, Lcom/android/launcher2/FolderIconView;->mDrawShadow:Z
 
@@ -2046,7 +2046,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090229
+    const v4, 0x7f09022b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2124,7 +2124,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090251
+    const v4, 0x7f090253
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2137,7 +2137,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090252
+    const v4, 0x7f090254
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5487,7 +5487,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f080043
+    const v20, 0x7f080047
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5548,7 +5548,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f080083
+    const v21, 0x7f08008b
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5607,7 +5607,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0800ca
+    const v21, 0x7f0800d2
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5828,7 +5828,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f080043
+    const v20, 0x7f080047
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5969,7 +5969,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f080082
+    const v21, 0x7f08008a
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

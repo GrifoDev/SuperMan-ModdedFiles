@@ -39,9 +39,9 @@
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .locals 7
+    .locals 8
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-nez p2, :cond_1
 
@@ -49,103 +49,136 @@
 
     :cond_0
     :goto_0
-    return-object v3
+    return-object v4
 
     :cond_1
-    iget v4, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
+    iget v5, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
 
     invoke-interface {p4}, Landroid/text/Spanned;->length()I
 
-    move-result v5
+    move-result v6
 
-    sub-int v6, p6, p5
+    sub-int v7, p6, p5
 
-    sub-int/2addr v5, v6
+    sub-int/2addr v6, v7
 
-    sub-int v2, v4, v5
+    sub-int v3, v5, v6
 
-    if-gtz v2, :cond_2
+    if-gtz v3, :cond_2
 
-    iget-object v3, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
 
-    iget v4, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
+    iget v5, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
 
-    invoke-static {v3, v4}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
+    invoke-static {v4, v5}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
 
-    const-string v3, ""
+    const-string v4, ""
 
     goto :goto_0
 
     :cond_2
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-ne v2, v4, :cond_3
+    if-ne v3, v5, :cond_3
 
-    sub-int v4, p3, p2
+    sub-int v5, p3, p2
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    if-ne v4, v5, :cond_3
+    if-ne v5, v6, :cond_3
 
-    iget-object v3, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
 
-    iget v4, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
+    iget v5, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
 
-    invoke-static {v3, v4}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
+    invoke-static {v4, v5}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
 
-    const-string v3, ""
+    const-string v4, ""
 
     goto :goto_0
 
     :cond_3
-    sub-int v4, p3, p2
+    sub-int v5, p3, p2
 
-    if-ge v2, v4, :cond_0
+    if-ge v3, v5, :cond_0
 
-    sub-int v4, p3, p2
+    sub-int v5, p3, p2
 
-    if-ge v2, v4, :cond_0
+    if-ge v3, v5, :cond_0
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/launcher2/Utilities$1;->val$context:Landroid/content/Context;
 
-    iget v4, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
+    iget v5, p0, Lcom/android/launcher2/Utilities$1;->val$maxSize:I
 
-    invoke-static {v3, v4}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
+    invoke-static {v4, v5}, Lcom/android/launcher2/Utilities;->showToast(Landroid/content/Context;I)V
 
-    add-int v1, p2, v2
+    add-int v1, p2, v3
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    add-int/lit8 v4, v1, -0x1
+    add-int/lit8 v5, v1, -0x1
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->codePointAt(I)I
+    invoke-virtual {v4, v5}, Ljava/lang/String;->codePointAt(I)I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Lcom/android/launcher2/Utilities;->isEmoji(I)Z
+    invoke-static {v4}, Lcom/android/launcher2/Utilities;->isEmoji(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     add-int/lit8 v1, v1, -0x1
 
     :cond_4
+    const/4 v2, 0x0
+
+    :goto_1
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v4
+
+    if-ge v2, v4, :cond_6
+
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->codePointAt(I)I
+
+    move-result v4
+
+    invoke-static {v4}, Lcom/android/launcher2/Utilities;->isEnclosedAlphanumSuppplement(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const-string v4, ""
+
+    goto :goto_0
+
+    :cond_5
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_6
     invoke-interface {p1, p2, v1}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
     :try_end_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v3
+    move-result-object v4
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    const-string v3, ""
+    const-string v4, ""
 
     goto :goto_0
 .end method

@@ -34,14 +34,17 @@
     <string name="all_apps_title">პროგრამები</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZაბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ</string>
+    <string name="app_hidden_toast">%s დამალულია.</string>
+    <string name="app_locked_toast">%s დაბლოკილია.</string>
     <string name="app_search">ძებნა</string>
     <string name="app_search_no_apps">შეგიძლიათ, ძიების შედეგებიდან დაამატოთ ღილაკები საწყის ეკრანზე.</string>
     <string name="app_search_no_results_found">შედეგები ვერ მოიძებნა</string>
+    <string name="app_unlocked_toast">%s განბლოკილია.</string>
     <string name="apply">შენახვა</string>
     <string name="available_galaxyapps">Galaxy Apps-ში ხელმისაწვდომი</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">აირჩიეთ, გსურთ თუ არა თითოეული აპლიკაციის ნიშნების გამოჩენა ან დამალვა.</string>
+    <string name="badge_manage_summary">აირჩიეთ, გსურთ თუ არა თითოეული აპლიკაციის ნიშნების გამოჩენა ან დამალვა.</string>
+    <string name="badge_manage_title">აპლიკაციის ნიშნების მართვა</string>
     <string name="cancel">გაუქმება</string>
     <string name="change_home_screen_settings">ეკრანის პარამეტრების შეცვლა</string>
     <string name="change_home_screen_settings_info">ამ აპლიკაციას შეუძლია, შეცვალოს საწყისი ეკრანის პარამეტრები და ღილაკები.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">პირდაპირ აკრეფა</string>
     <string name="direct_message">პირადი წერილი</string>
     <string name="disable_message">%1$s და მასთან დაკავშირებული ყველა ფუნქცია გაითიშება. აპლიკაციის ხელახლა ჩასართავად, გახსენით „პარამეტრები“ > „აპლიკაციები“, შემდეგ კი აირჩიეთ „%2$s“.</string>
+    <string name="disable_message_att">%s და მასთან დაკავშირებული ყველა ფუნქცია გაითიშება. მის ხელახლა ჩასართავად გახსენით პარამეტრები > მოწყობილობა > აპლიკაციები > აპლიკაციების მმართველი.</string>
     <string name="disable_message_vzw">%s და მასთან დაკავშირებული ყველა ფუნქცია გაითიშება. მის ხელახლა ჩასართავად გახსენით პარამეტრები > აპლიკაციები > აპლიკაციების მმართველი.</string>
     <string name="disable_messange_knox">%s და მასთან დაკავშირებული ყველა ფუნქცია გაითიშება. მის ხელახლა ჩასართავად, გახსენით „KNOX პარამეტრები“ > „აპლიკაციების მმართველი“.</string>
     <string name="disable_title">პროგრამის გამორთვა</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ვიჯეტის ზომის შესაცვლელად ამოძრავეთ ჩარჩო ზემოთ, ქვემოთ, შიგნით ან გარეთ.</string>
     <string name="guide_tap_here">შეეხეთ პროგრამების ნიშანს.</string>
     <string name="guide_widgets_tap_area">ხანგრძლივად შეეხეთ ვიჯეტს, სანამ შეძლებთ მის შესწორებას, შემდეგ კი აუშვით ხელი.</string>
+    <string name="hide">დამალვა</string>
+    <string name="hide_confirm_continue">გაგრძელება</string>
+    <string name="hide_confirm_message">ამჟამად დაბლოკილია %s აპლიკაცია. თუ ამ აპლიკაციას დამალავთ, ის განიბლოკება.</string>
+    <string name="hide_confirm_title">აპლიკაციის დამალვა</string>
     <string name="home_edit_add_to_personal">პირადზე დამატ.</string>
     <string name="home_edit_bar_delete_title">ღილაკის წაშლა</string>
     <string name="home_edit_bar_delete_title_vzw">ღილაკის წაშლა</string>
@@ -134,7 +142,7 @@
     <string name="ok">კი</string>
     <string name="only_one_widget_instance_allowed">%s ვიჯეტი უკვე დამატებულია საწყის გვერდზე.</string>
     <string name="open_folder">საქაღალდის გახსნა</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">აპლიკაციების ნახვა</string>
     <string name="option_menu_contact_up">მოგვმართეთ</string>
     <string name="option_tray_screengrid">ბადე ეკრანზე</string>
     <string name="options_home_set_theme">თემები</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ვიჯეტების დამატება</string>
     <string name="quick_contact">კონტაქტი</string>
     <string name="quick_options_help_text">ჩამოუსვით თითი აპლიკაციის ღილაკს, მისი სწრაფი ვარიანტების სანახავად. სწრაფი ვარიანტებით მარტივად შეგიძლიათ აპლიკაციის მართვა.</string>
+    <string name="quickoption_sleep">ძილი</string>
     <string name="quickoptions_add_apps">აპლიკაციების დამატება</string>
     <string name="quickoptions_add_to_secure_folder">"დაცულ საქაღალდეში
 ჩადება"</string>
     <string name="quickoptions_app_info">პროგრამის ინფორმაცია</string>
     <string name="quickoptions_clear_badge">ნიშნის გასუფთავება</string>
     <string name="quickoptions_disable">გამორთვა</string>
-    <string name="quickoptions_put_to_sleep">დაძინება</string>
-    <string name="quickoptions_put_to_sleep_alert">თუ ამ აპლიკაციას დააძინებთ, ის აღარ გამოიყენებს ენერგიას ფონზე. მძინარე აპლიკაციებმა შეიძლება არ მიიღოს განახლებები და არ გაგზავნოს შეტყობინებები, მაგრამ მათი გაღვიძება მოხდება მათი გახსნისთანავე.</string>
+    <string name="quickoptions_sleep_alert">თუ ამ აპლიკაციას დააძინებთ, ის აღარ გამოიყენებს ენერგიას ფონზე. მძინარე აპლიკაციებმა შეიძლება არ მიიღოს განახლებები და არ გაგზავნოს შეტყობინებები, მაგრამ მათი გაღვიძება მოხდება მათი გახსნისთანავე.</string>
     <string name="quickoptions_uninstall">დეინსტალაცია</string>
     <string name="quickview_delete_toast_msg">გვერდის წასაშლელად, უბიძგეთ მას „წაშლისკენ“.</string>
     <string name="quickview_drag_bar_delete_title">წაშლა</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">წაშლა</string>
     <string name="remove_app_folder_confirm_VZW">წაშლა</string>
     <string name="remove_app_folder_message">%s საქაღალდე წაიშლება. ამ საქაღალდეში შენახული აპლიკაციები კვლავ ხელმისაწვდომი იქნება „აპლიკაციების“ ეკრანზე.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s საქაღალდე წაიშლება. აპები ამ საქაღალდეში ჩამოთვლილი იქნება აპის ლანგარის ბოლოს.</string>
     <string name="remove_app_folder_message_no_title">ეს საქაღალდე წაიშლება. ამ საქაღალდეში პროგრამების ამოინსტალირება არ მოხდება</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ეს საქაღალდე წაიშლება. აპები ამ საქაღალდეში ჩამოთვლილი იქნება აპის ლანგარის ბოლოს.</string>
     <string name="remove_app_folder_title">საქაღალდის წაშლა</string>
     <string name="remove_app_folder_title_VZW">საქაღალდის მოცილება</string>
     <string name="remove_home_folder_message">%s საქაღალდე წაიშლება. ამ საქაღალდეში შენახული აპლიკაციები კვლავ ხელმისაწვდომი იქნება „აპლიკაციების“ ეკრანზე.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">შერჩეული მიმდევრობა</string>
     <string name="widget_duplicate">%s ვიჯეტი უკვე არის საწყის ეკრანზე.</string>
     <string name="work_folder_name">სამსახური</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">ხანგრძლივად დააჭირეთ ეკრანს ელემენტის დასამატებლად</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">ჩამოტვირთვა</string>
+    <string name="zeropage_download_msg">ამ ფუნქციის გამოსაყენებლად უნდა დააინსტალიროთ %1$s. თუ გსურთ ჩამოტვირთოთ და დააინსტალიროთ %2$s, შეეხეთ „ჩამოტვირთვა“-ს.</string>
     <string name="zeropage_notice_msg">%s სიახლეთა სერვისი ახლა ხელმისაწვდომია. თუ გსურთ „საინფორმაციო დაფის“ ნაცვლად გამოიყენოთ იგი, შეეხეთ OK-ს.</string>
     <string name="zeropage_setting_dialog_no">გაუქმება</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu-ს ასალი ამბები</string>
 </resources>

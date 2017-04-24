@@ -34,9 +34,12 @@
     <string name="all_apps_title">แอพ</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ซ่อนอยู่</string>
+    <string name="app_locked_toast">%s ถูกล็อกแล้ว</string>
     <string name="app_search">ค้นหา</string>
     <string name="app_search_no_apps">คุณสามารถเพิ่มทางลัดบนหน้าจอหลักจากผลลัพธ์การค้นหาได้</string>
     <string name="app_search_no_results_found">ไม่พบผลลัพธ์</string>
+    <string name="app_unlocked_toast">%s ปลดล็อกแล้ว</string>
     <string name="apply">ใช้</string>
     <string name="available_galaxyapps">พร้อมใช้งานใน Galaxy Apps</string>
     <string name="badge_manage_explain">เลือกว่าจะแสดงหรือซ่อนเครื่องหมายในแต่ละแอพ</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">โทรโดยตรง</string>
     <string name="direct_message">ข้อความโดยตรง</string>
     <string name="disable_message">%1$s และฟังก์ชั่นทั้งหมดที่เกี่ยวข้องจะถูกปิดใช้งาน ไปที่ การตั้งค่า > แอพพลิเคชั่น แล้วเลือก %2$s เพื่อเปิดใช้งานแอพอีกครั้ง</string>
+    <string name="disable_message_att">%s และคุณสมบัติที่เกี่ยวข้องทั้งหมดจะถูกปิดการใช้งาน เมื่อต้องการเปิดใหม่ ไปที่ การตั้งค่า > อุปกรณ์ > แอพพลิเคชั่น > ตัวจัดการแอพพลิเคชั่น</string>
     <string name="disable_message_vzw">%s และคุณสมบัติที่เกี่ยวข้องทั้งหมดจะถูกปิดการใช้งาน เมื่อต้องการเปิดใหม่ ไปที่ การตั้งค่า > แอพพลิเคชั่น > ตัวจัดการแอพพลิเคชั่น</string>
     <string name="disable_messange_knox">%s และคุณสมบัติที่เกี่ยวข้องทั้งหมดจะถูกปิดการใช้งาน ไปที่ การตั้งค่า KNOX > ตัวจัดการแอพพลิเคชั่น เพื่อเปิดใช้งานอีกครั้ง</string>
     <string name="disable_title">ปิดใช้งานแอพพลิเคชั่น</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ดึงกรอบขึ้น ลง เข้า หรือออก เพื่อปรับขนาด วิดเจ็ด</string>
     <string name="guide_tap_here">แตะไอคอนแอพ</string>
     <string name="guide_widgets_tap_area">แตะ วิดเจ็ด ค้างไว้จนกว่าจะสามารถแก้ไขได้ แล้วปล่อย</string>
+    <string name="hide">ซ่อน</string>
+    <string name="hide_confirm_continue">ดำเนิน​การ</string>
+    <string name="hide_confirm_message">%s แอพถูกล็อกอยู่ในขณะนี้ หากคุณซ่อนแอพนี้ แอพจะถูกปลดล็อก</string>
+    <string name="hide_confirm_title">ซ่อนแอพ</string>
     <string name="home_edit_add_to_personal">Add to personal</string>
     <string name="home_edit_bar_delete_title">ลบทางลัด</string>
     <string name="home_edit_bar_delete_title_vzw">ลบทางลัด</string>
@@ -101,8 +109,8 @@
     <string name="item_removed">ย้ายรายการแล้ว</string>
     <string name="labs_alert_description">แสดงแอพทั้งหมดของคุณบนหน้าจอหลักแทนหน้าจอแอพ</string>
     <string name="last_page">หน้าปัจจุบันคือหน้าสุดท้าย</string>
-    <string name="lock">ล็อค</string>
-    <string name="lock_or_unlock_dislog_msg">หลังจากย้ายแอพนี้ออกจากโฟลเดอร์แล้ว จะล็อคแอพนี้ต่อไปหรือปลดล็อค ?</string>
+    <string name="lock">ล็อก</string>
+    <string name="lock_or_unlock_dislog_msg">หลังจากย้ายแอพนี้ออกจากโฟลเดอร์แล้ว จะล็อกแอพนี้ต่อไปหรือปลดล็อก ?</string>
     <string name="max_characters_available">ใช้ได้ถึง %d ตัวอักษร</string>
     <string name="menu_edit">แก้ไข</string>
     <string name="menu_edit_cancel">ยกเลิก</string>
@@ -134,7 +142,7 @@
     <string name="ok">ตกลง</string>
     <string name="only_one_widget_instance_allowed">วิดเจ็ด %s ถูกเพิ่มลงบนหน้าจอหลักแล้ว</string>
     <string name="open_folder">เปิดโฟลเดอร์</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ดูแอพ</string>
     <string name="option_menu_contact_up">ติดต่อเรา</string>
     <string name="option_tray_screengrid">ตารางหน้าจอ</string>
     <string name="options_home_set_theme">ธีม</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">เพิ่ม Widget</string>
     <string name="quick_contact">ราย​ชื่อ</string>
     <string name="quick_options_help_text">ปัดทางลัดแอพลงด้านล่างเพื่อดูตัวเลือกด่วน ตัวเลือกด่วนช่วยให้คุณจัดการแอพได้ง่ายๆ</string>
+    <string name="quickoption_sleep">การนอนหลับ</string>
     <string name="quickoptions_add_apps">เพิ่มแอพ</string>
     <string name="quickoptions_add_to_secure_folder">"เพิ่มใน
 โฟลเดอร์ที่ปลอดภัย"</string>
     <string name="quickoptions_app_info">ข้อ​มูล​แอพ</string>
     <string name="quickoptions_clear_badge">ลบป้าย</string>
     <string name="quickoptions_disable">ปิดใช้งาน</string>
-    <string name="quickoptions_put_to_sleep">พักการใช้งาน</string>
-    <string name="quickoptions_put_to_sleep_alert">การพักการใช้งานแอพนี้จะป้องกันไม่ให้แอพใช้แบตเตอรี่ในพื้นหลัง แอพที่ถูกพักอาจไม่ได้รับอัพเดทหรือส่งการแจ้งเตือนมาถึงคุณได้ แต่จะกลับมาทำงานเมื่อคุณเปิดใช้งาน</string>
+    <string name="quickoptions_sleep_alert">การพักการใช้งานแอพนี้จะป้องกันไม่ให้แอพใช้แบตเตอรี่ในพื้นหลัง แอพที่ถูกพักอาจไม่ได้รับอัพเดทหรือส่งการแจ้งเตือนมาถึงคุณได้ แต่จะกลับมาทำงานเมื่อคุณเปิดใช้งาน</string>
     <string name="quickoptions_uninstall">ถอนการติดตั้ง</string>
     <string name="quickview_delete_toast_msg">ลากหน้าไปยัง ลบ เพื่อลบออก</string>
     <string name="quickview_drag_bar_delete_title">ลบ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ลบ</string>
     <string name="remove_app_folder_confirm_VZW">ลบ</string>
     <string name="remove_app_folder_message">โฟลเดอร์ %s จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอแอพ</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">โฟลเดอร์ %s จะถูกลบ แอพในโฟลเดอร์นี้จะแสดงรายชื่อที่ส่วนท้ายของถาดแอพ</string>
     <string name="remove_app_folder_message_no_title">โฟลเดอร์นี้จะถูกลบออก แอพพลิเคชั่นในโฟลเดอร์นี้จะไม่ถูกถอนการติดตั้ง</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">โฟลเดอร์นี้จะถูกลบออก แอพในโฟลเดอร์นี้จะแสดงรายชื่อที่ส่วนท้ายของถาดแอพ</string>
     <string name="remove_app_folder_title">ลบ​แฟ้ม</string>
     <string name="remove_app_folder_title_VZW">ลบโฟลเดอร์</string>
     <string name="remove_home_folder_message">โฟลเดอร์ %s จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอแอพ</string>
@@ -222,14 +230,14 @@
     <string name="uninstall_message">%s ​จะ​ถูกลบ​การ​ติด​ตั้ง</string>
     <string name="uninstall_title">ลบ​การ​ติด​ตั้ง​แอ​พพลิ​เค​ชั่น</string>
     <string name="uninstall_widget">ถอนการติดตั้ง Widget</string>
-    <string name="unlock">ปลดล็อค</string>
+    <string name="unlock">ปลดล็อก</string>
     <string name="viewmore_galaxyapps">ดูเพิ่มเติมใน Galaxy Apps</string>
     <string name="viewmore_playstore">ดูเพิ่มเติมใน Play Store</string>
     <string name="viewtype_alphabetic_grid">ลำดับตัวอักษร</string>
     <string name="viewtype_custom_grid">จัดลำดับด้วยตัวเอง</string>
     <string name="widget_duplicate">วิดเจท %s อยู่บนหน้าจอหลักแล้ว</string>
     <string name="work_folder_name">งาน</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">แตะ​หน้า​จอ​ค้าง​ไว้​เพื่อ​เพิ่ม​รายการ</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">ดาวน์​โหลด</string>
     <string name="zeropage_download_msg">หากคุณต้องการใช้ฟังก์ชั่นนี้ คุณจะต้องติดตั้ง %1$s แตะ “ดาวน์โหลด” เพื่อดาวน์โหลดและติดตั้ง %2$s</string>

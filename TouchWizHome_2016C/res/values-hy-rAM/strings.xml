@@ -34,14 +34,17 @@
     <string name="all_apps_title">Ծրագրեր</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՈՒՓՔԵՎՕՖ</string>
+    <string name="app_hidden_toast">%s-ը թաքցված է:</string>
+    <string name="app_locked_toast">%s-ը կողպված է:</string>
     <string name="app_search">Որոնել</string>
     <string name="app_search_no_apps">Կարող եք հիմնական էկրանի վրա դյուրանցումներ ավելացնել որոնման արդյունքներից:</string>
     <string name="app_search_no_results_found">Արդյունքներ չեն գտնվել</string>
+    <string name="app_unlocked_toast">%s-ն արգելաբացված է:</string>
     <string name="apply">Կիրառել</string>
     <string name="available_galaxyapps">Մատչելի է Galaxy Apps-ում</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Ընտրեք՝ ցույց տալ, թե թաքցնել յուրաքանչյուր ծրագրի կրծքանշանները:</string>
+    <string name="badge_manage_summary">Ընտրեք՝ ցույց տալ, թե թաքցնել յուրաքանչյուր ծրագրի կրծքանշանները:</string>
+    <string name="badge_manage_title">Կառավարել ծրագրի նշանակները</string>
     <string name="cancel">Չեղարկել</string>
     <string name="change_home_screen_settings">Փոխել հիմն. էկր. դրվածքները</string>
     <string name="change_home_screen_settings_info">Այս ծրագիրը կարող է փոխել հիմնական էկրանի դրվածքները և դյուրանցումները:</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Ինքնաբար համարահավաք</string>
     <string name="direct_message">Ուղիղ հղգրություն</string>
     <string name="disable_message">%1$s-ն ու դրան առնչվող բոլոր գործառույթները կկասեցվեն: Ծրագիրը կրկին ընձեռելու համար գնացեք Դրվածքներ > Ծրագրեր և ընտրեք %2$s:</string>
+    <string name="disable_message_att">%s-ն ու դրան առնչվող բոլոր գործառական հնարավորությունները կկասեցվեն: Այն նորից ընձեռելու համար գնացեք Դրվածքներ > Սարք > Ծրագրեր > Ծրագրի վարիչ:</string>
     <string name="disable_message_vzw">%s-ն ու դրան առնչվող բոլոր գործառական հնարավորությունները կկասեցվեն: Այն նորից ընձեռելու համար գնացեք Դրվածքներ > Ծրագրեր > Ծրագրի վարիչ:</string>
     <string name="disable_messange_knox">%s-ն ու դրան առնչվող բոլոր գործառական հնարավորությունները կկասեցվեն: Այն նորից ընձեռելու համար գնացեք KNOX-ի դրվածքներ > Ծրագրի վարիչ:</string>
     <string name="disable_title">Կասեցնել ծրագիրը</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Եզրագիծը քաշեք վեր, վար, ներս կամ դուրս՝ պատկերագրի չափերը փոխելու համար:</string>
     <string name="guide_tap_here">Թակեք ծրագրերի պատկերակը:</string>
     <string name="guide_widgets_tap_area">Թակեք և պահեք պատկերագիրը, մինչև հնարավոր լինի այն խմբագրել, հետո բաց թողեք այն:</string>
+    <string name="hide">Թաքցնել</string>
+    <string name="hide_confirm_continue">Շարունակել</string>
+    <string name="hide_confirm_message">%s ծրագիրը ներկայումս կողպված է: Եթե թաքցնեք այս ծրագիրը, այն կարգելաբացվի:</string>
+    <string name="hide_confirm_title">Թաքցնել ծրագիրը</string>
     <string name="home_edit_add_to_personal">Ավլցնլ անձնկնին</string>
     <string name="home_edit_bar_delete_title">Հեռցնել դյուրանց.</string>
     <string name="home_edit_bar_delete_title_vzw">Հեռցնել դյուրանց.</string>
@@ -134,7 +142,7 @@
     <string name="ok">Ընդունել</string>
     <string name="only_one_widget_instance_allowed">%s պատկերագիրն արդեն ավելացվել է հիմնական էկրանին:</string>
     <string name="open_folder">Բացել պանակ</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Դիտել ծրագրեր</string>
     <string name="option_menu_contact_up">Դիմեք մեզ</string>
     <string name="option_tray_screengrid">Էկրանի ցանց</string>
     <string name="options_home_set_theme">Թեմաներ</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Ավելացնել պատկերագրեր</string>
     <string name="quick_contact">Կոնտակտ</string>
     <string name="quick_options_help_text">Ծրագրի դյուրանցումը սահեցրեք դեպի ներքև՝ ծրագրի արագ ընտրանքները դիտելու համար: Արագ ընտրանքները թույլ են տալիս հեշտությամբ կառավարել ծրագրերը:</string>
+    <string name="quickoption_sleep">Քուն</string>
     <string name="quickoptions_add_apps">Ավելացնել ծրագրեր</string>
     <string name="quickoptions_add_to_secure_folder">"Ավելացնել
 Ապահով պանակում"</string>
     <string name="quickoptions_app_info">Ծրագրի տեղեկ.</string>
     <string name="quickoptions_clear_badge">Մաքրել նշանակը</string>
     <string name="quickoptions_disable">Կասեցնել</string>
-    <string name="quickoptions_put_to_sleep">Դնել նիրհման ռեժիմում</string>
-    <string name="quickoptions_put_to_sleep_alert">Այս ծրագիրը նիրհման ռեժիմում դնելը թույլ չի տա, որ այն մարտկոց օգտագործի հետին պլանում: Հնարավոր է, որ նիրհման ռեժիմում ծրագրերը չստանան թարմացումներ կամ ծանուցումներ չուղարկեն Ձեզ, բայց կակտիվանան, երբ բացեք դրանք:</string>
+    <string name="quickoptions_sleep_alert">Այս ծրագիրը նիրհման ռեժիմում դնելը թույլ չի տա, որ այն մարտկոց օգտագործի հետին պլանում: Հնարավոր է, որ նիրհման ռեժիմում ծրագրերը չստանան թարմացումներ կամ ծանուցումներ չուղարկեն Ձեզ, բայց կակտիվանան, երբ բացեք դրանք:</string>
     <string name="quickoptions_uninstall">Ապատեղադրել</string>
     <string name="quickview_delete_toast_msg">Էջը քարշեք դեպի «Հեռացնել»՝ այն հեռացնելու համար:</string>
     <string name="quickview_drag_bar_delete_title">Հեռացնել</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Վերացնել</string>
     <string name="remove_app_folder_confirm_VZW">Հեռացնել</string>
     <string name="remove_app_folder_message">%s պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Ծրագրերի էկրանում:</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s պանակը կհեռացվի: Այս պանակի ներսում եղած ծրագրերը կնշվեն Ծրագրերի մատուցարանի վերջում:</string>
     <string name="remove_app_folder_message_no_title">Այս պանակը կհեռացվի: Այս պանակում եղած ծրագրերը չեն ապատեղադրվի</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Այս պանակը կհեռացվի: Այս պանակի ներսում եղած ծրագրերը կնշվեն Ծրագրերի մատուցարանի վերջում:</string>
     <string name="remove_app_folder_title">Ջնջել թղթապանակը</string>
     <string name="remove_app_folder_title_VZW">Հեռացնել թղթապանակ</string>
     <string name="remove_home_folder_message">%s պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Ծրագրերի էկրանում:</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Ընտրովի դասավորություն</string>
     <string name="widget_duplicate">%s պատկերագիրն արդեն հիմնական էկրանի վրա է:</string>
     <string name="work_folder_name">Աշխատանք</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Հպեք և պահեք էկրանը՝ տարրեր ավելացնելու համար</string>
+    <string name="zeropage_briefing_title">Ամփոփում</string>
+    <string name="zeropage_download">Ներբեռնել</string>
+    <string name="zeropage_download_msg">Այս գործառույթից օգտվելու համար հարկավոր է տեղադրել %1$s: Թակել ՆԵՐԲԵՌՆԵԼ՝ %2$s ներբեռնելու և տեղադրելու համար:</string>
     <string name="zeropage_notice_msg">%s լրատվական ծառայությունն այժմ հասանելի է: Այն Flipboard Briefing-ի փոխարեն օգտագործելու համար թակեք OK:</string>
     <string name="zeropage_setting_dialog_no">Չեղարկել</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu նորություններ</string>
 </resources>

@@ -54,6 +54,8 @@
     <dimen name="home_5x5_cellGapY">4.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">78.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">0.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">270.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">160.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">0.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">2.0dip</dimen>
     <dimen name="home_icon_textsize">12.0dip</dimen>
@@ -80,7 +82,7 @@
     <dimen name="open_folder_addbutton_bottom_padding">18.0dip</dimen>
     <dimen name="open_folder_addbutton_left_right_padding">20.0dip</dimen>
     <dimen name="open_folder_addbutton_top_padding">16.0dip</dimen>
-    <dimen name="open_folder_addicon_addbutton_height">57.0dip</dimen>
+    <dimen name="open_folder_addicon_addbutton_height">59.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_spacing">9.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_textsize">14.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_top_margin_new">336.0dip</dimen>

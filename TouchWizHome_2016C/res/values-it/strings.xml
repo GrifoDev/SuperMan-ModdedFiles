@@ -34,9 +34,12 @@
     <string name="all_apps_title">Applicazioni</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s nascosta.</string>
+    <string name="app_locked_toast">%s bloccato.</string>
     <string name="app_search">Cerca</string>
     <string name="app_search_no_apps">Potete aggiungere sulla schermata Home dei collegamenti dai risultati di ricerca.</string>
     <string name="app_search_no_results_found">Nessun risultato trovato</string>
+    <string name="app_unlocked_toast">%s sbloccato.</string>
     <string name="apply">Applica</string>
     <string name="available_galaxyapps">Disponibile in Galaxy Apps</string>
     <string name="badge_manage_explain">Selezionate se mostrare o nascondere i badge di ciascuna applicazione.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Chiamata diretta</string>
     <string name="direct_message">Messaggio diretto</string>
     <string name="disable_message">"%1$s e tutte le funzioni correlate verranno disattivate. Per attivare nuovamente l'applicazione, andate a Impostazioni > Applicazioni e selezionate %2$s."</string>
+    <string name="disable_message_att">%s e tutte le funzioni correlate verranno disattivate. Per attivarle nuovamente, andate in Impostazioni > Dispositivo > Applicazioni > Gestione applicazioni.</string>
     <string name="disable_message_vzw">%s e tutte le funzioni correlate verranno disattivate. Per attivarle nuovamente, andate in Impostazioni > Applicazioni > Gestione applicazioni.</string>
     <string name="disable_messange_knox">%s e tutte le funzioni correlate verranno disattivate. Per abilitarle nuovamente, andate in Impostazioni KNOX > Gestione applicazioni.</string>
     <string name="disable_title">Disattiva applicazione</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">"Trascinate il bordo verso l'alto e il basso o verso l'interno e l'esterno per ridimensionare il widget."</string>
     <string name="guide_tap_here">"Toccate l'icona delle applicazioni."</string>
     <string name="guide_widgets_tap_area">Toccate e tenete premuto un widget fino a quando non è modificabile, quindi rilasciatelo.</string>
+    <string name="hide">Nascondi</string>
+    <string name="hide_confirm_continue">Continua</string>
+    <string name="hide_confirm_message">"L'applicazione %s è attualmente bloccata. Se la nascondete, verrà sbloccata."</string>
+    <string name="hide_confirm_title">Nascondi applicazione</string>
     <string name="home_edit_add_to_personal">Agg. a pers.</string>
     <string name="home_edit_bar_delete_title">Rimuovi collegam.</string>
     <string name="home_edit_bar_delete_title_vzw">Rimuovi collegam.</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Aggiunta di widget</string>
     <string name="quick_contact">Contatto</string>
     <string name="quick_options_help_text">"Trascinate un collegamento all'applicazione verso il basso per visualizzare le relative opzioni rapide. Le opzioni rapide vi consentono di gestire le applicazioni con più facilità."</string>
+    <string name="quickoption_sleep">Stand-by</string>
     <string name="quickoptions_add_apps">Aggiungi applicazioni</string>
     <string name="quickoptions_add_to_secure_folder">"Agg. a
 Area Personale"</string>
     <string name="quickoptions_app_info">Info applicazione</string>
     <string name="quickoptions_clear_badge">Cancella badge</string>
     <string name="quickoptions_disable">Disattiva</string>
-    <string name="quickoptions_put_to_sleep">Attiva mod. sospensione</string>
-    <string name="quickoptions_put_to_sleep_alert">"L'attivazione della modalità di sospensione per questa applicazione ne impedirà l'uso della batteria in background. Le applicazioni in modalità di sospensione non riceveranno aggiornamenti o invieranno notifiche, ma si attiveranno non appena le aprite."</string>
+    <string name="quickoptions_sleep_alert">"L'attivazione della modalità di sospensione per questa applicazione ne impedirà l'uso della batteria in background. Le applicazioni in modalità di sospensione non riceveranno aggiornamenti o invieranno notifiche, ma si attiveranno non appena le aprite."</string>
     <string name="quickoptions_uninstall">Disinstalla</string>
     <string name="quickview_delete_toast_msg">Trascinate la pagina su Rimuovi per rimuoverla.</string>
     <string name="quickview_drag_bar_delete_title">Rimuovi</string>
@@ -187,11 +195,11 @@ lo stesso layout della scherm. Home (%1$dx%2$d)."</string>
     <string name="search_for_apps">Cerca applicazioni</string>
     <string name="search_for_widgets">Ricerca widget</string>
     <string name="search_result_found">%d trovato</string>
-    <string name="search_result_founds">%d trovati</string>
+    <string name="search_result_founds">%d trovato</string>
     <string name="select_all_app">Tutto</string>
     <string name="select_app_add">AGGIUNGI</string>
     <string name="selected">Selezionate</string>
-    <string name="settings_label">Impostazioni</string>
+    <string name="settings_label">Impostaz.</string>
     <string name="show_suggested_apps">Mostra applicazioni consigliate</string>
     <string name="show_suggested_apps_detail">Visualizza applicazioni pertinenti disponibili in Galaxy Apps nei risultati di ricerca.</string>
     <string name="speak_now">Parla adesso</string>

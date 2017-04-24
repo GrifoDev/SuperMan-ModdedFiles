@@ -34,14 +34,17 @@
     <string name="all_apps_title">လုပ္ငန္းသံုး ပရိုဂရမ္မ်ား</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ကခဂဃငစဆဇဈညဋဌဍဍ္ဎဏတထဒဓနပဖဗဘမယရလဝသဟဠအABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ကခဂဃငစဆဇဈညဋဌဍၯဏတထဒဓနပဖဗဘမယရလဝသဟဠအ</string>
+    <string name="app_hidden_toast">%s ကို ကြယ္ဝွက္ထားသည္။</string>
+    <string name="app_locked_toast">%s ေသာ့ခတ္ထားသည္။</string>
     <string name="app_search">ရွာေဖြပါ</string>
     <string name="app_search_no_apps">ပင္မဖန္သားျပင္တြင္ ရွာေဖြမႈရလဒ္မ်ားမွ အျမန္သုံးသေကၤတမ်ား ထည့္ႏိုင္ပါသည္။</string>
     <string name="app_search_no_results_found">ရလဒ္မ်ား မေတြ႔ပါ</string>
+    <string name="app_unlocked_toast">%s ကို ေသာ့ဖြင့္ၿပီးပါၿပီ။</string>
     <string name="apply">အသုံးျပဳပါ</string>
     <string name="available_galaxyapps">Galaxy Apps ထဲတြင္ ရရွိနုိင္သည္</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">အက္ပ္တစ္ခုစီအတြက္ သေကၤတမ်ားကို ျပရန္ သို႔မဟုတ္ ေဖ်ာက္ရန္ ေရြးခ်ယ္ပါ။</string>
+    <string name="badge_manage_summary">အက္ပ္တစ္ခုစီအတြက္ သေကၤတမ်ားကို ျပရန္ သို႔မဟုတ္ ေဖ်ာက္ရန္ ေရြးခ်ယ္ပါ။</string>
+    <string name="badge_manage_title">အက္ပ္တံဆိပ္မ်ားကုိ စီမံပါ</string>
     <string name="cancel">ပယ္ဖ်က္ပါ</string>
     <string name="change_home_screen_settings">မူလဖန္သားျပင္ သတ္မွတ္ခ်က္မ်ား ေျပာင္းပါ</string>
     <string name="change_home_screen_settings_info">ဤအက္ပ္သည္ သင္၏မူလဖန္သားျပင္ သတ္မွတ္ခ်က္မ်ားႏွင့္ အျမန္သုံးသေကၤတမ်ားကို ေျပာင္းလဲႏိုင္သည္။</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">တိုက္ရိုက္ ေခၚဆိုျခင္း</string>
     <string name="direct_message">တိုက္ရိုက္မက္ေဆ့ခ်္</string>
     <string name="disable_message">၎ႏွင့္ သက္ဆိုင္ေသာ %1$s ႏွင့္ လုပ္ေဆာင္ခ်က္အားလုံးကို ပိတ္ပါမည္။ အက္ပ္ ထပ္ဖြင့္ရန္၊ သတ္မွတ္ခ်က္မ်ား > အပလီေကးရွင္းမ်ားသို႔ သြားပါ၊ ၿပီးလွ်င္ %2$s ကို ေရြးပါ။</string>
+    <string name="disable_message_att">%s ႏွင့္ ၎ျဖင့္သက္ဆိုုင္သည့္ အစီအစဥ္အားလုံးကို ပိတ္ပါမည္။ ၎ကို ျပန္ဖြင့္ရန္၊ သတ္မွတ္ခ်က္မ်ား > ကိရိယာ > အပလီေကးရွင္းမ်ား > အပလီေကးရွင္းမန္ေနဂ်ာသို႔ သြားပါ။</string>
     <string name="disable_message_vzw">၄င္းႏွင့္ဆက္ႏြယ္သည့္ %s လုပ္ေဆာင္ခ်က္ လကၡဏာ အားလုံးကို ပိတ္သြားမည္။ ၄င္းကို တဖန္ ျပန္ဖြင့္ရန္ သတ္မွတ္ခ်က္မ်ား > အပလီေကးရွင္းမ်ား > အပလီေကးရွင္း မန္ေနဂ်ာသို႔ သြားပါ။</string>
     <string name="disable_messange_knox">%s ႏွင့္ ၎ႏွင့္ဆက္ႏြယ္သည့္ ဝိေသသမ်ားအားလုံးကို ပိတ္သြားမည္။ ၎ကို ထပ္မံဖြင့္ရန္၊ KNOX သတ္မွတ္ခ်က္မ်ား > အပလီေကးရွင္းမန္ေနဂ်ာသို႔သြားပါ။</string>
     <string name="disable_title">အပလီေကးရွင္း မရေအာင္လုပ္ပါ</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ဝစ္ဂတ္ ဆိုက္ျပင္ရန္ နယ္နိမိတ္ကိုအထက္၊ ေအာက္၊ အတြင္းသို႔မဟုတ္ အျပင္ကိုဆြဲပါ။</string>
     <string name="guide_tap_here">အက္ပ္မ်ား သေကၤတ ႏွိပ္ပါ။</string>
     <string name="guide_widgets_tap_area">ဝစ္ဂတ္ တစ္ခုကိုတည္းျဖတ္၍ ရနိုင္သည္အထိေခါက္ၿပီးကိုင္ထားၿပီးေနာက္ လႊတ္လိုက္ပါ။</string>
+    <string name="hide">ကြယ္ဝွက္ပါ</string>
+    <string name="hide_confirm_continue">ဆက္လုပ္ပါ</string>
+    <string name="hide_confirm_message">%s အက္ပ္ကုိ လက္ရွိ ေသာ့ခတ္ထားသည္။ ဤအက္ပ္ကုိ ေဖ်ာက္လွ်င္ ၎ကုိ ေသာ့ဖြင့္လုိက္ပါမည္။</string>
+    <string name="hide_confirm_title">အက္ပ္ကို ကြယ္ဝွက္ပါ</string>
     <string name="home_edit_add_to_personal">ကိုယ္ေရးကိုယ္တာသို႔ ထည့္ပါ</string>
     <string name="home_edit_bar_delete_title">အလြယ္နည္းကိုု ဖယ္ရွားပါ</string>
     <string name="home_edit_bar_delete_title_vzw">အလြယ္နည္းကိုု ဖယ္ရွားပါ</string>
@@ -134,7 +142,7 @@
     <string name="ok">အုိေက</string>
     <string name="only_one_widget_instance_allowed">%s ဝဒ္ဂ်က္ကို ပင္မဖန္သားျပင္သို႔ ထည့္ထားၿပီးျဖစ္သည္။</string>
     <string name="open_folder">ဖိုင္တြဲ ဖြင့္ပါ</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">အက္ပ္မ်ား ၾကည့္ပါ</string>
     <string name="option_menu_contact_up">ကၽြႏ္ုပ္တို႔ထံသို႔ ဆက္သြယ္ပါ</string>
     <string name="option_tray_screengrid">ဖန္သားျပင္ မ်ဥ္းကြက္</string>
     <string name="options_home_set_theme">ျပင္ဆင္မႈမ်ား</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ဝဒ္ဂ်က္မ်ား ထည့္ပါ</string>
     <string name="quick_contact">အဆက္အသြယ္</string>
     <string name="quick_options_help_text">အက္ပ္၏ အျမန္ေရြးစရာမ်ားကိုၾကည့္႐ႈရန္ ၎အျမန္သုံးသေကၤတကို ေအာက္သို႔ ပြတ္ဆြဲပါ။ အျမန္ေရြးစရာမ်ားသည္ အက္ပ္မ်ားကို အလြယ္တကူ စီမံခြင့္ျပဳပါသည္။</string>
+    <string name="quickoption_sleep">အိပ္ခ်ိန္</string>
     <string name="quickoptions_add_apps">အက္ပ္မ်ား ထည့္ပါ</string>
     <string name="quickoptions_add_to_secure_folder">"စိတ္ခ်ရသည့္ ဖိုင္တြဲ
 သို႔ ထည့္ပါ"</string>
     <string name="quickoptions_app_info">အက္ပ္ သတင္းအခ်က္အလက္</string>
     <string name="quickoptions_clear_badge">တံဆိပ္ကုိ ရွင္းပါ</string>
     <string name="quickoptions_disable">ပိတ္ထားပါ</string>
-    <string name="quickoptions_put_to_sleep">အနားေပးမႈသို႔ ထားပါ</string>
-    <string name="quickoptions_put_to_sleep_alert">ဤအက္ပ္ကုိ အနားေပးမႈသို႔ သတ္မွတ္ျခင္းျဖင့္ ၎ကို ေနာက္ခံ၌ ဘက္ထရီအသံုးျပဳေနျခင္းမွ တားဆီးႏုိင္မည္။ အနားေပးထားေသာ အက္ပ္မ်ားအတြက္ အပ္ဒိတ္မ်ား သင္ ရရွိခ်င္မွရလိမ့္မည္ (သို႔) အသိေပးခ်က္မ်ား သင့္ဆီ ပို႔ခ်င္မွပို႔လိမ့္မည္၊ သို႔ေသာ္ ၎တို႔ကို ဖြင့္လိုက္သည္ႏွင့္ ျပန္ႏိုးလာမည္။</string>
+    <string name="quickoptions_sleep_alert">ဤအက္ပ္ကုိ အနားေပးမႈသို႔ သတ္မွတ္ျခင္းျဖင့္ ၎ကို ေနာက္ခံ၌ ဘက္ထရီအသံုးျပဳေနျခင္းမွ တားဆီးႏုိင္မည္။ အနားေပးထားေသာ အက္ပ္မ်ားအတြက္ အပ္ဒိတ္မ်ား သင္ ရရွိခ်င္မွရလိမ့္မည္ (သို႔) အသိေပးခ်က္မ်ား သင့္ဆီ ပို႔ခ်င္မွပို႔လိမ့္မည္၊ သို႔ေသာ္ ၎တို႔ကို ဖြင့္လိုက္သည္ႏွင့္ ျပန္ႏိုးလာမည္။</string>
     <string name="quickoptions_uninstall">ျဖဳတ္ရန္</string>
     <string name="quickview_delete_toast_msg">စာမ်က္ႏွာ ဖယ္ရွားပါသို႔ ဖယ္ရွားရန္ ၎ကို ဆြဲယူပါ။</string>
     <string name="quickview_drag_bar_delete_title">ဖယ္ထုတ္ပါ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ဖ်က္ပစ္ပါ</string>
     <string name="remove_app_folder_confirm_VZW">ဖယ္ပါ</string>
     <string name="remove_app_folder_message">%s ဖိုင္တြဲကို ဖ်က္ပါမည္။ ဤဖိုင္တြဲအတြင္းရွိ အက္ပ္မ်ားကို အက္ပ္ဖန္သားျပင္ေပၚမွာ သုံးႏိုင္သည္။</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ဖုိင္တြဲကို ဖယ္ရွားပါမည္။ ဤဖိုင္တြဲအတြင္းရွိ အက္ပ္မ်ားကို အက္ပ္ထေရး၏ အနားစြန္းတြင္ စားရင္းလုပ္ပါမည္။</string>
     <string name="remove_app_folder_message_no_title">ဤဖိုင္တြဲကို ျဖဳတ္ပစ္မည္။ ဤဖိုင္တြဲထဲရွိ အပလီေကးရွင္းမ်ားကို တပ္ဆင္ထားမႈမျဖဳတ္ပါ။</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ဤဖိုင္တြဲကို ဖယ္ရွားပါမည္။ ဤဖိုင္တြဲအတြင္းရွိ အက္ပ္မ်ားကို အက္ပ္ထေရး၏ အနားစြန္းတြင္ စားရင္းလုပ္ပါမည္။</string>
     <string name="remove_app_folder_title">ႊဤဖုိင္တြဲကုိ ဖ်က္ပစ္ပါ</string>
     <string name="remove_app_folder_title_VZW">ဖိုင္တြဲကို ဖယ္ရွားပါ</string>
     <string name="remove_home_folder_message">%s ဖိုင္တြဲကို ဖ်က္ပါမည္။ ဤဖိုင္တြဲအတြင္းရွိ အက္ပ္မ်ားကို အက္ပ္ဖန္သားျပင္ေပၚမွာ သုံးႏိုင္သည္။</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">အက္ပ္မ်ား ရွာေဖြပါ</string>
     <string name="search_for_widgets">ဝဒ္ဂ်က္မ်ားအတြက္ ရွာပါ</string>
     <string name="search_result_found">%d ခု ေတြ႕ထားသည္</string>
-    <string name="search_result_founds">%d ခု ေတြ႔သည္</string>
+    <string name="search_result_founds">%d ခု ေတြ႕ထားသည္</string>
     <string name="select_all_app">အားလံုး</string>
     <string name="select_app_add">ထည့္ပါ</string>
     <string name="selected">ေ႐ြးထားသည္</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">စိတ္ႀကိဳက္ စီစဥ္ထားရွိမႈ</string>
     <string name="widget_duplicate">%s ဝစ္ဂ်စ္တ္မွာ မူလဖန္သားျပင္ေပၚ ရွိၿပီးျဖစ္သည္။</string>
     <string name="work_folder_name">အလုပ္</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">အိုင္တမ္မ်ားထည့္ရန္ ဖန္သားျပင္ကို နွိပ္၍ကိုင္ထားပါ</string>
+    <string name="zeropage_briefing_title">ရွင္းလင္းခ်က္</string>
+    <string name="zeropage_download">ေဒါင္းလုဒ္ လုပ္ပါ</string>
+    <string name="zeropage_download_msg">ဤလုပ္ေဆာင္ခ်က္ကိုသုံးရန္ %1$s ကို ထည့္သြင္းရန္ လိုအပ္သည္။ %2$s ကုိ ေဒါင္းလုဒ္လုပ္ ထည့္သြင္းရန္ ေဒါင္းလုဒ္လုပ္ပါ ကုိ ႏွိပ္ပါ။</string>
     <string name="zeropage_notice_msg">%s သတင္း ဝန္ေဆာင္မႈသည္ ယခု ရရွိႏိုင္ပါၿပီ။ ၎ကို ဖလက္ဘုတ္ အက်ဥ္းခ်ဳပ္အစား အသံုးျပဳရန္ “အိုေက” ကိုႏွိပ္ပါ။</string>
     <string name="zeropage_setting_dialog_no">ပယ္ဖ်က္ပါ</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu သတင္းမ်ား</string>
 </resources>

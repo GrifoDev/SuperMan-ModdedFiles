@@ -34,9 +34,12 @@
     <string name="all_apps_title">应用程序</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">已隐藏 %s</string>
+    <string name="app_locked_toast">%s已锁定。</string>
     <string name="app_search">搜索</string>
     <string name="app_search_no_apps">您可以从搜索结果中将快捷方式添加至主屏幕。</string>
     <string name="app_search_no_results_found">未找到结果</string>
+    <string name="app_unlocked_toast">%s已解锁</string>
     <string name="apply">应用</string>
     <string name="available_galaxyapps">可从三星应用商店获取</string>
     <string name="badge_manage_explain">请选择是显示还是隐藏每个应用程序的角标。</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">直接拨号</string>
     <string name="direct_message">直接信息</string>
     <string name="disable_message">将禁用 %1$s 和与其相关的所有功能。若要重新启用应用程序，请进入【设置】>【应用程序】，然后选择 %2$s。</string>
+    <string name="disable_message_att">将禁用%s及所有相关功能。若要重新启用，请进入【设置】>【设备】>【应用程序】>【应用程序管理器】。</string>
     <string name="disable_message_vzw">将禁用%s和与其相关的所有功能。若要再次启用，请进入【设置】 > 【应用程序】 > 【应用程序管理器】。</string>
     <string name="disable_messange_knox">将禁用%s及所有相关功能。若要重新启用，请前往【KNOX 设置】>【应用程序管理器】。</string>
     <string name="disable_title">禁用应用程序</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">上下或向里向外拉动边界以调整小组件大小。</string>
     <string name="guide_tap_here">点击应用程序图标。</string>
     <string name="guide_widgets_tap_area">长按小组件直至其可被编辑，然后放开。</string>
+    <string name="hide">隐藏</string>
+    <string name="hide_confirm_continue">继续</string>
+    <string name="hide_confirm_message">%s 应用程序目前已锁定。如果您隐藏此应用程序，它将被解锁。</string>
+    <string name="hide_confirm_title">隐藏应用程序</string>
     <string name="home_edit_add_to_personal">添加至个人</string>
     <string name="home_edit_bar_delete_title">移除快捷方式</string>
     <string name="home_edit_bar_delete_title_vzw">移除快捷方式</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">添加小组件</string>
     <string name="quick_contact">联系人</string>
     <string name="quick_options_help_text">向下滑动应用程序快捷方式可查看其快捷选项。快捷选项可让您轻松管理应用程序。</string>
+    <string name="quickoption_sleep">休眠</string>
     <string name="quickoptions_add_apps">添加应用程序</string>
     <string name="quickoptions_add_to_secure_folder">"添加至
 安全文件夹"</string>
     <string name="quickoptions_app_info">应用程序信息</string>
     <string name="quickoptions_clear_badge">清除角标</string>
     <string name="quickoptions_disable">禁用</string>
-    <string name="quickoptions_put_to_sleep">设为休眠</string>
-    <string name="quickoptions_put_to_sleep_alert">将此应用程序设为休眠将防止其在后台使用电池。休眠应用程序可能不会接收更新或发送通知，但会在您打开它们时启用。</string>
+    <string name="quickoptions_sleep_alert">将此应用程序设为休眠将防止其在后台使用电池。休眠应用程序可能不会接收更新或发送通知，但会在您打开它们时启用。</string>
     <string name="quickoptions_uninstall">卸载</string>
     <string name="quickview_delete_toast_msg">拖动页面至【移除】菜单可将其移除</string>
     <string name="quickview_drag_bar_delete_title">移除</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">搜索应用程序</string>
     <string name="search_for_widgets">搜索小组件</string>
     <string name="search_result_found">找到 %d 个</string>
-    <string name="search_result_founds">找到 %d 位</string>
+    <string name="search_result_founds">找到 %d 个</string>
     <string name="select_all_app">全部</string>
     <string name="select_app_add">添加</string>
     <string name="selected">已选中</string>

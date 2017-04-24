@@ -202,23 +202,14 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
-    move-result-object v12
+    move-result-object v13
 
-    if-eqz v12, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
-
-    move-result-object v12
+    if-eqz v13, :cond_0
 
     move-object/from16 v0, p0
 
@@ -229,15 +220,24 @@
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/android/launcher2/MenuWidgets;->getCurrentPage()I
+    move-object/from16 v0, p0
 
-    move-result v13
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    invoke-virtual {v12, v13}, Lcom/android/launcher2/MenuWidgets;->getChildAt(I)Landroid/view/View;
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
-    move-result-object v12
+    move-result-object v14
 
-    if-nez v12, :cond_1
+    invoke-virtual {v14}, Lcom/android/launcher2/MenuWidgets;->getCurrentPage()I
+
+    move-result v14
+
+    invoke-virtual {v13, v14}, Lcom/android/launcher2/MenuWidgets;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v13
+
+    if-nez v13, :cond_1
 
     :cond_0
     :goto_0
@@ -246,15 +246,6 @@
     :cond_1
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
     iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
@@ -262,439 +253,138 @@
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/android/launcher2/MenuWidgets;->getCurrentPage()I
+    move-object/from16 v0, p0
 
-    move-result v13
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    invoke-virtual {v12, v13}, Lcom/android/launcher2/MenuWidgets;->getChildAt(I)Landroid/view/View;
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
-    move-result-object v12
+    move-result-object v14
 
-    check-cast v12, Landroid/view/ViewGroup;
+    invoke-virtual {v14}, Lcom/android/launcher2/MenuWidgets;->getCurrentPage()I
+
+    move-result v14
+
+    invoke-virtual {v13, v14}, Lcom/android/launcher2/MenuWidgets;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/view/ViewGroup;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mFolderViewIndex:I
-    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$2900(Lcom/android/launcher2/WidgetFolder;)I
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$2900(Lcom/android/launcher2/WidgetFolder;)I
 
-    move-result v13
+    move-result v14
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v13, v14}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v11
 
     move-object/from16 v0, p1
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    aget v7, v12, v13
-
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
-
-    const/4 v13, 0x1
-
-    aget v8, v12, v13
+    aget v7, v13, v14
 
     move-object/from16 v0, p1
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->location:[I
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
 
-    const/4 v13, 0x0
+    const/4 v14, 0x1
 
-    aget v9, v12, v13
+    aget v8, v13, v14
 
     move-object/from16 v0, p1
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->location:[I
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->location:[I
 
-    const/4 v13, 0x1
+    const/4 v14, 0x0
 
-    aget v10, v12, v13
+    aget v9, v13, v14
+
+    move-object/from16 v0, p1
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->location:[I
+
+    const/4 v14, 0x1
+
+    aget v10, v13, v14
 
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mOriginalOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3000(Lcom/android/launcher2/WidgetFolder;)I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3000(Lcom/android/launcher2/WidgetFolder;)I
 
-    move-result v12
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+
+    move-result v14
+
+    if-eq v13, v14, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
-    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v13
 
-    if-eq v12, v13, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
-
-    move-result v12
-
-    if-eqz v12, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
-
-    move-result v12
+    if-eqz v13, :cond_2
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
-    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v13
 
-    if-eq v12, v13, :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+
+    move-result v14
+
+    if-eq v13, v14, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolder;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v13}, Lcom/android/launcher2/WidgetFolder;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
-
-    invoke-virtual {v12}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v5
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderPagedView;->getWidth()I
-
-    move-result v12
-
-    iput v12, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderPagedView;->getHeight()I
-
-    move-result v12
-
-    iput v12, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
-
-    invoke-virtual {v12, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderPagedView;->getWidth()I
-
-    move-result v12
-
-    if-nez v12, :cond_3
-
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
-
-    const/4 v13, 0x0
-
-    aget v7, v12, v13
-
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderPagedView;->getHeight()I
-
-    move-result v12
-
-    if-nez v12, :cond_4
-
-    move-object/from16 v0, p1
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
-
-    const/4 v13, 0x1
-
-    aget v8, v12, v13
-
-    :goto_2
-    invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v12
-
-    iget v12, v12, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
-    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/launcher2/MenuWidgets;->getBottom()I
-
-    move-result v13
-
-    sub-int/2addr v12, v13
-
-    const v13, 0x7f0902eb
-
-    invoke-virtual {v6, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v13
-
-    sub-int/2addr v12, v13
-
-    div-int/lit8 v4, v12, 0x2
-
-    const v12, 0x7f090302
-
-    invoke-virtual {v6, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    const v12, 0x7f090303
-
-    invoke-virtual {v6, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
-
-    move-result v12
-
-    const/4 v13, 0x1
-
-    if-ne v12, v13, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
-
-    move-result v12
-
-    const/4 v13, 0x2
-
-    if-ne v12, v13, :cond_5
-
-    add-int/2addr v9, v2
-
-    sub-int/2addr v10, v3
-
-    :cond_2
-    :goto_3
-    move-object/from16 v0, p0
-
     iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
 
-    instance-of v12, v11, Lcom/android/launcher2/WidgetFolderView;
+    invoke-virtual {v13}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    if-eqz v12, :cond_6
-
-    move-object v12, v11
-
-    check-cast v12, Lcom/android/launcher2/WidgetFolderView;
-
-    :goto_4
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->createWidgetFolderBitmap(Lcom/android/launcher2/WidgetFolderView;)Landroid/graphics/Bitmap;
-
-    move-result-object v12
-
-    invoke-virtual {v13, v12}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
-
-    const/4 v13, 0x2
-
-    sget-object v14, Lcom/android/launcher2/Launcher;->sViewLayerPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v12, v13, v14}, Landroid/widget/ImageView;->setLayerType(ILandroid/graphics/Paint;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
-
-    invoke-virtual {v12}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v7}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v8}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    int-to-float v13, v9
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    add-int v13, v10, v4
-
-    int-to-float v13, v13
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    move/from16 v0, p2
-
-    int-to-long v14, v0
-
-    invoke-virtual {v12, v14, v15}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    iget-object v13, v13, Lcom/android/launcher2/WidgetFolder;->mSineInOut90:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/view/ViewPropertyAnimator;->start()V
-
-    const/4 v12, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11, v12}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->setCompundDrawableVisibility(Landroid/view/View;Z)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
-
-    invoke-virtual {v12}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    const/high16 v13, 0x3f800000    # 1.0f
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
-
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mSineInOut33:Landroid/view/animation/Interpolator;
-    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$2800(Lcom/android/launcher2/WidgetFolder;)Landroid/view/animation/Interpolator;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    div-int/lit8 v13, p2, 0x5
-
-    int-to-long v14, v13
-
-    invoke-virtual {v12, v14, v15}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    mul-int/lit8 v13, p2, 0x4
-
-    div-int/lit8 v13, v13, 0x5
-
-    int-to-long v14, v13
-
-    invoke-virtual {v12, v14, v15}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    new-instance v13, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v13, v0}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;-><init>(Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;)V
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Landroid/view/ViewPropertyAnimator;->start()V
-
-    goto/16 :goto_0
-
-    :cond_3
-    invoke-virtual {v11}, Landroid/view/View;->getWidth()I
-
-    move-result v12
-
-    int-to-float v12, v12
+    move-result-object v5
 
     move-object/from16 v0, p0
 
@@ -709,18 +399,7 @@
 
     move-result v13
 
-    int-to-float v13, v13
-
-    div-float v7, v12, v13
-
-    goto/16 :goto_1
-
-    :cond_4
-    invoke-virtual {v11}, Landroid/view/View;->getHeight()I
-
-    move-result v12
-
-    int-to-float v12, v12
+    iput v13, v5, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     move-object/from16 v0, p0
 
@@ -735,38 +414,354 @@
 
     move-result v13
 
+    iput v13, v5, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
+
+    invoke-virtual {v13, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Lcom/android/launcher2/WidgetFolderPagedView;->getWidth()I
+
+    move-result v13
+
+    if-nez v13, :cond_4
+
+    move-object/from16 v0, p1
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
+
+    const/4 v14, 0x0
+
+    aget v7, v13, v14
+
+    :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Lcom/android/launcher2/WidgetFolderPagedView;->getHeight()I
+
+    move-result v13
+
+    if-nez v13, :cond_5
+
+    move-object/from16 v0, p1
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$FolderAnimationInfo;->scaleBy:[F
+
+    const/4 v14, 0x1
+
+    aget v8, v13, v14
+
+    :goto_2
+    invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v13
+
+    iget v13, v13, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/launcher2/MenuWidgets;->getBottom()I
+
+    move-result v14
+
+    sub-int/2addr v13, v14
+
+    const v14, 0x7f0902ed
+
+    invoke-virtual {v6, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v14
+
+    sub-int/2addr v13, v14
+
+    div-int/lit8 v4, v13, 0x2
+
+    const v13, 0x7f090304
+
+    invoke-virtual {v6, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    const v13, 0x7f090305
+
+    invoke-virtual {v6, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
+
+    move-result v13
+
+    const/4 v14, 0x1
+
+    if-ne v13, v14, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+
+    move-result v13
+
+    const/4 v14, 0x2
+
+    if-ne v13, v14, :cond_6
+
+    add-int/2addr v9, v2
+
+    sub-int/2addr v10, v3
+
+    :cond_2
+    :goto_3
+    instance-of v13, v11, Lcom/android/launcher2/WidgetFolderView;
+
+    if-eqz v13, :cond_7
+
+    move-object v13, v11
+
+    check-cast v13, Lcom/android/launcher2/WidgetFolderView;
+
+    move-object v12, v13
+
+    :goto_4
+    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderView;->getWidth()I
+
+    move-result v13
+
+    if-lez v13, :cond_3
+
+    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderView;->getHeight()I
+
+    move-result v13
+
+    if-gtz v13, :cond_8
+
+    :cond_3
+    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
+
+    move-result-object v13
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "widgetfolderView.getWidth() = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderView;->getWidth()I
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, " ,widgetfolderView.getHeight() = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderView;->getHeight()I
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, " ,getFolderView().getWidth() = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # invokes: Lcom/android/launcher2/WidgetFolder;->getFolderView()Lcom/android/launcher2/WidgetFolderView;
+    invoke-static {v15}, Lcom/android/launcher2/WidgetFolder;->access$2600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderView;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Lcom/android/launcher2/WidgetFolderView;->getWidth()I
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, " ,getFolderView().getHeight() = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # invokes: Lcom/android/launcher2/WidgetFolder;->getFolderView()Lcom/android/launcher2/WidgetFolderView;
+    invoke-static {v15}, Lcom/android/launcher2/WidgetFolder;->access$2600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderView;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Lcom/android/launcher2/WidgetFolderView;->getHeight()I
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, " ,widgetfolderName = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v12}, Lcom/android/launcher2/WidgetFolderView;->getTitleTextView()Landroid/widget/TextView;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v15
+
+    invoke-interface {v15}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->animCompleted()V
+
+    goto/16 :goto_0
+
+    :cond_4
+    invoke-virtual {v11}, Landroid/view/View;->getWidth()I
+
+    move-result v13
+
     int-to-float v13, v13
 
-    div-float v8, v12, v13
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/launcher2/WidgetFolderPagedView;->getWidth()I
+
+    move-result v14
+
+    int-to-float v14, v14
+
+    div-float v7, v13, v14
+
+    goto/16 :goto_1
+
+    :cond_5
+    invoke-virtual {v11}, Landroid/view/View;->getHeight()I
+
+    move-result v13
+
+    int-to-float v13, v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Lcom/android/launcher2/WidgetFolderPagedView;->getHeight()I
+
+    move-result v14
+
+    int-to-float v14, v14
+
+    div-float v8, v13, v14
 
     goto/16 :goto_2
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mPrevOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3200(Lcom/android/launcher2/WidgetFolder;)I
 
-    move-result v12
+    move-result v13
 
-    const/4 v13, 0x2
+    const/4 v14, 0x2
 
-    if-ne v12, v13, :cond_2
+    if-ne v13, v14, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # getter for: Lcom/android/launcher2/WidgetFolder;->mCurrOrientation:I
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$3100(Lcom/android/launcher2/WidgetFolder;)I
 
-    move-result v12
+    move-result v13
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    if-ne v12, v13, :cond_2
+    if-ne v13, v14, :cond_2
 
     sub-int/2addr v9, v2
 
@@ -774,17 +769,153 @@
 
     goto/16 :goto_3
 
-    :cond_6
+    :cond_7
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     # invokes: Lcom/android/launcher2/WidgetFolder;->getFolderView()Lcom/android/launcher2/WidgetFolderView;
-    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->access$2600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderView;
+    invoke-static {v13}, Lcom/android/launcher2/WidgetFolder;->access$2600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderView;
 
     move-result-object v12
 
     goto/16 :goto_4
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
+
+    invoke-static {v12}, Lcom/android/launcher2/WidgetFolder;->createWidgetFolderBitmap(Lcom/android/launcher2/WidgetFolderView;)Landroid/graphics/Bitmap;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
+
+    const/4 v14, 0x2
+
+    sget-object v15, Lcom/android/launcher2/Launcher;->sViewLayerPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v13, v14, v15}, Landroid/widget/ImageView;->setLayerType(ILandroid/graphics/Paint;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
+
+    invoke-virtual {v13}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    int-to-float v14, v9
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    add-int v14, v10, v4
+
+    int-to-float v14, v14
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    move/from16 v0, p2
+
+    int-to-long v14, v0
+
+    invoke-virtual {v13, v14, v15}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    iget-object v14, v14, Lcom/android/launcher2/WidgetFolder;->mSineInOut90:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    const/4 v13, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v11, v13}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->setCompundDrawableVisibility(Landroid/view/View;Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->mFolderIconAnimView:Landroid/widget/ImageView;
+
+    invoke-virtual {v13}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    const/high16 v14, 0x3f800000    # 1.0f
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->this$0:Lcom/android/launcher2/WidgetFolder;
+
+    # getter for: Lcom/android/launcher2/WidgetFolder;->mSineInOut33:Landroid/view/animation/Interpolator;
+    invoke-static {v14}, Lcom/android/launcher2/WidgetFolder;->access$2800(Lcom/android/launcher2/WidgetFolder;)Landroid/view/animation/Interpolator;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    div-int/lit8 v14, p2, 0x5
+
+    int-to-long v14, v14
+
+    invoke-virtual {v13, v14, v15}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    mul-int/lit8 v14, p2, 0x4
+
+    div-int/lit8 v14, v14, 0x5
+
+    int-to-long v14, v14
+
+    invoke-virtual {v13, v14, v15}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    new-instance v14, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;-><init>(Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;)V
+
+    invoke-virtual {v13, v14}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    goto/16 :goto_0
 .end method
 
 .method public open()V

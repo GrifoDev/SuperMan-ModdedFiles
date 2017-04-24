@@ -77,6 +77,10 @@
 
 .field public static final PREFERENCES_NEED_DARK_STATUSBAR:Ljava/lang/String; = "need_dark_statusbar"
 
+.field public static final REQUEST_CODE_APP_HIDE:I = 0x73
+
+.field public static final REQUEST_CODE_APP_UNHIDE:I = 0x74
+
 .field public static final REQUEST_CODE_FOLDER_LOCK:I = 0x70
 
 .field public static final REQUEST_CODE_FOLDER_UNLOCK:I = 0x71
@@ -326,8 +330,6 @@
 .field private mLockedFolderIconView:Lcom/android/launcher2/FolderIconView;
 
 .field private mLockedViewFromDrag:Landroid/view/View;
-
-.field private mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
 
 .field private mMarketLabelName:Ljava/lang/CharSequence;
 
@@ -728,17 +730,11 @@
 
     new-instance v0, Lcom/android/launcher2/Launcher$32;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher2/Launcher$32;-><init>(Lcom/android/launcher2/Launcher;)V
-
-    iput-object v0, p0, Lcom/android/launcher2/Launcher;->mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v0, Lcom/android/launcher2/Launcher$33;
-
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v0, p0, v1}, Lcom/android/launcher2/Launcher$33;-><init>(Lcom/android/launcher2/Launcher;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/launcher2/Launcher$32;-><init>(Lcom/android/launcher2/Launcher;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/launcher2/Launcher;->mChangeShowButtonBackgroundObserver:Landroid/database/ContentObserver;
 
@@ -943,15 +939,7 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/android/launcher2/Launcher;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/launcher2/Launcher;->setWorkIconGray(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/Alarm;
+.method static synthetic access$1800(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/Alarm;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mVirtualScreenThreadExitAlarm:Lcom/android/launcher2/Alarm;
@@ -4191,7 +4179,7 @@
 .method private setMarketLabel()V
     .locals 7
 
-    const v6, 0x7f080091
+    const v6, 0x7f080099
 
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher2/Launcher;->mActivityName:Landroid/content/ComponentName;
@@ -4524,75 +4512,6 @@
     return-void
 .end method
 
-.method private setWorkIconGray(Z)V
-    .locals 2
-
-    const/4 v1, 0x0
-
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->isVisible()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher2/Workspace;->isFolderOpened()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher2/Workspace;->closeFolder()V
-
-    :cond_0
-    :goto_0
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mModel:Lcom/android/launcher2/LauncherModel;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/LauncherModel;->forceReload()V
-
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/MenuView;->isVisible()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
-
-    invoke-virtual {v0}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1, v1}, Lcom/android/launcher2/MenuAppsGrid;->closeFolder(ZZ)Z
-
-    goto :goto_0
-.end method
-
 .method private setupAppsOptionsMenu(Landroid/view/Menu;)Z
     .locals 8
 
@@ -4620,31 +4539,31 @@
     return v5
 
     :cond_2
-    const v7, 0x7f100120
+    const v7, 0x7f100124
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v7, 0x7f100121
+    const v7, 0x7f100125
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v7, 0x7f100122
+    const v7, 0x7f100126
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    const v7, 0x7f100123
+    const v7, 0x7f100127
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v7, 0x7f100124
+    const v7, 0x7f100128
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -4794,11 +4713,11 @@
 .method private setupOptionsMenu(Landroid/view/Menu;)Z
     .locals 10
 
-    const v9, 0x7f100126
+    const v9, 0x7f10012a
 
-    const v8, 0x7f100125
+    const v8, 0x7f100129
 
-    const v7, 0x7f100123
+    const v7, 0x7f100127
 
     const/4 v4, 0x1
 
@@ -5022,7 +4941,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1000cc
+    const v4, 0x7f1000d0
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5616,7 +5535,7 @@
 
     invoke-virtual {v6, v7}, Lcom/android/launcher2/Workspace;->snapToPage(I)V
 
-    const v7, 0x7f0800e5
+    const v7, 0x7f0800ed
 
     const/4 v8, 0x1
 
@@ -5864,6 +5783,10 @@
 
     if-eqz v0, :cond_1
 
+    sget-boolean v0, Lcom/android/launcher2/Launcher;->mIsStartSetting:Z
+
+    if-nez v0, :cond_1
+
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
     const/4 v1, 0x0
@@ -5956,6 +5879,23 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
     invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
     move-result-object v0
@@ -5964,24 +5904,24 @@
 
     invoke-direct {p0}, Lcom/android/launcher2/Launcher;->exitWidgetResizeMode()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
     invoke-virtual {v0, p1}, Lcom/android/launcher2/HomeView;->deleteWidgetFestivalPage(Ljava/util/List;)V
 
-    :cond_0
+    :cond_2
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
     invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->bindHomeDeleteFestivalPage()V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public bindHomeEnd()V
@@ -6057,6 +5997,23 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
+
     invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
     move-result-object v0
@@ -6071,12 +6028,8 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-gtz v0, :cond_0
 
-    :goto_0
-    return-void
-
-    :cond_0
     iget-object v0, p0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
     invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->bindHomeInsertFestivalPage()V
@@ -7111,9 +7064,9 @@
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 10
 
-    const v8, 0x7f1000aa
+    const v8, 0x7f1000ae
 
-    const v9, 0x7f10009e
+    const v9, 0x7f1000a2
 
     const/4 v5, 0x0
 
@@ -7537,7 +7490,7 @@
     :cond_10
     iget-object v5, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v7, 0x7f100110
+    const v7, 0x7f100114
 
     invoke-virtual {v5, v7}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -7620,7 +7573,7 @@
     :cond_13
     iget-object v5, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v7, 0x7f1000a5
+    const v7, 0x7f1000a9
 
     invoke-virtual {v5, v7}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -8405,7 +8358,7 @@
 
     if-nez v2, :cond_5
 
-    const v2, 0x7f080072
+    const v2, 0x7f08007a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/Launcher;->getString(I)Ljava/lang/String;
 
@@ -8858,7 +8811,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v6, 0x7f080072
+    const v6, 0x7f08007a
 
     invoke-virtual {p0, v6}, Lcom/android/launcher2/Launcher;->getString(I)Ljava/lang/String;
 
@@ -9973,7 +9926,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Launcher;->mOptionsMenu:Landroid/view/Menu;
 
-    const v2, 0x7f100126
+    const v2, 0x7f10012a
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -10439,7 +10392,7 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_19
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/FolderLock;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/FolderLock;
 
@@ -10451,7 +10404,7 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_12
+    if-eqz v22, :cond_14
 
     move-object/from16 v0, p0
 
@@ -10489,7 +10442,7 @@
 
     move-object/from16 v1, v23
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_13
 
     move-object/from16 v0, p0
 
@@ -10577,7 +10530,7 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_1c
 
     invoke-static/range {p0 .. p0}, Lcom/android/launcher2/FolderLock;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/FolderLock;
 
@@ -10629,7 +10582,7 @@
 
     move-object/from16 v1, v23
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_1b
 
     :cond_d
     move-object/from16 v10, v19
@@ -10693,6 +10646,87 @@
 
     :cond_f
     :goto_6
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_11
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->enableFolderLock()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_11
+
+    const/16 v22, 0x73
+
+    move/from16 v0, p1
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_11
+
+    const/16 v22, -0x1
+
+    move/from16 v0, p2
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_1d
+
+    invoke-static/range {p0 .. p0}, Lcom/android/launcher2/FolderLock;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/FolderLock;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mLockedViewFromDrag:Landroid/view/View;
+
+    move-object/from16 v22, v0
+
+    if-eqz v22, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mLockedViewFromDrag:Landroid/view/View;
+
+    move-object/from16 v22, v0
+
+    invoke-virtual/range {v22 .. v22}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v19
+
+    move-object/from16 v12, v19
+
+    check-cast v12, Lcom/android/launcher2/BaseItem;
+
+    if-eqz v11, :cond_10
+
+    invoke-virtual {v11, v12}, Lcom/android/launcher2/FolderLock;->isLockedApp(Lcom/android/launcher2/BaseItem;)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_10
+
+    const/16 v22, 0x0
+
+    move/from16 v0, v22
+
+    invoke-virtual {v11, v12, v0}, Lcom/android/launcher2/FolderLock;->unlockApp(Lcom/android/launcher2/BaseItem;Z)V
+
+    :cond_10
+    invoke-virtual {v11, v12}, Lcom/android/launcher2/FolderLock;->sendAppHideIntent(Lcom/android/launcher2/BaseItem;)V
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher2/Launcher;->mLockedViewFromDrag:Landroid/view/View;
+
+    :cond_11
+    :goto_7
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Launcher;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v5
@@ -10739,11 +10773,11 @@
 
     move-result-object v24
 
-    if-eqz v6, :cond_1b
+    if-eqz v6, :cond_1e
 
     const/16 v22, 0x1
 
-    :goto_7
+    :goto_8
     move-object/from16 v0, v24
 
     move/from16 v1, v22
@@ -10762,19 +10796,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v6, :cond_1c
+    if-eqz v6, :cond_1f
 
     instance-of v0, v6, Lcom/android/launcher2/HomeView;
 
     move/from16 v22, v0
 
-    if-eqz v22, :cond_10
+    if-eqz v22, :cond_12
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    :cond_10
+    :cond_12
     move/from16 v0, p1
 
     move/from16 v1, p2
@@ -10789,7 +10823,7 @@
 
     goto/16 :goto_2
 
-    :cond_11
+    :cond_13
     iget-object v0, v12, Lcom/android/launcher2/BaseItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     move-object/from16 v22, v0
@@ -10840,14 +10874,14 @@
 
     goto/16 :goto_3
 
-    :cond_12
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/Launcher;->mLockedViewFromDrag:Landroid/view/View;
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_16
+    if-eqz v22, :cond_18
 
     move-object/from16 v0, p0
 
@@ -10875,7 +10909,7 @@
 
     move-object/from16 v1, v23
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_15
 
     iget-object v0, v12, Lcom/android/launcher2/BaseItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
@@ -10887,9 +10921,9 @@
 
     move-object/from16 v1, v23
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_17
 
-    :cond_13
+    :cond_15
     move-object/from16 v10, v19
 
     check-cast v10, Lcom/android/launcher2/FolderItem;
@@ -10922,7 +10956,7 @@
 
     move/from16 v22, v0
 
-    if-eqz v22, :cond_14
+    if-eqz v22, :cond_16
 
     invoke-virtual {v9}, Lcom/android/launcher2/FolderIconView;->getParent()Landroid/view/ViewParent;
 
@@ -10940,7 +10974,7 @@
 
     invoke-virtual {v14, v0}, Lcom/android/launcher2/MenuAppIconView;->setUninstallIconVisibility(I)V
 
-    :cond_14
+    :cond_16
     const/16 v22, 0x0
 
     move-object/from16 v0, v22
@@ -10951,7 +10985,7 @@
 
     goto/16 :goto_4
 
-    :cond_15
+    :cond_17
     invoke-virtual {v11, v12}, Lcom/android/launcher2/FolderLock;->lockApp(Lcom/android/launcher2/BaseItem;)V
 
     const/16 v22, 0x0
@@ -10964,7 +10998,7 @@
 
     goto/16 :goto_4
 
-    :cond_16
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/Launcher;->mBackupItemsRecord:Lcom/android/launcher2/BackupItemsRecords;
@@ -11013,7 +11047,7 @@
 
     goto/16 :goto_4
 
-    :cond_17
+    :cond_19
     if-nez p2, :cond_c
 
     new-instance v22, Ljava/util/ArrayList;
@@ -11058,11 +11092,11 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_18
+    if-eqz v22, :cond_1a
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/Launcher;->backupItemFromLockedFolder()V
 
-    :cond_18
+    :cond_1a
     const/16 v22, 0x0
 
     move-object/from16 v0, v22
@@ -11073,7 +11107,7 @@
 
     goto/16 :goto_5
 
-    :cond_19
+    :cond_1b
     const/16 v22, 0x1
 
     move/from16 v0, v22
@@ -11090,7 +11124,7 @@
 
     goto/16 :goto_6
 
-    :cond_1a
+    :cond_1c
     if-nez p2, :cond_f
 
     new-instance v22, Ljava/util/ArrayList;
@@ -11131,12 +11165,61 @@
 
     goto/16 :goto_6
 
-    :cond_1b
+    :cond_1d
+    if-nez p2, :cond_11
+
+    new-instance v22, Ljava/util/ArrayList;
+
+    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+
+    sput-object v22, Lcom/android/launcher2/Launcher;->savedBaseItem:Ljava/util/ArrayList;
+
+    new-instance v22, Ljava/util/ArrayList;
+
+    invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
+
+    sput-object v22, Lcom/android/launcher2/Launcher;->savedItemView:Ljava/util/ArrayList;
+
     const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher2/Launcher;->mStateBeforeClick:Lcom/android/launcher2/Workspace$State;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher2/Launcher;->mLockedFolderIconView:Lcom/android/launcher2/FolderIconView;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher2/Launcher;->mLockedViewFromDrag:Landroid/view/View;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher2/Launcher;->mBackupItemsRecord:Lcom/android/launcher2/BackupItemsRecords;
 
     goto/16 :goto_7
 
-    :cond_1c
+    :cond_1e
+    const/16 v22, 0x0
+
+    goto/16 :goto_8
+
+    :cond_1f
     const/16 v22, 0xa
 
     move/from16 v0, v22
@@ -11448,7 +11531,7 @@
 
     move-result v2
 
-    const v3, 0x7f1000e5
+    const v3, 0x7f1000e9
 
     if-ne v2, v3, :cond_7
 
@@ -11962,7 +12045,7 @@
         0x7f100011 -> :sswitch_0
         0x7f100012 -> :sswitch_1
         0x7f100013 -> :sswitch_2
-        0x7f1000c5 -> :sswitch_3
+        0x7f1000c9 -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -12771,7 +12854,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->setContentView(I)V
 
-    const v21, 0x7f100072
+    const v21, 0x7f100076
 
     move-object/from16 v0, p0
 
@@ -12789,7 +12872,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    const v21, 0x7f100098
+    const v21, 0x7f10009c
 
     move-object/from16 v0, p0
 
@@ -12807,7 +12890,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v21, 0x7f100083
+    const v21, 0x7f100087
 
     move-object/from16 v0, p0
 
@@ -12823,7 +12906,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mDarkenView:Landroid/view/View;
 
-    const v21, 0x7f100085
+    const v21, 0x7f100089
 
     move-object/from16 v0, p0
 
@@ -12876,7 +12959,7 @@
 
     if-eqz v21, :cond_b
 
-    const v21, 0x7f100084
+    const v21, 0x7f100088
 
     move-object/from16 v0, p0
 
@@ -13218,7 +13301,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mActivityName:Landroid/content/ComponentName;
 
-    const v21, 0x7f100086
+    const v21, 0x7f10008a
 
     move-object/from16 v0, p0
 
@@ -13693,34 +13776,6 @@
 
     invoke-virtual {v0, v1, v12}, Lcom/android/launcher2/Launcher;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v12, Landroid/content/IntentFilter;
-
-    invoke-direct {v12}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string v21, "android.intent.action.MANAGED_PROFILE_AVAILABLE"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v12, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v21, "android.intent.action.MANAGED_PROFILE_UNAVAILABLE"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v12, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/Launcher;->mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1, v12}, Lcom/android/launcher2/Launcher;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isDisableHighestGPU()Z
 
     move-result v21
@@ -14008,7 +14063,7 @@
 
     move-result-object v4
 
-    if-ne v4, p0, :cond_c
+    if-ne v4, p0, :cond_b
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher;->mModel:Lcom/android/launcher2/LauncherModel;
 
@@ -14144,47 +14199,36 @@
     iput-object v7, p0, Lcom/android/launcher2/Launcher;->mIconTrayChangedReceiver:Landroid/content/BroadcastReceiver;
 
     :cond_7
-    iget-object v4, p0, Lcom/android/launcher2/Launcher;->mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
-
-    if-eqz v4, :cond_8
-
-    iget-object v4, p0, Lcom/android/launcher2/Launcher;->mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {p0, v4}, Lcom/android/launcher2/Launcher;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
-    iput-object v7, p0, Lcom/android/launcher2/Launcher;->mManagedProfileAvailableReceiver:Landroid/content/BroadcastReceiver;
-
-    :cond_8
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageVirtualScreen()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher;->mVirtualScreenHandler:Lcom/android/launcher2/Launcher$VirtualScreenHandler;
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher;->mVirtualScreenHandler:Lcom/android/launcher2/Launcher$VirtualScreenHandler;
 
     invoke-virtual {v4, v7}, Lcom/android/launcher2/Launcher$VirtualScreenHandler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    :cond_9
+    :cond_8
     iget-object v4, p0, Lcom/android/launcher2/Launcher;->mVirtualScreenThread:Landroid/os/HandlerThread;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_9
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher;->mVirtualScreenThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v4}, Landroid/os/HandlerThread;->quitSafely()Z
 
-    :cond_a
+    :cond_9
     invoke-static {}, Lcom/android/launcher2/Launcher;->unBindVirtualScreen()V
 
-    :cond_b
+    :cond_a
     return-void
 
-    :cond_c
+    :cond_b
     const-string v4, "Launcher"
 
     const-string v5, "onDestory(), app.getLauncher() != this"
@@ -15953,7 +15997,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v19, 0x7f10010e
+    const v19, 0x7f100112
 
     move-object/from16 v0, p0
 
@@ -16207,7 +16251,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f100120
+    .packed-switch 0x7f100124
         :pswitch_2
         :pswitch_3
         :pswitch_4
@@ -18836,7 +18880,7 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v3, 0x7f10009e
+    const v3, 0x7f1000a2
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -18964,7 +19008,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c4
+    const v13, 0x7f0902c5
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -19200,7 +19244,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c4
+    const v13, 0x7f0902c5
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
     :try_end_4

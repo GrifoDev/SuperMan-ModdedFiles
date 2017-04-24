@@ -44,9 +44,9 @@
     <integer name="homescreen_option_menu_text_shadow_radius">3</integer>
     <integer name="widget_resize_touch_area_deviation">0</integer>
     <integer name="zeropageSwitch_shadow_radius">2</integer>
-    <item type="integer" name="folder_multi_container_folder_count_max">@integer/folder_multi_container_folder_count</item>
     <integer name="ged_home_cell_count_x">4</integer>
     <integer name="ged_home_cell_count_y">4</integer>
+    <item type="integer" name="folder_multi_container_folder_count_max">@integer/folder_multi_container_folder_count</item>
     <integer name="alpha_duration">100</integer>
     <integer name="close_folder_hover_animation_scale">15</integer>
     <integer name="close_folder_icon_animation_offset_x">35</integer>

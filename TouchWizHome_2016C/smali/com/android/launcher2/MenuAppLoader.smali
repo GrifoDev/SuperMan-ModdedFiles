@@ -3595,6 +3595,16 @@
 
     iget-object v7, v0, Lcom/android/launcher2/MenuAppLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
 
+    invoke-static {v7}, Lcom/android/launcher2/Utilities;->isExistSdCard(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v7, v0, Lcom/android/launcher2/MenuAppLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
+
     const/4 v8, 0x0
 
     new-instance v10, Landroid/content/IntentFilter;
@@ -3671,14 +3681,14 @@
 
     const/16 v42, 0x0
 
-    if-eqz v34, :cond_a
+    if-eqz v34, :cond_b
 
     :try_start_3
     invoke-interface/range {v34 .. v34}, Landroid/database/Cursor;->getCount()I
 
     move-result v7
 
-    if-lez v7, :cond_a
+    if-lez v7, :cond_b
 
     const/4 v7, -0x1
 
@@ -3691,13 +3701,13 @@
 
     iget-boolean v7, v0, Lcom/android/launcher2/MenuAppLoader;->mAbortLoader:Z
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_b
 
     invoke-interface/range {v34 .. v34}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     new-instance v40, Lcom/android/launcher2/MenuAppLoader$AppInfo;
 
@@ -3814,7 +3824,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_8
 
     const/4 v7, 0x1
 
@@ -3903,7 +3913,7 @@
 
     move/from16 v0, v66
 
-    if-ne v7, v0, :cond_8
+    if-ne v7, v0, :cond_9
 
     move-object/from16 v0, v40
 
@@ -3913,7 +3923,7 @@
 
     cmp-long v7, v10, v12
 
-    if-nez v7, :cond_8
+    if-nez v7, :cond_9
 
     const/4 v7, 0x1
 
@@ -3971,7 +3981,7 @@
 
     iget-object v7, v0, Lcom/android/launcher2/MenuAppLoader$AppInfo;->component:Ljava/lang/String;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_a
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -4052,16 +4062,21 @@
     goto/16 :goto_0
 
     :cond_7
-    const/4 v7, 0x0
+    const/16 v23, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_0
 
     :cond_8
     const/4 v7, 0x0
 
-    goto :goto_3
+    goto/16 :goto_2
 
     :cond_9
+    const/4 v7, 0x0
+
+    goto :goto_3
+
+    :cond_a
     :try_start_7
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -4117,14 +4132,14 @@
 
     goto/16 :goto_1
 
-    :cond_a
-    if-eqz v34, :cond_b
+    :cond_b
+    if-eqz v34, :cond_c
 
     :try_start_8
     invoke-interface/range {v34 .. v34}, Landroid/database/Cursor;->close()V
 
-    :cond_b
-    if-nez v42, :cond_c
+    :cond_c
+    if-nez v42, :cond_d
 
     invoke-static {}, Lcom/android/launcher2/customer/TMO;->getInstance()Lcom/android/launcher2/customer/TMO;
 
@@ -4132,7 +4147,7 @@
 
     invoke-virtual {v7}, Lcom/android/launcher2/customer/TMO;->disableAppsFolderAdapt()V
 
-    :cond_c
+    :cond_d
     new-instance v76, Ljava/util/ArrayList;
 
     invoke-virtual/range {v32 .. v32}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -4147,13 +4162,13 @@
 
     move-result-object v7
 
-    :cond_d
+    :cond_e
     :goto_4
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_f
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4167,7 +4182,7 @@
 
     cmp-long v8, v10, v70
 
-    if-ltz v8, :cond_d
+    if-ltz v8, :cond_e
 
     move-object/from16 v0, v31
 
@@ -4175,7 +4190,7 @@
 
     cmp-long v8, v10, v68
 
-    if-gtz v8, :cond_d
+    if-gtz v8, :cond_e
 
     const/4 v8, 0x1
 
@@ -4185,7 +4200,7 @@
 
     goto :goto_4
 
-    :cond_e
+    :cond_f
     const/4 v7, 0x0
 
     sput-boolean v7, Lcom/android/launcher2/MenuAppLoader;->mIsLoaded:Z
@@ -4202,12 +4217,12 @@
 
     move-result-object v7
 
-    :cond_f
+    :cond_10
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_13
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4231,15 +4246,15 @@
 
     move-result v8
 
-    if-nez v8, :cond_10
+    if-nez v8, :cond_11
 
     const-wide/16 v10, 0x64
 
     cmp-long v8, v74, v10
 
-    if-gez v8, :cond_f
+    if-gez v8, :cond_10
 
-    :cond_10
+    :cond_11
     const/4 v8, 0x0
 
     move-object/from16 v0, v47
@@ -4252,7 +4267,7 @@
 
     sget-boolean v8, Lcom/android/launcher2/MenuAppLoader;->DEBUGGABLE:Z
 
-    if-eqz v8, :cond_11
+    if-eqz v8, :cond_12
 
     const-string v8, "MenuAppLoader"
 
@@ -4294,7 +4309,7 @@
 
     invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_11
+    :cond_12
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v8
@@ -4325,13 +4340,13 @@
 
     move-result-object v77
 
-    if-eqz v33, :cond_f
+    if-eqz v33, :cond_10
 
     invoke-interface/range {v33 .. v33}, Ljava/util/List;->size()I
 
     move-result v8
 
-    if-lez v8, :cond_f
+    if-lez v8, :cond_10
 
     invoke-interface/range {v33 .. v33}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -4342,7 +4357,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_f
+    if-eqz v10, :cond_10
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4354,7 +4369,7 @@
 
     iget-boolean v10, v0, Lcom/android/launcher2/MenuAppLoader;->mAbortLoader:Z
 
-    if-nez v10, :cond_f
+    if-nez v10, :cond_10
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -4410,7 +4425,7 @@
 
     goto :goto_5
 
-    :cond_12
+    :cond_13
     const/16 v7, 0xa
 
     invoke-static {v7}, Landroid/os/Process;->setThreadPriority(I)V
@@ -4467,7 +4482,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_13
+    if-eqz v10, :cond_14
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4479,9 +4494,9 @@
 
     iget-boolean v10, v0, Lcom/android/launcher2/MenuAppLoader;->mAbortLoader:Z
 
-    if-eqz v10, :cond_1d
+    if-eqz v10, :cond_1e
 
-    :cond_13
+    :cond_14
     monitor-exit v8
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_3
@@ -4507,13 +4522,13 @@
 
     move-result-object v78
 
-    :cond_14
+    :cond_15
     :goto_7
     invoke-interface/range {v78 .. v78}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_16
 
     invoke-interface/range {v78 .. v78}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4525,20 +4540,20 @@
 
     iget-boolean v7, v0, Lcom/android/launcher2/MenuAppLoader;->mAbortLoader:Z
 
-    if-eqz v7, :cond_1e
+    if-eqz v7, :cond_1f
 
-    :cond_15
+    :cond_16
     move-object/from16 v0, p0
 
     iget-boolean v7, v0, Lcom/android/launcher2/MenuAppLoader;->mIsSafeMode:Z
 
-    if-nez v7, :cond_16
+    if-nez v7, :cond_17
 
     invoke-interface/range {v37 .. v37}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_16
+    if-nez v7, :cond_17
 
     move-object/from16 v0, p0
 
@@ -4548,18 +4563,18 @@
 
     invoke-static {v7, v0}, Lcom/android/launcher2/LauncherModel;->updateAppItems(Landroid/content/Context;Ljava/util/List;)V
 
-    :cond_16
+    :cond_17
     move-object/from16 v0, p0
 
     iget-boolean v7, v0, Lcom/android/launcher2/MenuAppLoader;->mIsSafeMode:Z
 
-    if-nez v7, :cond_17
+    if-nez v7, :cond_18
 
     invoke-interface/range {v21 .. v21}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_17
+    if-nez v7, :cond_18
 
     move-object/from16 v0, p0
 
@@ -4569,7 +4584,7 @@
 
     invoke-static {v7, v0}, Lcom/android/launcher2/LauncherModel;->updateAppItems(Landroid/content/Context;Ljava/util/List;)V
 
-    :cond_17
+    :cond_18
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v60
@@ -4584,13 +4599,13 @@
 
     iget-boolean v7, v0, Lcom/android/launcher2/MenuAppLoader;->mAbortLoader:Z
 
-    if-eqz v7, :cond_24
+    if-eqz v7, :cond_25
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/MenuAppLoader;->cancelAllJobs()V
 
     const/16 v28, 0x0
 
-    :cond_18
+    :cond_19
     :goto_8
     move-object/from16 v0, p0
 
@@ -4604,16 +4619,16 @@
 
     move-result v7
 
-    if-eqz v7, :cond_19
+    if-eqz v7, :cond_1a
 
-    if-eqz v46, :cond_19
+    if-eqz v46, :cond_1a
 
     invoke-virtual/range {v46 .. v46}, Lcom/android/launcher2/Launcher;->initGameHomeManager()V
 
-    :cond_19
-    if-eqz v46, :cond_1a
+    :cond_1a
+    if-eqz v46, :cond_1b
 
-    if-nez v23, :cond_1a
+    if-nez v23, :cond_1b
 
     invoke-virtual/range {v46 .. v46}, Lcom/android/launcher2/Launcher;->getLauncherModel()Lcom/android/launcher2/LauncherModel;
 
@@ -4625,12 +4640,12 @@
 
     invoke-virtual {v7, v8}, Lcom/android/launcher2/LauncherModel;->registerSystemReadyReceiver(Landroid/content/Context;)V
 
-    :cond_1a
+    :cond_1b
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportFolderMultiSelection()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1b
+    if-eqz v7, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -4638,7 +4653,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppLoader;->updateHiddenAddButtonInAppFolder(Ljava/util/Map;)V
 
-    :cond_1b
+    :cond_1c
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v62
@@ -4843,7 +4858,7 @@
 
     iput-object v7, v0, Lcom/android/launcher2/MenuAppLoader;->mAllItems:Ljava/util/Map;
 
-    if-eqz v28, :cond_33
+    if-eqz v28, :cond_34
 
     const-string v7, "MenuAppLoader"
 
@@ -4876,7 +4891,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1c
+    if-eqz v7, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -4892,12 +4907,12 @@
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
-    :cond_1c
+    :cond_1d
     monitor-exit p0
 
     return-object v28
 
-    :cond_1d
+    :cond_1e
     :try_start_b
     invoke-virtual/range {v45 .. v45}, Lcom/android/launcher2/MenuAppLoader$LoadJob;->isUrgent()Z
 
@@ -4929,7 +4944,7 @@
     :try_start_c
     throw v7
 
-    :cond_1e
+    :cond_1f
     const/16 v43, 0x0
 
     move-object/from16 v0, v31
@@ -4948,7 +4963,7 @@
 
     check-cast v20, Lcom/android/launcher2/compat/UserHandleCompat;
 
-    if-nez v20, :cond_1f
+    if-nez v20, :cond_20
 
     move-object/from16 v0, p0
 
@@ -4980,12 +4995,12 @@
 
     invoke-virtual {v0, v7, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1f
+    :cond_20
     move-object/from16 v0, v31
 
     iget-object v7, v0, Lcom/android/launcher2/MenuAppLoader$AppInfo;->component:Ljava/lang/String;
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_21
 
     move-object/from16 v0, v31
 
@@ -5043,7 +5058,7 @@
 
     move-result-object v43
 
-    if-nez v43, :cond_14
+    if-nez v43, :cond_15
 
     new-instance v36, Lcom/android/launcher2/LauncherSettings$AppOrderModify;
 
@@ -5081,19 +5096,19 @@
 
     goto/16 :goto_7
 
-    :cond_20
+    :cond_21
     const/16 v41, 0x1
 
     invoke-virtual/range {v76 .. v76}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    :cond_21
+    :cond_22
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_22
+    if-eqz v8, :cond_23
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5111,12 +5126,12 @@
 
     cmp-long v8, v10, v12
 
-    if-nez v8, :cond_21
+    if-nez v8, :cond_22
 
     const/16 v41, 0x0
 
-    :cond_22
-    if-nez v41, :cond_23
+    :cond_23
+    if-nez v41, :cond_24
 
     move-object/from16 v0, v31
 
@@ -5164,7 +5179,7 @@
 
     goto/16 :goto_7
 
-    :cond_23
+    :cond_24
     const-string v7, "MenuAppLoader"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5229,7 +5244,7 @@
 
     goto/16 :goto_7
 
-    :cond_24
+    :cond_25
     new-instance v35, Ljava/util/HashSet;
 
     invoke-direct/range {v35 .. v35}, Ljava/util/HashSet;-><init>()V
@@ -5246,13 +5261,13 @@
 
     move-result-object v44
 
-    :cond_25
+    :cond_26
     :goto_a
     invoke-interface/range {v44 .. v44}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_28
+    if-eqz v7, :cond_29
 
     invoke-interface/range {v44 .. v44}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5266,13 +5281,13 @@
 
     sget-object v8, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v7, v8, :cond_25
+    if-ne v7, v8, :cond_26
 
     move-object/from16 v0, v26
 
     iget-boolean v7, v0, Lcom/android/launcher2/AppItem;->mDirty:Z
 
-    if-eqz v7, :cond_26
+    if-eqz v7, :cond_27
 
     move-object/from16 v0, v35
 
@@ -5282,12 +5297,12 @@
 
     goto :goto_a
 
-    :cond_26
+    :cond_27
     move-object/from16 v0, v26
 
     instance-of v7, v0, Lcom/android/launcher2/AppFolderItem;
 
-    if-eqz v7, :cond_25
+    if-eqz v7, :cond_26
 
     move-object/from16 v0, v26
 
@@ -5301,7 +5316,7 @@
 
     const/4 v8, 0x2
 
-    if-ge v7, v8, :cond_25
+    if-ge v7, v8, :cond_26
 
     move-object/from16 v0, v26
 
@@ -5317,7 +5332,7 @@
 
     check-cast v27, Lcom/android/launcher2/AppItem;
 
-    if-eqz v27, :cond_27
+    if-eqz v27, :cond_28
 
     invoke-virtual/range {v27 .. v27}, Lcom/android/launcher2/AppItem;->removeFromFolder()V
 
@@ -5341,7 +5356,7 @@
 
     iput-boolean v8, v7, Lcom/android/launcher2/AppItem;->mDirty:Z
 
-    :cond_27
+    :cond_28
     invoke-interface/range {v44 .. v44}, Ljava/util/Iterator;->remove()V
 
     new-instance v39, Lcom/android/launcher2/LauncherSettings$AppOrderModify;
@@ -5366,12 +5381,12 @@
 
     goto :goto_a
 
-    :cond_28
+    :cond_29
     invoke-interface/range {v38 .. v38}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_29
+    if-nez v7, :cond_2a
 
     move-object/from16 v0, p0
 
@@ -5381,7 +5396,7 @@
 
     invoke-static {v7, v0}, Lcom/android/launcher2/LauncherModel;->updateAppItems(Landroid/content/Context;Ljava/util/List;)V
 
-    :cond_29
+    :cond_2a
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/android/launcher2/MenuAppLoader;->mLauncherApp:Lcom/android/launcher2/LauncherApplication;
@@ -5405,13 +5420,13 @@
 
     move-result-object v7
 
-    :cond_2a
+    :cond_2b
     :goto_b
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2b
+    if-eqz v8, :cond_2c
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5427,9 +5442,9 @@
 
     cmp-long v8, v10, v12
 
-    if-nez v8, :cond_2a
+    if-nez v8, :cond_2b
 
-    if-eqz v51, :cond_2a
+    if-eqz v51, :cond_2b
 
     invoke-virtual/range {v51 .. v51}, Lcom/android/launcher2/LauncherProvider;->generateNewMenuId()J
 
@@ -5479,7 +5494,7 @@
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_1
 
-    :cond_2b
+    :cond_2c
     :try_start_f
     monitor-exit p0
     :try_end_f
@@ -5490,7 +5505,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2d
+    if-eqz v7, :cond_2e
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -5500,7 +5515,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2d
+    if-eqz v7, :cond_2e
 
     sget-object v7, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
@@ -5533,13 +5548,13 @@
 
     move-result-object v8
 
-    :cond_2c
+    :cond_2d
     :goto_d
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_32
+    if-eqz v7, :cond_33
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5551,7 +5566,7 @@
 
     iget-boolean v7, v0, Lcom/android/launcher2/AppItem;->mDirty:Z
 
-    if-eqz v7, :cond_2c
+    if-eqz v7, :cond_2d
 
     new-instance v64, Lcom/android/launcher2/LauncherSettings$AppOrderModify;
 
@@ -5565,7 +5580,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2f
+    if-eqz v7, :cond_30
 
     move-object/from16 v0, v43
 
@@ -5573,7 +5588,7 @@
 
     sget-object v10, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v7, v10, :cond_2e
+    if-ne v7, v10, :cond_2f
 
     const/4 v7, 0x0
 
@@ -5594,7 +5609,7 @@
 
     iget-object v7, v0, Lcom/android/launcher2/AppItem;->mFolder:Lcom/android/launcher2/AppFolderItem;
 
-    if-eqz v7, :cond_31
+    if-eqz v7, :cond_32
 
     move-object/from16 v0, v43
 
@@ -5661,7 +5676,7 @@
 
     goto :goto_d
 
-    :cond_2d
+    :cond_2e
     sget-object v7, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
     sget-object v8, Lcom/android/launcher2/MenuAppModel;->MENU_CUSTOM_NORMALIZER:Lcom/android/launcher2/MenuAppModel$Normalizer;
@@ -5674,7 +5689,7 @@
 
     goto/16 :goto_c
 
-    :cond_2e
+    :cond_2f
     const/4 v7, 0x3
 
     move-object/from16 v0, v64
@@ -5691,14 +5706,14 @@
 
     goto :goto_e
 
-    :cond_2f
+    :cond_30
     move-object/from16 v0, v43
 
     iget-object v7, v0, Lcom/android/launcher2/AppItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     sget-object v10, Lcom/android/launcher2/BaseItem$Type;->MENU_APP:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v7, v10, :cond_30
+    if-ne v7, v10, :cond_31
 
     const/4 v7, 0x4
 
@@ -5709,22 +5724,22 @@
 
     goto :goto_e
 
-    :cond_30
+    :cond_31
     const/4 v7, 0x1
 
     goto :goto_10
 
-    :cond_31
+    :cond_32
     const-wide/16 v10, -0x1
 
     goto :goto_f
 
-    :cond_32
+    :cond_33
     invoke-interface/range {v65 .. v65}, Ljava/util/List;->isEmpty()Z
 
     move-result v7
 
-    if-nez v7, :cond_18
+    if-nez v7, :cond_19
 
     move-object/from16 v0, p0
 
@@ -5736,7 +5751,7 @@
 
     goto/16 :goto_8
 
-    :cond_33
+    :cond_34
     const-string v7, "MenuAppLoader"
 
     const-string v8, "loadAllItems: allItems is null"
@@ -6279,8 +6294,13 @@
     return v2
 
     :cond_0
+    sget-boolean v3, Lcom/android/launcher2/MenuAppLoader;->mIsLoaded:Z
+
+    if-eqz v3, :cond_1
+
     invoke-direct {p0, p2, v1, p3}, Lcom/android/launcher2/MenuAppLoader;->updatePackageActivities(Ljava/lang/String;Ljava/util/List;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
+    :cond_1
     const/4 v2, 0x0
 
     goto :goto_0

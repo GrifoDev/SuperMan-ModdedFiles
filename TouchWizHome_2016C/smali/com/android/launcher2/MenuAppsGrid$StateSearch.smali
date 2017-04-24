@@ -330,11 +330,51 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-nez v2, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->openKeyboard()V
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
+    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
+    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsSearch;->getSearchEdit()Landroid/widget/SearchView;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
+
+    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
+    invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsSearch;->getSearchEdit()Landroid/widget/SearchView;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/widget/SearchView;->hasFocus()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->openKeyboard()V
+
+    :cond_2
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
     # invokes: Lcom/android/launcher2/MenuAppsGrid;->getStateKeyboard()Z
@@ -342,7 +382,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
@@ -355,7 +395,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
@@ -366,7 +406,7 @@
 
     invoke-virtual {v2}, Lcom/android/launcher2/MenuAppsSearch;->requestFocusSearchEdit()V
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 

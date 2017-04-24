@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="close_folder_mini_icon_3x3_gap">1.0dip</dimen>
     <item type="dimen" name="home_cellGapY">@dimen/home_cellGapY_port</item>
     <dimen name="home_icon_drawablepadding">-1.0dip</dimen>
@@ -9,7 +10,7 @@
     <dimen name="menuWidgets_pagePaddingLeft">18.0dip</dimen>
     <dimen name="menuWidgets_pagePaddingRight">18.0dip</dimen>
     <dimen name="menuWidgets_previewHeight">112.0dip</dimen>
-    <dimen name="menuWidgets_previewWidth">154.0dip</dimen>
+    <dimen name="menuWidgets_previewWidth">152.0dip</dimen>
     <dimen name="menuWidgets_preview_imageContentHeightPlus">3.0dip</dimen>
     <dimen name="menuWidgets_preview_imagePaddingBottom">1.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_title_margin_bottom">16.0dip</dimen>
@@ -33,7 +34,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="widget_pageIndicatorTop">557.0dip</dimen>
     <dimen name="homefolder_icon_drawablepadding">-1.0dip</dimen>
     <dimen name="homefolder_icon_paddingTop">16.0dip</dimen>
@@ -54,12 +54,24 @@
     <dimen name="folder_multi_header_line_height">1.0px</dimen>
     <dimen name="folder_multi_icon_layout_height">100.0dip</dimen>
     <dimen name="more_icon_btn_height">36.0dip</dimen>
+    <dimen name="quick_options_arrow_height">9.0dip</dimen>
+    <dimen name="quick_options_arrow_width">18.0dip</dimen>
+    <dimen name="quick_options_item_gap">10.0dip</dimen>
+    <dimen name="quick_options_item_height">21.0dip</dimen>
+    <dimen name="quick_options_item_width">183.0dip</dimen>
+    <dimen name="quick_options_popup_divider_height">10.0dip</dimen>
+    <dimen name="quick_options_popup_padding_bottom">14.0dip</dimen>
+    <dimen name="quick_options_popup_padding_left">14.0dip</dimen>
+    <dimen name="quick_options_popup_padding_right">14.0dip</dimen>
+    <dimen name="quick_options_popup_padding_top">14.0dip</dimen>
+    <dimen name="quick_options_text_size">12.0dip</dimen>
     <dimen name="searchbar_divider_height">36.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">16.0dip</dimen>
     <dimen name="open_folder_appicon_margin_top">0.0dip</dimen>
     <dimen name="appsearch_grid_cell_padding">0.0dip</dimen>
     <dimen name="folder_multi_margin_bottom">0.0dip</dimen>
     <dimen name="appsearch_grid_padding_left_right">2.0dip</dimen>
+    <dimen name="appsearch_result_margin_top">54.0dip</dimen>
     <dimen name="folder_multi_header_text_height">28.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">14.0dip</dimen>
     <dimen name="folder_multi_search_bar_layout_height">45.0dip</dimen>

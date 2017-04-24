@@ -206,7 +206,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f080070
+    const v14, 0x7f080078
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -268,7 +268,7 @@
 
     if-nez v13, :cond_1
 
-    const v13, 0x7f100095
+    const v13, 0x7f100099
 
     invoke-virtual {v6, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -364,7 +364,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f080070
+    const v15, 0x7f080078
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     if-eqz v11, :cond_7
 
-    const v13, 0x7f10009e
+    const v13, 0x7f1000a2
 
     invoke-virtual {v11, v13}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

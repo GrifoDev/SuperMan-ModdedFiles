@@ -22,7 +22,7 @@
 
 .field public static final FLAG_SKIP_TRANSITION_ON_BLUR_SCREEN:Z = true
 
-.field private static final HOTSEAT_VIEW_ID:I = 0x7f10007a
+.field private static final HOTSEAT_VIEW_ID:I = 0x7f10007e
 
 .field private static final POSITION_PROPERTY:Landroid/util/Property;
     .annotation system Ldalvik/annotation/Signature;
@@ -38,7 +38,7 @@
 
 .field private static final ROOT_VIEW_ID:I = 0x1020002
 
-.field private static final ROTATION_TARGET_VIEW_ID:I = 0x7f100086
+.field private static final ROTATION_TARGET_VIEW_ID:I = 0x7f10008a
 
 .field private static final TAG:Ljava/lang/String;
 
@@ -642,7 +642,7 @@
 
     move-result-object v1
 
-    const v14, 0x7f090127
+    const v14, 0x7f090128
 
     invoke-virtual {v1, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -654,7 +654,7 @@
 
     move-result-object v1
 
-    const v14, 0x7f090127
+    const v14, 0x7f090128
 
     invoke-virtual {v1, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -721,7 +721,7 @@
     :goto_3
     invoke-direct {v10, p0, v9, v1}, Lcom/android/launcher2/ar/ARManager$HotseatTransition;-><init>(Lcom/android/launcher2/ar/ARManager;FZ)V
 
-    const v1, 0x7f10007a
+    const v1, 0x7f10007e
 
     invoke-virtual {v10, v1}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 
@@ -743,13 +743,13 @@
 
     invoke-virtual {v11, v1, v14}, Landroid/transition/Transition;->excludeTarget(IZ)Landroid/transition/Transition;
 
-    const v1, 0x7f100083
+    const v1, 0x7f100087
 
     const/4 v14, 0x1
 
     invoke-virtual {v11, v1, v14}, Landroid/transition/Transition;->excludeTarget(IZ)Landroid/transition/Transition;
 
-    const v1, 0x7f100085
+    const v1, 0x7f100089
 
     const/4 v14, 0x1
 
@@ -771,7 +771,7 @@
 
     invoke-direct {v12, p0, v9}, Lcom/android/launcher2/ar/ARManager$CustomRotate;-><init>(Lcom/android/launcher2/ar/ARManager;F)V
 
-    const v1, 0x7f100086
+    const v1, 0x7f10008a
 
     invoke-virtual {v12, v1}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 

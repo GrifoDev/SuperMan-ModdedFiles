@@ -34,9 +34,12 @@
     <string name="all_apps_title">Apps</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s verborgen.</string>
+    <string name="app_locked_toast">%s vergrendeld.</string>
     <string name="app_search">Zoeken</string>
     <string name="app_search_no_apps">U kunt op het startscherm sneltoetsen toevoegen uit de zoekresultaten.</string>
     <string name="app_search_no_results_found">Geen resultaten gevonden</string>
+    <string name="app_unlocked_toast">%s ontgrendeld.</string>
     <string name="apply">Toepassen</string>
     <string name="available_galaxyapps">Beschikbaar in Galaxy Apps</string>
     <string name="badge_manage_explain">Selecteer of u badges voor elke app wilt weergeven of verbergen.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Rechtstreeks kiezen</string>
     <string name="direct_message">Direct bericht</string>
     <string name="disable_message">%1$s en alle functies die ermee samenhangen, worden uitgeschakeld. Als u de app weer wilt inschakelen, gaat u naar Instellingen > Applicaties en selecteert u %2$s.</string>
+    <string name="disable_message_att">%s en alle functies die ermee samenhangen, worden uitgeschakeld. Als u deze weer wilt inschakelen, gaat u naar Instellingen > Apparaat > Applicaties > Applicatiebeheer.</string>
     <string name="disable_message_vzw">%s en alle functies die ermee samenhangen, worden uitgeschakeld. Als u deze weer wilt inschakelen, gaat u naar Instellingen > Applicaties > Applicatiebeheer.</string>
     <string name="disable_messange_knox">%s en alle functies die ermee samenhangen, worden uitgeschakeld. Als u deze weer wilt inschakelen, gaat u naar KNOX-instellingen > Applicatiebeheer.</string>
     <string name="disable_title">Applicatie uitschakelen</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Trek de rand omhoog, omlaag, naar binnen of naar buiten om de widgetafmetingen te wijzigen.</string>
     <string name="guide_tap_here">Tik op het pictogram Apps.</string>
     <string name="guide_widgets_tap_area">Tik op een widget, houd vast totdat de widget kan worden bewerkt en laat dan los.</string>
+    <string name="hide">Verberg</string>
+    <string name="hide_confirm_continue">Doorgaan</string>
+    <string name="hide_confirm_message">De %s-app is momenteel vergrendeld. De app wordt ontgrendeld als u deze verbergt.</string>
+    <string name="hide_confirm_title">App verbergen</string>
     <string name="home_edit_add_to_personal">Persoonlijk</string>
     <string name="home_edit_bar_delete_title">Sneltoets verwijd.</string>
     <string name="home_edit_bar_delete_title_vzw">Sneltoets verwijd.</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widget al toegevoegd aan startscherm.</string>
     <string name="open_folder">Map openen</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Apps weergeven</string>
     <string name="option_menu_contact_up">Neem contact met ons op</string>
     <string name="option_tray_screengrid">"Scherm-
 raster"</string>
@@ -154,14 +162,14 @@ raster"</string>
     <string name="permlab_install_widget">Widgets toevoegen</string>
     <string name="quick_contact">Contact</string>
     <string name="quick_options_help_text">Veeg een app-snelkoppeling naar beneden om de snelle opties weer te geven. Met snelle opties kunt u eenvoudig apps beheren.</string>
+    <string name="quickoption_sleep">Slaap</string>
     <string name="quickoptions_add_apps">Apps toevoegen</string>
     <string name="quickoptions_add_to_secure_folder">"Toevoegen aan
 Veilige map"</string>
     <string name="quickoptions_app_info">App-info</string>
     <string name="quickoptions_clear_badge">Badge wissen</string>
     <string name="quickoptions_disable">Uitschakelen</string>
-    <string name="quickoptions_put_to_sleep">In de sluimerstand plaatsen</string>
-    <string name="quickoptions_put_to_sleep_alert">Als u deze app in de sluimerstand zet, voorkomt u dat in de achtergrond batterijvoeding wordt verbruikt. Sluimerende apps ontvangen mogelijk geen updates en verzenden geen meldingen, maar ze worden automatisch geactiveerd wanneer u ze opent.</string>
+    <string name="quickoptions_sleep_alert">Als u deze app in de sluimerstand zet, voorkomt u dat in de achtergrond batterijvoeding wordt verbruikt. Sluimerende apps ontvangen mogelijk geen updates en verzenden geen meldingen, maar ze worden automatisch geactiveerd wanneer u ze opent.</string>
     <string name="quickoptions_uninstall">Verwijderen</string>
     <string name="quickview_delete_toast_msg">Sleep pagina naar Verwijderen om deze te verwijderen.</string>
     <string name="quickview_drag_bar_delete_title">Wissen</string>
@@ -173,9 +181,9 @@ Veilige map"</string>
     <string name="remove_app_folder_confirm">Wissen</string>
     <string name="remove_app_folder_confirm_VZW">Verwijderen</string>
     <string name="remove_app_folder_message">De map %s wordt verwijderd. De apps in deze map blijven beschikbaar op het Apps-scherm.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">De map %s wordt verwijderd. Apps in deze map worden vermeld aan het einde van het App-vak.</string>
     <string name="remove_app_folder_message_no_title">Deze map wordt verwijderd. Applicaties in deze map worden niet verwijderd.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Deze map wordt verwijderd. Apps in deze map worden vermeld aan het einde van het App-vak.</string>
     <string name="remove_app_folder_title">Map verwijderen</string>
     <string name="remove_app_folder_title_VZW">Map verwijderen</string>
     <string name="remove_home_folder_message">De map %s wordt verwijderd. De apps in deze map blijven beschikbaar op het Apps-scherm.</string>
@@ -227,10 +235,10 @@ zodat deze overeenkomt met startscherm."</string>
     <string name="viewmore_galaxyapps">Meer in Galaxy Apps weergeven</string>
     <string name="viewmore_playstore">Meer in Play Store weergeven</string>
     <string name="viewtype_alphabetic_grid">Alfabetische volgorde</string>
-    <string name="viewtype_custom_grid">Aangepaste bestelling</string>
+    <string name="viewtype_custom_grid">Aangepaste volgorde</string>
     <string name="widget_duplicate">Widget %s al op het startscherm.</string>
     <string name="work_folder_name">Werk</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Raak het scherm aan en houd vast om items toe te voegen</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">Download</string>
     <string name="zeropage_download_msg">Installeer %1$s als u deze functie wilt gebruiken. Tik op DOWNLOADEN om %2$s te downloaden en te installeren.</string>

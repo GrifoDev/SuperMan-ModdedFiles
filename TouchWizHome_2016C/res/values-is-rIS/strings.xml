@@ -34,14 +34,17 @@
     <string name="all_apps_title">Forrit</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AÁBCDÐEÉFGHIÍJKLMNOÓPQRSTUÚVWXYÝZÞÆÖ</string>
     <string name="alphabetical_list_indicator_indexes">\#ÁÐÉÍÓÚÝÞÆÖABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">„%s“ er falið.</string>
+    <string name="app_locked_toast">%s læst.</string>
     <string name="app_search">Leita</string>
     <string name="app_search_no_apps">Þú getur bætt flýtileiðum við heimaskjáinn úr leitarniðurstöðunum.</string>
     <string name="app_search_no_results_found">Engar niðurstöður</string>
+    <string name="app_unlocked_toast">%s opinn.</string>
     <string name="apply">Nota</string>
     <string name="available_galaxyapps">Fáanlegt í Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Veldu hvort þú vilt sýna eða fela skildi fyrir hvert forrit.</string>
+    <string name="badge_manage_summary">Veldu hvort þú vilt sýna eða fela skildi fyrir hvert forrit.</string>
+    <string name="badge_manage_title">Stjórna forritaskjöldum</string>
     <string name="cancel">Hætta v.</string>
     <string name="change_home_screen_settings">Breyta still. á heimaskjá</string>
     <string name="change_home_screen_settings_info">Þetta forrit getur breytt stillingum og flýtileiðum heimaskjás.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Beint val</string>
     <string name="direct_message">Bein skilaboð</string>
     <string name="disable_message">%1$s og allir tengdir eiginleikar verða gerð óvirk. Til að kveikja aftur á forritinu ferðu í „Stillingar > Forrit“ og velur %2$s.</string>
+    <string name="disable_message_att">%s og allir tengdir eiginleikar verða gerðir óvirkir. Til að kveikja aftur á því ferðu í „Stillingar > Tæki > Forrit > Forritastjórnun“.</string>
     <string name="disable_message_vzw">%s og allir tengdir eiginleikar verða gerðir óvirkir. Til að kveikja aftur á því ferðu í Stillingar > Forrit > Forritastjórnun.</string>
     <string name="disable_messange_knox">%s og allir tengdir eiginleikar verða gerðir óvirkir. Farðu í KNOX-stillingar > Forritastjórnun til að virkja það að nýju.</string>
     <string name="disable_title">Gera forrit óvirkt</string>
@@ -85,6 +89,10 @@ forrit"</string>
     <string name="guide_resize_widget_step2">Dragðu rammann upp og niður eða inn og út til að breyta stærð græjunnar.</string>
     <string name="guide_tap_here">Pikkaðu á forritatáknið.</string>
     <string name="guide_widgets_tap_area">Haltu fingri á græju þar til hægt er að breyta henni og slepptu svo.</string>
+    <string name="hide">Fela</string>
+    <string name="hide_confirm_continue">Halda áfram</string>
+    <string name="hide_confirm_message">Forritið „%s“ er læst sem stendur. Ef þú felur forritið verður það tekið úr lás.</string>
+    <string name="hide_confirm_title">Fela forrit</string>
     <string name="home_edit_add_to_personal">Á einkaskjá</string>
     <string name="home_edit_bar_delete_title">Fjarlæ. flýtileið</string>
     <string name="home_edit_bar_delete_title_vzw">Fjarlæ. flýtileið</string>
@@ -135,7 +143,7 @@ forrit"</string>
     <string name="ok">Í lagi</string>
     <string name="only_one_widget_instance_allowed">%s-græjunni hefur þegar verið bætt við heimaskjá.</string>
     <string name="open_folder">Opna möppu</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Sjá forrit</string>
     <string name="option_menu_contact_up">Hafa samband</string>
     <string name="option_tray_screengrid">Skjánet</string>
     <string name="options_home_set_theme">Þemu</string>
@@ -154,14 +162,14 @@ forrit"</string>
     <string name="permlab_install_widget">Bæta við græjum</string>
     <string name="quick_contact">Tengiliður</string>
     <string name="quick_options_help_text">Strjúktu flýtileið forrits niður til að skoða flýtikosti forritsins. Flýtikostir gera þér kleift að stjórna forritum á auðveldan hátt.</string>
+    <string name="quickoption_sleep">Hvíldarstaða</string>
     <string name="quickoptions_add_apps">Bæta við forritum</string>
     <string name="quickoptions_add_to_secure_folder">"Bæta við
 örugga möppu"</string>
     <string name="quickoptions_app_info">Forritsupplýsingar</string>
     <string name="quickoptions_clear_badge">Hreinsa merki</string>
     <string name="quickoptions_disable">Slökkva</string>
-    <string name="quickoptions_put_to_sleep">Setja í hvíldarstöðu</string>
-    <string name="quickoptions_put_to_sleep_alert">Sé forritið sett í hvíldarstöðu kemur það í veg fyrir að forritið noti rafhlöðuna í bakgrunni. Forrit í hvíldarstöðu eru hugsanlega ekki uppfærð né senda þér tilkynningar en þau vakna þegar þú opnar þau.</string>
+    <string name="quickoptions_sleep_alert">Sé forritið sett í hvíldarstöðu kemur það í veg fyrir að forritið noti rafhlöðuna í bakgrunni. Forrit í hvíldarstöðu eru hugsanlega ekki uppfærð né senda þér tilkynningar en þau vakna þegar þú opnar þau.</string>
     <string name="quickoptions_uninstall">Fjarlægja</string>
     <string name="quickview_delete_toast_msg">Dragðu síðu í „Fjarlægja“ til að fjarlægja hana.</string>
     <string name="quickview_drag_bar_delete_title">Fjarlægja</string>
@@ -173,9 +181,9 @@ forrit"</string>
     <string name="remove_app_folder_confirm">Eyða</string>
     <string name="remove_app_folder_confirm_VZW">Fjarlægja</string>
     <string name="remove_app_folder_message">Möppunni „%s“ verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á forritaskjánum.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Mappan %s verður fjarlægð. Forrit í þessari möppu verða talin upp neðst í forritaskúffunni.</string>
     <string name="remove_app_folder_message_no_title">Mappan verður fjarlægð. Forrit í þessari möppu verða ekki fjarlægð.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Þessi mappa verður fjarlægð. Forrit í þessari möppu verða talin upp neðst í forritaskúffunni.</string>
     <string name="remove_app_folder_title">Eyða möppu</string>
     <string name="remove_app_folder_title_VZW">Fjarlægja möppu</string>
     <string name="remove_home_folder_message">Möppunni „%s“ verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á forritaskjánum.</string>
@@ -188,7 +196,7 @@ forrit"</string>
     <string name="search_for_apps">Leita að forritum</string>
     <string name="search_for_widgets">Leita að græjum</string>
     <string name="search_result_found">%d fundust</string>
-    <string name="search_result_founds">%d fannst</string>
+    <string name="search_result_founds">%d fundust</string>
     <string name="select_all_app">Allt</string>
     <string name="select_app_add">BÆTA VIÐ</string>
     <string name="selected">Valið</string>
@@ -230,11 +238,11 @@ forrit"</string>
     <string name="viewtype_custom_grid">Sérsniðin röð</string>
     <string name="widget_duplicate">Græjan %s er þegar á heimaskjánum.</string>
     <string name="work_folder_name">Vinna</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Haltu fingri á skjánum til að bæta atriðum við</string>
+    <string name="zeropage_briefing_title">Upplýsingar</string>
+    <string name="zeropage_download">Sækja</string>
+    <string name="zeropage_download_msg">Þú þarft að setja upp %1$s til að geta notað þennan eiginleika. Pikkaðu á SÆKJA til að hlaða niður og setja upp %2$s.</string>
     <string name="zeropage_notice_msg">Fréttaþjónustan %s er nú í boði. Til að nota hana í stað Flipboard Briefing skaltu pikka á Í LAGI.</string>
     <string name="zeropage_setting_dialog_no">Hætta v.</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu-fréttir</string>
 </resources>

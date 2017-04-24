@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplikacje</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ</string>
     <string name="alphabetical_list_indicator_indexes">\#AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ</string>
+    <string name="app_hidden_toast">Ukryto %s.</string>
+    <string name="app_locked_toast">Aplikacja %s zablokowana.</string>
     <string name="app_search">Szukaj</string>
     <string name="app_search_no_apps">Możesz dodawać skróty na ekranie startowym z wyników wyszukiwania.</string>
     <string name="app_search_no_results_found">Nie znaleziono wyników</string>
+    <string name="app_unlocked_toast">Kategoria %s odblokowana.</string>
     <string name="apply">Zastosuj</string>
     <string name="available_galaxyapps">Dostępne w Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
+    <string name="badge_manage_summary">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
+    <string name="badge_manage_title">Zarządzaj odznaczeniami aplikacji</string>
     <string name="cancel">Anuluj</string>
     <string name="change_home_screen_settings">Zmień ustawien. ekr. start.</string>
     <string name="change_home_screen_settings_info">Ta aplikacja może zmieniać skróty i ustawienia ekranu startowego.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Bezpośr. wybieranie</string>
     <string name="direct_message">Wiad. bezpośrednia</string>
     <string name="disable_message">Aplikacja %1$s i wszystkie funkcje z nią związane zostaną wyłączone. Aby ponownie włączyć aplikację, przejdź do menu Ustawienia > Aplikacje, a następnie wybierz aplikację %2$s.</string>
+    <string name="disable_message_att">Aplikacja %s i wszystkie funkcje z nią związane zostaną wyłączone. Aby włączyć ją ponownie, przejdź do menu Ustawienia > Urządzenie > Aplikacje > Menedżer aplikacji.</string>
     <string name="disable_message_vzw">Aplikacja %s i wszystkie funkcje z nią związane zostaną wyłączone. Aby włączyć ją ponownie, przejdź do menu Ustawienia > Aplikacje > Menedżer aplikacji.</string>
     <string name="disable_messange_knox">Aplikacja %s i wszystkie funkcje z nią związane zostaną wyłączone. Aby włączyć ją ponownie, przejdź do menu Ustawienia KNOX > Menedżer aplikacji.</string>
     <string name="disable_title">Wyłącz aplikację</string>
@@ -85,6 +89,10 @@ Microsoft"</string>
     <string name="guide_resize_widget_step2">Przeciągnij obramowanie w górę, w dół, do środka lub na zewnątrz, aby zmienić rozmiar widgetu.</string>
     <string name="guide_tap_here">Dotknij ikony aplikacji.</string>
     <string name="guide_widgets_tap_area">Dotknij widgetu i przytrzymaj go aż do uaktywnienia edycji, a następnie go zwolnij.</string>
+    <string name="hide">Ukryj</string>
+    <string name="hide_confirm_continue">Kontynuuj</string>
+    <string name="hide_confirm_message">Aplikacja %s jest obecnie zablokowana. Jeśli ją ukryjesz, ta aplikacja zostanie odblokowana.</string>
+    <string name="hide_confirm_title">Ukrywanie aplikacji</string>
     <string name="home_edit_add_to_personal">Dod.do osob.</string>
     <string name="home_edit_bar_delete_title">Usuń skrót</string>
     <string name="home_edit_bar_delete_title_vzw">Usuń skrót</string>
@@ -136,7 +144,7 @@ aplikacje"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s został już dodany do ekranu startowego.</string>
     <string name="open_folder">Otwarty katalog</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Wyświetl aplikacje</string>
     <string name="option_menu_contact_up">Skontaktuj się z nami</string>
     <string name="option_tray_screengrid">Siatka ekranu</string>
     <string name="options_home_set_theme">Motywy</string>
@@ -155,14 +163,14 @@ aplikacje"</string>
     <string name="permlab_install_widget">Dodaj widgety</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Przeciągnij palcem po skrócie aplikacji w dół, aby wyświetlić jej szybkie opcje. Szybkie opcje ułatwiają zarządzanie aplikacjami.</string>
+    <string name="quickoption_sleep">Uśpij</string>
     <string name="quickoptions_add_apps">Dodawanie aplikacji</string>
     <string name="quickoptions_add_to_secure_folder">"Dodaj do
 Bezp. katalog"</string>
     <string name="quickoptions_app_info">Informacje o aplikacji</string>
     <string name="quickoptions_clear_badge">Wyczyść odznaczenie</string>
     <string name="quickoptions_disable">Wyłącz</string>
-    <string name="quickoptions_put_to_sleep">Wprowadź w tryb uśpienia</string>
-    <string name="quickoptions_put_to_sleep_alert">Wprowadzenie tej aplikacji w tryb uśpienia zapobiegnie zużywaniu przez nią baterii w tle. Uśpione aplikacje mogą nie odbierać aktualizacji ani wysyłać powiadomień, ale uaktywniają się po otwarciu.</string>
+    <string name="quickoptions_sleep_alert">Wprowadzenie tej aplikacji w tryb uśpienia zapobiegnie zużywaniu przez nią baterii w tle. Uśpione aplikacje mogą nie odbierać aktualizacji ani wysyłać powiadomień, ale uaktywniają się po otwarciu.</string>
     <string name="quickoptions_uninstall">Odinstaluj</string>
     <string name="quickview_delete_toast_msg">Przeciągnij stronę do obszaru Usuń, aby ją usunąć.</string>
     <string name="quickview_drag_bar_delete_title">Usuń</string>
@@ -174,9 +182,9 @@ Bezp. katalog"</string>
     <string name="remove_app_folder_confirm">Usuń</string>
     <string name="remove_app_folder_confirm_VZW">Usuń</string>
     <string name="remove_app_folder_message">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie Aplikacje.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
     <string name="remove_app_folder_message_no_title">Ten katalog zostanie usunięty. Aplikacje w tym katalogu nie zostaną odinstalowane.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Ten katalog zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
     <string name="remove_app_folder_title">Usuń katalog</string>
     <string name="remove_app_folder_title_VZW">Usuń katalog</string>
     <string name="remove_home_folder_message">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie Aplikacje.</string>
@@ -231,12 +239,12 @@ Bezp. katalog"</string>
     <string name="viewtype_custom_grid">Kolejność niestandardowa</string>
     <string name="widget_duplicate">Widget %s jest już na ekranie startowym.</string>
     <string name="work_folder_name">Praca</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Dotknij ekranu i przytrzymaj go, aby dodać elementy</string>
+    <string name="zeropage_briefing_title">Skrót informacji</string>
+    <string name="zeropage_download">Pobierz</string>
+    <string name="zeropage_download_msg">Do korzystania z tej funkcji należy zainstalować aplikację %1$s. Dotknij opcji POBIERZ, aby pobrać i zainstalować %2$s.</string>
     <string name="zeropage_notice_msg">Usługa informacyjna %s jest teraz dostępna. Aby używać jej zamiast Flipboard Briefing, dotknij opcji OK.</string>
     <string name="zeropage_setting_dialog_no">Anuluj</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Wiadomości Sohu</string>
     <string name="market_sample">To jest produkt Engineering Sample i nie jest zalecane do wszechstronnej oceny jakości</string>
 </resources>

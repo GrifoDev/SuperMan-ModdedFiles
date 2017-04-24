@@ -6,6 +6,7 @@
     <color name="menu_title_text_color">#ffffffff</color>
     <color name="home_title_bar_text_color">#ffffffff</color>
     <color name="editbar_cicle_normal_color">#4d009cff</color>
+    <color name="quick_popup_action_text_color">#ff000000</color>
     <color name="appsearch_app_name_highlight_color">#ff2abcf2</color>
     <color name="item_search_list">#ff000000</color>
     <color name="menu_title_selected_text">#ffffffff</color>
@@ -16,7 +17,6 @@
     <color name="folder_colorPicker_color_green">#ff76e3ae</color>
     <color name="folder_colorPicker_color_red">#ffeebd7e</color>
     <color name="folder_colorPicker_color_yellow">#fff3e18d</color>
-    <color name="quick_popup_action_text_color">#ff000000</color>
     <color name="apps_search_storke_shadowColor">#cc000000</color>
     <color name="apps_search_viewmore_storke_shadowColor">#80000000</color>
     <color name="apps_searchtext_color">#fffafafa</color>

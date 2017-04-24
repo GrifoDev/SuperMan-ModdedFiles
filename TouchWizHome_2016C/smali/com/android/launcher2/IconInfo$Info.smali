@@ -71,6 +71,18 @@
     return-void
 .end method
 
+.method public applyMenuAppIconView(Lcom/android/launcher2/MenuAppIconView;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher2/IconInfo$Info;->mHomeIconViewStyle:Landroid/content/res/TypedArray;
+
+    iget-object v1, p0, Lcom/android/launcher2/IconInfo$Info;->mHomeIconTextViewStyle:Landroid/content/res/TypedArray;
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/launcher2/MenuAppIconView;->applyStyle(Landroid/content/res/TypedArray;Landroid/content/res/TypedArray;)V
+
+    return-void
+.end method
+
 .method public gridSizeChange(Landroid/content/Context;Lcom/android/launcher2/LauncherApplication$HomeGridSize;)V
     .locals 0
 

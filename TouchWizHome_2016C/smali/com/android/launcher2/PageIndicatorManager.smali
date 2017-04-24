@@ -207,7 +207,7 @@
 
     iput p4, p0, Lcom/android/launcher2/PageIndicatorManager;->mMaxVisiblePages:I
 
-    const v5, 0x7f090288
+    const v5, 0x7f09028b
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1447,7 +1447,7 @@
 
     if-eqz v12, :cond_5
 
-    const v12, 0x7f090113
+    const v12, 0x7f090114
 
     invoke-virtual {v10, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1498,7 +1498,7 @@
 
     if-le v12, v13, :cond_b
 
-    const v12, 0x7f09023e
+    const v12, 0x7f090240
 
     invoke-virtual {v10, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2513,7 +2513,7 @@
     invoke-virtual {v8, v11}, Lcom/android/launcher2/PageIndicator;->setFestivalPageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
-    const v8, 0x7f090113
+    const v8, 0x7f090114
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2573,7 +2573,7 @@
 
     if-le v8, v11, :cond_9
 
-    const v8, 0x7f09023e
+    const v8, 0x7f090240
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3010,7 +3010,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f090113
+    const v8, 0x7f090114
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3070,7 +3070,7 @@
 
     if-le v8, v11, :cond_9
 
-    const v8, 0x7f09023e
+    const v8, 0x7f090240
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

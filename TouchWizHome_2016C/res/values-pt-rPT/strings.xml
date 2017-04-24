@@ -34,9 +34,12 @@
     <string name="all_apps_title">Aplicações</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s oculta.</string>
+    <string name="app_locked_toast">%s bloqueado.</string>
     <string name="app_search">Procurar</string>
     <string name="app_search_no_apps">Pode adicionar atalhos ao ecrã principal a partir dos resultados das procuras.</string>
     <string name="app_search_no_results_found">Nenhuns resultados encontrados</string>
+    <string name="app_unlocked_toast">%s desbloqueado.</string>
     <string name="apply">Aplicar</string>
     <string name="available_galaxyapps">Disponível na Galaxy Apps</string>
     <string name="badge_manage_explain">Seleccione se quer mostrar ou ocultar o distintivo de cada aplicação.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Marcação Directa</string>
     <string name="direct_message">Mensagem Directa</string>
     <string name="disable_message">%1$s e todas as funções com ele relacionadas serão desactivadas. Para reactivar a aplicação, aceda a Definições > Aplicações e seleccione %2$s.</string>
+    <string name="disable_message_att">%s e todas as funcionalidades com ele relacionadas serão desactivadas. Para reactivar, aceda a Definições > Dispositivo > Aplicações > Gestor de aplicações.</string>
     <string name="disable_message_vzw">%s e todas as funções com ele relacionadas serão desactivados. Para o reactivar vá para Definições > Aplicações > Gestor de aplicações.</string>
     <string name="disable_messange_knox">%s e todas as funcionalidades relacionadas serão desactivados. Para reactivar, aceda a Definições de KNOX > Gestor de aplicações.</string>
     <string name="disable_title">Desactivar aplicação</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Puxe o contorno para cima, para baixo, para dentro ou para fora, para redimensionar o widget.</string>
     <string name="guide_tap_here">Toque no ícone das aplicações.</string>
     <string name="guide_widgets_tap_area">Toque sem soltar num widget até poder ser modificado, depois liberte-o.</string>
+    <string name="hide">Ocultar</string>
+    <string name="hide_confirm_continue">Continuar</string>
+    <string name="hide_confirm_message">A aplicação %s está actualmente bloqueada. Se ocultar esta aplicação, ela ficará desbloqueada.</string>
+    <string name="hide_confirm_title">Ocultar aplicação</string>
     <string name="home_edit_add_to_personal">Adic. atalho</string>
     <string name="home_edit_bar_delete_title">Remover atalho</string>
     <string name="home_edit_bar_delete_title_vzw">Remover atalho</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s já adicionado ao ecrã principal.</string>
     <string name="open_folder">Abrir pasta</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Ver aplicações</string>
     <string name="option_menu_contact_up">Contacte-nos</string>
     <string name="option_tray_screengrid">Grelha do ecrã</string>
     <string name="options_home_set_theme">Temas</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Adicionar widgets</string>
     <string name="quick_contact">Contacto</string>
     <string name="quick_options_help_text">Deslize um atalho de aplicação para baixo, para ver as respectivas opções rápidas. As opções rápidas permitem-lhe gerir as aplicações facilmente.</string>
+    <string name="quickoption_sleep">Suspender</string>
     <string name="quickoptions_add_apps">Adicionar aplicações</string>
     <string name="quickoptions_add_to_secure_folder">"Adicionar à
 Pasta Segura"</string>
     <string name="quickoptions_app_info">Informações da aplicação</string>
     <string name="quickoptions_clear_badge">Limpar distintivo</string>
     <string name="quickoptions_disable">Desactivar</string>
-    <string name="quickoptions_put_to_sleep">Suspensa</string>
-    <string name="quickoptions_put_to_sleep_alert">A suspensão desta aplicação impede que a mesma utilize a bateria em segundo plano. As aplicações suspensas podem não receber actualizações nem enviar notificações, mas serão activadas assim que as abrir.</string>
+    <string name="quickoptions_sleep_alert">A suspensão desta aplicação impede que a mesma utilize a bateria em segundo plano. As aplicações suspensas podem não receber actualizações nem enviar notificações, mas serão activadas assim que as abrir.</string>
     <string name="quickoptions_uninstall">Desinstalar</string>
     <string name="quickview_delete_toast_msg">Arraste a página para Remover para a remover.</string>
     <string name="quickview_drag_bar_delete_title">Remover</string>
@@ -172,9 +180,9 @@ Pasta Segura"</string>
     <string name="remove_app_folder_confirm">Eliminar</string>
     <string name="remove_app_folder_confirm_VZW">Remover</string>
     <string name="remove_app_folder_message">A pasta %s será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no ecrã Aplicações.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">A pasta %s vai ser removida. As aplicações que estão dentro desta pasta vão ser apresentadas no final do tabuleiro das Aplicações.</string>
     <string name="remove_app_folder_message_no_title">Esta pasta será removida. As aplicações nesta pasta não serão desinstaladas.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Esta pasta vai ser removida. As aplicações desta pasta vão ser apresentadas no final do tabuleiro das Aplicações.</string>
     <string name="remove_app_folder_title">Eliminar pasta</string>
     <string name="remove_app_folder_title_VZW">Remover pasta</string>
     <string name="remove_home_folder_message">A pasta %s será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no ecrã Aplicações.</string>
@@ -187,7 +195,7 @@ Pasta Segura"</string>
     <string name="search_for_apps">Procurar aplicações</string>
     <string name="search_for_widgets">Procurar widgets</string>
     <string name="search_result_found">%d encontrado</string>
-    <string name="search_result_founds">%d encontrados</string>
+    <string name="search_result_founds">%d encontrado</string>
     <string name="select_all_app">Sempre</string>
     <string name="select_app_add">ADICIONAR</string>
     <string name="selected">Seleccionado</string>
@@ -229,7 +237,7 @@ Pasta Segura"</string>
     <string name="viewtype_custom_grid">Ordem personalizada</string>
     <string name="widget_duplicate">Widget %s já está no ecrã principal.</string>
     <string name="work_folder_name">Trabalho</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Tocar sem soltar no ecrã para adicionar itens</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">Transferir</string>
     <string name="zeropage_download_msg">Para utilizar esta função, é necessário instalar o %1$s. Toque em TRANSFERIR para transferir e instalar o %2$s.</string>

@@ -34,14 +34,17 @@
     <string name="all_apps_title">अनुप्रयोग</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;अआइईउऊएऐओऔकखगघड़चछजझञटठडढणतथदधनपफबभमयरलवशषसहज्ञABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZअआइईउऊऋएऐओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरलवशषसहज्ञत्रक्षश्र</string>
+    <string name="app_hidden_toast">%s लपवले.</string>
+    <string name="app_locked_toast">%s लॉक केले.</string>
     <string name="app_search">शोधा</string>
     <string name="app_search_no_apps">आपण शोध परिणामांमधून मुख्य स्क्रीनवर शॉर्टकट्स जोडू शकता.</string>
     <string name="app_search_no_results_found">कोणतेही परिणाम आढळले नाही</string>
+    <string name="app_unlocked_toast">%s अनलॉक केलेले.</string>
     <string name="apply">लागू</string>
     <string name="available_galaxyapps">Galaxy Apps मध्ये उपलब्ध</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">प्रत्येक अनुप्रयोगा साठी बॅजेस दर्शवायचे का लपवायचे ते निवडा.</string>
+    <string name="badge_manage_summary">प्रत्येक अनुप्रयोगा साठी बॅजेस दर्शवायचे का लपवायचे ते निवडा.</string>
+    <string name="badge_manage_title">अनुप्रयोग बॅजेस व्यवस्थापित करा</string>
     <string name="cancel">रद्द</string>
     <string name="change_home_screen_settings">मुख्‍य स्‍क्रीन सेटिंग्स बदला</string>
     <string name="change_home_screen_settings_info">हा अनुप्रयोग आपल्या मुख्‍य स्‍क्रीन सेटिंग्स आणि शॉर्टकट्स बदलू शकतो.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">थेट डायल</string>
     <string name="direct_message">थेट संदेश</string>
     <string name="disable_message">%1$s आणि त्याच्याशी संबंधित सर्व फंक्शन्स अक्षम केले जातील. अनुप्रयोग पुन्हा सक्षम करण्यासाठी, सेटिंग्स > अनुप्रयोगांवर जा, नंतर %2$s निवडा.</string>
+    <string name="disable_message_att">%s आणि त्याच्याशी संबंधित सर्व वैशिष्ट्ये अक्षम केली जातील. ते पुन्‍हा सक्षम करण्‍या साठी, सेटिंग्‍स > उपकरण > अनुप्रयोग > अनुप्रयोग व्‍यवस्‍थापक वर जा.</string>
     <string name="disable_message_vzw">%s आणि त्याच्याशी संबंधित सर्व वैशिष्ट्ये अक्षम केली जातील. हे पुन्‍हा सक्षम करण्‍यासाठी, सेटिंग्‍स > अनुप्रयोग > अनुप्रयोग व्‍यवस्‍थापकवर जा.</string>
     <string name="disable_messange_knox">%s आणि त्‍याच्‍याशी संबंधित सर्व वैशिष्‍ट्ये अक्षम करण्‍यात येतील. त्यास पुन्हा सक्षम करण्यास, KNOX सेटिंग्स > अनुप्रयोग व्यवस्थापक वर जा.</string>
     <string name="disable_title">अनुप्रयोग अक्षम करा</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">चौकट वर, खाली, आत किंवा बाहेर ओढा, विजेटला पुर्नआकार देण्यासाठी.</string>
     <string name="guide_tap_here">अनुप्रयोग आयकॉन टॅप करा.</string>
     <string name="guide_widgets_tap_area">जोपर्यंत हे संपादित होवू शकते तोपर्यंत विजेट टॅप आणि होल्ड करा.</string>
+    <string name="hide">लपवा</string>
+    <string name="hide_confirm_continue">सुरू ठेवा</string>
+    <string name="hide_confirm_message">%s अनुप्रयोग सध्या लॉक केले आहे. आपण हा अनुप्रयोग लपवल्यास, तो अनावरोधित केला जाईल.</string>
+    <string name="hide_confirm_title">अनुप्रयोग लपवा</string>
     <string name="home_edit_add_to_personal">वैयक्तिक मध्ये जोडा</string>
     <string name="home_edit_bar_delete_title">शॉर्टकट काढा</string>
     <string name="home_edit_bar_delete_title_vzw">शॉर्टकट काढा</string>
@@ -134,7 +142,7 @@
     <string name="ok">ठीक</string>
     <string name="only_one_widget_instance_allowed">%s विजेट आधीपासूनच मुख्‍य स्‍क्रीनवर आहे.</string>
     <string name="open_folder">फोल्डर उघडा</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">अनुप्रयोग पहा</string>
     <string name="option_menu_contact_up">आमच्‍याशी संपर्क साधा</string>
     <string name="option_tray_screengrid">स्‍क्रीन ग्रिड</string>
     <string name="options_home_set_theme">थीम</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">विजेट्स जोडा</string>
     <string name="quick_contact">संपर्क</string>
     <string name="quick_options_help_text">त्याचे त्वरित पर्याय पाहण्यासाठी शॉर्टकट खालच्या दिशेने स्वाइप करा. त्वरित पर्याय आपल्याला सहजपणे अनुप्रयोग व्यवस्थापित करण्याची अनुमती देतात.</string>
+    <string name="quickoption_sleep">झोप</string>
     <string name="quickoptions_add_apps">अनुप्रयोग जोडा</string>
     <string name="quickoptions_add_to_secure_folder">"सुरक्षित फोल्डर
 वर जोडा"</string>
     <string name="quickoptions_app_info">अनुप्रयोग माहिती</string>
     <string name="quickoptions_clear_badge">बॅज साफ करा</string>
     <string name="quickoptions_disable">अक्षम</string>
-    <string name="quickoptions_put_to_sleep">निष्क्रिय करा</string>
-    <string name="quickoptions_put_to_sleep_alert">हा अनुप्रयोग निष्क्रिय केल्याने पार्श्वभूमीमध्ये बॅटरी वापरण्यापासून तो प्रतिबंधित केला जाईल. निष्क्रिय अनुप्रयोग अद्ययावते प्राप्त करू शकणार नाहीत आणि आपल्याला अधिसूचना पाठवू शकणार नाहीत, परंतु आपण त्यांना उघडल्यावर ते सक्रिय होतील.</string>
+    <string name="quickoptions_sleep_alert">हा अनुप्रयोग निष्क्रिय केल्याने पार्श्वभूमीमध्ये बॅटरी वापरण्यापासून तो प्रतिबंधित केला जाईल. निष्क्रिय अनुप्रयोग अद्ययावते प्राप्त करू शकणार नाहीत आणि आपल्याला अधिसूचना पाठवू शकणार नाहीत, परंतु आपण त्यांना उघडल्यावर ते सक्रिय होतील.</string>
     <string name="quickoptions_uninstall">अनइन्स्टॉल करा</string>
     <string name="quickview_delete_toast_msg">ते काढून टाकण्यासाठी काढावर पृष्ठ ड्रॅग करा.</string>
     <string name="quickview_drag_bar_delete_title">काढून टाका</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">हटवा</string>
     <string name="remove_app_folder_confirm_VZW">काढून टाका</string>
     <string name="remove_app_folder_message">%s फोल्डर हटवला जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही अनुप्रयोग स्क्रीनवर उपलब्ध आहेत.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s फोल्डर काढून टाकला जाईल. या फोल्डरच्या आत असलेले अनुप्रयोग हे अनुप्रयोग ट्रेच्या शेवटी सूचीबद्ध केले जातील.</string>
     <string name="remove_app_folder_message_no_title">हे फोल्‍डर काढून टाकले जाईल. ह्या फोल्‍डरमधील अनुप्रयोग अन्‍इन्‍स्‍टॉल करता येऊ शकत नाही.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">हे फोल्डर काढून टाकले जाईल. या फोल्डरच्या आत असलेले अनुप्रयोग हे अनुप्रयोग ट्रेच्या शेवटी सूचीबद्ध केले जातील.</string>
     <string name="remove_app_folder_title">फोल्डर काढून टाका</string>
     <string name="remove_app_folder_title_VZW">फोल्डर काढा</string>
     <string name="remove_home_folder_message">%s फोल्डर हटवला जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही अनुप्रयोग स्क्रीनवर उपलब्ध आहेत.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">सानुकूल क्रम</string>
     <string name="widget_duplicate">%s विजेट आधीपासूनच मुख्‍य स्‍क्रीनवर आहे.</string>
     <string name="work_folder_name">कार्य</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">आयटम्स जोडण्या साठी स्क्रीन स्पर्श आणि होल्ड करा</string>
+    <string name="zeropage_briefing_title">संक्षिप्त करत आहे</string>
+    <string name="zeropage_download">डाउनलोड करा</string>
+    <string name="zeropage_download_msg">हे फंक्शन वापरण्यासाठी, आपण %1$s इन्‍स्‍टॉल करणे आवश्यक आहे. %2$s डाउनलोड आणि इन्स्टॉल करण्या साठी “डाउनलोड करा” टॅप करा.</string>
     <string name="zeropage_notice_msg">%s बातमी सेवा आता उपलब्ध आहे. फ्लिपबोर्ड ब्रिफिंगच्याऐवजी ते वापरण्यासाठी, “ठीक” टॅप करा.</string>
     <string name="zeropage_setting_dialog_no">रद्द</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">सौहू बातम्या</string>
 </resources>

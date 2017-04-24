@@ -34,9 +34,12 @@
     <string name="all_apps_title">Sovellukset</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s piilotettu.</string>
+    <string name="app_locked_toast">%s lukittu.</string>
     <string name="app_search">Hae</string>
     <string name="app_search_no_apps">Voit lisätä hakutuloksista pikavalintoja alkunäyttöön.</string>
     <string name="app_search_no_results_found">Tuloksia ei löytynyt</string>
+    <string name="app_unlocked_toast">Luokan %s lukitus poistettu.</string>
     <string name="apply">Käytä</string>
     <string name="available_galaxyapps">Saatavilla Galaxy Appsissa</string>
     <string name="badge_manage_explain">Valitse, näytetäänkö vai piilotetaanko kunkin sovelluksen merkit.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Suoravalinta</string>
     <string name="direct_message">Suora viesti</string>
     <string name="disable_message">%1$s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sovelluksen uudelleen käyttöön valitsemalla Asetukset > Sovellukset ja sitten %2$s.</string>
+    <string name="disable_message_att">%s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sen uudelleen käyttöön valitsemalla Asetukset > Laite > Sovellukset > Sovellusten hallinta.</string>
     <string name="disable_message_vzw">%s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sen uudelleen käyttöön valitsemalla Asetukset > Sovellukset > Sovellusten hallinta.</string>
     <string name="disable_messange_knox">%s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sen uudelleen käyttöön valitsemalla KNOXin asetukset > Sovellusten hallinta.</string>
     <string name="disable_title">Poista sovellus käytöstä</string>
@@ -85,6 +89,10 @@ sovellukset"</string>
     <string name="guide_resize_widget_step2">Muuta pienoisohjelman kokoa vetämällä reunusta ylös- ja alaspäin tai sisään- ja ulospäin.</string>
     <string name="guide_tap_here">Napauta sovelluskuvaketta.</string>
     <string name="guide_widgets_tap_area">Paina pienoisohjelmaa jonkin aikaa, kunnes sitä voi muokata, ja sitten vapauta se.</string>
+    <string name="hide">Piilota</string>
+    <string name="hide_confirm_continue">Jatka</string>
+    <string name="hide_confirm_message">Sovellus %s on tällä hetkellä lukittu. Jos piilotat tämän sovelluksen, sen lukitus poistetaan.</string>
+    <string name="hide_confirm_title">Piilota sovellus</string>
     <string name="home_edit_add_to_personal">Lisää omiin</string>
     <string name="home_edit_bar_delete_title">Poista pikavalinta</string>
     <string name="home_edit_bar_delete_title_vzw">Poista pikavalinta</string>
@@ -135,7 +143,7 @@ sovellukset"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>
     <string name="open_folder">Avaa kansio</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Näytä sovellukset</string>
     <string name="option_menu_contact_up">Ota yhteyttä</string>
     <string name="option_tray_screengrid">Näyttöruudukko</string>
     <string name="options_home_set_theme">Teemat</string>
@@ -154,14 +162,14 @@ sovellukset"</string>
     <string name="permlab_install_widget">Lisää pienoisohjelmia</string>
     <string name="quick_contact">Yhteystieto</string>
     <string name="quick_options_help_text">Näytä sovelluksen pika-asetukset pyyhkäisemällä sovelluksen pikavalintaa alaspäin. Pika-asetukset helpottavat sovellusten hallintaa.</string>
+    <string name="quickoption_sleep">Lepotila</string>
     <string name="quickoptions_add_apps">Lisää sovelluksia</string>
     <string name="quickoptions_add_to_secure_folder">"Lisää suoj.
 kansioon"</string>
     <string name="quickoptions_app_info">Sovelluksen tiedot</string>
     <string name="quickoptions_clear_badge">Poista merkki</string>
     <string name="quickoptions_disable">Poista käyt.</string>
-    <string name="quickoptions_put_to_sleep">Siirrä lepotilaan</string>
-    <string name="quickoptions_put_to_sleep_alert">Siirtämällä tämän sovelluksen lepotilaan voit estää sitä käyttämästä akkuvirtaa taustalla. Lepotilassa olevat sovellukset eivät saa päivityksiä tai lähetä ilmoituksia, mutta ne aktivoituvat, kun avaat ne.</string>
+    <string name="quickoptions_sleep_alert">Siirtämällä tämän sovelluksen lepotilaan voit estää sitä käyttämästä akkuvirtaa taustalla. Lepotilassa olevat sovellukset eivät saa päivityksiä tai lähetä ilmoituksia, mutta ne aktivoituvat, kun avaat ne.</string>
     <string name="quickoptions_uninstall">Poista asennus</string>
     <string name="quickview_delete_toast_msg">Voit poistaa sivun vetämällä sen Poista-kohtaan.</string>
     <string name="quickview_drag_bar_delete_title">Poista</string>
@@ -173,9 +181,9 @@ kansioon"</string>
     <string name="remove_app_folder_confirm">Poista</string>
     <string name="remove_app_folder_confirm_VZW">Poista</string>
     <string name="remove_app_folder_message">Kansio %s poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä Sovellukset-näytössä.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Kansio %s poistetaan. Tässä kansiossa olevat sovellukset luetellaan sovelluspalkin lopussa.</string>
     <string name="remove_app_folder_message_no_title">Tämä kansio poistetaan. Tässä kansiossa olevien sovellusten asennusta ei poisteta.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Tämä kansio poistetaan. Tässä kansiossa olevat sovellukset luetellaan sovelluspalkin lopussa.</string>
     <string name="remove_app_folder_title">Poista kansio</string>
     <string name="remove_app_folder_title_VZW">Poista kansio</string>
     <string name="remove_home_folder_message">Kansio %s poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä Sovellukset-näytössä.</string>
@@ -230,7 +238,7 @@ kansioon"</string>
     <string name="viewtype_custom_grid">Mukautettu järjestys</string>
     <string name="widget_duplicate">Pienoisohjelma %s on jo alkunäytössä.</string>
     <string name="work_folder_name">Työ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Lisää kohteita koskettamalla näyttöä ja pitämällä sitä painettuna</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">Lataa</string>
     <string name="zeropage_download_msg">Sinun on asennettava %1$s tämän toiminnon käyttöä varten. Lataa ja asenna %2$s napauttamalla LATAA.</string>

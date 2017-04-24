@@ -294,7 +294,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     const-string v2, "android.intent.extra.SUBJECT"
 
@@ -407,7 +407,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_7
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -479,7 +479,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_7
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -504,6 +504,35 @@
     goto :goto_4
 
     :cond_7
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/launcher2/LauncherApplication;
+
+    invoke-virtual {v12}, Lcom/android/launcher2/LauncherApplication;->getModel()Lcom/android/launcher2/LauncherModel;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/LauncherModel;->forceReload()V
+
+    invoke-virtual {v12}, Lcom/android/launcher2/LauncherApplication;->getWidgetLoader()Lcom/android/launcher2/MenuWidgetsLoader;
+
+    move-result-object v2
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v4}, Lcom/android/launcher2/MenuWidgetsLoader;->forceReload(Z)V
+
+    goto/16 :goto_0
+
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->action:Ljava/lang/String;
@@ -514,7 +543,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_20
 
     const-string v2, "android.intent.extra.SUBJECT"
 
@@ -552,12 +581,12 @@
 
     move-result-object v10
 
-    :cond_8
+    :cond_9
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1b
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -583,7 +612,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -595,7 +624,7 @@
 
     invoke-direct/range {v31 .. v31}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz v20, :cond_b
+    if-eqz v20, :cond_c
 
     move-object/from16 v2, v20
 
@@ -605,7 +634,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_b
+    if-ne v2, v4, :cond_c
 
     move-object/from16 v2, v20
 
@@ -619,13 +648,13 @@
 
     move-result-object v4
 
-    :cond_9
+    :cond_a
     :goto_6
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_f
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -637,7 +666,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -683,7 +712,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     invoke-virtual {v12}, Lcom/android/launcher2/AppItem;->getPosition()I
 
@@ -705,7 +734,7 @@
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_a
+    if-ne v2, v5, :cond_b
 
     move-object/from16 v0, v22
 
@@ -721,7 +750,7 @@
 
     goto :goto_6
 
-    :cond_a
+    :cond_b
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/AppFolderItem;
@@ -740,8 +769,8 @@
 
     goto :goto_6
 
-    :cond_b
-    if-eqz v20, :cond_e
+    :cond_c
+    if-eqz v20, :cond_f
 
     move-object/from16 v2, v20
 
@@ -751,7 +780,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_e
+    if-ne v2, v4, :cond_f
 
     move-object/from16 v2, v20
 
@@ -765,13 +794,13 @@
 
     move-result-object v2
 
-    :cond_c
+    :cond_d
     :goto_7
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_e
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -783,7 +812,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -829,7 +858,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     move-object/from16 v0, v31
 
@@ -837,7 +866,7 @@
 
     goto :goto_7
 
-    :cond_d
+    :cond_e
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/HomeFolderItem;
@@ -854,7 +883,7 @@
 
     const/4 v4, 0x1
 
-    if-gt v2, v4, :cond_e
+    if-gt v2, v4, :cond_f
 
     move-object/from16 v0, v22
 
@@ -862,7 +891,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_e
+    :cond_f
     monitor-enter p0
 
     :try_start_0
@@ -870,7 +899,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_19
+    if-lez v2, :cond_1a
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -880,7 +909,7 @@
 
     move-result-object v28
 
-    if-nez v28, :cond_f
+    if-nez v28, :cond_10
 
     monitor-exit p0
 
@@ -895,7 +924,7 @@
 
     throw v2
 
-    :cond_f
+    :cond_10
     const/16 v16, 0x0
 
     :try_start_1
@@ -903,13 +932,13 @@
 
     move-result-object v38
 
-    :cond_10
+    :cond_11
     :goto_8
     invoke-interface/range {v38 .. v38}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1a
 
     invoke-interface/range {v38 .. v38}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -923,9 +952,9 @@
 
     move-object/from16 v21, v0
 
-    if-eqz v21, :cond_10
+    if-eqz v21, :cond_11
 
-    if-eqz v25, :cond_10
+    if-eqz v25, :cond_11
 
     invoke-virtual/range {v21 .. v21}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
 
@@ -933,7 +962,7 @@
 
     const/4 v4, 0x1
 
-    if-le v2, v4, :cond_10
+    if-le v2, v4, :cond_11
 
     move-object/from16 v13, v25
 
@@ -951,9 +980,9 @@
 
     iget v4, v0, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
 
-    if-ne v2, v4, :cond_11
+    if-ne v2, v4, :cond_12
 
-    if-eqz v28, :cond_11
+    if-eqz v28, :cond_12
 
     const/4 v2, 0x1
 
@@ -961,16 +990,16 @@
 
     invoke-virtual {v0, v2}, Lcom/android/launcher2/HomeView;->setMainHomeScreenshot(Z)V
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, v21
 
     iget v2, v0, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_12
+    if-ne v2, v4, :cond_13
 
-    if-eqz v28, :cond_12
+    if-eqz v28, :cond_13
 
     const/4 v2, 0x0
 
@@ -978,7 +1007,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/launcher2/HomeView;->setTakescreenshot(Z)V
 
-    :cond_12
+    :cond_13
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
     move-result-object v2
@@ -1117,7 +1146,7 @@
 
     invoke-static {v2, v13}, Lcom/android/launcher2/LauncherModel;->updateItemInDatabase(Landroid/content/Context;Lcom/android/launcher2/HomeItem;)V
 
-    if-eqz v28, :cond_13
+    if-eqz v28, :cond_14
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
@@ -1127,17 +1156,17 @@
 
     move-result-object v16
 
-    :cond_13
+    :cond_14
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_14
+    :cond_15
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_16
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1153,20 +1182,20 @@
 
     aget v5, v19, v5
 
-    if-ne v4, v5, :cond_14
+    if-ne v4, v5, :cond_15
 
     move-object/from16 v0, v26
 
     invoke-virtual {v0, v13}, Lcom/android/launcher2/CellLayout;->addItem(Lcom/android/launcher2/BaseItem;)Z
 
-    :cond_15
+    :cond_16
     invoke-virtual/range {v21 .. v21}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
 
     move-result v2
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_10
+    if-ne v2, v4, :cond_11
 
     const/4 v2, 0x0
 
@@ -1210,21 +1239,21 @@
 
     cmp-long v2, v4, v6
 
-    if-nez v2, :cond_17
+    if-nez v2, :cond_18
 
-    if-eqz v28, :cond_16
+    if-eqz v28, :cond_17
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/HomeView;->getHotseat()Lcom/android/launcher2/Hotseat;
 
     move-result-object v23
 
-    if-eqz v23, :cond_16
+    if-eqz v23, :cond_17
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
 
     move-result-object v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_17
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
 
@@ -1240,7 +1269,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/launcher2/Hotseat;->addItem(Lcom/android/launcher2/HomeItem;)Z
 
-    :cond_16
+    :cond_17
     :goto_9
     move-object/from16 v0, p0
 
@@ -1265,17 +1294,17 @@
 
     goto/16 :goto_8
 
-    :cond_17
+    :cond_18
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_18
+    :cond_19
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_17
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1291,7 +1320,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_19
 
     move-object/from16 v0, v26
 
@@ -1299,25 +1328,25 @@
 
     goto :goto_9
 
-    :cond_19
+    :cond_1a
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto/16 :goto_5
 
-    :cond_1a
+    :cond_1b
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1b
+    :cond_1c
     :goto_a
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1f
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1333,7 +1362,7 @@
 
     sget-object v5, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v5, :cond_1c
+    if-ne v2, v5, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1365,7 +1394,7 @@
 
     goto :goto_a
 
-    :cond_1c
+    :cond_1d
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/BaseItem;
@@ -1374,7 +1403,7 @@
 
     sget-object v5, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v5, :cond_1b
+    if-ne v2, v5, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -1408,7 +1437,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -1427,7 +1456,7 @@
 
     goto :goto_a
 
-    :cond_1d
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
@@ -1445,7 +1474,7 @@
 
     goto :goto_a
 
-    :cond_1e
+    :cond_1f
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
@@ -1454,7 +1483,7 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    :cond_20
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->action:Ljava/lang/String;
@@ -1527,12 +1556,12 @@
 
     move-result-object v38
 
-    :cond_20
+    :cond_21
     invoke-interface/range {v38 .. v38}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_35
 
     invoke-interface/range {v38 .. v38}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1553,13 +1582,13 @@
 
     move-result-object v39
 
-    :cond_21
+    :cond_22
     :goto_b
     invoke-interface/range {v39 .. v39}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_21
 
     invoke-interface/range {v39 .. v39}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1577,7 +1606,7 @@
 
     cmp-long v2, v4, v6
 
-    if-nez v2, :cond_22
+    if-nez v2, :cond_23
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1609,9 +1638,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_33
+    if-nez v2, :cond_34
 
-    :cond_22
+    :cond_23
     new-instance v31, Ljava/util/ArrayList;
 
     invoke-direct/range {v31 .. v31}, Ljava/util/ArrayList;-><init>()V
@@ -1624,7 +1653,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_25
+    if-ne v2, v4, :cond_26
 
     move-object/from16 v2, v20
 
@@ -1638,13 +1667,13 @@
 
     move-result-object v4
 
-    :cond_23
+    :cond_24
     :goto_c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_29
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1656,7 +1685,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_24
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1702,7 +1731,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_24
 
     move-object/from16 v2, v20
 
@@ -1714,7 +1743,7 @@
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_24
+    if-ne v2, v5, :cond_25
 
     move-object/from16 v0, v22
 
@@ -1730,7 +1759,7 @@
 
     goto :goto_c
 
-    :cond_24
+    :cond_25
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/AppFolderItem;
@@ -1749,7 +1778,7 @@
 
     goto :goto_c
 
-    :cond_25
+    :cond_26
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/BaseItem;
@@ -1758,7 +1787,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_28
+    if-ne v2, v4, :cond_29
 
     move-object/from16 v2, v20
 
@@ -1772,13 +1801,13 @@
 
     move-result-object v2
 
-    :cond_26
+    :cond_27
     :goto_d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_28
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1790,7 +1819,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_27
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1836,7 +1865,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_27
 
     move-object/from16 v0, v31
 
@@ -1844,7 +1873,7 @@
 
     goto :goto_d
 
-    :cond_27
+    :cond_28
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/HomeFolderItem;
@@ -1861,7 +1890,7 @@
 
     const/4 v4, 0x1
 
-    if-gt v2, v4, :cond_28
+    if-gt v2, v4, :cond_29
 
     move-object/from16 v0, v22
 
@@ -1869,12 +1898,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_28
+    :cond_29
     invoke-interface/range {v31 .. v31}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_21
+    if-lez v2, :cond_22
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -1886,7 +1915,7 @@
 
     const/16 v16, 0x0
 
-    if-eqz v28, :cond_29
+    if-eqz v28, :cond_2a
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
@@ -1896,18 +1925,18 @@
 
     move-result-object v16
 
-    :cond_29
+    :cond_2a
     invoke-interface/range {v31 .. v31}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v40
 
-    :cond_2a
+    :cond_2b
     :goto_e
     invoke-interface/range {v40 .. v40}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_22
 
     invoke-interface/range {v40 .. v40}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1923,7 +1952,7 @@
 
     move-result-object v21
 
-    if-eqz v21, :cond_2a
+    if-eqz v21, :cond_2b
 
     invoke-virtual/range {v21 .. v21}, Lcom/android/launcher2/HomeFolderItem;->getItemCount()I
 
@@ -1931,7 +1960,7 @@
 
     const/4 v4, 0x1
 
-    if-le v2, v4, :cond_2a
+    if-le v2, v4, :cond_2b
 
     move-object/from16 v0, v21
 
@@ -1947,9 +1976,9 @@
 
     iget v4, v0, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
 
-    if-ne v2, v4, :cond_2b
+    if-ne v2, v4, :cond_2c
 
-    if-eqz v28, :cond_2b
+    if-eqz v28, :cond_2c
 
     const/4 v2, 0x1
 
@@ -1957,16 +1986,16 @@
 
     invoke-virtual {v0, v2}, Lcom/android/launcher2/HomeView;->setMainHomeScreenshot(Z)V
 
-    :cond_2b
+    :cond_2c
     move-object/from16 v0, v21
 
     iget v2, v0, Lcom/android/launcher2/HomeFolderItem;->mScreen:I
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_2c
+    if-ne v2, v4, :cond_2d
 
-    if-eqz v28, :cond_2c
+    if-eqz v28, :cond_2d
 
     const/4 v2, 0x0
 
@@ -1974,7 +2003,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/launcher2/HomeView;->setTakescreenshot(Z)V
 
-    :cond_2c
+    :cond_2d
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
     move-result-object v2
@@ -2066,7 +2095,7 @@
 
     invoke-static {v2, v0}, Lcom/android/launcher2/LauncherModel;->updateItemInDatabase(Landroid/content/Context;Lcom/android/launcher2/HomeItem;)V
 
-    if-eqz v28, :cond_2d
+    if-eqz v28, :cond_2e
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
@@ -2076,17 +2105,17 @@
 
     move-result-object v16
 
-    :cond_2d
+    :cond_2e
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_2e
+    :cond_2f
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2f
+    if-eqz v4, :cond_30
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2102,7 +2131,7 @@
 
     aget v5, v19, v5
 
-    if-ne v4, v5, :cond_2e
+    if-ne v4, v5, :cond_2f
 
     move-object/from16 v0, v26
 
@@ -2110,7 +2139,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/CellLayout;->addItem(Lcom/android/launcher2/BaseItem;)Z
 
-    :cond_2f
+    :cond_30
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -2121,7 +2150,7 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_2a
+    if-ne v2, v4, :cond_2b
 
     const/4 v2, 0x0
 
@@ -2165,21 +2194,21 @@
 
     cmp-long v2, v4, v6
 
-    if-nez v2, :cond_31
+    if-nez v2, :cond_32
 
-    if-eqz v28, :cond_30
+    if-eqz v28, :cond_31
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/HomeView;->getHotseat()Lcom/android/launcher2/Hotseat;
 
     move-result-object v23
 
-    if-eqz v23, :cond_30
+    if-eqz v23, :cond_31
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
 
     move-result-object v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_31
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
 
@@ -2195,7 +2224,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/launcher2/Hotseat;->addItem(Lcom/android/launcher2/HomeItem;)Z
 
-    :cond_30
+    :cond_31
     :goto_f
     move-object/from16 v0, p0
 
@@ -2230,17 +2259,17 @@
 
     throw v2
 
-    :cond_31
+    :cond_32
     invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :cond_32
+    :cond_33
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_31
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2256,7 +2285,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_32
+    if-eqz v4, :cond_33
 
     move-object/from16 v0, v26
 
@@ -2264,23 +2293,23 @@
 
     goto :goto_f
 
-    :cond_33
+    :cond_34
     move-object/from16 v36, v20
 
     goto/16 :goto_b
 
-    :cond_34
+    :cond_35
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_35
+    :cond_36
     :goto_10
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_39
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2296,7 +2325,7 @@
 
     sget-object v5, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v5, :cond_36
+    if-ne v2, v5, :cond_37
 
     move-object/from16 v0, p0
 
@@ -2328,7 +2357,7 @@
 
     goto :goto_10
 
-    :cond_36
+    :cond_37
     move-object/from16 v2, v20
 
     check-cast v2, Lcom/android/launcher2/BaseItem;
@@ -2337,7 +2366,7 @@
 
     sget-object v5, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v5, :cond_35
+    if-ne v2, v5, :cond_36
 
     move-object/from16 v0, p0
 
@@ -2371,7 +2400,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_38
 
     move-object/from16 v0, p0
 
@@ -2390,7 +2419,7 @@
 
     goto :goto_10
 
-    :cond_37
+    :cond_38
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
@@ -2408,8 +2437,8 @@
 
     goto :goto_10
 
-    :cond_38
-    if-eqz v36, :cond_3a
+    :cond_39
+    if-eqz v36, :cond_3b
 
     move-object/from16 v2, v36
 
@@ -2419,7 +2448,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->MENU_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_3a
+    if-ne v2, v4, :cond_3b
 
     move-object/from16 v0, p0
 
@@ -2449,7 +2478,7 @@
     # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v4, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
-    :cond_39
+    :cond_3a
     :goto_11
     move-object/from16 v0, p0
 
@@ -2459,8 +2488,8 @@
 
     goto/16 :goto_0
 
-    :cond_3a
-    if-eqz v36, :cond_39
+    :cond_3b
+    if-eqz v36, :cond_3a
 
     move-object/from16 v2, v36
 
@@ -2470,7 +2499,7 @@
 
     sget-object v4, Lcom/android/launcher2/BaseItem$Type;->HOME_FOLDER:Lcom/android/launcher2/BaseItem$Type;
 
-    if-ne v2, v4, :cond_39
+    if-ne v2, v4, :cond_3a
 
     move-object/from16 v0, p0
 
@@ -2489,7 +2518,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_3c
 
     move-object/from16 v0, p0
 
@@ -2508,7 +2537,7 @@
 
     goto :goto_11
 
-    :cond_3b
+    :cond_3c
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;

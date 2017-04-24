@@ -46,7 +46,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090238
+    const v2, 0x7f09023a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -60,7 +60,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/QuickViewWorkspace$MarkAsHomeButton;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v1, 0x7f020086
+    const v1, 0x7f020087
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/QuickViewWorkspace$MarkAsHomeButton;->setBackgroundResource(I)V
 

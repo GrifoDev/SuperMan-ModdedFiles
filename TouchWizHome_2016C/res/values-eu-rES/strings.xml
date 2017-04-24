@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplikazioak</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ezkutatuta.</string>
+    <string name="app_locked_toast">%s blokeatuta.</string>
     <string name="app_search">Bilatu</string>
     <string name="app_search_no_apps">Pantaila Nagusian gehi ditzakezu lasterbideak, bilaketa emaitzetatik.</string>
     <string name="app_search_no_results_found">Ez da emaitzarik aurkitu</string>
+    <string name="app_unlocked_toast">%s desblokeatu da.</string>
     <string name="apply">Ezarri</string>
     <string name="available_galaxyapps">Galaxy Apps-en eskuragarri</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Hautatu aplikazio bakoitzaren bereizgarriak erakutsi edo ezkutatu nahi dituzun.</string>
+    <string name="badge_manage_summary">Hautatu aplikazio bakoitzaren bereizgarriak erakutsi edo ezkutatu nahi dituzun.</string>
+    <string name="badge_manage_title">Kudeatu aplikazioen bereizgarriak</string>
     <string name="cancel">Ezeztatu</string>
     <string name="change_home_screen_settings">Aldatu pant. nagusi ezarp.</string>
     <string name="change_home_screen_settings_info">Pantaila Nagusiaren ezarpenak eta lasterbideak alda ditzake aplikazio honek.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Zuzeneko Markaketa</string>
     <string name="direct_message">Zuzeneko Mezua</string>
     <string name="disable_message">%1$s eta hari lotutako funtzio guztiak desgaituko dira. Aplikazioa berriz gaitzeko, zoaz Ezarpenak > Aplikazioak atalera, eta hautatu %2$s.</string>
+    <string name="disable_message_att">%s eta hari lotutako eginbide guztiak desgaituko dira. Berriz ere gaitzeko, zoaz Ezarpenak > Gailua > Aplikazioak > Aplikazio kudeatzailea aukerara.</string>
     <string name="disable_message_vzw">%s eta berari lotutako eginbide guztiak desgaituko dira. Berriz ere gaitzeko, zoaz Ezarpenak > Aplikazioak > Aplikazio kudeatzailea aukerara.</string>
     <string name="disable_messange_knox">%s eta berari lotutako eginkizun guztiak desgaituko dira. Berriz gaitzeko, zoaz KNOX ezarpenak > Aplikazio kudeatzailea atalera.</string>
     <string name="disable_title">Ezgaitu aplikazioa</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Tiratu ertzetik gorantz, beherantz, barrurantz edo kanporantz widgetaren neurria aldatzeko</string>
     <string name="guide_tap_here">Ukitu aplikazioen ikonoa.</string>
     <string name="guide_widgets_tap_area">Ukitu eta eutsi widgeta hura editatu arte, ondoren askatu</string>
+    <string name="hide">Ezkutatu</string>
+    <string name="hide_confirm_continue">Jarraitu</string>
+    <string name="hide_confirm_message">%s aplikazioa blokeatuta dago. Aplikazio hori ezkutatuz gero, desblokeatu egingo da.</string>
+    <string name="hide_confirm_title">Ezkutatu aplikazioa</string>
     <string name="home_edit_add_to_personal">Geh. pertsonalera</string>
     <string name="home_edit_bar_delete_title">Kendu lasterbidea</string>
     <string name="home_edit_bar_delete_title_vzw">Kendu lasterbidea</string>
@@ -134,7 +142,7 @@
     <string name="ok">Ados</string>
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>
     <string name="open_folder">Ireki karpeta</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Ikusi aplikazioak</string>
     <string name="option_menu_contact_up">Jarri gurekin harremanetan</string>
     <string name="option_tray_screengrid">Pantaila sareta</string>
     <string name="options_home_set_theme">Gaiak</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Gehitu widgetak</string>
     <string name="quick_contact">Kontaktua</string>
     <string name="quick_options_help_text">Irristatu hatza aplikazio lasterbide batetik behera aukera azkarrak ikusteko. Aukera azkarrei esker, aplikazioak erraz kudeatuko dituzu.</string>
+    <string name="quickoption_sleep">Loa</string>
     <string name="quickoptions_add_apps">Gehitu aplikazioak</string>
     <string name="quickoptions_add_to_secure_folder">"Gehitu Karpe-
 ta seguruan"</string>
     <string name="quickoptions_app_info">Apl. Inf.</string>
     <string name="quickoptions_clear_badge">Garbitu bereizgarria</string>
     <string name="quickoptions_disable">Desgaitu</string>
-    <string name="quickoptions_put_to_sleep">Ezarri inaktibo gisa</string>
-    <string name="quickoptions_put_to_sleep_alert">Aplikazio hau inaktibo gisa ezarriz gero, atzealdean bateria erabiltzea eragotziko duzu. Inaktibo dauden aplikazioek ez dituzte eguneraketak jasoko edo jakinarazpenik bidaliko agian, baina berriz aktibatuko dira ireki bezain laster.</string>
+    <string name="quickoptions_sleep_alert">Aplikazio hau inaktibo gisa ezarriz gero, atzealdean bateria erabiltzea eragotziko duzu. Inaktibo dauden aplikazioek ez dituzte eguneraketak jasoko edo jakinarazpenik bidaliko agian, baina berriz aktibatuko dira ireki bezain laster.</string>
     <string name="quickoptions_uninstall">Desinstalatu</string>
     <string name="quickview_delete_toast_msg">Orria kentzeko, mugi ezazu Kendu atalera.</string>
     <string name="quickview_drag_bar_delete_title">Ezabatu</string>
@@ -172,9 +180,9 @@ ta seguruan"</string>
     <string name="remove_app_folder_confirm">Ezabatu</string>
     <string name="remove_app_folder_confirm_VZW">Ezabatu</string>
     <string name="remove_app_folder_message">%s karpeta ezabatuko da. Dena dela, karpeta horretako aplikazioak Aplikazioak pantailan egongo dira erabilgarri.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s karpeta kenduko da. Dena dela, karpeta horretako aplikazioak Aplikazioak atalean agertuko dira.</string>
     <string name="remove_app_folder_message_no_title">Karpeta hau kenduko da. Karpetako aplikazioa ez dira desinstalatuko.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Karpeta hau kenduko da. Dena dela, karpeta horretako aplikazioak Aplikazioak atalean agertuko dira.</string>
     <string name="remove_app_folder_title">Karpeta ezabatu</string>
     <string name="remove_app_folder_title_VZW">Kendu karpeta</string>
     <string name="remove_home_folder_message">%s karpeta ezabatuko da. Dena dela, karpeta horretako aplikazioak Aplikazioak pantailan egongo dira erabilgarri.</string>
@@ -187,7 +195,7 @@ diseinuari doitzeko aldatuko da (%1$d x %2$d)."</string>
     <string name="search_for_apps">Bilatu aplikazioak</string>
     <string name="search_for_widgets">Bilatu widgetak</string>
     <string name="search_result_found">%d aurkitu da</string>
-    <string name="search_result_founds">%d aurkitu dira</string>
+    <string name="search_result_founds">%d aurkitu da</string>
     <string name="select_all_app">Guztia(k)</string>
     <string name="select_app_add">GEHITU</string>
     <string name="selected">Hautatuta</string>
@@ -229,11 +237,11 @@ diseinuari doitzeko aldatuko da (%1$d x %2$d)."</string>
     <string name="viewtype_custom_grid">Ordena pertsonalizatua</string>
     <string name="widget_duplicate">%s widget daude pantaila Nagusian jada.</string>
     <string name="work_folder_name">Lana</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Elementuak gehitzeko, ukitu eta eutsi pantailari</string>
+    <string name="zeropage_briefing_title">Azalpena</string>
+    <string name="zeropage_download">Deskargatu</string>
+    <string name="zeropage_download_msg">Funtzio hau erabiltzeko, %1$s instalatu behar duzu. %2$s deskargatu eta instalatzeko, ukitu DESKARGATU.</string>
     <string name="zeropage_notice_msg">%s albiste zerbitzua erabilgarri dago orain. Flipboard Briefing ordez hura erabiltzeko, ukitu ADOS.</string>
     <string name="zeropage_setting_dialog_no">Ezeztatu</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu-ri buruzko albisteak</string>
 </resources>

@@ -34,9 +34,12 @@
     <string name="all_apps_title">應用程式</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s 已隱藏。</string>
+    <string name="app_locked_toast">%s已鎖定。</string>
     <string name="app_search">搜尋</string>
     <string name="app_search_no_apps">您可以從搜尋結果加入捷徑至主螢幕。</string>
     <string name="app_search_no_results_found">無搜尋結果</string>
+    <string name="app_unlocked_toast">%s已解鎖。</string>
     <string name="apply">套用</string>
     <string name="available_galaxyapps">可從 Galaxy Apps 獲取</string>
     <string name="badge_manage_explain">選擇要顯示或隱藏每個應用程式的徽章。</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">直接撥號</string>
     <string name="direct_message">直接訊息</string>
     <string name="disable_message">%1$s 及所有相關功能將被停用。若要再次啟用應用程式，請前往 [設定] > [應用程式]，然後選擇 %2$s。</string>
+    <string name="disable_message_att">%s及所有相關功能將被停用。若要再次啟用，請前往 [設定] > [裝置] > [應用程式] > [應用程式管理員]。</string>
     <string name="disable_message_vzw">%s及所有相關功能將被停用。若要再次啟用，請前往 [設定] > [應用程式] > [應用程式管理員]。</string>
     <string name="disable_messange_knox">將停用%s及所有相關功能。若要重新啟用，請前往 [KNOX 設定] > [應用程式管理員]。</string>
     <string name="disable_title">停用應用程式</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">向上、下、內、外拉動邊界以調整 widget 大小。</string>
     <string name="guide_tap_here">輕觸應用程式圖示。</string>
     <string name="guide_widgets_tap_area">輕觸並按住 widget 直到可以編輯為止，然後放開。</string>
+    <string name="hide">隱藏</string>
+    <string name="hide_confirm_continue">繼續</string>
+    <string name="hide_confirm_message">%s 應用程式目前已鎖定。如果您隱藏此應用程式，其將被解鎖。</string>
+    <string name="hide_confirm_title">隱藏應用程式</string>
     <string name="home_edit_add_to_personal">加入至個人</string>
     <string name="home_edit_bar_delete_title">移除捷徑</string>
     <string name="home_edit_bar_delete_title_vzw">移除捷徑</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">加入 widget</string>
     <string name="quick_contact">聯絡人</string>
     <string name="quick_options_help_text">向下滑動應用程式捷徑以檢視快速選項。快速選項允許您輕鬆管理應用程式。</string>
+    <string name="quickoption_sleep">休眠</string>
     <string name="quickoptions_add_apps">加入應用程式</string>
     <string name="quickoptions_add_to_secure_folder">"加入至
 安全資料夾"</string>
     <string name="quickoptions_app_info">應用程式資訊</string>
     <string name="quickoptions_clear_badge">清除徽章</string>
     <string name="quickoptions_disable">停用</string>
-    <string name="quickoptions_put_to_sleep">進入休眠</string>
-    <string name="quickoptions_put_to_sleep_alert">使此應用程式進入休眠將阻止其在背景中使用電池。正在休眠的應用程式可能無法接收更新或向您發送通知，但是其將在您開啟時喚醒。</string>
+    <string name="quickoptions_sleep_alert">使此應用程式進入休眠將阻止其在背景中使用電池。正在休眠的應用程式可能無法接收更新或向您發送通知，但是其將在您開啟時喚醒。</string>
     <string name="quickoptions_uninstall">解除安裝</string>
     <string name="quickview_delete_toast_msg">拖曳頁面至 [移除] 以移除。</string>
     <string name="quickview_drag_bar_delete_title">移除</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">搜尋應用程式</string>
     <string name="search_for_widgets">搜尋 widget</string>
     <string name="search_result_found">找到 %d 個</string>
-    <string name="search_result_founds">找到 %d 位</string>
+    <string name="search_result_founds">找到 %d 個</string>
     <string name="select_all_app">全部</string>
     <string name="select_app_add">加入</string>
     <string name="selected">已選擇</string>

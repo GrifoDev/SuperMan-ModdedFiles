@@ -66,7 +66,7 @@
 .method private displayHighlightedName(Landroid/widget/TextView;Ljava/lang/String;)V
     .locals 10
 
-    const v9, 0x7f0d0006
+    const v9, 0x7f0d0007
 
     const/4 v3, -0x1
 
@@ -302,7 +302,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080028
+    const v1, 0x7f08002a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -724,7 +724,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800bd
+    const v3, 0x7f0800c5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -769,7 +769,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800bc
+    const v3, 0x7f0800c4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

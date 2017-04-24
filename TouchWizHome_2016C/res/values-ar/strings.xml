@@ -34,9 +34,12 @@
     <string name="all_apps_title">تطبيقات</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و يABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">تم إخفاء %s.</string>
+    <string name="app_locked_toast">تمّ إقفال %s.</string>
     <string name="app_search">بحث</string>
     <string name="app_search_no_apps">يمكنك إضافة اختصارات على الشاشة الرئيسية من نتائج البحث.</string>
     <string name="app_search_no_results_found">لم يتم العثور علي اي نتيجة</string>
+    <string name="app_unlocked_toast">تم إلغاء قفل %s.</string>
     <string name="apply">تطبيق</string>
     <string name="available_galaxyapps">متوفرة في Galaxy Apps</string>
     <string name="badge_manage_explain">حدد ما إذا كنت تريد إظهار الشارات أو إخفاءها لكل تطبيق.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">اتصال مباشر</string>
     <string name="direct_message">رسالة مباشرة</string>
     <string name="disable_message">سيتم إلغاء تفعيل %1$s وكل الوظائف ذات الصلة به. لتفعيل التطبيق من جديد، انتقل إلى الضبط​ > التطبيقات، ثم حدد %2$s.</string>
+    <string name="disable_message_att">سيتم إلغاء تفعيل %s وكل الميزات ذات الصلة. لتفعيله مرة أخرى، انتقل إلى الضبط > الجهاز &lt; التطبيقات > مدير التطبيقات.</string>
     <string name="disable_message_vzw">سيتم إلغاء تفعيل %s وكل الميزات ذات الصلة به. لتفعيل التطبيق مجدداً، انتقل إلى الضبط > التطبيقات > مدير التطبيقات.</string>
     <string name="disable_messange_knox">سيتم إلغاء تفعيل %s وكل الميزات ذات الصلة. لتفعيله مرة أخرى، انتقل إلى ضبط KNOX > مدير التطبيقات.</string>
     <string name="disable_title">إلغاء تفعيل التطبيق</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">اسحب الحد لأعلى ولأسفل أو للداخل والخارج، لتغيير حجم عنصر واجهة المستخدم.</string>
     <string name="guide_tap_here">انقر فوق رمز التطبيقات.</string>
     <string name="guide_widgets_tap_area">انقر مع الاستمرار فوق عنصر واجهة المستخدم حتى يمكنك تعديله، ثم قم بتحريره.</string>
+    <string name="hide">إخفاء</string>
+    <string name="hide_confirm_continue">متابعة</string>
+    <string name="hide_confirm_message">إنّ تطبيق %s مقفل حالياً. إذا أخفيت هذا التطبيق، فسيتم إلغاء قفله.</string>
+    <string name="hide_confirm_title">إخفاء التطبيق</string>
     <string name="home_edit_add_to_personal">إضافة للشخصية</string>
     <string name="home_edit_bar_delete_title">إزالة الاختصار</string>
     <string name="home_edit_bar_delete_title_vzw">إزالة الاختصار</string>
@@ -134,7 +142,7 @@
     <string name="ok">موافق</string>
     <string name="only_one_widget_instance_allowed">تمت إضافة التطبيق المصغر %s إلى الشاشة الرئيسية بالفعل.</string>
     <string name="open_folder">فتح المجلد</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">عرض التطبيقات</string>
     <string name="option_menu_contact_up">اتصل بنا</string>
     <string name="option_tray_screengrid">شبكة الشاشة</string>
     <string name="options_home_set_theme">السمات</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">إضافة تطبيقات مصغرة</string>
     <string name="quick_contact">جهة اتصال</string>
     <string name="quick_options_help_text">اسحب اختصار تطبيق نحو الأسفل لعرض خياراته السريعة. تتيح لك الخيارات السريعة إمكانية إدارة التطبيقات بسهولة.</string>
+    <string name="quickoption_sleep">السكون</string>
     <string name="quickoptions_add_apps">إضافة تطبيقات</string>
     <string name="quickoptions_add_to_secure_folder">"الإضافة إلى
 ‏المجلد الآمن"</string>
     <string name="quickoptions_app_info">معلومات التطبيق</string>
     <string name="quickoptions_clear_badge">مسح الشارة</string>
     <string name="quickoptions_disable">إلغاء التفعيل</string>
-    <string name="quickoptions_put_to_sleep">الوضع في حالة السكون</string>
-    <string name="quickoptions_put_to_sleep_alert">سيؤدي وضع هذا التطبيق في حالة السكون إلى تفادي استخدام البطارية في الخلفية. قد لا تتلقى التطبيقات التي تم وضعها في حالة السكون تحديثات أو تُرسل إليك إشعارات، ولكن سيتم تفعيلها عند فتحها.</string>
+    <string name="quickoptions_sleep_alert">سيؤدي وضع هذا التطبيق في حالة السكون إلى تفادي استخدام البطارية في الخلفية. قد لا تتلقى التطبيقات التي تم وضعها في حالة السكون تحديثات أو تُرسل إليك إشعارات، ولكن سيتم تفعيلها عند فتحها.</string>
     <string name="quickoptions_uninstall">إلغاء التثبيت</string>
     <string name="quickview_delete_toast_msg">اسحب الصفحة إلى إزالة لإزالتها.</string>
     <string name="quickview_drag_bar_delete_title">إزالة</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">حذف</string>
     <string name="remove_app_folder_confirm_VZW">إزالة</string>
     <string name="remove_app_folder_message">سيتم حذف المجلد %s. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على شاشة ”التطبيقات“.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">ستتم إزالة المجلد %s. سوف يتم سرد التطبيقات بداخل هذا المجلد في نهاية شريط التطبيقات.</string>
     <string name="remove_app_folder_message_no_title">ستتم إزالة هذا المجلد. لن يتم إلغاء تثبيت التطبيقات الموجودة في هذا المجلد.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ستتم إزالة هذا المجلد. سوف يتم سرد التطبيقات بداخل هذا المجلد في نهاية شريط التطبيقات.</string>
     <string name="remove_app_folder_title">مسح المجلد</string>
     <string name="remove_app_folder_title_VZW">إزالة المجلد</string>
     <string name="remove_home_folder_message">سيتم حذف المجلد %s. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على شاشة ”التطبيقات“.</string>
@@ -229,7 +237,7 @@
     <string name="viewtype_custom_grid">طلب مخصص</string>
     <string name="widget_duplicate">تطبيق %s المصغر موجود بالفعل على الشاشة الرئيسية.</string>
     <string name="work_folder_name">العمل</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">لمس الشاشة مع الاستمرار لإضافة عناصر</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">تنزيل</string>
     <string name="zeropage_download_msg">لاستخدام هذه الوظيفة، عليك تثبيت %1$s. انقر فوق ”تنزيل“ لتنزيل %2$s وتثبيته.</string>

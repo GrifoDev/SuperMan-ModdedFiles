@@ -183,7 +183,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v2, 0x7f0800fc
+    const v2, 0x7f080104
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/PagedViewWidget;->mDimensionsFormatString:Ljava/lang/String;
 
-    const v2, 0x7f0800d9
+    const v2, 0x7f0800e1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -867,7 +867,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090164
+    const v10, 0x7f090165
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1290,7 +1290,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080096
+    const v4, 0x7f08009e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

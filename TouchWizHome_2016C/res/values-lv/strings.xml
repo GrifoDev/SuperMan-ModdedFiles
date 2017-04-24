@@ -34,14 +34,17 @@
     <string name="all_apps_title">Progr.</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#AĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">Programma %s ir paslēpta.</string>
+    <string name="app_locked_toast">%s bloķēts.</string>
     <string name="app_search">Meklēt</string>
     <string name="app_search_no_apps">Īsceļus sākuma ekrānā varat pievienot no meklēšanas rezultātiem.</string>
     <string name="app_search_no_results_found">Nav atrasts neviens rezultāts</string>
+    <string name="app_unlocked_toast">Kategorija %s ir atbloķēta.</string>
     <string name="apply">Lietot</string>
     <string name="available_galaxyapps">Pieejamas veikalā Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Izvēlieties, vai ir jārāda vai jāslēpj katras programmas emblēmas.</string>
+    <string name="badge_manage_summary">Izvēlieties, vai ir jārāda vai jāslēpj katras programmas emblēmas.</string>
+    <string name="badge_manage_title">Pārvaldīt programmu emblēmas</string>
     <string name="cancel">Atcelt</string>
     <string name="change_home_screen_settings">Mainīt sāk. ekrāna iestat.</string>
     <string name="change_home_screen_settings_info">Šī programma var mainīt jūsu sākuma ekrāna iestatījumus un īsceļus.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Tiešā numura sast.</string>
     <string name="direct_message">Tiešā ziņa</string>
     <string name="disable_message">%1$s un visas ar to saistītās funkcijas tiks deaktivizētas. Lai no jauna aktivizētu šo programmu, izvēlieties Iestatījumi > Programmas un pēc tam izvēlieties %2$s.</string>
+    <string name="disable_message_att">%s un visas ar to saistītās funkcijas tiks deaktivizētas. Lai to no jauna aktivizētu, izvēlieties Iestatījumi > Ierīce > Programmas > Programmu pārvaldnieks.</string>
     <string name="disable_message_vzw">%s un visas ar to saistītās funkcijas tiks deaktivizētas. Lai aktivizētu to no jauna, atveriet Iestatījumi > Programmas > Programmu pārvaldnieks.</string>
     <string name="disable_messange_knox">%s un visas ar to saistītās funkcijas tiks deaktivizētas. Lai to aktivizētu no jauna, atveriet KNOX iestatījumi > Programmu pārvaldnieks.</string>
     <string name="disable_title">Deaktivizēt programmu</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Velciet apmali uz augšu, uz leju, uz iekšu vai uz āru, lai mainītu logrīka lielumu.</string>
     <string name="guide_tap_here">Pieskarieties programmu ikonai.</string>
     <string name="guide_widgets_tap_area">Pieskarieties logrīkam un turiet to, līdz to var rediģēt, pēc tam atlaidiet to.</string>
+    <string name="hide">Slēpt</string>
+    <string name="hide_confirm_continue">Turpināt</string>
+    <string name="hide_confirm_message">Programma %s šobrīd ir bloķēta. Ja paslēpsit šo programmu, tā tiks atbloķēta.</string>
+    <string name="hide_confirm_title">Paslēpt programmu</string>
     <string name="home_edit_add_to_personal">Piev. person.</string>
     <string name="home_edit_bar_delete_title">Noņemt īsceļu</string>
     <string name="home_edit_bar_delete_title_vzw">Noņemt īsceļu</string>
@@ -134,7 +142,7 @@
     <string name="ok">Labi</string>
     <string name="only_one_widget_instance_allowed">Logrīks %s jau ir pievienots sākuma ekrānam.</string>
     <string name="open_folder">Atvērt mapi</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Skatīt programmas</string>
     <string name="option_menu_contact_up">Sazināties ar mums</string>
     <string name="option_tray_screengrid">Ekrāna režģis</string>
     <string name="options_home_set_theme">Motīvi</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Logrīku pievienošana</string>
     <string name="quick_contact">Kontakts</string>
     <string name="quick_options_help_text">Pavelciet programmas īsceļu uz leju, lai skatītu tā ātrās iespējas. Ātrās iespējas ļauj viegli pārvaldīt programmas.</string>
+    <string name="quickoption_sleep">Miegs</string>
     <string name="quickoptions_add_apps">Pievienot programmas</string>
     <string name="quickoptions_add_to_secure_folder">"Piev.
 pie Secure Folder"</string>
     <string name="quickoptions_app_info">Programmas dati</string>
     <string name="quickoptions_clear_badge">Notīrīt emblēmu</string>
     <string name="quickoptions_disable">Deaktivizēt</string>
-    <string name="quickoptions_put_to_sleep">Iemidzināt</string>
-    <string name="quickoptions_put_to_sleep_alert">Ja deaktivizēsit šo programmu, tā neizmantos akumulatora enerģiju fonā. Deaktivizētās programmas var nesaņemt atjauninājumus vai nosūtīt jums paziņojumus, taču tās tiks aktivizētas, kolīdz jūs tās atvērsit.</string>
+    <string name="quickoptions_sleep_alert">Ja deaktivizēsit šo programmu, tā neizmantos akumulatora enerģiju fonā. Deaktivizētās programmas var nesaņemt atjauninājumus vai nosūtīt jums paziņojumus, taču tās tiks aktivizētas, kolīdz jūs tās atvērsit.</string>
     <string name="quickoptions_uninstall">Atinstalēt</string>
     <string name="quickview_delete_toast_msg">Velciet lapu līdz Noņemt, lai to noņemtu.</string>
     <string name="quickview_drag_bar_delete_title">Noņemt</string>
@@ -172,9 +180,9 @@ pie Secure Folder"</string>
     <string name="remove_app_folder_confirm">Dzēst</string>
     <string name="remove_app_folder_confirm_VZW">Noņemt</string>
     <string name="remove_app_folder_message">Mape %s tiks izdzēsta. Šajā mapē esošās programmas joprojām būs pieejamas programmu ekrānā.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Tiks noņemta mape %s. Šajā mapē iekļautās programmas tiks izvietotas programmu joslas beigās.</string>
     <string name="remove_app_folder_message_no_title">Šī mape tiks noņemta. Šajā mapē esošās programmas netiks atinstalētas.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Šī mape tiks noņemta. Šajā mapē iekļautās programmas tiks izvietotas programmu joslas beigās.</string>
     <string name="remove_app_folder_title">Dzēst mapi</string>
     <string name="remove_app_folder_title_VZW">Noņemt mapi</string>
     <string name="remove_home_folder_message">Mape %s tiks izdzēsta. Šajā mapē esošās programmas joprojām būs pieejamas programmu ekrānā.</string>
@@ -229,11 +237,11 @@ pie Secure Folder"</string>
     <string name="viewtype_custom_grid">Pielāgota secība</string>
     <string name="widget_duplicate">%s logrīks jau ir sākuma ekrānā.</string>
     <string name="work_folder_name">Darbs</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Pieskarieties ekrānam un turiet, lai pievienotu objektus</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Lejupiel.</string>
+    <string name="zeropage_download_msg">Lai izmantotu šo funkciju, jāinstalē programma %1$s. Pieskarieties pie LEJUPIELĀDĒT, lai lejupielādētu un instalētu %2$s.</string>
     <string name="zeropage_notice_msg">Tagad ir pieejams ziņu pakalpojums %s. Lai lietotu to Flipboard Briefing vietā, pieskarieties pie Labi.</string>
     <string name="zeropage_setting_dialog_no">Atcelt</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu ziņas</string>
 </resources>

@@ -442,7 +442,7 @@
 
     iput v2, p0, Lcom/android/launcher2/Folder;->mUninstallAnimDuration:I
 
-    const v2, 0x7f080035
+    const v2, 0x7f080038
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -639,7 +639,7 @@
 
     sget-object v3, Lcom/android/launcher2/Folder$FolderColor;->FOLDER_COLOR_1:Lcom/android/launcher2/Folder$FolderColor;
 
-    const v4, 0x7f0d000c
+    const v4, 0x7f0d000d
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -655,7 +655,7 @@
 
     sget-object v3, Lcom/android/launcher2/Folder$FolderColor;->FOLDER_COLOR_2:Lcom/android/launcher2/Folder$FolderColor;
 
-    const v4, 0x7f0d000b
+    const v4, 0x7f0d000c
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -671,7 +671,7 @@
 
     sget-object v3, Lcom/android/launcher2/Folder$FolderColor;->FOLDER_COLOR_3:Lcom/android/launcher2/Folder$FolderColor;
 
-    const v4, 0x7f0d000d
+    const v4, 0x7f0d000e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -687,7 +687,7 @@
 
     sget-object v3, Lcom/android/launcher2/Folder$FolderColor;->FOLDER_COLOR_4:Lcom/android/launcher2/Folder$FolderColor;
 
-    const v4, 0x7f0d000e
+    const v4, 0x7f0d000f
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -703,7 +703,7 @@
 
     sget-object v3, Lcom/android/launcher2/Folder$FolderColor;->FOLDER_COLOR_5:Lcom/android/launcher2/Folder$FolderColor;
 
-    const v4, 0x7f0d000f
+    const v4, 0x7f0d0010
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1708,7 +1708,7 @@
 
     if-ne v0, v1, :cond_8
 
-    const v20, 0x7f090233
+    const v20, 0x7f090235
 
     move/from16 v0, v20
 
@@ -1984,7 +1984,7 @@
     return-object v7
 
     :cond_8
-    const v20, 0x7f09012c
+    const v20, 0x7f09012d
 
     move/from16 v0, v20
 
@@ -2007,7 +2007,7 @@
 
     if-ne v0, v1, :cond_a
 
-    const v20, 0x7f09022f
+    const v20, 0x7f090231
 
     move/from16 v0, v20
 
@@ -2030,7 +2030,7 @@
 
     if-ne v0, v1, :cond_b
 
-    const v20, 0x7f090233
+    const v20, 0x7f090235
 
     move/from16 v0, v20
 
@@ -2041,7 +2041,7 @@
     goto/16 :goto_0
 
     :cond_b
-    const v20, 0x7f0900f0
+    const v20, 0x7f0900f1
 
     move/from16 v0, v20
 
@@ -2081,7 +2081,7 @@
     goto/16 :goto_0
 
     :cond_d
-    const v20, 0x7f090140
+    const v20, 0x7f090141
 
     move/from16 v0, v20
 
@@ -2098,7 +2098,7 @@
 
     if-eqz v20, :cond_f
 
-    const v20, 0x7f0900f0
+    const v20, 0x7f0900f1
 
     move/from16 v0, v20
 
@@ -2115,7 +2115,7 @@
 
     if-eqz v20, :cond_5
 
-    const v20, 0x7f090140
+    const v20, 0x7f090141
 
     move/from16 v0, v20
 
@@ -3088,7 +3088,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901eb
+    const v7, 0x7f0901ed
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3098,7 +3098,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901ec
+    const v7, 0x7f0901ee
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3108,7 +3108,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901ea
+    const v7, 0x7f0901ec
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3819,7 +3819,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f080047
+    const v24, 0x7f08004b
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3836,7 +3836,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f08004c
+    const v24, 0x7f080050
 
     const/16 v25, 0x1
 
@@ -3878,7 +3878,7 @@
 
     move-result-object v17
 
-    const v23, 0x7f090194
+    const v23, 0x7f090195
 
     move-object/from16 v0, v17
 
@@ -3888,7 +3888,7 @@
 
     move-result v12
 
-    const v23, 0x7f09039a
+    const v23, 0x7f0903a9
 
     move-object/from16 v0, v17
 
@@ -4050,7 +4050,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f080048
+    const v24, 0x7f08004c
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4077,7 +4077,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f080049
+    const v24, 0x7f08004d
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4104,7 +4104,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f08004a
+    const v24, 0x7f08004e
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4123,7 +4123,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f08004d
+    const v24, 0x7f080051
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4145,7 +4145,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f080046
+    const v0, 0x7f08004a
 
     iget-object v1, p0, Lcom/android/launcher2/Folder;->mFolderOptionButtonLayout:Landroid/widget/FrameLayout;
 
@@ -4900,7 +4900,7 @@
     iput v0, v8, Landroid/graphics/Point;->y:I
 
     :goto_1
-    const v23, 0x7f090210
+    const v23, 0x7f090212
 
     move-object/from16 v0, v18
 
@@ -4910,7 +4910,7 @@
 
     move-result v22
 
-    const v23, 0x7f090399
+    const v23, 0x7f0903a8
 
     move-object/from16 v0, v18
 
@@ -4946,7 +4946,7 @@
 
     div-int/lit8 v13, v23, 0x2
 
-    const v23, 0x7f090191
+    const v23, 0x7f090192
 
     move-object/from16 v0, v18
 
@@ -4956,7 +4956,7 @@
 
     move-result v23
 
-    const v24, 0x7f0901f7
+    const v24, 0x7f0901f9
 
     move-object/from16 v0, v18
 
@@ -4982,7 +4982,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0901f8
+    const v24, 0x7f0901fa
 
     move-object/from16 v0, v18
 
@@ -4992,7 +4992,7 @@
 
     move-result v24
 
-    const v25, 0x7f0901e9
+    const v25, 0x7f0901eb
 
     move-object/from16 v0, v18
 
@@ -5044,7 +5044,7 @@
 
     invoke-direct/range {v21 .. v21}, Landroid/graphics/Rect;-><init>()V
 
-    const v23, 0x7f1000fe
+    const v23, 0x7f100102
 
     move-object/from16 v0, p0
 
@@ -5058,7 +5058,7 @@
 
     const/16 v23, 0x0
 
-    const v24, 0x7f0902a9
+    const v24, 0x7f0902aa
 
     move-object/from16 v0, v18
 
@@ -6215,7 +6215,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f08007f
+    const v7, 0x7f080087
 
     invoke-static {v5, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6509,7 +6509,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090398
+    const v7, 0x7f0903a7
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6756,7 +6756,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f080043
+    const v11, 0x7f080047
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8010,7 +8010,29 @@
 
     if-eqz v9, :cond_1
 
-    const v25, 0x7f09018d
+    const v25, 0x7f09018e
+
+    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v25
+
+    const v26, 0x7f09018d
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v26
+
+    move/from16 v0, v25
+
+    move/from16 v1, v26
+
+    invoke-virtual {v9, v0, v1}, Lcom/android/launcher2/CellLayoutNoGap;->setCellSize(II)V
+
+    const v25, 0x7f09018b
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8030,34 +8052,12 @@
 
     move/from16 v1, v26
 
-    invoke-virtual {v9, v0, v1}, Lcom/android/launcher2/CellLayoutNoGap;->setCellSize(II)V
-
-    const v25, 0x7f09018a
-
-    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v25
-
-    const v26, 0x7f09018b
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v26
-
-    move/from16 v0, v25
-
-    move/from16 v1, v26
-
     invoke-virtual {v9, v0, v1}, Lcom/android/launcher2/CellLayoutNoGap;->setGaps(II)V
 
     invoke-virtual {v9}, Lcom/android/launcher2/CellLayoutNoGap;->refreshCellDimension()V
 
     :cond_1
-    const v25, 0x7f1000fe
+    const v25, 0x7f100102
 
     move-object/from16 v0, p0
 
@@ -8073,7 +8073,7 @@
 
     check-cast v14, Landroid/widget/LinearLayout$LayoutParams;
 
-    const v25, 0x7f090201
+    const v25, 0x7f090203
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8095,7 +8095,7 @@
 
     check-cast v20, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v25, 0x7f0901a6
+    const v25, 0x7f0901a7
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8125,7 +8125,7 @@
 
     if-eqz v25, :cond_2
 
-    const v25, 0x7f090202
+    const v25, 0x7f090204
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8147,7 +8147,7 @@
 
     check-cast v18, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v25, 0x7f09020f
+    const v25, 0x7f090211
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8159,7 +8159,7 @@
 
     iput v0, v1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    const v25, 0x7f09020d
+    const v25, 0x7f09020f
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8198,7 +8198,7 @@
 
     check-cast v19, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v25, 0x7f09019e
+    const v25, 0x7f09019f
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8210,7 +8210,7 @@
 
     iput v0, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v25, 0x7f090203
+    const v25, 0x7f090205
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8246,7 +8246,7 @@
 
     check-cast v21, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v25, 0x7f090198
+    const v25, 0x7f090199
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8292,7 +8292,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0901f0
+    const v26, 0x7f0901f2
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8307,13 +8307,13 @@
     :cond_3
     if-eqz v9, :cond_4
 
-    const v25, 0x7f09018e
+    const v25, 0x7f09018f
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v22
 
-    const v25, 0x7f09018f
+    const v25, 0x7f090190
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8495,7 +8495,7 @@
 
     const/16 v25, 0x0
 
-    const v26, 0x7f090220
+    const v26, 0x7f090222
 
     move-object/from16 v0, v24
 
@@ -8627,7 +8627,7 @@
 
     const/16 v25, 0x0
 
-    const v26, 0x7f090220
+    const v26, 0x7f090222
 
     move-object/from16 v0, v24
 
@@ -8803,7 +8803,7 @@
 
     move-result-object v7
 
-    const v10, 0x7f1000fe
+    const v10, 0x7f100102
 
     invoke-virtual {p0, v10}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9464,7 +9464,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f100100
+    const v4, 0x7f100104
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9474,7 +9474,7 @@
 
     iput-object v4, p0, Lcom/android/launcher2/Folder;->mFolderName:Lcom/android/launcher2/FolderEditText;
 
-    const v4, 0x7f100104
+    const v4, 0x7f100108
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9492,7 +9492,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f020084
+    const v5, 0x7f020085
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -9502,7 +9502,7 @@
 
     iput-object v4, p0, Lcom/android/launcher2/Folder;->mFolderBottomGradation:Landroid/graphics/drawable/GradientDrawable;
 
-    const v4, 0x7f100101
+    const v4, 0x7f100105
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9512,7 +9512,7 @@
 
     iput-object v4, p0, Lcom/android/launcher2/Folder;->mFolderOptionButtonLayout:Landroid/widget/FrameLayout;
 
-    const v4, 0x7f100102
+    const v4, 0x7f100106
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9522,7 +9522,7 @@
 
     iput-object v4, p0, Lcom/android/launcher2/Folder;->mFolderOptionButton:Landroid/widget/ImageView;
 
-    const v4, 0x7f100103
+    const v4, 0x7f100107
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -9536,7 +9536,7 @@
 
     invoke-virtual {v4, v9}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x7f1000fe
+    const v4, 0x7f100102
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -10390,7 +10390,7 @@
 
     sget-object v0, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v1, 0x7f0800d4
+    const v1, 0x7f0800dc
 
     invoke-virtual {v0, v1}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 
@@ -11010,7 +11010,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901eb
+    const v4, 0x7f0901ed
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11020,7 +11020,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901ec
+    const v4, 0x7f0901ee
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11030,7 +11030,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901ea
+    const v4, 0x7f0901ec
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11124,7 +11124,7 @@
 
     iget v0, v6, Landroid/util/DisplayMetrics;->density:F
 
-    const v6, 0x7f0901a1
+    const v6, 0x7f0901a2
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11142,13 +11142,29 @@
 
     move-result-object v3
 
-    const v6, 0x7f090202
+    const v6, 0x7f090204
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v6
 
-    const v7, 0x7f090206
+    const v7, 0x7f090208
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v7
+
+    sub-float/2addr v6, v7
+
+    const v7, 0x7f09020e
+
+    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v7
+
+    sub-float/2addr v6, v7
+
+    const v7, 0x7f09020b
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11157,22 +11173,6 @@
     sub-float/2addr v6, v7
 
     const v7, 0x7f09020c
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v7
-
-    sub-float/2addr v6, v7
-
-    const v7, 0x7f090209
-
-    invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v7
-
-    sub-float/2addr v6, v7
-
-    const v7, 0x7f09020a
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11200,7 +11200,7 @@
 
     if-lez v6, :cond_0
 
-    const v6, 0x7f0901a2
+    const v6, 0x7f0901a3
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11358,7 +11358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080044
+    const v3, 0x7f080048
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11552,7 +11552,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100086
+    const v1, 0x7f10008a
 
     iget-object v2, p0, Lcom/android/launcher2/Folder;->mSearchAppListFragment:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 

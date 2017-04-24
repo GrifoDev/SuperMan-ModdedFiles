@@ -33,14 +33,17 @@
     <string name="all_apps_title">Aplikacije</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">Aplikacija %s je skrivena.</string>
+    <string name="app_locked_toast">%s je zaključan.</string>
     <string name="app_search">Pretraga</string>
     <string name="app_search_no_apps">Možete dodati prečice na početni ekran iz rezultata pretraživanja.</string>
     <string name="app_search_no_results_found">Nema rezultata</string>
+    <string name="app_unlocked_toast">%s unlocked.</string>
     <string name="apply">Primijeni</string>
     <string name="available_galaxyapps">Dostupno na aplikaciji Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Izaberite da li će se prikazati ili sakriti bedževi pojedinačnih aplikacija.</string>
+    <string name="badge_manage_summary">Izaberite da li će se prikazati ili sakriti bedževi pojedinačnih aplikacija.</string>
+    <string name="badge_manage_title">Upravljaj bedževima aplikacija</string>
     <string name="cancel">Otkaži</string>
     <string name="change_home_screen_settings">Promjena postavki poč. ekr.</string>
     <string name="change_home_screen_settings_info">Ova aplikacija može promijeniti postavke i prečice vašeg početnog ekrana.</string>
@@ -53,6 +56,7 @@
     <string name="direct_dial">Direktno biranje</string>
     <string name="direct_message">Direktna poruka</string>
     <string name="disable_message">%1$s i sve druge povezane funkcije će biti onemogućene. Da biste ponovno omogućili aplikaciju, idite na Postavke > Aplikacije, zatim izaberite %2$s.</string>
+    <string name="disable_message_att">%s i sve druge povezane funkcije će biti onemogućene. Za ponovno omogućavanje, idite na Postavke > Uređaj > Aplikacije > Upravitelj aplikacija.</string>
     <string name="disable_message_vzw">%s i sve druge povezane funkcije će biti onemogućene. Da biste ih ponovno omogućili, idite na Postavke > Aplikacije > Upravitelj aplikacija.</string>
     <string name="disable_title">Onemogući aplikaciju</string>
     <string name="disable_uninstall_message">%s i sve druge povezane funkcije će biti onemogućene. Vaši podaci će također biti izbrisani. Da biste ih ponovno omogućili, idite na Postavke > Aplikacije > Upravitelj aplikacija.</string>
@@ -81,6 +85,10 @@
     <string name="guide_resize_widget_step2">Povucite ivicu prema gore, dolje, ka unutra ili spolja, da bite promijenili veličinu vidžeta.</string>
     <string name="guide_tap_here">Dodirnite ikonu aplikacija.</string>
     <string name="guide_widgets_tap_area">Dodirnite i zadržite vidžet do trenutka kada se može urediti, zatim ga otpustite.</string>
+    <string name="hide">Sakrij</string>
+    <string name="hide_confirm_continue">Nastavi</string>
+    <string name="hide_confirm_message">Aplikacija %s je trenutno zaključana. Ukoliko sakrijete ovu aplikaciju, ona će biti otključana.</string>
+    <string name="hide_confirm_title">Sakrij aplikaciju</string>
     <string name="home_edit_add_to_personal">Dod. na lič.</string>
     <string name="home_edit_bar_delete_title">Ukloni prečicu</string>
     <string name="home_edit_bar_delete_title_vzw">Ukloni prečicu</string>
@@ -127,7 +135,7 @@
     <string name="not_selected">Nije izabrano</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Vidžet %s je već dodan na početni ekran.</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Prikaži aplikacije</string>
     <string name="option_menu_contact_up">Kontaktirajte nas</string>
     <string name="option_tray_screengrid">Mreža ekrana</string>
     <string name="options_home_set_theme">Teme</string>
@@ -146,14 +154,14 @@
     <string name="permlab_install_widget">Dodaj vidžete</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Prevucite prečicu aplikacije prema dolje da biste vidjeli njene brze postavke. Brze postavke omogućavaju da lako upravljate aplikacijama.</string>
+    <string name="quickoption_sleep">Spavanje</string>
     <string name="quickoptions_add_apps">Dodatne aplikacije</string>
     <string name="quickoptions_add_to_secure_folder">"Dodaj u
 Sig. Folder"</string>
     <string name="quickoptions_app_info">Informacije o aplikaciji</string>
     <string name="quickoptions_clear_badge">Izbriši bedž</string>
     <string name="quickoptions_disable">Onemogući</string>
-    <string name="quickoptions_put_to_sleep">Stavi u stanje mirovanja</string>
-    <string name="quickoptions_put_to_sleep_alert">Stavljanje ove aplikacije u stanje mirovanja će spriječiti njeno korištenje baterije u pozadini. Aplikacije u mirovanje možda neće primati ažuriranja niti će vam slati obavještenja, ali će se automatski probuditi čim ih otvorite.</string>
+    <string name="quickoptions_sleep_alert">Stavljanje ove aplikacije u stanje mirovanja će spriječiti njeno korištenje baterije u pozadini. Aplikacije u mirovanje možda neće primati ažuriranja niti će vam slati obavještenja, ali će se automatski probuditi čim ih otvorite.</string>
     <string name="quickoptions_uninstall">Deinstaliraj</string>
     <string name="quickview_delete_toast_msg">Prevucite stranicu do menija Ukloni da biste je uklonili.</string>
     <string name="quickview_drag_bar_delete_title">Ukloni</string>
@@ -165,9 +173,9 @@ Sig. Folder"</string>
     <string name="remove_app_folder_confirm">Izbriši</string>
     <string name="remove_app_folder_confirm_VZW">Ukloni</string>
     <string name="remove_app_folder_message">Folder %s će biti izbrisan. Aplikacije koje se nalaze u ovom folderu će i dalje biti dostupne na ekranu Aplikacije.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Folder %s će biti uklonjen. Aplikacije koje se nalaze u ovom folderu će biti navedene na kraju trake s aplikacijama.</string>
     <string name="remove_app_folder_message_no_title">This folder will be removed. Applications in this folder will not be uninstalled.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Ovaj folder će biti uklonjen. Aplikacije koje se nalaze u ovom folderu će biti navedene na kraju trake s aplikacijama.</string>
     <string name="remove_app_folder_title">Izbriši folder</string>
     <string name="remove_app_folder_title_VZW">Ukloni folder</string>
     <string name="remove_home_folder_message">Folder %s će biti izbrisan. Aplikacije koje se nalaze u ovom folderu će i dalje biti dostupne na ekranu Aplikacije.</string>
@@ -180,7 +188,7 @@ Sig. Folder"</string>
     <string name="search_for_apps">Pretraga aplikacija</string>
     <string name="search_for_widgets">Pretraživanje vidžeta</string>
     <string name="search_result_found">%d je pronađen</string>
-    <string name="search_result_founds">%d pronađeno</string>
+    <string name="search_result_founds">%d je pronađen</string>
     <string name="select_all_app">Sve</string>
     <string name="select_app_add">DODAJ</string>
     <string name="selected">Izabrano</string>
@@ -221,11 +229,11 @@ Sig. Folder"</string>
     <string name="viewtype_custom_grid">Prilagođeni redoslijed</string>
     <string name="widget_duplicate">%s vidžet je već na početnom ekranu.</string>
     <string name="work_folder_name">Posao</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Dodirnite i zadržite ekran za dodavanje stavki</string>
+    <string name="zeropage_briefing_title">Pregled</string>
+    <string name="zeropage_download">Preuzmi</string>
+    <string name="zeropage_download_msg">Za korištenje ove funkcije, morate instalirati %1$s. Dodirnite PREUZMI da preuzmete i instalirate %2$s.</string>
     <string name="zeropage_notice_msg">Sada je dostupan novi informativni servis %s. Da biste ga koristili umjesto aplikacije Flipboard Briefing, dodirnite OK.</string>
     <string name="zeropage_setting_dialog_no">Otkaži</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu vijesti</string>
 </resources>

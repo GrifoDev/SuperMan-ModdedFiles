@@ -1259,7 +1259,7 @@
 
     iget-object v3, v2, Lcom/android/launcher2/Folder;->mFolderOptionView:Landroid/widget/LinearLayout;
 
-    const v11, 0x7f100102
+    const v11, 0x7f100106
 
     invoke-virtual {v2, v11}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -2443,7 +2443,7 @@
 
     check-cast v5, Lcom/android/launcher2/CellLayoutChildren;
 
-    const v18, 0x7f100102
+    const v18, 0x7f100106
 
     move/from16 v0, v18
 
@@ -3173,7 +3173,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f100076
+    const v9, 0x7f10007a
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3376,7 +3376,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f100074
+    const v30, 0x7f100078
 
     invoke-virtual/range {v29 .. v30}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -5077,10 +5077,25 @@
     :cond_10
     if-eqz v18, :cond_4
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getMenuAppsSearchBar()Landroid/view/ViewGroup;
+    const/16 v24, 0x0
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getState()Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-result-object v28
+
+    sget-object v29, Lcom/android/launcher2/MenuAppsGrid$State;->EDIT:Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v29
+
+    if-ne v0, v1, :cond_11
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getActiveTitleBarForState()Landroid/view/ViewGroup;
 
     move-result-object v24
 
+    :goto_8
     if-eqz v24, :cond_4
 
     invoke-virtual/range {v24 .. v24}, Landroid/view/ViewGroup;->getChildCount()I
@@ -5089,7 +5104,7 @@
 
     const/4 v12, 0x0
 
-    :goto_8
+    :goto_9
     if-ge v12, v6, :cond_4
 
     move-object/from16 v0, v24
@@ -5102,7 +5117,7 @@
 
     move-result v28
 
-    if-nez v28, :cond_11
+    if-nez v28, :cond_13
 
     invoke-virtual {v4}, Landroid/view/View;->requestFocus()Z
 
@@ -5115,12 +5130,32 @@
     goto/16 :goto_4
 
     :cond_11
-    add-int/lit8 v12, v12, 0x1
+    const/16 v28, 0x3
+
+    move/from16 v0, v28
+
+    if-ge v13, v0, :cond_12
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getMenuAppsSearchBar()Landroid/view/ViewGroup;
+
+    move-result-object v24
 
     goto :goto_8
 
+    :cond_12
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getMenuAppsMoreButton()Landroid/view/ViewGroup;
+
+    move-result-object v24
+
+    goto :goto_8
+
+    :cond_13
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_9
+
     :sswitch_3
-    if-eqz v11, :cond_12
+    if-eqz v11, :cond_14
 
     add-int/lit8 v28, v9, -0x1
 
@@ -5128,7 +5163,7 @@
 
     move/from16 v1, v28
 
-    if-ge v0, v1, :cond_12
+    if-ge v0, v1, :cond_14
 
     add-int/lit8 v28, v15, -0x1
 
@@ -5150,7 +5185,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_14
 
     invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
 
@@ -5160,7 +5195,7 @@
 
     invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
 
-    :cond_12
+    :cond_14
     const/16 v25, 0x1
 
     goto/16 :goto_0
@@ -5172,19 +5207,19 @@
 
     move/from16 v28, v0
 
-    if-eqz v28, :cond_13
+    if-eqz v28, :cond_15
 
     invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->isPageMoving()Z
 
     move-result v28
 
-    if-eqz v28, :cond_13
+    if-eqz v28, :cond_15
 
     const/16 v25, 0x1
 
     goto/16 :goto_0
 
-    :cond_13
+    :cond_15
     iget v0, v7, Landroid/content/res/Configuration;->keyboard:I
 
     move/from16 v28, v0
@@ -5195,7 +5230,7 @@
 
     move/from16 v1, v29
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_16
 
     iget v0, v7, Landroid/content/res/Configuration;->navigation:I
 
@@ -5209,116 +5244,22 @@
 
     if-eq v0, v1, :cond_0
 
-    :cond_14
+    :cond_16
     move-object/from16 v0, v23
 
     invoke-static {v0, v13, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
 
     move-result-object v5
 
-    if-nez v11, :cond_16
+    if-nez v11, :cond_18
 
-    if-eqz v5, :cond_16
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->onClick(Landroid/view/View;)V
-
-    const/16 v28, 0x0
-
-    move/from16 v0, v28
-
-    invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
-
-    :cond_15
-    :goto_9
-    const/16 v25, 0x1
-
-    goto/16 :goto_0
-
-    :cond_16
-    if-eqz v11, :cond_15
-
-    if-eqz v5, :cond_15
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getState()Lcom/android/launcher2/MenuAppsGrid$State;
-
-    move-result-object v28
-
-    sget-object v29, Lcom/android/launcher2/MenuAppsGrid$State;->EDIT:Lcom/android/launcher2/MenuAppsGrid$State;
-
-    move-object/from16 v0, v28
-
-    move-object/from16 v1, v29
-
-    if-ne v0, v1, :cond_15
-
-    move-object/from16 v0, p0
-
-    instance-of v0, v0, Lcom/android/launcher2/FolderIconView;
-
-    move/from16 v28, v0
-
-    if-eqz v28, :cond_15
+    if-eqz v5, :cond_18
 
     move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->onClick(Landroid/view/View;)V
-
-    const/16 v28, 0x0
-
-    move/from16 v0, v28
-
-    invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
-
-    goto :goto_9
-
-    :sswitch_5
-    if-eqz v11, :cond_17
-
-    if-lez v22, :cond_18
-
-    add-int/lit8 v28, v22, -0x1
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v28
-
-    invoke-static {v0, v1}, Lcom/android/launcher2/FocusHelper;->getPage(Lcom/android/launcher2/PagedView;I)Landroid/view/ViewGroup;
-
-    move-result-object v19
-
-    if-eqz v19, :cond_17
-
-    add-int/lit8 v28, v22, -0x1
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->snapToPage(I)V
-
-    move-object/from16 v28, v19
-
-    check-cast v28, Lcom/android/launcher2/CellLayoutChildren;
-
-    const/16 v29, 0x0
-
-    move-object/from16 v0, v28
-
-    move/from16 v1, v29
-
-    invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_17
-
-    invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
 
     const/16 v28, 0x0
 
@@ -5333,21 +5274,35 @@
     goto/16 :goto_0
 
     :cond_18
-    if-eqz v13, :cond_17
-
-    const/16 v28, 0x0
-
-    move-object/from16 v0, v23
-
-    move/from16 v1, v28
-
-    invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
-
-    move-result-object v5
+    if-eqz v11, :cond_17
 
     if-eqz v5, :cond_17
 
-    invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/MenuAppsGrid;->getState()Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-result-object v28
+
+    sget-object v29, Lcom/android/launcher2/MenuAppsGrid$State;->EDIT:Lcom/android/launcher2/MenuAppsGrid$State;
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v29
+
+    if-ne v0, v1, :cond_17
+
+    move-object/from16 v0, p0
+
+    instance-of v0, v0, Lcom/android/launcher2/FolderIconView;
+
+    move/from16 v28, v0
+
+    if-eqz v28, :cond_17
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->onClick(Landroid/view/View;)V
 
     const/16 v28, 0x0
 
@@ -5357,18 +5312,12 @@
 
     goto :goto_a
 
-    :sswitch_6
+    :sswitch_5
     if-eqz v11, :cond_19
 
-    add-int/lit8 v28, v21, -0x1
+    if-lez v22, :cond_1a
 
-    move/from16 v0, v22
-
-    move/from16 v1, v28
-
-    if-ge v0, v1, :cond_1a
-
-    add-int/lit8 v28, v22, 0x1
+    add-int/lit8 v28, v22, -0x1
 
     move-object/from16 v0, v18
 
@@ -5380,7 +5329,7 @@
 
     if-eqz v19, :cond_19
 
-    add-int/lit8 v28, v22, 0x1
+    add-int/lit8 v28, v22, -0x1
 
     move-object/from16 v0, v18
 
@@ -5419,19 +5368,13 @@
     goto/16 :goto_0
 
     :cond_1a
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
+    if-eqz v13, :cond_19
 
-    move-result v28
-
-    add-int/lit8 v16, v28, -0x1
-
-    move/from16 v0, v16
-
-    if-eq v13, v0, :cond_19
+    const/16 v28, 0x0
 
     move-object/from16 v0, v23
 
-    move/from16 v1, v16
+    move/from16 v1, v28
 
     invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
 
@@ -5449,16 +5392,46 @@
 
     goto :goto_b
 
-    :sswitch_7
+    :sswitch_6
     if-eqz v11, :cond_1b
 
-    if-eqz v13, :cond_1b
+    add-int/lit8 v28, v21, -0x1
 
-    const/16 v28, 0x0
-
-    move-object/from16 v0, v23
+    move/from16 v0, v22
 
     move/from16 v1, v28
+
+    if-ge v0, v1, :cond_1c
+
+    add-int/lit8 v28, v22, 0x1
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v28
+
+    invoke-static {v0, v1}, Lcom/android/launcher2/FocusHelper;->getPage(Lcom/android/launcher2/PagedView;I)Landroid/view/ViewGroup;
+
+    move-result-object v19
+
+    if-eqz v19, :cond_1b
+
+    add-int/lit8 v28, v22, 0x1
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->snapToPage(I)V
+
+    move-object/from16 v28, v19
+
+    check-cast v28, Lcom/android/launcher2/CellLayoutChildren;
+
+    const/16 v29, 0x0
+
+    move-object/from16 v0, v28
+
+    move/from16 v1, v29
 
     invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
 
@@ -5475,13 +5448,12 @@
     invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
 
     :cond_1b
+    :goto_c
     const/16 v25, 0x1
 
     goto/16 :goto_0
 
-    :sswitch_8
-    if-eqz v11, :cond_1c
-
+    :cond_1c
     invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
 
     move-result v28
@@ -5490,7 +5462,7 @@
 
     move/from16 v0, v16
 
-    if-eq v13, v0, :cond_1c
+    if-eq v13, v0, :cond_1b
 
     move-object/from16 v0, v23
 
@@ -5500,7 +5472,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_1c
+    if-eqz v5, :cond_1b
 
     invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
 
@@ -5510,7 +5482,70 @@
 
     invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
 
-    :cond_1c
+    goto :goto_c
+
+    :sswitch_7
+    if-eqz v11, :cond_1d
+
+    if-eqz v13, :cond_1d
+
+    const/16 v28, 0x0
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v28
+
+    invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1d
+
+    invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
+
+    const/16 v28, 0x0
+
+    move/from16 v0, v28
+
+    invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
+
+    :cond_1d
+    const/16 v25, 0x1
+
+    goto/16 :goto_0
+
+    :sswitch_8
+    if-eqz v11, :cond_1e
+
+    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
+
+    move-result v28
+
+    add-int/lit8 v16, v28, -0x1
+
+    move/from16 v0, v16
+
+    if-eq v13, v0, :cond_1e
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v16
+
+    invoke-static {v0, v1, v8}, Lcom/android/launcher2/FocusHelper;->getIconAtPosition(Lcom/android/launcher2/CellLayoutChildren;II)Landroid/view/View;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1e
+
+    invoke-virtual {v5}, Landroid/view/View;->requestFocus()Z
+
+    const/16 v28, 0x0
+
+    move/from16 v0, v28
+
+    invoke-virtual {v5, v0}, Landroid/view/View;->playSoundEffect(I)V
+
+    :cond_1e
     const/16 v25, 0x1
 
     goto/16 :goto_0
@@ -6366,7 +6401,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f1000df
+    const v10, 0x7f1000e3
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6378,7 +6413,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f1000e4
+    const v10, 0x7f1000e8
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6394,7 +6429,7 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    const v10, 0x7f09026e
+    const v10, 0x7f090270
 
     invoke-static {v8, v10}, Lcom/android/launcher2/utils/common/FontSizeUtils;->setSystemFontSize(Landroid/widget/TextView;I)V
 
@@ -6774,7 +6809,7 @@
     :sswitch_1
     if-eqz v6, :cond_8
 
-    const v22, 0x7f1000e8
+    const v22, 0x7f1000ec
 
     move-object/from16 v0, v16
 
@@ -7046,7 +7081,7 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/widget/LinearLayout;->clearFocus()V
 
-    const v22, 0x7f1000e8
+    const v22, 0x7f1000ec
 
     move-object/from16 v0, v16
 
@@ -7448,7 +7483,7 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/widget/LinearLayout;->clearFocus()V
 
-    const v22, 0x7f1000e8
+    const v22, 0x7f1000ec
 
     move-object/from16 v0, v16
 
@@ -8079,7 +8114,7 @@
 
     if-eqz v20, :cond_a
 
-    const v20, 0x7f1000e8
+    const v20, 0x7f1000ec
 
     move/from16 v0, v20
 
@@ -8187,7 +8222,7 @@
 
     if-eqz v20, :cond_c
 
-    const v20, 0x7f1000e8
+    const v20, 0x7f1000ec
 
     move/from16 v0, v20
 
@@ -8235,7 +8270,7 @@
 
     if-nez v12, :cond_e
 
-    const v20, 0x7f1000e8
+    const v20, 0x7f1000ec
 
     move/from16 v0, v20
 
@@ -8374,7 +8409,7 @@
     goto :goto_7
 
     :cond_10
-    const v20, 0x7f1000ec
+    const v20, 0x7f1000f0
 
     move/from16 v0, v20
 
@@ -8593,7 +8628,7 @@
     if-eqz v20, :cond_18
 
     :cond_16
-    const v20, 0x7f1000ec
+    const v20, 0x7f1000f0
 
     move/from16 v0, v20
 
@@ -8659,7 +8694,7 @@
     goto/16 :goto_0
 
     :cond_18
-    const v20, 0x7f1000f0
+    const v20, 0x7f1000f4
 
     move/from16 v0, v20
 
@@ -8672,7 +8707,7 @@
     goto :goto_8
 
     :cond_19
-    const v20, 0x7f1000e8
+    const v20, 0x7f1000ec
 
     move/from16 v0, v20
 

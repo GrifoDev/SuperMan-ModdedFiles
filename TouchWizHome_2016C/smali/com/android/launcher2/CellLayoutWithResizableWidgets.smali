@@ -765,6 +765,116 @@
     return-void
 .end method
 
+.method public reapplyIconViewStyles(Z)V
+    .locals 8
+
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/android/launcher2/IconConfig;->get()Lcom/android/launcher2/IconConfig;
+
+    move-result-object v2
+
+    sget-object v5, Lcom/android/launcher2/IconConfig$TYPE;->HOME:Lcom/android/launcher2/IconConfig$TYPE;
+
+    invoke-virtual {v2, v5}, Lcom/android/launcher2/IconConfig;->getInfo(Lcom/android/launcher2/IconConfig$TYPE;)Lcom/android/launcher2/IconInfo$Info;
+
+    move-result-object v5
+
+    invoke-virtual {p0}, Lcom/android/launcher2/CellLayoutWithResizableWidgets;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher2/IconInfo$Info;->loadStyle(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/launcher2/CellLayoutWithResizableWidgets;->getPageChildCount()I
+
+    move-result v5
+
+    add-int/lit8 v4, v5, -0x1
+
+    :goto_0
+    if-ltz v4, :cond_3
+
+    invoke-virtual {p0, v4}, Lcom/android/launcher2/CellLayoutWithResizableWidgets;->getChildOnPageAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    instance-of v5, v1, Lcom/android/launcher2/FolderIconView;
+
+    if-eqz v5, :cond_1
+
+    move-object v3, v1
+
+    check-cast v3, Lcom/android/launcher2/FolderIconView;
+
+    invoke-virtual {v3, p1}, Lcom/android/launcher2/FolderIconView;->setUseScaleAnimation(Z)V
+
+    invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher2/BaseItem;
+
+    invoke-virtual {v3, v5}, Lcom/android/launcher2/FolderIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
+
+    invoke-virtual {v3, v7}, Lcom/android/launcher2/FolderIconView;->setUseScaleAnimation(Z)V
+
+    sget-object v5, Lcom/android/launcher2/IconConfig$TYPE;->HOME:Lcom/android/launcher2/IconConfig$TYPE;
+
+    invoke-virtual {v2, v5, v3}, Lcom/android/launcher2/IconConfig;->applyFolderIconView(Lcom/android/launcher2/IconConfig$TYPE;Lcom/android/launcher2/AppIconView;)V
+
+    invoke-virtual {v3}, Lcom/android/launcher2/FolderIconView;->showBadge()V
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    instance-of v5, v1, Lcom/android/launcher2/AppIconView;
+
+    if-eqz v5, :cond_0
+
+    move-object v0, v1
+
+    check-cast v0, Lcom/android/launcher2/AppIconView;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher2/AppIconView;->setUseScaleAnimation(Z)V
+
+    sget-object v5, Lcom/android/launcher2/IconConfig$TYPE;->HOME:Lcom/android/launcher2/IconConfig$TYPE;
+
+    invoke-virtual {v2, v5, v0}, Lcom/android/launcher2/IconConfig;->applyAppIconView(Lcom/android/launcher2/IconConfig$TYPE;Lcom/android/launcher2/AppIconView;)V
+
+    invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_2
+
+    invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher2/BaseItem;
+
+    invoke-virtual {v0, v5}, Lcom/android/launcher2/AppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
+
+    invoke-virtual {v0}, Lcom/android/launcher2/AppIconView;->showBadge()V
+
+    :cond_2
+    invoke-virtual {v0, v7}, Lcom/android/launcher2/AppIconView;->setUseScaleAnimation(Z)V
+
+    goto :goto_1
+
+    :cond_3
+    sget-object v5, Lcom/android/launcher2/IconConfig$TYPE;->HOME:Lcom/android/launcher2/IconConfig$TYPE;
+
+    invoke-virtual {v2, v5}, Lcom/android/launcher2/IconConfig;->recycleViewStyles(Lcom/android/launcher2/IconConfig$TYPE;)V
+
+    return-void
+.end method
+
 .method public setHomeView(Lcom/android/launcher2/HomeView;)V
     .locals 1
 

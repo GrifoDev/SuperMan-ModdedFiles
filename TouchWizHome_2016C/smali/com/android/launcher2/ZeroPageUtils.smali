@@ -736,7 +736,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0200b3
+    const v22, 0x7f0200b4
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -758,7 +758,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0800ed
+    const v22, 0x7f0800f5
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -978,7 +978,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0800e8
+    const v22, 0x7f0800f0
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1746,6 +1746,12 @@
     const/4 v7, 0x0
 
     iget-object v4, p0, Lcom/android/launcher2/ZeroPageUtils;->mContext:Landroid/content/Context;
+
+    if-eqz v4, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v4
 
     if-nez v4, :cond_1
 

@@ -1182,7 +1182,7 @@
 
     move-result-object v6
 
-    const v17, 0x7f100087
+    const v17, 0x7f10008b
 
     move/from16 v0, v17
 
@@ -1766,7 +1766,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080063
+    const v6, 0x7f08006b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2063,7 +2063,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080063
+    const v6, 0x7f08006b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2137,7 +2137,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0800cc
+    const v6, 0x7f0800d4
 
     const/4 v7, 0x1
 
@@ -2178,7 +2178,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080064
+    const v7, 0x7f08006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2202,7 +2202,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d1
+    const v7, 0x7f0800d9
 
     const/4 v9, 0x2
 
@@ -2261,7 +2261,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080065
+    const v7, 0x7f08006d
 
     const/4 v9, 0x2
 
@@ -2309,7 +2309,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d1
+    const v7, 0x7f0800d9
 
     const/4 v9, 0x2
 
@@ -2362,7 +2362,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080064
+    const v7, 0x7f08006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2386,7 +2386,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d1
+    const v7, 0x7f0800d9
 
     const/4 v9, 0x2
 
@@ -2451,7 +2451,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080064
+    const v7, 0x7f08006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2475,7 +2475,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d1
+    const v7, 0x7f0800d9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3947,7 +3947,7 @@
     :cond_5
     sget-object v7, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v8, 0x7f080066
+    const v8, 0x7f08006e
 
     invoke-virtual {v7, v8}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 

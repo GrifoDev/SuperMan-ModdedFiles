@@ -333,7 +333,7 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 9
 
-    const v7, 0x7f0800dd
+    const v7, 0x7f0800e5
 
     const/4 v8, 0x0
 
@@ -363,7 +363,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800aa
+    const v5, 0x7f0800b2
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -380,14 +380,14 @@
 
     if-eqz v4, :cond_2
 
-    const v2, 0x7f08003f
+    const v2, 0x7f080043
 
     :goto_1
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v4, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0800de
+    const v5, 0x7f0800e6
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -401,7 +401,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800db
+    const v5, 0x7f0800e3
 
     invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -458,7 +458,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0800dc
+    const v2, 0x7f0800e4
 
     goto :goto_1
 .end method

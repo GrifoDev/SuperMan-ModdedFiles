@@ -421,25 +421,25 @@
 
     move-result-object v7
 
-    const v13, 0x7f0900e7
+    const v13, 0x7f0900e8
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v13, 0x7f0900ea
+    const v13, 0x7f0900eb
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v13, 0x7f0900f0
+    const v13, 0x7f0900f1
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    const v13, 0x7f0900ed
+    const v13, 0x7f0900ee
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2055,7 +2055,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f080079
+    const v4, 0x7f080081
 
     invoke-static {v2, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2119,6 +2119,63 @@
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->cancelLongPress()V
+
+    goto :goto_0
+.end method
+
+.method public semExtractSmartClipData(Lcom/samsung/android/content/smartclip/SemSmartClipCroppedArea;Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;)I
+    .locals 3
+
+    if-nez p2, :cond_0
+
+    const/16 v0, 0x100
+
+    :goto_0
+    return v0
+
+    :cond_0
+    sget-object v0, Lcom/android/launcher2/LauncherAppWidgetHostView;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "semExtractSmartClipData element.getExtractionMode()="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {p2}, Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;->getExtractionMode()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {p2}, Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;->getExtractionMode()I
+
+    move-result v0
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_1
+
+    const/16 v0, 0x101
+
+    goto :goto_0
+
+    :cond_1
+    invoke-super {p0, p1, p2}, Landroid/appwidget/AppWidgetHostView;->semExtractSmartClipData(Lcom/samsung/android/content/smartclip/SemSmartClipCroppedArea;Lcom/samsung/android/content/smartclip/SemSmartClipDataElement;)I
+
+    move-result v0
 
     goto :goto_0
 .end method

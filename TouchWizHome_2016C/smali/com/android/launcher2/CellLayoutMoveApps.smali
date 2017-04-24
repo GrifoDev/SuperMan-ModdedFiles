@@ -168,7 +168,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutMoveApps;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f080079
+    const v2, 0x7f080081
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -201,7 +201,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/CellLayoutMoveApps;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f08007e
+    const v4, 0x7f080086
 
     new-array v2, v2, [Ljava/lang/Object;
 

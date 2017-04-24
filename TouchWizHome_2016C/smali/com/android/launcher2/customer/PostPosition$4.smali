@@ -30,16 +30,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel;)V
+.method constructor <init>(Lcom/android/launcher2/customer/PostPosition;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Lcom/android/launcher2/LauncherModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher2/customer/PostPosition$4;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
-    iput-object p2, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
+    iput-object p2, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$cn:Landroid/content/ComponentName;
 
-    iput-object p3, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$cn:Landroid/content/ComponentName;
+    iput-object p3, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    iput-object p4, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$user:Lcom/android/launcher2/compat/UserHandleCompat;
+    iput-object p4, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
 
     iput-object p5, p0, Lcom/android/launcher2/customer/PostPosition$4;->val$model:Lcom/android/launcher2/LauncherModel;
 

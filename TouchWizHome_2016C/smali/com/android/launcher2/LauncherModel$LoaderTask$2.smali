@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$2;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
@@ -66,6 +66,24 @@
 
     :cond_1
     invoke-interface {v0}, Lcom/android/launcher2/LauncherModel$Callbacks;->bindHomeEnd()V
+
+    invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher2/customer/PostPosition;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher2/customer/PostPosition;->runHomeAdd(Z)V
 
     goto :goto_0
 .end method

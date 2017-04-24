@@ -34,14 +34,17 @@
     <string name="all_apps_title">பயன்பாடுகள்</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;அஆஇஈஉஊஎஏஐஒஓஔஃகஙசஞடணதநபமயரலவழளறனABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZஅஆஇஈஉஊஎஏஐஒஓஔஃகஙசஞடணதநபமயரலவழளறன</string>
+    <string name="app_hidden_toast">%s மறைக்கப்பட்டுள்ளது.</string>
+    <string name="app_locked_toast">%s பூட்டப்பட்டது.</string>
     <string name="app_search">தேடல்</string>
     <string name="app_search_no_apps">தேடல் முடிவுகளில் இருந்து முகப்பு திரைக்கு உங்களால் குறுக்குவழியை சேர்க்க இயலும்.</string>
     <string name="app_search_no_results_found">முடிவுகள் காணப்படவில்லை</string>
+    <string name="app_unlocked_toast">%s பூட்டுநீக்கப்பட்டது.</string>
     <string name="apply">உபயோகி</string>
     <string name="available_galaxyapps">Galaxy Apps-இல் கிடைக்கிறது</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ஒவ்வொரு பயன்பாட்டிற்கும் பேட்ஜ்களைக் காட்ட வேண்டுமா அல்லது மறைக்க வேண்டுமா என்பதைத் தேர்வுசெய்யவும்.</string>
+    <string name="badge_manage_summary">ஒவ்வொரு பயன்பாட்டிற்கும் பேட்ஜ்களைக் காட்ட வேண்டுமா அல்லது மறைக்க வேண்டுமா என்பதைத் தேர்வுசெய்யவும்.</string>
+    <string name="badge_manage_title">பயன்பாட்டு பேட்ஜ்களை நிர்வகிக்கவும்</string>
     <string name="cancel">ரத்து</string>
     <string name="change_home_screen_settings">முகப்புத் திரை அமைவுகளை மாற்றவும்</string>
     <string name="change_home_screen_settings_info">இந்தப் பயன்பாடு உங்கள் முகப்பு திரை அமைவுகள் மற்றும் குறுக்குவழிகளை மாற்றும்.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">நேரடி டயல்</string>
     <string name="direct_message">நேரடி தகவல்</string>
     <string name="disable_message">%1$s மற்றும் இதற்கு தொடர்புடைய எல்லா செயல்பாடுகளும் செயல்நீக்கப்படும். பயன்பாட்டை மீண்டும் இயக்க, அமைவுகள் > பயன்பாடுகள் என்பதற்கு சென்று %2$s-ஐத் தேர்வுசெய்யவும்.</string>
+    <string name="disable_message_att">%s மற்றும் அதனுடன் தொடர்புடைய அனைத்து அம்சங்களும் செயல்நீக்கப்படும். மீண்டும் அதை செயல்படுத்த, அமைவுகள் > சாதனம் > பயன்பாடுகள் > பயன்பாட்டு மேலாளர் என்பதற்குச் செல்லவும்.</string>
     <string name="disable_message_vzw">%s மற்றும் அதனுடன் தொடர்புடைய அனைத்து அம்சங்களும் செயல்நீக்கப்படும். மீண்டும் அதை செயல்படுத்த, அமைவுகள் > பயன்பாடுகள் > பயன்பாட்டு மேலாளர் என்பதற்குச் செல்லவும்.</string>
     <string name="disable_messange_knox">%s மற்றும் அதனுடன் தொடர்புடைய எல்லா அம்சங்களும் செயல்நீக்கப்படும். அதை மீண்டும் செயல்படுத்த, KNOX அமைவுகள் > பயன்பாட்டு மேலாளர் என்பதற்குச் செல்லவும்.</string>
     <string name="disable_title">பயன்பாட்டை செயல்நீக்கவும்</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">விட்ஜெட்டை மறுஅளவிட ஓரங்களை மேல், கீழ், உள்ளே, அல்லது வெளியே ட்ராக் செய்யவும்.</string>
     <string name="guide_tap_here">பயன்பாடுகள் சின்னத்தை டேப் செய்க.</string>
     <string name="guide_widgets_tap_area">திருத்தப்படும் வரை விட்ஜெட்டை டேப் செய்து பிடித்திருக்கவும், பின்னர் அதை விடுவிக்கவும்.</string>
+    <string name="hide">மறைக்கவும்</string>
+    <string name="hide_confirm_continue">தொடர்க</string>
+    <string name="hide_confirm_message">%s பயன்பாடு தற்போது பூட்டப்பட்டுள்ளது. இந்தப் பயன்பாட்டை மறைத்தால், அது பூட்டு நீக்கப்படும்.</string>
+    <string name="hide_confirm_title">பயன்பாட்டை மறைக்கவும்</string>
     <string name="home_edit_add_to_personal">தனிப்பட்டதில் சேர்க்கவும்</string>
     <string name="home_edit_bar_delete_title">குறுக்குவழியை அகற்றுக</string>
     <string name="home_edit_bar_delete_title_vzw">குறுக்குவழியை அகற்றுக</string>
@@ -134,7 +142,7 @@
     <string name="ok">சரி</string>
     <string name="only_one_widget_instance_allowed">%s விட்ஜெட் ஏற்கனவே முகப்புத் திரையில் சேர்க்கப்பட்டுள்ளது.</string>
     <string name="open_folder">கோப்புறையைத் திற</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">பயன்பாடுகளைக் காண்க</string>
     <string name="option_menu_contact_up">எங்களை தொடர்பு கொள்ள</string>
     <string name="option_tray_screengrid">திரைக் கட்டம்</string>
     <string name="options_home_set_theme">தீம்கள்</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">விட்ஜெட்களை சேர்க்கவும்</string>
     <string name="quick_contact">தொடர்பு</string>
     <string name="quick_options_help_text">துரித தெரிவுகளை காண, கீழ்புறமாக பயன்பாடு குறுக்குவழியை ஸ்வைப் செய்யவும். துரித தெரிவுகள் மூலம் பயன்பாடுகளை எளிதாக நிர்வகிக்கலாம்.</string>
+    <string name="quickoption_sleep">உறக்கம்</string>
     <string name="quickoptions_add_apps">பயன்பாடுகளை சேர்க்கவும்</string>
     <string name="quickoptions_add_to_secure_folder">"பாதுகாப்பான
 கோப்புறையில் சேர்க்கவும்"</string>
     <string name="quickoptions_app_info">பயன்பாட்டு விவரம்</string>
     <string name="quickoptions_clear_badge">பேட்ஜை அழிக்கவும்</string>
     <string name="quickoptions_disable">செயல்நீக்குக</string>
-    <string name="quickoptions_put_to_sleep">உறக்கத்தில் வைக்கவும்</string>
-    <string name="quickoptions_put_to_sleep_alert">இந்தப் பயன்பாட்டை உறக்க நிலையில் வைத்தல், பின்னணியில் மின்கலத்தைப் பயன்படுத்துவதிலிருந்து தடுக்கும். உறங்கும் பயன்பாடுகள் புதுப்பிப்புகளை பெறாமலோ அல்லது உங்கள் அறிவிப்புகளை அனுப்பாமலோ போகலாம், ஆனால் அவற்றை திறக்கும் போது அவை வேக் அப் ஆகும்.</string>
+    <string name="quickoptions_sleep_alert">இந்தப் பயன்பாட்டை உறக்க நிலையில் வைத்தல், பின்னணியில் மின்கலத்தைப் பயன்படுத்துவதிலிருந்து தடுக்கும். உறங்கும் பயன்பாடுகள் புதுப்பிப்புகளை பெறாமலோ அல்லது உங்கள் அறிவிப்புகளை அனுப்பாமலோ போகலாம், ஆனால் அவற்றை திறக்கும் போது அவை வேக் அப் ஆகும்.</string>
     <string name="quickoptions_uninstall">நிறுவல் நீக்குக</string>
     <string name="quickview_delete_toast_msg">அகற்றுவதற்கு பக்கத்தை அகற்றவும் என்பதற்கு டிராக் செய்யவும்.</string>
     <string name="quickview_drag_bar_delete_title">அகற்றுக</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">நீக்குக</string>
     <string name="remove_app_folder_confirm_VZW">அகற்றுக</string>
     <string name="remove_app_folder_message">%s கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையில் உள்ள பயன்பாடுகள் இப்போதும் பயன்பாடுகள் திரையில் கிடைக்கும்.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s கோப்புறை அகற்றப்படும். இந்தக் கோப்புறையின் உள்ளே உள்ள பயன்பாடுகள் பயன்பாட்டு ட்ரேயின் முடிவில் பட்டியலிடப்படும்.</string>
     <string name="remove_app_folder_message_no_title">இந்த கோப்புறை நீக்கப்படும். ஆனால் கோப்புறையிலுள்ள பயன்பாடுகள்கள் நிறுவல்நீக்கப்படாது.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">இந்தக் கோப்புறை அகற்றப்படும். இந்தக் கோப்புறையின் உள்ளே உள்ள பயன்பாடுகள் பயன்பாட்டு ட்ரேயின் முடிவில் பட்டியலிடப்படும்.</string>
     <string name="remove_app_folder_title">கோப்புறை நீக்குக</string>
     <string name="remove_app_folder_title_VZW">கோப்புறை அகற்றுக</string>
     <string name="remove_home_folder_message">%s கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையில் உள்ள பயன்பாடுகள் இப்போதும் பயன்பாடுகள் திரையில் கிடைக்கும்.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">பயன்பாடுகளை தேடுக</string>
     <string name="search_for_widgets">விட்ஜெட்களுக்காக தேடவும்</string>
     <string name="search_result_found">%d கண்டறியப்பட்டன</string>
-    <string name="search_result_founds">%d காணப்பட்டுள்ளன</string>
+    <string name="search_result_founds">%d கண்டறியப்பட்டன</string>
     <string name="select_all_app">எல்லாம்</string>
     <string name="select_app_add">சேர்க்கவும்</string>
     <string name="selected">தேர்வுசெய்யப்பட்டது</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">தனிப்பயன் வரிசை</string>
     <string name="widget_duplicate">%s விட்ஜெட் ஏற்கனவே முகப்புத் திரையிலுள்ளது.</string>
     <string name="work_folder_name">வேலை</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">உருப்படிகளை சேர்க்க, திரையை தொட்டுப் பிடிக்கவும்</string>
+    <string name="zeropage_briefing_title">சுருக்கவுரை</string>
+    <string name="zeropage_download">பதிவிறக்குக</string>
+    <string name="zeropage_download_msg">இந்தச் செயல்பாட்டை பயன்படுத்த, நீங்கள் %1$s-ஐ நிறுவ வேண்டும். %2$s-ஐப் பதிவிறக்கி நிறுவ சரி “பதிவிறக்கவும்” என்பதை டேப் செய்யவும்.</string>
     <string name="zeropage_notice_msg">%s செய்தி சேவை இப்போது கிடைக்கிறது. ஃப்ளிப்போர்டு சுருக்கவுரைக்கு பதிலாக இதைப் பயன்படுத்த, “சரி” என்பதை டேப் செய்யவும்.</string>
     <string name="zeropage_setting_dialog_no">ரத்து</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">சோஹு செய்திகள்</string>
 </resources>

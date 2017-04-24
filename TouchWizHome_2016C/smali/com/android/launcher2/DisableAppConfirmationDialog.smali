@@ -801,11 +801,11 @@
 
     invoke-virtual {v9, v10}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0800fa
+    const v9, 0x7f080102
 
     invoke-virtual {v0, v9, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0800db
+    const v9, 0x7f0800e3
 
     invoke-virtual {v0, v9, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -819,7 +819,7 @@
 
     if-eqz v9, :cond_2
 
-    const v9, 0x7f08003c
+    const v9, 0x7f080040
 
     const/4 v10, 0x1
 
@@ -927,7 +927,7 @@
 
     if-eqz v9, :cond_3
 
-    const v9, 0x7f08003b
+    const v9, 0x7f08003f
 
     const/4 v10, 0x1
 
@@ -946,7 +946,32 @@
     goto :goto_0
 
     :cond_3
-    const v9, 0x7f08003a
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isATTModel()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
+    const v9, 0x7f08003e
+
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/Object;
+
+    const/4 v11, 0x0
+
+    iget-object v12, p0, Lcom/android/launcher2/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+
+    aput-object v12, v10, v11
+
+    invoke-virtual {p0, v9, v10}, Lcom/android/launcher2/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto/16 :goto_0
+
+    :cond_4
+    const v9, 0x7f08003d
 
     const/4 v10, 0x2
 

@@ -19,7 +19,7 @@
 
 .field private static final EMPTY_CLASS_NAME:Ljava/lang/String; = "."
 
-.field private static final FLAG_SUSPENDED:I = 0x40000000
+.field public static final FLAG_SUSPENDED:I = 0x40000000
 
 .field private static final INITIAL_PACKAGE_CAPACITY:I = 0x50
 
@@ -142,7 +142,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f090004
+    const v7, 0x7f090005
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -150,7 +150,7 @@
 
     iput v7, p0, Lcom/android/launcher2/PkgResCache;->mAppIconSize:I
 
-    const v7, 0x7f09016e
+    const v7, 0x7f09016f
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -191,7 +191,7 @@
 
     sput-object v7, Lcom/android/launcher2/PkgResCache;->mDefaultIcon:Landroid/graphics/Bitmap;
 
-    const v7, 0x7f0200b5
+    const v7, 0x7f0200b6
 
     invoke-direct {p0, v0, v7}, Lcom/android/launcher2/PkgResCache;->createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

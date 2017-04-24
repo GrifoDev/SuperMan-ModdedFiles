@@ -151,7 +151,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    const v5, 0x7f100079
+    const v5, 0x7f10007d
 
     invoke-virtual {v4, v5}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 

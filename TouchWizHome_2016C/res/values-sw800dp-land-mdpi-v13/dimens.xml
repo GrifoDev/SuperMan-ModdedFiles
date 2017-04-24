@@ -66,6 +66,8 @@
     <dimen name="workspaceEditModeShrink_top_adjust">-40.0dip</dimen>
     <dimen name="workspace_scroll_zone_left_width">85.0dip</dimen>
     <dimen name="workspace_scroll_zone_right_width">85.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">415.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">768.0dip</dimen>
     <dimen name="folder_icon_paddingTop">1.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
     <dimen name="folder_multi_container_margin_end">60.0dip</dimen>

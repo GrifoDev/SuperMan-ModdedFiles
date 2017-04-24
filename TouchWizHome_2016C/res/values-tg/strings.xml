@@ -34,14 +34,17 @@
     <string name="all_apps_title">Барномаҳо</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;АБВГҒДЕЁЖЗИӢЙКҚЛМНОПРСТУӮФХҲЧҶШЪЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#АБВГҒДЕЁЖЗИӢЙКҚЛМНОПРСТУӮФХҲЧҶШЪЭЮЯ</string>
+    <string name="app_hidden_toast">%s пинҳон карда шуд.</string>
+    <string name="app_locked_toast">%s банд шудааст.</string>
     <string name="app_search">Ҷустуҷӯ</string>
     <string name="app_search_no_apps">Шумо метавонед дар экрани асосӣ ба натиҷаҳои ҷустуҷӯ миёнбур илова кунед.</string>
     <string name="app_search_no_results_found">Ягон натиҷа ёфт нашуд</string>
+    <string name="app_unlocked_toast">%s бандкушоӣ шуд.</string>
     <string name="apply">Татбиқ кардан</string>
     <string name="available_galaxyapps">Дар Galaxy Apps дастрас аст</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Интихоб кунед, ки тамғаҳо барои ҳар як барнома нишон дода шаванд ё пинҳон карда шаванд.</string>
+    <string name="badge_manage_summary">Интихоб кунед, ки тамғаҳо барои ҳар як барнома нишон дода шаванд ё пинҳон карда шаванд.</string>
+    <string name="badge_manage_title">Тамғаҳои барномаро идора кунед</string>
     <string name="cancel">Бекор кардан</string>
     <string name="change_home_screen_settings">Тағйири танз-ти экр. асосӣ</string>
     <string name="change_home_screen_settings_info">Ин барнома метавонад танзимоти экрани асосӣ ва миёнбурҳои шуморо тағйир диҳад.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Рақамчинии мустақил</string>
     <string name="direct_message">Паёми мустақим</string>
     <string name="disable_message">%1$s ва ҳамаи функсияҳои марбут ба он ғайрифаъол карда мешаванд. Барои ин барномаро дубора фаъол кардан, ба Танзимот > Барномаҳо гузашта, %2$s-ро интихоб кунед.</string>
+    <string name="disable_message_att">%s ва ҳамаи хусусиятҳои марбут ба он ғайрифаъол мешаванд. Барои аз нав фаъол кардани он ба Танзимот > Дастгоҳ > Барномаҳо > Мудири барномаҳо гузаред.</string>
     <string name="disable_message_vzw">%s ва ҳамаи хусусиятҳои марбут ба он ғайрифаъол мешаванд. Барои аз нав фаъол кардани он ба Танзимот > Барномаҳо > Мудири барномаҳо гузаред.</string>
     <string name="disable_messange_knox">%s ва ҳамаи хусусиятҳои марбут ба он ғайрифаъол мешаванд. Барои аз нав фаъол кардани он ба танзимоти KNOX > Мудири барномаҳо гузаред.</string>
     <string name="disable_title">Ғайрифаъол кардани барнома</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Барои тағйир додани андозаи видҷет, марзро ба боло, поён, дарун ё берун кашед.</string>
     <string name="guide_tap_here">Нишони барномаро зарба занед.</string>
     <string name="guide_widgets_tap_area">Видҷети дилхоҳро то таҳрирпазир шуданаш зарба зада нигоҳ доред ва озод кунед.</string>
+    <string name="hide">Пинҳон к</string>
+    <string name="hide_confirm_continue">Давом додан</string>
+    <string name="hide_confirm_message">Барномаи %s айни ҳол баста мебошад. Агар ин барномаро пинҳон кунед, он озод карда мешавад.</string>
+    <string name="hide_confirm_title">Пинҳон кардани барнома</string>
     <string name="home_edit_add_to_personal">Илова ба шахсӣ</string>
     <string name="home_edit_bar_delete_title">Нест к-ни миёнбур</string>
     <string name="home_edit_bar_delete_title_vzw">Нест к-ни миёнбур</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Видҷети %s аллакай ба экрани асосӣ илова карда шудааст.</string>
     <string name="open_folder">Кушодани ҷузвдон</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Дидани барномаҳо</string>
     <string name="option_menu_contact_up">Бо мо тамос гиред</string>
     <string name="option_tray_screengrid">Тӯри экран</string>
     <string name="options_home_set_theme">Мавзуъҳо</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Иловаи видҷетҳо</string>
     <string name="quick_contact">Алоқа</string>
     <string name="quick_options_help_text">Миёнбури барномаи дилхоҳро ба поён молида, имконоти зуди онро бинед. Имконоти зуд ба шумо қобилият медиҳанд, ки барномаҳоро ба осонӣ идора кунед.</string>
+    <string name="quickoption_sleep">Хоб рафтан</string>
     <string name="quickoptions_add_apps">Иловаи барномаҳо</string>
     <string name="quickoptions_add_to_secure_folder">"Илова ба
 Ҷузвдони эмин"</string>
     <string name="quickoptions_app_info">Маълумот оиди барнома</string>
     <string name="quickoptions_clear_badge">Нишонаро тоза кардан</string>
     <string name="quickoptions_disable">Ғайрифаъол</string>
-    <string name="quickoptions_put_to_sleep">Хобондан</string>
-    <string name="quickoptions_put_to_sleep_alert">Агар ин барнома хобонда шавад, он дигар батареяро дар пасзамина истифода бурда наметавонад. Барномаҳои хобида метавонанд навсозӣ гирифта ё ба шумо огоҳӣ фиристода натавонанд, аммо вақте ки шумо онҳоро мекушоед, онҳо бедор мешаванд.</string>
+    <string name="quickoptions_sleep_alert">Агар ин барнома хобонда шавад, он дигар батареяро дар пасзамина истифода бурда наметавонад. Барномаҳои хобида метавонанд навсозӣ гирифта ё ба шумо огоҳӣ фиристода натавонанд, аммо вақте ки шумо онҳоро мекушоед, онҳо бедор мешаванд.</string>
     <string name="quickoptions_uninstall">Нест кардан</string>
     <string name="quickview_delete_toast_msg">Барои саҳифаро нест кардан, онро ба Нест кардан кашонед.</string>
     <string name="quickview_drag_bar_delete_title">Нест кардан</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Нест кардан</string>
     <string name="remove_app_folder_confirm_VZW">Нест кардан</string>
     <string name="remove_app_folder_message">Ҷузвдони %s нест карда мешавад. Барномаҳои дохили ин ҷузвдон ба ҳар ҳол дар экрани Барномаҳо дастрас мемонанд.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Ҷузвдони %s нест карда мешавад. Барномаи даруни ин ҷузвдон дар охири лавҳаи барнома номбар карда мешавад.</string>
     <string name="remove_app_folder_message_no_title">This folder will be removed. Applications in this folder will not be uninstalled.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Ин ҷузвдон нест карда мешавад. Барномаи даруни ин ҷузвдон дар охири лавҳаи барнома номбар карда мешавад.</string>
     <string name="remove_app_folder_title">Нест кардани ҷузвадон</string>
     <string name="remove_app_folder_title_VZW">Нест кардани ҷузвдон</string>
     <string name="remove_home_folder_message">Ҷузвдони %s нест карда мешавад. Барномаҳои дохили ин ҷузвдон ба ҳар ҳол дар экрани Барномаҳо дастрас мемонанд.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">Ҷустуҷӯи барномаҳо</string>
     <string name="search_for_widgets">Ҷустуҷӯи видҷетҳо</string>
     <string name="search_result_found">%d ёфт шуд</string>
-    <string name="search_result_founds">%d­то ёфт шуд</string>
+    <string name="search_result_founds">%d ёфт шуд</string>
     <string name="select_all_app">Ҳама</string>
     <string name="select_app_add">ИЛОВА К-ДАН</string>
     <string name="selected">Интихоб шуд</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Тартиби фармоишӣ</string>
     <string name="widget_duplicate">Видҷети %s аллакай дар экрани асосист.</string>
     <string name="work_folder_name">Кор</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Барои иловаи ҷузъҳо ба экран зарба зада нигоҳ доред</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Боргирӣ</string>
+    <string name="zeropage_download_msg">Барои истифодаи ин функсия, шумо бояд %1$s-ро насб кунед. Барои %2$s-ро боргирӣ ва насб кардан, БОРГИРӢ-ро зарба занед.</string>
     <string name="zeropage_notice_msg">Хидмати ахборотии %s акнун дастрас аст. Барои онро ба ҷои Фишурдаи флипборд истифода бурдан, ОК-ро зарба занед.</string>
     <string name="zeropage_setting_dialog_no">Бекор кардан</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Хабарҳои Sohu</string>
 </resources>

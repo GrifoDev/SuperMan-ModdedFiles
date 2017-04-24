@@ -27,8 +27,6 @@
 
 .field private final mApplication:Landroid/app/Application;
 
-.field private mIsAddPreviousSpeech:Z
-
 .field private mIsTalkbackEnabled:Z
 
 .field private final mResources:Landroid/content/res/Resources;
@@ -856,68 +854,6 @@
 
     :cond_1
     invoke-virtual {p1, p2}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-.end method
-
-.method public sayByTextToSpeech(Ljava/lang/String;Z)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0}, Lcom/sec/dtl/launcher/Talk;->getTextToSpeech()Landroid/speech/tts/TextToSpeech;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/sec/dtl/launcher/Talk;->isTouchExplorationEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    if-nez p1, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "Must provide a valid string to speak"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/sec/dtl/launcher/Talk;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
-
-    invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->getLanguage()Ljava/util/Locale;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/sec/dtl/launcher/Talk;->setTextToSpeechLanguage(Ljava/util/Locale;)V
-
-    iget-boolean v0, p0, Lcom/sec/dtl/launcher/Talk;->mIsAddPreviousSpeech:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/sec/dtl/launcher/Talk;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
-
-    :goto_0
-    iput-boolean p2, p0, Lcom/sec/dtl/launcher/Talk;->mIsAddPreviousSpeech:Z
-
-    :cond_1
-    return-void
-
-    :cond_2
-    iget-object v0, p0, Lcom/sec/dtl/launcher/Talk;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
     goto :goto_0
 .end method

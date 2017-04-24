@@ -34,14 +34,17 @@
     <string name="all_apps_title">ແອັບ</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ກຂຄງຈສຊຍດຕຖທນບປຜຝພຟມຢຣລວຫອຮ</string>
+    <string name="app_hidden_toast">ເຊື່ອງ %s ແລ້ວ.</string>
+    <string name="app_locked_toast">ລັອກ %s ​ແລ້ວ.</string>
     <string name="app_search">ຄົ້ນຫາ</string>
     <string name="app_search_no_apps">ທ່ານສາມາດເພີ່ມທາງລັດໃນໜ້າຈໍຫຼັກຈາກຜົນການຊອກຫາ.</string>
     <string name="app_search_no_results_found">ບໍ່ພົບຜົນໄດ້ຮັບ</string>
+    <string name="app_unlocked_toast">ປົດລັອກ %s ແລ້ວ.</string>
     <string name="apply">ນໍາໃຊ້</string>
     <string name="available_galaxyapps">ມີຢູ່ໃນ Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ເລືອກວ່າຈະສະແດງ ຫຼື ຈະເຊື່ອງກາໝາຍສຳລັບແຕ່ລະແອັບ.</string>
+    <string name="badge_manage_summary">ເລືອກວ່າຈະສະແດງ ຫຼື ຈະເຊື່ອງກາໝາຍສຳລັບແຕ່ລະແອັບ.</string>
+    <string name="badge_manage_title">ຈັດການກາໝາຍແອັບ</string>
     <string name="cancel">ຍົກເລີກ</string>
     <string name="change_home_screen_settings">ປ່ຽນແປງການຕັ້ງຄ່າໜ້າຈໍຫຼັກ</string>
     <string name="change_home_screen_settings_info">ແອັບນີ້ສາມາດປ່ຽນແປງການຕັ້ງຄ່າໜ້າຈໍຫຼັກແລະທາງລັດໄດ້.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">ໂທອອກໂດຍກົງ</string>
     <string name="direct_message">ຂໍ້ຄວາມໂດຍກົງ</string>
     <string name="disable_message">%1$s ແລະຟັງຄ໌ຊັນທັງໝົດທີ່ກ່ຽວຂ້ອງກັບມັນຈະຖືກປິດໃຊ້ງານ. ເພື່ອເປີດໃຊ້ງານແອັບອີກຄັ້ງ, ໄປທີ່ການຕັ້ງຄ່າ > ແອພພລິເຄຊັນ, ຈາກນັ້ນເລືອກ %2$s.</string>
+    <string name="disable_message_att">%s ແລະຄຸນສົມບັດທັງໝົດທີ່ກ່ຽວຂ້ອງກັບມັນຈະຖືກປິດໃຊ້ງານ. ເພື່ອເປີດໃຊ້ງານມັນອີກຄັ້ງ, ໄປທີ່ການຕັ້ງຄ່າ > ອຸປະກອນ > ແອພພລິເຄຊັນ > ຕົວຈັດການແອພພລິເຄຊັນ.</string>
     <string name="disable_message_vzw">%s ແລະທຸກຟີເຈີທີ່ກ່ຽວຂ້ອງກັບມັນຈະຖືກປິດໃຊ້ງານ. ເພື່ອເປີດໃຊ້ງານມັນອີກ, ໄປທີ່ການຕັ້ງຄ່າ > ແອ​ພ​ພ​ລິ​ເຄ​ຊັນ > ຕົວຈັດການແອພພລິເຄຊັນ.</string>
     <string name="disable_messange_knox">%s ແລະຄຸນສົມບັດທັງໝົດທີ່ກ່ຽວຂ້ອງກັບມັນຈະຖືກປິດໃຊ້ງານ. ເພື່ອເປີດໃຊ້ງານມັນອີກຄັ້ງ, ໄປທີ່ການຕັ້ງຄ່າ KNOX > ຕົວຈັດການແອພພລິເຄຊັນ.</string>
     <string name="disable_title">ປິດໃຊ້ງານແອພພລິເຄຊັນ</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ດຶງເສັ້ນຂຶ້ນ, ລົງ, ເຂົ້າໃນ, ຫຼືອອກນອກ ເພື່ອປ່ຽນຂະໜາດວິດເຈັທ.</string>
     <string name="guide_tap_here">ແຕະໄອຄອນແອັບ.</string>
     <string name="guide_widgets_tap_area">ແຕະວິດເຈັດຄ້າງໄວ້ຈົນກວ່າມັນຖືກແກ້ໄຂແລ້ວ, ຈາກນັ້ນປ່ອຍມັນ.</string>
+    <string name="hide">​ເຊື່​ອງ</string>
+    <string name="hide_confirm_continue">ສືບຕໍ່</string>
+    <string name="hide_confirm_message">%s ແອັບຖືກລັອກໃນຂະນະນີ້. ຖ້າທ່ານເຊື່ອງແອັບນີ້, ມັນຈະຖືກປົດລັອກ.</string>
+    <string name="hide_confirm_title">ເຊື່ອງແອັບ</string>
     <string name="home_edit_add_to_personal">ເພີ່ມໃສ່ສ່ວນຕົວ</string>
     <string name="home_edit_bar_delete_title">ເອົາທາງລັດອອກໄປ</string>
     <string name="home_edit_bar_delete_title_vzw">ເອົາທາງລັດອອກໄປ</string>
@@ -134,7 +142,7 @@
     <string name="ok">ຕົກລົງ</string>
     <string name="only_one_widget_instance_allowed">ເພີ່ມວິດເຈັດ %s ໃສ່ໜ້າຈໍຫຼັກແລ້ວ.</string>
     <string name="open_folder">ເປີດໂຟລເດີ</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ເບິ່ງແອັບ</string>
     <string name="option_menu_contact_up">ຕິດຕໍ່ພວກເຮົາ</string>
     <string name="option_tray_screengrid">ເສັ້ນ​ຕັດ​ໜ້າ​ຈໍ</string>
     <string name="options_home_set_theme">ຕີມ</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ເພີ່ມວິດເຈັດ</string>
     <string name="quick_contact">ຜູ້ຕິດຕໍ່</string>
     <string name="quick_options_help_text">ຮູດທາງລັດແອັບລົງລຸ່ມເພື່ອເບິ່ງຕົວເລືອກດ່ວນຂອງມັນ. ຕົວເລືອກດ່ວນອະນຸຍາດໃຫ້ທ່ານຈັດການແອັບໄດ້ຢ່າງງ່າຍດາຍ.</string>
+    <string name="quickoption_sleep">ນອນຫຼັບ</string>
     <string name="quickoptions_add_apps">ເພີ່ມແອັບ</string>
     <string name="quickoptions_add_to_secure_folder">"ເພີ່ມໃສ່
 ໂຟລເດີທີ່ປອດໄພ"</string>
     <string name="quickoptions_app_info">ຂໍ້ມູນແອັບ</string>
     <string name="quickoptions_clear_badge">ລຶບກາໝາຍ</string>
     <string name="quickoptions_disable">ປິດໃຊ້ງານ</string>
-    <string name="quickoptions_put_to_sleep">ເຮັດໃຫ້ຫຼັບຢູ່</string>
-    <string name="quickoptions_put_to_sleep_alert">ການເຮັດໃຫ້ແອັບນີ້ຫຼັບຢູ່ ຈະປ້ອງກັນມັນຈາກການໃຊ້ແບັດເຕີຣີໃນພື້ນຫຼັງ. ແອັບທີ່ຫຼັບຢູ່ອາດບໍ່ໄດ້ຮັບການອັບເດດ ຫຼືບໍ່ສົ່ງການແຈ້ງເຕືອນຫາທ່ານ, ແຕ່ວ່າພວກມັນຈະຕື່ນຂຶ້ນເມື່ອທ່ານເປີດພວກມັນ.</string>
+    <string name="quickoptions_sleep_alert">ການເຮັດໃຫ້ແອັບນີ້ຫຼັບຢູ່ ຈະປ້ອງກັນມັນຈາກການໃຊ້ແບັດເຕີຣີໃນພື້ນຫຼັງ. ແອັບທີ່ຫຼັບຢູ່ອາດບໍ່ໄດ້ຮັບການອັບເດດ ຫຼືບໍ່ສົ່ງການແຈ້ງເຕືອນຫາທ່ານ, ແຕ່ວ່າພວກມັນຈະຕື່ນຂຶ້ນເມື່ອທ່ານເປີດພວກມັນ.</string>
     <string name="quickoptions_uninstall">ຖອນຕິດຕັ້ງ</string>
     <string name="quickview_delete_toast_msg">ລາກໜ້າໄປຍັງ Remove ເພື່ອຍ້າຍມັນ.</string>
     <string name="quickview_drag_bar_delete_title">ຍ້າຍອອກໄປ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ລຶບ</string>
     <string name="remove_app_folder_confirm_VZW">ເອົາອອກໄປ</string>
     <string name="remove_app_folder_message">%s ໂຟລເດີຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍແອັບ.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">ໂຟລເດີ %s ຈະຖືກເອົາອອກໄປ. ແອັບທີ່ຢູ່ຂ້າງໃນໂຟລເດີນີ້ ຈະຖືກລະບຸໄວ້ໃນຕອນທ້າຍຖາດແອັບ.</string>
     <string name="remove_app_folder_message_no_title">ໂຟລເດີນີ້ຈະຖືກລຶບອອກ. ແອພພລິເຄຊັນຢູ່ໃນໂຟລເດີນີ້ຈະບໍ່ຖືກຕິດຕັ້ງ.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ໂຟລເດີນີ້ຈະຖືກເອົາອອກໄປ. ແອັບທີ່ຢູ່ຂ້າງໃນໂຟລເດີນີ້ ຈະຖືກລະບຸໄວ້ໃນຕອນທ້າຍຖາດແອັບ.</string>
     <string name="remove_app_folder_title">ລຶບໂຟລເດີ</string>
     <string name="remove_app_folder_title_VZW">ລຶບໂຟລເດີອອກໄປ</string>
     <string name="remove_home_folder_message">%s ໂຟລເດີຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍແອັບ.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">ກຳນົດຄຳສັ່ງເອງ</string>
     <string name="widget_duplicate">ວິດເຈັດ %s ຢູ່ໜ້າຈໍແລ້ວ.</string>
     <string name="work_folder_name">ວຽກ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">ສຳພັດໜ້າຈໍຄ້າງໄວ້ເພື່ອເພີ່ມລາຍການ</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">ດາວ​ໂຫຼດ</string>
+    <string name="zeropage_download_msg">ເພື່ອ​ໃຊ້​ຟັງ​ຄ໌​ຊັນ​ນີ້, ທ່ານ​ຈຳເປັນຕ້ອງ​ຕິດ​ຕັ້ງ %1$s. ແຕະ [ດາວໂຫຼດ] ເພື່ອດາວໂຫຼດ ແລະຕິດຕັ້ງ %2$s.</string>
     <string name="zeropage_notice_msg">ການບໍລິການຂ່າວ %s ດຽວນີ້ມີຢູ່. ເພື່ອໃຊ້ມັນແທນການສະຫຼຸບຫຍໍ້ດ້ວຍຟລິບບອດ, ແຕະ [ຕົກລົງ].</string>
     <string name="zeropage_setting_dialog_no">ຍົກເລີກ</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">ຂ່າວໂຊຮູ</string>
 </resources>

@@ -16,6 +16,7 @@
         <item>com.sec.android.app.irsettings</item>
         <item>com.samsung.android.app.sprotect</item>
         <item>com.samsung.android.spay</item>
+        <item>com.opera.max.oem</item>
     </string-array>
     <string-array name="changed_component_list">
         <item>com.samsung.android.email.ui/.activity.MessageListXL| com.samsung.android.email.provider/com.samsung.android.email.ui.activity.MessageListXL</item>
@@ -27,6 +28,7 @@
         <item>com.sec.android.app.clockpackagechina/com.sec.android.app.clockpackage.ClockPackage| com.sec.android.app.clockpackage/.ClockPackage</item>
         <item>com.samsung.contacts/com.android.contacts.activities.PeopleActivity| com.samsung.android.contacts/com.android.contacts.activities.PeopleActivity</item>
         <item>com.samsung.contacts/com.android.dialer.DialtactsActivity| com.samsung.android.contacts/com.android.dialer.DialtactsActivity</item>
+        <item>com.samsung.android.video/.list.activity.VideoList| com.samsung.android.videolist/.list.activity.VideoList</item>
     </string-array>
     <string-array name="changed_component_widgetlist">
         <item>com.android.calendar/.widget.MonthWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.MonthWidgetProvider</item>
@@ -56,6 +58,8 @@
         <item>duplicate</item>
         <item>isShortCut</item>
         <item>key.from</item>
+        <item>fromAppShortCut</item>
+        <item>i_from</item>
     </string-array>
     <string-array name="index_string_favorite_array_stroke">
         <item>&amp;</item>

@@ -34,14 +34,17 @@
     <string name="all_apps_title">অ্যাপস</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;অআইঈউঊঋএঐওঔকখগঘঙচছজঝঞটঠডঢণতথদধনপফবভমযরলশষসহড়ঢ়য়ৎABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s লুকানো আছে৷</string>
+    <string name="app_locked_toast">%s লক হয়েছে।</string>
     <string name="app_search">অনুসন্ধান করুন</string>
     <string name="app_search_no_apps">আপনি অনুসন্ধানের ফলাফল থেকে হোম স্ক্রিনে শর্টকাট যোগ করতে পারেন।</string>
     <string name="app_search_no_results_found">কোনো ফলাফল পাওয়া যায়নি</string>
+    <string name="app_unlocked_toast">%s unlocked.</string>
     <string name="apply">প্রয়োগ করুন</string>
     <string name="available_galaxyapps">Galaxy Apps-এ আছে</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">প্রতিটি অ্যাপের জন্য ব্যাজ দেখাবেন নাকি লুকাবেন তা নির্বাচন করুন৷</string>
+    <string name="badge_manage_summary">প্রতিটি অ্যাপের জন্য ব্যাজ দেখাবেন নাকি লুকাবেন তা নির্বাচন করুন৷</string>
+    <string name="badge_manage_title">অ্যাপ ব্যাজ ব্যবস্থাপনা করুন</string>
     <string name="cancel">বাতিল</string>
     <string name="change_home_screen_settings">হোম স্ক্রিনের সেটিংস বদলান</string>
     <string name="change_home_screen_settings_info">এই অ্যাপ আপনার হোম স্ক্রিনের সেটিংস ও শর্টকাটগুলো বদলে দিতে পারে৷</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">সরাসরি ডায়াল</string>
     <string name="direct_message">প্রত্যক্ষ বার্তা</string>
     <string name="disable_message">%1$s এবং এর সাথে সংশ্লিষ্ট সব ফাংশন নিষ্ক্রিয় হবে। অ্যাপটি আবার সক্রিয় করতে, ‘সেটিংস > অ্যাপ্লিকেশন’-এ যান, তারপর %2$s নির্বাচন করুন৷</string>
+    <string name="disable_message_att">%s এবং এর সাথে সংশ্লিষ্ট সব ফিচার নিষ্ক্রিয় হবে৷ এটি আবার সক্রিয় করতে, ‘সেটিংস > ডিভাইস > অ্যাপ্লিকেশন > অ্যাপ্লিকেশন ম্যানেজার’-এ যান৷</string>
     <string name="disable_message_vzw">%s এবং এর সাথে সম্পর্কিত সকল বৈশিষ্ট্য অক্ষম হবে। এটিকে আবার সক্ষম করতে সেটিংস > অ্যাপ্লিকেশনগুলো > অ্যাপ্লিকেশন পরিচালক-এ যান।</string>
     <string name="disable_messange_knox">%s ও এর সাথে সংশ্লিষ্ট সব ফিচার নিষ্ক্রিয় হবে। এটি আবার সক্রিয় করতে, ‘KNOX সেটিংস > অ্যাপ্লিকেশন ম্যানেজার’-এ যান।</string>
     <string name="disable_title">অ্যাপ্লিকেশন নিষ্ক্রিয় করুন</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">উইজেটটির আকার পরিবর্তন করতে সীমানাটি উপরে, নিচে, ভিতরে বা বাইরে টানুন।</string>
     <string name="guide_tap_here">অ্যাপস আইকনটি ট্যাপ করুন।</string>
     <string name="guide_widgets_tap_area">কোনো উইজেট সম্পাদনা করতে না পারা পর্যন্ত ট্যাপ করে ধরে থাকুন, তারপরে এটি ছেড়ে দিন।</string>
+    <string name="hide">লুকান</string>
+    <string name="hide_confirm_continue">অবিরত রাখুন</string>
+    <string name="hide_confirm_message">%s অ্যাপ বর্তমানে লক করা আছে৷ আপনি এই অ্যাপটি লুকালে, এটি আনলক হবে৷</string>
+    <string name="hide_confirm_title">অ্যাপ লুকান</string>
     <string name="home_edit_add_to_personal">ব্যক্তিগততে যোগ করুন</string>
     <string name="home_edit_bar_delete_title">শর্টকাট অপসারণ করুন</string>
     <string name="home_edit_bar_delete_title_vzw">শর্টকাট অপসারণ করুন</string>
@@ -134,7 +142,7 @@
     <string name="ok">ওকে</string>
     <string name="only_one_widget_instance_allowed">%s উইজেটটি ইতোমধ্যে হোম স্ক্রিনে যোগ করা হয়েছে।</string>
     <string name="open_folder">ফোল্ডার খুলুন</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">অ্যাপ দেখুন</string>
     <string name="option_menu_contact_up">আমাদের সাথে যোগাযোগ করুন</string>
     <string name="option_tray_screengrid">স্ক্রিন গ্রিড</string>
     <string name="options_home_set_theme">থিমস</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">উইজেট যোগ করুন</string>
     <string name="quick_contact">কন্টাক্ট</string>
     <string name="quick_options_help_text">অ্যাপ শর্টকাটের দ্রুত অপশনগুলো দেখতে এটিকে নিচের দিকে সোয়াইপ করুন৷ দ্রুত অপশনগুলো আপনাকে সহজে অ্যাপ নিয়ন্ত্রণ করার সুযোগ দেয়৷</string>
+    <string name="quickoption_sleep">ঘুম</string>
     <string name="quickoptions_add_apps">অ্যাপ যোগ করুন</string>
     <string name="quickoptions_add_to_secure_folder">"সুরক্ষিত ফোল্ডারে
 যোগ করুন"</string>
     <string name="quickoptions_app_info">অ্যাপের তথ্য</string>
     <string name="quickoptions_clear_badge">ব্যাজ মুছুন</string>
     <string name="quickoptions_disable">নিষ্ক্রিয় করুন</string>
-    <string name="quickoptions_put_to_sleep">সুপ্ত করুন</string>
-    <string name="quickoptions_put_to_sleep_alert">এই অ্যাপকে সুপ্ত করা হলে এটি ব্যাকগ্রাউন্ডে ব্যাটারি ব্যবহার করতে পারবে না৷ সুপ্ত অ্যাপগুলো হয়তো আপডেট পাবে না বা আপনাকে বিজ্ঞপ্তি পাঠাতে পারবে না, কিন্তু আপনি সেগুলো খুললে সেগুলো জেগে উঠবে৷</string>
+    <string name="quickoptions_sleep_alert">এই অ্যাপকে সুপ্ত করা হলে এটি ব্যাকগ্রাউন্ডে ব্যাটারি ব্যবহার করতে পারবে না৷ সুপ্ত অ্যাপগুলো হয়তো আপডেট পাবে না বা আপনাকে বিজ্ঞপ্তি পাঠাতে পারবে না, কিন্তু আপনি সেগুলো খুললে সেগুলো জেগে উঠবে৷</string>
     <string name="quickoptions_uninstall">আনইনস্টল</string>
     <string name="quickview_delete_toast_msg">পেইজটি অপসারণ করতে এটিকে ‘অপসারণ’-এ টেনে নিয়ে যান৷</string>
     <string name="quickview_drag_bar_delete_title">অপসারণ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">মুছুন</string>
     <string name="remove_app_folder_confirm_VZW">অপসারণ করুন</string>
     <string name="remove_app_folder_message">%s ফোল্ডারটি মুছে ফেলা হবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো অ্যাপ স্ক্রিনে পাওয়া যাবে৷</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ফোল্ডারটি অপসারণ করা হবে৷ এই ফোল্ডারের ভেতরের অ্যাপগুলো অ্যাপ ট্রের শেষে তালিকাভুক্ত করা হবে৷</string>
     <string name="remove_app_folder_message_no_title">This folder will be removed. Applications in this folder will not be uninstalled.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">এই ফোল্ডারটি অপসারণ করা হবে৷ এই ফোল্ডারের ভেতরের অ্যাপগুলো অ্যাপ ট্রের শেষে তালিকাভুক্ত করা হবে৷</string>
     <string name="remove_app_folder_title">ফোল্ডার মুছুন</string>
     <string name="remove_app_folder_title_VZW">ফোল্ডার অপসারণ করুন</string>
     <string name="remove_home_folder_message">%s ফোল্ডারটি মুছে ফেলা হবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো অ্যাপ স্ক্রিনে পাওয়া যাবে৷</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">অ্যাপ খুঁজুন</string>
     <string name="search_for_widgets">উইজেট অনুসন্ধান করুন</string>
     <string name="search_result_found">%dটি পাওয়া গেছে</string>
-    <string name="search_result_founds">%dটির সন্ধান পাওয়া গেছে</string>
+    <string name="search_result_founds">%dটি পাওয়া গেছে</string>
     <string name="select_all_app">সমস্ত</string>
     <string name="select_app_add">যোগ করুন</string>
     <string name="selected">নির্বাচিত</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">স্বকীয় ক্রম</string>
     <string name="widget_duplicate">হোম স্ক্রিনে ইতিমধ্যে %s উইজেট রয়েছে।</string>
     <string name="work_folder_name">কর্মক্ষেত্র</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">আইটেম যোগ করতে স্ক্রিনে স্পর্শ করে ধরে রাখুন</string>
+    <string name="zeropage_briefing_title">ব্রিফিং</string>
+    <string name="zeropage_download">ডাউনলোড</string>
+    <string name="zeropage_download_msg">এই ফাংশনটি ব্যবহার করতে, আপনাকে %1$s ইনস্টল করতে হবে। %2$s ডাউনলোড ও ইনস্টল করতে ‘ডাউনলোড’-এ ট্যাপ করুন৷</string>
     <string name="zeropage_notice_msg">%s সংবাদ পরিষেবা এখন লভ্য আছে৷ Flipboard Briefing-এর পরিবর্তে এটি ব্যবহার করতে, ‘ঠিক আছে’ ট্যাপ করুন৷</string>
     <string name="zeropage_setting_dialog_no">বাতিল</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu সংবাদ</string>
 </resources>

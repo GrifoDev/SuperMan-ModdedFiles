@@ -92,6 +92,8 @@
     <dimen name="home_5x5_cellGapY">2.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">61.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">0.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">206.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">180.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">-2.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">3.0dip</dimen>
     <dimen name="home_icon_textsize">13.0dip</dimen>
@@ -157,11 +159,10 @@
     <dimen name="screen_grid_title_margin_bottom">3.0dip</dimen>
     <dimen name="screen_grid_title_width">295.0dip</dimen>
     <dimen name="iconAutoAlign_margin_top">24.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">330.0dip</dimen>
     <dimen name="moveApps_cellHeight">60.0dip</dimen>
     <dimen name="app_searchview_margin_top">4.0dip</dimen>
     <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.8</item>
-    <dimen name="home_editmode_panel_zeropage_height">206.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">180.0dip</dimen>
     <item type="dimen" name="homescreen_option_menu_scale">100.0%</item>
     <dimen name="open_folder_appicon_margin_bottom">17.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom_extra">0.0dip</dimen>

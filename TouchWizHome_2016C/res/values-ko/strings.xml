@@ -34,9 +34,12 @@
     <string name="all_apps_title">앱스</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s 앱을 숨겼습니다.</string>
+    <string name="app_locked_toast">%s 애플리케이션을 잠갔습니다.</string>
     <string name="app_search">검색</string>
     <string name="app_search_no_apps">검색된 앱의 바로가기를 홈 화면에 바로 추가할 수 있습니다.</string>
     <string name="app_search_no_results_found">검색 결과가 없습니다</string>
+    <string name="app_unlocked_toast">%s 잠금을 해제했습니다.</string>
     <string name="apply">적용</string>
     <string name="available_galaxyapps">Galaxy Apps에서 다운로드 가능</string>
     <string name="badge_manage_explain">각 앱의 배지를 표시할 것인지 선택하세요.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">다이렉트 전화</string>
     <string name="direct_message">다이렉트 메시지</string>
     <string name="disable_message">%1$s 및 관련 기능이 모두 해제됩니다. 앱을 다시 실행하려면 [설정 > 애플리케이션]에서 %2$s 앱을 선택하세요.</string>
+    <string name="disable_message_att">%s 앱 및 모든 관련 기능을 해제합니다. 다시 실행하려면 [설정 > 디바이스 > 애플리케이션 관리 > 애플리케이션 관리자]로 이동하세요.</string>
     <string name="disable_message_vzw">%s 앱 및 모든 관련 기능을 해제합니다. 다시 실행하려면 [설정 > 애플리케이션 관리 > 애플리케이션 관리자]로 이동하세요.</string>
     <string name="disable_messange_knox">%s 및 모든 관련 기능을 해제합니다. 다시 실행하려면 [KNOX 설정 > 애플리케이션 관리자]로 이동하세요.</string>
     <string name="disable_title">앱 사용 해제</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">위젯 크기를 조절하려면 테두리를 위 또는 아래로, 왼쪽 또는 오른쪽으로 움직이세요.</string>
     <string name="guide_tap_here">앱스 아이콘을 누르세요.</string>
     <string name="guide_widgets_tap_area">편집 화면으로 전환될 때까지 위젯을 길게 누른 후 놓으세요.</string>
+    <string name="hide">숨기기</string>
+    <string name="hide_confirm_continue">계속</string>
+    <string name="hide_confirm_message">%s 앱이 잠긴 상태입니다. 이 앱을 숨기면 더 이상 잠기지 않습니다.</string>
+    <string name="hide_confirm_title">앱 숨기기</string>
     <string name="home_edit_add_to_personal">퍼스널 홈에 추가</string>
     <string name="home_edit_bar_delete_title">바로가기 삭제</string>
     <string name="home_edit_bar_delete_title_vzw">바로가기 삭제</string>
@@ -136,7 +144,7 @@
     <string name="open_folder">폴더 열기</string>
     <string name="open_folder_VZW">앱 보기</string>
     <string name="option_menu_contact_up">문의하기</string>
-    <string name="option_tray_screengrid">화면 구성</string>
+    <string name="option_tray_screengrid">화면 배열</string>
     <string name="options_home_set_theme">테마</string>
     <string name="options_home_set_wallpapers_and_themes">배경화면 및 테마</string>
     <string name="options_menu">옵션 더보기</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">위젯 추가</string>
     <string name="quick_contact">연락처</string>
     <string name="quick_options_help_text">앱 바로가기를 아래로 밀어 관련 옵션을 볼 수 있습니다. 퀵 옵션으로 앱을 쉽고 빠르게 관리하세요.</string>
+    <string name="quickoption_sleep">절전</string>
     <string name="quickoptions_add_apps">앱 추가</string>
     <string name="quickoptions_add_to_secure_folder">"보안 폴더에
 추가"</string>
     <string name="quickoptions_app_info">애플리케이션 정보</string>
     <string name="quickoptions_clear_badge">숫자 배지 지우기</string>
     <string name="quickoptions_disable">사용 해제</string>
-    <string name="quickoptions_put_to_sleep">절전 상태로 전환</string>
-    <string name="quickoptions_put_to_sleep_alert">이 앱을 절전 상태로 전환하면 사용 중이 아닌 경우에는 배터리를 사용하지 않습니다. 절전 상태로 전환된 앱은 다시 실행하기 전까지는 자동 업데이트나 알림을 받지 못할 수 있습니다.</string>
+    <string name="quickoptions_sleep_alert">이 앱을 절전 상태로 전환하면 사용 중이 아닌 경우에는 배터리를 사용하지 않습니다. 절전 상태로 전환된 앱은 다시 실행하기 전까지는 자동 업데이트나 알림을 받지 못할 수 있습니다.</string>
     <string name="quickoptions_uninstall">설치 삭제</string>
     <string name="quickview_delete_toast_msg">삭제하려면 페이지를 [삭제]로 움직이세요.</string>
     <string name="quickview_drag_bar_delete_title">삭제</string>

@@ -37,7 +37,7 @@
 .method public onGlobalLayout()V
     .locals 10
 
-    const v9, 0x7f090176
+    const v9, 0x7f090177
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
 
@@ -68,7 +68,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f080028
+    const v8, 0x7f08002a
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09030b
+    const v7, 0x7f09030d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -190,7 +190,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0902ce
+    const v7, 0x7f0902b8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

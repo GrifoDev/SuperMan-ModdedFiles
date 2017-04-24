@@ -161,6 +161,18 @@
     return-void
 .end method
 
+.method public applyMenuAppIconView(Lcom/android/launcher2/IconConfig$TYPE;Lcom/android/launcher2/MenuAppIconView;)V
+    .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher2/IconConfig;->getInfo(Lcom/android/launcher2/IconConfig$TYPE;)Lcom/android/launcher2/IconInfo$Info;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Lcom/android/launcher2/IconInfo$Info;->applyMenuAppIconView(Lcom/android/launcher2/MenuAppIconView;)V
+
+    return-void
+.end method
+
 .method public declared-synchronized changeHotseatSize(Landroid/content/Context;I)V
     .locals 3
 
@@ -402,7 +414,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090004
+    const v3, 0x7f090005
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -412,7 +424,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconConfig;->mIconWidth:I
 
-    const v3, 0x7f090130
+    const v3, 0x7f090131
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

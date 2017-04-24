@@ -34,14 +34,17 @@
     <string name="all_apps_title">Приложения</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЬЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪьЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s е скрито.</string>
+    <string name="app_locked_toast">%s е заключен.</string>
     <string name="app_search">Търсене</string>
     <string name="app_search_no_apps">Може да добавите преки пътища на началния екран от резултатите от търсене.</string>
     <string name="app_search_no_results_found">Няма намерени резултати</string>
+    <string name="app_unlocked_toast">%s отключено.</string>
     <string name="apply">Приложи</string>
     <string name="available_galaxyapps">Налично в Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Изберете дали да се покажат, или да се скрият значките за всяко приложение.</string>
+    <string name="badge_manage_summary">Изберете дали да се покажат, или да се скрият значките за всяко приложение.</string>
+    <string name="badge_manage_title">Управление на значки за приложения</string>
     <string name="cancel">Отказ</string>
     <string name="change_home_screen_settings">Промяна настр. нач. екран</string>
     <string name="change_home_screen_settings_info">Това приложение може да променя настройките и преките пътища на началния екран.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Директно набиране</string>
     <string name="direct_message">Пряко съобщение</string>
     <string name="disable_message">%1$s и всички свързани с него функции ще бъдат деактивирани. За да активирате приложението отново, отидете в Настройки > Приложения, след което изберете %2$s.</string>
+    <string name="disable_message_att">%s и всички функции, свързани с него, ще бъдат деактивирани. За да го активирате отново, отидете в Настройки > Устройство > Приложения > Мениджър на приложения.</string>
     <string name="disable_message_vzw">%s и всички функции, свързани с него, ще бъдат деактивирани. За да го активирате отново, отидете в Настройки > Приложения > Мениджър на приложения.</string>
     <string name="disable_messange_knox">%s и всички функции, свързани с него, ще бъдат деактивирани. За да го активирате отново, отидете в Настройки на KNOX > Мениджър на приложения.</string>
     <string name="disable_title">Деактивиране на приложението</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Дръпнете границата нагоре, надолу, навътре или навън, за да преоразмерите визуалния елемент.</string>
     <string name="guide_tap_here">Чукнете иконата за приложения.</string>
     <string name="guide_widgets_tap_area">Чукнете и задръжте визуалния елемент, докато може да бъде редактиран, след което го освободете.</string>
+    <string name="hide">Скрив.</string>
+    <string name="hide_confirm_continue">Продължи</string>
+    <string name="hide_confirm_message">Приложението %s в момента е заключено. Ако скриете това приложение, то ще бъде отключено.</string>
+    <string name="hide_confirm_title">Скриване на приложение</string>
     <string name="home_edit_add_to_personal">Доб. в личен</string>
     <string name="home_edit_bar_delete_title">Премах. пряк път</string>
     <string name="home_edit_bar_delete_title_vzw">Премах. пряк път</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Уиджетът %s вече е добавен към началния екран.</string>
     <string name="open_folder">Отваряне на папка</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Преглед на приложения</string>
     <string name="option_menu_contact_up">Свържете се с нас</string>
     <string name="option_tray_screengrid">Мрежа на екрана</string>
     <string name="options_home_set_theme">Теми</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Добавяне на уиджети</string>
     <string name="quick_contact">Запис</string>
     <string name="quick_options_help_text">Плъзнете прекия път за дадено приложение надолу, за да видите бързите опции. Бързите опции позволяват лесно да управлявате приложението.</string>
+    <string name="quickoption_sleep">Сън</string>
     <string name="quickoptions_add_apps">Добавяне на приложения</string>
     <string name="quickoptions_add_to_secure_folder">"Добав. към
 Защит.папка"</string>
     <string name="quickoptions_app_info">Данни за приложение</string>
     <string name="quickoptions_clear_badge">Изчистване на значката</string>
     <string name="quickoptions_disable">Деактивиране</string>
-    <string name="quickoptions_put_to_sleep">Поставяне в спящ режим</string>
-    <string name="quickoptions_put_to_sleep_alert">Поставянето на това приложение в спящ режим ще му попречи да използва батерията във фонов режим. Спящите приложения не могат да получават актуализации и да изпращат уведомления, но ще се събудят, когато ги отворите.</string>
+    <string name="quickoptions_sleep_alert">Поставянето на това приложение в спящ режим ще му попречи да използва батерията във фонов режим. Спящите приложения не могат да получават актуализации и да изпращат уведомления, но ще се събудят, когато ги отворите.</string>
     <string name="quickoptions_uninstall">Деинсталиране</string>
     <string name="quickview_delete_toast_msg">Плъзнете страница в „Премахване“, за да я премахнете.</string>
     <string name="quickview_drag_bar_delete_title">Премахни</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Изтриване</string>
     <string name="remove_app_folder_confirm_VZW">Премаxване</string>
     <string name="remove_app_folder_message">Папката %s ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на екрана за приложения.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Папката %s ще бъде премахната. Приложенията в тази папка ще се показват в края на областта с приложения.</string>
     <string name="remove_app_folder_message_no_title">Тази папка ще бъде премахната. Приложенията в тази папка няма да бъдат деинсталирани.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Тази папка ще бъде премахната. Приложенията в тази папка ще се показват в края на областта с приложения.</string>
     <string name="remove_app_folder_title">Изтриване на папка</string>
     <string name="remove_app_folder_title_VZW">Премахване на папка</string>
     <string name="remove_home_folder_message">Папката %s ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на екрана за приложения.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">Търсете приложения</string>
     <string name="search_for_widgets">Търсете за уиджети</string>
     <string name="search_result_found">%d намерен</string>
-    <string name="search_result_founds">%d намерени</string>
+    <string name="search_result_founds">%d намерен</string>
     <string name="select_all_app">Всички</string>
     <string name="select_app_add">ДОБАВЯНЕ</string>
     <string name="selected">Избрани</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Персонализиран ред</string>
     <string name="widget_duplicate">Визуалният елемент %s вече е на началния екран.</string>
     <string name="work_folder_name">Служебна</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Докоснете и задръжте екрана, за да добавите елементи</string>
+    <string name="zeropage_briefing_title">Осведомяване</string>
+    <string name="zeropage_download">Изтегляне</string>
+    <string name="zeropage_download_msg">За да използвате тази функция, трябва да инсталирате %1$s. Докоснете ИЗТЕГЛЯНЕ, за да изтеглите и инсталирате %2$s.</string>
     <string name="zeropage_notice_msg">Услугата за новини %s вече е налична. За да я използвате вместо „Табло с информация“, докоснете OK.</string>
     <string name="zeropage_setting_dialog_no">Отказ</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu Новини</string>
 </resources>

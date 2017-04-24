@@ -1481,7 +1481,7 @@
     goto :goto_0
 
     :cond_1
-    const v9, 0x7f1000f3
+    const v9, 0x7f1000f7
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1501,7 +1501,7 @@
     return v8
 
     :cond_2
-    const v9, 0x7f1000f6
+    const v9, 0x7f1000fa
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1664,7 +1664,7 @@
     invoke-virtual {v3, v5}, Lcom/android/launcher2/searchapp/AlphabeticalListIndicator;->setAllowWiggle(Z)V
 
     :cond_3
-    const v3, 0x7f1000f0
+    const v3, 0x7f1000f4
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/searchapp/AlphabeticalSearchListContainer;->findViewById(I)Landroid/view/View;
 

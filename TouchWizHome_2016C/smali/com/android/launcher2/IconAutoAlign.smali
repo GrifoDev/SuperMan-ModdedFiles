@@ -555,7 +555,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09028a
+    const v2, 0x7f09028d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -579,7 +579,7 @@
 
     invoke-virtual {p0, p0}, Lcom/android/launcher2/IconAutoAlign;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f10007e
+    const v0, 0x7f100082
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/IconAutoAlign;->findViewById(I)Landroid/view/View;
 

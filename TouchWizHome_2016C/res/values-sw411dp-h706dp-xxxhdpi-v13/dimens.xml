@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="app_icon_size">66.0dip</dimen>
     <dimen name="home_cellGapX_port">4.0dip</dimen>
     <dimen name="home_cellGapY_port">5.0dip</dimen>
@@ -49,7 +50,6 @@
     <dimen name="open_folder_layout_margin_top">55.0dip</dimen>
     <dimen name="open_folder_layout_max_height">426.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_img_size">36.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">4.0dip</dimen>
     <dimen name="widget_pageIndicatorTop">648.0dip</dimen>
     <dimen name="workspaceEditModeShrink_top_adjust">220.0dip</dimen>
@@ -62,6 +62,8 @@
     <dimen name="home_4x5_cellHeight_port">99.0dip</dimen>
     <dimen name="home_5x5_cellGapY">5.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">99.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">353.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">205.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">5.0dip</dimen>
     <dimen name="home_icon_textsize">15.0dip</dimen>
@@ -159,8 +161,6 @@
     <dimen name="menuwidgets_folderopen_height">501.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
     <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.95</item>
-    <dimen name="home_editmode_panel_zeropage_height">353.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">205.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">28.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom_extra">0.0dip</dimen>
     <dimen name="open_folder_appicon_margin_top">20.0dip</dimen>

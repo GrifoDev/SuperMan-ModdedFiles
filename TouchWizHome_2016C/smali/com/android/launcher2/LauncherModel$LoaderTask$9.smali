@@ -78,7 +78,7 @@
     iget-boolean v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$9;->val$requestRefresh:Z
 
     # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->loadAndBindAllApps(Z)V
-    invoke-static {v0, v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1000(Lcom/android/launcher2/LauncherModel$LoaderTask;Z)V
+    invoke-static {v0, v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1200(Lcom/android/launcher2/LauncherModel$LoaderTask;Z)V
 
     goto :goto_0
 .end method

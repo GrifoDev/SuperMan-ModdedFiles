@@ -657,7 +657,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGridFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v2, 0x7f10008b
+    const v2, 0x7f10008f
 
     invoke-virtual {v1, v2}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 

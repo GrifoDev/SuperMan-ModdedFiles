@@ -135,7 +135,7 @@
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -185,7 +185,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -260,7 +260,7 @@
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -310,7 +310,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -342,7 +342,7 @@
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -373,7 +373,7 @@
     iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -406,7 +406,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -498,7 +498,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -553,7 +553,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -688,7 +688,7 @@
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     # getter for: Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher2/customer/PostPosition;->access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
 
     move-result-object v2
 

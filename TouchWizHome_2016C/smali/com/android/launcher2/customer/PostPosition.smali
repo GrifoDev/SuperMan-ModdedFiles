@@ -121,7 +121,15 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
+.method static synthetic access$400(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;J)V
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/launcher2/customer/PostPosition;->addToAppsFolder(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;J)V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/android/launcher2/customer/PostPosition;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
@@ -213,6 +221,12 @@
 
     move-result-object v3
 
+    if-eqz v3, :cond_2
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v3
+
     invoke-virtual {v3}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
 
     move-result-object v2
@@ -238,6 +252,15 @@
     const-string v3, "CUSTOMER.PostPosition"
 
     const-string v4, "addToAppsFolder MenuView is NULL"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    const-string v3, "CUSTOMER.PostPosition"
+
+    const-string v4, "Launcher Activity not yet created."
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -332,11 +355,9 @@
     :goto_0
     invoke-interface {v13, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, p5
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    invoke-direct {p0, v0}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
-
-    move-result v2
+    move-result-object v2
 
     if-eqz v2, :cond_2
 
@@ -347,6 +368,8 @@
     invoke-virtual {v2}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
 
     move-result-object v12
+
+    if-eqz v12, :cond_2
 
     invoke-virtual {v12, v11}, Lcom/android/launcher2/HomeView;->setStateTargetFolder(Lcom/android/launcher2/FolderItem;)V
 
@@ -443,6 +466,62 @@
 
     move-result v13
 
+    if-eqz v17, :cond_0
+
+    move-object/from16 v0, p3
+
+    iget v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/Workspace;->getChildCount()I
+
+    move-result v5
+
+    if-lt v2, v5, :cond_0
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/Workspace;->getChildCount()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    move-object/from16 v0, p3
+
+    iput v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    const-string v2, "CUSTOMER.PostPosition"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "replace correct homeIndex to "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, p3
+
+    iget v6, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v2, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_0
     const/4 v2, 0x0
 
@@ -503,7 +582,7 @@
 
     iget-boolean v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeReplace:Z
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_9
 
     const/4 v15, 0x1
 
@@ -564,22 +643,14 @@
     move-result v15
 
     :cond_4
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_a
 
     move/from16 v4, v18
 
     :cond_5
     if-nez v15, :cond_6
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_c
+    if-eqz v17, :cond_b
 
     invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/HomeView;->addPage()V
 
@@ -603,7 +674,7 @@
 
     move-result v5
 
-    if-ne v2, v5, :cond_d
+    if-ne v2, v5, :cond_c
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
@@ -643,17 +714,7 @@
 
     move-result-object v16
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p3
-
-    invoke-direct {v0, v1}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    if-nez v13, :cond_9
+    if-eqz v17, :cond_e
 
     const-wide/16 v8, -0x64
 
@@ -695,7 +756,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_e
+    if-eqz v14, :cond_d
 
     invoke-virtual {v14}, Lcom/android/launcher2/CellLayout;->isBouncingAnimationRunning()Z
 
@@ -710,11 +771,33 @@
 
     invoke-virtual {v14, v0}, Lcom/android/launcher2/CellLayout;->addItem(Lcom/android/launcher2/BaseItem;)Z
 
-    :cond_9
     :goto_4
+    const-string v2, "CUSTOMER.PostPosition"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "addToHomeShortcut - HomeReadyState at screen : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v2, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_5
     return-object v16
 
-    :cond_a
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
@@ -749,12 +832,12 @@
 
     goto/16 :goto_0
 
-    :cond_b
+    :cond_a
     add-int/lit8 v18, v18, 0x1
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
@@ -769,7 +852,7 @@
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_c
     move-object/from16 v0, p3
 
     iget v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ItemType:I
@@ -788,7 +871,7 @@
 
     goto/16 :goto_3
 
-    :cond_e
+    :cond_d
     const-string v2, "CUSTOMER.PostPosition"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -818,6 +901,31 @@
     invoke-static {v2, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_4
+
+    :cond_e
+    const-string v2, "CUSTOMER.PostPosition"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "addToHomeShortcut - No Ready at screen : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v2, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_5
 .end method
 
 .method private addToHomeWidget(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
@@ -1047,13 +1155,19 @@
     goto :goto_1
 
     :cond_4
-    move-object/from16 v0, p0
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-object/from16 v1, p3
+    move-result-object v2
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
+    if-eqz v2, :cond_5
 
-    move-result v2
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
+
+    move-result-object v2
 
     if-eqz v2, :cond_5
 
@@ -1194,595 +1308,623 @@
 .end method
 
 .method private appsAdd(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
-    .locals 27
+    .locals 31
 
     move-object/from16 v0, p3
 
-    iget-boolean v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsAdd:Z
+    iget-boolean v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsAdd:Z
 
-    if-nez v7, :cond_1
+    if-nez v2, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "appsAdd() : "
+    const-string v4, "appsAdd() : "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
-
-    move-object/from16 v0, p3
-
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ComponentName:Ljava/lang/String;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
     move-object/from16 v0, p3
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ComponentName:Ljava/lang/String;
 
-    if-eqz v7, :cond_8
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p3
+    move-result-object v3
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v8, ""
+    move-result-object v3
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_8
-
-    const-wide/16 v20, -0x1
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p3
 
-    iget-boolean v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsPreloadFolder:Z
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    if-eqz v7, :cond_2
+    if-eqz v2, :cond_8
+
+    move-object/from16 v0, p3
+
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+
+    const-string v3, ""
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    const-wide/16 v24, -0x1
+
+    move-object/from16 v0, p3
+
+    iget-boolean v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsPreloadFolder:Z
+
+    if-eqz v2, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    sget-object v8, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    sget-object v3, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    invoke-virtual {v7, v8, v9}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getPreloadedFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;)J
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getPreloadedFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;)J
 
-    move-result-wide v20
+    move-result-wide v24
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "itemRecord.AppsPreloadFolder is true = "
+    const-string v4, "itemRecord.AppsPreloadFolder is true = "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v24
 
-    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
-    const-wide/32 v8, 0x1869f
+    const-wide/32 v2, 0x1869f
 
-    cmp-long v7, v20, v8
+    cmp-long v2, v24, v2
 
-    if-eqz v7, :cond_0
+    if-eqz v2, :cond_0
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v7, v20, v8
+    cmp-long v2, v24, v2
 
-    if-lez v7, :cond_3
+    if-lez v2, :cond_3
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "add item to exist Folder in Apps. folderId = "
+    const-string v4, "add item to exist Folder in Apps. folderId = "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v24
 
-    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p0
+    move-wide/from16 v6, v24
 
-    move-object/from16 v1, p1
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
-    move-object/from16 v2, p2
+    move-result-object v2
 
-    move-wide/from16 v3, v20
+    invoke-virtual {v2}, Lcom/android/launcher2/LauncherApplication;->getModel()Lcom/android/launcher2/LauncherModel;
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/launcher2/customer/PostPosition;->addToAppsFolder(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;J)V
+    move-result-object v9
+
+    new-instance v11, Landroid/os/Handler;
+
+    invoke-direct {v11}, Landroid/os/Handler;-><init>()V
+
+    new-instance v2, Lcom/android/launcher2/customer/PostPosition$5;
+
+    move-object/from16 v3, p0
+
+    move-object/from16 v4, p1
+
+    move-object/from16 v5, p2
+
+    move-object/from16 v8, p3
+
+    invoke-direct/range {v2 .. v9}, Lcom/android/launcher2/customer/PostPosition$5;-><init>(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;JLcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Lcom/android/launcher2/LauncherModel;)V
+
+    const-wide/16 v4, 0x3e8
+
+    invoke-virtual {v11, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto/16 :goto_0
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    sget-object v8, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    sget-object v3, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    const/4 v12, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v7, v8, v9, v12}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)J
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)J
 
-    move-result-wide v20
+    move-result-wide v24
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "itemRecord.AppsPreloadFolder is false = "
+    const-string v4, "itemRecord.AppsPreloadFolder is false = "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v24
 
-    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_3
     move-object/from16 v0, p3
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    if-eqz v7, :cond_0
+    if-eqz v2, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    sget-object v8, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    sget-object v3, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    const/4 v12, 0x1
+    const/4 v5, 0x1
 
-    invoke-virtual {v7, v8, v9, v12}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)J
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->getFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)J
 
-    move-result-wide v20
+    move-result-wide v24
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "itemRecord.AppsFolderName is not null. mPrefInfo.getFolderId = "
+    const-string v4, "itemRecord.AppsFolderName is not null. mPrefInfo.getFolderId = "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v24
 
-    invoke-virtual {v8, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v7, v20, v8
+    cmp-long v2, v24, v2
 
-    if-lez v7, :cond_6
+    if-lez v2, :cond_6
 
-    const-wide/32 v8, 0x1869e
+    const-wide/32 v2, 0x1869e
 
-    cmp-long v7, v20, v8
+    cmp-long v2, v24, v2
 
-    if-nez v7, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v25
-
-    check-cast v25, Landroid/content/ComponentName;
-
-    sget-object v7, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
-
-    move-object/from16 v0, v25
-
-    invoke-virtual {v7, v0}, Lcom/android/launcher2/MenuAppModel;->findItemByCompoName(Landroid/content/ComponentName;)Lcom/android/launcher2/AppItem;
-
-    move-result-object v26
-
-    if-eqz v26, :cond_5
+    if-nez v2, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
 
-    move-object/from16 v0, v26
+    const/4 v3, 0x0
 
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v29
+
+    check-cast v29, Landroid/content/ComponentName;
+
+    sget-object v2, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v2, v0}, Lcom/android/launcher2/MenuAppModel;->findItemByCompoName(Landroid/content/ComponentName;)Lcom/android/launcher2/AppItem;
+
+    move-result-object v30
+
+    if-eqz v30, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+    move-object/from16 v0, v30
 
-    const-string v7, "CUSTOMER.PostPosition"
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
 
-    const-string v9, "temp_item.mId = "
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "CUSTOMER.PostPosition"
 
-    move-result-object v8
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v26
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-wide v12, v0, Lcom/android/launcher2/AppItem;->mId:J
+    const-string v4, "temp_item.mId = "
 
-    invoke-virtual {v8, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v30
 
-    move-result-object v8
+    iget-wide v4, v0, Lcom/android/launcher2/AppItem;->mId:J
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
     :goto_2
     invoke-virtual/range {p1 .. p1}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v19
+    move-result-object v23
 
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->getApps()Ljava/util/Map;
 
-    move-result-object v7
+    move-result-object v2
 
-    new-instance v8, Lcom/android/launcher2/PkgResCache$CacheKey;
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, p2
-
-    invoke-direct {v8, v0, v1}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
-
-    invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v22
-
-    check-cast v22, Lcom/android/launcher2/AppItem;
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
-
-    move-result-object v23
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/launcher2/AppItem;
-
-    iget v7, v7, Lcom/android/launcher2/AppItem;->mCell:I
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
-
-    const/4 v9, 0x0
-
-    move-object/from16 v0, p3
-
-    iget-object v12, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    new-instance v3, Lcom/android/launcher2/PkgResCache$CacheKey;
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v0, v7, v8, v9, v12}, Lcom/android/launcher2/MenuAppsGrid;->createFolderFromPostPosition(ILjava/util/List;ZLjava/lang/String;)J
+    move-object/from16 v1, p2
 
-    move-result-wide v10
+    invoke-direct {v3, v0, v1}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+
+    invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v26
+
+    check-cast v26, Lcom/android/launcher2/AppItem;
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
 
-    sget-object v8, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    move-object/from16 v0, v26
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/Launcher;->getMenuView()Lcom/android/launcher2/MenuView;
+
+    move-result-object v28
+
+    invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/MenuView;->getMenuAppsGrid()Lcom/android/launcher2/MenuAppsGrid;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/launcher2/AppItem;
+
+    iget v2, v2, Lcom/android/launcher2/AppItem;->mCell:I
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
+
+    const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v5, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    const/4 v12, 0x1
+    move-object/from16 v0, v27
 
-    invoke-virtual {v7, v8, v9, v12}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->removeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/android/launcher2/MenuAppsGrid;->createFolderFromPostPosition(ILjava/util/List;ZLjava/lang/String;)J
+
+    move-result-wide v14
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    sget-object v8, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    sget-object v3, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v9, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    const/4 v12, 0x0
+    const/4 v5, 0x1
 
-    invoke-virtual/range {v7 .. v12}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->removeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
+    iget-object v11, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+    sget-object v12, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
-    const-string v7, "CUSTOMER.PostPosition"
+    move-object/from16 v0, p3
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    iget-object v13, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const/16 v16, 0x0
 
-    const-string v9, "Grouping AppsFolderId : "
+    invoke-virtual/range {v11 .. v16}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p0
 
-    move-result-object v8
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
 
-    invoke-virtual {v8, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    move-result-object v8
+    const-string v2, "CUSTOMER.PostPosition"
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Grouping AppsFolderId : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_5
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    const-string v8, "temp_item is null"
+    const-string v3, "temp_item is null"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
 
     :cond_6
     invoke-virtual/range {p1 .. p1}, Lcom/android/launcher2/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v19
+    move-result-object v23
 
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->getApps()Ljava/util/Map;
 
-    move-result-object v7
+    move-result-object v2
 
-    new-instance v8, Lcom/android/launcher2/PkgResCache$CacheKey;
+    new-instance v3, Lcom/android/launcher2/PkgResCache$CacheKey;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p2
 
-    invoke-direct {v8, v0, v1}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
+    invoke-direct {v3, v0, v1}, Lcom/android/launcher2/PkgResCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v26
 
-    check-cast v22, Lcom/android/launcher2/AppItem;
+    check-cast v26, Lcom/android/launcher2/AppItem;
 
-    if-nez v22, :cond_7
+    if-nez v26, :cond_7
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    const-string v8, "item is null. so make temp item to write shared pref for ready info item"
+    const-string v3, "item is null. so make temp item to write shared pref for ready info item"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->fakeFolder:Ljava/util/ArrayList;
 
-    sget-object v14, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    move-object/from16 v0, v23
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+
+    move-object/from16 v17, v0
+
+    sget-object v18, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v15, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    const-wide/32 v16, 0x1869e
+    move-object/from16 v19, v0
 
-    const/16 v18, 0x1
+    const-wide/32 v20, 0x1869e
 
-    invoke-virtual/range {v13 .. v18}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
+    const/16 v22, 0x1
+
+    invoke-virtual/range {v17 .. v22}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
 
     goto/16 :goto_0
 
     :cond_7
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
+    iget-object v2, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v26
 
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
-
-    sget-object v7, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v7, v6, v8}, Lcom/android/launcher2/MenuAppModel;->appsAddedOrRemoved(Ljava/util/List;Ljava/util/List;)V
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+    iget-object v10, v0, Lcom/android/launcher2/customer/PostPosition;->added:Ljava/util/ArrayList;
 
-    sget-object v14, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
+    sget-object v2, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v10, v3}, Lcom/android/launcher2/MenuAppModel;->appsAddedOrRemoved(Ljava/util/List;Ljava/util/List;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
+
+    move-object/from16 v17, v0
+
+    sget-object v18, Lcom/android/launcher2/customer/PostPosition$CONTAINER;->APPS:Lcom/android/launcher2/customer/PostPosition$CONTAINER;
 
     move-object/from16 v0, p3
 
-    iget-object v15, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->AppsFolderName:Ljava/lang/String;
 
-    move-object/from16 v0, v22
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v26
 
     iget-wide v0, v0, Lcom/android/launcher2/AppItem;->mId:J
 
-    move-wide/from16 v16, v0
+    move-wide/from16 v20, v0
 
-    const/16 v18, 0x1
+    const/16 v22, 0x1
 
-    invoke-virtual/range {v13 .. v18}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
+    invoke-virtual/range {v17 .. v22}, Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;->writeFolderId(Lcom/android/launcher2/customer/PostPosition$CONTAINER;Ljava/lang/String;JZ)V
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "Add item as normal and write shared pref for ready info item "
+    const-string v4, "Add item as normal and write shared pref for ready info item "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_8
     invoke-direct/range {p0 .. p2}, Lcom/android/launcher2/customer/PostPosition;->addAppItemToApps(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    const-string v7, "CUSTOMER.PostPosition"
+    const-string v2, "CUSTOMER.PostPosition"
 
-    const-string v8, "Add item as normal in Apps"
+    const-string v3, "Add item as normal in Apps"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 .end method
@@ -1975,7 +2117,7 @@
 .end method
 
 .method private homeAdd(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
-    .locals 26
+    .locals 28
 
     move-object/from16 v0, p3
 
@@ -2014,6 +2156,110 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    const-string v5, "CUSTOMER.PostPosition"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "HomeIndex : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p3
+
+    iget v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "CUSTOMER.PostPosition"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "HomeCellX : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p3
+
+    iget v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "CUSTOMER.PostPosition"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "HomeCellY : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p3
+
+    iget v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "CUSTOMER.PostPosition"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "HomeReplace : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p3
+
+    iget-boolean v7, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeReplace:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual/range {p3 .. p3}, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->checkAndUpdateHomePositionAccordingly()V
 
     move-object/from16 v0, p3
@@ -2026,7 +2272,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_2
+    if-ne v5, v6, :cond_4
 
     move-object/from16 v0, p3
 
@@ -2040,26 +2286,104 @@
 
     move-object/from16 v0, p0
 
+    iget-object v5, v0, Lcom/android/launcher2/customer/PostPosition;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/appwidget/AppWidgetManager;->getInstalledProviders()Ljava/util/List;
+
+    move-result-object v27
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_3
+
+    invoke-interface/range {v27 .. v27}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_2
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v26
+
+    check-cast v26, Landroid/appwidget/AppWidgetProviderInfo;
+
+    move-object/from16 v0, v26
+
+    iget-object v6, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+
+    invoke-virtual {v6, v4}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    const-string v5, "CUSTOMER.PostPosition"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v26
+
+    iget-object v7, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+
+    invoke-virtual {v7}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, " will be added soon."
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v0, p0
+
     move-object/from16 v1, p2
 
     move-object/from16 v2, p3
 
-    invoke-direct {v0, v4, v1, v2}, Lcom/android/launcher2/customer/PostPosition;->addToHomeWidget(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
+    invoke-direct {v0, v4, v1, v2}, Lcom/android/launcher2/customer/PostPosition;->retryWidgetAdd(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
 
-    const/4 v5, 0x1
+    goto/16 :goto_0
 
-    move-object/from16 v0, p3
+    :cond_3
+    const-string v5, "CUSTOMER.PostPosition"
 
-    invoke-virtual {v0, v5}, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->updateResult(Z)V
+    const-string v6, "There is no widget provider"
 
-    goto :goto_0
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    goto/16 :goto_0
+
+    :cond_4
     move-object/from16 v0, p3
 
     iget-object v5, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeFolderName:Ljava/lang/String;
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_e
 
     move-object/from16 v0, p3
 
@@ -2071,7 +2395,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_e
 
     const-wide/16 v8, -0x1
 
@@ -2079,7 +2403,7 @@
 
     iget-boolean v5, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomePreloadFolder:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5
 
     move-object/from16 v0, p0
 
@@ -2100,7 +2424,7 @@
 
     cmp-long v5, v8, v6
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6
 
     const-string v5, "CUSTOMER.PostPosition"
 
@@ -2130,7 +2454,7 @@
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/launcher2/customer/PostPosition;->mPrefInfo:Lcom/android/launcher2/customer/PostPosition$SharedPrefInfo;
@@ -2149,12 +2473,12 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_6
     const-wide/16 v6, 0x0
 
     cmp-long v5, v8, v6
 
-    if-lez v5, :cond_6
+    if-lez v5, :cond_8
 
     move-object/from16 v5, p0
 
@@ -2166,7 +2490,7 @@
 
     invoke-direct/range {v5 .. v10}, Lcom/android/launcher2/customer/PostPosition;->addToHomeFolder(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;JLcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
 
-    :cond_5
+    :cond_7
     :goto_2
     const/4 v5, 0x1
 
@@ -2176,12 +2500,12 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_8
     move-object/from16 v0, p3
 
     iget-object v5, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeFolderName:Ljava/lang/String;
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7
 
     move-object/from16 v0, p0
 
@@ -2211,7 +2535,7 @@
 
     move-result-object v23
 
-    if-nez v23, :cond_7
+    if-nez v23, :cond_9
 
     move-object/from16 v0, p0
 
@@ -2221,28 +2545,34 @@
 
     move-result-object v23
 
-    :cond_7
+    :cond_9
     const-wide/16 v6, 0x0
 
     cmp-long v5, v8, v6
 
-    if-lez v5, :cond_b
+    if-lez v5, :cond_d
 
-    if-eqz v23, :cond_b
+    if-eqz v23, :cond_d
 
     const/4 v11, 0x0
 
     const/4 v13, 0x0
 
-    move-object/from16 v0, p0
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-object/from16 v1, p3
+    move-result-object v5
 
-    invoke-direct {v0, v1}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
+    if-eqz v5, :cond_a
 
-    move-result v5
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    if-eqz v5, :cond_8
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_a
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -2283,7 +2613,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_9
+    if-ne v5, v6, :cond_b
 
     move-object/from16 v0, p0
 
@@ -2360,7 +2690,7 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_a
     new-instance v13, Lcom/android/launcher2/HomeFolderItem;
 
     invoke-direct {v13}, Lcom/android/launcher2/HomeFolderItem;-><init>()V
@@ -2429,7 +2759,7 @@
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_b
     move-object/from16 v0, p3
 
     iget v5, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ItemType:I
@@ -2440,7 +2770,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_a
+    if-ne v5, v6, :cond_c
 
     move-object/from16 v0, p0
 
@@ -2460,7 +2790,7 @@
 
     goto/16 :goto_4
 
-    :cond_a
+    :cond_c
     const-string v5, "CUSTOMER.PostPosition"
 
     const-string v6, "homeAdd() - why you come to here?"
@@ -2469,7 +2799,7 @@
 
     goto/16 :goto_4
 
-    :cond_b
+    :cond_d
     invoke-direct/range {p0 .. p3}, Lcom/android/launcher2/customer/PostPosition;->addToHomeShortcut(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Lcom/android/launcher2/HomeShortcutItem;
 
     move-result-object v25
@@ -2500,7 +2830,7 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_e
     invoke-direct/range {p0 .. p3}, Lcom/android/launcher2/customer/PostPosition;->addToHomeShortcut(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Lcom/android/launcher2/HomeShortcutItem;
 
     goto/16 :goto_2
@@ -2681,70 +3011,35 @@
 .end method
 
 .method private isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
-    .locals 3
+    .locals 1
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/HomeView;->getWorkspaceLoading()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_2
-
-    iget-boolean v2, p1, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WorksOnUIThread:Z
-
-    if-eqz v2, :cond_1
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/HomeView;->getWorkspaceLoading()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_2
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_3
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/HomeView;->getWorkspaceLoading()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    :cond_3
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -2883,9 +3178,19 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct/range {p0 .. p1}, Lcom/android/launcher2/customer/PostPosition;->isHomeReadyState(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)Z
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result v10
+    move-result-object v10
+
+    if-eqz v10, :cond_9
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
+
+    move-result-object v10
 
     if-eqz v10, :cond_9
 
@@ -3298,13 +3603,13 @@
 
     move-object v1, p0
 
-    move-object v2, p3
+    move-object v2, p1
 
-    move-object v3, p1
+    move-object v3, p2
 
-    move-object v4, p2
+    move-object v4, p3
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/launcher2/customer/PostPosition$4;-><init>(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/launcher2/customer/PostPosition$4;-><init>(Lcom/android/launcher2/customer/PostPosition;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Lcom/android/launcher2/LauncherModel;)V
 
     const-wide/16 v2, 0xbb8
 
@@ -4056,7 +4361,7 @@
 .end method
 
 .method public runHomeAdd(Z)V
-    .locals 4
+    .locals 6
 
     invoke-virtual {p0}, Lcom/android/launcher2/customer/PostPosition;->isEnabled()Z
 
@@ -4101,8 +4406,19 @@
 
     aget-object v0, v1, v2
 
+    iget v4, v0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ItemType:I
+
+    sget-object v5, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->APP:Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;
+
+    invoke-virtual {v5}, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->ordinal()I
+
+    move-result v5
+
+    if-eq v4, v5, :cond_2
+
     invoke-virtual {p0, v0, p1}, Lcom/android/launcher2/customer/PostPosition;->runHomeAdd(Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;Z)V
 
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0

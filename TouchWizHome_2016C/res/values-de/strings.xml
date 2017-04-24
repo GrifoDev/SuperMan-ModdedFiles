@@ -34,9 +34,12 @@
     <string name="all_apps_title">Menü</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ausgeblendet.</string>
+    <string name="app_locked_toast">%s gesperrt.</string>
     <string name="app_search">Suche</string>
     <string name="app_search_no_apps">Sie können auf dem Startbildschirm Shortcuts von den Suchergebnissen hinzufügen.</string>
     <string name="app_search_no_results_found">Keine Ergebnisse</string>
+    <string name="app_unlocked_toast">%s entsperrt.</string>
     <string name="apply">Anwenden</string>
     <string name="available_galaxyapps">Verfügbar in Galaxy Apps</string>
     <string name="badge_manage_explain">Wählen Sie aus, ob Symbole für die einzelnen Apps angezeigt werden sollen.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Direktwahl</string>
     <string name="direct_message">Direktnachricht</string>
     <string name="disable_message">%1$s und alle damit zusammenhängenden Funktionen werden deaktiviert. Unter „Einstellungen > Anwendungen“ können Sie nach Auswahl von „%2$s“ die App wieder aktivieren.</string>
+    <string name="disable_message_att">%s und alle damit zusammenhängenden Funktionen werden deaktiviert. Unter „Einstellungen > Gerät > Anwendungen > Anwendungsmanager“ können Sie sie wieder aktivieren.</string>
     <string name="disable_message_vzw">%s und alle damit zusammenhängenden Funktionen werden deaktiviert. Unter „Einstellungen > Anwendungen > Anwendungsmanager“ können Sie sie wieder aktivieren.</string>
     <string name="disable_messange_knox">%s und alle damit zusammenhängenden Funktionen werden deaktiviert. Unter „KNOX-Einstellungen > Anwendungsmanager“ können Sie sie wieder aktivieren.</string>
     <string name="disable_title">Anwendung deaktivieren</string>
@@ -84,9 +88,13 @@
     <string name="guide_resize_widget_step2">Ziehen Sie den Rand nach oben, nach unten, nach innen oder nach außen, um die Größe des Widgets zu ändern.</string>
     <string name="guide_tap_here">Auf das App-Symbol tippen.</string>
     <string name="guide_widgets_tap_area">Berühren und halten Sie das Widget, bis es bearbeitet werden kann, und lassen Sie es dann los.</string>
+    <string name="hide">Ausblenden</string>
+    <string name="hide_confirm_continue">Weiter</string>
+    <string name="hide_confirm_message">Die %s-App ist momentan gesperrt. Wenn Sie diese Apps ausblenden, wird sie entsperrt.</string>
+    <string name="hide_confirm_title">Ausblenden der App</string>
     <string name="home_edit_add_to_personal">Zu persönlich hzfg.</string>
-    <string name="home_edit_bar_delete_title">Verknüpfung entf.</string>
-    <string name="home_edit_bar_delete_title_vzw">Verknüpfung entf.</string>
+    <string name="home_edit_bar_delete_title">Verknüpfung entfernen</string>
+    <string name="home_edit_bar_delete_title_vzw">Verknüpfung entfernen</string>
     <string name="home_edit_bar_uninstall_title">Deinstallieren</string>
     <string name="home_icon_auto_align">Elemente anordnen</string>
     <string name="home_screen_content">Startbildschirminhalt</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Widgets hinzufügen</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Streichen Sie über ein App-Shortcut nach unten, um die zugehörigen Schnelloptionen anzuzeigen. Schnelloptionen ermöglichen Ihnen, Apps einfach zu verwalten.</string>
+    <string name="quickoption_sleep">Standby</string>
     <string name="quickoptions_add_apps">Apps hinzufügen</string>
     <string name="quickoptions_add_to_secure_folder">"Zu sicherem
 Ordner hzfg."</string>
     <string name="quickoptions_app_info">App-Info</string>
     <string name="quickoptions_clear_badge">Indikator entfernen</string>
     <string name="quickoptions_disable">Deaktivieren</string>
-    <string name="quickoptions_put_to_sleep">In Standby versetzen</string>
-    <string name="quickoptions_put_to_sleep_alert">Diese App kann in Standby versetzt werden, um zu verhindern, dass sie im Hintergrund Akkuladung verbraucht. Apps in Standby erhalten möglicherweise keine Updates oder senden Ihnen keine Benachrichtigungen, werden aber automatisch aktiviert, sobald Sie sie öffnen.</string>
+    <string name="quickoptions_sleep_alert">Diese App kann in Standby versetzt werden, um zu verhindern, dass sie im Hintergrund Akkuladung verbraucht. Apps in Standby erhalten möglicherweise keine Updates oder senden Ihnen keine Benachrichtigungen, werden aber automatisch aktiviert, sobald Sie sie öffnen.</string>
     <string name="quickoptions_uninstall">Deinstallieren</string>
     <string name="quickview_delete_toast_msg">Seite auf „Entfernen“ ziehen, um sie zu entfernen.</string>
     <string name="quickview_drag_bar_delete_title">Entfernen</string>
@@ -187,7 +195,7 @@ Ordner hzfg."</string>
     <string name="search_for_apps">Nach Apps suchen</string>
     <string name="search_for_widgets">Widgets suchen</string>
     <string name="search_result_found">%d Ergebnis</string>
-    <string name="search_result_founds">%d gefunden</string>
+    <string name="search_result_founds">%d Ergebnis</string>
     <string name="select_all_app">Alle</string>
     <string name="select_app_add">HINZUFÜGEN</string>
     <string name="selected">Ausgewählt</string>

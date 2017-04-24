@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">66.0dip</dimen>
     <dimen name="badge_fontsize_default">14.0dip</dimen>
@@ -426,7 +427,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">4.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">4.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -450,6 +450,8 @@
     <dimen name="home_4x5_cellHeight_port">99.0dip</dimen>
     <dimen name="home_5x5_cellGapY">5.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">99.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">353.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">205.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">5.0dip</dimen>
     <dimen name="home_icon_textsize">15.0dip</dimen>
@@ -580,6 +582,7 @@
     <dimen name="folder_multi_icon_layout_width">90.0dip</dimen>
     <dimen name="folder_multi_icon_margin_top">16.0dip</dimen>
     <dimen name="folder_multi_icon_size">57.0dip</dimen>
+    <dimen name="home_icon_text_theme_extra_padding">-2.0dip</dimen>
     <dimen name="home_pageIndicatorwidth">22.0dip</dimen>
     <dimen name="home_screen_option_menu_drawable_size">48.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">402.0dip</dimen>
@@ -599,8 +602,6 @@
     <dimen name="widget_search_titlebar_padding_left">0.5dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">18.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_height">353.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">205.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">28.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom_extra">0.0dip</dimen>
     <dimen name="open_folder_appicon_margin_top">20.0dip</dimen>
@@ -611,7 +612,6 @@
     <dimen name="folder_multi_icon_text_size">15.0dip</dimen>
     <dimen name="folder_multi_search_bar_layout_height">63.0dip</dimen>
     <dimen name="folder_multi_title_layout_height">65.0dip</dimen>
-    <dimen name="home_icon_text_theme_extra_padding">-2.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">101.0dip</dimen>
     <dimen name="appsearch_grid_cell_height_4x4">110.0dip</dimen>
     <dimen name="folder_multi_icon_checkbox_size">34.0dip</dimen>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">1.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">58.0dip</dimen>
     <dimen name="badge_fontsize_default">14.0dip</dimen>
@@ -433,7 +434,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">1.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">1.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -460,6 +460,8 @@
     <dimen name="home_5x5_cellGapY">4.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">88.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">1.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">307.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">180.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">4.0dip</dimen>
     <dimen name="home_icon_textsize">14.0dip</dimen>
@@ -653,6 +655,7 @@
     <dimen name="appsearch_grid_margin_left_right">6.0dip</dimen>
     <dimen name="appsearch_grid_padding_top">10.0dip</dimen>
     <dimen name="folder_icon_marginTop">4.0dip</dimen>
+    <dimen name="appsearch_result_margin_top">64.0dip</dimen>
     <dimen name="appsearch_font_size">19.0sp</dimen>
     <dimen name="appsearch_list_item_margin_top">5.0dip</dimen>
     <dimen name="appsearch_back_down_width">52.0dip</dimen>
@@ -663,7 +666,6 @@
     <dimen name="appsearch_grid_padding_bottom">7.0dip</dimen>
     <dimen name="appsearch_list_icon_width">50.0dip</dimen>
     <dimen name="appsearch_list_item_text_size">14.0dip</dimen>
-    <dimen name="appsearch_result_margin_top">64.0dip</dimen>
     <dimen name="appsearch_searchview_height">56.0dip</dimen>
     <dimen name="folder_multi_icon_checkbox_size">32.0dip</dimen>
     <dimen name="menu_scroll_zone_left_width_edge">12.0dip</dimen>

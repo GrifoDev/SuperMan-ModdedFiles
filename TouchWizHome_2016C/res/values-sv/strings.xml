@@ -34,14 +34,17 @@
     <string name="all_apps_title">Program</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ</string>
+    <string name="app_hidden_toast">%s doldes.</string>
+    <string name="app_locked_toast">%s låst.</string>
     <string name="app_search">Sök</string>
     <string name="app_search_no_apps">Du kan lägga till genvägar på hemskärmen från sökresultaten.</string>
     <string name="app_search_no_results_found">Inga resultat hittades</string>
+    <string name="app_unlocked_toast">%s är upplåst.</string>
     <string name="apply">Använd</string>
     <string name="available_galaxyapps">Tillgänglig i Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Välj om märken för varje program ska visas eller döljas.</string>
+    <string name="badge_manage_summary">Välj om märken för varje program ska visas eller döljas.</string>
+    <string name="badge_manage_title">Hantera programmärken</string>
     <string name="cancel">Avbryt</string>
     <string name="change_home_screen_settings">Ändra hemskärmens inställn.</string>
     <string name="change_home_screen_settings_info">Det här programmet kan ändra hemskärmens inställningar och genvägar.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Direktuppringning</string>
     <string name="direct_message">Direktmeddelande</string>
     <string name="disable_message">%1$s och alla tillhörande funktioner inaktiveras. Om du vill aktivera programmet igen öppnar du Inställningar > Program och väljer %2$s.</string>
+    <string name="disable_message_att">%s och alla dess relaterade funktioner inaktiveras. Om du vill aktivera det igen öppnar du Inställningar > Enhet > Program > Programhanterare.</string>
     <string name="disable_message_vzw">%s och alla dess relaterade funktioner kommer att inaktiveras. Om du vill aktivera den igen öppnar du Inställningar > Program > Programhanterare.</string>
     <string name="disable_messange_knox">%s och alla relaterade funktioner kommer att inaktiveras. Aktivera det igen genom att gå till KNOX-inställningar > Programhanterare.</string>
     <string name="disable_title">Inaktivera program</string>
@@ -85,6 +89,10 @@ program"</string>
     <string name="guide_resize_widget_step2">Dra ramen uppåt, nedåt, inåt eller utåt för att ändra storlek.</string>
     <string name="guide_tap_here">Tryck på programikonen.</string>
     <string name="guide_widgets_tap_area">Tryck på widgeten och håll den nedtryckt tills den kan redigeras, släpp därefter.</string>
+    <string name="hide">Dölj</string>
+    <string name="hide_confirm_continue">Fortsätt</string>
+    <string name="hide_confirm_message">Programmet %s är för närvarande låst. Om du döljer programmet blir det upplåst.</string>
+    <string name="hide_confirm_title">Dölj program</string>
     <string name="home_edit_add_to_personal">Lägg t. priv</string>
     <string name="home_edit_bar_delete_title">Ta bort genväg</string>
     <string name="home_edit_bar_delete_title_vzw">Ta bort genväg</string>
@@ -135,7 +143,7 @@ program"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s har lagts till på hemskärmen.</string>
     <string name="open_folder">Öppen mapp</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Visa program</string>
     <string name="option_menu_contact_up">Kontakta oss</string>
     <string name="option_tray_screengrid">Skärmrutnät</string>
     <string name="options_home_set_theme">Tema</string>
@@ -154,14 +162,14 @@ program"</string>
     <string name="permlab_install_widget">Lägg till widgetar</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Svep en programgenväg nedåt om du vill se dess snabbalternativ. Du kan hantera program enkelt med snabbalternativ.</string>
+    <string name="quickoption_sleep">Sömn</string>
     <string name="quickoptions_add_apps">Lägg till program</string>
     <string name="quickoptions_add_to_secure_folder">"Lägg till i
 Hemlig mapp"</string>
     <string name="quickoptions_app_info">Programinformation</string>
     <string name="quickoptions_clear_badge">Rensa märke</string>
     <string name="quickoptions_disable">Inaktivera</string>
-    <string name="quickoptions_put_to_sleep">Försätt i viloläge</string>
-    <string name="quickoptions_put_to_sleep_alert">När du försätter programmet i viloläge hindras det från att använda batteriet i bakgrunden. Vilande program kanske inte kan ta emot uppdateringar eller skicka aviseringar, men de aktiveras igen när du öppnar dem.</string>
+    <string name="quickoptions_sleep_alert">När du försätter programmet i viloläge hindras det från att använda batteriet i bakgrunden. Vilande program kanske inte kan ta emot uppdateringar eller skicka aviseringar, men de aktiveras igen när du öppnar dem.</string>
     <string name="quickoptions_uninstall">Avinstallera</string>
     <string name="quickview_delete_toast_msg">Dra sidan till Ta bort om du vill ta bort den.</string>
     <string name="quickview_drag_bar_delete_title">Ta bort</string>
@@ -173,9 +181,9 @@ Hemlig mapp"</string>
     <string name="remove_app_folder_confirm">Ta bort</string>
     <string name="remove_app_folder_confirm_VZW">Ta bort</string>
     <string name="remove_app_folder_message">Mappen %s tas bort. Programmen i mappen är fortfarande tillgängliga på programskärmen.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Mappen %s tas bort. Program i den listas i slutet av programfacket.</string>
     <string name="remove_app_folder_message_no_title">Den här mappen kommer att tas bort. Programmen i mappen avinstalleras inte.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Den här mappen tas bort. Program i den listas i slutet av programfacket.</string>
     <string name="remove_app_folder_title">Radera mapp</string>
     <string name="remove_app_folder_title_VZW">Ta bort mapp</string>
     <string name="remove_home_folder_message">Mappen %s tas bort. Programmen i mappen är fortfarande tillgängliga på programskärmen.</string>
@@ -230,11 +238,11 @@ Hemlig mapp"</string>
     <string name="viewtype_custom_grid">Egen ordning</string>
     <string name="widget_duplicate">%s-widgeten finns redan på hemskärmen.</string>
     <string name="work_folder_name">Arbete</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Tryck och håll på skärmen för att lägga till objekt</string>
+    <string name="zeropage_briefing_title">Orientering</string>
+    <string name="zeropage_download">Hämta</string>
+    <string name="zeropage_download_msg">Om du vill använda funktionen måste du installera %1$s. Tryck på HÄMTA när du vill hämta och installera %2$s.</string>
     <string name="zeropage_notice_msg">Nyhetstjänsten %s är nu tillgängligt. Om du vill använda den i stället för Flipboard-orientering trycker du på OK.</string>
     <string name="zeropage_setting_dialog_no">Avbryt</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Nyheter om Sohu</string>
 </resources>

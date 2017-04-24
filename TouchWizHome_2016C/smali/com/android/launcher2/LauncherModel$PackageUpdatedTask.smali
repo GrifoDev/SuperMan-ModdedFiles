@@ -430,7 +430,7 @@
 
     move/from16 v1, v22
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_f
 
     aget-object v4, v36, v29
 
@@ -527,7 +527,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2200(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v4
 
@@ -552,8 +552,17 @@
 
     const/4 v6, 0x1
 
+    if-eq v4, v6, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->mOp:I
+
+    const/4 v6, 0x2
+
     if-ne v4, v6, :cond_1
 
+    :cond_a
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportWorkFolder()Z
 
     move-result v4
@@ -588,11 +597,11 @@
 
     move/from16 v1, v22
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_c
 
     sget-boolean v4, Lcom/android/launcher2/LauncherModel;->DEBUGGABLE:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     const-string v4, "Launcher.Model"
 
@@ -618,7 +627,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -650,7 +659,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2200(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v4
 
@@ -668,7 +677,7 @@
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportWorkFolder()Z
 
     move-result v4
@@ -694,7 +703,7 @@
 
     const/4 v6, 0x4
 
-    if-ne v4, v6, :cond_d
+    if-ne v4, v6, :cond_e
 
     const/16 v16, 0x1
 
@@ -710,7 +719,7 @@
 
     sget-boolean v4, Lcom/android/launcher2/LauncherModel;->DEBUGGABLE:Z
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     const-string v4, "Launcher.Model"
 
@@ -748,7 +757,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -782,7 +791,7 @@
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
-    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2000(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
+    invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2200(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v12
 
@@ -810,12 +819,12 @@
 
     goto :goto_5
 
-    :cond_d
+    :cond_e
     const/16 v16, 0x0
 
     goto :goto_4
 
-    :cond_e
+    :cond_f
     invoke-virtual {v5}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v4
@@ -838,7 +847,7 @@
 
     const/4 v6, 0x1
 
-    if-ne v4, v6, :cond_f
+    if-ne v4, v6, :cond_10
 
     invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
 
@@ -848,7 +857,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     move-object/from16 v0, v36
 
@@ -857,7 +866,7 @@
     const/4 v4, 0x0
 
     :goto_6
-    if-ge v4, v6, :cond_f
+    if-ge v4, v6, :cond_10
 
     aget-object v37, v36, v4
 
@@ -877,12 +886,12 @@
 
     goto :goto_6
 
-    :cond_f
-    if-nez v23, :cond_10
-
-    if-eqz v41, :cond_11
-
     :cond_10
+    if-nez v23, :cond_11
+
+    if-eqz v41, :cond_12
+
+    :cond_11
     move-object/from16 v24, v23
 
     move-object/from16 v42, v41
@@ -905,8 +914,8 @@
 
     invoke-virtual {v4, v6}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
-    :cond_11
-    if-eqz v32, :cond_12
+    :cond_12
+    if-eqz v32, :cond_13
 
     move-object/from16 v33, v32
 
@@ -926,14 +935,14 @@
 
     invoke-virtual {v4, v6}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
-    :cond_12
+    :cond_13
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->mOp:I
 
     const/4 v6, 0x1
 
-    if-eq v4, v6, :cond_13
+    if-eq v4, v6, :cond_14
 
     move-object/from16 v0, p0
 
@@ -941,7 +950,7 @@
 
     const/4 v6, 0x3
 
-    if-eq v4, v6, :cond_13
+    if-eq v4, v6, :cond_14
 
     move-object/from16 v0, p0
 
@@ -949,14 +958,14 @@
 
     const/4 v6, 0x2
 
-    if-ne v4, v6, :cond_19
+    if-ne v4, v6, :cond_1a
 
-    :cond_13
+    :cond_14
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGoogleBackupRestore()Z
 
     move-result v4
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -970,7 +979,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_14
+    if-nez v4, :cond_15
 
     const/16 v34, 0x1
 
@@ -986,7 +995,7 @@
     :try_start_0
     sget-object v4, Lcom/android/launcher2/LauncherModel;->sBgWidgetProviders:Ljava/util/HashMap;
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_17
 
     new-instance v38, Ljava/util/HashSet;
 
@@ -1015,7 +1024,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_17
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1035,7 +1044,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_16
 
     move-object/from16 v0, v30
 
@@ -1051,7 +1060,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_16
 
     const/4 v4, 0x1
 
@@ -1060,22 +1069,22 @@
 
     goto :goto_8
 
-    :cond_14
+    :cond_15
     const/16 v34, 0x0
 
     goto :goto_7
 
-    :cond_15
+    :cond_16
     const/4 v4, 0x0
 
     goto :goto_9
 
-    :cond_16
+    :cond_17
     monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v34, :cond_18
+    if-nez v34, :cond_19
 
     move-object/from16 v0, p0
 
@@ -1083,7 +1092,7 @@
 
     const/4 v6, 0x3
 
-    if-eq v4, v6, :cond_18
+    if-eq v4, v6, :cond_19
 
     invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -1100,7 +1109,7 @@
     move v6, v4
 
     :goto_a
-    if-ge v6, v12, :cond_18
+    if-ge v6, v12, :cond_19
 
     aget-object v37, v7, v6
 
@@ -1128,7 +1137,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_18
 
     const/4 v4, 0x1
 
@@ -1151,13 +1160,13 @@
 
     throw v4
 
-    :cond_17
+    :cond_18
     const/4 v4, 0x0
 
     goto :goto_b
 
-    :cond_18
-    if-eqz v34, :cond_19
+    :cond_19
+    if-eqz v34, :cond_1a
 
     new-instance v4, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask$3;
 
@@ -1167,30 +1176,30 @@
 
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->runOnWorkerThread(Ljava/lang/Runnable;)V
 
-    :cond_19
+    :cond_1a
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportPAI()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1b
+    if-eqz v4, :cond_1c
 
     invoke-interface/range {v21 .. v21}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-lez v4, :cond_1b
+    if-lez v4, :cond_1c
 
     invoke-interface/range {v21 .. v21}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_1a
+    :cond_1b
     :goto_c
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1b
+    if-eqz v6, :cond_1c
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1252,7 +1261,7 @@
 
     sget-boolean v6, Lcom/android/launcher2/LauncherModel;->DEBUGGABLE:Z
 
-    if-eqz v6, :cond_1a
+    if-eqz v6, :cond_1b
 
     const-string v6, "Launcher.Model"
 
@@ -1292,14 +1301,14 @@
 
     goto :goto_c
 
-    :cond_1b
+    :cond_1c
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
     iget-boolean v4, v4, Lcom/android/launcher2/LauncherModel;->mRefreshRequired:Z
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_1e
 
     const-string v4, "Launcher.Model"
 
@@ -1307,11 +1316,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1c
+    :cond_1d
     :goto_d
     return-void
 
-    :cond_1d
+    :cond_1e
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -1320,15 +1329,15 @@
 
     move-object/from16 v35, v0
 
-    if-eqz v35, :cond_1e
+    if-eqz v35, :cond_1f
 
     invoke-virtual/range {v35 .. v35}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v4
 
-    if-nez v4, :cond_1f
+    if-nez v4, :cond_20
 
-    :cond_1e
+    :cond_1f
     const-string v4, "Launcher.Model"
 
     const-string v6, "Nobody to tell about the app changes. Launcher is not running."
@@ -1337,12 +1346,12 @@
 
     goto :goto_d
 
-    :cond_1f
+    :cond_20
     invoke-interface {v9}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_20
+    if-nez v4, :cond_21
 
     move-object/from16 v0, p0
 
@@ -1360,12 +1369,12 @@
 
     invoke-virtual {v4, v6}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
-    :cond_20
+    :cond_21
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_21
+    if-nez v4, :cond_22
 
     move-object/from16 v0, p0
 
@@ -1383,18 +1392,18 @@
 
     invoke-virtual {v4, v6}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
-    :cond_21
+    :cond_22
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGoogleBackupRestore()Z
 
     move-result v4
 
-    if-eqz v4, :cond_22
+    if-eqz v4, :cond_23
 
     invoke-virtual {v10}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v4
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_23
 
     move-object/from16 v0, p0
 
@@ -1412,10 +1421,10 @@
 
     invoke-virtual {v4, v6}, Lcom/android/launcher2/DeferredHandler;->post(Ljava/lang/Runnable;)V
 
-    :cond_22
+    :cond_23
     const-string v45, ""
 
-    if-eqz v41, :cond_23
+    if-eqz v41, :cond_24
 
     const-string v45, "removed"
 
@@ -1448,7 +1457,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1c
+    if-nez v4, :cond_1d
 
     move-object/from16 v0, p0
 
@@ -1462,7 +1471,7 @@
 
     check-cast v26, Lcom/android/launcher2/LauncherModel$Callbacks;
 
-    if-eqz v26, :cond_1c
+    if-eqz v26, :cond_1d
 
     invoke-interface {v11}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1473,7 +1482,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1c
+    if-eqz v6, :cond_1d
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1502,8 +1511,8 @@
 
     goto :goto_f
 
-    :cond_23
-    if-eqz v32, :cond_24
+    :cond_24
+    if-eqz v32, :cond_25
 
     const-string v45, "changed"
 
@@ -1511,8 +1520,8 @@
 
     goto :goto_e
 
-    :cond_24
-    if-eqz v23, :cond_25
+    :cond_25
+    if-eqz v23, :cond_26
 
     const-string v45, "added"
 
@@ -1520,12 +1529,10 @@
 
     goto :goto_e
 
-    :cond_25
+    :cond_26
     const/16 v31, 0x0
 
     goto :goto_e
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -34,14 +34,17 @@
     <string name="all_apps_title">Rakendused</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSŠZŽTUVWÕÄÖÜXY</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSŠZŽTUVWÕÄÖÜXY</string>
+    <string name="app_hidden_toast">%s on peidetud.</string>
+    <string name="app_locked_toast">%s on lukus.</string>
     <string name="app_search">Otsi</string>
     <string name="app_search_no_apps">Saate lisada otseteid avaekraanile otsingutulemustest.</string>
     <string name="app_search_no_results_found">Tulemusi ei leitud</string>
+    <string name="app_unlocked_toast">%s on avatud.</string>
     <string name="apply">Rakenda</string>
     <string name="available_galaxyapps">Saadaval poes Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Saate iga rakenduse puhul valida, kas märgid kuvatakse või peidetakse.</string>
+    <string name="badge_manage_summary">Saate iga rakenduse puhul valida, kas märgid kuvatakse või peidetakse.</string>
+    <string name="badge_manage_title">Halda rakenduse märke</string>
     <string name="cancel">Tühista</string>
     <string name="change_home_screen_settings">Avaekraani seadete muutmine</string>
     <string name="change_home_screen_settings_info">See rakendus suudab muuta avaekraani seadeid ja otseteid.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Otsevalimine</string>
     <string name="direct_message">Otsesõnum</string>
     <string name="disable_message">%1$s ja kõik sellega seotud funktsioonid desaktiveeritakse. Rakenduse uuesti aktiveerimiseks avage Seaded > Rakendused ja valige %2$s.</string>
+    <string name="disable_message_att">%s ja kõik sellega seotud funktsioonid inaktiveeritakse. Selle uuesti aktiveerimiseks avage Seaded > Seade > Rakendused > Rakenduse haldur.</string>
     <string name="disable_message_vzw">%s ja kõik sellega seotud funktsioonid desaktiveeritakse. Aktiveerimiseks avage Seaded > Rakendused > Rakenduse haldur.</string>
     <string name="disable_messange_knox">%s ja kõik sellega seotud funktsioonid inaktiveeritakse. Selle uuesti aktiveerimiseks avage menüü KNOX-i seaded > Rakenduse haldur.</string>
     <string name="disable_title">Desaktiveeri rakendus</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Vidina suuruse muutmiseks tõmmake serva üles, alla, sisse või välja.</string>
     <string name="guide_tap_here">Toksake rakenduste ikooni.</string>
     <string name="guide_widgets_tap_area">Toksake ja hoidke sõrme vidinal, kuni seda saab redigeerida, ning seejärel vabastage see.</string>
+    <string name="hide">Peida</string>
+    <string name="hide_confirm_continue">Jätka</string>
+    <string name="hide_confirm_message">Rakendus %s on praegu lukustatud. Kui peidate selle rakenduse, avatakse see lukust.</string>
+    <string name="hide_confirm_title">Rakenduse peitmine</string>
     <string name="home_edit_add_to_personal">Lisa isikl.</string>
     <string name="home_edit_bar_delete_title">Eemalda otsetee</string>
     <string name="home_edit_bar_delete_title_vzw">Eemalda otsetee</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidin on juba lisatud avaekraanile.</string>
     <string name="open_folder">Ava kaust</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Kuva rakendused</string>
     <string name="option_menu_contact_up">Võtke meiega ühendust</string>
     <string name="option_tray_screengrid">Ekr. ruudustik</string>
     <string name="options_home_set_theme">Teemad</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Vidinate lisamine</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Libistage rakenduse otseteed sõrmega alla, et kuvada selle kiirvalikud. Kiirvalikud võimaldavad rakendusi lihtsalt hallata.</string>
+    <string name="quickoption_sleep">Magamine</string>
     <string name="quickoptions_add_apps">Rakenduste lisamine</string>
     <string name="quickoptions_add_to_secure_folder">"Lisa
 turvalisse kausta"</string>
     <string name="quickoptions_app_info">Rakenduse teave</string>
     <string name="quickoptions_clear_badge">Tühjenda märk</string>
     <string name="quickoptions_disable">Desaktiveeri</string>
-    <string name="quickoptions_put_to_sleep">Lülita unerežiimi</string>
-    <string name="quickoptions_put_to_sleep_alert">Selle rakenduse unerežiimi lülitamine takistab sellel taustal aku kasutamist. Unerežiimis rakendused ei saa värskendusi ega saada teile teavitusi, kuid aktiveeruvad, kui avate need.</string>
+    <string name="quickoptions_sleep_alert">Selle rakenduse unerežiimi lülitamine takistab sellel taustal aku kasutamist. Unerežiimis rakendused ei saa värskendusi ega saada teile teavitusi, kuid aktiveeruvad, kui avate need.</string>
     <string name="quickoptions_uninstall">Desinstalli</string>
     <string name="quickview_delete_toast_msg">Lehe eemaldamiseks lohistage see valikule Eemalda.</string>
     <string name="quickview_drag_bar_delete_title">Eemalda</string>
@@ -172,9 +180,9 @@ turvalisse kausta"</string>
     <string name="remove_app_folder_confirm">Kustuta</string>
     <string name="remove_app_folder_confirm_VZW">Eemalda</string>
     <string name="remove_app_folder_message">Kaust %s kustutatakse. Kaustas sisalduvaid rakendusi saab endiselt rakenduste kuvalt kasutada.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Kaust %s eemaldatakse. Selles kaustas olevad rakendused loetletakse rakenduste salve lõpus.</string>
     <string name="remove_app_folder_message_no_title">See kaust eemaldatakse. Selles kaustas olevaid rakendusi ei desinstallita.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">See kaust eemaldatakse. Selles kaustas olevad rakendused loetletakse rakenduste salve lõpus.</string>
     <string name="remove_app_folder_title">Kustuta kaust</string>
     <string name="remove_app_folder_title_VZW">Eemalda kaust</string>
     <string name="remove_home_folder_message">Kaust %s kustutatakse. Kaustas sisalduvaid rakendusi saab endiselt rakenduste kuvalt kasutada.</string>
@@ -229,11 +237,11 @@ turvalisse kausta"</string>
     <string name="viewtype_custom_grid">Kohandatud järjekord</string>
     <string name="widget_duplicate">Vidin %s on juba avaekraanil.</string>
     <string name="work_folder_name">Töö</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Üksuste lisamiseks toksake ja hoidke sõrme ekraanil</string>
+    <string name="zeropage_briefing_title">Kokkuvõte</string>
+    <string name="zeropage_download">Laadi a.</string>
+    <string name="zeropage_download_msg">Selle funktsiooni kasutamiseks peate installima rakenduse %1$s. Toksake käsku LAADI ALLA, et laadida alla ja installida %2$s.</string>
     <string name="zeropage_notice_msg">Uudisteteenus %s on nüüd saadaval. Toksake valikut OK, et kasutada seda rakenduse Flipboard Briefing asemel.</string>
     <string name="zeropage_setting_dialog_no">Tühista</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu uudised</string>
 </resources>

@@ -33,14 +33,17 @@
     <string name="all_apps_title">Праграмы</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;АБВГДЕЁЖЗІЙКЛМНОПРСТУЎФХЦЧШЫЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s схавана.</string>
+    <string name="app_locked_toast">%s заблакіраваны.</string>
     <string name="app_search">Пошук</string>
     <string name="app_search_no_apps">Можна дадаваць ярлыкі на галоўны экран з вынікаў пошуку.</string>
     <string name="app_search_no_results_found">Вынікі не знойдзены</string>
+    <string name="app_unlocked_toast">%s unlocked.</string>
     <string name="apply">Ужыць</string>
     <string name="available_galaxyapps">Даступна ў Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Выберыце, паказваць ці хаваць значкі для кожнай праграмы.</string>
+    <string name="badge_manage_summary">Выберыце, паказваць ці хаваць значкі для кожнай праграмы.</string>
+    <string name="badge_manage_title">Кіраваць значкамі праграм</string>
     <string name="cancel">Скасав.</string>
     <string name="change_home_screen_settings">Змян. налады галоўн. экрана</string>
     <string name="change_home_screen_settings_info">Гэта праграма можа змяняць налады і ярлыкі вашага галоўнага экрана.</string>
@@ -53,6 +56,7 @@
     <string name="direct_dial">Прамы Набор</string>
     <string name="direct_message">Прамое Паведамленне</string>
     <string name="disable_message">%1$s і ўсе звязаныя функцыі будуць адключаны. Каб зноў уключыць гэту праграму, перайдзіце ў «Налады > Праграмы» і выберыце %2$s.</string>
+    <string name="disable_message_att">Праграма %s і ўсе звязаныя з ёй функцыі будуць адключаны. Каб зноў яе уключыць, перайдзіце ў «Налады > Прылада > Праграмы > Менеджар праграм».</string>
     <string name="disable_message_vzw">%s і ўсе звязаныя функцыі будуць адключаны. Каб зноў уключыць, перайдзіце ў Налады > Праграмы > Менеджар праграм.</string>
     <string name="disable_title">Адключыць праграму</string>
     <string name="disable_uninstall_message">%s і ўсе звязаныя функцыі будуць адключаны. Вашы даныя таксама будуць выдалены. Каб зноў уключыць, перайдзіце ў Налады > Праграмы > Менеджар праграм.</string>
@@ -81,6 +85,10 @@
     <string name="guide_resize_widget_step2">Каб змяніць памер віджэта, перацягвайце яго межы ўверх, уніз, унутр, вонкі.</string>
     <string name="guide_tap_here">Націсніце значок праграм.</string>
     <string name="guide_widgets_tap_area">Каб змяніць віджэт, націсніце і ўтрымлівайце яго, а потым адпусціце.</string>
+    <string name="hide">Схаваць</string>
+    <string name="hide_confirm_continue">Працягнуць</string>
+    <string name="hide_confirm_message">Зараз праграма %s заблакіравана. Калі вы схаваеце гэту праграму, яна будзе разблакіравана.</string>
+    <string name="hide_confirm_title">Схаваць праграму</string>
     <string name="home_edit_add_to_personal">Дад. у асаб.</string>
     <string name="home_edit_bar_delete_title">Выдаліць ярлык</string>
     <string name="home_edit_bar_delete_title_vzw">Выдаліць ярлык</string>
@@ -127,7 +135,7 @@
     <string name="not_selected">Не выбрана</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджэт %s ужо дададзены на галоўны экран.</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Прагляд праграм</string>
     <string name="option_menu_contact_up">Звязацца з намі</string>
     <string name="option_tray_screengrid">Сетка экрана</string>
     <string name="options_home_set_theme">Тэмы</string>
@@ -146,14 +154,14 @@
     <string name="permlab_install_widget">Дадаць віджэты</string>
     <string name="quick_contact">Кантакт</string>
     <string name="quick_options_help_text">Правядзіце ўніз па ярлыку праграмы, каб праглядзець яе хуткія параметры. Хуткія параметры дазваляюць лёгка кіраваць праграмамі.</string>
+    <string name="quickoption_sleep">Рэжым сну</string>
     <string name="quickoptions_add_apps">Дадаць праграмы</string>
     <string name="quickoptions_add_to_secure_folder">"Дадаць у
 бяспечную папку"</string>
     <string name="quickoptions_app_info">Інфармацыя пра праграму</string>
     <string name="quickoptions_clear_badge">Выдаліць значок</string>
     <string name="quickoptions_disable">Адключыць</string>
-    <string name="quickoptions_put_to_sleep">Перавесці ў рэжым сну</string>
-    <string name="quickoptions_put_to_sleep_alert">Перавод праграмы ў рэжым сну забароніць ёй выкарыстоўваць зарад акумулятара ў фонавым рэжыме. Праграмы ў рэжыме сну могуць не атрымліваць абнаўленні або не адпраўляць вам апавяшчэнні, але яны абудзяцца, калі вы іх адкрыеце.</string>
+    <string name="quickoptions_sleep_alert">Перавод праграмы ў рэжым сну забароніць ёй выкарыстоўваць зарад акумулятара ў фонавым рэжыме. Праграмы ў рэжыме сну могуць не атрымліваць абнаўленні або не адпраўляць вам апавяшчэнні, але яны абудзяцца, калі вы іх адкрыеце.</string>
     <string name="quickoptions_uninstall">Выдаліць</string>
     <string name="quickview_delete_toast_msg">Перацягніце старонку на «Выдаліць», каб выдаліць яе.</string>
     <string name="quickview_drag_bar_delete_title">Выдаліць</string>
@@ -165,9 +173,9 @@
     <string name="remove_app_folder_confirm">Выдаліць</string>
     <string name="remove_app_folder_confirm_VZW">Выдаліць</string>
     <string name="remove_app_folder_message">Папка %s будзе выдалена. Праграмы ў гэтай папцы будуць усё роўна даступны на экране праграм.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Папка %s будзе выдалена. Праграмы з гэтай папкі будуць пералічаны ў канцы вобласці апавяшчэнняў праграмы.</string>
     <string name="remove_app_folder_message_no_title">This folder will be removed. Applications in this folder will not be uninstalled.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Гэта папка будзе выдалена. Праграмы з гэтай папкі будуць пералічаны ў канцы вобласці апавяшчэнняў праграмы.</string>
     <string name="remove_app_folder_title">Выдаліць папку</string>
     <string name="remove_app_folder_title_VZW">Выдаліць папку</string>
     <string name="remove_home_folder_message">Папка %s будзе выдалена. Праграмы ў гэтай папцы будуць усё роўна даступны на экране праграм.</string>
@@ -221,11 +229,11 @@
     <string name="viewtype_custom_grid">Адмысловы парадак</string>
     <string name="widget_duplicate">Віджэт %s ужо на галоўным экране.</string>
     <string name="work_folder_name">Працоўны</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Дакраніцеся і ўтрымлівайце экран, каб дадаць элементы</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Спампаваць</string>
+    <string name="zeropage_download_msg">Каб карыстацца гэтай функцыяй, трэба ўсталяваць %1$s. Каб спампаваць і ўсталяваць %2$s, націсніце «СПАМПАВАЦЬ».</string>
     <string name="zeropage_notice_msg">Служба навін %s зараз даступна. Каб выкарыстоўваць яе замест брыфінгу апошніх навінаў, націсніце «ОК».</string>
     <string name="zeropage_setting_dialog_no">Скасав.</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Навіны кампаніі Sohu</string>
 </resources>

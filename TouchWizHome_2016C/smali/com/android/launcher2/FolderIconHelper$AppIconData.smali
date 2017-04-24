@@ -77,7 +77,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v3, 0x7f090004
+    const v3, 0x7f090005
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

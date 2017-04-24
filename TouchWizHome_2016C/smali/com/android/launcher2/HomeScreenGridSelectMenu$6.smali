@@ -91,7 +91,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f1000e2
+    .packed-switch 0x7f1000e6
         :pswitch_0
         :pswitch_1
     .end packed-switch

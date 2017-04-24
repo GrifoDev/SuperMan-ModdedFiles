@@ -218,7 +218,7 @@
     move-result-object p2
 
     :cond_1
-    const v21, 0x7f1000f6
+    const v21, 0x7f1000fa
 
     move-object/from16 v0, p2
 
@@ -337,7 +337,7 @@
 
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000f9
+    const v21, 0x7f1000fd
 
     move-object/from16 v0, v17
 
@@ -415,7 +415,7 @@
     :cond_3
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000f8
+    const v21, 0x7f1000fc
 
     move-object/from16 v0, v17
 
@@ -435,7 +435,7 @@
 
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000f7
+    const v21, 0x7f1000fb
 
     move-object/from16 v0, v17
 
@@ -535,7 +535,7 @@
     goto/16 :goto_1
 
     :cond_5
-    const v21, 0x7f1000f4
+    const v21, 0x7f1000f8
 
     move-object/from16 v0, p2
 
@@ -547,7 +547,7 @@
 
     check-cast v19, Landroid/widget/TextView;
 
-    const v21, 0x7f1000f5
+    const v21, 0x7f1000f9
 
     move-object/from16 v0, p2
 
@@ -606,7 +606,7 @@
 
     mul-int v12, p1, v21
 
-    const v21, 0x7f1000f3
+    const v21, 0x7f1000f7
 
     move-object/from16 v0, p2
 
@@ -1107,7 +1107,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0800c6
+    const v24, 0x7f0800ce
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1298,7 +1298,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0800cb
+    const v23, 0x7f0800d3
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1329,7 +1329,7 @@
 
     check-cast v10, [Lcom/android/launcher2/searchapp/AppViewHolder;
 
-    const v21, 0x7f1000f4
+    const v21, 0x7f1000f8
 
     move-object/from16 v0, p2
 
@@ -1341,7 +1341,7 @@
 
     check-cast v19, Landroid/widget/TextView;
 
-    const v21, 0x7f1000f5
+    const v21, 0x7f1000f9
 
     move-object/from16 v0, p2
 
@@ -1406,7 +1406,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0800d3
+    const v24, 0x7f0800db
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1663,7 +1663,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902e9
+    const v3, 0x7f0902eb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1678,7 +1678,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0902e8
+    const v3, 0x7f0902ea
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

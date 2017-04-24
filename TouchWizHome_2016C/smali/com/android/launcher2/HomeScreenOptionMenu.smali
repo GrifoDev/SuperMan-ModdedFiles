@@ -809,7 +809,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08008d
+    const v2, 0x7f080095
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -825,7 +825,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080080
+    const v3, 0x7f080088
 
     const/4 v4, 0x1
 
@@ -843,7 +843,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800c1
+    const v2, 0x7f0800c9
 
     new-instance v3, Lcom/android/launcher2/HomeScreenOptionMenu$11;
 
@@ -853,7 +853,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08002e
+    const v2, 0x7f080031
 
     new-instance v3, Lcom/android/launcher2/HomeScreenOptionMenu$10;
 
@@ -2267,7 +2267,7 @@
 
     move-result-object v16
 
-    const v20, 0x7f090122
+    const v20, 0x7f090123
 
     move-object/from16 v0, v16
 
@@ -2277,7 +2277,7 @@
 
     move-result v17
 
-    const v20, 0x7f090121
+    const v20, 0x7f090122
 
     move-object/from16 v0, v16
 
@@ -2303,7 +2303,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f09011e
+    const v20, 0x7f09011f
 
     move-object/from16 v0, v16
 
@@ -2323,7 +2323,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/HomeScreenOptionMenu;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const v20, 0x7f090289
+    const v20, 0x7f09028c
 
     move-object/from16 v0, v16
 
@@ -2333,7 +2333,7 @@
 
     move-result v6
 
-    const v20, 0x7f090123
+    const v20, 0x7f090124
 
     move-object/from16 v0, v16
 
@@ -2353,7 +2353,7 @@
 
     move-result v10
 
-    const v20, 0x7f090124
+    const v20, 0x7f090125
 
     move-object/from16 v0, v16
 
@@ -2363,7 +2363,7 @@
 
     move-result v18
 
-    const v20, 0x7f090120
+    const v20, 0x7f090121
 
     move-object/from16 v0, v16
 
@@ -2373,7 +2373,7 @@
 
     move-result v12
 
-    const v20, 0x7f09011f
+    const v20, 0x7f090120
 
     move-object/from16 v0, v16
 
@@ -2383,7 +2383,7 @@
 
     move-result v7
 
-    const v20, 0x7f090125
+    const v20, 0x7f090126
 
     move-object/from16 v0, v16
 
@@ -2393,7 +2393,7 @@
 
     move-result v9
 
-    const v20, 0x7f0901b8
+    const v20, 0x7f090001
 
     move-object/from16 v0, v16
 
@@ -2417,7 +2417,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09029c
+    const v21, 0x7f09029f
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3040,13 +3040,13 @@
 
     move-result-object v2
 
-    const v4, 0x7f090289
+    const v4, 0x7f09028c
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f10006d
+    const v2, 0x7f100071
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3169,7 +3169,7 @@
     invoke-virtual {v2, v7, v4, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     :goto_1
-    const v2, 0x7f10006e
+    const v2, 0x7f100072
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3281,7 +3281,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f100070
+    const v2, 0x7f100074
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3327,7 +3327,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08008d
+    const v6, 0x7f080095
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3375,7 +3375,7 @@
 
     :cond_1
     :goto_2
-    const v2, 0x7f10006f
+    const v2, 0x7f100073
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3433,7 +3433,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080062
+    const v6, 0x7f08006a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3491,7 +3491,7 @@
     invoke-virtual {v2, v7, v4, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     :cond_2
-    const v2, 0x7f100071
+    const v2, 0x7f100075
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3584,7 +3584,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f08008e
+    const v5, 0x7f080096
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3602,7 +3602,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08008e
+    const v6, 0x7f080096
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3722,7 +3722,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f100070
+    const v2, 0x7f100074
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -3768,7 +3768,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08008d
+    const v6, 0x7f080095
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3856,7 +3856,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f08008c
+    const v5, 0x7f080094
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3890,7 +3890,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f10006d
+    const v0, 0x7f100071
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/HomeScreenOptionMenu;->findViewById(I)Landroid/view/View;
 
@@ -4045,7 +4045,7 @@
 .method public setEditTextBg()V
     .locals 9
 
-    const v8, 0x7f0200ff
+    const v8, 0x7f020100
 
     invoke-virtual {p0}, Lcom/android/launcher2/HomeScreenOptionMenu;->getContext()Landroid/content/Context;
 
@@ -4061,7 +4061,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901b8
+    const v7, 0x7f090001
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4081,7 +4081,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09029c
+    const v7, 0x7f09029f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4176,7 +4176,7 @@
 .method public setEditTextBg(Z)V
     .locals 6
 
-    const v5, 0x7f0200ff
+    const v5, 0x7f020100
 
     const v4, 0x7f02001c
 
@@ -4186,7 +4186,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901b8
+    const v4, 0x7f090001
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4206,7 +4206,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09029c
+    const v4, 0x7f09029f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4368,19 +4368,19 @@
 
     move-result-object v5
 
-    const v9, 0x7f09036a
+    const v9, 0x7f090379
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
-    const v9, 0x7f090121
+    const v9, 0x7f090122
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v9, 0x7f090368
+    const v9, 0x7f090377
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4394,7 +4394,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09011e
+    const v9, 0x7f09011f
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4410,7 +4410,7 @@
 
     iget v1, v9, Landroid/util/DisplayMetrics;->density:F
 
-    const v9, 0x7f09036c
+    const v9, 0x7f09037b
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getDimension(I)F
 

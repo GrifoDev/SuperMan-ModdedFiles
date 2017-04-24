@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">9.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">72.0dip</dimen>
     <dimen name="badge_fontsize_default">17.0dip</dimen>
@@ -125,7 +126,7 @@
     <dimen name="menuWidgets_cellGapX">40.0dip</dimen>
     <dimen name="menuWidgets_cellGapY">26.0dip</dimen>
     <dimen name="menuWidgets_cell_height_scroll_mode">213.0dip</dimen>
-    <dimen name="menuWidgets_folder_cellGapX">40.0dip</dimen>
+    <dimen name="menuWidgets_folder_cellGapX">36.0dip</dimen>
     <dimen name="menuWidgets_folder_cellGapY">28.0dip</dimen>
     <dimen name="menuWidgets_mContent_height_scroll_mode">40.0dip</dimen>
     <dimen name="menuWidgets_pageMarginPlusPaddingTop">13.0dip</dimen>
@@ -240,7 +241,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">9.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">9.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -258,6 +258,8 @@
     <dimen name="app_icon_size_4x5">72.0dip</dimen>
     <dimen name="folder_paged_view_margin_top">17.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">0.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">599.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">461.0dip</dimen>
     <dimen name="open_folder_addbutton_bottom_padding">10.0dip</dimen>
     <dimen name="open_folder_addbutton_left_right_padding">10.0dip</dimen>
     <dimen name="open_folder_addbutton_top_padding">10.0dip</dimen>
@@ -298,6 +300,7 @@
     <dimen name="home_editmode_panel_buttonParent_zero_paddingTop">0.0dip</dimen>
     <dimen name="home_editmode_panel_button_margin">10.0dip</dimen>
     <dimen name="home_pageIndicatorLeftMargin">20.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">32.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">0.0dip</dimen>
     <dimen name="menu_edit_button_text_height">55.0dip</dimen>
     <dimen name="menu_title_bar_back_btn_width">72.0dip</dimen>
@@ -343,16 +346,15 @@
     <dimen name="widget_search_titlebar_padding_left">24.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">45.0dip</dimen>
     <dimen name="app_searchview_margin_top">0.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_height">599.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">461.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">23.0dip</dimen>
     <dimen name="open_folder_appicon_margin_top">17.0dip</dimen>
     <dimen name="open_folder_layout_folder_container_padding_top">0.0dip</dimen>
     <dimen name="zeropageSwitch_textSize">23.0sp</dimen>
     <dimen name="appsearch_grid_cell_padding">10.0dip</dimen>
-    <dimen name="appsearch_grid_padding_top">9.0dip</dimen>
+    <dimen name="appsearch_grid_padding_top">22.0dip</dimen>
     <dimen name="moveApps_cellGapX">15.0dip</dimen>
     <dimen name="moveApps_edgeMargin">19.0dip</dimen>
+    <dimen name="appsearch_result_margin_top">64.0dip</dimen>
     <dimen name="folder_multi_header_text_height">34.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">16.0dip</dimen>
     <dimen name="folder_multi_search_bar_layout_height">63.0dip</dimen>
@@ -365,7 +367,6 @@
     <dimen name="appsearch_grid_padding_bottom">7.0dip</dimen>
     <dimen name="appsearch_list_icon_width">72.0dip</dimen>
     <dimen name="appsearch_list_item_text_size">16.0dip</dimen>
-    <dimen name="appsearch_result_margin_top">64.0dip</dimen>
     <dimen name="appsearch_searchview_height">64.0dip</dimen>
     <dimen name="folder_multi_icon_checkbox_size">28.0dip</dimen>
     <dimen name="moveApps_intro_text_size">18.0dip</dimen>
@@ -374,9 +375,11 @@
     <dimen name="home_zero_page_dual_image_gap">32.0dip</dimen>
     <dimen name="home_zero_page_dual_image_height">299.0dip</dimen>
     <dimen name="home_zero_page_dual_image_width">230.0dip</dimen>
+    <item type="dimen" name="config_extra_WorkspaceEditModeShrinkPercentage">0.0036</item>
+    <item type="dimen" name="config_workspaceEditModeTranslationFactor">0.97</item>
     <dimen name="create_folder_dialog_width">607.0dip</dimen>
     <dimen name="done_button_height">43.0dip</dimen>
-    <dimen name="done_button_width">115.0dip</dimen>
+    <dimen name="done_button_width">117.0dip</dimen>
     <dimen name="home_editTitleBar_side_margin_case_2_item">164.0dip</dimen>
     <dimen name="menu_widget_folder_padding_top_offset">8.0dip</dimen>
     <dimen name="viewmore_galaxyapps_top">348.0dip</dimen>
@@ -404,16 +407,14 @@
     <dimen name="quick_options_dismiss_distance">35.0dip</dimen>
     <dimen name="searchbar_divider_shape_padding_top">10.0dip</dimen>
     <dimen name="searchbar_searchview_height">44.0dip</dimen>
-    <dimen name="viewmore_galaxyapps_height">43.0dip</dimen>
+    <dimen name="viewmore_galaxyapps_height">45.0dip</dimen>
     <dimen name="viewmore_galaxyapps_start">165.0dip</dimen>
     <dimen name="viewmore_playstore_bottom">7.0dip</dimen>
     <dimen name="zeropageSwitch_paddingLeft">140.0dip</dimen>
-    <item type="dimen" name="config_workspaceEditModeTranslationFactor">0.97</item>
-    <item type="dimen" name="config_extra_WorkspaceEditModeShrinkPercentage">0.0036</item>
-    <dimen name="done_button_marginRight">32.0dip</dimen>
-    <dimen name="open_folder_content_width">607.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_end">36.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_start">26.0dip</dimen>
+    <dimen name="done_button_marginRight">32.0dip</dimen>
+    <dimen name="open_folder_content_width">607.0dip</dimen>
     <dimen name="menu_edit_add_button_margin_end">14.0dip</dimen>
     <dimen name="more_icon_btn_image_height">24.0dip</dimen>
     <dimen name="more_icon_btn_image_width">24.0dip</dimen>

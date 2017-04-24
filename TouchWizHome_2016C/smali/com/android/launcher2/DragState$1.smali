@@ -39,7 +39,7 @@
 
     sget-object v0, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v1, 0x7f080063
+    const v1, 0x7f08006b
 
     invoke-virtual {v0, v1}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 

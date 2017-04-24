@@ -34,14 +34,17 @@
     <string name="all_apps_title">កម្មវិធី</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរលវសហឡអABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរលវសហឡអABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">បាន​លាក់ %s។</string>
+    <string name="app_locked_toast">បាន​ចាក់សោ %s។</string>
     <string name="app_search">ស្វែងរក</string>
     <string name="app_search_no_apps">អ្នក​អាច​ថែម​ផ្លូវកាត់​លើ​គេហអេក្រង់​ពី​លទ្ធផល​ស្វែងរក​ទាំងនេះ។</string>
     <string name="app_search_no_results_found">រក​មិនឃើញ​លទ្ធផល​ណា​មួយ</string>
+    <string name="app_unlocked_toast">បាន​ដោះសោ %s។</string>
     <string name="apply">ប្រើ</string>
     <string name="available_galaxyapps">មាន​ក្នុង Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_summary">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_title">គ្រប់គ្រង​មេដាយ​កម្មវិធី</string>
     <string name="cancel">បោះបង់</string>
     <string name="change_home_screen_settings">ប្ដូរ​ការកំណត់​គេហអេក្រង់</string>
     <string name="change_home_screen_settings_info">កម្មវិធី​នេះ​អាច​ប្ដូរ​ការកំណត់​គេហអេក្រង់​របស់​អ្នក និង ផ្លូវកាត់។</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">ការហៅ​ផ្ទាល់</string>
     <string name="direct_message">សារ​ផ្ទាល់</string>
     <string name="disable_message">%1$s និង មុខងារ​ទាំងអស់​ពាក់ព័ន្ធ​នឹង​វា នឹង​ត្រូវ​បាន​បិទ។ ដើម្បី​បើកប្រើ​កម្មវិធី​នេះ​ម្ដងទៀត សូម​ចូលទៅ ការកំណត់ > កម្មវិធី រួច​ជ្រើស %2$s។</string>
+    <string name="disable_message_att">នឹង​បិទ %s និង មុខងារ​ទាំងអស់​ដែល​ពាក់ព័ន្ធ​នឹង​វា។ ដើម្បី​បើកប្រើ​វា​ម្ដងទៀត សូម​ចូលទៅ ការកំណត់ >ឧបករណ៍ > កម្មវិធី > អភិបាល​កម្មវិធី។</string>
     <string name="disable_message_vzw">នឹង​បិទ %s និង មុខងារ​ទាំងអស់ ដែល​ពាក់ព័ន្ធ​នឹង​វា។ ដើម្បី​បើកប្រើ​វា​ម្ដងទៀត សូម​ចូលទៅ ការកំណត់ > កម្មវិធី > អភិបាល​កម្មវិធី។</string>
     <string name="disable_messange_knox">នឹង​បិទ %s និង មុខងារ​ទាំងអស់​ដែល​ពាក់ព័ន្ធ​ជាមួយ​វា។ ដើម្បី​បើកប្រើ​វា​ម្ដងទៀត សូម​ចូលទៅ ការកំណត់ KNOX > អភិបាល​កម្មវិធី។</string>
     <string name="disable_title">បិទ​កម្មវិធី</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ទាញ​ព្រំ​ឡើងលើ, ចុះក្រោម, ចូល​ក្នុង ឬ ចេញ​ក្រៅ ដើម្បី​ប្តូរ​ទំហំ​វីដជីត។</string>
     <string name="guide_tap_here">ប៉ះ​អាយខុន​កម្មវិធី។</string>
     <string name="guide_widgets_tap_area">ប៉ះ​វីដជីត​ឲ្យ​ជាប់ រហូត​ទាល់​តែ​វា​អាច​កែ​បាន រួច​លែង​វា។</string>
+    <string name="hide">លាក់</string>
+    <string name="hide_confirm_continue">បន្ត</string>
+    <string name="hide_confirm_message">បច្ចុប្បន្ន កម្មវិធី %s ត្រូវ​បាន​ចាក់សោ។ បើ​អ្នក​លាក់​កម្មវិធី​នេះ វា​នឹង​ត្រូវ​បាន​ដោះសោ។</string>
+    <string name="hide_confirm_title">លាក់​កម្មវិធី</string>
     <string name="home_edit_add_to_personal">ថែម​ទៅ​ផ្ទាល់ខ្លួន</string>
     <string name="home_edit_bar_delete_title">លុប​ផ្លូវកាត់</string>
     <string name="home_edit_bar_delete_title_vzw">លុប​ផ្លូវកាត់</string>
@@ -134,7 +142,7 @@
     <string name="ok">ព្រម</string>
     <string name="only_one_widget_instance_allowed">វីដជីត %s ត្រូវ​បាន​ថែម​ទៅ​គេហអេក្រង់​ហើយ។</string>
     <string name="open_folder">បើក​សឺមី</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">បង្ហាញ​កម្មវិធី</string>
     <string name="option_menu_contact_up">ទាក់ទង​យើង</string>
     <string name="option_tray_screengrid">ក្រឡាចត្រង្គ​អេក្រង់</string>
     <string name="options_home_set_theme">រូប​រាង</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ថែម​វីដជីត</string>
     <string name="quick_contact">ទំនាក់​ទំនង</string>
     <string name="quick_options_help_text">អូស​ផ្លូវកាត់​កម្មវិធី​ចុះក្រោម ដើម្បី​បង្ហាញ​ជម្រើស​រហ័ស​របស់​វា។ ជម្រើស​រហ័ស​អនុញ្ញាត​ឲ្យ​អ្នក​គ្រប់គ្រង​កម្មវិធី​យ៉ាង​ងាយស្រួល។</string>
+    <string name="quickoption_sleep">គេង</string>
     <string name="quickoptions_add_apps">ថែម​កម្មវិធី</string>
     <string name="quickoptions_add_to_secure_folder">"ថែម​ទៅ
 សឺមី​សន្តិសុខ"</string>
     <string name="quickoptions_app_info">ព័ត៌មាន​កម្មវិធី</string>
     <string name="quickoptions_clear_badge">ជម្រះ​មេដាយ</string>
     <string name="quickoptions_disable">បិទ</string>
-    <string name="quickoptions_put_to_sleep">ដាក់​ឲ្យ​គេង</string>
-    <string name="quickoptions_put_to_sleep_alert">ការដាក់​កម្មវិធី​នេះ​ឲ្យ​គេង​នឹង​រារាំង​វា​មិន​ឲ្យ​ប្រើ​ថ្ម​នៅ​ផ្ទៃខាងក្រោយ។ កម្មវិធី​គេង​អាច​មិន​ទទួល​អាប់ដេត ឬ​ក៏​ផ្ញើ​ជូន​អ្នក​នូវ​ការជូនដំណឹង ប៉ុន្តែ​ពួកវា​នឹង​ភ្ញាក់ នៅពេល​អ្នក​បើក​ពួកវា។</string>
+    <string name="quickoptions_sleep_alert">ការដាក់​កម្មវិធី​នេះ​ឲ្យ​គេង​នឹង​រារាំង​វា​មិន​ឲ្យ​ប្រើ​ថ្ម​នៅ​ផ្ទៃខាងក្រោយ។ កម្មវិធី​គេង​អាច​មិន​ទទួល​អាប់ដេត ឬ​ក៏​ផ្ញើ​ជូន​អ្នក​នូវ​ការជូនដំណឹង ប៉ុន្តែ​ពួកវា​នឹង​ភ្ញាក់ នៅពេល​អ្នក​បើក​ពួកវា។</string>
     <string name="quickoptions_uninstall">លុប</string>
     <string name="quickview_delete_toast_msg">អូស​ទំព័រ​ទៅ លុប ដើម្បី​លុប​វា។</string>
     <string name="quickview_drag_bar_delete_title">យក​ចេញ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">លុប</string>
     <string name="remove_app_folder_confirm_VZW">លុប</string>
     <string name="remove_app_folder_message">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​ត្រូវ​បាន​រាយ​នៅ​ចុង​នៃ​ស្ពក​កម្មវិធី។</string>
     <string name="remove_app_folder_message_no_title">នឹង​លុប​សឺមី​នេះ។ កម្មវិធី​ក្នុង​សឺមី​នេះ​នឹង​មិន​ត្រូវ​បាន​លុប​ចេញ​ឡើយ។</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">នឹង​លុប​សឺមី​នេះ។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​ត្រូវ​បាន​រាយ​នៅ​ចុង​នៃ​ស្ពក​កម្មវិធី។</string>
     <string name="remove_app_folder_title">លុប​សឺមី</string>
     <string name="remove_app_folder_title_VZW">លុប​សឺមី</string>
     <string name="remove_home_folder_message">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">ស្វែងរក​កម្មវិធី</string>
     <string name="search_for_widgets">ស្វែងរក​វីដជីត</string>
     <string name="search_result_found">បាន​រកឃើញ %d</string>
-    <string name="search_result_founds">បាន​រក​ឃើញ %d</string>
+    <string name="search_result_founds">បាន​រកឃើញ %d</string>
     <string name="select_all_app">ទាំង​អស់</string>
     <string name="select_app_add">ថែម</string>
     <string name="selected">បាន​ជ្រើស</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">លំដាប់​តាមបំណង</string>
     <string name="widget_duplicate">វីដជីត %s ស្ថិត​លើ​គេហអេក្រង់​ហើយ។</string>
     <string name="work_folder_name">ការងារ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">ប៉ះ​ឲ្យ​ជាប់​លើ​អេក្រង់ ដើម្បី​ថែម​ធាតុ</string>
+    <string name="zeropage_briefing_title">ព័ត៌មាន​សង្ខេប</string>
+    <string name="zeropage_download">ទាញយក</string>
+    <string name="zeropage_download_msg">ដើម្បី​ប្រើ​មុខងារ​នេះ អ្នក​ត្រូវ​ដំឡើង %1$s។ ប៉ះ ទាញយក ដើម្បី​ទាញយក​និង​ដំឡើង %2$s។</string>
     <string name="zeropage_notice_msg">ឥឡូវ​មាន​សេវា​ដំណឹង %s។ ដើម្បី​ប្រើ​វា​ជំនួស​ឲ្យ​ព័ត៌មាន​សង្ខេប Flipboard សូម​ប៉ះ ព្រម។</string>
     <string name="zeropage_setting_dialog_no">បោះបង់</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">ដំណឹង Sohu</string>
 </resources>

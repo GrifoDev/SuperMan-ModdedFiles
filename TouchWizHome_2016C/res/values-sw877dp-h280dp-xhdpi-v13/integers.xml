@@ -26,7 +26,7 @@
     <integer name="page_snap_animation_duration">550</integer>
     <integer name="menu_icon_text_maxline">2</integer>
     <integer name="config_appSearchRecentLineCount">2</integer>
-    <integer name="config_workspaceEditModeShrinkPercentage">84</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">85</integer>
     <integer name="moveApps_base_grid_size">7</integer>
     <integer name="appsearch_title_bar_text_size_int">20</integer>
     <integer name="appsearch_default_cellCountX">5</integer>

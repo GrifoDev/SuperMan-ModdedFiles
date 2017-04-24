@@ -34,14 +34,17 @@
     <string name="all_apps_title">Progr.</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĄBCČDEĘĖFGHIĮYJKLMNOPRSŠTUŲŪVZŽABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZAĄBCČDEĘĖFGHIĮYJKLMNOPRSŠTUŲŪVZŽ</string>
+    <string name="app_hidden_toast">%s paslėptas (-a).</string>
+    <string name="app_locked_toast">%s užrakinta.</string>
     <string name="app_search">Ieškoti</string>
     <string name="app_search_no_apps">Pradžios ekrane galite pridėti trumpinių iš paieškos rezultatų.</string>
     <string name="app_search_no_results_found">Rezultatų nerasta</string>
+    <string name="app_unlocked_toast">%s atrakinta.</string>
     <string name="apply">Taikyti</string>
     <string name="available_galaxyapps">Yra „Galaxy Apps“</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Pasirinkite, ar norite rodyti arba slėpti kiekvienos programos ženklelius.</string>
+    <string name="badge_manage_summary">Pasirinkite, ar norite rodyti arba slėpti kiekvienos programos ženklelius.</string>
+    <string name="badge_manage_title">Tvarkyti programų ženklelius</string>
     <string name="cancel">Atšaukti</string>
     <string name="change_home_screen_settings">Keist pradžios ekrano nust.</string>
     <string name="change_home_screen_settings_info">Ši programa gali keisti pradžios ekrano nustatymus ir trumpinius.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Tiesioginis rinkimas</string>
     <string name="direct_message">Tiesioginė žinutė</string>
     <string name="disable_message">Bus išjungta %1$s ir visos susijusios funkcijos. Jei programą norite vėl įjungti, eikite į Nustatymai > Programos, tada pasirinkite %2$s.</string>
+    <string name="disable_message_att">%s ir visos susijusios funkcijos bus išjungtos. Norėdami vėl įjungti, eikite į Nustatymai > Įrenginys > Programos > Programų tvarkyklė.</string>
     <string name="disable_message_vzw">%s ir visos su ja susijusios funkcijos bus išjungtos. Norėdami vėl ją įjungti, eikite į skirtuką Nustatymai > Programos > Programų tvarkyklė.</string>
     <string name="disable_messange_knox">%s ir visos su ja susijusios funkcijos bus išjungtos. Norėdami vėl įjungti, eikite į skirtuką KNOX nustatymai > Programų tvarkyklė.</string>
     <string name="disable_title">Išjungti programą</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Jei norite keisti valdiklio dydį, jo kraštinę traukite aukštyn, žemyn, į centrą arba į šonus.</string>
     <string name="guide_tap_here">Bakstelėkite programų piktogramą.</string>
     <string name="guide_widgets_tap_area">Bakstelėkite ir palaikykite valdiklį, kol jį bus galima redaguoti, tuomet atitraukite pirštą.</string>
+    <string name="hide">Slėpti</string>
+    <string name="hide_confirm_continue">Tęsti</string>
+    <string name="hide_confirm_message">%s programa šiuo metu užrakinta. Jei šią programą paslėpsite, ji bus atrakinta.</string>
+    <string name="hide_confirm_title">Slėpti programą</string>
     <string name="home_edit_add_to_personal">Įtr. į asmen.</string>
     <string name="home_edit_bar_delete_title">Šalinti trumpinį</string>
     <string name="home_edit_bar_delete_title_vzw">Šalinti trumpinį</string>
@@ -134,7 +142,7 @@
     <string name="ok">Gerai</string>
     <string name="only_one_widget_instance_allowed">%s valdiklis jau pridėtas prie pradžios ekrano.</string>
     <string name="open_folder">Atidaryti aplanką</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Peržiūrėti programas</string>
     <string name="option_menu_contact_up">Kreipkitės</string>
     <string name="option_tray_screengrid">Ekrano tinklel.</string>
     <string name="options_home_set_theme">Temos</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Pridėti valdiklius</string>
     <string name="quick_contact">Adresatas</string>
     <string name="quick_options_help_text">Braukite programos trumpiniu žemyn ir peržiūrėkite greitąsias jos parinktis. Naudodamiesi greitosiomis parinktimis galite lengvai tvarkyti programas.</string>
+    <string name="quickoption_sleep">Miegas</string>
     <string name="quickoptions_add_apps">Pridėti programų</string>
     <string name="quickoptions_add_to_secure_folder">"Pridėt prie
 Saug. aplanko"</string>
     <string name="quickoptions_app_info">Informacija apie programą</string>
     <string name="quickoptions_clear_badge">Ištrinti ženklelį</string>
     <string name="quickoptions_disable">Išjungti</string>
-    <string name="quickoptions_put_to_sleep">Užmigdyti</string>
-    <string name="quickoptions_put_to_sleep_alert">Užmigdę šią programą neleisite jais naudoti akumuliatoriaus energijos fone. Užmigdytos programos gali negauti naujinių arba nesiųsti jums pranešimų, bet jos bus pažadintos jas atidarius.</string>
+    <string name="quickoptions_sleep_alert">Užmigdę šią programą neleisite jais naudoti akumuliatoriaus energijos fone. Užmigdytos programos gali negauti naujinių arba nesiųsti jums pranešimų, bet jos bus pažadintos jas atidarius.</string>
     <string name="quickoptions_uninstall">Išdiegti</string>
     <string name="quickview_delete_toast_msg">Vilkite puslapį į „Šalinti“, kad pašalintumėte jį.</string>
     <string name="quickview_drag_bar_delete_title">Pašalinti</string>
@@ -172,9 +180,9 @@ Saug. aplanko"</string>
     <string name="remove_app_folder_confirm">Trinti</string>
     <string name="remove_app_folder_confirm_VZW">Šalinti</string>
     <string name="remove_app_folder_message">%s aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos programų ekrane.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Aplankas %s bus pašalintas. Šiame aplanke esančios programos bus nurodytos programų dėklo pabaigoje.</string>
     <string name="remove_app_folder_message_no_title">Šis aplankas bus pašalintas. Šiame aplanke esančios programos nebus pašalintos.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Šis aplankas bus pašalintas. Šiame aplanke esančios programos bus nurodytos programų dėklo pabaigoje.</string>
     <string name="remove_app_folder_title">Trinti aplanką</string>
     <string name="remove_app_folder_title_VZW">Pašalinti aplanką</string>
     <string name="remove_home_folder_message">%s aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos programų ekrane.</string>
@@ -229,11 +237,11 @@ Saug. aplanko"</string>
     <string name="viewtype_custom_grid">Pasirinktinė tvarka</string>
     <string name="widget_duplicate">%s valdiklis jau yra pradžios ekrane.</string>
     <string name="work_folder_name">Darbo</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Jei norite pridėti elementų, palaikykite palietę ekraną</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Atsisiųsti</string>
+    <string name="zeropage_download_msg">Jei norite naudoti šią funkciją, turite įdiegti „%1$s“. Jei norite atsisiųsti ir įdiegti „%2$s“, bakstelėkite ATSISIŲSTI.</string>
     <string name="zeropage_notice_msg">Pasiekiama %s naujienų paslauga. Jei norite ją naudoti vietoj „Flipboard“ informacijos, bakstelėkite „Gerai“.</string>
     <string name="zeropage_setting_dialog_no">Atšaukti</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">„Sohu“ naujienos</string>
 </resources>

@@ -1163,7 +1163,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v2, 0x7f100091
+    const v2, 0x7f100095
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1173,7 +1173,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f100093
+    const v2, 0x7f100097
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1211,7 +1211,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    const v2, 0x7f100092
+    const v2, 0x7f100096
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1248,7 +1248,7 @@
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$602(Lcom/android/launcher2/MenuEditBar$Item;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     :cond_0
-    const v2, 0x7f10008e
+    const v2, 0x7f100092
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1258,7 +1258,7 @@
 
     if-eqz v0, :cond_1
 
-    const v2, 0x7f100090
+    const v2, 0x7f100094
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1296,7 +1296,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    const v2, 0x7f10008f
+    const v2, 0x7f100093
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1359,7 +1359,7 @@
 .method public reloadLayout(I)V
     .locals 4
 
-    const v3, 0x7f090127
+    const v3, 0x7f090128
 
     const/4 v2, 0x0
 

@@ -34,14 +34,17 @@
     <string name="all_apps_title">Қолданбалар</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;АӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩЪЫІЬЭЮЯABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZАӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТУҰҮФХҺЦЧШЩъЫІьЭЮЯ</string>
+    <string name="app_hidden_toast">%s жасырылды.</string>
+    <string name="app_locked_toast">%s құлыпталған.</string>
     <string name="app_search">Іздеу</string>
     <string name="app_search_no_apps">Жедел пернелерді бастапқы экранда іздеу нәтижелерінен қосуға болады.</string>
     <string name="app_search_no_results_found">Нәтиже жоқ</string>
+    <string name="app_unlocked_toast">%s құлыптан босатылған.</string>
     <string name="apply">Қолдану</string>
     <string name="available_galaxyapps">Galaxy Apps дүкенінде қолжетімді</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Әр қолданба үшін белгілерді көрсету немесе жасыру қажеттілігін таңдаңыз.</string>
+    <string name="badge_manage_summary">Әр қолданба үшін белгілерді көрсету немесе жасыру қажеттілігін таңдаңыз.</string>
+    <string name="badge_manage_title">Қолданба белгілерін басқару</string>
     <string name="cancel">Тоқтату</string>
     <string name="change_home_screen_settings">Бастапқы экран парам. өзг-у</string>
     <string name="change_home_screen_settings_info">Бұл қолданба бастапқы экран параметрлері мен жедел пернелерін өзгерте алады.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Тікелей теру</string>
     <string name="direct_message">Тікелей хабар</string>
     <string name="disable_message">%1$s қолданбасы мен оған қатысты барлық функциялар өшіріледі. Қолданбаны қайта қосу үшін, Параметрлер > Қолданбалар бөліміне өтіп, %2$s тармағын таңдаңыз.</string>
+    <string name="disable_message_att">%s қолданбасы мен оған қатысты барлық мүмкіндіктер өшіріледі. Оны қайта қосу үшін Параметрлер > Құрылғы > Қолданбалар > Қолданба реттеушісі бөліміне өтіңіз.</string>
     <string name="disable_message_vzw">%s және барлық қатысты мүмкіндіктер өшіріледі. Қайта қосу үшін Параметрлер > Бағдарламалар > Бағдарламалар реттеушісі бөліміне өтіңіз.</string>
     <string name="disable_messange_knox">%s және оған қатысты барлық мүмкіндіктер өшіріледі. Оны қайта қосу үшін, KNOX параметрлері > Қолданба реттеушісі бөліміне өтіңіз.</string>
     <string name="disable_title">Бағдарламаны өшіру</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Виджеттің өлшемін өзгерту үшін жиегін жоғары-төмен немесе ішке-сыртқа тартыңыз.</string>
     <string name="guide_tap_here">Бағдарламалар белгішесін түртіңіз.</string>
     <string name="guide_widgets_tap_area">Виджетті өзгертілгенше басып тұрып, белгішесін жіберіңіз.</string>
+    <string name="hide">Жасыру</string>
+    <string name="hide_confirm_continue">Жалғастыру</string>
+    <string name="hide_confirm_message">%s қолданбасы қазір құлыпталған. Осы қолданба жасырылса, оның құлпы ашылады.</string>
+    <string name="hide_confirm_title">Қолданбаны жасыру</string>
     <string name="home_edit_add_to_personal">Жеке мәл.қосу</string>
     <string name="home_edit_bar_delete_title">Белгішені жою</string>
     <string name="home_edit_bar_delete_title_vzw">Белгішені жою</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s виджеті бастапқы экранға бұрын қосылып қойған.</string>
     <string name="open_folder">Қалта ашу</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Қолданбаларды көру</string>
     <string name="option_menu_contact_up">Бізге хабарласыңыз</string>
     <string name="option_tray_screengrid">Экран торы</string>
     <string name="options_home_set_theme">Тақырыптар</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Виджеттерді қосу</string>
     <string name="quick_contact">Контакт</string>
     <string name="quick_options_help_text">Қолданбаның жылдам опцияларын көру үшін, сол қолданбаның жедел пернесін төмен қарай сипаңыз. Жылдам опциялар қолданбаларды оңай басқаруға мүмкіндік береді.</string>
+    <string name="quickoption_sleep">Ұйқы</string>
     <string name="quickoptions_add_apps">Бағдарламаларды қосу</string>
     <string name="quickoptions_add_to_secure_folder">"Қауіпсіз қалтаға
 қосу"</string>
     <string name="quickoptions_app_info">Бағдарлама ақпараты</string>
     <string name="quickoptions_clear_badge">Тазалау белгісі</string>
     <string name="quickoptions_disable">Өшіру</string>
-    <string name="quickoptions_put_to_sleep">Ұйқылық күйге ауыстыру</string>
-    <string name="quickoptions_put_to_sleep_alert">Осы қолданбаны ұйқылық күйге ауыстыру оның фонда батарея қуатын пайдалануына жол бермейді. Ұйқыдағы қолданбалар жаңартуларды қабылдамауы немесе сізге хабарландыруларды жібермеуі мүмкін, бірақ бұл қолданбалар ашылған кезде оянады.</string>
+    <string name="quickoptions_sleep_alert">Осы қолданбаны ұйқылық күйге ауыстыру оның фонда батарея қуатын пайдалануына жол бермейді. Ұйқыдағы қолданбалар жаңартуларды қабылдамауы немесе сізге хабарландыруларды жібермеуі мүмкін, бірақ бұл қолданбалар ашылған кезде оянады.</string>
     <string name="quickoptions_uninstall">Жою</string>
     <string name="quickview_delete_toast_msg">Жою үшін бетті “Жою” тармағына сүйреңіз.</string>
     <string name="quickview_drag_bar_delete_title">Жою</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Жою</string>
     <string name="remove_app_folder_confirm_VZW">Жою</string>
     <string name="remove_app_folder_message">%s қалтасы жойылады. Осы қалтаның ішіндегі қолданбалар “Қолданбалар” экранында әлі де қолжетімді болады.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s қалтасы жойылады. Осы қалта ішіндегі қолданбалар қолданба науасының соңында көрсетіледі.</string>
     <string name="remove_app_folder_message_no_title">Бұл қалта жойылады. Бұл қалтадағы бағдарламалар жойылмайды</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Бұл қалта жойылады. Осы қалта ішіндегі қолданбалар қолданба науасының соңында көрсетіледі.</string>
     <string name="remove_app_folder_title">Қалтаны жою</string>
     <string name="remove_app_folder_title_VZW">Қалтаны алып тастау</string>
     <string name="remove_home_folder_message">%s қалтасы жойылады. Осы қалтаның ішіндегі қолданбалар “Қолданбалар” экранында әлі де қолжетімді болады.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Реттелмелі қатар</string>
     <string name="widget_duplicate">%s виджеті бастапқы экранда бұрыннан бар.</string>
     <string name="work_folder_name">Жұмыс</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Элементтер қосу үшін экранды басып тұрыңыз</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Жүктеу</string>
+    <string name="zeropage_download_msg">Бұл функцияны пайдалану үшін %1$s қолданбасын орнату қажет. %2$s қолданбасын жүктеу және орнату үшін ЖҮКТЕУ түймесін түртіңіз.</string>
     <string name="zeropage_notice_msg">%s жаңалықтар қызметі енді қолжетімді. Оны Flipboard брифинг қызметінің орнына пайдалану үшін, ОК түймесін түртіңіз.</string>
     <string name="zeropage_setting_dialog_no">Тоқтату</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu жаңалықтары</string>
 </resources>

@@ -40,12 +40,12 @@
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$29;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->bindFestivalPageModeChange()V
-    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1700(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
+    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1900(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$29;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->bindFestivalWorkspace()V
-    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1800(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
+    invoke-static {v0}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$2000(Lcom/android/launcher2/LauncherModel$LoaderTask;)V
 
     return-void
 .end method

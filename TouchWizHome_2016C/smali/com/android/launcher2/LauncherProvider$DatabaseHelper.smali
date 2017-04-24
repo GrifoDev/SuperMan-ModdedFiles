@@ -1315,422 +1315,240 @@
 .end method
 
 .method private addAppWidget(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ComponentName;III)Z
-    .locals 23
+    .locals 14
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isSafeMode()Z
 
-    move-result v20
+    move-result v11
 
-    if-eqz v20, :cond_1
+    if-eqz v11, :cond_1
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
     :cond_0
     :goto_0
-    return v6
+    return v2
 
     :cond_1
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    move-object/from16 v0, p0
+    iget-object v11, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
 
-    iget-object v0, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
+    invoke-static {v11}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
-    move-object/from16 v20, v0
+    move-result-object v4
 
-    invoke-static/range {v20 .. v20}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
-
-    move-result-object v8
-
-    const/4 v7, -0x1
+    const/4 v3, -0x1
 
     :try_start_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->generateNewFavoritesId()J
+    invoke-virtual {p0}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->generateNewFavoritesId()J
 
-    move-result-wide v14
+    move-result-wide v6
 
-    const/16 v18, 0x0
+    const/4 v10, 0x0
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
-    move-result v20
+    move-result v11
 
-    if-eqz v20, :cond_3
+    if-eqz v11, :cond_3
 
-    move/from16 v7, p7
+    move/from16 v3, p7
 
-    new-instance v16, Landroid/os/Bundle;
+    new-instance v9, Landroid/os/Bundle;
 
-    invoke-direct/range {v16 .. v16}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v9}, Landroid/os/Bundle;-><init>()V
 
-    const-string v20, "appWidgetIdForceAllocMode"
+    const-string v11, "appWidgetIdForceAllocMode"
 
-    const-string v21, "ifEmpty"
+    const-string v12, "ifEmpty"
 
-    move-object/from16 v0, v16
+    invoke-virtual {v9, v11, v12}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v1, v20
+    const-string v11, "appWidgetIdForceAllocHostId"
 
-    move-object/from16 v2, v21
+    const/16 v12, 0x400
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v9, v11, v12}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string v20, "appWidgetIdForceAllocHostId"
+    const-string v11, "Old_WidgetId"
 
-    const/16 v21, 0x400
+    invoke-virtual {v9, v11, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    move-object/from16 v0, v16
+    const-string v11, "New_WidgetId"
 
-    move-object/from16 v1, v20
-
-    move/from16 v2, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string v20, "Old_WidgetId"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1, v7}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string v20, "New_WidgetId"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1, v7}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v9, v11, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     move/from16 v0, p7
 
     move-object/from16 v1, p4
 
-    move-object/from16 v2, v16
+    invoke-virtual {v4, v0, v1, v9}, Landroid/appwidget/AppWidgetManager;->bindAppWidgetIdIfAllowed(ILandroid/content/ComponentName;Landroid/os/Bundle;)Z
 
-    invoke-virtual {v8, v0, v1, v2}, Landroid/appwidget/AppWidgetManager;->bindAppWidgetIdIfAllowed(ILandroid/content/ComponentName;Landroid/os/Bundle;)Z
+    move-result v11
 
-    move-result v20
+    if-eqz v11, :cond_2
 
-    if-eqz v20, :cond_2
-
-    const/16 v18, 0x1
+    const/4 v10, 0x1
 
     :goto_1
-    new-instance v13, Landroid/content/Intent;
+    new-instance v8, Landroid/content/Intent;
 
-    invoke-direct {v13}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v8}, Landroid/content/Intent;-><init>()V
 
     move-object/from16 v0, p4
 
-    invoke-virtual {v13, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v8, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    const-string v20, "intent"
+    const-string v11, "intent"
 
-    const/16 v21, 0x0
+    const/4 v12, 0x0
 
-    move/from16 v0, v21
+    invoke-virtual {v8, v12}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
 
-    invoke-virtual {v13, v0}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
-
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-object/from16 v2, v21
+    const-string v11, "itemType"
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v12, 0x4
 
-    const-string v20, "itemType"
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/16 v21, 0x4
-
-    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v20, "spanX"
+    const-string v11, "spanX"
 
     invoke-static/range {p5 .. p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-object/from16 v2, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v20, "spanY"
+    const-string v11, "spanY"
 
     invoke-static/range {p6 .. p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-object/from16 v2, v21
+    const-string v11, "appWidgetId"
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v20, "appWidgetId"
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-object/from16 v2, v21
+    const-string v11, "_id"
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const-string v20, "_id"
-
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v21
+    move-result-object v12
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    move-object/from16 v2, v21
+    const/4 v11, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    move-object/from16 v0, p2
 
-    const/16 v20, 0x0
+    move-object/from16 v1, p3
 
-    move-object/from16 v0, p0
+    invoke-static {p0, p1, v0, v11, v1}, Lcom/android/launcher2/LauncherProvider;->dbInsertAndCheck(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
-    move-object/from16 v1, p1
+    const/4 v2, 0x1
 
-    move-object/from16 v2, p2
-
-    move-object/from16 v3, v20
-
-    move-object/from16 v4, p3
-
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher2/LauncherProvider;->dbInsertAndCheck(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
-
-    const/4 v6, 0x1
-
-    if-nez v18, :cond_0
+    if-nez v10, :cond_0
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
-    move-result v20
+    move-result v11
 
-    if-eqz v20, :cond_4
+    if-eqz v11, :cond_0
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredAllocateAppWidgetIdList:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$1000()Ljava/util/HashMap;
 
-    move-result-object v20
+    move-result-object v11
 
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v21
+    move-result-object v12
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v22
+    move-result-object v13
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, p4
 
-    move-object/from16 v1, p4
+    invoke-static {v13, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    invoke-static {v0, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    move-result-object v13
 
-    move-result-object v22
+    move-object/from16 v0, p2
 
-    move-object/from16 v0, v22
+    invoke-static {v13, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-object/from16 v1, p2
+    move-result-object v13
 
-    invoke-static {v0, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v22
-
-    invoke-virtual/range {v20 .. v22}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v11, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v12
+    move-exception v5
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
-    move-result v20
+    move-result v11
 
-    if-eqz v20, :cond_0
+    if-eqz v11, :cond_0
 
-    const-string v20, "LauncherProvider"
+    const-string v11, "LauncherProvider"
 
-    const-string v21, "Problem allocating appWidgetId"
+    const-string v12, "Problem allocating appWidgetId"
 
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v21
-
-    invoke-static {v0, v1, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v11, v12, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto/16 :goto_0
 
     :cond_2
     :try_start_1
-    const-string v20, "LauncherProvider"
+    const-string v11, "LauncherProvider"
 
-    const-string v21, "B&R, appWidgetId; bindAppWidgetIdIfAllowed(..., cn, options) returned false"
+    const-string v12, "B&R, appWidgetId; bindAppWidgetIdIfAllowed(..., cn, options) returned false"
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_1
 
     :cond_3
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mAppWidgetHost:Landroid/appwidget/AppWidgetHost;
-
-    move-object/from16 v20, v0
-
-    invoke-virtual/range {v20 .. v20}, Landroid/appwidget/AppWidgetHost;->allocateAppWidgetId()I
-
-    move-result v7
+    const/16 v3, -0x3e8
 
     goto/16 :goto_1
-
-    :cond_4
-    const/16 v20, -0x1
-
-    move/from16 v0, v20
-
-    if-le v7, v0, :cond_0
-
-    move-object/from16 v0, p4
-
-    invoke-virtual {v8, v7, v0}, Landroid/appwidget/AppWidgetManager;->bindAppWidgetIdIfAllowed(ILandroid/content/ComponentName;)Z
-
-    move-result v20
-
-    if-nez v20, :cond_0
-
-    const-string v20, "LauncherProvider"
-
-    const-string v21, "Problem allocating appWidgetId; bindAppWidgetIdIfAllowed returned false"
-
-    invoke-static/range {v20 .. v21}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
-    invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
-
-    move-result-object v20
-
-    const-string v21, "com.sec.android.app.launcher.prefs"
-
-    const/16 v22, 0x0
-
-    invoke-virtual/range {v20 .. v22}, Lcom/android/launcher2/LauncherApplication;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v17
-
-    const-string v10, "@"
-
-    new-instance v19, Ljava/util/HashSet;
-
-    const-string v20, "NeedBindingWidgets"
-
-    new-instance v21, Ljava/util/HashSet;
-
-    invoke-direct/range {v21 .. v21}, Ljava/util/HashSet;-><init>()V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v21
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
-
-    move-result-object v20
-
-    invoke-direct/range {v19 .. v20}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
-
-    if-eqz v19, :cond_0
-
-    invoke-interface/range {v17 .. v17}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v11
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    const-string v21, "@"
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {p4 .. p4}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    move-object/from16 v0, v19
-
-    invoke-interface {v0, v9}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string v20, "NeedBindingWidgets"
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v19
-
-    invoke-interface {v11, v0, v1}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v11}, Landroid/content/SharedPreferences$Editor;->apply()V
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto/16 :goto_0
 .end method
 
 .method private addAppWidget(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/pm/PackageManager;Ljava/lang/String;Ljava/lang/String;III)Z
@@ -1918,6 +1736,26 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object v2, p0
+
+    move-object/from16 v3, p1
+
+    move-object/from16 v4, p2
+
+    move-object/from16 v5, p3
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    move/from16 v9, p9
+
+    invoke-direct/range {v2 .. v9}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->addAppWidget(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ComponentName;III)Z
+
+    move-result v2
+
+    goto/16 :goto_0
 
     :cond_5
     const/4 v2, 0x0
@@ -5867,170 +5705,6 @@
     return-void
 .end method
 
-.method private getCSCFolderTitleWithTanslation(Ljava/lang/String;)I
-    .locals 11
-
-    const/16 v10, 0x7c
-
-    iget-object v3, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mCSCFolderTitleKeyMap:[Ljava/lang/String;
-
-    if-nez v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f0f0003
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mCSCFolderTitleKeyMap:[Ljava/lang/String;
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mCSCFolderTitleKeyMap:[Ljava/lang/String;
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mCSCFolderTitleKeyMap:[Ljava/lang/String;
-
-    array-length v3, v3
-
-    if-lez v3, :cond_3
-
-    iget-object v4, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mCSCFolderTitleKeyMap:[Ljava/lang/String;
-
-    array-length v5, v4
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v3, v5, :cond_3
-
-    aget-object v2, v4, v3
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    :try_start_0
-    iget-object v6, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const/16 v8, 0x7c
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string v8, ""
-
-    invoke-virtual {v2, v7, v8}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string v8, "string"
-
-    iget-object v9, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v9}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v6, v7, v8, v9}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    if-lez v1, :cond_1
-
-    iget-object v6, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object p1
-
-    :cond_1
-    :goto_1
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const-string v6, "LauncherProvider"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Could not catch getIdentifier from resource : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v1, -0x1
-
-    goto :goto_1
-.end method
-
 .method private getColumnList(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase;)Ljava/util/ArrayList;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
@@ -7481,13 +7155,13 @@
 
     iget-boolean v4, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mOnlyLoadFrontApps:Z
 
-    if-nez v4, :cond_20
+    if-nez v4, :cond_1f
 
     const-wide/16 v4, -0x1
 
     cmp-long v4, p3, v4
 
-    if-nez v4, :cond_20
+    if-nez v4, :cond_1f
 
     const-string v4, "folder"
 
@@ -7497,7 +7171,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_1f
 
     const/4 v15, 0x0
 
@@ -7507,13 +7181,13 @@
 
     const/16 v29, 0x0
 
-    if-eqz p5, :cond_1a
+    if-eqz p5, :cond_19
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mPAItargetResources:Landroid/content/res/Resources;
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_18
 
     move-object/from16 v4, p2
 
@@ -7529,7 +7203,7 @@
 
     move-result v26
 
-    if-eqz v26, :cond_18
+    if-eqz v26, :cond_17
 
     move-object/from16 v0, p0
 
@@ -7542,40 +7216,6 @@
     move-result-object v15
 
     :goto_5
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
-    invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
-
-    move-result v4
-
-    if-nez v4, :cond_13
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v15}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->getCSCFolderTitleWithTanslation(Ljava/lang/String;)I
-
-    move-result v41
-
-    const/4 v4, -0x1
-
-    move/from16 v0, v41
-
-    if-eq v0, v4, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    move/from16 v0, v41
-
-    invoke-virtual {v4, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v15
-
-    :cond_13
     const/4 v4, 0x0
 
     const-string v5, "folderColor"
@@ -7593,11 +7233,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_14
+    if-eqz v4, :cond_13
 
     const/16 v34, 0x0
 
-    :cond_14
+    :cond_13
     const-string v4, "title"
 
     invoke-virtual {v6, v4, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -7640,7 +7280,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_14
 
     const/4 v4, 0x0
 
@@ -7652,7 +7292,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_14
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
@@ -7667,7 +7307,7 @@
 
     invoke-virtual {v4, v0, v1}, Lcom/android/launcher2/AppFolderingSpr;->setSprintFolderId(J)V
 
-    :cond_15
+    :cond_14
     const/4 v4, 0x0
 
     const-string v5, "carrier"
@@ -7678,7 +7318,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_15
 
     const-string v4, "T-Mobile"
 
@@ -7686,7 +7326,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_15
 
     invoke-static {}, Lcom/android/launcher2/customer/TMO;->getInstance()Lcom/android/launcher2/customer/TMO;
 
@@ -7696,7 +7336,7 @@
 
     invoke-virtual {v4, v0, v1}, Lcom/android/launcher2/customer/TMO;->enableAppsFolderAdapt(J)V
 
-    :cond_16
+    :cond_15
     add-int/lit8 v35, v35, 0x1
 
     add-int/lit8 v27, v27, 0x1
@@ -7713,7 +7353,7 @@
 
     move-result v30
 
-    if-nez v30, :cond_1d
+    if-nez v30, :cond_1c
 
     const-string v4, "LauncherProvider"
 
@@ -7753,13 +7393,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1c
+    if-eqz v4, :cond_1b
 
     add-int/lit8 v35, v35, -0x1
 
     add-int/lit8 v27, v27, -0x1
 
-    :cond_17
+    :cond_16
     :goto_7
     add-int v35, v35, v30
 
@@ -7789,12 +7429,12 @@
 
     goto/16 :goto_3
 
-    :cond_18
+    :cond_17
     const-string v15, ""
 
     goto/16 :goto_5
 
-    :cond_19
+    :cond_18
     const/4 v4, 0x0
 
     const-string v5, "title"
@@ -7807,7 +7447,7 @@
 
     goto/16 :goto_5
 
-    :cond_1a
+    :cond_19
     const/4 v4, 0x4
 
     const/4 v5, -0x1
@@ -7822,7 +7462,7 @@
 
     move/from16 v0, v41
 
-    if-eq v0, v4, :cond_1b
+    if-eq v0, v4, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -7838,7 +7478,7 @@
 
     move-result-object v15
 
-    :cond_1b
+    :cond_1a
     const/4 v4, 0x6
 
     move-object/from16 v0, v24
@@ -7849,7 +7489,7 @@
 
     goto/16 :goto_6
 
-    :cond_1c
+    :cond_1b
     const-string v4, "LauncherProvider"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -7876,12 +7516,12 @@
 
     goto :goto_7
 
-    :cond_1d
+    :cond_1c
     const/4 v4, 0x1
 
     move/from16 v0, v30
 
-    if-ne v0, v4, :cond_1e
+    if-ne v0, v4, :cond_1d
 
     add-int/lit8 v23, v27, -0x1
 
@@ -7895,20 +7535,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_16
 
     add-int/lit8 v35, v35, -0x1
 
     goto/16 :goto_7
 
-    :cond_1e
+    :cond_1d
     move-object/from16 v42, v15
 
     const/4 v4, -0x1
 
     move/from16 v0, v41
 
-    if-le v0, v4, :cond_1f
+    if-le v0, v4, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -7934,7 +7574,7 @@
 
     move-result-object v42
 
-    :cond_1f
+    :cond_1e
     invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
 
     move-result-object v4
@@ -7953,14 +7593,14 @@
 
     goto/16 :goto_7
 
-    :cond_20
+    :cond_1f
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportSprintExtension()Z
 
     move-result v4
 
-    if-eqz v4, :cond_21
+    if-eqz v4, :cond_20
 
-    if-eqz p5, :cond_21
+    if-eqz p5, :cond_20
 
     const-string v4, "exclude"
 
@@ -7970,7 +7610,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_21
+    if-eqz v4, :cond_20
 
     const/4 v4, 0x0
 
@@ -7995,7 +7635,7 @@
 
     goto/16 :goto_3
 
-    :cond_21
+    :cond_20
     # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
@@ -10926,25 +10566,25 @@
 
     move-result v6
 
-    if-nez v6, :cond_3e
+    if-nez v6, :cond_3d
 
     move-object/from16 v0, p0
 
     iget-boolean v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportFlexibleGrid:Z
 
-    if-eqz v6, :cond_3e
+    if-eqz v6, :cond_3d
 
     const-wide/16 v6, -0x64
 
     cmp-long v6, p4, v6
 
-    if-nez v6, :cond_3e
+    if-nez v6, :cond_3d
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportGridSizeArray:[Ljava/lang/String;
 
-    if-eqz v6, :cond_3e
+    if-eqz v6, :cond_3d
 
     const/16 v69, 0x0
 
@@ -10959,7 +10599,7 @@
 
     move/from16 v0, v64
 
-    if-ge v0, v6, :cond_3c
+    if-ge v0, v6, :cond_3b
 
     move-object/from16 v0, p0
 
@@ -12452,7 +12092,7 @@
     :cond_2e
     and-int/lit8 v6, p6, 0x4
 
-    if-eqz v6, :cond_3b
+    if-eqz v6, :cond_3a
 
     const-string v6, "folder"
 
@@ -12462,7 +12102,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3b
+    if-eqz v6, :cond_3a
 
     const/16 v84, 0x0
 
@@ -12472,13 +12112,13 @@
 
     const/16 v60, 0x0
 
-    if-eqz p7, :cond_33
+    if-eqz p7, :cond_32
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mPAItargetResources:Landroid/content/res/Resources;
 
-    if-eqz v6, :cond_32
+    if-eqz v6, :cond_31
 
     move-object/from16 v6, p3
 
@@ -12494,7 +12134,7 @@
 
     move-result v54
 
-    if-eqz v54, :cond_31
+    if-eqz v54, :cond_30
 
     move-object/from16 v0, p0
 
@@ -12507,42 +12147,6 @@
     move-result-object v84
 
     :goto_d
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
-    invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
-
-    move-result v6
-
-    if-nez v6, :cond_2f
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v84
-
-    invoke-direct {v0, v1}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->getCSCFolderTitleWithTanslation(Ljava/lang/String;)I
-
-    move-result v85
-
-    const/4 v6, -0x1
-
-    move/from16 v0, v85
-
-    if-eq v0, v6, :cond_2f
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v6
-
-    move/from16 v0, v85
-
-    invoke-virtual {v6, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v84
-
-    :cond_2f
     const/4 v6, 0x0
 
     const-string v7, "hideAddButton"
@@ -12576,11 +12180,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_30
+    if-eqz v6, :cond_2f
 
     const/16 v67, 0x0
 
-    :cond_30
+    :cond_2f
     const-string v6, "title"
 
     move-object/from16 v0, v17
@@ -12653,7 +12257,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_35
+    if-eqz v6, :cond_34
 
     invoke-static/range {v79 .. v79}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -12663,7 +12267,7 @@
 
     move-result v6
 
-    if-gez v6, :cond_35
+    if-gez v6, :cond_34
 
     move-object/from16 v0, p0
 
@@ -12677,7 +12281,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_35
 
     move-object/from16 v0, p0
 
@@ -12695,12 +12299,12 @@
 
     goto/16 :goto_0
 
-    :cond_31
+    :cond_30
     const-string v84, ""
 
     goto/16 :goto_d
 
-    :cond_32
+    :cond_31
     const/4 v6, 0x0
 
     const-string v7, "title"
@@ -12713,7 +12317,7 @@
 
     goto/16 :goto_d
 
-    :cond_33
+    :cond_32
     const/16 v6, 0xa
 
     const/4 v7, -0x1
@@ -12728,7 +12332,7 @@
 
     move/from16 v0, v85
 
-    if-eq v0, v6, :cond_34
+    if-eq v0, v6, :cond_33
 
     move-object/from16 v0, p0
 
@@ -12744,7 +12348,7 @@
 
     move-result-object v84
 
-    :cond_34
+    :cond_33
     const/16 v6, 0x10
 
     const/4 v7, 0x0
@@ -12765,12 +12369,12 @@
 
     goto/16 :goto_e
 
-    :cond_35
+    :cond_34
     const/4 v6, 0x1
 
     move/from16 v0, v61
 
-    if-gt v0, v6, :cond_38
+    if-gt v0, v6, :cond_37
 
     :try_start_4
     const-string v6, "LauncherProvider"
@@ -12815,7 +12419,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_37
+    if-eqz v6, :cond_36
 
     add-int/lit8 v68, v68, -0x1
 
@@ -12823,7 +12427,7 @@
 
     move/from16 v0, v61
 
-    if-ne v0, v6, :cond_36
+    if-ne v0, v6, :cond_35
 
     new-instance v75, Landroid/content/ContentValues;
 
@@ -12905,7 +12509,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v6}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    :cond_36
+    :cond_35
     :goto_f
     add-int v68, v68, v61
 
@@ -12955,14 +12559,14 @@
 
     goto/16 :goto_9
 
-    :cond_37
+    :cond_36
     :try_start_5
     # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_35
 
     const-string v6, "LauncherProvider"
 
@@ -12990,8 +12594,8 @@
 
     goto :goto_f
 
-    :cond_38
-    if-eqz v67, :cond_39
+    :cond_37
+    if-eqz v67, :cond_38
 
     move-object/from16 v0, p0
 
@@ -13021,14 +12625,14 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_39
+    :cond_38
     move-object/from16 v86, v84
 
     const/4 v6, -0x1
 
     move/from16 v0, v85
 
-    if-le v0, v6, :cond_3a
+    if-le v0, v6, :cond_39
 
     move-object/from16 v0, p0
 
@@ -13054,7 +12658,7 @@
 
     move-result-object v86
 
-    :cond_3a
+    :cond_39
     invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
 
     move-result-object v6
@@ -13075,7 +12679,7 @@
 
     goto/16 :goto_f
 
-    :cond_3b
+    :cond_3a
     # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
@@ -13123,14 +12727,14 @@
 
     goto/16 :goto_9
 
-    :cond_3c
+    :cond_3b
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportGridSizeArray:[Ljava/lang/String;
 
     aget-object v6, v6, v69
 
-    if-eqz v6, :cond_3e
+    if-eqz v6, :cond_3d
 
     move-object/from16 v0, p0
 
@@ -13144,7 +12748,7 @@
 
     move-result-object v62
 
-    if-eqz v62, :cond_3e
+    if-eqz v62, :cond_3d
 
     move-object/from16 v0, v62
 
@@ -13152,7 +12756,7 @@
 
     const/4 v7, 0x2
 
-    if-ne v6, v7, :cond_3e
+    if-ne v6, v7, :cond_3d
 
     const/4 v6, 0x0
 
@@ -13170,7 +12774,7 @@
 
     move-result v72
 
-    if-eqz p8, :cond_3e
+    if-eqz p8, :cond_3d
 
     const/4 v6, 0x0
 
@@ -13178,7 +12782,7 @@
 
     move/from16 v0, v71
 
-    if-ne v6, v0, :cond_3d
+    if-ne v6, v0, :cond_3c
 
     const/4 v6, 0x1
 
@@ -13186,9 +12790,9 @@
 
     move/from16 v0, v72
 
-    if-eq v6, v0, :cond_3e
+    if-eq v6, v0, :cond_3d
 
-    :cond_3d
+    :cond_3c
     const-string v6, "LauncherProvider"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -13243,7 +12847,7 @@
 
     invoke-static {v6, v0, v1, v7}, Lcom/android/launcher2/Utilities;->storeGridLayoutPreference(Landroid/content/Context;IIZ)V
 
-    :cond_3e
+    :cond_3d
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->folderIds:Ljava/lang/StringBuilder;
@@ -13258,7 +12862,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3f
+    if-nez v6, :cond_3e
 
     # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
@@ -13293,7 +12897,7 @@
 
     invoke-interface/range {v74 .. v74}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_3f
+    :cond_3e
     return v68
 .end method
 

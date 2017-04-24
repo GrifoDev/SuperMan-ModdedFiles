@@ -34,9 +34,12 @@
     <string name="all_apps_title">יישומים</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;אבגדהוזחטיכךלמםנןסעפףצץקרשתABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#אבגדהזחטיכךלמםנןסעפףצץקרשתABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s מוסתרים.</string>
+    <string name="app_locked_toast">%s נעול.</string>
     <string name="app_search">חיפוש</string>
     <string name="app_search_no_apps">תוכל להוסיף במסך הבית קיצורי דרך מתוך תוצאות החיפוש.</string>
     <string name="app_search_no_results_found">לא נמצאו תוצאות</string>
+    <string name="app_unlocked_toast">בוטלה נעילת %s.</string>
     <string name="apply">החל</string>
     <string name="available_galaxyapps">זמין ב-Galaxy Apps</string>
     <string name="badge_manage_explain">בחר אם להציג או להסתיר תגים עבור כל יישום.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">חיוג מהיר</string>
     <string name="direct_message">הודעה ישירה</string>
     <string name="disable_message">"היישום %1$s וכל היישומים הקשורים יושבתו. כדי להפעיל יישום זה מחדש, עבור אל 'הגדרות' > 'יישומים' ובחר באפשרות %2$s."</string>
+    <string name="disable_message_att">"היישום %s וכל התכונות הקשורות יושבתו. כדי להפעיל אותו מחדש, עבור אל 'הגדרות' > 'מכשיר' > 'יישומים' > 'מנהל היישומים'."</string>
     <string name="disable_message_vzw">"היישום %s וכל התכונות הקשורות יושבתו. כדי להפעיל אותו מחדש, עבור אל 'הגדרות' > 'יישומים' > 'מנהל היישומים'."</string>
     <string name="disable_messange_knox">"היישום %s וכל התכונות הקשורות יושבתו. כדי להפעיל אותו מחדש, עבור אל הגדרות KNOX > 'מנהל היישומים'."</string>
     <string name="disable_title">השבת את היישום</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">משוך את הגבול למעלה, למטה, פנימה או החוצה כדי לשנות את גודל היישומון.</string>
     <string name="guide_tap_here">הקש על סמל היישומים.</string>
     <string name="guide_widgets_tap_area">הקש באריכות על יישומון עד שתתאפשר עריכה שלו, ולאחר מכן שחרר אותו.</string>
+    <string name="hide">הסתר</string>
+    <string name="hide_confirm_continue">המשך</string>
+    <string name="hide_confirm_message">היישום %s נעול כרגע. אם תסתיר אותו, נעילתו תתבטל.</string>
+    <string name="hide_confirm_title">הסתרת יישום</string>
     <string name="home_edit_add_to_personal">הוסף לאישי</string>
     <string name="home_edit_bar_delete_title">הסר קיצור דרך</string>
     <string name="home_edit_bar_delete_title_vzw">הסר קיצור דרך</string>
@@ -134,7 +142,7 @@
     <string name="ok">אישור</string>
     <string name="only_one_widget_instance_allowed">היישומון %s כבר נוסף במסך הבית.</string>
     <string name="open_folder">פתח תיקייה</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">הצג יישומים</string>
     <string name="option_menu_contact_up">צור קשר</string>
     <string name="option_tray_screengrid">קווי רשת במסך</string>
     <string name="options_home_set_theme">ערכת נושא</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">הוסף יישומונים</string>
     <string name="quick_contact">איש קשר</string>
     <string name="quick_options_help_text">"החלק מטה על קיצור דרך של יישום כדי להציג את האפשרויות המהירות שלו. בעזרת הפונקציה 'אפשרויות מהירות' תוכל לנהל יישומים בקלות."</string>
+    <string name="quickoption_sleep">שינה</string>
     <string name="quickoptions_add_apps">הוספת יישומים</string>
     <string name="quickoptions_add_to_secure_folder">"הוסף
 ל'תיקייה מאובטחת'"</string>
     <string name="quickoptions_app_info">פרטי היישום</string>
     <string name="quickoptions_clear_badge">נקה תג</string>
     <string name="quickoptions_disable">השבת</string>
-    <string name="quickoptions_put_to_sleep">העבר למצב שינה</string>
-    <string name="quickoptions_put_to_sleep_alert">ההעברה של יישום זה למצב שינה תמנע ממנו לצרוך מתח מהסוללה ברקע. ייתכן שיישומים במצב שינה לא יקבלו עדכונים ולא ישלחו אליך התראות, אולם הם יתעוררו ברגע שתפתח אותם.</string>
+    <string name="quickoptions_sleep_alert">ההעברה של יישום זה למצב שינה תמנע ממנו לצרוך מתח מהסוללה ברקע. ייתכן שיישומים במצב שינה לא יקבלו עדכונים ולא ישלחו אליך התראות, אולם הם יתעוררו ברגע שתפתח אותם.</string>
     <string name="quickoptions_uninstall">הסר</string>
     <string name="quickview_delete_toast_msg">"גרור את הדף אל הפריט 'הסר' כדי להסיר אותו."</string>
     <string name="quickview_drag_bar_delete_title">הסר</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">מחק</string>
     <string name="remove_app_folder_confirm_VZW">הסר</string>
     <string name="remove_app_folder_message">התיקייה %s תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים דרך מסך היישומים.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">התיקייה %s תוסר. היישומים שבתוך תיקייה זאת יופיעו בסוף מגש היישומים.</string>
     <string name="remove_app_folder_message_no_title">תיקייה זו תוסר. יישומים המותקנים בתיקייה זו לא יוסרו.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">תיקייה זו תוסר. היישומים שבתוך תיקייה זאת יופיעו בסוף מגש היישומים.</string>
     <string name="remove_app_folder_title">מחק תיקייה</string>
     <string name="remove_app_folder_title_VZW">הסר תיקייה</string>
     <string name="remove_home_folder_message">התיקייה %s תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים דרך מסך היישומים.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">חפש יישומים</string>
     <string name="search_for_widgets">חפש יישומונים</string>
     <string name="search_result_found">%d נמצא/ו</string>
-    <string name="search_result_founds">%d נמצאו</string>
+    <string name="search_result_founds">%d נמצא/ו</string>
     <string name="select_all_app">הכל</string>
     <string name="select_app_add">הוסף</string>
     <string name="selected">נבחר</string>
@@ -226,10 +234,10 @@
     <string name="viewmore_galaxyapps">הצג עוד ב-Galaxy Apps</string>
     <string name="viewmore_playstore">הצג עוד בחנות Play</string>
     <string name="viewtype_alphabetic_grid">סדר האלף-בית</string>
-    <string name="viewtype_custom_grid">הזמנה מותאמת</string>
+    <string name="viewtype_custom_grid">סדר מותאם</string>
     <string name="widget_duplicate">היישומון %s כבר נמצא במסך הבית.</string>
     <string name="work_folder_name">עבודה</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">לחץ לחיצה ארוכה על המסך כדי להוסיף פריטים</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">הורד</string>
     <string name="zeropage_download_msg">"כדי להשתמש ביישום זה עליך להתקין את %1$s. הקש על 'הורד' כדי להוריד ולהתקין את %2$s."</string>

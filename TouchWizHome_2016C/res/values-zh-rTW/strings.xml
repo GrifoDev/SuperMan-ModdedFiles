@@ -34,9 +34,12 @@
     <string name="all_apps_title">Apps</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s 已隱藏。</string>
+    <string name="app_locked_toast">%s已鎖定。</string>
     <string name="app_search">搜尋</string>
     <string name="app_search_no_apps">您可以從搜尋結果中將捷徑新增到主螢幕。</string>
     <string name="app_search_no_results_found">無搜尋結果</string>
+    <string name="app_unlocked_toast">%s已解除鎖定。</string>
     <string name="apply">套用</string>
     <string name="available_galaxyapps">可於 Galaxy Apps 取得</string>
     <string name="badge_manage_explain">選擇要顯示或隱藏各應用程式的徽章。</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">快速撥號</string>
     <string name="direct_message">快速訊息</string>
     <string name="disable_message">%1$s 及所有與之相關的功能都將停用。若要再次啟用，請前往 [設定] > [應用程式]，然後選擇 %2$s。</string>
+    <string name="disable_message_att">將停用%s及所有相關功能。若要再次啟用，請前往 [設定] > [裝置] > [應用程式] > [應用程式管理員]。</string>
     <string name="disable_message_vzw">%s及所有與之相關的功能皆將停用。若要再次啟用，請前往 [設定] > [應用程式] > [應用程式管理員]。</string>
     <string name="disable_messange_knox">將停用%s及所有相關功能。若要重新啟用，請前往 [ KNOX 設定] > [應用程式管理員]。</string>
     <string name="disable_title">停用應用程式</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">朝上、下、內、外拉動邊界以重新調整 widget 大小。</string>
     <string name="guide_tap_here">輕觸應用程式圖示。</string>
     <string name="guide_widgets_tap_area">輕觸並按住 widget 直到可以編輯為止，然後放開。</string>
+    <string name="hide">隱藏</string>
+    <string name="hide_confirm_continue">繼續</string>
+    <string name="hide_confirm_message">目前已鎖定 %s 應用程式。若您隱藏此應用程式，將予以解鎖。</string>
+    <string name="hide_confirm_title">隱藏應用程式</string>
     <string name="home_edit_add_to_personal">新增至個人</string>
     <string name="home_edit_bar_delete_title">移除捷徑</string>
     <string name="home_edit_bar_delete_title_vzw">移除捷徑</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">新增 widget</string>
     <string name="quick_contact">聯絡人</string>
     <string name="quick_options_help_text">向下滑動應用程式來檢視其快速選項。快速選項可供您輕鬆管理應用程式。</string>
+    <string name="quickoption_sleep">休眠</string>
     <string name="quickoptions_add_apps">新增應用程式</string>
     <string name="quickoptions_add_to_secure_folder">"新增至
 安全資料夾"</string>
     <string name="quickoptions_app_info">應用程式資訊</string>
     <string name="quickoptions_clear_badge">清除標記</string>
     <string name="quickoptions_disable">停用</string>
-    <string name="quickoptions_put_to_sleep">進入休眠</string>
-    <string name="quickoptions_put_to_sleep_alert">讓此應用程式進入休眠可避免其於背景中使用電力。休眠中的應用程式可能不會收到更新或傳送通知給您，但只要您開啟應用程式，隨即會立刻喚醒。</string>
+    <string name="quickoptions_sleep_alert">讓此應用程式進入休眠可避免其於背景中使用電力。休眠中的應用程式可能不會收到更新或傳送通知給您，但只要您開啟應用程式，隨即會立刻喚醒。</string>
     <string name="quickoptions_uninstall">解除安裝</string>
     <string name="quickview_delete_toast_msg">將頁面拖曳至 [移除] 來移除該頁面。</string>
     <string name="quickview_drag_bar_delete_title">移除</string>

@@ -34,9 +34,12 @@
     <string name="all_apps_title">Ứng dụng</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĂÂBCDĐEÊFGHIJKLMNOÔƠPQRSTUƯVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#AĂÂBCDĐEÊGHIYKLMNOÔƠPQRSTUƯVXABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">Đã ẩn %s.</string>
+    <string name="app_locked_toast">%s đã bị khóa.</string>
     <string name="app_search">Tìm kiếm</string>
     <string name="app_search_no_apps">Bạn có thể thêm phím tắt trên màn hình chờ từ kết quả tìm kiếm.</string>
     <string name="app_search_no_results_found">Không tìm thấy kết quả</string>
+    <string name="app_unlocked_toast">Đã mở khóa %s.</string>
     <string name="apply">Lưu</string>
     <string name="available_galaxyapps">Có trong Galaxy Apps</string>
     <string name="badge_manage_explain">Chọn hiển thị hoặc ẩn các huy hiệu cho từng ứng dụng.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Gọi trực tiếp</string>
     <string name="direct_message">Tin nhắn trực tiếp</string>
     <string name="disable_message">%1$s và tất cả chức năng liên quan sẽ bị tắt. Để bật lại ứng dụng, hãy đi đến Cài đặt > Ứng dụng, rồi chọn %2$s.</string>
+    <string name="disable_message_att">%s và tất cả tính năng liên quan sẽ tắt. Để bật lại, hãy đi đến Cài đặt > Thiết bị > Ứng dụng > Quản lý ứng dụng.</string>
     <string name="disable_message_vzw">%s và tất cả tính năng liên quan sẽ tắt. Để bật lại, hãy đi đến Cài đặt > Ứng dụng > Quản lý ứng dụng.</string>
     <string name="disable_messange_knox">%s và tất cả tính năng liên quan sẽ bị tắt. Để bật lại, hãy đến Cài đặt KNOX > Quản lý ứng dụng.</string>
     <string name="disable_title">Tắt ứng dụng</string>
@@ -84,11 +88,15 @@
     <string name="guide_resize_widget_step2">Kéo đường viền lên, xuống, vào trong hoặc ra ngoài để đổi kích cỡ widget.</string>
     <string name="guide_tap_here">Chạm vào biểu tượng ứng dụng.</string>
     <string name="guide_widgets_tap_area">Chạm và giữ một widget cho đến khi bạn có thể chỉnh sửa được rồi thả ra.</string>
+    <string name="hide">Ẩn</string>
+    <string name="hide_confirm_continue">Tiếp tục</string>
+    <string name="hide_confirm_message">Ứng dụng %s hiện đã bị khóa. Nếu bạn ẩn ứng dụng này, nó sẽ được mở khóa.</string>
+    <string name="hide_confirm_title">Ẩn ứng dụng</string>
     <string name="home_edit_add_to_personal">Thêm vào cá nhân</string>
     <string name="home_edit_bar_delete_title">Xóa phím tắt</string>
     <string name="home_edit_bar_delete_title_vzw">Xóa phím tắt</string>
     <string name="home_edit_bar_uninstall_title">Gỡ cài đặt</string>
-    <string name="home_icon_auto_align">Căn chỉnh mục</string>
+    <string name="home_icon_auto_align">Canh chỉnh mục</string>
     <string name="home_screen_content">Nội dung màn hình chờ</string>
     <string name="home_screen_mode_apps">Hiển thị Màn hình ứ.dụng riêng</string>
     <string name="home_screen_mode_change_to_apps_alert">Một màn hình Ứng dụng riêng sẽ được tạo để bạn có thể dễ dàng tìm ứng dụng quan trọng nhất qua biểu tượng Ứng dụng trên màn hình chờ. Bất kỳ tùy chỉnh nào bạn thực hiện trước đó với màn hình chờ sẽ bị hủy.</string>
@@ -142,7 +150,7 @@
     <string name="options_menu">Tùy chọn khác</string>
     <string name="options_menu_downloaded_apps">Ứng dụng đã tải về</string>
     <string name="options_menu_market">Play Store</string>
-    <string name="options_menu_more">KHÁC</string>
+    <string name="options_menu_more">N.hơn</string>
     <string name="options_menu_search">Tìm kiếm widget</string>
     <string name="options_menu_search_recommend">Tùy chọn tìm kiếm</string>
     <string name="options_menu_sort">Sắp xếp</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Thêm widget</string>
     <string name="quick_contact">Danh bạ</string>
     <string name="quick_options_help_text">Vuốt phím tắt ứng dụng xuống để xem tùy chọn nhanh. Tùy chọn nhanh cho phép bạn quản lý ứng dụng dễ dàng.</string>
+    <string name="quickoption_sleep">Nghỉ</string>
     <string name="quickoptions_add_apps">Thêm ứng dụng</string>
     <string name="quickoptions_add_to_secure_folder">"Thêm vào
 Thư mục bảo mật"</string>
     <string name="quickoptions_app_info">Thông tin ứng dụng</string>
     <string name="quickoptions_clear_badge">Xóa huy hiệu</string>
     <string name="quickoptions_disable">Tắt</string>
-    <string name="quickoptions_put_to_sleep">Đặt vào chế độ nghỉ</string>
-    <string name="quickoptions_put_to_sleep_alert">Đặt ứng dụng này vào chế độ nghỉ sẽ ngăn ứng dụng sử dụng pin ngầm. Các ứng dụng đang ở chế độ nghỉ có thể không nhận cập nhật hoặc gửi thông báo cho bạn nhưng chúng sẽ thức dậy khi bạn mở chúng lên.</string>
+    <string name="quickoptions_sleep_alert">Đặt ứng dụng này vào chế độ nghỉ sẽ ngăn ứng dụng sử dụng pin ngầm. Các ứng dụng đang ở chế độ nghỉ có thể không nhận cập nhật hoặc gửi thông báo cho bạn nhưng chúng sẽ thức dậy khi bạn mở chúng lên.</string>
     <string name="quickoptions_uninstall">Gỡ cài đặt</string>
     <string name="quickview_delete_toast_msg">Kéo trang vào mục Xóa để xóa trang.</string>
     <string name="quickview_drag_bar_delete_title">Xóa</string>

@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplikacionet</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCÇDDhEËFGGjHIJKLLlMNNjOPQRRrSShTThUVXXhYZZhABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s fshehur.</string>
+    <string name="app_locked_toast">%s bllokuar.</string>
     <string name="app_search">Kërko</string>
     <string name="app_search_no_apps">Mund të shtosh shkurtore në ekranin bazë që nga rezultatet e kërkimit.</string>
     <string name="app_search_no_results_found">Nuk u gjetën rezultate</string>
+    <string name="app_unlocked_toast">%s u zhbllokua.</string>
     <string name="apply">Zbato</string>
     <string name="available_galaxyapps">Gjendet në Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Përzgjidh nëse do t’i tregosh apo do t’i fshehësh stemat për çdo app.</string>
+    <string name="badge_manage_summary">Përzgjidh nëse do t’i tregosh apo do t’i fshehësh stemat për çdo app.</string>
+    <string name="badge_manage_title">Menaxho stemat e app-eve</string>
     <string name="cancel">Anullo</string>
     <string name="change_home_screen_settings">Ndrysho cilësimet ekr. bazë</string>
     <string name="change_home_screen_settings_info">Ky app mund të ndryshojë cilësimet dhe shkurtoret e ekranit bazë.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Thirrje direkte</string>
     <string name="direct_message">Mesazh direkt</string>
     <string name="disable_message">%1$s dhe të gjitha funksionet e lidhura me të do të paaftësohen. Për ta aftësuar app-in sërish, shko te Cilësimet > Aplikacionet > dhe përzgjidh %2$s.</string>
+    <string name="disable_message_att">%s dhe të gjitha funksionalitetet e lidhura me të do të paaftësohen. Për ta aftësuar sërish, shko te Cilësimet > Pajisja > Aplikacionet > Menaxheri i aplikacioneve.</string>
     <string name="disable_message_vzw">%s dhe të gjitha funksionalitetet e lidhura me të do të paaftësohen. Për ta aftësuar sërish, shko te Cilësimet > Aplikacionet > Menaxheri i aplikacioneve.</string>
     <string name="disable_messange_knox">%s dhe të gjitha funksionalitetet e lidhura me të do të paaftësohen. Për ta aftësuar sërish, shko te Cilësimet KNOX > Menaxheri i aplikacioneve.</string>
     <string name="disable_title">Paaftëso aplikacionin</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Tërhiqe kufizimin lart, poshtë, brenda ose jashtë, për ta ripërmasuar widget-in.</string>
     <string name="guide_tap_here">Trokit mbi ikonën e app-eve.</string>
     <string name="guide_widgets_tap_area">Trokit dhe mbaj një widget derisa të bëhet i redaktueshëm, pastaj liroje.</string>
+    <string name="hide">Fshih</string>
+    <string name="hide_confirm_continue">Vazhdo</string>
+    <string name="hide_confirm_message">App-i %s është aktualisht i kyçur. Po ta fshehësh këtë app, ai do të shkyçet.</string>
+    <string name="hide_confirm_title">Fshih app-in</string>
     <string name="home_edit_add_to_personal">Shto te pers.</string>
     <string name="home_edit_bar_delete_title">Hiq shkurtoren</string>
     <string name="home_edit_bar_delete_title_vzw">Hiq shkurtoren</string>
@@ -134,7 +142,7 @@
     <string name="ok">Ok</string>
     <string name="only_one_widget_instance_allowed">Widget-i %s është shtuar në ekranin bazë.</string>
     <string name="open_folder">Hap dosjen</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Shih app-et</string>
     <string name="option_menu_contact_up">Na kontakto</string>
     <string name="option_tray_screengrid">Rrjeta ekran</string>
     <string name="options_home_set_theme">Temat</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Shto widget-e</string>
     <string name="quick_contact">Kontakti</string>
     <string name="quick_options_help_text">Rrëshqit një shkurtore app-i nga lart poshtë, për t’ia parë opsionet e shpejta. Opsionet e shpejta të lejojnë t’i menaxhosh app-et më lehtë.</string>
+    <string name="quickoption_sleep">Përgjumje</string>
     <string name="quickoptions_add_apps">Shto app-e</string>
     <string name="quickoptions_add_to_secure_folder">"Shto te Dosja
 e sigurt"</string>
     <string name="quickoptions_app_info">Info për aplikacionin</string>
     <string name="quickoptions_clear_badge">Pastro stemën</string>
     <string name="quickoptions_disable">Paaftëso</string>
-    <string name="quickoptions_put_to_sleep">Vër në gjumë</string>
-    <string name="quickoptions_put_to_sleep_alert">Po ta vësh këtë app në gjumë, ai nuk do ta përdorë baterinë në sfond. App-et e përgjumura nuk do të marrin përditësime dhe as të dërgojnë njoftime, por do të zgjohen sapo t’i hapësh.</string>
+    <string name="quickoptions_sleep_alert">Po ta vësh këtë app në gjumë, ai nuk do ta përdorë baterinë në sfond. App-et e përgjumura nuk do të marrin përditësime dhe as të dërgojnë njoftime, por do të zgjohen sapo t’i hapësh.</string>
     <string name="quickoptions_uninstall">Çinstalo</string>
     <string name="quickview_delete_toast_msg">Zvarrite faqen te Hiq, për ta hequr.</string>
     <string name="quickview_drag_bar_delete_title">Hiq</string>
@@ -172,9 +180,9 @@ e sigurt"</string>
     <string name="remove_app_folder_confirm">Hiq</string>
     <string name="remove_app_folder_confirm_VZW">Largo</string>
     <string name="remove_app_folder_message">Dosja %s do të hiqet. App-et në dosje gjithnjë do të mbeten në dispozicion në ekranin App-et.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Dosja %s do të hiqet. App-et në dosje gjithnjë do të listohen në fund të tabakasë App-et.</string>
     <string name="remove_app_folder_message_no_title">Kjo dosje do të largohet. Aplikacionet në këtë dosje nuk do të çinstalohen.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Kjo dosje do të hiqet. App-et në dosje gjithnjë do të listohen në fund të tabakasë App-et.</string>
     <string name="remove_app_folder_title">Fshij regjistrin</string>
     <string name="remove_app_folder_title_VZW">Largo dosjen</string>
     <string name="remove_home_folder_message">Dosja %s do të hiqet. App-et në dosje gjithnjë do të mbeten në dispozicion në ekranin App-et.</string>
@@ -229,11 +237,11 @@ e sigurt"</string>
     <string name="viewtype_custom_grid">Renditje e personalizuar</string>
     <string name="widget_duplicate">Widget-i %s gjendet tashmë në ekranin bazë.</string>
     <string name="work_folder_name">Punë</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Prek dhe mbaj ekranin për të shtuar gjëra</string>
+    <string name="zeropage_briefing_title">Raportimi</string>
+    <string name="zeropage_download">Shkarko</string>
+    <string name="zeropage_download_msg">Për ta përdorur këtë funksion, duhet të instalosh %1$s. Trokit mbi SHKARKO, për të shkarkuar dhe instaluar %2$s.</string>
     <string name="zeropage_notice_msg">Shërbimi i lajmeve %s tani është në dispozicion. Për ta përdorur në vend të Flipboard Briefing, trokit mbi OK.</string>
     <string name="zeropage_setting_dialog_no">Anullo</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Lajmet Sohu</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">1.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">48.0dip</dimen>
     <dimen name="badge_fontsize_default">14.0dip</dimen>
@@ -377,7 +378,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">1.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">1.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -402,6 +402,8 @@
     <dimen name="home_5x5_cellGapY">4.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">98.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">0.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">260.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">160.0dip</dimen>
     <dimen name="home_icon_col5_drawablepadding">2.0dip</dimen>
     <dimen name="home_icon_col5_paddingTop">4.0dip</dimen>
     <dimen name="home_icon_textsize">14.0dip</dimen>

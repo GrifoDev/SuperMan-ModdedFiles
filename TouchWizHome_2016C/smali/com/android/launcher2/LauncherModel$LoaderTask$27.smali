@@ -40,7 +40,7 @@
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$27;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # getter for: Lcom/android/launcher2/LauncherModel$LoaderTask;->mStopped:Z
-    invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1500(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
+    invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1700(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
 
     move-result v1
 

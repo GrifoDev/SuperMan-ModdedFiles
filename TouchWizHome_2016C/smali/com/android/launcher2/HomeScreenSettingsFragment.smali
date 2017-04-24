@@ -185,7 +185,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f080061
+    const v1, 0x7f080069
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -200,7 +200,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f08005e
+    const v1, 0x7f080066
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 

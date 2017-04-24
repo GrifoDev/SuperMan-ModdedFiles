@@ -27,7 +27,7 @@
     <integer name="moveApps_base_grid_size">9</integer>
     <integer name="appsearch_default_cellCountX">5</integer>
     <integer name="folder_multi_container_folder_count">5</integer>
-    <integer name="folder_multi_container_folder_count_max">6</integer>
     <integer name="ged_home_cell_count_x">6</integer>
     <integer name="ged_home_cell_count_y">5</integer>
+    <integer name="folder_multi_container_folder_count_max">6</integer>
 </resources>

@@ -43,13 +43,13 @@
 
 .field private static final KNOX_SHORTCUT_PACKAGE:Ljava/lang/String; = "com.samsung.knox.rcp.components"
 
+.field public static final NEED_BINDING_APPWIDGET_ID:I = -0x3e8
+
 .field static final PARAMETER_NOTIFY:Ljava/lang/String; = "notify"
 
 .field public static final PREFS_HIDDENADD_APPFOLDERNAMES:Ljava/lang/String; = "AppFolderNames"
 
 .field public static final PREFS_HIDDENADD_HOMEFOLDERIDS:Ljava/lang/String; = "HomeFolderIds"
-
-.field public static final PREFS_NEED_BINDING_WIDGETS:Ljava/lang/String; = "NeedBindingWidgets"
 
 .field public static final PREFS_PREFESTIVAL:Ljava/lang/String; = "PrefsPreFestival"
 

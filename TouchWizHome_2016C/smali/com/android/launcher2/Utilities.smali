@@ -24,6 +24,10 @@
 
 .field private static final WIDGET_PREVIEW_ICON_PADDING_PERCENTAGE:F = 0.25f
 
+.field private static final alphanumSupEndCodePoint:I = 0x1f1ff
+
+.field private static final alphanumSupStartCodePoint:I = 0x1f100
+
 .field private static final emojiEndCodePoint:I = 0x1f6ff
 
 .field private static final emojiStartCodePoint:I = 0x1f300
@@ -2952,6 +2956,48 @@
     goto :goto_0
 .end method
 
+.method public static getAppVersion(Landroid/content/Context;)Ljava/lang/String;
+    .locals 6
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    const-string v3, "Launcher.Utilities"
+
+    const-string v4, "getAppVersion NameNotFoundException"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method public static getApplyScreenGridApps(Landroid/content/Context;)Z
     .locals 3
 
@@ -3743,6 +3789,64 @@
     return-object v0
 .end method
 
+.method public static getFlipFontValue(Landroid/content/res/Configuration;)I
+    .locals 4
+
+    :try_start_0
+    const-class v2, Landroid/content/res/Configuration;
+
+    const-string v3, "FlipFont"
+
+    invoke-virtual {v2, v3}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result v2
+
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string v2, "FlipFont"
+
+    invoke-virtual {v0}, Ljava/lang/NoSuchFieldException;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    const/4 v2, -0x1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    const-string v2, "FlipFont"
+
+    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+.end method
+
 .method public static getGhostMatrixColorFilter()Landroid/graphics/ColorMatrixColorFilter;
     .locals 8
 
@@ -4450,6 +4554,133 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isEnclosedAlphanumSuppplement(I)Z
+    .locals 1
+
+    const v0, 0x1f100
+
+    if-gt v0, p0, :cond_0
+
+    const v0, 0x1f1ff
+
+    if-gt p0, v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isExistSdCard(Landroid/content/Context;)Z
+    .locals 9
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    const-string v6, "storage"
+
+    invoke-virtual {p0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/storage/StorageManager;
+
+    invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getStorageVolumes()Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/storage/StorageVolume;
+
+    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->semGetSubSystem()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v7, "sd"
+
+    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v7
+
+    if-eqz v7, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_1
+    :goto_0
+    const-string v6, "Launcher.Utilities"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "isExistSdCard = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string v6, "Launcher.Utilities"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "isExistSdCard e = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -6134,7 +6365,7 @@
 
     move-result-object v31
 
-    const v6, 0x7f090004
+    const v6, 0x7f090005
 
     move-object/from16 v0, v31
 
@@ -6142,7 +6373,7 @@
 
     move-result v17
 
-    const v6, 0x7f090140
+    const v6, 0x7f090141
 
     move-object/from16 v0, v31
 
@@ -6150,7 +6381,7 @@
 
     move-result v26
 
-    const v6, 0x7f09013f
+    const v6, 0x7f090140
 
     move-object/from16 v0, v31
 
@@ -6341,7 +6572,7 @@
     :goto_2
     if-nez v10, :cond_5
 
-    const v6, 0x7f02007a
+    const v6, 0x7f02007b
 
     move-object/from16 v0, v31
 
@@ -7181,7 +7412,7 @@
 .method public static showToast(Landroid/content/Context;I)V
     .locals 5
 
-    const v4, 0x7f08006b
+    const v4, 0x7f080073
 
     const/4 v1, 0x1
 
@@ -7353,7 +7584,7 @@
     if-eqz v17, :cond_2
 
     :cond_0
-    const v17, 0x7f0800ba
+    const v17, 0x7f0800c2
 
     move-object/from16 v0, p0
 
@@ -7487,7 +7718,7 @@
 
     if-eqz v17, :cond_1
 
-    const v17, 0x7f0800bb
+    const v17, 0x7f0800c3
 
     move-object/from16 v0, p0
 
@@ -7623,7 +7854,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c4
+    const v3, 0x7f0800cc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -46,9 +46,15 @@
 
 .field private static final NOTIFY_APPLOCK_UPDATE_ACTION:Ljava/lang/String; = "com.samsung.applock.intent.action.NOTIFYUPDATE"
 
+.field public static final REQUEST_HIDE:Ljava/lang/String; = "request_hide"
+
+.field private static final REQUEST_HIDE_OR_UNHIDE:Ljava/lang/String; = "hide_or_unhide"
+
 .field public static final REQUEST_LOCK:Ljava/lang/String; = "request_lock"
 
 .field private static final REQUEST_LOCK_OR_UNLOCK:Ljava/lang/String; = "lock_or_unlock"
+
+.field public static final REQUEST_UNHIDE:Ljava/lang/String; = "request_unhide"
 
 .field public static final REQUEST_UNLOCK:Ljava/lang/String; = "request_unlock"
 
@@ -2274,90 +2280,127 @@
 .end method
 
 .method public isShouldHideBar(Lcom/android/launcher2/BaseItem;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
     if-eqz p1, :cond_0
 
     :try_start_0
-    iget-object v3, p1, Lcom/android/launcher2/BaseItem;->mType:Lcom/android/launcher2/BaseItem$Type;
+    iget-object v4, p1, Lcom/android/launcher2/BaseItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
-    invoke-virtual {v3}, Lcom/android/launcher2/BaseItem$Type;->ordinal()I
+    if-eqz v4, :cond_0
 
-    move-result v3
-
-    sget-object v4, Lcom/android/launcher2/BaseItem$Type;->HOME_SHORTCUT:Lcom/android/launcher2/BaseItem$Type;
+    iget-object v4, p1, Lcom/android/launcher2/BaseItem;->mType:Lcom/android/launcher2/BaseItem$Type;
 
     invoke-virtual {v4}, Lcom/android/launcher2/BaseItem$Type;->ordinal()I
 
     move-result v4
 
-    if-ne v3, v4, :cond_0
+    sget-object v5, Lcom/android/launcher2/BaseItem$Type;->HOME_SHORTCUT:Lcom/android/launcher2/BaseItem$Type;
+
+    invoke-virtual {v5}, Lcom/android/launcher2/BaseItem$Type;->ordinal()I
+
+    move-result v5
+
+    if-ne v4, v5, :cond_0
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "shortcut without packageName true"
+    const-string v5, "shortcut without packageName true"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    return v1
+    return v2
 
     :cond_0
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string v4, "com.samsung.knox.rcp.components"
+    const-string v5, "com.samsung.knox.rcp.components"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "Knox shortcut true"
+    const-string v5, "Knox shortcut true"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    move v1, v2
+    move v2, v3
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    if-eqz p1, :cond_2
+
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher2/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    const-string v4, "Launcher.FolderLock"
+
+    const-string v5, "AFW user app"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :cond_2
+    move v2, v3
 
     goto :goto_0
 .end method
@@ -2389,7 +2432,11 @@
 .end method
 
 .method public lockApp(Lcom/android/launcher2/BaseItem;)V
-    .locals 4
+    .locals 9
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
 
@@ -2403,40 +2450,84 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, ","
+    const-string v4, ","
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     :goto_0
     invoke-direct {p0, v0}, Lcom/android/launcher2/FolderLock;->updateLockedPackagesToDB(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f080027
+
+    new-array v5, v8, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v5, v7
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {v3, v2, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/widget/Toast;->show()V
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v3, v8}, Lcom/android/launcher2/FolderLock;->sendApppLockChangedBroadcast(Ljava/lang/String;Z)V
 
     :cond_0
     return-void
@@ -3694,6 +3785,133 @@
     return-void
 .end method
 
+.method public sendAppHideIntent(Lcom/android/launcher2/BaseItem;)V
+    .locals 7
+
+    const/4 v4, 0x1
+
+    const/4 v6, 0x0
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v1, "com.samsung.applock.intent.action.APP_HIDE_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "package_name"
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "is_hidden"
+
+    invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f080026
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v1
+
+    const-string v2, "APHD"
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-wide/16 v4, -0x1
+
+    invoke-static/range {v1 .. v6}, Lcom/android/launcher2/Logging;->insertLog(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;JZ)V
+
+    return-void
+.end method
+
+.method public sendApppLockChangedBroadcast(Ljava/lang/String;Z)V
+    .locals 7
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v1, "com.samsung.applock.intent.action.APP_LOCK_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "package_name"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "is_locked"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    if-eqz p2, :cond_0
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v1
+
+    const-string v2, "APLK"
+
+    const-wide/16 v4, -0x1
+
+    const/4 v6, 0x0
+
+    move-object v3, p1
+
+    invoke-static/range {v1 .. v6}, Lcom/android/launcher2/Logging;->insertLog(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;JZ)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public startVerifyActivity(I)V
     .locals 3
 
@@ -3902,8 +4120,69 @@
     return-void
 .end method
 
+.method public startVerifyActivityForHide(ILcom/android/launcher2/BaseItem;Ljava/lang/String;)V
+    .locals 3
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/launcher2/FolderLock;->getAppLockedCheckAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "REQUEST_VERIFY_FROM"
+
+    const-string v2, "LAUNCHER_REQUEST"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "hide_or_unhide"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    if-eqz p2, :cond_0
+
+    const-string v1, "LOCKED_PACKAGE_ICON"
+
+    iget-object v2, p2, Lcom/android/launcher2/BaseItem;->mIconBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string v1, "LOCKED_PACKAGE_LABEL"
+
+    iget-object v2, p2, Lcom/android/launcher2/BaseItem;->mTitle:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "LOCKED_PACKAGE_NAME"
+
+    invoke-virtual {p2}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_0
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lcom/android/launcher2/FolderLock;->willStartActivity:Z
+
+    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0, p1}, Lcom/android/launcher2/Launcher;->startActivityForResult(Landroid/content/Intent;I)V
+
+    return-void
+.end method
+
 .method public unlockApp(Lcom/android/launcher2/BaseItem;Z)V
-    .locals 8
+    .locals 12
+
+    const/4 v11, 0x0
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
 
@@ -3913,15 +4192,15 @@
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-result-object v7
 
-    if-eqz v6, :cond_0
+    if-eqz v7, :cond_0
 
     invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    invoke-virtual {v7}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -3930,9 +4209,9 @@
 
     move-result-object v3
 
-    const-string v6, ","
+    const-string v7, ","
 
-    invoke-virtual {v3, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v3, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -3941,19 +4220,19 @@
     const/4 v1, 0x0
 
     :goto_0
-    array-length v6, v2
+    array-length v7, v2
 
-    if-ge v1, v6, :cond_3
+    if-ge v1, v7, :cond_3
 
     if-eqz v4, :cond_1
 
-    aget-object v6, v2, v1
+    aget-object v7, v2, v1
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
     :goto_1
     add-int/lit8 v1, v1, 0x1
@@ -3963,90 +4242,139 @@
     :cond_1
     invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    aget-object v7, v2, v1
+    aget-object v8, v2, v1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     goto :goto_1
 
     :cond_2
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string v7, ","
+    const-string v8, ","
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    aget-object v7, v2, v1
+    aget-object v8, v2, v1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     goto :goto_1
 
     :cond_3
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string v7, ","
+    const-string v8, ","
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-direct {p0, v6}, Lcom/android/launcher2/FolderLock;->sendUnlockBroadcast(Ljava/lang/String;)V
+    invoke-direct {p0, v7}, Lcom/android/launcher2/FolderLock;->sendUnlockBroadcast(Ljava/lang/String;)V
 
     :goto_2
     invoke-direct {p0, v5}, Lcom/android/launcher2/FolderLock;->updateLockedPackagesToDB(Ljava/lang/String;)V
 
-    return-void
+    if-eqz p2, :cond_4
+
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f08002b
+
+    const/4 v9, 0x1
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v10
+
+    aput-object v10, v9, v11
+
+    invoke-virtual {v7, v8, v9}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {p0}, Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-static {v7, v6, v11}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/widget/Toast;->show()V
+
+    invoke-virtual {p1}, Lcom/android/launcher2/BaseItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {p0, v7, v11}, Lcom/android/launcher2/FolderLock;->sendApppLockChangedBroadcast(Ljava/lang/String;Z)V
 
     :cond_4
+    return-void
+
+    :cond_5
     invoke-virtual {p0}, Lcom/android/launcher2/FolderLock;->applyFolderNameChanged()V
 
     goto :goto_2

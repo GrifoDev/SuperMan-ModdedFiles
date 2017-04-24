@@ -7,7 +7,7 @@
     <favorite launcher:className="com.sec.android.app.sbrowser.SBrowserMainActivity" launcher:packageName="com.sec.android.app.sbrowser" launcher:screen="0" />
     <favorite launcher:className="com.sec.android.gallery3d.app.GalleryOpaqueActivity" launcher:packageName="com.sec.android.gallery3d" launcher:screen="0" />
     <favorite launcher:className="com.sec.android.app.camera.Camera" launcher:packageName="com.sec.android.app.camera" launcher:screen="0" />
-    <favorite launcher:className="com.samsung.android.app.music.common.activity.MusicMainActivity" launcher:packageName="com.sec.android.app.music" launcher:screen="0" />
+    <favorite launcher:className="com.sec.android.app.music.common.activity.MusicMainActivity" launcher:packageName="com.sec.android.app.music" launcher:screen="0" />
     <favorite launcher:className="com.samsung.android.videolist.list.activity.VideoList" launcher:packageName="com.samsung.android.videolist" launcher:screen="0" />
     <favorite launcher:className="com.sec.android.app.popupcalculator.Calculator" launcher:packageName="com.sec.android.app.popupcalculator" launcher:screen="0" />
     <favorite launcher:className="com.sec.android.app.clockpackage.ClockPackage" launcher:packageName="com.sec.android.app.clockpackage" launcher:screen="0" />
@@ -31,8 +31,8 @@
         <favorite launcher:className="com.google.android.apps.docs.app.NewMainProxyActivity" launcher:packageName="com.google.android.apps.docs" launcher:screen="3" />
         <favorite launcher:className="com.android.music.activitymanagement.TopLevelActivity" launcher:packageName="com.google.android.music" launcher:screen="4" />
         <favorite launcher:className="com.google.android.youtube.videos.EntryPoint" launcher:packageName="com.google.android.videos" launcher:screen="5" />
-        <favorite launcher:className="com.google.android.apps.photos.home.HomeActivity" launcher:packageName="com.google.android.apps.photos" launcher:screen="6" />
-        <favorite launcher:className="com.google.android.talk.SigningInActivity" launcher:packageName="com.google.android.talk" launcher:screen="7" />
+        <favorite launcher:className="com.google.android.talk.SigningInActivity" launcher:packageName="com.google.android.talk" launcher:screen="6" />
+        <favorite launcher:className="com.google.android.apps.photos.home.HomeActivity" launcher:packageName="com.google.android.apps.photos" launcher:screen="7" />
         <favorite launcher:className="com.google.android.gms.app.settings.GoogleSettingsActivity" launcher:packageName="com.google.android.gms" launcher:screen="8" />
     </folder>
     <folder launcher:screen="0" launcher:title="@string/folder_microsoft_apps">

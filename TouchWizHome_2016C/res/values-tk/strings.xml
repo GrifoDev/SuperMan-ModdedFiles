@@ -34,14 +34,17 @@
     <string name="all_apps_title">Goýmalar</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABÇDEÄFGHIJŽKLMNŇOÖPRSŞTUÜWYÝZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#Abcdefghijklmnopqrstuvwxyz</string>
+    <string name="app_hidden_toast">%s gizlenen.</string>
+    <string name="app_locked_toast">%s gulplandy.</string>
     <string name="app_search">Gözleg</string>
     <string name="app_search_no_apps">Gözleg netijelerinden öý ekrana çykgytlary goşup bilersiňiz.</string>
     <string name="app_search_no_results_found">Netije tapylmady</string>
+    <string name="app_unlocked_toast">%s açyldy.</string>
     <string name="apply">Ulanmak</string>
     <string name="available_galaxyapps">Galaxy Apps-da elýeterli</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Her goýma üçin nyşanjyklary görkezmelimi ýa-da gizlemelidigini saýlaň.</string>
+    <string name="badge_manage_summary">Her goýma üçin nyşanjyklary görkezmelimi ýa-da gizlemelidigini saýlaň.</string>
+    <string name="badge_manage_title">Goýma nyşanjyklaryny dolandyr</string>
     <string name="cancel">Ýatyr</string>
     <string name="change_home_screen_settings">Öý ekran sazlamalary üýtget</string>
     <string name="change_home_screen_settings_info">Bu goýma öý ekran sazlamalaryňyzy we çykgytlaryny üýtgedip biler.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Göni aýlaw</string>
     <string name="direct_message">Habary gönükdir</string>
     <string name="disable_message">%1$s we ähli dahylly funksiýalary ýapylar. Goýmany täzeden işletmek üçin, Sazlamalar > Goýmalar-a baryp, %2$s saýlaň.</string>
+    <string name="disable_message_att">%s we onuň ähli dahylly funksiýalary ýapylar. Ony täzeden işletmek üçin, Sazlamalar > Enjam > Goýmalar > Goýma dispetçeri-ne baryň.</string>
     <string name="disable_message_vzw">%s we onuň ähli dahylly funksiýalary ýapylar. Ony täzeden işletmek üçin, Sazlamalar > Goýmalar > Goýma dispetçeri-ne baryň.</string>
     <string name="disable_messange_knox">%s we onuň ähli dahylly funksiýalary ýapylar. Ony täzeden işletmek üçin, KNOX sazlamalary > Goýma dispetçeri-ne basyň.</string>
     <string name="disable_title">Amaly programmany işlemeýän et</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Widjetiň ölçegini üýtgetmek üçin, kenaryny ýokaryk, aşak, içe ýa-da daşa çekiň.</string>
     <string name="guide_tap_here">Gollanmalar şekiljigine basyň.</string>
     <string name="guide_widgets_tap_area">Rejelemek mümkin bolana çenli widjete basyň we saklap duruň, soňra da iberiň.</string>
+    <string name="hide">Gizle</string>
+    <string name="hide_confirm_continue">Dowam</string>
+    <string name="hide_confirm_message">%s goýmasy şu wagt gulply. Eger bu goýmany gizleseňiz, onuň gulpy açylar.</string>
+    <string name="hide_confirm_title">Goýmany gizle</string>
     <string name="home_edit_add_to_personal">Şahsylara goşuň</string>
     <string name="home_edit_bar_delete_title">Çykgydy aýyr</string>
     <string name="home_edit_bar_delete_title_vzw">Çykgydy aýyr</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s wijeti eýýäm öý ekrana goşuldy.</string>
     <string name="open_folder">Bukja aç</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Goýma gör</string>
     <string name="option_menu_contact_up">Biziň bilen habarlaşyň</string>
     <string name="option_tray_screengrid">Ekran gözenegi</string>
     <string name="options_home_set_theme">Temalar</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Wijetleri goş</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Çalt opsiýalaryny görmek üçin, goýma çykgydyny aşak syryň. Çalt opsiýalar goýmalary ýeňil dolandyrmaga mümkinçilik berýär.</string>
+    <string name="quickoption_sleep">Uky</string>
     <string name="quickoptions_add_apps">Goýmalary goş</string>
     <string name="quickoptions_add_to_secure_folder">"Howpsuz bukja
 goş"</string>
     <string name="quickoptions_app_info">Goýma maglumaty</string>
     <string name="quickoptions_clear_badge">Nyşanjyk aýyr</string>
     <string name="quickoptions_disable">Ýap</string>
-    <string name="quickoptions_put_to_sleep">Uklat</string>
-    <string name="quickoptions_put_to_sleep_alert">Bu goýmany uklatmak onuň fonda zarýad iýmegini bökdär. Ukudaky goýmalar täzelemeleri alman ýa-da size habarnama ibermän biler, ýöne olar açan badyňyza oýanar.</string>
+    <string name="quickoptions_sleep_alert">Bu goýmany uklatmak onuň fonda zarýad iýmegini bökdär. Ukudaky goýmalar täzelemeleri alman ýa-da size habarnama ibermän biler, ýöne olar açan badyňyza oýanar.</string>
     <string name="quickoptions_uninstall">Gurnawdan aýyr</string>
     <string name="quickview_delete_toast_msg">Sahypany aýyrmak üçin, ony Aýyr-a süýräň.</string>
     <string name="quickview_drag_bar_delete_title">Öçür</string>
@@ -172,9 +180,9 @@ goş"</string>
     <string name="remove_app_folder_confirm">Aýyr</string>
     <string name="remove_app_folder_confirm_VZW">Aýyr</string>
     <string name="remove_app_folder_message">%s bukjasy öçüriler. Bu bukjadaky goýmalar Goýmalar ekranynda elýeterli bolar.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s bukjasy aýrylar. Bu bukjadaky goýmalar Goýma tekjesiniň ahyrynda sanawlanar.</string>
     <string name="remove_app_folder_message_no_title">This folder will be removed. Applications in this folder will not be uninstalled.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Bu bukja aýrylar. Bu bukjadaky goýmalar Goýma tekjesiniň ahyrynda sanawlanar.</string>
     <string name="remove_app_folder_title">Bukjany ýok etmek</string>
     <string name="remove_app_folder_title_VZW">Bukjany aýyryň</string>
     <string name="remove_home_folder_message">%s bukjasy öçüriler. Bu bukjadaky goýmalar Goýmalar ekranynda elýeterli bolar.</string>
@@ -229,11 +237,11 @@ geler ýaly %1$d x %2$d edilip üýtgediler."</string>
     <string name="viewtype_custom_grid">Laýyk tertip</string>
     <string name="widget_duplicate">%s wijeti eýýäm öý ekranynda.</string>
     <string name="work_folder_name">Iş</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Zatlary goşmak üçin, ekrany degip sakla</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Göçürip al</string>
+    <string name="zeropage_download_msg">Bu funksiýany ulanmak üçin, siz %1$s gurnamaly. %2$s göçürip alyp gurnamak üçin, GÖÇÜRIP AL-a basyň.</string>
     <string name="zeropage_notice_msg">%s täzelik hyzmaty indi elýeterli. Ony Flipbord Brifinge derek ulanmak üçin, OK-e basyň.</string>
     <string name="zeropage_setting_dialog_no">Ýatyr</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu Täzelikler</string>
 </resources>

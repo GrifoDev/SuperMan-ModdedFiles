@@ -80,6 +80,10 @@
     <item type="id" name="move_apps_anim_background">false</item>
     <item type="id" name="move_apps_icon">false</item>
     <item type="id" name="move_apps_text">false</item>
+    <item type="id" name="hide_container">false</item>
+    <item type="id" name="hide_anim_background">false</item>
+    <item type="id" name="hide_icon">false</item>
+    <item type="id" name="hide_text">false</item>
     <item type="id" name="lock_container">false</item>
     <item type="id" name="lock_anim_background">false</item>
     <item type="id" name="lock_icon">false</item>

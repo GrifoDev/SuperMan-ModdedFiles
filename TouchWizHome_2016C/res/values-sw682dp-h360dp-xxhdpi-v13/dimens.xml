@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="qv_home_option_menu_padding">8.0dip</dimen>
     <dimen name="Transition_effect_settings_listview_height">2.0px</dimen>
     <dimen name="app_icon_size">64.0dip</dimen>
     <dimen name="badge_fontsize_default">15.0dip</dimen>
@@ -240,7 +241,6 @@
     <dimen name="popup_menu_listView_offsetY">8.0dip</dimen>
     <dimen name="popup_menu_toast_right_padding">-5.0dip</dimen>
     <dimen name="popup_menu_toast_top_padding">-2.0dip</dimen>
-    <dimen name="qv_home_option_menu_padding">8.0dip</dimen>
     <dimen name="qv_home_option_menu_padding_top">8.0dip</dimen>
     <dimen name="smallScreenExtraSpacing">0.0dip</dimen>
     <dimen name="snap_velocity">333.0dip</dimen>
@@ -252,12 +252,14 @@
     <dimen name="toolbar_external_icon_width">36.0dip</dimen>
     <dimen name="widget_pageIndicatorTop">801.0dip</dimen>
     <dimen name="workspaceEditModeShrink_left_adjust">0.0dip</dimen>
-    <dimen name="workspaceEditModeShrink_top_adjust">-163.0dip</dimen>
+    <dimen name="workspaceEditModeShrink_top_adjust">-183.0dip</dimen>
     <dimen name="workspace_scroll_zone_left_width">50.0dip</dimen>
     <dimen name="workspace_scroll_zone_right_width">50.0dip</dimen>
     <dimen name="app_icon_size_4x5">64.0dip</dimen>
     <dimen name="folder_paged_view_margin_top">15.0dip</dimen>
     <dimen name="home_editTitleBar_marginTop">0.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">532.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">410.0dip</dimen>
     <dimen name="menu_icon_textsize">14.0dip</dimen>
     <dimen name="open_folder_addbutton_bottom_padding">9.0dip</dimen>
     <dimen name="open_folder_addbutton_left_right_padding">9.0dip</dimen>
@@ -299,6 +301,7 @@
     <dimen name="home_editmode_panel_buttonParent_zero_paddingTop">0.0dip</dimen>
     <dimen name="home_editmode_panel_button_margin">10.0dip</dimen>
     <dimen name="home_pageIndicatorLeftMargin">18.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">28.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">0.0dip</dimen>
     <dimen name="menu_edit_button_text_height">48.5dip</dimen>
     <dimen name="menu_title_bar_back_btn_width">72.0dip</dimen>
@@ -347,17 +350,16 @@
     <dimen name="widget_search_titlebar_padding_left">24.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">45.0dip</dimen>
     <dimen name="app_searchview_margin_top">7.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_height">532.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">410.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">21.0dip</dimen>
     <dimen name="open_folder_appicon_margin_top">15.0dip</dimen>
     <dimen name="open_folder_layout_folder_container_padding_top">0.0dip</dimen>
     <dimen name="zeropageSwitch_textSize">20.0sp</dimen>
     <dimen name="appsearch_grid_cell_padding">8.5dip</dimen>
-    <dimen name="appsearch_grid_padding_top">8.0dip</dimen>
+    <dimen name="appsearch_grid_padding_top">21.0dip</dimen>
     <dimen name="folder_icon_marginTop">4.0dip</dimen>
     <dimen name="moveApps_cellGapX">13.0dip</dimen>
     <dimen name="moveApps_edgeMargin">17.0dip</dimen>
+    <dimen name="appsearch_result_margin_top">56.0dip</dimen>
     <dimen name="folder_multi_header_text_height">30.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">14.0dip</dimen>
     <dimen name="folder_multi_search_bar_layout_height">56.0dip</dimen>
@@ -370,7 +372,6 @@
     <dimen name="appsearch_grid_padding_bottom">6.0dip</dimen>
     <dimen name="appsearch_list_icon_width">64.0dip</dimen>
     <dimen name="appsearch_list_item_text_size">14.0dip</dimen>
-    <dimen name="appsearch_result_margin_top">56.0dip</dimen>
     <dimen name="appsearch_searchview_height">56.0dip</dimen>
     <dimen name="folder_multi_icon_checkbox_size">25.0dip</dimen>
     <dimen name="moveApps_intro_text_size">18.0dip</dimen>
@@ -379,6 +380,7 @@
     <dimen name="home_zero_page_dual_image_gap">32.0dip</dimen>
     <dimen name="home_zero_page_dual_image_height">299.0dip</dimen>
     <dimen name="home_zero_page_dual_image_width">230.0dip</dimen>
+    <item type="dimen" name="config_workspaceEditModeTranslationFactor">0.97</item>
     <dimen name="create_folder_dialog_width">540.0dip</dimen>
     <dimen name="done_button_height">43.0dip</dimen>
     <dimen name="done_button_width">115.0dip</dimen>
@@ -413,15 +415,15 @@
     <dimen name="quick_options_dismiss_distance">35.0dip</dimen>
     <dimen name="searchbar_divider_shape_padding_top">9.0dip</dimen>
     <dimen name="searchbar_searchview_height">46.0dip</dimen>
-    <dimen name="viewmore_galaxyapps_height">38.0dip</dimen>
+    <dimen name="viewmore_galaxyapps_height">40.0dip</dimen>
     <dimen name="viewmore_galaxyapps_start">28.0dip</dimen>
     <dimen name="viewmore_galaxyapps_text_height">33.0dip</dimen>
     <dimen name="viewmore_playstore_bottom">6.0dip</dimen>
     <dimen name="zeropageSwitch_paddingLeft">140.0dip</dimen>
-    <dimen name="done_button_marginRight">28.0dip</dimen>
-    <dimen name="open_folder_content_width">540.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_end">32.0dip</dimen>
     <dimen name="apps_search_titlebar_margin_start">23.0dip</dimen>
+    <dimen name="done_button_marginRight">28.0dip</dimen>
+    <dimen name="open_folder_content_width">540.0dip</dimen>
     <dimen name="menu_edit_add_button_margin_end">24.0dip</dimen>
     <dimen name="more_icon_btn_image_height">21.0dip</dimen>
     <dimen name="more_icon_btn_image_width">21.0dip</dimen>

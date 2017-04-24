@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplicacions</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ÇABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s oculta.</string>
+    <string name="app_locked_toast">%s bloquejat.</string>
     <string name="app_search">Cercar</string>
     <string name="app_search_no_apps">"Pot afegir accessos directes a la pantalla d'inici des dels resultats de cerca."</string>
     <string name="app_search_no_results_found">"No s'han trobat resultats"</string>
+    <string name="app_unlocked_toast">%s desbloquejat.</string>
     <string name="apply">Aplicar</string>
     <string name="available_galaxyapps">Disponible a Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">"Seleccioni si s'han de mostrar o amagar les insígnies de cada aplicació."</string>
+    <string name="badge_manage_summary">"Seleccioni si s'han de mostrar o amagar les insígnies de cada aplicació."</string>
+    <string name="badge_manage_title">"Gestionar insígnies d'aplicació"</string>
     <string name="cancel">Cancel·lar</string>
     <string name="change_home_screen_settings">Canviar ajustam pant inici</string>
     <string name="change_home_screen_settings_info">"Aquesta aplicació pot canviar els accessos directes i els ajustaments de la pantalla d'inici."</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Marcatge directe</string>
     <string name="direct_message">Missatge directe</string>
     <string name="disable_message">"Es desactivarà %1$s i totes les funcions relacionades. Per tornar a activar l'app, vagi a Ajustaments > Aplicacions i, a continuació, seleccioni %2$s."</string>
+    <string name="disable_message_att">"Es desactivarà %s i totes les funcions relacionades. Per tornar-lo a activar, vagi a Ajustaments > Dispositiu > Aplicacions > Gestor d'aplicacions."</string>
     <string name="disable_message_vzw">"Es deshabilitaran %s i totes les funcions relacionades. Per tornar-ho a habilitar, vagi a Ajustaments > Aplicacions > Gestor d'aplicacions."</string>
     <string name="disable_messange_knox">"%s i totes les funcions relacionades es desactivaran. Per tornar-ho a activar, vagi a Ajustaments de KNOX > Gestor d'aplicacions."</string>
     <string name="disable_title">Deshabilitar aplicació</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Estiri la vora amunt, avall, endins o enfora per canviar la mida del widget</string>
     <string name="guide_tap_here">"Toqui la icona d'aplicacions."</string>
     <string name="guide_widgets_tap_area">"Mantingut tocat un widget fins que es pugui editar i deixi'l anar"</string>
+    <string name="hide">Ocultar</string>
+    <string name="hide_confirm_continue">Continuar</string>
+    <string name="hide_confirm_message">"L'aplicació %s està bloquejada actualment. Si oculta aquesta aplicació, es desbloquejarà."</string>
+    <string name="hide_confirm_title">"Ocultar l'aplicació"</string>
     <string name="home_edit_add_to_personal">Afeg a pers</string>
     <string name="home_edit_bar_delete_title">Elimin acc direct</string>
     <string name="home_edit_bar_delete_title_vzw">Elimin acc direct</string>
@@ -134,7 +142,7 @@
     <string name="ok">Acceptar</string>
     <string name="only_one_widget_instance_allowed">"El widget %s ja s'ha afegit a la Pantalla d'inici."</string>
     <string name="open_folder">Obrir carpeta</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Veure aplicacions</string>
     <string name="option_menu_contact_up">Contactar amb nosaltres</string>
     <string name="option_tray_screengrid">Quadrí pantalla</string>
     <string name="options_home_set_theme">Temes</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Afegir widgets</string>
     <string name="quick_contact">Contacte</string>
     <string name="quick_options_help_text">"Desplaci un accés directe d'app cap avall per veure les opcions ràpides. Les opcions ràpides li permeten gestionar les apps fàcilment."</string>
+    <string name="quickoption_sleep">Repòs</string>
     <string name="quickoptions_add_apps">Afegir aplicacions</string>
     <string name="quickoptions_add_to_secure_folder">"Afegir a Carp
 segura"</string>
     <string name="quickoptions_app_info">"Informació de l'aplicació"</string>
     <string name="quickoptions_clear_badge">Esborrar notificació</string>
     <string name="quickoptions_disable">Deshabilitar</string>
-    <string name="quickoptions_put_to_sleep">Posar en repòs</string>
-    <string name="quickoptions_put_to_sleep_alert">"Si posa aquesta aplicació en repòs impedirà que s'utilitzi la bateria en segon pla. És possible que les aplicacions en repòs no rebin actualitzacions ni enviïn notificacions, però s'activaran quan les obri."</string>
+    <string name="quickoptions_sleep_alert">"Si posa aquesta aplicació en repòs impedirà que s'utilitzi la bateria en segon pla. És possible que les aplicacions en repòs no rebin actualitzacions ni enviïn notificacions, però s'activaran quan les obri."</string>
     <string name="quickoptions_uninstall">Desinstal·lar</string>
     <string name="quickview_delete_toast_msg">Arrossegui la pàgina fins a Eliminar per eliminar-la.</string>
     <string name="quickview_drag_bar_delete_title">Eliminar</string>
@@ -172,9 +180,9 @@ segura"</string>
     <string name="remove_app_folder_confirm">Esborrar</string>
     <string name="remove_app_folder_confirm_VZW">Eliminar</string>
     <string name="remove_app_folder_message">"S'esborrarà la carpeta %s. Les apps d'aquesta carpeta encara estaran disponible a la pantalla Apps."</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">"La carpeta %s s'eliminarà. Les aplicacions d'aquesta carpeta s'inclouran en una llista al final de la safata d'aplicacions."</string>
     <string name="remove_app_folder_message_no_title">"S'eliminarà aquesta carpeta. Les aplicacions de la carpeta no es desinstal·laran."</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">"Aquesta carpeta s'eliminarà. Les aplicacions d'aquesta carpeta s'inclouran en una llista al final de la safata d'aplicacions."</string>
     <string name="remove_app_folder_title">Esborrar carpeta</string>
     <string name="remove_app_folder_title_VZW">Eliminar carpeta</string>
     <string name="remove_home_folder_message">"S'esborrarà la carpeta %s. Les apps d'aquesta carpeta encara estaran disponible a la pantalla Apps."</string>
@@ -187,7 +195,7 @@ segura"</string>
     <string name="search_for_apps">Cercar apps</string>
     <string name="search_for_widgets">Cercar widgets</string>
     <string name="search_result_found">"S'ha trobat %d"</string>
-    <string name="search_result_founds">"S'han trobat %d"</string>
+    <string name="search_result_founds">"S'ha trobat %d"</string>
     <string name="select_all_app">Tot</string>
     <string name="select_app_add">AFEGIR</string>
     <string name="selected">Seleccionat</string>
@@ -229,11 +237,11 @@ segura"</string>
     <string name="viewtype_custom_grid">Ordre personalitzat</string>
     <string name="widget_duplicate">"El widget %s ja és a la pantalla d'inici."</string>
     <string name="work_folder_name">Feina</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Mantingui tocada la pantalla per afegir elements</string>
+    <string name="zeropage_briefing_title">Resum</string>
+    <string name="zeropage_download">Descarregar</string>
+    <string name="zeropage_download_msg">"Per utilitzar aquesta funció, ha d'instal·lar %1$s. Toqui DESCARREGAR per descarregar i instal·lar %2$s."</string>
     <string name="zeropage_notice_msg">El servei de notícies de %s està disponible. Per utilitzar-lo en comptes del resum de Flipboard, toqui ACCEPTAR.</string>
     <string name="zeropage_setting_dialog_no">Cancel·lar</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Notícies de Sohu</string>
 </resources>

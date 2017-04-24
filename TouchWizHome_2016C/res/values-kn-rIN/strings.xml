@@ -34,14 +34,17 @@
     <string name="all_apps_title">ಅನ್ವಯಿಸುವಿಕೆಗಳು</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ಅಆಇಈಉಊಋಎಏಐಒಓಔಅಂಅಃಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಲವಶಷಸಹಳABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">ಅಆಇಈಉಊಋಎಏಐಒಓಔಕಖಗಘಙಚಛಜಝಞಟಠಡಢಣತಥದಧನಪಫಬಭಮಯರಲವಶಷಸಹಳ#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ಮರೆಮಾಡಲಾಗಿದೆ.</string>
+    <string name="app_locked_toast">%s ಲಾಕ್ ಆಗಿದೆ.</string>
     <string name="app_search">ಹುಡುಕು</string>
     <string name="app_search_no_apps">ನೀವು ಶೋಧನೆ ಫಲಿತಾಂಶಗಳಿಂದ ಹೋಮ್‍ ಸ್ಕ್ರೀನ್‍ನಲ್ಲಿ ಶಾರ್ಟ್‍ಕಟ್‍ಗಳನ್ನು ಸೇರಿಸಬಹುದು.</string>
     <string name="app_search_no_results_found">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳು ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="app_unlocked_toast">%s ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="apply">ಅಳವಡಿಸಿ</string>
     <string name="available_galaxyapps">Galaxy Appsನಲ್ಲಿ ಲಭ್ಯ</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ಪ್ರತಿಯೊಂದು ಅನ್ವಯಿಸುವಿಕೆಗೂ ಬ್ಯಾಡ್ಜ್‌ಗಳನ್ನು ತೋರಿಸಲು ಅಥವಾ ಮರೆಮಾಡಲು ಆಯ್ಕೆಮಾಡಿ.</string>
+    <string name="badge_manage_summary">ಪ್ರತಿಯೊಂದು ಅನ್ವಯಿಸುವಿಕೆಗೂ ಬ್ಯಾಡ್ಜ್‌ಗಳನ್ನು ತೋರಿಸಲು ಅಥವಾ ಮರೆಮಾಡಲು ಆಯ್ಕೆಮಾಡಿ.</string>
+    <string name="badge_manage_title">ಅನ್ವಯಿಸುವಿಕೆ ಬ್ಯಾಡ್ಜ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
     <string name="cancel">ರದ್ದು</string>
     <string name="change_home_screen_settings">ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಸಂಯೋ. ಬದಲಿಸಿ</string>
     <string name="change_home_screen_settings_info">ಈ ಅನ್ವಯಿಸುವಿಕೆಯು ನಿಮ್ಮ ಹೋಮ್ ಸ್ಕ್ರೀನ್ ಸಂಯೋಜನೆಗಳು ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್‌ಗಳನ್ನು ಬದಲಿಸಬಹುದು.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">ನೇರವಾದ ಡಯಲ್</string>
     <string name="direct_message">ನೇರ ಸಂದೇಶ</string>
     <string name="disable_message">%1$s ಮತ್ತು ಅದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ನಿಶಕ್ತಗೊಳಿಸಲಾಗುವುದು. ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಮತ್ತೆ ಸಕ್ರಿಯಗೊಳಿಸಲು, ಸಂಯೋಜನೆಗಳು > ಅಪ್ಲಿಕೇಶನ್ ಹೋಗಿ, ತದನಂತರ %2$s ಆಯ್ಕೆಮಾಡಿ.</string>
+    <string name="disable_message_att">%s ಮತ್ತು ಅದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ನಿಶಕ್ತಗೊಳಿಸಲಾಗುವುದು. ಮತ್ತೊಮ್ಮೆ ಅದನ್ನು ಶಕ್ತಗೊಳಿಸಲು, ಸಂಯೋಜನೆಗಳು > ಸಾಧನ > ಅನ್ವಯಿಸುವಿಕೆಗಳು > ಅನ್ವಯಿಸುವಿಕೆ ಮ್ಯಾನೇಜರ್‌ಗೆ ಹೋಗಿ.</string>
     <string name="disable_message_vzw">%s ಮತ್ತು ಇದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ನಿಶಕ್ತಗೊಳಿಸಲಾಗುವುದು. ಅದನ್ನು ಮತ್ತೊಮ್ಮೆ ಶಕ್ತಗೊಳಿಸಲು, ಸಂಯೋಜನೆಗಳು > ಅನ್ವಯಿಸುವಿಕೆಗಳು > ಅನ್ವಯಿಸುವಿಕೆ ವ್ಯವಸ್ಥಾಪಕಕ್ಕೆ ಹೋಗಿ.</string>
     <string name="disable_messange_knox">%s ಮತ್ತು ಇದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ನಿಶಕ್ತಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಮತ್ತೊಮ್ಮೆ ಶಕ್ತಗೊಳಿಸಲು, KNOX ಸಂಯೋಜನೆಗಳು > ಅನ್ವಯಿಸುವಿಕೆ ಮ್ಯಾನೇಜರ್‌ಗೆ ಹೋಗಿ.</string>
     <string name="disable_title">ಅನ್ವಯಿಸುವಿಕೆ ನಿಶಕ್ತಗೊಳಿಸಿ</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ವಿಜೆಟ್ ಮರುಗಾತ್ರಗೊಳಿಸಲು ಅಂಚನ್ನು ಮೇಲಕ್ಕೆ, ಕೆಳಕ್ಕೆ, ಒಳಗೆ ಅಥವಾ ಹೊರಗೆ ಎಳೆಯಿರಿ.</string>
     <string name="guide_tap_here">ಅನ್ವಹಿಸುವಿಕೆಗಳ ಐಕಾನ್ ತಟ್ಟಿ.</string>
     <string name="guide_widgets_tap_area">ವಿಜೆಟ್ ಅನ್ನು ತಿದ್ದುವ ತನಕ ಅದನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ ನಂತರ ಅದನ್ನು ಬಿಡುಗಡೆ ಮಾಡಿ.</string>
+    <string name="hide">ಮರೆಮಾಡಿ</string>
+    <string name="hide_confirm_continue">ಮುಂದುವರಿಸು</string>
+    <string name="hide_confirm_message">%s ಅನ್ವಯಿಸುವಿಕೆ ಸದ್ಯಕ್ಕೆ ಲಾಕ್ ಆಗಿದೆ. ನೀವು ಈ ಅನ್ವಯಿಸುವಿಕೆ ಮರೆಮಾಡಿದ್ದಲ್ಲಿ, ಅದು ಅನ್‍ಲಾಕ್ ಆಗುವುದು.</string>
+    <string name="hide_confirm_title">ಅನ್ವಯಿಸುವಿಕೆ ಮರೆಮಾಡಿ</string>
     <string name="home_edit_add_to_personal">ವೈಯ. ಸೇರಿಸಿ</string>
     <string name="home_edit_bar_delete_title">ಶಾರ್ಟ್‌ಕಟ್ ತೆಗೆಯಿರಿ</string>
     <string name="home_edit_bar_delete_title_vzw">ಶಾರ್ಟ್‌ಕಟ್ ತೆಗೆಯಿರಿ</string>
@@ -134,7 +142,7 @@
     <string name="ok">ಸರಿ</string>
     <string name="only_one_widget_instance_allowed">%s ವಿಜೆಟ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ.</string>
     <string name="open_folder">ಫೋಲ್ಡರ್ ತೆರೆಯಿರಿ</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ</string>
     <string name="option_menu_contact_up">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</string>
     <string name="option_tray_screengrid">ಸ್ಕ್ರೀನ್ ಗ್ರಿಡ್</string>
     <string name="options_home_set_theme">ಥೀಮ್‌ಗಳು</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ವಿಜೆಟ್‌ಗಳನ್ನು ಸೇರಿಸಿ</string>
     <string name="quick_contact">ಸಂಪರ್ಕ</string>
     <string name="quick_options_help_text">ಅನ್ವಯಿಸುವಿಕೆಯ ತ್ವರಿತ ಆಯ್ಕೆಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಅದರ ಶಾರ್ಟ್‍ಕಟ್ ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ತ್ವರಿತ ಆಯ್ಕೆಗಳು ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಸುಲಭವಾಗಿ ನಿರ್ವಹಿಸಲು ಅನುಮತಿಸುತ್ತವೆ.</string>
+    <string name="quickoption_sleep">ನಿದ್ರೆ</string>
     <string name="quickoptions_add_apps">ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಸೇರಿಸಿ</string>
     <string name="quickoptions_add_to_secure_folder">"ಸುರಕ್ಷಿತ ಫೋಲ್ಡರ್‍‌ಗೆ
 ಸೇರಿಸಿ"</string>
     <string name="quickoptions_app_info">ಅನ್ವಯಿಸುವಿಕೆಯ ಮಾಹಿತಿ</string>
     <string name="quickoptions_clear_badge">ಬ್ಯಾಡ್ಜ್ ತೆರವುಗೊಳಿಸಿ</string>
     <string name="quickoptions_disable">ನಿಶಕ್ತಗೊಳಿಸಿ</string>
-    <string name="quickoptions_put_to_sleep">ಸ್ಲೀಪ್‍ನಲ್ಲಿರಿಸಿ</string>
-    <string name="quickoptions_put_to_sleep_alert">ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಸ್ಲೀಪ್‍ನಲ್ಲಿರಿಸುವುದರಿಂದ ಹಿನ್ನಲೆಯಲ್ಲಿ ಬಳಕೆಯಾಗುತ್ತಿರುವ ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ತಡೆಗಟ್ಟುತ್ತದೆ. ಸ್ಲೀಪ್ ಮೋಡ್‌ನಲ್ಲಿರುವ ಅನ್ವಯಿಸುವಿಕೆಗಳು ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ ಅಥವಾ ನಿಮಗೆ ಪ್ರಕಟಣೆಗಳನ್ನು ಕಳುಹಿಸುವುದಿಲ್ಲವಾದರೂ, ನೀವು ಅವುಗಳನ್ನು ತೆರೆದಾಗ ಎಚ್ಚರಗೊಳ್ಳುತ್ತವೆ.</string>
+    <string name="quickoptions_sleep_alert">ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಸ್ಲೀಪ್‍ನಲ್ಲಿರಿಸುವುದರಿಂದ ಹಿನ್ನಲೆಯಲ್ಲಿ ಬಳಕೆಯಾಗುತ್ತಿರುವ ಬ್ಯಾಟರಿ ಬಳಕೆಯನ್ನು ತಡೆಗಟ್ಟುತ್ತದೆ. ಸ್ಲೀಪ್ ಮೋಡ್‌ನಲ್ಲಿರುವ ಅನ್ವಯಿಸುವಿಕೆಗಳು ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ ಅಥವಾ ನಿಮಗೆ ಪ್ರಕಟಣೆಗಳನ್ನು ಕಳುಹಿಸುವುದಿಲ್ಲವಾದರೂ, ನೀವು ಅವುಗಳನ್ನು ತೆರೆದಾಗ ಎಚ್ಚರಗೊಳ್ಳುತ್ತವೆ.</string>
     <string name="quickoptions_uninstall">ಅಸ್ಥಾಪಿಸಿ</string>
     <string name="quickview_delete_toast_msg">ಪುಟ ತೆಗೆದುಹಾಕಲು ಅದನ್ನು ತೆಗೆದುಹಾಕುವಲ್ಲಿಗೆ ಡ್ರ್ಯಾಗ್ ಮಾಡಿ.</string>
     <string name="quickview_drag_bar_delete_title">ತೆಗೆಯಿರಿ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ಅಳಿಸಿ</string>
     <string name="remove_app_folder_confirm_VZW">ತೆಗೆಯಿರಿ</string>
     <string name="remove_app_folder_message">%s ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಈಗಲೂ ಲಭ್ಯವಿವೆ.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ಫೋಲ್ಡರ್ ತೆಗೆದುಹಾಕಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿರುವ ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಅನ್ವಯಿಸುವಿಕೆ ಟ್ರೇ ಅಂತ್ಯದಲ್ಲಿ ಪಟ್ಟಿಮಾಡಲಾಗುವುದು.</string>
     <string name="remove_app_folder_message_no_title">ಈ ಪೋಲ್ಡರ್‌ ಅನ್ನು ತೆಗೆಯಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ ಇರುವ ಅನ್ವಹಿಸುವಿಕೆಗಳ ಸ್ಥಾಪನೆಯನ್ನು ತೆಗೆಯಲಾಗುವುದಿಲ್ಲ.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ಈ ಫೋಲ್ಡರ್ ತೆಗೆದುಹಾಕಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿರುವ ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಅನ್ವಯಿಸುವಿಕೆ ಟ್ರೇ ಅಂತ್ಯದಲ್ಲಿ ಪಟ್ಟಿಮಾಡಲಾಗುವುದು.</string>
     <string name="remove_app_folder_title">ಫೋಲ್ಡರ್ ತೆಗೆದುಹಾಕಿ</string>
     <string name="remove_app_folder_title_VZW">ಫೋಲ್ಡರ್ ತೆಗೆಯಿರಿ</string>
     <string name="remove_home_folder_message">%s ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಈಗಲೂ ಲಭ್ಯವಿವೆ.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">ಕಸ್ಟಮ್ ಕ್ರಮ</string>
     <string name="widget_duplicate">%s ವಿಜೆಟ್ ಈಗಾಗಲೇ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿದೆ.</string>
     <string name="work_folder_name">ಕೆಲಸ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">ಅಂಶಗಳನ್ನು ಸೇರಿಸಲು ಸ್ಕ್ರೀನ್‌ನ್ನು ಸ್ಪರ್ಶಿಸಿ ಮತ್ತು ಹಿಡಿಯಿರಿ</string>
+    <string name="zeropage_briefing_title">ಸಂಕ್ಷಿಪ್ತ</string>
+    <string name="zeropage_download">ಡೌನ್‍ಲೋಡ್</string>
+    <string name="zeropage_download_msg">ಈ ಕಾರ್ಯವನ್ನು ಬಳಸಲು, ನೀವು %1$s ಸ್ಥಾಪಿಸಬೇಕಾಗುತ್ತದೆ. %2$s ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಮತ್ತು ಸ್ಥಾಪಿಸಲು “ಡೌನ್‍ಲೋಡ್” ತಟ್ಟಿ.</string>
     <string name="zeropage_notice_msg">ಇದೀಗ %s ಸೇವೆ ಲಭ್ಯವಿದೆ. ಫ್ಲಿಪ್‌ಬೋರ್ಡ್ ಬ್ರೀಫಿಂಗ್ ಬದಲಿಗೆ ಇದನ್ನು ಬಳಸಲು, “ಸರಿ” ತಟ್ಟಿ.</string>
     <string name="zeropage_setting_dialog_no">ರದ್ದು</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">ಸೋಹು ನ್ಯೂಸ್</string>
 </resources>

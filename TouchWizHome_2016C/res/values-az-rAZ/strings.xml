@@ -34,14 +34,17 @@
     <string name="all_apps_title">Proqramlar</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCÇDEƏFGĞHXIİJKQLMNOÖPRSŞTUÜVYZABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZABCÇDEƏFGĞHXIİJKQLMNOÖPRSŞTUÜVYZ</string>
+    <string name="app_hidden_toast">%s gizlidir.</string>
+    <string name="app_locked_toast">%s kilidlidir.</string>
     <string name="app_search">Axtar</string>
     <string name="app_search_no_apps">Siz axtarış nəticələrindən qısayolları əsas ekrana əlavə edə bilərsiniz.</string>
     <string name="app_search_no_results_found">Nəticə tapılmadı</string>
+    <string name="app_unlocked_toast">%s kiliddən açıldı.</string>
     <string name="apply">Tətbiq et</string>
     <string name="available_galaxyapps">Galaxy Apps-da mövcuddur</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Hər bir proqram üzrə göstəriləcək və ya gizlədiləcək bəc seçin.</string>
+    <string name="badge_manage_summary">Hər bir proqram üzrə göstəriləcək və ya gizlədiləcək bəc seçin.</string>
+    <string name="badge_manage_title">Proqram nişanlarını idarə et</string>
     <string name="cancel">Ləğv et</string>
     <string name="change_home_screen_settings">Əsas ekran parametr dəyiş</string>
     <string name="change_home_screen_settings_info">Bu proqram əsas ekran parametrləri və qısayollarını dəyişə bilər.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Birbaşa zəng</string>
     <string name="direct_message">Birbaşa mesaj</string>
     <string name="disable_message">%1$s və onunla bağlı bütün funksiyalar qeyri-aktiv ediləcəkdir. Proqramı yenidən aktiv etmək üçün Parametrlər > Proqramlar və %2$s seçin.</string>
+    <string name="disable_message_att">%s və onunla bağlı bütün funksiyalar qeyri-aktiv ediləcək. Onu yenidən aktivləşdirmək üçün Parametrlər > Cihaz > Proqramlar > Proqram menecerinə keçin.</string>
     <string name="disable_message_vzw">%s və onunla bağlı bütün funksiyalar qeyri-aktiv ediləcəkdir. Onu yenidən aktiv etmək üçün, Parametrlər > Proqramlar >Proqram menecerinə daxil olun.</string>
     <string name="disable_messange_knox">%s və onunla bağlı bütün funksiyalar qeyri-aktiv ediləcəkdir. Onu yenidən aktiv etmək üçün KNOX parametrlər > Proqram meneceri seçin.</string>
     <string name="disable_title">Proqramı qeyri-aktiv et</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Piktoqramın ölçüsünü dəyişmək üçün sərhəd xəttini yuxarı və ya aşağıya doğru dartın.</string>
     <string name="guide_tap_here">Proqramlar nişanına vurun.</string>
     <string name="guide_widgets_tap_area">Redaktə edilənə kimi əlinizi piktoqramın üzərinə vurub saxlayın, daha sonra əlinizi buraxın.</string>
+    <string name="hide">Gizlət</string>
+    <string name="hide_confirm_continue">Davam et</string>
+    <string name="hide_confirm_message">%s proqram hazırda kilidlənib. Bu proqramı gizlətsəniz, o, kiliddən açılacaq.</string>
+    <string name="hide_confirm_title">Proqramı gizlət</string>
     <string name="home_edit_add_to_personal">Şəxsi əlavə et</string>
     <string name="home_edit_bar_delete_title">Qısayolu sil</string>
     <string name="home_edit_bar_delete_title_vzw">Qısayolu sil</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s piktoqram artıq əsas ekrana əlavə edildi.</string>
     <string name="open_folder">Qovluğu aç</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Proqramlara bax</string>
     <string name="option_menu_contact_up">Bizimlə əlaqə</string>
     <string name="option_tray_screengrid">Ekran toru</string>
     <string name="options_home_set_theme">Mövzular</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Vidjetlər əlavə et</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Cəld seçimlərə baxmaq üçün proqram qısayolunu aşağı sürüşdürün. Cəld seçimlər proqramları daha asan idarə etməyə imkan verir.</string>
+    <string name="quickoption_sleep">Yuxu</string>
     <string name="quickoptions_add_apps">Proqram əlavə et</string>
     <string name="quickoptions_add_to_secure_folder">"Təhlükəsiz Qovluğa
 əlvə et"</string>
     <string name="quickoptions_app_info">Proqram məlumatı</string>
     <string name="quickoptions_clear_badge">Bəci sil</string>
     <string name="quickoptions_disable">Qeyri-aktv et</string>
-    <string name="quickoptions_put_to_sleep">Yuxu rejiminə keçir</string>
-    <string name="quickoptions_put_to_sleep_alert">Bu proqramın yuxu rejiminə keçirilməsi onun fonda batareya istifadəsinin qarşısını alacaq. Yuxu rejimində olan proqramlar yeniləmələr almaya və sizə bildiriş göndərməyə bilər, lakin onları açdığınız zaman oyanacaq.</string>
+    <string name="quickoptions_sleep_alert">Bu proqramın yuxu rejiminə keçirilməsi onun fonda batareya istifadəsinin qarşısını alacaq. Yuxu rejimində olan proqramlar yeniləmələr almaya və sizə bildiriş göndərməyə bilər, lakin onları açdığınız zaman oyanacaq.</string>
     <string name="quickoptions_uninstall">Poz</string>
     <string name="quickview_delete_toast_msg">Silmək üçün səhifəni Silməyə çək.</string>
     <string name="quickview_drag_bar_delete_title">Çixard</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">Sil</string>
     <string name="remove_app_folder_confirm_VZW">Sil</string>
     <string name="remove_app_folder_message">%s qovluq silinəcək. Bu qovluqdakı proqramlar yenə də Proqramlar ekranında mövcud olacaq.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s qovluğu silinəcək. Bu qovluqdakı proqramlar Proqram sahəsinin sonunda qeyd olunacaq.</string>
     <string name="remove_app_folder_message_no_title">Bu qovluq silinəcək. Bu qovluqda olan proqramlar silinməyəcək</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Bu qovluq silinəcək. Bu qovluqdakı proqramlar Proqram sahəsinin sonunda qeyd olunacaq.</string>
     <string name="remove_app_folder_title">Qovluğu sil</string>
     <string name="remove_app_folder_title_VZW">Qovluğu sil</string>
     <string name="remove_home_folder_message">%s qovluq silinəcək. Bu qovluqdakı proqramlar yenə də Proqramlar ekranında mövcud olacaq.</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">Fərdi sıra</string>
     <string name="widget_duplicate">%s vidjet artıq əsas ekrandadır.</string>
     <string name="work_folder_name">İş</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Elementlər əlavə etmək üçün ekrana vurub saxlayın</string>
     <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_download">Endir</string>
+    <string name="zeropage_download_msg">Bu funksiyadan istifadə etmək üçün siz %1$s quraşdırmalısınız. %2$s endirmək və quraşdırmaq üçün ENDİR vurun.</string>
     <string name="zeropage_notice_msg">%s xəbər xidməti artıq mövcuddur. Ondan Flipboard Briefing əvəzinə istifadə etmək üçün OK vurun.</string>
     <string name="zeropage_setting_dialog_no">Ləğv et</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu Xəbərləri</string>
 </resources>

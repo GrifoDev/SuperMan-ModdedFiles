@@ -34,9 +34,12 @@
     <string name="all_apps_title">App</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABDEFGHIJKLMNOPRSTUVYZ</string>
+    <string name="app_hidden_toast">%s hidden.</string>
+    <string name="app_locked_toast">Voahidy ny %s.</string>
     <string name="app_search">Karoka</string>
     <string name="app_search_no_apps">You can add shortcuts on the home screen from the search results.</string>
     <string name="app_search_no_results_found">Tsy misy vokany hita</string>
+    <string name="app_unlocked_toast">%s unlocked.</string>
     <string name="apply">Hampihatra</string>
     <string name="available_galaxyapps">Available in Galaxy Apps</string>
     <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Fiantsoana mivantana</string>
     <string name="direct_message">Hafatra mivantana</string>
     <string name="disable_message">%1$s and all the functions related to it will be disabled. To enable the app again, go to Settings > Applications, then select %2$s.</string>
+    <string name="disable_message_att">%s and all the features related to it will be disabled. To enable it again, go to Settings > Device > Applications > Application manager.</string>
     <string name="disable_message_vzw">"Ho vonoina ny %s sy ireo fiasa mifandraika aminy rehetra. Raha hamelona azy indray, dia mankanesa ao amin'ny Tefy > Rindranasa > Mpandrindra rindranasa."</string>
     <string name="disable_messange_knox">%s and all the features related to it will be disabled. To enable it again, go to KNOX settings > Application manager.</string>
     <string name="disable_title">Hamono app</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">"Sintomy miakatra, midina, miditra na mivoaka raha hanova ny haben'ny widget."</string>
     <string name="guide_tap_here">Tsindrio ny ikaona App.</string>
     <string name="guide_widgets_tap_area">Tsindrio elaela ny widget mandra-pahafahana manitsy azy, avy eo avotsory.</string>
+    <string name="hide">Hide</string>
+    <string name="hide_confirm_continue">Hanohy</string>
+    <string name="hide_confirm_message">The %s app is currently locked. If you hide this app, it will be unlocked.</string>
+    <string name="hide_confirm_title">Hide app</string>
     <string name="home_edit_add_to_personal">Ho manokana</string>
     <string name="home_edit_bar_delete_title">Remove shortcut</string>
     <string name="home_edit_bar_delete_title_vzw">Remove shortcut</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Add widgets</string>
     <string name="quick_contact">Mpifandray</string>
     <string name="quick_options_help_text">Swipe an app shortcut downwards to view its quick options. Quick options allow you to manage apps easily.</string>
+    <string name="quickoption_sleep">Sleep</string>
     <string name="quickoptions_add_apps">Hanampy app</string>
     <string name="quickoptions_add_to_secure_folder">"Add to
 Secure Folder"</string>
     <string name="quickoptions_app_info">Fampahalalana app</string>
     <string name="quickoptions_clear_badge">Clear badge</string>
     <string name="quickoptions_disable">Hamono</string>
-    <string name="quickoptions_put_to_sleep">Put to sleep</string>
-    <string name="quickoptions_put_to_sleep_alert">Putting this app to sleep will prevent it from using the battery in the background. Sleeping apps may not receive updates or send you notifications, but they will wake up when you open them.</string>
+    <string name="quickoptions_sleep_alert">Putting this app to sleep will prevent it from using the battery in the background. Sleeping apps may not receive updates or send you notifications, but they will wake up when you open them.</string>
     <string name="quickoptions_uninstall">Uninstall</string>
     <string name="quickview_delete_toast_msg">Drag page to Remove to remove it.</string>
     <string name="quickview_drag_bar_delete_title">Esorina</string>
@@ -179,7 +187,7 @@ Secure Folder"</string>
     <string name="remove_app_folder_title_VZW">Hanala dosie</string>
     <string name="remove_home_folder_message">The %s folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
     <string name="remove_home_folder_message_no_title">This folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
-    <string name="remove_home_only_folder_message">This folder will be deleted. The apps in this folder will not be uninstalled.</string>
+    <string name="remove_home_only_folder_message">"Hofafana ity dosie ity. Tsy hapetraka ireo app ao anatin'ity dosie ity."</string>
     <string name="restart_widget">Hamerina hamelona widget</string>
     <string name="screengrid_explain_text">"The Apps screen layout will be changed to
 %1$d x %2$d to match the home screen layout."</string>
@@ -187,7 +195,7 @@ Secure Folder"</string>
     <string name="search_for_apps">Search for apps</string>
     <string name="search_for_widgets">Search for widgets</string>
     <string name="search_result_found">%d found</string>
-    <string name="search_result_founds">%d hita</string>
+    <string name="search_result_founds">%d found</string>
     <string name="select_all_app">Rehetra</string>
     <string name="select_app_add">ADD</string>
     <string name="selected">Voafantina</string>
@@ -198,7 +206,7 @@ Secure Folder"</string>
     <string name="talkback_all_apps_button">Ireo rindranasa</string>
     <string name="talkback_checked">Voafantina</string>
     <string name="talkback_double_tap_to_move">Tsindrio elaela indroa raha hamindra.</string>
-    <string name="talkback_double_tap_to_open_app_tray">Double tap to open app tray.</string>
+    <string name="talkback_double_tap_to_open_app_tray">"Tsindrio indroa raha hanokatra ny sahafan'app."</string>
     <string name="talkback_folder_created">Noforonina ny dosie.</string>
     <string name="talkback_folder_item_hover_handle">"Singan'ny dosie"</string>
     <string name="talkback_header">Andoha</string>

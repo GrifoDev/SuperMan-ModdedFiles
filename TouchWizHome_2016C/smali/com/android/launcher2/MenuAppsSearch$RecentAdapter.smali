@@ -52,7 +52,7 @@
 .method public getCount()I
     .locals 4
 
-    const v3, 0x7f080027
+    const v3, 0x7f080029
 
     const/16 v2, 0x8
 

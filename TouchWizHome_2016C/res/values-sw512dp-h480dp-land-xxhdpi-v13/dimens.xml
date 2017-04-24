@@ -61,9 +61,11 @@
     <dimen name="open_folder_title_name_margin_top">0.0dip</dimen>
     <dimen name="open_folder_title_option_button_margin_top">0.0dip</dimen>
     <dimen name="widget_pageIndicatorTop">414.0dip</dimen>
-    <dimen name="workspaceEditModeShrink_top_adjust">-65.0dip</dimen>
+    <dimen name="workspaceEditModeShrink_top_adjust">-88.0dip</dimen>
     <dimen name="workspace_scroll_zone_left_width">85.0dip</dimen>
     <dimen name="workspace_scroll_zone_right_width">85.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">297.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">409.0dip</dimen>
     <dimen name="menu_icon_textsize">10.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_top_margin_new">350.0dip</dimen>
     <dimen name="open_folder_appicon_cell_width_new">93.0dip</dimen>
@@ -72,7 +74,7 @@
     <dimen name="open_folder_pageSpacing_new">78.0dip</dimen>
     <dimen name="open_folder_title_layout_width_new">490.0dip</dimen>
     <dimen name="open_folder_title_name_margin_left_new">16.0dip</dimen>
-    <dimen name="open_folder_title_name_margin_right_new">24.0dip</dimen>
+    <dimen name="open_folder_title_name_margin_right_new">36.0dip</dimen>
     <dimen name="open_folder_title_underbar_margin_left_new">16.0dip</dimen>
     <dimen name="open_folder_title_underbar_width">462.0dip</dimen>
     <dimen name="open_folder_width">490.0dip</dimen>
@@ -82,13 +84,13 @@
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">378.0dip</dimen>
     <dimen name="menuwidgets_folderopen_height">467.0dip</dimen>
     <dimen name="app_searchview_margin_top">0.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_height">297.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">409.0dip</dimen>
     <dimen name="appsearch_grid_cell_padding">16.0dip</dimen>
     <dimen name="appsearch_grid_margin_left_right">10.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">112.0dip</dimen>
     <dimen name="home_zero_page_dual_image_height">223.0dip</dimen>
     <dimen name="home_zero_page_dual_image_width">307.0dip</dimen>
+    <item type="dimen" name="config_extra_WorkspaceEditModeShrinkPercentage">0.0075</item>
+    <item type="dimen" name="config_workspaceEditModeTranslationFactor">1.037</item>
     <dimen name="create_folder_dialog_width">490.0dip</dimen>
     <dimen name="done_button_height">29.0dip</dimen>
     <dimen name="done_button_width">97.0dip</dimen>

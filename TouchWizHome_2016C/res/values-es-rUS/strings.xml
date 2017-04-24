@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplicaciones</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNÑOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">Se ocultó %s.</string>
+    <string name="app_locked_toast">%s bloqueado.</string>
     <string name="app_search">Buscar</string>
     <string name="app_search_no_apps">Puede añadir atajos en la pantalla de inicio desde los resultados de búsqueda.</string>
     <string name="app_search_no_results_found">No se encontraron resultados</string>
+    <string name="app_unlocked_toast">%s desbloqueado.</string>
     <string name="apply">Aplicar</string>
     <string name="available_galaxyapps">Disponible en Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Seleccione en cada aplicación si se mostrarán u ocultarán los globos de notificación.</string>
+    <string name="badge_manage_summary">Seleccione en cada aplicación si se mostrarán u ocultarán los globos de notificación.</string>
+    <string name="badge_manage_title">Administrar globos de notificación de aplicaciones</string>
     <string name="cancel">Cancelar</string>
     <string name="change_home_screen_settings">Cambiar ajustes pant. inicio</string>
     <string name="change_home_screen_settings_info">Esta aplicación puede cambiar los ajustes y los atajos de la pantalla de inicio.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Marcación directa</string>
     <string name="direct_message">Mensaje directo</string>
     <string name="disable_message">Se desactivarán %1$s y todas las funciones relacionadas. Para volver a activar la aplicación, vaya a Ajustes > Aplicaciones y seleccione %2$s.</string>
+    <string name="disable_message_att">%s y todas las funciones relacionadas se desactivarán. Para volver a activarlas, vaya a Ajustes > Dispositivo > Aplicaciones > Administrador de aplicaciones.</string>
     <string name="disable_message_vzw">%s y todas las funciones relacionadas se desactivarán. Para volver a activarlas, vaya a Ajustes > Aplicaciones > Administrador de aplicaciones.</string>
     <string name="disable_messange_knox">%s y todas las funciones relacionadas se desactivarán. Para volver a activar la aplicación, vaya a Ajustes de KNOX > Administrador de aplicaciones.</string>
     <string name="disable_title">Desactivar aplicación</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Arrastre el borde hacia arriba, abajo, dentro o fuera, para redimensionar el widget</string>
     <string name="guide_tap_here">Pulse el ícono de aplicaciones.</string>
     <string name="guide_widgets_tap_area">Mantenga pulsado el widget hasta que pueda editarse y luego suéltelo</string>
+    <string name="hide">Ocultar</string>
+    <string name="hide_confirm_continue">Continuar</string>
+    <string name="hide_confirm_message">La aplicación %s está bloqueada. Si la oculta, se desbloqueará.</string>
+    <string name="hide_confirm_title">Ocultar aplicación</string>
     <string name="home_edit_add_to_personal">Añ. a pers.</string>
     <string name="home_edit_bar_delete_title">Eliminar atajo</string>
     <string name="home_edit_bar_delete_title_vzw">Eliminar atajo</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Añadir widgets</string>
     <string name="quick_contact">Contacto</string>
     <string name="quick_options_help_text">Deslice hacia abajo el atajo de una aplicación para ver las opciones rápidas. Las opciones rápidas le permiten administrar las aplicaciones fácilmente.</string>
+    <string name="quickoption_sleep">Suspender</string>
     <string name="quickoptions_add_apps">Añadir aplicaciones</string>
     <string name="quickoptions_add_to_secure_folder">"Añadir a
 Carpeta segura"</string>
     <string name="quickoptions_app_info">Información de aplicación</string>
     <string name="quickoptions_clear_badge">Borrar alerta</string>
     <string name="quickoptions_disable">Desactivar</string>
-    <string name="quickoptions_put_to_sleep">Poner en suspenso</string>
-    <string name="quickoptions_put_to_sleep_alert">Al ponerse en suspenso, esta aplicación no podrá usar la batería en segundo plano. Las aplicaciones en suspenso no recibirán actualizaciones ni enviarán notificaciones, pero se activarán cuando las abra.</string>
+    <string name="quickoptions_sleep_alert">Al ponerse en suspenso, esta aplicación no podrá usar la batería en segundo plano. Las aplicaciones en suspenso no recibirán actualizaciones ni enviarán notificaciones, pero se activarán cuando las abra.</string>
     <string name="quickoptions_uninstall">Desinstalar</string>
     <string name="quickview_delete_toast_msg">Arrastre la página hasta Eliminar para eliminarla.</string>
     <string name="quickview_drag_bar_delete_title">Eliminar</string>
@@ -187,7 +195,7 @@ Carpeta segura"</string>
     <string name="search_for_apps">Buscar aplicaciones</string>
     <string name="search_for_widgets">Buscar widgets</string>
     <string name="search_result_found">%d encontrado</string>
-    <string name="search_result_founds">%d encontrados</string>
+    <string name="search_result_founds">%d encontrado</string>
     <string name="select_all_app">Todo</string>
     <string name="select_app_add">AÑADIR</string>
     <string name="selected">Seleccionado</string>
@@ -230,10 +238,10 @@ Carpeta segura"</string>
     <string name="widget_duplicate">El widget %s ya se encuentra en la pantalla de inicio.</string>
     <string name="work_folder_name">Trabajo</string>
     <string name="workspace_empty_message">Mantenga pulsada la pantalla para añadir elementos</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_briefing_title">Resumen</string>
+    <string name="zeropage_download">Descargar</string>
+    <string name="zeropage_download_msg">Para usar esta función, debe instalar %1$s. Pulse DESCARGAR para descargar e instalar %2$s.</string>
     <string name="zeropage_notice_msg">El servicio de noticias de %s ya está disponible. Para usarlo en lugar de Flipboard Briefing, pulse ACEPTAR.</string>
     <string name="zeropage_setting_dialog_no">Cancelar</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Novedades de Sohu</string>
 </resources>

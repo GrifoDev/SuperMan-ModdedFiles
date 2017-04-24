@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplic.</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s oculto.</string>
+    <string name="app_locked_toast">%s bloqueado.</string>
     <string name="app_search">Pesquisar</string>
     <string name="app_search_no_apps">Você pode adicionar atalhos à tela inicial a partir dos resultados de pesquisa.</string>
     <string name="app_search_no_results_found">Nenhum resultado encontrado</string>
+    <string name="app_unlocked_toast">%s desbloqueado.</string>
     <string name="apply">Aplicar</string>
     <string name="available_galaxyapps">Disponível na Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Selecione se deseja exibir ou ocultar as conquistas de cada aplicativo.</string>
+    <string name="badge_manage_summary">Selecione se deseja exibir ou ocultar as conquistas de cada aplicativo.</string>
+    <string name="badge_manage_title">Gerenciar conquistas do aplicativo</string>
     <string name="cancel">Cancelar</string>
     <string name="change_home_screen_settings">Alterar config. tela início</string>
     <string name="change_home_screen_settings_info">Este aplicativo pode alterar os atalhos e as configurações da tela de início.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Discagem direta</string>
     <string name="direct_message">Mensagem direta</string>
     <string name="disable_message">O %1$s e todas as funções relacionadas a ele serão desativados. Para ativar o aplicativo novamente, vá para Configurações > Aplicativos e selecione %2$s.</string>
+    <string name="disable_message_att">%s e todos os recursos relacionados serão desativados. Para ativar novamente, vá para Configurações > Aparelho > Aplicativos > Gerenciador de aplicativo.</string>
     <string name="disable_message_vzw">%s e todos os recursos relacionados a ele serão desativados. Para ativá-lo novamente, vá para Configurações > Aplicativos > Gerenciador de aplicativos.</string>
     <string name="disable_messange_knox">%s e todos os recursos relacionados a ele serão desativados. Para ativá-lo novamente, vá para Configurações do KNOX > Gerenciador de aplicativos.</string>
     <string name="disable_title">Desativar aplicativo</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Arraste a borda para cima, para baixo, para dentro ou para fora para redimensionar o widget</string>
     <string name="guide_tap_here">Toque no ícone de aplicativos.</string>
     <string name="guide_widgets_tap_area">Mantenha pressionado um widget até que seja possível editá-lo, depois solte-o</string>
+    <string name="hide">Ocultar</string>
+    <string name="hide_confirm_continue">Continuar</string>
+    <string name="hide_confirm_message">O aplicativo %s está bloqueado atualmente. Se você ocultar esse aplicativo, ele será desbloqueado.</string>
+    <string name="hide_confirm_title">Ocultar aplicativo</string>
     <string name="home_edit_add_to_personal">Ad. pessoal</string>
     <string name="home_edit_bar_delete_title">Remover o atalho</string>
     <string name="home_edit_bar_delete_title_vzw">Remover o atalho</string>
@@ -93,7 +101,7 @@
     <string name="home_screen_mode_apps">Most. Tela aplic. separ.</string>
     <string name="home_screen_mode_change_to_apps_alert">Uma tela de Aplicativos separada será criada para que você possa encontrar seus aplicativos mais importantes com facilidade através do ícone Aplicativos na tela de início. Quaisquer personalizações feitas anteriormente na tela de início serão descartadas.</string>
     <string name="home_screen_mode_change_to_only_home_alert">Todos os seus aplicativos serão exibidos na tela de início. Quaisquer personalizações feitas anteriormente à tela de início serão descartadas.</string>
-    <string name="home_screen_mode_only_home">Exibir aplic. na tela início</string>
+    <string name="home_screen_mode_only_home">Exibir apps na Tela inicial</string>
     <string name="homes_screen_settings">Config. da tela de início</string>
     <string name="item_added">Item adicionado.</string>
     <string name="item_moved">Item movido.</string>
@@ -101,7 +109,7 @@
     <string name="item_removed">Item removido.</string>
     <string name="labs_alert_description">Exibe todos os aplicativos na tela de início em vez da tela Aplicativos.</string>
     <string name="last_page">A página atual é a última página.</string>
-    <string name="lock">Bloquear</string>
+    <string name="lock">Proteger</string>
     <string name="lock_or_unlock_dislog_msg">Depois de mover este aplicativo para fora da pasta, manter o aplicativo bloqueado ou desbloqueá-lo?</string>
     <string name="max_characters_available">Até %d caracteres disponíveis.</string>
     <string name="menu_edit">Editar</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Adicionar widgets</string>
     <string name="quick_contact">Contato</string>
     <string name="quick_options_help_text">Deslize um atalho de aplicativo para baixo para ver suas opções rápidas. As opções rápidas permitem que você gerencie os aplicativos facilmente.</string>
+    <string name="quickoption_sleep">Suspender</string>
     <string name="quickoptions_add_apps">Adição de aplicativos</string>
     <string name="quickoptions_add_to_secure_folder">"Adicionar à
 Pasta Segura"</string>
     <string name="quickoptions_app_info">Informações do aplicativo</string>
     <string name="quickoptions_clear_badge">Apagar conquista</string>
     <string name="quickoptions_disable">Desativar</string>
-    <string name="quickoptions_put_to_sleep">Suspender</string>
-    <string name="quickoptions_put_to_sleep_alert">A suspensão deste aplicativo impedirá que ele use a bateria em segundo plano. Os aplicativos suspensos não poderão receber atualizações ou enviar suas notificações, mas serão ativados quando você abri-los.</string>
+    <string name="quickoptions_sleep_alert">A suspensão deste aplicativo impedirá que ele use a bateria em segundo plano. Os aplicativos suspensos não poderão receber atualizações ou enviar suas notificações, mas serão ativados quando você abri-los.</string>
     <string name="quickoptions_uninstall">Desinstalar</string>
     <string name="quickview_delete_toast_msg">Arraste a página para Remover para excluí-la.</string>
     <string name="quickview_drag_bar_delete_title">Remover</string>
@@ -181,13 +189,13 @@ Pasta Segura"</string>
     <string name="remove_home_folder_message_no_title">Esta pasta será excluída. Os aplicativos dentro dela ainda estarão disponíveis na tela Aplicativos.</string>
     <string name="remove_home_only_folder_message">Esta pasta será excluída. Os aplicativos desta pasta não serão desinstalados.</string>
     <string name="restart_widget">Reiniciar widget</string>
-    <string name="screengrid_explain_text">"O layout da tela Aplic. mudará para %1$d x %2$d
-p/ corresp. ao layout da tela de início."</string>
+    <string name="screengrid_explain_text">"A aparência da Tela de aplic. mudará p/ %1$d x %2$d
+p/ igualar a aparência da Tela inicial"</string>
     <string name="search">Pesquisar</string>
     <string name="search_for_apps">Procurar aplicativos</string>
     <string name="search_for_widgets">Procurar widgets</string>
     <string name="search_result_found">%d encontrado</string>
-    <string name="search_result_founds">%d encontrados</string>
+    <string name="search_result_founds">%d encontrado</string>
     <string name="select_all_app">Todos</string>
     <string name="select_app_add">ADICIONAR</string>
     <string name="selected">Selecionado</string>
@@ -230,10 +238,10 @@ p/ corresp. ao layout da tela de início."</string>
     <string name="widget_duplicate">Widget %s já adicionado à tela inicial.</string>
     <string name="work_folder_name">Trabalho</string>
     <string name="workspace_empty_message">Mantenha pressionada a tela para adicionar itens</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_briefing_title">Resumo</string>
+    <string name="zeropage_download">Baixar</string>
+    <string name="zeropage_download_msg">Para usar esta função, você precisa instalar %1$s. Toque em BAIXAR para baixar e instalar %2$s.</string>
     <string name="zeropage_notice_msg">O serviço de notícias %s já está disponível. Para usá-lo em vez do Flipboard Briefing, toque em OK.</string>
     <string name="zeropage_setting_dialog_no">Cancelar</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Novidades da Sohu</string>
 </resources>

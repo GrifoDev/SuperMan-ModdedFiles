@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplikasi</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s tersembunyi.</string>
+    <string name="app_locked_toast">%s dikunci.</string>
     <string name="app_search">Cari</string>
     <string name="app_search_no_apps">Anda boleh menambah pintasan pada skrin utama daripada hasil carian.</string>
     <string name="app_search_no_results_found">Tiada keputusan ditemui</string>
+    <string name="app_unlocked_toast">%s dibuka kunci.</string>
     <string name="apply">Guna</string>
     <string name="available_galaxyapps">Tersedia dalam Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Pilih sama ada untuk menunjukkan atau menyembunyikan lencana untuk setiap aplikasi.</string>
+    <string name="badge_manage_summary">Pilih sama ada untuk menunjukkan atau menyembunyikan lencana untuk setiap aplikasi.</string>
+    <string name="badge_manage_title">Urus lencana aplikasi</string>
     <string name="cancel">Batal</string>
     <string name="change_home_screen_settings">Ubah aturan skrin utama</string>
     <string name="change_home_screen_settings_info">Aplikasi ini boleh mengubah aturan skrin utama dan pintasan anda.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Dail Langsung</string>
     <string name="direct_message">Mesej Langsung</string>
     <string name="disable_message">%1$s dan semua fungsi yang berkaitan akan dinyahaktifkan. Untuk mengaktifkan aplikasi sekali lagi, pergi ke Aturan > Aplikasi, kemudian pilih %2$s.</string>
+    <string name="disable_message_att">%s dan semua ciri yang berkaitan dengannya akan dinyahaktifkan. Untuk mengaktifkannya semula, pergi ke Aturan > Peranti > Aplikasi > Pengurus aplikasi.</string>
     <string name="disable_message_vzw">%s dan semua ciri yang berkaitan dengannya akan dinyahaktifkan. Untuk mengaktifkannya lagi, pergi ke Aturan > Aplikasi > Pengurus aplikasi.</string>
     <string name="disable_messange_knox">%s dan semua ciri yang berkaitan dengannya akan dinyahaktifkan. Untuk mengaktifkannya semula, pergi ke Aturan KNOX > Pengurus aplikasi.</string>
     <string name="disable_title">Nyahaktifkan aplikasi</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">Tarik sempadan ke atas, bawah, dalam atau keluar untuk mengubah saiz widget.</string>
     <string name="guide_tap_here">Ketik ikon aplikasi.</string>
     <string name="guide_widgets_tap_area">Ketik dan tahan widget sehingga ia boleh disunting, kemudian lepaskannya.</string>
+    <string name="hide">Sembunyi</string>
+    <string name="hide_confirm_continue">Seterusnya</string>
+    <string name="hide_confirm_message">Aplikasi %s dikunci buat masa ini. Jika anda menyembunyikan aplikasi ini, ia akan dibuka kunci.</string>
+    <string name="hide_confirm_title">Sembunyikan aplikasi</string>
     <string name="home_edit_add_to_personal">Tbh ke pribd</string>
     <string name="home_edit_bar_delete_title">Alih keluar pintasan</string>
     <string name="home_edit_bar_delete_title_vzw">Alih keluar pintasan</string>
@@ -134,7 +142,7 @@
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s widget telah ditambahkan pada skrin utama.</string>
     <string name="open_folder">Buka pelipat</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Lihat aplikasi</string>
     <string name="option_menu_contact_up">Hubungi kami</string>
     <string name="option_tray_screengrid">Grid skrin</string>
     <string name="options_home_set_theme">Tema</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">Tambah widget</string>
     <string name="quick_contact">Kenalan</string>
     <string name="quick_options_help_text">Leret pintasan aplikasi ke bawah untuk melihat pilihan pantasnya. Pilihan pantas membolehkan anda untuk mengurus aplikasi dengan mudah.</string>
+    <string name="quickoption_sleep">Tidur</string>
     <string name="quickoptions_add_apps">Tmbh apl</string>
     <string name="quickoptions_add_to_secure_folder">"Tambah ke
 Pelipat Selamat"</string>
     <string name="quickoptions_app_info">Maklumat aplikasi</string>
     <string name="quickoptions_clear_badge">Kosongkan lencana</string>
     <string name="quickoptions_disable">Nyahaktif</string>
-    <string name="quickoptions_put_to_sleep">Tidurkan</string>
-    <string name="quickoptions_put_to_sleep_alert">Menidurkan aplikasi ini akan menghalangnya daripada menggunakan bateri di latar belakang. Aplikasi tidur mungkin tidak menerima kemas kini atau menghantar pemberitahuan kepada anda tetapi ia akan bangun apabila anda membukanya.</string>
+    <string name="quickoptions_sleep_alert">Menidurkan aplikasi ini akan menghalangnya daripada menggunakan bateri di latar belakang. Aplikasi tidur mungkin tidak menerima kemas kini atau menghantar pemberitahuan kepada anda tetapi ia akan bangun apabila anda membukanya.</string>
     <string name="quickoptions_uninstall">Nyahpasang</string>
     <string name="quickview_delete_toast_msg">Seret halaman ke Alih keluar untuk mengalih keluarnya.</string>
     <string name="quickview_drag_bar_delete_title">Alih keluar</string>
@@ -172,9 +180,9 @@ Pelipat Selamat"</string>
     <string name="remove_app_folder_confirm">Padam</string>
     <string name="remove_app_folder_confirm_VZW">Alih keluar</string>
     <string name="remove_app_folder_message">Pelipat %s akan dipadam. Aplikasi dalam pelipat ini masih akan tersedia pada skrin Aplikasi.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Pelipat %s akan dialih keluar. Aplikasi dalam pelipat ini akan disenaraikan pada penghujung bekas Aplikasi.</string>
     <string name="remove_app_folder_message_no_title">Pelipat ini akan dialih keluar. Aplikasi dalam pelipat ini tidak akan dinyahpasang.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Pelipat ini akan dialih keluar. Aplikasi dalam pelipat ini akan disenaraikan pada penghujung bekas Aplikasi.</string>
     <string name="remove_app_folder_title">Padam pelipat</string>
     <string name="remove_app_folder_title_VZW">Alih keluar pelipat</string>
     <string name="remove_home_folder_message">Pelipat %s akan dipadam. Aplikasi dalam pelipat ini masih akan tersedia pada skrin Aplikasi.</string>
@@ -229,11 +237,11 @@ Pelipat Selamat"</string>
     <string name="viewtype_custom_grid">Pesanan tersuai</string>
     <string name="widget_duplicate">%s widget ada pada skrin utama.</string>
     <string name="work_folder_name">Kerja</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Ketik dan tahan skrin untuk menambah item</string>
+    <string name="zeropage_briefing_title">Taklimat</string>
+    <string name="zeropage_download">Muat turun</string>
+    <string name="zeropage_download_msg">Untuk menggunakan fungsi ini, anda perlu memasang %1$s. Ketik MUAT TURUN untuk memuat turun dan memasang %2$s.</string>
     <string name="zeropage_notice_msg">Perkhidmatan berita %s kini tersedia. Untuk menggunakan ini dan bukannya Taklimat Flipboard, ketik OK.</string>
     <string name="zeropage_setting_dialog_no">Batal</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Berita Sohu</string>
 </resources>

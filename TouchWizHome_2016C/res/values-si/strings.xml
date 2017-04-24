@@ -34,14 +34,17 @@
     <string name="all_apps_title">යෙදුම්</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;අආඇඈඉඊඋඌඍඎඑඒඓඔඕඖකඛගඝඞඟචඡජඣඤඦටඨඩඪණඬතථදධනඳපඵබභමඹයරලවශෂසහළෆABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#අආඇඈඉඊඋඌඍඎඑඒඓඔඕඖකඛගඝඞඟචඡජඣඤඦටඨඩඪණඬතථදධනඳපඵබභමඹයරලවශෂසහළෆABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s සැඟවිණි.</string>
+    <string name="app_locked_toast">%s අගුලු ලා ඇත.</string>
     <string name="app_search">සෙවුම</string>
     <string name="app_search_no_apps">ඔබට සෙවුම් ප්‍රතිඵල වෙතින් මුල් තිරය මත කෙටිමං එක් කළ හැක.</string>
     <string name="app_search_no_results_found">ප්‍රතිඵල හමු නොවිණි</string>
+    <string name="app_unlocked_toast">%s අගුලු හැර ඇත.</string>
     <string name="apply">යොදන්න</string>
     <string name="available_galaxyapps">Galaxy Apps තුළ ඇත</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">එක් එක් යෙදුම සඳහා ලාංඡන පෙන්වා ද සඟවනවා ද යන්න තෝරන්න.</string>
+    <string name="badge_manage_summary">එක් එක් යෙදුම සඳහා ලාංඡන පෙන්වා ද සඟවනවා ද යන්න තෝරන්න.</string>
+    <string name="badge_manage_title">යෙදුම් ලාංඡන කළමනාකරණය</string>
     <string name="cancel">අවල. කර.</string>
     <string name="change_home_screen_settings">මුල් තිර සැකසුම් වෙනස් කරන්න</string>
     <string name="change_home_screen_settings_info">මෙම යෙදුමට ඔබේ මුල් තිර සැකසුම් සහ කෙටිමං වෙනස් කළ හැක.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">සෘජු ඇමතුම</string>
     <string name="direct_message">ඍජු පණිවිඩ</string>
     <string name="disable_message">%1$s සහ එයට අදාළ ක්‍රියාදාම සියල්ල අක්‍රිය වනු ඇත. යෙදුම නැවත සක්‍රිය කිරීමට, සැකසුම් > යෙදුම් වෙත යන්න, එවිට %2$s තෝරන්න.</string>
+    <string name="disable_message_att">%s සහ එයට අදාළ විශේෂාංග සියල්ල අක්‍රිය වනු ඇත. එය නැවත සක්‍රිය කිරීමට, සැකසුම් > යෙදුම් > යෙදුම් කළමනාකරු වෙත යන්න.</string>
     <string name="disable_message_vzw">%s සහ එයට අදාළ විශේෂාංග සියල්ල අක්‍රිය වනු ඇත. එය නැවත සක්‍රිය කිරීමට, සැකසුම් > යෙදුම් > යෙදුම් කළමනාකරු වෙත යන්න.</string>
     <string name="disable_messange_knox">%s සහ එයට අදාළ විශේෂාංග සියල්ල අක්‍රිය වනු ඇත. එය නැවත සක්‍රිය කිරීමට, KNOX සැකසුම් > යෙදුම් කළමනාකාරු වෙත යන්න.</string>
     <string name="disable_title">යෙදුම අක්‍රිය කරන්න</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">විජට්ටුවේ විශාලත්වය වෙනස් කිරීමට පටිත්ත ඉහළට, පහළට, ඇතුළට, හෝ පිටතට තල්ලු කරන්න.</string>
     <string name="guide_tap_here">යෙදුම් අයිකනය තට්ටු කරන්න.</string>
     <string name="guide_widgets_tap_area">විජට්ටුව වෙනස් කිරීමට හැකි වන තෙක් එය ඔබා ගෙන සිට, ඉන්පසුව එය නිදහස් කරන්න.</string>
+    <string name="hide">සඟවන්න</string>
+    <string name="hide_confirm_continue">පවත්වාගෙන යන්න</string>
+    <string name="hide_confirm_message">%s යෙදුම දැනට අගුළු දමා ඇත. ඔබ මෙම යෙදුම සඟවයි නම්, එය අගුළු හැරෙනු ඇත.</string>
+    <string name="hide_confirm_title">යෙදුම සැඟවීම</string>
     <string name="home_edit_add_to_personal">පුද්ග. වෙත එක් ක.</string>
     <string name="home_edit_bar_delete_title">කෙටිමඟ ඉවත් කරන්න</string>
     <string name="home_edit_bar_delete_title_vzw">කෙටිමඟ ඉවත් කරන්න</string>
@@ -134,7 +142,7 @@
     <string name="ok">හරි</string>
     <string name="only_one_widget_instance_allowed">%s විජෙට්ටුව දැනටමත් මුල් තිරයට එක් කර ඇත.</string>
     <string name="open_folder">ෆෝල්ඩරය විවෘත කරන්න</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">යෙදුම් බලන්න</string>
     <string name="option_menu_contact_up">අපව අමතන්න</string>
     <string name="option_tray_screengrid">තිරය ජාලකය</string>
     <string name="options_home_set_theme">තේමා</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">විජෙට්ටු එක් කරන්න</string>
     <string name="quick_contact">සබඳතාව</string>
     <string name="quick_options_help_text">යුහු විකල්ප බැලීමට යෙදුම් කෙටිමගක් පහතට ස්වයිප් කරන්න. යුහු විකල්ප ඔබට පහසුවෙන් යෙදුම් කළමනාකරණය කිරීමට ඉඩ ලබා දේ.</string>
+    <string name="quickoption_sleep">නින්ද</string>
     <string name="quickoptions_add_apps">යෙදුම් එක් කිරීම</string>
     <string name="quickoptions_add_to_secure_folder">"ආරක්ෂිත ෆෝල්ඩරයට
 එක් කරන්න"</string>
     <string name="quickoptions_app_info">යෙදුම් තොරතු</string>
     <string name="quickoptions_clear_badge">ලාංඡනය හිස් කරන්න</string>
     <string name="quickoptions_disable">අක්‍රිය කරන්න</string>
-    <string name="quickoptions_put_to_sleep">නින්දට දමන්න</string>
-    <string name="quickoptions_put_to_sleep_alert">මෙම යෙදුම නින්දට දැමීමෙන් පසුබිමේ බැටරිය භාවිතා කිරීමෙන් එය වළක්වනු ඇත. නිද්‍රා යෙදුම් යාවත්කාල නොලබනු ඇති හෝ ඔබට දැනුම්දීම් නොඑවනු ඇති නමුත්, ඔබ ඒවා විවෘත කළ විට ඒවා අවදි වනු ඇත.</string>
+    <string name="quickoptions_sleep_alert">මෙම යෙදුම නින්දට දැමීමෙන් පසුබිමේ බැටරිය භාවිතා කිරීමෙන් එය වළක්වනු ඇත. නිද්‍රා යෙදුම් යාවත්කාල නොලබනු ඇති හෝ ඔබට දැනුම්දීම් නොඑවනු ඇති නමුත්, ඔබ ඒවා විවෘත කළ විට ඒවා අවදි වනු ඇත.</string>
     <string name="quickoptions_uninstall">අස්ථාපනය</string>
     <string name="quickview_delete_toast_msg">එය ඉවත් කිරීමට ඉවත් කිරීම වෙත පිටුව අදින්න.</string>
     <string name="quickview_drag_bar_delete_title">ඉවත් කරන්න</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">මකන්න</string>
     <string name="remove_app_folder_confirm_VZW">ඉවත් කරන්න</string>
     <string name="remove_app_folder_message">%s ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් යෙදුම් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ෆෝල්ඩරය ඉවත් කරනු ඇත. මෙම ෆෝල්ඩරය ඇතුළත ඇති යෙදුම්, යෙදුම් තැටියේ අවසානයට ලැයිස්තුගත කරනු ඇත.</string>
     <string name="remove_app_folder_message_no_title">මෙම ෆෝල්ඩරය ඉවත් කෙරෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් අස්ථාපනය නොවනු ඇත.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">මෙම ෆෝල්ඩරය ඉවත් කරනු ඇත. මෙම ෆෝල්ඩරය ඇතුළත ඇති යෙදුම්, යෙදුම් තැටියේ අවසානයට ලැයිස්තුගත කරනු ඇත.</string>
     <string name="remove_app_folder_title">ෆෝල්ඩරය මකන්න</string>
     <string name="remove_app_folder_title_VZW">ෆෝල්ඩරය ඉවත් කරන්න</string>
     <string name="remove_home_folder_message">%s ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් යෙදුම් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
@@ -187,7 +195,7 @@
     <string name="search_for_apps">යෙදුම් සඳහා සොයන්න</string>
     <string name="search_for_widgets">විජෙට්ටු සඳහා සොයන්න</string>
     <string name="search_result_found">%d ක් හමුවිය</string>
-    <string name="search_result_founds">%dක් හමු විය</string>
+    <string name="search_result_founds">%d ක් හමුවිය</string>
     <string name="select_all_app">සියල්ල</string>
     <string name="select_app_add">එක් කරන්න</string>
     <string name="selected">තෝරා ගැනිණි</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">අභිමත ඇණවුම</string>
     <string name="widget_duplicate">%s විජෙට්ටුව දැනටමත් මුල් තිරයේ පවතී.</string>
     <string name="work_folder_name">වැඩ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">අයිතම එක් කිරීමට තිරය තට්ටු කර අල්ලාගෙන සිටින්න</string>
+    <string name="zeropage_briefing_title">සාරාංශකරණය</string>
+    <string name="zeropage_download">බාගන්න</string>
+    <string name="zeropage_download_msg">මෙම ක්‍රියාදාමය භාවිතා කිරීමට, ඔබට %1$s ස්ථාපනය කිරීමට අවශ්‍ය වේ. %2$s බාගෙන ස්ථාපනය කිරීමට “බාගන්න” තට්ටු කරන්න.</string>
     <string name="zeropage_notice_msg">%s පුවත් සේවාව දැන් ඇත. ෆ්ලිප්බෝඩ් සංක්ෂේපය වෙනුවට එය භාවිතා කිරීමට, “හරි” තට්ටු කරන්න.</string>
     <string name="zeropage_setting_dialog_no">අවල. කර.</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">සෝහු පුවත්</string>
 </resources>

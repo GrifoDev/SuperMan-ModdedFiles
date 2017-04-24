@@ -74,17 +74,17 @@
     <dimen name="workspaceEditModeShrink_top_adjust">7.0dip</dimen>
     <dimen name="workspace_scroll_zone_left_width">100.0dip</dimen>
     <dimen name="workspace_scroll_zone_right_width">100.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">346.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">577.0dip</dimen>
     <dimen name="folder_icon_paddingTop">6.0dip</dimen>
     <dimen name="moveApps_cellWidth">70.0dip</dimen>
     <dimen name="moveApps_drawableFolderPadding">0.0dip</dimen>
     <dimen name="moveApps_drawablePadding">0.0dip</dimen>
     <dimen name="moveApps_cellHeight">70.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_height">346.0dip</dimen>
-    <dimen name="home_editmode_panel_zeropage_width">577.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">99.0dip</dimen>
     <dimen name="folder_multi_container_margin_end">60.0dip</dimen>
     <dimen name="folder_multi_container_margin_start">41.0dip</dimen>
-    <dimen name="apps_edit_button_height">48.0dip</dimen>
     <dimen name="widget_resize_bottom_max_delta_offset">-11.0dip</dimen>
+    <dimen name="apps_edit_button_height">48.0dip</dimen>
 </resources>

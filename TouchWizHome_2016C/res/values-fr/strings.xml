@@ -34,9 +34,12 @@
     <string name="all_apps_title">Applications</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">"L'application %s est masquée."</string>
+    <string name="app_locked_toast">%s est verrouillé.</string>
     <string name="app_search">Rechercher</string>
     <string name="app_search_no_apps">"Vous pouvez ajouter des raccourcis sur l'écran d'accueil depuis les résultats de la recherche."</string>
     <string name="app_search_no_results_found">Aucun résultat trouvé</string>
+    <string name="app_unlocked_toast">Catégorie %s déverrouillée.</string>
     <string name="apply">Appliquer</string>
     <string name="available_galaxyapps">Disponibles dans Galaxy Apps</string>
     <string name="badge_manage_explain">Indiquez si vous souhaitez afficher ou masquer les badges de chaque application.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Numérotation Directe</string>
     <string name="direct_message">Message Direct</string>
     <string name="disable_message">"%1$s et l'ensemble des fonctions qui lui sont associées vont être désactivés. Pour réactiver l'application, accédez à Paramètres > Applications, puis sélectionnez %2$s."</string>
+    <string name="disable_message_att">"%s et l'ensemble des fonctions qui lui sont associées vont être désactivés. Pour les réactiver, accédez à Paramètres > Appareil > Applications > Gestionnaire d'applications."</string>
     <string name="disable_message_vzw">"%s et l'ensemble des fonctions qui lui sont associées vont être désactivés. Pour les réactiver, accédez à Paramètres > Applications > Gestionnaire d'applications."</string>
     <string name="disable_messange_knox">"%s et l'ensemble des fonctions qui lui sont associées vont être désactivés. Pour les réactiver, accédez à Paramètres KNOX > Gestionnaire d'applications."</string>
     <string name="disable_title">"Désactiver l'application"</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">"Tirez la bordure vers le haut, le bas, l'intérieur ou l'extérieur pour redimensionner le widget."</string>
     <string name="guide_tap_here">"Appuyez sur l'icône des applications."</string>
     <string name="guide_widgets_tap_area">"Maintenez votre doigt appuyé sur un widget jusqu'à ce que vous puissiez le modifier, puis relâchez."</string>
+    <string name="hide">Masquer</string>
+    <string name="hide_confirm_continue">Continuer</string>
+    <string name="hide_confirm_message">"L'application %s est actuellement verrouillée. Si vous la masquez, elle sera déverrouillée."</string>
+    <string name="hide_confirm_title">"Masquage de l'application"</string>
     <string name="home_edit_add_to_personal">Ajout. perso</string>
     <string name="home_edit_bar_delete_title">Supprimer raccourci</string>
     <string name="home_edit_bar_delete_title_vzw">Supprimer raccourci</string>
@@ -154,14 +162,14 @@ applications"</string>
     <string name="permlab_install_widget">Ajout de widgets</string>
     <string name="quick_contact">Contact</string>
     <string name="quick_options_help_text">"Faites glisser un raccourci d'application vers le bas pour afficher ses options rapides. Ces options vous permettent de gérer les applications facilement."</string>
+    <string name="quickoption_sleep">Mettre en veille</string>
     <string name="quickoptions_add_apps">Ajouter des applications</string>
     <string name="quickoptions_add_to_secure_folder">"Ajouter à
 Dossier sécurisé"</string>
     <string name="quickoptions_app_info">Informations application</string>
     <string name="quickoptions_clear_badge">Supprimer le badge</string>
     <string name="quickoptions_disable">Désactiver</string>
-    <string name="quickoptions_put_to_sleep">Mettre en veille</string>
-    <string name="quickoptions_put_to_sleep_alert">"Le fait de mettre cette application en veille l'empêchera d'utiliser la batterie en arrière-plan. Il se peut que les applications en veille ne reçoivent pas de mises à jour ou ne vous envoient pas de notifications, mais elles s'activeront dès que vous les ouvrirez."</string>
+    <string name="quickoptions_sleep_alert">"Le fait de mettre cette application en veille l'empêchera d'utiliser la batterie en arrière-plan. Il se peut que les applications en veille ne reçoivent pas de mises à jour ou ne vous envoient pas de notifications, mais elles s'activeront dès que vous les ouvrirez."</string>
     <string name="quickoptions_uninstall">Désinstaller</string>
     <string name="quickview_delete_toast_msg">Faites glisser la page sur Supprimer pour la supprimer.</string>
     <string name="quickview_drag_bar_delete_title">Supprimer</string>

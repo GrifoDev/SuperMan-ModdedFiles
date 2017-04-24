@@ -617,6 +617,18 @@
 
     if-eqz v3, :cond_4
 
+    iget-object v3, p0, Lcom/android/launcher2/QuickOptionsPopup;->mAnchorItem:Lcom/android/launcher2/BaseItem;
+
+    iget-object v3, v3, Lcom/android/launcher2/BaseItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+
+    iget-object v4, v0, Lcom/android/launcher2/AppItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher2/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
     iput-object v0, p0, Lcom/android/launcher2/QuickOptionsPopup;->mConvertedAppItem:Lcom/android/launcher2/AppItem;
 
     goto :goto_0
@@ -999,9 +1011,29 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup;->mContext:Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher2/LauncherApplication;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/launcher2/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher2/compat/LauncherAppsCompat;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/launcher2/QuickOptionsPopup;->mAnchorItem:Lcom/android/launcher2/BaseItem;
+
+    invoke-virtual {v2}, Lcom/android/launcher2/BaseItem;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher2/QuickOptionsPopup;->mAnchorItem:Lcom/android/launcher2/BaseItem;
+
+    iget-object v3, v3, Lcom/android/launcher2/BaseItem;->user:Lcom/android/launcher2/compat/UserHandleCompat;
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher2/compat/LauncherAppsCompat;->showAppDetailsForProfile(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -1604,7 +1636,7 @@
 
     check-cast v12, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1000d3
+    const v2, 0x7f1000d7
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1612,7 +1644,7 @@
 
     check-cast v11, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1000d4
+    const v2, 0x7f1000d8
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1620,7 +1652,7 @@
 
     check-cast v18, Landroid/widget/ListView;
 
-    const v2, 0x7f1000d2
+    const v2, 0x7f1000d6
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1628,7 +1660,7 @@
 
     check-cast v9, Landroid/widget/ImageView;
 
-    const v2, 0x7f1000d5
+    const v2, 0x7f1000d9
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1640,7 +1672,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090292
+    const v3, 0x7f090295
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1650,7 +1682,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090291
+    const v3, 0x7f090294
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1686,7 +1718,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a0
+    const v3, 0x7f0800a9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1696,7 +1728,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020093
+    const v4, 0x7f020094
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1732,7 +1764,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f08009e
+    const v3, 0x7f0800a7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1742,7 +1774,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020091
+    const v4, 0x7f020092
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1778,7 +1810,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a2
+    const v3, 0x7f0800a5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1788,7 +1820,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020095
+    const v4, 0x7f020096
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1830,7 +1862,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f0800a4
+    const v2, 0x7f0800ac
 
     :goto_1
     invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -1847,7 +1879,7 @@
 
     if-eqz v2, :cond_b
 
-    const v2, 0x7f020096
+    const v2, 0x7f020097
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1884,7 +1916,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f08009f
+    const v3, 0x7f0800a8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1894,7 +1926,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020092
+    const v4, 0x7f020093
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1930,7 +1962,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f08009d
+    const v3, 0x7f0800a6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1940,7 +1972,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020090
+    const v4, 0x7f020091
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2042,7 +2074,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f09029a
+    const v4, 0x7f09029d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2054,7 +2086,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f090297
+    const v4, 0x7f09029a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2169,11 +2201,7 @@
 
     if-eqz v2, :cond_9
 
-    invoke-virtual {v9}, Landroid/widget/ImageView;->getMeasuredWidth()I
-
-    move-result v2
-
-    int-to-float v2, v2
+    int-to-float v2, v10
 
     invoke-virtual {v9}, Landroid/widget/ImageView;->getTranslationX()F
 
@@ -2191,11 +2219,7 @@
 
     invoke-virtual {v9, v2}, Landroid/widget/ImageView;->setTranslationX(F)V
 
-    invoke-virtual {v7}, Landroid/widget/ImageView;->getMeasuredWidth()I
-
-    move-result v2
-
-    int-to-float v2, v2
+    int-to-float v2, v10
 
     invoke-virtual {v7}, Landroid/widget/ImageView;->getTranslationX()F
 
@@ -2331,12 +2355,12 @@
     goto/16 :goto_0
 
     :cond_a
-    const v2, 0x7f0800a1
+    const v2, 0x7f0800aa
 
     goto/16 :goto_1
 
     :cond_b
-    const v2, 0x7f020094
+    const v2, 0x7f020095
 
     goto/16 :goto_2
 

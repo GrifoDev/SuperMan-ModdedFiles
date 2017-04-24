@@ -58,7 +58,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    const v1, 0x7f08005f
+    const v1, 0x7f080067
 
     # invokes: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->showModeChangeDialog(I)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$100(Lcom/android/launcher2/HomeScreenModeSettingsFragment;I)V
@@ -89,7 +89,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    const v1, 0x7f080060
+    const v1, 0x7f080068
 
     # invokes: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->showModeChangeDialog(I)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$100(Lcom/android/launcher2/HomeScreenModeSettingsFragment;I)V

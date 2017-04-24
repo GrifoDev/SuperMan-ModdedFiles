@@ -34,14 +34,17 @@
     <string name="all_apps_title">Uygulamalar</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCÇDEFGĞHIİJKLMNOÖPQRSŞTUÜVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s gizli.</string>
+    <string name="app_locked_toast">%s kilitli.</string>
     <string name="app_search">Ara</string>
     <string name="app_search_no_apps">Ana ekrana arama sonuçlarından kısayollar ekleyebilirsiniz.</string>
     <string name="app_search_no_results_found">Sonuç bulunamadı</string>
+    <string name="app_unlocked_toast">%s kilidi açıldı.</string>
     <string name="apply">Uygula</string>
     <string name="available_galaxyapps">"Galaxy Apps'te mevcut"</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Her bir uygulama için işaretleri göstermeyi veya gizlemeyi seçin.</string>
+    <string name="badge_manage_summary">Her bir uygulama için işaretleri göstermeyi veya gizlemeyi seçin.</string>
+    <string name="badge_manage_title">Uygulama işaretlerini yönet</string>
     <string name="cancel">İptal</string>
     <string name="change_home_screen_settings">Ana ekran ayarlrını değiştr</string>
     <string name="change_home_screen_settings_info">Bu uygulama, ana ekran ayarlarınızı ve kısayollarınızı değşitirebilir.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Doğrudan Ara</string>
     <string name="direct_message">Doğrudan Mesaj</string>
     <string name="disable_message">%1$s ve ilgili işlevlerinin tümü devre dışı bırakılacak. Uygulamayı tekrar etkinleştirmek için Ayarlar > Uygulamalar bölümüne gidip %2$s uygulamasını seçin.</string>
+    <string name="disable_message_att">%s ve bununla ilgili tüm özellikler devre dışı bırakılacak. Yeniden etkinleştirmek için Ayarlar > Cihaz > Uygulamalar > Uygulama yöneticisi bölümüne gidin.</string>
     <string name="disable_message_vzw">%s ve bununla ilgili tüm özellikler devre dışı bırakılacak. Yeniden etkinleştirmek için Ayarlar > Uygulamalar > Uygulama yöneticisi bölümüne gidin.</string>
     <string name="disable_messange_knox">%s ve bununla ilgili tüm özellikler devre dışı bırakılacak. Tekrar etkinleştirmek için KNOX ayarları > Uygulama yöneticisi bölümüne gidin.</string>
     <string name="disable_title">Uygulamayı devre dışı bırak</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">"Widget'ı yeniden boyutlandırmak için kenarlığı yukarı, aşağı, içeri veya dışarı çekin."</string>
     <string name="guide_tap_here">Uygulamalar simgesine dokunun.</string>
     <string name="guide_widgets_tap_area">"Düzenlenebilir hale gelene kadar widget'a dokunun ve basılı tutun, daha sonra bırakın."</string>
+    <string name="hide">Gizle</string>
+    <string name="hide_confirm_continue">Devam</string>
+    <string name="hide_confirm_message">%s uygulaması şu anda kilitli. Bu uygulamayı gizlerseniz kilidi açılır.</string>
+    <string name="hide_confirm_title">Uygulamayı gizle</string>
     <string name="home_edit_add_to_personal">Kişisele ekle</string>
     <string name="home_edit_bar_delete_title">Kısayolu kaldır</string>
     <string name="home_edit_bar_delete_title_vzw">Kısayolu kaldır</string>
@@ -134,7 +142,7 @@
     <string name="ok">Tamam</string>
     <string name="only_one_widget_instance_allowed">"%s widget'ı ana ekrana zaten eklendi."</string>
     <string name="open_folder">Klasör aç</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Uygulamaları görüntüle</string>
     <string name="option_menu_contact_up">Bize ulaşın</string>
     <string name="option_tray_screengrid">Ekran matrisi</string>
     <string name="options_home_set_theme">Temalar</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">"Widget'lar ekleyin"</string>
     <string name="quick_contact">Kişi</string>
     <string name="quick_options_help_text">Hızlı seçeneklerini görüntülemek için bir uygulama kısayolunu aşağı kaydırın. Hızlı seçenekler, uygulamaları kolayca yönetmenize olanak tanır.</string>
+    <string name="quickoption_sleep">Uyku</string>
     <string name="quickoptions_add_apps">Uygulama ekle</string>
     <string name="quickoptions_add_to_secure_folder">"Güvenli Klasör'e
 Ekle"</string>
     <string name="quickoptions_app_info">Uygulama bilgisi</string>
     <string name="quickoptions_clear_badge">İşareti temizle</string>
     <string name="quickoptions_disable">D. dışı bırak</string>
-    <string name="quickoptions_put_to_sleep">Uyku moduna al</string>
-    <string name="quickoptions_put_to_sleep_alert">Bu uygulamayı uyku moduna almak, arka planda pili kullanmasını önler. Uyku modundaki uygulamalar güncelleme almayabilir veya size bildirim göndermeyebilir, ancak siz açtığınızda uyanır.</string>
+    <string name="quickoptions_sleep_alert">Bu uygulamayı uyku moduna almak, arka planda pili kullanmasını önler. Uyku modundaki uygulamalar güncelleme almayabilir veya size bildirim göndermeyebilir, ancak siz açtığınızda uyanır.</string>
     <string name="quickoptions_uninstall">Kaldır</string>
     <string name="quickview_delete_toast_msg">Kaldırmak için sayfayı Kaldır öğesine sürükleyin.</string>
     <string name="quickview_drag_bar_delete_title">Kaldır</string>
@@ -172,9 +180,9 @@ Ekle"</string>
     <string name="remove_app_folder_confirm">Sil</string>
     <string name="remove_app_folder_confirm_VZW">Kaldır</string>
     <string name="remove_app_folder_message">%s klasörü silinecek. Bu klasördeki uygulamalar, Uygulamalar ekranında sunulmaya devam edecek.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s klasörü kaldırılacak. Bu klasördeki uygulamalar, Uygulama tepsisinin sonunda listelenecek.</string>
     <string name="remove_app_folder_message_no_title">Bu klasör kaldırılacak. Bu klasördeki uygulamalar kaldırılmayacak.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Bu klasör kaldırılacak. Bu klasördeki uygulamalar, Uygulama tepsisinin sonunda listelenecek.</string>
     <string name="remove_app_folder_title">Klasörü sil</string>
     <string name="remove_app_folder_title_VZW">Klasörü kaldır</string>
     <string name="remove_home_folder_message">%s klasörü silinecek. Bu klasördeki uygulamalar, Uygulamalar ekranında sunulmaya devam edecek.</string>
@@ -187,7 +195,7 @@ Ekle"</string>
     <string name="search_for_apps">Uygulamaları ara</string>
     <string name="search_for_widgets">"Widget'ları ara"</string>
     <string name="search_result_found">%d bulundu</string>
-    <string name="search_result_founds">%d kişi bulundu</string>
+    <string name="search_result_founds">%d bulundu</string>
     <string name="select_all_app">Hepsi</string>
     <string name="select_app_add">EKLE</string>
     <string name="selected">Seçildi</string>
@@ -229,11 +237,11 @@ Ekle"</string>
     <string name="viewtype_custom_grid">Özel liste</string>
     <string name="widget_duplicate">"%s widget'ı ana ekranda zaten var."</string>
     <string name="work_folder_name">İş</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">Öğe eklemek için ekrana dokunup basılı tutun</string>
+    <string name="zeropage_briefing_title">Bilgilendirme</string>
+    <string name="zeropage_download">İndir</string>
+    <string name="zeropage_download_msg">Bu işlevi kullanmak için %1$s yüklemeniz gerekir. %2$s indirip yüklemek için İNDİR öğesine dokunun.</string>
     <string name="zeropage_notice_msg">%s haber servisi şu anda kullanılabilir. Flipboard Bilgilendirmesi yerine bunu kullanmak için Tamam öğesine dokunun.</string>
     <string name="zeropage_setting_dialog_no">İptal</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Sohu Haberleri</string>
 </resources>

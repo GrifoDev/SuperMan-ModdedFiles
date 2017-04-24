@@ -34,14 +34,17 @@
     <string name="all_apps_title">ایپلیکیشنز</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ا ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ی ےABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#ا ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ی ے#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
-    <string name="app_search">تلاش کریں</string>
+    <string name="app_hidden_toast">%s پوشیدہ۔</string>
+    <string name="app_locked_toast">%s مقفل۔</string>
+    <string name="app_search">تلاش</string>
     <string name="app_search_no_apps">تلاش نتائج سے ہوم اسکرین پر آپ شارٹ کٹ شامل کرسکتے ہیں۔</string>
     <string name="app_search_no_results_found">کوئی نتائج نہیں ملے</string>
+    <string name="app_unlocked_toast">%s غیر مقفل ہوگیا۔</string>
     <string name="apply">اطلاق</string>
     <string name="available_galaxyapps">‏Galaxy Apps میں دستیاب ہے</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">خواہ ہر ایپلیکیشن کو ظاہر کرنا ہو یا بیجیز کو چھپانا ہو اسے منتخب کریں۔</string>
+    <string name="badge_manage_summary">خواہ ہر ایپلیکیشن کو ظاہر کرنا ہو یا بیجیز کو چھپانا ہو اسے منتخب کریں۔</string>
+    <string name="badge_manage_title">ایپلیکیشن بیجز نظم کریں</string>
     <string name="cancel">منسوخ</string>
     <string name="change_home_screen_settings">ہوم اسکرین کی سیٹنگز تبدیل کریں</string>
     <string name="change_home_screen_settings_info">یہ ایپلیکیشن آپ کی ہوم اسکرین کی سیٹنگز اور شارٹ کٹس تبدیل کر سکتا ہے۔</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">براہ راست ڈائل</string>
     <string name="direct_message">براہ راست پیغام</string>
     <string name="disable_message">%1$s اور اس سے متعلقہ تمام فنکشنز نااہل ہوجائے گا۔ دوبارہ ایپلیکیشن اہل کرنے کے لیے، سیٹنگز > ایپلیکیشنز پر جائیں، پھر %2$s منتخب کریں۔</string>
+    <string name="disable_message_att">%s اور اس سے متعلقہ تمام خصوصیات نا اہل کردیا جائے گا۔ اسے دوبارہ اہل کرنے کے لیے، سیٹنگز > آلہ > ایپلیکیشنز > ایپلیکیشن مینیجر پر جائیں۔</string>
     <string name="disable_message_vzw">%s اور اس سے متعلقہ سبھی خصوصیات کو غیر فعال کر دیا جائے گا۔ اسے دوبارہ اہل کرنے کے لیے، سیٹنگز > ایپلیکیشنز > ایپلیکیشن مینیجر پر جائیں۔</string>
     <string name="disable_messange_knox">%s اور اس سے متعلقہ سبھی خصوصیات کو نااہل کر دیا جائے گا۔ اس کو دوبارہ اہل بنانے کے لئے، KNOX سیٹنگز > ایپلیکیشن مینیجر پر جائیں۔</string>
     <string name="disable_title">اپلیکیشن کو غیر فعال کریں</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">وجیٹ کا دوبارہ سائز بنانے کے لئے، حاشیے کو اوپر، نیچے، اندر، یا باہر، کی طرف کھینچیں۔</string>
     <string name="guide_tap_here">ایپس آئیکن کو تھپتھپائیں۔</string>
     <string name="guide_widgets_tap_area">جب تک اسے تدوین کیا جاسکے وجیٹ کو تھپتھپائیں اور تھام کر رکھیں، پھر اس کا اجرا کریں۔</string>
+    <string name="hide">چھپائیں</string>
+    <string name="hide_confirm_continue">جاری</string>
+    <string name="hide_confirm_message">%s ایپلیکیشن فی الحال لاک ہے۔ اگر آپ اس ایپلیکیشن کو چھپاتے ہیں، تو یہ انلاک ہوجائے گا۔</string>
+    <string name="hide_confirm_title">ایپلیکیشن چھپائیں</string>
     <string name="home_edit_add_to_personal">ذاتی پراضافہ</string>
     <string name="home_edit_bar_delete_title">شارٹ کٹ ہٹائیں</string>
     <string name="home_edit_bar_delete_title_vzw">شارٹ کٹ ہٹائیں</string>
@@ -125,7 +133,7 @@
     <string name="move_apps_item_max_limit_msg">ایپلیکیشنز کی زیادہ سے زیادہ تعداد جو منتقلی کے لیے منتخب کردہ میں شامل کی جاسکتی ہیں (%d) پہنچ گئی۔</string>
     <string name="move_apps_unable_to_add_folder">کسی دوسرے فولڈر میں فولڈ شامل نہیں کرسکتے۔</string>
     <string name="msg_disabled_store">%s کھولنے سے قاصر۔ ایپلیکیشن نااہل شدہ ہے۔ اسے اہل کرنے کے لیے، [سیٹنگز] پر تھپکی دیں۔</string>
-    <string name="multiselection_search">ایپلی کیشنیں تلاش کریں</string>
+    <string name="multiselection_search">ایپلیکیشنز تلاش کریں</string>
     <string name="new_item">1نئی شے</string>
     <string name="new_items">%d نئی آئٹم</string>
     <string name="no_downloaded_apps">کوئی ڈاؤن لوڈ کردہ ایپلیکیشنز نہیں ہیں</string>
@@ -134,7 +142,7 @@
     <string name="ok">ٹھیک ہے</string>
     <string name="only_one_widget_instance_allowed">%s ویجیٹ پہلے سے ہی ہوم اسکرین پر شامل کیا ہوا ہے۔</string>
     <string name="open_folder">فولڈر کھولیں</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ایپلیکیشنز دیکھیں</string>
     <string name="option_menu_contact_up">ہم سے رابطہ کریں</string>
     <string name="option_tray_screengrid">اسکرین گرڈ</string>
     <string name="options_home_set_theme">تھیم</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ویجٹس شامل کریں</string>
     <string name="quick_contact">رابطہ فرد</string>
     <string name="quick_options_help_text">اس کے فوری اختیارات کو دیکھنے کے لیے ایک ایپلیکیشن شارٹ کٹ نیچے کی جانب سوائپ کریں۔ فوری اختیارات آسانی سے ایپلیکیشنز کا نظم کرنے کے لیے آپ کو اجازت دیتا ہے۔</string>
+    <string name="quickoption_sleep">نیند</string>
     <string name="quickoptions_add_apps">ایپلیکیشنز شامل کریں</string>
     <string name="quickoptions_add_to_secure_folder">"محفوظ فولڈر میں
 شامل کریں"</string>
     <string name="quickoptions_app_info">ایپلیکیشن معلومات</string>
     <string name="quickoptions_clear_badge">بلّا صاف کریں</string>
     <string name="quickoptions_disable">نااہل کریں</string>
-    <string name="quickoptions_put_to_sleep">سلیپ میں ڈالیں</string>
-    <string name="quickoptions_put_to_sleep_alert">اس ایپلیکیشن کو سلیپ میں ڈال کر پس منظر میں بیٹری استعمال کرنے سے اسے بچالے گا۔ سلیپنگ ایپلیکیشنز اپ ڈیٹس وصول نہیں کرسکتا یا آپ کو نوٹیفکیشنز نہیں بھیج سکتا، بلکہ وہ آپ کو اس کے کھولنے پر بیدار کرے گا۔</string>
+    <string name="quickoptions_sleep_alert">اس ایپلیکیشن کو سلیپ میں ڈال کر پس منظر میں بیٹری استعمال کرنے سے اسے بچالے گا۔ سلیپنگ ایپلیکیشنز اپ ڈیٹس وصول نہیں کرسکتا یا آپ کو نوٹیفکیشنز نہیں بھیج سکتا، بلکہ وہ آپ کو اس کے کھولنے پر بیدار کرے گا۔</string>
     <string name="quickoptions_uninstall">نا تنصیب کریں</string>
     <string name="quickview_delete_toast_msg">اسے ہٹانے کے لیے ہٹائیں صفحہ کو گھسیٹیں۔</string>
     <string name="quickview_drag_bar_delete_title">ہٹائیں</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">حذف کریں</string>
     <string name="remove_app_folder_confirm_VZW">ہٹائیں</string>
     <string name="remove_app_folder_message">%s فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ایپلیکیشنز کے اسکرین پر دستیاب ہوگا۔</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s فولڈر حذف کردیا جائے گا۔ اس فولڈر کے اندر کا ایپلیکیشنز ایپلیکیشن ٹرے کے اختتام پر درج کیا جائے گا۔</string>
     <string name="remove_app_folder_message_no_title">یہ فولڈر ہٹادیا جائے گا۔ اس فولڈر میں موجود ایپلیکیشنز نا تنصیب کردی جائیں گی۔</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">یہ فولڈر ہٹادیا جائے گا۔ اس فولڈر کے اندر کا ایپلیکیشنز ایپلیکیشن ٹرے کے اختتام پر درج کیا جائے گا۔</string>
     <string name="remove_app_folder_title">فولڈر مٹائیں</string>
     <string name="remove_app_folder_title_VZW">فولڈر ہٹائیں</string>
     <string name="remove_home_folder_message">%s فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ایپلیکیشنز کے اسکرین پر دستیاب ہوگا۔</string>
@@ -183,11 +191,11 @@
     <string name="restart_widget">وجیٹ پھر چالو کریں</string>
     <string name="screengrid_explain_text">"ہوم اسکرین لے آؤٹ سے مماثلت کے لیے ایپلیکیشنز اسکرین کا لے آؤٹ 
 %1$d x %2$d سے تبدیل ہوجائے گا۔"</string>
-    <string name="search">تلاش کریں</string>
+    <string name="search">تلاش</string>
     <string name="search_for_apps">ایپلیکیشنز کے لیے تلاش کریں</string>
     <string name="search_for_widgets">ویجیٹس کے لیے تلاش کریں</string>
     <string name="search_result_found">%d پائے گئے</string>
-    <string name="search_result_founds">%d مل گئے</string>
+    <string name="search_result_founds">%d پائے گئے</string>
     <string name="select_all_app">تمام</string>
     <string name="select_app_add">شامل کریں</string>
     <string name="selected">منتخب شدہ</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">کسٹم کی ترتیب</string>
     <string name="widget_duplicate">%s ویجٹ پہلے سے ہوم اسکرین پر موجود ہے۔</string>
     <string name="work_folder_name">کام</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">اشیاء شامل کرنے کے لئے اسکرین پر تھپکی دے کر ہولڈ کریں</string>
+    <string name="zeropage_briefing_title">مختصر</string>
+    <string name="zeropage_download">ڈاؤن لوڈ کريں</string>
+    <string name="zeropage_download_msg">اس فنکشن کا استعمال کرنے کے لیے، آپ کو %1$s نصب کرنے کی ضرورت ہے۔ %2$s ڈاؤن لوڈ اور نصب کرنے کے لیے [ڈاؤن لوڈ کریں] پر تھپکی دیں۔</string>
     <string name="zeropage_notice_msg">%s خبروں کی خدمت ابھی دستیاب ہے۔ اسے فلپ بورڈ بریفنگ کے بجائے استعمال کرنے کے لیے، [ٹھیک ہے] پر تھپکی دیں۔</string>
     <string name="zeropage_setting_dialog_no">منسوخ</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">سوہو خبریں</string>
 </resources>

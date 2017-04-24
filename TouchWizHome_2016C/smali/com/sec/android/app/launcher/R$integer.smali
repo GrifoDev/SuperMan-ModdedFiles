@@ -113,11 +113,11 @@
 
 .field public static final folder_multi_container_folder_count:I = 0x7f0b0029
 
-.field public static final folder_multi_container_folder_count_max:I = 0x7f0b002d
+.field public static final folder_multi_container_folder_count_max:I = 0x7f0b002f
 
-.field public static final ged_home_cell_count_x:I = 0x7f0b002e
+.field public static final ged_home_cell_count_x:I = 0x7f0b002d
 
-.field public static final ged_home_cell_count_y:I = 0x7f0b002f
+.field public static final ged_home_cell_count_y:I = 0x7f0b002e
 
 .field public static final home_4x4_cellCountX:I = 0x7f0b0058
 

@@ -379,7 +379,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09014f
+    const v1, 0x7f090150
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -387,7 +387,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mPreviewWidth:I
 
-    const v1, 0x7f09014d
+    const v1, 0x7f09014e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1250,7 +1250,7 @@
 
     if-eqz v13, :cond_5
 
-    const v13, 0x7f0200aa
+    const v13, 0x7f0200ab
 
     :goto_0
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1261,14 +1261,14 @@
 
     if-eqz v13, :cond_6
 
-    const v13, 0x7f0200a8
+    const v13, 0x7f0200a9
 
     :goto_1
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
-    const v13, 0x7f0200ac
+    const v13, 0x7f0200ad
 
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1354,7 +1354,7 @@
 
     invoke-virtual {v7, v6}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    const v13, 0x7f1000c5
+    const v13, 0x7f1000c9
 
     invoke-virtual {v7, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1379,12 +1379,12 @@
     return-void
 
     :cond_5
-    const v13, 0x7f0200a8
+    const v13, 0x7f0200a9
 
     goto/16 :goto_0
 
     :cond_6
-    const v13, 0x7f0200aa
+    const v13, 0x7f0200ab
 
     goto :goto_1
 
@@ -1395,7 +1395,7 @@
 
     if-eqz v13, :cond_8
 
-    const v13, 0x7f0200a9
+    const v13, 0x7f0200aa
 
     :goto_3
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1406,14 +1406,14 @@
 
     if-eqz v13, :cond_9
 
-    const v13, 0x7f0200a7
+    const v13, 0x7f0200a8
 
     :goto_4
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
-    const v13, 0x7f0200ab
+    const v13, 0x7f0200ac
 
     invoke-virtual {p0, v13}, Lcom/android/launcher2/MenuWidgets;->getSearchBarBgDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1422,12 +1422,12 @@
     goto/16 :goto_2
 
     :cond_8
-    const v13, 0x7f0200a7
+    const v13, 0x7f0200a8
 
     goto :goto_3
 
     :cond_9
-    const v13, 0x7f0200a9
+    const v13, 0x7f0200aa
 
     goto :goto_4
 .end method
@@ -1638,7 +1638,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09011d
+    const v1, 0x7f09011e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1662,7 +1662,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mCellCountY:I
 
-    const v1, 0x7f090142
+    const v1, 0x7f090143
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1670,7 +1670,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mCellGapX:I
 
-    const v1, 0x7f090143
+    const v1, 0x7f090144
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1678,7 +1678,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mCellGapY:I
 
-    const v1, 0x7f09014c
+    const v1, 0x7f09014d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1686,7 +1686,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mPagePaddingTop:I
 
-    const v1, 0x7f090149
+    const v1, 0x7f09014a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1694,7 +1694,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mPagePaddingBottom:I
 
-    const v1, 0x7f09014a
+    const v1, 0x7f09014b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1702,7 +1702,7 @@
 
     iput v1, p0, Lcom/android/launcher2/MenuWidgets;->mPagePaddingLeft:I
 
-    const v1, 0x7f09014b
+    const v1, 0x7f09014c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1755,7 +1755,7 @@
 
     move-result v1
 
-    const v2, 0x7f09016f
+    const v2, 0x7f090170
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1815,7 +1815,7 @@
 .method private clickNotAllowed(Landroid/view/View;)V
     .locals 8
 
-    const v5, 0x7f0800c7
+    const v5, 0x7f0800cf
 
     const v4, 0x7f080006
 
@@ -1854,7 +1854,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09000f
+    const v4, 0x7f090010
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2506,7 +2506,7 @@
 
     const/high16 v8, 0x3f800000    # 1.0f
 
-    const v7, 0x7f09016f
+    const v7, 0x7f090170
 
     const/4 v6, 0x0
 
@@ -2553,7 +2553,7 @@
 
     invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuWidgets;->setPageZoom(F)V
 
-    const v4, 0x7f0903af
+    const v4, 0x7f0903be
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2563,7 +2563,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0903bd
+    const v4, 0x7f0903cc
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2591,7 +2591,7 @@
 
     iput v6, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0903ad
+    const v4, 0x7f0903bc
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3879,7 +3879,7 @@
 
     move-result-object v34
 
-    const v6, 0x7f09014f
+    const v6, 0x7f090150
 
     move-object/from16 v0, v34
 
@@ -3887,7 +3887,7 @@
 
     move-result v38
 
-    const v6, 0x7f09014d
+    const v6, 0x7f09014e
 
     move-object/from16 v0, v34
 
@@ -5852,7 +5852,7 @@
 .method protected getCurrentPageDescription()Ljava/lang/String;
     .locals 5
 
-    const v0, 0x7f080037
+    const v0, 0x7f08003a
 
     invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->getContext()Landroid/content/Context;
 
@@ -6229,13 +6229,13 @@
     return-object v2
 
     :cond_0
-    const v2, 0x7f1000a6
+    const v2, 0x7f1000aa
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v2, 0x7f100110
+    const v2, 0x7f100114
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6273,13 +6273,13 @@
     return-object v2
 
     :cond_0
-    const v2, 0x7f1000a6
+    const v2, 0x7f1000aa
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v2, 0x7f10010e
+    const v2, 0x7f100112
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6317,13 +6317,13 @@
     return-object v2
 
     :cond_0
-    const v2, 0x7f1000a6
+    const v2, 0x7f1000aa
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v2, 0x7f10010f
+    const v2, 0x7f100113
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6458,7 +6458,7 @@
 .method public handleWidgetStateChange(Lcom/android/launcher2/MenuWidgets$WidgetState;Lcom/android/launcher2/MenuWidgets$WidgetState;)V
     .locals 9
 
-    const v8, 0x7f09016f
+    const v8, 0x7f090170
 
     const/4 v7, 0x0
 
@@ -6593,7 +6593,7 @@
     if-ne p1, v4, :cond_9
 
     :cond_4
-    const v4, 0x7f0903af
+    const v4, 0x7f0903be
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6603,7 +6603,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    const v4, 0x7f0903bd
+    const v4, 0x7f0903cc
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6643,7 +6643,7 @@
 
     iput v7, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    const v4, 0x7f0903ad
+    const v4, 0x7f0903bc
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7549,75 +7549,42 @@
 .end method
 
 .method public runFilter()V
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mFilter:Lcom/android/launcher2/MenuWidgets$Filter;
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mFilter:Lcom/android/launcher2/MenuWidgets$Filter;
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_3
 
-    iput-boolean v2, p0, Lcom/android/launcher2/MenuWidgets;->mIsChangeStatus:Z
+    iput-boolean v3, p0, Lcom/android/launcher2/MenuWidgets;->mIsChangeStatus:Z
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
 
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, v3}, Lcom/android/launcher2/MenuWidgets;->setDisplayedWidgets(Ljava/util/List;)V
+    invoke-direct {p0, v4}, Lcom/android/launcher2/MenuWidgets;->setDisplayedWidgets(Ljava/util/List;)V
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
 
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, v3}, Lcom/android/launcher2/MenuWidgets;->addCategoryFolder(Ljava/util/List;)V
+    invoke-direct {p0, v4}, Lcom/android/launcher2/MenuWidgets;->addCategoryFolder(Ljava/util/List;)V
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->getWidgetState()Lcom/android/launcher2/MenuWidgets$WidgetState;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {p0, v3}, Lcom/android/launcher2/MenuWidgets;->updateMoreButtonState(Lcom/android/launcher2/MenuWidgets$WidgetState;)V
+    invoke-virtual {p0, v4}, Lcom/android/launcher2/MenuWidgets;->updateMoreButtonState(Lcom/android/launcher2/MenuWidgets$WidgetState;)V
 
     invoke-direct {p0}, Lcom/android/launcher2/MenuWidgets;->updatePageCounts()V
-
-    invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->getWidgetState()Lcom/android/launcher2/MenuWidgets$WidgetState;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/launcher2/MenuWidgets$WidgetState;->SEARCH:Lcom/android/launcher2/MenuWidgets$WidgetState;
-
-    if-ne v3, v4, :cond_5
-
-    invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuWidgets;->invalidatePageData(I)V
-
-    :goto_1
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
-
-    invoke-virtual {v3}, Lcom/android/launcher2/MenuView;->isCurrentTabWidgets()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
-
-    invoke-virtual {v3}, Lcom/android/launcher2/MenuView;->isVisible()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
 
     invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->getWidgetState()Lcom/android/launcher2/MenuWidgets$WidgetState;
 
@@ -7625,64 +7592,97 @@
 
     sget-object v5, Lcom/android/launcher2/MenuWidgets$WidgetState;->SEARCH:Lcom/android/launcher2/MenuWidgets$WidgetState;
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_5
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgetList:Ljava/util/List;
+    invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuWidgets;->invalidatePageData(I)V
 
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+    :goto_1
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
+
+    invoke-virtual {v4}, Lcom/android/launcher2/MenuView;->isCurrentTabWidgets()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
 
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/launcher2/MenuView;->isVisible()Z
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-eqz v4, :cond_1
 
-    move v1, v2
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
+
+    invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->getWidgetState()Lcom/android/launcher2/MenuWidgets$WidgetState;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/android/launcher2/MenuWidgets$WidgetState;->SEARCH:Lcom/android/launcher2/MenuWidgets$WidgetState;
+
+    if-ne v5, v6, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgetList:Ljava/util/List;
+
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    move v2, v3
 
     :cond_0
-    invoke-virtual {v3, v1}, Lcom/android/launcher2/MenuWidgetsFragment;->setVisibilityOfSearchNoti(Z)V
+    invoke-virtual {v4, v2}, Lcom/android/launcher2/MenuWidgetsFragment;->setVisibilityOfSearchNoti(Z)V
 
     :cond_1
-    iget-boolean v1, p0, Lcom/android/launcher2/MenuWidgets;->mListenerAttached:Z
+    iget-boolean v2, p0, Lcom/android/launcher2/MenuWidgets;->mListenerAttached:Z
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
-    iput-boolean v2, p0, Lcom/android/launcher2/MenuWidgets;->mListenerAttached:Z
+    iput-boolean v3, p0, Lcom/android/launcher2/MenuWidgets;->mListenerAttached:Z
 
-    new-instance v1, Lcom/android/launcher2/MenuWidgets$4;
+    new-instance v2, Lcom/android/launcher2/MenuWidgets$4;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher2/MenuWidgets$4;-><init>(Lcom/android/launcher2/MenuWidgets;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher2/MenuWidgets$4;-><init>(Lcom/android/launcher2/MenuWidgets;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuWidgets;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuWidgets;->post(Ljava/lang/Runnable;)Z
 
     :cond_2
     return-void
 
     :cond_3
-    iget-boolean v3, p0, Lcom/android/launcher2/MenuWidgets;->mIsChangeStatus:Z
+    iget-boolean v4, p0, Lcom/android/launcher2/MenuWidgets;->mIsChangeStatus:Z
 
-    if-nez v3, :cond_4
+    if-nez v4, :cond_4
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
 
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, v3}, Lcom/android/launcher2/MenuWidgets;->addCategoryFolder(Ljava/util/List;)V
+    invoke-direct {p0, v4}, Lcom/android/launcher2/MenuWidgets;->addCategoryFolder(Ljava/util/List;)V
 
     :cond_4
-    iget-object v3, p0, Lcom/android/launcher2/MenuWidgets;->mFilter:Lcom/android/launcher2/MenuWidgets$Filter;
+    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mFilter:Lcom/android/launcher2/MenuWidgets$Filter;
 
-    iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/launcher2/MenuWidgets;->mWidgets:Ljava/util/List;
 
-    invoke-interface {v3, v4}, Lcom/android/launcher2/MenuWidgets$Filter;->filterWidgets(Ljava/util/List;)Ljava/util/List;
+    invoke-interface {v4, v5}, Lcom/android/launcher2/MenuWidgets$Filter;->filterWidgets(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v0
 
@@ -7693,6 +7693,23 @@
     goto :goto_0
 
     :cond_5
+    iget-object v1, p0, Lcom/android/launcher2/MenuWidgets;->mStateSearch:Lcom/android/launcher2/MenuWidgets$WidgetStateObj;
+
+    check-cast v1, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;
+
+    if-eqz v1, :cond_6
+
+    invoke-virtual {v1}, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->getSearchState()Lcom/android/launcher2/MenuWidgetsSearch;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuWidgets;->invalidatePageData(I)V
+
+    goto :goto_1
+
+    :cond_6
     invoke-virtual {p0}, Lcom/android/launcher2/MenuWidgets;->invalidatePageData()V
 
     goto :goto_1
@@ -7924,7 +7941,7 @@
     :cond_1
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgets;->mTabHost:Lcom/android/launcher2/MenuView;
 
-    const v5, 0x7f10009a
+    const v5, 0x7f10009e
 
     invoke-virtual {v4, v5}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -7934,7 +7951,7 @@
 
     if-eqz v2, :cond_0
 
-    const v4, 0x7f1000a6
+    const v4, 0x7f1000aa
 
     invoke-virtual {v2, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -7942,13 +7959,13 @@
 
     if-eqz v3, :cond_0
 
-    const v4, 0x7f100110
+    const v4, 0x7f100114
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    const v4, 0x7f1000c5
+    const v4, 0x7f1000c9
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

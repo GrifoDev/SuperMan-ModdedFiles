@@ -28,8 +28,6 @@
 
 .field private static final ZERO:Ljava/lang/Integer;
 
-.field private static isRootBadgeFeature:Z
-
 
 # instance fields
 .field private final mApp:Landroid/app/Application;
@@ -111,8 +109,6 @@
 
     sput-object v0, Lcom/android/launcher2/BadgeCache;->ZERO:Ljava/lang/Integer;
 
-    sput-boolean v2, Lcom/android/launcher2/BadgeCache;->isRootBadgeFeature:Z
-
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
@@ -164,226 +160,6 @@
     iput-object p1, p0, Lcom/android/launcher2/BadgeCache;->mApp:Landroid/app/Application;
 
     return-void
-.end method
-
-.method public static checkRootingCondition()Z
-    .locals 12
-
-    const/4 v11, 0x4
-
-    const/4 v10, 0x3
-
-    const/4 v9, 0x2
-
-    const/4 v5, 0x1
-
-    const/4 v6, 0x0
-
-    const/16 v7, 0xd
-
-    new-array v4, v7, [Ljava/lang/String;
-
-    const-string v7, "/sbin/su"
-
-    aput-object v7, v4, v6
-
-    const-string v7, "/system/su"
-
-    aput-object v7, v4, v5
-
-    const-string v7, "/system/bin/su"
-
-    aput-object v7, v4, v9
-
-    const-string v7, "/system/xbin/su"
-
-    aput-object v7, v4, v10
-
-    const-string v7, "/system/bin/.ext/.su"
-
-    aput-object v7, v4, v11
-
-    const/4 v7, 0x5
-
-    const-string v8, "/data/local/xbin/su"
-
-    aput-object v8, v4, v7
-
-    const/4 v7, 0x6
-
-    const-string v8, "/data/local/bin/su"
-
-    aput-object v8, v4, v7
-
-    const/4 v7, 0x7
-
-    const-string v8, "/system/sd/xbin/su"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0x8
-
-    const-string v8, "/system/bin/failsafe/su"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0x9
-
-    const-string v8, "/data/local/su"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0xa
-
-    const-string v8, "/system/app/Superuser.apk"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0xb
-
-    const-string v8, "/system/usr/we-need-root/su-backup"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0xc
-
-    const-string v8, "/system/xbin/mu"
-
-    aput-object v8, v4, v7
-
-    const/16 v7, 0xc
-
-    new-array v3, v7, [Ljava/lang/String;
-
-    const-string v7, "/data"
-
-    aput-object v7, v3, v6
-
-    const-string v7, "/"
-
-    aput-object v7, v3, v5
-
-    const-string v7, "/system"
-
-    aput-object v7, v3, v9
-
-    const-string v7, "/system/bin"
-
-    aput-object v7, v3, v10
-
-    const-string v7, "/system/sbin"
-
-    aput-object v7, v3, v11
-
-    const/4 v7, 0x5
-
-    const-string v8, "/system/xbin"
-
-    aput-object v8, v3, v7
-
-    const/4 v7, 0x6
-
-    const-string v8, "/vendor/bin"
-
-    aput-object v8, v3, v7
-
-    const/4 v7, 0x7
-
-    const-string v8, "/sys"
-
-    aput-object v8, v3, v7
-
-    const/16 v7, 0x8
-
-    const-string v8, "/sbin"
-
-    aput-object v8, v3, v7
-
-    const/16 v7, 0x9
-
-    const-string v8, "/etc"
-
-    aput-object v8, v3, v7
-
-    const/16 v7, 0xa
-
-    const-string v8, "/proc"
-
-    aput-object v8, v3, v7
-
-    const/16 v7, 0xb
-
-    const-string v8, "/dev"
-
-    aput-object v8, v3, v7
-
-    array-length v8, v4
-
-    move v7, v6
-
-    :goto_0
-    if-ge v7, v8, :cond_0
-
-    aget-object v2, v4, v7
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_3
-
-    :cond_0
-    array-length v7, v3
-
-    move v5, v6
-
-    :goto_1
-    if-ge v5, v7, :cond_1
-
-    aget-object v0, v3, v5
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_4
-
-    :cond_1
-    move v5, v6
-
-    :cond_2
-    return v5
-
-    :cond_3
-    new-instance v1, Ljava/io/File;
-
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    if-nez v9, :cond_2
-
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    new-instance v1, Ljava/io/File;
-
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/io/File;->canWrite()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_5
-
-    :cond_5
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_1
 .end method
 
 .method private static isKnoxIdExceptSecurFolder(I)Z
@@ -512,14 +288,6 @@
     move-exception v0
 
     goto :goto_1
-.end method
-
-.method public static setRootBadgeFeature(Z)V
-    .locals 0
-
-    sput-boolean p0, Lcom/android/launcher2/BadgeCache;->isRootBadgeFeature:Z
-
-    return-void
 .end method
 
 
@@ -684,7 +452,7 @@
 .end method
 
 .method updateBadgeCounts(Lcom/android/launcher2/compat/UserHandleCompat;)Ljava/util/Map;
-    .locals 25
+    .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -704,11 +472,9 @@
 
     move-result-object v9
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    const/16 v16, 0x0
-
-    const/16 v19, 0x0
+    const/16 v17, 0x0
 
     invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
@@ -763,7 +529,7 @@
     :cond_1
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSupportBadgeManage()Z
 
-    move-result v24
+    move-result v22
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
 
@@ -771,7 +537,7 @@
 
     invoke-virtual {v1}, Lcom/android/launcher2/LauncherApplication;->getBadgeSetings()I
 
-    move-result v20
+    move-result v18
 
     const/4 v11, 0x0
 
@@ -784,7 +550,7 @@
 
     move-result-object v1
 
-    if-eqz v24, :cond_a
+    if-eqz v22, :cond_7
 
     sget-object v3, Lcom/android/launcher2/BadgeCache;->BADGE_MANAGE_COLUMNS:[Ljava/lang/String;
 
@@ -803,7 +569,7 @@
     move-result-object v11
 
     :goto_2
-    if-eqz v11, :cond_10
+    if-eqz v11, :cond_b
 
     sget-object v1, Lcom/android/launcher2/BadgeCache;->USING_BADGE_APPS_LIST:[Ljava/lang/String;
 
@@ -811,7 +577,7 @@
 
     new-array v0, v1, [Z
 
-    move-object/from16 v18, v0
+    move-object/from16 v16, v0
 
     :cond_2
     :goto_3
@@ -819,13 +585,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_a
 
     const/4 v1, 0x0
 
     invoke-interface {v11, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v20
 
     const/4 v1, 0x1
 
@@ -839,93 +605,52 @@
 
     move-result v8
 
-    if-eqz v24, :cond_4
+    if-eqz v22, :cond_4
 
     const/4 v1, 0x3
 
     invoke-interface {v11, v1}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v16
+    move-result v14
 
-    if-eqz v20, :cond_3
+    if-eqz v18, :cond_3
 
     const/4 v1, 0x1
 
-    move/from16 v0, v16
-
-    if-ne v0, v1, :cond_4
+    if-ne v14, v1, :cond_4
 
     :cond_3
     const/4 v8, 0x0
 
     :cond_4
-    if-eqz v22, :cond_7
-
-    if-eqz v12, :cond_7
-
-    const-string v1, "com.android.settings"
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    const-string v1, "com.android.settings.Settings"
-
-    invoke-virtual {v12, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    if-eqz v20, :cond_5
-
-    const/4 v1, 0x1
-
-    move/from16 v0, v16
-
-    if-ne v0, v1, :cond_6
-
-    :cond_5
-    const/16 v19, 0x1
-
-    :cond_6
-    move v15, v8
-
-    :cond_7
-    if-eqz v22, :cond_2
+    if-eqz v20, :cond_2
 
     const/4 v7, -0x1
 
-    const/16 v17, 0x0
+    const/4 v15, 0x0
 
     :goto_4
     sget-object v1, Lcom/android/launcher2/BadgeCache;->USING_BADGE_APPS_LIST:[Ljava/lang/String;
 
     array-length v1, v1
 
-    move/from16 v0, v17
-
-    if-ge v0, v1, :cond_8
+    if-ge v15, v1, :cond_5
 
     sget-object v1, Lcom/android/launcher2/BadgeCache;->USING_BADGE_APPS_LIST:[Ljava/lang/String;
 
-    aget-object v1, v1, v17
+    aget-object v1, v1, v15
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v20
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_8
 
-    move/from16 v7, v17
+    move v7, v15
 
-    :cond_8
+    :cond_5
     const-string v1, "BadgeCache"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -938,7 +663,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v20
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -960,15 +685,15 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v12, :cond_9
+    if-eqz v12, :cond_6
 
-    if-lez v8, :cond_9
+    if-lez v8, :cond_6
 
-    if-ltz v7, :cond_c
+    if-ltz v7, :cond_9
 
-    aget-boolean v1, v18, v7
+    aget-boolean v1, v16, v7
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_9
 
     const-string v1, "BadgeCache"
 
@@ -992,17 +717,17 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_6
     :goto_5
     if-ltz v7, :cond_2
 
     const/4 v1, 0x1
 
-    aput-boolean v1, v18, v7
+    aput-boolean v1, v16, v7
 
     goto/16 :goto_3
 
-    :cond_a
+    :cond_7
     :try_start_1
     sget-object v3, Lcom/android/launcher2/BadgeCache;->BADGE_COLUMNS:[Ljava/lang/String;
     :try_end_1
@@ -1012,7 +737,7 @@
     goto/16 :goto_1
 
     :catch_0
-    move-exception v21
+    move-exception v19
 
     const-string v1, "BadgeCache"
 
@@ -1023,7 +748,7 @@
     goto/16 :goto_2
 
     :catch_1
-    move-exception v23
+    move-exception v21
 
     const-string v1, "BadgeCache"
 
@@ -1033,15 +758,15 @@
 
     goto/16 :goto_2
 
-    :cond_b
-    add-int/lit8 v17, v17, 0x1
+    :cond_8
+    add-int/lit8 v15, v15, 0x1
 
     goto :goto_4
 
-    :cond_c
+    :cond_9
     new-instance v13, Landroid/content/ComponentName;
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v20
 
     invoke-direct {v13, v0, v12}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1099,57 +824,9 @@
 
     goto :goto_5
 
-    :cond_d
+    :cond_a
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    if-nez v19, :cond_f
-
-    const-string v1, "rootbadgefeature"
-
-    invoke-static {v1}, Lcom/android/launcher2/Utilities;->isSupportCHNFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    invoke-static {}, Lcom/android/launcher2/BadgeCache;->checkRootingCondition()Z
-
-    move-result v1
-
-    if-nez v1, :cond_e
-
-    sget-boolean v1, Lcom/android/launcher2/BadgeCache;->isRootBadgeFeature:Z
-
-    if-eqz v1, :cond_f
-
-    :cond_e
-    new-instance v14, Landroid/content/ComponentName;
-
-    const-string v1, "com.android.settings"
-
-    const-string v3, "com.android.settings.Settings"
-
-    invoke-direct {v14, v1, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    add-int/lit8 v15, v15, 0x1
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/launcher2/BadgeCache;->mBadges:Ljava/util/Map;
-
-    new-instance v3, Lcom/android/launcher2/BadgeCache$CacheKey;
-
-    move-object/from16 v0, p1
-
-    invoke-direct {v3, v14, v0}, Lcom/android/launcher2/BadgeCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
-
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-interface {v1, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_f
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/launcher2/BadgeCache;->mBadges:Ljava/util/Map;
@@ -1158,7 +835,7 @@
 
     move-result-object v9
 
-    :cond_10
+    :cond_b
     const-string v1, "BadgeCache"
 
     new-instance v3, Ljava/lang/StringBuilder;

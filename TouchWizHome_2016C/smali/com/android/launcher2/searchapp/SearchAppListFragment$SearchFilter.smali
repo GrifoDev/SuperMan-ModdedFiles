@@ -74,7 +74,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -87,7 +87,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -104,7 +104,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -135,7 +135,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -143,7 +143,18 @@
 
     check-cast v6, Ljava/lang/String;
 
-    if-nez v9, :cond_1
+    if-eqz v6, :cond_0
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v10
+
+    if-lez v10, :cond_0
+
+    :cond_1
+    if-nez v9, :cond_2
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -168,7 +179,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -187,7 +198,7 @@
 
     invoke-virtual {v8, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_2
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
     # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
@@ -223,7 +234,7 @@
 
     move-result v10
 
-    if-ge v3, v10, :cond_2
+    if-ge v3, v10, :cond_3
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
@@ -246,7 +257,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     sub-int v10, v3, v4
 
@@ -266,7 +277,7 @@
 
     move v4, v3
 
-    :cond_2
+    :cond_3
     new-instance v10, Lcom/android/launcher2/searchapp/AppIndexInfo;
 
     invoke-direct {v10, v6, v1}, Lcom/android/launcher2/searchapp/AppIndexInfo;-><init>(Ljava/lang/String;I)V
@@ -275,12 +286,12 @@
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_4
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     return-object v8
 .end method
 

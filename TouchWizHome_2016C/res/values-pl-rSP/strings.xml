@@ -34,14 +34,17 @@
     <string name="all_apps_title">Aplikacyje</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ</string>
     <string name="alphabetical_list_indicator_indexes">\#AÃĄBCĆDEĘFGHIJKLŁMNŃOŌÔŎÕÓPQRSŚTUVWXYZŹŻ</string>
+    <string name="app_hidden_toast">Skryto %s.</string>
+    <string name="app_locked_toast">Aplikacyjŏ %s zablokowanŏ.</string>
     <string name="app_search">Sznupej</string>
     <string name="app_search_no_apps">Poradzisz przidować skrōty na ekranie sztartowym z wynikōw sznupanio.</string>
     <string name="app_search_no_results_found">Niy znŏdłŏ wynikōw.</string>
+    <string name="app_unlocked_toast">Kategoria %s odblokowana.</string>
     <string name="apply">Zastosuj</string>
     <string name="available_galaxyapps">Dostympne w Galaxy Apps</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
+    <string name="badge_manage_summary">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
+    <string name="badge_manage_title">Zarządzaj odznaczeniami aplikacji</string>
     <string name="cancel">Pociep</string>
     <string name="change_home_screen_settings">Zamiyń sztalow. ekr. sztart.</string>
     <string name="change_home_screen_settings_info">Ta aplikacyjo poradzi zamiyniać skrōty i sztalowanie ekranu sztartowego.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Bezpośr. Ôbieraniy</string>
     <string name="direct_message">Wiad.bezpośredniŏ</string>
     <string name="disable_message">Aplikacyjo %1$s i wszyjske fōnkcyje śniōm pożyniōne bydōm wyłōnczōne. Coby drugi rŏz załōnczyć aplikacyjo, idź do menu Sztalowanie > Aplikacyje, a potym ôbier aplikacyjo %2$s.</string>
+    <string name="disable_message_att">Aplikacja %s i wszystkie funkcje z nią związane zostaną wyłączone. Aby włączyć ją ponownie, przejdź do menu Ustawienia > Urządzenie > Aplikacje > Menedżer aplikacji.</string>
     <string name="disable_message_vzw">Aplikacyjŏ %s i wszyjske fōnkcyje z niōm zwiōnzane ôstanōm wyłōnczōne. Coby załōnczyć jōm jeszcze rŏz, przelyź do menu Sztalowanie > Aplikacyje > Mynedżer aplikacyjōw.</string>
     <string name="disable_messange_knox">Aplikacyjo %s i wszyjske fōnkcyje śniōm pożyniōne bydōm wyłōnczōne. Coby załōnczyć ôna drugi rŏz, przelyź do menu Sztalowanie KNOX > Mynedżer aplikacyji.</string>
     <string name="disable_title">Wyłōncz aplikacyjŏ</string>
@@ -85,6 +89,10 @@ Microsoft"</string>
     <string name="guide_resize_widget_step2">Przełōnacz ôbramowanie na gōra, na dōł, do strzodka abo na zewnōntrz, coby zmiynić wielgość widgetu.</string>
     <string name="guide_tap_here">Tyknij ikōna aplikacyj.</string>
     <string name="guide_widgets_tap_area">Tyknij widgetu i przichyć go aż do uaktywnieniŏ edycje, a potym go zwolnij.</string>
+    <string name="hide">Skryj</string>
+    <string name="hide_confirm_continue">Kōntynuuj</string>
+    <string name="hide_confirm_message">Aplikacyjŏ %s je terŏzki blokniyntŏ. Kej jōm schrōnisz, ta aplikacyjŏ bydzie ôdblokowanŏ.</string>
+    <string name="hide_confirm_title">Skrywanie aplikacyji</string>
     <string name="home_edit_add_to_personal">Dod.do ôsob.</string>
     <string name="home_edit_bar_delete_title">Wyciep skrōt</string>
     <string name="home_edit_bar_delete_title_vzw">Wyciep skrōt</string>
@@ -136,7 +144,7 @@ aplikacyje"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s je już przidany do ekranu sztartowego.</string>
     <string name="open_folder">Ôdewrzij katalog</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Wyświetl aplikacje</string>
     <string name="option_menu_contact_up">Pogŏdej z nami</string>
     <string name="option_tray_screengrid">Siatka ekranu</string>
     <string name="options_home_set_theme">Motywy</string>
@@ -155,14 +163,14 @@ aplikacyje"</string>
     <string name="permlab_install_widget">Przidej widgety</string>
     <string name="quick_contact">Kōntakt</string>
     <string name="quick_options_help_text">Szibnij palcym po skrōcie aplikacyji na spodek, coby pokŏzać ônyj gibke ôpcyje. Gibke ôpcyje ulekszajōm reskyrowanie aplikacyjami.</string>
+    <string name="quickoption_sleep">Uśpij</string>
     <string name="quickoptions_add_apps">Przidowanie aplikacyji</string>
     <string name="quickoptions_add_to_secure_folder">"Przidej do
 Bezp. katalog"</string>
     <string name="quickoptions_app_info">Info ô aplikacyji</string>
     <string name="quickoptions_clear_badge">Wypucuj ôdznaczynie</string>
     <string name="quickoptions_disable">Wyłōncz</string>
-    <string name="quickoptions_put_to_sleep">Wkludź w tryb spanio</string>
-    <string name="quickoptions_put_to_sleep_alert">Wkludzynie tyj aplikacyji w tryb spanio niy do ônyj używać baterji we tle. Uspane aplikacyje poradzōm niy przijmować uaktualniynio ani posłać nowin, ale aktywujōm sie po ôdewrzyniu.</string>
+    <string name="quickoptions_sleep_alert">Wkludzynie tyj aplikacyji w tryb spanio niy do ônyj używać baterji we tle. Uspane aplikacyje poradzōm niy przijmować uaktualniynio ani posłać nowin, ale aktywujōm sie po ôdewrzyniu.</string>
     <string name="quickoptions_uninstall">Ôdinsztaluj</string>
     <string name="quickview_delete_toast_msg">Szibnij zajta do placu Wyciep, coby ôna wyciepać.</string>
     <string name="quickview_drag_bar_delete_title">Wyciep</string>
@@ -174,9 +182,9 @@ Bezp. katalog"</string>
     <string name="remove_app_folder_confirm">Wyciep</string>
     <string name="remove_app_folder_confirm_VZW">Wyciepnij</string>
     <string name="remove_app_folder_message">Katalog %s bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
     <string name="remove_app_folder_message_no_title">Ten katalog zostanie usunięty. Aplikacje w tym katalogu nie zostaną odinstalowane.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Ten katalog zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
     <string name="remove_app_folder_title">Wyciep katalog</string>
     <string name="remove_app_folder_title_VZW">Wyciep katalog</string>
     <string name="remove_home_folder_message">Katalog %s bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
@@ -189,7 +197,7 @@ Bezp. katalog"</string>
     <string name="search_for_apps">Wysznupywanie aplikacyji</string>
     <string name="search_for_widgets">Sznupej za widgetami</string>
     <string name="search_result_found">Znŏjdziōne: %d</string>
-    <string name="search_result_founds">Znŏd żech: %d</string>
+    <string name="search_result_founds">Znŏjdziōne: %d</string>
     <string name="select_all_app">Wszyjske</string>
     <string name="select_app_add">DODEJ</string>
     <string name="selected">Ôbrane</string>
@@ -232,10 +240,10 @@ Bezp. katalog"</string>
     <string name="widget_duplicate">Widget %s je już na ekranie sztartowym.</string>
     <string name="work_folder_name">Robota</string>
     <string name="workspace_empty_message">Tyknij i przitrzimej ekran coby przidać rzeczy</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="zeropage_briefing_title">Skrót informacji</string>
+    <string name="zeropage_download">Pobierz</string>
+    <string name="zeropage_download_msg">Do korzystania z tej funkcji należy zainstalować aplikację %1$s. Dotknij opcji POBIERZ, aby pobrać i zainstalować %2$s.</string>
     <string name="zeropage_notice_msg">Usłga informacyjno %s je terŏzki do chycynio. Coby ônyj używać we plac Flipboard Briefing, tyknij ôpcyji OK.</string>
     <string name="zeropage_setting_dialog_no">Pociep</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">Wiadomości Sohu</string>
 </resources>

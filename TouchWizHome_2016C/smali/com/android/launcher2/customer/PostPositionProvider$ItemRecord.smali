@@ -126,15 +126,52 @@
 
 # virtual methods
 .method checkAndUpdateHomePositionAccordingly()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
+    invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    const-string v1, "CUSTOMER.PostPosition"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "ZeroPage enabled so update HomePage index to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-boolean v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeNewPage:Z
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_e
 
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
 
@@ -142,30 +179,68 @@
 
     move-result v2
 
-    if-lt v1, v2, :cond_d
+    if-le v1, v2, :cond_e
 
-    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getHomeScreenIndex()I
+    const-string v1, "CUSTOMER.PostPosition"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "checkAndUpdateHomePositionAccordingly() : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getScreenCount()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getScreenCount()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
 
-    :cond_0
+    :cond_1
     :goto_0
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
 
-    if-gez v1, :cond_1
-
-    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
-
-    :cond_1
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
-
     if-gez v1, :cond_2
 
-    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
+    iput v5, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
 
     :cond_2
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
+
+    if-gez v1, :cond_3
+
+    iput v5, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
+
+    :cond_3
     const/4 v1, 0x2
 
     new-array v0, v1, [I
@@ -178,34 +253,34 @@
 
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
 
-    aget v2, v0, v4
-
-    add-int/lit8 v2, v2, -0x1
-
-    if-le v1, v2, :cond_3
-
-    aget v1, v0, v4
-
-    add-int/lit8 v1, v1, -0x1
-
-    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
-
-    :cond_3
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
-
-    aget v2, v0, v3
+    aget v2, v0, v5
 
     add-int/lit8 v2, v2, -0x1
 
     if-le v1, v2, :cond_4
 
-    aget v1, v0, v3
+    aget v1, v0, v5
+
+    add-int/lit8 v1, v1, -0x1
+
+    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
+
+    :cond_4
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
+
+    aget v2, v0, v4
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-le v1, v2, :cond_5
+
+    aget v1, v0, v4
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
 
-    :cond_4
+    :cond_5
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ItemType:I
 
     sget-object v2, Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;->WIDGET:Lcom/android/launcher2/customer/PostPositionProvider$ITEM_TYPE;
@@ -214,49 +289,34 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_f
+    if-ne v1, v2, :cond_10
 
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
 
-    if-ge v1, v3, :cond_5
+    if-ge v1, v4, :cond_6
 
-    iput v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
-
-    :cond_5
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
-
-    if-ge v1, v3, :cond_6
-
-    iput v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
+    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
 
     :cond_6
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
-
-    aget v2, v0, v4
-
-    if-le v1, v2, :cond_7
-
-    aget v1, v0, v4
-
-    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
-
-    :cond_7
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
 
-    aget v2, v0, v3
+    if-ge v1, v4, :cond_7
+
+    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
+
+    :cond_7
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
+
+    aget v2, v0, v5
 
     if-le v1, v2, :cond_8
 
-    aget v1, v0, v3
+    aget v1, v0, v5
 
-    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
+    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
 
     :cond_8
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
-
-    iget v2, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
-
-    add-int/2addr v1, v2
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
 
     aget v2, v0, v4
 
@@ -264,24 +324,39 @@
 
     aget v1, v0, v4
 
+    iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
+
+    :cond_9
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
+
+    iget v2, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
+
+    add-int/2addr v1, v2
+
+    aget v2, v0, v5
+
+    if-le v1, v2, :cond_a
+
+    aget v1, v0, v5
+
     iget v2, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellX:I
 
     sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
 
-    :cond_9
+    :cond_a
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
 
     iget v2, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
 
     add-int/2addr v1, v2
 
-    aget v2, v0, v3
+    aget v2, v0, v4
 
-    if-le v1, v2, :cond_a
+    if-le v1, v2, :cond_b
 
-    aget v1, v0, v3
+    aget v1, v0, v4
 
     iget v2, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeCellY:I
 
@@ -289,7 +364,7 @@
 
     iput v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
 
-    :cond_a
+    :cond_b
     :goto_1
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->ItemType:I
 
@@ -299,20 +374,20 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_c
+    if-ne v1, v2, :cond_d
 
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeShortcutTitle:Ljava/lang/String;
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_c
 
     const-string v1, "Untitled"
 
     iput-object v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeShortcutTitle:Ljava/lang/String;
 
-    :cond_b
+    :cond_c
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeShortcutIcon:Landroid/graphics/Bitmap;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_d
 
     invoke-static {}, Lcom/android/launcher2/PkgResCache;->getDefaultIcon()Landroid/graphics/Bitmap;
 
@@ -320,37 +395,97 @@
 
     iput-object v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeShortcutIcon:Landroid/graphics/Bitmap;
 
-    :cond_c
+    :cond_d
     return-void
 
-    :cond_d
+    :cond_e
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_f
 
     iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
 
-    if-ge v1, v3, :cond_e
+    if-ge v1, v4, :cond_f
 
-    iput v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+    const-string v1, "CUSTOMER.PostPosition"
 
-    goto/16 :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    :cond_e
-    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-gez v1, :cond_0
+    const-string v3, "checkAndUpdateHomePositionAccordingly() : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " to 1"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
 
     goto/16 :goto_0
 
     :cond_f
-    iput v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
+    iget v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
 
-    iput v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
+    if-gez v1, :cond_1
+
+    const-string v1, "CUSTOMER.PostPosition"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "checkAndUpdateHomePositionAccordingly() : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " to 0"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v5, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->HomeIndex:I
+
+    goto/16 :goto_0
+
+    :cond_10
+    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanX:I
+
+    iput v4, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->WidgetSpanY:I
 
     goto :goto_1
 .end method

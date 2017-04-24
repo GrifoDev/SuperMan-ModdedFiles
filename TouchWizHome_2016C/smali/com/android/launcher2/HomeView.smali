@@ -2680,7 +2680,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f09022f
+    const v3, 0x7f090231
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2690,7 +2690,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09022e
+    const v4, 0x7f090230
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2711,7 +2711,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090233
+    const v3, 0x7f090235
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2721,7 +2721,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090232
+    const v4, 0x7f090234
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3664,7 +3664,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100083
+    const v1, 0x7f100087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -4228,7 +4228,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100074
+    const v2, 0x7f100078
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4242,7 +4242,7 @@
 
     invoke-virtual {v2, p0}, Lcom/android/launcher2/Workspace;->setPageSwitchListener(Lcom/android/launcher2/PagedView$PageSwitchListener;)V
 
-    const v2, 0x7f1000da
+    const v2, 0x7f1000de
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4252,7 +4252,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mQuickViewWorkspace:Lcom/android/launcher2/QuickViewWorkspace;
 
-    const v2, 0x7f100075
+    const v2, 0x7f100079
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4262,7 +4262,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mDeleteDropLayout:Lcom/android/launcher2/QuickViewDragBar;
 
-    const v2, 0x7f100076
+    const v2, 0x7f10007a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4272,7 +4272,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
 
-    const v2, 0x7f100078
+    const v2, 0x7f10007c
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4286,7 +4286,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v2, 0x7f100073
+    const v2, 0x7f100077
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4294,7 +4294,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mHomeContainer:Landroid/view/View;
 
-    const v2, 0x7f0901e0
+    const v2, 0x7f0901e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4342,7 +4342,7 @@
     invoke-virtual {v2, p0}, Lcom/android/launcher2/Hotseat;->setup(Lcom/android/launcher2/HomeView;)V
 
     :cond_1
-    const v2, 0x7f100077
+    const v2, 0x7f10007b
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4358,7 +4358,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f10007c
+    const v2, 0x7f100080
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4391,7 +4391,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f10007f
+    const v2, 0x7f100083
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4483,7 +4483,7 @@
 .method public static showNoRoomAnyPageMessage(Landroid/content/Context;)V
     .locals 2
 
-    const v0, 0x7f080085
+    const v0, 0x7f08008d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7139,7 +7139,7 @@
 .end method
 
 .method public bindRefreshItems(Ljava/util/List;)V
-    .locals 12
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -7154,66 +7154,66 @@
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_1
+    if-eqz v10, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
-    const-string v9, "Launcher.HomeView"
+    const-string v10, "Launcher.HomeView"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "bindRefreshItems, refreshItems count : "
+    const-string v12, "bindRefreshItems, refreshItems count : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v11
+    move-result v12
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_5
 
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    invoke-virtual {v9}, Lcom/android/launcher2/Workspace;->getChildCount()I
+    invoke-virtual {v10}, Lcom/android/launcher2/Workspace;->getChildCount()I
 
-    move-result v9
+    move-result v10
 
-    if-lez v9, :cond_5
+    if-lez v10, :cond_5
 
     const/4 v3, 0x0
 
     :goto_0
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    invoke-virtual {v9}, Lcom/android/launcher2/Workspace;->getChildCount()I
+    invoke-virtual {v10}, Lcom/android/launcher2/Workspace;->getChildCount()I
 
-    move-result v9
+    move-result v10
 
-    if-ge v3, v9, :cond_5
+    if-ge v3, v10, :cond_5
 
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    invoke-virtual {v9, v3}, Lcom/android/launcher2/Workspace;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v10, v3}, Lcom/android/launcher2/Workspace;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -7221,59 +7221,59 @@
 
     if-eqz v0, :cond_4
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     :goto_1
-    iget-object v9, v0, Lcom/android/launcher2/CellLayout;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+    iget-object v10, v0, Lcom/android/launcher2/CellLayout;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
 
-    invoke-virtual {v9}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
+    invoke-virtual {v10}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
 
-    move-result v9
+    move-result v10
 
-    if-ge v6, v9, :cond_4
+    if-ge v7, v10, :cond_4
 
-    iget-object v9, v0, Lcom/android/launcher2/CellLayout;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+    iget-object v10, v0, Lcom/android/launcher2/CellLayout;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
 
-    invoke-virtual {v9, v6}, Lcom/android/launcher2/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v10, v7}, Lcom/android/launcher2/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eqz v8, :cond_2
+    if-eqz v9, :cond_2
 
-    instance-of v9, v8, Landroid/appwidget/AppWidgetHostView;
+    instance-of v10, v9, Landroid/appwidget/AppWidgetHostView;
 
-    if-nez v9, :cond_2
+    if-nez v10, :cond_2
 
-    instance-of v9, v8, Lcom/android/launcher2/FolderIconView;
+    instance-of v10, v9, Lcom/android/launcher2/FolderIconView;
 
-    if-eqz v9, :cond_3
+    if-eqz v10, :cond_3
 
     :cond_2
     :goto_2
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
     :cond_3
-    invoke-virtual {v8}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-virtual {v9}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    instance-of v9, v7, Lcom/android/launcher2/HomeItem;
+    instance-of v10, v8, Lcom/android/launcher2/HomeItem;
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    move-object v5, v7
+    move-object v5, v8
 
     check-cast v5, Lcom/android/launcher2/HomeItem;
 
     invoke-interface {p1, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    move-object v4, v8
+    move-object v4, v9
 
     check-cast v4, Lcom/android/launcher2/AppIconView;
 
@@ -7287,37 +7287,36 @@
     goto :goto_0
 
     :cond_5
-    sget-object v9, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
+    sget-object v10, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
 
-    if-eqz v9, :cond_7
+    if-eqz v10, :cond_8
 
-    sget-object v9, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
+    sget-object v10, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
 
-    invoke-virtual {v9}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v10}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_7
+    if-nez v10, :cond_8
 
-    sget-object v9, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
+    sget-object v10, Lcom/android/launcher2/HomeView;->sFolders:Ljava/util/HashMap;
 
-    invoke-virtual {v9}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v10}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v2
 
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v9
+    move-result-object v11
 
     :cond_6
-    :goto_3
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -7327,53 +7326,29 @@
 
     invoke-virtual {v1}, Lcom/android/launcher2/HomeFolderItem;->itemsChanged()V
 
-    goto :goto_3
+    invoke-virtual {v1}, Lcom/android/launcher2/HomeFolderItem;->isOpened()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    invoke-virtual {v1}, Lcom/android/launcher2/HomeFolderItem;->getAllItems()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
 
     :cond_7
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+    :goto_3
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
-    if-eqz v9, :cond_0
+    move-result v10
 
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+    if-eqz v10, :cond_6
 
-    iget-object v9, v9, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
-
-    if-eqz v9, :cond_0
-
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
-
-    invoke-virtual {v9}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
-
-    move-result v9
-
-    if-lez v9, :cond_0
-
-    const/4 v3, 0x0
-
-    :goto_4
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
-
-    invoke-virtual {v9}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
-
-    move-result v9
-
-    if-ge v3, v9, :cond_0
-
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
-
-    iget-object v9, v9, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
-
-    invoke-virtual {v9, v3}, Lcom/android/launcher2/CellLayoutChildren;->getItemAt(I)Lcom/android/launcher2/BaseItem;
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -7381,27 +7356,93 @@
 
     invoke-interface {p1, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_8
+    if-eqz v10, :cond_7
 
-    iget-object v9, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+    invoke-virtual {v5}, Lcom/android/launcher2/HomeItem;->getIconView()Landroid/view/View;
 
-    iget-object v9, v9, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+    move-result-object v10
 
-    iget-object v9, v9, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+    check-cast v10, Lcom/android/launcher2/AppIconView;
 
-    invoke-virtual {v9, v5}, Lcom/android/launcher2/CellLayoutChildren;->getChildAt(Lcom/android/launcher2/BaseItem;)Landroid/view/View;
+    invoke-virtual {v10, v5}, Lcom/android/launcher2/AppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
+
+    goto :goto_3
+
+    :cond_8
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    if-eqz v10, :cond_0
+
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+
+    if-eqz v10, :cond_0
+
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+
+    invoke-virtual {v10}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
+
+    move-result v10
+
+    if-lez v10, :cond_0
+
+    const/4 v3, 0x0
+
+    :goto_4
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+
+    invoke-virtual {v10}, Lcom/android/launcher2/CellLayoutChildren;->getChildCount()I
+
+    move-result v10
+
+    if-ge v3, v10, :cond_0
+
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+
+    invoke-virtual {v10, v3}, Lcom/android/launcher2/CellLayoutChildren;->getItemAt(I)Lcom/android/launcher2/BaseItem;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher2/HomeItem;
+
+    invoke-interface {p1, v5}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_9
+
+    iget-object v10, p0, Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/Hotseat;->mContent:Lcom/android/launcher2/CellLayoutHotseat;
+
+    iget-object v10, v10, Lcom/android/launcher2/CellLayoutHotseat;->mChildren:Lcom/android/launcher2/CellLayoutChildren;
+
+    invoke-virtual {v10, v5}, Lcom/android/launcher2/CellLayoutChildren;->getChildAt(Lcom/android/launcher2/BaseItem;)Landroid/view/View;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/launcher2/AppIconView;
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     invoke-virtual {v4, v5}, Lcom/android/launcher2/AppIconView;->applyBaseItem(Lcom/android/launcher2/BaseItem;)V
 
-    :cond_8
+    :cond_9
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
@@ -8274,7 +8315,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f080041
+    const v11, 0x7f080045
 
     new-array v12, v9, [Ljava/lang/Object;
 
@@ -8332,7 +8373,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f080088
+    const v11, 0x7f080090
 
     new-array v12, v9, [Ljava/lang/Object;
 
@@ -11445,7 +11486,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100083
+    const v1, 0x7f100087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -11514,7 +11555,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f100076
+    const v0, 0x7f10007a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -11974,7 +12015,7 @@
 .method public isVisibleHomeOptionMenu()Z
     .locals 2
 
-    const v1, 0x7f100076
+    const v1, 0x7f10007a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -14474,7 +14515,7 @@
 
     move-result v4
 
-    const v5, 0x7f090113
+    const v5, 0x7f090114
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -16172,7 +16213,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100083
+    const v1, 0x7f100087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -16350,7 +16391,7 @@
 .method public setVisibilityHomeOptionMenu(I)V
     .locals 3
 
-    const v1, 0x7f100076
+    const v1, 0x7f10007a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 

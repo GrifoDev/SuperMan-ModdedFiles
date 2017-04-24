@@ -93,7 +93,7 @@
 
     check-cast v3, Landroid/graphics/drawable/LayerDrawable;
 
-    const v4, 0x7f10011c
+    const v4, 0x7f100120
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -105,7 +105,7 @@
 
     check-cast v1, Landroid/graphics/drawable/NinePatchDrawable;
 
-    const v4, 0x7f10011d
+    const v4, 0x7f100121
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 

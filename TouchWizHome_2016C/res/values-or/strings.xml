@@ -34,14 +34,17 @@
     <string name="all_apps_title">ଆପସ୍</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ଅଆଇଈଉଊଋୠଏଐଓଔକଖଗଘଙଚଛଜଝଞଟଠଡଢଡ଼ଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲଳୱଶଷସହABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="alphabetical_list_indicator_indexes">\#କଖଗଘଙଚଛଜଝଞଟଠଡଢଡ଼ଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲଳୱଶଷସହABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s ଲୁକ୍କାୟିତ।</string>
+    <string name="app_locked_toast">%s ଲକ୍ ହୋଇଛି।</string>
     <string name="app_search">ସନ୍ଧାନ</string>
     <string name="app_search_no_apps">ଆପଣ ସନ୍ଧାନ ଫଳାଫଳରୁ ହୋମ୍ ସ୍କ୍ରିନରେ ସର୍ଟକଟଗୁଡିକ ଯୋଡି ପାରିବେ।</string>
     <string name="app_search_no_results_found">କୌଣସି ଫଳାଫଳ ମିଳିଲା ନାହିଁ</string>
+    <string name="app_unlocked_toast">%s ଅନ୍‌ଲକ୍ ହୋଇଛି।</string>
     <string name="apply">ପ୍ରୟୋଗ</string>
     <string name="available_galaxyapps">Galaxy Appsରେ ଉପଲବ୍ଧ</string>
-    <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
-    <string name="badge_manage_title">Manage app badges</string>
+    <string name="badge_manage_explain">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="badge_manage_summary">ପ୍ରତି ଆପ୍ଲିକେସନ୍‌ ପାଇଁ ବ୍ୟାଜ ଦେଖାଇବା କିମ୍ୱା ଲୁଚାନ୍ତୁ ଚୟନ କରନ୍ତୁ।</string>
+    <string name="badge_manage_title">ଆପ୍ଲିକେସନ୍‌ ବ୍ୟାଜଗୁଡିକ ପରିଚାଳନା</string>
     <string name="cancel">ବାତିଲ୍</string>
     <string name="change_home_screen_settings">ହୋମ୍ ସ୍କ୍ରିନ୍ ସେଟିଂସ୍ ପରିବର୍ତ୍ତନ</string>
     <string name="change_home_screen_settings_info">ଏହି ଆପ୍ଲିକେସନ୍‌ ଆପଣଙ୍କ ହୋମ୍ ସ୍କ୍ରିନ୍ ସେଟିଂସ୍ ଏବଂ ସର୍ଟକଟଗୁଡିକ ପରିବର୍ତ୍ତନ କରିପାରିବ।</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">ସିଧାସଳଖ ଡାୟଲ୍</string>
     <string name="direct_message">ସିଧାସଳଖ ସନ୍ଦେଶ</string>
     <string name="disable_message">ଏହା ସମ୍ବନ୍ଧୀୟ %1$s ଏବଂ ସମସ୍ତ ପ୍ରକାର୍ଯ୍ୟ ଅକ୍ଷମ ହେବ। ପୁନଃ ଆପ୍ଲିକେସନ୍‌ ସକ୍ଷମ କରିବାକୁ, ସେଟିଂସ୍ > ଆପସକୁ ଯାଇ, %2$s ଚୟନ କରନ୍ତୁ।</string>
+    <string name="disable_message_att">%s ଏବଂ ଏହା ସହ ସମ୍ବନ୍ଧୀୟ ସମସ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଅକ୍ଷମ ହେବ। ଏହା ପୁନଃ ସକ୍ଷମ କରିବାକୁ, ସେଟିଂସ୍ > ଡିଭାଇସ୍‌ > ଆପସ୍ > ଆପ୍ଲିକେସନ୍ ପରିଚାଳକୁ ଯାଆନ୍ତୁ।</string>
     <string name="disable_message_vzw">%s ଏବଂ ଏହା ସହ ସମ୍ବନ୍ଧୀୟ ସମସ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଅକ୍ଷମ ହେବ। ଏହା ପୁନଃ ସକ୍ଷମ କରିବାକୁ, ସେଟିଂସ୍ > ଆପ୍ଲିକେସନଗୁଡିକ > ଆପ୍ଲିକେସନ୍‍ ପରିଚାଳକୁ ଯାଆନ୍ତୁ।</string>
     <string name="disable_messange_knox">%s ଏବଂ ଏହା ସମ୍ବନ୍ଧୀୟ ସମସ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଅକ୍ଷମ ହେବ। ଏହା ପୁନଃ ସକ୍ଷମ କରିବାକୁ, KNOX ସେଟିଂସ୍ > ଆପ୍ଲିକେସନ୍‍ ପରିଚାଳକକୁ ଯାଆନ୍ତୁ।</string>
     <string name="disable_title">ଆପ୍ଲିକେସନ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
@@ -84,6 +88,10 @@
     <string name="guide_resize_widget_step2">ୱିଜେଟ୍ ପୁନଃଆକାର କରିବାକୁ ପ୍ରାନ୍ତକୁ ଉପର, ତଳ, ଭିତର କିମ୍ବା ବାହାରକୁ ଟାଣନ୍ତୁ।</string>
     <string name="guide_tap_here">ଆପ୍ଲିକେସନ୍ ଆଇକନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="guide_widgets_tap_area">ୱିଜେଟ୍ ସମ୍ପାଦିତ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଏହାକୁ ଟ୍ୟାପ୍ କରି ଧରି ରଖନ୍ତୁ, ତାପରେ ଛାଡି ଦିଅନ୍ତୁ।</string>
+    <string name="hide">ଲୁଚାଇବା</string>
+    <string name="hide_confirm_continue">ଜାରି</string>
+    <string name="hide_confirm_message">%s ଆପ୍ଲିକେସନ୍‌ ସମ୍ପ୍ରତି ଲକ୍ ହୋଇଛି। ଯଦି ଆପଣ ଏହି ଆପ୍ଲିକେସନ୍‌ ଲୁଚାଇବେ, ଏହା ଅନଲକ୍ ହେବ।</string>
+    <string name="hide_confirm_title">ଆପ୍ଲିକେସନ୍ ଲୁଚାଇବା</string>
     <string name="home_edit_add_to_personal">ବ୍ୟକ୍ତିଗତକୁ ଯୋଡନ୍ତୁ</string>
     <string name="home_edit_bar_delete_title">ସର୍ଟକଟ୍ ଅପସାରଣ</string>
     <string name="home_edit_bar_delete_title_vzw">ସର୍ଟକଟ୍ ଅପସାରଣ</string>
@@ -134,7 +142,7 @@
     <string name="ok">ଓକେ</string>
     <string name="only_one_widget_instance_allowed">%s ୱିଜେଟ୍ ପୂର୍ବରୁ ହୋମ୍ ସ୍କ୍ରିନକୁ ଯୋଡାଯାଇଛି।</string>
     <string name="open_folder">ଫୋଲ୍ଡର୍ ଖୋଲନ୍ତୁ</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">ଆପସ୍ ଦର୍ଶନ</string>
     <string name="option_menu_contact_up">ଆମକୁ ସମ୍ପର୍କ କରନ୍ତୁ</string>
     <string name="option_tray_screengrid">ସ୍କ୍ରିନ୍ ଗ୍ରୀଡ୍</string>
     <string name="options_home_set_theme">ଥିମଗୁଡିକ</string>
@@ -153,14 +161,14 @@
     <string name="permlab_install_widget">ୱିଜେଟଗୁଡିକ ଯୋଡନ୍ତୁ</string>
     <string name="quick_contact">ସମ୍ପର୍କ</string>
     <string name="quick_options_help_text">ଏକ ଆପ୍ଲିକେସନ୍‌ ସର୍ଟକଟର ଦ୍ରୁତ ବିକଳ୍ପ ଦର୍ଶନ କରିବାକୁ ନିମ୍ନ ଆଡକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ। ଦ୍ରୁତ ବିକଳ୍ପ ଆପଣଙ୍କୁ ସହଜରେ ଆପସ୍ ପରିଚାଳନା କରିବାର ଅନୁମତି ଦିଏ।</string>
+    <string name="quickoption_sleep">ଶୟନ</string>
     <string name="quickoptions_add_apps">ଆପ୍ଲିକେସନଗୁଡିକ ଯୋଡନ୍ତୁ</string>
     <string name="quickoptions_add_to_secure_folder">"ସୁରକ୍ଷିତ ଫୋଲ୍ଡରକୁ
 ଯୋଡନ୍ତୁ"</string>
     <string name="quickoptions_app_info">ଆପ୍ ସୂଚନା</string>
     <string name="quickoptions_clear_badge">ବ୍ୟାଜଗୁଡିକ ଖାଲି</string>
     <string name="quickoptions_disable">ଅକ୍ଷମ</string>
-    <string name="quickoptions_put_to_sleep">ଶୟନ ହୋଇଛି</string>
-    <string name="quickoptions_put_to_sleep_alert">ଏହି ଆପ୍ଲିକେସନକୁ ଶୟନ କରିବା ଦ୍ୱାରା ଏହା ପୃଷ୍ଠପଟରେ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିବାକୁ ପ୍ରତିରୋଧ ହେବ। ହୁଏତ ଶୟନରତ ଆପସ୍ ଅପଡେଟ୍ ପ୍ରାପ୍ତ କିମ୍ୱା ଆପଣ ବିଜ୍ଞପ୍ତି ପ୍ରେରଣ କରିନପାରେ, କିନ୍ତୁ ଆପଣ ସେଗୁଡିକ ଖୋଲିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଉଠିବେ।</string>
+    <string name="quickoptions_sleep_alert">ଏହି ଆପ୍ଲିକେସନକୁ ଶୟନ କରିବା ଦ୍ୱାରା ଏହା ପୃଷ୍ଠପଟରେ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିବାକୁ ପ୍ରତିରୋଧ ହେବ। ହୁଏତ ଶୟନରତ ଆପସ୍ ଅପଡେଟ୍ ପ୍ରାପ୍ତ କିମ୍ୱା ଆପଣ ବିଜ୍ଞପ୍ତି ପ୍ରେରଣ କରିନପାରେ, କିନ୍ତୁ ଆପଣ ସେଗୁଡିକ ଖୋଲିବା ସମୟରେ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଉଠିବେ।</string>
     <string name="quickoptions_uninstall">ଅଣସଂସ୍ଥାପନ</string>
     <string name="quickview_delete_toast_msg">ଡ୍ରାଗ୍ ପୃଷ୍ଠା ଏହା ଅପସାରଣ କରିବାକୁ ଅପସାରଣ କରନ୍ତୁ।</string>
     <string name="quickview_drag_bar_delete_title">ଅପସାରଣ</string>
@@ -172,9 +180,9 @@
     <string name="remove_app_folder_confirm">ବିଲୋପ</string>
     <string name="remove_app_folder_confirm_VZW">ଅପସାରଣ</string>
     <string name="remove_app_folder_message">%s ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଆପସ୍ ସ୍କ୍ରିନରେ ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ହେବ।</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">%s ଫୋଲ୍ଡର୍ ଅପସାରଣ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଆପସ୍ ମଧ୍ୟରେ ଆପ୍ଲିକେସନ୍‌ ଟ୍ରେର ଶେଷରେ ତାଲିକାଭୁକ୍ତ ହେବ।</string>
     <string name="remove_app_folder_message_no_title">ଏହି ଫୋଲ୍ଡର୍ ଅପସାରିତ ହେବ। ଫୋଲ୍ଡର୍‌ରେ ଥିବା ଆପ୍ଲିକେସନ୍ ଅଣସଂସ୍ଥାପିତ ହେବ ନାହିଁ।</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">ଏହି ଫୋଲ୍ଡର୍ ଅପସାରିତ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଆପସ୍ ମଧ୍ୟରେ ଆପ୍ଲିକେସନ୍‌ ଟ୍ରେର ଶେଷରେ ତାଲିକାଭୁକ୍ତ ହେବ।</string>
     <string name="remove_app_folder_title">ଫୋଲ୍ଡର୍ ବିଲୋପ</string>
     <string name="remove_app_folder_title_VZW">ଫୋଲ୍ଡର୍ ଅପସାରଣ</string>
     <string name="remove_home_folder_message">%s ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଆପସ୍ ସ୍କ୍ରିନରେ ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ହେବ।</string>
@@ -229,11 +237,11 @@
     <string name="viewtype_custom_grid">କଷ୍ଟମ୍ କ୍ରମ</string>
     <string name="widget_duplicate">%s ୱିଜେଟ୍ ପୂର୍ବରୁ ହୋମ୍ ସ୍କ୍ରିନରେ ଅଛି।</string>
     <string name="work_folder_name">କାର୍ଯ୍ୟ</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-    <string name="zeropage_briefing_title">Briefing</string>
-    <string name="zeropage_download">Download</string>
-    <string name="zeropage_download_msg">To use this function, you need to install %1$s. Tap DOWNLOAD to download and install %2$s.</string>
+    <string name="workspace_empty_message">ଆଇଟମଗୁଡିକ ଯୋଡିବାକୁ ସ୍କ୍ରିନ୍‌ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ</string>
+    <string name="zeropage_briefing_title">ବ୍ରିଫିଂ</string>
+    <string name="zeropage_download">ଡାଉନଲୋଡ୍</string>
+    <string name="zeropage_download_msg">ଏହି ପ୍ରକାର୍ଯ୍ୟ ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କୁ %1$s ସଂସ୍ଥାପନ କରିବା ଆବଶ୍ୟକ। %2$s ଡାଉନଲୋଡ୍ କରନ୍ତୁ ଏବଂ ସଂସ୍ଥାପନ କରିବାକୁ “ଡାଉନଲୋଡ୍” ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="zeropage_notice_msg">ବର୍ତ୍ତମାନ %s ସମାଚାର ସେବା ଉପଲବ୍ଧ ହୋଇଛି। ଫ୍ଲିପବୋର୍ଡ୍ ବ୍ୟାଖ୍ୟା ବଦଳରେ ଏହା ବ୍ୟବହାର କରିବାକୁ, “ଓକେ” ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="zeropage_setting_dialog_no">ବାତିଲ୍</string>
-    <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_sohu_title">ସୋହୁ ନିୟୁଜ୍</string>
 </resources>

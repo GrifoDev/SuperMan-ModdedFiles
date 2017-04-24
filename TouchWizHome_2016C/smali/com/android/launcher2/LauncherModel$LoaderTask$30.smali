@@ -49,7 +49,7 @@
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$30;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     # getter for: Lcom/android/launcher2/LauncherModel$LoaderTask;->mIsFestival:Z
-    invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$1900(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
+    invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$2100(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
 
     move-result v1
 

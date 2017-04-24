@@ -39,14 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$4$1;->this$1:Lcom/android/launcher2/customer/PostPosition$4;
 
-    iget-object v0, v0, Lcom/android/launcher2/customer/PostPosition$4;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->updateResult(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$4$1;->this$1:Lcom/android/launcher2/customer/PostPosition$4;
-
     iget-object v0, v0, Lcom/android/launcher2/customer/PostPosition$4;->this$0:Lcom/android/launcher2/customer/PostPosition;
 
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPosition$4$1;->this$1:Lcom/android/launcher2/customer/PostPosition$4;
@@ -63,6 +55,14 @@
 
     # invokes: Lcom/android/launcher2/customer/PostPosition;->addToHomeWidget(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/customer/PostPosition;->access$100(Lcom/android/launcher2/customer/PostPosition;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
+
+    iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$4$1;->this$1:Lcom/android/launcher2/customer/PostPosition$4;
+
+    iget-object v0, v0, Lcom/android/launcher2/customer/PostPosition$4;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->updateResult(Z)V
 
     return-void
 .end method

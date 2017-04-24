@@ -20,6 +20,8 @@
 
 .field private static mHomeAppsStructureFeature:Ljava/lang/String;
 
+.field private static mIsATT:Z
+
 .field private static mIsEdge:Z
 
 .field private static mIsKDDI:Z
@@ -119,6 +121,8 @@
 .field private static mSupportRemoveBadge:Z
 
 .field private static mSupportRotate:Z
+
+.field private static mSupportSSecure:Z
 
 .field private static mSupportSearchTextColorLight:Z
 
@@ -259,6 +263,8 @@
 
     sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mIsVZW:Z
 
+    sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mIsATT:Z
+
     sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mIsKDDI:Z
 
     sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mSupportRotate:Z
@@ -290,6 +296,8 @@
     sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mSupportGoogleBackupRestore:Z
 
     sput-boolean v3, Lcom/android/launcher2/LauncherFeature;->mSupportGooglePlayAutoInstall:Z
+
+    sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
 
     sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mSupportFolderLock:Z
 
@@ -880,6 +888,14 @@
     throw v2
 .end method
 
+.method public static isATTModel()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mIsATT:Z
+
+    return v0
+.end method
+
 .method public static isChinaModel()Z
     .locals 2
 
@@ -988,6 +1004,14 @@
     .locals 1
 
     sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mIsKDDI:Z
+
+    return v0
+.end method
+
+.method public static isSSecureSupported()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
 
     return v0
 .end method
@@ -1136,24 +1160,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
     move v0, v1
 
     :goto_0
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportHotword:Z
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v0
-
-    const-string v3, "CscFeature_Launcher_SupportGuideTextForEmptyPage"
-
-    invoke-virtual {v0, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportEmptyMsg:Z
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -1371,9 +1383,24 @@
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mIsKDDI:Z
 
     :cond_4
-    return-void
+    sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mIsATT:Z
+
+    if-nez v0, :cond_5
+
+    const-string v0, "ATT"
+
+    sget-object v1, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mIsATT:Z
 
     :cond_5
+    return-void
+
+    :cond_6
     move v0, v2
 
     goto/16 :goto_0
@@ -1835,63 +1862,13 @@
 .method private static setFeatureBySystemProperties(Landroid/content/Context;)V
     .locals 4
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportEmptyMsg:Z
-
-    if-nez v0, :cond_0
-
-    const-string v0, "USA"
-
-    sget-object v3, Lcom/android/launcher2/LauncherFeature;->mCountryCode:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    const-string v0, "ATT"
-
-    sget-object v3, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
-    const-string v0, "VZW"
-
-    sget-object v3, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
-    const-string v0, "CCT"
-
-    sget-object v3, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
-    move v0, v1
-
-    :goto_0
-    sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportEmptyMsg:Z
-
-    :cond_0
     sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportFolderPopup:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     const-string v0, "USA"
 
@@ -1901,7 +1878,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     const-string v0, "CANADA"
 
@@ -1911,18 +1888,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    move v0, v2
 
-    :goto_1
+    :goto_0
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportFolderPopup:Z
 
-    :cond_2
+    :cond_1
     sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportHotword:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     const-string v0, "CHZ"
 
@@ -1932,7 +1909,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     const-string v0, "CHN"
 
@@ -1942,7 +1919,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     const-string v0, "CHM"
 
@@ -1952,7 +1929,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     const-string v0, "CHU"
 
@@ -1962,7 +1939,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     const-string v0, "CTC"
 
@@ -1972,7 +1949,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     const-string v0, "CHC"
 
@@ -1982,14 +1959,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
-    move v0, v1
+    move v0, v2
 
-    :goto_2
+    :goto_1
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportHotword:Z
 
-    :cond_3
+    :cond_2
     const-string v0, "SKT"
 
     sget-object v3, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
@@ -1998,7 +1975,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_3
 
     const-string v0, "SKC"
 
@@ -2008,12 +1985,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_b
 
-    :cond_4
-    move v0, v1
+    :cond_3
+    move v0, v2
 
-    :goto_3
+    :goto_2
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportCustomerDialerChange:Z
 
     const-string v0, "DCM"
@@ -2024,7 +2001,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
     const-string v0, "KDI"
 
@@ -2034,17 +2011,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
-    :cond_5
-    move v0, v1
+    :cond_4
+    move v0, v2
 
-    :goto_4
+    :goto_3
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportCustomerLauncherJPN:Z
 
     sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mDisableFullyHideKeypad:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5
 
     const-string v0, "USA"
 
@@ -2055,6 +2032,13 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/launcher2/LauncherFeature;->mDisableFullyHideKeypad:Z
+
+    :cond_5
+    sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
+
+    if-nez v0, :cond_6
+
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->setSupportSSecure()V
 
     :cond_6
     sget-boolean v0, Lcom/android/launcher2/LauncherFeature;->mSupportFolderLock:Z
@@ -2076,7 +2060,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "KTC"
 
@@ -2086,7 +2070,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "LUC"
 
@@ -2096,7 +2080,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "SKO"
 
@@ -2106,7 +2090,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "KTO"
 
@@ -2116,7 +2100,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "LUO"
 
@@ -2126,7 +2110,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "CHM"
 
@@ -2136,7 +2120,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "CHU"
 
@@ -2146,7 +2130,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "CTC"
 
@@ -2156,7 +2140,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "CHC"
 
@@ -2166,7 +2150,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     const-string v0, "KOO"
 
@@ -2176,43 +2160,38 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
-    :goto_5
-    sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportGalaxyLabs:Z
+    :goto_4
+    sput-boolean v2, Lcom/android/launcher2/LauncherFeature;->mSupportGalaxyLabs:Z
 
     :cond_8
     return-void
 
     :cond_9
-    move v0, v2
+    move v0, v1
 
     goto/16 :goto_0
 
     :cond_a
-    move v0, v2
+    move v0, v1
 
     goto/16 :goto_1
 
     :cond_b
-    move v0, v2
+    move v0, v1
 
     goto/16 :goto_2
 
     :cond_c
-    move v0, v2
+    move v0, v1
 
     goto/16 :goto_3
 
     :cond_d
-    move v0, v2
+    move v2, v1
 
-    goto/16 :goto_4
-
-    :cond_e
-    move v1, v2
-
-    goto :goto_5
+    goto :goto_4
 .end method
 
 .method private static setFrameworkClassMethod()V
@@ -2254,8 +2233,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_1
 
+    :cond_0
+    sget-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
+
+    if-eqz v1, :cond_2
+
+    :cond_1
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportFolderLock:Z
@@ -2287,7 +2272,7 @@
 
     return-void
 
-    :cond_0
+    :cond_2
     const/4 v1, 0x0
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportFolderLock:Z
@@ -2309,6 +2294,72 @@
     sput-boolean p0, Lcom/android/launcher2/LauncherFeature;->mSupportHomeModeChange:Z
 
     return-void
+.end method
+
+.method public static setSupportSSecure()V
+    .locals 4
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string v2, "CscFeature_Common_ConfigYuva"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "sprotect"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
+
+    :goto_0
+    sget-object v1, Lcom/android/launcher2/LauncherFeature;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setSupportSSecure supportSSecure = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-boolean v3, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportSSecure:Z
+
+    goto :goto_0
 .end method
 
 .method public static supportAlphabeticalOrder()Z

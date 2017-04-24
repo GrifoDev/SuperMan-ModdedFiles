@@ -249,13 +249,13 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_MgsText:Landroid/widget/TextView;
 
-    const v1, 0x7f08007c
+    const v1, 0x7f080084
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_NextBtnText:Landroid/widget/TextView;
 
-    const v1, 0x7f08007a
+    const v1, 0x7f080082
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -385,7 +385,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000c6
+    const v4, 0x7f1000ca
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -395,7 +395,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cb
+    const v4, 0x7f1000cf
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +405,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000c7
+    const v4, 0x7f1000cb
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +417,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000c8
+    const v4, 0x7f1000cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +429,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000c9
+    const v4, 0x7f1000cd
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -441,7 +441,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000ca
+    const v4, 0x7f1000ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

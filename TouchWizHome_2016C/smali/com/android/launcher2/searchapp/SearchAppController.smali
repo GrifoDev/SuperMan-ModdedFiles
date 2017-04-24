@@ -1416,13 +1416,13 @@
     return v3
 
     :cond_0
-    const v9, 0x7f090004
+    const v9, 0x7f090005
 
     invoke-virtual {v1, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v9, 0x7f09016e
+    const v9, 0x7f09016f
 
     invoke-virtual {v1, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -709,7 +709,7 @@
 
     iput-boolean v4, p0, Lcom/android/launcher2/Workspace;->mFixedWallpaper:Z
 
-    const v4, 0x7f090115
+    const v4, 0x7f090116
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -717,7 +717,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mPageIndicatorTop:I
 
-    const v4, 0x7f090116
+    const v4, 0x7f090117
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -786,7 +786,7 @@
 
     invoke-static {v4, v5}, Lcom/android/launcher2/LauncherModel;->updateWorkspaceLayoutCells(II)V
 
-    const v4, 0x7f0900f3
+    const v4, 0x7f0900f4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1731,13 +1731,13 @@
 
     if-eqz v12, :cond_4
 
-    const v12, 0x7f0901d7
+    const v12, 0x7f0901d9
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090113
+    const v13, 0x7f090114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1755,13 +1755,13 @@
     return v12
 
     :cond_4
-    const v12, 0x7f090117
+    const v12, 0x7f090118
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090113
+    const v13, 0x7f090114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1818,7 +1818,7 @@
 
     invoke-virtual {v12}, Lcom/android/launcher2/HomeView;->setWorkspaceLoading()V
 
-    const v12, 0x7f09011d
+    const v12, 0x7f09011e
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1828,7 +1828,7 @@
 
     iput v12, v0, Lcom/android/launcher2/Workspace;->mPageSpacingHint:I
 
-    const v12, 0x7f090115
+    const v12, 0x7f090116
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1912,7 +1912,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f09022f
+    const v12, 0x7f090231
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1920,7 +1920,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f09022e
+    const v12, 0x7f090230
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1928,7 +1928,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f0900e7
+    const v12, 0x7f0900e8
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1936,7 +1936,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900ea
+    const v12, 0x7f0900eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1945,7 +1945,7 @@
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapY:I
 
     :goto_2
-    const v12, 0x7f09011a
+    const v12, 0x7f09011b
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1953,7 +1953,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->leftPadding:I
 
-    const v12, 0x7f09011c
+    const v12, 0x7f09011d
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1961,7 +1961,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->topPadding:I
 
-    const v12, 0x7f09011b
+    const v12, 0x7f09011c
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1969,7 +1969,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->rightPadding:I
 
-    const v12, 0x7f090119
+    const v12, 0x7f09011a
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1977,7 +1977,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->bottomPadding:I
 
-    const v12, 0x7f090118
+    const v12, 0x7f090119
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2079,7 +2079,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f090233
+    const v12, 0x7f090235
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2087,7 +2087,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f090232
+    const v12, 0x7f090234
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2095,7 +2095,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f090231
+    const v12, 0x7f090233
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2103,7 +2103,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900ea
+    const v12, 0x7f0900eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2146,7 +2146,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0900f0
+    const v12, 0x7f0900f1
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2154,7 +2154,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f0900ed
+    const v12, 0x7f0900ee
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2162,7 +2162,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f0900e7
+    const v12, 0x7f0900e8
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2170,7 +2170,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900ea
+    const v12, 0x7f0900eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2238,7 +2238,7 @@
     :goto_5
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->handleScrollOnOrientationChange()V
 
-    const v12, 0x7f0900f3
+    const v12, 0x7f0900f4
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2270,13 +2270,13 @@
 
     if-eqz v12, :cond_13
 
-    const v12, 0x7f0901d7
+    const v12, 0x7f0901d9
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090113
+    const v13, 0x7f090114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2387,13 +2387,13 @@
     goto/16 :goto_5
 
     :cond_13
-    const v12, 0x7f090117
+    const v12, 0x7f090118
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090113
+    const v13, 0x7f090114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2410,7 +2410,7 @@
 
     iget v12, v0, Lcom/android/launcher2/Workspace;->mPageIndicatorTop:I
 
-    const v13, 0x7f090113
+    const v13, 0x7f090114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2462,7 +2462,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f09022f
+    const v10, 0x7f090231
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2472,7 +2472,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f09022e
+    const v10, 0x7f090230
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2483,7 +2483,7 @@
 
     move v1, v2
 
-    const v9, 0x7f090011
+    const v9, 0x7f090012
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2556,7 +2556,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090233
+    const v10, 0x7f090235
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2566,7 +2566,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090232
+    const v10, 0x7f090234
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2579,7 +2579,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900f0
+    const v10, 0x7f0900f1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2589,7 +2589,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900ed
+    const v10, 0x7f0900ee
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3121,7 +3121,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09031a
+    const v2, 0x7f0902e4
 
     const/4 v3, 0x1
 
@@ -7430,7 +7430,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mCellCountY:I
 
-    const v4, 0x7f0900f3
+    const v4, 0x7f0900f4
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7444,7 +7444,7 @@
 
     invoke-static {v4, v5}, Lcom/android/launcher2/LauncherModel;->updateWorkspaceLayoutCells(II)V
 
-    const v4, 0x7f090116
+    const v4, 0x7f090117
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7871,7 +7871,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f090319
+    const v5, 0x7f0902e5
 
     const/4 v6, 0x1
 
@@ -7916,7 +7916,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090116
+    const v6, 0x7f090117
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7995,7 +7995,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090113
+    const v6, 0x7f090114
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8295,7 +8295,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090115
+    const v6, 0x7f090116
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8667,7 +8667,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090115
+    const v6, 0x7f090116
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8700,7 +8700,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090113
+    const v6, 0x7f090114
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11257,7 +11257,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080036
+    const v6, 0x7f080039
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11281,7 +11281,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080037
+    const v6, 0x7f08003a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11349,7 +11349,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080068
+    const v6, 0x7f080070
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11797,7 +11797,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902c4
+    const v6, 0x7f0902c5
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -14103,7 +14103,7 @@
     :pswitch_2
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_4
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getChildCount()I
 
@@ -14113,7 +14113,7 @@
 
     move-result v6
 
-    if-le v4, v6, :cond_5
+    if-le v4, v6, :cond_4
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
@@ -14129,11 +14129,11 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_4
 
     invoke-direct {p0, p1}, Lcom/android/launcher2/Workspace;->onWallpaperTap(Landroid/view/MotionEvent;)V
 
-    :cond_5
+    :cond_4
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
     goto :goto_1
@@ -14147,7 +14147,7 @@
 
     cmpl-float v4, v4, v6
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_6
 
     iput-boolean v3, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
@@ -14160,22 +14160,22 @@
 
     iget v4, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->snapToDestination()V
 
-    :cond_6
+    :cond_5
     iput v5, p0, Lcom/android/launcher2/Workspace;->mTouchState:I
 
     iget-boolean v4, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_7
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v4
 
-    if-ne v4, v7, :cond_8
+    if-ne v4, v7, :cond_7
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
 
@@ -14187,7 +14187,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_7
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -14233,7 +14233,7 @@
 
     const/16 v4, 0x32
 
-    if-le v2, v4, :cond_8
+    if-le v2, v4, :cond_7
 
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->mMultiTouchUsed:Z
 
@@ -14249,12 +14249,12 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_6
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->leftMove:Z
 
     goto :goto_2
 
-    :cond_8
+    :cond_7
     iput-boolean v5, p0, Lcom/android/launcher2/Workspace;->isStartDragStarted:Z
 
     goto/16 :goto_1
@@ -14328,6 +14328,8 @@
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->cancelCurrentPageLongPress()V
 
     goto/16 :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -14876,7 +14878,7 @@
 
     new-instance v0, Lcom/android/launcher2/PanelBgDrawer;
 
-    const v3, 0x7f020087
+    const v3, 0x7f020088
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -14948,7 +14950,7 @@
 
     if-nez v3, :cond_3
 
-    const v3, 0x7f100111
+    const v3, 0x7f100115
 
     invoke-virtual {v1, v3}, Lcom/android/launcher2/CellLayout;->findViewById(I)Landroid/view/View;
 
@@ -16778,7 +16780,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {v1, v1, v0}, Lcom/android/launcher2/Launcher;->setOffset(IIZ)Z
+    invoke-static {v1, v1, v0}, Lcom/android/launcher2/Launcher;->setOffsetMsg(IIZ)V
 
     invoke-direct {p0}, Lcom/android/launcher2/Workspace;->resetTouchState()V
 
@@ -17625,7 +17627,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800fd
+    const v3, 0x7f080105
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17635,7 +17637,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800eb
+    const v3, 0x7f0800f3
 
     const/4 v4, 0x1
 
@@ -17653,7 +17655,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080087
+    const v3, 0x7f08008f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17669,7 +17671,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800ec
+    const v3, 0x7f0800f4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -18368,7 +18370,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f09022f
+    const v8, 0x7f090231
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18378,7 +18380,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09022e
+    const v9, 0x7f090230
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18399,7 +18401,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090233
+    const v8, 0x7f090235
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18409,7 +18411,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090232
+    const v9, 0x7f090234
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -19282,7 +19284,7 @@
 .method public updateWorkspaceMargin(Z)V
     .locals 5
 
-    const v4, 0x7f090127
+    const v4, 0x7f090128
 
     const/4 v3, 0x2
 

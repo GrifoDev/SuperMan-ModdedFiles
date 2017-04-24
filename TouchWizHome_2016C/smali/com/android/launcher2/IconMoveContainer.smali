@@ -2251,7 +2251,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f08007f
+    const v6, 0x7f080087
 
     const/4 v7, 0x0
 
@@ -3585,7 +3585,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090127
+    const v5, 0x7f090128
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5621,7 +5621,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080072
+    const v5, 0x7f08007a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5855,7 +5855,7 @@
 
     iget v1, p0, Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
 
-    const v3, 0x7f09025b
+    const v3, 0x7f09025d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5863,7 +5863,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mIconSize:I
 
-    const v3, 0x7f090290
+    const v3, 0x7f090293
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5871,7 +5871,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
 
-    const v3, 0x7f090257
+    const v3, 0x7f090259
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5879,7 +5879,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mCellWidth:I
 
-    const v3, 0x7f09028f
+    const v3, 0x7f090292
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5887,7 +5887,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mCellHeight:I
 
-    const v3, 0x7f0902b4
+    const v3, 0x7f0902b5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5895,7 +5895,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mCellGap:I
 
-    const v3, 0x7f09025f
+    const v3, 0x7f090261
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5903,7 +5903,7 @@
 
     iput v3, p0, Lcom/android/launcher2/IconMoveContainer;->mTopGap:I
 
-    const v3, 0x7f090258
+    const v3, 0x7f09025a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6028,7 +6028,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v3, 0x7f100081
+    const v3, 0x7f100085
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/IconMoveContainer;->findViewById(I)Landroid/view/View;
 
@@ -6038,7 +6038,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
 
-    const v3, 0x7f100082
+    const v3, 0x7f100086
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/IconMoveContainer;->findViewById(I)Landroid/view/View;
 
@@ -6048,7 +6048,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
 
-    const v3, 0x7f100080
+    const v3, 0x7f100084
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/IconMoveContainer;->findViewById(I)Landroid/view/View;
 
@@ -6076,7 +6076,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09025c
+    const v4, 0x7f09025e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6441,7 +6441,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09025b
+    const v1, 0x7f09025d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6449,7 +6449,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mIconSize:I
 
-    const v1, 0x7f090290
+    const v1, 0x7f090293
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6457,7 +6457,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
 
-    const v1, 0x7f090257
+    const v1, 0x7f090259
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6465,7 +6465,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mCellWidth:I
 
-    const v1, 0x7f09028f
+    const v1, 0x7f090292
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6473,7 +6473,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mCellHeight:I
 
-    const v1, 0x7f0902b4
+    const v1, 0x7f0902b5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6481,7 +6481,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mCellGap:I
 
-    const v1, 0x7f09025f
+    const v1, 0x7f090261
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6489,7 +6489,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mTopGap:I
 
-    const v1, 0x7f09025a
+    const v1, 0x7f09025c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6497,7 +6497,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mItemViewDrawablePadding:I
 
-    const v1, 0x7f090259
+    const v1, 0x7f09025b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6521,7 +6521,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mLabelColor:I
 
-    const v1, 0x7f090258
+    const v1, 0x7f09025a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6533,7 +6533,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09025e
+    const v2, 0x7f090260
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6541,7 +6541,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconMoveContainer;->mScrollMargin:I
 
-    const v1, 0x7f0902b5
+    const v1, 0x7f0902b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -50,11 +50,15 @@
 
     move-result-object v1
 
+    if-eqz v1, :cond_0
+
     invoke-virtual {v1}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/launcher2/CellLayoutHotseat;
+
+    if-eqz v0, :cond_0
 
     invoke-virtual {v1}, Lcom/android/launcher2/Hotseat;->setHotseatPadding()V
 
@@ -73,7 +77,7 @@
 
     const v4, 0x7f0e0008
 
-    const v3, 0x7f090130
+    const v3, 0x7f090131
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -147,7 +151,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0901df
+    const v1, 0x7f0901e1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

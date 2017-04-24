@@ -34,9 +34,12 @@
     <string name="all_apps_title">Apps</string>
     <string name="alphabetical_list_indicator_ampersand_indexes">&amp;ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ</string>
     <string name="alphabetical_list_indicator_indexes">\#ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="app_hidden_toast">%s skjult.</string>
+    <string name="app_locked_toast">%s låst.</string>
     <string name="app_search">Søg</string>
     <string name="app_search_no_apps">Du kan føje genveje til startskærmen fra søgeresultaterne.</string>
     <string name="app_search_no_results_found">Ingen resultater fundet</string>
+    <string name="app_unlocked_toast">%s låst op.</string>
     <string name="apply">Anvend</string>
     <string name="available_galaxyapps">Tilgængelig i Galaxy Apps</string>
     <string name="badge_manage_explain">Vælg, om du vil vise eller skjule badges for hver app.</string>
@@ -55,6 +58,7 @@
     <string name="direct_dial">Direkte opkald</string>
     <string name="direct_message">Direkte besked</string>
     <string name="disable_message">%1$s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere appen igen skal du gå til Indstillinger > Applikationer og derefter vælge %2$s.</string>
+    <string name="disable_message_att">%s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere det igen skal du gå til Indstillinger > Enhed > Applikationer > Applikationsmanager.</string>
     <string name="disable_message_vzw">%s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere det igen skal du gå til Indstillinger > Applikationer > Applikationsmanager.</string>
     <string name="disable_messange_knox">%s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere det igen skal du gå til KNOX-indstillinger > Applikationsmanager.</string>
     <string name="disable_title">Deaktiver app</string>
@@ -85,6 +89,10 @@ apps"</string>
     <string name="guide_resize_widget_step2">Træk kanten op og ned, ind og ud for at ændre widget-størrelsen.</string>
     <string name="guide_tap_here">Tryk på appikonet.</string>
     <string name="guide_widgets_tap_area">Tryk og hold på en widget, indtil den kan redigeres, slip den herefter.</string>
+    <string name="hide">Skjul</string>
+    <string name="hide_confirm_continue">Fortsæt</string>
+    <string name="hide_confirm_message">Appen %s er i øjeblikket låst. Hvis du skjuler denne app, vil den blive låst op.</string>
+    <string name="hide_confirm_title">Skjul app</string>
     <string name="home_edit_add_to_personal">Til. t. per.</string>
     <string name="home_edit_bar_delete_title">Fjern genvej</string>
     <string name="home_edit_bar_delete_title_vzw">Fjern genvej</string>
@@ -135,7 +143,7 @@ apps"</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Widget'en %s er allerede blevet føjet til startskærmen."</string>
     <string name="open_folder">Åbn mappe</string>
-    <string name="open_folder_VZW">View apps</string>
+    <string name="open_folder_VZW">Se apps</string>
     <string name="option_menu_contact_up">Kontakt os</string>
     <string name="option_tray_screengrid">Skærmgitter</string>
     <string name="options_home_set_theme">Temaer</string>
@@ -154,14 +162,14 @@ apps"</string>
     <string name="permlab_install_widget">Tilføj widgets</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Stryg en appgenvej nedad for at se dens hurtigindstillinger. Hurtigindstillinger gør det nemt for dig at administrere apps.</string>
+    <string name="quickoption_sleep">Søvn</string>
     <string name="quickoptions_add_apps">Tilføj apps</string>
     <string name="quickoptions_add_to_secure_folder">"Føj til
 Sikker mappe"</string>
     <string name="quickoptions_app_info">App-info</string>
     <string name="quickoptions_clear_badge">Ryd badge</string>
     <string name="quickoptions_disable">Deaktiver</string>
-    <string name="quickoptions_put_to_sleep">Sæt i søvntilstand</string>
-    <string name="quickoptions_put_to_sleep_alert">Hvis du sætter denne app i søvntilstand, vil det forhindre den i at bruge batteriet i baggrunden. Apps i søvntilstand vil ikke modtage opdateringer eller sende meddelelser til dig, men de vågner, når du åbner dem.</string>
+    <string name="quickoptions_sleep_alert">Hvis du sætter denne app i søvntilstand, vil det forhindre den i at bruge batteriet i baggrunden. Apps i søvntilstand vil ikke modtage opdateringer eller sende meddelelser til dig, men de vågner, når du åbner dem.</string>
     <string name="quickoptions_uninstall">Afinstaller</string>
     <string name="quickview_delete_toast_msg">Træk siden til Fjern for at fjerne den.</string>
     <string name="quickview_drag_bar_delete_title">Fjern</string>
@@ -173,9 +181,9 @@ Sikker mappe"</string>
     <string name="remove_app_folder_confirm">Slet</string>
     <string name="remove_app_folder_confirm_VZW">Fjern</string>
     <string name="remove_app_folder_message">Mappen %s vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på appskærmen.</string>
-    <string name="remove_app_folder_message_VZW">The %s folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_VZW">Mappen %s vil blive fjernet. Apps i denne mappe vil blive angivet i slutningen af appbakken.</string>
     <string name="remove_app_folder_message_no_title">Denne mappe vil blive fjernet. Applikationer i denne mappe vil ikke blive afinstalleret.</string>
-    <string name="remove_app_folder_message_no_title_VZW">This folder will be removed. Apps inside this folder will be listed at the end of App tray.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Denne mappe vil blive fjernet. Apps i denne mappe vil blive angivet i slutningen af appbakken.</string>
     <string name="remove_app_folder_title">Slet mappe</string>
     <string name="remove_app_folder_title_VZW">Slet mappe</string>
     <string name="remove_home_folder_message">Mappen %s vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på appskærmen.</string>
@@ -230,7 +238,7 @@ for at passe til startskærmens layout."</string>
     <string name="viewtype_custom_grid">Tilpasset rækkefølge</string>
     <string name="widget_duplicate">%s-widgetten er allerede på startskærmen.</string>
     <string name="work_folder_name">Arbejde</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
+    <string name="workspace_empty_message">Tryk og hold på skærmen for at tilføje elementer</string>
     <string name="zeropage_briefing_title">Briefing</string>
     <string name="zeropage_download">Download</string>
     <string name="zeropage_download_msg">For at bruge denne funktion skal du installere %1$s. Tryk på DOWNLOAD for at downloade og installere %2$s.</string>

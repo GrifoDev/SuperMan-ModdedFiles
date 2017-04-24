@@ -103,6 +103,8 @@
     <dimen name="home_4x5_cellHeight_port">78.0dip</dimen>
     <dimen name="home_5x5_cellGapY">4.0dip</dimen>
     <dimen name="home_5x5_cellHeight_port">78.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_height">270.0dip</dimen>
+    <dimen name="home_editmode_panel_zeropage_width">160.0dip</dimen>
     <dimen name="home_icon_textsize">12.0dip</dimen>
     <dimen name="home_icon_textsize_5">12.0dip</dimen>
     <dimen name="home_pageIndicatorTopScreenGrid">380.0dip</dimen>
@@ -189,6 +191,7 @@
     <dimen name="folder_multi_icon_layout_width">68.0dip</dimen>
     <dimen name="folder_multi_icon_margin_top">8.0dip</dimen>
     <dimen name="folder_multi_icon_size">48.0dip</dimen>
+    <dimen name="home_icon_text_theme_extra_padding">0.0dip</dimen>
     <dimen name="home_pageIndicatorwidth">17.0dip</dimen>
     <dimen name="home_screen_option_menu_drawable_size">37.0dip</dimen>
     <dimen name="iconAutoAlign_margin_top">24.0dip</dimen>

@@ -21,7 +21,7 @@
 
 .field public static final apps_searchtext_color:I = 0x7f0d0013
 
-.field public static final appsearch_app_name_highlight_color:I = 0x7f0d0006
+.field public static final appsearch_app_name_highlight_color:I = 0x7f0d0007
 
 .field public static final appwidget_error_color:I = 0x7f0d0014
 
@@ -69,19 +69,19 @@
 
 .field public static final folder_colorPicker_background_stroke:I = 0x7f0d0025
 
-.field public static final folder_colorPicker_color_blue:I = 0x7f0d000b
+.field public static final folder_colorPicker_color_blue:I = 0x7f0d000c
 
-.field public static final folder_colorPicker_color_gray:I = 0x7f0d000c
+.field public static final folder_colorPicker_color_gray:I = 0x7f0d000d
 
-.field public static final folder_colorPicker_color_green:I = 0x7f0d000d
+.field public static final folder_colorPicker_color_green:I = 0x7f0d000e
 
-.field public static final folder_colorPicker_color_red:I = 0x7f0d000e
+.field public static final folder_colorPicker_color_red:I = 0x7f0d000f
 
 .field public static final folder_colorPicker_color_stroke:I = 0x7f0d0026
 
 .field public static final folder_colorPicker_color_stroke_focused:I = 0x7f0d0027
 
-.field public static final folder_colorPicker_color_yellow:I = 0x7f0d000f
+.field public static final folder_colorPicker_color_yellow:I = 0x7f0d0010
 
 .field public static final folder_edit_text_cursor:I = 0x7f0d0028
 
@@ -113,7 +113,7 @@
 
 .field public static final index_sel_view_color:I = 0x7f0d0031
 
-.field public static final item_search_list:I = 0x7f0d0007
+.field public static final item_search_list:I = 0x7f0d0008
 
 .field public static final menu_edit_done_button_shadow_color:I = 0x7f0d0032
 
@@ -133,7 +133,7 @@
 
 .field public static final menu_title_done_text_color_phone:I = 0x7f0d004e
 
-.field public static final menu_title_selected_text:I = 0x7f0d0008
+.field public static final menu_title_selected_text:I = 0x7f0d0009
 
 .field public static final menu_title_storke_shadowColor:I = 0x7f0d0038
 
@@ -149,11 +149,11 @@
 
 .field public static final quick_options_popup_color_darken:I = 0x7f0d003d
 
-.field public static final quick_popup_action_text_color:I = 0x7f0d0010
+.field public static final quick_popup_action_text_color:I = 0x7f0d0006
 
 .field public static final screen_grid_save_button_text_color:I = 0x7f0d004f
 
-.field public static final screen_grid_save_text_color:I = 0x7f0d0009
+.field public static final screen_grid_save_text_color:I = 0x7f0d000a
 
 .field public static final screen_grid_save_unselected_text_color:I = 0x7f0d003e
 
@@ -173,7 +173,7 @@
 
 .field public static final selectcount_text_color:I = 0x7f0d0046
 
-.field public static final selectcount_text_shadow_color:I = 0x7f0d000a
+.field public static final selectcount_text_shadow_color:I = 0x7f0d000b
 
 .field public static final unchecked_bitmap_color_list:I = 0x7f0d0050
 
