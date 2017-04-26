@@ -6453,6 +6453,12 @@
     :cond_1c
     const-string/jumbo v29, "lift_to_wake"
 
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->removePreference(Ljava/lang/String;)V
+
     goto/16 :goto_6
 
     :cond_1d
@@ -6463,20 +6469,44 @@
     :cond_1e
     const-string/jumbo v29, "tap_to_wake"
 
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->removePreference(Ljava/lang/String;)V
+
     goto/16 :goto_8
 
     :cond_1f
     const-string/jumbo v29, "camera_gesture"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_9
 
     :cond_20
     const-string/jumbo v29, "camera_double_tap_power_gesture"
 
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->removePreference(Ljava/lang/String;)V
+
     goto/16 :goto_a
 
     :cond_21
     const-string/jumbo v29, "auto_rotate"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->removePreference(Ljava/lang/String;)V
 
     goto/16 :goto_b
 
