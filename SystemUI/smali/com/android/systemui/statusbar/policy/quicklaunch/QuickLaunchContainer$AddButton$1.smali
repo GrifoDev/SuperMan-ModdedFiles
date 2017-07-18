@@ -41,12 +41,10 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$AddButton$1;->this$1:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$AddButton;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$AddButton;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$AddButton;->access$0(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$AddButton;)Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
     move-result-object v0
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->showAppDialog(IZ)V
     invoke-static {v0, v1, v1}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$0(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;IZ)V
 
     return-void

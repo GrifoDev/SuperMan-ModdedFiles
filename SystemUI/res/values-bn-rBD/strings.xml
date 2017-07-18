@@ -1589,6 +1589,7 @@ If you turn mobile data back on, you may be charged for data usage by your carri
     <string name="uhq_mode_noti_text">আরো পরিষ্কারভাবে শোনার অভিজ্ঞতা লাভের জন্য সঙ্গীত ও ভিডিও’র শব্দের রেজোল্যুশন বাড়ান৷</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">কোনটিই নয়</string>
+    <string name="remote_input_toast_text_on_sview_cover">S View Cover বন্ধ থাকা অবস্থায় দ্রুত জবাব পাঠানোর ফাংশনগুলো ব্যবহার করতে অক্ষম৷</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

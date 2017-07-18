@@ -1590,6 +1590,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Повышение качества звука музыки и видео для лучших впечатлений от прослушивания.</string>
     <string name="assistance_app_setting_alert_dialog_title">Выберите приложение, которое будет открываться при нажатии и удержании клавиши “Домой”. Чтобы впоследствии изменить выбор, откройте в настройках приложение “Помощь в работе с устройством”.</string>
     <string name="assistance_app_setting_item_none">Нет</string>
+    <string name="remote_input_toast_text_on_sview_cover">Невозможно использовать функцию быстрого ответа, если крышка S view закрыта.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

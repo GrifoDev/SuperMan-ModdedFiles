@@ -46,7 +46,6 @@
 
     iget-object v1, p0, Lmickles/app/mAccuWeatherS7/mWeatherSystemUI$BroadCastReceiver;->this$0:Lmickles/app/mAccuWeatherS7/mWeatherSystemUI;
 
-    # getter for: Lmickles/app/mAccuWeatherS7/mWeatherSystemUI;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mAccuWeatherS7/mWeatherSystemUI;->access$100(Lmickles/app/mAccuWeatherS7/mWeatherSystemUI;)Landroid/content/Context;
 
     move-result-object v1

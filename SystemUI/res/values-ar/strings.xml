@@ -1587,6 +1587,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">قم بتحسين دقة صوت الموسيقى ومقاطع الفيديو للحصول على تجربة استماع أوضح.</string>
     <string name="assistance_app_setting_alert_dialog_title">حدد تطبيقاً لفتحه عند الضغط مع الاستمرار على مفتاح الشاشة الرئيسية. لتغيير التطبيق المحدد لاحقاً، انتقل إلى تطبيق مساعدة الجهاز في الضبط.</string>
     <string name="assistance_app_setting_item_none">لاشيء</string>
+    <string name="remote_input_toast_text_on_sview_cover">يتعذر استخدام وظيفة الرد السريع عندما يكون غلاف S الشفاف مغلقاً.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

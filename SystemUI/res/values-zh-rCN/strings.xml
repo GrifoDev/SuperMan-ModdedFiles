@@ -1584,6 +1584,7 @@ upscaler"</string>
     <string name="assistance_app_setting_item_none">无</string>
     <string name="no_sim_notification_title_cct">未检测到 SIM 卡</string>
     <string name="no_sim_notification_text_cct">请插入 XFINITY Mobile SIM 卡。若要了解更多信息，请访问 xfinitymobile.com/activate 或致电 888-936-4968。</string>
+    <string name="remote_input_toast_text_on_sview_cover">智能保护皮套盖上时无法使用快速回复功能。</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0"><cst>Wi-Fi</cst>" Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

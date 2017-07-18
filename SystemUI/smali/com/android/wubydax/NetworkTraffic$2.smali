@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/wubydax/NetworkTraffic$2;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mTrafficHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/wubydax/NetworkTraffic;->access$1400(Lcom/android/wubydax/NetworkTraffic;)Landroid/os/Handler;
 
     move-result-object v0

@@ -36,11 +36,11 @@
 
 .field public static final ic_lockscreen_cmas:I = 0x7f020190
 
-.field public static final indicator_code_lock_point_area_default_holo:I = 0x7f020754
+.field public static final indicator_code_lock_point_area_default_holo:I = 0x7f02075b
 
-.field public static final indicator_code_lock_point_area_green_holo:I = 0x7f020755
+.field public static final indicator_code_lock_point_area_green_holo:I = 0x7f02075c
 
-.field public static final indicator_code_lock_point_area_red_holo:I = 0x7f020756
+.field public static final indicator_code_lock_point_area_red_holo:I = 0x7f02075d
 
 .field public static final keyguard_default_wallpaper:I = 0x7f02024d
 
@@ -84,7 +84,7 @@
 
 .field public static final ripple_effect_transparent_button_drawable:I = 0x7f020545
 
-.field public static final theme_textclock_bg_image:I = 0x7f0206ff
+.field public static final theme_textclock_bg_image:I = 0x7f020706
 
 
 # direct methods

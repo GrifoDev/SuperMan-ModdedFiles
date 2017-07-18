@@ -46,7 +46,6 @@
 
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->KB:I
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$700(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v2
@@ -61,7 +60,6 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->decimalFormat:Ljava/text/DecimalFormat;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$1500()Ljava/text/DecimalFormat;
 
     move-result-object v3
@@ -88,7 +86,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->MB:I
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$1600(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v2
@@ -103,7 +100,6 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->decimalFormat:Ljava/text/DecimalFormat;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$1500()Ljava/text/DecimalFormat;
 
     move-result-object v3
@@ -112,7 +108,6 @@
 
     iget-object v5, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->KB:I
     invoke-static {v5}, Lcom/android/wubydax/NetworkTraffic;->access$700(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v5
@@ -150,7 +145,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->GB:I
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$1700(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v2
@@ -165,7 +159,6 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->decimalFormat:Ljava/text/DecimalFormat;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$1500()Ljava/text/DecimalFormat;
 
     move-result-object v3
@@ -174,7 +167,6 @@
 
     iget-object v5, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->MB:I
     invoke-static {v5}, Lcom/android/wubydax/NetworkTraffic;->access$1600(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v5
@@ -214,7 +206,6 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->decimalFormat:Ljava/text/DecimalFormat;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$1500()Ljava/text/DecimalFormat;
 
     move-result-object v3
@@ -223,7 +214,6 @@
 
     iget-object v5, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->GB:I
     invoke-static {v5}, Lcom/android/wubydax/NetworkTraffic;->access$1700(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v5
@@ -280,7 +270,6 @@
 
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mAutoHide:Z
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$1800(Lcom/android/wubydax/NetworkTraffic;)Z
 
     move-result v2
@@ -289,7 +278,6 @@
 
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mAutoHideThreshold:I
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$1900(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v2
@@ -324,7 +312,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->lastUpdateTime:J
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$000(Lcom/android/wubydax/NetworkTraffic;)J
 
     move-result-wide v24
@@ -337,12 +324,10 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mState:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v3
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->getInterval(I)I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$200(I)I
 
     move-result v3
@@ -388,7 +373,6 @@
 
     move-result-wide v10
 
-    # setter for: Lcom/android/wubydax/NetworkTraffic;->lastUpdateTime:J
     invoke-static {v3, v10, v11}, Lcom/android/wubydax/NetworkTraffic;->access$002(Lcom/android/wubydax/NetworkTraffic;J)J
 
     invoke-static {}, Landroid/net/TrafficStats;->getTotalRxBytes()J
@@ -403,7 +387,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->totalRxBytes:J
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$300(Lcom/android/wubydax/NetworkTraffic;)J
 
     move-result-wide v10
@@ -414,7 +397,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->totalTxBytes:J
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$400(Lcom/android/wubydax/NetworkTraffic;)J
 
     move-result-wide v10
@@ -452,7 +434,6 @@
 
     move-wide/from16 v0, v16
 
-    # setter for: Lcom/android/wubydax/NetworkTraffic;->totalRxBytes:J
     invoke-static {v3, v0, v1}, Lcom/android/wubydax/NetworkTraffic;->access$302(Lcom/android/wubydax/NetworkTraffic;J)J
 
     move-object/from16 v0, p0
@@ -461,21 +442,18 @@
 
     move-wide/from16 v0, v18
 
-    # setter for: Lcom/android/wubydax/NetworkTraffic;->totalTxBytes:J
     invoke-static {v3, v0, v1}, Lcom/android/wubydax/NetworkTraffic;->access$402(Lcom/android/wubydax/NetworkTraffic;J)J
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->clearHandlerCallbacks()V
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$600(Lcom/android/wubydax/NetworkTraffic;)V
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mTrafficHandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$1400(Lcom/android/wubydax/NetworkTraffic;)Landroid/os/Handler;
 
     move-result-object v3
@@ -484,7 +462,6 @@
 
     iget-object v9, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v9}, Lcom/android/wubydax/NetworkTraffic;->access$1300(Lcom/android/wubydax/NetworkTraffic;)Ljava/lang/Runnable;
 
     move-result-object v9
@@ -493,12 +470,10 @@
 
     iget-object v10, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mState:I
     invoke-static {v10}, Lcom/android/wubydax/NetworkTraffic;->access$100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v10
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->getInterval(I)I
     invoke-static {v10}, Lcom/android/wubydax/NetworkTraffic;->access$200(I)I
 
     move-result v10
@@ -514,7 +489,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->getConnectAvailable()Z
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$500(Lcom/android/wubydax/NetworkTraffic;)Z
 
     move-result v3
@@ -525,7 +499,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->clearHandlerCallbacks()V
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$600(Lcom/android/wubydax/NetworkTraffic;)V
 
     move-object/from16 v0, p0
@@ -543,7 +516,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->KB:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$700(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v3
@@ -563,14 +535,12 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mState:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v3
 
     const/4 v9, 0x1
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->isSet(II)Z
     invoke-static {v3, v9}, Lcom/android/wubydax/NetworkTraffic;->access$800(II)Z
 
     move-result v3
@@ -595,7 +565,6 @@
 
     iget-object v9, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mUploadTint:I
     invoke-static {v9}, Lcom/android/wubydax/NetworkTraffic;->access$900(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v9
@@ -625,14 +594,12 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mState:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v3
 
     const/4 v9, 0x3
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->isSet(II)Z
     invoke-static {v3, v9}, Lcom/android/wubydax/NetworkTraffic;->access$800(II)Z
 
     move-result v3
@@ -649,7 +616,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->txtSizeMulti:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$1000(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v23
@@ -659,14 +625,12 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mState:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v3
 
     const/4 v9, 0x2
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->isSet(II)Z
     invoke-static {v3, v9}, Lcom/android/wubydax/NetworkTraffic;->access$800(II)Z
 
     move-result v3
@@ -695,7 +659,6 @@
 
     iget-object v9, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mDownloadTint:I
     invoke-static {v9}, Lcom/android/wubydax/NetworkTraffic;->access$1200(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v9
@@ -784,7 +747,6 @@
 
     iget-object v3, v0, Lcom/android/wubydax/NetworkTraffic$1;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->txtSizeSingle:I
     invoke-static {v3}, Lcom/android/wubydax/NetworkTraffic;->access$1100(Lcom/android/wubydax/NetworkTraffic;)I
 
     move-result v23

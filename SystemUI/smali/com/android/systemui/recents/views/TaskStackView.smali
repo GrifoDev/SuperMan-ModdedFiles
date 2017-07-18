@@ -6418,7 +6418,7 @@
 
     if-eqz p5, :cond_7
 
-    const v4, 0x7f0f0453
+    const v4, 0x7f0f0455
 
     :goto_0
     if-eqz p6, :cond_5
@@ -6435,7 +6435,7 @@
     return-void
 
     :cond_7
-    const v4, 0x7f0f0454
+    const v4, 0x7f0f0456
 
     goto :goto_0
 
@@ -6502,7 +6502,7 @@
 
     new-instance v3, Lcom/android/systemui/recents/events/ui/AllTaskViewsDismissedEvent;
 
-    const v4, 0x7f0f0454
+    const v4, 0x7f0f0456
 
     const/4 v5, 0x1
 

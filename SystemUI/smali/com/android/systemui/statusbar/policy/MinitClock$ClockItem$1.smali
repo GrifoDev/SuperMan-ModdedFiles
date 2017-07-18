@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem$1;->this$1:Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->mCalendar:Ljava/util/Calendar;
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->access$300(Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;)Ljava/util/Calendar;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem$1;->this$1:Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->id:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->access$400(Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;)Ljava/lang/String;
 
     move-result-object v2
@@ -69,7 +67,6 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem$1;->this$1:Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->mCalendar:Ljava/util/Calendar;
     invoke-static {v2}, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->access$300(Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;)Ljava/util/Calendar;
 
     move-result-object v2
@@ -86,14 +83,12 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem$1;->this$1:Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->access$600(Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem$1;->this$1:Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->secondsUpdater:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;->access$500(Lcom/android/systemui/statusbar/policy/MinitClock$ClockItem;)Ljava/lang/Runnable;
 
     move-result-object v1

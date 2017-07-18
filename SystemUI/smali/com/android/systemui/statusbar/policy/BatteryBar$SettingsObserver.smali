@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$000(Lcom/android/systemui/statusbar/policy/BatteryBar;)Landroid/content/Context;
 
     move-result-object v1
@@ -71,7 +70,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/BatteryBar;->updateSettings()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$100(Lcom/android/systemui/statusbar/policy/BatteryBar;)V
 
     return-void

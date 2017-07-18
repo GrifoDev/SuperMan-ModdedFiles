@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSScreenGridDialog;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0f059b
+    const v4, 0x7f0f059d
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSScreenGridDialog$2;-><init>(Lcom/android/systemui/qs/QSScreenGridDialog;)V
 
-    const v2, 0x7f0f059d
+    const v2, 0x7f0f059f
 
     invoke-virtual {p0, v2, v0}, Lcom/android/systemui/qs/QSScreenGridDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 

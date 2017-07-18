@@ -45,7 +45,7 @@
 .method private getSummary(Z)Ljava/lang/String;
     .locals 2
 
-    const v0, 0x7f0f0434
+    const v0, 0x7f0f0435
 
     sget-boolean v1, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_MOBILE_DATA_OFF_POPUP:Z
 
@@ -69,7 +69,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f0f03ff
+    const v0, 0x7f0f0400
 
     :cond_0
     :goto_0
@@ -86,7 +86,7 @@
     return-object v1
 
     :cond_1
-    const v0, 0x7f0f03fe
+    const v0, 0x7f0f03ff
 
     goto :goto_0
 
@@ -95,12 +95,12 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0f040b
+    const v0, 0x7f0f040c
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f0f03fd
+    const v0, 0x7f0f03fe
 
     goto :goto_0
 
@@ -115,12 +115,12 @@
 
     if-eqz v1, :cond_5
 
-    const v0, 0x7f0f0401
+    const v0, 0x7f0f0402
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f0f0400
+    const v0, 0x7f0f0401
 
     goto :goto_0
 
@@ -129,12 +129,12 @@
 
     if-eqz v1, :cond_7
 
-    const v0, 0x7f0f0403
+    const v0, 0x7f0f0404
 
     goto :goto_0
 
     :cond_7
-    const v0, 0x7f0f0402
+    const v0, 0x7f0f0403
 
     goto :goto_0
 .end method
@@ -230,7 +230,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0433
+    const v1, 0x7f0f0434
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0f0432
+    const v1, 0x7f0f0433
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0f0406
+    const v3, 0x7f0f0407
 
     invoke-static {v1, v3, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

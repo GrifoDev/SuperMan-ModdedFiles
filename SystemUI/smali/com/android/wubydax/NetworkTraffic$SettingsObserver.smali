@@ -38,7 +38,6 @@
 
     iget-object v2, p0, Lcom/android/wubydax/NetworkTraffic$SettingsObserver;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/wubydax/NetworkTraffic;->access$2100(Lcom/android/wubydax/NetworkTraffic;)Landroid/content/Context;
 
     move-result-object v2
@@ -47,7 +46,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_STATE:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2200()Ljava/lang/String;
 
     move-result-object v2
@@ -58,7 +56,6 @@
 
     invoke-virtual {v0, v1, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_AUTOHIDE:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2300()Ljava/lang/String;
 
     move-result-object v2
@@ -69,7 +66,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_SHOW_ARROWS:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2400()Ljava/lang/String;
 
     move-result-object v2
@@ -80,7 +76,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2500()Ljava/lang/String;
 
     move-result-object v2
@@ -91,7 +86,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_COLOR:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2600()Ljava/lang/String;
 
     move-result-object v2
@@ -102,7 +96,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_UNIT:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2700()Ljava/lang/String;
 
     move-result-object v2
@@ -113,7 +106,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_ARROW_COLOR:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2800()Ljava/lang/String;
 
     move-result-object v2
@@ -124,7 +116,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_GLOBAL_COLOR:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$2900()Ljava/lang/String;
 
     move-result-object v2
@@ -135,7 +126,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_ARROWS_POSITION:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$3000()Ljava/lang/String;
 
     move-result-object v2
@@ -146,7 +136,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_TEXT_STYLE:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$3100()Ljava/lang/String;
 
     move-result-object v2
@@ -157,7 +146,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_SCALE:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$3200()Ljava/lang/String;
 
     move-result-object v2
@@ -168,7 +156,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_UPLOAD_COLOR:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$3300()Ljava/lang/String;
 
     move-result-object v2
@@ -179,7 +166,6 @@
 
     invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->NETWORK_TRAFFIC_DOWNLOAD_COLOR:Ljava/lang/String;
     invoke-static {}, Lcom/android/wubydax/NetworkTraffic;->access$3400()Ljava/lang/String;
 
     move-result-object v2
@@ -198,7 +184,6 @@
 
     iget-object v0, p0, Lcom/android/wubydax/NetworkTraffic$SettingsObserver;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->updateSettings()V
     invoke-static {v0}, Lcom/android/wubydax/NetworkTraffic;->access$2000(Lcom/android/wubydax/NetworkTraffic;)V
 
     return-void
@@ -209,7 +194,6 @@
 
     iget-object v0, p0, Lcom/android/wubydax/NetworkTraffic$SettingsObserver;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # getter for: Lcom/android/wubydax/NetworkTraffic;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/wubydax/NetworkTraffic;->access$2100(Lcom/android/wubydax/NetworkTraffic;)Landroid/content/Context;
 
     move-result-object v0

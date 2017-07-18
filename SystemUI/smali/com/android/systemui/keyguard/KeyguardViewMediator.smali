@@ -1196,437 +1196,472 @@
 .end method
 
 .method private doKeyguardLocked(Landroid/os/Bundle;Z)Z
-    .locals 8
+    .locals 10
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    iget-boolean v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mExternallyEnabled:Z
+    iget-boolean v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mExternallyEnabled:Z
 
-    if-nez v6, :cond_0
+    if-nez v8, :cond_0
 
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isForcedLock()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isForcedLock()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_1
+    if-eqz v8, :cond_1
 
     :cond_0
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isShowing()Z
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isShowing()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_5
+    if-eqz v8, :cond_5
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because it is already showing"
+    const-string/jumbo v8, "doKeyguard: not showing because it is already showing"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_4
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_1
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because externally disabled"
+    const-string/jumbo v8, "doKeyguard: not showing because externally disabled"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_2
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_2
-    sget-boolean v4, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
+    sget-boolean v6, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v6, :cond_3
 
-    invoke-direct {p0, v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setSwipeLockBeforeTimeout(Z)V
+    invoke-direct {p0, v7}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setSwipeLockBeforeTimeout(Z)V
 
     :cond_3
-    return v5
+    return v7
 
     :cond_4
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->resetStateLocked()V
 
-    return v5
+    return v7
 
     :cond_5
     invoke-static {}, Landroid/os/UserManager;->isSplitSystemUser()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_6
+    if-eqz v8, :cond_6
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_8
+    if-eqz v8, :cond_8
 
     :cond_6
-    const-string/jumbo v6, "keyguard.no_require_sim"
+    const-string/jumbo v8, "keyguard.no_require_sim"
 
-    invoke-static {v6, v5}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v8, v7}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_a
+    if-eqz v8, :cond_a
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :goto_0
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    sget-object v7, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v9, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v6, v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getNextSubIdForState(Lcom/android/internal/telephony/IccCardConstants$State;)I
+    invoke-virtual {v8, v9}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getNextSubIdForState(Lcom/android/internal/telephony/IccCardConstants$State;)I
 
-    move-result v6
+    move-result v8
 
-    invoke-static {v6}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
+    invoke-static {v8}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
     move-result v0
 
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    sget-object v7, Lcom/android/internal/telephony/IccCardConstants$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v9, Lcom/android/internal/telephony/IccCardConstants$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    invoke-virtual {v6, v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getNextSubIdForState(Lcom/android/internal/telephony/IccCardConstants$State;)I
+    invoke-virtual {v8, v9}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getNextSubIdForState(Lcom/android/internal/telephony/IccCardConstants$State;)I
 
-    move-result v6
+    move-result v8
 
-    invoke-static {v6}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
+    invoke-static {v8}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
     move-result v1
 
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isSimPinSecure()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isSimPinSecure()Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_b
+    if-nez v8, :cond_b
 
     if-nez v0, :cond_7
 
     if-eqz v1, :cond_c
 
     :cond_7
-    move v2, v3
+    move v3, v4
 
     :goto_1
-    if-nez v2, :cond_e
+    if-nez v3, :cond_e
 
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->shouldWaitForProvisioning()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_e
+    if-eqz v8, :cond_e
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because device isn\'t provisioned and the sim is not locked or missing"
+    const-string/jumbo v8, "doKeyguard: not showing because device isn\'t provisioned and the sim is not locked or missing"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_d
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_8
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDeviceProvisioned()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDeviceProvisioned()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_6
+    if-eqz v8, :cond_6
 
     :cond_9
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->isFactoryModeEnabled()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_14
+    if-eqz v8, :cond_14
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because factory mode"
+    const-string/jumbo v8, "doKeyguard: not showing because factory mode"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_13
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_a
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     goto :goto_0
 
     :cond_b
-    move v2, v4
+    move v3, v6
 
     goto :goto_1
 
     :cond_c
-    move v2, v5
+    move v3, v7
 
     goto :goto_1
 
     :cond_d
-    return v5
+    return v7
 
     :cond_e
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v7
+    move-result v9
 
-    invoke-virtual {v6, v7}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_f
+    if-eqz v8, :cond_f
 
-    if-eqz v2, :cond_10
+    if-eqz v3, :cond_10
 
     :cond_f
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v7
+    move-result v9
 
-    invoke-virtual {v6, v7}, Lcom/android/internal/widget/LockPatternUtils;->checkVoldPassword(I)Z
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/LockPatternUtils;->checkVoldPassword(I)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_9
+    if-eqz v8, :cond_9
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    const-string/jumbo v6, "Not showing lock screen since just decrypted"
+    invoke-virtual {v8}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isForcedLock()Z
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v8
+
+    if-nez v8, :cond_9
+
+    const-string/jumbo v6, "KeyguardViewMediator"
+
+    const-string/jumbo v8, "Not showing lock screen since just decrypted"
+
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_12
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_10
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because lockscreen is off"
+    const-string/jumbo v8, "doKeyguard: not showing because lockscreen is off"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_11
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_11
-    return v5
+    return v7
 
     :cond_12
-    invoke-direct {p0, v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setShowingLocked(Z)V
+    invoke-direct {p0, v7}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setShowingLocked(Z)V
 
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->hideLocked()V
 
-    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->reportSuccessfulStrongAuthUnlockAttempt()V
+    invoke-virtual {v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->reportSuccessfulStrongAuthUnlockAttempt()V
 
-    return v5
+    return v7
 
     :cond_13
-    return v5
+    return v7
 
     :cond_14
     invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->isAutomaticUnlockEnabled()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_16
+    if-eqz v8, :cond_16
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because cover is showing"
+    const-string/jumbo v8, "doKeyguard: not showing because cover is showing"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_15
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_15
-    invoke-direct {p0, v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setShowingLocked(Z)V
+    invoke-direct {p0, v7}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->setShowingLocked(Z)V
 
-    return v5
+    return v7
 
     :cond_16
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    invoke-static {v6}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+    invoke-static {v8}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Lcom/android/keyguard/util/SettingsHelper;->isAccessControlEnabled()Z
+    invoke-virtual {v8}, Lcom/android/keyguard/util/SettingsHelper;->isAccessControlEnabled()Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_18
+    if-eqz v8, :cond_18
 
-    iget v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDelayedShowingSequence:I
+    iget v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDelayedShowingSequence:I
 
-    if-lez v6, :cond_18
+    if-lez v8, :cond_18
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: not showing because access control is enabled"
+    const-string/jumbo v8, "doKeyguard: not showing because access control is enabled"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_17
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    const-string/jumbo v8, "doKeyguard: checked false"
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v7
 
     :cond_17
-    return v5
+    return v7
 
     :cond_18
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    invoke-static {v6}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+    const-string/jumbo v9, "vr"
 
-    move-result-object v6
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v6}, Lcom/android/keyguard/KnoxStateMonitor;->isLockScreenDisabledbyKNOX()Z
+    move-result-object v5
 
-    move-result v6
+    check-cast v5, Lcom/samsung/android/vr/GearVrManager;
 
-    if-eqz v6, :cond_1a
+    if-eqz v5, :cond_19
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    invoke-virtual {v5}, Lcom/samsung/android/vr/GearVrManager;->isDock()Z
 
-    const-string/jumbo v6, "doKeyguard: not showing because it is disabled by Knox"
+    move-result v2
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v2, :cond_19
 
-    if-eqz p2, :cond_19
+    const-string/jumbo v6, "KeyguardViewMediator"
 
-    const-string/jumbo v4, "KeyguardViewMediator"
+    const-string/jumbo v8, "doKeyguard: not showing because VR is enabled"
 
-    const-string/jumbo v6, "doKeyguard: checked false"
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
+    return v7
 
     :cond_19
-    return v5
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
+
+    invoke-static {v8}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/keyguard/KnoxStateMonitor;->isLockScreenDisabledbyKNOX()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1b
+
+    const-string/jumbo v6, "KeyguardViewMediator"
+
+    const-string/jumbo v8, "doKeyguard: not showing because it is disabled by Knox"
+
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz p2, :cond_1a
+
+    const-string/jumbo v6, "KeyguardViewMediator"
+
+    const-string/jumbo v8, "doKeyguard: checked false"
+
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v7
 
     :cond_1a
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_DYN_RESOLUTION_CONTROL:Z
-
-    if-nez v6, :cond_1b
-
-    sget-boolean v6, Lcom/android/systemui/SystemUIRune;->SUPPORT_DYNAMIC_DENSITY:Z
-
-    if-eqz v6, :cond_1c
+    return v7
 
     :cond_1b
-    iget-object v6, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    sget-boolean v8, Lcom/android/systemui/SystemUIRune;->SUPPORT_DYN_RESOLUTION_CONTROL:Z
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->getDynamicResolutionChanged()Z
+    if-nez v8, :cond_1c
 
-    move-result v6
+    sget-boolean v8, Lcom/android/systemui/SystemUIRune;->SUPPORT_DYNAMIC_DENSITY:Z
 
-    if-eqz v6, :cond_1c
-
-    const-string/jumbo v4, "KeyguardViewMediator"
-
-    const-string/jumbo v6, "doKeyguard: not showing because the device resolution is changed."
-
-    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v5
+    if-eqz v8, :cond_1d
 
     :cond_1c
-    if-eqz p2, :cond_1d
+    iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    return v4
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->getDynamicResolutionChanged()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1d
+
+    const-string/jumbo v6, "KeyguardViewMediator"
+
+    const-string/jumbo v8, "doKeyguard: not showing because the device resolution is changed."
+
+    invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v7
 
     :cond_1d
-    iput-boolean v5, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mSuppressNextUnlockSound:Z
+    if-eqz p2, :cond_1e
 
-    const-string/jumbo v5, "KeyguardViewMediator"
+    return v6
 
-    const-string/jumbo v6, "doKeyguard: showing the lock screen"
+    :cond_1e
+    iput-boolean v7, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mSuppressNextUnlockSound:Z
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v7, "KeyguardViewMediator"
+
+    const-string/jumbo v8, "doKeyguard: showing the lock screen"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0, p1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->showLocked(Landroid/os/Bundle;)V
 
-    return v4
+    return v6
 .end method
 
 .method private getLockTimeout(I)J

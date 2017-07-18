@@ -42,7 +42,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -79,7 +78,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/app/executor/ExecutorService$1;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mCallbackToEm:Lcom/samsung/android/app/executor/IExecutorServiceCallback;
     invoke-static {v1}, Lcom/samsung/android/app/executor/ExecutorService;->access$100(Lcom/samsung/android/app/executor/ExecutorService;)Lcom/samsung/android/app/executor/IExecutorServiceCallback;
 
     move-result-object v1
@@ -89,14 +87,12 @@
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/app/executor/ExecutorService$1;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # invokes: Lcom/samsung/android/app/executor/ExecutorService;->handleResponseCommand(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1, p1, p2}, Lcom/samsung/android/app/executor/ExecutorService;->access$200(Lcom/samsung/android/app/executor/ExecutorService;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -123,7 +119,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/app/executor/ExecutorService$1;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mCallbackToEm:Lcom/samsung/android/app/executor/IExecutorServiceCallback;
     invoke-static {v1}, Lcom/samsung/android/app/executor/ExecutorService;->access$100(Lcom/samsung/android/app/executor/ExecutorService;)Lcom/samsung/android/app/executor/IExecutorServiceCallback;
 
     move-result-object v1

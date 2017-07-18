@@ -2352,65 +2352,86 @@
 .end method
 
 .method public getAppearanceDrawable(I)I
-    .locals 2
+    .locals 3
 
     sparse-switch p1, :sswitch_data_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 
     :sswitch_0
     invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getName()Ljava/lang/String;
 
+    move-result-object v1
+
+    const-string/jumbo v2, "GALAXY Gear ("
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_wearable:I
+
+    return v1
+
+    :cond_0
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_mobile:I
+
+    return v1
+
+    :sswitch_1
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_laptop:I
+
+    return v1
+
+    :sswitch_2
+    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDeviceName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
     move-result-object v0
 
-    const-string/jumbo v1, "GALAXY Gear ("
+    const-string/jumbo v1, "GEAR FIT"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
 
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_wearable:I
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_band:I
 
-    return v0
+    return v1
 
-    :cond_0
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_mobile:I
+    :cond_1
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_wearable:I
 
-    return v0
-
-    :sswitch_1
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_laptop:I
-
-    return v0
-
-    :sswitch_2
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_wearable:I
-
-    return v0
+    return v1
 
     :sswitch_3
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_keyboard:I
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_keyboard:I
 
-    return v0
+    return v1
 
     :sswitch_4
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_mouse:I
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_mouse:I
 
-    return v0
+    return v1
 
     :sswitch_5
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_game_device:I
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_game_device:I
 
-    return v0
+    return v1
 
     :sswitch_6
-    sget v0, Lcom/android/settingslib/R$drawable;->list_ic_dongle:I
+    sget v1, Lcom/android/settingslib/R$drawable;->list_ic_dongle:I
 
-    return v0
+    return v1
 
     :sswitch_data_0
     .sparse-switch
@@ -2513,7 +2534,7 @@
     :cond_0
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_d
 
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
 
@@ -2530,7 +2551,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     return v5
 
@@ -2581,6 +2602,19 @@
 
     if-ne v7, v8, :cond_1
 
+    const-string/jumbo v7, "GEAR FIT"
+
+    invoke-virtual {v1, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    sget v7, Lcom/android/settingslib/R$drawable;->list_ic_band:I
+
+    return v7
+
+    :cond_4
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_wearable:I
 
     return v7
@@ -2603,7 +2637,7 @@
 
     const/16 v8, 0x680
 
-    if-eq v7, v8, :cond_4
+    if-eq v7, v8, :cond_5
 
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
 
@@ -2613,52 +2647,37 @@
 
     const/16 v8, 0x640
 
-    if-ne v7, v8, :cond_5
+    if-ne v7, v8, :cond_6
 
-    :cond_4
+    :cond_5
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_printer:I
 
     return v7
 
-    :cond_5
+    :cond_6
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_camera:I
 
     return v7
 
     :sswitch_5
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     invoke-direct {p0, v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getHeadsetDrawableByDeviceName(Ljava/lang/String;)I
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     return v5
 
-    :cond_6
+    :cond_7
     invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isGearCircle()Z
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_8
 
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_gear_circle:I
-
-    return v7
-
-    :cond_7
-    iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
-
-    invoke-virtual {v7}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
-
-    move-result v7
-
-    const/16 v8, 0x43c
-
-    if-ne v7, v8, :cond_8
-
-    sget v7, Lcom/android/settingslib/R$drawable;->list_ic_tv:I
 
     return v7
 
@@ -2669,15 +2688,30 @@
 
     move-result v7
 
-    const/16 v8, 0x434
+    const/16 v8, 0x43c
 
     if-ne v7, v8, :cond_9
+
+    sget v7, Lcom/android/settingslib/R$drawable;->list_ic_tv:I
+
+    return v7
+
+    :cond_9
+    iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
+
+    invoke-virtual {v7}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
+
+    move-result v7
+
+    const/16 v8, 0x434
+
+    if-ne v7, v8, :cond_a
 
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_camcoder:I
 
     return v7
 
-    :cond_9
+    :cond_a
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     if-eqz v7, :cond_1
@@ -2705,21 +2739,6 @@
     move-result v7
 
     if-eqz v7, :cond_1
-
-    sget v7, Lcom/android/settingslib/R$drawable;->list_ic_sound_accessory_default:I
-
-    return v7
-
-    :cond_a
-    iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
-
-    const/4 v8, 0x1
-
-    invoke-virtual {v7, v8}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_b
 
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_sound_accessory_default:I
 
@@ -2728,20 +2747,35 @@
     :cond_b
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
 
+    const/4 v8, 0x1
+
+    invoke-virtual {v7, v8}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_c
+
+    sget v7, Lcom/android/settingslib/R$drawable;->list_ic_sound_accessory_default:I
+
+    return v7
+
+    :cond_c
+    iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
+
     invoke-virtual {v7, v10}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_f
 
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_mono_headset:I
 
     return v7
 
-    :cond_c
+    :cond_d
     iget-short v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mAppearance:S
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_e
 
     iget-short v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mAppearance:S
 
@@ -2749,21 +2783,21 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     return v5
 
-    :cond_d
+    :cond_e
     const-string/jumbo v7, "CachedBluetoothDevice"
 
     const-string/jumbo v8, "mBtClass is null"
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_e
+    :cond_f
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_10
 
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
@@ -2775,7 +2809,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_10
 
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
@@ -2787,7 +2821,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_10
 
     new-instance v7, Landroid/bluetooth/BluetoothClass;
 
@@ -2809,7 +2843,7 @@
 
     return v7
 
-    :cond_f
+    :cond_10
     invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getProfiles()Ljava/util/List;
 
     move-result-object v4
@@ -2818,12 +2852,12 @@
 
     move-result-object v3
 
-    :cond_10
+    :cond_11
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_14
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2838,7 +2872,7 @@
 
     move-result v7
 
-    if-ge v0, v7, :cond_12
+    if-ge v0, v7, :cond_13
 
     invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2846,7 +2880,7 @@
 
     instance-of v7, v7, Lcom/android/settingslib/bluetooth/A2dpProfile;
 
-    if-eqz v7, :cond_11
+    if-eqz v7, :cond_12
 
     new-instance v7, Landroid/bluetooth/BluetoothClass;
 
@@ -2868,23 +2902,23 @@
 
     return v7
 
-    :cond_11
+    :cond_12
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_12
+    :cond_13
     iget-object v7, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mBtClass:Landroid/bluetooth/BluetoothClass;
 
     invoke-interface {v2, v7}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfile;->getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
 
     move-result v6
 
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_11
 
     return v6
 
-    :cond_13
+    :cond_14
     sget v7, Lcom/android/settingslib/R$drawable;->list_ic_general_device:I
 
     return v7

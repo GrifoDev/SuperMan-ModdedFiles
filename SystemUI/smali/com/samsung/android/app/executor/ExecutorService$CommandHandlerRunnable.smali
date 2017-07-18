@@ -51,7 +51,6 @@
 
     iput-object p2, p0, Lcom/samsung/android/app/executor/ExecutorService$CommandHandlerRunnable;->mJsonCommand:Ljava/lang/String;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -121,7 +120,6 @@
 
     if-nez v8, :cond_2
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v8
@@ -168,7 +166,6 @@
 
     iget-object v8, p0, Lcom/samsung/android/app/executor/ExecutorService$CommandHandlerRunnable;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mMediator:Lcom/samsung/android/app/executor/ExecutorMediator;
     invoke-static {v8}, Lcom/samsung/android/app/executor/ExecutorService;->access$500(Lcom/samsung/android/app/executor/ExecutorService;)Lcom/samsung/android/app/executor/ExecutorMediator;
 
     move-result-object v8
@@ -190,7 +187,6 @@
     :try_start_1
     iget-object v8, p0, Lcom/samsung/android/app/executor/ExecutorService$CommandHandlerRunnable;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mMediator:Lcom/samsung/android/app/executor/ExecutorMediator;
     invoke-static {v8}, Lcom/samsung/android/app/executor/ExecutorService;->access$500(Lcom/samsung/android/app/executor/ExecutorService;)Lcom/samsung/android/app/executor/ExecutorMediator;
 
     move-result-object v8
@@ -218,7 +214,6 @@
 
     iget-object v8, p0, Lcom/samsung/android/app/executor/ExecutorService$CommandHandlerRunnable;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mMediator:Lcom/samsung/android/app/executor/ExecutorMediator;
     invoke-static {v8}, Lcom/samsung/android/app/executor/ExecutorService;->access$500(Lcom/samsung/android/app/executor/ExecutorService;)Lcom/samsung/android/app/executor/ExecutorMediator;
 
     move-result-object v8

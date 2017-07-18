@@ -75,148 +75,150 @@
 .end method
 
 .method private handleRemoteInput(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
-    .locals 21
+    .locals 23
 
-    const v17, 0x1020061
+    const v19, 0x1020061
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v17
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v16
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    instance-of v0, v14, [Landroid/app/RemoteInput;
+    move-object/from16 v0, v16
 
-    move/from16 v17, v0
+    instance-of v0, v0, [Landroid/app/RemoteInput;
 
-    if-eqz v17, :cond_0
+    move/from16 v19, v0
 
-    move-object v8, v14
+    if-eqz v19, :cond_0
 
-    check-cast v8, [Landroid/app/RemoteInput;
+    move-object/from16 v9, v16
+
+    check-cast v9, [Landroid/app/RemoteInput;
 
     :cond_0
-    if-nez v8, :cond_1
+    if-nez v9, :cond_1
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    return v17
+    return v19
 
     :cond_1
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    array-length v0, v8
+    array-length v0, v9
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
     :goto_0
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     if-ge v0, v1, :cond_3
 
-    aget-object v6, v8, v17
+    aget-object v7, v9, v19
 
-    invoke-virtual {v6}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
+    invoke-virtual {v7}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
 
-    move-result v19
+    move-result v21
 
-    if-eqz v19, :cond_2
+    if-eqz v21, :cond_2
 
-    move-object v7, v6
+    move-object v8, v7
 
     :cond_2
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_0
 
     :cond_3
-    if-nez v7, :cond_4
+    if-nez v8, :cond_4
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    return v17
+    return v19
 
     :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v11
 
-    const/4 v12, 0x0
+    const/4 v14, 0x0
 
     :goto_1
-    if-eqz v9, :cond_5
+    if-eqz v11, :cond_5
 
-    instance-of v0, v9, Landroid/view/View;
+    instance-of v0, v11, Landroid/view/View;
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    if-eqz v17, :cond_8
+    if-eqz v19, :cond_8
 
-    move-object v10, v9
+    move-object v12, v11
 
-    check-cast v10, Landroid/view/View;
+    check-cast v12, Landroid/view/View;
 
-    invoke-virtual {v10}, Landroid/view/View;->isRootNamespace()Z
+    invoke-virtual {v12}, Landroid/view/View;->isRootNamespace()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_8
+    if-eqz v19, :cond_8
 
-    sget-object v17, Lcom/android/systemui/statusbar/policy/RemoteInputView;->VIEW_TAG:Ljava/lang/Object;
+    sget-object v19, Lcom/android/systemui/statusbar/policy/RemoteInputView;->VIEW_TAG:Ljava/lang/Object;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    invoke-virtual {v10, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    invoke-virtual {v12, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v14
 
-    check-cast v12, Lcom/android/systemui/statusbar/policy/RemoteInputView;
+    check-cast v14, Lcom/android/systemui/statusbar/policy/RemoteInputView;
 
     :cond_5
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
     :goto_2
-    if-eqz v9, :cond_6
+    if-eqz v11, :cond_6
 
-    instance-of v0, v9, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    instance-of v0, v11, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    if-eqz v17, :cond_9
+    if-eqz v19, :cond_9
 
-    move-object v13, v9
+    move-object v15, v11
 
-    check-cast v13, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
+    check-cast v15, Lcom/android/systemui/statusbar/ExpandableNotificationRow;
 
     :cond_6
-    if-eqz v12, :cond_7
+    if-eqz v14, :cond_7
 
-    if-nez v13, :cond_a
+    if-nez v15, :cond_a
 
     :cond_7
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    return v17
+    return v19
 
     :cond_8
-    invoke-interface {v9}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v11}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v11
 
     goto :goto_1
 
     :cond_9
-    invoke-interface {v9}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+    invoke-interface {v11}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v9
+    move-result-object v11
 
     goto :goto_2
 
@@ -225,257 +227,309 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/systemui/statusbar/BaseStatusBar;->isCoveredState()Z
+    invoke-virtual/range {v19 .. v19}, Lcom/android/systemui/statusbar/BaseStatusBar;->isCoveredState()Z
 
-    move-result v17
+    move-result v19
 
-    if-eqz v17, :cond_b
+    if-eqz v19, :cond_b
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     iput-boolean v0, v1, Lcom/android/systemui/statusbar/BaseStatusBar;->mBlockedRemoteInputOnCover:Z
 
-    const/16 v17, 0x0
+    move-object/from16 v0, p0
 
-    return v17
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    :cond_b
-    const/16 v17, 0x1
+    move-object/from16 v19, v0
 
-    move/from16 v0, v17
+    move-object/from16 v0, v19
 
-    invoke-virtual {v13, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setUserExpanded(Z)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v19
+
+    const v20, 0x7f0f069a
+
+    invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v20
+
+    invoke-static {v0, v10, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/widget/Toast;->show()V
+
+    const/16 v19, 0x0
+
+    return v19
+
+    :cond_b
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    invoke-virtual {v15, v0}, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->setUserExpanded(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     iget-boolean v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar;->mAllowLockscreenRemoteInput:Z
 
-    move/from16 v17, v0
+    move/from16 v19, v0
 
-    if-nez v17, :cond_d
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/systemui/statusbar/BaseStatusBar;->isLockscreenPublicMode()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_c
+    if-nez v19, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    invoke-virtual/range {v19 .. v19}, Lcom/android/systemui/statusbar/BaseStatusBar;->isLockscreenPublicMode()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v13, v1}, Lcom/android/systemui/statusbar/BaseStatusBar;->onLockedRemoteInput(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/view/View;)V
+    invoke-virtual {v0, v15, v1}, Lcom/android/systemui/statusbar/BaseStatusBar;->onLockedRemoteInput(Lcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/view/View;)V
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    return v17
+    return v19
 
     :cond_c
     invoke-virtual/range {p2 .. p2}, Landroid/app/PendingIntent;->getCreatorUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v17 .. v17}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/systemui/statusbar/BaseStatusBar;->-get2(Lcom/android/systemui/statusbar/BaseStatusBar;)Landroid/os/UserManager;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v15}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+    invoke-virtual/range {v19 .. v19}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v17
 
-    if-eqz v17, :cond_d
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
+
+    move-object/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Lcom/android/systemui/statusbar/BaseStatusBar;->-get2(Lcom/android/systemui/statusbar/BaseStatusBar;)Landroid/os/UserManager;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    invoke-static/range {v17 .. v17}, Lcom/android/systemui/statusbar/BaseStatusBar;->-get1(Lcom/android/systemui/statusbar/BaseStatusBar;)Landroid/app/KeyguardManager;
+    invoke-static/range {v19 .. v19}, Lcom/android/systemui/statusbar/BaseStatusBar;->-get1(Lcom/android/systemui/statusbar/BaseStatusBar;)Landroid/app/KeyguardManager;
 
-    move-result-object v17
+    move-result-object v19
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v15}, Landroid/app/KeyguardManager;->isDeviceLocked(I)Z
+    move/from16 v1, v17
 
-    move-result v17
+    invoke-virtual {v0, v1}, Landroid/app/KeyguardManager;->isDeviceLocked(I)Z
 
-    if-eqz v17, :cond_d
+    move-result v19
+
+    if-eqz v19, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/BaseStatusBar$6;->this$0:Lcom/android/systemui/statusbar/BaseStatusBar;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, p1
+    move/from16 v1, v17
 
-    invoke-virtual {v0, v15, v13, v1}, Lcom/android/systemui/statusbar/BaseStatusBar;->onLockedWorkRemoteInput(ILcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/view/View;)V
+    move-object/from16 v2, p1
 
-    const/16 v17, 0x1
+    invoke-virtual {v0, v1, v15, v2}, Lcom/android/systemui/statusbar/BaseStatusBar;->onLockedWorkRemoteInput(ILcom/android/systemui/statusbar/ExpandableNotificationRow;Landroid/view/View;)V
 
-    return v17
+    const/16 v19, 0x1
+
+    return v19
 
     :cond_d
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    invoke-virtual {v12, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setVisibility(I)V
+    invoke-virtual {v14, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setVisibility(I)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getLeft()I
 
-    move-result v17
+    move-result v19
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getWidth()I
 
-    move-result v18
+    move-result v20
 
-    div-int/lit8 v18, v18, 0x2
+    div-int/lit8 v20, v20, 0x2
 
-    add-int v2, v17, v18
+    add-int v3, v19, v20
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getTop()I
 
-    move-result v17
+    move-result v19
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getHeight()I
 
-    move-result v18
+    move-result v20
 
-    div-int/lit8 v18, v18, 0x2
+    div-int/lit8 v20, v20, 0x2
 
-    add-int v3, v17, v18
+    add-int v4, v19, v20
 
-    invoke-virtual {v12}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getWidth()I
-
-    move-result v16
-
-    invoke-virtual {v12}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getHeight()I
-
-    move-result v5
-
-    add-int v17, v2, v3
-
-    sub-int v18, v5, v3
-
-    add-int v18, v18, v2
-
-    invoke-static/range {v17 .. v18}, Ljava/lang/Math;->max(II)I
-
-    move-result v17
-
-    sub-int v18, v16, v2
-
-    add-int v18, v18, v3
-
-    sub-int v19, v16, v2
-
-    sub-int v20, v5, v3
-
-    add-int v19, v19, v20
-
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {v14}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getWidth()I
 
     move-result v18
 
-    invoke-static/range {v17 .. v18}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {v14}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->getHeight()I
 
-    move-result v11
+    move-result v6
 
-    const/16 v17, 0x0
+    add-int v19, v3, v4
 
-    int-to-float v0, v11
+    sub-int v20, v6, v4
 
-    move/from16 v18, v0
+    add-int v20, v20, v3
+
+    invoke-static/range {v19 .. v20}, Ljava/lang/Math;->max(II)I
+
+    move-result v19
+
+    sub-int v20, v18, v3
+
+    add-int v20, v20, v4
+
+    sub-int v21, v18, v3
+
+    sub-int v22, v6, v4
+
+    add-int v21, v21, v22
+
+    invoke-static/range {v20 .. v21}, Ljava/lang/Math;->max(II)I
+
+    move-result v20
+
+    invoke-static/range {v19 .. v20}, Ljava/lang/Math;->max(II)I
+
+    move-result v13
+
+    const/16 v19, 0x0
+
+    int-to-float v0, v13
+
+    move/from16 v20, v0
 
     :try_start_0
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
-    invoke-static {v12, v2, v3, v0, v1}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
+    invoke-static {v14, v3, v4, v0, v1}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
 
-    move-result-object v17
+    move-result-object v19
 
-    invoke-virtual/range {v17 .. v17}, Landroid/animation/Animator;->start()V
+    invoke-virtual/range {v19 .. v19}, Landroid/animation/Animator;->start()V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_3
     move-object/from16 v0, p2
 
-    invoke-virtual {v12, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setPendingIntent(Landroid/app/PendingIntent;)V
+    invoke-virtual {v14, v0}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setPendingIntent(Landroid/app/PendingIntent;)V
 
-    invoke-virtual {v12, v8, v7}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
+    invoke-virtual {v14, v9, v8}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
 
-    invoke-virtual {v12}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->focus()V
+    invoke-virtual {v14}, Lcom/android/systemui/statusbar/policy/RemoteInputView;->focus()V
 
-    const/16 v17, 0x1
+    const/16 v19, 0x1
 
-    return v17
+    return v19
 
     :catch_0
-    move-exception v4
+    move-exception v5
 
-    const-string/jumbo v17, "StatusBar"
+    const-string/jumbo v19, "StatusBar"
 
-    const-string/jumbo v18, "RemoteInputView is detached on Window when starting animator!"
+    const-string/jumbo v20, "RemoteInputView is detached on Window when starting animator!"
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
-    invoke-static {v0, v1, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_3
 .end method

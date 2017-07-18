@@ -455,7 +455,7 @@
 
     check-cast v2, Landroid/widget/SeekBar;
 
-    const v3, 0x7f020717
+    const v3, 0x7f02071e
 
     invoke-virtual {v1, v3, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/lg/rambar/CircleRamView$2;->this$0:Lcom/android/lg/rambar/CircleRamView;
 
-    # invokes: Lcom/android/lg/rambar/CircleRamView;->updateMemoryInfo()V
     invoke-static {v0}, Lcom/android/lg/rambar/CircleRamView;->access$2(Lcom/android/lg/rambar/CircleRamView;)V
 
     iget-object v0, p0, Lcom/android/lg/rambar/CircleRamView$2;->this$0:Lcom/android/lg/rambar/CircleRamView;

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/lg/rambar/CircleRamView$1;->this$0:Lcom/android/lg/rambar/CircleRamView;
 
-    # getter for: Lcom/android/lg/rambar/CircleRamView;->mAttached:Z
     invoke-static {v0}, Lcom/android/lg/rambar/CircleRamView;->access$0(Lcom/android/lg/rambar/CircleRamView;)Z
 
     move-result v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/lg/rambar/CircleRamView$1;->this$0:Lcom/android/lg/rambar/CircleRamView;
 
-    # invokes: Lcom/android/lg/rambar/CircleRamView;->update()V
     invoke-static {v0}, Lcom/android/lg/rambar/CircleRamView;->access$1(Lcom/android/lg/rambar/CircleRamView;)V
 
     :cond_0

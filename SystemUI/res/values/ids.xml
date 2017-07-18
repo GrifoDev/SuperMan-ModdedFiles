@@ -712,7 +712,7 @@
     <item type="id" name="restricted_padlock">false</item>
     <item type="id" name="auto_switch_container">false</item>
     <item type="id" name="auto_title">false</item>
-    <item type="id" name="outdoor_summary">false</item>
+    <item type="id" name="auto_title_summary">false</item>
     <item type="id" name="auto_switch">false</item>
     <item type="id" name="quick_access_switch_container">false</item>
     <item type="id" name="quick_access_switch">false</item>

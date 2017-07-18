@@ -1590,6 +1590,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">Få bedre lydopløsning af musik og videoer, og opnå en renere lytteoplevelse.</string>
     <string name="assistance_app_setting_alert_dialog_title">Vælg en app, der skal åbnes, når du trykker og holder på starttasten. Du kan ændre den valgte app senere ved at gå til appen Enhedsassistance under Indstillinger.</string>
     <string name="assistance_app_setting_item_none">Ingen</string>
+    <string name="remote_input_toast_text_on_sview_cover">Kan ikke bruge funktionen Hurtigt svar, når S View Cover er lukket.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

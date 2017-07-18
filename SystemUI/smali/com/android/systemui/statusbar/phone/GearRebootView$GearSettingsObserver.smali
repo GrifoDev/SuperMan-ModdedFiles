@@ -30,7 +30,6 @@
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    # getter for: Lcom/android/systemui/statusbar/phone/GearRebootView;->mVisibilityKey:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/GearRebootView;->access$000(Lcom/android/systemui/statusbar/phone/GearRebootView;)Ljava/lang/String;
 
     move-result-object v0
@@ -41,7 +40,6 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/GearRebootView$GearSettingsObserver;->mVisibilityUri:Landroid/net/Uri;
 
-    # getter for: Lcom/android/systemui/statusbar/phone/GearRebootView;->mColorKey:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/GearRebootView;->access$100(Lcom/android/systemui/statusbar/phone/GearRebootView;)Ljava/lang/String;
 
     move-result-object v0
@@ -72,7 +70,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/GearRebootView$GearSettingsObserver;->this$0:Lcom/android/systemui/statusbar/phone/GearRebootView;
 
-    # invokes: Lcom/android/systemui/statusbar/phone/GearRebootView;->updateViewVisibility()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/phone/GearRebootView;->access$200(Lcom/android/systemui/statusbar/phone/GearRebootView;)V
 
     :cond_0
@@ -90,7 +87,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/GearRebootView$GearSettingsObserver;->this$0:Lcom/android/systemui/statusbar/phone/GearRebootView;
 
-    # invokes: Lcom/android/systemui/statusbar/phone/GearRebootView;->updateViewColorOverlay()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/phone/GearRebootView;->access$300(Lcom/android/systemui/statusbar/phone/GearRebootView;)V
 
     goto :goto_0

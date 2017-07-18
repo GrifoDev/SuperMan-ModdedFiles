@@ -55,7 +55,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -109,7 +108,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -134,7 +132,6 @@
 
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mImage:Landroid/widget/ImageView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$100(Lmickles/app/mpressure/mPressure;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -146,7 +143,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -171,7 +167,6 @@
 
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressureScale:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$200(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -183,7 +178,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -204,7 +198,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -227,7 +220,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -248,7 +240,6 @@
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1
@@ -302,7 +293,6 @@
 
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressure:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$300(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -360,7 +350,6 @@
 
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressureScale:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$200(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -371,7 +360,6 @@
 
     iget-object v2, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v2
@@ -400,7 +388,6 @@
 
     iget-object v2, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v2
@@ -462,7 +449,6 @@
     :cond_1
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mImage:Landroid/widget/ImageView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$100(Lmickles/app/mpressure/mPressure;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -474,7 +460,6 @@
     :cond_2
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressureScale:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$200(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -549,7 +534,6 @@
     :cond_6
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressure:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$300(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -601,14 +585,12 @@
 
     iget-object v0, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mTextPressureScale:Landroid/widget/TextView;
     invoke-static {v0}, Lmickles/app/mpressure/mPressure;->access$200(Lmickles/app/mpressure/mPressure;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lmickles/app/mpressure/mPressure$1;->this$0:Lmickles/app/mpressure/mPressure;
 
-    # getter for: Lmickles/app/mpressure/mPressure;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/mpressure/mPressure;->access$000(Lmickles/app/mpressure/mPressure;)Landroid/content/Context;
 
     move-result-object v1

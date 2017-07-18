@@ -40,7 +40,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/policy/Clock;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/Clock;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/Clock;->access$000(Lcom/android/systemui/statusbar/policy/Clock;)Landroid/content/Context;
 
     move-result-object v1

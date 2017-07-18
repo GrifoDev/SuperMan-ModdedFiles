@@ -507,7 +507,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0f03f7
+    const v0, 0x7f0f03f8
 
     :goto_0
     invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -533,7 +533,7 @@
     return v7
 
     :cond_4
-    const v0, 0x7f0f03f6
+    const v0, 0x7f0f03f7
 
     goto :goto_0
 
@@ -1035,7 +1035,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0f0698
+    const v2, 0x7f0f069b
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1045,7 +1045,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile$7;-><init>(Lcom/android/systemui/qs/tiles/WifiCallingTile;)V
 
-    const v3, 0x7f0f069f
+    const v3, 0x7f0f06a2
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1191,6 +1191,21 @@
 .method public getTileLabel()Ljava/lang/CharSequence;
     .locals 2
 
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NON_TRANSLATABLE_WFC_TITLE:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f0f03bb
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
     const v1, 0x7f0f03ba
@@ -1394,6 +1409,48 @@
 
     iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->value:Z
 
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NON_TRANSLATABLE_WFC_TITLE:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f0f03bb
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
+
+    :goto_0
+    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TMB_ICON:Z
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f0203f8
+
+    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
+
+    move-result-object v0
+
+    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->supportWFCStateUpdate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/4 v0, 0x0
+
+    :goto_2
+    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile;->mContext:Landroid/content/Context;
 
     const v1, 0x7f0f03ba
@@ -1404,36 +1461,12 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->label:Ljava/lang/CharSequence;
 
-    sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_TMB_ICON:Z
+    goto :goto_0
 
-    if-eqz v0, :cond_0
-
-    const v0, 0x7f0203f8
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
-
-    move-result-object v0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->supportWFCStateUpdate()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const/4 v0, 0x0
-
-    :goto_1
-    iput-boolean v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->dim:Z
-
-    return-void
-
-    :cond_0
+    :cond_1
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_MTR_ICON:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const v0, 0x7f02039c
 
@@ -1443,12 +1476,12 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_VZW_ICON:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const v0, 0x7f0203ff
 
@@ -1458,9 +1491,9 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     const v0, 0x7f020400
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
@@ -1469,12 +1502,12 @@
 
     iput-object v0, p1, Lcom/android/systemui/qs/QSTile$BooleanState;->icon:Lcom/android/systemui/qs/QSTile$Icon;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method protected bridge synthetic handleUpdateState(Lcom/android/systemui/qs/QSTile$State;Ljava/lang/Object;)V

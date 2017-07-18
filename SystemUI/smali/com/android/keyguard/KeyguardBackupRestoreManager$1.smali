@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 20
+    .locals 21
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -70,6 +70,7 @@
 
     if-eqz v17, :cond_0
 
+    :try_start_0
     const-string/jumbo v1, "SAVE_PATH"
 
     move-object/from16 v0, p2
@@ -110,7 +111,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v18
+    move-result v19
 
     const-string/jumbo v1, "SECURITY_LEVEL"
 
@@ -134,7 +135,7 @@
 
     const/4 v1, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v1, :cond_1
 
@@ -238,10 +239,20 @@
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
     :cond_2
+    :try_start_1
     const-string/jumbo v1, "com.sec.android.intent.action.REQUEST_RESTORE_LOCKSCREEN"
 
     move-object/from16 v0, v17
@@ -252,7 +263,7 @@
 
     if-eqz v1, :cond_3
 
-    new-instance v19, Ljava/lang/Thread;
+    new-instance v20, Ljava/lang/Thread;
 
     new-instance v9, Lcom/android/keyguard/KeyguardBackupRestoreManager$1$2;
 
@@ -266,11 +277,11 @@
 
     invoke-direct/range {v9 .. v15}, Lcom/android/keyguard/KeyguardBackupRestoreManager$1$2;-><init>(Lcom/android/keyguard/KeyguardBackupRestoreManager$1;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     invoke-direct {v0, v9}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/Thread;->start()V
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 
@@ -287,7 +298,7 @@
 
     const/4 v1, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v1, :cond_4
 
@@ -403,7 +414,7 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v19, Ljava/lang/Thread;
+    new-instance v20, Ljava/lang/Thread;
 
     new-instance v9, Lcom/android/keyguard/KeyguardBackupRestoreManager$1$4;
 
@@ -417,11 +428,13 @@
 
     invoke-direct/range {v9 .. v15}, Lcom/android/keyguard/KeyguardBackupRestoreManager$1$4;-><init>(Lcom/android/keyguard/KeyguardBackupRestoreManager$1;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     invoke-direct {v0, v9}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/Thread;->start()V
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/Thread;->start()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_0
 .end method

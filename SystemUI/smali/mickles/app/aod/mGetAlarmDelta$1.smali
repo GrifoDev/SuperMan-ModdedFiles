@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lmickles/app/aod/mGetAlarmDelta$1;->this$0:Lmickles/app/aod/mGetAlarmDelta;
 
-    # getter for: Lmickles/app/aod/mGetAlarmDelta;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lmickles/app/aod/mGetAlarmDelta;->access$000(Lmickles/app/aod/mGetAlarmDelta;)Landroid/content/Context;
 
     move-result-object v1

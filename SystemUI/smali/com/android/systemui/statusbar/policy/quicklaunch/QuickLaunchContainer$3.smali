@@ -91,7 +91,6 @@
 
     aget-object v5, v1, v5
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->changeButtonPkgName(ILjava/lang/String;)V
     invoke-static {v3, v4, v5}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$3(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;ILjava/lang/String;)V
 
     :goto_0
@@ -106,7 +105,6 @@
     :cond_0
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$3;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->mButtons:[Ljava/lang/String;
     invoke-static {v3}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$4(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)[Ljava/lang/String;
 
     move-result-object v3
@@ -122,7 +120,6 @@
     :goto_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$3;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->mButtons:[Ljava/lang/String;
     invoke-static {v3}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$4(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)[Ljava/lang/String;
 
     move-result-object v3
@@ -145,12 +142,10 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$3;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->saveButtonList()V
     invoke-static {v3}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$6(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)V
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$3;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->addButtons()V
     invoke-static {v3}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$7(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)V
 
     goto :goto_0
@@ -158,7 +153,6 @@
     :cond_1
     iget-object v3, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$3;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->mButtons:[Ljava/lang/String;
     invoke-static {v3}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$4(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)[Ljava/lang/String;
 
     move-result-object v3

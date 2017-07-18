@@ -1591,6 +1591,7 @@ Optimierung"</string>
     <string name="assistance_app_setting_item_none">Ohne</string>
     <string name="no_sim_notification_title_cct">No SIM card detected</string>
     <string name="no_sim_notification_text_cct">Insert an XFINITY Mobile SIM. To learn more, visit xfinitymobile.com/activate or call 888-936-4968.</string>
+    <string name="remote_input_toast_text_on_sview_cover">Schnellantwortfunktion kann nicht verwendet werden, wenn S View Cover geschlossen ist.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

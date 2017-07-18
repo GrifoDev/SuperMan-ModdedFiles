@@ -39,14 +39,12 @@
 
     iget-object v0, p0, Lcom/pekaka/systemui/killer/MemCleanView$2;->this$0:Lcom/pekaka/systemui/killer/MemCleanView;
 
-    # getter for: Lcom/pekaka/systemui/killer/MemCleanView;->mMemInfo:Lcom/pekaka/systemui/killer/MemInfo;
     invoke-static {v0}, Lcom/pekaka/systemui/killer/MemCleanView;->access$200(Lcom/pekaka/systemui/killer/MemCleanView;)Lcom/pekaka/systemui/killer/MemInfo;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/pekaka/systemui/killer/MemCleanView$2;->this$0:Lcom/pekaka/systemui/killer/MemCleanView;
 
-    # invokes: Lcom/pekaka/systemui/killer/MemCleanView;->getMemoryAvi()J
     invoke-static {v1}, Lcom/pekaka/systemui/killer/MemCleanView;->access$100(Lcom/pekaka/systemui/killer/MemCleanView;)J
 
     move-result-wide v1
@@ -57,14 +55,12 @@
 
     iget-object v0, p0, Lcom/pekaka/systemui/killer/MemCleanView$2;->this$0:Lcom/pekaka/systemui/killer/MemCleanView;
 
-    # getter for: Lcom/pekaka/systemui/killer/MemCleanView;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/pekaka/systemui/killer/MemCleanView;->access$000(Lcom/pekaka/systemui/killer/MemCleanView;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/pekaka/systemui/killer/MemCleanView$2;->this$0:Lcom/pekaka/systemui/killer/MemCleanView;
 
-    # getter for: Lcom/pekaka/systemui/killer/MemCleanView;->updateRunner:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/pekaka/systemui/killer/MemCleanView;->access$300(Lcom/pekaka/systemui/killer/MemCleanView;)Ljava/lang/Runnable;
 
     move-result-object v1

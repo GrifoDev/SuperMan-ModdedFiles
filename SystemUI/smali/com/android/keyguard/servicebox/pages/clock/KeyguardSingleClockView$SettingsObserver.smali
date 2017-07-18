@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView$SettingsObserver;->this$0:Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;
 
-    # getter for: Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;->access$001(Lcom/android/keyguard/servicebox/pages/clock/KeyguardSingleClockView;)Landroid/content/Context;
 
     move-result-object v1

@@ -344,7 +344,7 @@
 
     if-eqz p5, :cond_3
 
-    const v1, 0x7f0f0453
+    const v1, 0x7f0f0455
 
     :goto_0
     invoke-direct {v3, v1, p6}, Lcom/android/systemui/recents/events/ui/AllTaskViewsDismissedEvent;-><init>(IZ)V
@@ -355,7 +355,7 @@
     return-void
 
     :cond_3
-    const v1, 0x7f0f0454
+    const v1, 0x7f0f0456
 
     goto :goto_0
 .end method

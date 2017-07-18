@@ -38,7 +38,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBarController$SettingsObserver;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBarController;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBarController;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBarController;->access$000(Lcom/android/systemui/statusbar/policy/BatteryBarController;)Landroid/content/Context;
 
     move-result-object v1

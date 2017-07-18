@@ -1580,6 +1580,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="assistance_app_setting_item_none">無</string>
     <string name="no_sim_notification_title_cct">未偵測到 SIM 卡</string>
     <string name="no_sim_notification_text_cct">請插入 XFINITY 手機 SIM 卡。若要瞭解更多資訊，請訪問 xfinitymobile.com/activate 或致電 888-936-4968。</string>
+    <string name="remote_input_toast_text_on_sview_cover">S view 保護套已關閉時無法使用快速回覆功能。</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

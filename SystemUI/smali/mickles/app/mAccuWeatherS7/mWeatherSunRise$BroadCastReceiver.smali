@@ -46,7 +46,6 @@
 
     iget-object v4, p0, Lmickles/app/mAccuWeatherS7/mWeatherSunRise$BroadCastReceiver;->this$0:Lmickles/app/mAccuWeatherS7/mWeatherSunRise;
 
-    # getter for: Lmickles/app/mAccuWeatherS7/mWeatherSunRise;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lmickles/app/mAccuWeatherS7/mWeatherSunRise;->access$100(Lmickles/app/mAccuWeatherS7/mWeatherSunRise;)Landroid/content/Context;
 
     move-result-object v4
@@ -65,7 +64,6 @@
 
     iget-object v4, p0, Lmickles/app/mAccuWeatherS7/mWeatherSunRise$BroadCastReceiver;->this$0:Lmickles/app/mAccuWeatherS7/mWeatherSunRise;
 
-    # getter for: Lmickles/app/mAccuWeatherS7/mWeatherSunRise;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lmickles/app/mAccuWeatherS7/mWeatherSunRise;->access$100(Lmickles/app/mAccuWeatherS7/mWeatherSunRise;)Landroid/content/Context;
 
     move-result-object v4

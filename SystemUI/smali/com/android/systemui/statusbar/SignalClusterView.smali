@@ -998,7 +998,7 @@
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/SignalClusterView;->mNWBoosterWifiStrength:Landroid/widget/ImageView;
 
-    const v9, 0x7f0205f2
+    const v9, 0x7f0205f9
 
     invoke-direct {p0, v7, v9}, Lcom/android/systemui/statusbar/SignalClusterView;->setIconForView(Landroid/widget/ImageView;I)V
 
@@ -1716,7 +1716,6 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
 
-    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobile:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1400(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -1789,7 +1788,6 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
 
-    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileType:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1500(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -1798,7 +1796,6 @@
 
     invoke-direct {p0, v2, v3}, Lcom/android/systemui/statusbar/SignalClusterView;->setTint(Landroid/widget/ImageView;I)V
 
-    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mMobileActivity:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1600(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -1871,7 +1868,6 @@
 
     check-cast v0, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;
 
-    # getter for: Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->mRoaming:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;->access$1700(Lcom/android/systemui/statusbar/SignalClusterView$PhoneState;)Landroid/widget/ImageView;
 
     move-result-object v2

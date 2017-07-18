@@ -49,7 +49,6 @@
 
     sub-long v0, v2, v4
 
-    # getter for: Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->access$0()Ljava/lang/String;
 
     move-result-object v2
@@ -86,7 +85,6 @@
 
     iget-object v2, p0, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$1;->this$0:Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;
 
-    # getter for: Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->mConnectionListener:Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$ConnectionListener;
     invoke-static {v2}, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->access$2(Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;)Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$ConnectionListener;
 
     move-result-object v2
@@ -99,7 +97,6 @@
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$1;->this$0:Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;
 
-    # getter for: Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->mConnectionListener:Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$ConnectionListener;
     invoke-static {v2}, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->access$2(Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;)Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface$ConnectionListener;
 
     move-result-object v2
@@ -114,7 +111,6 @@
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
 
-    # getter for: Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/scrollcapture/lib/RemoteScrollCaptureInterface;->access$0()Ljava/lang/String;
 
     move-result-object v0

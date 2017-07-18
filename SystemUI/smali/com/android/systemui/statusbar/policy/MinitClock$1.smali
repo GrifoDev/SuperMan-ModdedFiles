@@ -48,17 +48,14 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MinitClock$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitClock;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitClock;->setLocation()V
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MinitClock;->access$000(Lcom/android/systemui/statusbar/policy/MinitClock;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MinitClock$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitClock;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitClock;->loadItems()V
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MinitClock;->access$100(Lcom/android/systemui/statusbar/policy/MinitClock;)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MinitClock$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitClock;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitClock;->updateViews()V
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MinitClock;->access$200(Lcom/android/systemui/statusbar/policy/MinitClock;)V
 
     :goto_0
@@ -67,7 +64,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MinitClock$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitClock;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitClock;->updateViews()V
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MinitClock;->access$200(Lcom/android/systemui/statusbar/policy/MinitClock;)V
 
     goto :goto_0

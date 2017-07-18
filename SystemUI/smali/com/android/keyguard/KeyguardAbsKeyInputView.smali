@@ -797,12 +797,12 @@
 
     move/from16 v1, p1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
     const/4 v7, 0x1
 
     :goto_0
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_4
 
     move-object/from16 v0, p0
 
@@ -1029,7 +1029,24 @@
 
     :cond_1
     :goto_2
-    if-eqz p2, :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEntry:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    if-eqz v19, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEntry:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->clear()V
+
+    :cond_2
+    if-eqz p2, :cond_b
 
     const/16 v19, 0x0
 
@@ -1046,7 +1063,7 @@
 
     return-void
 
-    :cond_2
+    :cond_3
     const/4 v7, 0x0
 
     goto/16 :goto_0
@@ -1080,14 +1097,14 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEnableHaptics:Z
 
     move/from16 v19, v0
 
-    if-eqz v19, :cond_4
+    if-eqz v19, :cond_5
 
     move-object/from16 v0, p0
 
@@ -1115,10 +1132,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/SystemVibrator;->semVibrate(IILandroid/media/AudioAttributes;Landroid/os/Vibrator$SemMagnitudeTypes;)V
 
-    :cond_4
+    :cond_5
     const-wide/16 v8, 0x0
 
-    if-eqz p4, :cond_7
+    if-eqz p4, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1170,16 +1187,16 @@
 
     move/from16 v0, v19
 
-    if-eq v6, v0, :cond_5
+    if-eq v6, v0, :cond_6
 
     const/16 v19, 0x9
 
     move/from16 v0, v19
 
-    if-le v6, v0, :cond_7
+    if-le v6, v0, :cond_8
 
-    :cond_5
-    if-eqz v18, :cond_7
+    :cond_6
+    if-eqz v18, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1223,7 +1240,7 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_7
 
     move-object/from16 v0, p0
 
@@ -1237,7 +1254,7 @@
 
     invoke-virtual/range {v19 .. v19}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
 
-    :cond_6
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mContext:Landroid/content/Context;
@@ -1252,11 +1269,11 @@
 
     move-result v19
 
-    if-eqz v19, :cond_8
+    if-eqz v19, :cond_9
 
     invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->disableDevicePermanently()V
 
-    :cond_7
+    :cond_8
     :goto_4
     const-wide/16 v20, 0x0
 
@@ -1292,7 +1309,7 @@
 
     move-result-object v16
 
-    if-lez v12, :cond_9
+    if-lez v12, :cond_a
 
     move-object/from16 v0, p0
 
@@ -1379,14 +1396,14 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_9
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v8, v9}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->handleAttemptLockout(J)V
 
     goto/16 :goto_4
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
@@ -1405,7 +1422,7 @@
 
     goto :goto_5
 
-    :cond_a
+    :cond_b
     const/16 v19, 0x1
 
     goto/16 :goto_3

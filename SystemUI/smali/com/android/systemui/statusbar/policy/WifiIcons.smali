@@ -43,15 +43,15 @@
 
     new-array v0, v8, [[I
 
-    const v1, 0x7f0206c7
+    const v1, 0x7f0206ce
 
-    const v2, 0x7f0206c8
+    const v2, 0x7f0206cf
 
-    const v3, 0x7f0206c9
+    const v3, 0x7f0206d0
 
-    const v4, 0x7f0206ca
+    const v4, 0x7f0206d1
 
-    const v5, 0x7f0206cb
+    const v5, 0x7f0206d2
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -118,158 +118,158 @@
     if-eq v12, v13, :cond_a
 
     :cond_0
-    const v1, 0x7f0208a3
+    const v1, 0x7f020860
 
-    const v2, 0x7f0208ae
+    const v2, 0x7f02086b
 
-    const v3, 0x7f0208b9
+    const v3, 0x7f020876
 
-    const v4, 0x7f0208c4
+    const v4, 0x7f020881
 
-    const v5, 0x7f0208cf
+    const v5, 0x7f02088c
 
     goto/16 :goto_0
 
     :cond_1
-    const v1, 0x7f0208a4
+    const v1, 0x7f020861
 
-    const v2, 0x7f0208af
+    const v2, 0x7f02086c
 
-    const v3, 0x7f0208ba
+    const v3, 0x7f020877
 
-    const v4, 0x7f0208c5
+    const v4, 0x7f020882
 
-    const v5, 0x7f0208d0
+    const v5, 0x7f02088d
 
     goto/16 :goto_0
 
     :cond_2
-    const v1, 0x7f0208a5
+    const v1, 0x7f020862
 
-    const v2, 0x7f0208b0
+    const v2, 0x7f02086d
 
-    const v3, 0x7f0208bb
+    const v3, 0x7f020878
 
-    const v4, 0x7f0208c6
+    const v4, 0x7f020883
 
-    const v5, 0x7f0208d1
+    const v5, 0x7f02088e
 
     goto/16 :goto_0
 
     :cond_3
-    const v1, 0x7f0208a6
+    const v1, 0x7f020863
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f02086e
 
-    const v3, 0x7f0208bc
+    const v3, 0x7f020879
 
-    const v4, 0x7f0208c7
+    const v4, 0x7f020884
 
-    const v5, 0x7f0208d2
+    const v5, 0x7f02088f
 
     goto/16 :goto_0
 
     :cond_4
-    const v1, 0x7f0208a7
+    const v1, 0x7f020864
 
-    const v2, 0x7f0208b2
+    const v2, 0x7f02086f
 
-    const v3, 0x7f0208bd
+    const v3, 0x7f02087a
 
-    const v4, 0x7f0208c8
+    const v4, 0x7f020885
 
-    const v5, 0x7f0208d3
+    const v5, 0x7f020890
 
     goto :goto_0
 
     :cond_5
-    const v1, 0x7f0208a8
+    const v1, 0x7f020865
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f020870
 
-    const v3, 0x7f0208be
+    const v3, 0x7f02087b
 
-    const v4, 0x7f0208c9
+    const v4, 0x7f020886
 
-    const v5, 0x7f0208d4
+    const v5, 0x7f020891
 
     goto :goto_0
 
     :cond_6
-    const v1, 0x7f0208a9
+    const v1, 0x7f020866
 
-    const v2, 0x7f0208b4
+    const v2, 0x7f020871
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f02087c
 
-    const v4, 0x7f0208ca
+    const v4, 0x7f020887
 
-    const v5, 0x7f0208d5
+    const v5, 0x7f020892
 
     goto :goto_0
 
     :cond_7
-    const v1, 0x7f0208aa
+    const v1, 0x7f020867
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f020872
 
-    const v3, 0x7f0208c0
+    const v3, 0x7f02087d
 
-    const v4, 0x7f0208cb
+    const v4, 0x7f020888
 
-    const v5, 0x7f0208d6
+    const v5, 0x7f020893
 
     goto :goto_0
 
     :cond_8
-    const v1, 0x7f0208a0
+    const v1, 0x7f02085d
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f020868
 
-    const v3, 0x7f0208b6
+    const v3, 0x7f020873
 
-    const v4, 0x7f0208c1
+    const v4, 0x7f02087e
 
-    const v5, 0x7f0208cc
+    const v5, 0x7f020889
 
     goto :goto_0
 
     :cond_9
-    const v1, 0x7f0208a1
+    const v1, 0x7f02085e
 
-    const v2, 0x7f0208ac
+    const v2, 0x7f020869
 
-    const v3, 0x7f0208b7
+    const v3, 0x7f020874
 
-    const v4, 0x7f0208c2
+    const v4, 0x7f02087f
 
-    const v5, 0x7f0208cd
+    const v5, 0x7f02088a
 
     goto :goto_0
 
     :cond_a
-    const v1, 0x7f0208a2
+    const v1, 0x7f02085f
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f02086a
 
-    const v3, 0x7f0208b8
+    const v3, 0x7f020875
 
-    const v4, 0x7f0208c3
+    const v4, 0x7f020880
 
-    const v5, 0x7f0208ce
+    const v5, 0x7f02088b
 
     goto :goto_0
 
     :cond_b
-    const v1, 0x7f0206d1
+    const v1, 0x7f0206d8
 
-    const v2, 0x7f0206d3
+    const v2, 0x7f0206da
 
-    const v3, 0x7f0206d5
+    const v3, 0x7f0206dc
 
-    const v4, 0x7f0206d7
+    const v4, 0x7f0206de
 
-    const v5, 0x7f0206d9
+    const v5, 0x7f0206e0
 
     :goto_0
     filled-new-array {v1, v2, v3, v4, v5}, [I
@@ -282,15 +282,15 @@
 
     new-array v0, v8, [[I
 
-    const v1, 0x7f0206cc
+    const v1, 0x7f0206d3
 
-    const v2, 0x7f0206cd
+    const v2, 0x7f0206d4
 
-    const v3, 0x7f0206ce
+    const v3, 0x7f0206d5
 
-    const v4, 0x7f0206cf
+    const v4, 0x7f0206d6
 
-    const v5, 0x7f0206d0
+    const v5, 0x7f0206d7
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -298,15 +298,15 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f0206d2
+    const v1, 0x7f0206d9
 
-    const v2, 0x7f0206d4
+    const v2, 0x7f0206db
 
-    const v3, 0x7f0206d6
+    const v3, 0x7f0206dd
 
-    const v4, 0x7f0206d8
+    const v4, 0x7f0206df
 
-    const v5, 0x7f0206da
+    const v5, 0x7f0206e1
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -318,15 +318,15 @@
 
     new-array v0, v8, [[I
 
-    const v1, 0x7f0206c2
+    const v1, 0x7f0206c9
 
-    const v2, 0x7f0206c3
+    const v2, 0x7f0206ca
 
-    const v3, 0x7f0206c4
+    const v3, 0x7f0206cb
 
-    const v4, 0x7f0206c5
+    const v4, 0x7f0206cc
 
-    const v5, 0x7f0206c6
+    const v5, 0x7f0206cd
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -334,15 +334,15 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f0206c2
+    const v1, 0x7f0206c9
 
-    const v2, 0x7f0206c3
+    const v2, 0x7f0206ca
 
-    const v3, 0x7f0206c4
+    const v3, 0x7f0206cb
 
-    const v4, 0x7f0206c5
+    const v4, 0x7f0206cc
 
-    const v5, 0x7f0206c6
+    const v5, 0x7f0206cd
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -380,15 +380,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/WifiIcons;->QS_WIFI_SIGNAL_STRENGTH:[[I
 
-    const v0, 0x7f0205f2
+    const v0, 0x7f0205f9
 
-    const v1, 0x7f0205f3
+    const v1, 0x7f0205fa
 
-    const v2, 0x7f0205f4
+    const v2, 0x7f0205fb
 
-    const v3, 0x7f0205f5
+    const v3, 0x7f0205fc
 
-    const v4, 0x7f0205f6
+    const v4, 0x7f0205fd
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -398,15 +398,15 @@
 
     new-array v0, v8, [[I
 
-    const v1, 0x7f0206e4
+    const v1, 0x7f0206eb
 
-    const v2, 0x7f0206e5
+    const v2, 0x7f0206ec
 
-    const v3, 0x7f0206e6
+    const v3, 0x7f0206ed
 
-    const v4, 0x7f0206e7
+    const v4, 0x7f0206ee
 
-    const v5, 0x7f0206e8
+    const v5, 0x7f0206ef
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -414,15 +414,15 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f0206e4
+    const v1, 0x7f0206eb
 
-    const v2, 0x7f0206e5
+    const v2, 0x7f0206ec
 
-    const v3, 0x7f0206e6
+    const v3, 0x7f0206ed
 
-    const v4, 0x7f0206e7
+    const v4, 0x7f0206ee
 
-    const v5, 0x7f0206e8
+    const v5, 0x7f0206ef
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -434,15 +434,15 @@
 
     new-array v0, v8, [[I
 
-    const v1, 0x7f0206db
+    const v1, 0x7f0206e2
 
-    const v2, 0x7f0206dc
+    const v2, 0x7f0206e3
 
-    const v3, 0x7f0206dd
+    const v3, 0x7f0206e4
 
-    const v4, 0x7f0206de
+    const v4, 0x7f0206e5
 
-    const v5, 0x7f0206df
+    const v5, 0x7f0206e6
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -450,15 +450,15 @@
 
     aput-object v1, v0, v6
 
-    const v1, 0x7f0206db
+    const v1, 0x7f0206e2
 
-    const v2, 0x7f0206dc
+    const v2, 0x7f0206e3
 
-    const v3, 0x7f0206dd
+    const v3, 0x7f0206e4
 
-    const v4, 0x7f0206de
+    const v4, 0x7f0206e5
 
-    const v5, 0x7f0206df
+    const v5, 0x7f0206e6
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -487,24 +487,24 @@
     if-eq v12, v13, :cond_c
 
     :cond_c
-    const v0, 0x7f020804
+    const v0, 0x7f0207b9
 
-    const v1, 0x7f020804
+    const v1, 0x7f0207b9
 
-    const v2, 0x7f020804
+    const v2, 0x7f0207b9
 
-    const v3, 0x7f020804
+    const v3, 0x7f0207b9
 
     goto :goto_1
 
     :cond_d
-    const v0, 0x7f020692
+    const v0, 0x7f020699
 
-    const v1, 0x7f020684
+    const v1, 0x7f02068b
 
-    const v2, 0x7f020699
+    const v2, 0x7f0206a0
 
-    const v3, 0x7f02068c
+    const v3, 0x7f020693
 
     :goto_1
     filled-new-array {v0, v1, v2, v3}, [I
@@ -513,13 +513,13 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/WifiIcons;->WIFI_ACTIVITY_DEFAULT:[I
 
-    const v0, 0x7f0206eb
+    const v0, 0x7f0206f2
 
-    const v1, 0x7f0206e9
+    const v1, 0x7f0206f0
 
-    const v2, 0x7f0206ec
+    const v2, 0x7f0206f3
 
-    const v3, 0x7f0206ea
+    const v3, 0x7f0206f1
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -527,13 +527,13 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/WifiIcons;->WIFI_ACTIVITY_LGT:[I
 
-    const v0, 0x7f0206e2
+    const v0, 0x7f0206e9
 
-    const v1, 0x7f0206e0
+    const v1, 0x7f0206e7
 
-    const v2, 0x7f0206e3
+    const v2, 0x7f0206ea
 
-    const v3, 0x7f0206e1
+    const v3, 0x7f0206e8
 
     filled-new-array {v0, v1, v2, v3}, [I
 

@@ -58,7 +58,6 @@
 
     move-result v3
 
-    # setter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryLevel:I
     invoke-static {v2, v3}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$202(Lcom/android/systemui/statusbar/policy/BatteryBar;I)I
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
@@ -76,12 +75,10 @@
     const/4 v1, 0x1
 
     :cond_0
-    # setter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryCharging:Z
     invoke-static {v2, v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$302(Lcom/android/systemui/statusbar/policy/BatteryBar;Z)Z
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryCharging:Z
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$300(Lcom/android/systemui/statusbar/policy/BatteryBar;)Z
 
     move-result v1
@@ -90,7 +87,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryLevel:I
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$200(Lcom/android/systemui/statusbar/policy/BatteryBar;)I
 
     move-result v1
@@ -106,12 +102,10 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryLevel:I
     invoke-static {v2}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$200(Lcom/android/systemui/statusbar/policy/BatteryBar;)I
 
     move-result v2
 
-    # invokes: Lcom/android/systemui/statusbar/policy/BatteryBar;->setProgress(I)V
     invoke-static {v1, v2}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$400(Lcom/android/systemui/statusbar/policy/BatteryBar;I)V
 
     :cond_1
@@ -151,7 +145,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryCharging:Z
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$300(Lcom/android/systemui/statusbar/policy/BatteryBar;)Z
 
     move-result v1
@@ -160,7 +153,6 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BatteryBar$1;->this$0:Lcom/android/systemui/statusbar/policy/BatteryBar;
 
-    # getter for: Lcom/android/systemui/statusbar/policy/BatteryBar;->mBatteryLevel:I
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/BatteryBar;->access$200(Lcom/android/systemui/statusbar/policy/BatteryBar;)I
 
     move-result v1

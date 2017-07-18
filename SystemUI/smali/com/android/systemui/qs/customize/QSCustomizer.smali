@@ -117,7 +117,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/QSCustomizer;->mToolbar:Landroid/widget/Toolbar;
 
-    const v3, 0x7f0f0598
+    const v3, 0x7f0f059a
 
     invoke-virtual {v2, v3}, Landroid/widget/Toolbar;->setTitle(I)V
 

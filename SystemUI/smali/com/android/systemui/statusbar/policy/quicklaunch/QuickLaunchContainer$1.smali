@@ -45,7 +45,6 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$1;->val$id:I
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->removeButton(I)V
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$2(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$1;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;

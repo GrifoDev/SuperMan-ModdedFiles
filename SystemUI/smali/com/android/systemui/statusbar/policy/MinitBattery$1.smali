@@ -56,7 +56,6 @@
 
     move-result v1
 
-    # setter for: Lcom/android/systemui/statusbar/policy/MinitBattery;->mLevel:I
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/MinitBattery;->access$002(Lcom/android/systemui/statusbar/policy/MinitBattery;I)I
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MinitBattery$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitBattery;
@@ -69,18 +68,15 @@
 
     move-result v1
 
-    # setter for: Lcom/android/systemui/statusbar/policy/MinitBattery;->mStatus:I
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/MinitBattery;->access$102(Lcom/android/systemui/statusbar/policy/MinitBattery;I)I
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MinitBattery$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitBattery;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitBattery;->getSettings()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MinitBattery;->access$200(Lcom/android/systemui/statusbar/policy/MinitBattery;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MinitBattery$1;->this$0:Lcom/android/systemui/statusbar/policy/MinitBattery;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/MinitBattery;->updateImageView()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MinitBattery;->access$300(Lcom/android/systemui/statusbar/policy/MinitBattery;)V
 
     return-void

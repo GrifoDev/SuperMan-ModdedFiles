@@ -241,7 +241,13 @@
 .end method
 
 .method public onDataConnectionStateChanged(II)V
-    .locals 3
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     sget-boolean v0, Lcom/android/systemui/statusbar/policy/MobileSignalController;->DEBUG:Z
 
@@ -282,9 +288,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x2
-
-    if-ne p1, v0, :cond_1
+    if-ne p1, v5, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
@@ -304,9 +308,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set0(Lcom/android/systemui/statusbar/policy/MobileSignalController;Z)Z
+    invoke-static {v0, v4}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set0(Lcom/android/systemui/statusbar/policy/MobileSignalController;Z)Z
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
@@ -331,11 +333,16 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set3(Lcom/android/systemui/statusbar/policy/MobileSignalController;I)I
+    invoke-static {v0, v3}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set3(Lcom/android/systemui/statusbar/policy/MobileSignalController;I)I
 
     :cond_2
+    if-ne p1, v5, :cond_5
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-static {v0, v4}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set5(Lcom/android/systemui/statusbar/policy/MobileSignalController;Z)Z
+
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
     iget v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->mSubId:I
@@ -393,6 +400,13 @@
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-wrap5(Lcom/android/systemui/statusbar/policy/MobileSignalController;)V
 
     return-void
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-static {v0, v3}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set5(Lcom/android/systemui/statusbar/policy/MobileSignalController;Z)Z
+
+    goto :goto_0
 .end method
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
@@ -476,7 +490,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v1, p1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set5(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
+    invoke-static {v1, p1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set6(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
@@ -726,7 +740,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set6(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-set7(Lcom/android/systemui/statusbar/policy/MobileSignalController;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 

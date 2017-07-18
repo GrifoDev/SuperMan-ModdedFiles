@@ -1599,6 +1599,7 @@ VPNにも接続しているため、VPNもネットワークアクティビテ�
     <string name="dcm_lockscreen_unlock_help_text_fingerprints">開くには指紋認証を使用するかロック解除アイコンをタップしてください</string>
     <string name="dcm_lockscreen_bouncer_instructions">開くにはもう一度タップしてください</string>
     <string name="dcm_lockscreen_bouncer_instructions_fingerprints">開くには指紋認証を使用するかもう一度タップしてください</string>
+    <string name="remote_input_toast_text_on_sview_cover">S View Coverを閉じている間は、クイック返信機能を使用できません。</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

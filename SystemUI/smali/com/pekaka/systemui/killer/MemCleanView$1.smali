@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/pekaka/systemui/killer/MemCleanView$1;->this$0:Lcom/pekaka/systemui/killer/MemCleanView;
 
-    # getter for: Lcom/pekaka/systemui/killer/MemCleanView;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/pekaka/systemui/killer/MemCleanView;->access$000(Lcom/pekaka/systemui/killer/MemCleanView;)Landroid/os/Handler;
 
     move-result-object v0

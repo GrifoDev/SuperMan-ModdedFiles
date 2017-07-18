@@ -181,7 +181,7 @@
     <string name="launch_defaults_some">Some defaults set</string>
     <string name="launch_defaults_none">No defaults set</string>
     <string name="tts_settings">Text-to-speech settings</string>
-    <string name="tts_settings_title">Text-to-speech output</string>
+    <string name="tts_settings_title">Text-to-speech</string>
     <string name="tts_default_rate_title">Speech rate</string>
     <string name="tts_default_rate_summary">Speed at which the text is spoken</string>
     <string name="tts_default_pitch_title">Pitch</string>
@@ -928,6 +928,8 @@ data"</string>
     <string name="quick_settings_volte_label">VoLTE</string>
     <string name="quick_settings_wificalling_label">"Wifi
 Calling"</string>
+    <string name="quick_settings_wificalling_label_non_translatable">"Wifi
+Calling"</string>
     <string name="quick_settings_personal_mode_label">"Private
 mode"</string>
     <string name="quick_settings_data_roaming_label">"Data
@@ -1103,6 +1105,7 @@ The Wi-Fi calling icon will appear in the notification panel as shown below whil
     <string name="quick_settings_dual_label_content_description">%s, Button label, Double tap to view relevant quick settings.</string>
     <string name="accessibility_button">Button</string>
     <string name="quick_settings_brightness_auto_brightness">Auto brightness</string>
+    <string name="quick_settings_brightness_auto_brightness_summary">Adjust the screen brightness automatically based on the lighting conditions.</string>
     <string name="quick_settings_brightness_quick_access">Show control on top</string>
     <string name="quick_settings_brightness_quick_access_summary">Show the brightness control above the notification panel.</string>
     <string name="quick_settings_brightness_detail_level">Level</string>
@@ -1801,6 +1804,7 @@ upscaler"</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints_iris">Use fingerprint to unlock device or tap Lock icon to use irises instead</string>
     <string name="dcm_lockscreen_bouncer_instructions">Touch again to open</string>
     <string name="dcm_lockscreen_bouncer_instructions_fingerprints">Use fingerprint or Touch again to open</string>
+    <string name="remote_input_toast_text_on_sview_cover">Unable to use Quick reply function while S view cover closed.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>
@@ -1818,8 +1822,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_body4">In regard to your use of Wi-Fi Calling, we – as your personal data controller – will process your data based on the number and model of the device on which you use Wi-Fi Calling, the software used on the device, the endpoint of the network used to connect with Wi-Fi Calling (including the IP address and the country to which this IP address is attributed), and the time and duration of each call, in order to perform and settle the service, answer any complaints, and to perform any statutory obligations. We will process this data for the duration of the agreement on providing telecommunication services between you and us, and after its termination – for the period of recovery of claims and of performing other tasks defined in the provisions of law. Providing the data is voluntary, but it is necessary to use the service. You have the right to access and to rectify your data.</string>
     <string name="wfc_enable_dialog_opv_body5">Please find our data: Orange Polska S.A., address: Aleje Jerozolimskie 160, 02-326 Warsaw, Poland, registered in the Register of the Entrepreneurs of District Court for the Capital City of Warsaw in Warsaw, XII Commercial Division of the National Court Register (KRS), under entry number 0000010681, NIP (tax ID) 526-02-50-995; with share capital (fully paid up) of PLN 3,937,072,437.00.</string>
     <string name="wfc_enable_dialog_opv_btn">I ACCEPT</string>
-    <item type="string" name="APKTOOL_DUMMY_6a5">false</item>
-    <item type="string" name="APKTOOL_DUMMY_6a6">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6a8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_6a9">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>

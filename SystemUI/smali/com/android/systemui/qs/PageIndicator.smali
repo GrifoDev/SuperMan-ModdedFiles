@@ -408,7 +408,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0f05c1
+    const v5, 0x7f0f05c3
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

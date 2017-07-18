@@ -376,14 +376,14 @@
 
     if-eqz v0, :cond_5
 
-    const v8, 0x7f0f0410
+    const v8, 0x7f0f0411
 
     :goto_4
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->IS_DCM_POPUP:Z
 
     if-eqz v0, :cond_6
 
-    const v7, 0x7f0f0411
+    const v7, 0x7f0f0412
 
     :goto_5
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
@@ -406,9 +406,9 @@
 
     invoke-direct {v6, p0}, Lcom/android/systemui/qs/tiles/LocationTile$2;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
 
-    const v3, 0x7f0f03d1
+    const v3, 0x7f0f03d2
 
-    const v5, 0x7f0f03d2
+    const v5, 0x7f0f03d3
 
     move-object v0, p0
 
@@ -417,7 +417,7 @@
     goto :goto_3
 
     :cond_5
-    const v8, 0x7f0f040d
+    const v8, 0x7f0f040e
 
     goto :goto_4
 
@@ -428,12 +428,12 @@
 
     if-eqz v0, :cond_7
 
-    const v7, 0x7f0f040f
+    const v7, 0x7f0f0410
 
     goto :goto_5
 
     :cond_7
-    const v7, 0x7f0f040e
+    const v7, 0x7f0f040f
 
     goto :goto_5
 
@@ -479,7 +479,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/LocationTile;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0f03bd
+    const v2, 0x7f0f03be
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

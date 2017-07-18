@@ -1588,6 +1588,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">"Améliorez la résolution sonore de la musique et des vidéos pour bénéficier d'une expérience d'écoute plus agréable."</string>
     <string name="assistance_app_setting_alert_dialog_title">"Sélectionnez une application à ouvrir lorsque vous maintenez la touche Accueil. Pour modifier ultérieurement l'application sélectionnée, accédez à l'application d'assistance de l'appareil dans Paramètres."</string>
     <string name="assistance_app_setting_item_none">Aucun</string>
+    <string name="remote_input_toast_text_on_sview_cover">"Impossible d'utiliser la fonction Réponse rapide quand S View Cover est fermé."</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

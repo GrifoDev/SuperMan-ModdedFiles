@@ -1598,6 +1598,7 @@ upscaler"</string>
     <string name="dcm_lockscreen_unlock_help_text_fingerprints">지문을 사용하거나 자물쇠 아이콘을 누르세요</string>
     <string name="dcm_lockscreen_bouncer_instructions">열려면 다시 한번 눌러주세요</string>
     <string name="dcm_lockscreen_bouncer_instructions_fingerprints">열려면 지문을 사용하거나 다시 한번 눌러주세요</string>
+    <string name="remote_input_toast_text_on_sview_cover">S뷰 커버가 닫힌 상태에서는 빠른 답장 기능을 사용할 수 없습니다.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>

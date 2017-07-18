@@ -653,6 +653,7 @@ UHQ"</string>
     <string name="uhq_mode_noti_text">Poprŏw rozdziylczość klangu dlŏ muzyki i filmōw, coby dostać lepszŏ jakość, kej słuchŏsz.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">Żŏdyn</string>
+    <string name="remote_input_toast_text_on_sview_cover">Niy idzie używać fōnkcyji gibkigo ôdpedzynio po zawarciu deklika S View.</string>
     <string name="wfc_enable_dialog_opv_title">WITAMY W USŁUDZE Wi-Fi CALLING</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling to usługa świadczona przez Twojego operatora, Orange Polska S.A.
 Zapoznaj się z opisem tej usługi przygotowanym przez Twojego operatora."</string>

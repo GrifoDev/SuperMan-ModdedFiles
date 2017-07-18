@@ -50,7 +50,6 @@
 
     iget-object v1, p0, Lcom/android/wubydax/NetworkTraffic$3;->this$0:Lcom/android/wubydax/NetworkTraffic;
 
-    # invokes: Lcom/android/wubydax/NetworkTraffic;->updateSettings()V
     invoke-static {v1}, Lcom/android/wubydax/NetworkTraffic;->access$2000(Lcom/android/wubydax/NetworkTraffic;)V
 
     :cond_0

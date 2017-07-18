@@ -44,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer$SettingsReceiver;->this$0:Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->loadSettings()V
     invoke-static {v0}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$1(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;)V
 
     return-void

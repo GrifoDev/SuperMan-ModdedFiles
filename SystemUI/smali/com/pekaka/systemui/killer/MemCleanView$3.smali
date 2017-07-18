@@ -50,7 +50,6 @@
 
     const/4 v2, 0x0
 
-    # invokes: Lcom/pekaka/systemui/killer/MemCleanView;->toggleUpdateRunner(Z)V
     invoke-static {v1, v2}, Lcom/pekaka/systemui/killer/MemCleanView;->access$400(Lcom/pekaka/systemui/killer/MemCleanView;Z)V
 
     :cond_0
@@ -70,7 +69,6 @@
 
     const/4 v2, 0x1
 
-    # invokes: Lcom/pekaka/systemui/killer/MemCleanView;->toggleUpdateRunner(Z)V
     invoke-static {v1, v2}, Lcom/pekaka/systemui/killer/MemCleanView;->access$400(Lcom/pekaka/systemui/killer/MemCleanView;Z)V
 
     goto :goto_0

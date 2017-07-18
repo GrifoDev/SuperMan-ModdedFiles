@@ -53,7 +53,6 @@
 
     const/4 v2, 0x1
 
-    # invokes: Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->showAppDialog(IZ)V
     invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;->access$0(Lcom/android/systemui/statusbar/policy/quicklaunch/QuickLaunchContainer;IZ)V
 
     return-void

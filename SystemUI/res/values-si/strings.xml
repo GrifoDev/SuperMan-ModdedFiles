@@ -650,6 +650,7 @@ upscaler"</string>
     <string name="uhq_mode_noti_text">පැහැදිලි සවන් දීමේ අත්දැකීමක් සඳහා සංගීතයෙහි සහ වීඩියෝවල හඬ විභේදනය ඉහළ නංවන්න.</string>
     <string name="assistance_app_setting_alert_dialog_title">Select an app to open when you press and hold the Home key. To change the selected app later, go to Device assistance app in Settings.</string>
     <string name="assistance_app_setting_item_none">නොමැත</string>
+    <string name="remote_input_toast_text_on_sview_cover">S view කවරය වසා ඇති අතරේ යුහු පිළිතුරු ක්‍රියාදාමය භාවිතා කළ නොහැකිය.</string>
     <string name="wfc_enable_dialog_opv_title">WELCOME TO WI-FI CALLING SERVICE</string>
     <string name="wfc_enable_dialog_opv_body0">"Wi-Fi Calling is a service of your mobile operator, Orange Polska S.A.
 Please read the description of the service provided by your operator:"</string>
