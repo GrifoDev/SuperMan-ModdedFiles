@@ -546,7 +546,7 @@
 
     move/from16 v0, v16
 
-    invoke-static {v12, v14, v0, v15}, Lcom/android/server/InputMethodManagerService;->-wrap9(Lcom/android/server/InputMethodManagerService;Landroid/os/IBinder;II)V
+    invoke-static {v12, v14, v0, v15}, Lcom/android/server/InputMethodManagerService;->-wrap10(Lcom/android/server/InputMethodManagerService;Landroid/os/IBinder;II)V
 
     move-object/from16 v0, p0
 

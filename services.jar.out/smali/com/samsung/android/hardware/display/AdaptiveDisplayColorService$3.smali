@@ -83,7 +83,7 @@
 
     move-result-wide v6
 
-    invoke-static {v4, v6, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set11(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;J)J
+    invoke-static {v4, v6, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set10(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;J)J
 
     iget-object v4, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService$3;->this$0:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
 
@@ -91,7 +91,7 @@
 
     move-result v5
 
-    invoke-static {v4, v5}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set10(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+    invoke-static {v4, v5}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set9(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
 
     iget-object v4, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService$3;->this$0:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
 

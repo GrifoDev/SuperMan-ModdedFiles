@@ -58,7 +58,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mAuditMessageFormat:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get5(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get6(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mDbColumn:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get4(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get5(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
 
     move-result-object v0
 
@@ -81,7 +81,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mAuditMessageFormat:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get5(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get6(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     move-result-object v0
 
@@ -91,7 +91,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mDbColumn:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get4(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get5(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
 
     move-result-object v0
 
@@ -104,7 +104,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mAuditMessageFormat:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get7(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get8(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     move-result-object v0
 
@@ -114,7 +114,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mDbColumn:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get6(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get7(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
 
     move-result-object v0
 
@@ -127,7 +127,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mAuditMessageFormat:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get7(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get8(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     move-result-object v0
 
@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$TrustListOperation;->mDbColumn:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get6(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
+    invoke-static {p1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get7(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/certificate/CertificateCache;
 
     move-result-object v0
 

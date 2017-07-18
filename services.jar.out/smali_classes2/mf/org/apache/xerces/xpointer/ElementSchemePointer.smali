@@ -694,7 +694,6 @@
 
     move-object v3, p1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;->scanExpr(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;Ljava/lang/String;II)Z
     invoke-static/range {v0 .. v5}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;->access$1(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;Ljava/lang/String;II)Z
 
     move-result v0
@@ -702,7 +701,6 @@
     if-eqz v0, :cond_0
 
     :goto_0
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->getTokenCount()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
     move-result v0
@@ -716,14 +714,12 @@
     move v0, v4
 
     :goto_1
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->hasMore()Z
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
     move-result v3
@@ -752,12 +748,10 @@
     goto :goto_0
 
     :pswitch_0
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
     move-result v3
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v3}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)Ljava/lang/String;
 
     move-result-object v3
@@ -781,7 +775,6 @@
     goto :goto_1
 
     :pswitch_1
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;)I
 
     move-result v3

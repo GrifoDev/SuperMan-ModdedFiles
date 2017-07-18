@@ -97,7 +97,7 @@
 
     iget v5, v0, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap13(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    invoke-static {v4, v5}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
 
     goto :goto_0
 

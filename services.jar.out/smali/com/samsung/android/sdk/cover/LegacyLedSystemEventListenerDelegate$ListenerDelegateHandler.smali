@@ -99,7 +99,6 @@
 
     :cond_2
     :try_start_1
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -133,7 +132,6 @@
     :catch_0
     move-exception v1
 
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -149,7 +147,6 @@
     :catch_1
     move-exception v1
 
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v3
@@ -211,7 +208,6 @@
     :catch_2
     move-exception v0
 
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -245,7 +241,6 @@
     :catch_3
     move-exception v0
 
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -279,7 +274,6 @@
     :catch_4
     move-exception v0
 
-    # getter for: Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/sdk/cover/LegacyLedSystemEventListenerDelegate;->access$000()Ljava/lang/String;
 
     move-result-object v2

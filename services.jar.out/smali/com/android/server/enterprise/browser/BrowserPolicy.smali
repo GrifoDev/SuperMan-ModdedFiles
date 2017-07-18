@@ -3999,261 +3999,362 @@
 .end method
 
 .method public setBrowserSettingStatus(Lcom/samsung/android/knox/ContextInfo;ZI)Z
-    .locals 12
+    .locals 20
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/browser/BrowserPolicy;->enforceBrowserPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/browser/BrowserPolicy;->enforceBrowserPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-object/from16 v0, p1
 
-    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
+    iget v10, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-static {v10}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v8
 
-    const/4 v5, 0x0
+    const/16 v16, 0x0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v6
+    move-result-wide v18
 
     :try_start_0
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v10, "BROWSER"
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v11, "browserSettings"
+    const-string/jumbo v3, "BROWSER"
 
-    invoke-virtual {v9, v1, v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v4, "browserSettings"
+
+    invoke-virtual {v2, v10, v3, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    move-result v13
 
     :goto_0
     if-eqz p2, :cond_1
 
-    or-int/2addr v4, p3
+    or-int v13, v13, p3
 
     :goto_1
     :try_start_1
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v10, "BROWSER"
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v11, "browserSettings"
+    const-string/jumbo v3, "BROWSER"
 
-    invoke-virtual {v9, v1, v10, v11, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
+    const-string/jumbo v4, "browserSettings"
 
-    move-result v5
+    invoke-virtual {v2, v10, v3, v4, v13}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
+
+    move-result v16
 
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object v9
 
-    const-string/jumbo v9, "com.android.browser"
+    const-string/jumbo v2, "com.android.browser"
 
-    invoke-interface {v0, v9, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
+    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
 
-    const-string/jumbo v9, "com.sec.android.app.sbrowser"
+    const-string/jumbo v2, "com.sec.android.app.sbrowser"
 
-    invoke-interface {v0, v9, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
+    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
 
-    const-string/jumbo v9, "com.android.chrome"
+    const-string/jumbo v2, "com.android.chrome"
 
-    invoke-interface {v0, v9, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
+    invoke-interface {v9, v2, v8}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;I)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     :goto_2
-    const-string/jumbo v9, "BrowserPolicy"
+    const-string/jumbo v2, "BrowserPolicy"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "setBrowserSettingStatus() : = "
+    const-string/jumbo v4, "setBrowserSettingStatus() : = "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v3
 
-    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move/from16 v0, v16
 
-    move-result-object v10
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, ", enable = "
+    move-result-object v3
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, ", enable = "
 
-    move-result-object v10
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v10
+    move/from16 v0, p2
 
-    const-string/jumbo v11, ",  setting = "
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v10
+    const-string/jumbo v4, ",  setting = "
 
-    invoke-virtual {v10, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v3
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v0, p3
 
-    move-result-object v10
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    if-eqz v5, :cond_0
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v16, :cond_0
 
     sparse-switch p3, :sswitch_data_0
 
     :goto_3
-    const-string/jumbo v9, "BrowserPolicy"
+    const-string/jumbo v2, "BrowserPolicy"
 
-    const-string/jumbo v10, "setBrowserSettingStatus() : SecContentProvider updated."
+    const-string/jumbo v3, "setBrowserSettingStatus() : SecContentProvider updated."
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return v5
+    return v16
 
     :catch_0
-    move-exception v2
+    move-exception v11
 
     :try_start_2
-    const-string/jumbo v9, "BrowserPolicy"
+    const-string/jumbo v2, "BrowserPolicy"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "setBrowserSettingStatus("
+    const-string/jumbo v4, "setBrowserSettingStatus("
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v3
 
-    invoke-virtual {v10, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v0, p3
 
-    move-result-object v10
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, ") : EdmStorageProvider failed to read Data. "
+    move-result-object v3
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, ") : EdmStorageProvider failed to read Data. "
 
-    move-result-object v10
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v10
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v9, v10, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v3
+
+    invoke-static {v2, v3, v11}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/16 v4, 0x1f
+    const/16 v13, 0x1f
 
     goto/16 :goto_0
 
     :cond_1
-    not-int v9, p3
+    move/from16 v0, p3
 
-    and-int/2addr v4, v9
+    not-int v2, v0
+
+    and-int/2addr v13, v2
 
     goto/16 :goto_1
 
     :catch_1
-    move-exception v3
+    move-exception v12
 
     :try_start_3
-    const-string/jumbo v9, "BrowserPolicy"
+    const-string/jumbo v2, "BrowserPolicy"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "setBrowserSettingStatus("
+    const-string/jumbo v4, "setBrowserSettingStatus("
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v3
 
-    invoke-virtual {v10, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v0, p3
 
-    move-result-object v10
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v11, ") : failed. "
+    move-result-object v3
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, ") : failed. "
 
-    move-result-object v10
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v10
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v9, v10, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v3
+
+    invoke-static {v2, v3, v12}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto/16 :goto_2
 
     :catchall_0
-    move-exception v9
+    move-exception v2
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v9
+    throw v2
 
     :sswitch_0
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v10, "BrowserPolicy/getPopupsSetting"
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
 
-    invoke-static {v9, v10, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+    const-string/jumbo v3, "BrowserPolicy/getPopupsSetting"
+
+    invoke-static {v2, v3, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_3
 
     :sswitch_1
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v10, "BrowserPolicy/getCookiesSetting"
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
 
-    invoke-static {v9, v10, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+    const-string/jumbo v3, "BrowserPolicy/getCookiesSetting"
+
+    invoke-static {v2, v3, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_3
 
     :sswitch_2
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v10, "BrowserPolicy/getAutoFillSetting"
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
 
-    invoke-static {v9, v10, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+    const-string/jumbo v3, "BrowserPolicy/getAutoFillSetting"
 
-    goto :goto_3
+    invoke-static {v2, v3, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
 
-    :sswitch_3
-    iget-object v9, p0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    const-string/jumbo v10, "BrowserPolicy/getJavaScriptSetting"
+    move-result-wide v14
 
-    invoke-static {v9, v10, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+    :try_start_4
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "BrowserPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    if-eqz p2, :cond_2
+
+    const-string/jumbo v2, "enabled"
+
+    :goto_4
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " Auto Fill Setting "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto/16 :goto_3
 
-    nop
+    :cond_2
+    :try_start_5
+    const-string/jumbo v2, "disabled"
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    goto :goto_4
+
+    :catchall_1
+    move-exception v2
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+
+    :sswitch_3
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/browser/BrowserPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v3, "BrowserPolicy/getJavaScriptSetting"
+
+    invoke-static {v2, v3, v8}, Lcom/android/server/enterprise/content/SecContentProvider;->notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
+
+    goto/16 :goto_3
 
     :sswitch_data_0
     .sparse-switch

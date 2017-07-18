@@ -102,17 +102,14 @@
 
     iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$ReferenceListImpl$ReferenceImpl;->this$2:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$ReferenceListImpl;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$ReferenceListImpl;->this$1:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$ReferenceListImpl;->access$500(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$ReferenceListImpl;)Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;
 
     move-result-object v0
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;->access$400(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;)Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
     move-result-object v0
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_contextDocument:Lorg/w3c/dom/Document;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$200(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lorg/w3c/dom/Document;
 
     move-result-object v0

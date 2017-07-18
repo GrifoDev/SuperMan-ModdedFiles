@@ -59,6 +59,10 @@
 
 .field private static final FIT_WITHIN_BOUNDS_DIVIDER:I = 0x3
 
+.field static final FLAG_MULTIWINDOWRECORD_NOWVISIBLE:I = 0x0
+
+.field static final FLAG_MULTIWINDOWRECORD_VISIBLE:I = 0x1
+
 .field static final FORCE_FOCUS:Z = true
 
 .field private static final FORWARD_INTENT_TO_MANAGED_PROFILE:Ljava/lang/String; = "com.android.internal.app.ForwardIntentToManagedProfile"
@@ -2736,13 +2740,32 @@
     return v5
 
     :cond_1
-    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxMultiwindowVisibleLocked(I)Z
+    iget-object v3, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v3
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxMultiwindowVisibleLocked(II)Z
 
     move-result v2
 
     if-nez v2, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxFullscreenVisibleLocked(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/server/pm/PersonaManagerService;->getForegroundUser()I
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/samsung/android/knox/SemPersonaManager;->isSecureFolderId(I)Z
 
     move-result v2
 
@@ -2761,18 +2784,43 @@
     :cond_2
     const-string/jumbo v2, "SecureFolder"
 
-    const-string/jumbo v3, "it\'s secure folder. Thus do not lock!"
+    const-string/jumbo v4, "it\'s secure folder. Thus do not lock!"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v3
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     return v6
 
     :cond_3
+    monitor-exit v3
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    const/4 v1, 0x0
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v3
+
+    :try_start_1
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
     if-eqz p2, :cond_4
 
     move-object v1, p2
 
     :goto_0
+    monitor-exit v3
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
     if-nez v1, :cond_5
 
     const-string/jumbo v2, "SecureFolder"
@@ -2783,14 +2831,35 @@
 
     return v5
 
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v2
+
     :cond_4
+    :try_start_2
     iget-object v2, p0, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
 
     invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     move-result-object v1
 
     goto :goto_0
+
+    :catchall_1
+    move-exception v2
+
+    monitor-exit v3
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v2
 
     :cond_5
     iget-object v2, v1, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
@@ -9603,6 +9672,18 @@
 .end method
 
 .method public isKnoxMultiwindowVisibleLocked(I)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/am/ActivityStackSupervisor;->isKnoxMultiwindowVisibleLocked(II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isKnoxMultiwindowVisibleLocked(II)Z
     .locals 13
 
     const/4 v12, 0x3
@@ -9622,7 +9703,7 @@
     add-int/lit8 v0, v8, -0x1
 
     :goto_0
-    if-ltz v0, :cond_8
+    if-ltz v0, :cond_a
 
     iget-object v8, p0, Lcom/android/server/am/ActivityStackSupervisor;->mActivityDisplays:Landroid/util/SparseArray;
 
@@ -9641,7 +9722,7 @@
     add-int/lit8 v3, v8, -0x1
 
     :goto_1
-    if-ltz v3, :cond_7
+    if-ltz v3, :cond_9
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -9649,7 +9730,7 @@
 
     check-cast v2, Lcom/android/server/am/ActivityStack;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8
 
     invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
@@ -9662,7 +9743,7 @@
     add-int/lit8 v6, v8, -0x1
 
     :goto_2
-    if-ltz v6, :cond_6
+    if-ltz v6, :cond_8
 
     invoke-virtual {v7, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -9672,7 +9753,7 @@
 
     if-eqz v5, :cond_2
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_4
 
     iget v8, v5, Lcom/android/server/am/TaskRecord;->userId:I
 
@@ -9699,6 +9780,8 @@
 
     move-result-object v1
 
+    if-nez p2, :cond_3
+
     if-eqz v1, :cond_2
 
     iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
@@ -9720,6 +9803,17 @@
     goto :goto_2
 
     :cond_3
+    if-ne p2, v10, :cond_2
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->visible:Z
+
+    if-eqz v8, :cond_2
+
+    return v10
+
+    :cond_4
     iget v8, v5, Lcom/android/server/am/TaskRecord;->userId:I
 
     invoke-static {v8}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
@@ -9736,19 +9830,21 @@
 
     move-result v8
 
-    if-eq v8, v11, :cond_4
+    if-eq v8, v11, :cond_5
 
     invoke-virtual {v2}, Lcom/android/server/am/ActivityStack;->getStackId()I
 
     move-result v8
 
-    if-ne v8, v12, :cond_5
+    if-ne v8, v12, :cond_6
 
-    :cond_4
+    :cond_5
     :goto_3
     invoke-virtual {v5}, Lcom/android/server/am/TaskRecord;->topRunningActivityLocked()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v1
+
+    if-nez p2, :cond_7
 
     if-eqz v1, :cond_2
 
@@ -9758,7 +9854,7 @@
 
     return v10
 
-    :cond_5
+    :cond_6
     invoke-virtual {p0, v2}, Lcom/android/server/am/ActivityStackSupervisor;->isSplitMode(Lcom/android/server/am/ActivityStack;)Z
 
     move-result v8
@@ -9767,17 +9863,28 @@
 
     goto :goto_3
 
-    :cond_6
+    :cond_7
+    if-ne p2, v10, :cond_2
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v8, v1, Lcom/android/server/am/ActivityRecord;->visible:Z
+
+    if-eqz v8, :cond_2
+
+    return v10
+
+    :cond_8
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_7
+    :cond_9
     add-int/lit8 v0, v0, -0x1
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_a
     return v9
 .end method
 

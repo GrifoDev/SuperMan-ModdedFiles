@@ -86,7 +86,6 @@
 
     iget-object v2, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
     invoke-static {v2}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$0(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/org/apache/xerces/xni/QName;
 
     move-result-object v2
@@ -95,14 +94,12 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fEventFactory:Lmf/javax/xml/stream/XMLEventFactory;
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$1(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/javax/xml/stream/XMLEventFactory;
 
     move-result-object v1
 
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$0(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/org/apache/xerces/xni/QName;
 
     move-result-object v0
@@ -111,7 +108,6 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$0(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/org/apache/xerces/xni/QName;
 
     move-result-object v0
@@ -125,7 +121,6 @@
     :goto_0
     iget-object v3, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
     invoke-static {v3}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$0(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/org/apache/xerces/xni/QName;
 
     move-result-object v3
@@ -160,7 +155,6 @@
     :cond_1
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder$AttributeIterator;->this$0:Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->fAttrName:Lmf/org/apache/xerces/xni/QName;
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;->access$0(Lmf/org/apache/xerces/jaxp/validation/StAXEventResultBuilder;)Lmf/org/apache/xerces/xni/QName;
 
     move-result-object v0

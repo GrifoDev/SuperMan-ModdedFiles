@@ -104,7 +104,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-get33(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/lights/LightsManager;
+    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-get34(Lcom/android/server/power/PowerManagerService;)Lcom/android/server/lights/LightsManager;
 
     move-result-object v0
 

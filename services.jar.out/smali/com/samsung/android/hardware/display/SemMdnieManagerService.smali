@@ -73,8 +73,6 @@
 
 .field private mEbookScenarioEnabled:Z
 
-.field private mEmergencyModeDiabled:Z
-
 .field private mFactoryScrBIndex:I
 
 .field private mFactoryScrGIndex:I
@@ -155,14 +153,6 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/samsung/android/hardware/display/SemMdnieManagerService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mEmergencyModeDiabled:Z
 
     return v0
 .end method
@@ -353,8 +343,6 @@
     iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
 
     iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
-
-    iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mEmergencyModeDiabled:Z
 
     iput-boolean v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mScreenCurtainEnabled:Z
 
@@ -666,8 +654,6 @@
     iput v4, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContentMode:I
 
     iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mDisplayOn:Z
-
-    iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mEmergencyModeDiabled:Z
 
     iput-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mMdnieWorkingCondition:Z
 
@@ -3165,209 +3151,163 @@
 .end method
 
 .method public setmDNIeAccessibilityMode(IZ)Z
-    .locals 6
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    iget-object v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
+    const-string/jumbo v2, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
 
-    const-string/jumbo v5, "setmDNIeAccessibilityMode"
+    const-string/jumbo v3, "setmDNIeAccessibilityMode"
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v3, "SemMdnieManagerService"
+    const-string/jumbo v1, "SemMdnieManagerService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "setmDNIeAccessibilityMode("
+    const-string/jumbo v3, "setmDNIeAccessibilityMode("
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string/jumbo v5, ", "
+    const-string/jumbo v3, ", "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string/jumbo v5, ")"
+    const-string/jumbo v3, ")"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
+    iget-boolean v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_3
 
-    iget-object v3, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    const/16 v1, 0xa
 
-    invoke-static {v3}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/emergencymode/SemEmergencyManager;
+    if-eq p1, v1, :cond_1
 
-    move-result-object v1
+    const-string/jumbo v1, "/sys/class/mdnie/mdnie/accessibility"
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-virtual {v1}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getEmergencyState()I
+    :goto_0
+    invoke-static {v1, p1}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
 
     move-result v0
 
-    const/4 v3, 0x2
-
-    if-eq v0, v3, :cond_0
-
-    const/4 v3, 0x3
-
-    if-ne v0, v3, :cond_0
+    return v0
 
     :cond_0
-    const/16 v3, 0xa
-
-    if-eq p1, v3, :cond_2
-
-    const-string/jumbo v3, "/sys/class/mdnie/mdnie/accessibility"
-
-    if-eqz p2, :cond_1
-
-    :goto_0
-    invoke-static {v3, p1}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    return v2
-
-    :cond_1
-    move p1, v2
+    move p1, v0
 
     goto :goto_0
 
+    :cond_1
+    const-string/jumbo v1, "/sys/class/backlight/panel/weakness_hbm_comp"
+
+    if-eqz p2, :cond_2
+
+    const/4 v0, 0x1
+
     :cond_2
-    const-string/jumbo v3, "/sys/class/backlight/panel/weakness_hbm_comp"
+    invoke-static {v1, v0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
 
-    if-eqz p2, :cond_3
+    move-result v0
 
-    const/4 v2, 0x1
+    return v0
 
     :cond_3
-    invoke-static {v3, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    return v2
-
-    :cond_4
-    return v2
+    return v0
 .end method
 
 .method public setmDNIeColorBlind(Z[I)Z
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v3, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
+    const-string/jumbo v2, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
 
-    const-string/jumbo v4, "setmDNIeColorBlind"
+    const-string/jumbo v3, "setmDNIeColorBlind"
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v2, "SemMdnieManagerService"
+    const-string/jumbo v1, "SemMdnieManagerService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "setmDNIeColorBlind ("
+    const-string/jumbo v3, "setmDNIeColorBlind ("
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, ")"
+    const-string/jumbo v3, ")"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
+    iget-boolean v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
 
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->isEmergencyMode()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-nez v1, :cond_1
 
     const-string/jumbo v1, "/sys/class/mdnie/mdnie/accessibility"
 
-    const/4 v2, 0x4
+    if-eqz p1, :cond_0
 
-    invoke-static {v1, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    return v1
+    const/4 v0, 0x6
 
     :cond_0
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/accessibility"
+    invoke-static {v1, v0, p2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite_CB_HBM(Ljava/lang/String;I[I)Z
 
-    if-eqz p1, :cond_1
+    move-result v0
 
-    const/4 v1, 0x6
+    return v0
 
     :cond_1
-    invoke-static {v2, v1, p2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite_CB_HBM(Ljava/lang/String;I[I)Z
-
-    move-result v1
-
-    return v1
-
-    :cond_2
-    return v1
+    return v0
 .end method
 
 .method public setmDNIeEmergencyMode(Z)Z
@@ -3429,90 +3369,65 @@
 .end method
 
 .method public setmDNIeNegative(Z)Z
-    .locals 5
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v3, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
+    const-string/jumbo v2, "com.samsung.android.permission.CHANGE_DISPLAY_COLOR"
 
-    const-string/jumbo v4, "setmDNIeNegative"
+    const-string/jumbo v3, "setmDNIeNegative"
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string/jumbo v2, "SemMdnieManagerService"
+    const-string/jumbo v1, "SemMdnieManagerService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "setmDNIeNegative ("
+    const-string/jumbo v3, "setmDNIeNegative ("
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string/jumbo v4, ")"
+    const-string/jumbo v3, ")"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
+    iget-boolean v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mCurtainModeIsRunning:Z
 
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->mContext:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->isEmergencyMode()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-nez v1, :cond_1
 
     const-string/jumbo v1, "/sys/class/mdnie/mdnie/accessibility"
 
-    const/4 v2, 0x4
+    if-eqz p1, :cond_0
 
-    invoke-static {v1, v2}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    return v1
+    const/4 v0, 0x1
 
     :cond_0
-    const-string/jumbo v2, "/sys/class/mdnie/mdnie/accessibility"
+    invoke-static {v1, v0}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
 
-    if-eqz p1, :cond_1
+    move-result v0
 
-    const/4 v1, 0x1
+    return v0
 
     :cond_1
-    invoke-static {v2, v1}, Lcom/samsung/android/hardware/display/SemMdnieManagerService;->sysfsWrite(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    return v1
-
-    :cond_2
-    return v1
+    return v0
 .end method
 
 .method public setmDNIeScreenCurtain(Z)Z

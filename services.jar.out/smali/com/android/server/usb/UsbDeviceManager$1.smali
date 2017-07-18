@@ -76,7 +76,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap4(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap5(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
 
     const-string/jumbo v3, "USB_STATE"
 
@@ -188,7 +188,7 @@
 
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->-wrap7(Lcom/android/server/usb/UsbDeviceManager;)V
+    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->-wrap8(Lcom/android/server/usb/UsbDeviceManager;)V
 
     goto :goto_0
 
@@ -233,13 +233,13 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap6(Lcom/android/server/usb/UsbDeviceManager;Z)V
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap7(Lcom/android/server/usb/UsbDeviceManager;Z)V
 
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     const-string/jumbo v4, "WD"
 
-    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap8(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap9(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -284,13 +284,13 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap6(Lcom/android/server/usb/UsbDeviceManager;Z)V
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap7(Lcom/android/server/usb/UsbDeviceManager;Z)V
 
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     const-string/jumbo v4, "DD"
 
-    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap8(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/android/server/usb/UsbDeviceManager;->-wrap9(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)V
 
     goto/16 :goto_0
 .end method

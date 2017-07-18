@@ -7951,7 +7951,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_14
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -8011,6 +8011,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
+    :goto_1
     const/16 v21, 0x0
 
     const/16 v25, 0x0
@@ -8131,7 +8132,7 @@
 
     if-eqz v2, :cond_7
 
-    :goto_1
+    :goto_2
     const-string/jumbo v2, "type"
 
     move-object/from16 v0, v21
@@ -8170,10 +8171,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_15
 
     :cond_4
-    :goto_2
+    :goto_3
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v2
@@ -8184,7 +8185,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_16
 
     const/4 v2, 0x0
 
@@ -8266,7 +8267,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_16
 
     :cond_5
     invoke-static/range {v16 .. v16}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -8285,7 +8286,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_16
 
     :cond_6
     const-string/jumbo v2, "Tethering"
@@ -8479,11 +8480,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1a
 
     sget-object v2, Lcom/android/server/connectivity/Tethering;->mAutoConfigurationType:Ljava/lang/String;
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     sget-object v2, Lcom/android/server/connectivity/Tethering;->mAutoConfigurationType:Ljava/lang/String;
 
@@ -8493,7 +8494,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -8519,7 +8520,7 @@
 
     move-result-object v9
 
-    :goto_3
+    :goto_4
     :try_start_1
     move-object/from16 v0, p0
 
@@ -8630,7 +8631,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1b
 
     const-string/jumbo v2, "Tethering"
 
@@ -8644,7 +8645,7 @@
     const/16 v25, 0x0
 
     :cond_10
-    :goto_4
+    :goto_5
     if-eqz v21, :cond_11
 
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
@@ -8678,11 +8679,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1e
 
     const/16 v19, 0x1
 
-    :goto_5
+    :goto_6
     if-eqz v19, :cond_12
 
     const/16 v25, 0x0
@@ -8692,7 +8693,7 @@
 
     move-result-wide v28
 
-    if-eqz v25, :cond_1e
+    if-eqz v25, :cond_1f
 
     :try_start_2
     move-object/from16 v0, p0
@@ -8717,7 +8718,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    :goto_6
+    :goto_7
     invoke-static/range {v28 .. v29}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
@@ -8728,6 +8729,21 @@
     goto/16 :goto_0
 
     :cond_14
+    const-string/jumbo v2, "CTG"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v26, "45431"
+
+    goto/16 :goto_1
+
+    :cond_15
     :try_start_3
     const-string/jumbo v2, "Tethering"
 
@@ -8737,9 +8753,9 @@
 
     const/16 v25, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_15
+    :cond_16
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_3
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_3 .. :try_end_3} :catch_0
@@ -8749,7 +8765,7 @@
 
     if-eqz v2, :cond_7
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :catch_0
     move-exception v24
@@ -8781,29 +8797,29 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    if-eqz v21, :cond_16
-
-    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
-
-    :cond_16
-    return-void
-
-    :catchall_0
-    move-exception v2
-
     if-eqz v21, :cond_17
 
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
 
     :cond_17
-    throw v2
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    if-eqz v21, :cond_18
+
+    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
 
     :cond_18
-    const-string/jumbo v9, "numeric = \"311480\""
-
-    goto/16 :goto_3
+    throw v2
 
     :cond_19
+    const-string/jumbo v9, "numeric = \"311480\""
+
+    goto/16 :goto_4
+
+    :cond_1a
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -8830,9 +8846,9 @@
 
     move-result-object v9
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :cond_1a
+    :cond_1b
     :try_start_5
     const-string/jumbo v2, "Tethering"
 
@@ -8845,7 +8861,7 @@
 
     const/16 v25, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :catch_1
     move-exception v24
@@ -8877,29 +8893,29 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    if-eqz v21, :cond_1b
-
-    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
-
-    :cond_1b
-    return-void
-
-    :catchall_1
-    move-exception v2
-
     if-eqz v21, :cond_1c
 
     invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
 
     :cond_1c
-    throw v2
+    return-void
+
+    :catchall_1
+    move-exception v2
+
+    if-eqz v21, :cond_1d
+
+    invoke-interface/range {v21 .. v21}, Landroid/database/Cursor;->close()V
 
     :cond_1d
-    const/16 v19, 0x0
-
-    goto/16 :goto_5
+    throw v2
 
     :cond_1e
+    const/16 v19, 0x0
+
+    goto/16 :goto_6
+
+    :cond_1f
     :try_start_7
     move-object/from16 v0, p0
 
@@ -8917,7 +8933,7 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     :catchall_2
     move-exception v2

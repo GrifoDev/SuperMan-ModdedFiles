@@ -543,6 +543,8 @@
 
 .field private ecIcon:[B
 
+.field private enabledAccessibilityServices:Ljava/lang/String;
+
 .field enabledKioskContainerId:I
 
 .field private googlePackageList:Ljava/util/ArrayList;
@@ -1014,12 +1016,20 @@
 .method static synthetic -get10(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
     .locals 1
 
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIKnoxModeChangeObserver:Landroid/os/RemoteCallbackList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
+    .locals 1
+
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mISystemPersonaObserver:Landroid/os/RemoteCallbackList;
 
     return-object v0
 .end method
 
-.method static synthetic -get11(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get12(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIsAdminLock:Z
@@ -1027,7 +1037,7 @@
     return v0
 .end method
 
-.method static synthetic -get12(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get13(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIsFOTAUpgrade:Z
@@ -1035,7 +1045,7 @@
     return v0
 .end method
 
-.method static synthetic -get13(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardDelegate;
+.method static synthetic -get14(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardDelegate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguard:Lcom/android/server/pm/KnoxKeyguardDelegate;
@@ -1043,7 +1053,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get14(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
+.method static synthetic -get15(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mKeyguardUpdateMonitor:Lcom/android/server/pm/KnoxKeyguardUpdateMonitor;
@@ -1051,7 +1061,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
+.method static synthetic -get16(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPackageInstallObserver:Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
@@ -1059,7 +1069,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get16(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/ArrayList;
+.method static synthetic -get17(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPartialsForPrune:Ljava/util/ArrayList;
@@ -1067,7 +1077,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
+.method static synthetic -get18(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPasswordMap:Ljava/util/Map;
@@ -1075,18 +1085,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get18(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
+.method static synthetic -get19(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaDbLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaHandler:Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
 
     return-object v0
 .end method
@@ -1099,7 +1101,15 @@
     return v0
 .end method
 
-.method static synthetic -get20(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseArray;
+.method static synthetic -get20(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaHandler:Lcom/android/server/pm/PersonaManagerService$PersonaHandler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonas:Landroid/util/SparseArray;
@@ -1107,7 +1117,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
+.method static synthetic -get22(Lcom/android/server/pm/PersonaManagerService;)Lcom/android/server/pm/PackageManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mPm:Lcom/android/server/pm/PackageManagerService;
@@ -1115,7 +1125,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get22(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
+.method static synthetic -get23(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -1123,7 +1133,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get23(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
+.method static synthetic -get24(Lcom/android/server/pm/PersonaManagerService;)Landroid/util/SparseBooleanArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mRemovingPersonaIds:Landroid/util/SparseBooleanArray;
@@ -1131,7 +1141,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get24(Lcom/android/server/pm/PersonaManagerService;)I
+.method static synthetic -get25(Lcom/android/server/pm/PersonaManagerService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
@@ -1139,7 +1149,7 @@
     return v0
 .end method
 
-.method static synthetic -get25(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
+.method static synthetic -get26(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mShownSdcardAlertMap:Ljava/util/HashMap;
@@ -1147,7 +1157,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get26(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
+.method static synthetic -get27(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mTimerMap:Ljava/util/HashMap;
@@ -1155,7 +1165,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get27(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/List;
+.method static synthetic -get28(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/List;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mTypeList:Ljava/util/List;
@@ -1163,7 +1173,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get28(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get29(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->restartAccessibilityServiceForOwner:Z
@@ -1171,7 +1181,15 @@
     return v0
 .end method
 
-.method static synthetic -get29(Lcom/android/server/pm/PersonaManagerService;)Z
+.method static synthetic -get3(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->enabledAccessibilityServices:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get30(Lcom/android/server/pm/PersonaManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService;->xmlnotParsedforFOTA:Z
@@ -1179,7 +1197,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
+.method static synthetic -get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
@@ -1187,7 +1205,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
+.method static synthetic -get5(Lcom/android/server/pm/PersonaManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mDPMStateChangeReceiver:Landroid/content/BroadcastReceiver;
@@ -1195,7 +1213,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
+.method static synthetic -get6(Lcom/android/server/pm/PersonaManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mDeviceEmergencyModeLock:Ljava/lang/Object;
@@ -1203,7 +1221,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
+.method static synthetic -get7(Lcom/android/server/pm/PersonaManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mEncodedPasswordMap:Ljava/util/Map;
@@ -1211,7 +1229,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Lcom/android/server/pm/PersonaManagerService;)Lcom/sec/knox/container/util/KnoxFileHandler;
+.method static synthetic -get8(Lcom/android/server/pm/PersonaManagerService;)Lcom/sec/knox/container/util/KnoxFileHandler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mFSHandler:Lcom/sec/knox/container/util/KnoxFileHandler;
@@ -1219,18 +1237,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
+.method static synthetic -get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/hardware/fingerprint/FingerprintManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/server/pm/PersonaManagerService;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService;->mIKnoxModeChangeObserver:Landroid/os/RemoteCallbackList;
 
     return-object v0
 .end method
@@ -1488,7 +1498,15 @@
     goto/16 :goto_0
 .end method
 
-.method static synthetic -set0(Lcom/android/server/pm/PersonaManagerService;I)I
+.method static synthetic -set0(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService;->enabledAccessibilityServices:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic -set1(Lcom/android/server/pm/PersonaManagerService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/pm/PersonaManagerService;->installResult:I
@@ -1496,7 +1514,7 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set2(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->kisokContainerFirstSwitch:Z
@@ -1504,7 +1522,7 @@
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set3(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->mBootCompleted:Z
@@ -1512,7 +1530,7 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set4(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->mIsDeviceEmergencyModeEnabled:Z
@@ -1520,7 +1538,7 @@
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set5(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->mScreenOff:Z
@@ -1528,7 +1546,7 @@
     return p1
 .end method
 
-.method static synthetic -set5(Lcom/android/server/pm/PersonaManagerService;Lcom/android/server/pm/TimaHelper;)Lcom/android/server/pm/TimaHelper;
+.method static synthetic -set6(Lcom/android/server/pm/PersonaManagerService;Lcom/android/server/pm/TimaHelper;)Lcom/android/server/pm/TimaHelper;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService;->mTimaHelper:Lcom/android/server/pm/TimaHelper;
@@ -1536,7 +1554,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set6(Lcom/android/server/pm/PersonaManagerService;Ljava/util/List;)Ljava/util/List;
+.method static synthetic -set7(Lcom/android/server/pm/PersonaManagerService;Ljava/util/List;)Ljava/util/List;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService;->mTypeList:Ljava/util/List;
@@ -1544,7 +1562,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set7(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set8(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->restartAccessibilityServiceForOwner:Z
@@ -1552,7 +1570,7 @@
     return p1
 .end method
 
-.method static synthetic -set8(Lcom/android/server/pm/PersonaManagerService;Z)Z
+.method static synthetic -set9(Lcom/android/server/pm/PersonaManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PersonaManagerService;->xmlnotParsedforFOTA:Z
@@ -2586,6 +2604,10 @@
     const/4 v9, 0x0
 
     iput-boolean v9, p0, Lcom/android/server/pm/PersonaManagerService;->restartAccessibilityServiceForOwner:Z
+
+    const/4 v9, 0x0
+
+    iput-object v9, p0, Lcom/android/server/pm/PersonaManagerService;->enabledAccessibilityServices:Ljava/lang/String;
 
     const/4 v9, 0x0
 
@@ -29271,6 +29293,8 @@
 
     if-eqz v0, :cond_0
 
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->finishRemoveUser(I)V
+
     return-void
 
     :cond_0
@@ -33066,21 +33090,21 @@
 
     :cond_5
     :try_start_3
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/pm/PersonaManagerService;->getFocusedUser()I
-
-    move-result v22
-
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mSecureFolderId:I
 
-    move/from16 v23, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v22
+    move-object/from16 v0, p0
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-ne v0, v1, :cond_6
+    invoke-direct {v0, v1}, Lcom/android/server/pm/PersonaManagerService;->isKnoxFullscreenExist(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_6
 
     new-instance v12, Landroid/content/Intent;
 
@@ -33113,6 +33137,14 @@
     move-object/from16 v1, v23
 
     invoke-virtual {v0, v12, v1}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Lcom/android/server/pm/PersonaManagerService;->mShouldNotShowKeyguard:Z
 
     :cond_6
     sget-object v22, Landroid/content/pm/PersonaNewEvent;->USER_LOCK:Landroid/content/pm/PersonaNewEvent;
@@ -46215,26 +46247,26 @@
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v14}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v15
 
     new-instance v14, Ljava/lang/StringBuilder;
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, " ForegroundUser : "
+    const-string/jumbo v15, " ForegroundUser : "
 
-    move-object/from16 v0, v16
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/pm/PersonaManagerService;->getForegroundUser()I
 
-    move-result v16
+    move-result v15
 
-    move/from16 v0, v16
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
@@ -46250,23 +46282,17 @@
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, " CurrentUserId : "
+    const-string/jumbo v15, " CurrentUserId : "
 
-    move-object/from16 v0, v16
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/server/pm/PersonaManagerService;->mCurrentUserId:I
+    iget v15, v0, Lcom/android/server/pm/PersonaManagerService;->mCurrentUserId:I
 
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v14
 
@@ -46277,10 +46303,6 @@
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v14}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v15
 
     return-void
 .end method
@@ -61146,7 +61168,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const-string/jumbo v1, "sdcard"
 
@@ -61154,7 +61176,51 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "PersonaManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "PersonaManagerService.setAccessPermission() canAccess="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " pi.canUseExtSdcard="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-boolean v3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v1, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
+
+    if-eq p3, v1, :cond_0
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     iput-boolean p3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseExtSdcard:Z
 
@@ -61164,6 +61230,7 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/pm/PersonaManagerService;->notifyNeedRestartMsg(I)V
 
+    :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService;->mPersonaDbLock:Ljava/lang/Object;
 
@@ -61179,20 +61246,20 @@
     :goto_1
     return-void
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "bluetooth"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iput-boolean p3, v0, Lcom/samsung/android/knox/SemPersonaInfo;->canUseBluetooth:Z
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string/jumbo v1, "PersonaManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -61224,7 +61291,7 @@
 
     throw v2
 
-    :cond_2
+    :cond_3
     const-string/jumbo v1, "PersonaManagerService"
 
     const-string/jumbo v2, "persona info not available for setting access permission"
@@ -63234,6 +63301,10 @@
     .locals 5
 
     const/4 v4, 0x0
+
+    const-string/jumbo v1, "startActivityThroughPersona"
+
+    invoke-static {v1}, Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
 
     const-string/jumbo v1, "PersonaManagerService"
 

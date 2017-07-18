@@ -113,7 +113,7 @@
 
     const/4 v3, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/server/pm/PersonaManagerService;->-set1(Lcom/android/server/pm/PersonaManagerService;Z)Z
+    invoke-static {v2, v3}, Lcom/android/server/pm/PersonaManagerService;->-set2(Lcom/android/server/pm/PersonaManagerService;Z)Z
 
     iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService$UnlockReceiver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 

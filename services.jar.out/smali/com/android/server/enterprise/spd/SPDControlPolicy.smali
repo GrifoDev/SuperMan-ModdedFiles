@@ -15,6 +15,8 @@
 
 .field private static final SPDCONTROLPOLICY_PERMISSION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SPDCONTROL"
 
+.field private static final SPDCONTROLPOLICY_PERMISSION_OLD:Ljava/lang/String; = "com.sec.enterprise.permission.MDM_SPDCONTROL"
+
 .field private static final TAG:Ljava/lang/String; = "SPDControlPolicy"
 
 
@@ -52,19 +54,41 @@
 .end method
 
 .method private enforceOwnerOnlyAndSpdPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
-    .locals 2
+    .locals 4
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_SPDCONTROL"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "com.sec.enterprise.permission.MDM_SPDCONTROL"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     invoke-direct {p0}, Lcom/android/server/enterprise/spd/SPDControlPolicy;->getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string/jumbo v1, "com.samsung.android.knox.permission.KNOX_SPDCONTROL"
+    invoke-virtual {v1, p1, v0}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceOwnerOnlyAndActiveAdminPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
-    invoke-virtual {v0, p1, v1}, Lcom/samsung/android/knox/EnterpriseDeviceManager;->enforceOwnerOnlyAndActiveAdminPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Lcom/samsung/android/knox/ContextInfo;
+    move-result-object v1
 
-    move-result-object v0
-
-    return-object v0
+    return-object v1
 .end method
 
 .method private getEDM()Lcom/samsung/android/knox/EnterpriseDeviceManager;

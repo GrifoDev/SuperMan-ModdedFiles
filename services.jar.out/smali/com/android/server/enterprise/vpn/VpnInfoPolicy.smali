@@ -1230,6 +1230,82 @@
     goto :goto_0
 .end method
 
+.method private isProfileTypeAllowed(Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v2, "restriction_policy"
+
+    invoke-static {v2}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getPolicyService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/enterprise/restriction/RestrictionPolicy;
+
+    if-eqz v1, :cond_2
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v3, v2}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->isCCModeEnabled(Lcom/samsung/android/knox/ContextInfo;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v0, 0x0
+
+    iget-object v2, p1, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
+
+    const-string/jumbo v3, "IPSEC_XAUTH_PSK"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const-string/jumbo v3, "IPSEC_XAUTH_RSA"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "IPSEC_IKEV2_PSK"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "IPSEC_IKEV2_RSA"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
 .method private isValidAlwaysOnProfile(Lcom/android/internal/net/VpnProfile;)Z
     .locals 1
 
@@ -2402,7 +2478,7 @@
 .end method
 
 .method public allowUserSetAlwaysOn(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 4
+    .locals 10
 
     const-string/jumbo v0, "VpnPolicy"
 
@@ -2413,6 +2489,74 @@
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->enforceOwnerOnlyAndVpnPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "VpnPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_0
+
+    const-string/jumbo v0, "allowed"
+
+    :goto_0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " user to set VPN Always On mode."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mEDMStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -2427,6 +2571,21 @@
     move-result v0
 
     return v0
+
+    :cond_0
+    :try_start_1
+    const-string/jumbo v0, "disallowed"
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
 .end method
 
 .method public checkRacoonSecurity(Lcom/samsung/android/knox/ContextInfo;[Ljava/lang/String;)Z
@@ -2647,6 +2806,27 @@
 
     if-eqz v7, :cond_1
 
+    invoke-direct {p0, p2}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->isProfileTypeAllowed(Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_3
+
+    const-string/jumbo v7, "VpnPolicy"
+
+    const-string/jumbo v9, "Vpn type not allowed by CCMode"
+
+    invoke-static {v7, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit p0
+
+    return v8
+
+    :cond_3
+    :try_start_3
     new-instance v6, Lcom/android/internal/net/VpnProfile;
 
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->setProfileId()J
@@ -2659,7 +2839,7 @@
 
     invoke-direct {v6, v7}, Lcom/android/internal/net/VpnProfile;-><init>(Ljava/lang/String;)V
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_15
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->profileName:Ljava/lang/String;
 
@@ -2675,7 +2855,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     move v7, v8
 
@@ -2701,45 +2881,45 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     monitor-exit p0
 
     return v8
 
-    :cond_3
+    :cond_4
     move v7, v9
 
     goto :goto_0
 
-    :cond_4
-    :try_start_3
+    :cond_5
+    :try_start_4
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string/jumbo v7, " "
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_1
 
     :catch_0
     move-exception v2
 
-    :try_start_4
+    :try_start_5
     const-string/jumbo v7, "VpnPolicy"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2765,15 +2945,15 @@
     move-result-object v9
 
     invoke-static {v7, v9}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     monitor-exit p0
 
     return v8
 
-    :cond_5
-    :try_start_5
+    :cond_6
+    :try_start_6
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2782,7 +2962,7 @@
 
     move-result v7
 
-    if-le v7, v9, :cond_6
+    if-le v7, v9, :cond_7
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -2796,12 +2976,12 @@
 
     move-result-object v0
 
-    :cond_6
+    :cond_7
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v7
 
-    if-lez v7, :cond_7
+    if-lez v7, :cond_8
 
     const/4 v7, 0x0
 
@@ -2809,9 +2989,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_9
 
-    :cond_7
+    :cond_8
     iput-object v0, v6, Lcom/android/internal/net/VpnProfile;->dnsServers:Ljava/lang/String;
 
     const-string/jumbo v0, ""
@@ -2833,38 +3013,38 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_a
 
-    monitor-exit p0
-
-    return v8
-
-    :cond_8
     monitor-exit p0
 
     return v8
 
     :cond_9
-    :try_start_6
+    monitor-exit p0
+
+    return v8
+
+    :cond_a
+    :try_start_7
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string/jumbo v7, " "
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     goto :goto_2
 
@@ -2875,8 +3055,8 @@
 
     throw v7
 
-    :cond_a
-    :try_start_7
+    :cond_b
+    :try_start_8
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2885,7 +3065,7 @@
 
     move-result v7
 
-    if-le v7, v9, :cond_b
+    if-le v7, v9, :cond_c
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -2899,12 +3079,12 @@
 
     move-result-object v0
 
-    :cond_b
+    :cond_c
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v7
 
-    if-lez v7, :cond_c
+    if-lez v7, :cond_d
 
     const/4 v7, 0x1
 
@@ -2912,9 +3092,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_e
 
-    :cond_c
+    :cond_d
     iput-object v0, v6, Lcom/android/internal/net/VpnProfile;->routes:Ljava/lang/String;
 
     const-string/jumbo v0, ""
@@ -2936,30 +3116,30 @@
 
     move-result v7
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_10
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    if-nez v4, :cond_e
+    if-nez v4, :cond_f
 
-    monitor-exit p0
-
-    return v8
-
-    :cond_d
     monitor-exit p0
 
     return v8
 
     :cond_e
-    :try_start_8
+    monitor-exit p0
+
+    return v8
+
+    :cond_f
+    :try_start_9
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string/jumbo v7, " "
@@ -2968,7 +3148,7 @@
 
     goto :goto_3
 
-    :cond_f
+    :cond_10
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -2977,7 +3157,7 @@
 
     move-result v7
 
-    if-le v7, v9, :cond_10
+    if-le v7, v9, :cond_11
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
@@ -2991,27 +3171,27 @@
 
     move-result-object v0
 
-    :cond_10
+    :cond_11
     iput-object v0, v6, Lcom/android/internal/net/VpnProfile;->searchDomains:Ljava/lang/String;
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->userName:Ljava/lang/String;
 
-    if-eqz v7, :cond_11
+    if-eqz v7, :cond_12
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->userName:Ljava/lang/String;
 
     iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->username:Ljava/lang/String;
 
-    :cond_11
+    :cond_12
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->userPassword:Ljava/lang/String;
 
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_13
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->userPassword:Ljava/lang/String;
 
     iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->password:Ljava/lang/String;
 
-    :cond_12
+    :cond_13
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
     const-string/jumbo v9, "PPTP"
@@ -3020,7 +3200,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_16
 
     const/4 v7, 0x0
 
@@ -3030,7 +3210,7 @@
 
     iput-boolean v7, v6, Lcom/android/internal/net/VpnProfile;->mppe:Z
 
-    :cond_13
+    :cond_14
     :goto_4
     iget-object v7, v6, Lcom/android/internal/net/VpnProfile;->name:Ljava/lang/String;
 
@@ -3038,24 +3218,24 @@
 
     move-result v3
 
-    if-gez v3, :cond_14
+    if-gez v3, :cond_15
 
     invoke-direct {p0, v6, v3}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->checkDuplicateName(Lcom/android/internal/net/VpnProfile;I)Z
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
     move-result v7
 
-    if-eqz v7, :cond_26
+    if-eqz v7, :cond_27
 
-    :cond_14
+    :cond_15
     monitor-exit p0
 
     return v8
 
-    :cond_15
-    :try_start_9
+    :cond_16
+    :try_start_a
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
     const-string/jumbo v9, "L2TP_IPSEC_PSK"
@@ -3064,27 +3244,27 @@
 
     move-result v7
 
-    if-eqz v7, :cond_17
+    if-eqz v7, :cond_18
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_0
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_0
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     move-result v7
 
-    if-eqz v7, :cond_16
+    if-eqz v7, :cond_17
 
     monitor-exit p0
 
     return v8
 
-    :cond_16
+    :cond_17
     const/4 v7, 0x1
 
-    :try_start_a
+    :try_start_b
     iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
@@ -3101,7 +3281,7 @@
 
     goto :goto_4
 
-    :cond_17
+    :cond_18
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
     const-string/jumbo v9, "L2TP_IPSEC"
@@ -3110,25 +3290,25 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1a
+    if-eqz v7, :cond_1b
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_0
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_0
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
     move-result v7
 
-    if-eqz v7, :cond_18
+    if-eqz v7, :cond_19
 
     monitor-exit p0
 
     return v8
 
-    :cond_18
-    :try_start_b
+    :cond_19
+    :try_start_c
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
 
     iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecUserCert:Ljava/lang/String;
@@ -3139,20 +3319,20 @@
 
     move-result v7
 
-    if-nez v7, :cond_19
+    if-nez v7, :cond_1a
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecCaCertificate:Ljava/lang/String;
 
     iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecCaCert:Ljava/lang/String;
 
-    :cond_19
+    :cond_1a
     const/4 v7, 0x2
 
     iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
 
     goto :goto_4
 
-    :cond_1a
+    :cond_1b
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
     const-string/jumbo v9, "IPSEC_HYBRID_RSA"
@@ -3161,7 +3341,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1b
+    if-eqz v7, :cond_1c
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecCaCertificate:Ljava/lang/String;
 
@@ -3173,7 +3353,7 @@
 
     goto :goto_4
 
-    :cond_1b
+    :cond_1c
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
     const-string/jumbo v9, "IPSEC_XAUTH_PSK"
@@ -3182,55 +3362,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1d
+    if-eqz v7, :cond_1e
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
-
-    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-    :try_end_b
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_0
-    .catchall {:try_start_b .. :try_end_b} :catchall_0
-
-    move-result v7
-
-    if-eqz v7, :cond_1c
-
-    monitor-exit p0
-
-    return v8
-
-    :cond_1c
-    const/4 v7, 0x4
-
-    :try_start_c
-    iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
-
-    invoke-virtual {v7}, Ljava/lang/String;->intern()Ljava/lang/String;
-
-    move-result-object v7
-
-    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecSecret:Ljava/lang/String;
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecIdentifier:Ljava/lang/String;
-
-    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecIdentifier:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    :cond_1d
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
-
-    const-string/jumbo v9, "IPSEC_XAUTH_RSA"
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1f
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     :try_end_c
@@ -3239,58 +3373,16 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1e
+    if-eqz v7, :cond_1d
 
     monitor-exit p0
 
     return v8
 
-    :cond_1e
-    const/4 v7, 0x5
+    :cond_1d
+    const/4 v7, 0x4
 
     :try_start_d
-    iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
-
-    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecUserCert:Ljava/lang/String;
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecCaCertificate:Ljava/lang/String;
-
-    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecCaCert:Ljava/lang/String;
-
-    goto/16 :goto_4
-
-    :cond_1f
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
-
-    const-string/jumbo v9, "IPSEC_IKEV2_PSK"
-
-    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_21
-
-    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
-
-    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-    :try_end_d
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_0
-    .catchall {:try_start_d .. :try_end_d} :catchall_0
-
-    move-result v7
-
-    if-eqz v7, :cond_20
-
-    monitor-exit p0
-
-    return v8
-
-    :cond_20
-    const/4 v7, 0x6
-
-    :try_start_e
     iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
@@ -3307,26 +3399,60 @@
 
     goto/16 :goto_4
 
-    :cond_21
+    :cond_1e
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
 
-    const-string/jumbo v9, "IPSEC_IKEV2_RSA"
+    const-string/jumbo v9, "IPSEC_XAUTH_RSA"
 
     invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_25
+    if-eqz v7, :cond_20
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_0
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
     move-result v7
 
-    if-nez v7, :cond_22
+    if-eqz v7, :cond_1f
+
+    monitor-exit p0
+
+    return v8
+
+    :cond_1f
+    const/4 v7, 0x5
+
+    :try_start_e
+    iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
+
+    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecUserCert:Ljava/lang/String;
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecCaCertificate:Ljava/lang/String;
+
+    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecCaCert:Ljava/lang/String;
+
+    goto/16 :goto_4
+
+    :cond_20
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
+
+    const-string/jumbo v9, "IPSEC_IKEV2_PSK"
+
+    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_22
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     :try_end_e
@@ -3335,17 +3461,71 @@
 
     move-result v7
 
-    if-eqz v7, :cond_23
+    if-eqz v7, :cond_21
 
-    :cond_22
     monitor-exit p0
 
     return v8
 
-    :cond_23
-    const/4 v7, 0x7
+    :cond_21
+    const/4 v7, 0x6
 
     :try_start_f
+    iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecPreSharedKey:Ljava/lang/String;
+
+    invoke-virtual {v7}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecSecret:Ljava/lang/String;
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecIdentifier:Ljava/lang/String;
+
+    iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ipsecIdentifier:Ljava/lang/String;
+
+    goto/16 :goto_4
+
+    :cond_22
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->vpnType:Ljava/lang/String;
+
+    const-string/jumbo v9, "IPSEC_IKEV2_RSA"
+
+    invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_26
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_23
+
+    iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecCaCertificate:Ljava/lang/String;
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_0
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
+
+    move-result v7
+
+    if-eqz v7, :cond_24
+
+    :cond_23
+    monitor-exit p0
+
+    return v8
+
+    :cond_24
+    const/4 v7, 0x7
+
+    :try_start_10
     iput v7, v6, Lcom/android/internal/net/VpnProfile;->type:I
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ipsecUserCertificate:Ljava/lang/String;
@@ -3358,7 +3538,7 @@
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ocspServerUrl:Ljava/lang/String;
 
-    if-eqz v7, :cond_13
+    if-eqz v7, :cond_14
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ocspServerUrl:Ljava/lang/String;
 
@@ -3366,21 +3546,16 @@
 
     move-result v7
 
-    if-eqz v7, :cond_24
+    if-eqz v7, :cond_25
 
     iget-object v7, p2, Lcom/samsung/android/knox/net/vpn/VpnAdminProfile;->ocspServerUrl:Ljava/lang/String;
 
     iput-object v7, v6, Lcom/android/internal/net/VpnProfile;->ocspServerUrl:Ljava/lang/String;
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_0
-    .catchall {:try_start_f .. :try_end_f} :catchall_0
+    :try_end_10
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_0
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
     goto/16 :goto_4
-
-    :cond_24
-    monitor-exit p0
-
-    return v8
 
     :cond_25
     monitor-exit p0
@@ -3388,11 +3563,16 @@
     return v8
 
     :cond_26
-    :try_start_10
+    monitor-exit p0
+
+    return v8
+
+    :cond_27
+    :try_start_11
     invoke-direct {p0, p1, v6}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->saveProfileToStorage(Lcom/samsung/android/knox/ContextInfo;Lcom/android/internal/net/VpnProfile;)Z
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_0
-    .catchall {:try_start_10 .. :try_end_10} :catchall_0
+    :try_end_11
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_0
+    .catchall {:try_start_11 .. :try_end_11} :catchall_0
 
     move-result v7
 
@@ -5614,124 +5794,258 @@
 .end method
 
 .method public setAlwaysOnProfile(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-    .locals 9
+    .locals 12
 
-    const-string/jumbo v4, "VpnPolicy"
+    const/4 v4, 0x1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "VpnPolicy"
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "setAlwaysOnProfile - "
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "setAlwaysOnProfile - "
 
-    move-result-object v5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v5
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v5
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4, v5}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->enforceOwnerOnlyAndVpnPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 v8, 0x0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->canChangeAlwaysOn(Lcom/samsung/android/knox/ContextInfo;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->isCredentialsLocked()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
     :cond_0
     :goto_0
-    return v1
+    return v8
 
     :cond_1
     if-eqz p2, :cond_2
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_4
+    if-eqz v0, :cond_4
 
     :cond_2
-    iget-object v4, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mKeyStore:Landroid/security/KeyStore;
+    iget-object v0, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mKeyStore:Landroid/security/KeyStore;
 
-    const-string/jumbo v5, "LOCKDOWN_VPN"
+    const-string/jumbo v1, "LOCKDOWN_VPN"
 
-    invoke-virtual {v4, v5}, Landroid/security/KeyStore;->delete(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Landroid/security/KeyStore;->delete(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v8
 
-    :cond_3
-    :goto_1
-    if-eqz v1, :cond_0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->saveAlwaysOnProfileToDb(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
-
-    move-result v1
+    if-eqz v8, :cond_3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v10
 
-    iget-object v4, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mContext:Landroid/content/Context;
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
 
-    invoke-static {v4}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
+    move-result v3
 
-    move-result-object v4
+    const-string/jumbo v4, "VpnPolicy"
 
-    invoke-virtual {v4}, Landroid/net/ConnectivityManager;->updateLockdownVpn()Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has disabled VPN Always On mode."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_3
+    :goto_1
+    if-eqz v8, :cond_0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->saveAlwaysOnProfileToDb(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;)Z
+
+    move-result v8
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    iget-object v0, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/net/ConnectivityManager;->from(Landroid/content/Context;)Landroid/net/ConnectivityManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->updateLockdownVpn()Z
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
 
     :cond_4
     invoke-direct {p0, p2}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->getProfileByName(Ljava/lang/String;)Lcom/android/internal/net/VpnProfile;
 
+    move-result-object v7
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->isValidAlwaysOnProfile(Lcom/android/internal/net/VpnProfile;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mKeyStore:Landroid/security/KeyStore;
+
+    const-string/jumbo v1, "LOCKDOWN_VPN"
+
+    iget-object v2, v7, Lcom/android/internal/net/VpnProfile;->key:Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v2
+
+    const/4 v3, -0x1
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_1
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "VpnPolicy"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->isValidAlwaysOnProfile(Lcom/android/internal/net/VpnProfile;)Z
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    move-result v4
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-eqz v4, :cond_3
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/android/server/enterprise/vpn/VpnInfoPolicy;->mKeyStore:Landroid/security/KeyStore;
+    const-string/jumbo v1, " has enabled "
 
-    const-string/jumbo v5, "LOCKDOWN_VPN"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, v0, Lcom/android/internal/net/VpnProfile;->key:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {v6}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v0
 
-    const/4 v7, -0x1
+    const-string/jumbo v1, " VPN profile to Always On mode."
 
-    const/4 v8, 0x1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5, v6, v7, v8}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+    move-result-object v0
 
-    move-result v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     goto :goto_1
+
+    :catchall_1
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
 .end method
 
 .method public declared-synchronized setCaCertificate(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z

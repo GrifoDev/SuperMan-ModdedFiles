@@ -55,7 +55,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelImpl$XSNamespaceItemListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/XSModelImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XSModelImpl;->fGrammarCount:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;->access$0(Lmf/org/apache/xerces/impl/xs/XSModelImpl;)I
 
     move-result v1
@@ -96,7 +95,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XSModelImpl$XSNamespaceItemListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/XSModelImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XSModelImpl;->fGrammarCount:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;->access$0(Lmf/org/apache/xerces/impl/xs/XSModelImpl;)I
 
     move-result v1
@@ -112,7 +110,6 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelImpl$XSNamespaceItemListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/XSModelImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XSModelImpl;->fGrammarList:[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
     invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;->access$1(Lmf/org/apache/xerces/impl/xs/XSModelImpl;)[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
     move-result-object v0
@@ -152,7 +149,6 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/XSModelImpl$XSNamespaceItemListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/XSModelImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XSModelImpl;->fGrammarList:[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
     invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/XSModelImpl;->access$1(Lmf/org/apache/xerces/impl/xs/XSModelImpl;)[Lmf/org/apache/xerces/impl/xs/SchemaGrammar;
 
     move-result-object v0

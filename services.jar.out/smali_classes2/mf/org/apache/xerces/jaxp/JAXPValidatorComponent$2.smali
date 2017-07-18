@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent$2;->this$0:Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;->fErrorReporter:Lmf/org/apache/xerces/impl/XMLErrorReporter;
     invoke-static {v0}, Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;->access$5(Lmf/org/apache/xerces/jaxp/JAXPValidatorComponent;)Lmf/org/apache/xerces/impl/XMLErrorReporter;
 
     move-result-object v0

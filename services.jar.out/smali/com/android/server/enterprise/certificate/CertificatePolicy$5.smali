@@ -59,7 +59,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$5;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get1(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get2(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -75,7 +75,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$5;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get2(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get3(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     move-result-object v4
 
@@ -90,6 +90,14 @@
     move-result v1
 
     :cond_0
+    iget-object v4, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$5;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
+
+    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get0(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
     const-string/jumbo v4, "CertificatePolicy"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -164,7 +172,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$5;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get1(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get2(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -180,7 +188,7 @@
 
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$5;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get1(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get2(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -196,6 +204,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :cond_1
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void

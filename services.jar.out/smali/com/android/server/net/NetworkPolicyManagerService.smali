@@ -7913,105 +7913,114 @@
 .method private updateRulesForDataUsageRestrictionsLocked(IZ)V
     .locals 13
 
-    const/4 v12, 0x1
-
-    const/4 v10, 0x0
-
     if-nez p2, :cond_0
 
     invoke-direct {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->isUidValidForWhitelistRules(I)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_5
 
     :cond_0
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidPolicy:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v9, p1, v10}, Landroid/util/SparseIntArray;->get(II)I
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, p1, v11}, Landroid/util/SparseIntArray;->get(II)I
+
+    move-result v9
+
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, p1, v11}, Landroid/util/SparseIntArray;->get(II)I
 
     move-result v8
 
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v9, p1, v10}, Landroid/util/SparseIntArray;->get(II)I
-
-    move-result v7
-
     invoke-direct {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->isUidForegroundOnRestrictBackgroundLocked(I)Z
-
-    move-result v2
-
-    and-int/lit8 v9, v8, 0x1
-
-    if-eqz v9, :cond_6
-
-    const/4 v1, 0x1
-
-    :goto_0
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackgroundWhitelistUids:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v9, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
     move-result v3
 
-    and-int/lit8 v6, v7, 0xf
+    and-int/lit8 v10, v9, 0x1
 
-    const/4 v4, 0x0
+    if-eqz v10, :cond_6
 
-    if-eqz v2, :cond_8
+    const/4 v2, 0x1
 
-    if-nez v1, :cond_7
+    :goto_0
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackgroundWhitelistUids:Landroid/util/SparseBooleanArray;
 
-    iget-boolean v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
+    invoke-virtual {v10, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
-    if-eqz v9, :cond_1
+    move-result v4
 
-    if-eqz v3, :cond_7
+    and-int/lit8 v7, v8, 0xf
+
+    const/4 v5, 0x0
+
+    if-eqz v3, :cond_8
+
+    if-nez v2, :cond_7
+
+    iget-boolean v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
+
+    if-eqz v10, :cond_1
+
+    if-eqz v4, :cond_7
 
     :cond_1
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     :cond_2
     :goto_1
-    and-int/lit16 v9, v7, 0xf0
+    and-int/lit16 v10, v8, 0xf0
 
-    or-int v5, v4, v9
+    or-int v6, v5, v10
 
-    if-nez v5, :cond_a
+    if-nez v6, :cond_a
 
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
+    :try_start_0
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v9, p1}, Landroid/util/SparseIntArray;->delete(I)V
+    invoke-virtual {v10, p1}, Landroid/util/SparseIntArray;->delete(I)V
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_2
     const/4 v0, 0x0
 
-    if-eq v4, v6, :cond_4
+    if-eq v5, v7, :cond_4
 
     const/4 v0, 0x1
 
-    and-int/lit8 v9, v4, 0x2
+    and-int/lit8 v10, v5, 0x2
 
-    if-eqz v9, :cond_b
+    if-eqz v10, :cond_b
 
-    invoke-direct {p0, p1, v12}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
+    const/4 v10, 0x1
 
-    if-eqz v1, :cond_3
+    invoke-direct {p0, p1, v10}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
+
+    if-eqz v2, :cond_3
+
+    const/4 v10, 0x0
 
     invoke-direct {p0, p1, v10}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkBlacklist(IZ)V
 
     :cond_3
     :goto_3
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v9, v12, p1, v5}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    const/4 v11, 0x1
 
-    move-result-object v9
+    invoke-virtual {v10, v11, p1, v6}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    invoke-virtual {v9}, Landroid/os/Message;->sendToTarget()V
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/os/Message;->sendToTarget()V
 
     :cond_4
     return-void
@@ -8020,172 +8029,216 @@
     return-void
 
     :cond_6
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_7
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
     goto :goto_1
 
     :cond_8
-    if-eqz v1, :cond_9
+    if-eqz v2, :cond_9
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
     goto :goto_1
 
     :cond_9
-    iget-boolean v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
+    iget-boolean v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mRestrictBackground:Z
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     goto :goto_1
 
     :cond_a
-    iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
+    :try_start_1
+    iget-object v10, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v9, p1, v5}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v10, p1, v6}, Landroid/util/SparseIntArray;->put(II)V
+    :try_end_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v10, "NetworkPolicy"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "mUidRules: "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :cond_b
-    and-int/lit8 v9, v6, 0x2
+    and-int/lit8 v10, v7, 0x2
 
-    if-eqz v9, :cond_d
+    if-eqz v10, :cond_d
 
-    if-nez v3, :cond_c
+    if-nez v4, :cond_c
+
+    const/4 v10, 0x0
 
     invoke-direct {p0, p1, v10}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
 
     :cond_c
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-direct {p0, p1, v12}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkBlacklist(IZ)V
+    const/4 v10, 0x1
+
+    invoke-direct {p0, p1, v10}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkBlacklist(IZ)V
 
     goto :goto_3
 
     :cond_d
-    and-int/lit8 v9, v4, 0x4
+    and-int/lit8 v10, v5, 0x4
 
-    if-nez v9, :cond_e
+    if-nez v10, :cond_e
 
-    and-int/lit8 v9, v6, 0x4
+    and-int/lit8 v10, v7, 0x4
 
-    if-eqz v9, :cond_f
+    if-eqz v10, :cond_f
 
     :cond_e
-    invoke-direct {p0, p1, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkBlacklist(IZ)V
+    invoke-direct {p0, p1, v2}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkBlacklist(IZ)V
 
-    and-int/lit8 v9, v6, 0x4
+    and-int/lit8 v10, v7, 0x4
 
-    if-eqz v9, :cond_3
+    if-eqz v10, :cond_3
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_3
 
-    invoke-direct {p0, p1, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
+    invoke-direct {p0, p1, v4}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
 
     goto :goto_3
 
     :cond_f
-    and-int/lit8 v9, v4, 0x1
+    and-int/lit8 v10, v5, 0x1
 
-    if-nez v9, :cond_10
+    if-nez v10, :cond_10
 
-    and-int/lit8 v9, v6, 0x1
+    and-int/lit8 v10, v7, 0x1
 
-    if-eqz v9, :cond_11
+    if-eqz v10, :cond_11
 
     :cond_10
-    invoke-direct {p0, p1, v3}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
+    invoke-direct {p0, p1, v4}, Lcom/android/server/net/NetworkPolicyManagerService;->setMeteredNetworkWhitelist(IZ)V
 
     goto :goto_3
 
     :cond_11
-    const-string/jumbo v9, "NetworkPolicy"
+    const-string/jumbo v10, "NetworkPolicy"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "Unexpected change of metered UID state for "
+    const-string/jumbo v12, "Unexpected change of metered UID state for "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ": foreground="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", whitelisted="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", blacklisted="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", newRule="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-static {v5}, Landroid/net/NetworkPolicyManager;->uidRulesToString(I)Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ", oldRule="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-static {v7}, Landroid/net/NetworkPolicyManager;->uidRulesToString(I)Ljava/lang/String;
+    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v12, ": foreground="
 
-    move-result-object v10
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v10
+    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-static {v9, v10}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v11
+
+    const-string/jumbo v12, ", whitelisted="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", blacklisted="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", newRule="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-static {v6}, Landroid/net/NetworkPolicyManager;->uidRulesToString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", oldRule="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-static {v8}, Landroid/net/NetworkPolicyManager;->uidRulesToString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_3
 .end method
@@ -8644,154 +8697,199 @@
 .end method
 
 .method private updateRulesForWhitelistedPowerSaveLocked(ZILandroid/util/SparseIntArray;)V
-    .locals 9
-
-    const/4 v8, 0x1
+    .locals 11
 
     if-eqz p1, :cond_6
 
-    move-object v4, p3
+    move-object v5, p3
 
+    :try_start_0
     invoke-virtual {p3}, Landroid/util/SparseIntArray;->clear()V
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUserManager:Landroid/os/UserManager;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUserManager:Landroid/os/UserManager;
 
-    invoke-virtual {v7}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+    invoke-virtual {v8}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    add-int/lit8 v3, v8, -0x1
+
+    :goto_0
+    if-ltz v3, :cond_3
+
+    invoke-interface {v7, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-interface {v6}, Ljava/util/List;->size()I
+    check-cast v6, Landroid/content/pm/UserInfo;
 
-    move-result v7
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
-    add-int/lit8 v2, v7, -0x1
+    invoke-virtual {v8}, Landroid/util/SparseBooleanArray;->size()I
 
-    :goto_0
-    if-ltz v2, :cond_3
+    move-result v8
 
-    invoke-interface {v6, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/content/pm/UserInfo;
-
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
-
-    invoke-virtual {v7}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v7
-
-    add-int/lit8 v1, v7, -0x1
+    add-int/lit8 v2, v8, -0x1
 
     :goto_1
-    if-ltz v1, :cond_1
+    if-ltz v2, :cond_1
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v7, v1}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
+    invoke-virtual {v8, v2}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveTempWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v7, v1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
+    invoke-virtual {v8, v2}, Landroid/util/SparseBooleanArray;->keyAt(I)I
 
     move-result v0
 
-    iget v7, v5, Landroid/content/pm/UserInfo;->id:I
+    iget v8, v6, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-static {v7, v0}, Landroid/os/UserHandle;->getUid(II)I
+    invoke-static {v8, v0}, Landroid/os/UserHandle;->getUid(II)I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p3, v3, v8}, Landroid/util/SparseIntArray;->put(II)V
+    const/4 v8, 0x1
+
+    invoke-virtual {p3, v4, v8}, Landroid/util/SparseIntArray;->put(II)V
 
     :cond_0
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
     :cond_1
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v7}, Landroid/util/SparseBooleanArray;->size()I
+    invoke-virtual {v8}, Landroid/util/SparseBooleanArray;->size()I
 
-    move-result v7
+    move-result v8
 
-    add-int/lit8 v1, v7, -0x1
+    add-int/lit8 v2, v8, -0x1
 
     :goto_2
-    if-ltz v1, :cond_2
+    if-ltz v2, :cond_2
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mPowerSaveWhitelistAppIds:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v7, v1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
+    invoke-virtual {v8, v2}, Landroid/util/SparseBooleanArray;->keyAt(I)I
 
     move-result v0
 
-    iget v7, v5, Landroid/content/pm/UserInfo;->id:I
+    iget v8, v6, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-static {v7, v0}, Landroid/os/UserHandle;->getUid(II)I
+    invoke-static {v8, v0}, Landroid/os/UserHandle;->getUid(II)I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p3, v3, v8}, Landroid/util/SparseIntArray;->put(II)V
+    const/4 v8, 0x1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p3, v4, v8}, Landroid/util/SparseIntArray;->put(II)V
+
+    add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
     :cond_2
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_0
 
     :cond_3
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v7}, Landroid/util/SparseIntArray;->size()I
+    invoke-virtual {v8}, Landroid/util/SparseIntArray;->size()I
 
-    move-result v7
+    move-result v8
 
-    add-int/lit8 v1, v7, -0x1
+    add-int/lit8 v2, v8, -0x1
 
     :goto_3
-    if-ltz v1, :cond_5
+    if-ltz v2, :cond_5
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v7, v1}, Landroid/util/SparseIntArray;->valueAt(I)I
+    invoke-virtual {v8, v2}, Landroid/util/SparseIntArray;->valueAt(I)I
 
-    move-result v7
+    move-result v8
 
-    invoke-static {v7}, Lcom/android/server/net/NetworkPolicyManagerService;->isProcStateAllowedWhileIdleOrPowerSaveMode(I)Z
+    invoke-static {v8}, Lcom/android/server/net/NetworkPolicyManagerService;->isProcStateAllowedWhileIdleOrPowerSaveMode(I)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_4
+    if-eqz v8, :cond_4
 
-    iget-object v7, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
+    iget-object v8, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidState:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v7, v1}, Landroid/util/SparseIntArray;->keyAt(I)I
+    invoke-virtual {v8, v2}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    move-result v7
+    move-result v8
 
-    invoke-virtual {p3, v7, v8}, Landroid/util/SparseIntArray;->put(II)V
+    const/4 v9, 0x1
+
+    invoke-virtual {p3, v8, v9}, Landroid/util/SparseIntArray;->put(II)V
 
     :cond_4
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v2, v2, -0x1
 
     goto :goto_3
 
     :cond_5
     invoke-direct {p0, p2, p3}, Lcom/android/server/net/NetworkPolicyManagerService;->setUidFirewallRules(ILandroid/util/SparseIntArray;)V
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_6
+    :goto_4
     invoke-direct {p0, p2, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->enableFirewallChainLocked(IZ)V
 
     return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v8, "NetworkPolicy"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "Chain: "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, " "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_4
 .end method
 
 .method private updateScreenOn()V

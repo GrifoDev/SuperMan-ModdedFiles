@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode$1;->this$0:Lmf/org/apache/xerces/dom/ParentNode;
 
-    # invokes: Lmf/org/apache/xerces/dom/ParentNode;->nodeListGetLength()I
     invoke-static {v0}, Lmf/org/apache/xerces/dom/ParentNode;->access$0(Lmf/org/apache/xerces/dom/ParentNode;)I
 
     move-result v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lmf/org/apache/xerces/dom/ParentNode$1;->this$0:Lmf/org/apache/xerces/dom/ParentNode;
 
-    # invokes: Lmf/org/apache/xerces/dom/ParentNode;->nodeListItem(I)Lmf/org/w3c/dom/Node;
     invoke-static {v0, p1}, Lmf/org/apache/xerces/dom/ParentNode;->access$1(Lmf/org/apache/xerces/dom/ParentNode;I)Lmf/org/w3c/dom/Node;
 
     move-result-object v0

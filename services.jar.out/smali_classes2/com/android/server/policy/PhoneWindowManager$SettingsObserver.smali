@@ -171,7 +171,7 @@
     return-void
 .end method
 
-.method public onChange(Z)V
+.method public onChange(ZLandroid/net/Uri;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -184,5 +184,41 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
 
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxSkipTracks:Landroid/net/Uri;
+
+    invoke-virtual {p2, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->grx_actualiza_opciones_skip_tracks()V
+
+    :cond_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxDobleClickSkipTracks:Landroid/net/Uri;
+
+    invoke-virtual {p2, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->mGrxTimeOutSkipTracks:Landroid/net/Uri;
+
+    invoke-virtual {p2, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
 .end method

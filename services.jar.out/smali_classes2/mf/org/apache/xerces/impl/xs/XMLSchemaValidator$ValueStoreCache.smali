@@ -275,7 +275,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreCache;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fElementDepth:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$0(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;)I
 
     move-result v1
@@ -303,7 +302,6 @@
 
     aget-object v1, v3, v2
 
-    # invokes: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->activateSelectorFor(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
     invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$1(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
 
     goto :goto_1
@@ -330,7 +328,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreCache;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fElementDepth:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$0(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;)I
 
     move-result v1
@@ -358,7 +355,6 @@
 
     aget-object v1, v3, v2
 
-    # invokes: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->activateSelectorFor(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
     invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$1(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
 
     goto :goto_1
@@ -385,7 +381,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator$ValueStoreCache;->this$0:Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->fElementDepth:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$0(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;)I
 
     move-result v1
@@ -413,7 +408,6 @@
 
     aget-object v1, v3, v2
 
-    # invokes: Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->activateSelectorFor(Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
     invoke-static {v0, v1}, Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;->access$1(Lmf/org/apache/xerces/impl/xs/XMLSchemaValidator;Lmf/org/apache/xerces/impl/xs/identity/IdentityConstraint;)V
 
     goto/16 :goto_1

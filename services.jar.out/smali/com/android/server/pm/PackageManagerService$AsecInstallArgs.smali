@@ -703,17 +703,22 @@
 .method doPostDeleteLI(Z)Z
     .locals 3
 
+    sget-object v0, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+
+    if-eqz p1, :cond_0
+
     invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->getAllCodePaths()Ljava/util/List;
 
     move-result-object v0
 
+    :cond_0
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->cid:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/android/internal/content/PackageHelper;->isContainerMounted(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->cid:Ljava/lang/String;
 
@@ -721,26 +726,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const/4 v1, 0x0
 
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_1
+    if-nez v1, :cond_2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-direct {p0, v0}, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->cleanUpResourcesLI(Ljava/util/List;)V
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_2
+    if-eqz v1, :cond_3
 
     const/4 v2, 0x0
 
     :goto_0
     return v2
 
-    :cond_2
+    :cond_3
     const/4 v2, 0x1
 
     goto :goto_0

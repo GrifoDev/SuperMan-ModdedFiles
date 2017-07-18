@@ -7336,6 +7336,18 @@
 .method private notifySdcardSBABlacklistUpdate(I)V
     .locals 4
 
+    sget-object v1, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "KnoxMUMContainerPolicy.notifySdcardWhitelistUpdate"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
@@ -7385,6 +7397,18 @@
 
 .method private notifySdcardWhitelistUpdate(I)V
     .locals 4
+
+    sget-object v1, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "KnoxMUMContainerPolicy.notifySdcardWhitelistUpdate"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/Exception;
+
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     new-instance v0, Landroid/content/Intent;
 

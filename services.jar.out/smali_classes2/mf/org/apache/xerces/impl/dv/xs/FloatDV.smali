@@ -29,7 +29,6 @@
 
     check-cast p2, Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;
 
-    # invokes: Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;->compareTo(Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;)I
     invoke-static {p1, p2}, Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;->access$0(Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;Lmf/org/apache/xerces/impl/dv/xs/FloatDV$XFloat;)I
 
     move-result v0

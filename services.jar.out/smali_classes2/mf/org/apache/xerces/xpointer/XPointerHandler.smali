@@ -548,7 +548,6 @@
 
     move-object v3, p1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->scanExpr(Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;II)Z
     invoke-static/range {v0 .. v5}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;->access$1(Lmf/org/apache/xerces/xpointer/XPointerHandler$Scanner;Lmf/org/apache/xerces/util/SymbolTable;Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;Ljava/lang/String;II)Z
 
     move-result v0
@@ -556,14 +555,12 @@
     if-eqz v0, :cond_0
 
     :goto_0
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->hasMore()Z
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v0
@@ -592,12 +589,10 @@
     goto :goto_0
 
     :pswitch_0
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v0
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v0
@@ -631,22 +626,18 @@
     goto :goto_1
 
     :pswitch_1
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v0
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v0
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v1
@@ -667,12 +658,10 @@
 
     move-result-object v3
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v0
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v0}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v1
@@ -685,19 +674,16 @@
     move v0, v6
 
     :goto_3
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->hasMore()Z
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v1
@@ -735,22 +721,18 @@
     goto :goto_2
 
     :cond_4
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v5
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->nextToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$5(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v1}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v1
@@ -763,19 +745,16 @@
     move v1, v6
 
     :goto_5
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->hasMore()Z
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$4(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)Z
 
     move-result v7
 
     if-eqz v7, :cond_6
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->peekToken()I
     invoke-static {v2}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$6(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;)I
 
     move-result v7
 
-    # invokes: Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->getTokenString(I)Ljava/lang/String;
     invoke-static {v2, v7}, Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;->access$3(Lmf/org/apache/xerces/xpointer/XPointerHandler$Tokens;I)Ljava/lang/String;
 
     move-result-object v7

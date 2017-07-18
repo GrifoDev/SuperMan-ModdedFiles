@@ -1945,7 +1945,6 @@
     return v0
 
     :cond_1
-    # getter for: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->table:[I
     invoke-static {}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->access$0()[I
 
     move-result-object v0
@@ -1960,7 +1959,6 @@
     if-nez v0, :cond_3
 
     :goto_0
-    # getter for: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->table:[I
     invoke-static {}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->access$0()[I
 
     move-result-object v0
@@ -2004,7 +2002,6 @@
     return v0
 
     :cond_1
-    # getter for: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->table:[I
     invoke-static {}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->access$0()[I
 
     move-result-object v0
@@ -2029,7 +2026,6 @@
     if-eqz v0, :cond_3
 
     :goto_0
-    # getter for: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->table:[I
     invoke-static {}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl$DaysInMonth;->access$0()[I
 
     move-result-object v0

@@ -65,7 +65,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->this$0:Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;->fComponentManager:Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
     invoke-static {v1}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;->access$0(Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;)Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
 
     move-result-object v1
@@ -106,7 +105,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl$XMLSchemaTypeInfoProvider;->this$0:Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;
 
-    # getter for: Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;->fComponentManager:Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
     invoke-static {v1}, Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;->access$0(Lmf/org/apache/xerces/jaxp/validation/ValidatorHandlerImpl;)Lmf/org/apache/xerces/jaxp/validation/XMLSchemaValidatorComponentManager;
 
     move-result-object v1

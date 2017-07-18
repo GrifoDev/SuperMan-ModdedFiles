@@ -69,19 +69,19 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$WakeupPreventionHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get46(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextManager;
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get47(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$WakeupPreventionHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get43(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get44(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/power/PowerManagerService$WakeupPreventionHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get41(Lcom/android/server/power/PowerManagerService;)Landroid/os/HandlerThread;
+    invoke-static {v2}, Lcom/android/server/power/PowerManagerService;->-get42(Lcom/android/server/power/PowerManagerService;)Landroid/os/HandlerThread;
 
     move-result-object v2
 
@@ -118,13 +118,13 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$WakeupPreventionHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get46(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextManager;
+    invoke-static {v0}, Lcom/android/server/power/PowerManagerService;->-get47(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$WakeupPreventionHandler;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get43(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get44(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
 
     move-result-object v1
 

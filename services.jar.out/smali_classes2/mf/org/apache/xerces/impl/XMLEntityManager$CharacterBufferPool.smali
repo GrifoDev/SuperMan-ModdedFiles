@@ -153,7 +153,6 @@
 .method public returnBuffer(Lmf/org/apache/xerces/impl/XMLEntityManager$CharacterBuffer;)V
     .locals 2
 
-    # getter for: Lmf/org/apache/xerces/impl/XMLEntityManager$CharacterBuffer;->isExternal:Z
     invoke-static {p1}, Lmf/org/apache/xerces/impl/XMLEntityManager$CharacterBuffer;->access$1(Lmf/org/apache/xerces/impl/XMLEntityManager$CharacterBuffer;)Z
 
     move-result v0

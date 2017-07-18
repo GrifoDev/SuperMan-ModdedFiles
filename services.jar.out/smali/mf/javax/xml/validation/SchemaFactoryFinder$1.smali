@@ -42,12 +42,10 @@
 
     move-result-object v0
 
-    # getter for: Lmf/javax/xml/validation/SchemaFactoryFinder;->ss:Lmf/javax/xml/validation/SecuritySupport;
     invoke-static {}, Lmf/javax/xml/validation/SchemaFactoryFinder;->access$0()Lmf/javax/xml/validation/SecuritySupport;
 
     move-result-object v1
 
-    # getter for: Lmf/javax/xml/validation/SchemaFactoryFinder;->SERVICE_ID:Ljava/lang/String;
     invoke-static {}, Lmf/javax/xml/validation/SchemaFactoryFinder;->access$1()Ljava/lang/String;
 
     move-result-object v2

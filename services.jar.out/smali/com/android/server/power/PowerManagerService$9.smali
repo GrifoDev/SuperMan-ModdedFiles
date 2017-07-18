@@ -121,7 +121,7 @@
 
     iget-object v4, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->-get58(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
+    invoke-static {v4}, Lcom/android/server/power/PowerManagerService;->-get59(Lcom/android/server/power/PowerManagerService;)Landroid/hardware/scontext/SContextListener;
 
     move-result-object v4
 

@@ -474,6 +474,85 @@
     throw v1
 .end method
 
+.method private handleIncomingUser(Landroid/net/Uri;IIII)I
+    .locals 3
+
+    const/4 v0, -0x2
+
+    if-ne p5, v0, :cond_0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result p5
+
+    :cond_0
+    const/4 v0, -0x1
+
+    if-ne p5, v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/content/ContentService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "android.permission.INTERACT_ACROSS_USERS_FULL"
+
+    const-string/jumbo v2, "ContentService"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    :goto_0
+    return p5
+
+    :cond_2
+    if-gez p5, :cond_3
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Invalid user: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v0
+
+    if-eq p5, v0, :cond_1
+
+    invoke-direct/range {p0 .. p5}, Lcom/android/server/content/ContentService;->checkUriPermission(Landroid/net/Uri;IIII)I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/content/ContentService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "android.permission.INTERACT_ACROSS_USERS_FULL"
+
+    const-string/jumbo v2, "ContentService"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
 .method private invalidateCacheLocked(ILjava/lang/String;Landroid/net/Uri;)V
     .locals 6
 
@@ -2140,7 +2219,7 @@
 .end method
 
 .method public notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZII)V
-    .locals 31
+    .locals 32
 
     if-nez p1, :cond_0
 
@@ -2165,19 +2244,13 @@
 
     move-result v17
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_1
 
     invoke-static/range {p5 .. p5}, Lcom/samsung/android/knox/SemPersonaManager;->isBBCContainer(I)Z
 
-    move-result v28
+    move-result v29
 
     :goto_0
-    move/from16 v0, v17
-
-    move/from16 v1, p5
-
-    if-eq v0, v1, :cond_1
-
     const/4 v8, 0x2
 
     move-object/from16 v4, p0
@@ -2186,27 +2259,82 @@
 
     move/from16 v9, p5
 
-    invoke-direct/range {v4 .. v9}, Lcom/android/server/content/ContentService;->checkUriPermission(Landroid/net/Uri;IIII)I
+    invoke-direct/range {v4 .. v9}, Lcom/android/server/content/ContentService;->handleIncomingUser(Landroid/net/Uri;IIII)I
 
-    move-result v4
+    move-result p5
 
-    if-eqz v4, :cond_1
+    const-class v4, Landroid/app/ActivityManagerInternal;
 
-    if-eqz v28, :cond_4
+    invoke-static {v4}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    :cond_1
-    :goto_1
-    if-gez p5, :cond_2
+    move-result-object v4
 
-    const/4 v4, -0x2
+    check-cast v4, Landroid/app/ActivityManagerInternal;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+
+    move-result-object v5
 
     move/from16 v0, p5
 
-    if-ne v0, v4, :cond_5
+    invoke-virtual {v4, v5, v0}, Landroid/app/ActivityManagerInternal;->checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    move-result-object v24
 
-    move-result p5
+    if-eqz v24, :cond_2
+
+    const-string/jumbo v4, "ContentService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Ignoring notify for "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v8, " from "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v8, ": "
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    const/16 v29, 0x0
+
+    goto :goto_0
 
     :cond_2
     invoke-static {}, Lcom/android/server/content/ContentService;->clearCallingIdentity()J
@@ -2252,33 +2380,33 @@
 
     invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
 
-    move-result v24
+    move-result v25
 
     const/16 v19, 0x0
 
-    :goto_2
+    :goto_1
     move/from16 v0, v19
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_5
 
     move/from16 v0, v19
 
     invoke-virtual {v15, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v27
 
-    check-cast v26, Lcom/android/server/content/ContentService$ObserverCall;
+    check-cast v27, Lcom/android/server/content/ContentService$ObserverCall;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :try_start_3
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget-object v4, v0, Lcom/android/server/content/ContentService$ObserverCall;->mObserver:Landroid/database/IContentObserver;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget-boolean v5, v0, Lcom/android/server/content/ContentService$ObserverCall;->mSelfChange:Z
 
@@ -2291,59 +2419,10 @@
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :goto_3
+    :goto_2
     add-int/lit8 v19, v19, 0x1
 
-    goto :goto_2
-
-    :cond_3
-    const/16 v28, 0x0
-
-    goto :goto_0
-
-    :cond_4
-    const-string/jumbo v4, "no permission to notify other users"
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, p5
-
-    invoke-direct {v0, v1, v4}, Lcom/android/server/content/ContentService;->enforceCrossUserPermission(ILjava/lang/String;)V
-
     goto :goto_1
-
-    :cond_5
-    const/4 v4, -0x1
-
-    move/from16 v0, p5
-
-    if-eq v0, v4, :cond_2
-
-    new-instance v4, Ljava/security/InvalidParameterException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "Bad user handle for notifyChange: "
-
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move/from16 v0, p5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
-
-    throw v4
 
     :catchall_0
     move-exception v4
@@ -2381,7 +2460,7 @@
 
     invoke-static {v4, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget-object v4, v0, Lcom/android/server/content/ContentService$ObserverCall;->mObserver:Landroid/database/IContentObserver;
 
@@ -2389,7 +2468,7 @@
 
     move-result-object v16
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     iget-object v4, v0, Lcom/android/server/content/ContentService$ObserverCall;->mNode:Lcom/android/server/content/ContentService$ObserverNode;
 
@@ -2399,16 +2478,16 @@
 
     invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
 
-    move-result v25
+    move-result v26
 
     const/16 v22, 0x0
 
-    :goto_4
+    :goto_3
     move/from16 v0, v22
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_4
 
     move-object/from16 v0, v23
 
@@ -2416,11 +2495,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v27
+    move-result-object v28
 
-    check-cast v27, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;
+    check-cast v28, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     iget-object v4, v0, Lcom/android/server/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
@@ -2430,7 +2509,7 @@
 
     move-object/from16 v0, v16
 
-    if-ne v4, v0, :cond_6
+    if-ne v4, v0, :cond_3
 
     move-object/from16 v0, v23
 
@@ -2442,18 +2521,18 @@
 
     add-int/lit8 v22, v22, -0x1
 
-    add-int/lit8 v25, v25, -0x1
+    add-int/lit8 v26, v26, -0x1
 
-    :cond_6
+    :cond_3
     add-int/lit8 v22, v22, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_7
+    :cond_4
     :try_start_7
     monitor-exit v5
 
-    goto/16 :goto_3
+    goto :goto_2
 
     :catchall_2
     move-exception v4
@@ -2462,16 +2541,16 @@
 
     throw v4
 
-    :cond_8
+    :cond_5
     and-int/lit8 v4, p4, 0x1
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_6
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/content/ContentService;->getSyncManager()Lcom/android/server/content/SyncManager;
 
-    move-result-object v30
+    move-result-object v31
 
-    if-eqz v30, :cond_9
+    if-eqz v31, :cond_6
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
@@ -2479,13 +2558,13 @@
 
     const/4 v5, 0x0
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v31
 
     move/from16 v1, v17
 
     invoke-virtual {v0, v5, v1, v7, v4}, Lcom/android/server/content/SyncManager;->scheduleLocalSync(Landroid/accounts/Account;IILjava/lang/String;)V
 
-    :cond_9
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/server/content/ContentService;->mCache:Landroid/util/SparseArray;
@@ -2497,13 +2576,13 @@
     :try_start_8
     invoke-direct/range {p0 .. p1}, Lcom/android/server/content/ContentService;->getProviderPackageName(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v30
 
     move-object/from16 v0, p0
 
     move/from16 v1, p5
 
-    move-object/from16 v2, v29
+    move-object/from16 v2, v30
 
     move-object/from16 v3, p1
 
@@ -2711,14 +2790,6 @@
 
     move-result v3
 
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
-
-    move-result v13
-
-    move/from16 v0, p4
-
-    if-eq v13, v0, :cond_2
-
     const/4 v5, 0x1
 
     move-object v1, p0
@@ -2727,32 +2798,75 @@
 
     move/from16 v6, p4
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/server/content/ContentService;->checkUriPermission(Landroid/net/Uri;IIII)I
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "no permission to observe other users\' provider view"
-
-    move/from16 v0, p4
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/content/ContentService;->enforceCrossUserPermission(ILjava/lang/String;)V
-
-    :cond_2
-    if-gez p4, :cond_3
-
-    const/4 v1, -0x2
-
-    move/from16 v0, p4
-
-    if-ne v0, v1, :cond_4
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    invoke-direct/range {v1 .. v6}, Lcom/android/server/content/ContentService;->handleIncomingUser(Landroid/net/Uri;IIII)I
 
     move-result p4
 
-    :cond_3
+    const-class v1, Landroid/app/ActivityManagerInternal;
+
+    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/ActivityManagerInternal;
+
+    invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+
+    move-result-object v2
+
+    move/from16 v0, p4
+
+    invoke-virtual {v1, v2, v0}, Landroid/app/ActivityManagerInternal;->checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v13
+
+    if-eqz v13, :cond_2
+
+    const-string/jumbo v1, "ContentService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Ignoring content changes for "
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v5, " from "
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v5, ": "
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
     iget-object v2, p0, Lcom/android/server/content/ContentService;->mRootNode:Lcom/android/server/content/ContentService$ObserverNode;
 
     monitor-enter v2
@@ -2781,39 +2895,6 @@
     monitor-exit v2
 
     return-void
-
-    :cond_4
-    const/4 v1, -0x1
-
-    move/from16 v0, p4
-
-    if-eq v0, v1, :cond_3
-
-    new-instance v1, Ljava/security/InvalidParameterException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Bad user handle for registerContentObserver: "
-
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    move/from16 v0, p4
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
-
-    throw v1
 
     :catchall_0
     move-exception v1

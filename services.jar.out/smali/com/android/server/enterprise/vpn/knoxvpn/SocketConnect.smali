@@ -438,7 +438,7 @@
 
     move-result v6
 
-    if-gez v6, :cond_2
+    if-gez v6, :cond_1
 
     const-string/jumbo v7, "SocketConnect"
 
@@ -450,23 +450,27 @@
 
     invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeInputStream(Ljava/io/InputStream;)V
 
-    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->fromSocket:Ljava/net/Socket;
-
-    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
-
     iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->to:Ljava/io/OutputStream;
 
     invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeOutputStream(Ljava/io/OutputStream;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->fromSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
 
     iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->toSocket:Ljava/net/Socket;
 
     invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
 
-    :cond_1
     :goto_1
     return-void
 
-    :cond_2
+    :cond_1
+    :try_start_1
     iget-boolean v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->appendCredentialsForConnection:Z
 
     if-eqz v7, :cond_6
@@ -561,13 +565,13 @@
 
     iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->protocolBasedUserCredentials:Ljava/lang/String;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->protocolBasedUserCredentials:Ljava/lang/String;
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_3
+    :cond_2
     const-string/jumbo v7, "SocketConnect"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -663,18 +667,20 @@
     sub-int v9, v6, v9
 
     invoke-virtual {v7, v0, v8, v9}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto/16 :goto_0
 
     :catch_0
     move-exception v5
 
+    :try_start_2
     sget-boolean v7, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->DBG:Z
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
     const-string/jumbo v7, "SocketConnect"
 
@@ -700,21 +706,32 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_3
     sget-boolean v7, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->DBG:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_4
 
     const-string/jumbo v7, "SocketConnect"
 
     const-string/jumbo v8, "SocketConnect.run() IOException:"
 
     invoke-static {v7, v8, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_4
+    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->fromSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
+
+    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->toSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
 
     goto/16 :goto_1
 
     :cond_5
-    :try_start_1
+    :try_start_3
     const-string/jumbo v7, "SocketConnect"
 
     const-string/jumbo v8, "No first line. Passing it along."
@@ -726,15 +743,17 @@
     const/4 v8, 0x0
 
     invoke-virtual {v7, v0, v8, v6}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_0
 
     :catch_1
     move-exception v2
 
+    :try_start_4
     const-string/jumbo v7, "SocketConnect"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -764,19 +783,43 @@
     const-string/jumbo v8, "SocketConnect.run() Exception:"
 
     invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->fromSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
+
+    iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->toSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v7}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
 
     goto/16 :goto_1
 
     :cond_6
-    :try_start_2
+    :try_start_5
     iget-object v7, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->to:Ljava/io/OutputStream;
 
     const/4 v8, 0x0
 
     invoke-virtual {v7, v0, v8, v6}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto/16 :goto_0
+
+    :catchall_0
+    move-exception v7
+
+    iget-object v8, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->fromSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v8}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
+
+    iget-object v8, p0, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->toSocket:Ljava/net/Socket;
+
+    invoke-direct {p0, v8}, Lcom/android/server/enterprise/vpn/knoxvpn/SocketConnect;->closeServerSocket(Ljava/net/Socket;)V
+
+    throw v7
 .end method

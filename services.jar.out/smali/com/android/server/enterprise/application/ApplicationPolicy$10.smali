@@ -90,7 +90,7 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$10;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v1, v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap13(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
+    invoke-static {v1, v0}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap15(Lcom/android/server/enterprise/application/ApplicationPolicy;I)V
 
     :cond_0
     :goto_0

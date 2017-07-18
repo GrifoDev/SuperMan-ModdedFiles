@@ -226,7 +226,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentMethodsAvailable:Z
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$0()Z
 
     move-result v0
@@ -234,7 +233,6 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentGetInputEncodingMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$2()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -299,7 +297,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentMethodsAvailable:Z
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$0()Z
 
     move-result v0
@@ -307,7 +304,6 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentGetXmlEncodingMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$3()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -372,7 +368,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentMethodsAvailable:Z
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$0()Z
 
     move-result v0
@@ -380,7 +375,6 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    # getter for: Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->fgDocumentGetXmlVersionMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/DOMSerializerImpl$DocumentMethods;->access$1()Ljava/lang/reflect/Method;
 
     move-result-object v0

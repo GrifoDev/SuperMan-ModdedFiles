@@ -394,7 +394,6 @@
     return-object v1
 
     :cond_0
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$300()Ljava/util/logging/Logger;
 
     move-result-object v2
@@ -433,7 +432,6 @@
     throw v1
 
     :cond_1
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->logger:Ljava/util/logging/Logger;
     invoke-static {}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$300()Ljava/util/logging/Logger;
 
     move-result-object v2

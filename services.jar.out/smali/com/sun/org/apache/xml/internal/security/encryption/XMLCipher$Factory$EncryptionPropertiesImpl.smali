@@ -105,12 +105,10 @@
 
     iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory$EncryptionPropertiesImpl;->this$1:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;->access$400(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Factory;)Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
     move-result-object v0
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_contextDocument:Lorg/w3c/dom/Document;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$200(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lorg/w3c/dom/Document;
 
     move-result-object v0

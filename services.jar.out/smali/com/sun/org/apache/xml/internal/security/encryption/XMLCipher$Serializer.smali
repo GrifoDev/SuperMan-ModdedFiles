@@ -45,7 +45,6 @@
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v1}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v1
@@ -54,7 +53,6 @@
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v1}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v1
@@ -63,7 +61,6 @@
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v1}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v1
@@ -181,7 +178,6 @@
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_contextDocument:Lorg/w3c/dom/Document;
     invoke-static {v1}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$200(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lorg/w3c/dom/Document;
 
     move-result-object v1
@@ -200,7 +196,6 @@
 
     iget-object v1, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_contextDocument:Lorg/w3c/dom/Document;
     invoke-static {v1}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$200(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lorg/w3c/dom/Document;
 
     move-result-object v1
@@ -472,7 +467,6 @@
 
     iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v0
@@ -481,7 +475,6 @@
 
     iget-object v0, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v0}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v0
@@ -510,7 +503,6 @@
     :cond_0
     iget-object v2, p0, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher$Serializer;->this$0:Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;
 
-    # getter for: Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->_canon:Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
     invoke-static {v2}, Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;->access$100(Lcom/sun/org/apache/xml/internal/security/encryption/XMLCipher;)Lcom/sun/org/apache/xml/internal/security/c14n/Canonicalizer;
 
     move-result-object v2

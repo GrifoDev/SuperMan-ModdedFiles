@@ -103,7 +103,6 @@
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isDigit(C)Z
     invoke-static {v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->access$0(C)Z
 
     move-result v1
@@ -149,7 +148,6 @@
 
     move-result v1
 
-    # invokes: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isDigit(C)Z
     invoke-static {v1}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->access$0(C)Z
 
     move-result v1
@@ -227,7 +225,6 @@
 
     move-result v2
 
-    # invokes: Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->isDigit(C)Z
     invoke-static {v2}, Lmf/org/apache/xerces/jaxp/datatype/XMLGregorianCalendarImpl;->access$0(C)Z
 
     move-result v2

@@ -22,8 +22,6 @@
 
 
 # instance fields
-.field private final ACTION_NOTIFY_MULTIWINDOW_STATUS:Ljava/lang/String;
-
 .field private final ANIMATION_DEBOUNCE_MILLIS:J
 
 .field private final ANIMATION_MAX_COUNT:F
@@ -39,8 +37,6 @@
 .field private final DEBUG:Z
 
 .field private final EBOOK_NAMES:[Ljava/lang/String;
-
-.field private final EXTRA_MULTIWINDOW_RUNNING:Ljava/lang/String;
 
 .field private final FOREGROUND_RESCAN_DEBOUNCE_MILLIS:J
 
@@ -101,8 +97,6 @@
 .field private final SCR_FILE_PATH:Ljava/lang/String;
 
 .field private final SETUP_WIZARD_NAME:Ljava/lang/String;
-
-.field private final SSRM_INTENT_MDNIE_SETTING:Ljava/lang/String;
 
 .field private final TEST_RGB_EXPONENTIAL:I
 
@@ -412,15 +406,7 @@
     return p1
 .end method
 
-.method static synthetic -set10(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mSumCCT:I
-
-    return p1
-.end method
-
-.method static synthetic -set11(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;J)J
+.method static synthetic -set10(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mSumLux:J
@@ -468,15 +454,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set7(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mEBookScenarioIntented:Z
-
-    return p1
-.end method
-
-.method static synthetic -set8(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+.method static synthetic -set7(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
     .locals 0
 
     iput p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mLightSensorDelay:I
@@ -484,12 +462,20 @@
     return p1
 .end method
 
-.method static synthetic -set9(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;Lcom/samsung/android/hardware/display/SemMdnieManager;)Lcom/samsung/android/hardware/display/SemMdnieManager;
+.method static synthetic -set8(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;Lcom/samsung/android/hardware/display/SemMdnieManager;)Lcom/samsung/android/hardware/display/SemMdnieManager;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mSemMdnieManager:Lcom/samsung/android/hardware/display/SemMdnieManager;
 
     return-object p1
+.end method
+
+.method static synthetic -set9(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->mSumCCT:I
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;)V
@@ -774,24 +760,6 @@
     move-object/from16 v0, p0
 
     iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->BLUE_LIGHT_FILTER:Ljava/lang/String;
-
-    const-string/jumbo v14, "com.sec.android.action.NOTIFY_MULTIWINDOW_STATUS"
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->ACTION_NOTIFY_MULTIWINDOW_STATUS:Ljava/lang/String;
-
-    const-string/jumbo v14, "com.sec.android.extra.MULTIWINDOW_RUNNING"
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->EXTRA_MULTIWINDOW_RUNNING:Ljava/lang/String;
-
-    const-string/jumbo v14, "com.sec.android.intent.action.SSRM_MDNIE_CHANGED"
-
-    move-object/from16 v0, p0
-
-    iput-object v14, v0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->SSRM_INTENT_MDNIE_SETTING:Ljava/lang/String;
 
     const-string/jumbo v14, "1"
 
@@ -1698,10 +1666,6 @@
     invoke-virtual {v9, v14}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string/jumbo v14, "android.intent.action.USER_PRESENT"
-
-    invoke-virtual {v9, v14}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string/jumbo v14, "com.sec.android.intent.action.SSRM_MDNIE_CHANGED"
 
     invoke-virtual {v9, v14}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 

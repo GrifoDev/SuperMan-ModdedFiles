@@ -73,13 +73,13 @@
 
     iget-object v1, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$2;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get1(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get2(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$2;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
-    invoke-static {v2}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get0(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/BroadcastReceiver;
+    invoke-static {v2}, Lcom/android/server/enterprise/certificate/CertificatePolicy;->-get1(Lcom/android/server/enterprise/certificate/CertificatePolicy;)Landroid/content/BroadcastReceiver;
 
     move-result-object v2
 

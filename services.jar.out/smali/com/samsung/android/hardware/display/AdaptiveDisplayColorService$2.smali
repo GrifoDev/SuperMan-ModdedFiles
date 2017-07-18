@@ -106,7 +106,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService$2;->this$0:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
 
-    invoke-static {v0, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set8(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+    invoke-static {v0, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set7(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
 
     :goto_0
     return-void
@@ -136,14 +136,14 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    invoke-static {v0, v6}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set8(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+    invoke-static {v0, v6}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set7(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
 
     goto :goto_0
 
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService$2;->this$0:Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;
 
-    invoke-static {v0, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set8(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
+    invoke-static {v0, v7}, Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;->-set7(Lcom/samsung/android/hardware/display/AdaptiveDisplayColorService;I)I
 
     goto :goto_0
 .end method

@@ -55,7 +55,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl$XSObjectListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->access$0(Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;)I
 
     move-result v1
@@ -96,7 +95,6 @@
 
     iget-object v1, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl$XSObjectListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fLength:I
     invoke-static {v1}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->access$0(Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;)I
 
     move-result v1
@@ -112,7 +110,6 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl$XSObjectListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
     invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->access$1(Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;)[Lmf/org/apache/xerces/xs/XSObject;
 
     move-result-object v0
@@ -152,7 +149,6 @@
     :cond_0
     iget-object v0, p0, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl$XSObjectListIterator;->this$0:Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;
 
-    # getter for: Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->fArray:[Lmf/org/apache/xerces/xs/XSObject;
     invoke-static {v0}, Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;->access$1(Lmf/org/apache/xerces/impl/xs/util/XSObjectListImpl;)[Lmf/org/apache/xerces/xs/XSObject;
 
     move-result-object v0

@@ -322,7 +322,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$0()Z
 
     move-result v0
@@ -330,7 +329,6 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    # getter for: Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$1()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -381,7 +379,6 @@
     goto :goto_0
 
     :cond_2
-    # getter for: Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableMethodsAvailable:Z
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$0()Z
 
     move-result v0
@@ -389,7 +386,6 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    # getter for: Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->fgThrowableInitCauseMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xerces/util/DOMUtil$ThrowableMethods;->access$1()Ljava/lang/reflect/Method;
 
     move-result-object v0

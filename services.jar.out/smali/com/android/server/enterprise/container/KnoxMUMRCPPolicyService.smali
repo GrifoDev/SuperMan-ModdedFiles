@@ -1199,779 +1199,1071 @@
 
 # virtual methods
 .method public allowMoveAppsToContainer(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 13
+    .locals 17
 
-    const/4 v9, 0x1
+    new-instance v2, Ljava/util/ArrayList;
 
-    const/4 v10, 0x0
+    const/4 v3, 0x2
 
-    new-instance v8, Ljava/util/ArrayList;
+    new-array v3, v3, [Ljava/lang/String;
 
-    const/4 v11, 0x2
+    const-string/jumbo v4, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
 
-    new-array v11, v11, [Ljava/lang/String;
+    const/4 v5, 0x0
 
-    const-string/jumbo v12, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
+    aput-object v4, v3, v5
 
-    aput-object v12, v11, v10
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_CONTAINER"
 
-    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_CONTAINER"
+    const/4 v5, 0x1
 
-    aput-object v12, v11, v9
+    aput-object v4, v3, v5
 
-    invoke-static {v11}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-direct {v8, v11}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, p1, v8}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+    move-object/from16 v0, p0
 
-    if-eqz p1, :cond_5
+    move-object/from16 v1, p1
 
-    const/4 v4, 0x0
+    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
-    new-instance v5, Landroid/content/ContentValues;
+    if-eqz p1, :cond_6
 
-    invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
+    const/4 v13, 0x0
 
-    const-string/jumbo v8, "cid"
+    new-instance v16, Landroid/content/ContentValues;
 
-    iget v11, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string/jumbo v2, "cid"
 
-    move-result-object v11
+    move-object/from16 v0, p1
 
-    invoke-virtual {v5, v8, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    const-string/jumbo v8, "adminUid"
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget v11, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-result-object v3
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v0, v16
 
-    move-result-object v11
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    invoke-virtual {v5, v8, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    const-string/jumbo v2, "adminUid"
 
-    const-string/jumbo v8, "propertyName"
+    move-object/from16 v0, p1
 
-    const-string/jumbo v11, "EnforceMoveAppsToContainer"
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-virtual {v5, v8, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget-boolean v8, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
+    move-result-object v3
 
-    if-eqz v8, :cond_0
+    move-object/from16 v0, v16
 
-    const-string/jumbo v8, "KnoxMUMRCPPolicyService"
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "propertyName"
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "EnforceMoveAppsToContainer"
 
-    const-string/jumbo v12, "setEnforceAuthForContainer: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
+    move-object/from16 v0, v16
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v11
+    sget-boolean v2, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
 
-    iget v12, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
 
-    move-result-object v11
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v12, " "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "setEnforceAuthForContainer: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
 
-    move-result-object v11
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v12, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    move-result-object v3
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p1
 
-    move-result-object v11
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    const-string/jumbo v12, " EnforceMoveAppsToContainer"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v11
+    const-string/jumbo v4, " "
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-static {v8, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " EnforceMoveAppsToContainer"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v8, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v11, "CONTAINER_POLICY"
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {v8, v11, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    const-string/jumbo v3, "CONTAINER_POLICY"
 
-    move-result v1
+    move-object/from16 v0, v16
 
-    const-string/jumbo v11, "KnoxMUMRCPPolicyService"
+    invoke-virtual {v2, v3, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v10
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "KnoxMUMRCPPolicyService"
 
-    const-string/jumbo v12, "setEnforceAuthForContainer: already row present ? "
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v12
+    const-string/jumbo v4, "setEnforceAuthForContainer: already row present ? "
 
-    if-lez v1, :cond_1
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move v8, v9
+    move-result-object v4
+
+    if-lez v10, :cond_1
+
+    const/4 v2, 0x1
 
     :goto_0
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-static {v11, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-lez v1, :cond_2
+    if-lez v10, :cond_2
 
-    new-instance v2, Landroid/content/ContentValues;
+    new-instance v11, Landroid/content/ContentValues;
 
-    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v8, "propertyValue"
+    const-string/jumbo v2, "propertyValue"
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static/range {p2 .. p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-virtual {v2, v8, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v11, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    iget-object v8, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    const-string/jumbo v11, "CONTAINER_POLICY"
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    invoke-virtual {v8, v11, v2, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    const-string/jumbo v3, "CONTAINER_POLICY"
 
-    move-result v4
+    move-object/from16 v0, v16
+
+    invoke-virtual {v2, v3, v11, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+
+    move-result v13
 
     :goto_1
-    if-nez v4, :cond_3
+    if-nez v13, :cond_3
 
-    const-string/jumbo v8, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "setEnforceAuthForContainer failed : result = "
+    const-string/jumbo v4, "setEnforceAuthForContainer failed : result = "
 
-    invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v10
+    const/4 v2, 0x0
+
+    return v2
 
     :cond_1
-    move v8, v10
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v8, "propertyValue"
+    const-string/jumbo v2, "propertyValue"
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static/range {p2 .. p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-virtual {v5, v8, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    move-object/from16 v0, v16
 
-    iget-object v8, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    const-string/jumbo v11, "CONTAINER_POLICY"
+    move-object/from16 v0, p0
 
-    invoke-virtual {v8, v11, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    move-result v4
+    const-string/jumbo v3, "CONTAINER_POLICY"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v2, v3, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
+
+    move-result v13
 
     goto :goto_1
 
     :cond_3
-    new-instance v3, Landroid/content/Intent;
+    new-instance v12, Landroid/content/Intent;
 
-    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v12}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v8, "samsung.knox.intent.action.RCP_POLICY_CHANGED"
+    const-string/jumbo v2, "samsung.knox.intent.action.RCP_POLICY_CHANGED"
 
-    invoke-virtual {v3, v8}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v12, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    new-instance v0, Landroid/os/Bundle;
+    new-instance v9, Landroid/os/Bundle;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v9}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v8, "personaId"
+    const-string/jumbo v2, "personaId"
 
-    iget v10, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    move-object/from16 v0, p1
 
-    invoke-virtual {v0, v8, v10}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    const-string/jumbo v8, "policyName"
+    invoke-virtual {v9, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string/jumbo v10, "EnforceMoveAppsToContainer"
+    const-string/jumbo v2, "policyName"
 
-    invoke-virtual {v0, v8, v10}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v3, "EnforceMoveAppsToContainer"
 
-    const-string/jumbo v8, "policyValue"
+    invoke-virtual {v9, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v8, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string/jumbo v2, "policyValue"
 
-    const-string/jumbo v8, "MoveAppsToContainerBundle"
+    move/from16 v0, p2
 
-    invoke-virtual {v3, v8, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+    invoke-virtual {v9, v2, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    sget-boolean v8, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
+    const-string/jumbo v2, "MoveAppsToContainerBundle"
 
-    if-eqz v8, :cond_4
+    invoke-virtual {v12, v2, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    const-string/jumbo v8, "KnoxMUMRCPPolicyService"
+    sget-boolean v2, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_4
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
 
-    const-string/jumbo v11, "Intent data personaId: "
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v10
+    const-string/jumbo v4, "Intent data personaId: "
 
-    iget v11, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v10
+    move-object/from16 v0, p1
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    move-result-object v10
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    const-string/jumbo v8, "KnoxMUMRCPPolicyService"
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v10, "Intent data policyName: EnforceMoveAppsToContainer"
+    move-result-object v3
 
-    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v8, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "Intent data policyName: EnforceMoveAppsToContainer"
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v11, "Intent data policyValue: "
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "Intent data policyValue: "
 
-    move-result-object v10
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v10
+    move/from16 v0, p2
 
-    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v6
+    move-result-wide v14
 
-    iget-object v8, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    sget-object v10, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v3, v10}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    sget-object v3, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-virtual {v2, v12, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    return v9
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "KnoxMUMRCPPolicyService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    if-eqz p2, :cond_5
+
+    const-string/jumbo v2, "allowed"
+
+    :goto_2
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " moving applications to container."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v8
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_5
-    return v10
+    const-string/jumbo v2, "disallowed"
+
+    goto :goto_2
+
+    :cond_6
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public allowMoveFilesToContainer(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 9
+    .locals 13
 
-    const/4 v5, 0x1
+    new-instance v0, Ljava/util/ArrayList;
 
-    const/4 v6, 0x0
+    const/4 v1, 0x2
 
-    new-instance v4, Ljava/util/ArrayList;
+    new-array v1, v1, [Ljava/lang/String;
 
-    const/4 v7, 0x2
+    const-string/jumbo v2, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
 
-    new-array v7, v7, [Ljava/lang/String;
+    const/4 v3, 0x0
 
-    const-string/jumbo v8, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
+    aput-object v2, v1, v3
 
-    aput-object v8, v7, v6
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_CONTAINER"
 
-    const-string/jumbo v8, "com.samsung.android.knox.permission.KNOX_CONTAINER"
+    const/4 v3, 0x1
 
-    aput-object v8, v7, v5
+    aput-object v2, v1, v3
 
-    invoke-static {v7}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-direct {v4, v7}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, p1, v4}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct {p0, p1, v0}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
-    const/4 v2, 0x0
+    const/4 v9, 0x0
 
-    new-instance v3, Landroid/content/ContentValues;
+    new-instance v12, Landroid/content/ContentValues;
 
-    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v12}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v4, "cid"
+    const-string/jumbo v0, "cid"
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v4, "adminUid"
+    const-string/jumbo v0, "adminUid"
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v4, "propertyName"
+    const-string/jumbo v0, "propertyName"
 
-    const-string/jumbo v7, "EnforceMoveFilesToContainer"
+    const-string/jumbo v1, "EnforceMoveFilesToContainer"
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-boolean v4, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
+    sget-boolean v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v0, "KnoxMUMRCPPolicyService"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "allowMoveFilesToContainer: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
+    const-string/jumbo v2, "allowMoveFilesToContainer: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    const-string/jumbo v8, " "
+    const-string/jumbo v2, " "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    const-string/jumbo v8, " EnforceMoveFilesToContainer"
+    const-string/jumbo v2, " EnforceMoveFilesToContainer"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
 
-    move-result v0
+    move-result v7
 
-    const-string/jumbo v7, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v1, "KnoxMUMRCPPolicyService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "allowMoveFilesToContainer: already row present ? "
+    const-string/jumbo v2, "allowMoveFilesToContainer: already row present ? "
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v2
 
-    if-lez v0, :cond_1
+    if-lez v7, :cond_1
 
-    move v4, v5
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-static {v7, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-lez v0, :cond_2
+    if-lez v7, :cond_2
 
-    new-instance v1, Landroid/content/ContentValues;
+    new-instance v8, Landroid/content/ContentValues;
 
-    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v4, "propertyValue"
+    const-string/jumbo v0, "propertyValue"
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v1, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v8, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v1, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    invoke-virtual {v0, v1, v8, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
 
-    move-result v2
+    move-result v9
 
     :goto_1
-    if-nez v2, :cond_3
+    if-nez v9, :cond_3
 
-    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v0, "KnoxMUMRCPPolicyService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "allowMoveFilesToContainer failed : result = "
+    const-string/jumbo v2, "allowMoveFilesToContainer failed : result = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v6
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_1
-    move v4, v6
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v4, "propertyValue"
+    const-string/jumbo v0, "propertyValue"
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
+    invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
 
-    move-result v2
+    move-result v9
 
     goto :goto_1
 
     :cond_3
-    return v5
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_4
+
+    const-string/jumbo v0, "allowed"
+
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " moving files to container."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_4
-    return v6
+    :try_start_1
+    const-string/jumbo v0, "disallowed"
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :cond_5
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public allowMoveFilesToOwner(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 9
+    .locals 13
 
-    const/4 v5, 0x1
+    new-instance v0, Ljava/util/ArrayList;
 
-    const/4 v6, 0x0
+    const/4 v1, 0x2
 
-    new-instance v4, Ljava/util/ArrayList;
+    new-array v1, v1, [Ljava/lang/String;
 
-    const/4 v7, 0x2
+    const-string/jumbo v2, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
 
-    new-array v7, v7, [Ljava/lang/String;
+    const/4 v3, 0x0
 
-    const-string/jumbo v8, "android.permission.sec.MDM_ENTERPRISE_CONTAINER"
+    aput-object v2, v1, v3
 
-    aput-object v8, v7, v6
+    const-string/jumbo v2, "com.samsung.android.knox.permission.KNOX_CONTAINER"
 
-    const-string/jumbo v8, "com.samsung.android.knox.permission.KNOX_CONTAINER"
+    const/4 v3, 0x1
 
-    aput-object v8, v7, v5
+    aput-object v2, v1, v3
 
-    invoke-static {v7}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-direct {v4, v7}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {p0, p1, v4}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct {p0, p1, v0}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
-    const/4 v2, 0x0
+    const/4 v9, 0x0
 
-    new-instance v3, Landroid/content/ContentValues;
+    new-instance v12, Landroid/content/ContentValues;
 
-    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v12}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v4, "cid"
+    const-string/jumbo v0, "cid"
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v4, "adminUid"
+    const-string/jumbo v0, "adminUid"
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string/jumbo v4, "propertyName"
+    const-string/jumbo v0, "propertyName"
 
-    const-string/jumbo v7, "EnforceMoveFilesToOwner"
+    const-string/jumbo v1, "EnforceMoveFilesToOwner"
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-boolean v4, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
+    sget-boolean v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v0, "KnoxMUMRCPPolicyService"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "allowMoveFilesToOwner: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
+    const-string/jumbo v2, "allowMoveFilesToOwner: CONTAINER_ID - ADMIN_UID - CONTAINER_PROPERTY_NAME:"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    const-string/jumbo v8, " "
+    const-string/jumbo v2, " "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    iget v8, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget v2, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    const-string/jumbo v8, " EnforceMoveFilesToOwner"
+    const-string/jumbo v2, " EnforceMoveFilesToOwner"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-static {v4, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
+    invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
 
-    move-result v0
+    move-result v7
 
-    const-string/jumbo v7, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v1, "KnoxMUMRCPPolicyService"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "allowMoveFilesToOwner: already row present ? "
+    const-string/jumbo v2, "allowMoveFilesToOwner: already row present ? "
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v2
 
-    if-lez v0, :cond_1
+    if-lez v7, :cond_1
 
-    move v4, v5
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-static {v7, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-lez v0, :cond_2
+    if-lez v7, :cond_2
 
-    new-instance v1, Landroid/content/ContentValues;
+    new-instance v8, Landroid/content/ContentValues;
 
-    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v4, "propertyValue"
+    const-string/jumbo v0, "propertyValue"
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v1, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v8, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v1, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
+    invoke-virtual {v0, v1, v8, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValues(Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/ContentValues;)Z
 
-    move-result v2
+    move-result v9
 
     :goto_1
-    if-nez v2, :cond_3
+    if-nez v9, :cond_3
 
-    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+    const-string/jumbo v0, "KnoxMUMRCPPolicyService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "allowMoveFilesToOwner failed : result = "
+    const-string/jumbo v2, "allowMoveFilesToOwner failed : result = "
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v6
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_1
-    move v4, v6
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v4, "propertyValue"
+    const-string/jumbo v0, "propertyValue"
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v3, v4, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v12, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    iget-object v4, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    iget-object v0, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v7, "CONTAINER_POLICY"
+    const-string/jumbo v1, "CONTAINER_POLICY"
 
-    invoke-virtual {v4, v7, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
+    invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putValuesNoUpdate(Ljava/lang/String;Landroid/content/ContentValues;)Z
 
-    move-result v2
+    move-result v9
 
     goto :goto_1
 
     :cond_3
-    return v5
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_4
+
+    const-string/jumbo v0, "allowed"
+
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " moving files to owner."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_4
-    return v6
+    :try_start_1
+    const-string/jumbo v0, "disallowed"
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :cond_5
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public allowShareClipboardDataToContainer(Lcom/samsung/android/knox/ContextInfo;Z)Z
@@ -2261,289 +2553,410 @@
 .end method
 
 .method public allowShareClipboardDataToOwner(Lcom/samsung/android/knox/ContextInfo;Z)Z
-    .locals 14
+    .locals 21
 
-    new-instance v10, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    const/4 v11, 0x2
+    const/4 v3, 0x2
 
-    new-array v11, v11, [Ljava/lang/String;
+    new-array v3, v3, [Ljava/lang/String;
 
-    const-string/jumbo v12, "com.sec.enterprise.knox.permission.KNOX_RCP_SYNC_MGMT"
-
-    const/4 v13, 0x0
-
-    aput-object v12, v11, v13
-
-    const-string/jumbo v12, "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
-
-    const/4 v13, 0x1
-
-    aput-object v12, v11, v13
-
-    invoke-static {v11}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v11
-
-    invoke-direct {v10, v11}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-direct {p0, p1, v10}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
-
-    if-eqz p1, :cond_3
+    const-string/jumbo v4, "com.sec.enterprise.knox.permission.KNOX_RCP_SYNC_MGMT"
 
     const/4 v5, 0x0
 
-    iget-object v10, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    aput-object v4, v3, v5
 
-    iget v11, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+    const-string/jumbo v4, "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
 
-    invoke-virtual {v10, v11}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUidListAsUser(I)Ljava/util/ArrayList;
+    const/4 v5, 0x1
 
-    move-result-object v0
+    aput-object v4, v3, v5
 
-    if-eqz v0, :cond_3
+    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Lcom/samsung/android/knox/ContextInfo;
+
+    if-eqz p1, :cond_4
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+
+    invoke-virtual {v2, v3}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUidListAsUser(I)Ljava/util/ArrayList;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_4
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_4
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v9, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Long;
+
+    invoke-virtual {v2}, Ljava/lang/Long;->intValue()I
+
+    move-result v12
+
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "allowShareClipboardDataToOwner: AdminLUid "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v20, Landroid/content/ContentValues;
+
+    invoke-direct/range {v20 .. v20}, Landroid/content/ContentValues;-><init>()V
+
+    const-string/jumbo v2, "adminUid"
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string/jumbo v2, "name"
+
+    const-string/jumbo v3, "Clipboard"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "propertyName"
+
+    const-string/jumbo v3, "knox-export-data"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v17, "adminUid = ? AND name = ? AND propertyName = ?"
+
+    const/4 v2, 0x3
+
+    new-array v0, v2, [Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-static {v12}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    aput-object v2, v18, v3
+
+    const-string/jumbo v2, "Clipboard"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v18, v3
+
+    const-string/jumbo v2, "knox-export-data"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v18, v3
+
+    sget-boolean v2, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "allowShareClipboardDataToOwner:RCP_ID  ADMIN_UID - RCP_PROPERTY_NAME:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " Clipboard"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+
+    const-string/jumbo v3, "RCP_DATA"
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v2, v3, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
 
     move-result v10
 
-    if-lez v10, :cond_3
+    const-string/jumbo v3, "KnoxMUMRCPPolicyService"
 
-    const/4 v10, 0x0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v10
+    const-string/jumbo v4, "allowShareClipboardDataToOwner: already row present ? "
 
-    check-cast v10, Ljava/lang/Long;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/Long;->intValue()I
+    move-result-object v4
 
-    move-result v3
+    if-lez v10, :cond_1
 
-    const-string/jumbo v10, "KnoxMUMRCPPolicyService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "allowShareClipboardDataToOwner: AdminLUid "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v9, Landroid/content/ContentValues;
-
-    invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
-
-    const-string/jumbo v10, "adminUid"
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    invoke-virtual {v9, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string/jumbo v10, "name"
-
-    const-string/jumbo v11, "Clipboard"
-
-    invoke-virtual {v9, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v10, "propertyName"
-
-    const-string/jumbo v11, "knox-export-data"
-
-    invoke-virtual {v9, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v6, "adminUid = ? AND name = ? AND propertyName = ?"
-
-    const/4 v10, 0x3
-
-    new-array v7, v10, [Ljava/lang/String;
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x0
-
-    aput-object v10, v7, v11
-
-    const-string/jumbo v10, "Clipboard"
-
-    const/4 v11, 0x1
-
-    aput-object v10, v7, v11
-
-    const-string/jumbo v10, "knox-export-data"
-
-    const/4 v11, 0x2
-
-    aput-object v10, v7, v11
-
-    sget-boolean v10, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->isEngMode:Z
-
-    if-eqz v10, :cond_0
-
-    const-string/jumbo v10, "KnoxMUMRCPPolicyService"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "allowShareClipboardDataToOwner:RCP_ID  ADMIN_UID - RCP_PROPERTY_NAME:"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    iget v12, p1, Lcom/samsung/android/knox/ContextInfo;->mContainerId:I
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, " "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    iget v12, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string/jumbo v12, " Clipboard"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v10, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
-
-    const-string/jumbo v11, "RCP_DATA"
-
-    invoke-virtual {v10, v11, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getCount(Ljava/lang/String;Landroid/content/ContentValues;)I
-
-    move-result v1
-
-    const-string/jumbo v11, "KnoxMUMRCPPolicyService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v12, "allowShareClipboardDataToOwner: already row present ? "
-
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    if-lez v1, :cond_1
-
-    const/4 v10, 0x1
+    const/4 v2, 0x1
 
     :goto_0
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v2
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v2
 
-    invoke-static {v11, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-lez v1, :cond_2
+    if-lez v10, :cond_2
 
-    new-instance v2, Landroid/content/ContentValues;
+    new-instance v11, Landroid/content/ContentValues;
 
-    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
 
-    const-string/jumbo v10, "propertyValue"
+    const-string/jumbo v2, "propertyValue"
 
     invoke-static/range {p2 .. p2}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-virtual {v2, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v11, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v10, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
 
-    move-result-object v10
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    sget-object v11, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->CONTENT_URI:Landroid/net/Uri;
+    move-result-object v2
 
-    invoke-virtual {v10, v11, v2, v6, v7}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    sget-object v3, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->CONTENT_URI:Landroid/net/Uri;
 
-    move-result v4
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v2, v3, v11, v0, v1}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+
+    move-result v13
 
     :goto_1
-    const/4 v10, 0x1
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    return v10
+    move-result-wide v14
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "KnoxMUMRCPPolicyService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    if-eqz p2, :cond_3
+
+    const-string/jumbo v2, "allowed"
+
+    :goto_2
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " sharing clipboard to owner from container."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v8
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    const/4 v2, 0x1
+
+    return v2
 
     :cond_1
-    const/4 v10, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_2
-    const-string/jumbo v10, "propertyValue"
+    const-string/jumbo v2, "propertyValue"
 
     invoke-static/range {p2 .. p2}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v3
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v0, v20
 
-    iget-object v10, p0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
+    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-object/from16 v0, p0
 
-    move-result-object v10
+    iget-object v2, v0, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->mContext:Landroid/content/Context;
 
-    sget-object v11, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->CONTENT_URI:Landroid/net/Uri;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v10, v11, v9}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+    move-result-object v2
 
-    move-result-object v8
+    sget-object v3, Lcom/android/server/enterprise/container/KnoxMUMRCPPolicyService;->CONTENT_URI:Landroid/net/Uri;
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v2, v3, v0}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+
+    move-result-object v19
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v10, "KnoxMUMRCPPolicyService"
+    :try_start_1
+    const-string/jumbo v2, "disallowed"
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const-string/jumbo v11, "allowShareClipboardDataToOwner failed returning false"
+    goto :goto_2
 
-    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :catchall_0
+    move-exception v2
 
-    const/4 v10, 0x0
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v10
+    throw v2
+
+    :cond_4
+    const-string/jumbo v2, "KnoxMUMRCPPolicyService"
+
+    const-string/jumbo v3, "allowShareClipboardDataToOwner failed returning false"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public getAllowChangeDataSyncPolicy(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -3709,7 +4122,7 @@
 .end method
 
 .method public setAllowChangeDataSyncPolicy(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;Ljava/lang/String;Z)Z
-    .locals 6
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3729,9 +4142,178 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :goto_0
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    const-string/jumbo v7, ""
+
+    const-string/jumbo v0, "knox-sanitize-data"
+
+    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v7, "sanitizing"
+
+    :cond_0
+    :goto_1
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v10
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "KnoxMUMRCPPolicyService"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Admin "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " has "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-eqz p4, :cond_3
+
+    const-string/jumbo v0, "allowed"
+
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " provider "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " for "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v0, "knox-import-data"
+
+    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v7, "importing"
+
+    goto :goto_1
+
+    :cond_2
+    const-string/jumbo v0, "knox-export-data"
+
+    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v7, "exporting"
+
+    goto :goto_1
+
+    :cond_3
+    :try_start_1
+    const-string/jumbo v0, "disallowed"
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v0
+
+    invoke-static {v10, v11}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v0
+
+    :cond_4
     const-string/jumbo v2, "RCP_DATA"
 
-    invoke-static {p4}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+    invoke-static/range {p4 .. p4}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
     move-result-object v5
 

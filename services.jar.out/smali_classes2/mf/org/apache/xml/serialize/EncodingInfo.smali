@@ -99,7 +99,6 @@
 
     aput-object v2, v0, v1
 
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgCanConvertMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->access$2()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -123,7 +122,6 @@
     return v0
 
     :cond_1
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgNIOCharsetAvailable:Z
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->access$0()Z
 
     move-result v0
@@ -148,7 +146,6 @@
 
     aput-object v2, v0, v1
 
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetForNameMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->access$1()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -161,7 +158,6 @@
 
     move-result-object v1
 
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetCanEncodeMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->access$2()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -204,7 +200,6 @@
 
     :cond_3
     :try_start_2
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetNewEncoderMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->access$3()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -233,7 +228,6 @@
 
     aput-object v2, v0, v1
 
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->fgCharsetEncoderCanEncodeMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharsetMethods;->access$4()Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -274,7 +268,6 @@
     return v3
 
     :cond_7
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgConvertersAvailable:Z
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->access$0()Z
 
     move-result v0
@@ -295,7 +288,6 @@
 
     aput-object v2, v0, v1
 
-    # getter for: Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->fgGetConverterMethod:Ljava/lang/reflect/Method;
     invoke-static {}, Lmf/org/apache/xml/serialize/EncodingInfo$CharToByteConverterMethods;->access$1()Ljava/lang/reflect/Method;
 
     move-result-object v0

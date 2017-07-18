@@ -42,12 +42,10 @@
 
     move-result-object v0
 
-    # getter for: Lmf/javax/xml/xpath/XPathFactoryFinder;->ss:Lmf/javax/xml/xpath/SecuritySupport;
     invoke-static {}, Lmf/javax/xml/xpath/XPathFactoryFinder;->access$0()Lmf/javax/xml/xpath/SecuritySupport;
 
     move-result-object v1
 
-    # getter for: Lmf/javax/xml/xpath/XPathFactoryFinder;->SERVICE_ID:Ljava/lang/String;
     invoke-static {}, Lmf/javax/xml/xpath/XPathFactoryFinder;->access$1()Ljava/lang/String;
 
     move-result-object v2

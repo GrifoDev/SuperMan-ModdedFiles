@@ -182,6 +182,18 @@
     throw v0
 .end method
 
+.method public checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/ActivityManagerService;->checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getHomeActivityForUser(I)Landroid/content/ComponentName;
     .locals 4
 

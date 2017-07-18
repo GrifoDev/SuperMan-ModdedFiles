@@ -123,7 +123,7 @@
     :cond_3
     iget-object v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$1;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
-    invoke-static {v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-get6(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-get7(Lcom/android/server/appwidget/AppWidgetServiceImpl;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -170,7 +170,7 @@
 
     const/4 v6, 0x1
 
-    invoke-static {v4, v1, v6, v5}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap22(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
+    invoke-static {v4, v1, v6, v5}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap23(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
 
     goto :goto_0
 
@@ -195,7 +195,7 @@
 
     move-result v5
 
-    invoke-static {v4, v1, v7, v5}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap22(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
+    invoke-static {v4, v1, v7, v5}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap23(Lcom/android/server/appwidget/AppWidgetServiceImpl;[Ljava/lang/String;ZI)V
 
     goto :goto_0
 
@@ -259,6 +259,30 @@
     goto/16 :goto_0
 
     :cond_9
+    const-string/jumbo v4, "sec.app.policy.UPDATE.AppWidget"
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    const-string/jumbo v4, "android.intent.action.BOOT_COMPLETED"
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    :cond_a
+    iget-object v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$1;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+
+    invoke-static {v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap22(Lcom/android/server/appwidget/AppWidgetServiceImpl;)V
+
+    goto/16 :goto_0
+
+    :cond_b
     iget-object v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$1;->this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
     invoke-static {v4, p2, v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-wrap13(Lcom/android/server/appwidget/AppWidgetServiceImpl;Landroid/content/Intent;I)V

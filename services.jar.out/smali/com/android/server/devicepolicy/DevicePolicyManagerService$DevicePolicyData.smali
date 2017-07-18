@@ -93,22 +93,6 @@
     .end annotation
 .end field
 
-.field mAlternativePasswordLength:I
-
-.field mAlternativePasswordLetters:I
-
-.field mAlternativePasswordLowerCase:I
-
-.field mAlternativePasswordNonLetter:I
-
-.field mAlternativePasswordNumeric:I
-
-.field mAlternativePasswordQuality:I
-
-.field mAlternativePasswordSymbols:I
-
-.field mAlternativePasswordUpperCase:I
-
 .field mApplicationRestrictionsManagingPackage:Ljava/lang/String;
 
 .field private mBlockListRecordInRom:Ljava/util/HashSet;
@@ -208,24 +192,6 @@
     iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mActivePasswordNonLetter:I
 
     iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mFailedPasswordAttempts:I
-
-    const v0, 0x61000
-
-    iput v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordQuality:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordLength:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordLetters:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordUpperCase:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordLowerCase:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordNumeric:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordSymbols:I
-
-    iput v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mAlternativePasswordNonLetter:I
 
     iput-boolean v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyData;->mActivePasswordRecoverable:Z
 

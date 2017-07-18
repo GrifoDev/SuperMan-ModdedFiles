@@ -1039,9 +1039,15 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v37, "-a -z -o /data/log/dumpstate_sys_emfile"
+    const-string/jumbo v37, "bugreportsem"
 
-    invoke-static/range {v37 .. v37}, Landroid/os/Debug;->saveDumpstate(Ljava/lang/String;)V
+    const/16 v38, 0x0
+
+    move-object/from16 v0, v38
+
+    move-object/from16 v1, v37
+
+    invoke-static {v0, v1}, Landroid/os/Debug;->saveDump(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -1859,15 +1865,11 @@
 
     invoke-static {v0, v1}, Landroid/os/Debug;->saveDump(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)V
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    const-string/jumbo v37, "sys.sf.restart"
 
-    move-result v37
+    const-string/jumbo v38, "1"
 
-    invoke-static/range {v37 .. v37}, Landroid/os/Process;->killProcess(I)V
-
-    const/16 v37, 0xa
-
-    invoke-static/range {v37 .. v37}, Ljava/lang/System;->exit(I)V
+    invoke-static/range {v37 .. v38}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_9
 

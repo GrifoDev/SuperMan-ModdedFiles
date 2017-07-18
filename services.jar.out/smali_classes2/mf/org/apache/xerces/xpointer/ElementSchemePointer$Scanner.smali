@@ -559,7 +559,6 @@
     :cond_1
     if-eqz v0, :cond_4
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->addToken(I)V
     invoke-static {p2, v0}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)V
 
     goto :goto_0
@@ -627,7 +626,6 @@
 
     invoke-virtual {p0, p2, v2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Scanner;->addToken(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)V
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->addToken(Ljava/lang/String;)V
     invoke-static {p2, v1}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$1(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;Ljava/lang/String;)V
 
     goto :goto_2
@@ -756,7 +754,6 @@
         }
     .end annotation
 
-    # invokes: Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->addToken(I)V
     invoke-static {p1, p2}, Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;->access$0(Lmf/org/apache/xerces/xpointer/ElementSchemePointer$Tokens;I)V
 
     return-void

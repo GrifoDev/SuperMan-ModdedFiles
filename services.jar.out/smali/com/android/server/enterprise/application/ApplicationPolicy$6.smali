@@ -131,7 +131,7 @@
 
     const-string/jumbo v11, "applicationUninstallationCount"
 
-    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap16(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap18(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v10, "android.intent.extra.REPLACING"
 
@@ -200,7 +200,7 @@
 
     move-result-object v11
 
-    invoke-static {v10, v11, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap14(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/util/List;I)V
+    invoke-static {v10, v11, v9}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap16(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/util/List;I)V
 
     goto :goto_1
 
@@ -263,7 +263,7 @@
 
     const-string/jumbo v11, "applicationInstallationCount"
 
-    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap16(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v10, v5, v4, v11}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap18(Lcom/android/server/enterprise/application/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v10, "ApplicationPolicy"
 
@@ -284,7 +284,7 @@
 
     iget-object v10, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$6;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
-    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap17(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)V
+    invoke-static {v10, v4}, Lcom/android/server/enterprise/application/ApplicationPolicy;->-wrap19(Lcom/android/server/enterprise/application/ApplicationPolicy;Ljava/lang/String;)V
 
     goto :goto_2
 

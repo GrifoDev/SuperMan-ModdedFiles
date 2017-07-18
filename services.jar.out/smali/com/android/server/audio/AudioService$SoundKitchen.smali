@@ -437,7 +437,7 @@
 
     const/4 v10, 0x3
 
-    invoke-static {v9, v10}, Lcom/android/server/audio/AudioService;->-wrap10(Lcom/android/server/audio/AudioService;I)I
+    invoke-static {v9, v10}, Lcom/android/server/audio/AudioService;->-wrap11(Lcom/android/server/audio/AudioService;I)I
 
     move-result v9
 
@@ -1101,7 +1101,7 @@
 
     move-result v5
 
-    invoke-static {v6, v5}, Lcom/android/server/audio/AudioService;->-wrap51(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v6, v5}, Lcom/android/server/audio/AudioService;->-wrap52(Lcom/android/server/audio/AudioService;I)V
 
     const-wide/16 v6, 0xc8
 
@@ -1365,7 +1365,7 @@
 
     aget v4, v2, v1
 
-    invoke-static {v3, v4}, Lcom/android/server/audio/AudioService;->-wrap51(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v3, v4}, Lcom/android/server/audio/AudioService;->-wrap52(Lcom/android/server/audio/AudioService;I)V
 
     :cond_0
     iget-object v3, p0, Lcom/android/server/audio/AudioService$SoundKitchen;->this$0:Lcom/android/server/audio/AudioService;

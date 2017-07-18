@@ -31161,7 +31161,7 @@
 
     move-result v25
 
-    if-eqz v25, :cond_14
+    if-eqz v25, :cond_13
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -31801,7 +31801,7 @@
 
     and-int/lit8 v3, v25, 0x4
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_13
 
     const-class v3, Landroid/content/pm/ShortcutServiceInternal;
 
@@ -31826,17 +31826,15 @@
 
     invoke-virtual {v6, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    if-nez p3, :cond_15
+
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/server/am/ActivityManagerService;->mProcessesReady:Z
 
-    if-nez v3, :cond_13
+    if-eqz v3, :cond_15
 
-    const/high16 v3, 0x40000000    # 2.0f
-
-    invoke-virtual {v6, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    :cond_13
+    :goto_8
     sget v17, Lcom/android/server/am/ActivityManagerService;->MY_PID:I
 
     const/4 v4, 0x0
@@ -31871,20 +31869,20 @@
 
     invoke-virtual/range {v3 .. v19}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIII)I
 
-    :cond_14
+    :cond_13
     sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_SUPPORT:Z
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     sget-boolean v3, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SNAP_VIEW_DYNAMIC_ENABLED:Z
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     move/from16 v0, v25
 
     and-int/lit16 v3, v0, 0x80
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     move-object/from16 v0, p0
 
@@ -31892,7 +31890,7 @@
 
     iget-boolean v3, v3, Lcom/android/server/am/ActivityStackSupervisor;->mSnapViewRunning:Z
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     move-object/from16 v0, p0
 
@@ -31906,7 +31904,7 @@
 
     invoke-interface {v3, v5, v7, v4}, Lcom/android/server/am/IMultiWindowManagerServiceBridge;->setSnapViewLocked(ZLandroid/graphics/Rect;Ljava/lang/String;)V
 
-    :cond_15
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -31933,7 +31931,7 @@
 
     array-length v4, v0
 
-    :goto_8
+    :goto_9
     if-ge v3, v4, :cond_16
 
     aget v8, v37, v3
@@ -31969,6 +31967,13 @@
     invoke-virtual/range {v7 .. v14}, Lcom/android/server/am/ActivityStackSupervisor;->resizeStackLocked(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZZ)V
 
     add-int/lit8 v3, v3, 0x1
+
+    goto :goto_9
+
+    :cond_15
+    const/high16 v3, 0x40000000    # 2.0f
+
+    invoke-virtual {v6, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     goto :goto_8
 
@@ -42293,6 +42298,140 @@
         :pswitch_1
         :pswitch_2
     .end packed-switch
+.end method
+
+.method public checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    const/4 v3, -0x1
+
+    if-ne p2, v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "android.permission.INTERACT_ACROSS_USERS_FULL"
+
+    sget-object v5, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
+
+    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result p2
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v3
+
+    const v4, 0xc0c00
+
+    invoke-interface {v3, p1, v4, p2}, Landroid/content/pm/IPackageManager;->resolveContentProvider(Ljava/lang/String;II)Landroid/content/pm/ProviderInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    return-object v6
+
+    :cond_1
+    const/4 v2, 0x0
+
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Landroid/util/SparseArray;
+
+    monitor-enter v4
+
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Landroid/util/SparseArray;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v5
+
+    invoke-virtual {v3, v5}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/am/ProcessRecord;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v4
+
+    if-nez v2, :cond_2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Failed to find PID "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
+    :cond_2
+    monitor-enter p0
+
+    :try_start_2
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
+
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v0, v2, p2, v3}, Lcom/android/server/am/ActivityManagerService;->checkContentProviderPermissionLocked(Landroid/content/pm/ProviderInfo;Lcom/android/server/am/ProcessRecord;IZ)Ljava/lang/String;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    move-result-object v3
+
+    monitor-exit p0
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    return-object v3
+
+    :catchall_1
+    move-exception v3
+
+    monitor-exit p0
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v3
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 .method final checkExcessivePowerUsageLocked(Z)V

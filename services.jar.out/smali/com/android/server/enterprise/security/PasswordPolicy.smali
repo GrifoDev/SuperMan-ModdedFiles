@@ -23,6 +23,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "PasswordPolicy"
 
+.field private static mPersona:Lcom/samsung/android/knox/SemPersonaManager;
+
 
 # instance fields
 .field private mBroadCastReceiver:Landroid/content/BroadcastReceiver;
@@ -107,6 +109,16 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/PasswordPolicy;->updateSystemUIMonitor(I)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
 
     return-void
 .end method
@@ -225,6 +237,18 @@
     check-cast v0, Landroid/telephony/TelephonyManager;
 
     iput-object v0, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mTelManager:Landroid/telephony/TelephonyManager;
+
+    iget-object v0, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "persona"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/knox/SemPersonaManager;
+
+    sput-object v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
 
     return-void
 .end method
@@ -5879,7 +5903,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     :cond_5
     const/4 v5, 0x2
@@ -5890,12 +5914,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     :cond_6
-    return v8
+    const/4 v5, 0x4
+
+    if-ne p2, v5, :cond_7
+
+    invoke-static {p1}, Lcom/android/server/enterprise/adapterlayer/PersonaManagerAdapter;->isValidKnoxId(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
 
     :cond_7
+    return v8
+
+    :cond_8
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v5
@@ -5910,7 +5945,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_9
 
     const-string/jumbo v5, "NoFingerprint"
 
@@ -5918,16 +5953,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     return v8
 
-    :cond_8
+    :cond_9
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_a
 
     const-string/jumbo v5, "Fingerprint"
 
@@ -5935,9 +5970,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
-    :cond_9
+    :cond_a
     const-string/jumbo v5, "PasswordPolicy"
 
     const-string/jumbo v6, "isBiometricAuthenticationEnabled(FINGERPRINT): return true (CSC)"
@@ -6328,6 +6363,107 @@
     goto :goto_0
 .end method
 
+.method public removeBiometricAuthenticationForKnoxUser(II)V
+    .locals 5
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    :try_start_0
+    const-string/jumbo v1, "PasswordPolicy"
+
+    const-string/jumbo v4, "removeBiometricAuthenticationForKnoxUser()"
+
+    invoke-static {v1, v4}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    and-int/lit8 v1, p1, 0x1
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v4}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v1, v4, p2}, Lcom/android/internal/widget/LockPatternUtils;->removeBiometricLockscreen(II)V
+
+    sget-object v1, Lcom/android/server/enterprise/security/PasswordPolicy;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/android/server/enterprise/security/PasswordPolicy;->mPersona:Lcom/samsung/android/knox/SemPersonaManager;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, p2, v4}, Lcom/samsung/android/knox/SemPersonaManager;->setIsFingerAsSupplement(IZ)V
+
+    :cond_0
+    and-int/lit8 v1, p1, 0x2
+
+    if-eqz v1, :cond_1
+
+    new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v4}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+
+    const/16 v4, 0x10
+
+    invoke-virtual {v1, v4, p2}, Lcom/android/internal/widget/LockPatternUtils;->removeBiometricLockscreen(II)V
+
+    :cond_1
+    and-int/lit8 v1, p1, 0x4
+
+    if-eqz v1, :cond_2
+
+    new-instance v1, Lcom/android/internal/widget/LockPatternUtils;
+
+    iget-object v4, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v4}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+
+    const/16 v4, 0x100
+
+    invoke-virtual {v1, v4, p2}, Lcom/android/internal/widget/LockPatternUtils;->removeBiometricLockscreen(II)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_2
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v1, "PasswordPolicy"
+
+    const-string/jumbo v4, "Failed talking with LockSettingsService"
+
+    invoke-static {v1, v4, v0}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v1
+.end method
+
 .method public resetPassword(Lcom/samsung/android/knox/ContextInfo;Ljava/lang/String;I)Z
     .locals 9
 
@@ -6463,136 +6599,348 @@
 .end method
 
 .method public setBiometricAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;IZ)Z
-    .locals 10
-
-    const/4 v6, 0x0
+    .locals 17
 
     if-gez p2, :cond_0
 
-    return v6
+    const/4 v2, 0x0
+
+    return v2
 
     :cond_0
-    const/4 v3, 0x1
+    const/4 v13, 0x1
 
-    invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/PasswordPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/security/PasswordPolicy;->enforceSecurityPermission(Lcom/samsung/android/knox/ContextInfo;)Lcom/samsung/android/knox/ContextInfo;
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Lcom/samsung/android/knox/ContextInfo;)I
 
-    move-result v4
+    move-result v8
 
-    const/4 v5, 0x0
+    const/16 v16, 0x0
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget-object v2, v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v8, "PASSWORD"
+    move-object/from16 v0, p1
 
-    const-string/jumbo v9, "passwordBioAuthEnabled"
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-virtual {v6, v7, v8, v9}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v4, "PASSWORD"
+
+    const-string/jumbo v5, "passwordBioAuthEnabled"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getInt(ILjava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-result v5
+    move-result v16
 
     :goto_0
-    if-gez v5, :cond_1
+    if-gez v16, :cond_1
 
-    const/4 v5, 0x0
+    const/16 v16, 0x0
 
     :cond_1
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_7
 
-    or-int/2addr v5, p2
+    or-int v16, v16, p2
 
     :goto_1
-    iget-object v6, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
+    move-object/from16 v0, p0
 
-    iget v7, p1, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+    iget-object v2, v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
-    const-string/jumbo v8, "PASSWORD"
+    move-object/from16 v0, p1
 
-    const-string/jumbo v9, "passwordBioAuthEnabled"
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
 
-    invoke-virtual {v6, v7, v8, v9, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
+    const-string/jumbo v4, "PASSWORD"
 
-    move-result v3
+    const-string/jumbo v5, "passwordBioAuthEnabled"
 
-    if-eqz v3, :cond_2
+    move/from16 v0, v16
 
-    if-nez v4, :cond_2
+    invoke-virtual {v2, v3, v4, v5, v0}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->putInt(ILjava/lang/String;Ljava/lang/String;I)Z
 
-    new-instance v1, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+    move-result v13
 
-    iget-object v6, p0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+    if-eqz v13, :cond_6
 
-    invoke-direct {v1, v6}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
+    if-nez v8, :cond_2
+
+    new-instance v11, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    invoke-direct {v11, v2}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;-><init>(Landroid/content/Context;)V
 
     :try_start_1
-    const-string/jumbo v6, "Password"
+    const-string/jumbo v2, "Password"
 
-    const-string/jumbo v7, "setBiometricAuthenticationEnabled"
+    const-string/jumbo v3, "setBiometricAuthenticationEnabled"
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/enterprise/security/PasswordPolicy;->isBiometricAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;I)Z
+    invoke-virtual/range {p0 .. p2}, Lcom/android/server/enterprise/security/PasswordPolicy;->isBiometricAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;I)Z
 
-    move-result v8
+    move-result v4
 
-    invoke-virtual {v1, v6, v7, v8}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
+    invoke-virtual {v11, v2, v3, v4}, Lcom/samsung/android/sagearpolicymanager/SAGearPolicyManager;->SetBooleanTypePolicy(Ljava/lang/String;Ljava/lang/String;Z)I
 
-    const-string/jumbo v6, "PasswordPolicy"
+    const-string/jumbo v2, "PasswordPolicy"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "GearPolicy setBiometricAuthenticationEnabled : "
+    const-string/jumbo v4, "GearPolicy setBiometricAuthenticationEnabled : "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/enterprise/security/PasswordPolicy;->isBiometricAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;I)Z
+    invoke-virtual/range {p0 .. p2}, Lcom/android/server/enterprise/security/PasswordPolicy;->isBiometricAuthenticationEnabled(Lcom/samsung/android/knox/ContextInfo;I)Z
 
-    move-result v8
+    move-result v4
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_2
     :goto_2
-    return v3
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v14
+
+    if-eqz p3, :cond_8
+
+    const-string/jumbo v9, "allowed"
+
+    :goto_3
+    and-int/lit8 v2, p2, 0x2
+
+    if-eqz v2, :cond_3
+
+    :try_start_2
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "PasswordPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " BIOMETRIC_AUTHENTICATION_IRIS"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
 
     :cond_3
-    not-int v6, p2
+    and-int/lit8 v2, p2, 0x1
 
-    and-int/2addr v5, v6
+    if-eqz v2, :cond_4
 
-    goto :goto_1
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "PasswordPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " BIOMETRIC_AUTHENTICATION_FINGERPRINT"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+
+    :cond_4
+    and-int/lit8 v2, p2, 0x4
+
+    if-eqz v2, :cond_5
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v5
+
+    const-string/jumbo v6, "PasswordPolicy"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Admin "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, p1
+
+    iget v3, v0, Lcom/samsung/android/knox/ContextInfo;->mCallerUid:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " has "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " BIOMETRIC_AUTHENTICATION_FACE"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    invoke-static/range {v2 .. v8}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_5
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_6
+    return v13
+
+    :cond_7
+    move/from16 v0, p2
+
+    not-int v2, v0
+
+    and-int v16, v16, v2
+
+    goto/16 :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v10
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :catch_1
+    :cond_8
+    const-string/jumbo v9, "disallowed"
+
+    goto/16 :goto_3
+
+    :catchall_0
     move-exception v2
 
-    goto :goto_0
+    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+
+    :catch_1
+    move-exception v12
+
+    goto/16 :goto_0
 .end method
 
 .method public setForbiddenStrings(Lcom/samsung/android/knox/ContextInfo;Ljava/util/List;)Z
@@ -9265,7 +9613,7 @@
 
     const/4 v13, 0x1
 
-    if-nez p2, :cond_5
+    if-nez p2, :cond_6
 
     :try_start_1
     move-object/from16 v0, p0
@@ -9328,6 +9676,35 @@
     invoke-direct {v0, v1, v7}, Lcom/android/server/enterprise/security/PasswordPolicy;->setPwdChangeRequestedSystemUI(II)V
 
     :cond_2
+    const/16 v18, 0x1
+
+    move/from16 v0, p2
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_3
+
+    new-instance v18, Lcom/android/internal/widget/LockPatternUtils;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mContext:Landroid/content/Context;
+
+    move-object/from16 v19, v0
+
+    invoke-direct/range {v18 .. v19}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+
+    const/16 v19, 0x2
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move/from16 v2, p3
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->requireStrongAuth(II)V
+
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/security/PasswordPolicy;->mEDM:Lcom/samsung/android/knox/EnterpriseDeviceManager;
@@ -9344,7 +9721,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_4
+    if-nez v18, :cond_5
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -9388,19 +9765,19 @@
 
     move-result v18
 
-    if-nez v18, :cond_6
+    if-nez v18, :cond_7
 
     invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v15
 
-    :cond_3
+    :cond_4
     :goto_1
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_6
+    if-eqz v18, :cond_7
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9414,7 +9791,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     invoke-virtual {v6}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -9444,7 +9821,7 @@
 
     invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
     const-string/jumbo v18, "com.android.settings"
 
@@ -9454,7 +9831,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_4
 
     const-string/jumbo v18, "com.android.settings"
 
@@ -9487,13 +9864,13 @@
 
     const/4 v13, 0x0
 
-    :cond_4
+    :cond_5
     :goto_2
     monitor-exit p0
 
     return v13
 
-    :cond_5
+    :cond_6
     const/16 v18, 0x1
 
     move/from16 v0, p2
@@ -9521,7 +9898,7 @@
 
     throw v18
 
-    :cond_6
+    :cond_7
     :try_start_4
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_4
