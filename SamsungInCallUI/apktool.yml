@@ -637,6 +637,7 @@ unknownFiles:
   com/google/i18n/phonenumbers/geocoding/data/1325_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/1330_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/1331_en: '8'
+  com/google/i18n/phonenumbers/geocoding/data/1332_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/1334_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/1336_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/1337_en: '8'
@@ -1128,7 +1129,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.2.2
+version: 2.2.3
 versionInfo:
-  versionCode: '215301000'
-  versionName: 2.1.53
+  versionCode: '217101026'
+  versionName: 2.1.71.26

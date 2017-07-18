@@ -481,15 +481,29 @@
     <item type="id" name="ringing_call_popup_accept_reject_button_usa_stub">false</item>
     <item type="id" name="reject_with_messasge_button_container">false</item>
     <item type="id" name="reject_with_messasge_button">false</item>
+    <item type="id" name="during_call_popup_buttons">false</item>
+    <item type="id" name="during_call_popup_buttons_usa_stub">false</item>
+    <item type="id" name="end_call_popup_buttons">false</item>
+    <item type="id" name="popup_call_video_extra_stub">false</item>
+    <item type="id" name="end_call_popup_buttons_usa_stub">false</item>
+    <item type="id" name="resume_call_popup_buttons">false</item>
+    <item type="id" name="popup_resume_call_end">false</item>
+    <item type="id" name="end_resume_call_popup_buttons_usa_stub">false</item>
     <item type="id" name="smartCallPhoto">false</item>
     <item type="id" name="attemptingTextSPR">false</item>
     <item type="id" name="HdWifiIcon">false</item>
     <item type="id" name="simIconLabel_global">false</item>
     <item type="id" name="jansky_line_icon_container">false</item>
     <item type="id" name="jansky_line_icon">false</item>
+    <item type="id" name="periodMarkContainer">false</item>
+    <item type="id" name="periodMark1">false</item>
+    <item type="id" name="periodMark2">false</item>
+    <item type="id" name="periodMark3">false</item>
     <item type="id" name="record_info_stub">false</item>
     <item type="id" name="card_subscriber_stub">false</item>
+    <item type="id" name="hold_call_text_layout">false</item>
     <item type="id" name="eriInfoText">false</item>
+    <item type="id" name="popup_call_full_screen">false</item>
     <item type="id" name="profileIcon_stub">false</item>
     <item type="id" name="smartCallIcon">false</item>
     <item type="id" name="callPlus_importance_layout">false</item>
@@ -737,10 +751,6 @@
     <item type="id" name="onholdLayoutText">false</item>
     <item type="id" name="pagerIndicatorCallPlus_wrapper">false</item>
     <item type="id" name="pagerIndicatorCallPlus">false</item>
-    <item type="id" name="periodMarkContainer">false</item>
-    <item type="id" name="periodMark1">false</item>
-    <item type="id" name="periodMark2">false</item>
-    <item type="id" name="periodMark3">false</item>
     <item type="id" name="multi_touch_stub">false</item>
     <item type="id" name="photoringstub">false</item>
     <item type="id" name="primary_container">false</item>

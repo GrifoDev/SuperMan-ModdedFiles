@@ -1076,9 +1076,10 @@
     <dimen name="enriched_call_map_image_layout_height">98.0dip</dimen>
     <dimen name="enriched_call_map_image_layout_height_easy_mode">70.0dip</dimen>
     <dimen name="enriched_call_map_image_layout_topmargin">83.0dip</dimen>
-    <dimen name="enriched_call_popup_window_height">583.0dip</dimen>
-    <dimen name="enriched_call_popup_window_horizontal_margin">170.0dip</dimen>
-    <dimen name="enriched_call_popup_window_horizontal_margin_image_only">37.0dip</dimen>
+    <dimen name="enriched_call_popup_window_height">473.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin">138.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin_image_only">25.0dip</dimen>
+    <dimen name="enriched_call_popup_window_horizontal_margin_incoming">172.0dip</dimen>
     <dimen name="enriched_call_popup_window_vertital_margin">583.0dip</dimen>
     <dimen name="enriched_call_popup_window_width">340.0dip</dimen>
     <dimen name="floating_action_button_dialpad_margin_bottom_offset">4.0dip</dimen>
@@ -1199,9 +1200,11 @@
     <dimen name="sec_call_popup_info_min_height">108.0dip</dimen>
     <dimen name="sec_call_popup_info_padding">18.0dip</dimen>
     <dimen name="sec_call_popup_label_text_max_width">170.0dip</dimen>
+    <dimen name="sec_call_popup_name_and_photo_interval">10.0dip</dimen>
     <dimen name="sec_call_popup_photo_contact_text_size">25.0dip</dimen>
     <dimen name="sec_call_popup_photo_margin_end">10.0dip</dimen>
     <dimen name="sec_call_popup_primary_label_and_number_top_margin">2.0dip</dimen>
+    <dimen name="sec_call_popup_primary_name_min_text_size">19.0dip</dimen>
     <dimen name="sec_call_popup_primary_name_unknown_height">58.0dip</dimen>
     <dimen name="sec_call_popup_primary_name_unknown_text_size">28.0dip</dimen>
     <dimen name="sec_call_popup_profile_icon_margin_end">8.0dip</dimen>

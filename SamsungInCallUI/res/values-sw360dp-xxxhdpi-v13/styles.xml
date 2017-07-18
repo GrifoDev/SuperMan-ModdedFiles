@@ -254,7 +254,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:layout_weight">1.0</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sec-roboto-light</item>
+        <item name="android:fontFamily">sec-roboto-condensed</item>
     </style>
     <style name="SecSwitchVideoCallButtonStyle">
         <item name="android:background">#00000000</item>

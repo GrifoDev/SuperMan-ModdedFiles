@@ -23,7 +23,7 @@
     <string name="audio_mode_speaker">ಸ್ಪೀಕರ್</string>
     <string name="calling_via_template">%s ಮೂಲಕ ಕರೆಯುತ್ತಿದೆ</string>
     <string name="card_title_call_ended">ಕರೆ ಅಂತ್ಯಗೊಂಡಿದೆ</string>
-    <string name="card_title_conf_call">ಸಮಾಲೋಚನೆ ಕರೆ</string>
+    <string name="card_title_conf_call">ಕಾನ್ಫರೆನ್ಸ್ ಕರೆ</string>
     <string name="card_title_dialing">ಡಯಲಿಂಗ್</string>
     <string name="card_title_hanging_up">ಹ್ಯಾಂಗಿಗ್ ಅಪ್</string>
     <string name="card_title_in_call">ಕರೆಯಲ್ಲಿ</string>
@@ -572,7 +572,7 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="secConferenceCallLabel_vzw">%d ಜನ</string>
     <string name="secConferenceCallMerged">%s ಅವರು ಕರೆಗೆ ಸೇರಿದ್ದಾರೆ.</string>
     <string name="secConferenceCallMerging">ಕರೆಗಳು ವಿಲೀನಗೊಳ್ಳುತ್ತಿದೆ…</string>
-    <string name="secConferenceCallName">ಸಮಾಲೋಚನೆ ಕರೆ</string>
+    <string name="secConferenceCallName">ಕಾನ್ಫರೆನ್ಸ್ ಕರೆ</string>
     <string name="secConferenceCallSplit">ವಿಭಜಿಸು</string>
     <string name="secConferenceCallSplitCall">ಕರೆ ಒಡೆಯಿರಿ</string>
     <string name="secOnscreenAddEventText">ಸಂದರ್ಭ ಸೇರಿಸಿ</string>

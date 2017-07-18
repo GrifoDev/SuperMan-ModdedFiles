@@ -33,7 +33,7 @@
     <string name="card_title_dialing">جار الاتصال</string>
     <string name="card_title_hanging_up">إنهاء المكالمة</string>
     <string name="card_title_in_call">في مكالمة</string>
-    <string name="card_title_incoming_call">المكالمة الواردة</string>
+    <string name="card_title_incoming_call">مكالمة واردة</string>
     <string name="card_title_my_phone_number">رقمي هو %s.</string>
     <string name="card_title_on_hold">معلقة</string>
     <string name="card_title_redialing">جارٍ إعادة المحاولة</string>
@@ -656,7 +656,7 @@
     <string name="secOnscreenMenuViewInFullScreenText">عرض في وضع ملء الشاشة</string>
     <string name="secOnscreenMenuViewInOriginalSizeText">عرض بالحجم الأصلي</string>
     <string name="secOnscreenMergeText">دمج</string>
-    <string name="secOnscreenMessageText">الرسالة</string>
+    <string name="secOnscreenMessageText">رسالة</string>
     <string name="secOnscreenMinimiseWindowText">تصغير الإطار</string>
     <string name="secOnscreenMoreButton">المزيد</string>
     <string name="secOnscreenMoreText">مزيد من الخيارات</string>

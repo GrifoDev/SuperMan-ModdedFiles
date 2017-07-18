@@ -490,7 +490,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="postal_city">Ciudad</string>
     <string name="postal_country">País</string>
     <string name="postal_postcode">Código postal</string>
-    <string name="postal_region">Estado</string>
+    <string name="postal_region">Provincia</string>
     <string name="postal_street">Calle</string>
     <string name="pre_img_during_call">Imagen predeterminada</string>
     <string name="preferred_sim_for_callback">SIM preferida - Llamadas</string>

@@ -275,7 +275,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:layout_weight">1.0</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sec-roboto-light</item>
+        <item name="android:fontFamily">sec-roboto-condensed</item>
         <item name="android:paddingStart">@dimen/sec_call_popup_end_buttons_padding</item>
         <item name="android:paddingEnd">@dimen/sec_call_popup_end_buttons_padding</item>
     </style>
@@ -2270,6 +2270,7 @@
     <style name="ThemeOverlay.AppCompat.Dialog" parent="@style/Base.ThemeOverlay.AppCompat.Dialog" />
     <style name="ThemeOverlay.AppCompat.Dialog.Alert" parent="@style/Base.ThemeOverlay.AppCompat.Dialog.Alert" />
     <style name="ThemeOverlay.AppCompat.Light" parent="@style/Base.ThemeOverlay.AppCompat.Light" />
+    <style name="TtyDialogTextStyle" parent="@android:style/Theme.DeviceDefault.Light.Dialog" />
     <style name="VideoTextStrokeStyle">
         <item name="android:shadowColor">#ff4d4d4d</item>
         <item name="android:shadowDx">0.0</item>

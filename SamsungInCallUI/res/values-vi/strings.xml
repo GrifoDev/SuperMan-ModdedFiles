@@ -594,7 +594,7 @@ Menu màn hình cuộc gọi IVR sử dụng nội dung được cung cấp bở
     <string name="rich_screen_save_fail">Có lỗi khi lưu ảnh/video ID người gọi.</string>
     <string name="rich_screen_save_success">Đã lưu ảnh/video ID người gọi.</string>
     <string name="save_record_msg_myfiles">Bản ghi đã được lưu trong File của bạn.</string>
-    <string name="secConferenceCallDrop">Rớt</string>
+    <string name="secConferenceCallDrop">Ngắt</string>
     <string name="secConferenceCallLabel">Với %d người</string>
     <string name="secConferenceCallLabel_vzw">%d người</string>
     <string name="secConferenceCallMerged">%s đã tham gia cuộc gọi.</string>
