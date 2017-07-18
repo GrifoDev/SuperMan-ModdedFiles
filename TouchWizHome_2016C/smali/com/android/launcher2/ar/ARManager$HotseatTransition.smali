@@ -81,7 +81,6 @@
 
     iget-object v15, v0, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    # invokes: Lcom/android/launcher2/ar/ARManager;->isHiddenView(Landroid/view/View;)Z
     invoke-static {v14, v15}, Lcom/android/launcher2/ar/ARManager;->access$100(Lcom/android/launcher2/ar/ARManager;Landroid/view/View;)Z
 
     move-result v14
@@ -96,7 +95,6 @@
 
     iget-object v15, v0, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    # invokes: Lcom/android/launcher2/ar/ARManager;->isChildOfAppWidgetHostView(Landroid/view/View;)Z
     invoke-static {v14, v15}, Lcom/android/launcher2/ar/ARManager;->access$200(Lcom/android/launcher2/ar/ARManager;Landroid/view/View;)Z
 
     move-result v14
@@ -123,7 +121,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/ar/ARManager$HotseatTransition;->this$0:Lcom/android/launcher2/ar/ARManager;
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static {v14}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v14

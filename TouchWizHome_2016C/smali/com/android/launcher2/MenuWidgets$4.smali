@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$4;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v0}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v0

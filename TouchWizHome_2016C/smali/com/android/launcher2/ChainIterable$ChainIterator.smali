@@ -57,7 +57,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    # getter for: Lcom/android/launcher2/ChainIterable;->mIterables:Ljava/lang/Iterable;
     invoke-static {p1}, Lcom/android/launcher2/ChainIterable;->access$000(Lcom/android/launcher2/ChainIterable;)Ljava/lang/Iterable;
 
     move-result-object v0

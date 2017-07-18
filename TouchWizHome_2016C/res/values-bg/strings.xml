@@ -138,6 +138,7 @@
     <string name="new_items">%d нови елемента</string>
     <string name="no_downloaded_apps">Няма изтеглени приложения</string>
     <string name="no_room_any_page">Няма място на никоя страница.</string>
+    <string name="no_space_page">Няма място на страницата. Опитайте да добавите пряк път на друга страница.</string>
     <string name="not_selected">Не е избрано</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Уиджетът %s вече е добавен към началния екран.</string>

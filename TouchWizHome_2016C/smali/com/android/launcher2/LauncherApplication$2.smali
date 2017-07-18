@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherApplication$2;->this$0:Lcom/android/launcher2/LauncherApplication;
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->mModel:Lcom/android/launcher2/LauncherModel;
     invoke-static {v0}, Lcom/android/launcher2/LauncherApplication;->access$200(Lcom/android/launcher2/LauncherApplication;)Lcom/android/launcher2/LauncherModel;
 
     move-result-object v0

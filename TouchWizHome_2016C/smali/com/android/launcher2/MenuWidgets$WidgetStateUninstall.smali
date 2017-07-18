@@ -52,7 +52,7 @@
         }
     .end annotation
 
-    const v12, 0x7f08007c
+    const v12, 0x7f09007c
 
     const/4 v3, 0x0
 
@@ -60,7 +60,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateUninstall;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v9}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v9
@@ -69,7 +68,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateUninstall;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v9}, Lcom/android/launcher2/MenuWidgets;->access$1900(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v9
@@ -88,7 +86,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateUninstall;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # setter for: Lcom/android/launcher2/MenuWidgets;->mTitleBar:Landroid/view/ViewGroup;
     invoke-static {v9, v7}, Lcom/android/launcher2/MenuWidgets;->access$2302(Lcom/android/launcher2/MenuWidgets;Landroid/view/ViewGroup;)Landroid/view/ViewGroup;
 
     if-nez p1, :cond_0
@@ -98,14 +95,13 @@
     :cond_0
     iget-object v9, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateUninstall;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v9}, Lcom/android/launcher2/MenuWidgets;->access$1900(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v9
 
     invoke-virtual {v9, p2, v7, v3}, Lcom/android/launcher2/MenuTitleBarManager;->changeTitleBar(Ljava/util/List;Landroid/view/View;Z)V
 
-    const v9, 0x7f10009a
+    const v9, 0x7f11009a
 
     invoke-virtual {v7, v9}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +141,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f08001f
+    const v11, 0x7f09001f
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -161,7 +157,7 @@
 
     invoke-virtual {v5, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v9, 0x7f10009b
+    const v9, 0x7f11009b
 
     invoke-virtual {v7, v9}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -177,7 +173,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800ac
+    const v10, 0x7f0900ad
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -235,7 +231,7 @@
 
     if-nez v8, :cond_3
 
-    const v8, 0x7f100099
+    const v8, 0x7f110099
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

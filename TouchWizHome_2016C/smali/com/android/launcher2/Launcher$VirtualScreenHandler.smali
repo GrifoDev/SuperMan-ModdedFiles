@@ -89,7 +89,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher$VirtualScreenHandler;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mVirtualScreenThreadExitAlarm:Lcom/android/launcher2/Alarm;
     invoke-static {v2}, Lcom/android/launcher2/Launcher;->access$1800(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/Alarm;
 
     move-result-object v2
@@ -147,7 +146,6 @@
     :cond_3
     iget-object v2, p0, Lcom/android/launcher2/Launcher$VirtualScreenHandler;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mVirtualScreenThreadExitAlarm:Lcom/android/launcher2/Alarm;
     invoke-static {v2}, Lcom/android/launcher2/Launcher;->access$1800(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/Alarm;
 
     move-result-object v2
@@ -234,7 +232,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$VirtualScreenHandler;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mVirtualScreenThreadExitAlarm:Lcom/android/launcher2/Alarm;
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$1800(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/Alarm;
 
     move-result-object v0

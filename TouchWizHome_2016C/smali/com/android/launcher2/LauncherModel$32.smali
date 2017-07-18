@@ -61,7 +61,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/LauncherModel$32;->val$context:Landroid/content/Context;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->removeUnRestoredHomeItems(Landroid/content/Context;Lcom/android/launcher2/compat/LauncherAppsCompat;Landroid/content/ContentResolver;)V
     invoke-static {v6, v7, v4, v0}, Lcom/android/launcher2/LauncherModel;->access$2500(Lcom/android/launcher2/LauncherModel;Landroid/content/Context;Lcom/android/launcher2/compat/LauncherAppsCompat;Landroid/content/ContentResolver;)V
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
@@ -148,7 +147,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/LauncherModel$32;->val$context:Landroid/content/Context;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->removeUnRestoredAppsItems(Landroid/content/Context;Lcom/android/launcher2/compat/LauncherAppsCompat;Landroid/content/ContentResolver;)V
     invoke-static {v6, v7, v4, v0}, Lcom/android/launcher2/LauncherModel;->access$2600(Lcom/android/launcher2/LauncherModel;Landroid/content/Context;Lcom/android/launcher2/compat/LauncherAppsCompat;Landroid/content/ContentResolver;)V
 
     new-instance v6, Ljava/lang/StringBuilder;

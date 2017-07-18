@@ -72,7 +72,6 @@
 
     iput-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->mFilter:Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;
 
-    # setter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static {p1, v1}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1902(Lcom/android/launcher2/searchapp/SearchAppListFragment;I)I
 
     invoke-virtual {p0}, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->updateLayout()V
@@ -95,7 +94,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v2
@@ -205,7 +203,7 @@
 
     const/4 v6, 0x1
 
-    const v21, 0x7f030045
+    const v21, 0x7f040045
 
     const/16 v22, 0x0
 
@@ -218,7 +216,7 @@
     move-result-object p2
 
     :cond_1
-    const v21, 0x7f1000fa
+    const v21, 0x7f1100fa
 
     move-object/from16 v0, p2
 
@@ -287,7 +285,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCountMax:I
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$2200(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v21
@@ -313,7 +310,7 @@
 
     aput-object v21, v10, v11
 
-    const v21, 0x7f030046
+    const v21, 0x7f040046
 
     const/16 v22, 0x0
 
@@ -337,7 +334,7 @@
 
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000fd
+    const v21, 0x7f1100fd
 
     move-object/from16 v0, v17
 
@@ -399,12 +396,11 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static/range {v25 .. v25}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v25
 
-    const v26, 0x7f0d002d
+    const v26, 0x7f0e002e
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -415,7 +411,7 @@
     :cond_3
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000fc
+    const v21, 0x7f1100fc
 
     move-object/from16 v0, v17
 
@@ -435,7 +431,7 @@
 
     aget-object v22, v10, v11
 
-    const v21, 0x7f1000fb
+    const v21, 0x7f1100fb
 
     move-object/from16 v0, v17
 
@@ -535,7 +531,7 @@
     goto/16 :goto_1
 
     :cond_5
-    const v21, 0x7f1000f8
+    const v21, 0x7f1100f8
 
     move-object/from16 v0, p2
 
@@ -547,7 +543,7 @@
 
     check-cast v19, Landroid/widget/TextView;
 
-    const v21, 0x7f1000f9
+    const v21, 0x7f1100f9
 
     move-object/from16 v0, p2
 
@@ -568,7 +564,7 @@
 
     if-eqz v21, :cond_b
 
-    const v5, 0x7f0d002e
+    const v5, 0x7f0e002f
 
     :goto_3
     move-object/from16 v0, p0
@@ -599,14 +595,13 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v21
 
     mul-int v12, p1, v21
 
-    const v21, 0x7f1000f7
+    const v21, 0x7f1100f7
 
     move-object/from16 v0, p2
 
@@ -635,7 +630,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCountMax:I
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$2200(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v21
@@ -650,7 +644,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v21
@@ -1102,12 +1095,11 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v23
 
-    const v24, 0x7f0800ce
+    const v24, 0x7f0900cf
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1142,7 +1134,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1700(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
 
     move-result-object v21
@@ -1194,7 +1185,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1700(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
 
     move-result-object v22
@@ -1293,12 +1283,11 @@
 
     move-object/from16 v22, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static/range {v22 .. v22}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v22
 
-    const v23, 0x7f0800d3
+    const v23, 0x7f0900d4
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1329,7 +1318,7 @@
 
     check-cast v10, [Lcom/android/launcher2/searchapp/AppViewHolder;
 
-    const v21, 0x7f1000f8
+    const v21, 0x7f1100f8
 
     move-object/from16 v0, p2
 
@@ -1341,7 +1330,7 @@
 
     check-cast v19, Landroid/widget/TextView;
 
-    const v21, 0x7f1000f9
+    const v21, 0x7f1100f9
 
     move-object/from16 v0, p2
 
@@ -1356,7 +1345,7 @@
     goto/16 :goto_2
 
     :cond_b
-    const v5, 0x7f0d0013
+    const v5, 0x7f0e0012
 
     goto/16 :goto_3
 
@@ -1401,12 +1390,11 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v23
 
-    const v24, 0x7f0800db
+    const v24, 0x7f0900dc
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1490,7 +1478,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v21
@@ -1611,12 +1598,10 @@
 
     iget-object v1, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static {v1}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v1
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppListFragment;->reConsistAppInfoFilter(I)Ljava/util/ArrayList;
     invoke-static {v0, v1}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$2300(Lcom/android/launcher2/searchapp/SearchAppListFragment;I)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -1658,12 +1643,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0902eb
+    const v3, 0x7f0a02ed
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1673,12 +1657,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0902ea
+    const v3, 0x7f0a02ec
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1691,30 +1674,26 @@
 
     iget-object v3, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v3}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0b0029
+    const v4, 0x7f0c0029
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v3
 
-    # setter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static {v2, v3}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1902(Lcom/android/launcher2/searchapp/SearchAppListFragment;I)I
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
     iget-object v3, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCount:I
     invoke-static {v3}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)I
 
     move-result v3
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppListFragment;->reConsistAppInfoFilter(I)Ljava/util/ArrayList;
     invoke-static {v2, v3}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$2300(Lcom/android/launcher2/searchapp/SearchAppListFragment;I)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1723,12 +1702,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const/high16 v3, 0x7f0d0000
+    const/high16 v3, 0x7f0e0000
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1754,12 +1732,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0d002e
+    const v3, 0x7f0e002f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1819,7 +1796,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListContainer:Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
 
     move-result-object v2
@@ -1828,7 +1804,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListContainer:Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
 
     move-result-object v2
@@ -1841,7 +1816,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$AppListAdapter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListContainer:Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/AlphabeticalListContainer;
 
     move-result-object v2

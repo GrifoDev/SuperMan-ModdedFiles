@@ -74,7 +74,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v2
@@ -83,7 +82,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v2
@@ -92,7 +90,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v2
@@ -117,7 +114,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v2
@@ -145,7 +141,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->mIsFolderOpenAnimationEnded:Z
     invoke-static {v2, v4}, Lcom/android/launcher2/Folder;->access$1502(Lcom/android/launcher2/Folder;Z)Z
 
     :cond_1
@@ -230,7 +225,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v9
@@ -269,7 +263,6 @@
     :goto_1
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mHeight:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2600(Lcom/android/launcher2/Folder;)I
 
     move-result v8
@@ -288,7 +281,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2900(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     move-result-object v8
@@ -297,7 +289,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8, p1}, Lcom/android/launcher2/Folder;->access$2902(Lcom/android/launcher2/Folder;Lcom/android/launcher2/Folder$FolderAnimationInfo;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     :cond_0
@@ -319,7 +310,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2900(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     move-result-object v8
@@ -338,7 +328,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2900(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     move-result-object v8
@@ -357,7 +346,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2900(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     move-result-object v8
@@ -372,7 +360,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->savedFolderAnimInfo:Lcom/android/launcher2/Folder$FolderAnimationInfo;
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$2900(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderAnimationInfo;
 
     move-result-object v8
@@ -396,14 +383,12 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mOriginalOrientation:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$3000(Lcom/android/launcher2/Folder;)I
 
     move-result v8
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mCurrentOrientation:I
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$3100(Lcom/android/launcher2/Folder;)I
 
     move-result v9
@@ -412,7 +397,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mPrevOrientation:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$3200(Lcom/android/launcher2/Folder;)I
 
     move-result v8
@@ -423,7 +407,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mCurrentOrientation:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$3100(Lcom/android/launcher2/Folder;)I
 
     move-result v8
@@ -438,7 +421,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902f7
+    const v9, 0x7f0a02f9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -466,7 +449,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902f8
+    const v9, 0x7f0a02fa
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -480,7 +463,6 @@
 
     const/4 v9, 0x0
 
-    # setter for: Lcom/android/launcher2/Folder;->mPrevOrientation:I
     invoke-static {v8, v9}, Lcom/android/launcher2/Folder;->access$3202(Lcom/android/launcher2/Folder;I)I
 
     :cond_3
@@ -532,7 +514,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSineInOut60:Landroid/view/animation/Interpolator;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$3300(Lcom/android/launcher2/Folder;)Landroid/view/animation/Interpolator;
 
     move-result-object v9
@@ -583,7 +564,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSineInOut33:Landroid/view/animation/Interpolator;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$3400(Lcom/android/launcher2/Folder;)Landroid/view/animation/Interpolator;
 
     move-result-object v9
@@ -645,7 +625,6 @@
     :cond_6
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mPrevOrientation:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$3200(Lcom/android/launcher2/Folder;)I
 
     move-result v8
@@ -656,7 +635,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mCurrentOrientation:I
     invoke-static {v8}, Lcom/android/launcher2/Folder;->access$3100(Lcom/android/launcher2/Folder;)I
 
     move-result v8
@@ -671,7 +649,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902f7
+    const v9, 0x7f0a02f9
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -697,7 +675,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902f8
+    const v9, 0x7f0a02fa
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -713,7 +691,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -722,7 +699,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -731,7 +707,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -740,7 +715,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -749,7 +723,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -792,7 +765,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -801,7 +773,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -810,7 +781,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -819,7 +789,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -828,7 +797,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -902,7 +870,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v1
@@ -973,7 +940,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -1018,7 +984,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -1079,7 +1044,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSineInOut70:Landroid/view/animation/Interpolator;
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$2800(Lcom/android/launcher2/Folder;)Landroid/view/animation/Interpolator;
 
     move-result-object v1
@@ -1134,7 +1098,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSineInOut70:Landroid/view/animation/Interpolator;
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$2800(Lcom/android/launcher2/Folder;)Landroid/view/animation/Interpolator;
 
     move-result-object v1
@@ -1189,7 +1152,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconView:Lcom/android/launcher2/FolderIconView;
     invoke-static {v4}, Lcom/android/launcher2/Folder;->access$2400(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v4
@@ -1283,7 +1245,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mWidth:I
     invoke-static {v4}, Lcom/android/launcher2/Folder;->access$2500(Lcom/android/launcher2/Folder;)I
 
     move-result v4
@@ -1292,7 +1253,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Folder$FolderIconAnim;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mHeight:I
     invoke-static {v4}, Lcom/android/launcher2/Folder;->access$2600(Lcom/android/launcher2/Folder;)I
 
     move-result v4

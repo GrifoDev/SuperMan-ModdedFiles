@@ -49,12 +49,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$22;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1900(Lcom/android/launcher2/Folder;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f03002e
+    const v3, 0x7f04002e
 
     invoke-virtual {v2, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -70,7 +69,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Folder$22;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mItemClickListenerProxy:Landroid/view/View$OnClickListener;
     invoke-static {v3}, Lcom/android/launcher2/Folder;->access$2000(Lcom/android/launcher2/Folder;)Landroid/view/View$OnClickListener;
 
     move-result-object v3
@@ -132,12 +130,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$22;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1900(Lcom/android/launcher2/Folder;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f030016
+    const v3, 0x7f040016
 
     invoke-virtual {v2, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -149,7 +146,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$22;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mItemClickListenerProxy:Landroid/view/View$OnClickListener;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$2000(Lcom/android/launcher2/Folder;)Landroid/view/View$OnClickListener;
 
     move-result-object v2

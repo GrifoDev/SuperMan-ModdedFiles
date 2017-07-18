@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/Talk$1;->this$0:Lcom/sec/dtl/launcher/Talk;
 
-    # getter for: Lcom/sec/dtl/launcher/Talk;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
     invoke-static {v0}, Lcom/sec/dtl/launcher/Talk;->access$000(Lcom/sec/dtl/launcher/Talk;)Landroid/speech/tts/TextToSpeech;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v1, p0, Lcom/sec/dtl/launcher/Talk$1;->this$0:Lcom/sec/dtl/launcher/Talk;
 
-    # getter for: Lcom/sec/dtl/launcher/Talk;->mResources:Landroid/content/res/Resources;
     invoke-static {v1}, Lcom/sec/dtl/launcher/Talk;->access$100(Lcom/sec/dtl/launcher/Talk;)Landroid/content/res/Resources;
 
     move-result-object v1
@@ -63,7 +61,6 @@
 
     iget-object v1, v1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    # invokes: Lcom/sec/dtl/launcher/Talk;->setTextToSpeechLanguage(Ljava/util/Locale;)V
     invoke-static {v0, v1}, Lcom/sec/dtl/launcher/Talk;->access$200(Lcom/sec/dtl/launcher/Talk;Ljava/util/Locale;)V
 
     :cond_0

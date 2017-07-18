@@ -41,7 +41,6 @@
 
     iget-object v0, v0, Lcom/android/launcher2/HomeView$7;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$000(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, v0, Lcom/android/launcher2/HomeView$7;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$000(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v1

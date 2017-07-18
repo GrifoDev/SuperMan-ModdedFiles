@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$8;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mPendingWidgetCheckForState:Z
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$1500(Lcom/android/launcher2/Workspace;)Z
 
     move-result v0
@@ -50,7 +49,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/Workspace;->mPendingWidgetCheckForState:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$1502(Lcom/android/launcher2/Workspace;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$8;->this$0:Lcom/android/launcher2/Workspace;

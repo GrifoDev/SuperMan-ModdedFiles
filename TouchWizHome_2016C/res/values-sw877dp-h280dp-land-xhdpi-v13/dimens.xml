@@ -94,7 +94,7 @@
     <item type="dimen" name="config_workspaceEditModeTranslationFactor">1.05</item>
     <dimen name="create_folder_dialog_width">837.0dip</dimen>
     <dimen name="done_button_height">49.0dip</dimen>
-    <dimen name="done_button_width">165.0dip</dimen>
+    <dimen name="done_button_width">195.0dip</dimen>
     <item type="dimen" name="folder_multi_container_margin_end">@dimen/folder_multi_header_margin_end</item>
     <item type="dimen" name="folder_multi_container_margin_start">@dimen/folder_multi_header_margin_start</item>
     <dimen name="home_editTitleBar_side_margin_case_2_item">244.0dip</dimen>

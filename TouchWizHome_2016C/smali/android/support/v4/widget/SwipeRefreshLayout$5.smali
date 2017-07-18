@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout$5;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    # getter for: Landroid/support/v4/widget/SwipeRefreshLayout;->mScale:Z
     invoke-static {v0}, Landroid/support/v4/widget/SwipeRefreshLayout;->access$600(Landroid/support/v4/widget/SwipeRefreshLayout;)Z
 
     move-result v0
@@ -50,7 +49,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Landroid/support/v4/widget/SwipeRefreshLayout;->startScaleDownAnimation(Landroid/view/animation/Animation$AnimationListener;)V
     invoke-static {v0, v1}, Landroid/support/v4/widget/SwipeRefreshLayout;->access$1000(Landroid/support/v4/widget/SwipeRefreshLayout;Landroid/view/animation/Animation$AnimationListener;)V
 
     :cond_0

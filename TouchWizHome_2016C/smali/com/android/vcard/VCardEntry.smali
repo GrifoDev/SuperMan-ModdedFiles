@@ -1075,7 +1075,6 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mFormatted:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v0
@@ -1088,7 +1087,6 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mFormatted:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v6
@@ -1115,35 +1113,30 @@
 
     iget-object v1, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mFamily:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1600(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mMiddle:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$1400(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mGiven:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1500(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPrefix:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$1300(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mSuffix:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1200(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
@@ -1167,21 +1160,18 @@
 
     iget-object v1, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
@@ -1213,7 +1203,6 @@
 
     check-cast v0, Lcom/android/vcard/VCardEntry$EmailData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$EmailData;->mAddress:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/vcard/VCardEntry$EmailData;->access$1900(Lcom/android/vcard/VCardEntry$EmailData;)Ljava/lang/String;
 
     move-result-object v6
@@ -1241,7 +1230,6 @@
 
     check-cast v0, Lcom/android/vcard/VCardEntry$PhoneData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$PhoneData;->mNumber:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/vcard/VCardEntry$PhoneData;->access$2000(Lcom/android/vcard/VCardEntry$PhoneData;)Ljava/lang/String;
 
     move-result-object v6
@@ -1395,7 +1383,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mFamily:Ljava/lang/String;
     invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1602(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -1411,7 +1398,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mSuffix:Ljava/lang/String;
     invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1202(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     :pswitch_1
@@ -1425,7 +1411,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPrefix:Ljava/lang/String;
     invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1302(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     :pswitch_2
@@ -1439,7 +1424,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mMiddle:Ljava/lang/String;
     invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1402(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     :pswitch_3
@@ -1451,7 +1435,6 @@
 
     check-cast v1, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mGiven:Ljava/lang/String;
     invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1502(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_1
@@ -2393,49 +2376,42 @@
 
     if-eqz v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$100(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$200(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mJobDescription:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$400(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mSymbol:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$500(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mPhoneticName:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$600(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_f
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOfficeLocation:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$700(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
@@ -2444,57 +2420,47 @@
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
     invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$102(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
     invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$202(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v0, v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mJobDescription:Ljava/lang/String;
     invoke-static {v0, v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$402(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mSymbol:Ljava/lang/String;
     invoke-static {v0, v9}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$502(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mPhoneticName:Ljava/lang/String;
     invoke-static {v0, v10}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$602(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOfficeLocation:Ljava/lang/String;
     invoke-static {v0, v11}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$702(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
     move/from16 v1, p4
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mIsPrimary:Z
     invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$802(Lcom/android/vcard/VCardEntry$OrganizationData;Z)Z
 
     goto/16 :goto_5
 
     :cond_f
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$100(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
 
     if-nez v2, :cond_e
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
     invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$200(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v2
@@ -2503,19 +2469,16 @@
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
     invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$102(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
     invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$202(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     move-object/from16 v0, v22
 
     move/from16 v1, p4
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mIsPrimary:Z
     invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$802(Lcom/android/vcard/VCardEntry$OrganizationData;Z)Z
 
     goto/16 :goto_5
@@ -2580,7 +2543,6 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
@@ -2593,7 +2555,6 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
@@ -2606,7 +2567,6 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
@@ -2697,21 +2657,18 @@
 
     aget-object v6, v2, v7
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v8
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v9
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -2728,14 +2685,12 @@
 
     aget-object v6, v2, v7
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v8
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -2749,7 +2704,6 @@
 
     check-cast v5, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -2766,7 +2720,6 @@
 
     check-cast v5, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0
@@ -2780,7 +2733,6 @@
 
     check-cast v5, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     :pswitch_1
@@ -2792,7 +2744,6 @@
 
     check-cast v5, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_2
@@ -3007,7 +2958,6 @@
 
     check-cast v8, Lcom/android/vcard/VCardEntry$OrganizationData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v0
@@ -3016,7 +2966,6 @@
 
     const-string v0, ""
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v1
@@ -3027,7 +2976,6 @@
 
     if-nez v0, :cond_2
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v0
@@ -3039,7 +2987,6 @@
     if-eqz v0, :cond_0
 
     :cond_2
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -3064,14 +3011,12 @@
 
     check-cast v8, Lcom/android/vcard/VCardEntry$OrganizationData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v0
 
     if-nez v0, :cond_4
 
-    # setter for: Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
     invoke-static {v8, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -3271,7 +3216,6 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
@@ -3284,7 +3228,6 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
@@ -3297,7 +3240,6 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
@@ -3406,7 +3348,6 @@
 
     check-cast v3, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -3422,7 +3363,6 @@
 
     check-cast v3, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     :pswitch_1
@@ -3434,7 +3374,6 @@
 
     check-cast v3, Ljava/lang/String;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_1
@@ -3562,7 +3501,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mFormatted:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1702(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -3587,7 +3525,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$NameData;->mFormatted:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v4
@@ -3602,7 +3539,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mFormatted:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1702(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_0
@@ -3643,7 +3579,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mSortString:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1802(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0
@@ -5423,7 +5358,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticGiven:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0
@@ -5443,7 +5377,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticMiddle:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0
@@ -5463,7 +5396,6 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    # setter for: Lcom/android/vcard/VCardEntry$NameData;->mPhoneticFamily:Ljava/lang/String;
     invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_0
@@ -6008,7 +5940,6 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mBirthday:Lcom/android/vcard/VCardEntry$BirthdayData;
 
-    # getter for: Lcom/android/vcard/VCardEntry$BirthdayData;->mBirthday:Ljava/lang/String;
     invoke-static {v0}, Lcom/android/vcard/VCardEntry$BirthdayData;->access$2200(Lcom/android/vcard/VCardEntry$BirthdayData;)Ljava/lang/String;
 
     move-result-object v0

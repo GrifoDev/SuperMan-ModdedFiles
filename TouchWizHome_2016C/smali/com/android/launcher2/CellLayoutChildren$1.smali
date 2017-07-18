@@ -100,7 +100,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f05002c
+    const v5, 0x7f06002c
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 

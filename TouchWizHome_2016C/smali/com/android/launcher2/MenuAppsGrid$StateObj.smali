@@ -177,7 +177,6 @@
     const/4 v0, -0x1
 
     :goto_0
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/MenuAppsGrid;->access$1500()Z
 
     move-result v2

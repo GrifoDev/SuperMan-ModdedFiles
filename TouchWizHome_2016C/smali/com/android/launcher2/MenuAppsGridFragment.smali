@@ -643,7 +643,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f03002c
+    const v1, 0x7f04002c
 
     const/4 v2, 0x0
 
@@ -657,7 +657,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGridFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v2, 0x7f10008f
+    const v2, 0x7f11008f
 
     invoke-virtual {v1, v2}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 

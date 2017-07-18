@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$26;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->view:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2300(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0
@@ -56,7 +55,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$26;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->view:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2300(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0

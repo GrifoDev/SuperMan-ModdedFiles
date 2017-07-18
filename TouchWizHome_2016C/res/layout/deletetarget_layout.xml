@@ -5,7 +5,7 @@
     <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
         <ImageView android:id="@id/quickview_editbar_background" android:src="@drawable/circle_shape_remove" android:alpha="0.0" style="@style/EditBarCircle" />
         <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/quickview_delete_linear" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <ImageView android:layout_gravity="center_horizontal" android:id="@id/quickview_delete_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:paddingBottom="@dimen/delete_drawable_paddingBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/toolbar_ic_delete" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/quickview_delete_icon" android:paddingTop="@dimen/delete_drawable_paddingTop" android:paddingBottom="@dimen/delete_drawable_paddingBottom" android:src="@drawable/toolbar_ic_delete" style="@style/HomeEditBarIconImage" />
             <TextView android:id="@id/quickview_delete_text" android:text="@string/quickview_drag_bar_delete_title" style="@style/HomeEditDragBarIcon" />
         </LinearLayout>
     </FrameLayout>

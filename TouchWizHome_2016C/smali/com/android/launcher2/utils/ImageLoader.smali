@@ -191,7 +191,6 @@
 
     if-eqz v1, :cond_1
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->data:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->access$000(Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;)Ljava/lang/Object;
 
     move-result-object v0

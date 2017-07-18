@@ -139,6 +139,7 @@
     <string name="new_items">%d件の最新アイテム</string>
     <string name="no_downloaded_apps">ダウンロード​された​アプリケーション​は​あり​ません。</string>
     <string name="no_room_any_page">ホーム画面に空きがありません。</string>
+    <string name="no_space_page">ページにスペースがありません。ショートカットを別のページに追加してください。</string>
     <string name="not_selected">選択なし</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%sウィジェットは既にホーム画面に追加されています。</string>
@@ -170,7 +171,7 @@
     <string name="quickoptions_clear_badge">バッジを消去</string>
     <string name="quickoptions_disable">無効</string>
     <string name="quickoptions_sleep_alert">アプリをスリープ状態に設定すると、バックグラウンドでバッテリーを使用しなくなります。スリープ状態のアプリは更新や通知を受信できなくなりますが、使用を再開すると実行されます。</string>
-    <string name="quickoptions_uninstall">アンインストール</string>
+    <string name="quickoptions_uninstall">ｱﾝｲﾝｽﾄｰﾙ</string>
     <string name="quickview_delete_toast_msg">ページを削除するには、そのページを[削除]にドラッグしてください。</string>
     <string name="quickview_drag_bar_delete_title">削除</string>
     <string name="read_home_screen_settings">ホーム画面設定の読み取り</string>

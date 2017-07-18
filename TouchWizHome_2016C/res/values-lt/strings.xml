@@ -138,6 +138,7 @@
     <string name="new_items">Naujų elementų: %d</string>
     <string name="no_downloaded_apps">Nėra atsisiųstų programų</string>
     <string name="no_room_any_page">Nė viename puslapyje nėra kambario.</string>
+    <string name="no_space_page">Puslapyje nėra vietos. Pabandykite pridėti trumpinį kitame puslapyje.</string>
     <string name="not_selected">Nepasirinkta</string>
     <string name="ok">Gerai</string>
     <string name="only_one_widget_instance_allowed">%s valdiklis jau pridėtas prie pradžios ekrano.</string>

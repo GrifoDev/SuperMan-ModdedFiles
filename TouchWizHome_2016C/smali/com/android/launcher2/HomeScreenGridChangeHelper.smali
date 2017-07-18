@@ -1513,7 +1513,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f030053
+    const v3, 0x7f040053
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridChangeHelper;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -1573,7 +1573,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f030054
+    const v3, 0x7f040054
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridChangeHelper;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -1594,7 +1594,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f030052
+    const v3, 0x7f040052
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridChangeHelper;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -2299,53 +2299,53 @@
     return-object v13
 
     :pswitch_0
-    const v9, 0x7f0900f1
+    const v9, 0x7f0a00f1
 
-    const v8, 0x7f0900ee
+    const v8, 0x7f0a00ee
 
-    const v6, 0x7f0900e8
+    const v6, 0x7f0a00e8
 
-    const v7, 0x7f0900eb
+    const v7, 0x7f0a00eb
 
-    const v12, 0x7f0e0005
+    const v12, 0x7f0f0005
 
-    const v11, 0x7f0e0006
+    const v11, 0x7f0f0006
 
-    const v10, 0x7f090241
+    const v10, 0x7f0a0243
 
     goto :goto_0
 
     :pswitch_1
-    const v9, 0x7f090231
+    const v9, 0x7f0a0233
 
-    const v8, 0x7f090230
+    const v8, 0x7f0a0232
 
-    const v6, 0x7f09022f
+    const v6, 0x7f0a0231
 
-    const v7, 0x7f0901ce
+    const v7, 0x7f0a01ce
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
-    const v11, 0x7f0e0014
+    const v11, 0x7f0f0014
 
-    const v10, 0x7f09022d
+    const v10, 0x7f0a022f
 
     goto :goto_0
 
     :pswitch_2
-    const v9, 0x7f090235
+    const v9, 0x7f0a0237
 
-    const v8, 0x7f090234
+    const v8, 0x7f0a0236
 
-    const v6, 0x7f090233
+    const v6, 0x7f0a0235
 
-    const v7, 0x7f0901d0
+    const v7, 0x7f0a01d0
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
-    const v11, 0x7f0e0014
+    const v11, 0x7f0f0014
 
-    const v10, 0x7f09022e
+    const v10, 0x7f0a0230
 
     goto/16 :goto_0
 

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppIconView$1;->this$0:Lcom/android/launcher2/MenuAppIconView;
 
-    # getter for: Lcom/android/launcher2/MenuAppIconView;->mUninstallIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppIconView;->access$000(Lcom/android/launcher2/MenuAppIconView;)Landroid/widget/ImageView;
 
     move-result-object v0

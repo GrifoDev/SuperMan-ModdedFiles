@@ -78,7 +78,6 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    # invokes: Lcom/android/launcher2/utils/ImageLoader;->getBitmapWorkerTask(Landroid/widget/ImageView;)Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;
     invoke-static {v1}, Lcom/android/launcher2/utils/ImageLoader;->access$500(Landroid/widget/ImageView;)Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;
 
     move-result-object v0
@@ -115,7 +114,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mPauseWorkLock:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/launcher2/utils/ImageLoader;->access$100(Lcom/android/launcher2/utils/ImageLoader;)Ljava/lang/Object;
 
     move-result-object v3
@@ -126,7 +124,6 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mPauseWork:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/ImageLoader;->access$200(Lcom/android/launcher2/utils/ImageLoader;)Z
 
     move-result v2
@@ -144,7 +141,6 @@
     :try_start_1
     iget-object v2, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mPauseWorkLock:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/launcher2/utils/ImageLoader;->access$100(Lcom/android/launcher2/utils/ImageLoader;)Ljava/lang/Object;
 
     move-result-object v2
@@ -222,7 +218,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mImageCache:Lcom/android/launcher2/utils/ImageCache;
     invoke-static {v2}, Lcom/android/launcher2/utils/ImageLoader;->access$300(Lcom/android/launcher2/utils/ImageLoader;)Lcom/android/launcher2/utils/ImageCache;
 
     move-result-object v2
@@ -231,7 +226,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mImageCache:Lcom/android/launcher2/utils/ImageCache;
     invoke-static {v2}, Lcom/android/launcher2/utils/ImageLoader;->access$300(Lcom/android/launcher2/utils/ImageLoader;)Lcom/android/launcher2/utils/ImageCache;
 
     move-result-object v2
@@ -278,7 +272,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mPauseWorkLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/launcher2/utils/ImageLoader;->access$100(Lcom/android/launcher2/utils/ImageLoader;)Ljava/lang/Object;
 
     move-result-object v1
@@ -288,7 +281,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # getter for: Lcom/android/launcher2/utils/ImageLoader;->mPauseWorkLock:Ljava/lang/Object;
     invoke-static {v0}, Lcom/android/launcher2/utils/ImageLoader;->access$100(Lcom/android/launcher2/utils/ImageLoader;)Ljava/lang/Object;
 
     move-result-object v0
@@ -341,7 +333,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/utils/ImageLoader$BitmapWorkerTask;->this$0:Lcom/android/launcher2/utils/ImageLoader;
 
-    # invokes: Lcom/android/launcher2/utils/ImageLoader;->setImageBitmap(Landroid/widget/ImageView;Landroid/graphics/Bitmap;)V
     invoke-static {v1, v0, p1}, Lcom/android/launcher2/utils/ImageLoader;->access$400(Lcom/android/launcher2/utils/ImageLoader;Landroid/widget/ImageView;Landroid/graphics/Bitmap;)V
 
     :cond_1

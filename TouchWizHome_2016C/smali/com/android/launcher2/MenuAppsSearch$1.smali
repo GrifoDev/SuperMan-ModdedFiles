@@ -37,7 +37,7 @@
 .method public onGlobalLayout()V
     .locals 10
 
-    const v9, 0x7f090177
+    const v9, 0x7f0a0177
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
 
@@ -47,7 +47,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -68,7 +67,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f08002a
+    const v8, 0x7f09002a
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -82,7 +81,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v6
@@ -91,7 +89,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09030d
+    const v7, 0x7f0a0310
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -99,7 +97,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v6
@@ -114,7 +111,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -135,7 +131,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -149,7 +144,6 @@
     :cond_1
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v6
@@ -166,7 +160,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -181,7 +174,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v6
@@ -190,7 +182,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0902b8
+    const v7, 0x7f0a02bb
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -198,7 +190,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v6
@@ -215,7 +206,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -234,7 +224,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -249,6 +238,14 @@
 
     if-eq v6, v7, :cond_0
 
+    iget v6, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    sub-int v7, v3, v0
+
+    sub-int/2addr v7, v4
+
+    if-eq v6, v7, :cond_0
+
     sub-int v6, v3, v0
 
     sub-int/2addr v6, v4
@@ -257,7 +254,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$1;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v6

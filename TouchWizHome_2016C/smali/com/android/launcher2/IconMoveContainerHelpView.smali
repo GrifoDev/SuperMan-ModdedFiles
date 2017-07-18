@@ -249,13 +249,13 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_MgsText:Landroid/widget/TextView;
 
-    const v1, 0x7f080084
+    const v1, 0x7f090084
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_NextBtnText:Landroid/widget/TextView;
 
-    const v1, 0x7f080082
+    const v1, 0x7f090082
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -361,7 +361,7 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f03003a
+    const v3, 0x7f04003a
 
     const/4 v4, 0x0
 
@@ -385,7 +385,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000ca
+    const v4, 0x7f1100ca
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -395,7 +395,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cf
+    const v4, 0x7f1100cf
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +405,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cb
+    const v4, 0x7f1100cb
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +417,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cc
+    const v4, 0x7f1100cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +429,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cd
+    const v4, 0x7f1100cd
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -441,7 +441,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000ce
+    const v4, 0x7f1100ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

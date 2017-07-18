@@ -40,7 +40,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0018
+    const v2, 0x7f0d0018
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -50,7 +50,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/HomeView$12;->this$0:Lcom/android/launcher2/HomeView;
 
-    # invokes: Lcom/android/launcher2/HomeView;->ChangeTphoneMode()V
     invoke-static {v2}, Lcom/android/launcher2/HomeView;->access$1700(Lcom/android/launcher2/HomeView;)V
 
     :goto_0

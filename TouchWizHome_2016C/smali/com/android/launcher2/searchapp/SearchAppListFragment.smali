@@ -1421,7 +1421,7 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0d002e
+    const v1, 0x7f0e002f
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->getResources()Landroid/content/res/Resources;
@@ -1447,7 +1447,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d0013
+    const v1, 0x7f0e0012
 
     goto :goto_0
 .end method
@@ -1858,7 +1858,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
 
-    const v1, 0x7f1000f0
+    const v1, 0x7f1100f0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1875,7 +1875,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
 
-    const v1, 0x7f1000f4
+    const v1, 0x7f1100f4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2634,7 +2634,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
 
-    const v4, 0x7f0800ce
+    const v4, 0x7f0900cf
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2816,7 +2816,7 @@
 
     iget-object v9, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
 
-    const v10, 0x7f0800ce
+    const v10, 0x7f0900cf
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2969,7 +2969,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
 
-    const v1, 0x7f1000f6
+    const v1, 0x7f1100f6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2981,7 +2981,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
 
-    const v1, 0x7f1000f5
+    const v1, 0x7f1100f5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3166,7 +3166,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f050006
+    const v2, 0x7f060006
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -3205,7 +3205,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f050012
+    const v2, 0x7f060012
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -3638,7 +3638,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f0b0029
+    const v18, 0x7f0c0029
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3656,7 +3656,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f0b002f
+    const v18, 0x7f0c002f
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3668,7 +3668,7 @@
 
     iput v0, v1, Lcom/android/launcher2/searchapp/SearchAppListFragment;->mListItemCountMax:I
 
-    const v17, 0x7f030044
+    const v17, 0x7f040044
 
     const/16 v18, 0x0
 
@@ -3726,7 +3726,7 @@
 
     if-eqz v17, :cond_9
 
-    const v5, 0x7f0d002e
+    const v5, 0x7f0e002f
 
     :goto_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->getResources()Landroid/content/res/Resources;
@@ -3781,7 +3781,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000ea
+    const v18, 0x7f1100ea
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3801,7 +3801,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000eb
+    const v18, 0x7f1100eb
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3839,7 +3839,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f09027a
+    const v18, 0x7f0a0281
 
     invoke-static/range {v17 .. v18}, Lcom/android/launcher2/utils/common/FontSizeUtils;->setSystemFontSize(Landroid/widget/TextView;I)V
 
@@ -3850,7 +3850,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f100018
+    const v18, 0x7f110018
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3898,7 +3898,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f08001f
+    const v20, 0x7f09001f
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3920,7 +3920,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f090168
+    const v18, 0x7f0a0168
 
     invoke-static/range {v17 .. v18}, Lcom/android/launcher2/utils/common/FontSizeUtils;->setSystemFontSize(Landroid/widget/TextView;I)V
 
@@ -4060,7 +4060,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000ec
+    const v18, 0x7f1100ec
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4440,7 +4440,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000b0
+    const v18, 0x7f1100b0
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4460,7 +4460,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000b2
+    const v18, 0x7f1100b2
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4480,7 +4480,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000ed
+    const v18, 0x7f1100ed
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4634,7 +4634,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000ef
+    const v18, 0x7f1100ef
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4654,7 +4654,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000f3
+    const v18, 0x7f1100f3
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4766,7 +4766,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x7f1000ee
+    const v18, 0x7f1100ee
 
     invoke-virtual/range {v17 .. v18}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -4804,7 +4804,7 @@
 
     sget-object v17, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v18, 0x7f0800d7
+    const v18, 0x7f0900d8
 
     invoke-virtual/range {v17 .. v18}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 
@@ -4817,7 +4817,7 @@
     return-object v17
 
     :cond_9
-    const v5, 0x7f0d0013
+    const v5, 0x7f0e0012
 
     goto/16 :goto_0
 
@@ -5081,7 +5081,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c4
+    const v3, 0x7f0900c5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5117,7 +5117,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080023
+    const v4, 0x7f090023
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

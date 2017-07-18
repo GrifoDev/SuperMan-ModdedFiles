@@ -109,11 +109,11 @@
     <dimen name="menu_edit_button_margin_end">65.0dip</dimen>
     <dimen name="menufolder_icon_drawablepadding">3.0dip</dimen>
     <dimen name="menufolder_icon_drawablepadding_5">4.0dip</dimen>
+    <dimen name="moveApps_cellHeight">113.0dip</dimen>
     <dimen name="moveApps_cellWidth">124.0dip</dimen>
     <dimen name="moveApps_containerHeight">124.0dip</dimen>
     <dimen name="moveApps_topGap">11.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">642.0dip</dimen>
-    <dimen name="moveApps_cellHeight">113.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_left">104.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">123.0dip</dimen>
     <dimen name="app_searchview_margin_top">2.0dip</dimen>

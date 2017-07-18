@@ -56,7 +56,6 @@
 
     iput v2, p0, Landroid/support/v4/widget/DrawerLayout$LayoutParams;->gravity:I
 
-    # getter for: Landroid/support/v4/widget/DrawerLayout;->LAYOUT_ATTRS:[I
     invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->access$100()[I
 
     move-result-object v1

@@ -52,7 +52,6 @@
 
     aget-object v2, v2, v3
 
-    # invokes: Landroid/support/v4/content/ModernAsyncTask;->finish(Ljava/lang/Object;)V
     invoke-static {v1, v2}, Landroid/support/v4/content/ModernAsyncTask;->access$400(Landroid/support/v4/content/ModernAsyncTask;Ljava/lang/Object;)V
 
     goto :goto_0

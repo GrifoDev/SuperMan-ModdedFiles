@@ -111,7 +111,7 @@
     <string name="last_page">Current page is last page.</string>
     <string name="lock">Hanidy</string>
     <string name="lock_or_unlock_dislog_msg">After moving this app out of the folder, keep the app locked or unlock it?</string>
-    <string name="max_characters_available">Up to %d characters available.</string>
+    <string name="max_characters_available">"Hatramin'ny %d ihany ny isan'ny maritsoratra."</string>
     <string name="menu_edit">Hanova</string>
     <string name="menu_edit_cancel">Hanafoan</string>
     <string name="menu_edit_cancel_msg">Hariana avokoa ny fanovana rehetra.</string>
@@ -138,6 +138,7 @@
     <string name="new_items">Singa vaovao %d</string>
     <string name="no_downloaded_apps">Tsy misy rindranasa voaidina</string>
     <string name="no_room_any_page">"Tsy misy toerana malalaka intsony eran'ny pejy."</string>
+    <string name="no_space_page">No space on page. Try adding shortcut to a different page.</string>
     <string name="not_selected">Tsy voafantina</string>
     <string name="ok">ok</string>
     <string name="only_one_widget_instance_allowed">%s widget already added to home screen.</string>

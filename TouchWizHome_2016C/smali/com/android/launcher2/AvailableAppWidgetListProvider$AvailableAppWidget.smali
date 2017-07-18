@@ -177,7 +177,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/AvailableAppWidgetListProvider$AvailableAppWidget;->this$0:Lcom/android/launcher2/AvailableAppWidgetListProvider;
 
-    # getter for: Lcom/android/launcher2/AvailableAppWidgetListProvider;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/launcher2/AvailableAppWidgetListProvider;->access$000(Lcom/android/launcher2/AvailableAppWidgetListProvider;)Landroid/content/Context;
 
     move-result-object v0
@@ -211,7 +210,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/AvailableAppWidgetListProvider$AvailableAppWidget;->this$0:Lcom/android/launcher2/AvailableAppWidgetListProvider;
 
-    # getter for: Lcom/android/launcher2/AvailableAppWidgetListProvider;->mManager:Lcom/android/launcher2/compat/AppWidgetManagerCompat;
     invoke-static {v0}, Lcom/android/launcher2/AvailableAppWidgetListProvider;->access$100(Lcom/android/launcher2/AvailableAppWidgetListProvider;)Lcom/android/launcher2/compat/AppWidgetManagerCompat;
 
     move-result-object v0
@@ -226,7 +224,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/AvailableAppWidgetListProvider$AvailableAppWidget;->this$0:Lcom/android/launcher2/AvailableAppWidgetListProvider;
 
-    # getter for: Lcom/android/launcher2/AvailableAppWidgetListProvider;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/android/launcher2/AvailableAppWidgetListProvider;->access$000(Lcom/android/launcher2/AvailableAppWidgetListProvider;)Landroid/content/Context;
 
     move-result-object v0

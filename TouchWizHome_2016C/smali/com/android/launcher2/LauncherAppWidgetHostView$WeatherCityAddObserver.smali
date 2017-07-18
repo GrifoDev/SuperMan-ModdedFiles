@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$WeatherCityAddObserver;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher2/LauncherAppWidgetHostView;->checkWeatherCount()V
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$700(Lcom/android/launcher2/LauncherAppWidgetHostView;)V
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->isSupportWeatherAnimAffordance()Z
@@ -51,7 +50,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$WeatherCityAddObserver;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mIsWeatherCityOneMore:Z
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$800(Lcom/android/launcher2/LauncherAppWidgetHostView;)Z
 
     move-result v0

@@ -241,7 +241,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08008f
+    const v3, 0x7f090090
 
     new-instance v4, Lcom/android/launcher2/HomeScreenModeSettingsFragment$5;
 
@@ -251,7 +251,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080031
+    const v3, 0x7f090031
 
     new-instance v4, Lcom/android/launcher2/HomeScreenModeSettingsFragment$4;
 
@@ -293,7 +293,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f03001f
+    const v3, 0x7f04001f
 
     const/4 v4, 0x0
 
@@ -301,7 +301,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f10006e
+    const v3, 0x7f11006e
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -309,7 +309,7 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    const v3, 0x7f10006c
+    const v3, 0x7f11006c
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -317,7 +317,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v3, 0x7f10006f
+    const v3, 0x7f11006f
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->mAppsRadio:Landroid/widget/RadioButton;
 
-    const v3, 0x7f10006d
+    const v3, 0x7f11006d
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -337,7 +337,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->mHomeOnlyRadio:Landroid/widget/RadioButton;
 
-    const v3, 0x7f100070
+    const v3, 0x7f110070
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

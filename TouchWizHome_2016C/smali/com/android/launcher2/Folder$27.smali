@@ -45,7 +45,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$27;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$3600(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0

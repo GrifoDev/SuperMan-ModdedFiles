@@ -165,7 +165,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090388
+    const v3, 0x7f0a038b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -179,7 +179,7 @@
 
     invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
 
-    const v3, 0x7f09016b
+    const v3, 0x7f0a016b
 
     invoke-virtual {v1, v3, v2, v8}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
@@ -189,7 +189,7 @@
 
     iput v3, p0, Lcom/android/launcher2/FolderPagedView;->mEditTranslationViewFactor:F
 
-    const v3, 0x7f0b0036
+    const v3, 0x7f0c0036
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -201,7 +201,7 @@
 
     new-instance v3, Landroid/graphics/LightingColorFilter;
 
-    const v4, 0x7f0d002e
+    const v4, 0x7f0e002f
 
     invoke-direct {v3, v4, v7}, Landroid/graphics/LightingColorFilter;-><init>(II)V
 
@@ -251,7 +251,7 @@
 .method private changeOrientationIfRequired(Landroid/content/res/Configuration;)V
     .locals 10
 
-    const v9, 0x7f0901fc
+    const v9, 0x7f0a01fc
 
     sget-boolean v6, Lcom/android/launcher2/Launcher;->mChangeMobileKeyboard:Z
 
@@ -390,19 +390,19 @@
 
     move-result-object v4
 
-    const v6, 0x7f0901f5
+    const v6, 0x7f0a01f5
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v6, 0x7f09018e
+    const v6, 0x7f0a018e
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v6, 0x7f09018d
+    const v6, 0x7f0a018d
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -412,7 +412,7 @@
 
     invoke-direct {p0}, Lcom/android/launcher2/FolderPagedView;->getGridValues()V
 
-    const v6, 0x7f09018b
+    const v6, 0x7f0a018b
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -420,7 +420,7 @@
 
     iput v6, p0, Lcom/android/launcher2/FolderPagedView;->mCellGapX:I
 
-    const v6, 0x7f09018c
+    const v6, 0x7f0a018c
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -428,7 +428,7 @@
 
     iput v6, p0, Lcom/android/launcher2/FolderPagedView;->mCellGapY:I
 
-    const v6, 0x7f0901fe
+    const v6, 0x7f0a01fe
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -440,7 +440,7 @@
 
     invoke-direct {v5}, Landroid/util/TypedValue;-><init>()V
 
-    const v6, 0x7f09016b
+    const v6, 0x7f0a016b
 
     const/4 v7, 0x1
 
@@ -478,7 +478,7 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FolderPagedView;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f030019
+    const v3, 0x7f040019
 
     const/4 v4, 0x0
 
@@ -580,9 +580,9 @@
 .method private getGridValues()V
     .locals 12
 
-    const v11, 0x7f0b0018
+    const v11, 0x7f0c0018
 
-    const v10, 0x7f0b0017
+    const v10, 0x7f0c0017
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportRotate()Z
 
@@ -914,7 +914,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b0073
+    const v20, 0x7f0c0073
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1258,7 +1258,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0c001d
+    const v20, 0x7f0d001d
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1594,13 +1594,13 @@
 
     move-result v6
 
-    const v13, 0x7f0e000d
+    const v13, 0x7f0f000d
 
     invoke-static {v7, v13}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
     move-result-object v2
 
-    const v13, 0x7f0e000d
+    const v13, 0x7f0f000d
 
     invoke-static {v7, v13}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2038,7 +2038,7 @@
 
     check-cast v4, Landroid/graphics/drawable/LayerDrawable;
 
-    const v5, 0x7f100120
+    const v5, 0x7f110120
 
     invoke-virtual {v4, v5}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -2050,7 +2050,7 @@
 
     check-cast v1, Landroid/graphics/drawable/NinePatchDrawable;
 
-    const v5, 0x7f100121
+    const v5, 0x7f110121
 
     invoke-virtual {v4, v5}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -3560,13 +3560,13 @@
 
     check-cast v11, Lcom/android/launcher2/CellLayoutNoGap;
 
-    if-eqz v11, :cond_c
+    if-eqz v11, :cond_d
 
     invoke-virtual {v11}, Lcom/android/launcher2/CellLayoutNoGap;->getPageItemCount()I
 
     move-result v17
 
-    if-nez v17, :cond_c
+    if-nez v17, :cond_d
 
     move-object/from16 v0, p0
 
@@ -3617,6 +3617,23 @@
 
     invoke-virtual {v0, v11}, Lcom/android/launcher2/FolderPagedView;->removeView(Landroid/view/View;)V
 
+    sget-boolean v17, Lcom/android/launcher2/Launcher;->sIsRtl:Z
+
+    if-eqz v17, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/FolderPagedView;->mCurrentPage:I
+
+    move/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/FolderPagedView;->snapToPage(I)V
+
+    :cond_c
     const-string v17, "FolderPagedView"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -3663,10 +3680,10 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_c
+    :cond_d
     add-int/lit8 v12, v12, -0x1
 
-    goto :goto_3
+    goto/16 :goto_3
 .end method
 
 .method public syncPageItems(IZ)V

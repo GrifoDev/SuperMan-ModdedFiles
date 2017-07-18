@@ -5,7 +5,6 @@
     <color name="homescreen_option_menu_text_color">#fffafafa</color>
     <color name="menu_title_text_color">#ffffffff</color>
     <color name="home_title_bar_text_color">#ffffffff</color>
-    <color name="editbar_cicle_normal_color">#4d009cff</color>
     <color name="quick_popup_action_text_color">#ff000000</color>
     <color name="appsearch_app_name_highlight_color">#ff2abcf2</color>
     <color name="item_search_list">#ff000000</color>
@@ -29,6 +28,8 @@
     <color name="darken_view_whitebg_color">#fffafafa</color>
     <color name="download_header">#fff0f0f0</color>
     <color name="edit_cancel_menu_text">#ffffffff</color>
+    <color name="editbar_cicle_normal_color">#9900e4ff</color>
+    <color name="editbar_cicle_remove_color">#99ff0000</color>
     <color name="fluid_index_scroll_big_text_color">#ffffffff</color>
     <color name="fluid_index_scroll_effect_color">#ff35def2</color>
     <color name="fluid_index_scroll_small_text_color">#ffffffff</color>

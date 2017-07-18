@@ -43,7 +43,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mMovie:Landroid/graphics/Movie;
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$000(Lcom/android/launcher2/MovieDrawable;)Landroid/graphics/Movie;
 
     move-result-object v3
@@ -56,7 +55,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mCurrentCycle:I
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$100(Lcom/android/launcher2/MovieDrawable;)I
 
     move-result v3
@@ -70,7 +68,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v4}, Lcom/android/launcher2/MovieDrawable;->access$200(Lcom/android/launcher2/MovieDrawable;)Ljava/lang/Runnable;
 
     move-result-object v4
@@ -79,12 +76,10 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mCurrentCycle:I
     invoke-static {v3, v6}, Lcom/android/launcher2/MovieDrawable;->access$102(Lcom/android/launcher2/MovieDrawable;I)I
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mStartTime:J
     invoke-static {v3, v8, v9}, Lcom/android/launcher2/MovieDrawable;->access$302(Lcom/android/launcher2/MovieDrawable;J)J
 
     :goto_0
@@ -97,7 +92,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mStartTime:J
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$300(Lcom/android/launcher2/MovieDrawable;)J
 
     move-result-wide v4
@@ -108,13 +102,11 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mStartTime:J
     invoke-static {v3, v0, v1}, Lcom/android/launcher2/MovieDrawable;->access$302(Lcom/android/launcher2/MovieDrawable;J)J
 
     :cond_2
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mStartTime:J
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$300(Lcom/android/launcher2/MovieDrawable;)J
 
     move-result-wide v4
@@ -125,7 +117,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mMovie:Landroid/graphics/Movie;
     invoke-static {v4}, Lcom/android/launcher2/MovieDrawable;->access$000(Lcom/android/launcher2/MovieDrawable;)Landroid/graphics/Movie;
 
     move-result-object v4
@@ -138,7 +129,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mMovie:Landroid/graphics/Movie;
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$000(Lcom/android/launcher2/MovieDrawable;)Landroid/graphics/Movie;
 
     move-result-object v3
@@ -153,7 +143,6 @@
 
     const/4 v4, 0x1
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mNewFrame:Z
     invoke-static {v3, v4}, Lcom/android/launcher2/MovieDrawable;->access$402(Lcom/android/launcher2/MovieDrawable;Z)Z
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
@@ -162,7 +151,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mRelTime:I
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$500(Lcom/android/launcher2/MovieDrawable;)I
 
     move-result v3
@@ -171,7 +159,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mRelTime:I
     invoke-static {v3, v2}, Lcom/android/launcher2/MovieDrawable;->access$502(Lcom/android/launcher2/MovieDrawable;I)I
 
     goto :goto_0
@@ -179,12 +166,10 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # setter for: Lcom/android/launcher2/MovieDrawable;->mRelTime:I
     invoke-static {v3, v6}, Lcom/android/launcher2/MovieDrawable;->access$502(Lcom/android/launcher2/MovieDrawable;I)I
 
     iget-object v3, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # operator++ for: Lcom/android/launcher2/MovieDrawable;->mCurrentCycle:I
     invoke-static {v3}, Lcom/android/launcher2/MovieDrawable;->access$108(Lcom/android/launcher2/MovieDrawable;)I
 
     goto :goto_0
@@ -194,7 +179,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MovieDrawable$1;->this$0:Lcom/android/launcher2/MovieDrawable;
 
-    # getter for: Lcom/android/launcher2/MovieDrawable;->mRunnable:Ljava/lang/Runnable;
     invoke-static {v4}, Lcom/android/launcher2/MovieDrawable;->access$200(Lcom/android/launcher2/MovieDrawable;)Ljava/lang/Runnable;
 
     move-result-object v4

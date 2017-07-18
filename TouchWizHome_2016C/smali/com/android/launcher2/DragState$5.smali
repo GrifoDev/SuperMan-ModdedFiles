@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DragState$5;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->mAnimateView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/DragState;->access$100(Lcom/android/launcher2/DragState;)Landroid/view/View;
 
     move-result-object v1
@@ -50,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DragState$5;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->mReceiver:Lcom/android/launcher2/DragReceivable;
     invoke-static {v1}, Lcom/android/launcher2/DragState;->access$200(Lcom/android/launcher2/DragState;)Lcom/android/launcher2/DragReceivable;
 
     move-result-object v1
@@ -61,7 +59,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DragState$5;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->mReceiver:Lcom/android/launcher2/DragReceivable;
     invoke-static {v1}, Lcom/android/launcher2/DragState;->access$200(Lcom/android/launcher2/DragState;)Lcom/android/launcher2/DragReceivable;
 
     move-result-object v1

@@ -101,17 +101,14 @@
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    # setter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0, v6}, Lcom/android/launcher2/HomeEditBar;->access$102(Lcom/android/launcher2/HomeEditBar;Ljava/util/List;)Ljava/util/List;
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -120,12 +117,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -141,12 +136,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -159,19 +152,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v6, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v6}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v6
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v6}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -181,12 +171,10 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -195,12 +183,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -216,12 +202,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -230,12 +214,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$500(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -250,12 +232,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -264,12 +244,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUninstall:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -286,12 +264,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -300,12 +276,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -321,12 +295,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$500(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v6
@@ -342,12 +314,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->iconView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$600(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -362,12 +332,10 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -380,19 +348,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDisable:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$400(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -402,12 +367,10 @@
     :cond_2
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mAddToPersonal:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$700(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -416,12 +379,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mAddToPersonal:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$700(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -437,12 +398,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mAddToPersonal:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$700(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -455,19 +414,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mAddToPersonal:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$700(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -477,12 +433,10 @@
     :cond_3
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mCancel:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$800(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -491,12 +445,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mCancel:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$800(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -523,12 +475,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mCancel:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$800(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -541,19 +491,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mCancel:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$800(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -563,12 +510,10 @@
     :cond_5
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mHide:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$900(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -577,12 +522,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mHide:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$900(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -598,12 +541,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mHide:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$900(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -616,19 +557,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mHide:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$900(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -638,12 +576,10 @@
     :cond_6
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mLock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1000(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -652,12 +588,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mLock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1000(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -673,12 +607,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mLock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1000(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -691,19 +623,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mLock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$1000(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -713,12 +642,10 @@
     :cond_7
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUnlock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1100(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -727,12 +654,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUnlock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1100(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -748,12 +673,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUnlock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1100(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -766,19 +689,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mUnlock:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$1100(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -788,12 +708,10 @@
     :cond_8
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -802,12 +720,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -823,12 +739,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -845,17 +759,15 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$500(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    const v4, 0x7f0800b4
+    const v4, 0x7f0900b5
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -863,19 +775,16 @@
     :goto_b
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v4, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v4
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v4}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v4
@@ -885,12 +794,10 @@
     :cond_a
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mMoveApps:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1300(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -899,12 +806,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mMoveApps:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1300(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -920,12 +825,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mMoveApps:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1300(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -938,19 +841,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
 
     iget-object v2, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mMoveApps:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v2}, Lcom/android/launcher2/HomeEditBar;->access$1300(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v2
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v2}, Lcom/android/launcher2/HomeEditBar$Item;->access$300(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v2
@@ -964,7 +864,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mVisibleList:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$100(Lcom/android/launcher2/HomeEditBar;)Ljava/util/List;
 
     move-result-object v0
@@ -977,13 +876,11 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # invokes: Lcom/android/launcher2/HomeEditBar;->setContainerMargin(Z)V
     invoke-static {v0, v3}, Lcom/android/launcher2/HomeEditBar;->access$1400(Lcom/android/launcher2/HomeEditBar;Z)V
 
     :goto_c
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # setter for: Lcom/android/launcher2/HomeEditBar;->mShowPosted:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeEditBar;->access$1502(Lcom/android/launcher2/HomeEditBar;Z)Z
 
     return-void
@@ -1050,17 +947,15 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # getter for: Lcom/android/launcher2/HomeEditBar;->mDelete:Lcom/android/launcher2/HomeEditBar$Item;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar;->access$1200(Lcom/android/launcher2/HomeEditBar;)Lcom/android/launcher2/HomeEditBar$Item;
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/HomeEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/HomeEditBar$Item;->access$500(Lcom/android/launcher2/HomeEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    const v4, 0x7f0800ae
+    const v4, 0x7f0900af
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -1069,7 +964,6 @@
     :cond_19
     iget-object v0, p0, Lcom/android/launcher2/HomeEditBar$1;->this$0:Lcom/android/launcher2/HomeEditBar;
 
-    # invokes: Lcom/android/launcher2/HomeEditBar;->setContainerMargin(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeEditBar;->access$1400(Lcom/android/launcher2/HomeEditBar;Z)V
 
     goto :goto_c

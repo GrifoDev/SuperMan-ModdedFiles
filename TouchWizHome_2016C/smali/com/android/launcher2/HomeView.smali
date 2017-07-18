@@ -148,6 +148,8 @@
     .end annotation
 .end field
 
+.field static final sSingleInstanceAppWidgetListLock:Ljava/lang/Object;
+
 .field static sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -355,6 +357,12 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetListLock:Ljava/lang/Object;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -2621,9 +2629,9 @@
 .method private createWorkspaceChildren()V
     .locals 15
 
-    const v14, 0x7f030053
+    const v14, 0x7f040053
 
-    const v13, 0x7f030052
+    const v13, 0x7f040052
 
     const/16 v2, 0x8
 
@@ -2658,7 +2666,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f030059
+    const v3, 0x7f040059
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -2680,7 +2688,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090231
+    const v3, 0x7f0a0233
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2690,7 +2698,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090230
+    const v4, 0x7f0a0232
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2711,7 +2719,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090235
+    const v3, 0x7f0a0237
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2721,7 +2729,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090234
+    const v4, 0x7f0a0236
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2809,7 +2817,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f030054
+    const v3, 0x7f040054
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -2884,7 +2892,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f030054
+    const v3, 0x7f040054
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -3664,7 +3672,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100087
+    const v1, 0x7f110087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -4228,7 +4236,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f100078
+    const v2, 0x7f110078
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4242,7 +4250,7 @@
 
     invoke-virtual {v2, p0}, Lcom/android/launcher2/Workspace;->setPageSwitchListener(Lcom/android/launcher2/PagedView$PageSwitchListener;)V
 
-    const v2, 0x7f1000de
+    const v2, 0x7f1100de
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4252,7 +4260,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mQuickViewWorkspace:Lcom/android/launcher2/QuickViewWorkspace;
 
-    const v2, 0x7f100079
+    const v2, 0x7f110079
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4262,7 +4270,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mDeleteDropLayout:Lcom/android/launcher2/QuickViewDragBar;
 
-    const v2, 0x7f10007a
+    const v2, 0x7f11007a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4272,7 +4280,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
 
-    const v2, 0x7f10007c
+    const v2, 0x7f11007c
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4286,7 +4294,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v2, 0x7f100077
+    const v2, 0x7f110077
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4294,7 +4302,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/HomeView;->mHomeContainer:Landroid/view/View;
 
-    const v2, 0x7f0901e2
+    const v2, 0x7f0a01e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4302,7 +4310,7 @@
 
     iput v2, p0, Lcom/android/launcher2/HomeView;->mHotseatTextSize:I
 
-    const/high16 v2, 0x7f090000
+    const/high16 v2, 0x7f0a0000
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4323,7 +4331,7 @@
     iput v2, p0, Lcom/android/launcher2/HomeView;->mHotseatTextSize:I
 
     :cond_0
-    const v2, 0x7f100006
+    const v2, 0x7f110006
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4342,7 +4350,7 @@
     invoke-virtual {v2, p0}, Lcom/android/launcher2/Hotseat;->setup(Lcom/android/launcher2/HomeView;)V
 
     :cond_1
-    const v2, 0x7f10007b
+    const v2, 0x7f11007b
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4358,7 +4366,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f100080
+    const v2, 0x7f110080
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4375,7 +4383,7 @@
     :cond_2
     invoke-static {p0}, Lcom/android/launcher2/FocusHelper;->setup(Lcom/android/launcher2/HomeView;)V
 
-    const v2, 0x7f100046
+    const v2, 0x7f110046
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4391,7 +4399,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f100083
+    const v2, 0x7f110083
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -4483,7 +4491,7 @@
 .method public static showNoRoomAnyPageMessage(Landroid/content/Context;)V
     .locals 2
 
-    const v0, 0x7f08008d
+    const v0, 0x7f09008d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4503,7 +4511,7 @@
 .method public static showOutOfSpaceMessage(Landroid/content/Context;)V
     .locals 2
 
-    const v0, 0x7f08000a
+    const v0, 0x7f09000a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4800,7 +4808,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030053
+    const v4, 0x7f040053
 
     iget-object v5, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -4886,7 +4894,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030054
+    const v4, 0x7f040054
 
     iget-object v5, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -4907,7 +4915,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030052
+    const v4, 0x7f040052
 
     iget-object v5, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
@@ -7858,7 +7866,7 @@
 
     if-nez p1, :cond_1
 
-    const v5, 0x7f0b0063
+    const v5, 0x7f0c0063
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7866,7 +7874,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0062
+    const v5, 0x7f0c0062
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7874,7 +7882,7 @@
 
     int-to-float v1, v5
 
-    const v5, 0x7f0d0001
+    const v5, 0x7f0e0001
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -7884,7 +7892,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0002
+    const v6, 0x7f0e0002
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -7909,7 +7917,7 @@
     return-void
 
     :cond_1
-    const v5, 0x7f0b0061
+    const v5, 0x7f0c0061
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7917,7 +7925,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0060
+    const v5, 0x7f0c0060
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7925,7 +7933,7 @@
 
     int-to-float v1, v5
 
-    const v5, 0x7f0d002d
+    const v5, 0x7f0e002e
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -7935,7 +7943,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d002e
+    const v6, 0x7f0e002f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -8273,7 +8281,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f0c001b
+    const v11, 0x7f0d001b
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -8315,7 +8323,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f080045
+    const v11, 0x7f090045
 
     new-array v12, v9, [Ljava/lang/Object;
 
@@ -8373,7 +8381,7 @@
 
     move-result-object v8
 
-    const v11, 0x7f080090
+    const v11, 0x7f090091
 
     new-array v12, v9, [Ljava/lang/Object;
 
@@ -8843,7 +8851,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050007
+    const v3, 0x7f060007
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -8863,7 +8871,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050008
+    const v3, 0x7f060008
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -8926,7 +8934,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f05000a
+    const v2, 0x7f06000a
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -8969,7 +8977,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f050009
+    const v2, 0x7f060009
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -9026,7 +9034,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050014
+    const v3, 0x7f060014
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -9048,7 +9056,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050013
+    const v3, 0x7f060013
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -9113,7 +9121,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050015
+    const v3, 0x7f060015
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -9135,7 +9143,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050016
+    const v3, 0x7f060016
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -11486,7 +11494,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100087
+    const v1, 0x7f110087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -11555,7 +11563,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10007a
+    const v0, 0x7f11007a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -12015,7 +12023,7 @@
 .method public isVisibleHomeOptionMenu()Z
     .locals 2
 
-    const v1, 0x7f10007a
+    const v1, 0x7f11007a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -13402,107 +13410,78 @@
 .end method
 
 .method public onHomePressed(Z)Z
-    .locals 3
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/Workspace;->getMeasuredWidth()I
+    invoke-virtual {v0}, Lcom/android/launcher2/Workspace;->getMeasuredWidth()I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_2
 
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
 
-    new-instance v2, Lcom/android/launcher2/HomeView$1;
+    new-instance v1, Lcom/android/launcher2/HomeView$1;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/launcher2/HomeView$1;-><init>(Lcom/android/launcher2/HomeView;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher2/HomeView$1;-><init>(Lcom/android/launcher2/HomeView;Z)V
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher2/Workspace;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/Workspace;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
     :goto_0
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mHomeScreenOptionMenu:Lcom/android/launcher2/HomeScreenOptionMenu;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher2/HomeScreenOptionMenu;->onHomePressed(Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/HomeScreenOptionMenu;->onHomePressed(Z)Z
 
     :cond_0
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_1
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->hasWindowFocus()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
-
-    invoke-virtual {v1}, Lcom/android/launcher2/QuickOptionsHelpView;->isRunning()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
-
-    invoke-virtual {v1}, Lcom/android/launcher2/QuickOptionsHelpView;->onBackPressed()Z
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
-
-    :cond_1
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportChinaDA()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/Launcher;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/launcher2/AddNewPageDropItemDialog;->isActive(Landroid/app/FragmentManager;)Z
+    invoke-virtual {v0}, Lcom/android/launcher2/Launcher;->hasWindowFocus()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
 
-    invoke-static {v0}, Lcom/android/launcher2/AddNewPageDropItemDialog;->dismiss(Landroid/app/FragmentManager;)V
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/QuickOptionsHelpView;->isRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
+
+    invoke-virtual {v0}, Lcom/android/launcher2/QuickOptionsHelpView;->onBackPressed()Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/launcher2/HomeView;->mQuickOptionsHelpView:Lcom/android/launcher2/QuickOptionsHelpView;
+
+    :cond_1
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_2
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_3
     invoke-direct {p0, p1}, Lcom/android/launcher2/HomeView;->performOnHomePressed(Z)V
 
     goto :goto_0
@@ -14515,7 +14494,7 @@
 
     move-result v4
 
-    const v5, 0x7f090114
+    const v5, 0x7f0a0114
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -16213,7 +16192,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100087
+    const v1, 0x7f110087
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -16391,7 +16370,7 @@
 .method public setVisibilityHomeOptionMenu(I)V
     .locals 3
 
-    const v1, 0x7f10007a
+    const v1, 0x7f11007a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -16437,7 +16416,7 @@
 .method public setVisibilityHotseat(I)V
     .locals 2
 
-    const v1, 0x7f100006
+    const v1, 0x7f110006
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -16509,7 +16488,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b0035
+    const v2, 0x7f0c0035
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$5;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    # invokes: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->changeHomeScreenMode()V
     invoke-static {v0}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$400(Lcom/android/launcher2/HomeScreenModeSettingsFragment;)V
 
     return-void

@@ -80,7 +80,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # invokes: Lcom/android/launcher2/Launcher;->exitWidgetResizeMode()V
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$800(Lcom/android/launcher2/Launcher;)V
 
     move-object/from16 v0, p0
@@ -137,7 +136,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mModel:Lcom/android/launcher2/LauncherModel;
     invoke-static {v14}, Lcom/android/launcher2/Launcher;->access$900(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/LauncherModel;
 
     move-result-object v14
@@ -171,7 +169,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # invokes: Lcom/android/launcher2/Launcher;->AllWidgetCount()I
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$1000(Lcom/android/launcher2/Launcher;)I
 
     move-result v9
@@ -281,7 +278,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13
@@ -292,7 +288,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13
@@ -307,7 +302,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13
@@ -492,7 +486,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13
@@ -507,7 +500,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13
@@ -522,7 +514,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/Launcher$11;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v13}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v13

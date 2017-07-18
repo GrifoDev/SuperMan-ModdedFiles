@@ -57,7 +57,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$2;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->init()V
     invoke-static {v0}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$300(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)V
 
     new-instance v7, Ljava/lang/Thread;

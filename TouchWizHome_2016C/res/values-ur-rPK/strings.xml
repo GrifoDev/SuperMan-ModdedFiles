@@ -138,6 +138,7 @@
     <string name="new_items">%d نئی آئٹم</string>
     <string name="no_downloaded_apps">کوئی ڈاؤن لوڈ کردہ ایپلیکیشنز نہیں ہیں</string>
     <string name="no_room_any_page">کسی صفحہ پر کوئی روم نہیں ہے۔</string>
+    <string name="no_space_page">صفحہ پر کوئي جگہ نہیں۔ مختلف صفحہ میں شارٹ کٹ شامل کرنے کی کوشش کریں۔</string>
     <string name="not_selected">غیر منتخب شدہ</string>
     <string name="ok">ٹھیک ہے</string>
     <string name="only_one_widget_instance_allowed">%s ویجیٹ پہلے سے ہی ہوم اسکرین پر شامل کیا ہوا ہے۔</string>

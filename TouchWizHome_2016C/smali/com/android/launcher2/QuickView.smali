@@ -264,7 +264,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090101
+    const v1, 0x7f0a0101
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -272,7 +272,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mPanelWidthPort:I
 
-    const v1, 0x7f0900f9
+    const v1, 0x7f0a00f9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -280,7 +280,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mPanelHeightPort:I
 
-    const v1, 0x7f090100
+    const v1, 0x7f0a0100
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -288,7 +288,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mPanelWidthLand:I
 
-    const v1, 0x7f0900f8
+    const v1, 0x7f0a00f8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -478,7 +478,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0900fa
+    const v19, 0x7f0a00fa
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -488,7 +488,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f09023d
+    const v19, 0x7f0a023f
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -498,7 +498,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090101
+    const v19, 0x7f0a0101
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -508,7 +508,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0900f9
+    const v19, 0x7f0a00f9
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -548,7 +548,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0900fb
+    const v19, 0x7f0a00fb
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -610,7 +610,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090128
+    const v19, 0x7f0a0128
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -740,7 +740,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f09026b
+    const v19, 0x7f0a0272
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -750,7 +750,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f09026c
+    const v19, 0x7f0a0273
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -760,7 +760,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090215
+    const v19, 0x7f0a0215
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -770,7 +770,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090213
+    const v19, 0x7f0a0213
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -810,7 +810,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f090214
+    const v19, 0x7f0a0214
 
     invoke-virtual/range {v18 .. v19}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1239,7 +1239,7 @@
 .method protected drop(II)V
     .locals 5
 
-    const v4, 0x7f0800a0
+    const v4, 0x7f0900a1
 
     iget-object v1, p0, Lcom/android/launcher2/QuickView;->mDraggingView:Landroid/view/View;
 
@@ -1535,7 +1535,7 @@
 .method protected init(Lcom/android/launcher2/QuickView$QuickViewInfoProvider;)Landroid/widget/FrameLayout$LayoutParams;
     .locals 4
 
-    const v3, 0x7f0900fd
+    const v3, 0x7f0a00fd
 
     invoke-virtual {p0}, Lcom/android/launcher2/QuickView;->removeAllViews()V
 
@@ -1549,7 +1549,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903ba
+    const v1, 0x7f0a03bd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1557,7 +1557,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mTouchSlop:I
 
-    const v1, 0x7f0903b9
+    const v1, 0x7f0a03bc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1573,7 +1573,7 @@
 
     iput v1, p0, Lcom/android/launcher2/QuickView;->mOrientation:I
 
-    const v1, 0x7f0900fa
+    const v1, 0x7f0a00fa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1599,7 +1599,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/QuickView;->mPanelPadding:Landroid/graphics/Rect;
 
-    const v2, 0x7f0900fe
+    const v2, 0x7f0a00fe
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1609,7 +1609,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/QuickView;->mPanelPadding:Landroid/graphics/Rect;
 
-    const v2, 0x7f0900fc
+    const v2, 0x7f0a00fc
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1617,7 +1617,7 @@
 
     iput v2, v1, Landroid/graphics/Rect;->bottom:I
 
-    const v1, 0x7f0902c5
+    const v1, 0x7f0a02c8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1965,7 +1965,7 @@
 .method protected reloadLayoutParameters()Landroid/widget/FrameLayout$LayoutParams;
     .locals 9
 
-    const v8, 0x7f0900fd
+    const v8, 0x7f0a00fd
 
     const/4 v7, 0x1
 
@@ -1999,7 +1999,7 @@
 
     iget v1, v4, Landroid/content/res/Configuration;->orientation:I
 
-    const v4, 0x7f0903ba
+    const v4, 0x7f0a03bd
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2007,7 +2007,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mTouchSlop:I
 
-    const v4, 0x7f0903b9
+    const v4, 0x7f0a03bc
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2032,7 +2032,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x7f090215
+    const v4, 0x7f0a0215
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2040,7 +2040,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mPanelWidthPort:I
 
-    const v4, 0x7f090213
+    const v4, 0x7f0a0213
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2048,7 +2048,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mPanelHeightPort:I
 
-    const v4, 0x7f09026b
+    const v4, 0x7f0a0272
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2057,7 +2057,7 @@
     iput v4, p0, Lcom/android/launcher2/QuickView;->mChildGapH:I
 
     :goto_0
-    const v4, 0x7f090100
+    const v4, 0x7f0a0100
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2065,7 +2065,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mPanelWidthLand:I
 
-    const v4, 0x7f0900f8
+    const v4, 0x7f0a00f8
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2091,7 +2091,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/QuickView;->mPanelPadding:Landroid/graphics/Rect;
 
-    const v5, 0x7f0900fe
+    const v5, 0x7f0a00fe
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2101,7 +2101,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/QuickView;->mPanelPadding:Landroid/graphics/Rect;
 
-    const v5, 0x7f0900fc
+    const v5, 0x7f0a00fc
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2155,7 +2155,7 @@
     return-object v0
 
     :cond_2
-    const v4, 0x7f090101
+    const v4, 0x7f0a0101
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2163,7 +2163,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mPanelWidthPort:I
 
-    const v4, 0x7f0900f9
+    const v4, 0x7f0a00f9
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2171,7 +2171,7 @@
 
     iput v4, p0, Lcom/android/launcher2/QuickView;->mPanelHeightPort:I
 
-    const v4, 0x7f0900fa
+    const v4, 0x7f0a00fa
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

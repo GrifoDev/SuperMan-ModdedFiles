@@ -51,7 +51,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/customer/PostPosition$1;->val$user:Lcom/android/launcher2/compat/UserHandleCompat;
 
-    # invokes: Lcom/android/launcher2/customer/PostPosition;->execute(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/customer/PostPosition;->access$000(Lcom/android/launcher2/customer/PostPosition;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
     return-void

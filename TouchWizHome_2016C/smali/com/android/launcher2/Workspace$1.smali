@@ -38,14 +38,12 @@
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher2/Workspace;->mIsSwitchingState:Z
     invoke-static {v2, v3}, Lcom/android/launcher2/Workspace;->access$002(Lcom/android/launcher2/Workspace;Z)Z
 
     iget-object v2, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher2/Workspace;->mAnimator:Landroid/animation/AnimatorSet;
     invoke-static {v2, v3}, Lcom/android/launcher2/Workspace;->access$102(Lcom/android/launcher2/Workspace;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     invoke-virtual {p1}, Landroid/animation/Animator;->getDuration()J
@@ -87,7 +85,6 @@
     :goto_0
     iget-object v2, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
-    # invokes: Lcom/android/launcher2/Workspace;->getWorkspaceAndHotseatCellLayouts()Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/Workspace;->access$200(Lcom/android/launcher2/Workspace;)Ljava/util/List;
 
     move-result-object v1
@@ -111,7 +108,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v3
@@ -134,17 +130,14 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v3
 
-    # invokes: Lcom/android/launcher2/Workspace;->setTransitionEffectBasedOnState(Lcom/android/launcher2/Workspace$State;)V
     invoke-static {v2, v3}, Lcom/android/launcher2/Workspace;->access$400(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$State;)V
 
     iget-object v2, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v2}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v2
@@ -157,12 +150,10 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v3
 
-    # invokes: Lcom/android/launcher2/Workspace;->updateBackground(Lcom/android/launcher2/Workspace$State;)V
     invoke-static {v2, v3}, Lcom/android/launcher2/Workspace;->access$500(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$State;)V
 
     iget-object v2, p0, Lcom/android/launcher2/Workspace$1;->this$0:Lcom/android/launcher2/Workspace;
@@ -180,7 +171,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher2/Workspace;->mIsSwitchingState:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$002(Lcom/android/launcher2/Workspace;Z)Z
 
     invoke-virtual {p1}, Landroid/animation/Animator;->getDuration()J

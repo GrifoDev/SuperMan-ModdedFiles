@@ -138,6 +138,7 @@
     <string name="new_items">%d కొత్త ఐటెమ్‌లు</string>
     <string name="no_downloaded_apps">డౌన్‌లోడ్ అయిన అప్లికేషన్‌లు లేవు</string>
     <string name="no_room_any_page">ఏ పేజీలో గది లేదు.</string>
+    <string name="no_space_page">పేజీలో ఖాళీ లేదు. మరో పేజీకి సత్వరమార్గాన్ని జోడించి, ప్రయత్నించండి.</string>
     <string name="not_selected">ఎంచుకోలేదు</string>
     <string name="ok">సరే</string>
     <string name="only_one_widget_instance_allowed">హోమ్ స్క్రీన్‌కు %s విడ్జెట్ ఇప్పటికే జోడించబడింది.</string>

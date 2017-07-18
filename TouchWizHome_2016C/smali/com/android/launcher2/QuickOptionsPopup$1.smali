@@ -60,7 +60,6 @@
 
     sget-object v1, Lcom/android/launcher2/QuickOptionsPopup$2;->$SwitchMap$com$android$launcher2$QuickOptionsPopup$OptionItem$OPTION:[I
 
-    # getter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$400(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-result-object v2
@@ -79,7 +78,6 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doClearBadge()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$600(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0
@@ -87,7 +85,6 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doAddToSecureFolder()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$700(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0
@@ -95,7 +92,6 @@
     :pswitch_2
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doPutToSleep()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$800(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0
@@ -103,7 +99,6 @@
     :pswitch_3
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doUninstall()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$900(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0
@@ -111,7 +106,6 @@
     :pswitch_4
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doShowAppInfo()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$1000(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0
@@ -119,7 +113,6 @@
     :pswitch_5
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsPopup$1;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # invokes: Lcom/android/launcher2/QuickOptionsPopup;->doAddApps()Z
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup;->access$1100(Lcom/android/launcher2/QuickOptionsPopup;)Z
 
     goto :goto_0

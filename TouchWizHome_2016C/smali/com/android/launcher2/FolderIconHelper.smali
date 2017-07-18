@@ -22,8 +22,6 @@
 
 .field public static final DEBUG:Z = false
 
-.field private static final FLAG_SUPPORT_FOLDER_IMG_SET:Z = true
-
 .field private static FOLDER_ANIMATION_SCALE:I = 0x0
 
 .field private static final FOLDER_ICON_CANVAS:Landroid/graphics/Canvas;
@@ -1017,7 +1015,6 @@
 
     sget-object v4, Lcom/android/launcher2/FolderIconHelper;->sCurrentAppIconData:Lcom/android/launcher2/FolderIconHelper$AppIconData;
 
-    # getter for: Lcom/android/launcher2/FolderIconHelper$AppIconData;->EMPTY_BITMAP:Landroid/graphics/Bitmap;
     invoke-static {v4}, Lcom/android/launcher2/FolderIconHelper$AppIconData;->access$000(Lcom/android/launcher2/FolderIconHelper$AppIconData;)Landroid/graphics/Bitmap;
 
     move-result-object v4
@@ -1200,7 +1197,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200b3
+    const v2, 0x7f0200af
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1764,7 +1761,7 @@
 
     const/4 v4, 0x1
 
-    const v2, 0x7f0b0031
+    const v2, 0x7f0c0031
 
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1891,7 +1888,6 @@
 
     sget-object v0, Lcom/android/launcher2/FolderIconHelper;->sCurrentAppIconData:Lcom/android/launcher2/FolderIconHelper$AppIconData;
 
-    # invokes: Lcom/android/launcher2/FolderIconHelper$AppIconData;->getOpenFolderBitmap(I)Landroid/graphics/Bitmap;
     invoke-static {v0, p0}, Lcom/android/launcher2/FolderIconHelper$AppIconData;->access$100(Lcom/android/launcher2/FolderIconHelper$AppIconData;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -1904,7 +1900,6 @@
 
     sget-object v0, Lcom/android/launcher2/FolderIconHelper;->sCurrentAppIconData:Lcom/android/launcher2/FolderIconHelper$AppIconData;
 
-    # invokes: Lcom/android/launcher2/FolderIconHelper$AppIconData;->getOpenHighlightFolderBitmap(I)Landroid/graphics/Bitmap;
     invoke-static {v0, p0}, Lcom/android/launcher2/FolderIconHelper$AppIconData;->access$200(Lcom/android/launcher2/FolderIconHelper$AppIconData;I)Landroid/graphics/Bitmap;
 
     move-result-object v0

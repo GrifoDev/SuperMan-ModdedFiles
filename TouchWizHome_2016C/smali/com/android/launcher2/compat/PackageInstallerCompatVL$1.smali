@@ -34,7 +34,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/compat/PackageInstallerCompatVL$1;->this$0:Lcom/android/launcher2/compat/PackageInstallerCompatVL;
 
-    # getter for: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
     invoke-static {v2}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$200(Lcom/android/launcher2/compat/PackageInstallerCompatVL;)Landroid/content/pm/PackageInstaller;
 
     move-result-object v2
@@ -51,12 +50,10 @@
 
     move-result-object v3
 
-    # invokes: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->addSessionInfoToCahce(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher2/compat/UserHandleCompat;)V
     invoke-static {v2, v1, v3}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$300(Lcom/android/launcher2/compat/PackageInstallerCompatVL;Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
     iget-object v2, p0, Lcom/android/launcher2/compat/PackageInstallerCompatVL$1;->this$0:Lcom/android/launcher2/compat/PackageInstallerCompatVL;
 
-    # getter for: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$400(Lcom/android/launcher2/compat/PackageInstallerCompatVL;)Landroid/content/Context;
 
     move-result-object v2
@@ -114,7 +111,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/compat/PackageInstallerCompatVL$1;->this$0:Lcom/android/launcher2/compat/PackageInstallerCompatVL;
 
-    # getter for: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->mActiveSessions:Landroid/util/SparseArray;
     invoke-static {v1}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$000(Lcom/android/launcher2/compat/PackageInstallerCompatVL;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -127,7 +123,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/compat/PackageInstallerCompatVL$1;->this$0:Lcom/android/launcher2/compat/PackageInstallerCompatVL;
 
-    # getter for: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->mActiveSessions:Landroid/util/SparseArray;
     invoke-static {v1}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$000(Lcom/android/launcher2/compat/PackageInstallerCompatVL;)Landroid/util/SparseArray;
 
     move-result-object v1
@@ -147,7 +142,6 @@
     :goto_0
     invoke-direct {v4, v0, v1, v2}, Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;-><init>(Ljava/lang/String;II)V
 
-    # invokes: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->sendUpdate(Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;)V
     invoke-static {v3, v4}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$100(Lcom/android/launcher2/compat/PackageInstallerCompatVL;Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;)V
 
     :cond_0
@@ -164,7 +158,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/compat/PackageInstallerCompatVL$1;->this$0:Lcom/android/launcher2/compat/PackageInstallerCompatVL;
 
-    # getter for: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
     invoke-static {v1}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$200(Lcom/android/launcher2/compat/PackageInstallerCompatVL;)Landroid/content/pm/PackageInstaller;
 
     move-result-object v1
@@ -197,7 +190,6 @@
 
     invoke-direct {v2, v3, v4, v5}, Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;-><init>(Ljava/lang/String;II)V
 
-    # invokes: Lcom/android/launcher2/compat/PackageInstallerCompatVL;->sendUpdate(Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;)V
     invoke-static {v1, v2}, Lcom/android/launcher2/compat/PackageInstallerCompatVL;->access$100(Lcom/android/launcher2/compat/PackageInstallerCompatVL;Lcom/android/launcher2/compat/PackageInstallerCompat$PackageInstallInfo;)V
 
     :cond_0

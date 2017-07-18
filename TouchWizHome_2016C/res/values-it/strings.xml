@@ -138,6 +138,7 @@
     <string name="new_items">%d nuovi elementi</string>
     <string name="no_downloaded_apps">Nessuna applicazione scaricata</string>
     <string name="no_room_any_page">Spazio esaurito su tutte le pagine.</string>
+    <string name="no_space_page">"Spazio sulla pagina insufficiente. Provate ad aggiungere il collegamento in un'altra pagina."</string>
     <string name="not_selected">Non selezionato</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s già aggiunto alla schermata Home.</string>

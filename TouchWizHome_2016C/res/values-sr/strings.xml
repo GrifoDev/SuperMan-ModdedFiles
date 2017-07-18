@@ -138,6 +138,7 @@
     <string name="new_items">%d novih stavki</string>
     <string name="no_downloaded_apps">Nema preuzetih aplikacija</string>
     <string name="no_room_any_page">Više nema mesta ni na jednoj stranici.</string>
+    <string name="no_space_page">Nema prostora na stranici. Pokušajte da dodate prečicu na drugu stranicu.</string>
     <string name="not_selected">Nije izabrano</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Vidžet %s je već dodat na početni ekran.</string>

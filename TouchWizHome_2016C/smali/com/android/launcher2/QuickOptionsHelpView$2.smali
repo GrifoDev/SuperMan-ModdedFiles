@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsHelpView;->access$000(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/view/View;
 
     move-result-object v1
@@ -48,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsHelpView;->access$000(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/view/View;
 
     move-result-object v1
@@ -70,7 +68,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsHelpView;->access$000(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/view/View;
 
     move-result-object v1

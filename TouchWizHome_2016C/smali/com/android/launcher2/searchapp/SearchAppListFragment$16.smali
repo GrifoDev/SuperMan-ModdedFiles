@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$16;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mNoResultTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/TextView;
 
     move-result-object v0

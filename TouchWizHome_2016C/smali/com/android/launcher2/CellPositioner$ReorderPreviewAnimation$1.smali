@@ -112,7 +112,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/CellPositioner$ReorderPreviewAnimation;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mLayout:Lcom/android/launcher2/CellLayout;
     invoke-static {v4}, Lcom/android/launcher2/CellPositioner;->access$200(Lcom/android/launcher2/CellPositioner;)Lcom/android/launcher2/CellLayout;
 
     move-result-object v4

@@ -58,7 +58,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuWidgetsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsSearch;->access$000(Lcom/android/launcher2/MenuWidgetsSearch;)Landroid/widget/SearchView;
 
     move-result-object v3
@@ -77,7 +76,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuWidgetsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsSearch;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsSearch;->access$100(Lcom/android/launcher2/MenuWidgetsSearch;)Lcom/android/launcher2/MenuWidgets;
 
     move-result-object v3

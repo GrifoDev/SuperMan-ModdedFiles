@@ -106,7 +106,7 @@
 
     iput-boolean v0, p0, Lcom/android/launcher2/WidgetFolderPagedView;->mActionUpOnScroll:Z
 
-    const/4 v0, 0x3
+    const/4 v0, 0x5
 
     iput v0, p0, Lcom/android/launcher2/WidgetFolderPagedView;->mPageCacheSize:I
 
@@ -236,7 +236,7 @@
     :cond_2
     iput v11, v4, Landroid/widget/GridLayout$LayoutParams;->topMargin:I
 
-    const v10, 0x7f10001d
+    const v10, 0x7f11001d
 
     invoke-virtual {v9, v10}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -248,7 +248,7 @@
 
     if-eqz v10, :cond_7
 
-    const v10, 0x7f020078
+    const v10, 0x7f020074
 
     invoke-virtual {v6, v10}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -313,7 +313,7 @@
     goto :goto_4
 
     :cond_7
-    const v10, 0x7f020077
+    const v10, 0x7f020073
 
     invoke-virtual {v6, v10}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -387,7 +387,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090396
+    const v1, 0x7f0a0399
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -413,7 +413,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f030050
+    const v3, 0x7f040050
 
     const/4 v4, 0x0
 

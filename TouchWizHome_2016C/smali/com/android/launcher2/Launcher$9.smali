@@ -56,7 +56,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$9;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mIsDestroyed:Z
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$200(Lcom/android/launcher2/Launcher;)Z
 
     move-result v0
@@ -65,13 +64,11 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$9;->this$0:Lcom/android/launcher2/Launcher;
 
-    # invokes: Lcom/android/launcher2/Launcher;->finishExitAllApps()V
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$500(Lcom/android/launcher2/Launcher;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/Launcher$9;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mPopupMenu:Lcom/android/launcher2/popup/PopupMenu;
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$600(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/popup/PopupMenu;
 
     move-result-object v0
@@ -90,7 +87,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/launcher2/Launcher;->sPopupMenuShowing:Z
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$700()Z
 
     move-result v2
@@ -107,7 +103,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$9;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mPopupMenu:Lcom/android/launcher2/popup/PopupMenu;
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$600(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/popup/PopupMenu;
 
     move-result-object v0
@@ -116,7 +111,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/launcher2/Launcher;->sPopupMenuShowing:Z
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$702(Z)Z
 
     :cond_1

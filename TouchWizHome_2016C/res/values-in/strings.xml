@@ -138,6 +138,7 @@
     <string name="new_items">%d item baru</string>
     <string name="no_downloaded_apps">Tidak ada aplikasi yang didownload</string>
     <string name="no_room_any_page">Tidak ada ruang pada halaman mana pun.</string>
+    <string name="no_space_page">Tidak ada ruang pada halaman. Coba tambahkan pintasan ke halaman lain.</string>
     <string name="not_selected">Tidak dipilih</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s sudah ditambahkan ke layar depan.</string>

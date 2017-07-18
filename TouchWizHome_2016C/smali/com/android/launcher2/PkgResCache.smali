@@ -33,7 +33,11 @@
 
 .field private static mDefaultIcon:Landroid/graphics/Bitmap;
 
+.field private static mFolderIcon:Landroid/graphics/Bitmap;
+
 .field private static mIconDpi:I
+
+.field private static mUnavailableIcon:Landroid/graphics/Bitmap;
 
 
 # instance fields
@@ -42,8 +46,6 @@
 .field private final mApp:Lcom/android/launcher2/LauncherApplication;
 
 .field private mAppIconSize:I
-
-.field private final mFolderIcon:Landroid/graphics/Bitmap;
 
 .field private final mPkgCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -60,8 +62,6 @@
 .field private final mPkgMgr:Landroid/content/pm/PackageManager;
 
 .field private mTargetIconDpi:I
-
-.field private final mUnavailableIcon:Landroid/graphics/Bitmap;
 
 .field private final mUserManager:Landroid/os/UserManager;
 
@@ -142,7 +142,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f090005
+    const v7, 0x7f0a0005
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -150,7 +150,7 @@
 
     iput v7, p0, Lcom/android/launcher2/PkgResCache;->mAppIconSize:I
 
-    const v7, 0x7f09016f
+    const v7, 0x7f0a016f
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -191,21 +191,21 @@
 
     sput-object v7, Lcom/android/launcher2/PkgResCache;->mDefaultIcon:Landroid/graphics/Bitmap;
 
-    const v7, 0x7f0200b6
+    const v7, 0x7f0200b2
 
     invoke-direct {p0, v0, v7}, Lcom/android/launcher2/PkgResCache;->createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    iput-object v7, p0, Lcom/android/launcher2/PkgResCache;->mUnavailableIcon:Landroid/graphics/Bitmap;
+    sput-object v7, Lcom/android/launcher2/PkgResCache;->mUnavailableIcon:Landroid/graphics/Bitmap;
 
-    const v7, 0x7f02005f
+    const v7, 0x7f030001
 
     invoke-direct {p0, v0, v7}, Lcom/android/launcher2/PkgResCache;->createDefaultBitmap(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v7
 
-    iput-object v7, p0, Lcom/android/launcher2/PkgResCache;->mFolderIcon:Landroid/graphics/Bitmap;
+    sput-object v7, Lcom/android/launcher2/PkgResCache;->mFolderIcon:Landroid/graphics/Bitmap;
 
     const-string v7, "user"
 
@@ -1746,7 +1746,7 @@
 .method public getFolderIcon()Landroid/graphics/Bitmap;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher2/PkgResCache;->mFolderIcon:Landroid/graphics/Bitmap;
+    sget-object v0, Lcom/android/launcher2/PkgResCache;->mFolderIcon:Landroid/graphics/Bitmap;
 
     return-object v0
 .end method
@@ -2006,7 +2006,7 @@
 .method public getUnavailableIcon()Landroid/graphics/Bitmap;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher2/PkgResCache;->mUnavailableIcon:Landroid/graphics/Bitmap;
+    sget-object v0, Lcom/android/launcher2/PkgResCache;->mUnavailableIcon:Landroid/graphics/Bitmap;
 
     return-object v0
 .end method

@@ -114,7 +114,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0063
+    const v6, 0x7f0c0063
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -126,7 +126,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0062
+    const v6, 0x7f0c0062
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -138,7 +138,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0001
+    const v6, 0x7f0e0001
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -148,7 +148,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d0002
+    const v6, 0x7f0e0002
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -192,7 +192,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0061
+    const v6, 0x7f0c0061
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -204,7 +204,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0060
+    const v6, 0x7f0c0060
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -216,7 +216,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d002d
+    const v6, 0x7f0e002e
 
     invoke-virtual {v5, v6, v7}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -226,7 +226,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d002e
+    const v6, 0x7f0e002f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -250,7 +250,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0900f6
+    const v4, 0x7f0a00f6
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -565,7 +565,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f050036
+    const v6, 0x7f060036
 
     invoke-static {v5, v6}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -629,7 +629,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f050035
+    const v3, 0x7f060035
 
     invoke-static {v2, v3}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -669,7 +669,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090264
+    const v3, 0x7f0a026b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -686,7 +686,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900f4
+    const v3, 0x7f0a00f4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -714,7 +714,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090237
+    const v3, 0x7f0a0239
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -737,7 +737,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090263
+    const v3, 0x7f0a026a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -763,7 +763,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f100030
+    const v0, 0x7f110030
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/QuickViewDragBar;->findViewById(I)Landroid/view/View;
 
@@ -773,7 +773,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/QuickViewDragBar;->mDeleteLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f100032
+    const v0, 0x7f110032
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/QuickViewDragBar;->findViewById(I)Landroid/view/View;
 
@@ -783,7 +783,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/QuickViewDragBar;->mDeleteTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f100031
+    const v0, 0x7f110031
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/QuickViewDragBar;->findViewById(I)Landroid/view/View;
 
@@ -793,7 +793,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/QuickViewDragBar;->mDeleteIconView:Landroid/widget/ImageView;
 
-    const v0, 0x7f10002f
+    const v0, 0x7f11002f
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/QuickViewDragBar;->findViewById(I)Landroid/view/View;
 
@@ -837,7 +837,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090264
+    const v1, 0x7f0a026b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -856,7 +856,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080061
+    const v2, 0x7f090061
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -876,7 +876,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080044
+    const v2, 0x7f090044
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -906,7 +906,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200c8
+    const v1, 0x7f0200c4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -920,7 +920,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200c9
+    const v1, 0x7f0200c5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

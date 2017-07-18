@@ -1162,7 +1162,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f020079
+    const v18, 0x7f020075
 
     invoke-static/range {v17 .. v18}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -1182,7 +1182,7 @@
 
     move-result-object v6
 
-    const v17, 0x7f10008b
+    const v17, 0x7f11008b
 
     move/from16 v0, v17
 
@@ -1766,7 +1766,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08006b
+    const v6, 0x7f09006b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2063,7 +2063,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08006b
+    const v6, 0x7f09006b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2137,7 +2137,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0800d4
+    const v6, 0x7f0900d5
 
     const/4 v7, 0x1
 
@@ -2178,7 +2178,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08006c
+    const v7, 0x7f09006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2202,7 +2202,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d9
+    const v7, 0x7f0900da
 
     const/4 v9, 0x2
 
@@ -2261,7 +2261,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08006d
+    const v7, 0x7f09006d
 
     const/4 v9, 0x2
 
@@ -2309,7 +2309,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d9
+    const v7, 0x7f0900da
 
     const/4 v9, 0x2
 
@@ -2362,7 +2362,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08006c
+    const v7, 0x7f09006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2386,7 +2386,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d9
+    const v7, 0x7f0900da
 
     const/4 v9, 0x2
 
@@ -2451,7 +2451,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08006c
+    const v7, 0x7f09006c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2475,7 +2475,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d9
+    const v7, 0x7f0900da
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3947,7 +3947,7 @@
     :cond_5
     sget-object v7, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v8, 0x7f08006e
+    const v8, 0x7f09006e
 
     invoke-virtual {v7, v8}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 

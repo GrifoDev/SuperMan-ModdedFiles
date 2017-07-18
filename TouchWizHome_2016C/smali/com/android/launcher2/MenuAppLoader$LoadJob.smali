@@ -112,7 +112,6 @@
 
     iget v4, p0, Lcom/android/launcher2/MenuAppLoader$LoadJob;->mLoadType:I
 
-    # invokes: Lcom/android/launcher2/MenuAppLoader;->setTitleAndIcon(Lcom/android/launcher2/AppItem;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;I)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher2/MenuAppLoader;->access$600(Lcom/android/launcher2/MenuAppLoader;Lcom/android/launcher2/AppItem;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;I)V
 
     iget v0, p0, Lcom/android/launcher2/MenuAppLoader$LoadJob;->mLoadType:I

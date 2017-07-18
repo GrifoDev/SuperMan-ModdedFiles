@@ -75,12 +75,10 @@
 
     move-result-object v2
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->addToList(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static {v1, p1, p2, v5, v2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$900(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
 
     iget-object v1, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$10;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v1}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v1
@@ -143,7 +141,6 @@
 
     move-result-object v3
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->fileCopy(Ljava/lang/String;Ljava/lang/String;)Z
     invoke-static {v1, v2, v3}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$1000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
@@ -187,7 +184,6 @@
 
     move-result-object v3
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->addToList(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static {v1, p1, p2, v2, v3}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$900(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
 
     iget-object v1, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$10;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
@@ -222,7 +218,6 @@
 
     move-result-object v3
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->fileCopy(Ljava/lang/String;Ljava/lang/String;)Z
     invoke-static {v1, v2, v3}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$1000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1

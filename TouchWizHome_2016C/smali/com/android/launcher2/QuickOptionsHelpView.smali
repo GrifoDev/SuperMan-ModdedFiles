@@ -202,7 +202,7 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f03003f
+    const v3, 0x7f04003f
 
     const/4 v4, 0x0
 
@@ -226,7 +226,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000da
+    const v4, 0x7f1100da
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -238,7 +238,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cc
+    const v4, 0x7f1100cc
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -250,7 +250,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000cd
+    const v4, 0x7f1100cd
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -262,7 +262,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
 
-    const v4, 0x7f1000ce
+    const v4, 0x7f1100ce
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

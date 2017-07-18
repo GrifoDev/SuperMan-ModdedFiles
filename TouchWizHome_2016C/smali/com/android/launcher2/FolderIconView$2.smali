@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderIconView$2;->this$0:Lcom/android/launcher2/FolderIconView;
 
-    # getter for: Lcom/android/launcher2/FolderIconView;->mDraggingOver:Z
     invoke-static {v0}, Lcom/android/launcher2/FolderIconView;->access$200(Lcom/android/launcher2/FolderIconView;)Z
 
     move-result v0

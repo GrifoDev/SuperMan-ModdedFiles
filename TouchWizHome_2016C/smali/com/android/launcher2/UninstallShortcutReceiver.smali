@@ -645,7 +645,7 @@
     invoke-virtual {v5, v0}, Lcom/android/launcher2/IconMoveContainer;->removeItem(Ljava/util/List;)V
 
     :cond_15
-    const v5, 0x7f08000f
+    const v5, 0x7f09000f
 
     const/4 v6, 0x1
 
@@ -682,7 +682,7 @@
 
     invoke-static {v0, v1, v5}, Lcom/android/launcher2/LauncherModel;->deleteItemsFromDatabase(Landroid/content/Context;Ljava/util/List;Z)V
 
-    const v5, 0x7f08000f
+    const v5, 0x7f09000f
 
     const/4 v6, 0x1
 

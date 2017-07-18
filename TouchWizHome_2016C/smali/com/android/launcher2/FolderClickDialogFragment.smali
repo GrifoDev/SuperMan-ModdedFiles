@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080091
+    const v7, 0x7f090092
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800bb
+    const v7, 0x7f0900bc
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    const v6, 0x7f030005
+    const v6, 0x7f040005
 
     iget-object v7, p0, Lcom/android/launcher2/FolderClickDialogFragment;->mItems:Ljava/util/ArrayList;
 
@@ -276,7 +276,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800ba
+    const v7, 0x7f0900bb
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

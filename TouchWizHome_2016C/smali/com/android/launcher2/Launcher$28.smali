@@ -57,15 +57,14 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$28;->this$0:Lcom/android/launcher2/Launcher;
 
-    const v1, 0x7f04000a
+    const v1, 0x7f05000a
 
-    const v2, 0x7f04000b
+    const v2, 0x7f05000b
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Launcher;->overridePendingTransition(II)V
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$28;->this$0:Lcom/android/launcher2/Launcher;
 
-    # setter for: Lcom/android/launcher2/Launcher;->mZeropageStarting:Z
     invoke-static {v0, v3}, Lcom/android/launcher2/Launcher;->access$1502(Lcom/android/launcher2/Launcher;Z)Z
 
     const/4 v0, 0x0

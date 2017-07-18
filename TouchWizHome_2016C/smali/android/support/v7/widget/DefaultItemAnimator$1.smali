@@ -72,7 +72,6 @@
 
     iget v5, v7, Landroid/support/v7/widget/DefaultItemAnimator$MoveInfo;->toY:I
 
-    # invokes: Landroid/support/v7/widget/DefaultItemAnimator;->animateMoveImpl(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
     invoke-static/range {v0 .. v5}, Landroid/support/v7/widget/DefaultItemAnimator;->access$000(Landroid/support/v7/widget/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
 
     goto :goto_0
@@ -84,7 +83,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/DefaultItemAnimator$1;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
-    # getter for: Landroid/support/v7/widget/DefaultItemAnimator;->mMovesList:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/support/v7/widget/DefaultItemAnimator;->access$100(Landroid/support/v7/widget/DefaultItemAnimator;)Ljava/util/ArrayList;
 
     move-result-object v0

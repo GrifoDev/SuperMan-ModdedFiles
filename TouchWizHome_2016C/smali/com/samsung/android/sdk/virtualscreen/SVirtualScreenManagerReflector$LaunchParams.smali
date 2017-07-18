@@ -91,7 +91,6 @@
     const/4 v4, 0x0
 
     :try_start_0
-    # getter for: Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManagerReflector;->mVersionCode:I
     invoke-static {}, Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManagerReflector;->access$000()I
 
     move-result v6

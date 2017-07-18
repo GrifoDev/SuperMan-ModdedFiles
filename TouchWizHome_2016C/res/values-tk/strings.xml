@@ -138,6 +138,7 @@
     <string name="new_items">%d täze zat</string>
     <string name="no_downloaded_apps">Indirilen gollanma ýok</string>
     <string name="no_room_any_page">Sahypalaryň hiçisinde otag ýok.</string>
+    <string name="no_space_page">Sahypada ýer ýok. Çykgydy başga sahypa goşup görüň.</string>
     <string name="not_selected">Saýlanmadyk</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s wijeti eýýäm öý ekrana goşuldy.</string>

@@ -69,7 +69,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$3;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$100(Lcom/android/launcher2/QuickViewWorkspace;)Lcom/android/launcher2/Workspace;
 
     move-result-object v0
@@ -102,7 +101,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09011f
+    const v3, 0x7f0a011f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -147,7 +146,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher2/QuickViewWorkspace$3;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v2}, Lcom/android/launcher2/QuickViewWorkspace;->access$100(Lcom/android/launcher2/QuickViewWorkspace;)Lcom/android/launcher2/Workspace;
 
     move-result-object v2

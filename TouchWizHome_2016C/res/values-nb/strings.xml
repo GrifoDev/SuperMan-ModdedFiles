@@ -139,6 +139,7 @@ apper"</string>
     <string name="new_items">%d nye elementer</string>
     <string name="no_downloaded_apps">Ingen nedlastede apper</string>
     <string name="no_room_any_page">Ikke plass på noen sider.</string>
+    <string name="no_space_page">Ikke plass på siden. Prøv å legge til snarveien på en annen side.</string>
     <string name="not_selected">Ikke valgt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widgeten er allerede lagt til på startskjermbildet.</string>
@@ -162,7 +163,7 @@ apper"</string>
     <string name="permlab_install_widget">Legg til widgeter</string>
     <string name="quick_contact">Kontakt</string>
     <string name="quick_options_help_text">Stryk en appsnarvei nedover for å vise hurtigvalgene for den. Hurtigvalg gjør at du kan administrere apper enkelt.</string>
-    <string name="quickoption_sleep">Søvn</string>
+    <string name="quickoption_sleep">Dvale</string>
     <string name="quickoptions_add_apps">Legg til apper</string>
     <string name="quickoptions_add_to_secure_folder">"Legg til i
 Sikker mappe"</string>

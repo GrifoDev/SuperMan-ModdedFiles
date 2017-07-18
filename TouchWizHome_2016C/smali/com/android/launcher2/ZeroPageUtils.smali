@@ -44,6 +44,10 @@
 
 .field public static final ZEROPAGE_FLIPBOARD_BRIEFING_PACKAGENAME:Ljava/lang/String; = "com.wubydax.geartwswipe"
 
+.field public static final ZEROPAGE_NOOK_CLASSNAME:Ljava/lang/String; = "com.nook.app.ZeroScreenActivity"
+
+.field public static final ZEROPAGE_NOOK_PACKAGENAME:Ljava/lang/String; = "com.nook.app"
+
 .field public static final ZEROPAGE_SOHU_NEWS_CLASSNAME:Ljava/lang/String; = "com.mobilesrepublic.sohu.launcher.MainActivity"
 
 .field public static final ZEROPAGE_SOHU_NEWS_DOWNLOAD_URI:Ljava/lang/String; = "samsungapps://ProductDetail/com.mobilesrepublic.sohu.launcher"
@@ -736,7 +740,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0200b4
+    const v22, 0x7f0200b0
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -758,7 +762,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0800f5
+    const v22, 0x7f0900f6
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -978,7 +982,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0800f0
+    const v22, 0x7f0900f1
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1064,7 +1068,7 @@
     :cond_3
     iget-object v1, p0, Lcom/android/launcher2/ZeroPageUtils;->mContext:Landroid/content/Context;
 
-    const-string v2, "com.samsung.android.app.headlines"
+    const-string v2, "com.nook.app"
 
     invoke-static {v1, v2}, Lcom/android/launcher2/Utilities;->isSystemApp(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -1072,13 +1076,30 @@
 
     if-eqz v1, :cond_4
 
+    const-string v1, "com.nook.app"
+
+    const-string v2, "com.nook.app.ZeroScreenActivity"
+
+    invoke-direct {p0, v1, v2, v0}, Lcom/android/launcher2/ZeroPageUtils;->addZeroPageApp(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/launcher2/ZeroPageUtils;->mContext:Landroid/content/Context;
+
+    const-string v2, "com.samsung.android.app.headlines"
+
+    invoke-static {v1, v2}, Lcom/android/launcher2/Utilities;->isSystemApp(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
     const-string v1, "com.samsung.android.app.headlines"
 
     const-string v2, "com.samsung.android.app.headlines.activity.HeadlinesActivity"
 
     invoke-direct {p0, v1, v2, v0}, Lcom/android/launcher2/ZeroPageUtils;->addZeroPageApp(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Lcom/android/launcher2/ZeroPageUtils;->getZeropageAppList()Ljava/util/List;
 
     move-result-object v1
@@ -1087,12 +1108,12 @@
 
     move-result v1
 
-    if-lez v1, :cond_5
+    if-lez v1, :cond_6
 
     :goto_0
     return v0
 
-    :cond_5
+    :cond_6
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1141,7 +1162,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1246,6 +1267,27 @@
     goto :goto_1
 
     :cond_5
+    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    const-string v8, "com.nook.app"
+
+    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    const-string v3, "com.nook.app"
+
+    const-string v2, "com.nook.app.ZeroScreenActivity"
+
+    goto :goto_1
+
+    :cond_6
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v4
@@ -1266,7 +1308,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     invoke-virtual {p0}, Lcom/android/launcher2/ZeroPageUtils;->getZeropageAppList()Ljava/util/List;
 
     move-result-object v4
@@ -1275,14 +1317,14 @@
 
     move-result v4
 
-    if-lez v4, :cond_7
+    if-lez v4, :cond_8
 
     move v4, v5
 
     :goto_2
     return v4
 
-    :cond_7
+    :cond_8
     move v4, v6
 
     goto :goto_2
@@ -1297,7 +1339,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0009
+    const v1, 0x7f0d0009
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1495,7 +1537,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0c002a
+    const v7, 0x7f0d002a
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 

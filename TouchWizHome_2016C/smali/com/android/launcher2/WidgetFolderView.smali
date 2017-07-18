@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09014e
+    const v1, 0x7f0a014e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -173,7 +173,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090150
+    const v1, 0x7f0a0150
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -183,7 +183,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090163
+    const v2, 0x7f0a0163
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -212,7 +212,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080047
+    const v4, 0x7f090047
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -232,7 +232,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800da
+    const v4, 0x7f0900db
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -566,7 +566,7 @@
 .method public onFinishInflate()V
     .locals 2
 
-    const v0, 0x7f100109
+    const v0, 0x7f110109
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/WidgetFolderView;->findViewById(I)Landroid/view/View;
 
@@ -576,7 +576,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/WidgetFolderView;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f10010a
+    const v0, 0x7f11010a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/WidgetFolderView;->findViewById(I)Landroid/view/View;
 
@@ -586,7 +586,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/WidgetFolderView;->mTitle_dims:Landroid/widget/TextView;
 
-    const v0, 0x7f10010d
+    const v0, 0x7f11010d
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/WidgetFolderView;->findViewById(I)Landroid/view/View;
 
@@ -596,7 +596,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/WidgetFolderView;->mWidgetGridView:Landroid/widget/GridLayout;
 
-    const v0, 0x7f10010b
+    const v0, 0x7f11010b
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/WidgetFolderView;->findViewById(I)Landroid/view/View;
 
@@ -616,7 +616,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
 
-    const v0, 0x7f10010c
+    const v0, 0x7f11010c
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/WidgetFolderView;->findViewById(I)Landroid/view/View;
 
@@ -658,7 +658,7 @@
 
     iget-object v7, p0, Lcom/android/launcher2/WidgetFolderView;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v8, 0x7f03004d
+    const v8, 0x7f04004d
 
     invoke-virtual {v7, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -919,7 +919,7 @@
 
     invoke-virtual {v10, v11}, Landroid/widget/GridLayout;->setColumnCount(I)V
 
-    const v10, 0x7f090163
+    const v10, 0x7f0a0163
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -987,7 +987,7 @@
 
     if-eqz v10, :cond_3
 
-    const v10, 0x7f020078
+    const v10, 0x7f020074
 
     invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -1068,7 +1068,7 @@
     goto :goto_0
 
     :cond_3
-    const v10, 0x7f020077
+    const v10, 0x7f020073
 
     invoke-virtual {v4, v10}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

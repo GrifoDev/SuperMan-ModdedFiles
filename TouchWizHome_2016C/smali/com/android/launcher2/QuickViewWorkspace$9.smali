@@ -77,7 +77,6 @@
 
     check-cast v1, Lcom/android/launcher2/ZeroPageListItem;
 
-    # invokes: Lcom/android/launcher2/QuickViewWorkspace;->showZeroPageDownloadDialog(Lcom/android/launcher2/ZeroPageListItem;Z)V
     invoke-static {v2, v1, v4}, Lcom/android/launcher2/QuickViewWorkspace;->access$500(Lcom/android/launcher2/QuickViewWorkspace;Lcom/android/launcher2/ZeroPageListItem;Z)V
 
     :cond_0
@@ -87,7 +86,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher2/QuickViewWorkspace$9;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # invokes: Lcom/android/launcher2/QuickViewWorkspace;->updateHomeZeroPageDualCheck(I)V
     invoke-static {v1, v3}, Lcom/android/launcher2/QuickViewWorkspace;->access$600(Lcom/android/launcher2/QuickViewWorkspace;I)V
 
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->getInstance()Lcom/android/launcher2/ZeroPageUtils;

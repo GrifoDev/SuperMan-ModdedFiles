@@ -138,6 +138,7 @@
     <string name="new_items">%d elements nous</string>
     <string name="no_downloaded_apps">Sense aplicacions descarregades</string>
     <string name="no_room_any_page">No hi ha lloc a cap pàgina.</string>
+    <string name="no_space_page">"No hi ha espai a la pàgina. Prova d'afegir un accés directe a una altra pàgina."</string>
     <string name="not_selected">No seleccionat</string>
     <string name="ok">Acceptar</string>
     <string name="only_one_widget_instance_allowed">"El widget %s ja s'ha afegit a la Pantalla d'inici."</string>

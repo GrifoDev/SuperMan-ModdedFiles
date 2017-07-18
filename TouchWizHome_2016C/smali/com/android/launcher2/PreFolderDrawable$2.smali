@@ -59,17 +59,14 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # setter for: Lcom/android/launcher2/PreFolderDrawable;->deltaRight:I
     invoke-static {v0, v1}, Lcom/android/launcher2/PreFolderDrawable;->access$002(Lcom/android/launcher2/PreFolderDrawable;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # setter for: Lcom/android/launcher2/PreFolderDrawable;->deltaBottom:I
     invoke-static {v0, v1}, Lcom/android/launcher2/PreFolderDrawable;->access$102(Lcom/android/launcher2/PreFolderDrawable;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v0}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v0
@@ -78,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v0}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v0
@@ -87,14 +83,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v0}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -103,7 +97,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mPreFolder:Landroid/graphics/drawable/Drawable;
     invoke-static {v2}, Lcom/android/launcher2/PreFolderDrawable;->access$300(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
@@ -118,14 +111,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v0}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -134,7 +125,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mPreFolder:Landroid/graphics/drawable/Drawable;
     invoke-static {v2}, Lcom/android/launcher2/PreFolderDrawable;->access$300(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
@@ -151,7 +141,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v1
@@ -160,14 +149,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mPreFolder:Landroid/graphics/drawable/Drawable;
     invoke-static {v0}, Lcom/android/launcher2/PreFolderDrawable;->access$300(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/PreFolderDrawable$2;->this$0:Lcom/android/launcher2/PreFolderDrawable;
 
-    # getter for: Lcom/android/launcher2/PreFolderDrawable;->mBounds:Landroid/graphics/Rect;
     invoke-static {v1}, Lcom/android/launcher2/PreFolderDrawable;->access$200(Lcom/android/launcher2/PreFolderDrawable;)Landroid/graphics/Rect;
 
     move-result-object v1

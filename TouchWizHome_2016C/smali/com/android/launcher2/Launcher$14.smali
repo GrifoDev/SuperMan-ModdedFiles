@@ -39,7 +39,6 @@
 
     const/4 v0, 0x0
 
-    # setter for: Lcom/android/launcher2/Launcher;->sPopupMenuShowing:Z
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$702(Z)Z
 
     return-void

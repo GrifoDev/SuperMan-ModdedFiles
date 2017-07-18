@@ -55,7 +55,6 @@
 
     const/4 v3, 0x0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$400()Ljava/lang/String;
 
     move-result-object v1
@@ -70,7 +69,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f10008a
+    const v2, 0x7f11008a
 
     invoke-virtual {v1, v2}, Lcom/android/launcher2/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -107,7 +106,6 @@
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 3
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$400()Ljava/lang/String;
 
     move-result-object v1
@@ -126,14 +124,13 @@
 
     float-to-int v2, v2
 
-    # invokes: Lcom/android/launcher2/ar/ARManager;->rotateWallpaper(I)V
     invoke-static {v1, v2}, Lcom/android/launcher2/ar/ARManager;->access$800(Lcom/android/launcher2/ar/ARManager;I)V
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
     move-result-object v1
 
-    const v2, 0x7f10008a
+    const v2, 0x7f11008a
 
     invoke-virtual {v1, v2}, Lcom/android/launcher2/Launcher;->findViewById(I)Landroid/view/View;
 

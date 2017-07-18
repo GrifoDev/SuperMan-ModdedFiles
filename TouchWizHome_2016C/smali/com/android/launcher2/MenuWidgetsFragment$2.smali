@@ -43,7 +43,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgetsFragment$2;->this$0:Lcom/android/launcher2/MenuWidgetsFragment;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsFragment;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgetsFragment;->access$400(Lcom/android/launcher2/MenuWidgetsFragment;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -58,7 +57,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgetsFragment$2;->this$0:Lcom/android/launcher2/MenuWidgetsFragment;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsFragment;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgetsFragment;->access$400(Lcom/android/launcher2/MenuWidgetsFragment;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -71,7 +69,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgetsFragment$2;->this$0:Lcom/android/launcher2/MenuWidgetsFragment;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsFragment;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgetsFragment;->access$400(Lcom/android/launcher2/MenuWidgetsFragment;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -92,7 +89,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgetsFragment$2;->this$0:Lcom/android/launcher2/MenuWidgetsFragment;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsFragment;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgetsFragment;->access$400(Lcom/android/launcher2/MenuWidgetsFragment;)Landroid/widget/TextView;
 
     move-result-object v4

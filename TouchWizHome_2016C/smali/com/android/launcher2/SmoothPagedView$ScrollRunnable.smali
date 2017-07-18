@@ -55,7 +55,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/SmoothPagedView$ScrollRunnable;->this$0:Lcom/android/launcher2/SmoothPagedView;
 
-    # getter for: Lcom/android/launcher2/SmoothPagedView;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/SmoothPagedView;->access$200(Lcom/android/launcher2/SmoothPagedView;)Landroid/os/Handler;
 
     move-result-object v0
@@ -95,14 +94,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/SmoothPagedView$ScrollRunnable;->this$0:Lcom/android/launcher2/SmoothPagedView;
 
-    # getter for: Lcom/android/launcher2/SmoothPagedView;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/SmoothPagedView;->access$200(Lcom/android/launcher2/SmoothPagedView;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/SmoothPagedView$ScrollRunnable;->this$0:Lcom/android/launcher2/SmoothPagedView;
 
-    # getter for: Lcom/android/launcher2/SmoothPagedView;->mScrollDelay:I
     invoke-static {v1}, Lcom/android/launcher2/SmoothPagedView;->access$100(Lcom/android/launcher2/SmoothPagedView;)I
 
     move-result v1
@@ -136,7 +133,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/SmoothPagedView$ScrollRunnable;->this$0:Lcom/android/launcher2/SmoothPagedView;
 
-    # getter for: Lcom/android/launcher2/SmoothPagedView;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/SmoothPagedView;->access$200(Lcom/android/launcher2/SmoothPagedView;)Landroid/os/Handler;
 
     move-result-object v0
@@ -198,7 +194,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher2/SmoothPagedView$ScrollRunnable;->this$0:Lcom/android/launcher2/SmoothPagedView;
 
-    # getter for: Lcom/android/launcher2/SmoothPagedView;->mScrollState:I
     invoke-static {v1}, Lcom/android/launcher2/SmoothPagedView;->access$000(Lcom/android/launcher2/SmoothPagedView;)I
 
     move-result v1

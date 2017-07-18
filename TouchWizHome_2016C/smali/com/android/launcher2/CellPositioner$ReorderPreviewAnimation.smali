@@ -60,7 +60,6 @@
 
     iput-boolean v2, v0, Lcom/android/launcher2/CellPositioner$ReorderPreviewAnimation;->repeating:Z
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mLayout:Lcom/android/launcher2/CellLayout;
     invoke-static/range {p1 .. p1}, Lcom/android/launcher2/CellPositioner;->access$200(Lcom/android/launcher2/CellPositioner;)Lcom/android/launcher2/CellLayout;
 
     move-result-object v2
@@ -95,7 +94,6 @@
 
     aget v15, v2, v3
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mLayout:Lcom/android/launcher2/CellLayout;
     invoke-static/range {p1 .. p1}, Lcom/android/launcher2/CellPositioner;->access$200(Lcom/android/launcher2/CellPositioner;)Lcom/android/launcher2/CellLayout;
 
     move-result-object v2
@@ -184,7 +182,6 @@
 
     iput-object v0, v1, Lcom/android/launcher2/CellPositioner$ReorderPreviewAnimation;->child:Landroid/view/View;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mLayout:Lcom/android/launcher2/CellLayout;
     invoke-static/range {p1 .. p1}, Lcom/android/launcher2/CellPositioner;->access$200(Lcom/android/launcher2/CellPositioner;)Lcom/android/launcher2/CellLayout;
 
     move-result-object v2

@@ -93,7 +93,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$14;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppListFragment;->setSelectionCount(Z)V
     invoke-static {v3, p2}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$2400(Lcom/android/launcher2/searchapp/SearchAppListFragment;Z)V
 
     const-string v2, ""
@@ -120,12 +119,11 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$14;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0800ce
+    const v5, 0x7f0900cf
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -179,12 +177,11 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$14;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x7f0800db
+    const v5, 0x7f0900dc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

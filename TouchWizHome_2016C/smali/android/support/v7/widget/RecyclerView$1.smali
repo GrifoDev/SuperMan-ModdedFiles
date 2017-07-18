@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mFirstLayoutComplete:Z
     invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->access$100(Landroid/support/v7/widget/RecyclerView;)Z
 
     move-result v0
@@ -53,7 +52,6 @@
     :cond_1
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mDataSetHasChangedAfterLayout:Z
     invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->access$200(Landroid/support/v7/widget/RecyclerView;)Z
 
     move-result v0
@@ -89,7 +87,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$1;->this$0:Landroid/support/v7/widget/RecyclerView;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayoutRequestEaten:Z
     invoke-static {v0}, Landroid/support/v7/widget/RecyclerView;->access$300(Landroid/support/v7/widget/RecyclerView;)Z
 
     move-result v0

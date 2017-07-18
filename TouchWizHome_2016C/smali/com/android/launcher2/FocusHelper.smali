@@ -745,7 +745,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f100038
+    .packed-switch 0x7f110038
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -1259,7 +1259,7 @@
 
     iget-object v3, v2, Lcom/android/launcher2/Folder;->mFolderOptionView:Landroid/widget/LinearLayout;
 
-    const v11, 0x7f100106
+    const v11, 0x7f110106
 
     invoke-virtual {v2, v11}, Lcom/android/launcher2/Folder;->findViewById(I)Landroid/view/View;
 
@@ -1504,7 +1504,7 @@
 
     check-cast v3, Lcom/android/launcher2/CellLayoutChildren;
 
-    const v17, 0x7f100035
+    const v17, 0x7f110035
 
     move/from16 v0, v17
 
@@ -1848,7 +1848,7 @@
 
     iget-object v9, v7, Lcom/android/launcher2/Folder;->mFolderOptionView:Landroid/widget/LinearLayout;
 
-    const v23, 0x7f10003f
+    const v23, 0x7f11003f
 
     move/from16 v0, v23
 
@@ -2443,7 +2443,7 @@
 
     check-cast v5, Lcom/android/launcher2/CellLayoutChildren;
 
-    const v18, 0x7f100106
+    const v18, 0x7f110106
 
     move/from16 v0, v18
 
@@ -2840,7 +2840,7 @@
 
     iget-object v9, v8, Lcom/android/launcher2/Folder;->mFolderOptionView:Landroid/widget/LinearLayout;
 
-    const v19, 0x7f100035
+    const v19, 0x7f110035
 
     move/from16 v0, v19
 
@@ -3173,7 +3173,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f10007a
+    const v9, 0x7f11007a
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3376,7 +3376,7 @@
 
     move-result-object v29
 
-    const v30, 0x7f100078
+    const v30, 0x7f110078
 
     invoke-virtual/range {v29 .. v30}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6401,7 +6401,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f1000e3
+    const v10, 0x7f1100e3
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6413,7 +6413,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f1000e8
+    const v10, 0x7f1100e8
 
     invoke-virtual {v8, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6429,7 +6429,7 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    const v10, 0x7f090270
+    const v10, 0x7f0a0277
 
     invoke-static {v8, v10}, Lcom/android/launcher2/utils/common/FontSizeUtils;->setSystemFontSize(Landroid/widget/TextView;I)V
 
@@ -6662,7 +6662,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0b0029
+    const v23, 0x7f0c0029
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6809,7 +6809,7 @@
     :sswitch_1
     if-eqz v6, :cond_8
 
-    const v22, 0x7f1000ec
+    const v22, 0x7f1100ec
 
     move-object/from16 v0, v16
 
@@ -6821,7 +6821,7 @@
 
     check-cast v19, Landroid/widget/SearchView;
 
-    const v22, 0x7f100018
+    const v22, 0x7f110018
 
     move-object/from16 v0, v16
 
@@ -7081,7 +7081,7 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/widget/LinearLayout;->clearFocus()V
 
-    const v22, 0x7f1000ec
+    const v22, 0x7f1100ec
 
     move-object/from16 v0, v16
 
@@ -7483,7 +7483,7 @@
 
     invoke-virtual/range {v22 .. v22}, Landroid/widget/LinearLayout;->clearFocus()V
 
-    const v22, 0x7f1000ec
+    const v22, 0x7f1100ec
 
     move-object/from16 v0, v16
 
@@ -7813,7 +7813,7 @@
 
     move-result v20
 
-    const v21, 0x7f100018
+    const v21, 0x7f110018
 
     move/from16 v0, v20
 
@@ -7928,7 +7928,7 @@
 
     if-eqz v12, :cond_15
 
-    const v20, 0x7f100018
+    const v20, 0x7f110018
 
     move/from16 v0, v20
 
@@ -8114,7 +8114,7 @@
 
     if-eqz v20, :cond_a
 
-    const v20, 0x7f1000ec
+    const v20, 0x7f1100ec
 
     move/from16 v0, v20
 
@@ -8151,7 +8151,7 @@
     :cond_a
     if-nez v5, :cond_9
 
-    const v20, 0x7f100018
+    const v20, 0x7f110018
 
     move/from16 v0, v20
 
@@ -8222,7 +8222,7 @@
 
     if-eqz v20, :cond_c
 
-    const v20, 0x7f1000ec
+    const v20, 0x7f1100ec
 
     move/from16 v0, v20
 
@@ -8270,7 +8270,7 @@
 
     if-nez v12, :cond_e
 
-    const v20, 0x7f1000ec
+    const v20, 0x7f1100ec
 
     move/from16 v0, v20
 
@@ -8409,7 +8409,7 @@
     goto :goto_7
 
     :cond_10
-    const v20, 0x7f1000f0
+    const v20, 0x7f1100f0
 
     move/from16 v0, v20
 
@@ -8628,7 +8628,7 @@
     if-eqz v20, :cond_18
 
     :cond_16
-    const v20, 0x7f1000f0
+    const v20, 0x7f1100f0
 
     move/from16 v0, v20
 
@@ -8694,7 +8694,7 @@
     goto/16 :goto_0
 
     :cond_18
-    const v20, 0x7f1000f4
+    const v20, 0x7f1100f4
 
     move/from16 v0, v20
 
@@ -8707,7 +8707,7 @@
     goto :goto_8
 
     :cond_19
-    const v20, 0x7f1000ec
+    const v20, 0x7f1100ec
 
     move/from16 v0, v20
 
@@ -9478,7 +9478,7 @@
 
     check-cast v9, Landroid/view/ViewGroup;
 
-    const v19, 0x7f100006
+    const v19, 0x7f110006
 
     move/from16 v0, v19
 

@@ -58,7 +58,6 @@
     :goto_0
     iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v3
@@ -67,7 +66,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v3
@@ -76,7 +74,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v3
@@ -89,7 +86,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v3
@@ -106,7 +102,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$32;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v3

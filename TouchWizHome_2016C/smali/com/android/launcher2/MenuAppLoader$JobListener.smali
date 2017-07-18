@@ -62,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadJobs:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$100(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -72,7 +71,6 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadJobs:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$100(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -83,7 +81,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadTasks:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$200(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -102,7 +99,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$500(Lcom/android/launcher2/MenuAppLoader;)Landroid/os/Handler;
 
     move-result-object v1

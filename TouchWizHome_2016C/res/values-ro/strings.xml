@@ -138,6 +138,7 @@
     <string name="new_items">%d elemente noi</string>
     <string name="no_downloaded_apps">Nicio aplicație descărcată</string>
     <string name="no_room_any_page">Nu există spațiu pe nicio pagină.</string>
+    <string name="no_space_page">Nu există spațiu pe pagină. Încercați să adăugați comanda rapidă pe o pagină diferită.</string>
     <string name="not_selected">Neselectat</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget-ul %s a fost deja adăugat la ecranul Acasă.</string>

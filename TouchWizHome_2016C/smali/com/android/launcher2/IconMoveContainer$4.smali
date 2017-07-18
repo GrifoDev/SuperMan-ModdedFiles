@@ -56,7 +56,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher2/IconMoveContainer$4;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v1}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v1
@@ -69,7 +68,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/IconMoveContainer$4;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v1}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v1

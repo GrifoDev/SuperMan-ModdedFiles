@@ -57,7 +57,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/customer/PostPosition$3;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
 
-    # invokes: Lcom/android/launcher2/customer/PostPosition;->homeAdd(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/customer/PostPosition;->access$200(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
 
     iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$3;->this$0:Lcom/android/launcher2/customer/PostPosition;
@@ -68,7 +67,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/customer/PostPosition$3;->val$itemRecord:Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;
 
-    # invokes: Lcom/android/launcher2/customer/PostPosition;->appsAdd(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/customer/PostPosition;->access$300(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;)V
 
     return-void

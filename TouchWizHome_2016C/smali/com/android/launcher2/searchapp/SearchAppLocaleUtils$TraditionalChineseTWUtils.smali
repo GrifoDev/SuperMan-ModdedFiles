@@ -532,7 +532,6 @@
 
     const/16 v6, 0x20
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
     invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
 
     move-result-object v3

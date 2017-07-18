@@ -138,6 +138,7 @@
     <string name="new_items">%d ახალი ელემენტი</string>
     <string name="no_downloaded_apps">ჩამოტვირთული პროგრამები არ არის</string>
     <string name="no_room_any_page">არცერთ გვერდზე არ არის ადგილი.</string>
+    <string name="no_space_page">გვერდზე არ არის ადგილი. ღილაკის დამატება სცადეთ სხვა გვერდზე.</string>
     <string name="not_selected">არ არის არჩეული</string>
     <string name="ok">კი</string>
     <string name="only_one_widget_instance_allowed">%s ვიჯეტი უკვე დამატებულია საწყის გვერდზე.</string>

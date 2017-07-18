@@ -53,7 +53,6 @@
 
     iget-wide v4, v3, Lcom/android/launcher2/customer/PostPosition$5;->val$fId:J
 
-    # invokes: Lcom/android/launcher2/customer/PostPosition;->addToAppsFolder(Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;J)V
     invoke-static {v0, v1, v2, v4, v5}, Lcom/android/launcher2/customer/PostPosition;->access$400(Lcom/android/launcher2/customer/PostPosition;Lcom/android/launcher2/compat/LauncherActivityInfoCompat;Lcom/android/launcher2/compat/UserHandleCompat;J)V
 
     iget-object v0, p0, Lcom/android/launcher2/customer/PostPosition$5$1;->this$1:Lcom/android/launcher2/customer/PostPosition$5;

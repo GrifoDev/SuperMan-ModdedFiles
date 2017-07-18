@@ -44,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$5;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -57,14 +56,12 @@
 
     iget-object v1, p0, Lcom/android/launcher2/FolderAnimator$5;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mNumCloseAnimsRunning:I
     invoke-static {v1}, Lcom/android/launcher2/FolderAnimator;->access$500(Lcom/android/launcher2/FolderAnimator;)I
 
     move-result v1
 
     add-int/lit8 v1, v1, -0x1
 
-    # setter for: Lcom/android/launcher2/FolderAnimator;->mNumCloseAnimsRunning:I
     invoke-static {v0, v1}, Lcom/android/launcher2/FolderAnimator;->access$502(Lcom/android/launcher2/FolderAnimator;I)I
 
     return-void

@@ -79,14 +79,12 @@
 
     const/4 v6, 0x0
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->DEBUG:Z
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$300()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v2
@@ -108,7 +106,6 @@
 
     if-nez v2, :cond_2
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v2
@@ -119,15 +116,12 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # setter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mAnimated:Z
     invoke-static {v2, v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$202(Lcom/android/launcher2/utils/HomeBlurUtil;Z)Z
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mInstance:Lcom/android/launcher2/utils/HomeBlurUtil;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$500()Lcom/android/launcher2/utils/HomeBlurUtil;
 
     move-result-object v2
 
-    # invokes: Lcom/android/launcher2/utils/HomeBlurUtil;->blur(Z)Z
     invoke-static {v2, v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$600(Lcom/android/launcher2/utils/HomeBlurUtil;Z)Z
 
     :cond_1
@@ -145,7 +139,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->mPreviewBitmap:Landroid/graphics/Bitmap;
 
-    # invokes: Lcom/android/launcher2/utils/HomeBlurUtil;->getBlurBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     invoke-static {v2, v3}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$700(Lcom/android/launcher2/utils/HomeBlurUtil;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v2
@@ -154,7 +147,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -163,7 +155,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mIsFolderItem:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$900(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -172,7 +163,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -181,7 +171,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mFolderMarginTop:I
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1000(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v4
@@ -192,7 +181,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -201,7 +189,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mFolderMarginTop:I
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1000(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v4
@@ -257,14 +244,12 @@
 
     iget-object v3, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v3}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v4
@@ -280,7 +265,6 @@
     :catch_0
     move-exception v1
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v2
@@ -314,7 +298,6 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mIsAppsItem:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1100(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -323,7 +306,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -332,7 +314,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mStatusBarHeight:I
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1200(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v4
@@ -343,7 +324,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mNonBlurRect:Landroid/graphics/Rect;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$800(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/graphics/Rect;
 
     move-result-object v2
@@ -352,7 +332,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mStatusBarHeight:I
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1200(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v4
@@ -367,7 +346,6 @@
 .method protected onCancelled()V
     .locals 2
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v0
@@ -399,7 +377,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -408,7 +385,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -442,7 +418,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -451,7 +426,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -459,7 +433,6 @@
     if-nez v2, :cond_1
 
     :cond_0
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v2
@@ -476,7 +449,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v4
@@ -493,7 +465,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v4
@@ -514,7 +485,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -527,7 +497,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mIsFolderItem:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$900(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -536,7 +505,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mFolderMarginTop:I
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1000(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v2
@@ -549,7 +517,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mResources:Landroid/content/res/Resources;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1500(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/content/res/Resources;
 
     move-result-object v2
@@ -560,7 +527,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -569,7 +535,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mAnimated:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$200(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -578,7 +543,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -587,7 +551,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -598,7 +561,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -631,7 +593,6 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -640,7 +601,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mTargetView:Landroid/view/View;
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1300(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v2
@@ -654,7 +614,6 @@
 
     invoke-virtual {v2}, Lcom/android/launcher2/LauncherApplication;->releaseTouchBooster()V
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$400()Ljava/lang/String;
 
     move-result-object v2
@@ -692,7 +651,6 @@
     :cond_6
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mIsHomeItem:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1400(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -706,7 +664,6 @@
     :cond_7
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mIsAppsItem:Z
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1100(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v2
@@ -715,7 +672,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mStatusBarHeight:I
     invoke-static {v2}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$1200(Lcom/android/launcher2/utils/HomeBlurUtil;)I
 
     move-result v2
@@ -732,7 +688,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -746,7 +701,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -755,14 +709,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v1
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mAnimated:Z
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$200(Lcom/android/launcher2/utils/HomeBlurUtil;)Z
 
     move-result v0
@@ -776,7 +728,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$GetBlurTask;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$100(Lcom/android/launcher2/utils/HomeBlurUtil;)Landroid/view/View;
 
     move-result-object v0

@@ -63,7 +63,6 @@
 
     iget-boolean v4, p0, Lcom/android/launcher2/LauncherModel$13;->val$isFestivalLoader:Z
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->startLoader(ZZZZ)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher2/LauncherModel;->access$000(Lcom/android/launcher2/LauncherModel;ZZZZ)V
 
     return-void

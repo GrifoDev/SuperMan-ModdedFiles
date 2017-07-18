@@ -147,24 +147,20 @@
 
     const/high16 v2, -0x3f600000    # -5.0f
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$300()F
 
     move-result v3
 
     neg-float v3, v3
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$300()F
 
     move-result v4
 
-    # invokes: Lcom/sec/dtl/launcher/GyroForShadow;->map(FFFFF)F
     invoke-static {v9, v1, v2, v3, v4}, Lcom/sec/dtl/launcher/GyroForShadow;->access$400(FFFFF)F
 
     move-result v1
 
-    # setter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_x:F
     invoke-static {v1}, Lcom/sec/dtl/launcher/GyroForShadow;->access$202(F)F
 
     :goto_1
@@ -201,28 +197,23 @@
 
     const/high16 v2, -0x3f600000    # -5.0f
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$600()F
 
     move-result v3
 
     neg-float v3, v3
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$600()F
 
     move-result v4
 
-    # invokes: Lcom/sec/dtl/launcher/GyroForShadow;->map(FFFFF)F
     invoke-static {v10, v1, v2, v3, v4}, Lcom/sec/dtl/launcher/GyroForShadow;->access$400(FFFFF)F
 
     move-result v1
 
-    # setter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_y:F
     invoke-static {v1}, Lcom/sec/dtl/launcher/GyroForShadow;->access$502(F)F
 
     :goto_3
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->mListeners:Ljava/util/Vector;
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$700()Ljava/util/Vector;
 
     move-result-object v1
@@ -244,32 +235,26 @@
 
     check-cast v0, Lcom/sec/dtl/launcher/GyroForShadow$VectorListener;
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_x:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$200()F
 
     move-result v1
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_y:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$500()F
 
     move-result v2
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$300()F
 
     move-result v3
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$600()F
 
     move-result v4
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->wallpaper_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$800()F
 
     move-result v5
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->wallpaper_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$900()F
 
     move-result v6
@@ -294,24 +279,20 @@
 
     const/high16 v3, -0x3f600000    # -5.0f
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$300()F
 
     move-result v4
 
     neg-float v4, v4
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_x_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$300()F
 
     move-result v5
 
-    # invokes: Lcom/sec/dtl/launcher/GyroForShadow;->map(FFFFF)F
     invoke-static {v1, v2, v3, v4, v5}, Lcom/sec/dtl/launcher/GyroForShadow;->access$400(FFFFF)F
 
     move-result v1
 
-    # setter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_x:F
     invoke-static {v1}, Lcom/sec/dtl/launcher/GyroForShadow;->access$202(F)F
 
     goto :goto_1
@@ -332,24 +313,20 @@
 
     const/high16 v3, -0x3f600000    # -5.0f
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$600()F
 
     move-result v4
 
     neg-float v4, v4
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->tilt_y_range:F
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$600()F
 
     move-result v5
 
-    # invokes: Lcom/sec/dtl/launcher/GyroForShadow;->map(FFFFF)F
     invoke-static {v1, v2, v3, v4, v5}, Lcom/sec/dtl/launcher/GyroForShadow;->access$400(FFFFF)F
 
     move-result v1
 
-    # setter for: Lcom/sec/dtl/launcher/GyroForShadow;->map_y:F
     invoke-static {v1}, Lcom/sec/dtl/launcher/GyroForShadow;->access$502(F)F
 
     goto :goto_3

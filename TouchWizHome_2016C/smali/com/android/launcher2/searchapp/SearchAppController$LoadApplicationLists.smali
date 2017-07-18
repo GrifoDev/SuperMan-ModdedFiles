@@ -69,7 +69,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher2/searchapp/SearchAppController;->access$100(Lcom/android/launcher2/searchapp/SearchAppController;)Landroid/content/Context;
 
     move-result-object v1
@@ -86,7 +85,6 @@
 
     iget-object v3, v3, Lcom/android/launcher2/searchapp/SearchAppController;->mQueryAppsList:Ljava/util/List;
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppController;->getApplicationsWithClass(Landroid/content/Context;Ljava/util/concurrent/ConcurrentSkipListMap;Ljava/util/List;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/searchapp/SearchAppController;->access$200(Lcom/android/launcher2/searchapp/SearchAppController;Landroid/content/Context;Ljava/util/concurrent/ConcurrentSkipListMap;Ljava/util/List;)V
 
     const-string v0, "SearchAppController"
@@ -103,7 +101,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mQueryCount:I
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppController;->access$300(Lcom/android/launcher2/searchapp/SearchAppController;)I
 
     move-result v2
@@ -120,7 +117,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mLoadingCount:I
     invoke-static {v2}, Lcom/android/launcher2/searchapp/SearchAppController;->access$400(Lcom/android/launcher2/searchapp/SearchAppController;)I
 
     move-result v2
@@ -137,7 +133,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mQueryCount:I
     invoke-static {v0}, Lcom/android/launcher2/searchapp/SearchAppController;->access$300(Lcom/android/launcher2/searchapp/SearchAppController;)I
 
     move-result v0
@@ -146,14 +141,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mLoadingCount:I
     invoke-static {v0}, Lcom/android/launcher2/searchapp/SearchAppController;->access$400(Lcom/android/launcher2/searchapp/SearchAppController;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppController;->mQueryCount:I
     invoke-static {v1}, Lcom/android/launcher2/searchapp/SearchAppController;->access$300(Lcom/android/launcher2/searchapp/SearchAppController;)I
 
     move-result v1
@@ -230,7 +223,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppController$LoadApplicationLists;->this$0:Lcom/android/launcher2/searchapp/SearchAppController;
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppController;->sendUpdateDataIntent()V
     invoke-static {v0}, Lcom/android/launcher2/searchapp/SearchAppController;->access$500(Lcom/android/launcher2/searchapp/SearchAppController;)V
 
     sget-boolean v0, Lcom/android/launcher2/searchapp/SearchAppController;->reRunTask:Z

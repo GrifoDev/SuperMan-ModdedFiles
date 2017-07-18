@@ -305,7 +305,6 @@
 
     invoke-direct {v0, v1, v2, v13, v12}, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher2/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;)V
     invoke-static/range {v16 .. v17}, Lcom/android/launcher2/LauncherModel;->access$2400(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;)V
 
     :cond_4
@@ -351,7 +350,6 @@
 
     invoke-direct {v0, v1, v2, v13, v12}, Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;-><init>(Lcom/android/launcher2/LauncherModel;I[Ljava/lang/String;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->enqueuePackageUpdated(Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;)V
     invoke-static/range {v16 .. v17}, Lcom/android/launcher2/LauncherModel;->access$2400(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/LauncherModel$PackageUpdatedTask;)V
 
     goto/16 :goto_0

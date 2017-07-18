@@ -67,8 +67,8 @@
     <dimen name="menu_edit_button_text_size">10.0dip</dimen>
     <item type="dimen" name="menu_edit_translation_view_factor">0.89</item>
     <dimen name="menu_icon_paddingTop">6.0dip</dimen>
-    <dimen name="menu_pageIndicatorTop">452.0dip</dimen>
-    <dimen name="menu_titleHeight">41.0dip</dimen>
+    <dimen name="menu_pageIndicatorTop">446.0dip</dimen>
+    <dimen name="menu_titleHeight">47.0dip</dimen>
     <dimen name="menu_widgets_searchHeight">47.0dip</dimen>
     <dimen name="menu_widgets_search_titlebar_height">47.0dip</dimen>
     <dimen name="open_folder_appicon_cell_gap_x">7.0dip</dimen>
@@ -76,7 +76,7 @@
     <dimen name="open_folder_appicon_cell_height">73.0dip</dimen>
     <dimen name="open_folder_appicon_cell_width">117.0dip</dimen>
     <dimen name="open_folder_layout_last_cell_height_scroll_mode">21.0dip</dimen>
-    <dimen name="open_folder_layout_margin_top">56.0dip</dimen>
+    <dimen name="open_folder_layout_margin_top">43.0dip</dimen>
     <dimen name="open_folder_layout_max_height">500.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_img_gap_x">12.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_layout_margin_top">0.0dip</dimen>
@@ -91,10 +91,11 @@
     <dimen name="folder_paged_view_margin_top">5.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_height">310.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_width">512.0dip</dimen>
+    <dimen name="open_folder_addicon_addbutton_height">28.0dip</dimen>
     <dimen name="open_folder_appicon_addbutton_textsize">13.0dip</dimen>
-    <dimen name="open_folder_appicon_addbutton_top_margin_new">395.0dip</dimen>
+    <dimen name="open_folder_appicon_addbutton_top_margin_new">404.0dip</dimen>
     <dimen name="open_folder_appicon_cell_width_new">117.0dip</dimen>
-    <dimen name="open_folder_pageIndicatorTop">381.0dip</dimen>
+    <dimen name="open_folder_pageIndicatorTop">386.0dip</dimen>
     <dimen name="open_folder_pageSpacing_new">121.0dip</dimen>
     <dimen name="open_folder_title_layout_height_new">28.0dip</dimen>
     <dimen name="open_folder_title_layout_width_new">614.0dip</dimen>
@@ -105,16 +106,17 @@
     <dimen name="home_editmode_panel_button_margin">1.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">29.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">39.0dip</dimen>
+    <dimen name="moveApps_cellHeight">67.0dip</dimen>
     <dimen name="moveApps_cellWidth">73.0dip</dimen>
     <dimen name="moveApps_containerHeight">73.0dip</dimen>
     <dimen name="moveApps_topGap">7.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">380.0dip</dimen>
-    <dimen name="moveApps_cellHeight">67.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_left">61.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">73.0dip</dimen>
     <dimen name="app_searchview_margin_top">1.0dip</dimen>
     <dimen name="open_folder_appicon_margin_bottom">0.0dip</dimen>
     <dimen name="appsearch_grid_margin_left_right">33.0dip</dimen>
+    <dimen name="folder_icon_marginTop">2.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">84.0dip</dimen>
     <item type="dimen" name="config_extra_WorkspaceEditModeShrinkPercentage">0.0024</item>
     <item type="dimen" name="config_workspaceEditModeTranslationFactor">0.7216</item>

@@ -69,7 +69,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuWidgetsSearch$1;->this$0:Lcom/android/launcher2/MenuWidgetsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v1}, Lcom/android/launcher2/MenuWidgetsSearch;->access$000(Lcom/android/launcher2/MenuWidgetsSearch;)Landroid/widget/SearchView;
 
     move-result-object v1

@@ -401,7 +401,6 @@
 
     const/4 v3, 0x0
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -453,7 +452,6 @@
 
     const/4 v3, 0x0
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -474,7 +472,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
     invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
     move-result-object v0
@@ -563,7 +560,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
     invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
     move-result-object v0
@@ -632,7 +628,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$100(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -659,7 +654,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$100(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -684,7 +678,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$100(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -709,7 +702,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$100(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -734,7 +726,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v4, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$200(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -759,7 +750,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$100(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -832,7 +822,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
     invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
     move-result-object v0
@@ -940,7 +929,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v4, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$200(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -949,7 +937,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
     invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
     move-result-object v0
@@ -1032,7 +1019,6 @@
 
     move-result v2
 
-    # invokes: Lcom/android/launcher2/theme/OpenThemeManager;->getEachItemforDrawableType(Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
     invoke-static {v0, v1, v4, v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$200(Lcom/android/launcher2/theme/OpenThemeManager;Ljava/lang/String;ZI)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0

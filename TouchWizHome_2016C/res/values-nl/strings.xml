@@ -138,6 +138,7 @@
     <string name="new_items">%d nieuwe items</string>
     <string name="no_downloaded_apps">Geen applicaties gedownload</string>
     <string name="no_room_any_page">Geen ruimte op een pagina.</string>
+    <string name="no_space_page">Geen ruimte op deze pagina. Probeer sneltoets toe te voegen op een andere pagina.</string>
     <string name="not_selected">Niet geselecteerd</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widget al toegevoegd aan startscherm.</string>

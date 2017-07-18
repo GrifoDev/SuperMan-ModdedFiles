@@ -138,6 +138,7 @@
     <string name="new_items">%d objekte të reja</string>
     <string name="no_downloaded_apps">Asnjë aplikacion i shkarkuar</string>
     <string name="no_room_any_page">Nuk ka vend në asnjë faqe.</string>
+    <string name="no_space_page">Nuk ka vend në faqe. Provo ta shtosh shkurtoren te një faqe tjetër.</string>
     <string name="not_selected">Nuk është përzgjedhur</string>
     <string name="ok">Ok</string>
     <string name="only_one_widget_instance_allowed">Widget-i %s është shtuar në ekranin bazë.</string>

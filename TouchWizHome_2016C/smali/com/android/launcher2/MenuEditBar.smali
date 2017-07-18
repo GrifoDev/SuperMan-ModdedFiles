@@ -193,11 +193,10 @@
 .method private initRotationHelperStyle(Lcom/android/launcher2/MenuEditBar$Item;)V
     .locals 3
 
-    const v2, 0x7f0e0025
+    const v2, 0x7f0f0025
 
-    const v1, 0x7f0e0004
+    const v1, 0x7f0f0004
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -208,28 +207,24 @@
     return-void
 
     :cond_0
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-static {v1, v0}, Lcom/android/launcher2/RotateHelper;->applyStyle(ILandroid/widget/TextView;)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-static {v1, v0}, Lcom/android/launcher2/RotateHelper;->applyStyleLayout(ILandroid/view/View;)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
 
     invoke-static {v2, v0}, Lcom/android/launcher2/RotateHelper;->applyStyle(ILandroid/view/View;)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -261,7 +256,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -411,11 +405,11 @@
     packed-switch v0, :pswitch_data_0
 
     :pswitch_0
-    const v1, 0x7f05002a
+    const v1, 0x7f06002a
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mHideAnimatorRes:I
 
-    const v1, 0x7f05002c
+    const v1, 0x7f06002c
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mShowAnimatorRes:I
 
@@ -423,33 +417,33 @@
     return-void
 
     :pswitch_1
-    const v1, 0x7f050021
+    const v1, 0x7f060021
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mHideAnimatorRes:I
 
-    const v1, 0x7f050022
+    const v1, 0x7f060022
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mShowAnimatorRes:I
 
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x7f050027
+    const v1, 0x7f060027
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mHideAnimatorRes:I
 
-    const v1, 0x7f050028
+    const v1, 0x7f060028
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mShowAnimatorRes:I
 
     goto :goto_0
 
     :pswitch_3
-    const/high16 v1, 0x7f050000
+    const/high16 v1, 0x7f060000
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mHideAnimatorRes:I
 
-    const v1, 0x7f050001
+    const v1, 0x7f060001
 
     iput v1, p0, Lcom/android/launcher2/MenuEditBar;->mShowAnimatorRes:I
 
@@ -467,28 +461,24 @@
 .method private setDrawableForOrientation(Lcom/android/launcher2/MenuEditBar$Item;[Landroid/graphics/drawable/Drawable;I)V
     .locals 5
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->drawable:Landroid/graphics/drawable/Drawable;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$500(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->drawable:Landroid/graphics/drawable/Drawable;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$500(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     aput-object v0, p2, p3
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -511,7 +501,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$300(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -559,7 +548,7 @@
 .method private setInitialAnimationParameter()V
     .locals 4
 
-    const v3, 0x7f0e0024
+    const v3, 0x7f0f0024
 
     invoke-virtual {p0}, Lcom/android/launcher2/MenuEditBar;->getContext()Landroid/content/Context;
 
@@ -601,28 +590,24 @@
 .method private setStates(Lcom/android/launcher2/MenuEditBar$Item;ZZZ)V
     .locals 1
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
 
     invoke-virtual {v0, p3}, Landroid/widget/FrameLayout;->setSelected(Z)V
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {p1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -654,7 +639,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -838,7 +822,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -851,7 +834,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -860,7 +842,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$300(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -869,13 +850,11 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # invokes: Lcom/android/launcher2/MenuEditBar$Item;->updateText()V
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$400(Lcom/android/launcher2/MenuEditBar$Item;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -888,7 +867,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -897,7 +875,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$300(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -906,7 +883,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # invokes: Lcom/android/launcher2/MenuEditBar$Item;->updateText()V
     invoke-static {v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$400(Lcom/android/launcher2/MenuEditBar$Item;)V
 
     :cond_2
@@ -1051,7 +1027,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v6}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -1064,7 +1039,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v6}, Lcom/android/launcher2/MenuEditBar$Item;->access$300(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -1117,7 +1091,6 @@
     :cond_6
     iget-object v6, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v6}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v6
@@ -1130,7 +1103,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v6}, Lcom/android/launcher2/MenuEditBar$Item;->access$300(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -1163,7 +1135,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v2, 0x7f100095
+    const v2, 0x7f110095
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1173,7 +1145,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f100097
+    const v2, 0x7f110097
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1185,19 +1157,16 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v2, v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$202(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v2, v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$102(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -1206,12 +1175,11 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->drawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$502(Lcom/android/launcher2/MenuEditBar$Item;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    const v2, 0x7f100096
+    const v2, 0x7f110096
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1219,12 +1187,10 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v3, v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$302(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/ImageView;)Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v2
@@ -1235,7 +1201,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -1244,11 +1209,10 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->label:Ljava/lang/CharSequence;
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$602(Lcom/android/launcher2/MenuEditBar$Item;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     :cond_0
-    const v2, 0x7f100092
+    const v2, 0x7f110092
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1258,7 +1222,7 @@
 
     if-eqz v0, :cond_1
 
-    const v2, 0x7f100094
+    const v2, 0x7f110094
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1270,19 +1234,16 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v2, v0}, Lcom/android/launcher2/MenuEditBar$Item;->access$202(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v2, v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$102(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/TextView;)Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -1291,12 +1252,11 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->drawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$502(Lcom/android/launcher2/MenuEditBar$Item;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    const v2, 0x7f100093
+    const v2, 0x7f110093
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/MenuEditBar;->findViewById(I)Landroid/view/View;
 
@@ -1304,12 +1264,10 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->imageView:Landroid/widget/ImageView;
     invoke-static {v3, v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$302(Lcom/android/launcher2/MenuEditBar$Item;Landroid/widget/ImageView;)Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v2}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v2
@@ -1320,7 +1278,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->textView:Landroid/widget/TextView;
     invoke-static {v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$100(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -1329,7 +1286,6 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/launcher2/MenuEditBar$Item;->label:Ljava/lang/CharSequence;
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuEditBar$Item;->access$602(Lcom/android/launcher2/MenuEditBar$Item;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     :cond_1
@@ -1359,7 +1315,7 @@
 .method public reloadLayout(I)V
     .locals 4
 
-    const v3, 0x7f090128
+    const v3, 0x7f0a0128
 
     const/4 v2, 0x0
 
@@ -1462,7 +1418,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1471,7 +1426,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1496,7 +1450,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1508,7 +1461,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1517,7 +1469,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1542,7 +1493,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -1686,7 +1636,6 @@
     :goto_5
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1705,7 +1654,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v10
@@ -1720,7 +1668,6 @@
     :cond_2
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1739,7 +1686,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v10
@@ -1772,7 +1718,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1781,7 +1726,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1806,7 +1750,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mLock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1818,7 +1761,6 @@
     :cond_4
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1827,7 +1769,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9
@@ -1852,7 +1793,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/MenuEditBar;->mUnlock:Lcom/android/launcher2/MenuEditBar$Item;
 
-    # getter for: Lcom/android/launcher2/MenuEditBar$Item;->Container:Landroid/widget/FrameLayout;
     invoke-static {v9}, Lcom/android/launcher2/MenuEditBar$Item;->access$200(Lcom/android/launcher2/MenuEditBar$Item;)Landroid/widget/FrameLayout;
 
     move-result-object v9

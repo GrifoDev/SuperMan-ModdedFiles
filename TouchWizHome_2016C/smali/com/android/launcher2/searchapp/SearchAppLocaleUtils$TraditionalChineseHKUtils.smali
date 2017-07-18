@@ -54,7 +54,6 @@
     const/16 v14, 0x1e
 
     :cond_0
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
     invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
 
     move-result-object v22
@@ -1432,7 +1431,6 @@
 
     const/16 v7, 0x20
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
     invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
 
     move-result-object v5
@@ -1449,7 +1447,6 @@
 
     if-nez v5, :cond_0
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
     invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
 
     move-result-object v5
@@ -1561,7 +1558,6 @@
     goto :goto_1
 
     :cond_6
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->mLocales:Lcom/android/launcher2/searchapp/LocaleSet;
     invoke-static {}, Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;->access$000()Lcom/android/launcher2/searchapp/LocaleSet;
 
     move-result-object v5

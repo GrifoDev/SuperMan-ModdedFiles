@@ -57,7 +57,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$2;->val$prvView:Landroid/widget/FrameLayout;
 
-    # invokes: Lcom/android/launcher2/LauncherAppWidgetHostView;->initWidgetAnimation(Landroid/view/View;Landroid/view/View;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$600(Lcom/android/launcher2/LauncherAppWidgetHostView;Landroid/view/View;Landroid/view/View;)V
 
     return-void

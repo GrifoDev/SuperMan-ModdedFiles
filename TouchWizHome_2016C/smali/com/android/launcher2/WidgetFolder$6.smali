@@ -65,7 +65,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/WidgetFolder$6;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->getGridLayoutOfFirstPage()Landroid/widget/GridLayout;
     invoke-static {v6}, Lcom/android/launcher2/WidgetFolder;->access$800(Lcom/android/launcher2/WidgetFolder;)Landroid/widget/GridLayout;
 
     move-result-object v2

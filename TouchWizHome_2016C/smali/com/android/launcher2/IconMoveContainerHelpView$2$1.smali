@@ -60,7 +60,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$600(Lcom/android/launcher2/IconMoveContainerHelpView;)Landroid/view/View;
 
     move-result-object v6
@@ -71,7 +70,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mForceClose:Z
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$700(Lcom/android/launcher2/IconMoveContainerHelpView;)Z
 
     move-result v6
@@ -85,7 +83,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_ImgView:Landroid/widget/ViewSwitcher;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$300(Lcom/android/launcher2/IconMoveContainerHelpView;)Landroid/widget/ViewSwitcher;
 
     move-result-object v6
@@ -100,7 +97,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_ImgView:Landroid/widget/ViewSwitcher;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$300(Lcom/android/launcher2/IconMoveContainerHelpView;)Landroid/widget/ViewSwitcher;
 
     move-result-object v6
@@ -147,7 +143,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_ImgView:Landroid/widget/ViewSwitcher;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$300(Lcom/android/launcher2/IconMoveContainerHelpView;)Landroid/widget/ViewSwitcher;
 
     move-result-object v6
@@ -158,7 +153,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # setter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView_ImgView:Landroid/widget/ViewSwitcher;
     invoke-static {v6, v7}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$302(Lcom/android/launcher2/IconMoveContainerHelpView;Landroid/widget/ViewSwitcher;)Landroid/widget/ViewSwitcher;
 
     :cond_2
@@ -166,21 +160,18 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # setter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v6, v7}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$602(Lcom/android/launcher2/IconMoveContainerHelpView;Landroid/view/View;)Landroid/view/View;
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainerHelpView$2$1;->this$1:Lcom/android/launcher2/IconMoveContainerHelpView$2;
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # setter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mIsRunning:Z
     invoke-static {v6, v8}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$802(Lcom/android/launcher2/IconMoveContainerHelpView;Z)Z
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainerHelpView$2$1;->this$1:Lcom/android/launcher2/IconMoveContainerHelpView$2;
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mContext:Landroid/content/Context;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$900(Lcom/android/launcher2/IconMoveContainerHelpView;)Landroid/content/Context;
 
     move-result-object v6
@@ -195,7 +186,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mForceClose:Z
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$700(Lcom/android/launcher2/IconMoveContainerHelpView;)Z
 
     move-result v6
@@ -221,7 +211,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$1000(Lcom/android/launcher2/IconMoveContainerHelpView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6
@@ -232,7 +221,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$1000(Lcom/android/launcher2/IconMoveContainerHelpView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6
@@ -247,7 +235,6 @@
 
     iget-object v6, v6, Lcom/android/launcher2/IconMoveContainerHelpView$2;->this$0:Lcom/android/launcher2/IconMoveContainerHelpView;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainerHelpView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainerHelpView;->access$1000(Lcom/android/launcher2/IconMoveContainerHelpView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6

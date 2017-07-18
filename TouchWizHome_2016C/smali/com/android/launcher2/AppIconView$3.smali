@@ -79,7 +79,6 @@
 
     invoke-direct {v2, v3, v4, v5}, Lcom/android/launcher2/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;II)V
 
-    # setter for: Lcom/android/launcher2/AppIconView;->mIconDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v1, v2}, Lcom/android/launcher2/AppIconView;->access$102(Lcom/android/launcher2/AppIconView;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     :cond_0
@@ -87,7 +86,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/AppIconView$3;->this$0:Lcom/android/launcher2/AppIconView;
 
-    # getter for: Lcom/android/launcher2/AppIconView;->mIconDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v2}, Lcom/android/launcher2/AppIconView;->access$100(Lcom/android/launcher2/AppIconView;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2

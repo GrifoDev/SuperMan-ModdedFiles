@@ -42,14 +42,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherApplication$1;->this$0:Lcom/android/launcher2/LauncherApplication;
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/LauncherApplication;->access$100(Lcom/android/launcher2/LauncherApplication;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherApplication$1;->this$0:Lcom/android/launcher2/LauncherApplication;
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->mBadgeRefreshRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/launcher2/LauncherApplication;->access$000(Lcom/android/launcher2/LauncherApplication;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -58,14 +56,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherApplication$1;->this$0:Lcom/android/launcher2/LauncherApplication;
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/LauncherApplication;->access$100(Lcom/android/launcher2/LauncherApplication;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherApplication$1;->this$0:Lcom/android/launcher2/LauncherApplication;
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->mBadgeRefreshRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/launcher2/LauncherApplication;->access$000(Lcom/android/launcher2/LauncherApplication;)Ljava/lang/Runnable;
 
     move-result-object v1

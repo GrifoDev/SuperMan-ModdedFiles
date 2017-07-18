@@ -28,11 +28,11 @@
 .method public gridSizeChange(Landroid/content/Context;Lcom/android/launcher2/LauncherApplication$HomeGridSize;)V
     .locals 9
 
-    const v8, 0x7f0e0014
+    const v8, 0x7f0f0014
 
-    const v7, 0x7f0e0013
+    const v7, 0x7f0f0013
 
-    const v6, 0x7f0901c7
+    const v6, 0x7f0a01c7
 
     iput-object p2, p0, Lcom/android/launcher2/IconInfo$Home;->mGridSize:Lcom/android/launcher2/LauncherApplication$HomeGridSize;
 
@@ -114,7 +114,7 @@
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f090005
+    const v5, 0x7f0a0005
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -122,11 +122,11 @@
 
     iput v5, p0, Lcom/android/launcher2/IconInfo$Home;->iconSize:I
 
-    const v5, 0x7f0e0005
+    const v5, 0x7f0f0005
 
     iput v5, p0, Lcom/android/launcher2/IconInfo$Home;->appIconStyle:I
 
-    const v5, 0x7f0e0006
+    const v5, 0x7f0f0006
 
     iput v5, p0, Lcom/android/launcher2/IconInfo$Home;->folderStyle:I
 

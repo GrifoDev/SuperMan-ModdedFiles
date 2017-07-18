@@ -138,6 +138,7 @@
     <string name="new_items">%d פריטים חדשים</string>
     <string name="no_downloaded_apps">אין יישומים שהורדו</string>
     <string name="no_room_any_page">אין מקום באף דף.</string>
+    <string name="no_space_page">אין מקום בדף. נסה להוסיף את קיצור הדרך בדף אחר.</string>
     <string name="not_selected">לא נבחר</string>
     <string name="ok">אישור</string>
     <string name="only_one_widget_instance_allowed">היישומון %s כבר נוסף במסך הבית.</string>

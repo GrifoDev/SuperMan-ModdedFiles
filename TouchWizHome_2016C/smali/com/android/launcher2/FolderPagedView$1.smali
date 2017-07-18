@@ -41,7 +41,6 @@
 
     const/4 v1, -0x1
 
-    # setter for: Lcom/android/launcher2/FolderPagedView;->mDeletedItemPos:I
     invoke-static {v0, v1}, Lcom/android/launcher2/FolderPagedView;->access$002(Lcom/android/launcher2/FolderPagedView;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/FolderPagedView$1;->this$0:Lcom/android/launcher2/FolderPagedView;

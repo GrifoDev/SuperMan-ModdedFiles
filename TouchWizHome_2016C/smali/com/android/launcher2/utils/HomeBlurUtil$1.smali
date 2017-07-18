@@ -56,7 +56,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/HomeBlurUtil$1;->this$0:Lcom/android/launcher2/utils/HomeBlurUtil;
 
-    # setter for: Lcom/android/launcher2/utils/HomeBlurUtil;->mOnTransientBlur:Z
     invoke-static {v0, v4}, Lcom/android/launcher2/utils/HomeBlurUtil;->access$002(Lcom/android/launcher2/utils/HomeBlurUtil;Z)Z
 
     return-void

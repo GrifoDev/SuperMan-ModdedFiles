@@ -168,7 +168,6 @@
 .method cleanup(Ljava/lang/String;Z)V
     .locals 4
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
 
     move-result-object v0

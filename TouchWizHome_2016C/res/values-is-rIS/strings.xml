@@ -139,6 +139,7 @@ forrit"</string>
     <string name="new_items">%d nýir hlutir</string>
     <string name="no_downloaded_apps">Engin sótt forrit</string>
     <string name="no_room_any_page">Ekkert pláss á síðum.</string>
+    <string name="no_space_page">Ekkert pláss á síðunni. Prófaðu að bæta flýtileið við aðra síðu.</string>
     <string name="not_selected">Ekki valið</string>
     <string name="ok">Í lagi</string>
     <string name="only_one_widget_instance_allowed">%s-græjunni hefur þegar verið bætt við heimaskjá.</string>

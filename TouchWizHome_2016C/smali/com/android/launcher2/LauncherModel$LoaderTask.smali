@@ -293,7 +293,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->getFestivalPageCountFromDb()I
     invoke-static {v2}, Lcom/android/launcher2/LauncherModel;->access$100(Lcom/android/launcher2/LauncherModel;)I
 
     move-result v2
@@ -508,13 +507,13 @@
 
     move-result-object v6
 
-    const v8, 0x7f0b0009
+    const v8, 0x7f0c0009
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v8
 
-    const v9, 0x7f0b000a
+    const v9, 0x7f0c000a
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -793,7 +792,7 @@
 
     const/4 v4, 0x0
 
-    const v18, 0x7f0b0009
+    const v18, 0x7f0c0009
 
     move/from16 v0, v18
 
@@ -801,7 +800,7 @@
 
     move-result v18
 
-    const v19, 0x7f0b000a
+    const v19, 0x7f0c000a
 
     move/from16 v0, v19
 
@@ -1776,7 +1775,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0f0001
+    const v6, 0x7f100001
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3241,7 +3240,9 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    monitor-enter p0
+    sget-object v1, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetListLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     sget-object v0, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
@@ -3252,7 +3253,7 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    monitor-exit p0
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -3310,7 +3311,7 @@
     move-exception v0
 
     :try_start_1
-    monitor-exit p0
+    monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -3520,7 +3521,6 @@
 
     sget-object v13, Lcom/android/launcher2/BaseItem$Type;->HOME_APPLICATION:Lcom/android/launcher2/BaseItem$Type;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->addShortcutHomeOnly(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/BaseItem$Type;)V
     invoke-static {v10, v11, v12, v1, v13}, Lcom/android/launcher2/LauncherModel;->access$300(Lcom/android/launcher2/LauncherModel;Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;Lcom/android/launcher2/LauncherModel$Callbacks;Lcom/android/launcher2/BaseItem$Type;)V
 
     goto :goto_2
@@ -4047,7 +4047,6 @@
 
     move-object/from16 v25, v0
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->getIconFromCursor([B)Landroid/graphics/Bitmap;
     invoke-static/range {v24 .. v25}, Lcom/android/launcher2/LauncherModel;->access$1600(Lcom/android/launcher2/LauncherModel;[B)Landroid/graphics/Bitmap;
 
     move-result-object v24
@@ -5367,7 +5366,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->getRestoredItemInfo(Landroid/content/Context;Lcom/android/launcher2/LauncherSettings$FavoriteValue;Landroid/content/Intent;ILandroid/content/ComponentName;Landroid/content/pm/PackageManager;)Lcom/android/launcher2/HomeShortcutItem;
     invoke-static/range {v4 .. v10}, Lcom/android/launcher2/LauncherModel;->access$1400(Lcom/android/launcher2/LauncherModel;Landroid/content/Context;Lcom/android/launcher2/LauncherSettings$FavoriteValue;Landroid/content/Intent;ILandroid/content/ComponentName;Landroid/content/pm/PackageManager;)Lcom/android/launcher2/HomeShortcutItem;
 
     move-result-object v46
@@ -6150,6 +6148,18 @@
     :cond_30
     if-nez v51, :cond_31
 
+    invoke-virtual {v9}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v11, "com.sec.android.widgetapp.webmanual/com.sec.android.widgetapp.webmanual.WebManual"
+
+    invoke-virtual {v4, v11}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_31
+
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -6692,7 +6702,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -6703,7 +6712,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -6735,7 +6743,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -6746,7 +6753,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -6772,7 +6778,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -6785,7 +6790,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mFolderLock:Lcom/android/launcher2/FolderLock;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1500(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/FolderLock;
 
     move-result-object v4
@@ -10115,7 +10119,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mRequireRefreshAll:Z
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$500(Lcom/android/launcher2/LauncherModel;)Z
 
     move-result v4
@@ -10253,7 +10256,6 @@
     :cond_a
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->checkAppWidgetBinding()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$600(Lcom/android/launcher2/LauncherModel;)V
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -10278,7 +10280,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->checkAndChangeCallApp()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$700(Lcom/android/launcher2/LauncherModel;)V
 
     :cond_b
@@ -10290,7 +10291,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->checkAppShortcut()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$800(Lcom/android/launcher2/LauncherModel;)V
 
     :cond_c
@@ -10306,13 +10306,11 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->checkUninstalledApps()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$900(Lcom/android/launcher2/LauncherModel;)V
 
     :cond_d
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->checkFolderTranslation()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1000(Lcom/android/launcher2/LauncherModel;)V
 
     :cond_e
@@ -10324,7 +10322,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # invokes: Lcom/android/launcher2/LauncherModel;->extraUpdateByFota()V
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1100(Lcom/android/launcher2/LauncherModel;)V
 
     :cond_f
@@ -10536,7 +10533,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # setter for: Lcom/android/launcher2/LauncherModel;->mRequireRefreshAll:Z
     invoke-static {v4, v6}, Lcom/android/launcher2/LauncherModel;->access$502(Lcom/android/launcher2/LauncherModel;Z)Z
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
@@ -10548,7 +10544,6 @@
     :try_start_6
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mLoaderTask:Lcom/android/launcher2/LauncherModel$LoaderTask;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$1300(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     move-result-object v4
@@ -10559,7 +10554,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Lcom/android/launcher2/LauncherModel;->mLoaderTask:Lcom/android/launcher2/LauncherModel$LoaderTask;
     invoke-static {v4, v6}, Lcom/android/launcher2/LauncherModel;->access$1302(Lcom/android/launcher2/LauncherModel;Lcom/android/launcher2/LauncherModel$LoaderTask;)Lcom/android/launcher2/LauncherModel$LoaderTask;
 
     :cond_16

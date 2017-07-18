@@ -294,7 +294,6 @@
 
     iput-object v7, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->folderIds:Ljava/lang/StringBuilder;
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v7
@@ -320,14 +319,12 @@
 
     const/4 v5, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
 
     if-eqz v7, :cond_2
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mUserManager:Landroid/os/UserManager;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$400()Landroid/os/UserManager;
 
     move-result-object v7
@@ -346,7 +343,6 @@
 
     if-eqz v7, :cond_d
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -388,7 +384,6 @@
     move-result v5
 
     :goto_0
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -679,7 +674,6 @@
 
     iput-boolean v7, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mIsHomeOnlyMode:Z
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -701,7 +695,6 @@
 
     if-eqz v7, :cond_1
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -745,7 +738,6 @@
     :goto_4
     iput-boolean v5, p0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mIsHomeOnlyMode:Z
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -797,7 +789,6 @@
 
     if-eqz v7, :cond_7
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v7
@@ -1060,7 +1051,6 @@
     invoke-direct {v2, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
@@ -1173,7 +1163,6 @@
     move-exception v4
 
     :goto_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v9
@@ -1207,7 +1196,6 @@
     invoke-static {v9, v10, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v9
@@ -1227,7 +1215,6 @@
     move-result v5
 
     :cond_3
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$800()Ljava/util/HashMap;
 
     move-result-object v9
@@ -1238,7 +1225,6 @@
 
     if-eqz v9, :cond_4
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$800()Ljava/util/HashMap;
 
     move-result-object v9
@@ -1347,7 +1333,6 @@
 
     const/4 v10, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v11
@@ -1477,14 +1462,12 @@
 
     if-nez v10, :cond_0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v11
 
     if-eqz v11, :cond_0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredAllocateAppWidgetIdList:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$1000()Ljava/util/HashMap;
 
     move-result-object v11
@@ -1518,7 +1501,6 @@
     :catch_0
     move-exception v5
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v11
@@ -1661,14 +1643,12 @@
 
     const/4 v13, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedWidgetComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$900()Ljava/util/HashMap;
 
     move-result-object v2
@@ -1679,7 +1659,6 @@
 
     if-nez v2, :cond_3
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedWidgetComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$900()Ljava/util/HashMap;
 
     move-result-object v2
@@ -1690,7 +1669,6 @@
 
     if-eqz v2, :cond_3
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedWidgetComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$900()Ljava/util/HashMap;
 
     move-result-object v2
@@ -2569,7 +2547,6 @@
     invoke-direct {v5, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
@@ -2804,7 +2781,6 @@
     move-exception v7
 
     :goto_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v15
@@ -2852,7 +2828,6 @@
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v15
@@ -2874,7 +2849,6 @@
     move-result v10
 
     :cond_5
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$800()Ljava/util/HashMap;
 
     move-result-object v15
@@ -2885,7 +2859,6 @@
 
     if-eqz v15, :cond_6
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredChangedComponent:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$800()Ljava/util/HashMap;
 
     move-result-object v15
@@ -3159,7 +3132,6 @@
     :catch_0
     move-exception v10
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v24
@@ -3202,7 +3174,6 @@
 
     move-result-wide v14
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v24
@@ -3401,7 +3372,6 @@
     goto/16 :goto_0
 
     :cond_8
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v24
@@ -3499,7 +3469,6 @@
     :try_start_1
     new-instance v9, Ljava/io/File;
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mBasePathForRestore:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$1100()Ljava/lang/String;
 
     move-result-object v24
@@ -3555,7 +3524,6 @@
 
     move-result-object v24
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mBasePathForRestore:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$1100()Ljava/lang/String;
 
     move-result-object v25
@@ -3629,7 +3597,6 @@
 
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredVcfList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$1200()Ljava/util/ArrayList;
 
     move-result-object v24
@@ -4054,7 +4021,6 @@
 
     const/4 v8, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -4130,7 +4096,6 @@
     :cond_2
     if-eqz v6, :cond_4
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -4227,7 +4192,6 @@
 
     move-result-object v15
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -4300,7 +4264,6 @@
 
     move-result v12
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -4455,7 +4418,6 @@
     move-exception v16
 
     :try_start_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -4479,7 +4441,6 @@
     move-exception v16
 
     :try_start_3
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -5308,7 +5269,6 @@
 
     if-nez v8, :cond_8
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v8
@@ -5329,7 +5289,7 @@
 
     move-result-object v4
 
-    const v8, 0x7f0b004a
+    const v8, 0x7f0c004a
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5357,7 +5317,7 @@
     if-le v5, v2, :cond_3
 
     :cond_1
-    const v8, 0x7f0b0002
+    const v8, 0x7f0c0002
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5395,7 +5355,7 @@
     if-lt v6, v5, :cond_7
 
     :cond_5
-    const v8, 0x7f0b0046
+    const v8, 0x7f0c0046
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5924,7 +5884,6 @@
     return v11
 
     :cond_0
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v0
@@ -6231,7 +6190,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -6386,7 +6344,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0c000c
+    const v7, 0x7f0d000c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -6400,7 +6358,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0f0007
+    const v7, 0x7f100007
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -6551,7 +6509,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -6663,7 +6620,6 @@
 
     if-nez v4, :cond_4
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v4
@@ -6706,7 +6662,6 @@
 
     move-result-object v36
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -6970,7 +6925,6 @@
     :goto_4
     const/16 v16, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v4
@@ -7294,7 +7248,6 @@
 
     if-eqz v4, :cond_14
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v4
@@ -7624,7 +7577,6 @@
 
     if-eqz v28, :cond_8
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v4
@@ -7636,7 +7588,6 @@
     goto/16 :goto_3
 
     :cond_20
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -7903,7 +7854,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f06000b
+    const v4, 0x7f07000b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -8014,7 +7965,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f06000a
+    const v4, 0x7f07000a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -8094,7 +8045,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f060009
+    const v4, 0x7f070009
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -8118,7 +8069,6 @@
     :catch_0
     move-exception v16
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8140,7 +8090,6 @@
 
     :goto_2
     :try_start_9
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8170,7 +8119,6 @@
     :catch_2
     move-exception v16
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8192,7 +8140,6 @@
 
     :goto_3
     :try_start_b
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8222,7 +8169,6 @@
     :catch_4
     move-exception v16
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8244,7 +8190,6 @@
 
     :goto_4
     :try_start_d
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8274,7 +8219,6 @@
     :catch_6
     move-exception v16
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8309,7 +8253,6 @@
     :catch_7
     move-exception v16
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -8380,7 +8323,6 @@
     :goto_0
     const/16 v43, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -8637,7 +8579,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0c0029
+    const v3, 0x7f0d0029
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -8677,7 +8619,6 @@
 
     :cond_2
     :goto_1
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v2
@@ -8770,7 +8711,6 @@
     :catch_0
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8790,7 +8730,6 @@
     :catch_1
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8810,7 +8749,6 @@
     :catch_2
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -8857,14 +8795,12 @@
     :goto_5
     if-eqz v38, :cond_b
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
 
     if-eqz v2, :cond_b
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -8905,14 +8841,12 @@
     :cond_c
     const/16 v19, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
 
     if-eqz v2, :cond_d
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -8958,14 +8892,12 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v2
 
     if-nez v2, :cond_e
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -9034,7 +8966,6 @@
 
     move-result-object v7
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v2
@@ -9119,7 +9050,7 @@
     :cond_13
     if-eqz v38, :cond_14
 
-    const v2, 0x7f060014
+    const v2, 0x7f070014
 
     :try_start_7
     move-object/from16 v0, v49
@@ -9131,7 +9062,7 @@
     goto/16 :goto_5
 
     :cond_14
-    const v2, 0x7f060015
+    const v2, 0x7f070015
 
     move-object/from16 v0, v49
 
@@ -9173,7 +9104,7 @@
 
     if-eqz v2, :cond_17
 
-    const v2, 0x7f060012
+    const v2, 0x7f070012
 
     move-object/from16 v0, v49
 
@@ -9293,7 +9224,7 @@
     goto/16 :goto_5
 
     :cond_19
-    const v2, 0x7f060011
+    const v2, 0x7f070011
 
     :try_start_b
     move-object/from16 v0, v49
@@ -9378,7 +9309,7 @@
 
     if-nez v2, :cond_1c
 
-    const v2, 0x7f060017
+    const v2, 0x7f070017
 
     move-object/from16 v0, v49
 
@@ -9393,7 +9324,7 @@
 
     if-eqz v38, :cond_1d
 
-    const v50, 0x7f060013
+    const v50, 0x7f070013
 
     :goto_7
     invoke-virtual/range {v49 .. v50}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -9403,7 +9334,7 @@
     goto/16 :goto_5
 
     :cond_1d
-    const v50, 0x7f060010
+    const v50, 0x7f070010
 
     goto :goto_7
 
@@ -9558,7 +9489,6 @@
 
     :goto_8
     :try_start_e
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9605,14 +9535,12 @@
     :goto_b
     if-eqz v38, :cond_25
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
 
     if-eqz v2, :cond_25
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -9668,7 +9596,6 @@
 
     :goto_c
     :try_start_13
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9716,7 +9643,6 @@
     :catch_5
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9735,7 +9661,6 @@
 
     :cond_2a
     :try_start_17
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9790,7 +9715,6 @@
 
     :goto_f
     :try_start_18
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9838,7 +9762,6 @@
     :catch_7
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9886,7 +9809,6 @@
     :catch_8
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9906,7 +9828,6 @@
     :catch_9
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9926,7 +9847,6 @@
     :catch_a
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9946,7 +9866,6 @@
     :catch_b
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9966,7 +9885,6 @@
     :catch_c
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -9986,7 +9904,6 @@
     :catch_d
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -10006,7 +9923,6 @@
     :catch_e
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -10026,7 +9942,6 @@
     :catch_f
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -10046,7 +9961,6 @@
     :catch_10
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -10066,7 +9980,6 @@
     :catch_11
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -10119,7 +10032,6 @@
     :catch_12
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -10139,7 +10051,6 @@
     :catch_13
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -10159,7 +10070,6 @@
     :catch_14
     move-exception v29
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -10374,7 +10284,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
@@ -10482,7 +10391,6 @@
 
     const/16 v63, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v6
@@ -10507,7 +10415,6 @@
 
     move-result-object v82
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v6
@@ -10520,7 +10427,7 @@
 
     move-result-object v76
 
-    const v6, 0x7f0c0018
+    const v6, 0x7f0d0018
 
     move-object/from16 v0, v76
 
@@ -10561,30 +10468,29 @@
 
     :cond_3
     :goto_1
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
 
-    if-nez v6, :cond_3d
+    if-nez v6, :cond_3e
 
     move-object/from16 v0, p0
 
     iget-boolean v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportFlexibleGrid:Z
 
-    if-eqz v6, :cond_3d
+    if-eqz v6, :cond_3e
 
     const-wide/16 v6, -0x64
 
     cmp-long v6, p4, v6
 
-    if-nez v6, :cond_3d
+    if-nez v6, :cond_3e
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportGridSizeArray:[Ljava/lang/String;
 
-    if-eqz v6, :cond_3d
+    if-eqz v6, :cond_3e
 
     const/16 v69, 0x0
 
@@ -10599,7 +10505,7 @@
 
     move/from16 v0, v64
 
-    if-ge v0, v6, :cond_3b
+    if-ge v0, v6, :cond_3c
 
     move-object/from16 v0, p0
 
@@ -10627,7 +10533,6 @@
 
     move-result-object v70
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
@@ -10659,7 +10564,6 @@
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
@@ -10774,7 +10678,7 @@
     :cond_8
     const-string v79, ""
 
-    if-eqz p7, :cond_13
+    if-eqz p7, :cond_12
 
     const/16 v37, 0x0
 
@@ -11006,7 +10910,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_13
 
     :cond_c
     const/4 v10, 0x0
@@ -11022,7 +10926,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_14
 
     :cond_d
     const/4 v11, 0x0
@@ -11087,7 +10991,7 @@
 
     const-string v7, "secret"
 
-    if-eqz v63, :cond_16
+    if-eqz v63, :cond_15
 
     const/4 v6, 0x1
 
@@ -11106,7 +11010,7 @@
 
     const-string v7, "festival"
 
-    if-nez v59, :cond_17
+    if-nez v59, :cond_16
 
     const-string v6, "0"
 
@@ -11118,7 +11022,7 @@
     :cond_f
     and-int/lit8 v6, p6, 0x1
 
-    if-eqz v6, :cond_19
+    if-eqz v6, :cond_1a
 
     const-string v6, "favorite"
 
@@ -11128,16 +11032,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_19
+    if-eqz v6, :cond_1a
 
     const/16 v30, 0x0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
 
-    if-eqz v6, :cond_11
+    if-eqz v6, :cond_17
 
     const/4 v6, 0x0
 
@@ -11209,80 +11112,77 @@
     invoke-virtual {v0, v6, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
     :cond_11
-    const/4 v6, 0x0
+    const-string v6, "CHM"
 
-    const-string v7, "title"
+    sget-object v7, Lcom/android/launcher2/LauncherFeature;->mSalesCode:Ljava/lang/String;
 
-    move-object/from16 v0, p3
-
-    invoke-interface {v0, v6, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v29
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mOmcAutoInstallApp:Ljava/util/HashMap;
-
-    invoke-virtual {v6}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-nez v6, :cond_18
+    if-eqz v6, :cond_17
 
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mOmcAutoInstallApp:Ljava/util/HashMap;
+    const-string v6, "com.samsung.android.app.sreminder"
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v6, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_18
+    if-eqz v6, :cond_17
 
-    move-object/from16 v7, p0
+    const-string v6, "com.samsung.android.app.sreminder.phone.cardlist.SReminderActivity"
 
-    move-wide/from16 v8, p4
+    move-object/from16 v0, v20
 
-    invoke-direct/range {v7 .. v13}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->isValidPosition(JIILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_17
 
-    const/16 v21, 0x1
+    const-string v6, "0"
 
-    move-object/from16 v14, p0
+    move-object/from16 v0, v79
 
-    move-object/from16 v15, p1
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v16, p2
+    move-result v6
 
-    invoke-direct/range {v14 .. v21}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->addAutoInstallShortcut(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;Z)J
+    if-eqz v6, :cond_17
 
-    move-result-wide v6
+    const-string v6, "0"
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v0, v89
 
-    cmp-long v6, v6, v8
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-ltz v6, :cond_12
+    move-result v6
 
-    add-int/lit8 v68, v68, 0x1
+    if-eqz v6, :cond_17
 
-    :cond_12
-    :goto_9
-    if-nez p7, :cond_1
+    const-string v6, "0"
 
-    invoke-virtual/range {v37 .. v37}, Landroid/content/res/TypedArray;->recycle()V
+    move-object/from16 v0, v90
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_17
+
+    const-string v6, "LauncherProvider"
+
+    const-string v7, "s reminder app skip restore"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :catch_0
     move-exception v58
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
@@ -11301,7 +11201,7 @@
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mContext:Landroid/content/Context;
@@ -11416,31 +11316,63 @@
 
     goto/16 :goto_4
 
-    :cond_14
+    :cond_13
     invoke-static/range {v89 .. v89}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v10
 
     goto/16 :goto_5
 
-    :cond_15
+    :cond_14
     invoke-static/range {v90 .. v90}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v11
 
     goto/16 :goto_6
 
-    :cond_16
+    :cond_15
     const/4 v6, 0x0
 
     goto/16 :goto_7
 
-    :cond_17
+    :cond_16
     move-object/from16 v6, v59
 
     goto/16 :goto_8
 
-    :cond_18
+    :cond_17
+    const/4 v6, 0x0
+
+    const-string v7, "title"
+
+    move-object/from16 v0, p3
+
+    invoke-interface {v0, v6, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v29
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mOmcAutoInstallApp:Ljava/util/HashMap;
+
+    invoke-virtual {v6}, Ljava/util/HashMap;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_19
+
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mOmcAutoInstallApp:Ljava/util/HashMap;
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v6, v0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_19
+
     move-object/from16 v7, p0
 
     move-wide/from16 v8, p4
@@ -11449,7 +11381,46 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
+
+    const/16 v21, 0x1
+
+    move-object/from16 v14, p0
+
+    move-object/from16 v15, p1
+
+    move-object/from16 v16, p2
+
+    invoke-direct/range {v14 .. v21}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->addAutoInstallShortcut(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;Z)J
+
+    move-result-wide v6
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v6, v6, v8
+
+    if-ltz v6, :cond_18
+
+    add-int/lit8 v68, v68, 0x1
+
+    :cond_18
+    :goto_9
+    if-nez p7, :cond_1
+
+    invoke-virtual/range {v37 .. v37}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto/16 :goto_0
+
+    :cond_19
+    move-object/from16 v7, p0
+
+    move-wide/from16 v8, p4
+
+    invoke-direct/range {v7 .. v13}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->isValidPosition(JIILjava/lang/String;Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_18
 
     move-object/from16 v21, p0
 
@@ -11473,16 +11444,16 @@
 
     cmp-long v6, v6, v8
 
-    if-ltz v6, :cond_12
+    if-ltz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
-    goto/16 :goto_9
+    goto :goto_9
 
-    :cond_19
+    :cond_1a
     and-int/lit8 v6, p6, 0x1
 
-    if-eqz v6, :cond_1a
+    if-eqz v6, :cond_1b
 
     const-string v6, "autoinstall"
 
@@ -11492,7 +11463,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1a
+    if-eqz v6, :cond_1b
 
     move-object/from16 v7, p0
 
@@ -11502,7 +11473,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     const/16 v21, 0x0
 
@@ -11520,16 +11491,16 @@
 
     cmp-long v6, v6, v8
 
-    if-ltz v6, :cond_12
+    if-ltz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
-    goto/16 :goto_9
+    goto :goto_9
 
-    :cond_1a
+    :cond_1b
     and-int/lit8 v6, p6, 0x2
 
-    if-eqz v6, :cond_1e
+    if-eqz v6, :cond_1f
 
     const-string v6, "shortcut"
 
@@ -11539,7 +11510,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1e
+    if-eqz v6, :cond_1f
 
     const/16 v35, 0x0
 
@@ -11547,7 +11518,7 @@
 
     const/16 v41, 0x0
 
-    if-eqz p7, :cond_1d
+    if-eqz p7, :cond_1e
 
     const/4 v6, 0x0
 
@@ -11579,14 +11550,13 @@
 
     move-result-object v40
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1d
+    if-eqz v6, :cond_1e
 
-    if-eqz v38, :cond_1b
+    if-eqz v38, :cond_1c
 
     const/16 v80, 0x0
 
@@ -11602,13 +11572,13 @@
     move-result-object v80
 
     :goto_a
-    if-eqz v80, :cond_1b
+    if-eqz v80, :cond_1c
 
     invoke-virtual/range {v80 .. v80}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1b
+    if-eqz v6, :cond_1c
 
     const-string v6, "com.samsung.knox.rcp.components"
 
@@ -11626,7 +11596,7 @@
 
     if-nez v6, :cond_1
 
-    :cond_1b
+    :cond_1c
     const/4 v6, 0x0
 
     const-string v7, "restored"
@@ -11641,7 +11611,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_1c
+    if-nez v6, :cond_1d
 
     const-string v6, "restored"
 
@@ -11657,7 +11627,7 @@
 
     invoke-virtual {v0, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    :cond_1c
+    :cond_1d
     const/4 v6, 0x0
 
     const-string v7, "title"
@@ -11702,7 +11672,7 @@
 
     move-result-object v41
 
-    :cond_1d
+    :cond_1e
     move-object/from16 v7, p0
 
     move-wide/from16 v8, p4
@@ -11711,7 +11681,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     move-object/from16 v31, p0
 
@@ -11731,7 +11701,7 @@
 
     cmp-long v6, v6, v8
 
-    if-ltz v6, :cond_12
+    if-ltz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
@@ -11744,10 +11714,10 @@
 
     goto/16 :goto_a
 
-    :cond_1e
+    :cond_1f
     and-int/lit8 v6, p6, 0x8
 
-    if-eqz v6, :cond_26
+    if-eqz v6, :cond_27
 
     const-string v6, "search"
 
@@ -11757,13 +11727,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_26
+    if-eqz v6, :cond_27
 
     const-string v12, "4"
 
     const-string v13, "1"
 
-    if-eqz p7, :cond_24
+    if-eqz p7, :cond_25
 
     const/4 v6, 0x0
 
@@ -11785,9 +11755,9 @@
 
     move-result-object v13
 
-    :cond_1f
+    :cond_20
     :goto_b
-    if-eqz v12, :cond_20
+    if-eqz v12, :cond_21
 
     const-string v6, "null"
 
@@ -11795,13 +11765,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_21
-
-    :cond_20
-    const-string v12, "4"
+    if-eqz v6, :cond_22
 
     :cond_21
-    if-eqz v13, :cond_22
+    const-string v12, "4"
+
+    :cond_22
+    if-eqz v13, :cond_23
 
     const-string v6, "null"
 
@@ -11809,12 +11779,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_23
-
-    :cond_22
-    const-string v13, "1"
+    if-eqz v6, :cond_24
 
     :cond_23
+    const-string v13, "1"
+
+    :cond_24
     move-object/from16 v7, p0
 
     move-wide/from16 v8, p4
@@ -11823,7 +11793,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     invoke-static {v12}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -11845,13 +11815,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
     goto/16 :goto_9
 
-    :cond_24
+    :cond_25
     const/4 v6, 0x7
 
     move-object/from16 v0, v37
@@ -11860,7 +11830,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_25
+    if-eqz v6, :cond_26
 
     const/4 v6, 0x7
 
@@ -11870,7 +11840,7 @@
 
     move-result-object v12
 
-    :cond_25
+    :cond_26
     const/16 v6, 0x8
 
     move-object/from16 v0, v37
@@ -11879,7 +11849,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1f
+    if-eqz v6, :cond_20
 
     const/16 v6, 0x8
 
@@ -11891,10 +11861,10 @@
 
     goto :goto_b
 
-    :cond_26
+    :cond_27
     and-int/lit8 v6, p6, 0x8
 
-    if-eqz v6, :cond_27
+    if-eqz v6, :cond_28
 
     const-string v6, "clock"
 
@@ -11904,7 +11874,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_27
+    if-eqz v6, :cond_28
 
     const-string v12, "2"
 
@@ -11918,7 +11888,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     move-object/from16 v0, p0
 
@@ -11932,16 +11902,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
     goto/16 :goto_9
 
-    :cond_27
+    :cond_28
     and-int/lit8 v6, p6, 0x8
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_2f
 
     const-string v6, "appwidget"
 
@@ -11951,11 +11921,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_2f
 
     const/16 v51, -0x1
 
-    if-eqz p7, :cond_2d
+    if-eqz p7, :cond_2e
 
     const/4 v6, 0x0
 
@@ -11977,12 +11947,11 @@
 
     move-result-object v13
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
 
-    if-eqz v6, :cond_28
+    if-eqz v6, :cond_29
 
     const/4 v6, 0x0
 
@@ -11998,9 +11967,9 @@
 
     move-result v51
 
-    :cond_28
+    :cond_29
     :goto_c
-    if-eqz v12, :cond_29
+    if-eqz v12, :cond_2a
 
     const-string v6, "null"
 
@@ -12008,13 +11977,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2a
-
-    :cond_29
-    const-string v12, "1"
+    if-eqz v6, :cond_2b
 
     :cond_2a
-    if-eqz v13, :cond_2b
+    const-string v12, "1"
+
+    :cond_2b
+    if-eqz v13, :cond_2c
 
     const-string v6, "null"
 
@@ -12022,12 +11991,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2c
-
-    :cond_2b
-    const-string v13, "1"
+    if-eqz v6, :cond_2d
 
     :cond_2c
+    const-string v13, "1"
+
+    :cond_2d
     move-object/from16 v7, p0
 
     move-wide/from16 v8, p4
@@ -12036,7 +12005,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     invoke-static {v12}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -12064,13 +12033,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
     goto/16 :goto_9
 
-    :cond_2d
+    :cond_2e
     const/4 v6, 0x7
 
     move-object/from16 v0, v37
@@ -12089,10 +12058,10 @@
 
     goto :goto_c
 
-    :cond_2e
+    :cond_2f
     and-int/lit8 v6, p6, 0x4
 
-    if-eqz v6, :cond_3a
+    if-eqz v6, :cond_3b
 
     const-string v6, "folder"
 
@@ -12102,7 +12071,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3a
+    if-eqz v6, :cond_3b
 
     const/16 v84, 0x0
 
@@ -12112,13 +12081,13 @@
 
     const/16 v60, 0x0
 
-    if-eqz p7, :cond_32
+    if-eqz p7, :cond_33
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mPAItargetResources:Landroid/content/res/Resources;
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_32
 
     move-object/from16 v6, p3
 
@@ -12134,7 +12103,7 @@
 
     move-result v54
 
-    if-eqz v54, :cond_30
+    if-eqz v54, :cond_31
 
     move-object/from16 v0, p0
 
@@ -12180,11 +12149,11 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2f
+    if-eqz v6, :cond_30
 
     const/16 v67, 0x0
 
-    :cond_2f
+    :cond_30
     const-string v6, "title"
 
     move-object/from16 v0, v17
@@ -12211,7 +12180,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     move-object/from16 v0, p0
 
@@ -12229,7 +12198,7 @@
 
     cmp-long v6, v46, v6
 
-    if-ltz v6, :cond_12
+    if-ltz v6, :cond_18
 
     add-int/lit8 v68, v68, 0x1
 
@@ -12252,12 +12221,11 @@
 
     move-result v61
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mIsRestoreHomeScreen:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$500()Z
 
     move-result v6
 
-    if-eqz v6, :cond_34
+    if-eqz v6, :cond_35
 
     invoke-static/range {v79 .. v79}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -12267,7 +12235,7 @@
 
     move-result v6
 
-    if-gez v6, :cond_34
+    if-gez v6, :cond_35
 
     move-object/from16 v0, p0
 
@@ -12281,7 +12249,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_35
+    if-eqz v6, :cond_36
 
     move-object/from16 v0, p0
 
@@ -12299,12 +12267,12 @@
 
     goto/16 :goto_0
 
-    :cond_30
+    :cond_31
     const-string v84, ""
 
     goto/16 :goto_d
 
-    :cond_31
+    :cond_32
     const/4 v6, 0x0
 
     const-string v7, "title"
@@ -12317,7 +12285,7 @@
 
     goto/16 :goto_d
 
-    :cond_32
+    :cond_33
     const/16 v6, 0xa
 
     const/4 v7, -0x1
@@ -12332,7 +12300,7 @@
 
     move/from16 v0, v85
 
-    if-eq v0, v6, :cond_33
+    if-eq v0, v6, :cond_34
 
     move-object/from16 v0, p0
 
@@ -12348,7 +12316,7 @@
 
     move-result-object v84
 
-    :cond_33
+    :cond_34
     const/16 v6, 0x10
 
     const/4 v7, 0x0
@@ -12369,12 +12337,12 @@
 
     goto/16 :goto_e
 
-    :cond_34
+    :cond_35
     const/4 v6, 0x1
 
     move/from16 v0, v61
 
-    if-gt v0, v6, :cond_37
+    if-gt v0, v6, :cond_38
 
     :try_start_4
     const-string v6, "LauncherProvider"
@@ -12419,7 +12387,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_37
 
     add-int/lit8 v68, v68, -0x1
 
@@ -12427,7 +12395,7 @@
 
     move/from16 v0, v61
 
-    if-ne v0, v6, :cond_35
+    if-ne v0, v6, :cond_36
 
     new-instance v75, Landroid/content/ContentValues;
 
@@ -12509,11 +12477,11 @@
 
     invoke-virtual {v0, v1, v2, v3, v6}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    :cond_35
+    :cond_36
     :goto_f
     add-int v68, v68, v61
 
-    if-eqz p7, :cond_12
+    if-eqz p7, :cond_18
 
     const-string v6, "T-Mobile"
 
@@ -12523,7 +12491,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     invoke-static {}, Lcom/android/launcher2/customer/TMO;->getInstance()Lcom/android/launcher2/customer/TMO;
 
@@ -12542,12 +12510,11 @@
     :catch_3
     move-exception v58
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     const-string v6, "LauncherProvider"
 
@@ -12559,14 +12526,13 @@
 
     goto/16 :goto_9
 
-    :cond_36
+    :cond_37
     :try_start_5
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
 
-    if-eqz v6, :cond_35
+    if-eqz v6, :cond_36
 
     const-string v6, "LauncherProvider"
 
@@ -12594,8 +12560,8 @@
 
     goto :goto_f
 
-    :cond_37
-    if-eqz v67, :cond_38
+    :cond_38
+    if-eqz v67, :cond_39
 
     move-object/from16 v0, p0
 
@@ -12625,14 +12591,14 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_38
+    :cond_39
     move-object/from16 v86, v84
 
     const/4 v6, -0x1
 
     move/from16 v0, v85
 
-    if-le v0, v6, :cond_39
+    if-le v0, v6, :cond_3a
 
     move-object/from16 v0, p0
 
@@ -12658,7 +12624,7 @@
 
     move-result-object v86
 
-    :cond_39
+    :cond_3a
     invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
 
     move-result-object v6
@@ -12679,13 +12645,12 @@
 
     goto/16 :goto_f
 
-    :cond_3a
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
+    :cond_3b
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v6
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_18
 
     const-string v6, "LauncherProvider"
 
@@ -12727,14 +12692,14 @@
 
     goto/16 :goto_9
 
-    :cond_3b
+    :cond_3c
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mSupportGridSizeArray:[Ljava/lang/String;
 
     aget-object v6, v6, v69
 
-    if-eqz v6, :cond_3d
+    if-eqz v6, :cond_3e
 
     move-object/from16 v0, p0
 
@@ -12748,7 +12713,7 @@
 
     move-result-object v62
 
-    if-eqz v62, :cond_3d
+    if-eqz v62, :cond_3e
 
     move-object/from16 v0, v62
 
@@ -12756,7 +12721,7 @@
 
     const/4 v7, 0x2
 
-    if-ne v6, v7, :cond_3d
+    if-ne v6, v7, :cond_3e
 
     const/4 v6, 0x0
 
@@ -12774,7 +12739,7 @@
 
     move-result v72
 
-    if-eqz p8, :cond_3d
+    if-eqz p8, :cond_3e
 
     const/4 v6, 0x0
 
@@ -12782,7 +12747,7 @@
 
     move/from16 v0, v71
 
-    if-ne v6, v0, :cond_3c
+    if-ne v6, v0, :cond_3d
 
     const/4 v6, 0x1
 
@@ -12790,9 +12755,9 @@
 
     move/from16 v0, v72
 
-    if-eq v6, v0, :cond_3d
+    if-eq v6, v0, :cond_3e
 
-    :cond_3c
+    :cond_3d
     const-string v6, "LauncherProvider"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -12847,7 +12812,7 @@
 
     invoke-static {v6, v0, v1, v7}, Lcom/android/launcher2/Utilities;->storeGridLayoutPreference(Landroid/content/Context;IIZ)V
 
-    :cond_3d
+    :cond_3e
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->folderIds:Ljava/lang/StringBuilder;
@@ -12862,9 +12827,8 @@
 
     move-result v6
 
-    if-nez v6, :cond_3e
+    if-nez v6, :cond_3f
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v6
@@ -12897,7 +12861,7 @@
 
     invoke-interface/range {v74 .. v74}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_3e
+    :cond_3f
     return v68
 .end method
 
@@ -15658,7 +15622,6 @@
     if-nez v11, :cond_3
 
     :try_start_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v13
@@ -15694,7 +15657,6 @@
     goto :goto_0
 
     :cond_3
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v13
@@ -15732,7 +15694,6 @@
     move-exception v6
 
     :try_start_3
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v13
@@ -15821,7 +15782,6 @@
     monitor-enter p0
 
     :try_start_0
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v3
@@ -15992,7 +15952,6 @@
     invoke-static {v3, v6}, Lcom/android/launcher2/ZeroPageUtils$PreferencesUtil;->setZeroPageSettingDialog(Landroid/content/Context;Z)V
 
     :cond_4
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v3
@@ -16815,7 +16774,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0c000c
+    const v13, 0x7f0d000c
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -16833,7 +16792,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0f0007
+    const v13, 0x7f100007
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -17064,7 +17023,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0003
+    const v13, 0x7f0c0003
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -17078,7 +17037,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0b0004
+    const v13, 0x7f0c0004
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -17260,7 +17219,6 @@
     invoke-virtual {v0, v12, v13, v14}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     :cond_9
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredDBList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$700()Ljava/util/ArrayList;
 
     move-result-object v12
@@ -17393,7 +17351,6 @@
     invoke-virtual {v0, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_e
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredDBList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$700()Ljava/util/ArrayList;
 
     move-result-object v12
@@ -17469,7 +17426,6 @@
     invoke-virtual {v0, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_11
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredDBList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$700()Ljava/util/ArrayList;
 
     move-result-object v12
@@ -17541,7 +17497,6 @@
     invoke-virtual {v0, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_14
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredDBList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$700()Ljava/util/ArrayList;
 
     move-result-object v12
@@ -17659,7 +17614,6 @@
     invoke-virtual {v0, v12, v13, v14}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     :cond_18
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredDBList:Ljava/util/ArrayList;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$700()Ljava/util/ArrayList;
 
     move-result-object v12
@@ -18117,7 +18071,6 @@
 
     if-ge v13, v2, :cond_0
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18141,7 +18094,6 @@
 
     if-eqz v2, :cond_7
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18154,7 +18106,6 @@
 
     if-eqz v2, :cond_5
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18169,7 +18120,6 @@
 
     const-string v16, "MODE_ALL_To_ALL"
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18182,7 +18132,6 @@
 
     invoke-direct {v0, v2, v3, v4}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->restoreDB_SetPageInfo(Ljava/util/HashMap;Ljava/lang/String;Ljava/lang/String;)V
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18197,7 +18146,6 @@
 
     :cond_1
     :goto_1
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18210,7 +18158,6 @@
 
     if-eqz v2, :cond_2
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18224,7 +18171,6 @@
     :cond_2
     if-eqz v16, :cond_3
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18273,7 +18219,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v4
@@ -18294,7 +18239,6 @@
     return v2
 
     :cond_5
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18309,7 +18253,6 @@
 
     const-string v16, "MODE_Home_To_Home"
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18325,7 +18268,6 @@
     goto :goto_1
 
     :cond_6
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18340,7 +18282,6 @@
 
     const-string v16, "MODE_HomeOnly_To_ALL_HomeOnly"
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18362,7 +18303,6 @@
 
     if-eqz v2, :cond_8
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18377,7 +18317,6 @@
 
     const-string v16, "MODE_HomeOnly_To_HomeOnly"
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18393,7 +18332,6 @@
     goto/16 :goto_1
 
     :cond_8
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18408,7 +18346,6 @@
 
     const-string v16, "MODE_Home_To_Home"
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18424,7 +18361,6 @@
     goto/16 :goto_1
 
     :cond_9
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18437,7 +18373,6 @@
 
     if-eqz v2, :cond_c
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18450,7 +18385,6 @@
 
     if-eqz v2, :cond_c
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v2
@@ -18672,7 +18606,6 @@
 
     if-lez v2, :cond_e
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v6
@@ -18846,7 +18779,6 @@
 
     if-lez v2, :cond_b
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mRestoredTagMapping:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$600()Ljava/util/HashMap;
 
     move-result-object v6
@@ -18904,14 +18836,12 @@
 
     move-result v20
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
 
     if-eqz v2, :cond_b
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -18957,7 +18887,6 @@
 
     if-eqz v2, :cond_13
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -19016,7 +18945,6 @@
 
     if-eqz v2, :cond_15
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->mApp:Lcom/android/launcher2/LauncherApplication;
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$300()Lcom/android/launcher2/LauncherApplication;
 
     move-result-object v2
@@ -19275,7 +19203,6 @@
     goto/16 :goto_3
 
     :cond_1e
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v2
@@ -19600,7 +19527,6 @@
 
     if-eqz v12, :cond_8
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -19826,7 +19752,6 @@
     move-exception v15
 
     :try_start_2
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -19848,7 +19773,6 @@
     move-exception v15
 
     :try_start_3
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -19880,7 +19804,6 @@
     move-exception v14
 
     :try_start_4
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v4
@@ -20554,7 +20477,6 @@
 
     if-eqz v0, :cond_1
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v0
@@ -20582,7 +20504,6 @@
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 17
 
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21560,7 +21481,6 @@
     move-exception v5
 
     :try_start_c
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21593,7 +21513,6 @@
     move-exception v5
 
     :try_start_d
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21626,7 +21545,6 @@
     move-exception v5
 
     :try_start_e
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21659,7 +21577,6 @@
     move-exception v5
 
     :try_start_f
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21692,7 +21609,6 @@
     move-exception v5
 
     :try_start_10
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21725,7 +21641,6 @@
     move-exception v5
 
     :try_start_11
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21758,7 +21673,6 @@
     move-exception v5
 
     :try_start_12
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21791,7 +21705,6 @@
     move-exception v5
 
     :try_start_13
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21824,7 +21737,6 @@
     move-exception v5
 
     :try_start_14
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21857,7 +21769,6 @@
     move-exception v5
 
     :try_start_15
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21890,7 +21801,6 @@
     move-exception v5
 
     :try_start_16
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14
@@ -21923,7 +21833,6 @@
     move-exception v5
 
     :try_start_17
-    # getter for: Lcom/android/launcher2/LauncherProvider;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/LauncherProvider;->access$200()Z
 
     move-result v14

@@ -71,7 +71,6 @@
     :cond_0
     aget-object v0, p1, v2
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->doInBackgroundCallback:Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData$AsyncTaskCallback;
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1700(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData$AsyncTaskCallback;
 
     move-result-object v0
@@ -100,7 +99,6 @@
 .method protected onPostExecute(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     .locals 1
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->postExecuteCallback:Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData$AsyncTaskCallback;
     invoke-static {p1}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1800(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData$AsyncTaskCallback;
 
     move-result-object v0
@@ -123,7 +121,6 @@
 .method public requestCancel(Z)Z
     .locals 3
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
 
     move-result-object v0

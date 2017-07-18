@@ -1377,7 +1377,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f0f0001
+    const v8, 0x7f100001
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1452,7 +1452,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f0f0002
+    const v8, 0x7f100002
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1871,28 +1871,64 @@
 .end method
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 3
+    .locals 5
 
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, "getDataBaseVersion"
+    const-string v2, "getDataBaseVersion"
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_1
 
-    const-string v1, "DBVersion"
+    const-string v2, "DBVersion"
 
-    const/16 v2, 0x17
+    const/16 v3, 0x17
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_0
+    :goto_0
     return-object v0
+
+    :cond_1
+    const-string v2, "getHomeScreenCount"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher2/LauncherProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string v3, "com.sec.android.app.launcher.prefs"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string v2, "screencount"
+
+    const-string v3, "screencount"
+
+    const/4 v4, -0x1
+
+    invoke-interface {v1, v3, v4}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    goto :goto_0
 .end method
 
 .method public checkOmcAutoInstallApp()Z
@@ -1935,7 +1971,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/LauncherProvider;->mOpenHelper:Lcom/android/launcher2/LauncherProvider$DatabaseHelper;
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->getOmcAutoInstallApp()Z
     invoke-static {v0}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1600(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;)Z
 
     move-result v0
@@ -2104,7 +2139,6 @@
 
     const-string v7, "favorites_homeOnly"
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->tableExists(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
     invoke-static {v6, v1, v7}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$000(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
 
     move-result v6
@@ -2115,7 +2149,6 @@
 
     const-string v7, "favorites_homeApps"
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->tableExists(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
     invoke-static {v6, v1, v7}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$000(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
 
     move-result v6
@@ -2126,14 +2159,12 @@
 
     const-string v7, "favorites_homeOnly"
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->createFavorites(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;J)V
     invoke-static {v6, v1, v7, v2, v3}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1500(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;J)V
 
     iget-object v6, p0, Lcom/android/launcher2/LauncherProvider;->mOpenHelper:Lcom/android/launcher2/LauncherProvider$DatabaseHelper;
 
     const-string v7, "favorites_homeOnly"
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->loadFavorites(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Z)I
     invoke-static {v6, v1, v7, v4}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1400(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Z)I
 
     :cond_2
@@ -2942,7 +2973,6 @@
 
     move-result-object v7
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->loadFavoritesAppOrder(Landroid/database/sqlite/SQLiteDatabase;Landroid/content/res/Resources;II)I
     invoke-static {v5, v7, v3, v4, v0}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$100(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Landroid/content/res/Resources;II)I
 
     move-result v5
@@ -3340,7 +3370,6 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->tableExists(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
     invoke-static {v5, v0, p2}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$000(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Z
 
     move-result v5
@@ -3765,7 +3794,6 @@
 
     move-object/from16 v1, p1
 
-    # setter for: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->mParserRestore:Lorg/xmlpull/v1/XmlPullParser;
     invoke-static {v0, v1}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1302(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Lorg/xmlpull/v1/XmlPullParser;)Lorg/xmlpull/v1/XmlPullParser;
 
     move-object/from16 v0, p0
@@ -3800,7 +3828,6 @@
 
     move/from16 v2, v29
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->loadFavorites(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Z)I
     invoke-static {v0, v8, v1, v2}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1400(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Z)I
 
     const-string v27, "LauncherProvider"
@@ -6531,7 +6558,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->updateOmcAutoInstallApp(Landroid/database/sqlite/SQLiteDatabase;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/LauncherProvider$DatabaseHelper;->access$1700(Lcom/android/launcher2/LauncherProvider$DatabaseHelper;Landroid/database/sqlite/SQLiteDatabase;)V
 
     return-void

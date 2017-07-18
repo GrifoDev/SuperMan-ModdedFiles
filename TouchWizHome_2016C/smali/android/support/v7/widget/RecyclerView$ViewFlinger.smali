@@ -43,7 +43,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
     invoke-static {}, Landroid/support/v7/widget/RecyclerView;->access$2000()Landroid/view/animation/Interpolator;
 
     move-result-object v0
@@ -58,7 +57,6 @@
 
     move-result-object v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
     invoke-static {}, Landroid/support/v7/widget/RecyclerView;->access$2000()Landroid/view/animation/Interpolator;
 
     move-result-object v1
@@ -298,7 +296,6 @@
 
     const/4 v2, 0x2
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->setScrollState(I)V
     invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView;->access$3000(Landroid/support/v7/widget/RecyclerView;I)V
 
     iput v1, p0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingY:I
@@ -361,7 +358,6 @@
 
     move-object/from16 v28, v0
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->consumePendingUpdateOperations()V
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$2100(Landroid/support/v7/widget/RecyclerView;)V
 
     move-object/from16 v0, p0
@@ -376,7 +372,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$1100(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v28
@@ -443,7 +438,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$2200(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$Adapter;
 
     move-result-object v28
@@ -466,7 +460,6 @@
 
     const/16 v29, 0x1
 
-    # setter for: Landroid/support/v7/widget/RecyclerView;->mRunningLayoutOrScroll:Z
     invoke-static/range {v28 .. v29}, Landroid/support/v7/widget/RecyclerView;->access$2302(Landroid/support/v7/widget/RecyclerView;Z)Z
 
     if-eqz v6, :cond_0
@@ -477,7 +470,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$1100(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v28
@@ -527,7 +519,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$1100(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v28
@@ -575,7 +566,6 @@
 
     move-object/from16 v28, v0
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->supportsChangeAnimations()Z
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$2400(Landroid/support/v7/widget/RecyclerView;)Z
 
     move-result v28
@@ -752,7 +742,6 @@
 
     const/16 v29, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView;->mRunningLayoutOrScroll:Z
     invoke-static/range {v28 .. v29}, Landroid/support/v7/widget/RecyclerView;->access$2302(Landroid/support/v7/widget/RecyclerView;Z)Z
 
     move-object/from16 v0, p0
@@ -772,7 +761,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mItemDecorations:Ljava/util/ArrayList;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$2600(Landroid/support/v7/widget/RecyclerView;)Ljava/util/ArrayList;
 
     move-result-object v28
@@ -818,7 +806,6 @@
 
     move-object/from16 v0, v28
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->considerReleasingGlowsOnScroll(II)V
     invoke-static {v0, v6, v7}, Landroid/support/v7/widget/RecyclerView;->access$2700(Landroid/support/v7/widget/RecyclerView;II)V
 
     :cond_8
@@ -950,7 +937,6 @@
 
     move/from16 v1, v25
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->notifyOnScrolled(II)V
     invoke-static {v0, v12, v1}, Landroid/support/v7/widget/RecyclerView;->access$2800(Landroid/support/v7/widget/RecyclerView;II)V
 
     :cond_11
@@ -960,7 +946,6 @@
 
     move-object/from16 v28, v0
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->awakenScrollBars()Z
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$2900(Landroid/support/v7/widget/RecyclerView;)Z
 
     move-result v28
@@ -984,7 +969,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$1100(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v28
@@ -1010,7 +994,6 @@
 
     move-object/from16 v28, v0
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
     invoke-static/range {v28 .. v28}, Landroid/support/v7/widget/RecyclerView;->access$1100(Landroid/support/v7/widget/RecyclerView;)Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v28
@@ -1056,7 +1039,6 @@
 
     const/16 v29, 0x0
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->setScrollState(I)V
     invoke-static/range {v28 .. v29}, Landroid/support/v7/widget/RecyclerView;->access$3000(Landroid/support/v7/widget/RecyclerView;I)V
 
     :cond_16
@@ -1079,7 +1061,6 @@
 
     move/from16 v2, v29
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
     invoke-static {v0, v1, v2}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$2500(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
 
     :cond_17
@@ -1114,7 +1095,6 @@
 
     move/from16 v2, v29
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
     invoke-static {v0, v1, v2}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$2500(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
 
     goto/16 :goto_1
@@ -1130,7 +1110,6 @@
 
     move/from16 v2, v29
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$SmoothScroller;->onAnimation(II)V
     invoke-static {v0, v1, v2}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->access$2500(Landroid/support/v7/widget/RecyclerView$SmoothScroller;II)V
 
     goto/16 :goto_1
@@ -1193,7 +1172,6 @@
 .method public smoothScrollBy(III)V
     .locals 1
 
-    # getter for: Landroid/support/v7/widget/RecyclerView;->sQuinticInterpolator:Landroid/view/animation/Interpolator;
     invoke-static {}, Landroid/support/v7/widget/RecyclerView;->access$2000()Landroid/view/animation/Interpolator;
 
     move-result-object v0
@@ -1243,7 +1221,6 @@
 
     const/4 v2, 0x2
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->setScrollState(I)V
     invoke-static {v0, v2}, Landroid/support/v7/widget/RecyclerView;->access$3000(Landroid/support/v7/widget/RecyclerView;I)V
 
     iput v1, p0, Landroid/support/v7/widget/RecyclerView$ViewFlinger;->mLastFlingY:I

@@ -117,7 +117,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v18
@@ -142,7 +141,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v18
@@ -338,7 +336,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mContext:Landroid/content/Context;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$100(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/Context;
 
     move-result-object v18
@@ -356,7 +353,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mAppWidgetHost:Landroid/appwidget/AppWidgetHost;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$200(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/appwidget/AppWidgetHost;
 
     move-result-object v18
@@ -382,7 +378,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v18
@@ -403,7 +398,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v18
@@ -422,7 +416,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v18
@@ -447,7 +440,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v21
@@ -492,7 +484,6 @@
 
     move-object/from16 v20, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v20 .. v20}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v20
@@ -503,7 +494,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v21
@@ -524,7 +514,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mAppWidgetHost:Landroid/appwidget/AppWidgetHost;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$200(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/appwidget/AppWidgetHost;
 
     move-result-object v18
@@ -571,7 +560,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mContext:Landroid/content/Context;
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/AutoInstallsLayout;->access$100(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/Context;
 
     move-result-object v18

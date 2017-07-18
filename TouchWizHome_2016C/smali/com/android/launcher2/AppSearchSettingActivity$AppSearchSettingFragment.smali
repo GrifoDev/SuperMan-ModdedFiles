@@ -30,7 +30,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const/high16 v0, 0x7f060000
+    const/high16 v0, 0x7f070000
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/AppSearchSettingActivity$AppSearchSettingFragment;->addPreferencesFromResource(I)V
 

@@ -53,7 +53,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1$1;->val$hItem:Lcom/android/launcher2/HomeItem;
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->dissolveFolder(Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeItem;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/IconMoveContainer;->access$1400(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeFolderItem;Lcom/android/launcher2/HomeItem;)V
 
     return-void

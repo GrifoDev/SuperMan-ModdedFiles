@@ -45,7 +45,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/CellLayoutHotseat;->mReorderPosted:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/CellLayoutHotseat;->access$002(Lcom/android/launcher2/CellLayoutHotseat;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutHotseat$2;->this$0:Lcom/android/launcher2/CellLayoutHotseat;

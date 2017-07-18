@@ -3658,7 +3658,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollBarDrawable:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f02008e
+    const v0, 0x7f02008a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3666,7 +3666,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/PageIndicator;->mPageNumberBg:Landroid/graphics/drawable/Drawable;
 
-    const v0, 0x7f09028b
+    const v0, 0x7f0a0292
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3676,7 +3676,7 @@
 
     sget-object v0, Lcom/android/launcher2/PageIndicator;->PANEL_TEXT_PAINT:Landroid/graphics/Paint;
 
-    const v1, 0x7f0901b0
+    const v1, 0x7f0a01b0
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3718,7 +3718,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v0, 0x7f0901b2
+    const v0, 0x7f0a01b2
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3732,7 +3732,7 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator;->mGrowBy:F
 
-    const v0, 0x7f0901b3
+    const v0, 0x7f0a01b3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3750,7 +3750,7 @@
 
     iput v4, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollNumBgTop:I
 
-    const v0, 0x7f0901b4
+    const v0, 0x7f0a01b4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3758,7 +3758,7 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator;->mPageindicatorPanelTopAdjust:I
 
-    const v0, 0x7f0901b1
+    const v0, 0x7f0a01b1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3766,7 +3766,7 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator;->mFastScrollPaddingTop:I
 
-    const v0, 0x7f0903ae
+    const v0, 0x7f0a03b1
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3778,7 +3778,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f090128
+    const v0, 0x7f0a0128
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

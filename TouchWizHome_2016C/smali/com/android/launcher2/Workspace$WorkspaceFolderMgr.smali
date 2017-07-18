@@ -126,7 +126,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v4}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v4
@@ -135,7 +134,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v4}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v4
@@ -148,7 +146,6 @@
     :goto_1
     iget-object v3, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v3
@@ -183,7 +180,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mSineInOut33:Landroid/view/animation/Interpolator;
     invoke-static {v4}, Lcom/android/launcher2/Workspace;->access$1900(Lcom/android/launcher2/Workspace;)Landroid/view/animation/Interpolator;
 
     move-result-object v4
@@ -214,7 +210,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mSineInOut80:Landroid/view/animation/Interpolator;
     invoke-static {v4}, Lcom/android/launcher2/Workspace;->access$2000(Lcom/android/launcher2/Workspace;)Landroid/view/animation/Interpolator;
 
     move-result-object v4
@@ -239,7 +234,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f050017
+    const v4, 0x7f060017
 
     invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -261,7 +256,6 @@
 
     const/4 v4, 0x0
 
-    # setter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v3, v4}, Lcom/android/launcher2/Workspace;->access$1802(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder;
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
@@ -272,13 +266,12 @@
 
     sget-object v3, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v4, 0x7f080049
+    const v4, 0x7f090049
 
     invoke-virtual {v3, v4}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v3
@@ -294,7 +287,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b003f
+    const v5, 0x7f0c003f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -319,7 +312,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -328,7 +320,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -353,7 +344,6 @@
     :cond_2
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -375,7 +365,6 @@
     :cond_3
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -396,7 +385,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0a0009
+    const v10, 0x7f0b0009
 
     invoke-virtual {v9, v10, v11, v11}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -414,7 +403,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v9
@@ -423,7 +411,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v9
@@ -433,7 +420,6 @@
     :goto_1
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v9
@@ -442,7 +428,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v9
@@ -462,7 +447,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -499,7 +483,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mSineInOut90:Landroid/view/animation/Interpolator;
     invoke-static {v10}, Lcom/android/launcher2/Workspace;->access$2100(Lcom/android/launcher2/Workspace;)Landroid/view/animation/Interpolator;
 
     move-result-object v10
@@ -524,7 +507,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mSineInOut90:Landroid/view/animation/Interpolator;
     invoke-static {v10}, Lcom/android/launcher2/Workspace;->access$2100(Lcom/android/launcher2/Workspace;)Landroid/view/animation/Interpolator;
 
     move-result-object v10
@@ -562,7 +544,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f05000c
+    const v10, 0x7f06000c
 
     invoke-static {v9, v10}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -587,7 +569,7 @@
 
     sget-object v9, Lcom/sec/dtl/launcher/Talk;->INSTANCE:Lcom/sec/dtl/launcher/Talk;
 
-    const v10, 0x7f080057
+    const v10, 0x7f090057
 
     invoke-virtual {v9, v10}, Lcom/sec/dtl/launcher/Talk;->say(I)V
 
@@ -624,7 +606,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b003e
+    const v10, 0x7f0c003e
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -639,7 +621,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b006f
+    const v10, 0x7f0c006f
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -650,7 +632,6 @@
     :cond_6
     iget-object v9, p0, Lcom/android/launcher2/Workspace$WorkspaceFolderMgr;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v9}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v9
@@ -670,7 +651,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f05000b
+    const v10, 0x7f06000b
 
     invoke-static {v9, v10}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 

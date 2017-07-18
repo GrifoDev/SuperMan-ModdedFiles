@@ -435,7 +435,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0002
+    const v3, 0x7f0e0002
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -472,7 +472,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d002e
+    const v3, 0x7f0e002f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -555,7 +555,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09028d
+    const v2, 0x7f0a0294
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -579,7 +579,7 @@
 
     invoke-virtual {p0, p0}, Lcom/android/launcher2/IconAutoAlign;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f100082
+    const v0, 0x7f110082
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/IconAutoAlign;->findViewById(I)Landroid/view/View;
 

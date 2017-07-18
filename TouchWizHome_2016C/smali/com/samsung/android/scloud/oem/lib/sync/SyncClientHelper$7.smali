@@ -63,7 +63,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->mClientMap:Ljava/util/Map;
     invoke-static {v3}, Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;)Ljava/util/Map;
 
     move-result-object v3

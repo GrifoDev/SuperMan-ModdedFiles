@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$4;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mAnimationLayer:Lcom/android/launcher2/AnimationLayer;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$400(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/AnimationLayer;
 
     move-result-object v0

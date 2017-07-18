@@ -77,3 +77,6 @@
         }
     .end annotation
 .end method
+
+.method public abstract isUserUnlocked(Lcom/android/launcher2/compat/UserHandleCompat;)Z
+.end method

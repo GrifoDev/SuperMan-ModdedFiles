@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$1;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->buildWidgetView(Lcom/android/launcher2/AvailableWidget;)Lcom/android/launcher2/PagedViewWidget;
     invoke-static {v0, p1}, Lcom/android/launcher2/WidgetFolder;->access$100(Lcom/android/launcher2/WidgetFolder;Lcom/android/launcher2/AvailableWidget;)Lcom/android/launcher2/PagedViewWidget;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$1;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mCellGapX:I
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder;->access$200(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v0
@@ -65,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$1;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mCellGapY:I
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder;->access$300(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v0
@@ -104,7 +101,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;-><init>(Lcom/android/launcher2/WidgetFolder;Landroid/widget/GridLayout;ILjava/util/ArrayList;Z)V
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
 
     move-result-object v1

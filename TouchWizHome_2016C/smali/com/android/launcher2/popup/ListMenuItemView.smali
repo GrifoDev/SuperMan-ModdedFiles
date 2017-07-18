@@ -91,7 +91,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030028
+    const v1, 0x7f040028
 
     const/4 v2, 0x0
 
@@ -119,7 +119,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030029
+    const v1, 0x7f040029
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -143,7 +143,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f03002a
+    const v1, 0x7f04002a
 
     const/4 v2, 0x0
 
@@ -239,7 +239,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v0, 0x7f1000d3
+    const v0, 0x7f1100d3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     :cond_0
-    const v0, 0x7f1000d4
+    const v0, 0x7f1100d4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/popup/ListMenuItemView;->findViewById(I)Landroid/view/View;
 

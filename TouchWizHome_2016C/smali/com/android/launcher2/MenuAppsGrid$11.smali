@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$11;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->buildPageHardwareLayers()V
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$3100(Lcom/android/launcher2/MenuAppsGrid;)V
 
     return-void

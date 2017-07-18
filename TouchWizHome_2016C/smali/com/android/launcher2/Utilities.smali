@@ -348,7 +348,7 @@
 
     if-nez p2, :cond_0
 
-    const v5, 0x7f0b0063
+    const v5, 0x7f0c0063
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -356,7 +356,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0062
+    const v5, 0x7f0c0062
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -364,7 +364,7 @@
 
     int-to-float v0, v5
 
-    const v5, 0x7f0d0001
+    const v5, 0x7f0e0001
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -378,7 +378,7 @@
     return-void
 
     :cond_0
-    const v5, 0x7f0b0061
+    const v5, 0x7f0c0061
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -386,7 +386,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0060
+    const v5, 0x7f0c0060
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -394,7 +394,7 @@
 
     int-to-float v0, v5
 
-    const v5, 0x7f0d002d
+    const v5, 0x7f0e002e
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -499,7 +499,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0b0003
+    const v34, 0x7f0c0003
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -509,7 +509,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0b0004
+    const v34, 0x7f0c0004
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -598,7 +598,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0c000c
+    const v34, 0x7f0d000c
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -610,7 +610,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0f0007
+    const v34, 0x7f100007
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1521,7 +1521,7 @@
 
     if-nez v8, :cond_0
 
-    const v8, 0x7f0c000c
+    const v8, 0x7f0d000c
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1529,7 +1529,7 @@
 
     sput-boolean v8, Lcom/android/launcher2/Utilities;->mSupportFlexibleGrid:Z
 
-    const v8, 0x7f0f0007
+    const v8, 0x7f100007
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3511,264 +3511,275 @@
     return-object v0
 .end method
 
-.method public static getDrawableForIconTray(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Landroid/content/Intent;)Landroid/graphics/drawable/Drawable;
-    .locals 9
+.method static getDrawableForIconTray(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Landroid/content/Intent;)Landroid/graphics/drawable/Drawable;
+    .locals 13
 
-    const/4 v8, 0x2
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    const/4 v12, 0x2
 
-    const/4 v6, 0x1
+    const/4 v11, 0x0
+
+    const/4 v10, 0x1
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-boolean v2, v1, Lcom/android/launcher2/Launcher;->mIconTrayEnabled:Z
+    iget-boolean v5, v2, Lcom/android/launcher2/Launcher;->mIconTrayEnabled:Z
 
-    if-nez v2, :cond_1
+    if-nez v5, :cond_1
 
     :cond_0
     :goto_0
     return-object p1
 
     :cond_1
-    sget-object v2, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_2
+    if-nez v5, :cond_2
 
-    const-string v2, "android.content.pm.PackageManager"
+    const-string v5, "android.content.pm.PackageManager"
 
-    const-string v3, "getDrawableForIconTray"
+    const-string v7, "getDrawableForIconTray"
 
-    new-array v4, v8, [Ljava/lang/Class;
+    new-array v8, v12, [Ljava/lang/Class;
 
-    const-class v5, Landroid/graphics/drawable/Drawable;
+    const-class v9, Landroid/graphics/drawable/Drawable;
 
-    aput-object v5, v4, v7
+    aput-object v9, v8, v11
 
-    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v5, v4, v6
+    aput-object v9, v8, v10
 
-    invoke-static {v2, v3, v4, v6}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
+    invoke-static {v5, v7, v8, v10}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v5
 
-    sput-object v2, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
+    sput-object v5, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
 
     :cond_2
-    sget-object v2, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_3
+    if-nez v5, :cond_3
 
-    const-string v2, "android.content.pm.PackageManager"
+    const-string v5, "android.content.pm.PackageManager"
 
-    const-string v3, "checkComponentMetadataForIconTray"
+    const-string v7, "checkComponentMetadataForIconTray"
 
-    new-array v4, v8, [Ljava/lang/Class;
+    new-array v8, v12, [Ljava/lang/Class;
 
-    const-class v5, Ljava/lang/String;
+    const-class v9, Ljava/lang/String;
 
-    aput-object v5, v4, v7
+    aput-object v9, v8, v11
 
-    const-class v5, Ljava/lang/String;
+    const-class v9, Ljava/lang/String;
 
-    aput-object v5, v4, v6
+    aput-object v9, v8, v10
 
-    invoke-static {v2, v3, v4, v6}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
+    invoke-static {v5, v7, v8, v10}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v5
 
-    sput-object v2, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
+    sput-object v5, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
 
     :cond_3
-    sget-object v2, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_4
+    if-nez v5, :cond_4
 
-    const-string v2, "android.content.pm.PackageManager"
+    const-string v5, "android.content.pm.PackageManager"
 
-    const-string v3, "shouldPackIntoIconTray"
+    const-string v7, "shouldPackIntoIconTray"
 
-    new-array v4, v6, [Ljava/lang/Class;
+    new-array v8, v10, [Ljava/lang/Class;
 
-    const-class v5, Ljava/lang/String;
+    const-class v9, Ljava/lang/String;
 
-    aput-object v5, v4, v7
+    aput-object v9, v8, v11
 
-    invoke-static {v2, v3, v4, v6}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
+    invoke-static {v5, v7, v8, v10}, Lcom/android/launcher2/Reflection;->getMethod(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;Z)Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v5
 
-    sput-object v2, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
+    sput-object v5, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
 
     :cond_4
-    sget-object v2, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v2, :cond_5
+    if-eqz v5, :cond_5
 
-    sget-object v2, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
 
-    if-eqz v2, :cond_5
+    if-eqz v5, :cond_5
 
-    sget-object v2, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
+    sget-object v5, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
 
-    if-nez v2, :cond_6
+    if-nez v5, :cond_6
 
     :cond_5
-    const-string v2, "Launcher.Utilities"
+    const-string v5, "Launcher.Utilities"
 
-    const-string v3, "getDrawableForIconTray, failed!"
+    const-string v6, "getDrawableForIconTray, failed!"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_6
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    if-eqz p2, :cond_7
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_7
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v5
+
+    sget-object v7, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
+
+    new-array v8, v12, [Ljava/lang/Object;
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    aput-object v9, v8, v11
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v9
+
+    aput-object v9, v8, v10
+
+    invoke-static {v5, v7, v8}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Boolean;
+
+    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    :cond_7
+    if-nez v0, :cond_8
+
     if-eqz p2, :cond_8
 
     invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v2
+    move-result-object v5
 
-    if-eqz v2, :cond_8
+    if-nez v5, :cond_b
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
+
+    move-result-object v5
+
+    if-nez v5, :cond_a
+
+    move-object v3, v6
+
+    :goto_1
+    if-eqz v3, :cond_8
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
+    move-result-object v5
 
-    sget-object v3, Lcom/android/launcher2/Utilities;->sCheckComponentMetadataForIconTray:Ljava/lang/reflect/Method;
+    sget-object v7, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
 
-    new-array v4, v8, [Ljava/lang/Object;
+    new-array v8, v10, [Ljava/lang/Object;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    aput-object v3, v8, v11
+
+    invoke-static {v5, v7, v8}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    check-cast v5, Ljava/lang/Boolean;
 
-    move-result-object v5
+    invoke-virtual {v5}, Ljava/lang/Boolean;->booleanValue()Z
 
-    aput-object v5, v4, v7
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v4, v6
-
-    invoke-static {v2, v3, v4}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Boolean;
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    invoke-static {p0, p1}, Lcom/android/launcher2/Utilities;->getDrawableForIconTrayLocal(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    goto/16 :goto_0
-
-    :cond_7
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/android/launcher2/Utilities;->sShouldPackIntoIconTray:Ljava/lang/reflect/Method;
-
-    new-array v4, v6, [Ljava/lang/Object;
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v4, v7
-
-    invoke-static {v2, v3, v4}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Boolean;
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p0, p1}, Lcom/android/launcher2/Utilities;->getDrawableForIconTrayLocal(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    goto/16 :goto_0
+    move-result v1
 
     :cond_8
-    invoke-static {p0, p1}, Lcom/android/launcher2/Utilities;->getDrawableForIconTrayLocal(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    goto/16 :goto_0
-.end method
-
-.method private static getDrawableForIconTrayLocal(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 6
-
-    const/4 v5, 0x1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v3, v4
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v5
-
-    invoke-static {v1, v2, v3}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    instance-of v1, v0, Landroid/graphics/drawable/Drawable;
+    if-nez v0, :cond_9
 
     if-eqz v1, :cond_0
 
-    check-cast v0, Landroid/graphics/drawable/Drawable;
+    :cond_9
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    :goto_0
-    return-object v0
+    move-result-object v5
 
-    :cond_0
-    const/4 v0, 0x0
+    sget-object v7, Lcom/android/launcher2/Utilities;->sGetDrawableForIconTrayMethod:Ljava/lang/reflect/Method;
 
-    goto :goto_0
+    new-array v8, v12, [Ljava/lang/Object;
+
+    aput-object p1, v8, v11
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
+    aput-object v9, v8, v10
+
+    invoke-static {v5, v7, v8}, Lcom/android/launcher2/Reflection;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    instance-of v5, v4, Landroid/graphics/drawable/Drawable;
+
+    if-eqz v5, :cond_c
+
+    check-cast v4, Landroid/graphics/drawable/Drawable;
+
+    move-object p1, v4
+
+    goto/16 :goto_0
+
+    :cond_a
+    invoke-virtual {p2}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    :cond_b
+    invoke-virtual {p2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    :cond_c
+    move-object p1, v6
+
+    goto/16 :goto_0
 .end method
 
 .method public static getEditTextMaxLengthFilter(Landroid/content/Context;ILandroid/widget/EditText;)[Landroid/text/InputFilter;
@@ -4977,7 +4988,7 @@
 .end method
 
 .method public static isSystemApp(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 6
+    .locals 7
 
     const/4 v3, 0x0
 
@@ -5028,7 +5039,27 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    const-string v4, "Launcher.Utilities"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "NameNotFoundException: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -5723,7 +5754,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0003
+    const v25, 0x7f0c0003
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5737,7 +5768,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0004
+    const v25, 0x7f0c0004
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5805,7 +5836,7 @@
 
     if-eqz p2, :cond_a
 
-    const v20, 0x7f060013
+    const v20, 0x7f070013
 
     :goto_7
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -5815,7 +5846,7 @@
     goto/16 :goto_2
 
     :cond_a
-    const v20, 0x7f060010
+    const v20, 0x7f070010
 
     goto :goto_7
 
@@ -5931,7 +5962,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0003
+    const v25, 0x7f0c0003
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5945,7 +5976,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0004
+    const v25, 0x7f0c0004
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5996,7 +6027,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0003
+    const v25, 0x7f0c0003
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6010,7 +6041,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0004
+    const v25, 0x7f0c0004
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6139,7 +6170,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0003
+    const v25, 0x7f0c0003
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6153,7 +6184,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0004
+    const v25, 0x7f0c0004
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6226,7 +6257,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0b0003
+    const v26, 0x7f0c0003
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6240,7 +6271,7 @@
 
     move-result-object v25
 
-    const v26, 0x7f0b0004
+    const v26, 0x7f0c0004
 
     invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6365,7 +6396,7 @@
 
     move-result-object v31
 
-    const v6, 0x7f090005
+    const v6, 0x7f0a0005
 
     move-object/from16 v0, v31
 
@@ -6373,7 +6404,7 @@
 
     move-result v17
 
-    const v6, 0x7f090141
+    const v6, 0x7f0a0141
 
     move-object/from16 v0, v31
 
@@ -6381,7 +6412,7 @@
 
     move-result v26
 
-    const v6, 0x7f090140
+    const v6, 0x7f0a0140
 
     move-object/from16 v0, v31
 
@@ -6397,7 +6428,7 @@
 
     if-eq v6, v7, :cond_1
 
-    const v6, 0x7f0901c7
+    const v6, 0x7f0a01c7
 
     move-object/from16 v0, v31
 
@@ -6572,7 +6603,7 @@
     :goto_2
     if-nez v10, :cond_5
 
-    const v6, 0x7f02007b
+    const v6, 0x7f020077
 
     move-object/from16 v0, v31
 
@@ -7412,7 +7443,7 @@
 .method public static showToast(Landroid/content/Context;I)V
     .locals 5
 
-    const v4, 0x7f080073
+    const v4, 0x7f090073
 
     const/4 v1, 0x1
 
@@ -7468,274 +7499,128 @@
 .end method
 
 .method public static spanSearchView(Landroid/content/res/Resources;Landroid/widget/SearchView;Lcom/android/launcher2/MenuView;Lcom/android/launcher2/HomeView;)V
-    .locals 22
+    .locals 10
 
-    const/4 v15, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :try_start_0
-    const-class v17, Landroid/widget/SearchView;
+    const-class v8, Landroid/widget/SearchView;
 
-    const-string v18, "mVoiceButton"
+    const-string v9, "mVoiceButton"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+    invoke-virtual {v8, v9}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
-    move-result-object v16
+    move-result-object v7
 
-    const/16 v17, 0x1
+    const/4 v8, 0x1
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+    invoke-virtual {v7, v8}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    move-object/from16 v0, v16
+    invoke-virtual {v7, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v1, p1
+    move-result-object v8
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
+    move-object v0, v8
 
     check-cast v0, Landroid/widget/ImageView;
 
-    move-object v15, v0
-
-    const-class v17, Landroid/widget/SearchView;
-
-    const-string v18, "mSearchButton"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-
-    move-result-object v11
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    invoke-virtual {v11, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v11, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    move-object v10, v0
-
-    const-class v17, Landroid/widget/SearchView;
-
-    const-string v18, "mSearchSrcTextView"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-
-    move-result-object v4
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    invoke-virtual {v4, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v4, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    check-cast v0, Landroid/widget/AutoCompleteTextView;
-
-    move-object v5, v0
+    move-object v6, v0
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
 
     :goto_0
-    new-instance v13, Landroid/text/SpannableStringBuilder;
+    new-instance v5, Landroid/text/SpannableStringBuilder;
 
-    const-string v17, "  "
+    const-string v8, "  "
 
-    move-object/from16 v0, v17
+    invoke-direct {v5, v8}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    invoke-direct {v13, v0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
+    invoke-virtual {p3}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
+    move-result-object v8
 
-    move-result-object v17
+    invoke-virtual {v8}, Lcom/android/launcher2/Workspace;->getOpenFolder()Lcom/android/launcher2/Folder;
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher2/Workspace;->getOpenFolder()Lcom/android/launcher2/Folder;
+    move-result-object v8
 
-    move-result-object v17
+    if-nez v8, :cond_0
 
-    if-nez v17, :cond_0
+    invoke-virtual {p2}, Lcom/android/launcher2/MenuView;->isCurrentTabAppGrid()Z
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/launcher2/MenuView;->isCurrentTabAppGrid()Z
+    move-result v8
 
-    move-result v17
-
-    if-eqz v17, :cond_2
+    if-eqz v8, :cond_2
 
     :cond_0
-    const v17, 0x7f0800c2
+    const v8, 0x7f0900c3
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move/from16 v1, v17
+    move-result-object v8
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v13, v0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+    invoke-virtual {v5, v8}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
     :cond_1
     :goto_1
-    invoke-virtual {v10}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+    sget-boolean v8, Lcom/android/launcher2/Launcher;->sIsNeedDarkColor:Z
 
-    move-result-object v12
+    if-eqz v8, :cond_3
 
-    invoke-virtual {v5}, Landroid/widget/AutoCompleteTextView;->getTextSize()F
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    float-to-double v0, v0
-
-    move-wide/from16 v18, v0
-
-    const-wide/high16 v20, 0x3ff4000000000000L    # 1.25
-
-    mul-double v18, v18, v20
-
-    move-wide/from16 v0, v18
-
-    double-to-int v14, v0
-
-    const/16 v17, 0x1
-
-    const/16 v18, -0xf
-
-    add-int/lit8 v19, v14, 0x1
-
-    add-int/lit8 v20, v14, -0xf
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    move/from16 v2, v19
-
-    move/from16 v3, v20
-
-    invoke-virtual {v12, v0, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    sget-boolean v17, Lcom/android/launcher2/Launcher;->sIsNeedDarkColor:Z
-
-    if-eqz v17, :cond_3
-
-    const v7, 0x7f0d002e
+    const v2, 0x7f0e002f
 
     :goto_2
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
-    invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getColor(I)I
+    move-result v1
 
-    move-result v6
+    new-instance v4, Landroid/graphics/LightingColorFilter;
 
-    new-instance v9, Landroid/graphics/LightingColorFilter;
+    const/4 v8, 0x0
 
-    const/16 v17, 0x0
+    invoke-direct {v4, v1, v8}, Landroid/graphics/LightingColorFilter;-><init>(II)V
 
-    move/from16 v0, v17
+    invoke-virtual {v6}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
-    invoke-direct {v9, v6, v0}, Landroid/graphics/LightingColorFilter;-><init>(II)V
+    move-result-object v8
 
-    invoke-virtual {v15}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v9}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    invoke-virtual {v12, v9}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    new-instance v17, Landroid/text/style/ImageSpan;
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v0, v12}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/drawable/Drawable;)V
-
-    const/16 v18, 0x0
-
-    const/16 v19, 0x1
-
-    const/16 v20, 0x21
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    move/from16 v2, v19
-
-    move/from16 v3, v20
-
-    invoke-virtual {v13, v0, v1, v2, v3}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
-
-    invoke-virtual {v5, v13}, Landroid/widget/AutoCompleteTextView;->setHint(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
     return-void
 
     :catch_0
-    move-exception v8
+    move-exception v3
 
-    invoke-virtual {v8}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :catch_1
-    move-exception v8
+    move-exception v3
 
-    invoke-virtual {v8}, Ljava/lang/NoSuchFieldException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/NoSuchFieldException;->printStackTrace()V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_2
-    invoke-virtual/range {p2 .. p2}, Lcom/android/launcher2/MenuView;->isCurrentTabWidgets()Z
+    invoke-virtual {p2}, Lcom/android/launcher2/MenuView;->isCurrentTabWidgets()Z
 
-    move-result v17
+    move-result v8
 
-    if-eqz v17, :cond_1
+    if-eqz v8, :cond_1
 
-    const v17, 0x7f0800c3
+    const v8, 0x7f0900c4
 
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move/from16 v1, v17
+    move-result-object v8
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5, v8}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
-    move-result-object v17
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v13, v0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_3
-    const v7, 0x7f0d0013
+    const v2, 0x7f0e0012
 
     goto :goto_2
 .end method
@@ -7743,7 +7628,7 @@
 .method public static startActivityForResultSafely(Landroid/app/Activity;Landroid/content/Intent;ILcom/android/launcher2/Launcher$ActivityResultCallback;)V
     .locals 6
 
-    const/high16 v5, 0x7f080000
+    const/high16 v5, 0x7f090000
 
     const/4 v4, 0x0
 
@@ -7854,7 +7739,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800cc
+    const v3, 0x7f0900cd
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -77,10 +77,10 @@
     <dimen name="home_editmode_panel_zeropage_height">346.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_width">577.0dip</dimen>
     <dimen name="folder_icon_paddingTop">6.0dip</dimen>
+    <dimen name="moveApps_cellHeight">70.0dip</dimen>
     <dimen name="moveApps_cellWidth">70.0dip</dimen>
     <dimen name="moveApps_drawableFolderPadding">0.0dip</dimen>
     <dimen name="moveApps_drawablePadding">0.0dip</dimen>
-    <dimen name="moveApps_cellHeight">70.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
     <dimen name="appsearch_grid_cell_height">99.0dip</dimen>
     <dimen name="folder_multi_container_margin_end">60.0dip</dimen>

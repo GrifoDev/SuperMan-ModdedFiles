@@ -55,11 +55,10 @@
 
 # virtual methods
 .method public run()V
-    .locals 13
+    .locals 14
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -68,7 +67,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -84,7 +82,6 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/launcher2/IconMoveContainer;->mDoingUnload:Z
     invoke-static {v0, v2}, Lcom/android/launcher2/IconMoveContainer;->access$1602(Lcom/android/launcher2/IconMoveContainer;Z)Z
 
     :goto_0
@@ -97,7 +94,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -171,7 +167,6 @@
     :try_start_1
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -182,7 +177,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -220,7 +214,6 @@
 
     iget v6, p0, Lcom/android/launcher2/IconMoveContainer$8;->val$screen:I
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->needToChangePoistion(Lcom/android/launcher2/HomeItem;IIIII)Z
     invoke-static/range {v0 .. v6}, Lcom/android/launcher2/IconMoveContainer;->access$1700(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeItem;IIIII)Z
 
     move-result v0
@@ -229,7 +222,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->updateItemsPositionToDeskTop(Lcom/android/launcher2/HomeItem;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/IconMoveContainer;->access$1800(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeItem;)V
 
     goto :goto_2
@@ -245,7 +237,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$300(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0
@@ -268,16 +259,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
-    invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$300(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/HomeView;
+    invoke-virtual {v2}, Lcom/android/launcher2/IconMoveContainer;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/launcher2/HomeView;->getWorkspace()Lcom/android/launcher2/Workspace;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
+    invoke-static {v2}, Lcom/android/launcher2/LauncherModel;->getLastItemScreen(Landroid/content/Context;)I
 
     move-result v2
 
@@ -285,7 +271,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->updateItemsPositionToDeskTop(Lcom/android/launcher2/HomeItem;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/IconMoveContainer;->access$1800(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeItem;)V
 
     goto/16 :goto_2
@@ -293,7 +278,6 @@
     :cond_8
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mDissolvedFolderList:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$1900(Lcom/android/launcher2/IconMoveContainer;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -348,7 +332,6 @@
     :cond_a
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mDissolvedFolderList:Ljava/util/HashMap;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$1900(Lcom/android/launcher2/IconMoveContainer;)Ljava/util/HashMap;
 
     move-result-object v0
@@ -359,45 +342,43 @@
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v12
 
     :cond_b
     :goto_3
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_c
+    if-eqz v0, :cond_c
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Ljava/lang/Long;
+    check-cast v13, Ljava/lang/Long;
 
-    iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
+    iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mDissolvedFolderList:Ljava/util/HashMap;
-    invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$1900(Lcom/android/launcher2/IconMoveContainer;)Ljava/util/HashMap;
+    invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$1900(Lcom/android/launcher2/IconMoveContainer;)Ljava/util/HashMap;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, v12}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v13}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Lcom/android/launcher2/HomeFolderItem;
 
-    invoke-virtual {v8, v12}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v13}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_b
+    if-nez v0, :cond_b
 
-    iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
+    iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$8;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->removeItemInDatabase(Lcom/android/launcher2/HomeItem;)V
-    invoke-static {v2, v7}, Lcom/android/launcher2/IconMoveContainer;->access$2000(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeItem;)V
+    invoke-static {v0, v7}, Lcom/android/launcher2/IconMoveContainer;->access$2000(Lcom/android/launcher2/IconMoveContainer;Lcom/android/launcher2/HomeItem;)V
 
     goto :goto_3
 
@@ -410,7 +391,6 @@
 
     const/4 v2, 0x0
 
-    # setter for: Lcom/android/launcher2/IconMoveContainer;->mDoingUnload:Z
     invoke-static {v0, v2}, Lcom/android/launcher2/IconMoveContainer;->access$1602(Lcom/android/launcher2/IconMoveContainer;Z)Z
 
     goto/16 :goto_0

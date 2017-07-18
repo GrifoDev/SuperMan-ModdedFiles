@@ -127,7 +127,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f080016
+    const v3, 0x7f090016
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/AlphabeticalSortConfirmationDialog;->getString(I)Ljava/lang/String;
 
@@ -135,15 +135,15 @@
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f08008f
+    const v3, 0x7f090090
 
     invoke-virtual {v0, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f080003
+    const v3, 0x7f090003
 
     invoke-virtual {v0, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f080017
+    const v3, 0x7f090017
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

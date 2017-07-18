@@ -62,7 +62,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridSelectMenu$6;->this$0:Lcom/android/launcher2/HomeScreenGridSelectMenu;
 
-    # invokes: Lcom/android/launcher2/HomeScreenGridSelectMenu;->updateBtnForScreenGrid(II)V
     invoke-static {v4, v0, v3}, Lcom/android/launcher2/HomeScreenGridSelectMenu;->access$000(Lcom/android/launcher2/HomeScreenGridSelectMenu;II)V
 
     invoke-virtual {v2}, Lcom/android/launcher2/HomeView;->getHomeScreenGridChangeHelper()Lcom/android/launcher2/HomeScreenGridChangeHelper;
@@ -91,7 +90,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f1000e6
+    .packed-switch 0x7f1100e6
         :pswitch_0
         :pswitch_1
     .end packed-switch

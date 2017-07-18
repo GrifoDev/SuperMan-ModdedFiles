@@ -138,6 +138,7 @@
     <string name="new_items">%d uut üksust</string>
     <string name="no_downloaded_apps">Allalaaditud rakendusi ei ole</string>
     <string name="no_room_any_page">Ühelgi lehel pole rohkem ruumi.</string>
+    <string name="no_space_page">Leheküljel pole ruumi. Proovige lisada otsetee mõnele muule leheküljele.</string>
     <string name="not_selected">Pole valitud</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidin on juba lisatud avaekraanile.</string>

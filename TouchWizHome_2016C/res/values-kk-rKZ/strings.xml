@@ -138,6 +138,7 @@
     <string name="new_items">%d жаңа элемент</string>
     <string name="no_downloaded_apps">Жүктелген бағдарламалар жоқ</string>
     <string name="no_room_any_page">Бетте бөлмелер жоқ.</string>
+    <string name="no_space_page">Бетте бос орын жоқ. Жедел пернені басқа бетке қосып көріңіз.</string>
     <string name="not_selected">Таңдалмады</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s виджеті бастапқы экранға бұрын қосылып қойған.</string>

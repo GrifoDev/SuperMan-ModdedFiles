@@ -139,7 +139,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher2/Folder$12;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mItemClickListener:Landroid/view/View$OnClickListener;
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$600(Lcom/android/launcher2/Folder;)Landroid/view/View$OnClickListener;
 
     move-result-object v1
@@ -148,7 +147,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$12;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mItemClickListener:Landroid/view/View$OnClickListener;
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$600(Lcom/android/launcher2/Folder;)Landroid/view/View$OnClickListener;
 
     move-result-object v1
@@ -157,7 +155,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$12;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->mFocusedView:Landroid/view/View;
     invoke-static {v1, p1}, Lcom/android/launcher2/Folder;->access$702(Lcom/android/launcher2/Folder;Landroid/view/View;)Landroid/view/View;
 
     goto :goto_0

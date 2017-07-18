@@ -83,3 +83,40 @@
 
     goto :goto_0
 .end method
+
+.method public setTextVisible(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/launcher2/AllappsIcon;->mTextVisible:Z
+
+    if-nez v0, :cond_0
+
+    const v0, 0x7f090001
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher2/AllappsIcon;->setText(I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher2/AllappsIcon;->mTextVisible:Z
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/launcher2/AllappsIcon;->mTextVisible:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, ""
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher2/AllappsIcon;->setText(Ljava/lang/CharSequence;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher2/AllappsIcon;->mTextVisible:Z
+
+    goto :goto_0
+.end method

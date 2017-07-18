@@ -81,7 +81,6 @@
 
     const/4 v4, 0x1
 
-    # setter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mIsFinished:Z
     invoke-static {v3, v4}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$602(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;Z)Z
 
     iget-object v3, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1$1;->this$2:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1;
@@ -90,7 +89,6 @@
 
     iget-object v3, v3, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # setter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mIsSuccess:Z
     invoke-static {v3, p1}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$702(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;Z)Z
 
     iget-object v3, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1$1;->this$2:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1;
@@ -109,7 +107,6 @@
 
     iget-object v3, v3, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mIsSuccess:Z
     invoke-static {v3}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$700(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Z
 
     move-result v3
@@ -210,7 +207,6 @@
 
     iget-object v0, v0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # setter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mProcNow:J
     invoke-static {v0, p1, p2}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$402(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;J)J
 
     iget-object v0, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1$1;->this$2:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3$1;
@@ -219,7 +215,6 @@
 
     iget-object v0, v0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$3;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # setter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mProcTotal:J
     invoke-static {v0, p3, p4}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$502(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;J)J
 
     return-void

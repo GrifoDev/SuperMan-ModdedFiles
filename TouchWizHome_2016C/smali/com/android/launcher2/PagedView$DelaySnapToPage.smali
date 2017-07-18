@@ -59,7 +59,6 @@
 
     iget v3, p0, Lcom/android/launcher2/PagedView$DelaySnapToPage;->mDirection:I
 
-    # invokes: Lcom/android/launcher2/PagedView;->snapToPageInternal(III)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/PagedView;->access$600(Lcom/android/launcher2/PagedView;III)V
 
     return-void

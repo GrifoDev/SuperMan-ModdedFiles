@@ -706,13 +706,13 @@
 
     const/4 v6, 0x0
 
-    const v3, 0x7f03000c
+    const v3, 0x7f04000c
 
     invoke-virtual {p1, v3, p2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v2
 
-    const v3, 0x7f100023
+    const v3, 0x7f110023
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -722,7 +722,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/BadgeSettingsFragment;->recyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    const v3, 0x7f100022
+    const v3, 0x7f110022
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -732,7 +732,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
 
-    const v3, 0x7f100021
+    const v3, 0x7f110021
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -746,13 +746,13 @@
 
     iget-object v4, p0, Lcom/android/launcher2/BadgeSettingsFragment;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0e0027
+    const v5, 0x7f0f0027
 
     invoke-direct {v3, v4, v5}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
     iput-object v3, p0, Lcom/android/launcher2/BadgeSettingsFragment;->progressDialog:Landroid/app/ProgressDialog;
 
-    const v3, 0x7f100020
+    const v3, 0x7f110020
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

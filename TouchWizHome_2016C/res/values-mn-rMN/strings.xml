@@ -138,6 +138,7 @@
     <string name="new_items">%d шинэ зүйл</string>
     <string name="no_downloaded_apps">Татаж авсан програм алга</string>
     <string name="no_room_any_page">Аль ч хуудсанд зай байхгүй.</string>
+    <string name="no_space_page">Хуудсанд зай байхгүй. Өөр хуудсанд холбоос нэмээд үз.</string>
     <string name="not_selected">Сонгогдоогүй</string>
     <string name="ok">Батлах</string>
     <string name="only_one_widget_instance_allowed">%s тоноглолыг хэдийн эх дэлгэцэд нэмсэн.</string>

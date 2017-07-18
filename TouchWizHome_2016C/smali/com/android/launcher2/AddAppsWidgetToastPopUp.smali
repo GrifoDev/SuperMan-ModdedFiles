@@ -73,7 +73,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/AddAppsWidgetToastPopUp;->mView:Landroid/view/View;
 
-    const v2, 0x7f100016
+    const v2, 0x7f110016
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     check-cast v3, Lcom/android/launcher2/Launcher;
 
-    const v5, 0x7f030003
+    const v5, 0x7f040003
 
     const/4 v6, 0x0
 
@@ -125,7 +125,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f080008
+    const v5, 0x7f090008
 
     invoke-virtual {p0, v5}, Lcom/android/launcher2/AddAppsWidgetToastPopUp;->getString(I)Ljava/lang/String;
 
@@ -135,7 +135,7 @@
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f080036
+    const v5, 0x7f090036
 
     invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -143,7 +143,7 @@
 
     move-result-object v2
 
-    const v5, 0x7f100016
+    const v5, 0x7f110016
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

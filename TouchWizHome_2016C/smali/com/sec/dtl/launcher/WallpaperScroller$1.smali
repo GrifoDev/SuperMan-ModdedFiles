@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller$1;->this$0:Lcom/sec/dtl/launcher/WallpaperScroller;
 
-    # getter for: Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller;->access$000(Lcom/sec/dtl/launcher/WallpaperScroller;)Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
     move-result-object v0
@@ -45,7 +44,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller$1;->this$0:Lcom/sec/dtl/launcher/WallpaperScroller;
 
-    # getter for: Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller;->access$000(Lcom/sec/dtl/launcher/WallpaperScroller;)Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
     move-result-object v0
@@ -62,7 +60,6 @@
 
     move v6, p6
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->update(FFFFFF)V
     invoke-static/range {v0 .. v6}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$100(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;FFFFFF)V
 
     :cond_0

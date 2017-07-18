@@ -48,7 +48,7 @@
 .method private initialize(I)V
     .locals 9
 
-    const v8, 0x7f09000a
+    const v8, 0x7f0a000a
 
     const/4 v7, 0x3
 
@@ -101,11 +101,11 @@
 
     move-result-object v1
 
-    const v2, 0x7f090009
+    const v2, 0x7f0a0009
 
     invoke-virtual {p0, v1, v5, v8, v2}, Lcom/android/launcher2/FolderIconHelper$MiniCellInfo;->setMiniValue(Landroid/content/res/Resources;III)V
 
-    const v2, 0x7f09000b
+    const v2, 0x7f0a000b
 
     invoke-virtual {p0, v1, v6, v8, v2}, Lcom/android/launcher2/FolderIconHelper$MiniCellInfo;->setMiniValue(Landroid/content/res/Resources;III)V
 
@@ -163,7 +163,6 @@
 
     move-result v0
 
-    # getter for: Lcom/android/launcher2/FolderIconHelper;->mAppIconSize:I
     invoke-static {}, Lcom/android/launcher2/FolderIconHelper;->access$300()I
 
     move-result v3

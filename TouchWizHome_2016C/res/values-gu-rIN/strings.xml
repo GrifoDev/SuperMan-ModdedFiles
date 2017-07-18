@@ -138,6 +138,7 @@
     <string name="new_items">%d નવી વસ્તુઓ</string>
     <string name="no_downloaded_apps">કોઈ ડાઉનલોડ કરેલી એપ્લિકેશનો નથી</string>
     <string name="no_room_any_page">કોઈપણ પૃષ્ઠ પર કોઈ રૂમ નથી.</string>
+    <string name="no_space_page">પૃષ્ઠ પર કોઈ જગ્યા નથી. કોઈ અલગ પૃષ્ઠ પર શોર્ટકટ ઉમેરવાનો પ્રયાસ કરો.</string>
     <string name="not_selected">પસંદ કરેલ નથી</string>
     <string name="ok">ઓકે</string>
     <string name="only_one_widget_instance_allowed">%s વિજેટ અગાઉથી હોમ સ્ક્રીન પર છે.</string>

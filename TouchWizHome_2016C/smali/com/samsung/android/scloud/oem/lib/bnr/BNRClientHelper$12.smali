@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$12;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v1}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v1
@@ -54,7 +53,6 @@
 
     iget-object v1, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$12;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->clearData(Landroid/content/Context;Ljava/lang/String;)V
     invoke-static {v1, p1, p2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$500(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/samsung/android/scloud/oem/lib/bnr/BackupMetaManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/scloud/oem/lib/bnr/BackupMetaManager;

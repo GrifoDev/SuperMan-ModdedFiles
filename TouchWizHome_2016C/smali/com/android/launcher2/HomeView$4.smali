@@ -99,7 +99,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mAppWidgetManager:Landroid/appwidget/AppWidgetManager;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$200(Lcom/android/launcher2/HomeView;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v0
@@ -206,7 +205,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mRestoring:Z
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$300(Lcom/android/launcher2/HomeView;)Z
 
     move-result v0
@@ -215,7 +213,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mAppWidgetHost:Lcom/android/launcher2/LauncherAppWidgetHost;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$400(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/LauncherAppWidgetHost;
 
     move-result-object v0
@@ -242,7 +239,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mSpanCalculator:Lcom/android/launcher2/WorkspaceSpanCalculator;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$500(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/WorkspaceSpanCalculator;
 
     move-result-object v0
@@ -267,7 +263,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$000(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v0
@@ -282,7 +277,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$4;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mSpanCalculator:Lcom/android/launcher2/WorkspaceSpanCalculator;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$500(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/WorkspaceSpanCalculator;
 
     move-result-object v2

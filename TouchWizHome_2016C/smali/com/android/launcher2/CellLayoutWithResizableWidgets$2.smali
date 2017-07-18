@@ -78,7 +78,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutWithResizableWidgets$2;->this$0:Lcom/android/launcher2/CellLayoutWithResizableWidgets;
 
-    # getter for: Lcom/android/launcher2/CellLayoutWithResizableWidgets;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v0}, Lcom/android/launcher2/CellLayoutWithResizableWidgets;->access$000(Lcom/android/launcher2/CellLayoutWithResizableWidgets;)Lcom/android/launcher2/Workspace;
 
     move-result-object v0

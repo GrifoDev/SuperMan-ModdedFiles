@@ -57,7 +57,6 @@
 
     iget v2, p2, Lcom/android/launcher2/AppItem;->mScreen:I
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->integerCompare(II)I
     invoke-static {v1, v2}, Lcom/android/launcher2/MenuAppModel;->access$000(II)I
 
     move-result v0
@@ -70,7 +69,6 @@
 
     iget v2, p2, Lcom/android/launcher2/AppItem;->mCell:I
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->integerCompare(II)I
     invoke-static {v1, v2}, Lcom/android/launcher2/MenuAppModel;->access$000(II)I
 
     move-result v0

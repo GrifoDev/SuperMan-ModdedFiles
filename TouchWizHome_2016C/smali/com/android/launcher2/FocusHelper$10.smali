@@ -31,7 +31,6 @@
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
 
-    # invokes: Lcom/android/launcher2/FocusHelper;->handleMenuAppGridIconKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     invoke-static {p1, p2, p3}, Lcom/android/launcher2/FocusHelper;->access$900(Landroid/view/View;ILandroid/view/KeyEvent;)Z
 
     move-result v0

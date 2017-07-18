@@ -72,7 +72,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v14}, Lcom/android/launcher2/MenuAppsSearch;->access$300(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/SearchView;
 
     move-result-object v14
@@ -93,7 +92,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v14}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v14
@@ -360,7 +358,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902c9
+    const v15, 0x7f0a02cc
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -375,7 +373,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902b0
+    const v15, 0x7f0a02b5
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -389,7 +387,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902cc
+    const v15, 0x7f0a02cf
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -403,7 +401,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902cb
+    const v15, 0x7f0a02ce
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -433,7 +431,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
     invoke-static {v14}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v14
@@ -450,7 +447,6 @@
 
     iget-object v15, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v15}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v15
@@ -471,7 +467,6 @@
 
     iget-object v15, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v15}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v15
@@ -500,7 +495,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
     invoke-static {v14}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v14
@@ -519,7 +513,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902c8
+    const v15, 0x7f0a02cb
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -552,7 +546,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902c9
+    const v15, 0x7f0a02cc
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -567,7 +561,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902b0
+    const v15, 0x7f0a02b5
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -581,7 +575,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902cc
+    const v15, 0x7f0a02cf
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -595,7 +589,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902cb
+    const v15, 0x7f0a02ce
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -625,7 +619,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v14}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v14
@@ -648,7 +641,6 @@
 
     iget-object v15, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v15}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v15
@@ -675,7 +667,6 @@
 
     iget-object v15, v0, Lcom/android/launcher2/MenuAppsSearch$SearchFilter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v15}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v15
@@ -710,7 +701,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0902c8
+    const v15, 0x7f0a02cb
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

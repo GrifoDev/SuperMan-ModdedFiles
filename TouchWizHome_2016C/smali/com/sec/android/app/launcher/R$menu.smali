@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final apps_options_menu:I = 0x7f110000
+.field public static final apps_options_menu:I = 0x7f120000
 
-.field public static final options_menu:I = 0x7f110001
+.field public static final options_menu:I = 0x7f120001
 
 
 # direct methods

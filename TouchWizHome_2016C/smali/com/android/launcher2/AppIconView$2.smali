@@ -79,7 +79,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/AppIconView$2;->this$0:Lcom/android/launcher2/AppIconView;
 
-    invoke-virtual {v1, v3}, Lcom/android/launcher2/AppIconView;->setSingleLine(Z)V
+    invoke-virtual {v1, v3}, Lcom/android/launcher2/AppIconView;->setMaxLines(I)V
 
     :cond_0
     return-void

@@ -421,25 +421,25 @@
 
     move-result-object v7
 
-    const v13, 0x7f0900e8
+    const v13, 0x7f0a00e8
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v13, 0x7f0900eb
+    const v13, 0x7f0a00eb
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v13, 0x7f0900f1
+    const v13, 0x7f0a00f1
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    const v13, 0x7f0900ee
+    const v13, 0x7f0a00ee
 
     invoke-virtual {v7, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1481,7 +1481,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030009
+    const v1, 0x7f040009
 
     const/4 v2, 0x0
 
@@ -2055,7 +2055,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f080081
+    const v4, 0x7f090081
 
     invoke-static {v2, v4, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

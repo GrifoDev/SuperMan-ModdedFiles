@@ -303,7 +303,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f02006f
+    const v7, 0x7f02006b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -312,7 +312,7 @@
     iput-object v6, p0, Lcom/android/launcher2/AppIconView;->mIconShadowDrawable:Landroid/graphics/drawable/Drawable;
 
     :cond_2
-    const v6, 0x7f090006
+    const v6, 0x7f0a0006
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -320,7 +320,7 @@
 
     sput v6, Lcom/android/launcher2/AppIconView;->sFontSizeDefault:I
 
-    const v6, 0x7f090007
+    const v6, 0x7f0a0007
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -403,7 +403,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f03000b
+    const v7, 0x7f04000b
 
     invoke-virtual {v6, v7, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -447,7 +447,7 @@
     sput v6, Lcom/android/launcher2/AppIconView;->mBadgeClearViewHeight:I
 
     :cond_5
-    const v6, 0x7f090339
+    const v6, 0x7f0a033c
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -648,13 +648,13 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f03001d
+    const v0, 0x7f04001d
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f03001e
+    const v0, 0x7f04001e
 
     goto :goto_0
 .end method
@@ -911,7 +911,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020056
+    const v3, 0x7f020057
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1046,7 +1046,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08008b
+    const v7, 0x7f09008b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1099,7 +1099,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0800d2
+    const v7, 0x7f0900d3
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1147,7 +1147,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f08008a
+    const v7, 0x7f09008a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1560,7 +1560,7 @@
 .method protected applyBaseItem(Lcom/android/launcher2/BaseItem;Landroid/graphics/Bitmap;IZ)V
     .locals 7
 
-    const v6, 0x7f080047
+    const v6, 0x7f090047
 
     const/4 v5, 0x1
 
@@ -1588,7 +1588,7 @@
 
     if-eq v3, v5, :cond_a
 
-    const v3, 0x7f0e001c
+    const v3, 0x7f0f001c
 
     invoke-direct {p0, v3}, Lcom/android/launcher2/AppIconView;->applyStyle(I)V
 
@@ -2132,7 +2132,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800e0
+    const v2, 0x7f0900e1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2315,87 +2315,87 @@
 .end method
 
 .method public drawBadge(Landroid/graphics/Canvas;Z)V
-    .locals 35
+    .locals 33
 
-    sget-object v19, Lcom/android/launcher2/AppIconView;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
+    sget-object v17, Lcom/android/launcher2/AppIconView;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher2/AppIconView;->mBadgeCountText:I
 
-    move/from16 v31, v0
+    move/from16 v29, v0
 
-    if-eqz v31, :cond_c
+    if-eqz v29, :cond_d
 
-    if-eqz v19, :cond_c
+    if-eqz v17, :cond_d
 
-    invoke-virtual/range {v19 .. v19}, Landroid/graphics/drawable/Drawable;->isVisible()Z
+    invoke-virtual/range {v17 .. v17}, Landroid/graphics/drawable/Drawable;->isVisible()Z
 
-    move-result v31
+    move-result v29
 
-    if-eqz v31, :cond_c
+    if-eqz v29, :cond_d
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/launcher2/AppIconView;->mDrawIcon:Z
 
-    move/from16 v31, v0
+    move/from16 v29, v0
 
-    if-nez v31, :cond_0
+    if-nez v29, :cond_0
 
-    if-eqz p2, :cond_c
+    if-eqz p2, :cond_d
 
     :cond_0
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->badgeDynamicDrawable()Z
 
-    move-result v31
+    move-result v29
 
-    if-eqz v31, :cond_1
+    if-eqz v29, :cond_1
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->selectBadgeDrawable()V
 
-    sget-object v19, Lcom/android/launcher2/AppIconView;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
+    sget-object v17, Lcom/android/launcher2/AppIconView;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
 
     :cond_1
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher2/AppIconView;->mBadgeCountText:I
 
-    move/from16 v31, v0
+    move/from16 v29, v0
 
-    const/16 v32, 0x3e8
+    const/16 v30, 0x3e8
 
-    move/from16 v0, v31
+    move/from16 v0, v29
 
-    move/from16 v1, v32
+    move/from16 v1, v30
 
-    if-lt v0, v1, :cond_d
+    if-lt v0, v1, :cond_e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    sget v32, Lcom/android/launcher2/AppIconView;->sFontSizeSmall:I
+    sget v30, Lcom/android/launcher2/AppIconView;->sFontSizeSmall:I
 
-    move/from16 v0, v32
+    move/from16 v0, v30
 
     int-to-float v0, v0
 
-    move/from16 v32, v0
+    move/from16 v30, v0
 
-    invoke-virtual/range {v31 .. v32}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual/range {v29 .. v30}, Landroid/graphics/Paint;->setTextSize(F)V
 
     :cond_2
     :goto_0
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getDrawableState()[I
 
-    move-result-object v31
+    move-result-object v29
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v29
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
@@ -2403,11 +2403,11 @@
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v29
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
@@ -2415,35 +2415,11 @@
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    move/from16 v24, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, v31
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    move/from16 v25, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, v31
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
     move/from16 v22, v0
 
@@ -2451,537 +2427,517 @@
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
-    iget v0, v0, Landroid/graphics/Rect;->right:I
+    iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    move/from16 v31, v0
-
-    add-int v26, v24, v31
+    move/from16 v23, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
     iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
-    move/from16 v31, v0
+    move/from16 v20, v0
 
-    add-int v23, v25, v31
+    move-object/from16 v0, p0
 
-    invoke-virtual/range {v19 .. v19}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move-result v31
+    move-object/from16 v29, v0
 
-    sub-int v12, v31, v26
+    move-object/from16 v0, v29
 
-    invoke-virtual/range {v19 .. v19}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    iget v0, v0, Landroid/graphics/Rect;->right:I
 
-    move-result v31
+    move/from16 v29, v0
 
-    sub-int v11, v31, v23
+    add-int v24, v22, v29
 
-    const-string v31, "%d"
+    move-object/from16 v0, p0
 
-    const/16 v32, 0x1
+    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
-    move/from16 v0, v32
+    move-object/from16 v29, v0
+
+    move-object/from16 v0, v29
+
+    iget v0, v0, Landroid/graphics/Rect;->bottom:I
+
+    move/from16 v29, v0
+
+    add-int v21, v23, v29
+
+    invoke-virtual/range {v17 .. v17}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v29
+
+    sub-int v10, v29, v24
+
+    invoke-virtual/range {v17 .. v17}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v29
+
+    sub-int v9, v29, v21
+
+    const-string v29, "%d"
+
+    const/16 v30, 0x1
+
+    move/from16 v0, v30
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v32, v0
+    move-object/from16 v30, v0
 
-    const/16 v33, 0x0
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher2/AppIconView;->mBadgeCountText:I
 
-    move/from16 v34, v0
+    move/from16 v32, v0
 
-    invoke-static/range {v34 .. v34}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v34
+    move-result-object v32
 
-    aput-object v34, v32, v33
+    aput-object v32, v30, v31
 
-    invoke-static/range {v31 .. v32}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v29 .. v30}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
+    iget-object v6, v0, Lcom/android/launcher2/AppIconView;->mBoundsRect:Landroid/graphics/Rect;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    const/16 v32, 0x0
+    const/16 v30, 0x0
 
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v33
+    move-result v31
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
-    move/from16 v1, v32
+    move/from16 v1, v30
 
-    move/from16 v2, v33
+    move/from16 v2, v31
 
-    invoke-virtual {v0, v6, v1, v2, v7}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {v0, v5, v1, v2, v6}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher2/AppIconView;->mBadgeCountText:I
 
-    move/from16 v31, v0
+    move/from16 v29, v0
 
-    const/16 v32, 0x64
+    const/16 v30, 0x64
 
-    move/from16 v0, v31
-
-    move/from16 v1, v32
-
-    if-lt v0, v1, :cond_3
-
-    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
-
-    move-result v31
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v32
-
-    const v33, 0x7f090008
-
-    invoke-virtual/range {v32 .. v33}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v32
-
-    add-int v10, v31, v32
-
-    :cond_3
-    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
-
-    move-result v9
-
-    if-ge v10, v12, :cond_4
-
-    move v10, v12
-
-    :cond_4
-    if-ge v9, v11, :cond_5
-
-    sub-int v31, v11, v9
-
-    div-int/lit8 v31, v31, 0x2
-
-    add-int v25, v25, v31
-
-    move v9, v11
-
-    :cond_5
-    add-int v21, v10, v26
-
-    add-int v20, v9, v23
-
-    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
-
-    move-result-object v28
-
-    invoke-virtual/range {v28 .. v28}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeLoader()Lcom/android/launcher2/theme/OpenThemeLoader;
-
-    move-result-object v31
-
-    sget-object v32, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->BADGE:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
-
-    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
-
-    move-result v32
-
-    invoke-virtual/range {v31 .. v32}, Lcom/android/launcher2/theme/OpenThemeLoader;->getIsTheme(I)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_6
-
-    move-object/from16 v0, v28
-
-    iget-object v0, v0, Lcom/android/launcher2/theme/OpenThemeManager;->mThemeStyle:Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;
-
-    move-object/from16 v31, v0
-
-    invoke-virtual/range {v31 .. v31}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->getBadgeBg()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v27
-
-    move-object/from16 v0, v28
-
-    iget-object v0, v0, Lcom/android/launcher2/theme/OpenThemeManager;->mThemeStyle:Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;
-
-    move-object/from16 v31, v0
-
-    invoke-virtual/range {v31 .. v31}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->getUseImageForBadge()Z
-
-    move-result v31
-
-    if-eqz v31, :cond_e
-
-    if-eqz v27, :cond_e
-
-    move-object/from16 v19, v27
-
-    invoke-virtual/range {v27 .. v27}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v31
-
-    move/from16 v0, v20
-
-    move/from16 v1, v31
-
-    if-eq v0, v1, :cond_6
-
-    sub-int v20, v20, v22
-
-    sub-int v21, v21, v26
-
-    :cond_6
-    :goto_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getWidth()I
-
-    move-result v30
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
-
-    move/from16 v31, v0
-
-    sub-int v31, v30, v31
-
-    div-int/lit8 v18, v31, 0x2
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
-
-    move/from16 v31, v0
-
-    add-int v31, v31, v18
-
-    mul-int/lit8 v32, v21, 0x3
-
-    div-int/lit8 v32, v32, 0x4
-
-    sub-int v17, v31, v32
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
-
-    move-result v31
-
-    div-int/lit8 v32, v20, 0x4
-
-    sub-int v29, v31, v32
-
-    add-int v31, v17, v21
-
-    move/from16 v0, v31
+    move/from16 v0, v29
 
     move/from16 v1, v30
 
-    if-le v0, v1, :cond_7
+    if-lt v0, v1, :cond_3
 
-    add-int v31, v17, v21
+    invoke-virtual {v6}, Landroid/graphics/Rect;->width()I
 
-    sub-int v31, v31, v30
+    move-result v29
 
-    sub-int v17, v17, v31
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+    move-result-object v30
 
-    move-result v31
+    const v31, 0x7f0a0008
 
-    add-int v32, v17, v21
+    invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-object/from16 v0, p0
+    move-result v30
 
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+    add-int v8, v29, v30
 
-    move/from16 v33, v0
+    :cond_3
+    invoke-virtual {v6}, Landroid/graphics/Rect;->height()I
 
-    add-int v33, v33, v18
+    move-result v7
 
-    sub-int v32, v32, v33
+    if-ge v8, v10, :cond_4
 
-    sub-int v29, v31, v32
+    move v8, v10
 
-    :cond_7
-    if-gez v29, :cond_8
+    :cond_4
+    if-ge v7, v9, :cond_5
 
-    const/16 v29, 0x0
+    sub-int v29, v9, v7
 
-    move-object/from16 v0, p0
+    div-int/lit8 v29, v29, 0x2
 
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+    add-int v23, v23, v29
 
-    move/from16 v31, v0
+    move v7, v9
 
-    add-int v31, v31, v18
+    :cond_5
+    add-int v19, v8, v24
 
-    sub-int v31, v31, v21
+    add-int v18, v7, v21
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->getInstance()Lcom/android/launcher2/theme/OpenThemeManager;
 
-    move-result v32
+    move-result-object v26
 
-    add-int v17, v31, v32
+    invoke-virtual/range {v26 .. v26}, Lcom/android/launcher2/theme/OpenThemeManager;->getThemeLoader()Lcom/android/launcher2/theme/OpenThemeLoader;
 
-    :cond_8
-    move-object/from16 v0, p0
+    move-result-object v29
 
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+    sget-object v30, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->BADGE:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
 
-    move/from16 v31, v0
+    invoke-virtual/range {v30 .. v30}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
 
-    move/from16 v0, v31
+    move-result v30
 
-    int-to-float v0, v0
+    invoke-virtual/range {v29 .. v30}, Lcom/android/launcher2/theme/OpenThemeLoader;->getIsTheme(I)Z
 
-    move/from16 v31, v0
+    move-result v29
 
-    const v32, 0x3fcccccd    # 1.6f
+    if-eqz v29, :cond_6
 
-    mul-float v31, v31, v32
+    move-object/from16 v0, v26
 
-    move/from16 v0, v31
+    iget-object v0, v0, Lcom/android/launcher2/theme/OpenThemeManager;->mThemeStyle:Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;
 
-    float-to-int v5, v0
+    move-object/from16 v29, v0
 
-    sub-int v31, v30, v5
+    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->getBadgeBg()Landroid/graphics/drawable/Drawable;
 
-    div-int/lit8 v13, v31, 0x2
+    move-result-object v25
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+    move-object/from16 v0, v26
 
-    move-result v31
+    iget-object v0, v0, Lcom/android/launcher2/theme/OpenThemeManager;->mThemeStyle:Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;
 
-    move-object/from16 v0, p0
+    move-object/from16 v29, v0
 
-    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeStyle;->getUseImageForBadge()Z
 
-    move/from16 v32, v0
+    move-result v29
 
-    move/from16 v0, v32
+    if-eqz v29, :cond_f
 
-    int-to-float v0, v0
+    if-eqz v25, :cond_f
 
-    move/from16 v32, v0
+    move-object/from16 v17, v25
 
-    const v33, 0x3f19999a    # 0.6f
+    invoke-virtual/range {v25 .. v25}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    mul-float v32, v32, v33
+    move-result v29
 
-    const/high16 v33, 0x40000000    # 2.0f
+    move/from16 v0, v18
 
-    div-float v32, v32, v33
+    move/from16 v1, v29
 
-    move/from16 v0, v32
+    if-eq v0, v1, :cond_6
 
-    float-to-int v0, v0
+    sub-int v18, v18, v20
 
-    move/from16 v32, v0
+    sub-int v19, v19, v24
 
-    sub-int v14, v31, v32
-
-    if-eqz p2, :cond_9
-
-    sub-int v17, v17, v13
-
-    sub-int v29, v29, v14
-
-    add-int v31, v17, v21
-
-    move/from16 v0, v31
-
-    if-le v0, v5, :cond_9
-
-    add-int v31, v17, v21
-
-    sub-int v31, v31, v5
-
-    sub-int v17, v17, v31
-
-    :cond_9
-    sget-boolean v31, Lcom/android/launcher2/Launcher;->sIsRtl:Z
-
-    if-eqz v31, :cond_a
-
-    add-int v31, v17, v21
-
-    sub-int v17, v30, v31
-
-    :cond_a
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getScrollX()I
-
-    move-result v31
-
-    add-int v17, v17, v31
-
+    :cond_6
+    :goto_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v14
 
-    check-cast v16, Lcom/android/launcher2/BaseItem;
+    check-cast v14, Lcom/android/launcher2/BaseItem;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mUserManager:Landroid/os/UserManager;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher2/BaseItem;->getUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
+    invoke-virtual {v14}, Lcom/android/launcher2/BaseItem;->getUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
-    move-result-object v32
+    move-result-object v30
 
-    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher2/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+    invoke-virtual/range {v30 .. v30}, Lcom/android/launcher2/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
 
-    move-result-object v32
+    move-result-object v30
 
-    invoke-virtual/range {v31 .. v32}, Landroid/os/UserManager;->isQuietModeEnabled(Landroid/os/UserHandle;)Z
+    invoke-virtual/range {v29 .. v30}, Landroid/os/UserManager;->isQuietModeEnabled(Landroid/os/UserHandle;)Z
 
-    move-result v31
+    move-result v29
 
-    if-eqz v31, :cond_f
+    if-eqz v29, :cond_10
 
-    const/4 v15, 0x1
+    const/4 v13, 0x1
 
     :goto_2
-    if-nez v15, :cond_b
+    if-nez v13, :cond_7
 
-    move-object/from16 v0, v16
+    instance-of v0, v14, Lcom/android/launcher2/FolderItem;
 
-    instance-of v0, v0, Lcom/android/launcher2/FolderItem;
+    move/from16 v29, v0
 
-    move/from16 v31, v0
-
-    if-eqz v31, :cond_10
+    if-eqz v29, :cond_8
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    invoke-virtual {v0, v14}, Lcom/android/launcher2/AppIconView;->containsUserApp(Lcom/android/launcher2/BaseItem;)Z
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/AppIconView;->containsUserApp(Lcom/android/launcher2/BaseItem;)Z
+    move-result v29
 
-    move-result v31
+    if-nez v29, :cond_8
 
-    if-nez v31, :cond_10
+    :cond_7
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v29
+
+    const v30, 0x7f020056
+
+    invoke-virtual/range {v29 .. v30}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v17
+
+    :cond_8
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getWidth()I
+
+    move-result v28
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v29, v0
+
+    sub-int v29, v28, v29
+
+    div-int/lit8 v16, v29, 0x2
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v29, v0
+
+    add-int v29, v29, v16
+
+    mul-int/lit8 v30, v19, 0x3
+
+    div-int/lit8 v30, v30, 0x4
+
+    sub-int v15, v29, v30
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+
+    move-result v29
+
+    div-int/lit8 v30, v18, 0x4
+
+    sub-int v27, v29, v30
+
+    add-int v29, v15, v19
+
+    move/from16 v0, v29
+
+    move/from16 v1, v28
+
+    if-le v0, v1, :cond_9
+
+    add-int v29, v15, v19
+
+    sub-int v29, v29, v28
+
+    sub-int v15, v15, v29
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+
+    move-result v29
+
+    add-int v30, v15, v19
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v31, v0
+
+    add-int v31, v31, v16
+
+    sub-int v30, v30, v31
+
+    sub-int v27, v29, v30
+
+    :cond_9
+    if-gez v27, :cond_a
+
+    const/16 v27, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v29, v0
+
+    add-int v29, v29, v16
+
+    sub-int v29, v29, v19
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+
+    move-result v30
+
+    add-int v15, v29, v30
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v29, v0
+
+    move/from16 v0, v29
+
+    int-to-float v0, v0
+
+    move/from16 v29, v0
+
+    const v30, 0x3fcccccd    # 1.6f
+
+    mul-float v29, v29, v30
+
+    move/from16 v0, v29
+
+    float-to-int v4, v0
+
+    sub-int v29, v28, v4
+
+    div-int/lit8 v11, v29, 0x2
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getPaddingTop()I
+
+    move-result v29
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/AppIconView;->mIconSize:I
+
+    move/from16 v30, v0
+
+    move/from16 v0, v30
+
+    int-to-float v0, v0
+
+    move/from16 v30, v0
+
+    const v31, 0x3f19999a    # 0.6f
+
+    mul-float v30, v30, v31
+
+    const/high16 v31, 0x40000000    # 2.0f
+
+    div-float v30, v30, v31
+
+    move/from16 v0, v30
+
+    float-to-int v0, v0
+
+    move/from16 v30, v0
+
+    sub-int v12, v29, v30
+
+    if-eqz p2, :cond_b
+
+    sub-int/2addr v15, v11
+
+    sub-int v27, v27, v12
+
+    add-int v29, v15, v19
+
+    move/from16 v0, v29
+
+    if-le v0, v4, :cond_b
+
+    add-int v29, v15, v19
+
+    sub-int v29, v29, v4
+
+    sub-int v15, v15, v29
 
     :cond_b
-    new-instance v8, Landroid/graphics/ColorMatrix;
+    sget-boolean v29, Lcom/android/launcher2/Launcher;->sIsRtl:Z
 
-    invoke-direct {v8}, Landroid/graphics/ColorMatrix;-><init>()V
+    if-eqz v29, :cond_c
 
-    const/16 v31, 0x0
+    add-int v29, v15, v19
 
-    move/from16 v0, v31
+    sub-int v15, v28, v29
 
-    invoke-virtual {v8, v0}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
+    :cond_c
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/AppIconView;->getScrollX()I
 
-    new-instance v31, Landroid/graphics/ColorMatrixColorFilter;
+    move-result v29
 
-    move-object/from16 v0, v31
+    add-int v15, v15, v29
 
-    invoke-direct {v0, v8}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    add-int v29, v15, v19
 
-    move-object/from16 v0, v19
+    add-int v30, v27, v18
 
-    move-object/from16 v1, v31
+    move-object/from16 v0, v17
 
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    :goto_3
-    add-int v31, v17, v21
-
-    add-int v32, v29, v20
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v17
+    move/from16 v1, v27
 
     move/from16 v2, v29
 
-    move/from16 v3, v31
+    move/from16 v3, v30
 
-    move/from16 v4, v32
+    invoke-virtual {v0, v15, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v17
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    div-int/lit8 v31, v21, 0x2
+    div-int/lit8 v29, v19, 0x2
 
-    add-int v31, v31, v17
+    add-int v29, v29, v15
 
-    move/from16 v0, v31
+    move/from16 v0, v29
 
     int-to-float v0, v0
+
+    move/from16 v29, v0
+
+    add-int v30, v27, v23
+
+    iget v0, v6, Landroid/graphics/Rect;->top:I
 
     move/from16 v31, v0
 
-    add-int v32, v29, v25
+    sub-int v30, v30, v31
 
-    iget v0, v7, Landroid/graphics/Rect;->top:I
-
-    move/from16 v33, v0
-
-    sub-int v32, v32, v33
-
-    move/from16 v0, v32
+    move/from16 v0, v30
 
     int-to-float v0, v0
 
-    move/from16 v32, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v31
-
-    move/from16 v2, v32
-
-    move-object/from16 v3, v33
-
-    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-
-    :cond_c
-    return-void
-
-    :cond_d
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->badgeDynamicDrawable()Z
-
-    move-result v31
-
-    if-nez v31, :cond_2
+    move/from16 v30, v0
 
     move-object/from16 v0, p0
 
@@ -2989,46 +2945,55 @@
 
     move-object/from16 v31, v0
 
-    sget v32, Lcom/android/launcher2/AppIconView;->sFontSizeDefault:I
+    move-object/from16 v0, p1
 
-    move/from16 v0, v32
+    move/from16 v1, v29
+
+    move/from16 v2, v30
+
+    move-object/from16 v3, v31
+
+    invoke-virtual {v0, v5, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    :cond_d
+    return-void
+
+    :cond_e
+    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->badgeDynamicDrawable()Z
+
+    move-result v29
+
+    if-nez v29, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher2/AppIconView;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v29, v0
+
+    sget v30, Lcom/android/launcher2/AppIconView;->sFontSizeDefault:I
+
+    move/from16 v0, v30
 
     int-to-float v0, v0
 
-    move/from16 v32, v0
+    move/from16 v30, v0
 
-    invoke-virtual/range {v31 .. v32}, Landroid/graphics/Paint;->setTextSize(F)V
+    invoke-virtual/range {v29 .. v30}, Landroid/graphics/Paint;->setTextSize(F)V
 
     goto/16 :goto_0
 
-    :cond_e
-    if-eqz v27, :cond_6
+    :cond_f
+    if-eqz v25, :cond_6
 
-    move-object/from16 v19, v27
+    move-object/from16 v17, v25
 
     goto/16 :goto_1
 
-    :cond_f
-    const/4 v15, 0x0
+    :cond_10
+    const/4 v13, 0x0
 
     goto/16 :goto_2
-
-    :cond_10
-    new-instance v31, Landroid/graphics/ColorMatrixColorFilter;
-
-    new-instance v32, Landroid/graphics/ColorMatrix;
-
-    invoke-direct/range {v32 .. v32}, Landroid/graphics/ColorMatrix;-><init>()V
-
-    invoke-direct/range {v31 .. v32}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    goto :goto_3
 .end method
 
 .method public drawIconOrText(Landroid/graphics/Canvas;)V
@@ -3123,7 +3088,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f09028a
+    const v20, 0x7f0a0291
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3133,7 +3098,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0902dc
+    const v20, 0x7f0a02de
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3161,7 +3126,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f090375
+    const v20, 0x7f0a0378
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3171,7 +3136,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f09023f
+    const v20, 0x7f0a0241
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3215,7 +3180,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f090376
+    const v20, 0x7f0a0379
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3443,7 +3408,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090130
+    const v4, 0x7f0a0130
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3515,7 +3480,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090138
+    const v4, 0x7f0a0138
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3543,7 +3508,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09024a
+    const v4, 0x7f0a024c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3573,7 +3538,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090253
+    const v4, 0x7f0a0255
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3586,7 +3551,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090254
+    const v4, 0x7f0a0256
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3693,7 +3658,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901e1
+    const v3, 0x7f0a01e1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3891,7 +3856,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090113
+    const v1, 0x7f0a0113
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3899,7 +3864,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sThumbnailSize:I
 
-    const v1, 0x7f09010d
+    const v1, 0x7f0a010d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3907,7 +3872,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieIconSize:I
 
-    const v1, 0x7f09010e
+    const v1, 0x7f0a010e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3915,7 +3880,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieIconSizeHeight:I
 
-    const v1, 0x7f09010f
+    const v1, 0x7f0a010f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3923,7 +3888,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieLeftX:I
 
-    const v1, 0x7f090110
+    const v1, 0x7f0a0110
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3931,7 +3896,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieLeftY:I
 
-    const v1, 0x7f090111
+    const v1, 0x7f0a0111
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3939,7 +3904,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieRightX:I
 
-    const v1, 0x7f090112
+    const v1, 0x7f0a0112
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4308,7 +4273,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f04000c
+    const v22, 0x7f05000c
 
     invoke-static/range {v21 .. v22}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -4342,7 +4307,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f0902c1
+    const v23, 0x7f0a02c4
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4414,7 +4379,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f09033a
+    const v23, 0x7f0a033d
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4433,7 +4398,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0902c2
+    const v22, 0x7f0a02c5
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4628,7 +4593,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f0902c3
+    const v22, 0x7f0a02c6
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5692,7 +5657,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0006
+    const v1, 0x7f0d0006
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -6004,7 +5969,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d002e
+    const v7, 0x7f0e002f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6144,9 +6109,9 @@
 .method public setTextSizeAllIcons()V
     .locals 9
 
-    const v8, 0x7f0901ea
+    const v8, 0x7f0a01ea
 
-    const v7, 0x7f0901d8
+    const v7, 0x7f0a01d8
 
     const/4 v6, 0x2
 
@@ -6306,7 +6271,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901e9
+    const v4, 0x7f0a01e9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6321,7 +6286,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0901d7
+    const v4, 0x7f0a01d7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6416,7 +6381,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04000d
+    const v2, 0x7f05000d
 
     invoke-static {v1, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -6449,7 +6414,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09010d
+    const v1, 0x7f0a010d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6457,7 +6422,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieIconSize:I
 
-    const v1, 0x7f09010e
+    const v1, 0x7f0a010e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6465,7 +6430,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieIconSizeHeight:I
 
-    const v1, 0x7f090113
+    const v1, 0x7f0a0113
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6473,7 +6438,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sThumbnailSize:I
 
-    const v1, 0x7f09010f
+    const v1, 0x7f0a010f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6481,7 +6446,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieLeftX:I
 
-    const v1, 0x7f090110
+    const v1, 0x7f0a0110
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6489,7 +6454,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieLeftY:I
 
-    const v1, 0x7f090111
+    const v1, 0x7f0a0111
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6497,7 +6462,7 @@
 
     iput v1, p0, Lcom/android/launcher2/AppIconView;->sMovieRightX:I
 
-    const v1, 0x7f090112
+    const v1, 0x7f0a0112
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

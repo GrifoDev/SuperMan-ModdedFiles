@@ -41,7 +41,6 @@
 
     if-ne p1, v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/gamehome/GameHomeManager;->access$000()Ljava/lang/String;
 
     move-result-object v0

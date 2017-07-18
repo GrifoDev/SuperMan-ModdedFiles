@@ -41,12 +41,10 @@
 
     iget-object v1, p0, Lcom/android/launcher2/CreateFolderDialog$2;->this$0:Lcom/android/launcher2/CreateFolderDialog;
 
-    # getter for: Lcom/android/launcher2/CreateFolderDialog;->dialog:Landroid/app/Dialog;
     invoke-static {v1}, Lcom/android/launcher2/CreateFolderDialog;->access$100(Lcom/android/launcher2/CreateFolderDialog;)Landroid/app/Dialog;
 
     move-result-object v1
 
-    # invokes: Lcom/android/launcher2/CreateFolderDialog;->doAddMoreApps(Landroid/app/Dialog;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/CreateFolderDialog;->access$200(Lcom/android/launcher2/CreateFolderDialog;Landroid/app/Dialog;)V
 
     return-void

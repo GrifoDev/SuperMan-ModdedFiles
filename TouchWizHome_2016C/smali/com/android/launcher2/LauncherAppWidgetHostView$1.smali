@@ -53,7 +53,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mIndicatorHeight:I
     invoke-static {v2}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$300(Lcom/android/launcher2/LauncherAppWidgetHostView;)I
 
     move-result v2
@@ -105,7 +104,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mAnimationSet:Landroid/animation/AnimatorSet;
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$400(Lcom/android/launcher2/LauncherAppWidgetHostView;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
@@ -114,7 +112,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mAnimationSet:Landroid/animation/AnimatorSet;
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$400(Lcom/android/launcher2/LauncherAppWidgetHostView;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
@@ -127,7 +124,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mAnimationSet:Landroid/animation/AnimatorSet;
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$400(Lcom/android/launcher2/LauncherAppWidgetHostView;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
@@ -158,7 +154,6 @@
     const/4 v0, 0x1
 
     :goto_1
-    # invokes: Lcom/android/launcher2/LauncherAppWidgetHostView;->doWidgetAnimation(Landroid/appwidget/AppWidgetHostView;ZI)Z
     invoke-static {v2, v3, v0, v1}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$500(Lcom/android/launcher2/LauncherAppWidgetHostView;Landroid/appwidget/AppWidgetHostView;ZI)Z
 
     move-result v1

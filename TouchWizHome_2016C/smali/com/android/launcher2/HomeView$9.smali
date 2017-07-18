@@ -44,7 +44,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mWidgetsToAdvance:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1100(Lcom/android/launcher2/HomeView;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -72,7 +71,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mWidgetsToAdvance:Ljava/util/HashMap;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1100(Lcom/android/launcher2/HomeView;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -113,7 +111,6 @@
 
     const-wide/16 v6, 0x4e20
 
-    # invokes: Lcom/android/launcher2/HomeView;->sendAdvanceMessage(J)V
     invoke-static {v4, v6, v7}, Lcom/android/launcher2/HomeView;->access$1200(Lcom/android/launcher2/HomeView;J)V
 
     :cond_2
@@ -129,7 +126,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mMarketSample:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1300(Lcom/android/launcher2/HomeView;)Landroid/view/View;
 
     move-result-object v4
@@ -138,7 +134,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mMarketSample:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1300(Lcom/android/launcher2/HomeView;)Landroid/view/View;
 
     move-result-object v4
@@ -151,7 +146,7 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    const v5, 0x7f10007d
+    const v5, 0x7f11007d
 
     invoke-virtual {v4, v5}, Lcom/android/launcher2/HomeView;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +154,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mMarketSampleTouchListener:Landroid/view/View$OnTouchListener;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1400(Lcom/android/launcher2/HomeView;)Landroid/view/View$OnTouchListener;
 
     move-result-object v4
@@ -177,7 +171,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mMarketSample:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1300(Lcom/android/launcher2/HomeView;)Landroid/view/View;
 
     move-result-object v4
@@ -186,7 +179,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeView$9;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mMarketSample:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/HomeView;->access$1300(Lcom/android/launcher2/HomeView;)Landroid/view/View;
 
     move-result-object v4

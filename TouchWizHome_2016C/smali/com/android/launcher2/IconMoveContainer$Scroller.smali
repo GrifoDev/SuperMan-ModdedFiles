@@ -75,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v0
@@ -102,7 +101,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v0
@@ -113,7 +111,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v1}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v1
@@ -124,7 +121,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v2
@@ -171,7 +167,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v0
@@ -180,7 +175,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0
@@ -189,7 +183,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$Scroller;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v0

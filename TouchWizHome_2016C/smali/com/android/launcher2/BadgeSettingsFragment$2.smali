@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
     invoke-static {v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$200(Lcom/android/launcher2/BadgeSettingsFragment;)Landroid/widget/Switch;
 
     move-result-object v1
@@ -50,7 +49,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
     invoke-static {v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$200(Lcom/android/launcher2/BadgeSettingsFragment;)Landroid/widget/Switch;
 
     move-result-object v2
@@ -64,7 +62,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsFragment$2;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher2/BadgeSettingsFragment;->refreshAllAppItems(Z)V
     invoke-static {v1, v0}, Lcom/android/launcher2/BadgeSettingsFragment;->access$300(Lcom/android/launcher2/BadgeSettingsFragment;Z)V
 
     return-void

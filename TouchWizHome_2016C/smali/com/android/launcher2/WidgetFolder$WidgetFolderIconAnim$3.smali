@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;->this$1:Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->animCompleted()V
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->access$3300(Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;)V
 
     return-void
@@ -47,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim$3;->this$1:Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->animCompleted()V
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;->access$3300(Lcom/android/launcher2/WidgetFolder$WidgetFolderIconAnim;)V
 
     return-void

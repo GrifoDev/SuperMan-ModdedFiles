@@ -65,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v0}, Lcom/android/launcher2/FolderItemMovePanel;->access$100(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v0
@@ -96,7 +95,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090228
+    const v2, 0x7f0a022a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -106,7 +105,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v1}, Lcom/android/launcher2/FolderItemMovePanel;->access$100(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v1
@@ -117,7 +115,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$200(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/LinearLayout;
 
     move-result-object v2
@@ -130,7 +127,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v3}, Lcom/android/launcher2/FolderItemMovePanel;->access$100(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v3
@@ -179,7 +175,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$100(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v2
@@ -188,7 +183,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$200(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/LinearLayout;
 
     move-result-object v2
@@ -200,7 +194,6 @@
     :goto_0
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$200(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/LinearLayout;
 
     move-result-object v2
@@ -213,7 +206,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$200(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/LinearLayout;
 
     move-result-object v2
@@ -240,7 +232,6 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher2/FolderItemMovePanel$Scroller;->this$0:Lcom/android/launcher2/FolderItemMovePanel;
 
-    # getter for: Lcom/android/launcher2/FolderItemMovePanel;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v2}, Lcom/android/launcher2/FolderItemMovePanel;->access$100(Lcom/android/launcher2/FolderItemMovePanel;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v2

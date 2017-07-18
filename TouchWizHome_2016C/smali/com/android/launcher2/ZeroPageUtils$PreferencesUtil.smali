@@ -68,7 +68,6 @@
 
     const-string v1, "home_briefing_enable"
 
-    # getter for: Lcom/android/launcher2/ZeroPageUtils;->sZeropageDefaultOnOffState:Z
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->access$000()Z
 
     move-result v2
@@ -231,7 +230,6 @@
 
     sput-boolean p1, Lcom/android/launcher2/ZeroPageUtils$PreferencesUtil;->mZeroPageEnable:Z
 
-    # getter for: Lcom/android/launcher2/ZeroPageUtils;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->access$100()Ljava/lang/String;
 
     move-result-object v2

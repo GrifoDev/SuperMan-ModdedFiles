@@ -60,7 +60,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$000(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/view/View;
 
     move-result-object v4
@@ -71,7 +70,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mForceClose:Z
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$100(Lcom/android/launcher2/QuickOptionsHelpView;)Z
 
     move-result v4
@@ -82,7 +80,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView_Img:Landroid/widget/ImageView;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$200(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -106,7 +103,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView_Img:Landroid/widget/ImageView;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$200(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -121,7 +117,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView_Img:Landroid/widget/ImageView;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$200(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -133,21 +128,18 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # setter for: Lcom/android/launcher2/QuickOptionsHelpView;->mHelpView:Landroid/view/View;
     invoke-static {v4, v5}, Lcom/android/launcher2/QuickOptionsHelpView;->access$002(Lcom/android/launcher2/QuickOptionsHelpView;Landroid/view/View;)Landroid/view/View;
 
     iget-object v4, p0, Lcom/android/launcher2/QuickOptionsHelpView$2$1;->this$1:Lcom/android/launcher2/QuickOptionsHelpView$2;
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # setter for: Lcom/android/launcher2/QuickOptionsHelpView;->mIsRunning:Z
     invoke-static {v4, v6}, Lcom/android/launcher2/QuickOptionsHelpView;->access$302(Lcom/android/launcher2/QuickOptionsHelpView;Z)Z
 
     iget-object v4, p0, Lcom/android/launcher2/QuickOptionsHelpView$2$1;->this$1:Lcom/android/launcher2/QuickOptionsHelpView$2;
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$400(Lcom/android/launcher2/QuickOptionsHelpView;)Landroid/content/Context;
 
     move-result-object v4
@@ -162,7 +154,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mForceClose:Z
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$100(Lcom/android/launcher2/QuickOptionsHelpView;)Z
 
     move-result v4
@@ -188,7 +179,6 @@
 
     iget-object v4, v4, Lcom/android/launcher2/QuickOptionsHelpView$2;->this$0:Lcom/android/launcher2/QuickOptionsHelpView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsHelpView;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v4}, Lcom/android/launcher2/QuickOptionsHelpView;->access$500(Lcom/android/launcher2/QuickOptionsHelpView;)Lcom/android/launcher2/Workspace;
 
     move-result-object v4

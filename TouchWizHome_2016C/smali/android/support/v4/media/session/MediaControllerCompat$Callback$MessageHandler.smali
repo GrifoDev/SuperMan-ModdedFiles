@@ -54,7 +54,6 @@
 
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaControllerCompat$Callback;
 
-    # getter for: Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mRegistered:Z
     invoke-static {v0}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->access$300(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)Z
 
     move-result v0

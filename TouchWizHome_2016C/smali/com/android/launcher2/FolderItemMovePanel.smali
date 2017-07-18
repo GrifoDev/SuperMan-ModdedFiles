@@ -181,7 +181,7 @@
 
     if-eq v7, v2, :cond_1
 
-    const v7, 0x7f030017
+    const v7, 0x7f040017
 
     iget-object v8, p0, Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
 
@@ -384,7 +384,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030018
+    const v1, 0x7f040018
 
     const/4 v2, 0x0
 
@@ -692,7 +692,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f09022a
+    const v8, 0x7f0a022c
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -961,7 +961,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f100044
+    const v0, 0x7f110044
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/FolderItemMovePanel;->findViewById(I)Landroid/view/View;
 
@@ -971,7 +971,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/FolderItemMovePanel;->mFolderListView:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f100043
+    const v0, 0x7f110043
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/FolderItemMovePanel;->findViewById(I)Landroid/view/View;
 

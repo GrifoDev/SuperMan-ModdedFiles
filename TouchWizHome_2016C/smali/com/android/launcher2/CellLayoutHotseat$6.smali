@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutHotseat$6;->this$0:Lcom/android/launcher2/CellLayoutHotseat;
 
-    # getter for: Lcom/android/launcher2/CellLayoutHotseat;->mReapplyIconNeeded:Z
     invoke-static {v0}, Lcom/android/launcher2/CellLayoutHotseat;->access$200(Lcom/android/launcher2/CellLayoutHotseat;)Z
 
     move-result v0
@@ -50,7 +49,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/CellLayoutHotseat;->mReapplyIconNeeded:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/CellLayoutHotseat;->access$202(Lcom/android/launcher2/CellLayoutHotseat;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutHotseat$6;->this$0:Lcom/android/launcher2/CellLayoutHotseat;

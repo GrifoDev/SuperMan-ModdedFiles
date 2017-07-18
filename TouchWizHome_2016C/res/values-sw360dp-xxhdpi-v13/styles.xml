@@ -45,9 +45,9 @@
         <item name="android:paddingTop">0.0dip</item>
         <item name="android:paddingRight">2.0dip</item>
         <item name="android:paddingBottom">0.0dip</item>
-        <item name="android:layout_width">@dimen/home_edit_bar_focus_bg_width</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:lines">2</item>
+        <item name="android:lines">1</item>
         <item name="android:shadowColor">#99000000</item>
         <item name="android:shadowDy">1.0</item>
         <item name="android:shadowRadius">2.0</item>

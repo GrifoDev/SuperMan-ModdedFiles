@@ -51,7 +51,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/HomeScreenOptionMenu$11;->this$0:Lcom/android/launcher2/HomeScreenOptionMenu;
 
-    # getter for: Lcom/android/launcher2/HomeScreenOptionMenu;->mLauncher:Lcom/android/launcher2/Launcher;
     invoke-static {v1}, Lcom/android/launcher2/HomeScreenOptionMenu;->access$100(Lcom/android/launcher2/HomeScreenOptionMenu;)Lcom/android/launcher2/Launcher;
 
     move-result-object v1

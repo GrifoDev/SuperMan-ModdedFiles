@@ -449,9 +449,11 @@
     <dimen name="home_editmode_panel_zeropage_height">563.0dip</dimen>
     <dimen name="home_editmode_panel_zeropage_width">360.0dip</dimen>
     <dimen name="open_folder_pageIndicatorTop">520.0dip</dimen>
+    <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.85</item>
     <dimen name="folder_icon_paddingTop">15.0dip</dimen>
     <dimen name="folder_multi_header_text_padding">9.0dip</dimen>
     <dimen name="home_editmode_panel_buttonParent_zero_paddingTop">0.0dip</dimen>
+    <dimen name="moveApps_cellHeight">72.0dip</dimen>
     <dimen name="moveApps_cellWidth">68.0dip</dimen>
     <dimen name="moveApps_scroll_margin">20.0dip</dimen>
     <dimen name="moveApps_help_imgWidth">480.0dip</dimen>
@@ -465,9 +467,7 @@
     <dimen name="folder_multi_icon_layout_width">97.0dip</dimen>
     <dimen name="folder_multi_icon_margin_top">14.0dip</dimen>
     <dimen name="folder_multi_icon_size">54.0dip</dimen>
-    <dimen name="moveApps_cellHeight">72.0dip</dimen>
     <dimen name="app_searchview_margin_top">8.0dip</dimen>
-    <item type="dimen" name="config_hotseatDragModeShrinkFactor">0.85</item>
     <dimen name="appsearch_grid_cell_padding">7.0dip</dimen>
     <dimen name="appsearch_grid_margin_left_right">8.0dip</dimen>
     <dimen name="appsearch_grid_padding_top">11.0dip</dimen>

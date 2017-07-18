@@ -43,7 +43,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$7;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mIsEditingName:Z
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$400(Lcom/android/launcher2/Folder;)Z
 
     move-result v2
@@ -74,7 +73,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$7;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$500(Lcom/android/launcher2/Folder;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v2
@@ -87,7 +85,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$7;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->mIsEditingName:Z
     invoke-static {v2, v0}, Lcom/android/launcher2/Folder;->access$402(Lcom/android/launcher2/Folder;Z)Z
 
     move v0, v1

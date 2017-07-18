@@ -233,7 +233,7 @@
 
     move-result v8
 
-    const v9, 0x7f10008a
+    const v9, 0x7f11008a
 
     if-ne v8, v9, :cond_2
 
@@ -251,7 +251,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/ar/ARManager$CustomChangeBounds;->this$0:Lcom/android/launcher2/ar/ARManager;
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mDisplayMetrics:Landroid/util/DisplayMetrics;
     invoke-static {v8}, Lcom/android/launcher2/ar/ARManager;->access$500(Lcom/android/launcher2/ar/ARManager;)Landroid/util/DisplayMetrics;
 
     move-result-object v8
@@ -260,7 +259,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/ar/ARManager$CustomChangeBounds;->this$0:Lcom/android/launcher2/ar/ARManager;
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mDisplayMetrics:Landroid/util/DisplayMetrics;
     invoke-static {v8}, Lcom/android/launcher2/ar/ARManager;->access$500(Lcom/android/launcher2/ar/ARManager;)Landroid/util/DisplayMetrics;
 
     move-result-object v8
@@ -318,7 +316,6 @@
     return-void
 
     :cond_3
-    # getter for: Lcom/android/launcher2/ar/ARManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$400()Ljava/lang/String;
 
     move-result-object v8
@@ -416,7 +413,6 @@
 
     move-object/from16 v33, v0
 
-    # invokes: Lcom/android/launcher2/ar/ARManager;->isHiddenView(Landroid/view/View;)Z
     invoke-static/range {v32 .. v33}, Lcom/android/launcher2/ar/ARManager;->access$100(Lcom/android/launcher2/ar/ARManager;Landroid/view/View;)Z
 
     move-result v32
@@ -435,7 +431,6 @@
 
     move-object/from16 v33, v0
 
-    # invokes: Lcom/android/launcher2/ar/ARManager;->isChildOfAppWidgetHostView(Landroid/view/View;)Z
     invoke-static/range {v32 .. v33}, Lcom/android/launcher2/ar/ARManager;->access$200(Lcom/android/launcher2/ar/ARManager;Landroid/view/View;)Z
 
     move-result v32
@@ -960,7 +955,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->POSITION_PROPERTY:Landroid/util/Property;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$600()Landroid/util/Property;
 
     move-result-object v33
@@ -1055,7 +1049,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->POSITION_PROPERTY:Landroid/util/Property;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$600()Landroid/util/Property;
 
     move-result-object v33
@@ -1130,7 +1123,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32
@@ -1157,7 +1149,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32
@@ -1178,7 +1169,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32
@@ -1205,7 +1195,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32
@@ -1259,7 +1248,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32
@@ -1291,7 +1279,6 @@
 
     move-object/from16 v32, v0
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mCommonInterpolator:Landroid/view/animation/Interpolator;
     invoke-static/range {v32 .. v32}, Lcom/android/launcher2/ar/ARManager;->access$300(Lcom/android/launcher2/ar/ARManager;)Landroid/view/animation/Interpolator;
 
     move-result-object v32

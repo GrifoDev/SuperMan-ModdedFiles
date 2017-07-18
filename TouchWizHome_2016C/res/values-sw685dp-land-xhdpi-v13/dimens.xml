@@ -103,11 +103,11 @@
     <dimen name="home_editmode_panel_button_margin">2.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">38.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">50.0dip</dimen>
+    <dimen name="moveApps_cellHeight">86.0dip</dimen>
     <dimen name="moveApps_cellWidth">94.0dip</dimen>
     <dimen name="moveApps_containerHeight">94.0dip</dimen>
     <dimen name="moveApps_topGap">9.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">489.0dip</dimen>
-    <dimen name="moveApps_cellHeight">86.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_left">79.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">93.0dip</dimen>
     <dimen name="app_searchview_margin_top">2.0dip</dimen>

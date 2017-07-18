@@ -78,7 +78,6 @@
 
     aput-object v6, v5, v2
 
-    # getter for: Lcom/android/launcher2/LauncherApplication;->galaxyLabs_uri:Landroid/net/Uri;
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->access$300()Landroid/net/Uri;
 
     move-result-object v2

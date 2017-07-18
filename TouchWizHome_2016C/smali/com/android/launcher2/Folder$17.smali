@@ -41,7 +41,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -100,7 +99,6 @@
     :goto_2
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -119,7 +117,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -132,7 +129,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -159,7 +155,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -198,7 +193,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f050029
+    const v10, 0x7f060029
 
     invoke-static {v9, v10}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -212,7 +207,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b006b
+    const v10, 0x7f0c006b
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -244,7 +239,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -257,7 +251,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/Folder$17;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9}, Lcom/android/launcher2/Folder;->access$1000(Lcom/android/launcher2/Folder;)Ljava/util/ArrayList;
 
     move-result-object v9
@@ -309,7 +302,6 @@
 
     const/4 v10, 0x0
 
-    # setter for: Lcom/android/launcher2/Folder;->mNewItems:Ljava/util/ArrayList;
     invoke-static {v9, v10}, Lcom/android/launcher2/Folder;->access$1002(Lcom/android/launcher2/Folder;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
     goto/16 :goto_0

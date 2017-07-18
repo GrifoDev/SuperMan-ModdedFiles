@@ -32,5 +32,6 @@
     <integer name="home_max_grid_rows">5</integer>
     <integer name="menuApps5x5Grid_cellCountX">5</integer>
     <integer name="menuApps5x5Grid_cellCountY">5</integer>
+    <integer name="moveApps_base_grid_size">7</integer>
     <integer name="appsearch_default_cellCountX">4</integer>
 </resources>

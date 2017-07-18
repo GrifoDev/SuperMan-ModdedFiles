@@ -78,7 +78,6 @@
 
     check-cast p1, Landroid/app/Dialog;
 
-    # invokes: Lcom/android/launcher2/CreateFolderDialog;->doCreateFolder(Landroid/app/Dialog;)V
     invoke-static {v0, p1}, Lcom/android/launcher2/CreateFolderDialog;->access$300(Lcom/android/launcher2/CreateFolderDialog;Landroid/app/Dialog;)V
 
     goto :goto_0

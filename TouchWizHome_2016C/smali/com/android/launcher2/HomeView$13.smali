@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$13;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Hotseat;
 
     move-result-object v0
@@ -76,7 +75,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/HomeView$13;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Hotseat;
 
     move-result-object v0
@@ -85,7 +83,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$13;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Hotseat;
 
     move-result-object v0
@@ -102,7 +99,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$13;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Hotseat;
 
     move-result-object v0
@@ -114,7 +110,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/HomeView$13;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mHotseat:Lcom/android/launcher2/Hotseat;
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/Hotseat;
 
     move-result-object v0

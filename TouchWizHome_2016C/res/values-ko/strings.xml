@@ -111,7 +111,7 @@
     <string name="last_page">현재 페이지가 마지막 페이지입니다.</string>
     <string name="lock">잠금</string>
     <string name="lock_or_unlock_dislog_msg">이 앱을 폴더 밖으로 이동한 후에도 앱을 잠글까요?</string>
-    <string name="max_characters_available">글자는 최대 %d자까지 입력할 수 있습니다.</string>
+    <string name="max_characters_available">%d자까지 입력할 수 있습니다.</string>
     <string name="menu_edit">편집</string>
     <string name="menu_edit_cancel">취소</string>
     <string name="menu_edit_cancel_msg">모든 변경사항을 저장하지 않습니다.</string>
@@ -138,6 +138,7 @@
     <string name="new_items">새 항목 %d개</string>
     <string name="no_downloaded_apps">다운로드한 애플리케이션이 없습니다</string>
     <string name="no_room_any_page">모든 페이지에 가능한 공간이 없습니다.</string>
+    <string name="no_space_page">이 페이지에는 공간이 없습니다. 다른 페이지에 바로가기를 추가하세요.</string>
     <string name="not_selected">선택 안 됨</string>
     <string name="ok">확인</string>
     <string name="only_one_widget_instance_allowed">%s 위젯이 이미 홈 화면에 있습니다.</string>

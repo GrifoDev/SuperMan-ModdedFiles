@@ -88,7 +88,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mMainHomeScreenshotLand:Z
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$000(Lcom/android/launcher2/HomeRealPreview;)Z
 
     move-result v6
@@ -106,7 +105,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmap:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$100(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -118,7 +116,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmapLand:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$200(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -140,7 +137,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v8}, Lcom/android/launcher2/HomeRealPreview;->access$300(Lcom/android/launcher2/HomeRealPreview;)Lcom/android/launcher2/HomeView;
 
     move-result-object v8
@@ -167,7 +163,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmapLand:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$200(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -267,7 +262,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mCaptureTime:J
     invoke-static {v7}, Lcom/android/launcher2/HomeRealPreview;->access$400(Lcom/android/launcher2/HomeRealPreview;)J
 
     move-result-wide v8
@@ -282,14 +276,12 @@
 
     const-wide/16 v8, 0x0
 
-    # setter for: Lcom/android/launcher2/HomeRealPreview;->mCaptureTime:J
     invoke-static {v6, v8, v9}, Lcom/android/launcher2/HomeRealPreview;->access$402(Lcom/android/launcher2/HomeRealPreview;J)J
 
     if-eqz v2, :cond_a
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmapLand:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$200(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -298,7 +290,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmapLand:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$200(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -308,12 +299,10 @@
     :cond_5
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # setter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmapLand:Landroid/graphics/Bitmap;
     invoke-static {v6, v10}, Lcom/android/launcher2/HomeRealPreview;->access$202(Lcom/android/launcher2/HomeRealPreview;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # setter for: Lcom/android/launcher2/HomeRealPreview;->mMainHomeScreenshotLand:Z
     invoke-static {v6, v4}, Lcom/android/launcher2/HomeRealPreview;->access$002(Lcom/android/launcher2/HomeRealPreview;Z)Z
 
     :goto_5
@@ -346,7 +335,6 @@
     :cond_8
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmap:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$100(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -365,7 +353,6 @@
     :cond_a
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmap:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$100(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -374,7 +361,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # getter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmap:Landroid/graphics/Bitmap;
     invoke-static {v6}, Lcom/android/launcher2/HomeRealPreview;->access$100(Lcom/android/launcher2/HomeRealPreview;)Landroid/graphics/Bitmap;
 
     move-result-object v6
@@ -384,12 +370,10 @@
     :cond_b
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # setter for: Lcom/android/launcher2/HomeRealPreview;->mainHomeBitmap:Landroid/graphics/Bitmap;
     invoke-static {v6, v10}, Lcom/android/launcher2/HomeRealPreview;->access$102(Lcom/android/launcher2/HomeRealPreview;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     iget-object v6, p0, Lcom/android/launcher2/HomeRealPreview$CompressTask;->this$0:Lcom/android/launcher2/HomeRealPreview;
 
-    # setter for: Lcom/android/launcher2/HomeRealPreview;->mMainHomeScreenshot:Z
     invoke-static {v6, v4}, Lcom/android/launcher2/HomeRealPreview;->access$502(Lcom/android/launcher2/HomeRealPreview;Z)Z
 
     goto :goto_5

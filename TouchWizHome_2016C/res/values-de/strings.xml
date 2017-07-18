@@ -138,6 +138,7 @@
     <string name="new_items">%d neue Elemente</string>
     <string name="no_downloaded_apps">Keine heruntergeladenen Anwendungen</string>
     <string name="no_room_any_page">Kein Platz mehr auf den Seiten.</string>
+    <string name="no_space_page">Kein Platz auf der Seite. Versuchen Sie, den Shortcut auf einer anderen Seite hinzuzufügen.</string>
     <string name="not_selected">Nicht ausgewählt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-Widget bereits zum Startbildschirm hinzugefügt.</string>

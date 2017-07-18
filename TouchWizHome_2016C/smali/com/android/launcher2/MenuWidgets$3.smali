@@ -85,7 +85,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/MenuWidgets$3;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mDataVersion:J
     invoke-static {v7}, Lcom/android/launcher2/MenuWidgets;->access$000(Lcom/android/launcher2/MenuWidgets;)J
 
     move-result-wide v8
@@ -125,7 +124,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuWidgets$3;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # invokes: Lcom/android/launcher2/MenuWidgets;->addWidgetList(Ljava/util/List;J)V
     invoke-static {v5, v1, v2, v3}, Lcom/android/launcher2/MenuWidgets;->access$100(Lcom/android/launcher2/MenuWidgets;Ljava/util/List;J)V
 
     return-void

@@ -138,6 +138,7 @@
     <string name="new_items">%d नवीन आयटेम्स</string>
     <string name="no_downloaded_apps">अनुप्रयोग डाउनलोड केलेले नाहीत.</string>
     <string name="no_room_any_page">कोणत्याही पृष्ठावर रूम नाहीत.</string>
+    <string name="no_space_page">पृष्ठा वर जागा नाही. भिन्न पृष्ठा वर शॉर्टकट जोडण्याचा प्रयत्न करा.</string>
     <string name="not_selected">निवडलेले नाही</string>
     <string name="ok">ठीक</string>
     <string name="only_one_widget_instance_allowed">%s विजेट आधीपासूनच मुख्‍य स्‍क्रीनवर आहे.</string>

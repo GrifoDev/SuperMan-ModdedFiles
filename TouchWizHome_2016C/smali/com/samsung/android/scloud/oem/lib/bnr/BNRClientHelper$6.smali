@@ -39,7 +39,6 @@
 
     iget-object v4, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$6;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v4}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v4
@@ -54,7 +53,6 @@
 
     move-result-object v5
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->OPERATION:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$400()Ljava/lang/String;
 
     move-result-object v6
@@ -87,7 +85,6 @@
 
     iget-object v4, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$6;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v4}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v4
@@ -124,12 +121,10 @@
 
     iget-object v4, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$6;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
     invoke-static {v4}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$200(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
 
     move-result-object v4
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->OPERATION:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$400()Ljava/lang/String;
 
     move-result-object v5
@@ -142,7 +137,6 @@
 
     iget-object v4, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$6;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v4}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v4
@@ -183,7 +177,6 @@
     :cond_0
     iget-object v4, p0, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper$6;->this$0:Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mTAG:Ljava/lang/String;
     invoke-static {v4}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/lang/String;
 
     move-result-object v4

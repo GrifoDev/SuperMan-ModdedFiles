@@ -138,6 +138,7 @@
     <string name="new_items">%d 個新項目</string>
     <string name="no_downloaded_apps">沒有下載的應用程式</string>
     <string name="no_room_any_page">所有頁面皆無多餘空間。</string>
+    <string name="no_space_page">此頁面已無空間。請嘗試將捷徑新增至其他頁面。</string>
     <string name="not_selected">未選擇</string>
     <string name="ok">確定</string>
     <string name="only_one_widget_instance_allowed">已新增 %s widget 到主螢幕。</string>

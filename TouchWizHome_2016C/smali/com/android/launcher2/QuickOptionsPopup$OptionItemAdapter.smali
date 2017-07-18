@@ -79,7 +79,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickOptionsPopup$OptionItemAdapter;->this$0:Lcom/android/launcher2/QuickOptionsPopup;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsPopup;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/QuickOptionsPopup;->access$000(Lcom/android/launcher2/QuickOptionsPopup;)Landroid/content/Context;
 
     move-result-object v3
@@ -90,7 +89,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030040
+    const v4, 0x7f040040
 
     const/4 v5, 0x0
 
@@ -109,7 +108,7 @@
 
     if-eqz v1, :cond_1
 
-    const v3, 0x7f1000dc
+    const v3, 0x7f1100dc
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -117,7 +116,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v3, 0x7f1000dd
+    const v3, 0x7f1100dd
 
     invoke-virtual {p2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -125,14 +124,12 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    # getter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->icon:Landroid/graphics/drawable/Drawable;
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$100(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    # getter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->title:Ljava/lang/String;
     invoke-static {v1}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$200(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;)Ljava/lang/String;
 
     move-result-object v3

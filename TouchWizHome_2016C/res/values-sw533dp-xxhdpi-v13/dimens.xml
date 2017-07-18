@@ -340,7 +340,7 @@
     <dimen name="menuWidgets_preview_imagePaddingRight">0.0dip</dimen>
     <dimen name="menuWidgets_title_textSize">13.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderClose_Arrow_size">17.0dip</dimen>
-    <dimen name="menuWidgets_widgetFolderOpen_folder_top">87.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_folder_top">174.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_folder_width">494.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_height_contentPlus">0.0dip</dimen>
     <dimen name="menuWidgets_widgetFolderOpen_parent_padding_left">13.0dip</dimen>
@@ -480,6 +480,8 @@
     <dimen name="menuWidgets_widgetFolderOpen_folder_padding_left">29.0dip</dimen>
     <dimen name="menu_edit_button_margin_end">8.0dip</dimen>
     <dimen name="menuwidget_dim_marginbottom">2.0dip</dimen>
+    <dimen name="moveApps_cellGapX">12.0dip</dimen>
+    <dimen name="moveApps_cellHeight">73.0dip</dimen>
     <dimen name="moveApps_cellWidth">73.0dip</dimen>
     <dimen name="moveApps_containerHeight">87.0dip</dimen>
     <dimen name="moveApps_iconSize">43.0dip</dimen>
@@ -495,9 +497,8 @@
     <dimen name="folder_multi_icon_layout_width">85.0dip</dimen>
     <dimen name="folder_multi_icon_margin_top">11.0dip</dimen>
     <dimen name="folder_multi_icon_size">48.0dip</dimen>
-    <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">667.0dip</dimen>
-    <dimen name="menuwidgets_folderopen_height">720.0dip</dimen>
-    <dimen name="moveApps_cellHeight">73.0dip</dimen>
+    <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">397.0dip</dimen>
+    <dimen name="menuwidgets_folderopen_height">442.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_left">28.0dip</dimen>
     <dimen name="widget_search_titlebar_padding_right">39.0dip</dimen>
     <dimen name="app_searchview_margin_top">5.0dip</dimen>
@@ -506,8 +507,7 @@
     <dimen name="zeropageSwitch_textSize">15.0sp</dimen>
     <dimen name="appsearch_grid_cell_padding">6.0dip</dimen>
     <dimen name="appsearch_grid_margin_left_right">7.0dip</dimen>
-    <dimen name="appsearch_grid_padding_top">9.0dip</dimen>
-    <dimen name="moveApps_cellGapX">12.0dip</dimen>
+    <dimen name="appsearch_grid_padding_top">20.0dip</dimen>
     <dimen name="folder_multi_header_text_height">23.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">13.0dip</dimen>
     <dimen name="appsearch_font_size">13.0sp</dimen>

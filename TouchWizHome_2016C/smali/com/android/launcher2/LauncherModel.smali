@@ -173,6 +173,8 @@
 
 
 # instance fields
+.field private final USER_MANUAL_COMPONENT:Ljava/lang/String;
+
 .field protected volatile mAllAppsLoaded:Z
 
 .field protected final mApp:Lcom/android/launcher2/LauncherApplication;
@@ -364,6 +366,10 @@
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Lcom/android/launcher2/LauncherModel;->mLock:Ljava/lang/Object;
+
+    const-string v1, "com.sec.android.widgetapp.webmanual/com.sec.android.widgetapp.webmanual.WebManual"
+
+    iput-object v1, p0, Lcom/android/launcher2/LauncherModel;->USER_MANUAL_COMPONENT:Ljava/lang/String;
 
     const/4 v1, 0x0
 
@@ -5318,7 +5324,7 @@
 
     check-cast v18, [[[Lcom/android/launcher2/LauncherSettings$FavoriteValue;
 
-    const v5, 0x7f0b0009
+    const v5, 0x7f0c0009
 
     move-object/from16 v0, v30
 
@@ -5326,7 +5332,7 @@
 
     move-result v5
 
-    const v9, 0x7f0b000a
+    const v9, 0x7f0c000a
 
     move-object/from16 v0, v30
 
@@ -6858,7 +6864,7 @@
 
     move-result-object v3
 
-    const v9, 0x7f080056
+    const v9, 0x7f090056
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9207,7 +9213,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0003
+    const v4, 0x7f100003
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -14046,7 +14052,7 @@
 
     move-result-object v13
 
-    const v2, 0x7f0c0018
+    const v2, 0x7f0d0018
 
     invoke-virtual {v13, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -79,7 +79,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0040
+    const v1, 0x7f0c0040
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -168,7 +168,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutMoveApps;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f080081
+    const v2, 0x7f090081
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -201,7 +201,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/CellLayoutMoveApps;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f080086
+    const v4, 0x7f090086
 
     new-array v2, v2, [Ljava/lang/Object;
 

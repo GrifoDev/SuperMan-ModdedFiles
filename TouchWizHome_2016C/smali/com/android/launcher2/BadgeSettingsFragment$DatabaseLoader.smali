@@ -125,12 +125,10 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/BadgeSettingsFragment;->mDatabaseLoader:Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;
     invoke-static {v0, v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$1202(Lcom/android/launcher2/BadgeSettingsFragment;Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;)Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;
 
     iget-object v0, p0, Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->isDatabaseLoaderRunning:Z
     invoke-static {v0}, Lcom/android/launcher2/BadgeSettingsFragment;->access$1300(Lcom/android/launcher2/BadgeSettingsFragment;)Z
 
     move-result v0
@@ -143,14 +141,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher2/BadgeSettingsFragment;->dismissProgress()V
     invoke-static {v0}, Lcom/android/launcher2/BadgeSettingsFragment;->access$900(Lcom/android/launcher2/BadgeSettingsFragment;)V
 
     iget-object v0, p0, Lcom/android/launcher2/BadgeSettingsFragment$DatabaseLoader;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/BadgeSettingsFragment;->isDatabaseLoaderRunning:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$1302(Lcom/android/launcher2/BadgeSettingsFragment;Z)Z
 
     :cond_0

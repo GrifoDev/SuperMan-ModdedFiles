@@ -966,7 +966,7 @@
 
     move-result-object v22
 
-    const/high16 v23, 0x7f0e0000
+    const/high16 v23, 0x7f0f0000
 
     invoke-direct/range {v21 .. v23}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
@@ -982,7 +982,7 @@
 
     move-object/from16 v21, v0
 
-    const v22, 0x7f03000e
+    const v22, 0x7f04000e
 
     invoke-virtual/range {v21 .. v22}, Landroid/app/Dialog;->setContentView(I)V
 
@@ -1002,7 +1002,7 @@
 
     invoke-virtual/range {v21 .. v22}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
 
-    const v21, 0x7f100029
+    const v21, 0x7f110029
 
     move-object/from16 v0, v19
 
@@ -1034,7 +1034,7 @@
 
     invoke-virtual/range {v21 .. v22}, Landroid/widget/LinearLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    const v21, 0x7f100028
+    const v21, 0x7f110028
 
     move-object/from16 v0, v19
 
@@ -1062,7 +1062,7 @@
 
     move-result-object v22
 
-    const v23, 0x7f080038
+    const v23, 0x7f090038
 
     invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1265,7 +1265,7 @@
     const/4 v4, 0x1
 
     :cond_0
-    const v21, 0x7f10002a
+    const v21, 0x7f11002a
 
     move-object/from16 v0, v19
 
@@ -1285,7 +1285,7 @@
 
     if-eqz v21, :cond_7
 
-    const v21, 0x7f10002b
+    const v21, 0x7f11002b
 
     move-object/from16 v0, v19
 
@@ -1313,7 +1313,7 @@
 
     invoke-virtual {v10, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    const v21, 0x7f10002c
+    const v21, 0x7f11002c
 
     move-object/from16 v0, v19
 
@@ -1349,7 +1349,7 @@
 
     :cond_1
     :goto_0
-    const v21, 0x7f10002d
+    const v21, 0x7f11002d
 
     move-object/from16 v0, v19
 
@@ -1453,7 +1453,7 @@
 
     :cond_4
     :goto_3
-    const v21, 0x7f10002e
+    const v21, 0x7f11002e
 
     move-object/from16 v0, v19
 
@@ -1483,7 +1483,7 @@
 
     move-result-object v21
 
-    const v22, 0x7f080048
+    const v22, 0x7f090048
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1503,7 +1503,7 @@
 
     const/16 v18, 0x0
 
-    const v21, 0x7f03004a
+    const v21, 0x7f04004a
 
     const/16 v22, 0x0
 
@@ -1687,7 +1687,7 @@
     goto/16 :goto_0
 
     :cond_8
-    const v21, 0x7f10002e
+    const v21, 0x7f11002e
 
     move/from16 v0, v21
 

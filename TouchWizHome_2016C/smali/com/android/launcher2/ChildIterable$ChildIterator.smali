@@ -66,7 +66,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/ChildIterable$ChildIterator;->this$0:Lcom/android/launcher2/ChildIterable;
 
-    # getter for: Lcom/android/launcher2/ChildIterable;->mView:Landroid/view/ViewGroup;
     invoke-static {v1}, Lcom/android/launcher2/ChildIterable;->access$100(Lcom/android/launcher2/ChildIterable;)Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -98,7 +97,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/ChildIterable$ChildIterator;->this$0:Lcom/android/launcher2/ChildIterable;
 
-    # getter for: Lcom/android/launcher2/ChildIterable;->mView:Landroid/view/ViewGroup;
     invoke-static {v1}, Lcom/android/launcher2/ChildIterable;->access$100(Lcom/android/launcher2/ChildIterable;)Landroid/view/ViewGroup;
 
     move-result-object v1

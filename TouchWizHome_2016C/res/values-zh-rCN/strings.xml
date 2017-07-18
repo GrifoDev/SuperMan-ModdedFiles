@@ -138,6 +138,7 @@
     <string name="new_items">%d 个新项目</string>
     <string name="no_downloaded_apps">没有下载的应用程序</string>
     <string name="no_room_any_page">任何页面上均无空间。</string>
+    <string name="no_space_page">本页面空间已满，请尝试添加快捷方式到其他页面。</string>
     <string name="not_selected">未选中</string>
     <string name="ok">确定</string>
     <string name="only_one_widget_instance_allowed">%s 小组件已添加至主屏幕</string>

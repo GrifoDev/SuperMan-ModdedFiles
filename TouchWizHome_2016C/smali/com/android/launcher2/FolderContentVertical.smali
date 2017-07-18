@@ -232,13 +232,13 @@
 
     invoke-static {p2}, Ljunit/framework/Assert;->assertNotNull(Ljava/lang/Object;)V
 
-    const v1, 0x7f030015
+    const v1, 0x7f040015
 
     invoke-static {p1, v1, p2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f100041
+    const v1, 0x7f110041
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -248,7 +248,7 @@
 
     iput-object v1, p0, Lcom/android/launcher2/FolderContentVertical;->mCellLayoutView:Lcom/android/launcher2/CellLayoutNoGap;
 
-    const v1, 0x7f100040
+    const v1, 0x7f110040
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

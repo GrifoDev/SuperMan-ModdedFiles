@@ -67,14 +67,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mPositioner:Lcom/android/launcher2/CellPositioner;
     invoke-static {v0}, Lcom/android/launcher2/CellLayout;->access$500(Lcom/android/launcher2/CellLayout;)Lcom/android/launcher2/CellPositioner;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragViewCenter:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$300(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
@@ -83,7 +81,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragViewCenter:[I
     invoke-static {v2}, Lcom/android/launcher2/CellLayout;->access$300(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v2
@@ -96,7 +93,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mTargetCell:[I
     invoke-static {v5}, Lcom/android/launcher2/CellLayout;->access$400(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v5
@@ -107,40 +103,34 @@
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mTargetCell:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$400(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
 
     aget v1, v1, v12
 
-    # setter for: Lcom/android/launcher2/CellLayout;->mLastReorderX:I
     invoke-static {v0, v1}, Lcom/android/launcher2/CellLayout;->access$602(Lcom/android/launcher2/CellLayout;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mTargetCell:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$400(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
 
     aget v1, v1, v10
 
-    # setter for: Lcom/android/launcher2/CellLayout;->mLastReorderY:I
     invoke-static {v0, v1}, Lcom/android/launcher2/CellLayout;->access$702(Lcom/android/launcher2/CellLayout;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mPositioner:Lcom/android/launcher2/CellPositioner;
     invoke-static {v0}, Lcom/android/launcher2/CellLayout;->access$500(Lcom/android/launcher2/CellLayout;)Lcom/android/launcher2/CellPositioner;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragViewCenter:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$300(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
@@ -149,7 +139,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragViewCenter:[I
     invoke-static {v2}, Lcom/android/launcher2/CellLayout;->access$300(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v2
@@ -172,7 +161,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragSpan:[I
     invoke-static {v9}, Lcom/android/launcher2/CellLayout;->access$800(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v9
@@ -193,7 +181,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mLastVisualize:[I
     invoke-static {v0}, Lcom/android/launcher2/CellLayout;->access$900(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v0
@@ -204,7 +191,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragSpan:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$800(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
@@ -215,7 +201,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mLastVisualize:[I
     invoke-static {v0}, Lcom/android/launcher2/CellLayout;->access$900(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v0
@@ -226,7 +211,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragSpan:[I
     invoke-static {v1}, Lcom/android/launcher2/CellLayout;->access$800(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v1
@@ -257,7 +241,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragSpan:[I
     invoke-static {v4}, Lcom/android/launcher2/CellLayout;->access$800(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v4
@@ -266,7 +249,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mDragSpan:[I
     invoke-static {v5}, Lcom/android/launcher2/CellLayout;->access$800(Lcom/android/launcher2/CellLayout;)[I
 
     move-result-object v5
@@ -282,7 +264,6 @@
     :cond_3
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$ReorderAlarmListener;->this$0:Lcom/android/launcher2/CellLayout;
 
-    # getter for: Lcom/android/launcher2/CellLayout;->mPositioner:Lcom/android/launcher2/CellPositioner;
     invoke-static {v0}, Lcom/android/launcher2/CellLayout;->access$500(Lcom/android/launcher2/CellLayout;)Lcom/android/launcher2/CellPositioner;
 
     move-result-object v0

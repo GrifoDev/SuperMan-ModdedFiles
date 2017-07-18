@@ -209,7 +209,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mLoadCompleted:Z
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$200(Lcom/android/launcher2/MenuWidgetsLoader;)Z
 
     move-result v3
@@ -234,7 +233,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v1}, Lcom/android/launcher2/MenuWidgetsLoader;->access$300(Lcom/android/launcher2/MenuWidgetsLoader;)Ljava/util/List;
 
     move-result-object v1
@@ -283,7 +281,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mLoadCompleted:Z
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$200(Lcom/android/launcher2/MenuWidgetsLoader;)Z
 
     move-result v3
@@ -362,7 +359,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v5}, Lcom/android/launcher2/MenuWidgetsLoader;->access$300(Lcom/android/launcher2/MenuWidgetsLoader;)Ljava/util/List;
 
     move-result-object v5
@@ -371,7 +367,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v5}, Lcom/android/launcher2/MenuWidgetsLoader;->access$300(Lcom/android/launcher2/MenuWidgetsLoader;)Ljava/util/List;
 
     move-result-object v5
@@ -399,23 +394,19 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # operator++ for: Lcom/android/launcher2/MenuWidgetsLoader;->mDataVersion:J
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$408(Lcom/android/launcher2/MenuWidgetsLoader;)J
 
     :cond_1
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # setter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v3, p1}, Lcom/android/launcher2/MenuWidgetsLoader;->access$302(Lcom/android/launcher2/MenuWidgetsLoader;Ljava/util/List;)Ljava/util/List;
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # setter for: Lcom/android/launcher2/MenuWidgetsLoader;->mLoadCompleted:Z
     invoke-static {v3, v4}, Lcom/android/launcher2/MenuWidgetsLoader;->access$202(Lcom/android/launcher2/MenuWidgetsLoader;Z)Z
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$300(Lcom/android/launcher2/MenuWidgetsLoader;)Ljava/util/List;
 
     move-result-object v3
@@ -424,7 +415,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgets:Ljava/util/List;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$300(Lcom/android/launcher2/MenuWidgetsLoader;)Ljava/util/List;
 
     move-result-object v3
@@ -478,7 +468,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgetsLoadListener:Lcom/android/launcher2/MenuWidgetsLoader$OnMenuWidgetsLoadListener;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$500(Lcom/android/launcher2/MenuWidgetsLoader;)Lcom/android/launcher2/MenuWidgetsLoader$OnMenuWidgetsLoadListener;
 
     move-result-object v3
@@ -487,7 +476,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuWidgetsLoader$LoadMenuWidgetsTask;->this$0:Lcom/android/launcher2/MenuWidgetsLoader;
 
-    # getter for: Lcom/android/launcher2/MenuWidgetsLoader;->mWidgetsLoadListener:Lcom/android/launcher2/MenuWidgetsLoader$OnMenuWidgetsLoadListener;
     invoke-static {v3}, Lcom/android/launcher2/MenuWidgetsLoader;->access$500(Lcom/android/launcher2/MenuWidgetsLoader;)Lcom/android/launcher2/MenuWidgetsLoader$OnMenuWidgetsLoadListener;
 
     move-result-object v3

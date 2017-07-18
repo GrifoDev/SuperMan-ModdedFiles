@@ -172,7 +172,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/CancelDrawable;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f050002
+    const v2, 0x7f060002
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 

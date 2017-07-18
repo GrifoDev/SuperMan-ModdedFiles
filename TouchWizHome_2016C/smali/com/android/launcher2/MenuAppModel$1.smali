@@ -59,7 +59,6 @@
 
     iget v4, p2, Lcom/android/launcher2/AppItem;->mScreen:I
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->integerCompare(II)I
     invoke-static {v3, v4}, Lcom/android/launcher2/MenuAppModel;->access$000(II)I
 
     move-result v0
@@ -70,7 +69,6 @@
 
     iget v4, p2, Lcom/android/launcher2/AppItem;->mCell:I
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->integerCompare(II)I
     invoke-static {v3, v4}, Lcom/android/launcher2/MenuAppModel;->access$000(II)I
 
     move-result v0
@@ -87,7 +85,6 @@
 
     if-eqz v3, :cond_6
 
-    # getter for: Lcom/android/launcher2/MenuAppModel;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher2/MenuAppModel;->access$100()Ljava/text/Collator;
 
     move-result-object v3
@@ -116,7 +113,6 @@
 
     iget-wide v4, p2, Lcom/android/launcher2/AppItem;->mId:J
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->longCompare(JJ)I
     invoke-static {v2, v3, v4, v5}, Lcom/android/launcher2/MenuAppModel;->access$200(JJ)I
 
     move-result v0
@@ -139,7 +135,6 @@
 
     iget-wide v4, p2, Lcom/android/launcher2/AppItem;->mId:J
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->longCompare(JJ)I
     invoke-static {v2, v3, v4, v5}, Lcom/android/launcher2/MenuAppModel;->access$200(JJ)I
 
     move-result v0

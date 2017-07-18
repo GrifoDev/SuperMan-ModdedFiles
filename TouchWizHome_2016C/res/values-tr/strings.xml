@@ -138,6 +138,7 @@
     <string name="new_items">%d yeni öğe</string>
     <string name="no_downloaded_apps">İndirilen uygulama yok</string>
     <string name="no_room_any_page">Hiçbir sayfada yer yok.</string>
+    <string name="no_space_page">Sayfada alan yok. Başka bir sayfaya kısayol eklemeyi deneyin.</string>
     <string name="not_selected">Seçili değil</string>
     <string name="ok">Tamam</string>
     <string name="only_one_widget_instance_allowed">"%s widget'ı ana ekrana zaten eklendi."</string>

@@ -28,6 +28,8 @@
 
 .field private mHomeKeyPressed:Z
 
+.field private mIsFirstLauncher:Z
+
 .field private mIsPaused:Z
 
 .field private mNotiTextView:Landroid/widget/TextView;
@@ -72,6 +74,10 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mBackupSoftInputParams:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mIsFirstLauncher:Z
 
     return-void
 .end method
@@ -129,7 +135,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v1, 0x7f1000c5
+    const v1, 0x7f1100c5
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 
@@ -204,7 +210,7 @@
 
     if-eqz p1, :cond_1
 
-    const v5, 0x7f0b0061
+    const v5, 0x7f0c0061
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -212,7 +218,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0060
+    const v5, 0x7f0c0060
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -220,7 +226,7 @@
 
     int-to-float v1, v5
 
-    const v5, 0x7f0d002d
+    const v5, 0x7f0e002e
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -230,7 +236,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d002e
+    const v6, 0x7f0e002f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -251,7 +257,7 @@
     return-void
 
     :cond_1
-    const v5, 0x7f0b0063
+    const v5, 0x7f0c0063
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -259,7 +265,7 @@
 
     int-to-float v2, v5
 
-    const v5, 0x7f0b0062
+    const v5, 0x7f0c0062
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -267,7 +273,7 @@
 
     int-to-float v1, v5
 
-    const v5, 0x7f0d0001
+    const v5, 0x7f0e0001
 
     invoke-virtual {v3, v5, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -277,7 +283,7 @@
 
     move-result-object v5
 
-    const/high16 v6, 0x7f0d0000
+    const/high16 v6, 0x7f0e0000
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -530,7 +536,7 @@
 
     const/4 v4, -0x1
 
-    const v2, 0x7f030036
+    const v2, 0x7f040036
 
     const/4 v3, 0x0
 
@@ -544,7 +550,7 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mPinchLayer:Lcom/android/launcher2/mainmenu/PinchLayerView;
 
-    const v3, 0x7f1000c4
+    const v3, 0x7f1100c4
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/mainmenu/PinchLayerView;->findViewById(I)Landroid/view/View;
 
@@ -571,12 +577,6 @@
     iget-object v2, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
     invoke-virtual {v2, p0}, Lcom/android/launcher2/MenuWidgets;->setMenuWidgetsFragment(Lcom/android/launcher2/MenuWidgetsFragment;)V
-
-    iget-object v2, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
-
-    const-string v3, "onCreateView"
-
-    invoke-virtual {v2, v3}, Lcom/android/launcher2/MenuWidgets;->updatePackages(Ljava/lang/String;)V
 
     :cond_0
     if-eqz p3, :cond_5
@@ -1067,7 +1067,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0013
+    const v7, 0x7f0e0012
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1213,15 +1213,15 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Lcom/android/launcher2/MenuView;->isCurrentTabWidgets()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->isOptionMenuShowing()Z
 
@@ -1238,6 +1238,21 @@
     invoke-virtual {v0}, Lcom/android/launcher2/Launcher;->closePopupMenu()V
 
     :cond_0
+    iget-boolean v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mIsFirstLauncher:Z
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mIsFirstLauncher:Z
+
+    iget-object v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
+
+    const-string v1, "onCreateView"
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuWidgets;->updatePackages(Ljava/lang/String;)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgetsFragment;->mWidgets:Lcom/android/launcher2/MenuWidgets;
 
     invoke-virtual {v0}, Lcom/android/launcher2/MenuWidgets;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -1250,7 +1265,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

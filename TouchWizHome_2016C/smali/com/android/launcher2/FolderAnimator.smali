@@ -1576,13 +1576,13 @@
 
     if-eqz v8, :cond_0
 
-    const v10, 0x7f0b0032
+    const v10, 0x7f0c0032
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v6
 
-    const v10, 0x7f0b0033
+    const v10, 0x7f0c0033
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2251,7 +2251,7 @@
 
     check-cast v1, Lcom/android/launcher2/BaseItem;
 
-    const v5, 0x7f0c001e
+    const v5, 0x7f0d001e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2290,7 +2290,7 @@
     :cond_2
     iget v5, v3, Lcom/android/launcher2/CellLayout$LayoutParams;->cellX:I
 
-    const v6, 0x7f0b000c
+    const v6, 0x7f0c000c
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getInteger(I)I
 

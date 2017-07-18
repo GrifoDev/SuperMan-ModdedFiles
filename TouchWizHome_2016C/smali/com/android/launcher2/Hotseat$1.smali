@@ -78,14 +78,13 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/Hotseat;->access$000(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0
 
     check-cast p1, Lcom/android/launcher2/HomeShortcutItem;
 
-    const v1, 0x7f030024
+    const v1, 0x7f040024
 
     invoke-virtual {v0, p1, v1, p2}, Lcom/android/launcher2/HomeView;->createShortcut(Lcom/android/launcher2/HomeShortcutItem;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -97,14 +96,13 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/Hotseat;->access$000(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0
 
     check-cast p1, Lcom/android/launcher2/HomeFolderItem;
 
-    const v1, 0x7f030023
+    const v1, 0x7f040023
 
     invoke-virtual {v0, p1, v1, p2}, Lcom/android/launcher2/HomeView;->createFolder(Lcom/android/launcher2/HomeFolderItem;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -140,7 +138,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v1}, Lcom/android/launcher2/Hotseat;->access$000(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/HomeView;
 
     move-result-object v1
@@ -149,16 +146,36 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mShowHotseatTitle:Z
     invoke-static {v1}, Lcom/android/launcher2/Hotseat;->access$100(Lcom/android/launcher2/Hotseat;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_2
 
+    invoke-static {}, Lcom/android/launcher2/Utilities;->isMobileKeyboardMode()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
+
+    invoke-static {v1}, Lcom/android/launcher2/Hotseat;->access$200(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/Workspace;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher2/Workspace;->getState()Lcom/android/launcher2/Workspace$State;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
+
+    if-ne v1, v2, :cond_3
+
+    :cond_2
     instance-of v1, p1, Lcom/android/launcher2/AppIconView;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     move-object v1, p1
 
@@ -166,7 +183,7 @@
 
     invoke-virtual {v1, v6}, Lcom/android/launcher2/AppIconView;->setTextVisible(Z)V
 
-    :cond_2
+    :cond_3
     sget-object v1, Lcom/android/launcher2/FocusHelper;->HOTSEAT_ICON_KEY_LISTENER:Landroid/view/View$OnKeyListener;
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
@@ -193,7 +210,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v1}, Lcom/android/launcher2/Hotseat;->access$200(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/Workspace;
 
     move-result-object v1
@@ -202,7 +218,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Hotseat$1;->this$0:Lcom/android/launcher2/Hotseat;
 
-    # getter for: Lcom/android/launcher2/Hotseat;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v1}, Lcom/android/launcher2/Hotseat;->access$200(Lcom/android/launcher2/Hotseat;)Lcom/android/launcher2/Workspace;
 
     move-result-object v1

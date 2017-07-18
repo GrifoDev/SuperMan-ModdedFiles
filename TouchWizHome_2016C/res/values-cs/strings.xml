@@ -138,6 +138,7 @@
     <string name="new_items">%d nových položek</string>
     <string name="no_downloaded_apps">Žádné stažené aplikace</string>
     <string name="no_room_any_page">Na žádné stránce již není místo.</string>
+    <string name="no_space_page">Na stránce není místo. Přidejte zástupce na jinou stránku.</string>
     <string name="not_selected">Nevybráno</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Pomůcka %s již byla přidána na domovskou obrazovku.</string>
@@ -234,7 +235,7 @@ aby odpovídalo rozložení dom. obrazovky."</string>
     <string name="viewmore_galaxyapps">Zobrazit další v Galaxy Apps</string>
     <string name="viewmore_playstore">Zobrazit další v Play Store</string>
     <string name="viewtype_alphabetic_grid">Abecední pořadí</string>
-    <string name="viewtype_custom_grid">Vlastní objednávka</string>
+    <string name="viewtype_custom_grid">Vlastní pořadí</string>
     <string name="widget_duplicate">Nástroj %s již byl přidán na domovskou obrazovku.</string>
     <string name="work_folder_name">Práce</string>
     <string name="workspace_empty_message">Chcete-li přidat položky, dotkněte se displeje a držte</string>

@@ -138,6 +138,7 @@
     <string name="new_items">%d նոր տարրեր</string>
     <string name="no_downloaded_apps">Ներբեռնված ծրագրեր չկան</string>
     <string name="no_room_any_page">Որևէ էջում տեղ չկա:</string>
+    <string name="no_space_page">Տեղ չկա էջում: Փորձեք դյուրանցում ավելացնել ուրիշ էջում:</string>
     <string name="not_selected">Չի ընտրվել</string>
     <string name="ok">Ընդունել</string>
     <string name="only_one_widget_instance_allowed">%s պատկերագիրն արդեն ավելացվել է հիմնական էկրանին:</string>

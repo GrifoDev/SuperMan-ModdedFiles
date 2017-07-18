@@ -879,7 +879,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/AnimationLayer;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b000b
+    const v3, 0x7f0c000b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1371,7 +1371,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/AnimationLayer;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b0074
+    const v3, 0x7f0c0074
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

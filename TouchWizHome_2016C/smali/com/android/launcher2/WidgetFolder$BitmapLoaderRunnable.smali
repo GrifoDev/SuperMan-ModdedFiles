@@ -75,7 +75,6 @@
 
     const/4 v6, 0x0
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
 
     move-result-object v1
@@ -156,14 +155,12 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPreviewWidth:I
     invoke-static {v4}, Lcom/android/launcher2/WidgetFolder;->access$900(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v4
 
     iget-object v5, p0, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPreviewHeight:I
     invoke-static {v5}, Lcom/android/launcher2/WidgetFolder;->access$1000(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v5
@@ -176,14 +173,12 @@
 
     const-string v2, "syncWidgetPageItems"
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->loadWidgetPreviewsInBackground(Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AppsCustomizeAsyncTask;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     invoke-static {v1, v2, v6, v0}, Lcom/android/launcher2/WidgetFolder;->access$1100(Lcom/android/launcher2/WidgetFolder;Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AppsCustomizeAsyncTask;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;->this$0:Lcom/android/launcher2/WidgetFolder;
 
     const-string v2, "syncWidgetPageItems"
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->onSyncWidgetPageItems(Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     invoke-static {v1, v2, v0}, Lcom/android/launcher2/WidgetFolder;->access$1200(Lcom/android/launcher2/WidgetFolder;Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
 
     :goto_0
@@ -200,21 +195,18 @@
 
     iget-object v5, p0, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPreviewWidth:I
     invoke-static {v5}, Lcom/android/launcher2/WidgetFolder;->access$900(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v5
 
     iget-object v6, p0, Lcom/android/launcher2/WidgetFolder$BitmapLoaderRunnable;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPreviewHeight:I
     invoke-static {v6}, Lcom/android/launcher2/WidgetFolder;->access$1000(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v6
 
     const/4 v7, 0x2
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->prepareLoadWidgetPreviewsTask(Landroid/widget/GridLayout;ILjava/util/List;III)V
     invoke-static/range {v1 .. v7}, Lcom/android/launcher2/WidgetFolder;->access$1300(Lcom/android/launcher2/WidgetFolder;Landroid/widget/GridLayout;ILjava/util/List;III)V
 
     goto :goto_0

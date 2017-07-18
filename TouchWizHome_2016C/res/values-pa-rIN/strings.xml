@@ -138,6 +138,7 @@
     <string name="new_items">%d ਨਵੀਆਂ ਆਈਟਮਸ</string>
     <string name="no_downloaded_apps">ਕੋਈ ਡਾਉਨਲੋਡ ਕੀਤੇ ਅਨੁਪ੍ਰਯੋਗ ਨਹੀਂ ਹਨ</string>
     <string name="no_room_any_page">ਕਿਸੇ ਪੰਨੇ ਉੱਤੇ ਥਾਂ ਨਹੀਂ ਹੈ।</string>
+    <string name="no_space_page">ਪੰਨੇ ਉੱਤੇ ਥਾਂ ਖਾਲੀ ਨਹੀਂ ਹੈ। ਕਿਸੇ ਹੋਰ ਪੰਨੇ ਉੱਤੇ ਸ਼ੌਰਟਕੱਟ ਜੋੜਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="not_selected">ਚੁਣਿਆ ਨਹੀਂ ਗਿਆ</string>
     <string name="ok">ਓਕੇ</string>
     <string name="only_one_widget_instance_allowed">%s ਵਿੱਜੇਟ ਪਹਿਲਾਂ ਹੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਜੋੜਿਆ ਗਿਆ।</string>

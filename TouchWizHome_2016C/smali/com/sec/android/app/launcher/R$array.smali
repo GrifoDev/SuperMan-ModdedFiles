@@ -15,23 +15,23 @@
 
 
 # static fields
-.field public static final applock_white_list_pkg:I = 0x7f0f0000
+.field public static final applock_white_list_pkg:I = 0x7f100000
 
-.field public static final changed_component_list:I = 0x7f0f0001
+.field public static final changed_component_list:I = 0x7f100001
 
-.field public static final changed_component_widgetlist:I = 0x7f0f0002
+.field public static final changed_component_widgetlist:I = 0x7f100002
 
-.field public static final csc_folder_title_for_translation:I = 0x7f0f0003
+.field public static final csc_folder_title_for_translation:I = 0x7f100003
 
-.field public static final duplicated_shortcut_extrakey_blacklist:I = 0x7f0f0004
+.field public static final duplicated_shortcut_extrakey_blacklist:I = 0x7f100004
 
-.field public static final index_string_favorite_array_stroke:I = 0x7f0f0005
+.field public static final index_string_favorite_array_stroke:I = 0x7f100005
 
-.field public static final string_indicator_for_HK:I = 0x7f0f0006
+.field public static final string_indicator_for_HK:I = 0x7f100006
 
-.field public static final supportGridSizeArray:I = 0x7f0f0007
+.field public static final supportGridSizeArray:I = 0x7f100007
 
-.field public static final transition_effect_entry_value:I = 0x7f0f0008
+.field public static final transition_effect_entry_value:I = 0x7f100008
 
 
 # direct methods

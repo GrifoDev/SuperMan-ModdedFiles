@@ -127,7 +127,7 @@
     <string name="move_apps">Mover aplicaciones</string>
     <string name="move_apps_cannot_add_to_tray">No se puede añadir el widget a la bandeja.</string>
     <string name="move_apps_help_btn_next">Siguiente</string>
-    <string name="move_apps_help_btn_ok">OK</string>
+    <string name="move_apps_help_btn_ok">Aceptar</string>
     <string name="move_apps_help_text">Pulse o deslice los elementos aquí para ordenarlos.</string>
     <string name="move_apps_intro">Pulse o deslice los elementos para moverlos a otra página.</string>
     <string name="move_apps_item_max_limit_msg">Se ha alcanzado el número máximo de aplicaciones que se pueden seleccionar para moverse (%d).</string>
@@ -138,6 +138,7 @@
     <string name="new_items">%d elementos nuevos</string>
     <string name="no_downloaded_apps">Ninguna aplicación descargada</string>
     <string name="no_room_any_page">No hay espacio en ninguna página.</string>
+    <string name="no_space_page">No hay espacio en la página. Intenta añadir el acceso directo a otra página.</string>
     <string name="not_selected">Sin seleccionar</string>
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">El widget %s ya se ha añadido a la pantalla Inicio.</string>

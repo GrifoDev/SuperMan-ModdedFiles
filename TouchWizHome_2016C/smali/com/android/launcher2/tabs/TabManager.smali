@@ -202,17 +202,14 @@
 
     move-result-object v3
 
-    # setter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v2, v3}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$002(Lcom/android/launcher2/tabs/TabManager$TabInfo;Landroid/app/Fragment;)Landroid/app/Fragment;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v2}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v2}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v3
@@ -227,7 +224,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v2}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v4
@@ -239,7 +235,6 @@
     invoke-virtual {v3}, Landroid/app/FragmentTransaction;->commit()I
 
     :cond_0
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v2}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v3
@@ -320,7 +315,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v0}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v0
@@ -353,7 +347,6 @@
     return-object v2
 
     :cond_0
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v2
@@ -364,7 +357,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/tabs/TabManager;->mActivity:Landroid/app/Activity;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->clss:Ljava/lang/Class;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$100(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Ljava/lang/Class;
 
     move-result-object v3
@@ -373,7 +365,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->args:Landroid/os/Bundle;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$200(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/os/Bundle;
 
     move-result-object v4
@@ -382,7 +373,6 @@
 
     move-result-object v2
 
-    # setter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1, v2}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$002(Lcom/android/launcher2/tabs/TabManager$TabInfo;Landroid/app/Fragment;)Landroid/app/Fragment;
 
     iget-object v2, p0, Lcom/android/launcher2/tabs/TabManager;->mActivity:Landroid/app/Activity;
@@ -397,7 +387,6 @@
 
     iget v3, p0, Lcom/android/launcher2/tabs/TabManager;->mContainerId:I
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v4
@@ -408,7 +397,6 @@
 
     move-result-object v2
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v3
@@ -430,7 +418,6 @@
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
     :goto_1
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v2
@@ -438,7 +425,6 @@
     invoke-direct {p0, v2}, Lcom/android/launcher2/tabs/TabManager;->onAddTab(Landroid/app/Fragment;)V
 
     :cond_1
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v1}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v2
@@ -511,7 +497,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -520,7 +505,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -531,7 +515,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -549,7 +532,6 @@
     :cond_0
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -558,7 +540,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mLastTab:Lcom/android/launcher2/tabs/TabManager$TabInfo;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -568,7 +549,6 @@
     :cond_1
     if-eqz v5, :cond_a
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -577,7 +557,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/tabs/TabManager;->mActivity:Landroid/app/Activity;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->clss:Ljava/lang/Class;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$100(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Ljava/lang/Class;
 
     move-result-object v7
@@ -586,7 +565,6 @@
 
     move-result-object v7
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->args:Landroid/os/Bundle;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$200(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/os/Bundle;
 
     move-result-object v8
@@ -595,12 +573,10 @@
 
     move-result-object v6
 
-    # setter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5, v6}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$002(Lcom/android/launcher2/tabs/TabManager$TabInfo;Landroid/app/Fragment;)Landroid/app/Fragment;
 
     iget v6, p0, Lcom/android/launcher2/tabs/TabManager;->mContainerId:I
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v7
@@ -609,7 +585,6 @@
 
     invoke-virtual {v1, v6, v7, v8}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -632,7 +607,6 @@
 
     move-result-object v7
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->clss:Ljava/lang/Class;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$100(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Ljava/lang/Class;
 
     move-result-object v8
@@ -651,7 +625,6 @@
 
     move-result-object v7
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v8
@@ -668,7 +641,6 @@
 
     :cond_2
     :goto_0
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -677,7 +649,6 @@
 
     if-eqz v6, :cond_8
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -786,7 +757,6 @@
     goto :goto_1
 
     :cond_5
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -797,7 +767,6 @@
 
     if-eqz v6, :cond_6
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -805,14 +774,12 @@
     invoke-virtual {v1, v6}, Landroid/app/FragmentTransaction;->attach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
     :cond_6
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
 
     invoke-virtual {v1, v6}, Landroid/app/FragmentTransaction;->show(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v6
@@ -835,7 +802,6 @@
 
     move-result-object v7
 
-    # getter for: Lcom/android/launcher2/tabs/TabManager$TabInfo;->fragment:Landroid/app/Fragment;
     invoke-static {v5}, Lcom/android/launcher2/tabs/TabManager$TabInfo;->access$000(Lcom/android/launcher2/tabs/TabManager$TabInfo;)Landroid/app/Fragment;
 
     move-result-object v8

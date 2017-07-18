@@ -47,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeferredHandler$Impl;->this$0:Lcom/android/launcher2/DeferredHandler;
 
-    # getter for: Lcom/android/launcher2/DeferredHandler;->mQueue:Ljava/util/LinkedList;
     invoke-static {v1}, Lcom/android/launcher2/DeferredHandler;->access$100(Lcom/android/launcher2/DeferredHandler;)Ljava/util/LinkedList;
 
     move-result-object v2
@@ -57,7 +56,6 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/launcher2/DeferredHandler$Impl;->this$0:Lcom/android/launcher2/DeferredHandler;
 
-    # getter for: Lcom/android/launcher2/DeferredHandler;->mQueue:Ljava/util/LinkedList;
     invoke-static {v1}, Lcom/android/launcher2/DeferredHandler;->access$100(Lcom/android/launcher2/DeferredHandler;)Ljava/util/LinkedList;
 
     move-result-object v1
@@ -76,7 +74,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/DeferredHandler$Impl;->this$0:Lcom/android/launcher2/DeferredHandler;
 
-    # getter for: Lcom/android/launcher2/DeferredHandler;->mQueue:Ljava/util/LinkedList;
     invoke-static {v1}, Lcom/android/launcher2/DeferredHandler;->access$100(Lcom/android/launcher2/DeferredHandler;)Ljava/util/LinkedList;
 
     move-result-object v1
@@ -95,7 +92,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeferredHandler$Impl;->this$0:Lcom/android/launcher2/DeferredHandler;
 
-    # getter for: Lcom/android/launcher2/DeferredHandler;->mQueue:Ljava/util/LinkedList;
     invoke-static {v1}, Lcom/android/launcher2/DeferredHandler;->access$100(Lcom/android/launcher2/DeferredHandler;)Ljava/util/LinkedList;
 
     move-result-object v2

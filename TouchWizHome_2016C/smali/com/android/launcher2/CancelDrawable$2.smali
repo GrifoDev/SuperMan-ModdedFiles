@@ -49,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # getter for: Lcom/android/launcher2/CancelDrawable;->mCancelAnimationListener:Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/CancelDrawable;->access$000(Lcom/android/launcher2/CancelDrawable;)Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
 
     move-result-object v0
@@ -58,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # getter for: Lcom/android/launcher2/CancelDrawable;->mCancelAnimationListener:Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/CancelDrawable;->access$000(Lcom/android/launcher2/CancelDrawable;)Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
 
     move-result-object v0
@@ -82,7 +80,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # getter for: Lcom/android/launcher2/CancelDrawable;->mCancelAnimationListener:Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/CancelDrawable;->access$000(Lcom/android/launcher2/CancelDrawable;)Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
 
     move-result-object v0
@@ -91,7 +88,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # getter for: Lcom/android/launcher2/CancelDrawable;->mCancelAnimationListener:Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/CancelDrawable;->access$000(Lcom/android/launcher2/CancelDrawable;)Lcom/android/launcher2/CancelDrawable$CancelAnimationListener;
 
     move-result-object v0
@@ -101,19 +97,16 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # setter for: Lcom/android/launcher2/CancelDrawable;->mIsAnimatingTranslate:Z
     invoke-static {v0, v2}, Lcom/android/launcher2/CancelDrawable;->access$102(Lcom/android/launcher2/CancelDrawable;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
     iget-object v1, p0, Lcom/android/launcher2/CancelDrawable$2;->val$set:Landroid/animation/AnimatorSet;
 
-    # setter for: Lcom/android/launcher2/CancelDrawable;->mCurrentAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/android/launcher2/CancelDrawable;->access$202(Lcom/android/launcher2/CancelDrawable;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     iget-object v0, p0, Lcom/android/launcher2/CancelDrawable$2;->this$0:Lcom/android/launcher2/CancelDrawable;
 
-    # setter for: Lcom/android/launcher2/CancelDrawable;->mIsRepeat:Z
     invoke-static {v0, v2}, Lcom/android/launcher2/CancelDrawable;->access$302(Lcom/android/launcher2/CancelDrawable;Z)Z
 
     return-void

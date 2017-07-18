@@ -55,7 +55,7 @@
     <string name="default_scroll_format">ཤོག་གྲངས་ %1$d པའི %2$d</string>
     <string name="direct_dial">直接拨号</string>
     <string name="direct_message">ཐད་ཀར་ཡིག་འཕྲིན</string>
-    <string name="disable_message">将禁用 %1$s 和与其相关的所有功能。若要重新启用应用程序，请进入【设置】>【应用程序】，然后选择 %2$s。</string>
+    <string name="disable_message">%1$sདང་དེ་དང་འབྲེལ་ཡོད་ཀྱི་ཕན་ནུས་ཚང་མ་བཀག་སྲིད།གལ་སྲིད་ཉེར་སྤྱོད་བྱ་རིམ་འདི་ཁ་ཕྱེ་ཚེ།༼སྒྲིག་འགོད་༽>༼ཉེར་སྤྱོད་བྱ་རིམ་༽ནང་ཞུགས་པ་དང་དེ་རྗེས་%2$sའདེམས་དགོས།</string>
     <string name="disable_message_att">将禁用%s及所有相关功能。若要重新启用，请进入【设置】>【设备】>【应用程序】>【应用程序管理器】。</string>
     <string name="disable_message_vzw">%sདང་དེའི་འབྲེལ་ཡོད་ནུས་པ་ཡོད་ཚད་བཀག་སྲིད། གལ་སྲིད་ཡང་བསྐྱར་ཁ་ཕྱེ་དགོས་ཚེ།༼སྒྲིག་འགོད།༽>༼ཉེར་སྤྱོད་བྱ་རིམ་༽>༼ཉེར་སྤྱོད་བྱ་རིམ་དོ་དམ་ཡོ་བྱད།༽ནང་ཞུགས་དགོས།</string>
     <string name="disable_title">禁用应用程序</string>
@@ -132,6 +132,7 @@
     <string name="new_item">རྣམ་གྲངས་གསར་པ་1</string>
     <string name="no_downloaded_apps">ཕབ་ལེན་བྱས་པའི་ཉེར་སྤྱོད་བྱ་རིམ་མེད་པ།</string>
     <string name="no_room_any_page">任何页面上均无空间。</string>
+    <string name="no_space_page">ཤོག་ངོས་འདིའི་བར་སྟོང་ཁེངས་ཟིན།མྱུར་མགྱོགས་འགྲོས་ཐབས་ཤོག་ངོས་གཞན་ཐོག་སྣོན་འཇུག་བྱེད་དགོས།</string>
     <string name="not_selected">བདམས་མ་ཐུབ།</string>
     <string name="ok">གཏན་འཁེལ།</string>
     <string name="only_one_widget_instance_allowed">%s 小组件已添加至主屏幕</string>
@@ -162,7 +163,7 @@
     <string name="quickoptions_clear_badge">ཟུར་རྟགས་སུབ་པ།</string>
     <string name="quickoptions_disable">ནུས་མེད།</string>
     <string name="quickoptions_sleep_alert">ཉེར་སྤྱོད་བྱ་རིམ་འདི་མལ་འདུག་ཏུ་སྒྲིག་ཏེ་དེས་རྒྱབ་སྟེགས་ནས་གློག་རྫས་ཟད་གྲོན་གཏོང་རྒྱུ་འགོག་དགོས།ཉེར་སྤྱོད་བྱ་རིམ་མལ་འདུག་བྱས་ཚེ་གསར་བརྗེས་མི་ཐུབ་པ་དང་བརྡ་ཐོ་གཏོང་མི་ཐུབ།ཡིན་ཡང་ཁྱེད་ནས་དེ་དག་ཁ་ཕྱེ་སྐབས་དེ་ཡང་ཁ་ཕྱེ་སྲིད།</string>
-    <string name="quickoptions_uninstall">卸载</string>
+    <string name="quickoptions_uninstall">ཕབ་དོར།</string>
     <string name="quickview_delete_toast_msg">ཤོག་ངོས་༼སྤོ་དོར།༽འདེམས་གའི་ཐོག་འདྲུད་ནས་དེ་ཉིད་སུབ་ཆོག</string>
     <string name="quickview_drag_bar_delete_title">སྤོ་དོར།</string>
     <string name="read_home_screen_settings">读取主屏幕设置</string>
@@ -186,7 +187,7 @@
 %1$d x %2$dལ་སྒྱུར་ནས་བརྙན་ཡོལ་མ་ངོས་ཁྱབ་བཀོད་དང་མཐུན་པ་བྱེད་སྲིད།"</string>
     <string name="search">འཚོལ།</string>
     <string name="search_for_apps">搜索应用程序</string>
-    <string name="search_for_widgets">搜索小组件</string>
+    <string name="search_for_widgets">ལྷུ་ཤས་འཚོལ་བ།</string>
     <string name="search_result_found">%dརྙེད་པ།</string>
     <string name="search_result_founds">%dརྙེད་པ།</string>
     <string name="select_all_app">ཚང་མ།</string>

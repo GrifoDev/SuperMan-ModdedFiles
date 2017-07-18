@@ -44,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/popup/MenuPopupHelper$ExpandedIndexObserver;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mAdapter:Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;
     invoke-static {v0}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$500(Lcom/android/launcher2/popup/MenuPopupHelper;)Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;
 
     move-result-object v0

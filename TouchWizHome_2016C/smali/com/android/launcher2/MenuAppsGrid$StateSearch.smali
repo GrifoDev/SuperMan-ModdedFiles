@@ -44,7 +44,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -53,7 +52,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -112,7 +110,6 @@
     :goto_0
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -147,7 +144,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -156,7 +152,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -181,7 +176,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->setAppSearchAnimation(Ljava/util/List;Z)V
     invoke-static {v0, p1, v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2500(Lcom/android/launcher2/MenuAppsGrid;Ljava/util/List;Z)V
 
     :cond_2
@@ -195,7 +189,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -208,7 +201,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -217,7 +209,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -306,7 +297,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -315,7 +305,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -325,7 +314,6 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mIsKeyboardShowed:Z
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2900(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v2
@@ -334,7 +322,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -343,7 +330,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -356,7 +342,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -377,7 +362,6 @@
     :cond_2
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->getStateKeyboard()Z
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$3000(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v2
@@ -386,7 +370,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -399,7 +382,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v2
@@ -415,7 +397,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -424,7 +405,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -440,7 +420,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -449,7 +428,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -458,7 +436,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -478,7 +455,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v1
@@ -491,7 +467,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mMenuAppsGridFragment:Lcom/android/launcher2/MenuAppsGridFragment;
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsGrid;->access$2300(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGridFragment;
 
     move-result-object v3
@@ -504,12 +479,10 @@
 
     invoke-direct {v2, v3, v4}, Lcom/android/launcher2/MenuAppsSearch;-><init>(Lcom/android/launcher2/MenuView;Lcom/android/launcher2/MenuAppsGrid;)V
 
-    # setter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v1, v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2802(Lcom/android/launcher2/MenuAppsGrid;Lcom/android/launcher2/MenuAppsSearch;)Lcom/android/launcher2/MenuAppsSearch;
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v1
@@ -523,7 +496,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v1
@@ -540,7 +512,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0
@@ -549,7 +520,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateSearch;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mSearchState:Lcom/android/launcher2/MenuAppsSearch;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2800(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsSearch;
 
     move-result-object v0

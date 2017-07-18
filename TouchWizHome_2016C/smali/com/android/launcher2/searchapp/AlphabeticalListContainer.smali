@@ -1674,7 +1674,7 @@
     goto :goto_0
 
     :cond_1
-    const v9, 0x7f1000f7
+    const v9, 0x7f1100f7
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1694,7 +1694,7 @@
     return v8
 
     :cond_2
-    const v9, 0x7f1000fa
+    const v9, 0x7f1100fa
 
     invoke-virtual {v7, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1797,7 +1797,7 @@
 
     if-eqz v10, :cond_3
 
-    const v2, 0x7f0d002e
+    const v2, 0x7f0e002f
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/launcher2/searchapp/AlphabeticalListContainer;->getResources()Landroid/content/res/Resources;
@@ -1878,7 +1878,7 @@
     goto :goto_1
 
     :cond_3
-    const v2, 0x7f0d0013
+    const v2, 0x7f0e0012
 
     goto :goto_0
 
@@ -2042,7 +2042,7 @@
     invoke-virtual {p0}, Lcom/android/launcher2/searchapp/AlphabeticalListContainer;->invalidate()V
 
     :cond_7
-    const v10, 0x7f1000f0
+    const v10, 0x7f1100f0
 
     invoke-virtual {p0, v10}, Lcom/android/launcher2/searchapp/AlphabeticalListContainer;->findViewById(I)Landroid/view/View;
 
@@ -2914,7 +2914,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0f0005
+    const v10, 0x7f100005
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3103,7 +3103,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0903c0
+    const v10, 0x7f0a03c3
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3141,7 +3141,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f080024
+    const v10, 0x7f090024
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

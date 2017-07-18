@@ -138,6 +138,7 @@
     <string name="new_items">%d novos itens</string>
     <string name="no_downloaded_apps">Nenhumas aplicações transferidas</string>
     <string name="no_room_any_page">Não existe espaço em nenhuma página.</string>
+    <string name="no_space_page">Sem espaço na página. Experimente adicionar o atalho a uma página diferente.</string>
     <string name="not_selected">Não seleccionado</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s já adicionado ao ecrã principal.</string>

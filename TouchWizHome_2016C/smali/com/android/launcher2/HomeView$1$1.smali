@@ -45,7 +45,6 @@
 
     iget-boolean v1, v1, Lcom/android/launcher2/HomeView$1;->val$moveToDefaultScreen:Z
 
-    # invokes: Lcom/android/launcher2/HomeView;->performOnHomePressed(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeView;->access$100(Lcom/android/launcher2/HomeView;Z)V
 
     return-void

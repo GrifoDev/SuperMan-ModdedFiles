@@ -47,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
     move-result-object v1
@@ -58,12 +57,10 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->layoutChildren()V
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2400(Lcom/android/launcher2/WidgetFolder;)V
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPageRequested:I
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2500(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v1
@@ -72,7 +69,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPageRequested:I
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2500(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v1
@@ -81,14 +77,12 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPageRequested:I
     invoke-static {v2}, Lcom/android/launcher2/WidgetFolder;->access$2500(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v2
@@ -104,7 +98,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPageRequested:I
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2500(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v1
@@ -113,14 +106,12 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mMenuWidgets:Lcom/android/launcher2/MenuWidgets;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$2300(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/MenuWidgets;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/launcher2/WidgetFolder$7;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPageRequested:I
     invoke-static {v2}, Lcom/android/launcher2/WidgetFolder;->access$2500(Lcom/android/launcher2/WidgetFolder;)I
 
     move-result v2

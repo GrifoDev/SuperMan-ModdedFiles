@@ -65,7 +65,6 @@
 
     iget-object v2, v2, Lcom/android/launcher2/Workspace$10;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v2}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v2
@@ -84,7 +83,6 @@
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace$10;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v0
@@ -97,7 +95,6 @@
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace$10;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mExitResizeDueToNewDrag:Z
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$1600(Lcom/android/launcher2/Workspace;)Z
 
     move-result v0
@@ -129,7 +126,6 @@
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace$10;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$300(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Workspace$State;
 
     move-result-object v0
@@ -144,7 +140,6 @@
 
     sget-object v1, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
-    # invokes: Lcom/android/launcher2/Workspace;->changeState(Lcom/android/launcher2/Workspace$State;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$1300(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$State;)V
 
     goto :goto_0

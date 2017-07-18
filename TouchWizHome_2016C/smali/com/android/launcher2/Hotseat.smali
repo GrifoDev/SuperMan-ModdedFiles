@@ -1113,7 +1113,7 @@
 .end method
 
 .method public collectWorkspaceStateAnimators(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$State;Lcom/android/launcher2/Workspace$State;Lcom/android/launcher2/BaseItem;Ljava/util/ArrayList;)V
-    .locals 20
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1211,7 +1211,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f090128
+    const v15, 0x7f0a0128
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1221,7 +1221,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0901de
+    const v15, 0x7f0a01de
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1232,7 +1232,7 @@
     if-eqz v6, :cond_11
 
     :cond_3
-    const v14, 0x7f05001f
+    const v14, 0x7f06001f
 
     invoke-static {v5, v14}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1303,10 +1303,6 @@
     int-to-float v0, v0
 
     move/from16 v18, v0
-
-    const/high16 v19, 0x40000000    # 2.0f
-
-    div-float v18, v18, v19
 
     aput v18, v16, v17
 
@@ -1494,7 +1490,7 @@
     goto/16 :goto_1
 
     :cond_11
-    const v14, 0x7f050020
+    const v14, 0x7f060020
 
     invoke-static {v5, v14}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1546,10 +1542,6 @@
     int-to-float v0, v0
 
     move/from16 v18, v0
-
-    const/high16 v19, 0x40000000    # 2.0f
-
-    div-float v18, v18, v19
 
     aput v18, v16, v17
 
@@ -1619,7 +1611,7 @@
     goto/16 :goto_2
 
     :cond_16
-    const v14, 0x7f050001
+    const v14, 0x7f060001
 
     invoke-static {v5, v14}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1724,6 +1716,14 @@
 
     :cond_0
     return p1
+.end method
+
+.method public getShowHotseatTitle()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher2/Hotseat;->mShowHotseatTitle:Z
+
+    return v0
 .end method
 
 .method public isRightPosition()Z
@@ -2037,7 +2037,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f10007e
+    const v0, 0x7f11007e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/Hotseat;->findViewById(I)Landroid/view/View;
 
@@ -2227,25 +2227,25 @@
 
     move-result-object v5
 
-    const v6, 0x7f09012d
+    const v6, 0x7f0a012d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    const v6, 0x7f09012c
+    const v6, 0x7f0a012c
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v6, 0x7f09012a
+    const v6, 0x7f0a012a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v6, 0x7f09012b
+    const v6, 0x7f0a012b
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2257,7 +2257,7 @@
 
     check-cast v4, Landroid/widget/FrameLayout$LayoutParams;
 
-    const v6, 0x7f090128
+    const v6, 0x7f0a0128
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2305,7 +2305,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0006
+    const v2, 0x7f0d0006
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2344,25 +2344,25 @@
 
     move-result-object v3
 
-    const v6, 0x7f090132
+    const v6, 0x7f0a0132
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v6, 0x7f090133
+    const v6, 0x7f0a0133
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    const v6, 0x7f090134
+    const v6, 0x7f0a0134
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
-    const v6, 0x7f090129
+    const v6, 0x7f0a0129
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2382,13 +2382,13 @@
 
     if-ne v1, v6, :cond_0
 
-    const v6, 0x7f090246
+    const v6, 0x7f0a0248
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    const v6, 0x7f090249
+    const v6, 0x7f0a024b
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2425,7 +2425,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0c000a
+    const v3, 0x7f0d000a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2472,13 +2472,13 @@
     invoke-virtual {p0, v0}, Lcom/android/launcher2/Hotseat;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_0
-    const v3, 0x7f0b0009
+    const v3, 0x7f0c0009
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v3
 
-    const v4, 0x7f0b000a
+    const v4, 0x7f0c000a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -57,7 +57,6 @@
 
     move-result-wide v6
 
-    # setter for: Lcom/android/launcher2/Folder;->mFolderContainerDragStartTime:J
     invoke-static {v5, v6, v7}, Lcom/android/launcher2/Folder;->access$302(Lcom/android/launcher2/Folder;J)J
 
     goto :goto_0
@@ -69,7 +68,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/Folder$2;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderContainerDragStartTime:J
     invoke-static {v5}, Lcom/android/launcher2/Folder;->access$300(Lcom/android/launcher2/Folder;)J
 
     move-result-wide v6

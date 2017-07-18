@@ -106,12 +106,10 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsSearch$10;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->updateAndSaveRecentApps(Lcom/android/launcher2/AppItem;)V
     invoke-static {v1, v8}, Lcom/android/launcher2/MenuAppsSearch;->access$1600(Lcom/android/launcher2/MenuAppsSearch;Lcom/android/launcher2/AppItem;)V
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsSearch$10;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsSearch;->access$400(Lcom/android/launcher2/MenuAppsSearch;)Landroid/os/Handler;
 
     move-result-object v1
@@ -124,13 +122,11 @@
 
     invoke-direct {v2}, Landroid/os/Handler;-><init>()V
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v1, v2}, Lcom/android/launcher2/MenuAppsSearch;->access$402(Lcom/android/launcher2/MenuAppsSearch;Landroid/os/Handler;)Landroid/os/Handler;
 
     :cond_0
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsSearch$10;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsSearch;->access$400(Lcom/android/launcher2/MenuAppsSearch;)Landroid/os/Handler;
 
     move-result-object v1

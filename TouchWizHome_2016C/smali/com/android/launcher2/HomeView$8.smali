@@ -53,7 +53,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mPendingWidgetId:I
     invoke-static {v2}, Lcom/android/launcher2/HomeView;->access$600(Lcom/android/launcher2/HomeView;)I
 
     move-result v2
@@ -78,12 +77,10 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher2/HomeView;->mWidgetAnimFinished:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeView;->access$702(Lcom/android/launcher2/HomeView;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mPendingWidgetId:I
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$600(Lcom/android/launcher2/HomeView;)I
 
     move-result v0
@@ -94,31 +91,26 @@
 
     iget-object v1, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mPendingWidgetId:I
     invoke-static {v1}, Lcom/android/launcher2/HomeView;->access$600(Lcom/android/launcher2/HomeView;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # getter for: Lcom/android/launcher2/HomeView;->mPendingAddInfo:Lcom/android/launcher2/PendingAddInfo;
     invoke-static {v2}, Lcom/android/launcher2/HomeView;->access$800(Lcom/android/launcher2/HomeView;)Lcom/android/launcher2/PendingAddInfo;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    # invokes: Lcom/android/launcher2/HomeView;->completeAddAppWidget(ILcom/android/launcher2/HomeItem;Landroid/appwidget/AppWidgetHostView;)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/launcher2/HomeView;->access$900(Lcom/android/launcher2/HomeView;ILcom/android/launcher2/HomeItem;Landroid/appwidget/AppWidgetHostView;)V
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # invokes: Lcom/android/launcher2/HomeView;->resetAddInfo()V
     invoke-static {v0}, Lcom/android/launcher2/HomeView;->access$1000(Lcom/android/launcher2/HomeView;)V
 
     iget-object v0, p0, Lcom/android/launcher2/HomeView$8;->this$0:Lcom/android/launcher2/HomeView;
 
-    # setter for: Lcom/android/launcher2/HomeView;->mPendingWidgetId:I
     invoke-static {v0, v4}, Lcom/android/launcher2/HomeView;->access$602(Lcom/android/launcher2/HomeView;I)I
 
     :cond_0

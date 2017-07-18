@@ -1626,7 +1626,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f03003e
+    const v3, 0x7f04003e
 
     const/4 v4, 0x0
 
@@ -1636,7 +1636,7 @@
 
     check-cast v12, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1000d7
+    const v2, 0x7f1100d7
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1644,7 +1644,7 @@
 
     check-cast v11, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f1000d8
+    const v2, 0x7f1100d8
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1652,7 +1652,7 @@
 
     check-cast v18, Landroid/widget/ListView;
 
-    const v2, 0x7f1000d6
+    const v2, 0x7f1100d6
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1660,7 +1660,7 @@
 
     check-cast v9, Landroid/widget/ImageView;
 
-    const v2, 0x7f1000d9
+    const v2, 0x7f1100d9
 
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1672,7 +1672,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090295
+    const v3, 0x7f0a029c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1682,7 +1682,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f090294
+    const v3, 0x7f0a029b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1718,7 +1718,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a9
+    const v3, 0x7f0900aa
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1728,7 +1728,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020094
+    const v4, 0x7f020090
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1744,7 +1744,6 @@
 
     move-object/from16 v0, v17
 
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
@@ -1764,7 +1763,52 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a7
+    const v3, 0x7f0900a8
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
+
+    const v4, 0x7f02008e
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, v17
+
+    invoke-direct {v0, v2, v3, v4}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Lcom/android/launcher2/QuickOptionsPopup$1;)V
+
+    sget-object v2, Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;->ADD_TO_SECURE_FOLDER:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
+
+    move-object/from16 v0, v17
+
+    invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mPutToSleepValid:Z
+
+    if-eqz v2, :cond_3
+
+    new-instance v17, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
+
+    const v3, 0x7f0900a6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1786,57 +1830,10 @@
 
     invoke-direct {v0, v2, v3, v4}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Lcom/android/launcher2/QuickOptionsPopup$1;)V
 
-    sget-object v2, Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;->ADD_TO_SECURE_FOLDER:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
-
-    move-object/from16 v0, v17
-
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
-    invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mPutToSleepValid:Z
-
-    if-eqz v2, :cond_3
-
-    new-instance v17, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
-
-    const v3, 0x7f0800a5
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
-
-    const v4, 0x7f020096
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v0, v2, v3, v4}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Lcom/android/launcher2/QuickOptionsPopup$1;)V
-
     sget-object v2, Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;->PUT_TO_SLEEP:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
 
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
@@ -1862,7 +1859,7 @@
 
     if-eqz v2, :cond_a
 
-    const v2, 0x7f0800ac
+    const v2, 0x7f0900ad
 
     :goto_1
     invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -1879,7 +1876,7 @@
 
     if-eqz v2, :cond_b
 
-    const v2, 0x7f020097
+    const v2, 0x7f020093
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1896,7 +1893,6 @@
 
     move-object/from16 v0, v17
 
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
@@ -1916,7 +1912,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a8
+    const v3, 0x7f0900a9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1926,7 +1922,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020093
+    const v4, 0x7f02008f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1942,7 +1938,6 @@
 
     move-object/from16 v0, v17
 
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
@@ -1962,7 +1957,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0800a6
+    const v3, 0x7f0900a7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1972,7 +1967,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f020091
+    const v4, 0x7f02008d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1988,7 +1983,6 @@
 
     move-object/from16 v0, v17
 
-    # setter for: Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->mOption:Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
     invoke-static {v0, v2}, Lcom/android/launcher2/QuickOptionsPopup$OptionItem;->access$402(Lcom/android/launcher2/QuickOptionsPopup$OptionItem;Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;)Lcom/android/launcher2/QuickOptionsPopup$OptionItem$OPTION;
 
     move-object/from16 v0, v17
@@ -2002,7 +1996,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f030040
+    const v4, 0x7f040040
 
     const/4 v6, 0x0
 
@@ -2074,7 +2068,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f09029d
+    const v4, 0x7f0a02a4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2086,7 +2080,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v4, 0x7f09029a
+    const v4, 0x7f0a02a1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2273,7 +2267,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0d003d
+    const v3, 0x7f0e003e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2355,12 +2349,12 @@
     goto/16 :goto_0
 
     :cond_a
-    const v2, 0x7f0800aa
+    const v2, 0x7f0900ab
 
     goto/16 :goto_1
 
     :cond_b
-    const v2, 0x7f020095
+    const v2, 0x7f020091
 
     goto/16 :goto_2
 
@@ -2543,7 +2537,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mResources:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b0017
+    const v3, 0x7f0c0017
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2694,7 +2688,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e002d
+    const v3, 0x7f0f002d
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2723,7 +2717,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e002a
+    const v3, 0x7f0f002a
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2800,7 +2794,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e002e
+    const v3, 0x7f0f002e
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2835,7 +2829,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e002b
+    const v3, 0x7f0f002b
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2882,7 +2876,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e002c
+    const v3, 0x7f0f002c
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 
@@ -2907,7 +2901,7 @@
 
     iget-object v2, v0, Lcom/android/launcher2/QuickOptionsPopup;->mQuickOptionsPopupWindow:Landroid/widget/PopupWindow;
 
-    const v3, 0x7f0e0029
+    const v3, 0x7f0f0029
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupWindow;->setAnimationStyle(I)V
 

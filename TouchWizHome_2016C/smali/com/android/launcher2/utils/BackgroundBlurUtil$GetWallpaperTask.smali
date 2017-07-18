@@ -77,14 +77,12 @@
 
     const/4 v2, 0x0
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->DEBUG:Z
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$200()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$300()Ljava/lang/String;
 
     move-result-object v0
@@ -96,7 +94,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # invokes: Lcom/android/launcher2/utils/BackgroundBlurUtil;->getWallpaperBitmap()Landroid/graphics/Bitmap;
     invoke-static {v0}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$400(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -115,7 +112,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->mWallpaperBitmap:Landroid/graphics/Bitmap;
 
-    # invokes: Lcom/android/launcher2/utils/BackgroundBlurUtil;->getBlurBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     invoke-static {v0, v1}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$500(Lcom/android/launcher2/utils/BackgroundBlurUtil;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -142,7 +138,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$600(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/content/Context;
 
     move-result-object v1
@@ -157,7 +152,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v1
@@ -166,7 +160,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v1}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v1
@@ -194,7 +187,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -208,7 +200,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -217,7 +208,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v0
@@ -228,7 +218,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/utils/BackgroundBlurUtil$GetWallpaperTask;->this$0:Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
-    # getter for: Lcom/android/launcher2/utils/BackgroundBlurUtil;->mWallpaperBlurView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->access$100(Lcom/android/launcher2/utils/BackgroundBlurUtil;)Landroid/view/View;
 
     move-result-object v0

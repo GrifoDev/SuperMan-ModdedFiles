@@ -96,7 +96,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 5
 
-    const v3, 0x7f0b0039
+    const v3, 0x7f0c0039
 
     const/4 v4, 0x0
 
@@ -144,7 +144,7 @@
 
     iput v2, p0, Lcom/android/launcher2/PagedViewWidget;->mCheckedAlpha:F
 
-    const v2, 0x7f0b003a
+    const v2, 0x7f0c003a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -152,7 +152,7 @@
 
     iput v2, p0, Lcom/android/launcher2/PagedViewWidget;->mCheckedFadeInDuration:I
 
-    const v2, 0x7f0b003b
+    const v2, 0x7f0c003b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -161,7 +161,7 @@
     iput v2, p0, Lcom/android/launcher2/PagedViewWidget;->mCheckedFadeOutDuration:I
 
     :cond_0
-    const v2, 0x7f04001c
+    const v2, 0x7f05001c
 
     invoke-static {p1, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -169,7 +169,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/PagedViewWidget;->mUninstallIconShowAnimation:Landroid/view/animation/Animation;
 
-    const v2, 0x7f04001b
+    const v2, 0x7f05001b
 
     invoke-static {p1, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -183,7 +183,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v2, 0x7f080104
+    const v2, 0x7f090105
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     iput-object v2, p0, Lcom/android/launcher2/PagedViewWidget;->mDimensionsFormatString:Ljava/lang/String;
 
-    const v2, 0x7f0800e1
+    const v2, 0x7f0900e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -264,7 +264,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020057
+    const v3, 0x7f020058
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -287,7 +287,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f0d0039
+    const v2, 0x7f0e003a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -391,7 +391,7 @@
 
     const/4 v4, 0x0
 
-    const v1, 0x7f10001b
+    const v1, 0x7f11001b
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -666,7 +666,7 @@
 
     if-eqz p1, :cond_2
 
-    const v8, 0x7f0b0061
+    const v8, 0x7f0c0061
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -674,7 +674,7 @@
 
     int-to-float v5, v8
 
-    const v8, 0x7f0b0060
+    const v8, 0x7f0c0060
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -682,7 +682,7 @@
 
     int-to-float v3, v8
 
-    const v8, 0x7f0d002d
+    const v8, 0x7f0e002e
 
     invoke-virtual {v6, v8, v9}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -692,7 +692,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0d002e
+    const v9, 0x7f0e002f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -732,7 +732,7 @@
     return-void
 
     :cond_2
-    const v8, 0x7f0b0063
+    const v8, 0x7f0c0063
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -740,7 +740,7 @@
 
     int-to-float v5, v8
 
-    const v8, 0x7f0b0062
+    const v8, 0x7f0c0062
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -748,7 +748,7 @@
 
     int-to-float v3, v8
 
-    const v8, 0x7f0d0001
+    const v8, 0x7f0e0001
 
     invoke-virtual {v6, v8, v9}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -758,7 +758,7 @@
 
     move-result-object v8
 
-    const/high16 v9, 0x7f0d0000
+    const/high16 v9, 0x7f0e0000
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -867,7 +867,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090165
+    const v10, 0x7f0a0165
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1027,7 +1027,7 @@
 .method public getTitleTextView()Landroid/widget/TextView;
     .locals 1
 
-    const v0, 0x7f10001a
+    const v0, 0x7f11001a
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1089,7 +1089,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f10001e
+    const v0, 0x7f11001e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1099,7 +1099,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/PagedViewWidget;->mImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f10001c
+    const v0, 0x7f11001c
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1207,7 +1207,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v1, 0x7f10001a
+    const v1, 0x7f11001a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1260,7 +1260,7 @@
 .method public setTalkbackDescription(ZZ)V
     .locals 5
 
-    const v2, 0x7f10001a
+    const v2, 0x7f11001a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1290,7 +1290,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08009e
+    const v4, 0x7f09009f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

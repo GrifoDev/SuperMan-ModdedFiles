@@ -132,6 +132,7 @@
     <string name="new_item">1 новы элемент</string>
     <string name="no_downloaded_apps">Няма спампаваных праграм</string>
     <string name="no_room_any_page">Няма месца на гэтай старонцы.</string>
+    <string name="no_space_page">Няма месца на старонцы. Паспрабуйце дадаць ярлык на іншую старонку.</string>
     <string name="not_selected">Не выбрана</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджэт %s ужо дададзены на галоўны экран.</string>

@@ -185,7 +185,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f080069
+    const v1, 0x7f090069
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -200,7 +200,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f080066
+    const v1, 0x7f090066
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -220,7 +220,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f060019
+    const v1, 0x7f070019
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeScreenSettingsFragment;->addPreferencesFromResource(I)V
 

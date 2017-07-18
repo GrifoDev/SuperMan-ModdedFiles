@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$24;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->setScrollViewSize()V
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$2100(Lcom/android/launcher2/Folder;)V
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$24;->this$0:Lcom/android/launcher2/Folder;

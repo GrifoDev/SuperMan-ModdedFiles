@@ -64,7 +64,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mMenu:Lcom/android/launcher2/popup/MenuBuilder;
     invoke-static {v5}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$400(Lcom/android/launcher2/popup/MenuPopupHelper;)Lcom/android/launcher2/popup/MenuBuilder;
 
     move-result-object v5
@@ -77,7 +76,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mMenu:Lcom/android/launcher2/popup/MenuBuilder;
     invoke-static {v5}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$400(Lcom/android/launcher2/popup/MenuPopupHelper;)Lcom/android/launcher2/popup/MenuBuilder;
 
     move-result-object v5
@@ -126,7 +124,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mOverflowOnly:Z
     invoke-static {v1}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$200(Lcom/android/launcher2/popup/MenuPopupHelper;)Z
 
     move-result v1
@@ -175,7 +172,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mOverflowOnly:Z
     invoke-static {v1}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$200(Lcom/android/launcher2/popup/MenuPopupHelper;)Z
 
     move-result v1
@@ -245,12 +241,11 @@
 
     iget-object v1, p0, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->this$0:Lcom/android/launcher2/popup/MenuPopupHelper;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v1}, Lcom/android/launcher2/popup/MenuPopupHelper;->access$300(Lcom/android/launcher2/popup/MenuPopupHelper;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    const v2, 0x7f03003d
+    const v2, 0x7f04003d
 
     invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

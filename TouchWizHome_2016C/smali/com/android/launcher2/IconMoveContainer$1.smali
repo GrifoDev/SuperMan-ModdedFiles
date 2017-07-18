@@ -84,12 +84,11 @@
     :pswitch_0
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$000(Lcom/android/launcher2/IconMoveContainer;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f03003b
+    const v3, 0x7f04003b
 
     invoke-virtual {v2, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -109,7 +108,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mIconSize:I
     invoke-static {v3}, Lcom/android/launcher2/IconMoveContainer;->access$100(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v3
@@ -118,7 +116,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$200(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v2
@@ -133,7 +130,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$300(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/HomeView;
 
     move-result-object v2
@@ -146,7 +142,6 @@
     :pswitch_1
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$300(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/HomeView;
 
     move-result-object v2
@@ -163,12 +158,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$000(Lcom/android/launcher2/IconMoveContainer;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    const v3, 0x7f030039
+    const v3, 0x7f040039
 
     invoke-virtual {v2, v3, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -178,7 +172,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mIconSize:I
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$100(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v2
@@ -187,7 +180,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$200(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v2
@@ -202,7 +194,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v2}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v2
@@ -233,7 +224,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080047
+    const v4, 0x7f090047
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -272,7 +263,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v6
@@ -283,7 +273,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v7}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v7
@@ -296,7 +285,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v6
@@ -311,7 +299,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mScrollView:Landroid/widget/HorizontalScrollView;
     invoke-static {v10}, Lcom/android/launcher2/IconMoveContainer;->access$600(Lcom/android/launcher2/IconMoveContainer;)Landroid/widget/HorizontalScrollView;
 
     move-result-object v10
@@ -322,7 +309,6 @@
 
     iget-object v11, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mCellWidth:I
     invoke-static {v11}, Lcom/android/launcher2/IconMoveContainer;->access$700(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v11
@@ -331,7 +317,6 @@
 
     iget-object v11, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mCellGap:I
     invoke-static {v11}, Lcom/android/launcher2/IconMoveContainer;->access$800(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v11
@@ -361,7 +346,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mItemViewShowLabel:Z
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$900(Lcom/android/launcher2/IconMoveContainer;)Z
 
     move-result v6
@@ -370,11 +354,10 @@
 
     const/4 v6, 0x1
 
-    invoke-virtual {v4, v6}, Lcom/android/launcher2/AppIconView;->setSingleLine(Z)V
+    invoke-virtual {v4, v6}, Lcom/android/launcher2/AppIconView;->setMaxLines(I)V
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mLabelColor:I
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$1000(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v6
@@ -385,7 +368,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mTextSize:I
     invoke-static {v7}, Lcom/android/launcher2/IconMoveContainer;->access$200(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v7
@@ -400,7 +382,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mItemViewDrawableFolderPadding:I
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$1100(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v6
@@ -415,7 +396,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6
@@ -442,7 +422,6 @@
 
     iget-wide v8, v3, Lcom/android/launcher2/HomeItem;->container:J
 
-    # invokes: Lcom/android/launcher2/IconMoveContainer;->getFolderItemById(J)Lcom/android/launcher2/HomeFolderItem;
     invoke-static {v6, v8, v9}, Lcom/android/launcher2/IconMoveContainer;->access$1300(Lcom/android/launcher2/IconMoveContainer;J)Lcom/android/launcher2/HomeFolderItem;
 
     move-result-object v5
@@ -450,7 +429,6 @@
     :cond_2
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6
@@ -463,7 +441,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$400(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/Workspace;
 
     move-result-object v6
@@ -513,7 +490,6 @@
 
     const/4 v7, 0x0
 
-    # setter for: Lcom/android/launcher2/IconMoveContainer;->mDoingLoad:Z
     invoke-static {v6, v7}, Lcom/android/launcher2/IconMoveContainer;->access$1502(Lcom/android/launcher2/IconMoveContainer;Z)Z
 
     return-void
@@ -521,7 +497,6 @@
     :cond_5
     iget-object v6, p0, Lcom/android/launcher2/IconMoveContainer$1;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mItemViewDrawablePadding:I
     invoke-static {v6}, Lcom/android/launcher2/IconMoveContainer;->access$1200(Lcom/android/launcher2/IconMoveContainer;)I
 
     move-result v6

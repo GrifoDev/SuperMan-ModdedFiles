@@ -36,12 +36,11 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuTitleBarManager$5;->this$0:Lcom/android/launcher2/MenuTitleBarManager;
 
-    # getter for: Lcom/android/launcher2/MenuTitleBarManager;->mNormalTitleBar:Landroid/view/ViewGroup;
     invoke-static {v0}, Lcom/android/launcher2/MenuTitleBarManager;->access$000(Lcom/android/launcher2/MenuTitleBarManager;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    const v1, 0x7f10009f
+    const v1, 0x7f11009f
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

@@ -28,7 +28,6 @@
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {p1, p2}, Lcom/android/launcher2/MenuAppsSearch;->access$102(Lcom/android/launcher2/MenuAppsSearch;Landroid/content/Context;)Landroid/content/Context;
 
     const-string v0, ""
@@ -107,7 +106,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f030008
+    const v3, 0x7f040008
 
     const/4 v4, 0x0
 
@@ -142,7 +141,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$GalaxyAppsResultAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mTextSize:I
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$1200(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v3
@@ -153,7 +151,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$GalaxyAppsResultAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$300(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/SearchView;
 
     move-result-object v3
@@ -168,7 +165,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuAppsSearch$GalaxyAppsResultAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mIconSize:I
     invoke-static {v4}, Lcom/android/launcher2/MenuAppsSearch;->access$1300(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v4

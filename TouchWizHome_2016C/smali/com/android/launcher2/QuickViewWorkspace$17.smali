@@ -41,7 +41,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/QuickViewWorkspace;->mZeropageDownloadDialog:Landroid/app/AlertDialog;
     invoke-static {v0, v1}, Lcom/android/launcher2/QuickViewWorkspace;->access$1202(Lcom/android/launcher2/QuickViewWorkspace;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     return-void

@@ -1594,7 +1594,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f06000d
+    const v10, 0x7f07000d
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -1994,7 +1994,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f06000e
+    const v10, 0x7f07000e
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -3052,7 +3052,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d002e
+    const v4, 0x7f0e002f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3206,7 +3206,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0008
+    const v4, 0x7f0b0008
 
     const/4 v5, 0x1
 
@@ -3237,7 +3237,7 @@
 
     move-result-object v3
 
-    const/high16 v4, 0x7f0d0000
+    const/high16 v4, 0x7f0e0000
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3291,7 +3291,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0003
+    const v4, 0x7f0b0003
 
     const/4 v5, 0x1
 
@@ -4179,7 +4179,7 @@
 .method private setMarketLabel()V
     .locals 7
 
-    const v6, 0x7f080099
+    const v6, 0x7f09009a
 
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher2/Launcher;->mActivityName:Landroid/content/ComponentName;
@@ -4539,31 +4539,31 @@
     return v5
 
     :cond_2
-    const v7, 0x7f100124
+    const v7, 0x7f110124
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v7, 0x7f100125
+    const v7, 0x7f110125
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v7, 0x7f100126
+    const v7, 0x7f110126
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    const v7, 0x7f100127
+    const v7, 0x7f110127
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v7, 0x7f100128
+    const v7, 0x7f110128
 
     invoke-interface {p1, v7}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -4713,11 +4713,11 @@
 .method private setupOptionsMenu(Landroid/view/Menu;)Z
     .locals 10
 
-    const v9, 0x7f10012a
+    const v9, 0x7f11012a
 
-    const v8, 0x7f100129
+    const v8, 0x7f110129
 
-    const v7, 0x7f100127
+    const v7, 0x7f110127
 
     const/4 v4, 0x1
 
@@ -4915,7 +4915,7 @@
 
     const/4 v7, 0x0
 
-    const v4, 0x7f03003c
+    const v4, 0x7f04003c
 
     const/4 v5, 0x0
 
@@ -4923,13 +4923,13 @@
 
     move-result-object v1
 
-    const v4, 0x7f08001a
+    const v4, 0x7f09001a
 
     const/4 v5, 0x1
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    const v6, 0x7f08001d
+    const v6, 0x7f09001d
 
     invoke-virtual {p0, v6}, Lcom/android/launcher2/Launcher;->getString(I)Ljava/lang/String;
 
@@ -4941,7 +4941,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1000d0
+    const v4, 0x7f1100d0
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4957,7 +4957,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f08001b
+    const v4, 0x7f09001b
 
     new-instance v5, Lcom/android/launcher2/Launcher$27;
 
@@ -4965,7 +4965,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f08001c
+    const v4, 0x7f09001c
 
     new-instance v5, Lcom/android/launcher2/Launcher$28;
 
@@ -5535,7 +5535,7 @@
 
     invoke-virtual {v6, v7}, Lcom/android/launcher2/Workspace;->snapToPage(I)V
 
-    const v7, 0x7f0800ed
+    const v7, 0x7f0900ee
 
     const/4 v8, 0x1
 
@@ -6803,7 +6803,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d003c
+    const v3, 0x7f0e003d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6831,7 +6831,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d003b
+    const v3, 0x7f0e003c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
     :try_end_0
@@ -6967,7 +6967,7 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x7f110000
+    const/high16 v1, 0x7f120000
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher;->mAppsOptionsMenu:Landroid/view/Menu;
 
@@ -7030,7 +7030,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110001
+    const v1, 0x7f120001
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher;->mOptionsMenu:Landroid/view/Menu;
 
@@ -7064,9 +7064,9 @@
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 10
 
-    const v8, 0x7f1000ae
+    const v8, 0x7f1100ae
 
-    const v9, 0x7f1000a2
+    const v9, 0x7f1100a2
 
     const/4 v5, 0x0
 
@@ -7490,7 +7490,7 @@
     :cond_10
     iget-object v5, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v7, 0x7f100114
+    const v7, 0x7f110114
 
     invoke-virtual {v5, v7}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -7573,7 +7573,7 @@
     :cond_13
     iget-object v5, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v7, 0x7f1000a9
+    const v7, 0x7f1100a9
 
     invoke-virtual {v5, v7}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -8358,7 +8358,7 @@
 
     if-nez v2, :cond_5
 
-    const v2, 0x7f08007a
+    const v2, 0x7f09007a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/Launcher;->getString(I)Ljava/lang/String;
 
@@ -8811,7 +8811,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v6, 0x7f08007a
+    const v6, 0x7f09007a
 
     invoke-virtual {p0, v6}, Lcom/android/launcher2/Launcher;->getString(I)Ljava/lang/String;
 
@@ -8917,7 +8917,7 @@
 
     if-nez p1, :cond_4
 
-    const v8, 0x7f050017
+    const v8, 0x7f060017
 
     if-eqz v5, :cond_3
 
@@ -8927,7 +8927,7 @@
 
     if-eqz v9, :cond_3
 
-    const v8, 0x7f050018
+    const v8, 0x7f060018
 
     :cond_3
     invoke-static {p0, v8}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
@@ -9926,7 +9926,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Launcher;->mOptionsMenu:Landroid/view/Menu;
 
-    const v2, 0x7f10012a
+    const v2, 0x7f11012a
 
     invoke-interface {v1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -11531,7 +11531,7 @@
 
     move-result v2
 
-    const v3, 0x7f1000e9
+    const v3, 0x7f1100e9
 
     if-ne v2, v3, :cond_7
 
@@ -12042,10 +12042,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f100011 -> :sswitch_0
-        0x7f100012 -> :sswitch_1
-        0x7f100013 -> :sswitch_2
-        0x7f1000c9 -> :sswitch_3
+        0x7f110011 -> :sswitch_0
+        0x7f110012 -> :sswitch_1
+        0x7f110013 -> :sswitch_2
+        0x7f1100c9 -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -12846,7 +12846,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher2/Launcher;->updateCaptureFile(IZ)V
 
     :cond_9
-    const v21, 0x7f030027
+    const v21, 0x7f040027
 
     move-object/from16 v0, p0
 
@@ -12854,7 +12854,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/Launcher;->setContentView(I)V
 
-    const v21, 0x7f100076
+    const v21, 0x7f110076
 
     move-object/from16 v0, p0
 
@@ -12872,7 +12872,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mHomeView:Lcom/android/launcher2/HomeView;
 
-    const v21, 0x7f10009c
+    const v21, 0x7f11009c
 
     move-object/from16 v0, p0
 
@@ -12890,7 +12890,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v21, 0x7f100087
+    const v21, 0x7f110087
 
     move-object/from16 v0, p0
 
@@ -12906,7 +12906,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mDarkenView:Landroid/view/View;
 
-    const v21, 0x7f100089
+    const v21, 0x7f110089
 
     move-object/from16 v0, p0
 
@@ -12959,7 +12959,7 @@
 
     if-eqz v21, :cond_b
 
-    const v21, 0x7f100088
+    const v21, 0x7f110088
 
     move-object/from16 v0, p0
 
@@ -13183,7 +13183,7 @@
 
     invoke-virtual {v0, v1, v12}, Lcom/android/launcher2/Launcher;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    const v21, 0x7f0c0018
+    const v21, 0x7f0d0018
 
     move-object/from16 v0, v17
 
@@ -13301,7 +13301,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Launcher;->mActivityName:Landroid/content/ComponentName;
 
-    const v21, 0x7f10008a
+    const v21, 0x7f11008a
 
     move-object/from16 v0, p0
 
@@ -13967,7 +13967,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f110001
+    const v1, 0x7f120001
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -15997,7 +15997,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v19, 0x7f100112
+    const v19, 0x7f110112
 
     move-object/from16 v0, p0
 
@@ -16251,7 +16251,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f100124
+    .packed-switch 0x7f110124
         :pswitch_2
         :pswitch_3
         :pswitch_4
@@ -16823,9 +16823,9 @@
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/Launcher;->startActivity(Landroid/content/Intent;)V
 
-    const v3, 0x7f04000a
+    const v3, 0x7f05000a
 
-    const v4, 0x7f04000b
+    const v4, 0x7f05000b
 
     invoke-virtual {p0, v3, v4}, Lcom/android/launcher2/Launcher;->overridePendingTransition(II)V
 
@@ -16840,7 +16840,7 @@
     :catch_0
     move-exception v0
 
-    const/high16 v3, 0x7f080000
+    const/high16 v3, 0x7f090000
 
     invoke-static {p0, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -16945,9 +16945,9 @@
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/Launcher;->startActivity(Landroid/content/Intent;)V
 
-    const v3, 0x7f04000a
+    const v3, 0x7f05000a
 
-    const v4, 0x7f04000b
+    const v4, 0x7f05000b
 
     invoke-virtual {p0, v3, v4}, Lcom/android/launcher2/Launcher;->overridePendingTransition(II)V
 
@@ -16968,7 +16968,7 @@
     :catch_1
     move-exception v0
 
-    const/high16 v3, 0x7f080000
+    const/high16 v3, 0x7f090000
 
     invoke-static {p0, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -18476,9 +18476,9 @@
 
     invoke-virtual {p0, v1, v0, v1, v2}, Lcom/android/launcher2/Launcher;->startSearch(Ljava/lang/String;ZLandroid/os/Bundle;Z)V
 
-    const v0, 0x7f040004
+    const v0, 0x7f050004
 
-    const v1, 0x7f040005
+    const v1, 0x7f050005
 
     invoke-virtual {p0, v0, v1}, Lcom/android/launcher2/Launcher;->overridePendingTransition(II)V
 
@@ -18880,7 +18880,7 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
 
-    const v3, 0x7f1000a2
+    const v3, 0x7f1100a2
 
     invoke-virtual {v2, v3}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -19008,7 +19008,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c5
+    const v13, 0x7f0a02c8
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -19244,7 +19244,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0902c5
+    const v13, 0x7f0a02c8
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
     :try_end_4
@@ -20353,7 +20353,7 @@
 
     if-eqz v7, :cond_f
 
-    const v7, 0x7f05000e
+    const v7, 0x7f06000e
 
     invoke-static {p0, v7}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -20469,7 +20469,7 @@
     goto/16 :goto_0
 
     :cond_f
-    const v7, 0x7f05000b
+    const v7, 0x7f06000b
 
     invoke-static {p0, v7}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -20578,7 +20578,7 @@
     :goto_0
     if-nez v6, :cond_2
 
-    const v18, 0x7f080021
+    const v18, 0x7f090021
 
     const/16 v19, 0x0
 
@@ -20816,7 +20816,7 @@
     :catch_1
     move-exception v5
 
-    const/high16 v18, 0x7f080000
+    const/high16 v18, 0x7f090000
 
     const/16 v19, 0x0
 
@@ -20926,7 +20926,7 @@
     :catch_3
     move-exception v5
 
-    const/high16 v18, 0x7f080000
+    const/high16 v18, 0x7f090000
 
     const/16 v19, 0x0
 
@@ -21109,7 +21109,7 @@
     :catch_4
     move-exception v5
 
-    const/high16 v18, 0x7f080000
+    const/high16 v18, 0x7f090000
 
     const/16 v19, 0x0
 
@@ -21244,7 +21244,7 @@
 .method public startActivityWithTransitionForHeadlines(Landroid/content/Intent;Z)V
     .locals 6
 
-    const/high16 v4, 0x7f080000
+    const/high16 v4, 0x7f090000
 
     const/4 v5, 0x0
 
@@ -21282,9 +21282,9 @@
 
     if-eqz p2, :cond_3
 
-    const v2, 0x7f040006
+    const v2, 0x7f050006
 
-    const v3, 0x7f040009
+    const v3, 0x7f050009
 
     invoke-static {p0, v2, v3}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
 
@@ -21353,9 +21353,9 @@
     goto :goto_0
 
     :cond_3
-    const v2, 0x7f040007
+    const v2, 0x7f050007
 
-    const v3, 0x7f040008
+    const v3, 0x7f050008
 
     :try_start_1
     invoke-static {p0, v2, v3}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
@@ -22163,9 +22163,9 @@
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/Launcher;->startActivity(Landroid/content/Intent;)V
 
-    const v2, 0x7f04000a
+    const v2, 0x7f05000a
 
-    const v3, 0x7f04000b
+    const v3, 0x7f05000b
 
     invoke-virtual {p0, v2, v3}, Lcom/android/launcher2/Launcher;->overridePendingTransition(II)V
 

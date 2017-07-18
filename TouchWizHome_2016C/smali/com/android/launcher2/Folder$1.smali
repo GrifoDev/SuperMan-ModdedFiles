@@ -47,12 +47,10 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$1;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->setFolderColor(Lcom/android/launcher2/Folder$FolderColor;Z)V
     invoke-static {v1, v0, v2}, Lcom/android/launcher2/Folder;->access$100(Lcom/android/launcher2/Folder;Lcom/android/launcher2/Folder$FolderColor;Z)V
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$1;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->onOffColorPicker()V
     invoke-static {v1}, Lcom/android/launcher2/Folder;->access$200(Lcom/android/launcher2/Folder;)V
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$1;->this$0:Lcom/android/launcher2/Folder;

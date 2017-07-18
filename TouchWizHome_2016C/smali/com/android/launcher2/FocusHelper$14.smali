@@ -31,7 +31,6 @@
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
 
-    # getter for: Lcom/android/launcher2/FocusHelper;->sHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {}, Lcom/android/launcher2/FocusHelper;->access$1300()Lcom/android/launcher2/HomeView;
 
     move-result-object v1

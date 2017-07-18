@@ -104,7 +104,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderAnimator$6;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mFolderHoverAnim:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/android/launcher2/FolderAnimator;->access$600(Lcom/android/launcher2/FolderAnimator;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -150,7 +149,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/FolderAnimator$6;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # invokes: Lcom/android/launcher2/FolderAnimator;->animHoverGroup(IZ)I
     invoke-static {v4, v2, v8}, Lcom/android/launcher2/FolderAnimator;->access$700(Lcom/android/launcher2/FolderAnimator;IZ)I
 
     move-result v4
@@ -184,7 +182,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderAnimator$6;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mFolderHoverAnim:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/android/launcher2/FolderAnimator;->access$600(Lcom/android/launcher2/FolderAnimator;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -221,7 +218,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher2/FolderAnimator$6;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mAnimationLayer:Lcom/android/launcher2/AnimationLayer;
     invoke-static {v3}, Lcom/android/launcher2/FolderAnimator;->access$400(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/AnimationLayer;
 
     move-result-object v3

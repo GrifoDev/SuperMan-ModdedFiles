@@ -59,7 +59,6 @@
 
     iget v2, p0, Lcom/android/launcher2/AppWidgetBinder$1;->val$widgetId:I
 
-    # invokes: Lcom/android/launcher2/AppWidgetBinder;->onBindSuccessful(Lcom/android/launcher2/AppWidgetBinder$Callback;I)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/AppWidgetBinder;->access$000(Lcom/android/launcher2/AppWidgetBinder;Lcom/android/launcher2/AppWidgetBinder$Callback;I)V
 
     :goto_0
@@ -72,7 +71,6 @@
 
     iget v2, p0, Lcom/android/launcher2/AppWidgetBinder$1;->val$widgetId:I
 
-    # invokes: Lcom/android/launcher2/AppWidgetBinder;->onBindFailed(Lcom/android/launcher2/AppWidgetBinder$Callback;I)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/AppWidgetBinder;->access$100(Lcom/android/launcher2/AppWidgetBinder;Lcom/android/launcher2/AppWidgetBinder$Callback;I)V
 
     goto :goto_0

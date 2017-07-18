@@ -474,7 +474,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0019
+    const v6, 0x7f0c0019
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -818,7 +818,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090136
+    const v6, 0x7f0a0136
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -830,7 +830,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090382
+    const v6, 0x7f0a0385
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -842,7 +842,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090189
+    const v6, 0x7f0a0189
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -854,7 +854,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0901bb
+    const v6, 0x7f0a01bb
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5765,7 +5765,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f08003a
+    const v1, 0x7f09003a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6014,7 +6014,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090136
+    const v1, 0x7f0a0136
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11017,7 +11017,7 @@
 .method public setHoverScrollBoundary()V
     .locals 5
 
-    const v4, 0x7f090128
+    const v4, 0x7f0a0128
 
     const/4 v3, 0x0
 
@@ -11033,7 +11033,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090137
+    const v2, 0x7f0a0137
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12007,7 +12007,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090136
+    const v1, 0x7f0a0136
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

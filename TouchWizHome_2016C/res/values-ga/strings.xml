@@ -138,6 +138,7 @@
     <string name="new_items">%d mír nua</string>
     <string name="no_downloaded_apps">Níl feidhmchláir íoslódáilte ann</string>
     <string name="no_room_any_page">Níl spás ar aon leathanach.</string>
+    <string name="no_space_page">Níl aon spás ar fáil ar an leathanach. Triail an t-aicearra a chur le leathanach eile.</string>
     <string name="not_selected">Gan roghnú</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Giuirléid %s curtha leis an scáileán baile cheana.</string>

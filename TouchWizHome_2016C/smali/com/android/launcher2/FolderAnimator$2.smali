@@ -89,7 +89,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/FolderAnimator$2;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # invokes: Lcom/android/launcher2/FolderAnimator;->getLocationOfFolderIcon()[I
     invoke-static {v7}, Lcom/android/launcher2/FolderAnimator;->access$200(Lcom/android/launcher2/FolderAnimator;)[I
 
     move-result-object v0
@@ -98,7 +97,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/FolderAnimator$2;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v7}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v7
@@ -154,7 +152,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/FolderAnimator$2;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # invokes: Lcom/android/launcher2/FolderAnimator;->getNewImageView()Landroid/widget/ImageView;
     invoke-static {v8}, Lcom/android/launcher2/FolderAnimator;->access$300(Lcom/android/launcher2/FolderAnimator;)Landroid/widget/ImageView;
 
     move-result-object v8
@@ -249,7 +246,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/FolderAnimator$2;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mAnimationLayer:Lcom/android/launcher2/AnimationLayer;
     invoke-static {v7}, Lcom/android/launcher2/FolderAnimator;->access$400(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/AnimationLayer;
 
     move-result-object v7

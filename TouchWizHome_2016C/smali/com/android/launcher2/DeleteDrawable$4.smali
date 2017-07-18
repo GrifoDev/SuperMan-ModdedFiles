@@ -63,14 +63,12 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/android/launcher2/DeleteDrawable;->mIsAnimatingClose:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/DeleteDrawable;->access$702(Lcom/android/launcher2/DeleteDrawable;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$4;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable$4;->val$set:Landroid/animation/AnimatorSet;
 
-    # setter for: Lcom/android/launcher2/DeleteDrawable;->mCurrentAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/android/launcher2/DeleteDrawable;->access$402(Lcom/android/launcher2/DeleteDrawable;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     return-void

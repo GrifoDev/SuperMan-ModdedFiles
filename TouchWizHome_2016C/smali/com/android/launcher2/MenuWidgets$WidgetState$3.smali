@@ -38,7 +38,6 @@
 .method protected getObj(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgets$WidgetStateObj;
     .locals 1
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mStateSearch:Lcom/android/launcher2/MenuWidgets$WidgetStateObj;
     invoke-static {p1}, Lcom/android/launcher2/MenuWidgets;->access$1300(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgets$WidgetStateObj;
 
     move-result-object v0

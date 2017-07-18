@@ -69,7 +69,6 @@
 
     iget-object v6, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
     invoke-static {v6}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
 
     move-result-object v6
@@ -80,7 +79,6 @@
 
     iget-object v6, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
     invoke-static {v6}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
 
     move-result-object v6
@@ -91,7 +89,6 @@
 
     iget-object v6, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
     invoke-static {v6}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
 
     move-result-object v6
@@ -102,7 +99,6 @@
 
     iget-object v6, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
     invoke-static {v6}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$000(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/qbnr/ISCloudQBNRClient;
 
     move-result-object v6
@@ -143,7 +139,6 @@
 
     iget-object v7, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->category:Ljava/lang/String;
     invoke-static {v7}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$100(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Ljava/lang/String;
 
     move-result-object v7
@@ -154,7 +149,6 @@
 
     iget-object v7, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->contentsId:Ljava/lang/String;
     invoke-static {v7}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$200(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Ljava/lang/String;
 
     move-result-object v7
@@ -185,7 +179,6 @@
 
     iget-object v8, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->contentsId:Ljava/lang/String;
     invoke-static {v8}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$200(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Ljava/lang/String;
 
     move-result-object v8
@@ -222,7 +215,6 @@
 
     iget-object v8, p0, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper$1;->this$0:Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->category:Ljava/lang/String;
     invoke-static {v8}, Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;->access$100(Lcom/samsung/android/scloud/oem/lib/qbnr/QBNRClientHelper;)Ljava/lang/String;
 
     move-result-object v8

@@ -79,14 +79,12 @@
 
     iget-wide v6, p2, Lcom/android/launcher2/AppItem;->mId:J
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->longCompare(JJ)I
     invoke-static {v4, v5, v6, v7}, Lcom/android/launcher2/MenuAppModel;->access$200(JJ)I
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    # getter for: Lcom/android/launcher2/MenuAppModel;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher2/MenuAppModel;->access$100()Ljava/text/Collator;
 
     move-result-object v4
@@ -107,7 +105,6 @@
 
     iget-wide v6, p2, Lcom/android/launcher2/AppItem;->mId:J
 
-    # invokes: Lcom/android/launcher2/MenuAppModel;->longCompare(JJ)I
     invoke-static {v4, v5, v6, v7}, Lcom/android/launcher2/MenuAppModel;->access$200(JJ)I
 
     move-result v0
@@ -183,7 +180,6 @@
     iget-object v2, p2, Lcom/android/launcher2/AppItem;->mTitle:Ljava/lang/String;
 
     :goto_3
-    # getter for: Lcom/android/launcher2/MenuAppModel;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher2/MenuAppModel;->access$100()Ljava/text/Collator;
 
     move-result-object v4
@@ -194,7 +190,6 @@
 
     if-nez v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/MenuAppModel;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher2/MenuAppModel;->access$100()Ljava/text/Collator;
 
     move-result-object v4
@@ -228,7 +223,6 @@
     goto :goto_3
 
     :cond_7
-    # getter for: Lcom/android/launcher2/MenuAppModel;->sCollator:Ljava/text/Collator;
     invoke-static {}, Lcom/android/launcher2/MenuAppModel;->access$100()Ljava/text/Collator;
 
     move-result-object v4

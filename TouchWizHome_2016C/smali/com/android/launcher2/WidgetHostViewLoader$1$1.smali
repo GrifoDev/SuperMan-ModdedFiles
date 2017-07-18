@@ -47,14 +47,12 @@
 
     iget-object v0, v0, Lcom/android/launcher2/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # setter for: Lcom/android/launcher2/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v0, p1}, Lcom/android/launcher2/WidgetHostViewLoader;->access$102(Lcom/android/launcher2/WidgetHostViewLoader;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/WidgetHostViewLoader$1$1;->this$1:Lcom/android/launcher2/WidgetHostViewLoader$1;
 
     iget-object v0, v0, Lcom/android/launcher2/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/WidgetHostViewLoader;->access$300(Lcom/android/launcher2/WidgetHostViewLoader;)Landroid/os/Handler;
 
     move-result-object v0
@@ -63,7 +61,6 @@
 
     iget-object v1, v1, Lcom/android/launcher2/WidgetHostViewLoader$1;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mInflateWidgetRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Lcom/android/launcher2/WidgetHostViewLoader;->access$200(Lcom/android/launcher2/WidgetHostViewLoader;)Ljava/lang/Runnable;
 
     move-result-object v1

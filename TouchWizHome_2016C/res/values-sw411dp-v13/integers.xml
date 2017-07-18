@@ -26,10 +26,11 @@
     <integer name="home_icon_text_maxline">2</integer>
     <integer name="menu_icon_text_maxline">2</integer>
     <integer name="open_folder_pageIndicatorMaxVisible">10</integer>
-    <integer name="config_workspaceEditModeShrinkPercentage">92</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">100</integer>
     <integer name="home_max_grid_cols">5</integer>
     <integer name="home_max_grid_rows">5</integer>
     <integer name="menuApps5x5Grid_cellCountX">5</integer>
     <integer name="menuApps5x5Grid_cellCountY">5</integer>
+    <integer name="moveApps_base_grid_size">7</integer>
     <integer name="config_shadow_fovy">4</integer>
 </resources>

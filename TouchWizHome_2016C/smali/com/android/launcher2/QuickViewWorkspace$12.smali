@@ -38,7 +38,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/QuickViewWorkspace;->isPageAddAnimating:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/QuickViewWorkspace;->access$702(Lcom/android/launcher2/QuickViewWorkspace;Z)Z
 
     return-void

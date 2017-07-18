@@ -6,7 +6,9 @@ doNotCompress:
 - qio
 - qmg
 - res/drawable-mdpi-v4/homescreen_badge.9.qmg
+- res/drawable-mdpi-v4/homescreen_badge_grey.9.qmg
 - res/drawable-sw768dp-xhdpi-v13/homescreen_badge.9.qmg
+- res/drawable-sw768dp-xhdpi-v13/homescreen_badge_grey.9.qmg
 - res/drawable-sw768dp-xhdpi-v13/quick_option_popup_bg.9.qmg
 - res/drawable-xxhdpi-v4/bg_appwidget_error.9.qmg
 - res/drawable-xxhdpi-v4/btn_swallpaper.9.qmg
@@ -14,6 +16,7 @@ doNotCompress:
 - res/drawable-xxhdpi-v4/home_fast_navi_bg.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_apptray_btn_bg.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_badge.9.qmg
+- res/drawable-xxhdpi-v4/homescreen_badge_grey.9.qmg
 - res/drawable-xxhdpi-v4/homescreen_badge_s.9.qmg
 - res/drawable-xxhdpi-v4/page_view_clear_bg.9.qmg
 - res/drawable-xxhdpi-v4/quantum_panel_dark_bitmap.9.qmg
@@ -36,7 +39,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.2.2
+version: 2.2.3
 versionInfo:
-  versionCode: '585300000'
-  versionName: 5.8.53
+  versionCode: '588400000'
+  versionName: 5.8.84

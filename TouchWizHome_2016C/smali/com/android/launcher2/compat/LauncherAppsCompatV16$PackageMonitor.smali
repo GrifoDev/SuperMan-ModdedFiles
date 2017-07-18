@@ -113,7 +113,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6
@@ -152,7 +151,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6
@@ -191,7 +189,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6
@@ -220,7 +217,6 @@
     :cond_5
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6
@@ -278,7 +274,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6
@@ -327,7 +322,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/compat/LauncherAppsCompatV16$PackageMonitor;->this$0:Lcom/android/launcher2/compat/LauncherAppsCompatV16;
 
-    # invokes: Lcom/android/launcher2/compat/LauncherAppsCompatV16;->getCallbacks()Ljava/util/List;
     invoke-static {v6}, Lcom/android/launcher2/compat/LauncherAppsCompatV16;->access$100(Lcom/android/launcher2/compat/LauncherAppsCompatV16;)Ljava/util/List;
 
     move-result-object v6

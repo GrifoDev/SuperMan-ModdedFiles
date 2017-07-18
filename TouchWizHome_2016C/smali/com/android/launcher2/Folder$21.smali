@@ -38,12 +38,10 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$21;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->onCloseComplete()V
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1800(Lcom/android/launcher2/Folder;)V
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$21;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mFolderIconAnim:Lcom/android/launcher2/Folder$FolderIconAnim;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1700(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder$FolderIconAnim;
 
     move-result-object v2
@@ -64,7 +62,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$21;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->mIsFolderOpenAnimationEnded:Z
     invoke-static {v2, v4}, Lcom/android/launcher2/Folder;->access$1502(Lcom/android/launcher2/Folder;Z)Z
 
     :cond_0

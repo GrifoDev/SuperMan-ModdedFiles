@@ -538,7 +538,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetFolder;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x7f030007
+    const v4, 0x7f040007
 
     const/4 v5, 0x0
 
@@ -750,13 +750,13 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v5, 0x7f030050
+    const v5, 0x7f040050
 
     iget-object v12, p0, Lcom/android/launcher2/WidgetFolder;->mScrollView:Landroid/widget/ScrollView;
 
     invoke-virtual {v1, v5, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v1, 0x7f100110
+    const v1, 0x7f110110
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1157,13 +1157,13 @@
 
     move-result-object v6
 
-    const v10, 0x7f09014b
+    const v10, 0x7f0a014b
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v10
 
-    const v11, 0x7f090303
+    const v11, 0x7f0a0305
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1478,7 +1478,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09015a
+    const v2, 0x7f0a015a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1515,7 +1515,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f100110
+    const v1, 0x7f110110
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1615,7 +1615,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f100110
+    const v3, 0x7f110110
 
     invoke-virtual {p0, v3}, Lcom/android/launcher2/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1761,7 +1761,7 @@
 
     invoke-virtual {v12, v13}, Lcom/android/launcher2/PagedViewWidget;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v13, 0x7f10001e
+    const v13, 0x7f11001e
 
     invoke-virtual {v12, v13}, Lcom/android/launcher2/PagedViewWidget;->findViewById(I)Landroid/view/View;
 
@@ -1929,7 +1929,6 @@
 
     move-result-object v6
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v7
@@ -1972,7 +1971,6 @@
 
     move-result-object v6
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v7
@@ -1996,22 +1994,18 @@
     invoke-virtual {p2}, Lcom/android/launcher2/WidgetFolder$AppsCustomizeAsyncTask;->syncThreadPriority()V
 
     :cond_2
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->generatedImages:Ljava/util/ArrayList;
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1900(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/ArrayList;
 
     move-result-object v3
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->cellWidth:I
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$2000(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v2
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->cellHeight:I
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$2100(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v1
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p3}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v5
@@ -2156,7 +2150,6 @@
 
     if-eqz p2, :cond_4
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v4
@@ -2193,7 +2186,6 @@
 
     move-result-object v9
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v10
@@ -2230,14 +2222,12 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->layout:Landroid/widget/GridLayout;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$2200(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Landroid/widget/GridLayout;
 
     move-result-object v3
 
     if-eqz v3, :cond_4
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v8
@@ -2259,7 +2249,6 @@
 
     if-eqz v7, :cond_1
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v8
@@ -2287,7 +2276,6 @@
     invoke-virtual {v7, v8}, Lcom/android/launcher2/PagedViewWidget;->applyLabel(Ljava/lang/String;)V
 
     :goto_1
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->generatedImages:Ljava/util/ArrayList;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1900(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/ArrayList;
 
     move-result-object v8
@@ -2304,7 +2292,6 @@
 
     move-result v8
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->cellWidth:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$2000(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v9
@@ -2315,7 +2302,6 @@
 
     move-result v8
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->cellHeight:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$2100(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v9
@@ -2358,7 +2344,6 @@
 
     move-result-object v8
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v10
@@ -2377,7 +2362,6 @@
 
     move-result-object v10
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v8
@@ -2892,7 +2876,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0b0012
+    const v21, 0x7f0c0012
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2902,7 +2886,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f090159
+    const v21, 0x7f0a0159
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2922,7 +2906,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f09028f
+    const v21, 0x7f0a0296
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2934,7 +2918,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0902b4
+    const v21, 0x7f0a02b9
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3009,7 +2993,7 @@
     goto :goto_1
 
     :cond_2
-    const v20, 0x7f090290
+    const v20, 0x7f0a0297
 
     move-object/from16 v0, v17
 
@@ -3162,7 +3146,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090150
+    const v1, 0x7f0a0150
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3174,7 +3158,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09014e
+    const v1, 0x7f0a014e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3186,7 +3170,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090146
+    const v1, 0x7f0a0146
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3198,7 +3182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090147
+    const v1, 0x7f0a0147
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3230,7 +3214,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0012
+    const v1, 0x7f0c0012
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3326,7 +3310,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f03004e
+    const v2, 0x7f04004e
 
     const/4 v3, 0x0
 
@@ -3340,7 +3324,7 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
 
-    const v2, 0x7f090290
+    const v2, 0x7f0a0297
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3362,7 +3346,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0044
+    const v2, 0x7f0c0044
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3374,7 +3358,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0045
+    const v2, 0x7f0c0045
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3408,7 +3392,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020081
+    const v2, 0x7f02007d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3417,7 +3401,7 @@
     iput-object v1, p0, Lcom/android/launcher2/WidgetFolder;->mUninstallOverlay:Landroid/graphics/drawable/Drawable;
 
     :cond_0
-    const v1, 0x7f10010e
+    const v1, 0x7f11010e
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -3443,7 +3427,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090150
+    const v2, 0x7f0a0150
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3455,7 +3439,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09014e
+    const v2, 0x7f0a014e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3467,7 +3451,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090146
+    const v2, 0x7f0a0146
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3479,7 +3463,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090147
+    const v2, 0x7f0a0147
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3729,7 +3713,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0012
+    const v1, 0x7f0c0012
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

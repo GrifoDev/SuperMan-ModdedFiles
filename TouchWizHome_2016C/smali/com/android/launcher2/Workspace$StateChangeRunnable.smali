@@ -53,7 +53,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Workspace$StateChangeRunnable;->mMyState:Lcom/android/launcher2/Workspace$State;
 
-    # invokes: Lcom/android/launcher2/Workspace;->changeState(Lcom/android/launcher2/Workspace$State;)V
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$1300(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$State;)V
 
     :cond_0

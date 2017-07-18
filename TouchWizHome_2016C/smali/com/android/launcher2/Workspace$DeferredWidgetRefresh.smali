@@ -129,7 +129,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Workspace$DeferredWidgetRefresh;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v3
@@ -155,7 +154,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher2/Workspace$DeferredWidgetRefresh;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v3}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v3

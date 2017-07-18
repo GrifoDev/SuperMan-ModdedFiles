@@ -45,12 +45,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$23;->this$0:Lcom/android/launcher2/Workspace;
 
-    # setter for: Lcom/android/launcher2/Workspace;->mMovingState:I
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$2602(Lcom/android/launcher2/Workspace;I)I
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$23;->this$0:Lcom/android/launcher2/Workspace;
 
-    # setter for: Lcom/android/launcher2/Workspace;->mPreValues:I
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$2702(Lcom/android/launcher2/Workspace;I)I
 
     return-void
@@ -63,7 +61,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$23;->this$0:Lcom/android/launcher2/Workspace;
 
-    # setter for: Lcom/android/launcher2/Workspace;->mMovingState:I
     invoke-static {v0, v6}, Lcom/android/launcher2/Workspace;->access$2602(Lcom/android/launcher2/Workspace;I)I
 
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->getInstance()Lcom/android/launcher2/ZeroPageUtils;
@@ -83,7 +80,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/Workspace$23;->this$0:Lcom/android/launcher2/Workspace;
 
-    # setter for: Lcom/android/launcher2/Workspace;->mPreValues:I
     invoke-static {v0, v6}, Lcom/android/launcher2/Workspace;->access$2702(Lcom/android/launcher2/Workspace;I)I
 
     iget-boolean v0, p0, Lcom/android/launcher2/Workspace$23;->val$pageChanged:Z

@@ -19,6 +19,8 @@
 
 .field public cellY:I
 
+.field private mNeedRearrange:Z
+
 .field public screen:I
 
 
@@ -35,6 +37,10 @@
     iput v4, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->cellY:I
 
     iput v4, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->screen:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->mNeedRearrange:Z
 
     iget-wide v0, p1, Lcom/android/launcher2/HomeItem;->container:J
 
@@ -80,6 +86,26 @@
     iget v0, p1, Lcom/android/launcher2/HomeItem;->mScreen:I
 
     iput v0, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->screen:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->mNeedRearrange:Z
+
+    return-void
+.end method
+
+.method public isNeedRearrange()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->mNeedRearrange:Z
+
+    return v0
+.end method
+
+.method public setNeedRearrange(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher2/HomeItem$PosistionBackup;->mNeedRearrange:Z
 
     return-void
 .end method

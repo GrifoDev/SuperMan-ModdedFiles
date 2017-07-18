@@ -139,6 +139,7 @@ sovellukset"</string>
     <string name="new_items">%d uutta kohdetta</string>
     <string name="no_downloaded_apps">Ei ladattuja sovelluksia</string>
     <string name="no_room_any_page">Millään sivulla ei ole tilaa.</string>
+    <string name="no_space_page">Sivulla ei ole tilaa. Yritä lisätä pikavalinta toiselle sivulle.</string>
     <string name="not_selected">Ei ole valittu</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>

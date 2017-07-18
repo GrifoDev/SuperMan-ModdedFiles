@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/IconMoveContainer$2;->this$0:Lcom/android/launcher2/IconMoveContainer;
 
-    # getter for: Lcom/android/launcher2/IconMoveContainer;->mContent:Lcom/android/launcher2/CellLayoutMoveApps;
     invoke-static {v0}, Lcom/android/launcher2/IconMoveContainer;->access$500(Lcom/android/launcher2/IconMoveContainer;)Lcom/android/launcher2/CellLayoutMoveApps;
 
     move-result-object v0

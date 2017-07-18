@@ -204,7 +204,7 @@
 
     invoke-static {p2}, Ljunit/framework/Assert;->assertNotNull(Ljava/lang/Object;)V
 
-    const v1, 0x7f030014
+    const v1, 0x7f040014
 
     invoke-static {p1, v1, p2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -216,7 +216,7 @@
 
     iput-object v1, p0, Lcom/android/launcher2/FolderContentHorizontal;->mFolderView:Lcom/android/launcher2/Folder;
 
-    const v1, 0x7f10003d
+    const v1, 0x7f11003d
 
     invoke-virtual {p2, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

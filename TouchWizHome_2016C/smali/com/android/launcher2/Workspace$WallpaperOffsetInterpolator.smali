@@ -160,7 +160,6 @@
 
     move-object/from16 v18, v0
 
-    # getter for: Lcom/android/launcher2/Workspace;->mDisplayWidth:I
     invoke-static/range {v18 .. v18}, Lcom/android/launcher2/Workspace;->access$1000(Lcom/android/launcher2/Workspace;)I
 
     move-result v18
@@ -171,7 +170,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/android/launcher2/Workspace;->mDisplayHeight:I
     invoke-static/range {v19 .. v19}, Lcom/android/launcher2/Workspace;->access$1100(Lcom/android/launcher2/Workspace;)I
 
     move-result v19

@@ -83,7 +83,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->mSyncMeta:Landroid/content/SharedPreferences;
     invoke-static {v3}, Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->access$100(Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;)Landroid/content/SharedPreferences;
 
     move-result-object v3
@@ -158,7 +157,6 @@
 
     move-result-object v3
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->mSyncMeta:Landroid/content/SharedPreferences;
     invoke-static {v3}, Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;->access$100(Lcom/samsung/android/scloud/oem/lib/sync/SyncClientHelper;)Landroid/content/SharedPreferences;
 
     move-result-object v3

@@ -93,12 +93,10 @@
     :try_start_0
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/sec/dtl/launcher/WallpaperScroller;
 
-    # getter for: Lcom/sec/dtl/launcher/WallpaperScroller;->mThread:Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller;->access$600(Lcom/sec/dtl/launcher/WallpaperScroller;)Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
 
     move-result-object v0
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->setWindowToken(Landroid/os/IBinder;)V
     invoke-static {v0, p1}, Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->access$700(Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;Landroid/os/IBinder;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -255,7 +253,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/sec/dtl/launcher/WallpaperScroller;
 
-    # getter for: Lcom/sec/dtl/launcher/WallpaperScroller;->mThread:Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller;->access$600(Lcom/sec/dtl/launcher/WallpaperScroller;)Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
 
     move-result-object v0
@@ -264,7 +261,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->this$0:Lcom/sec/dtl/launcher/WallpaperScroller;
 
-    # getter for: Lcom/sec/dtl/launcher/WallpaperScroller;->mThread:Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller;->access$600(Lcom/sec/dtl/launcher/WallpaperScroller;)Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
 
     move-result-object v0
@@ -281,7 +277,6 @@
 
     iget v6, v7, Lcom/sec/dtl/launcher/WallpaperScroller$TiltValue;->wallpaper_y_range:F
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->update(FFFFFF)V
     invoke-static/range {v0 .. v6}, Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->access$800(Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;FFFFFF)V
 
     goto :goto_0

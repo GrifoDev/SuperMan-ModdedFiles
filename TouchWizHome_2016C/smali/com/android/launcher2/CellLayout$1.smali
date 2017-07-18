@@ -49,7 +49,6 @@
 
     move-result v0
 
-    # setter for: Lcom/android/launcher2/CellLayout;->mCrosshairsVisibility:F
     invoke-static {v1, v0}, Lcom/android/launcher2/CellLayout;->access$002(Lcom/android/launcher2/CellLayout;F)F
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayout$1;->this$0:Lcom/android/launcher2/CellLayout;

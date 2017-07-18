@@ -49,14 +49,12 @@
     return-void
 
     :sswitch_0
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mCurrentDeviceOrientation:I
     invoke-static {}, Lcom/android/launcher2/ar/AROrientationManager;->access$000()I
 
     move-result v1
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mRotatingDeviceOrientation:I
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$100(Lcom/android/launcher2/ar/AROrientationManager;)I
 
     move-result v0
@@ -65,7 +63,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$200(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/content/Context;
 
     move-result-object v3
@@ -74,7 +71,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$200(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/content/Context;
 
     move-result-object v3
@@ -98,7 +94,6 @@
 
     if-eq v1, v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/AROrientationManager;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -141,7 +136,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mIsWaitingConfigurationChanged:Z
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$400(Lcom/android/launcher2/ar/AROrientationManager;)Z
 
     move-result v3
@@ -150,12 +144,10 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # invokes: Lcom/android/launcher2/ar/AROrientationManager;->setWindowParamsForRotation()V
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$500(Lcom/android/launcher2/ar/AROrientationManager;)V
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mhandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$600(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/os/Handler;
 
     move-result-object v3
@@ -164,7 +156,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mListner:Lcom/android/launcher2/ar/AROrientationManager$OrientationChangeListener;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$700(Lcom/android/launcher2/ar/AROrientationManager;)Lcom/android/launcher2/ar/AROrientationManager$OrientationChangeListener;
 
     move-result-object v3
@@ -173,7 +164,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mListner:Lcom/android/launcher2/ar/AROrientationManager$OrientationChangeListener;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$700(Lcom/android/launcher2/ar/AROrientationManager;)Lcom/android/launcher2/ar/AROrientationManager$OrientationChangeListener;
 
     move-result-object v3
@@ -183,17 +173,14 @@
     :cond_2
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # setter for: Lcom/android/launcher2/ar/AROrientationManager;->mRequestedDeviceOrientation:I
     invoke-static {v3, v0}, Lcom/android/launcher2/ar/AROrientationManager;->access$802(Lcom/android/launcher2/ar/AROrientationManager;I)I
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # setter for: Lcom/android/launcher2/ar/AROrientationManager;->mIsWaitingConfigurationChanged:Z
     invoke-static {v3, v6}, Lcom/android/launcher2/ar/AROrientationManager;->access$402(Lcom/android/launcher2/ar/AROrientationManager;Z)Z
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mhandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$600(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/os/Handler;
 
     move-result-object v3
@@ -209,7 +196,6 @@
     :cond_3
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mhandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$600(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/os/Handler;
 
     move-result-object v3
@@ -218,7 +204,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mhandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$600(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/os/Handler;
 
     move-result-object v3
@@ -227,7 +212,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->mhandler:Landroid/os/Handler;
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$600(Lcom/android/launcher2/ar/AROrientationManager;)Landroid/os/Handler;
 
     move-result-object v3
@@ -239,7 +223,6 @@
     goto/16 :goto_0
 
     :cond_4
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/AROrientationManager;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -253,13 +236,11 @@
     :sswitch_1
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # invokes: Lcom/android/launcher2/ar/AROrientationManager;->restoreWindowParams()V
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$900(Lcom/android/launcher2/ar/AROrientationManager;)V
 
     goto/16 :goto_0
 
     :sswitch_2
-    # getter for: Lcom/android/launcher2/ar/AROrientationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/AROrientationManager;->access$300()Ljava/lang/String;
 
     move-result-object v3
@@ -272,12 +253,10 @@
 
     const/4 v4, 0x0
 
-    # setter for: Lcom/android/launcher2/ar/AROrientationManager;->mIsWaitingConfigurationChanged:Z
     invoke-static {v3, v4}, Lcom/android/launcher2/ar/AROrientationManager;->access$402(Lcom/android/launcher2/ar/AROrientationManager;Z)Z
 
     iget-object v3, p0, Lcom/android/launcher2/ar/AROrientationManager$1;->this$0:Lcom/android/launcher2/ar/AROrientationManager;
 
-    # invokes: Lcom/android/launcher2/ar/AROrientationManager;->restoreWindowParams()V
     invoke-static {v3}, Lcom/android/launcher2/ar/AROrientationManager;->access$900(Lcom/android/launcher2/ar/AROrientationManager;)V
 
     goto/16 :goto_0

@@ -528,7 +528,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_8
+    if-ge v2, v1, :cond_7
 
     invoke-virtual {p0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
 
@@ -640,22 +640,19 @@
     :cond_5
     sget v7, Lcom/android/launcher2/ShadowStyleable;->TextView_singleLine:I
 
-    if-ne v0, v7, :cond_7
+    if-ne v0, v7, :cond_6
 
     invoke-virtual {p0, v0, v9}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_0
 
     const/4 v3, 0x1
 
-    :cond_6
-    invoke-virtual {p1, v5}, Landroid/widget/TextView;->setSingleLine(Z)V
-
     goto :goto_1
 
-    :cond_7
+    :cond_6
     sget v7, Lcom/android/launcher2/ShadowStyleable;->TextView_drawablePadding:I
 
     if-ne v0, v7, :cond_0
@@ -668,13 +665,15 @@
 
     goto :goto_1
 
-    :cond_8
-    if-eq v3, v8, :cond_9
+    :cond_7
+    if-eq v3, v8, :cond_8
 
     invoke-virtual {p1, v3}, Landroid/widget/TextView;->setLines(I)V
 
-    :cond_9
+    :cond_8
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

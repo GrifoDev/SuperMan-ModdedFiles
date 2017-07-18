@@ -85,7 +85,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Folder$25;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->setupContentForNumItems(I)V
     invoke-static {v1, v0}, Lcom/android/launcher2/Folder;->access$2200(Lcom/android/launcher2/Folder;I)V
 
     :cond_0

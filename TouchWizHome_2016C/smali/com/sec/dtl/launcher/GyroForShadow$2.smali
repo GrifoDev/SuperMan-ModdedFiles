@@ -28,24 +28,20 @@
 .method public run()V
     .locals 4
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$000()Landroid/hardware/SensorManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$000()Landroid/hardware/SensorManager;
 
     move-result-object v0
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->sel:Landroid/hardware/SensorEventListener;
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$100()Landroid/hardware/SensorEventListener;
 
     move-result-object v1
 
-    # getter for: Lcom/sec/dtl/launcher/GyroForShadow;->sSensorManager:Landroid/hardware/SensorManager;
     invoke-static {}, Lcom/sec/dtl/launcher/GyroForShadow;->access$000()Landroid/hardware/SensorManager;
 
     move-result-object v2

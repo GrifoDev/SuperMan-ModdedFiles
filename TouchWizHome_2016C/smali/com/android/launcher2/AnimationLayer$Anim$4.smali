@@ -40,7 +40,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/AnimationLayer$Anim$4;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # invokes: Lcom/android/launcher2/AnimationLayer$Anim;->updateView()V
     invoke-static {v0}, Lcom/android/launcher2/AnimationLayer$Anim;->access$200(Lcom/android/launcher2/AnimationLayer$Anim;)V
 
     iget-object v0, p0, Lcom/android/launcher2/AnimationLayer$Anim$4;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;

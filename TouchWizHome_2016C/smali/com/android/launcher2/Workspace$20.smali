@@ -73,7 +73,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$20;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mWidgetsToBind:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$2400(Lcom/android/launcher2/Workspace;)Ljava/util/List;
 
     move-result-object v0
@@ -86,7 +85,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$20;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0
@@ -101,7 +99,6 @@
 
     sget-object v1, Lcom/android/launcher2/Workspace$BindWidgetsState;->BIND_NONCURRENT_PAGES:Lcom/android/launcher2/Workspace$BindWidgetsState;
 
-    # setter for: Lcom/android/launcher2/Workspace;->mBindWidgetsState:Lcom/android/launcher2/Workspace$BindWidgetsState;
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$2502(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$BindWidgetsState;)Lcom/android/launcher2/Workspace$BindWidgetsState;
 
     goto :goto_0

@@ -91,7 +91,6 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/launcher2/Workspace$21;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$600(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/HomeView;
 
     move-result-object v0
@@ -117,7 +116,6 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/launcher2/Workspace$21;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v0

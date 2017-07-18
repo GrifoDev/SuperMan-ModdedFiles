@@ -62,7 +62,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$6;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mIsDestroyed:Z
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$200(Lcom/android/launcher2/Launcher;)Z
 
     move-result v0
@@ -71,7 +70,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Launcher$6;->this$0:Lcom/android/launcher2/Launcher;
 
-    # invokes: Lcom/android/launcher2/Launcher;->finishShowAllApps()V
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$300(Lcom/android/launcher2/Launcher;)V
 
     :goto_0
@@ -104,7 +102,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Launcher$6;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mIsDestroyed:Z
     invoke-static {v2}, Lcom/android/launcher2/Launcher;->access$200(Lcom/android/launcher2/Launcher;)Z
 
     move-result v2

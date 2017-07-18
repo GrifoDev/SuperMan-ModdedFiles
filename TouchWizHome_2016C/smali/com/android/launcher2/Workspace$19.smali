@@ -59,7 +59,6 @@
 
     const/4 v4, 0x0
 
-    # invokes: Lcom/android/launcher2/Workspace;->changeOrientationChild(Landroid/content/res/Resources;Lcom/android/launcher2/CellLayout;Lcom/android/launcher2/Workspace$CellOrient;Z)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher2/Workspace;->access$2300(Lcom/android/launcher2/Workspace;Landroid/content/res/Resources;Lcom/android/launcher2/CellLayout;Lcom/android/launcher2/Workspace$CellOrient;Z)V
 
     return-void

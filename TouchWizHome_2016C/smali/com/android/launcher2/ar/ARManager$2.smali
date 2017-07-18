@@ -37,7 +37,6 @@
 .method public run()V
     .locals 2
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/ar/ARManager;->access$400()Ljava/lang/String;
 
     move-result-object v0

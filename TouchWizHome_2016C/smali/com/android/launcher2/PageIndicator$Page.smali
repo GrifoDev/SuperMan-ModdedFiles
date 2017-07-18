@@ -70,7 +70,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/PageIndicator$Page;->this$0:Lcom/android/launcher2/PageIndicator;
 
-    # getter for: Lcom/android/launcher2/PageIndicator;->mGrowBy:F
     invoke-static {v4}, Lcom/android/launcher2/PageIndicator;->access$100(Lcom/android/launcher2/PageIndicator;)F
 
     move-result v4
@@ -83,7 +82,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/PageIndicator$Page;->this$0:Lcom/android/launcher2/PageIndicator;
 
-    # getter for: Lcom/android/launcher2/PageIndicator;->mFastScrollFactor:Lcom/android/launcher2/ScalarAnimator;
     invoke-static {v4}, Lcom/android/launcher2/PageIndicator;->access$200(Lcom/android/launcher2/PageIndicator;)Lcom/android/launcher2/ScalarAnimator;
 
     move-result-object v4
@@ -506,7 +504,6 @@
 
     if-ne v2, v7, :cond_2
 
-    # getter for: Lcom/android/launcher2/PageIndicator;->rate:[F
     invoke-static {}, Lcom/android/launcher2/PageIndicator;->access$000()[F
 
     move-result-object v2
@@ -573,7 +570,6 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator$Page;->mAnimationState:I
 
-    # getter for: Lcom/android/launcher2/PageIndicator;->rate:[F
     invoke-static {}, Lcom/android/launcher2/PageIndicator;->access$000()[F
 
     move-result-object v0
@@ -584,7 +580,6 @@
 
     iput v0, p0, Lcom/android/launcher2/PageIndicator$Page;->mAnimationTo:F
 
-    # getter for: Lcom/android/launcher2/PageIndicator;->rate:[F
     invoke-static {}, Lcom/android/launcher2/PageIndicator;->access$000()[F
 
     move-result-object v0

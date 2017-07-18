@@ -53,7 +53,6 @@
 
     iput-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->mFilter:Lcom/android/launcher2/MenuAppsSearch$SearchFilter;
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {p1, p2}, Lcom/android/launcher2/MenuAppsSearch;->access$102(Lcom/android/launcher2/MenuAppsSearch;Landroid/content/Context;)Landroid/content/Context;
 
     const-string v0, ""
@@ -66,7 +65,7 @@
 .method private displayHighlightedName(Landroid/widget/TextView;Ljava/lang/String;)V
     .locals 10
 
-    const v9, 0x7f0d0007
+    const v9, 0x7f0e0006
 
     const/4 v3, -0x1
 
@@ -148,12 +147,10 @@
 
     invoke-direct {v7, v8}, Lcom/android/launcher2/searchapp/PrefixHighlighter;-><init>(I)V
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mPrefixHighlighter:Lcom/android/launcher2/searchapp/PrefixHighlighter;
     invoke-static {v6, v7}, Lcom/android/launcher2/MenuAppsSearch;->access$902(Lcom/android/launcher2/MenuAppsSearch;Lcom/android/launcher2/searchapp/PrefixHighlighter;)Lcom/android/launcher2/searchapp/PrefixHighlighter;
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mPrefixHighlighter:Lcom/android/launcher2/searchapp/PrefixHighlighter;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsSearch;->access$900(Lcom/android/launcher2/MenuAppsSearch;)Lcom/android/launcher2/searchapp/PrefixHighlighter;
 
     move-result-object v6
@@ -267,7 +264,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v0
@@ -288,7 +284,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -297,18 +292,16 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    const v1, 0x7f08002a
+    const v1, 0x7f09002a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -317,7 +310,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->showSearchTitle(Z)V
     invoke-static {v0, v2}, Lcom/android/launcher2/MenuAppsSearch;->access$800(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
     :cond_0
@@ -333,7 +325,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -342,7 +333,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mNotiTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$000(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -399,7 +389,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f030008
+    const v3, 0x7f040008
 
     const/4 v4, 0x0
 
@@ -422,7 +412,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mTextSize:I
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$1200(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v3
@@ -433,7 +422,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$300(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/SearchView;
 
     move-result-object v3
@@ -448,7 +436,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mIconSize:I
     invoke-static {v4}, Lcom/android/launcher2/MenuAppsSearch;->access$1300(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v4
@@ -571,18 +558,16 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0027
+    const v4, 0x7f0c0027
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v3
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v2, v3}, Lcom/android/launcher2/MenuAppsSearch;->access$702(Lcom/android/launcher2/MenuAppsSearch;I)I
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v2
@@ -591,14 +576,12 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$600(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v3
@@ -608,7 +591,6 @@
     :cond_2
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v2
@@ -617,14 +599,12 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v3
@@ -650,7 +630,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsSearch;->access$700(Lcom/android/launcher2/MenuAppsSearch;)I
 
     move-result v3
@@ -678,7 +657,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->showSearchTitle(Z)V
     invoke-static {v2, v5}, Lcom/android/launcher2/MenuAppsSearch;->access$800(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportGalaxyAppsSearch()Z
@@ -693,13 +671,11 @@
 
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->showGalaxyAppsResult(Z)V
     invoke-static {v2, v6}, Lcom/android/launcher2/MenuAppsSearch;->access$1000(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
     :cond_5
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleText:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$1100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -724,7 +700,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c5
+    const v3, 0x7f0900c6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -751,7 +727,6 @@
     :goto_1
     iget-object v2, p0, Lcom/android/launcher2/MenuAppsSearch$SearchAdapter;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleText:Landroid/widget/TextView;
     invoke-static {v2}, Lcom/android/launcher2/MenuAppsSearch;->access$1100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -769,7 +744,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c4
+    const v3, 0x7f0900c5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

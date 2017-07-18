@@ -53,7 +53,6 @@
 
     if-eqz v0, :cond_0
 
-    # getter for: Lcom/android/launcher2/Launcher;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$1600()Z
 
     move-result v0
@@ -69,7 +68,6 @@
     :cond_2
     iget-object v0, p0, Lcom/android/launcher2/Launcher$31;->this$0:Lcom/android/launcher2/Launcher;
 
-    # invokes: Lcom/android/launcher2/Launcher;->setIconTrayIfNeeded()V
     invoke-static {v0}, Lcom/android/launcher2/Launcher;->access$1700(Lcom/android/launcher2/Launcher;)V
 
     goto :goto_0

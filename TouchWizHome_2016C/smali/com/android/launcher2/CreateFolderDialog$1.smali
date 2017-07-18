@@ -68,7 +68,6 @@
 
     float-to-int v3, v3
 
-    # invokes: Lcom/android/launcher2/CreateFolderDialog;->closeFolderOption(IIZ)Z
     invoke-static {v1, v2, v3, v0}, Lcom/android/launcher2/CreateFolderDialog;->access$000(Lcom/android/launcher2/CreateFolderDialog;IIZ)Z
 
     move-result v0

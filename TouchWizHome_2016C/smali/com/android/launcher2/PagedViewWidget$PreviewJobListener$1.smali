@@ -65,7 +65,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener$1;->this$1:Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->mLayout:Lcom/android/launcher2/PagedViewGridLayout;
     invoke-static {v0}, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->access$000(Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;)Lcom/android/launcher2/PagedViewGridLayout;
 
     move-result-object v0
@@ -92,14 +91,12 @@
 
     iget-object v2, p0, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener$1;->this$1:Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->mWidth:I
     invoke-static {v2}, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->access$100(Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener$1;->this$1:Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;
 
-    # getter for: Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->mHeight:I
     invoke-static {v3}, Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;->access$200(Lcom/android/launcher2/PagedViewWidget$PreviewJobListener;)I
 
     move-result v3

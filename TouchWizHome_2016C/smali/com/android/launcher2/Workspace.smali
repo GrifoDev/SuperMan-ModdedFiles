@@ -685,7 +685,7 @@
 
     move-result v4
 
-    const v5, 0x7f0b001e
+    const v5, 0x7f0c001e
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -701,7 +701,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mEditModeShrinkFactor:F
 
-    const v4, 0x7f0c0016
+    const v4, 0x7f0d0016
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -709,7 +709,7 @@
 
     iput-boolean v4, p0, Lcom/android/launcher2/Workspace;->mFixedWallpaper:Z
 
-    const v4, 0x7f090116
+    const v4, 0x7f0a0116
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -717,7 +717,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mPageIndicatorTop:I
 
-    const v4, 0x7f090117
+    const v4, 0x7f0a0117
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -725,7 +725,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mPageIndicatorTopDrag:I
 
-    const v4, 0x7f0901c3
+    const v4, 0x7f0a01c3
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -733,7 +733,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mEditModePanel_left_Adjust:I
 
-    const v4, 0x7f0901c4
+    const v4, 0x7f0a01c4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -763,7 +763,7 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f0b0003
+    const v4, 0x7f0c0003
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -771,7 +771,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mCellCountX:I
 
-    const v4, 0x7f0b0004
+    const v4, 0x7f0c0004
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -786,7 +786,7 @@
 
     invoke-static {v4, v5}, Lcom/android/launcher2/LauncherModel;->updateWorkspaceLayoutCells(II)V
 
-    const v4, 0x7f0900f4
+    const v4, 0x7f0a00f4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -796,7 +796,7 @@
 
     invoke-virtual {p0, v7}, Lcom/android/launcher2/Workspace;->setHapticFeedbackEnabled(Z)V
 
-    const v4, 0x7f0b004b
+    const v4, 0x7f0c004b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -831,7 +831,7 @@
     iput v4, p0, Lcom/android/launcher2/Workspace;->mMobileKeyboardConfig:I
 
     :cond_2
-    const v4, 0x7f0a000a
+    const v4, 0x7f0b000a
 
     invoke-virtual {v3, v4, v8, v8}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -839,7 +839,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mNormalScrollDrawInward:F
 
-    const/high16 v4, 0x7f0a0000
+    const/high16 v4, 0x7f0b0000
 
     invoke-virtual {v3, v4, v8, v8}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -859,7 +859,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0b0074
+    const v4, 0x7f0c0074
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1731,13 +1731,13 @@
 
     if-eqz v12, :cond_4
 
-    const v12, 0x7f0901d9
+    const v12, 0x7f0a01d9
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090114
+    const v13, 0x7f0a0114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1755,13 +1755,13 @@
     return v12
 
     :cond_4
-    const v12, 0x7f090118
+    const v12, 0x7f0a0118
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090114
+    const v13, 0x7f0a0114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1818,7 +1818,7 @@
 
     invoke-virtual {v12}, Lcom/android/launcher2/HomeView;->setWorkspaceLoading()V
 
-    const v12, 0x7f09011e
+    const v12, 0x7f0a011e
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1828,7 +1828,7 @@
 
     iput v12, v0, Lcom/android/launcher2/Workspace;->mPageSpacingHint:I
 
-    const v12, 0x7f090116
+    const v12, 0x7f0a0116
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1856,7 +1856,7 @@
 
     invoke-direct {v2, v12}, Lcom/android/launcher2/Workspace$CellOrient;-><init>(Lcom/android/launcher2/Workspace$1;)V
 
-    const v12, 0x7f0e0007
+    const v12, 0x7f0f0007
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1864,7 +1864,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->mivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0007
+    const v12, 0x7f0f0007
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1880,7 +1880,7 @@
 
     if-ne v12, v13, :cond_9
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1888,7 +1888,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1896,7 +1896,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0014
+    const v12, 0x7f0f0014
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1904,7 +1904,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0014
+    const v12, 0x7f0f0014
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -1912,7 +1912,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f090231
+    const v12, 0x7f0a0233
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1920,7 +1920,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f090230
+    const v12, 0x7f0a0232
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1928,7 +1928,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f0900e8
+    const v12, 0x7f0a00e8
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1936,7 +1936,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900eb
+    const v12, 0x7f0a00eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1945,7 +1945,7 @@
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapY:I
 
     :goto_2
-    const v12, 0x7f09011b
+    const v12, 0x7f0a011b
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1953,7 +1953,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->leftPadding:I
 
-    const v12, 0x7f09011d
+    const v12, 0x7f0a011d
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1961,7 +1961,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->topPadding:I
 
-    const v12, 0x7f09011c
+    const v12, 0x7f0a011c
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1969,7 +1969,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->rightPadding:I
 
-    const v12, 0x7f09011a
+    const v12, 0x7f0a011a
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1977,7 +1977,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->bottomPadding:I
 
-    const v12, 0x7f090119
+    const v12, 0x7f0a0119
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2047,7 +2047,7 @@
 
     if-ne v12, v13, :cond_a
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2055,7 +2055,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0013
+    const v12, 0x7f0f0013
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2063,7 +2063,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0014
+    const v12, 0x7f0f0014
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2071,7 +2071,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0014
+    const v12, 0x7f0f0014
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2079,7 +2079,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f090235
+    const v12, 0x7f0a0237
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2087,7 +2087,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f090234
+    const v12, 0x7f0a0236
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2095,7 +2095,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f090233
+    const v12, 0x7f0a0235
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2103,7 +2103,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900eb
+    const v12, 0x7f0a00eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2114,7 +2114,7 @@
     goto/16 :goto_2
 
     :cond_a
-    const v12, 0x7f0e0005
+    const v12, 0x7f0f0005
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2122,7 +2122,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0005
+    const v12, 0x7f0f0005
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2130,7 +2130,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->aivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0006
+    const v12, 0x7f0f0006
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getTextViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2138,7 +2138,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivTextView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0e0006
+    const v12, 0x7f0f0006
 
     invoke-static {v3, v12}, Lcom/android/launcher2/AppIconView;->getViewStyle(Landroid/content/Context;I)Landroid/content/res/TypedArray;
 
@@ -2146,7 +2146,7 @@
 
     iput-object v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->fivView:Landroid/content/res/TypedArray;
 
-    const v12, 0x7f0900f1
+    const v12, 0x7f0a00f1
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2154,7 +2154,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellWidth:I
 
-    const v12, 0x7f0900ee
+    const v12, 0x7f0a00ee
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2162,7 +2162,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellHeight:I
 
-    const v12, 0x7f0900e8
+    const v12, 0x7f0a00e8
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2170,7 +2170,7 @@
 
     iput v12, v2, Lcom/android/launcher2/Workspace$CellOrient;->cellGapX:I
 
-    const v12, 0x7f0900eb
+    const v12, 0x7f0a00eb
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2238,7 +2238,7 @@
     :goto_5
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->handleScrollOnOrientationChange()V
 
-    const v12, 0x7f0900f4
+    const v12, 0x7f0a00f4
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2270,13 +2270,13 @@
 
     if-eqz v12, :cond_13
 
-    const v12, 0x7f0901d9
+    const v12, 0x7f0a01d9
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090114
+    const v13, 0x7f0a0114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2387,13 +2387,13 @@
     goto/16 :goto_5
 
     :cond_13
-    const v12, 0x7f090118
+    const v12, 0x7f0a0118
 
     invoke-virtual {v8, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v12
 
-    const v13, 0x7f090114
+    const v13, 0x7f0a0114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2410,7 +2410,7 @@
 
     iget v12, v0, Lcom/android/launcher2/Workspace;->mPageIndicatorTop:I
 
-    const v13, 0x7f090114
+    const v13, 0x7f0a0114
 
     invoke-virtual {v8, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2462,7 +2462,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090231
+    const v10, 0x7f0a0233
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2472,7 +2472,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090230
+    const v10, 0x7f0a0232
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2483,7 +2483,7 @@
 
     move v1, v2
 
-    const v9, 0x7f090012
+    const v9, 0x7f0a0012
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2556,7 +2556,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090235
+    const v10, 0x7f0a0237
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2566,7 +2566,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090234
+    const v10, 0x7f0a0236
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2579,7 +2579,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900f1
+    const v10, 0x7f0a00f1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2589,7 +2589,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900ee
+    const v10, 0x7f0a00ee
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2931,7 +2931,7 @@
 
     move-result-object v17
 
-    const v18, 0x7f020079
+    const v18, 0x7f020075
 
     invoke-static/range {v17 .. v18}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -3121,7 +3121,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902e4
+    const v2, 0x7f0a02e6
 
     const/4 v3, 0x1
 
@@ -3271,7 +3271,7 @@
 .method private getRotationValue(FF)F
     .locals 7
 
-    const v6, 0x7f0b0073
+    const v6, 0x7f0c0073
 
     const/high16 v5, 0x40000000    # 2.0f
 
@@ -4483,7 +4483,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901bc
+    const v2, 0x7f0a01bc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4794,7 +4794,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f06000f
+    const v8, 0x7f07000f
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -5274,7 +5274,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030022
+    const v8, 0x7f040022
 
     const/4 v9, 0x0
 
@@ -6525,7 +6525,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0073
+    const v12, 0x7f0c0073
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7054,7 +7054,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b0073
+    const v20, 0x7f0c0073
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7311,7 +7311,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0002
+    const v7, 0x7f0e0002
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -7361,7 +7361,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d002e
+    const v7, 0x7f0e002f
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -7430,7 +7430,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mCellCountY:I
 
-    const v4, 0x7f0900f4
+    const v4, 0x7f0a00f4
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7444,7 +7444,7 @@
 
     invoke-static {v4, v5}, Lcom/android/launcher2/LauncherModel;->updateWorkspaceLayoutCells(II)V
 
-    const v4, 0x7f090117
+    const v4, 0x7f0a0117
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7452,7 +7452,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mPageIndicatorTopDrag:I
 
-    const v4, 0x7f0901c3
+    const v4, 0x7f0a01c3
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7460,7 +7460,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mEditModePanel_left_Adjust:I
 
-    const v4, 0x7f0901c4
+    const v4, 0x7f0a01c4
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7472,7 +7472,7 @@
 
     move-result v4
 
-    const v5, 0x7f0b001e
+    const v5, 0x7f0c001e
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7488,7 +7488,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mEditModeShrinkFactor:F
 
-    const v4, 0x7f0a000a
+    const v4, 0x7f0b000a
 
     invoke-virtual {v1, v4, v7, v7}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -7496,7 +7496,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mNormalScrollDrawInward:F
 
-    const/high16 v4, 0x7f0a0000
+    const/high16 v4, 0x7f0b0000
 
     invoke-virtual {v1, v4, v7, v7}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -7761,7 +7761,7 @@
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_12
+    if-ne v0, v3, :cond_13
 
     const/4 v3, 0x1
 
@@ -7798,7 +7798,7 @@
 
     iput-object v0, v1, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
 
-    if-eqz p2, :cond_13
+    if-eqz p2, :cond_14
 
     sget v9, Lcom/android/launcher2/Workspace;->STATE_CHANGE_DURATION:I
 
@@ -7824,7 +7824,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_15
 
     move-object/from16 v0, p0
 
@@ -7857,7 +7857,7 @@
 
     move-object/from16 v0, p1
 
-    if-eq v0, v3, :cond_15
+    if-eq v0, v3, :cond_16
 
     move-object/from16 v0, p0
 
@@ -7871,7 +7871,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0902e5
+    const v5, 0x7f0a02e7
 
     const/4 v6, 0x1
 
@@ -7916,7 +7916,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090117
+    const v6, 0x7f0a0117
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7942,7 +7942,7 @@
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_1b
+    if-ne v0, v3, :cond_1c
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
@@ -7974,7 +7974,7 @@
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_27
+    if-ne v0, v3, :cond_28
 
     :cond_d
     const/4 v3, 0x1
@@ -7995,7 +7995,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090114
+    const v6, 0x7f0a0114
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8005,7 +8005,26 @@
 
     invoke-virtual {v0, v3, v5}, Lcom/android/launcher2/Workspace;->updateIndicator(II)V
 
-    const v3, 0x7f050037
+    invoke-static {}, Lcom/android/launcher2/Utilities;->isMobileKeyboardMode()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_e
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/launcher2/Workspace;->setHotseatTextVisible(Z)V
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/launcher2/Workspace;->updateWorkspaceMargin(Z)V
+
+    :cond_e
+    const v3, 0x7f060037
 
     move-object/from16 v0, p0
 
@@ -8017,7 +8036,7 @@
 
     sget-boolean v3, Lcom/android/launcher2/Launcher;->sIsNeedDarkColor:Z
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f
 
     invoke-virtual {v8}, Landroid/animation/AnimatorSet;->getChildAnimations()Ljava/util/ArrayList;
 
@@ -8041,7 +8060,7 @@
 
     move-result-object v18
 
-    const v19, 0x7f0a0007
+    const v19, 0x7f0b0007
 
     const/16 v20, 0x1
 
@@ -8055,10 +8074,10 @@
 
     invoke-virtual {v3, v5}, Landroid/animation/ObjectAnimator;->setFloatValues([F)V
 
-    :cond_e
+    :cond_f
     invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_f
+    :cond_10
     :goto_6
     move-object/from16 v0, p0
 
@@ -8068,7 +8087,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_12
 
     move-object/from16 v0, p0
 
@@ -8078,41 +8097,41 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_12
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_2e
+    if-ne v4, v3, :cond_2f
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-eq v0, v3, :cond_2e
+    if-eq v0, v3, :cond_2f
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isFolderOpened()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_2d
 
-    :cond_10
+    :cond_11
     :goto_7
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_11
+    if-ne v4, v3, :cond_12
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_11
+    if-ne v0, v3, :cond_12
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isQuickViewWorkspaceOpend()Z
 
     move-result v3
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_12
 
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->getInstance()Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
@@ -8122,12 +8141,12 @@
 
     invoke-virtual {v3, v5}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->blurAnimation(Z)V
 
-    :cond_11
+    :cond_12
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isFolderOpened()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_30
 
     move-object/from16 v0, p0
 
@@ -8151,7 +8170,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_31
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -8169,7 +8188,7 @@
 
     goto :goto_9
 
-    :cond_12
+    :cond_13
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -8178,12 +8197,12 @@
 
     goto/16 :goto_1
 
-    :cond_13
+    :cond_14
     const/4 v9, 0x0
 
     goto/16 :goto_2
 
-    :cond_14
+    :cond_15
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
@@ -8226,10 +8245,10 @@
 
     goto/16 :goto_3
 
-    :cond_15
+    :cond_16
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_16
+    if-ne v4, v3, :cond_17
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isQuickViewWorkspaceOpend()Z
 
@@ -8237,12 +8256,12 @@
 
     if-nez v3, :cond_b
 
-    :cond_16
+    :cond_17
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportHotword()Z
 
     move-result v3
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_18
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
@@ -8254,7 +8273,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
 
@@ -8266,7 +8285,7 @@
 
     invoke-virtual {v3, v5}, Lcom/android/launcher2/Launcher;->setEnableHotWord(Z)V
 
-    :cond_17
+    :cond_18
     :goto_a
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageIndicatorManager()Lcom/android/launcher2/PageIndicatorManager;
 
@@ -8278,15 +8297,15 @@
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_18
+    if-ne v4, v3, :cond_19
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-eq v0, v3, :cond_19
+    if-eq v0, v3, :cond_1a
 
-    :cond_18
+    :cond_19
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageIndicatorManager()Lcom/android/launcher2/PageIndicatorManager;
 
     move-result-object v3
@@ -8295,7 +8314,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090116
+    const v6, 0x7f0a0116
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8303,7 +8322,7 @@
 
     invoke-virtual {v3, v5, v9}, Lcom/android/launcher2/PageIndicatorManager;->updateIndicatorAnimated(II)V
 
-    :cond_19
+    :cond_1a
     const-string v3, "capture"
 
     const-string v5, "---return to normal mode"
@@ -8378,7 +8397,7 @@
 
     goto/16 :goto_4
 
-    :cond_1a
+    :cond_1b
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -8391,20 +8410,20 @@
 
     goto :goto_a
 
-    :cond_1b
+    :cond_1c
     sget-object v3, Lcom/android/launcher2/Workspace$State;->RESIZE:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-eq v0, v3, :cond_1c
+    if-eq v0, v3, :cond_1d
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_22
+    if-ne v0, v3, :cond_23
 
-    :cond_1c
+    :cond_1d
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
 
     move-result-object v3
@@ -8431,9 +8450,9 @@
 
     const/4 v12, 0x0
 
-    if-eqz v14, :cond_1d
-
     if-eqz v14, :cond_1e
+
+    if-eqz v14, :cond_1f
 
     invoke-virtual {v14}, Lcom/android/launcher2/CellLayout;->getChildrenLayout()Lcom/android/launcher2/CellLayoutChildren;
 
@@ -8445,37 +8464,37 @@
 
     move-result v3
 
-    if-nez v3, :cond_1e
-
-    :cond_1d
-    const/4 v12, 0x1
+    if-nez v3, :cond_1f
 
     :cond_1e
+    const/4 v12, 0x1
+
+    :cond_1f
     sget-object v3, Lcom/android/launcher2/Workspace$State;->RESIZE:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_1f
+    if-ne v0, v3, :cond_20
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_1f
+    if-ne v4, v3, :cond_20
 
-    if-nez v12, :cond_20
+    if-nez v12, :cond_21
 
-    :cond_1f
+    :cond_20
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_21
+    if-ne v0, v3, :cond_22
 
-    :cond_20
+    :cond_21
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->createPageForDrag()V
 
     goto/16 :goto_5
 
-    :cond_21
+    :cond_22
     if-nez v12, :cond_c
 
     move-object/from16 v0, p0
@@ -8506,7 +8525,7 @@
 
     goto/16 :goto_5
 
-    :cond_22
+    :cond_23
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
@@ -8515,19 +8534,19 @@
 
     move-result v3
 
-    if-nez v3, :cond_23
+    if-nez v3, :cond_24
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isQuickViewWorkspaceOpend()Z
 
     move-result v3
 
-    if-nez v3, :cond_23
+    if-nez v3, :cond_24
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isFolderOpened()Z
 
     move-result v3
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_25
 
     :goto_b
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
@@ -8542,7 +8561,7 @@
 
     invoke-virtual {v3, v5}, Landroid/view/Window;->addFlags(I)V
 
-    :cond_23
+    :cond_24
     const/4 v3, 0x0
 
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->setHomeEditMode(Z)V
@@ -8551,19 +8570,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_27
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isTabletLayout()Z
 
     move-result v3
 
-    if-nez v3, :cond_26
+    if-nez v3, :cond_27
 
     sget v3, Lcom/android/launcher2/Launcher;->sActivityOrientation:I
 
     const/4 v5, 0x2
 
-    if-ne v3, v5, :cond_25
+    if-ne v3, v5, :cond_26
 
     const/4 v3, 0x0
 
@@ -8573,7 +8592,7 @@
 
     goto/16 :goto_5
 
-    :cond_24
+    :cond_25
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->getInstance()Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
     move-result-object v3
@@ -8584,7 +8603,7 @@
 
     goto :goto_b
 
-    :cond_25
+    :cond_26
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -8593,7 +8612,7 @@
 
     goto/16 :goto_5
 
-    :cond_26
+    :cond_27
     move-object/from16 v0, p0
 
     move/from16 v1, p2
@@ -8602,25 +8621,25 @@
 
     goto/16 :goto_5
 
-    :cond_27
+    :cond_28
     sget-object v3, Lcom/android/launcher2/Workspace$State;->EDIT:Lcom/android/launcher2/Workspace$State;
 
-    if-eq v4, v3, :cond_28
+    if-eq v4, v3, :cond_29
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->RESIZE:Lcom/android/launcher2/Workspace$State;
 
-    if-eq v4, v3, :cond_28
+    if-eq v4, v3, :cond_29
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
 
-    if-ne v4, v3, :cond_f
+    if-ne v4, v3, :cond_10
 
-    :cond_28
+    :cond_29
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_f
+    if-ne v0, v3, :cond_10
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->remainOrRemovePlusPage()V
 
@@ -8630,56 +8649,19 @@
 
     invoke-virtual {v0, v3}, Lcom/android/launcher2/Workspace;->setCrosshairsVisibilityChilds(Z)V
 
+    const/4 v3, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Lcom/android/launcher2/Workspace;->setHotseatTextVisible(Z)V
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isQuickViewWorkspaceOpend()Z
 
     move-result v3
 
-    if-eqz v3, :cond_29
+    if-eqz v3, :cond_2a
 
-    const v3, 0x7f050039
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v3}, Lcom/android/launcher2/Workspace;->loadAnimationOnThis(I)Landroid/animation/Animator;
-
-    move-result-object v3
-
-    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_6
-
-    :cond_29
-    sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
-
-    if-ne v4, v3, :cond_2a
-
-    sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
-
-    move-object/from16 v0, p1
-
-    if-ne v0, v3, :cond_2a
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageIndicatorManager()Lcom/android/launcher2/PageIndicatorManager;
-
-    move-result-object v3
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x7f090116
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Lcom/android/launcher2/PageIndicatorManager;->getIndicatorAnimator(I)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    const v3, 0x7f050038
+    const v3, 0x7f060039
 
     move-object/from16 v0, p0
 
@@ -8692,6 +8674,49 @@
     goto/16 :goto_6
 
     :cond_2a
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
+
+    if-ne v4, v3, :cond_2b
+
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v3, :cond_2b
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageIndicatorManager()Lcom/android/launcher2/PageIndicatorManager;
+
+    move-result-object v3
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0a0116
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    invoke-virtual {v3, v5}, Lcom/android/launcher2/PageIndicatorManager;->getIndicatorAnimator(I)Landroid/animation/ObjectAnimator;
+
+    move-result-object v3
+
+    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const v3, 0x7f060038
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/android/launcher2/Workspace;->loadAnimationOnThis(I)Landroid/animation/Animator;
+
+    move-result-object v3
+
+    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_6
+
+    :cond_2b
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/launcher2/Workspace;->mPageIndicatorTop:I
@@ -8700,7 +8725,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090114
+    const v6, 0x7f0a0114
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8714,22 +8739,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2b
+    if-eqz v3, :cond_2c
 
-    const v3, 0x7f050039
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v3}, Lcom/android/launcher2/Workspace;->loadAnimationOnThis(I)Landroid/animation/Animator;
-
-    move-result-object v3
-
-    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_6
-
-    :cond_2b
-    const v3, 0x7f050038
+    const v3, 0x7f060039
 
     move-object/from16 v0, p0
 
@@ -8742,6 +8754,19 @@
     goto/16 :goto_6
 
     :cond_2c
+    const v3, 0x7f060038
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/android/launcher2/Workspace;->loadAnimationOnThis(I)Landroid/animation/Animator;
+
+    move-result-object v3
+
+    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_6
+
+    :cond_2d
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -8752,21 +8777,21 @@
 
     move-result-object v13
 
-    if-eqz v13, :cond_2d
+    if-eqz v13, :cond_2e
 
     invoke-virtual {v13}, Lcom/android/launcher2/MenuView;->getVisibility()I
 
     move-result v3
 
-    if-nez v3, :cond_2d
+    if-nez v3, :cond_2e
 
     invoke-virtual {v13}, Lcom/android/launcher2/MenuView;->isMenuExiting()Z
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_11
 
-    :cond_2d
+    :cond_2e
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->getInstance()Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
     move-result-object v3
@@ -8779,22 +8804,22 @@
 
     goto/16 :goto_7
 
-    :cond_2e
+    :cond_2f
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
-    if-eq v4, v3, :cond_10
+    if-eq v4, v3, :cond_11
 
     sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
 
     move-object/from16 v0, p1
 
-    if-ne v0, v3, :cond_10
+    if-ne v0, v3, :cond_11
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isFolderOpened()Z
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_11
 
     invoke-static {}, Lcom/android/launcher2/utils/BackgroundBlurUtil;->getInstance()Lcom/android/launcher2/utils/BackgroundBlurUtil;
 
@@ -8806,7 +8831,7 @@
 
     goto/16 :goto_7
 
-    :cond_2f
+    :cond_30
     sget-object v3, Lcom/android/launcher2/Workspace;->PAGE_ZOOM:Landroid/util/Property;
 
     const/4 v5, 0x1
@@ -8861,7 +8886,7 @@
 
     goto/16 :goto_8
 
-    :cond_30
+    :cond_31
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/launcher2/Workspace;->mAnimator:Landroid/animation/AnimatorSet;
@@ -10637,7 +10662,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f050004
+    const v4, 0x7f060004
 
     invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -10663,7 +10688,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f050005
+    const v4, 0x7f060005
 
     invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -11257,7 +11282,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080039
+    const v6, 0x7f090039
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11281,7 +11306,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08003a
+    const v6, 0x7f09003a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11349,7 +11374,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080070
+    const v6, 0x7f090070
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -11585,7 +11610,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901c5
+    const v1, 0x7f0a01c5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11601,7 +11626,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901c6
+    const v1, 0x7f0a01c6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11797,7 +11822,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0902c5
+    const v6, 0x7f0a02c8
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12055,7 +12080,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030053
+    const v2, 0x7f040053
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12110,7 +12135,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030054
+    const v2, 0x7f040054
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12129,7 +12154,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030052
+    const v2, 0x7f040052
 
     invoke-virtual {v1, v2, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12169,7 +12194,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030056
+    const v9, 0x7f040056
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12177,13 +12202,13 @@
 
     check-cast v0, Lcom/android/launcher2/CellLayoutWithResizableWidgets;
 
-    const v8, 0x7f0b005a
+    const v8, 0x7f0c005a
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v8
 
-    const v9, 0x7f0b005b
+    const v9, 0x7f0c005b
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12289,7 +12314,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030057
+    const v9, 0x7f040057
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12297,13 +12322,13 @@
 
     check-cast v0, Lcom/android/launcher2/CellLayoutWithResizableWidgets;
 
-    const v8, 0x7f0b005c
+    const v8, 0x7f0c005c
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v8
 
-    const v9, 0x7f0b005d
+    const v9, 0x7f0c005d
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12322,7 +12347,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030055
+    const v9, 0x7f040055
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12330,13 +12355,13 @@
 
     check-cast v0, Lcom/android/launcher2/CellLayoutWithResizableWidgets;
 
-    const v8, 0x7f0b0058
+    const v8, 0x7f0c0058
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v8
 
-    const v9, 0x7f0b0059
+    const v9, 0x7f0c0059
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12382,7 +12407,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030053
+    const v9, 0x7f040053
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12478,7 +12503,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030054
+    const v9, 0x7f040054
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -12497,7 +12522,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f030052
+    const v9, 0x7f040052
 
     invoke-virtual {v8, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -14346,11 +14371,11 @@
 
     const/4 v8, 0x0
 
+    const/4 v5, 0x0
+
     const/high16 v7, 0x3f800000    # 1.0f
 
     const/high16 v6, 0x3f000000    # 0.5f
-
-    const/4 v5, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
@@ -14392,11 +14417,33 @@
 
     iput v5, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
 
+    iget v4, p0, Lcom/android/launcher2/Workspace;->mEditModeShrinkFactor:F
+
+    cmpl-float v4, v4, v7
+
+    if-nez v4, :cond_2
+
+    iget v4, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
+
+    iget v5, p0, Lcom/android/launcher2/Workspace;->mEditModePanel_top_Adjust:I
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, v6
+
+    add-float/2addr v4, v5
+
+    iput v4, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
+
+    :goto_0
+    return-void
+
+    :cond_2
     invoke-virtual {p0, v8}, Lcom/android/launcher2/Workspace;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Landroid/view/View;->getHeight()I
 
@@ -14418,7 +14465,7 @@
 
     cmpl-float v4, v2, v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_3
 
     iget v4, p0, Lcom/android/launcher2/Workspace;->mDragBarSize:I
 
@@ -14430,7 +14477,7 @@
 
     sub-float/2addr v3, v4
 
-    :cond_2
+    :cond_3
     iget v4, p0, Lcom/android/launcher2/Workspace;->mEditModeShrinkFactor:F
 
     sub-float v4, v7, v4
@@ -14439,7 +14486,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
 
-    :cond_3
+    :cond_4
     iget v4, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateX:F
 
     iget v5, p0, Lcom/android/launcher2/Workspace;->mEditModePanel_left_Adjust:I
@@ -14460,7 +14507,7 @@
 
     iput v4, p0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
 
-    return-void
+    goto :goto_0
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
@@ -14876,7 +14923,7 @@
 
     new-instance v0, Lcom/android/launcher2/PanelBgDrawer;
 
-    const v3, 0x7f020088
+    const v3, 0x7f020084
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -14948,7 +14995,7 @@
 
     if-nez v3, :cond_3
 
-    const v3, 0x7f100115
+    const v3, 0x7f110115
 
     invoke-virtual {v1, v3}, Lcom/android/launcher2/CellLayout;->findViewById(I)Landroid/view/View;
 
@@ -16384,7 +16431,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f05002a
+    const v15, 0x7f06002a
 
     invoke-static {v14, v15}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -17381,6 +17428,45 @@
     return-void
 .end method
 
+.method public setHotseatTextVisible(Z)V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher2/Workspace;->mHomeView:Lcom/android/launcher2/HomeView;
+
+    invoke-virtual {v2}, Lcom/android/launcher2/HomeView;->getHotseat()Lcom/android/launcher2/Hotseat;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/Hotseat;->getShowHotseatTitle()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/Hotseat;->getLayout()Lcom/android/launcher2/CellLayout;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/launcher2/CellLayoutHotseat;
+
+    invoke-virtual {v2, p1}, Lcom/android/launcher2/CellLayoutHotseat;->setTextVisible(Z)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setIsDroppedOnEditBar(Z)V
     .locals 0
 
@@ -17625,7 +17711,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080105
+    const v3, 0x7f090106
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17635,7 +17721,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800f3
+    const v3, 0x7f0900f4
 
     const/4 v4, 0x1
 
@@ -17653,7 +17739,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08008f
+    const v3, 0x7f090090
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17669,7 +17755,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800f4
+    const v3, 0x7f0900f5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17864,7 +17950,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0001
+    const v4, 0x7f0b0001
 
     invoke-virtual {v3, v4, v5, v5}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -18348,7 +18434,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030059
+    const v8, 0x7f040059
 
     invoke-virtual {v7, v8, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -18368,7 +18454,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090231
+    const v8, 0x7f0a0233
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18378,7 +18464,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090230
+    const v9, 0x7f0a0232
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18399,7 +18485,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090235
+    const v8, 0x7f0a0237
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18409,7 +18495,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090234
+    const v9, 0x7f0a0236
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -18484,7 +18570,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030053
+    const v8, 0x7f040053
 
     invoke-virtual {v7, v8, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -18511,7 +18597,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030054
+    const v8, 0x7f040054
 
     invoke-virtual {v7, v8, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -18530,7 +18616,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030052
+    const v8, 0x7f040052
 
     invoke-virtual {v7, v8, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -19229,7 +19315,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030059
+    const v4, 0x7f040059
 
     invoke-virtual {v3, v4, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -19268,7 +19354,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f030052
+    const v4, 0x7f040052
 
     invoke-virtual {v3, v4, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -19280,11 +19366,11 @@
 .end method
 
 .method public updateWorkspaceMargin(Z)V
-    .locals 5
+    .locals 6
 
-    const v4, 0x7f090128
+    const v5, 0x7f0a0128
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
     const/4 v2, 0x0
 
@@ -19323,39 +19409,37 @@
 
     iget v1, p0, Lcom/android/launcher2/Workspace;->mCurrentOrientation:I
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
     :cond_1
-    move v1, v2
+    iput v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     :goto_0
-    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isTabletLayout()Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportRotate()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     iget v1, p0, Lcom/android/launcher2/Workspace;->mCurrentOrientation:I
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v4, :cond_5
 
     sget-boolean v1, Lcom/android/launcher2/Launcher;->sIsRtl:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
@@ -19366,34 +19450,34 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_6
 
     invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportRotate()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     iget v1, p0, Lcom/android/launcher2/Workspace;->mCurrentOrientation:I
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v4, :cond_6
 
     sget-boolean v1, Lcom/android/launcher2/Launcher;->sIsRtl:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
     :goto_2
     iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_7
 
     const/4 v1, 0x1
 
@@ -19405,27 +19489,75 @@
     return-void
 
     :cond_2
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
+
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->EDIT:Lcom/android/launcher2/Workspace$State;
+
+    if-eq v1, v3, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
+
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->RESIZE:Lcom/android/launcher2/Workspace$State;
+
+    if-eq v1, v3, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
+
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->MOVE_APPS:Lcom/android/launcher2/Workspace$State;
+
+    if-eq v1, v3, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
+
+    sget-object v3, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
+
+    if-ne v1, v3, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->isAnimating()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_3
     invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const v3, 0x7f0a01de
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
     goto :goto_0
 
-    :cond_3
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/launcher2/Workspace;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    goto :goto_0
+
+    :cond_5
     move v1, v2
 
     goto :goto_1
 
-    :cond_4
+    :cond_6
     move v1, v2
 
     goto :goto_2
 
-    :cond_5
+    :cond_7
     sput-boolean v2, Lcom/android/launcher2/Launcher;->mUpdatePage:Z
 
     goto :goto_3
@@ -19637,7 +19769,7 @@
 
     cmpg-float v18, p2, v18
 
-    if-gez v18, :cond_4
+    if-gez v18, :cond_5
 
     const/16 v18, 0x0
 
@@ -19647,6 +19779,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    :cond_2
     :goto_1
     invoke-static/range {p2 .. p2}, Ljava/lang/Math;->abs(F)F
 
@@ -19702,7 +19835,7 @@
 
     move-result v18
 
-    if-lez v18, :cond_2
+    if-lez v18, :cond_3
 
     move-object/from16 v0, p0
 
@@ -19710,11 +19843,11 @@
 
     move/from16 v18, v0
 
-    if-nez v18, :cond_2
+    if-nez v18, :cond_3
 
     const/4 v14, 0x0
 
-    :cond_2
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
@@ -19727,7 +19860,7 @@
 
     move-object/from16 v1, v19
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_4
 
     move-object/from16 v0, p0
 
@@ -19741,7 +19874,7 @@
 
     move-object/from16 v1, v19
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_4
 
     move-object/from16 v0, p0
 
@@ -19757,28 +19890,27 @@
 
     if-ne v0, v1, :cond_1d
 
-    :cond_3
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportChinaDA()Z
+    :cond_4
+    const/high16 v18, 0x3f800000    # 1.0f
 
-    move-result v18
+    invoke-static/range {p2 .. p2}, Ljava/lang/Math;->abs(F)F
 
-    if-eqz v18, :cond_1c
+    move-result v19
 
-    move-object/from16 v0, p0
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->min(FF)F
 
-    iget v2, v0, Lcom/android/launcher2/Workspace;->mPageBackgroundAlpha:F
+    move-result v2
 
-    :goto_2
     invoke-virtual {v3, v2}, Lcom/android/launcher2/CellLayout;->setBackgroundAlpha(F)V
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     const/high16 v18, 0x3f800000    # 1.0f
 
     cmpg-float v18, p2, v18
 
-    if-gtz v18, :cond_1b
+    if-gtz v18, :cond_1c
 
     const/high16 v13, 0x3f800000    # 1.0f
 
@@ -19794,7 +19926,7 @@
 
     move-object/from16 v1, v19
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     move-object/from16 v0, p0
 
@@ -19808,7 +19940,7 @@
 
     move-object/from16 v1, v19
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     move-object/from16 v0, p0
 
@@ -19822,7 +19954,7 @@
 
     move-object/from16 v1, v19
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     move-object/from16 v0, p0
 
@@ -19836,28 +19968,83 @@
 
     move-object/from16 v1, v19
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_11
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->isAnimating()Z
 
     move-result v18
 
-    if-eqz v18, :cond_10
+    if-eqz v18, :cond_11
 
-    :cond_5
+    :cond_6
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/launcher2/Workspace;->mPageZoom:F
 
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportChinaDA()Z
+    const/16 v18, 0x0
 
-    move-result v18
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getWidth()I
 
-    if-eqz v18, :cond_7
+    move-result v19
 
-    const/16 v16, 0x0
+    move/from16 v0, v19
 
-    :goto_3
+    int-to-float v0, v0
+
+    move/from16 v19, v0
+
+    int-to-float v0, v12
+
+    move/from16 v20, v0
+
+    mul-float v20, v20, v13
+
+    sub-float v19, v19, v20
+
+    const/high16 v20, 0x40000000    # 2.0f
+
+    div-float v19, v19, v20
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->max(FF)F
+
+    move-result v15
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageTranslationFactor:F
+
+    move/from16 v18, v0
+
+    mul-float v18, v18, p2
+
+    const/high16 v19, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mDragScrollDrawInward:F
+
+    move/from16 v20, v0
+
+    add-float v19, v19, v20
+
+    mul-float v19, v19, v15
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageSpacing:I
+
+    move/from16 v20, v0
+
+    move/from16 v0, v20
+
+    int-to-float v0, v0
+
+    move/from16 v20, v0
+
+    add-float v19, v19, v20
+
+    mul-float v16, v18, v19
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
@@ -19870,7 +20057,7 @@
 
     move-object/from16 v1, v19
 
-    if-ne v0, v1, :cond_6
+    if-ne v0, v1, :cond_7
 
     move-object/from16 v0, p0
 
@@ -19916,7 +20103,7 @@
 
     const/16 v18, 0x1
 
-    :goto_4
+    :goto_2
     move/from16 v0, v18
 
     if-ne v8, v0, :cond_9
@@ -19951,8 +20138,8 @@
 
     move/from16 v16, v0
 
-    :cond_6
-    :goto_5
+    :cond_7
+    :goto_3
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v18
@@ -19999,9 +20186,17 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
-    const/high16 v18, 0x3f800000    # 1.0f
+    invoke-static {}, Lcom/android/launcher2/Utilities;->isMobileKeyboardMode()Z
 
-    sub-float v18, v18, v13
+    move-result v18
+
+    if-eqz v18, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageTranslationFactor:F
+
+    move/from16 v18, v0
 
     move-object/from16 v0, p0
 
@@ -20017,7 +20212,19 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    :goto_6
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mEditModeShrinkFactor:F
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x3f800000    # 1.0f
+
+    cmpl-float v18, v18, v19
+
+    if-eqz v18, :cond_2
+
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/View;->setScaleX(F)V
@@ -20028,71 +20235,10 @@
 
     goto/16 :goto_1
 
-    :cond_7
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getWidth()I
-
-    move-result v18
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v18, v0
-
-    int-to-float v0, v12
-
-    move/from16 v19, v0
-
-    mul-float v19, v19, v13
-
-    sub-float v18, v18, v19
-
-    const/high16 v19, 0x40000000    # 2.0f
-
-    div-float v15, v18, v19
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageTranslationFactor:F
-
-    move/from16 v18, v0
-
-    mul-float v18, v18, p2
-
-    const/high16 v19, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/Workspace;->mDragScrollDrawInward:F
-
-    move/from16 v20, v0
-
-    add-float v19, v19, v20
-
-    mul-float v19, v19, v15
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageSpacing:I
-
-    move/from16 v20, v0
-
-    move/from16 v0, v20
-
-    int-to-float v0, v0
-
-    move/from16 v20, v0
-
-    add-float v19, v19, v20
-
-    mul-float v16, v18, v19
-
-    goto/16 :goto_3
-
     :cond_8
     const/16 v18, 0x0
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
     :cond_9
     add-int/lit8 v18, v10, -0x1
@@ -20117,14 +20263,14 @@
 
     move/from16 v16, v0
 
-    goto/16 :goto_5
+    goto :goto_3
 
     :cond_a
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/launcher2/Workspace;->mPageZoom:F
 
-    goto/16 :goto_5
+    goto :goto_3
 
     :cond_b
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
@@ -20135,7 +20281,7 @@
 
     const/16 v18, 0x1
 
-    :goto_7
+    :goto_5
     move/from16 v0, v18
 
     if-ne v8, v0, :cond_e
@@ -20160,7 +20306,7 @@
 
     move-result v18
 
-    :goto_8
+    :goto_6
     sub-int v18, v19, v18
 
     move/from16 v0, v18
@@ -20169,17 +20315,17 @@
 
     move/from16 v16, v0
 
-    goto/16 :goto_5
+    goto/16 :goto_3
 
     :cond_c
     const/16 v18, 0x0
 
-    goto :goto_7
+    goto :goto_5
 
     :cond_d
     const/16 v18, 0x0
 
-    goto :goto_8
+    goto :goto_6
 
     :cond_e
     add-int/lit8 v18, v10, -0x1
@@ -20212,21 +20358,42 @@
 
     move/from16 v16, v0
 
-    goto/16 :goto_5
+    goto/16 :goto_3
 
     :cond_f
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/launcher2/Workspace;->mPageZoom:F
 
-    goto/16 :goto_5
+    goto/16 :goto_3
 
     :cond_10
+    const/high16 v18, 0x3f800000    # 1.0f
+
+    sub-float v18, v18, v13
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher2/Workspace;->mShrinkTranslateY:F
+
+    move/from16 v19, v0
+
+    mul-float v18, v18, v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+
+    goto/16 :goto_4
+
+    :cond_11
     const/16 v18, 0x0
 
     cmpl-float v18, p2, v18
 
-    if-nez v18, :cond_11
+    if-nez v18, :cond_12
 
     move-object/from16 v0, p0
 
@@ -20240,7 +20407,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_11
+    if-nez v18, :cond_12
 
     move-object/from16 v0, p0
 
@@ -20272,36 +20439,36 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    goto/16 :goto_6
+    goto/16 :goto_4
 
-    :cond_11
+    :cond_12
     sget-boolean v18, Lcom/android/launcher2/Launcher;->sIsRtl:Z
 
-    if-eqz v18, :cond_12
+    if-eqz v18, :cond_13
 
     sub-int v18, v10, v8
 
     add-int/lit8 v7, v18, -0x1
 
-    :goto_9
+    :goto_7
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getCurrentPage()I
 
     move-result v18
 
     move/from16 v0, v18
 
-    if-ne v0, v7, :cond_13
+    if-ne v0, v7, :cond_14
 
     const/4 v9, 0x1
 
-    :goto_a
-    if-nez v7, :cond_14
+    :goto_8
+    if-nez v7, :cond_15
 
     const/16 v18, 0x0
 
     cmpg-float v18, p2, v18
 
-    if-gez v18, :cond_14
+    if-gez v18, :cond_15
 
     const/high16 v18, 0x3f800000    # 1.0f
 
@@ -20425,30 +20592,30 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    goto/16 :goto_6
-
-    :cond_12
-    move v7, v8
-
-    goto/16 :goto_9
+    goto/16 :goto_4
 
     :cond_13
-    const/4 v9, 0x0
+    move v7, v8
 
-    goto/16 :goto_a
+    goto/16 :goto_7
 
     :cond_14
+    const/4 v9, 0x0
+
+    goto/16 :goto_8
+
+    :cond_15
     add-int/lit8 v18, v10, -0x1
 
     move/from16 v0, v18
 
-    if-ne v7, v0, :cond_15
+    if-ne v7, v0, :cond_16
 
     const/16 v18, 0x0
 
     cmpl-float v18, p2, v18
 
-    if-lez v18, :cond_15
+    if-lez v18, :cond_16
 
     const/high16 v18, 0x3f800000    # 1.0f
 
@@ -20580,196 +20747,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    goto/16 :goto_6
-
-    :cond_15
-    invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_16
-
-    const/16 v18, 0x0
-
-    invoke-static/range {v18 .. v18}, Lcom/android/launcher2/ZeroPageUtils$PreferencesUtil;->getSavedHomeZeroPageOnOffState(Z)Z
-
-    move-result v18
-
-    if-nez v18, :cond_16
-
-    move-object/from16 v0, p0
-
-    instance-of v0, v0, Lcom/android/launcher2/Workspace;
-
-    move/from16 v18, v0
-
-    if-eqz v18, :cond_16
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
-
-    move-result-object v18
-
-    check-cast v18, Lcom/android/launcher2/Launcher;
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/HomeView;->getQuickViewWorkspace()Lcom/android/launcher2/QuickViewWorkspace;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/QuickViewWorkspace;->isOpened()Z
-
-    move-result v18
-
-    if-nez v18, :cond_16
-
-    sget-boolean v18, Lcom/android/launcher2/Launcher;->sIsRtl:Z
-
-    if-nez v18, :cond_16
-
-    sget v18, Lcom/android/launcher2/Launcher;->NEXT_INDEX_OF_ZEROPAGE:I
-
-    move/from16 v0, v18
-
-    if-ne v7, v0, :cond_16
-
-    const/16 v18, 0x0
-
-    cmpg-float v18, p2, v18
-
-    if-gez v18, :cond_16
-
-    const/high16 v18, 0x3f800000    # 1.0f
-
-    const v19, 0x3dcccccd    # 0.1f
-
-    sget-object v20, Lcom/android/launcher2/Workspace;->mSineIO70Interpolator:Landroid/view/animation/Interpolator;
-
-    const v21, 0x3fe66666    # 1.8f
-
-    div-float v21, p2, v21
-
-    invoke-static/range {v21 .. v21}, Ljava/lang/Math;->abs(F)F
-
-    move-result v21
-
-    invoke-interface/range {v20 .. v21}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result v20
-
-    mul-float v19, v19, v20
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->maxOverScroll()F
-
-    move-result v20
-
-    div-float v19, v19, v20
-
-    sub-float v13, v18, v19
-
-    const v18, 0x3f7ae148    # 0.98f
-
-    move/from16 v0, v18
-
-    invoke-static {v0, v13}, Ljava/lang/Math;->max(FF)F
-
-    move-result v13
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v18
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v18, v0
-
-    const/high16 v19, 0x40000000    # 2.0f
-
-    div-float v18, v18, v19
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v18
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v18, v0
-
-    const/high16 v19, 0x40000000    # 2.0f
-
-    div-float v18, v18, v19
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotY(F)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getScrollX()I
-
-    move-result v18
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageTotWidth()I
-
-    move-result v19
-
-    sub-int v18, v18, v19
-
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v18, v0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
-
-    const/high16 v18, 0x3f800000    # 1.0f
-
-    const/high16 v19, 0x3f800000    # 1.0f
-
-    const/high16 v20, 0x40400000    # 3.0f
-
-    mul-float v20, v20, p2
-
-    invoke-static/range {v20 .. v20}, Ljava/lang/Math;->abs(F)F
-
-    move-result v20
-
-    sub-float v19, v19, v20
-
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->min(FF)F
-
-    move-result v18
-
-    const/high16 v19, 0x3f000000    # 0.5f
-
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->max(FF)F
-
-    move-result v18
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
-
-    goto/16 :goto_6
+    goto/16 :goto_4
 
     :cond_16
     invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
@@ -20816,9 +20794,9 @@
 
     sget-boolean v18, Lcom/android/launcher2/Launcher;->sIsRtl:Z
 
-    if-eqz v18, :cond_17
+    if-nez v18, :cond_17
 
-    add-int/lit8 v18, v10, -0x2
+    sget v18, Lcom/android/launcher2/Launcher;->NEXT_INDEX_OF_ZEROPAGE:I
 
     move/from16 v0, v18
 
@@ -20826,9 +20804,198 @@
 
     const/16 v18, 0x0
 
+    cmpg-float v18, p2, v18
+
+    if-gez v18, :cond_17
+
+    const/high16 v18, 0x3f800000    # 1.0f
+
+    const v19, 0x3dcccccd    # 0.1f
+
+    sget-object v20, Lcom/android/launcher2/Workspace;->mSineIO70Interpolator:Landroid/view/animation/Interpolator;
+
+    const v21, 0x3fe66666    # 1.8f
+
+    div-float v21, p2, v21
+
+    invoke-static/range {v21 .. v21}, Ljava/lang/Math;->abs(F)F
+
+    move-result v21
+
+    invoke-interface/range {v20 .. v21}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result v20
+
+    mul-float v19, v19, v20
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->maxOverScroll()F
+
+    move-result v20
+
+    div-float v19, v19, v20
+
+    sub-float v13, v18, v19
+
+    const v18, 0x3f7ae148    # 0.98f
+
+    move/from16 v0, v18
+
+    invoke-static {v0, v13}, Ljava/lang/Math;->max(FF)F
+
+    move-result v13
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x40000000    # 2.0f
+
+    div-float v18, v18, v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    const/high16 v19, 0x40000000    # 2.0f
+
+    div-float v18, v18, v19
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotY(F)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getScrollX()I
+
+    move-result v18
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getPageTotWidth()I
+
+    move-result v19
+
+    sub-int v18, v18, v19
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
+
+    const/high16 v18, 0x3f800000    # 1.0f
+
+    const/high16 v19, 0x3f800000    # 1.0f
+
+    const/high16 v20, 0x40400000    # 3.0f
+
+    mul-float v20, v20, p2
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/Math;->abs(F)F
+
+    move-result v20
+
+    sub-float v19, v19, v20
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->min(FF)F
+
+    move-result v18
+
+    const/high16 v19, 0x3f000000    # 0.5f
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->max(FF)F
+
+    move-result v18
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+
+    goto/16 :goto_4
+
+    :cond_17
+    invoke-static {}, Lcom/android/launcher2/ZeroPageUtils;->isZeropageEnable()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_18
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v18 .. v18}, Lcom/android/launcher2/ZeroPageUtils$PreferencesUtil;->getSavedHomeZeroPageOnOffState(Z)Z
+
+    move-result v18
+
+    if-nez v18, :cond_18
+
+    move-object/from16 v0, p0
+
+    instance-of v0, v0, Lcom/android/launcher2/Workspace;
+
+    move/from16 v18, v0
+
+    if-eqz v18, :cond_18
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
+
+    move-result-object v18
+
+    check-cast v18, Lcom/android/launcher2/Launcher;
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/Launcher;->getHomeView()Lcom/android/launcher2/HomeView;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/HomeView;->getQuickViewWorkspace()Lcom/android/launcher2/QuickViewWorkspace;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher2/QuickViewWorkspace;->isOpened()Z
+
+    move-result v18
+
+    if-nez v18, :cond_18
+
+    sget-boolean v18, Lcom/android/launcher2/Launcher;->sIsRtl:Z
+
+    if-eqz v18, :cond_18
+
+    add-int/lit8 v18, v10, -0x2
+
+    move/from16 v0, v18
+
+    if-ne v7, v0, :cond_18
+
+    const/16 v18, 0x0
+
     cmpl-float v18, p2, v18
 
-    if-lez v18, :cond_17
+    if-lez v18, :cond_18
 
     const/high16 v18, 0x3f800000    # 1.0f
 
@@ -20966,9 +21133,9 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    goto/16 :goto_6
+    goto/16 :goto_4
 
-    :cond_17
+    :cond_18
     const v18, 0x3f7d70a4    # 0.99f
 
     const/high16 v19, 0x3f800000    # 1.0f
@@ -20993,9 +21160,9 @@
 
     move/from16 v18, v0
 
-    if-nez v18, :cond_18
+    if-nez v18, :cond_19
 
-    if-eqz v9, :cond_18
+    if-eqz v9, :cond_19
 
     move-object/from16 v0, p0
 
@@ -21009,28 +21176,28 @@
 
     move-result v18
 
-    if-eqz v18, :cond_18
+    if-eqz v18, :cond_19
 
     move-object/from16 v0, p0
 
     iput v13, v0, Lcom/android/launcher2/Workspace;->mScaleFactor:F
 
-    :cond_18
+    :cond_19
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/launcher2/Workspace;->mActionUpOnScroll:Z
 
     move/from16 v18, v0
 
-    if-nez v18, :cond_19
+    if-nez v18, :cond_1a
 
-    if-eqz v9, :cond_19
+    if-eqz v9, :cond_1a
 
     move-object/from16 v0, p0
 
     iget v13, v0, Lcom/android/launcher2/Workspace;->mScaleFactor:F
 
-    :cond_19
+    :cond_1a
     int-to-float v0, v11
 
     move/from16 v18, v0
@@ -21063,7 +21230,7 @@
 
     cmpg-float v18, p2, v18
 
-    if-gez v18, :cond_1a
+    if-gez v18, :cond_1b
 
     const/high16 v18, 0x40000000    # 2.0f
 
@@ -21077,9 +21244,9 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
-    goto/16 :goto_6
+    goto/16 :goto_4
 
-    :cond_1a
+    :cond_1b
     neg-float v0, v6
 
     move/from16 v18, v0
@@ -21096,9 +21263,9 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
-    goto/16 :goto_6
+    goto/16 :goto_4
 
-    :cond_1b
+    :cond_1c
     const/16 v18, 0x0
 
     move-object/from16 v0, p1
@@ -21109,19 +21276,6 @@
 
     goto/16 :goto_1
 
-    :cond_1c
-    const/high16 v18, 0x3f800000    # 1.0f
-
-    invoke-static/range {p2 .. p2}, Ljava/lang/Math;->abs(F)F
-
-    move-result v19
-
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->min(FF)F
-
-    move-result v2
-
-    goto/16 :goto_2
-
     :cond_1d
     move-object/from16 v0, p0
 
@@ -21129,7 +21283,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_1f
+    if-eqz v18, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -21139,13 +21293,7 @@
 
     move/from16 v0, v18
 
-    if-ne v8, v0, :cond_1f
-
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportChinaDA()Z
-
-    move-result v18
-
-    if-nez v18, :cond_1e
+    if-ne v8, v0, :cond_1e
 
     const/high16 v18, 0x3f800000    # 1.0f
 
@@ -21159,7 +21307,6 @@
 
     invoke-virtual {v3, v2}, Lcom/android/launcher2/CellLayout;->setBackgroundAlpha(F)V
 
-    :cond_1e
     const/16 v18, 0x0
 
     move/from16 v0, v18
@@ -21170,12 +21317,12 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    :cond_1e
     iget-boolean v0, v3, Lcom/android/launcher2/CellLayout;->mIsZeroPageCell:Z
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_20
+    if-eqz v18, :cond_1f
 
     check-cast p1, Lcom/android/launcher2/CellLayout;
 
@@ -21189,7 +21336,7 @@
 
     goto/16 :goto_0
 
-    :cond_20
+    :cond_1f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
@@ -21202,7 +21349,7 @@
 
     move-object/from16 v1, v19
 
-    if-ne v0, v1, :cond_21
+    if-ne v0, v1, :cond_0
 
     move-object/from16 v0, p0
 
@@ -21212,7 +21359,7 @@
 
     move/from16 v0, v18
 
-    if-eq v8, v0, :cond_21
+    if-eq v8, v0, :cond_0
 
     check-cast p1, Lcom/android/launcher2/CellLayout;
 
@@ -21237,49 +21384,6 @@
     move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/CellLayout;->setBackgroundAlpha(F)V
-
-    goto/16 :goto_0
-
-    :cond_21
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher2/Workspace;->mState:Lcom/android/launcher2/Workspace$State;
-
-    move-object/from16 v18, v0
-
-    sget-object v19, Lcom/android/launcher2/Workspace$State;->NORMAL:Lcom/android/launcher2/Workspace$State;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    if-ne v0, v1, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/Workspace;->mCurrentPage:I
-
-    move/from16 v18, v0
-
-    move/from16 v0, v18
-
-    if-ne v8, v0, :cond_0
-
-    invoke-static {}, Lcom/android/launcher2/LauncherFeature;->supportChinaDA()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher2/Workspace;->mPageBackgroundAlpha:F
-
-    move/from16 v18, v0
-
-    move/from16 v0, v18
-
-    invoke-virtual {v3, v0}, Lcom/android/launcher2/CellLayout;->setBackgroundAlpha(F)V
 
     goto/16 :goto_0
 .end method

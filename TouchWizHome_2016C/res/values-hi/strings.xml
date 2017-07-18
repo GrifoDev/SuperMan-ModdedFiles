@@ -138,6 +138,7 @@
     <string name="new_items">%d नई मदें</string>
     <string name="no_downloaded_apps">डाउनलोड किए गए एप्लीकेशन नहीं</string>
     <string name="no_room_any_page">किसी भी पृष्ठ पर कोई रूम नहीं है।</string>
+    <string name="no_space_page">पेज पर कोई स्थान नहीं है। किसी भिन्न पेज पर कोई शॉर्टकट जोड़ने का प्रयास करें।</string>
     <string name="not_selected">चयनित नहीं</string>
     <string name="ok">ओके</string>
     <string name="only_one_widget_instance_allowed">%s विजेट पहले से होम स्क्रीन पर जोड़ा गया है।</string>

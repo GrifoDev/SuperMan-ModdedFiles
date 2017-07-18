@@ -135,7 +135,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$2;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$100(Lcom/android/launcher2/Launcher;)Landroid/os/IBinder;
 
     move-result-object v3
@@ -160,7 +159,6 @@
 
     move-result-object v5
 
-    # setter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v3, v5}, Lcom/android/launcher2/Launcher;->access$102(Lcom/android/launcher2/Launcher;Landroid/os/IBinder;)Landroid/os/IBinder;
 
     :cond_4
@@ -187,7 +185,6 @@
     :cond_5
     iget-object v3, p0, Lcom/android/launcher2/Launcher$2;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$100(Lcom/android/launcher2/Launcher;)Landroid/os/IBinder;
 
     move-result-object v3
@@ -206,7 +203,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/Launcher$2;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v5}, Lcom/android/launcher2/Launcher;->access$100(Lcom/android/launcher2/Launcher;)Landroid/os/IBinder;
 
     move-result-object v5
@@ -257,7 +253,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$2;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$100(Lcom/android/launcher2/Launcher;)Landroid/os/IBinder;
 
     move-result-object v3
@@ -276,7 +271,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/Launcher$2;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mWindowToken:Landroid/os/IBinder;
     invoke-static {v3}, Lcom/android/launcher2/Launcher;->access$100(Lcom/android/launcher2/Launcher;)Landroid/os/IBinder;
 
     move-result-object v3

@@ -214,7 +214,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f03000e
+    const v8, 0x7f04000e
 
     const/4 v9, 0x0
 
@@ -224,7 +224,7 @@
 
     check-cast v6, Landroid/view/ViewGroup;
 
-    const v7, 0x7f100028
+    const v7, 0x7f110028
 
     invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -254,7 +254,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0800b5
+    const v8, 0x7f0900b6
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0800b3
+    const v8, 0x7f0900b4
 
     invoke-virtual {v7, v8, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -344,7 +344,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0800b4
+    const v8, 0x7f0900b5
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

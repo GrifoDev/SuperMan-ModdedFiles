@@ -414,7 +414,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090005
+    const v3, 0x7f0a0005
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -424,7 +424,7 @@
 
     iput v1, p0, Lcom/android/launcher2/IconConfig;->mIconWidth:I
 
-    const v3, 0x7f090131
+    const v3, 0x7f0a0131
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

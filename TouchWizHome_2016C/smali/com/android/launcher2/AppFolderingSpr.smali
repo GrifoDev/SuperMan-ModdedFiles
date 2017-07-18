@@ -453,7 +453,6 @@
 .method static getInstance(Lcom/android/launcher2/LauncherApplication;)Lcom/android/launcher2/AppFolderingSpr;
     .locals 1
 
-    # getter for: Lcom/android/launcher2/AppFolderingSpr$Singleton;->instance:Lcom/android/launcher2/AppFolderingSpr;
     invoke-static {}, Lcom/android/launcher2/AppFolderingSpr$Singleton;->access$100()Lcom/android/launcher2/AppFolderingSpr;
 
     move-result-object v0

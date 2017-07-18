@@ -138,6 +138,7 @@
     <string name="new_items">%d yeni element</string>
     <string name="no_downloaded_apps">Yüklənmiş proqram yoxdur</string>
     <string name="no_room_any_page">Hər hansı səhifədə heç bir otaq yoxdur.</string>
+    <string name="no_space_page">Səhifədə yer yoxdur. Fərqli səhifəyə qısayol əlavə etməyə çalışın.</string>
     <string name="not_selected">Seçilməyib</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s piktoqram artıq əsas ekrana əlavə edildi.</string>

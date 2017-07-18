@@ -138,6 +138,7 @@
     <string name="new_items">%d elementos nuevos</string>
     <string name="no_downloaded_apps">Ninguna aplicación descargada</string>
     <string name="no_room_any_page">No hay espacio en ninguna página.</string>
+    <string name="no_space_page">No hay espacio en la página. Intente añadir el atajo en otra página.</string>
     <string name="not_selected">No seleccionado</string>
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">El widget %s ya está en la pantalla de inicio.</string>

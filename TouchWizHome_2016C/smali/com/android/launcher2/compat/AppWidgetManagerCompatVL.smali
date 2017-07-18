@@ -263,7 +263,7 @@
 
     move-result v7
 
-    const v9, 0x7f0903b8
+    const v9, 0x7f0a03bb
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -282,7 +282,7 @@
     float-to-int v3, v9
 
     :cond_1
-    const v9, 0x7f0903b7
+    const v9, 0x7f0a03ba
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -454,7 +454,7 @@
 .method public startConfigActivity(Landroid/appwidget/AppWidgetProviderInfo;ILandroid/app/Activity;Landroid/appwidget/AppWidgetHost;I)V
     .locals 9
 
-    const/high16 v8, 0x7f080000
+    const/high16 v8, 0x7f090000
 
     const/4 v7, 0x0
 

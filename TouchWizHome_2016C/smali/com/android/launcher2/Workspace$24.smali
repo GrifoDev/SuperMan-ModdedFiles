@@ -61,7 +61,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Workspace$24;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mPreValues:I
     invoke-static {v1}, Lcom/android/launcher2/Workspace;->access$2700(Lcom/android/launcher2/Workspace;)I
 
     move-result v1
@@ -99,7 +98,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/Workspace$24;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mMovingState:I
     invoke-static {v1}, Lcom/android/launcher2/Workspace;->access$2600(Lcom/android/launcher2/Workspace;)I
 
     move-result v1

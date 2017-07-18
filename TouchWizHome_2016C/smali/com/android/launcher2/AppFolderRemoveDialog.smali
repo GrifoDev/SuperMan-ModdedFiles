@@ -692,9 +692,9 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 10
 
-    const v8, 0x7f0800bd
+    const v8, 0x7f0900be
 
-    const v6, 0x7f0800b4
+    const v6, 0x7f0900b5
 
     const/4 v7, 0x1
 
@@ -736,7 +736,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800be
+    const v6, 0x7f0900bf
 
     new-array v7, v7, [Ljava/lang/Object;
 
@@ -763,7 +763,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800b3
+    const v6, 0x7f0900b4
 
     invoke-virtual {v5, v6, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -822,7 +822,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800bc
+    const v6, 0x7f0900bd
 
     new-array v7, v7, [Ljava/lang/Object;
 
@@ -864,7 +864,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800b5
+    const v6, 0x7f0900b6
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -891,7 +891,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800b7
+    const v6, 0x7f0900b8
 
     new-array v7, v7, [Ljava/lang/Object;
 
@@ -926,7 +926,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800b6
+    const v6, 0x7f0900b7
 
     new-array v7, v7, [Ljava/lang/Object;
 
@@ -949,7 +949,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0800b9
+    const v6, 0x7f0900ba
 
     new-array v7, v7, [Ljava/lang/Object;
 

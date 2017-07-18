@@ -49,7 +49,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$ViewHolder;->shouldBeKeptAsChild()Z
     invoke-static {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$5400(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result v0
@@ -60,7 +59,6 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->removeAnimatingView(Landroid/view/View;)Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->access$5300(Landroid/support/v7/widget/RecyclerView;Landroid/view/View;)Z
 
     :cond_0
@@ -88,7 +86,6 @@
 
     const/16 v0, -0x41
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$ViewHolder;->mFlags:I
     invoke-static {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$5500(Landroid/support/v7/widget/RecyclerView$ViewHolder;)I
 
     move-result v1
@@ -98,7 +95,6 @@
     :cond_0
     iput-object v2, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->mShadowingHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$ViewHolder;->shouldBeKeptAsChild()Z
     invoke-static {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$5400(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result v0
@@ -109,7 +105,6 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->removeAnimatingView(Landroid/view/View;)Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->access$5300(Landroid/support/v7/widget/RecyclerView;Landroid/view/View;)Z
 
     :cond_1
@@ -123,7 +118,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$ViewHolder;->shouldBeKeptAsChild()Z
     invoke-static {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->access$5400(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result v0
@@ -134,7 +128,6 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->removeAnimatingView(Landroid/view/View;)Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->access$5300(Landroid/support/v7/widget/RecyclerView;Landroid/view/View;)Z
 
     :cond_0
@@ -152,7 +145,6 @@
 
     iget-object v1, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView;->removeAnimatingView(Landroid/view/View;)Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->access$5300(Landroid/support/v7/widget/RecyclerView;Landroid/view/View;)Z
 
     move-result v0

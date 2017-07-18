@@ -48,12 +48,11 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRes:Landroid/content/res/Resources;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1800(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/content/res/Resources;
 
     move-result-object v10
 
-    const v11, 0x7f0b0029
+    const v11, 0x7f0c0029
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -69,7 +68,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -78,7 +76,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -91,7 +88,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchAppController:Lcom/android/launcher2/searchapp/SearchAppController;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppController;
 
     move-result-object v10
@@ -108,7 +104,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchAppController:Lcom/android/launcher2/searchapp/SearchAppController;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppController;
 
     move-result-object v10
@@ -158,7 +153,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -183,7 +177,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1700(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
 
     move-result-object v10
@@ -201,7 +194,6 @@
     :cond_2
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1700(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
 
     move-result-object v10
@@ -225,7 +217,6 @@
     :goto_1
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -238,7 +229,6 @@
 
     iget-object v10, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v10}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v10
@@ -315,7 +305,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$000(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/SearchView;
 
     move-result-object v5
@@ -324,7 +313,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$000(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/SearchView;
 
     move-result-object v5
@@ -344,7 +332,6 @@
     :cond_0
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchAdapter:Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchListAdapter;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1500(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchListAdapter;
 
     move-result-object v5
@@ -353,7 +340,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchAdapter:Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchListAdapter;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1500(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchListAdapter;
 
     move-result-object v5
@@ -363,7 +349,6 @@
     :cond_1
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -384,7 +369,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -409,7 +393,6 @@
 
     iget-object v6, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->utils:Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
     invoke-static {v6}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1700(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppLocaleUtils;
 
     move-result-object v6
@@ -454,7 +437,6 @@
     :cond_4
     iget-object v5, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAppsToShow:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$1600(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -517,7 +499,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$SearchFilter;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mSearchAppController:Lcom/android/launcher2/searchapp/SearchAppController;
     invoke-static {v0}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$900(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppController;
 
     move-result-object v0

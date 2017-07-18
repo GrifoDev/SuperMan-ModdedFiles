@@ -41,7 +41,6 @@
 
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
-    # invokes: Lcom/android/launcher2/FocusHelper;->handleWorkspaceIconKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;I)Z
     invoke-static {p1, p2, p3, v1}, Lcom/android/launcher2/FocusHelper;->access$000(Landroid/view/View;ILandroid/view/KeyEvent;I)Z
 
     move-result v1

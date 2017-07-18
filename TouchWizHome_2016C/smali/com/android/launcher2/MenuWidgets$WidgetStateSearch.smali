@@ -67,7 +67,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v4
@@ -80,7 +79,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v5}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v5
@@ -101,7 +99,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v4}, Lcom/android/launcher2/MenuWidgets;->access$1900(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v4
@@ -120,7 +117,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # setter for: Lcom/android/launcher2/MenuWidgets;->mTitleBar:Landroid/view/ViewGroup;
     invoke-static {v4, v3}, Lcom/android/launcher2/MenuWidgets;->access$2302(Lcom/android/launcher2/MenuWidgets;Landroid/view/ViewGroup;)Landroid/view/ViewGroup;
 
     :cond_0
@@ -134,7 +130,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # setter for: Lcom/android/launcher2/MenuWidgets;->mTitleBar:Landroid/view/ViewGroup;
     invoke-static {v4, v3}, Lcom/android/launcher2/MenuWidgets;->access$2302(Lcom/android/launcher2/MenuWidgets;Landroid/view/ViewGroup;)Landroid/view/ViewGroup;
 
     invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
@@ -151,7 +146,7 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f100099
+    const v4, 0x7f110099
 
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -205,7 +200,6 @@
 
     const-wide/16 v2, -0x1
 
-    # setter for: Lcom/android/launcher2/MenuWidgets;->mDataVersion:J
     invoke-static {v0, v2, v3}, Lcom/android/launcher2/MenuWidgets;->access$002(Lcom/android/launcher2/MenuWidgets;J)J
 
     return-void
@@ -230,7 +224,6 @@
 
     check-cast p2, Lcom/android/launcher2/WidgetFolderView;
 
-    # invokes: Lcom/android/launcher2/MenuWidgets;->openWidgetFolder(Lcom/android/launcher2/WidgetFolderView;)V
     invoke-static {v0, p2}, Lcom/android/launcher2/MenuWidgets;->access$1700(Lcom/android/launcher2/MenuWidgets;Lcom/android/launcher2/WidgetFolderView;)V
 
     :goto_0
@@ -239,7 +232,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # invokes: Lcom/android/launcher2/MenuWidgets;->clickNotAllowed(Landroid/view/View;)V
     invoke-static {v0, p2}, Lcom/android/launcher2/MenuWidgets;->access$1800(Lcom/android/launcher2/MenuWidgets;Landroid/view/View;)V
 
     goto :goto_0
@@ -301,7 +293,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v1}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v1
@@ -349,7 +340,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuWidgets$WidgetStateSearch;->this$0:Lcom/android/launcher2/MenuWidgets;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets;->mMenuWidgetsFragment:Lcom/android/launcher2/MenuWidgetsFragment;
     invoke-static {v1}, Lcom/android/launcher2/MenuWidgets;->access$200(Lcom/android/launcher2/MenuWidgets;)Lcom/android/launcher2/MenuWidgetsFragment;
 
     move-result-object v1

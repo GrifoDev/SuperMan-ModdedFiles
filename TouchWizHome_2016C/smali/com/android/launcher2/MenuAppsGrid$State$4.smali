@@ -38,7 +38,6 @@
 .method protected getObj(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGrid$StateObj;
     .locals 1
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mStateSearch:Lcom/android/launcher2/MenuAppsGrid$StateObj;
     invoke-static {p1}, Lcom/android/launcher2/MenuAppsGrid;->access$1400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGrid$StateObj;
 
     move-result-object v0

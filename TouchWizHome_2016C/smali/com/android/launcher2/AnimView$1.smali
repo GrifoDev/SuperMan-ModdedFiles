@@ -43,7 +43,6 @@
 
     move-result v1
 
-    # setter for: Lcom/android/launcher2/AnimView;->mCrossFadeProgress:F
     invoke-static {v0, v1}, Lcom/android/launcher2/AnimView;->access$002(Lcom/android/launcher2/AnimView;F)F
 
     return-void

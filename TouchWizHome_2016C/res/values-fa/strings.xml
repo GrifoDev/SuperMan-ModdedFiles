@@ -138,6 +138,7 @@
     <string name="new_items">%d مورد جدید</string>
     <string name="no_downloaded_apps">هیچ برنامه بارگیری شده ای وجود ندارد</string>
     <string name="no_room_any_page">فضایی در صفحه‌ها وجود ندارد.</string>
+    <string name="no_space_page">در صفحه جا نیست. سعی کنید میانبر را به صفحه دیگری اضافه کنید.</string>
     <string name="not_selected">انتخاب نشده است</string>
     <string name="ok">تاييد</string>
     <string name="only_one_widget_instance_allowed">%s ویجت قبلاً به صفحه اصلی اضافه شده‌است.</string>

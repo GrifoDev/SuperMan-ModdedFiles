@@ -910,7 +910,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f06000c
+    const v7, 0x7f07000c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -1340,6 +1340,71 @@
     if-ge p0, p1, :cond_0
 
     const/4 v0, -0x1
+
+    goto :goto_0
+.end method
+
+.method private isDisableFromSetting(Ljava/lang/String;)Z
+    .locals 7
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v4
+
+    const-string v5, "CscFeature_Setting_ConfigForbidAppDisableButton"
+
+    invoke-virtual {v4, v5}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v4
+
+    const-string v5, "CscFeature_Setting_ConfigForbidAppDisableButton"
+
+    invoke-virtual {v4, v5}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v4, ","
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v5, v0
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v5, :cond_0
+
+    aget-object v3, v0, v4
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    const/4 v2, 0x1
+
+    :cond_0
+    return v2
+
+    :cond_1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 .end method
@@ -3070,6 +3135,16 @@
     if-nez v0, :cond_0
 
     invoke-virtual {p1}, Lcom/android/launcher2/AppItem;->isPromise()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/launcher2/AppItem;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/launcher2/MenuAppModel;->isDisableFromSetting(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -5128,7 +5203,13 @@
     :cond_0
     if-nez v2, :cond_1
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher2/MenuAppModel;->isDisableFromSetting(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     :cond_1
     const/4 v3, 0x1
@@ -6405,13 +6486,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b000c
+    const v1, 0x7f0c000c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    const v2, 0x7f0b000d
+    const v2, 0x7f0c000d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

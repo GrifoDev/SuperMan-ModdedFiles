@@ -291,7 +291,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f1000ae
+    const v4, 0x7f1100ae
 
     invoke-virtual {v3, v4}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +303,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mScrollView:Landroid/widget/ScrollView;
 
-    const v4, 0x7f1000af
+    const v4, 0x7f1100af
 
     invoke-virtual {v3, v4}, Landroid/widget/ScrollView;->findViewById(I)Landroid/view/View;
 
@@ -311,7 +311,7 @@
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    const v3, 0x7f1000b0
+    const v3, 0x7f1100b0
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +321,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleBar:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1000b2
+    const v3, 0x7f1100b2
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -331,7 +331,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitleText:Landroid/widget/TextView;
 
-    const v3, 0x7f1000b1
+    const v3, 0x7f1100b1
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -341,7 +341,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mSearchSubTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f1000b3
+    const v3, 0x7f1100b3
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -365,7 +365,7 @@
 
     if-ne v3, v4, :cond_3
 
-    const v3, 0x7f090005
+    const v3, 0x7f0a0005
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -374,7 +374,7 @@
     iput v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mIconSize:I
 
     :goto_1
-    const v3, 0x7f0902ce
+    const v3, 0x7f0a02d1
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -382,7 +382,7 @@
 
     iput v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mTextSize:I
 
-    const v3, 0x7f1000b5
+    const v3, 0x7f1100b5
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -392,7 +392,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mResultGridView:Landroid/widget/GridView;
 
-    const v3, 0x7f1000b4
+    const v3, 0x7f1100b4
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -408,7 +408,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f1000b7
+    const v3, 0x7f1100b7
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -418,7 +418,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mSearchGalaxyAppsResultBar:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1000b8
+    const v3, 0x7f1100b8
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -428,7 +428,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mSearchGalaxyAppsResultTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f1000ba
+    const v3, 0x7f1100ba
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -438,7 +438,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mGalaxyAppsGridView:Landroid/widget/GridView;
 
-    const v3, 0x7f1000bb
+    const v3, 0x7f1100bb
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -448,7 +448,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMoreGalaxyAppsBtn:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1000bc
+    const v3, 0x7f1100bc
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -468,7 +468,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800e9
+    const v5, 0x7f0900ea
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -480,7 +480,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f1000bd
+    const v3, 0x7f1100bd
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -490,7 +490,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMorePlayStoreBtn:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f1000be
+    const v3, 0x7f1100be
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -510,7 +510,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800ea
+    const v5, 0x7f0900eb
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -522,7 +522,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f1000b9
+    const v3, 0x7f1100b9
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -533,7 +533,7 @@
     iput-object v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mGalaxySearchResultLine:Landroid/widget/FrameLayout;
 
     :cond_1
-    const v3, 0x7f0b0027
+    const v3, 0x7f0c0027
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -541,7 +541,7 @@
 
     iput v3, p0, Lcom/android/launcher2/MenuAppsSearch;->mCurrentCellCount:I
 
-    const v3, 0x7f0b001d
+    const v3, 0x7f0c001d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -592,7 +592,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/GridView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v3, 0x7f1000b6
+    const v3, 0x7f1100b6
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -627,7 +627,7 @@
     goto/16 :goto_0
 
     :cond_3
-    const v3, 0x7f0901c7
+    const v3, 0x7f0a01c7
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1373,7 +1373,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09030d
+    const v9, 0x7f0a0310
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1385,7 +1385,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090177
+    const v9, 0x7f0a0177
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1451,7 +1451,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cb
+    const v10, 0x7f0a02ce
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902fa
+    const v9, 0x7f0a02fc
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1511,7 +1511,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090282
+    const v10, 0x7f0a0289
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1577,7 +1577,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902ef
+    const v10, 0x7f0a02f1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1593,7 +1593,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902f9
+    const v10, 0x7f0a02fb
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1609,7 +1609,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902b0
+    const v10, 0x7f0a02b5
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1625,7 +1625,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cc
+    const v10, 0x7f0a02cf
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1678,7 +1678,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f090312
+    const v9, 0x7f0a0315
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1694,7 +1694,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cc
+    const v10, 0x7f0a02cf
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1748,7 +1748,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cb
+    const v10, 0x7f0a02ce
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1764,7 +1764,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090312
+    const v10, 0x7f0a0315
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1780,7 +1780,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cc
+    const v10, 0x7f0a02cf
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1809,6 +1809,10 @@
 
     iget-object v8, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMoreGalaxyAppsBtn:Landroid/widget/LinearLayout;
 
+    if-eqz v8, :cond_5
+
+    iget-object v8, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMoreGalaxyAppsBtn:Landroid/widget/LinearLayout;
+
     invoke-virtual {v8}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
@@ -1825,7 +1829,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cb
+    const v10, 0x7f0a02ce
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1878,7 +1882,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0902f0
+    const v9, 0x7f0a02f2
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1894,7 +1898,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902ef
+    const v10, 0x7f0a02f1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1933,7 +1937,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902cb
+    const v10, 0x7f0a02ce
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1949,7 +1953,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902f0
+    const v10, 0x7f0a02f2
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1965,7 +1969,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0902ef
+    const v10, 0x7f0a02f1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1993,7 +1997,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080015
+    const v2, 0x7f090015
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2039,7 +2043,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080023
+    const v2, 0x7f090023
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2798,7 +2802,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMoreGalaxyAppsBtn:Landroid/widget/LinearLayout;
 
-    const v9, 0x7f1000bb
+    const v9, 0x7f1100bb
 
     invoke-virtual {v6, v9}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2812,7 +2816,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsSearch;->mViewMorePlayStoreBtn:Landroid/widget/LinearLayout;
 
-    const v9, 0x7f1000bd
+    const v9, 0x7f1100bd
 
     invoke-virtual {v6, v9}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2890,7 +2894,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f1000af
+    const v8, 0x7f1100af
 
     invoke-virtual {v6, v8}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -3027,7 +3031,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1000af
+    const v1, 0x7f1100af
 
     invoke-virtual {v0, v1}, Lcom/android/launcher2/MenuView;->findViewById(I)Landroid/view/View;
 
@@ -3580,13 +3584,13 @@
 
     if-eqz v5, :cond_2
 
-    const v5, 0x7f0d002e
+    const v5, 0x7f0e002f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    const v5, 0x7f0d002d
+    const v5, 0x7f0e002e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3642,13 +3646,13 @@
     return-void
 
     :cond_2
-    const v5, 0x7f0d0046
+    const v5, 0x7f0e0047
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    const v5, 0x7f0d000b
+    const v5, 0x7f0e000a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3695,13 +3699,13 @@
 
     if-eqz v6, :cond_2
 
-    const v6, 0x7f0d002e
+    const v6, 0x7f0e002f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    const v6, 0x7f0d002d
+    const v6, 0x7f0e002e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3789,13 +3793,13 @@
     return-void
 
     :cond_2
-    const v6, 0x7f0d0046
+    const v6, 0x7f0e0047
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    const v6, 0x7f0d000b
+    const v6, 0x7f0e000a
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 

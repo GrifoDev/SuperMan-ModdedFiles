@@ -138,6 +138,7 @@
     <string name="new_items">%dটি নতুন আইটেম</string>
     <string name="no_downloaded_apps">কোনও ডাউনলোড করা অ্যাপ্লিকেশন নেই</string>
     <string name="no_room_any_page">কোনও পৃষ্ঠায় কোনও কক্ষ নেই।</string>
+    <string name="no_space_page">পৃষ্ঠাতে কোনও স্থান নেই। কোনও ভিন্ন পৃষ্ঠাতে শর্টকাট যোগ করার চেষ্টা করুন।</string>
     <string name="not_selected">নির্বাচিত নয়</string>
     <string name="ok">ওকে</string>
     <string name="only_one_widget_instance_allowed">হোম স্ক্রিনে ইতিমধ্যে %s উইজেট যুক্ত হয়েছে।</string>

@@ -86,7 +86,6 @@
 
     const/4 v14, 0x1
 
-    # setter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static {v13, v14}, Lcom/android/launcher2/MenuAppsGrid;->access$2602(Lcom/android/launcher2/MenuAppsGrid;Z)Z
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
@@ -143,7 +142,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f0a0005
+    const v14, 0x7f0b0005
 
     const/4 v15, 0x1
 
@@ -160,7 +159,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v13}, Lcom/android/launcher2/MenuAppsGrid;->access$400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v13
@@ -183,7 +181,6 @@
 
     move-object/from16 v0, p1
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->animatePageZoomOut(Ljava/util/List;Z)V
     invoke-static {v13, v0, v9}, Lcom/android/launcher2/MenuAppsGrid;->access$1900(Lcom/android/launcher2/MenuAppsGrid;Ljava/util/List;Z)V
 
     const/4 v5, 0x0
@@ -206,7 +203,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f080078
+    const v14, 0x7f090078
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,7 +232,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v13}, Lcom/android/launcher2/MenuAppsGrid;->access$400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v13
@@ -268,7 +264,7 @@
 
     if-nez v13, :cond_1
 
-    const v13, 0x7f100099
+    const v13, 0x7f110099
 
     invoke-virtual {v6, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +299,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v13}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v13
@@ -364,7 +359,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f080078
+    const v15, 0x7f090078
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -403,7 +398,6 @@
 
     iget-object v13, v0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v13}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v13
@@ -427,7 +421,7 @@
 
     if-eqz v11, :cond_7
 
-    const v13, 0x7f1000a2
+    const v13, 0x7f1100a2
 
     invoke-virtual {v11, v13}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -478,7 +472,6 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->setIconTextAndShadowVisibilityOnItem(ZLcom/android/launcher2/AppIconView;)V
     invoke-static {v3, v4, v5}, Lcom/android/launcher2/MenuAppsGrid;->access$2100(Lcom/android/launcher2/MenuAppsGrid;ZLcom/android/launcher2/AppIconView;)V
 
     invoke-virtual {v1}, Lcom/android/launcher2/MenuAppIconView;->getTag()Ljava/lang/Object;
@@ -575,7 +568,6 @@
 
     move-object/from16 v2, v24
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->setIconTextAndShadowVisibilityOnItem(ZLcom/android/launcher2/AppIconView;)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/MenuAppsGrid;->access$2100(Lcom/android/launcher2/MenuAppsGrid;ZLcom/android/launcher2/AppIconView;)V
 
     invoke-virtual/range {v19 .. v19}, Lcom/android/launcher2/MenuAppIconView;->getTag()Ljava/lang/Object;
@@ -700,7 +692,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/MenuAppsGrid;->access$2600(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v21
@@ -785,7 +776,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v21
@@ -828,7 +818,7 @@
 
     move-result-object v18
 
-    const v21, 0x7f0b0017
+    const v21, 0x7f0c0017
 
     move-object/from16 v0, v18
 
@@ -838,7 +828,7 @@
 
     move-result v6
 
-    const v21, 0x7f0b0018
+    const v21, 0x7f0c0018
 
     move-object/from16 v0, v18
 
@@ -948,7 +938,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static/range {v21 .. v21}, Lcom/android/launcher2/MenuAppsGrid;->access$2600(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v21
@@ -996,7 +985,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/MenuAppsGrid;->access$2600(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v24
@@ -1140,12 +1128,10 @@
     :cond_1
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # setter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static {v5, v8}, Lcom/android/launcher2/MenuAppsGrid;->access$2602(Lcom/android/launcher2/MenuAppsGrid;Z)Z
 
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->animatePageZoomIn(Ljava/util/List;)V
     invoke-static {v5, p1}, Lcom/android/launcher2/MenuAppsGrid;->access$2000(Lcom/android/launcher2/MenuAppsGrid;Ljava/util/List;)V
 
     iput-boolean v7, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->mHasEntered:Z
@@ -1172,7 +1158,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v5}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v5
@@ -1218,7 +1203,6 @@
     :cond_3
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v5}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v5
@@ -1227,7 +1211,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v5}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v5
@@ -1240,7 +1223,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v5}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v5
@@ -1381,7 +1363,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mDragOnEditMode:Z
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2700(Lcom/android/launcher2/MenuAppsGrid;)Z
 
     move-result v0
@@ -1392,7 +1373,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/MenuAppsGrid;->mDragOnEditMode:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2702(Lcom/android/launcher2/MenuAppsGrid;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
@@ -1438,7 +1418,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v7}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v7
@@ -1447,7 +1426,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v7}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v7
@@ -1465,7 +1443,6 @@
     :cond_1
     iget-object v6, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mMenuAppsGridFragment:Lcom/android/launcher2/MenuAppsGridFragment;
     invoke-static {v6}, Lcom/android/launcher2/MenuAppsGrid;->access$2300(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGridFragment;
 
     move-result-object v6
@@ -1507,7 +1484,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v1
@@ -1516,7 +1492,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$100(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/Folder;
 
     move-result-object v1
@@ -1534,7 +1509,6 @@
     :cond_6
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateEdit;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mMenuAppsGridFragment:Lcom/android/launcher2/MenuAppsGridFragment;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2300(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGridFragment;
 
     move-result-object v1

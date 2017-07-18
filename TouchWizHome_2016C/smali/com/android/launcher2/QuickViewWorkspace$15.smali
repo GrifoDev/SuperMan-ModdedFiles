@@ -49,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$15;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mZeroPageOnOffSwitch:Landroid/widget/Switch;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$200(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/widget/Switch;
 
     move-result-object v0

@@ -43,7 +43,6 @@
 
     if-nez v0, :cond_1
 
-    # getter for: Lcom/android/launcher2/HomeScreenOptionMenu;->mIconPressAlphaValue:F
     invoke-static {}, Lcom/android/launcher2/HomeScreenOptionMenu;->access$000()F
 
     move-result v1

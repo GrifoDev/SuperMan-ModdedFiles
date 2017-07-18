@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserLabel="@string/application_name" package="com.sec.android.app.launcher" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserLabel="@string/application_name" package="com.sec.android.app.launcher" platformBuildVersionCode="24" platformBuildVersionName="7.0">
     <original-package android:name="com.android.launcher2"/>
     <uses-permission android:name="com.samsung.helphub.permission.HELP"/>
     <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:xlargeScreens="true"/>
@@ -182,7 +181,7 @@
         <meta-data android:name="rcpFileCopier" android:value=""/>
         <meta-data android:name="samsung.galaxylabs.crystal" android:resource="@xml/crystal_info"/>
         <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
-        <meta-data android:name="SPDE.build.signature" android:value="3637385/11496394/2016-release/TouchWizHome-500000-5.8.53"/>
-        <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.9"/>
+        <meta-data android:name="SPDE.build.signature" android:value="3987751/13642326/2016-release/TouchWizHome-500000-5.8.84"/>
+        <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.10"/>
     </application>
 </manifest>

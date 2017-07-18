@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$8;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mScrollView:Landroid/widget/ScrollView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$500(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/ScrollView;
 
     move-result-object v0
@@ -50,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$8;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mSearchEdit:Landroid/widget/SearchView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$300(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/SearchView;
 
     move-result-object v0
@@ -71,7 +69,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$8;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v0
@@ -84,7 +81,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$8;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mRecentGridView:Landroid/widget/GridView;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$200(Lcom/android/launcher2/MenuAppsSearch;)Landroid/widget/GridView;
 
     move-result-object v0

@@ -77,7 +77,7 @@
 
     iput-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v3, 0x7f090005
+    const v3, 0x7f0a0005
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -85,10 +85,8 @@
 
     float-to-int v3, v3
 
-    # setter for: Lcom/android/launcher2/FolderIconHelper;->mAppIconSize:I
     invoke-static {v3}, Lcom/android/launcher2/FolderIconHelper;->access$302(I)I
 
-    # getter for: Lcom/android/launcher2/FolderIconHelper;->mAppIconSize:I
     invoke-static {}, Lcom/android/launcher2/FolderIconHelper;->access$300()I
 
     move-result v0
@@ -206,7 +204,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v4, 0x7f02005f
+    const v4, 0x7f030001
 
     invoke-static {p1, v4, v0}, Lcom/android/launcher2/Utilities;->getBitmapFromResId(Landroid/content/res/Resources;II)Landroid/graphics/Bitmap;
 
@@ -216,7 +214,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v4, 0x7f02005e
+    const/high16 v4, 0x7f030000
 
     invoke-static {p1, v4, v0}, Lcom/android/launcher2/Utilities;->getBitmapFromResId(Landroid/content/res/Resources;II)Landroid/graphics/Bitmap;
 
@@ -226,7 +224,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v4, 0x7f020060
+    const v4, 0x7f030002
 
     invoke-static {p1, v4, v0}, Lcom/android/launcher2/Utilities;->getBitmapFromResId(Landroid/content/res/Resources;II)Landroid/graphics/Bitmap;
 
@@ -236,7 +234,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v4, 0x7f020061
+    const v4, 0x7f030003
 
     invoke-static {p1, v4, v0}, Lcom/android/launcher2/Utilities;->getBitmapFromResId(Landroid/content/res/Resources;II)Landroid/graphics/Bitmap;
 
@@ -246,7 +244,7 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderIconHelper$AppIconData;->mOpenFolderBitmapMap:Landroid/util/SparseArray;
 
-    const v4, 0x7f020062
+    const v4, 0x7f030004
 
     invoke-static {p1, v4, v0}, Lcom/android/launcher2/Utilities;->getBitmapFromResId(Landroid/content/res/Resources;II)Landroid/graphics/Bitmap;
 

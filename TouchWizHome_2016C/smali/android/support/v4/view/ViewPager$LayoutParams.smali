@@ -52,7 +52,6 @@
 
     iput v1, p0, Landroid/support/v4/view/ViewPager$LayoutParams;->widthFactor:F
 
-    # getter for: Landroid/support/v4/view/ViewPager;->LAYOUT_ATTRS:[I
     invoke-static {}, Landroid/support/v4/view/ViewPager;->access$400()[I
 
     move-result-object v1

@@ -78,3 +78,11 @@
 
     return-object v0
 .end method
+
+.method public isUserUnlocked(Lcom/android/launcher2/compat/UserHandleCompat;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method

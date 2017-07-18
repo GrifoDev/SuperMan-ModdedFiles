@@ -80,7 +80,6 @@
 
     iget-object v5, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v5}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v5
@@ -126,7 +125,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->clearTempUnlockedFolder()V
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$200(Lcom/android/launcher2/FolderLock;)V
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;
@@ -165,7 +163,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -217,7 +214,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -245,7 +241,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -393,7 +388,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -465,7 +459,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -598,7 +591,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -1026,7 +1018,6 @@
 
     iget-object v4, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/FolderLock;->access$300(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v3
@@ -1139,7 +1130,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v2
@@ -1275,7 +1265,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v2
@@ -1368,7 +1357,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -1389,7 +1377,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_a
@@ -1409,7 +1396,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -1422,7 +1408,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v5
@@ -1451,7 +1436,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_a
@@ -1469,7 +1453,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_a
@@ -1573,7 +1556,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -2025,7 +2007,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$300(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v5
@@ -2086,7 +2067,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v2
@@ -2230,7 +2210,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v2
@@ -2331,7 +2310,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -2352,7 +2330,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_10
@@ -2372,7 +2349,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -2385,7 +2361,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # invokes: Lcom/android/launcher2/FolderLock;->getContext()Landroid/content/Context;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$400(Lcom/android/launcher2/FolderLock;)Landroid/content/Context;
 
     move-result-object v5
@@ -2414,7 +2389,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_10
@@ -2432,7 +2406,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v5, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_10
@@ -2454,7 +2427,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -2475,7 +2447,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v4, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     :cond_3a
@@ -2505,7 +2476,6 @@
 
     iget-object v2, v0, Lcom/android/launcher2/FolderLock$ScreenBroadcastReceiver;->this$0:Lcom/android/launcher2/FolderLock;
 
-    # getter for: Lcom/android/launcher2/FolderLock;->mLockedFolders:Ljava/util/List;
     invoke-static {v2}, Lcom/android/launcher2/FolderLock;->access$100(Lcom/android/launcher2/FolderLock;)Ljava/util/List;
 
     move-result-object v2
@@ -2532,7 +2502,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v4, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_11
@@ -2550,7 +2519,6 @@
 
     move-result-wide v6
 
-    # invokes: Lcom/android/launcher2/FolderLock;->removeLockedRecords(Ljava/lang/String;J)V
     invoke-static {v2, v4, v6, v7}, Lcom/android/launcher2/FolderLock;->access$500(Lcom/android/launcher2/FolderLock;Ljava/lang/String;J)V
 
     goto :goto_11

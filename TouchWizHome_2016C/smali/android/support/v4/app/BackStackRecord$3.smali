@@ -69,7 +69,6 @@
 
     iget-object v3, p0, Landroid/support/v4/app/BackStackRecord$3;->val$transition:Ljava/lang/Object;
 
-    # invokes: Landroid/support/v4/app/BackStackRecord;->excludeHiddenFragments(Landroid/support/v4/app/BackStackRecord$TransitionState;ILjava/lang/Object;)V
     invoke-static {v0, v1, v2, v3}, Landroid/support/v4/app/BackStackRecord;->access$300(Landroid/support/v4/app/BackStackRecord;Landroid/support/v4/app/BackStackRecord$TransitionState;ILjava/lang/Object;)V
 
     const/4 v0, 0x1

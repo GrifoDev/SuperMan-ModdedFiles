@@ -73,11 +73,11 @@
 .method public hotseatSizeChanged(Landroid/content/Context;I)V
     .locals 6
 
-    const v5, 0x7f0e0009
+    const v5, 0x7f0f0009
 
-    const v4, 0x7f0e0008
+    const v4, 0x7f0f0008
 
-    const v3, 0x7f090131
+    const v3, 0x7f0a0131
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -111,7 +111,6 @@
     iput v5, p0, Lcom/android/launcher2/IconInfo$HotSeat;->folderStyle:I
 
     :goto_0
-    # getter for: Lcom/android/launcher2/IconInfo;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/IconInfo;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -151,7 +150,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0901e1
+    const v1, 0x7f0a01e1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -159,11 +158,11 @@
 
     iput v1, p0, Lcom/android/launcher2/IconInfo$HotSeat;->iconSize:I
 
-    const v1, 0x7f0e0015
+    const v1, 0x7f0f0015
 
     iput v1, p0, Lcom/android/launcher2/IconInfo$HotSeat;->appIconStyle:I
 
-    const v1, 0x7f0e0016
+    const v1, 0x7f0f0016
 
     iput v1, p0, Lcom/android/launcher2/IconInfo$HotSeat;->folderStyle:I
 

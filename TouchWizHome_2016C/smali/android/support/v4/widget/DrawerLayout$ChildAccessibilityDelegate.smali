@@ -36,7 +36,6 @@
 
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    # invokes: Landroid/support/v4/widget/DrawerLayout;->includeChildForAccessibility(Landroid/view/View;)Z
     invoke-static {p1}, Landroid/support/v4/widget/DrawerLayout;->access$400(Landroid/view/View;)Z
 
     move-result v0

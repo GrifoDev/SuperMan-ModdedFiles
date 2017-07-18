@@ -138,7 +138,6 @@
 
     invoke-virtual {v0}, Lcom/android/launcher2/MenuAppsGrid;->revertEditChanges()V
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mMenuAppsGridFragment:Lcom/android/launcher2/MenuAppsGridFragment;
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsGrid;->access$2300(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuAppsGridFragment;
 
     move-result-object v1
@@ -175,7 +174,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080076
+    const v3, 0x7f090076
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 

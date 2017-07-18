@@ -46,12 +46,10 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/google/android/hotword/client/HotwordServiceClient;->mIsFocused:Z
     invoke-static {v0, v1}, Lcom/google/android/hotword/client/HotwordServiceClient;->access$202(Lcom/google/android/hotword/client/HotwordServiceClient;Z)Z
 
     iget-object v0, p0, Lcom/google/android/hotword/client/HotwordServiceClient$WindowFocusObserver;->this$0:Lcom/google/android/hotword/client/HotwordServiceClient;
 
-    # invokes: Lcom/google/android/hotword/client/HotwordServiceClient;->internalRequestHotword()V
     invoke-static {v0}, Lcom/google/android/hotword/client/HotwordServiceClient;->access$300(Lcom/google/android/hotword/client/HotwordServiceClient;)V
 
     return-void
@@ -64,12 +62,10 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/google/android/hotword/client/HotwordServiceClient;->mIsFocused:Z
     invoke-static {v0, v1}, Lcom/google/android/hotword/client/HotwordServiceClient;->access$202(Lcom/google/android/hotword/client/HotwordServiceClient;Z)Z
 
     iget-object v0, p0, Lcom/google/android/hotword/client/HotwordServiceClient$WindowFocusObserver;->this$0:Lcom/google/android/hotword/client/HotwordServiceClient;
 
-    # invokes: Lcom/google/android/hotword/client/HotwordServiceClient;->internalRequestHotword()V
     invoke-static {v0}, Lcom/google/android/hotword/client/HotwordServiceClient;->access$300(Lcom/google/android/hotword/client/HotwordServiceClient;)V
 
     return-void

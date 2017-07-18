@@ -138,6 +138,7 @@
     <string name="new_items">ပစ္စည်း အသစ် %d ခု</string>
     <string name="no_downloaded_apps">ဒေါင်းလုဒ်လုပ်သည့် အသုံးပြုမှုစနစ် မရှိပါ</string>
     <string name="no_room_any_page">မည်သည့်စာမျက်နှာပေါ်မျှ အခန်း မရှိပါ။</string>
+    <string name="no_space_page">စာမျက်နှာတွင် နေရာလွတ် မရှိပါ။ အခြားစာမျက်နှာတွင် ရှော့ကတ်တစ်ခု ထည့်ကြည့်ပါ။</string>
     <string name="not_selected">ရွေးမထားပါ</string>
     <string name="ok">အိုကေ</string>
     <string name="only_one_widget_instance_allowed">%s ဝဒ်ဂျက်ကို ပင်မဖန်သားပြင်သို့ ထည့်ထားပြီးဖြစ်သည်။</string>

@@ -49,7 +49,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v3}, Lcom/android/launcher2/WidgetHostViewLoader;->access$100(Lcom/android/launcher2/WidgetHostViewLoader;)I
 
     move-result v3
@@ -64,14 +63,12 @@
 
     iget-object v4, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher2/Launcher;
     invoke-static {v4}, Lcom/android/launcher2/WidgetHostViewLoader;->access$400(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/Launcher;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v5}, Lcom/android/launcher2/WidgetHostViewLoader;->access$100(Lcom/android/launcher2/WidgetHostViewLoader;)I
 
     move-result v5
@@ -84,7 +81,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mItem:Lcom/android/launcher2/HomePendingWidget;
     invoke-static {v3}, Lcom/android/launcher2/WidgetHostViewLoader;->access$000(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/HomePendingWidget;
 
     move-result-object v3
@@ -93,7 +89,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # setter for: Lcom/android/launcher2/WidgetHostViewLoader;->mWidgetLoadingId:I
     invoke-static {v3, v7}, Lcom/android/launcher2/WidgetHostViewLoader;->access$102(Lcom/android/launcher2/WidgetHostViewLoader;I)I
 
     const/4 v3, 0x4
@@ -104,7 +99,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mItem:Lcom/android/launcher2/HomePendingWidget;
     invoke-static {v3}, Lcom/android/launcher2/WidgetHostViewLoader;->access$000(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/HomePendingWidget;
 
     move-result-object v3
@@ -127,14 +121,12 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher2/Launcher;
     invoke-static {v3}, Lcom/android/launcher2/WidgetHostViewLoader;->access$400(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/Launcher;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mItem:Lcom/android/launcher2/HomePendingWidget;
     invoke-static {v4}, Lcom/android/launcher2/WidgetHostViewLoader;->access$000(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/HomePendingWidget;
 
     move-result-object v4
@@ -143,7 +135,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mItem:Lcom/android/launcher2/HomePendingWidget;
     invoke-static {v5}, Lcom/android/launcher2/WidgetHostViewLoader;->access$000(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/HomePendingWidget;
 
     move-result-object v5
@@ -154,7 +145,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/WidgetHostViewLoader$2;->this$0:Lcom/android/launcher2/WidgetHostViewLoader;
 
-    # getter for: Lcom/android/launcher2/WidgetHostViewLoader;->mLauncher:Lcom/android/launcher2/Launcher;
     invoke-static {v3}, Lcom/android/launcher2/WidgetHostViewLoader;->access$400(Lcom/android/launcher2/WidgetHostViewLoader;)Lcom/android/launcher2/Launcher;
 
     move-result-object v3

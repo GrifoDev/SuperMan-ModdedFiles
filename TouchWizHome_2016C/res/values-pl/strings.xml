@@ -103,7 +103,7 @@ Microsoft"</string>
     <string name="home_screen_mode_change_to_apps_alert">Utworzony zostanie oddzielny ekran Aplikacje w celu łatwiejszego znajdywania najważniejszych aplikacji za pomocą ikony Aplikacje na ekranie startowym. Wszelkie poprzednie dostosowania ekranu startowego zostaną odrzucone.</string>
     <string name="home_screen_mode_change_to_only_home_alert">Wszystkie Twoje aplikacje będą wyświetlane na ekranie startowym. Wszelkie poprzednie dostosowania ekranu startowego zostaną odrzucone.</string>
     <string name="home_screen_mode_only_home">Pokaż wsz. apl. na ekr. st.</string>
-    <string name="homes_screen_settings">Ust. Ekranu głównego</string>
+    <string name="homes_screen_settings">Ust. ekranu głównego</string>
     <string name="item_added">Dodano element.</string>
     <string name="item_moved">Element został przeniesiony.</string>
     <string name="item_moved_to_other_page">Element został przeniesiony na ekran startowy %1$d z %2$d.</string>
@@ -140,6 +140,7 @@ aplikacje"</string>
     <string name="new_items">Liczba nowych elementów: %d</string>
     <string name="no_downloaded_apps">Brak pobranych aplikacji</string>
     <string name="no_room_any_page">Nie ma miejsca na żadnej stronie.</string>
+    <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
     <string name="not_selected">Niewybrany</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s został już dodany do ekranu startowego.</string>

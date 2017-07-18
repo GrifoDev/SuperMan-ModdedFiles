@@ -138,6 +138,7 @@
     <string name="new_items">%d нови записи</string>
     <string name="no_downloaded_apps">Нема преземени апликации</string>
     <string name="no_room_any_page">Нема соба на ниедна страница.</string>
+    <string name="no_space_page">Нема простор на страницата. Обидете се да додадете кратенка на друга страница.</string>
     <string name="not_selected">Не е одбрано</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виџетот %s веќе е додаден во почетниот екран.</string>

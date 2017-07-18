@@ -31,6 +31,20 @@
 
 
 # virtual methods
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationCancel(Landroid/animation/Animator;)V
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/LauncherApplication;->releaseTouchBooster()V
+
+    return-void
+.end method
+
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
@@ -67,5 +81,25 @@
     invoke-virtual {v0, v1}, Lcom/android/launcher2/Hotseat;->setVisibility(I)V
 
     :cond_0
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/LauncherApplication;->releaseTouchBooster()V
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 1
+
+    invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationStart(Landroid/animation/Animator;)V
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher2/LauncherApplication;->acquireTouchBoosterWihtoutTimer()V
+
     return-void
 .end method

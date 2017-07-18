@@ -69,7 +69,6 @@
     :goto_1
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$17;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAddButton:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -80,7 +79,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$17;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAddButton:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -106,7 +104,6 @@
     :cond_3
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$17;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mAddButton:Landroid/widget/TextView;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$300(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/widget/TextView;
 
     move-result-object v4

@@ -798,7 +798,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/customer/PostPositionProvider$ItemRecord;->this$0:Lcom/android/launcher2/customer/PostPositionProvider;
 
-    # getter for: Lcom/android/launcher2/customer/PostPositionProvider;->mDB:Landroid/database/sqlite/SQLiteDatabase;
     invoke-static {v1}, Lcom/android/launcher2/customer/PostPositionProvider;->access$000(Lcom/android/launcher2/customer/PostPositionProvider;)Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v1

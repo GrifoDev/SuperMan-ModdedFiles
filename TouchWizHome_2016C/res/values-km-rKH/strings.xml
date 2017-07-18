@@ -42,13 +42,13 @@
     <string name="app_unlocked_toast">បាន​ដោះសោ %s។</string>
     <string name="apply">ប្រើ</string>
     <string name="available_galaxyapps">មាន​ក្នុង Galaxy Apps</string>
-    <string name="badge_manage_explain">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
-    <string name="badge_manage_summary">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​មេដាយ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
-    <string name="badge_manage_title">គ្រប់គ្រង​មេដាយ​កម្មវិធី</string>
+    <string name="badge_manage_explain">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​សញ្ញាលក្ខណ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_summary">ជ្រើស​ថា​តើ​ត្រូវ​បង្ហាញ​ឬ​លាក់​សញ្ញាលក្ខណ​សម្រាប់​កម្មវិធី​នីមួយៗ។</string>
+    <string name="badge_manage_title">គ្រប់គ្រង​សញ្ញាលក្ខណ​កម្មវិធី</string>
     <string name="cancel">បោះបង់</string>
     <string name="change_home_screen_settings">ប្ដូរ​ការកំណត់​គេហអេក្រង់</string>
     <string name="change_home_screen_settings_info">កម្មវិធី​នេះ​អាច​ប្ដូរ​ការកំណត់​គេហអេក្រង់​របស់​អ្នក និង ផ្លូវកាត់។</string>
-    <string name="clear_badge_text">លុប​មេដាយ</string>
+    <string name="clear_badge_text">លុប​សញ្ញាលក្ខណ</string>
     <string name="cling_do_not_show_again">កុំ​បង្ហាញ​ម្តង​ទៀត</string>
     <string name="cling_ok">យល់ព្រម</string>
     <string name="content_description_hand">ប៉ះ​រង្វង់​ខៀវ​ឲ្យ​ជាប់​ក្នុង​ចំណុច​កណ្ដាល​នៃ​អេក្រង់។</string>
@@ -138,6 +138,7 @@
     <string name="new_items">ធាតុ​ថ្មី %d</string>
     <string name="no_downloaded_apps">គ្មាន​កម្មវិធី​ដែល​បាន​ទាញ​យក</string>
     <string name="no_room_any_page">គ្មាន​កន្លែង​លើ​ទំព័រ​ណា​មួយ។</string>
+    <string name="no_space_page">គ្មាន​លំហ​លើ​ទំព័រ។ សាកល្បង​ថែម​ផ្លូវកាត់​ទៅ​ទំព័រ​ផ្សេង។</string>
     <string name="not_selected">មិន​បាន​ជ្រើស</string>
     <string name="ok">ព្រម</string>
     <string name="only_one_widget_instance_allowed">វីដជីត %s ត្រូវ​បាន​ថែម​ទៅ​គេហអេក្រង់​ហើយ។</string>
@@ -166,7 +167,7 @@
     <string name="quickoptions_add_to_secure_folder">"ថែម​ទៅ
 សឺមី​សន្តិសុខ"</string>
     <string name="quickoptions_app_info">ព័ត៌មាន​កម្មវិធី</string>
-    <string name="quickoptions_clear_badge">ជម្រះ​មេដាយ</string>
+    <string name="quickoptions_clear_badge">ជម្រះ​សញ្ញាលក្ខណ</string>
     <string name="quickoptions_disable">បិទ</string>
     <string name="quickoptions_sleep_alert">ការដាក់​កម្មវិធី​នេះ​ឲ្យ​គេង​នឹង​រារាំង​វា​មិន​ឲ្យ​ប្រើ​ថ្ម​នៅ​ផ្ទៃខាងក្រោយ។ កម្មវិធី​គេង​អាច​មិន​ទទួល​អាប់ដេត ឬ​ក៏​ផ្ញើ​ជូន​អ្នក​នូវ​ការជូនដំណឹង ប៉ុន្តែ​ពួកវា​នឹង​ភ្ញាក់ នៅពេល​អ្នក​បើក​ពួកវា។</string>
     <string name="quickoptions_uninstall">លុប</string>

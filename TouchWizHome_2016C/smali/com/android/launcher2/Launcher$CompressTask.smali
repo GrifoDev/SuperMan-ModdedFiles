@@ -114,14 +114,12 @@
 
     const/4 v7, 0x0
 
-    # getter for: Lcom/android/launcher2/Launcher;->mCaptureflag:Z
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$1200()Z
 
     move-result v9
 
     if-eqz v9, :cond_4
 
-    # getter for: Lcom/android/launcher2/Launcher;->mScreenBitmap:Landroid/graphics/Bitmap;
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$1300()Landroid/graphics/Bitmap;
 
     move-result-object v9
@@ -137,7 +135,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    # getter for: Lcom/android/launcher2/Launcher;->mScreenBitmap:Landroid/graphics/Bitmap;
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$1300()Landroid/graphics/Bitmap;
 
     move-result-object v9
@@ -150,7 +147,6 @@
 
     const/4 v9, 0x0
 
-    # setter for: Lcom/android/launcher2/Launcher;->mCaptureflag:Z
     invoke-static {v9}, Lcom/android/launcher2/Launcher;->access$1202(Z)Z
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_4

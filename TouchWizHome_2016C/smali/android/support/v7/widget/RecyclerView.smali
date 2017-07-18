@@ -1875,7 +1875,6 @@
 
     iget-object v3, p0, Landroid/support/v7/widget/RecyclerView;->mLayout:Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$LayoutManager;->mRequestedSimpleAnimations:Z
     invoke-static {v3}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->access$1700(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Z
 
     move-result v3
@@ -1899,14 +1898,12 @@
     move v3, v2
 
     :goto_2
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4, v3}, Landroid/support/v7/widget/RecyclerView$State;->access$1602(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     iget-object v3, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
     iget-object v4, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1600(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -1926,7 +1923,6 @@
     if-eqz v4, :cond_8
 
     :goto_3
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
     invoke-static {v3, v2}, Landroid/support/v7/widget/RecyclerView$State;->access$1402(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     return-void
@@ -2370,7 +2366,6 @@
 
     const/4 v2, 0x1
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v1, v2}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->markKnownViewsInvalid()V
@@ -3037,7 +3032,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1600(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -3083,12 +3077,10 @@
 
     iget-object v6, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
     invoke-static {v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1400(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v6
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1502(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     move-object/from16 v0, p0
@@ -3117,7 +3109,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1600(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -3242,7 +3233,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1400(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -3342,7 +3332,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1200(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v15
@@ -3353,7 +3342,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     move-object/from16 v0, p0
@@ -3374,7 +3362,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4, v15}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     new-instance v12, Landroid/support/v4/util/ArrayMap;
@@ -3524,7 +3511,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1002(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     move-object/from16 v0, p0
@@ -3533,7 +3519,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1502(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     move-object/from16 v0, p0
@@ -3556,7 +3541,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     const/4 v4, 0x0
@@ -3573,7 +3557,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1600(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -3589,14 +3572,12 @@
     const/4 v4, 0x1
 
     :goto_8
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v6, v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1602(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1600(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v4
@@ -4263,7 +4244,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$Recycler;->mChangedScrap:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$Recycler;->access$1800(Landroid/support/v7/widget/RecyclerView$Recycler;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -4274,7 +4254,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$Recycler;->mChangedScrap:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$Recycler;->access$1800(Landroid/support/v7/widget/RecyclerView$Recycler;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -4334,7 +4313,6 @@
 
     iget v6, v6, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1902(Landroid/support/v7/widget/RecyclerView$State;I)I
 
     const/4 v4, 0x0
@@ -4349,7 +4327,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mRunSimpleAnimations:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1602(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     move-object/from16 v0, p0
@@ -4358,7 +4335,6 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1402(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     const/4 v4, 0x0
@@ -4373,14 +4349,12 @@
 
     const/4 v6, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$LayoutManager;->mRequestedSimpleAnimations:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->access$1702(Landroid/support/v7/widget/RecyclerView$LayoutManager;Z)Z
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$Recycler;->mChangedScrap:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$Recycler;->access$1800(Landroid/support/v7/widget/RecyclerView$Recycler;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -4391,7 +4365,6 @@
 
     iget-object v4, v0, Landroid/support/v7/widget/RecyclerView;->mRecycler:Landroid/support/v7/widget/RecyclerView$Recycler;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$Recycler;->mChangedScrap:Ljava/util/ArrayList;
     invoke-static {v4}, Landroid/support/v7/widget/RecyclerView$Recycler;->access$1800(Landroid/support/v7/widget/RecyclerView$Recycler;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -6281,7 +6254,6 @@
 
     const/4 v4, 0x1
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v3, v4}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     :cond_0
@@ -6373,7 +6345,6 @@
 
     const/4 v7, 0x1
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v6, v7}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     goto :goto_2
@@ -6439,7 +6410,6 @@
 
     iget-object v4, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     :cond_0
@@ -6461,7 +6431,6 @@
 
     iget-object v4, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mStructureChanged:Z
     invoke-static {v4, v6}, Landroid/support/v7/widget/RecyclerView$State;->access$1202(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     goto :goto_1
@@ -6975,7 +6944,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # getter for: Landroid/support/v7/widget/RecyclerView$State;->mRunPredictiveAnimations:Z
     invoke-static {v0}, Landroid/support/v7/widget/RecyclerView$State;->access$1400(Landroid/support/v7/widget/RecyclerView$State;)Z
 
     move-result v0
@@ -6986,7 +6954,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$State;->access$1502(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     :goto_0
@@ -7019,7 +6986,6 @@
     :goto_2
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
     invoke-static {v0, v3}, Landroid/support/v7/widget/RecyclerView$State;->access$1502(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     return-void
@@ -7031,7 +6997,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView;->mState:Landroid/support/v7/widget/RecyclerView$State;
 
-    # setter for: Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
     invoke-static {v0, v3}, Landroid/support/v7/widget/RecyclerView$State;->access$1502(Landroid/support/v7/widget/RecyclerView$State;Z)Z
 
     goto :goto_0
@@ -7109,7 +7074,6 @@
 
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView;->mPendingSavedState:Landroid/support/v7/widget/RecyclerView$SavedState;
 
-    # invokes: Landroid/support/v7/widget/RecyclerView$SavedState;->copyFrom(Landroid/support/v7/widget/RecyclerView$SavedState;)V
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView$SavedState;->access$1300(Landroid/support/v7/widget/RecyclerView$SavedState;Landroid/support/v7/widget/RecyclerView$SavedState;)V
 
     :goto_0

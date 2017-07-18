@@ -42,9 +42,9 @@
     <string name="app_unlocked_toast">Kategoria %s odblokowana.</string>
     <string name="apply">Zastosuj</string>
     <string name="available_galaxyapps">Dostympne w Galaxy Apps</string>
-    <string name="badge_manage_explain">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
-    <string name="badge_manage_summary">Wybierz, czy odznaczenia poszczególnych aplikacji mają być wyświetlane.</string>
-    <string name="badge_manage_title">Zarządzaj odznaczeniami aplikacji</string>
+    <string name="badge_manage_explain">Ôbier, eli ôznŏczynia kŏżdyj jednyj aplikacyji majōm być pokŏzywane.</string>
+    <string name="badge_manage_summary">Ôbier, eli ôznŏczynia kŏżdyj jednyj aplikacyji majōm być pokŏzywane.</string>
+    <string name="badge_manage_title">Reskyruj ôdznŏczyniami aplikacyje</string>
     <string name="cancel">Pociep</string>
     <string name="change_home_screen_settings">Zamiyń sztalow. ekr. sztart.</string>
     <string name="change_home_screen_settings_info">Ta aplikacyjo poradzi zamiyniać skrōty i sztalowanie ekranu sztartowego.</string>
@@ -58,7 +58,7 @@
     <string name="direct_dial">Bezpośr. Ôbieraniy</string>
     <string name="direct_message">Wiad.bezpośredniŏ</string>
     <string name="disable_message">Aplikacyjo %1$s i wszyjske fōnkcyje śniōm pożyniōne bydōm wyłōnczōne. Coby drugi rŏz załōnczyć aplikacyjo, idź do menu Sztalowanie > Aplikacyje, a potym ôbier aplikacyjo %2$s.</string>
-    <string name="disable_message_att">Aplikacja %s i wszystkie funkcje z nią związane zostaną wyłączone. Aby włączyć ją ponownie, przejdź do menu Ustawienia > Urządzenie > Aplikacje > Menedżer aplikacji.</string>
+    <string name="disable_message_att">Aplikacyjŏ %s i wszyjske fōnkcyje z niōm pożyniōne ôstanōm wyłōnczōne. Coby jeszcze rŏz załōnczyć aplikacyjŏ, przelyź do menu Sztalowanie > Maszina > Aplikacyjŏ > Mynedżer aplikacyje.</string>
     <string name="disable_message_vzw">Aplikacyjŏ %s i wszyjske fōnkcyje z niōm zwiōnzane ôstanōm wyłōnczōne. Coby załōnczyć jōm jeszcze rŏz, przelyź do menu Sztalowanie > Aplikacyje > Mynedżer aplikacyjōw.</string>
     <string name="disable_messange_knox">Aplikacyjo %s i wszyjske fōnkcyje śniōm pożyniōne bydōm wyłōnczōne. Coby załōnczyć ôna drugi rŏz, przelyź do menu Sztalowanie KNOX > Mynedżer aplikacyji.</string>
     <string name="disable_title">Wyłōncz aplikacyjŏ</string>
@@ -140,11 +140,12 @@ aplikacyje"</string>
     <string name="new_items">Liczba nowych elymyntōw: %d</string>
     <string name="no_downloaded_apps">Niy ma zebrŏnych aplikacyji</string>
     <string name="no_room_any_page">Niy ma miyjsca na żŏdnyj zajcie.</string>
+    <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
     <string name="not_selected">Niyŏbrane</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s je już przidany do ekranu sztartowego.</string>
     <string name="open_folder">Ôdewrzij katalog</string>
-    <string name="open_folder_VZW">Wyświetl aplikacje</string>
+    <string name="open_folder_VZW">Pokŏż aplikacyje</string>
     <string name="option_menu_contact_up">Pogŏdej z nami</string>
     <string name="option_tray_screengrid">Siatka ekranu</string>
     <string name="options_home_set_theme">Motywy</string>
@@ -163,7 +164,7 @@ aplikacyje"</string>
     <string name="permlab_install_widget">Przidej widgety</string>
     <string name="quick_contact">Kōntakt</string>
     <string name="quick_options_help_text">Szibnij palcym po skrōcie aplikacyji na spodek, coby pokŏzać ônyj gibke ôpcyje. Gibke ôpcyje ulekszajōm reskyrowanie aplikacyjami.</string>
-    <string name="quickoption_sleep">Uśpij</string>
+    <string name="quickoption_sleep">Spanie</string>
     <string name="quickoptions_add_apps">Przidowanie aplikacyji</string>
     <string name="quickoptions_add_to_secure_folder">"Przidej do
 Bezp. katalog"</string>
@@ -182,9 +183,9 @@ Bezp. katalog"</string>
     <string name="remove_app_folder_confirm">Wyciep</string>
     <string name="remove_app_folder_confirm_VZW">Wyciepnij</string>
     <string name="remove_app_folder_message">Katalog %s bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
-    <string name="remove_app_folder_message_VZW">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
+    <string name="remove_app_folder_message_VZW">Katalog %s ôstanie wyciepniynty. Aplikacyje, kere w nim sōm bydōm dalij dostympne na kōńcu panulu aplikacje.</string>
     <string name="remove_app_folder_message_no_title">Ten katalog zostanie usunięty. Aplikacje w tym katalogu nie zostaną odinstalowane.</string>
-    <string name="remove_app_folder_message_no_title_VZW">Ten katalog zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na końcu zasobnika aplikacji.</string>
+    <string name="remove_app_folder_message_no_title_VZW">Tyn katalog ôstanie wyciepniynty. Aplikacyje, kere w nim sōm bydōm dalij dostympne na kōńcu panelu aplikacyje.</string>
     <string name="remove_app_folder_title">Wyciep katalog</string>
     <string name="remove_app_folder_title_VZW">Wyciep katalog</string>
     <string name="remove_home_folder_message">Katalog %s bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
@@ -240,10 +241,10 @@ Bezp. katalog"</string>
     <string name="widget_duplicate">Widget %s je już na ekranie sztartowym.</string>
     <string name="work_folder_name">Robota</string>
     <string name="workspace_empty_message">Tyknij i przitrzimej ekran coby przidać rzeczy</string>
-    <string name="zeropage_briefing_title">Skrót informacji</string>
-    <string name="zeropage_download">Pobierz</string>
-    <string name="zeropage_download_msg">Do korzystania z tej funkcji należy zainstalować aplikację %1$s. Dotknij opcji POBIERZ, aby pobrać i zainstalować %2$s.</string>
+    <string name="zeropage_briefing_title">Skrōt info</string>
+    <string name="zeropage_download">Zebiyr</string>
+    <string name="zeropage_download_msg">Do używaniŏ tyj fōnkcyji trza zainsztalować aplikacyjŏ %1$s. Tyknij ôpcyji ZEBIYR, coby zebrać i zainsztalować %2$s.</string>
     <string name="zeropage_notice_msg">Usłga informacyjno %s je terŏzki do chycynio. Coby ônyj używać we plac Flipboard Briefing, tyknij ôpcyji OK.</string>
     <string name="zeropage_setting_dialog_no">Pociep</string>
-    <string name="zeropage_sohu_title">Wiadomości Sohu</string>
+    <string name="zeropage_sohu_title">Wiadōmości Sohu</string>
 </resources>

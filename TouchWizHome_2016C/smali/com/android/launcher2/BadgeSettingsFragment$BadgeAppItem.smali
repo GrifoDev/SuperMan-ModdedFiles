@@ -84,7 +84,6 @@
 
     iput-object v2, p0, Lcom/android/launcher2/BadgeSettingsFragment$BadgeAppItem;->className:Ljava/lang/String;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mBadges_Hidden:Ljava/util/List;
     invoke-static {p1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$400(Lcom/android/launcher2/BadgeSettingsFragment;)Ljava/util/List;
 
     move-result-object v2
@@ -99,7 +98,6 @@
 
     if-nez v2, :cond_0
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mBadgeSettings:I
     invoke-static {p1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$500(Lcom/android/launcher2/BadgeSettingsFragment;)I
 
     move-result v2
@@ -112,7 +110,6 @@
     :cond_1
     iput-boolean v0, p0, Lcom/android/launcher2/BadgeSettingsFragment$BadgeAppItem;->hidden:Z
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mBadges_Hidden:Ljava/util/List;
     invoke-static {p1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$400(Lcom/android/launcher2/BadgeSettingsFragment;)Ljava/util/List;
 
     move-result-object v0
@@ -127,7 +124,6 @@
 
     if-nez v0, :cond_2
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mBadgeSettings:I
     invoke-static {p1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$500(Lcom/android/launcher2/BadgeSettingsFragment;)I
 
     move-result v0

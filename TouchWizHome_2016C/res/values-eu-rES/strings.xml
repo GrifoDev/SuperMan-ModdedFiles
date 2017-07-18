@@ -138,6 +138,7 @@
     <string name="new_items">%d elementu berri</string>
     <string name="no_downloaded_apps">Deskargatutako aplikaziorik ez</string>
     <string name="no_room_any_page">Ez dago espaziorik inolako orritan.</string>
+    <string name="no_space_page">Ezin dago tokirik orrian. Saiatu lasterbidea beste orri batean gehitzen.</string>
     <string name="not_selected">Ez da hautatu</string>
     <string name="ok">Ados</string>
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>

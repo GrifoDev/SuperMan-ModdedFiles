@@ -54,7 +54,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Landroid/support/v7/widget/RecyclerView;->mPostedAnimatorRunner:Z
     invoke-static {v0, v1}, Landroid/support/v7/widget/RecyclerView;->access$502(Landroid/support/v7/widget/RecyclerView;Z)Z
 
     return-void

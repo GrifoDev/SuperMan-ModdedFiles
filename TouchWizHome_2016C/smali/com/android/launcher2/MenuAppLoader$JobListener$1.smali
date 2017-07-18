@@ -45,7 +45,6 @@
 
     if-eqz v1, :cond_3
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->access$300()Z
 
     move-result v1
@@ -109,7 +108,6 @@
 
     iget-object v1, v1, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadJobs:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$100(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -121,7 +119,6 @@
 
     iget-object v1, v1, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadJobs:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$100(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -136,7 +133,6 @@
 
     iget-object v1, v1, Lcom/android/launcher2/MenuAppLoader$JobListener;->this$0:Lcom/android/launcher2/MenuAppLoader;
 
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->mLoadTasks:Ljava/util/ArrayList;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppLoader;->access$200(Lcom/android/launcher2/MenuAppLoader;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -150,7 +146,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    # setter for: Lcom/android/launcher2/MenuAppLoader;->mIsLoaded:Z
     invoke-static {v0}, Lcom/android/launcher2/MenuAppLoader;->access$402(Z)Z
 
     :cond_2
@@ -168,7 +163,6 @@
     throw v1
 
     :cond_3
-    # getter for: Lcom/android/launcher2/MenuAppLoader;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/MenuAppLoader;->access$300()Z
 
     move-result v1

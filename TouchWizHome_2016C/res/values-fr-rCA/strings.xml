@@ -139,6 +139,7 @@ applications"</string>
     <string name="new_items">%d nouveaux éléments</string>
     <string name="no_downloaded_apps">Aucune application téléchargée</string>
     <string name="no_room_any_page">Pas de place disponible sur les pages.</string>
+    <string name="no_space_page">"Aucun espace sur la page. Essayez d'ajouter un raccourci vers une autre page."</string>
     <string name="not_selected">Non sélectionné</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Le widget %s a déjà été ajouté à l'écran d'accueil."</string>

@@ -138,6 +138,7 @@
     <string name="new_items">%d жаңы нерсе</string>
     <string name="no_downloaded_apps">Жүктөлгөн колдонмолор жок</string>
     <string name="no_room_any_page">Эч бир бетте бөлмө жок.</string>
+    <string name="no_space_page">Баракчада бош орун жок. Башка бетке тез чакырманы кошуп көрүңүз.</string>
     <string name="not_selected">Тандалган жок</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">%s виджет башкы экранга эчак кошулган.</string>

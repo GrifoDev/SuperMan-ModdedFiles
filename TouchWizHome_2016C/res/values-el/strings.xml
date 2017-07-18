@@ -138,6 +138,7 @@
     <string name="new_items">%d νέα στοιχεία</string>
     <string name="no_downloaded_apps">Δεν έχει γίνει λήψη εφαρμογών</string>
     <string name="no_room_any_page">Δεν υπάρχει χώρος σε καμία σελίδα.</string>
+    <string name="no_space_page">Δεν υπάρχει χώρος στη σελίδα. Δοκιμάστε να προσθέσετε τη συντόμευση σε άλλη σελίδα.</string>
     <string name="not_selected">Δεν έχει επιλεγεί</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Το widget %s προστέθηκε ήδη στην αρχική οθόνη.</string>

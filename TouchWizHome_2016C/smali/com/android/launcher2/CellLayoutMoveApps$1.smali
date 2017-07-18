@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutMoveApps$1;->this$0:Lcom/android/launcher2/CellLayoutMoveApps;
 
-    # getter for: Lcom/android/launcher2/CellLayoutMoveApps;->mIntroTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/CellLayoutMoveApps;->access$000(Lcom/android/launcher2/CellLayoutMoveApps;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -62,7 +61,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/CellLayoutMoveApps$1;->this$0:Lcom/android/launcher2/CellLayoutMoveApps;
 
-    # getter for: Lcom/android/launcher2/CellLayoutMoveApps;->mIntroTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/launcher2/CellLayoutMoveApps;->access$000(Lcom/android/launcher2/CellLayoutMoveApps;)Landroid/widget/TextView;
 
     move-result-object v0

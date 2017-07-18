@@ -43,33 +43,74 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    iget-object v1, p0, Lcom/android/launcher2/LauncherModel$24;->val$apps:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$24;->val$apps:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/launcher2/HomeShortcutItem;
 
-    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$24;->val$homefolder:Lcom/android/launcher2/HomeFolderItem;
+    iget-object v3, p0, Lcom/android/launcher2/LauncherModel$24;->val$homefolder:Lcom/android/launcher2/HomeFolderItem;
 
-    invoke-virtual {v2, v0}, Lcom/android/launcher2/HomeFolderItem;->addItem(Lcom/android/launcher2/BaseItem;)V
+    invoke-virtual {v3, v0}, Lcom/android/launcher2/HomeFolderItem;->addItem(Lcom/android/launcher2/BaseItem;)V
 
     goto :goto_0
 
     :cond_0
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$24;->val$homefolder:Lcom/android/launcher2/HomeFolderItem;
+
+    invoke-virtual {v2}, Lcom/android/launcher2/HomeFolderItem;->isOpened()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher2/LauncherModel$24;->val$homefolder:Lcom/android/launcher2/HomeFolderItem;
+
+    iget-object v2, v2, Lcom/android/launcher2/HomeFolderItem;->listeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_1
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher2/HomeFolderItem$FolderListener;
+
+    instance-of v3, v1, Lcom/android/launcher2/Folder;
+
+    if-eqz v3, :cond_1
+
+    check-cast v1, Lcom/android/launcher2/Folder;
+
+    invoke-virtual {v1}, Lcom/android/launcher2/Folder;->notifyDataSetChanged()V
+
+    goto :goto_1
+
+    :cond_2
     return-void
 .end method

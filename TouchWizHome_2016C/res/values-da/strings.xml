@@ -139,6 +139,7 @@ apps"</string>
     <string name="new_items">%d nye elementer</string>
     <string name="no_downloaded_apps">Ingen downloadede applikationer</string>
     <string name="no_room_any_page">Ikke plads på nogen side.</string>
+    <string name="no_space_page">Der er ikke plads på siden. Prøv at tilføje en genvej på en anden side.</string>
     <string name="not_selected">Ikke valgt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Widget'en %s er allerede blevet føjet til startskærmen."</string>

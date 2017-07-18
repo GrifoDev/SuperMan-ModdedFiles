@@ -82,7 +82,6 @@
 
     invoke-virtual {p4, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    # getter for: Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->access$000(Lcom/android/launcher2/AvailableShortcutWidgetListProvider;)Landroid/content/Context;
 
     move-result-object v2
@@ -105,7 +104,6 @@
 
     if-eqz v2, :cond_0
 
-    # getter for: Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
     invoke-static {p1}, Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->access$100(Lcom/android/launcher2/AvailableShortcutWidgetListProvider;)Lcom/android/launcher2/PkgResCache;
 
     move-result-object v2
@@ -119,7 +117,6 @@
     invoke-virtual {v2, v3, v4}, Lcom/android/launcher2/PkgResCache;->remove(Landroid/content/ComponentName;Lcom/android/launcher2/compat/UserHandleCompat;)V
 
     :cond_0
-    # getter for: Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->mPkgResCache:Lcom/android/launcher2/PkgResCache;
     invoke-static {p1}, Lcom/android/launcher2/AvailableShortcutWidgetListProvider;->access$100(Lcom/android/launcher2/AvailableShortcutWidgetListProvider;)Lcom/android/launcher2/PkgResCache;
 
     move-result-object v2

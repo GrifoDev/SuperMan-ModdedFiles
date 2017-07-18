@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenGridChangeHelper$1;->this$0:Lcom/android/launcher2/HomeScreenGridChangeHelper;
 
-    # getter for: Lcom/android/launcher2/HomeScreenGridChangeHelper;->mQuickViewWorkspace:Lcom/android/launcher2/QuickViewWorkspace;
     invoke-static {v0}, Lcom/android/launcher2/HomeScreenGridChangeHelper;->access$000(Lcom/android/launcher2/HomeScreenGridChangeHelper;)Lcom/android/launcher2/QuickViewWorkspace;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenGridChangeHelper$1;->this$0:Lcom/android/launcher2/HomeScreenGridChangeHelper;
 
-    # invokes: Lcom/android/launcher2/HomeScreenGridChangeHelper;->addNewPageOnChangingGrid()V
     invoke-static {v0}, Lcom/android/launcher2/HomeScreenGridChangeHelper;->access$100(Lcom/android/launcher2/HomeScreenGridChangeHelper;)V
 
     const/4 v0, 0x0

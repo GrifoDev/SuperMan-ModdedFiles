@@ -71,7 +71,6 @@
 
     const/4 v2, 0x1
 
-    # invokes: Lcom/android/launcher2/QuickViewWorkspace;->showZeroPageDownloadDialog(Lcom/android/launcher2/ZeroPageListItem;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/launcher2/QuickViewWorkspace;->access$500(Lcom/android/launcher2/QuickViewWorkspace;Lcom/android/launcher2/ZeroPageListItem;Z)V
 
     :cond_0

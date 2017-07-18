@@ -138,6 +138,7 @@
     <string name="new_items">%d عناصر جديدة</string>
     <string name="no_downloaded_apps">لا توجد تطبيقات تم تنزيلها</string>
     <string name="no_room_any_page">لا توجد مساحة بأية صفحة.</string>
+    <string name="no_space_page">ما من مساحة على الصفحة. حاول إضافة اختصار إلى صفحة أخرى.</string>
     <string name="not_selected">لم يتم التحديد</string>
     <string name="ok">موافق</string>
     <string name="only_one_widget_instance_allowed">تمت إضافة التطبيق المصغر %s إلى الشاشة الرئيسية بالفعل.</string>

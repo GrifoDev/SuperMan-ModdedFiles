@@ -51,7 +51,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuTitleBarManager$6;->this$0:Lcom/android/launcher2/MenuTitleBarManager;
 
-    # getter for: Lcom/android/launcher2/MenuTitleBarManager;->mTabHost:Lcom/android/launcher2/MenuView;
     invoke-static {v1}, Lcom/android/launcher2/MenuTitleBarManager;->access$100(Lcom/android/launcher2/MenuTitleBarManager;)Lcom/android/launcher2/MenuView;
 
     move-result-object v1

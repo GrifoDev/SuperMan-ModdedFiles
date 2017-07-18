@@ -138,6 +138,7 @@
     <string name="new_items">%d (na) bagong item</string>
     <string name="no_downloaded_apps">Walang mga na-download na application.</string>
     <string name="no_room_any_page">Walang lugar sa anumang pahina.</string>
+    <string name="no_space_page">Walang espasyo sa page. Subukang magdagdag ng shortcut sa ibang page.</string>
     <string name="not_selected">Hindi pinili</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Naidagdag na sa home screen ang %s widget.</string>

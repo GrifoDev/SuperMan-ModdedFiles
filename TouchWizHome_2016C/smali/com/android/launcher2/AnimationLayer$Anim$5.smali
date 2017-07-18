@@ -241,7 +241,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/AnimationLayer$Anim$5;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # getter for: Lcom/android/launcher2/AnimationLayer$Anim;->mShadowFadeStarted:Z
     invoke-static {v7}, Lcom/android/launcher2/AnimationLayer$Anim;->access$300(Lcom/android/launcher2/AnimationLayer$Anim;)Z
 
     move-result v7
@@ -277,7 +276,6 @@
 
     iget-object v7, p0, Lcom/android/launcher2/AnimationLayer$Anim$5;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # setter for: Lcom/android/launcher2/AnimationLayer$Anim;->mShadowFadeStarted:Z
     invoke-static {v7, v8}, Lcom/android/launcher2/AnimationLayer$Anim;->access$302(Lcom/android/launcher2/AnimationLayer$Anim;Z)Z
 
     iget-object v7, p0, Lcom/android/launcher2/AnimationLayer$Anim$5;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;

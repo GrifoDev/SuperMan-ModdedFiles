@@ -216,3 +216,19 @@
 
     goto :goto_0
 .end method
+
+.method public isUserUnlocked(Lcom/android/launcher2/compat/UserHandleCompat;)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher2/compat/UserManagerCompatVL;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {p1}, Lcom/android/launcher2/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/os/UserManager;->isUserUnlocked(Landroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method

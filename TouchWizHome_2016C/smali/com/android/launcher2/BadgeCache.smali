@@ -316,7 +316,7 @@
 .end method
 
 .method updateBadgeCounts()Ljava/util/Map;
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -382,7 +382,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -390,6 +390,37 @@
 
     check-cast v3, Lcom/android/launcher2/compat/UserHandleCompat;
 
+    invoke-virtual {v4, v3}, Lcom/android/launcher2/compat/UserManagerCompat;->isUserUnlocked(Lcom/android/launcher2/compat/UserHandleCompat;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    const-string v6, "BadgeCache"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, " is locked, skip updateBadgeCounts for this user"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_2
     invoke-virtual {v3}, Lcom/android/launcher2/compat/UserHandleCompat;->hashCode()I
 
     move-result v6
@@ -398,7 +429,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     invoke-static {}, Lcom/android/launcher2/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher2/compat/UserHandleCompat;
 
@@ -410,7 +441,7 @@
 
     if-eqz v6, :cond_1
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0, v3}, Lcom/android/launcher2/BadgeCache;->updateBadgeCounts(Lcom/android/launcher2/compat/UserHandleCompat;)Ljava/util/Map;
 
     move-result-object v6
@@ -421,7 +452,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const-string v5, "BadgeCache"
 
     new-instance v6, Ljava/lang/StringBuilder;

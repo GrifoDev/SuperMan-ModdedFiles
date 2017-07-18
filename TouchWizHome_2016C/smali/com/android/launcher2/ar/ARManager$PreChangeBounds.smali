@@ -165,7 +165,6 @@
     :cond_2
     iget-object v3, p0, Lcom/android/launcher2/ar/ARManager$PreChangeBounds;->this$0:Lcom/android/launcher2/ar/ARManager;
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mPrevLayoutValues:Landroid/util/ArrayMap;
     invoke-static {v3}, Lcom/android/launcher2/ar/ARManager;->access$000(Lcom/android/launcher2/ar/ARManager;)Landroid/util/ArrayMap;
 
     move-result-object v4
@@ -175,7 +174,6 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/launcher2/ar/ARManager$PreChangeBounds;->this$0:Lcom/android/launcher2/ar/ARManager;
 
-    # getter for: Lcom/android/launcher2/ar/ARManager;->mPrevLayoutValues:Landroid/util/ArrayMap;
     invoke-static {v3}, Lcom/android/launcher2/ar/ARManager;->access$000(Lcom/android/launcher2/ar/ARManager;)Landroid/util/ArrayMap;
 
     move-result-object v3

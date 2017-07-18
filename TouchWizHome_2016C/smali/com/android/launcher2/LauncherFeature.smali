@@ -1413,7 +1413,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c000b
+    const v1, 0x7f0d000b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1421,7 +1421,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportIconShadow:Z
 
-    const v1, 0x7f0c0021
+    const v1, 0x7f0d0021
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1429,7 +1429,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportSearchTextColorLight:Z
 
-    const v1, 0x7f0c0020
+    const v1, 0x7f0d0020
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1437,7 +1437,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportFolderGradation:Z
 
-    const v1, 0x7f0c001c
+    const v1, 0x7f0d001c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1445,7 +1445,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportMenuIconSizeChanged:Z
 
-    const v1, 0x7f0c0001
+    const v1, 0x7f0d0001
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1453,7 +1453,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportStatusBarMarginDisable:Z
 
-    const v1, 0x7f0c0024
+    const v1, 0x7f0d0024
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1461,7 +1461,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportRTLLayout:Z
 
-    const v1, 0x7f0c000c
+    const v1, 0x7f0d000c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1469,7 +1469,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportFlexibleGrid:Z
 
-    const v1, 0x7f0c0012
+    const v1, 0x7f0d0012
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1477,7 +1477,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportAppSearch:Z
 
-    const v1, 0x7f0c0014
+    const v1, 0x7f0d0014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1485,7 +1485,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportSearchbarInApps:Z
 
-    const v1, 0x7f0c0002
+    const v1, 0x7f0d0002
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1505,7 +1505,7 @@
     :goto_0
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportRotate:Z
 
-    const v1, 0x7f0c0015
+    const v1, 0x7f0d0015
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1513,7 +1513,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportMoveApps:Z
 
-    const v1, 0x7f0c0025
+    const v1, 0x7f0d0025
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1521,7 +1521,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportBackgroundBlur:Z
 
-    const v1, 0x7f0c0026
+    const v1, 0x7f0d0026
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1529,7 +1529,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportBackgroundBlurByWindow:Z
 
-    const v1, 0x7f0c0010
+    const v1, 0x7f0d0010
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1537,7 +1537,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportFolderMerge:Z
 
-    const v1, 0x7f0c000e
+    const v1, 0x7f0d000e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1545,7 +1545,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportAppSearchDrag:Z
 
-    const v1, 0x7f0c000d
+    const v1, 0x7f0d000d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1553,7 +1553,7 @@
 
     sput-boolean v1, Lcom/android/launcher2/LauncherFeature;->mSupportNewColorInvert:Z
 
-    const v1, 0x7f0c0003
+    const v1, 0x7f0d0003
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

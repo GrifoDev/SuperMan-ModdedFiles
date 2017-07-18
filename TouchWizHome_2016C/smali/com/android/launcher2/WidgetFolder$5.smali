@@ -37,7 +37,6 @@
 .method public run(Lcom/android/launcher2/WidgetFolder$AppsCustomizeAsyncTask;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     .locals 4
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/WidgetFolder;->access$400()Ljava/lang/String;
 
     move-result-object v1
@@ -70,7 +69,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v2
@@ -105,7 +103,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->items:Ljava/util/List;
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1500(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)Ljava/util/List;
 
     move-result-object v2
@@ -148,7 +145,6 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher2/WidgetFolder$5;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mRunningTasks:Ljava/util/List;
     invoke-static {v0}, Lcom/android/launcher2/WidgetFolder;->access$1600(Lcom/android/launcher2/WidgetFolder;)Ljava/util/List;
 
     move-result-object v0
@@ -177,7 +173,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v1
@@ -211,7 +206,6 @@
 
     const-string v1, "prepareLoadWidgetPreviewsTask"
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->onSyncWidgetPageItems(Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     invoke-static {v0, v1, p2}, Lcom/android/launcher2/WidgetFolder;->access$1200(Lcom/android/launcher2/WidgetFolder;Ljava/lang/String;Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -228,7 +222,6 @@
 
     move-result-object v0
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v1
@@ -264,7 +257,6 @@
 
     move-result-object v1
 
-    # getter for: Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->page:I
     invoke-static {p2}, Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;->access$1400(Lcom/android/launcher2/WidgetFolder$AsyncTaskPageData;)I
 
     move-result v2

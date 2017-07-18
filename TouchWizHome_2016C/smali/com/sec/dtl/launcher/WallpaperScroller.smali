@@ -96,7 +96,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->update(FF)V
     invoke-static {v0, v2, v2}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$200(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;FF)V
 
     :cond_0
@@ -141,7 +140,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->update(FF)V
     invoke-static {v0, v3, v3}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$200(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;FF)V
 
     :cond_0
@@ -193,7 +191,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->setWindowToken(Landroid/os/IBinder;)V
     invoke-static {v0, p1}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$300(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;Landroid/os/IBinder;)V
 
     :cond_0
@@ -221,7 +218,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->shutdown()V
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$400(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;)V
 
     iput-object v2, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mTiltUpdateHandler:Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;
@@ -244,7 +240,6 @@
 
     iget-object v0, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mThread:Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->shutdown()V
     invoke-static {v0}, Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;->access$500(Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;)V
 
     iput-object v2, p0, Lcom/sec/dtl/launcher/WallpaperScroller;->mThread:Lcom/sec/dtl/launcher/WallpaperScroller$WallpaperThread;
@@ -341,7 +336,6 @@
 
     move v6, v5
 
-    # invokes: Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->update(FFFFFF)V
     invoke-static/range {v0 .. v6}, Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;->access$100(Lcom/sec/dtl/launcher/WallpaperScroller$TiltUpdateHandler;FFFFFF)V
 
     :cond_1

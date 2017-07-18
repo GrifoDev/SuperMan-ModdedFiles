@@ -59,7 +59,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/launcher2/searchapp/SearchAppListFragment;->setBackgroundAndStatusbar(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$200(Lcom/android/launcher2/searchapp/SearchAppListFragment;Z)V
 
     return-void

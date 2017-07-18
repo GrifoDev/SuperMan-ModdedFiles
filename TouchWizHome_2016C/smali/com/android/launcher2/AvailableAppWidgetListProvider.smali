@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public checkAppWidgetSingleInstanceList()V
-    .locals 14
+    .locals 15
 
     const/4 v5, 0x1
 
@@ -84,7 +84,9 @@
 
     aput-object v1, v2, v4
 
-    monitor-enter p0
+    sget-object v11, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetListLock:Ljava/lang/Object;
+
+    monitor-enter v11
 
     :try_start_0
     sget-object v1, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
@@ -95,17 +97,17 @@
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v12
 
     :cond_0
     :goto_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
@@ -124,31 +126,31 @@
 
     const/4 v5, 0x0
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "%component="
+    const-string v14, "%component="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string v13, ";%"
+    const-string v14, ";%"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
-    aput-object v12, v4, v5
+    aput-object v13, v4, v5
 
     const/4 v5, 0x0
 
@@ -214,7 +216,7 @@
     :catchall_0
     move-exception v1
 
-    monitor-exit p0
+    monitor-exit v11
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -247,17 +249,17 @@
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v12
 
     :cond_4
     :goto_2
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_7
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v9
 
@@ -276,31 +278,31 @@
 
     const/4 v5, 0x0
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "%component="
+    const-string v14, "%component="
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string v13, "/%"
+    const-string v14, "/%"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v13
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
-    aput-object v12, v4, v5
+    aput-object v13, v4, v5
 
     const/4 v5, 0x0
 
@@ -381,7 +383,7 @@
     throw v1
 
     :cond_7
-    monitor-exit p0
+    monitor-exit v11
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
@@ -565,7 +567,7 @@
 .end method
 
 .method public getAvailableWidgets()Ljava/util/List;
-    .locals 23
+    .locals 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -976,7 +978,9 @@
 
     move-result-object v14
 
-    monitor-enter p0
+    sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetListLock:Ljava/lang/Object;
+
+    monitor-enter v20
 
     if-eqz v14, :cond_a
 
@@ -995,9 +999,9 @@
     :goto_3
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_a
+    if-eqz v21, :cond_a
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1009,88 +1013,88 @@
 
     iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v20, v0
-
-    iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
     move-object/from16 v21, v0
 
     move-object/from16 v0, v21
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v21, v0
 
-    move-object/from16 v0, v20
+    iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    move-object/from16 v1, v21
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
 
     invoke-direct {v9, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz v9, :cond_9
 
-    sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
-
-    invoke-virtual {v9}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {v20 .. v21}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-nez v20, :cond_9
-
-    const-string v20, "AvailableAppWidgetListProvider"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v22, "This widget is single instance - "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    sget-object v21, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
 
     invoke-virtual {v9}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
     move-result-object v22
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result-object v21
+    move-result v21
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v21, :cond_9
 
-    move-result-object v21
+    const-string v21, "AvailableAppWidgetListProvider"
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v23, "This widget is single instance - "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
 
     invoke-virtual {v9}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v23
 
-    new-instance v22, Ljava/util/HashMap;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/HashMap;-><init>()V
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v22}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v21, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetList:Ljava/util/HashMap;
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v22
+
+    new-instance v23, Ljava/util/HashMap;
+
+    invoke-direct/range {v23 .. v23}, Ljava/util/HashMap;-><init>()V
+
+    invoke-virtual/range {v21 .. v23}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_3
 
     :catchall_0
     move-exception v19
 
-    monitor-exit p0
+    monitor-exit v20
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1130,9 +1134,9 @@
     :goto_4
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v20
+    move-result v21
 
-    if-eqz v20, :cond_c
+    if-eqz v21, :cond_c
 
     invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1140,35 +1144,7 @@
 
     check-cast v5, Landroid/content/pm/ResolveInfo;
 
-    sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
-
-    iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    invoke-virtual/range {v20 .. v21}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v20
-
-    if-nez v20, :cond_b
-
-    const-string v20, "AvailableAppWidgetListProvider"
-
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v22, "This widget is single instance package - "
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
+    sget-object v21, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
 
     iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -1180,38 +1156,66 @@
 
     move-object/from16 v22, v0
 
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v21 .. v22}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result-object v21
+    move-result v21
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v21, :cond_b
 
-    move-result-object v21
+    const-string v21, "AvailableAppWidgetListProvider"
 
-    invoke-static/range {v20 .. v21}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    sget-object v20, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v23, "This widget is single instance package - "
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
 
     iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    move-object/from16 v21, v0
+    move-object/from16 v23, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v23
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-object/from16 v23, v0
 
-    new-instance v22, Ljava/util/HashMap;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/util/HashMap;-><init>()V
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v22}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v21, Lcom/android/launcher2/HomeView;->sSingleInstanceAppWidgetPackageList:Ljava/util/HashMap;
+
+    iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    new-instance v23, Ljava/util/HashMap;
+
+    invoke-direct/range {v23 .. v23}, Ljava/util/HashMap;-><init>()V
+
+    invoke-virtual/range {v21 .. v23}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_4
 
     :cond_c
-    monitor-exit p0
+    monitor-exit v20
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

@@ -71,7 +71,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridSelectMenu$7;->this$0:Lcom/android/launcher2/HomeScreenGridSelectMenu;
 
-    # getter for: Lcom/android/launcher2/HomeScreenGridSelectMenu;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/HomeScreenGridSelectMenu;->access$100(Lcom/android/launcher2/HomeScreenGridSelectMenu;)Landroid/content/Context;
 
     move-result-object v4
@@ -88,7 +87,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridSelectMenu$7;->this$0:Lcom/android/launcher2/HomeScreenGridSelectMenu;
 
-    # getter for: Lcom/android/launcher2/HomeScreenGridSelectMenu;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/HomeScreenGridSelectMenu;->access$100(Lcom/android/launcher2/HomeScreenGridSelectMenu;)Landroid/content/Context;
 
     move-result-object v4
@@ -99,7 +97,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/HomeScreenGridSelectMenu$7;->this$0:Lcom/android/launcher2/HomeScreenGridSelectMenu;
 
-    # getter for: Lcom/android/launcher2/HomeScreenGridSelectMenu;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/HomeScreenGridSelectMenu;->access$100(Lcom/android/launcher2/HomeScreenGridSelectMenu;)Landroid/content/Context;
 
     move-result-object v4

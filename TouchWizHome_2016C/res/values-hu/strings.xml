@@ -139,6 +139,7 @@ alkalmazások"</string>
     <string name="new_items">%d új tétel</string>
     <string name="no_downloaded_apps">Nincs letöltött alkalmazás</string>
     <string name="no_room_any_page">Egyik oldalon sincs hely.</string>
+    <string name="no_space_page">Nincs hely az oldalon. Próbálja meg egy másik oldalra felvenni a parancsikont.</string>
     <string name="not_selected">Nincs kijelölve</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Az %s widgetet már hozzáadta a kezdőképernyőhöz.</string>

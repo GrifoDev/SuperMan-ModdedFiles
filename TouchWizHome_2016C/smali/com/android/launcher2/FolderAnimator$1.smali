@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$1;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -64,12 +63,10 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$1;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # invokes: Lcom/android/launcher2/FolderAnimator;->clearFolderHoverAnims()V
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$100(Lcom/android/launcher2/FolderAnimator;)V
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$1;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -82,7 +79,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$1;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0
@@ -94,7 +90,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/FolderAnimator$1;->this$0:Lcom/android/launcher2/FolderAnimator;
 
-    # getter for: Lcom/android/launcher2/FolderAnimator;->mIcon:Lcom/android/launcher2/FolderIconView;
     invoke-static {v0}, Lcom/android/launcher2/FolderAnimator;->access$000(Lcom/android/launcher2/FolderAnimator;)Lcom/android/launcher2/FolderIconView;
 
     move-result-object v0

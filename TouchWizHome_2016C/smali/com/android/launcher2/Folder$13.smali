@@ -46,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButton:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$800(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0
@@ -55,7 +54,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButton:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$800(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0
@@ -67,7 +65,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButtonAnim:Landroid/view/ViewPropertyAnimator;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$900(Lcom/android/launcher2/Folder;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -76,7 +73,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButtonAnim:Landroid/view/ViewPropertyAnimator;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$900(Lcom/android/launcher2/Folder;)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -86,7 +82,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # setter for: Lcom/android/launcher2/Folder;->mAddItemPlusButtonAnim:Landroid/view/ViewPropertyAnimator;
     invoke-static {v0, v2}, Lcom/android/launcher2/Folder;->access$902(Lcom/android/launcher2/Folder;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
 
     return-void
@@ -97,7 +92,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButton:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$800(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0
@@ -106,7 +100,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButton:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$800(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0
@@ -117,7 +110,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Folder$13;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mAddItemPlusButton:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/Folder;->access$800(Lcom/android/launcher2/Folder;)Landroid/view/View;
 
     move-result-object v0

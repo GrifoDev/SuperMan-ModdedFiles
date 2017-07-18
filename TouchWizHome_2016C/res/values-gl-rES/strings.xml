@@ -138,6 +138,7 @@
     <string name="new_items">%d elementos novos</string>
     <string name="no_downloaded_apps">Non hai aplicacións descargadas</string>
     <string name="no_room_any_page">Non hai espazo en ningunha páxina.</string>
+    <string name="no_space_page">Non hai espazo na páxina. Tenta engadir o atallo nunha páxina diferente.</string>
     <string name="not_selected">Non seleccionado</string>
     <string name="ok">Aceptar</string>
     <string name="only_one_widget_instance_allowed">O widget %s xa está engadido á pantalla de inicio.</string>

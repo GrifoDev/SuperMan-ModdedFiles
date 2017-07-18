@@ -43,7 +43,7 @@
     if-ne p2, v5, :cond_2
 
     :cond_0
-    const v5, 0x7f0901c7
+    const v5, 0x7f0a01c7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -52,7 +52,6 @@
     iput v5, p0, Lcom/android/launcher2/IconInfo$Menu;->iconSize:I
 
     :goto_0
-    # getter for: Lcom/android/launcher2/IconInfo;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/launcher2/IconInfo;->access$000()Ljava/lang/String;
 
     move-result-object v5
@@ -127,7 +126,7 @@
 
     if-eqz v5, :cond_3
 
-    const v5, 0x7f09016f
+    const v5, 0x7f0a016f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -138,7 +137,7 @@
     goto :goto_0
 
     :cond_3
-    const v5, 0x7f090005
+    const v5, 0x7f0a0005
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

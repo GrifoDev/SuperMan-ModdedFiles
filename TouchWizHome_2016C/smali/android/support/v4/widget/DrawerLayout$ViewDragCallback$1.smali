@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
 
-    # invokes: Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->peekDrawer()V
     invoke-static {v0}, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;->access$000(Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;)V
 
     return-void

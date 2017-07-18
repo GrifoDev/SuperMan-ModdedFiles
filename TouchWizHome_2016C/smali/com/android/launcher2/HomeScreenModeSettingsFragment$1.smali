@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->mAppsRadio:Landroid/widget/RadioButton;
     invoke-static {v0}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$000(Lcom/android/launcher2/HomeScreenModeSettingsFragment;)Landroid/widget/RadioButton;
 
     move-result-object v0
@@ -58,9 +57,8 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    const v1, 0x7f080067
+    const v1, 0x7f090067
 
-    # invokes: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->showModeChangeDialog(I)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$100(Lcom/android/launcher2/HomeScreenModeSettingsFragment;I)V
 
     :cond_0
@@ -70,7 +68,6 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->mHomeOnlyRadio:Landroid/widget/RadioButton;
     invoke-static {v0}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$200(Lcom/android/launcher2/HomeScreenModeSettingsFragment;)Landroid/widget/RadioButton;
 
     move-result-object v0
@@ -89,9 +86,8 @@
 
     iget-object v0, p0, Lcom/android/launcher2/HomeScreenModeSettingsFragment$1;->this$0:Lcom/android/launcher2/HomeScreenModeSettingsFragment;
 
-    const v1, 0x7f080068
+    const v1, 0x7f090068
 
-    # invokes: Lcom/android/launcher2/HomeScreenModeSettingsFragment;->showModeChangeDialog(I)V
     invoke-static {v0, v1}, Lcom/android/launcher2/HomeScreenModeSettingsFragment;->access$100(Lcom/android/launcher2/HomeScreenModeSettingsFragment;I)V
 
     goto :goto_0

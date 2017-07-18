@@ -138,6 +138,7 @@
     <string name="new_items">Нових об’єктів: %d</string>
     <string name="no_downloaded_apps">Немає завантажених програм</string>
     <string name="no_room_any_page">Немає вільного місця на всіх сторінках</string>
+    <string name="no_space_page">На сторінці немає місця. Додайте ярлик на іншу сторінку.</string>
     <string name="not_selected">Не вибрано</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджет %s вже додано на головний екран.</string>

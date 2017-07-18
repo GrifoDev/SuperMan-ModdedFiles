@@ -226,7 +226,7 @@
 
     iget-object v3, v0, Lcom/android/launcher2/DisableAppConfirmationDialog;->mView:Landroid/view/View;
 
-    const v4, 0x7f100033
+    const v4, 0x7f110033
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -775,7 +775,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f030010
+    const v9, 0x7f040010
 
     const/4 v10, 0x0
 
@@ -801,11 +801,11 @@
 
     invoke-virtual {v9, v10}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f080102
+    const v9, 0x7f090103
 
     invoke-virtual {v0, v9, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0800e3
+    const v9, 0x7f0900e4
 
     invoke-virtual {v0, v9, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -819,7 +819,7 @@
 
     if-eqz v9, :cond_2
 
-    const v9, 0x7f080040
+    const v9, 0x7f090040
 
     const/4 v10, 0x1
 
@@ -879,7 +879,7 @@
 
     const/4 v7, 0x0
 
-    const v9, 0x7f100016
+    const v9, 0x7f110016
 
     invoke-virtual {v6, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -927,7 +927,7 @@
 
     if-eqz v9, :cond_3
 
-    const v9, 0x7f08003f
+    const v9, 0x7f09003f
 
     const/4 v10, 0x1
 
@@ -952,7 +952,7 @@
 
     if-eqz v9, :cond_4
 
-    const v9, 0x7f08003e
+    const v9, 0x7f09003e
 
     const/4 v10, 0x1
 
@@ -971,7 +971,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v9, 0x7f08003d
+    const v9, 0x7f09003d
 
     const/4 v10, 0x2
 

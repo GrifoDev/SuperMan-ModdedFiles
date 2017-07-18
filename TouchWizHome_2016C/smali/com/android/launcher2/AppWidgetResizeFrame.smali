@@ -237,7 +237,7 @@
 
     iput v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mBorderMargin:I
 
-    const v6, 0x7f090220
+    const v6, 0x7f0a0220
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -307,7 +307,7 @@
 
     :cond_0
     :goto_0
-    const v6, 0x7f020102
+    const v6, 0x7f0200fe
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -315,7 +315,7 @@
 
     iput-object v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    const v6, 0x7f020103
+    const v6, 0x7f0200ff
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -333,7 +333,7 @@
 
     invoke-virtual {p0, v6, v7, v8, v9}, Lcom/android/launcher2/AppWidgetResizeFrame;->setPadding(IIII)V
 
-    const v6, 0x7f09031c
+    const v6, 0x7f0a031f
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -341,7 +341,7 @@
 
     iput v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mBottomMaxDeltaOffset:I
 
-    const v6, 0x7f0800de
+    const v6, 0x7f0900df
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -367,7 +367,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mLeftHandle:Landroid/widget/ImageView;
 
-    const v7, 0x7f020104
+    const v7, 0x7f020100
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -403,7 +403,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mRightHandle:Landroid/widget/ImageView;
 
-    const v7, 0x7f020104
+    const v7, 0x7f020100
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -439,7 +439,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mTopHandle:Landroid/widget/ImageView;
 
-    const v7, 0x7f020104
+    const v7, 0x7f020100
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -475,7 +475,7 @@
 
     iget-object v6, p0, Lcom/android/launcher2/AppWidgetResizeFrame;->mBottomHandle:Landroid/widget/ImageView;
 
-    const v7, 0x7f020104
+    const v7, 0x7f020100
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -665,7 +665,7 @@
 
     move-result-object v9
 
-    const v12, 0x7f0b002b
+    const v12, 0x7f0c002b
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -675,7 +675,7 @@
 
     move-result-object v9
 
-    const v12, 0x7f020104
+    const v12, 0x7f020100
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3043,7 +3043,7 @@
 .method private setVisualInvalid()V
     .locals 2
 
-    const v1, 0x7f020105
+    const v1, 0x7f020101
 
     const/4 v0, 0x1
 
@@ -3071,7 +3071,7 @@
 .method private setVisualOk()V
     .locals 2
 
-    const v1, 0x7f020104
+    const v1, 0x7f020100
 
     const/4 v0, 0x0
 
@@ -4684,7 +4684,7 @@
 
     move-result-object v15
 
-    const v16, 0x7f020104
+    const v16, 0x7f020100
 
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

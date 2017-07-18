@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$18;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v0
@@ -50,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$18;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$1800(Lcom/android/launcher2/Workspace;)Lcom/android/launcher2/Folder;
 
     move-result-object v0
@@ -62,7 +60,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/Workspace;->mFolder:Lcom/android/launcher2/Folder;
     invoke-static {v0, v1}, Lcom/android/launcher2/Workspace;->access$1802(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Folder;)Lcom/android/launcher2/Folder;
 
     return-void

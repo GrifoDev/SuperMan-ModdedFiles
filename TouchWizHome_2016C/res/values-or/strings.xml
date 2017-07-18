@@ -138,6 +138,7 @@
     <string name="new_items">%d ନୂତନ ଆଇଟମ୍</string>
     <string name="no_downloaded_apps">କୌଣସି ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍ ନାହିଁ</string>
     <string name="no_room_any_page">କୌଣସି ପୃଷ୍ଠାରେ ପ୍ରକୋଷ୍ଠ ନାହିଁ।</string>
+    <string name="no_space_page">ପୃଷ୍ଠାରେ କୌଣସି ସ୍ଥାନ ନାହିଁ। ଏକ ଭିନ୍ନ ପୃଷ୍ଠାକୁ ସର୍ଟକଟ୍ ଯୋଡିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="not_selected">ଚୟନ ହୋଇନାହିଁ</string>
     <string name="ok">ଓକେ</string>
     <string name="only_one_widget_instance_allowed">%s ୱିଜେଟ୍ ପୂର୍ବରୁ ହୋମ୍ ସ୍କ୍ରିନକୁ ଯୋଡାଯାଇଛି।</string>

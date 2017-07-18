@@ -138,6 +138,7 @@
     <string name="new_items">%d নতুন আইটেমসমূহ</string>
     <string name="no_downloaded_apps">ডাউনলোড হোৱা এপ্লিকেচন নাই</string>
     <string name="no_room_any_page">কোনো পৃষ্ঠাত কোনো স্থান নাই৷</string>
+    <string name="no_space_page">পৃষ্ঠাত কোনো স্থান নাই। এটা বেলেগ পৃষ্ঠাত চৰ্টকাট যোগ কৰিবলৈ চেষ্টা কৰক।</string>
     <string name="not_selected">চয়নিত নাই</string>
     <string name="ok">ঠিক</string>
     <string name="only_one_widget_instance_allowed">%s টা ৱিজেট ইতিমধ্যে গৃহ স্ক্ৰীণত যোগ হৈছে।</string>

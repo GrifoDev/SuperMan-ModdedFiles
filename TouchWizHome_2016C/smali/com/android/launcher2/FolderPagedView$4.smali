@@ -50,7 +50,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/FolderPagedView;->mBackgroundAnimator:Landroid/animation/ValueAnimator;
     invoke-static {v0, v1}, Lcom/android/launcher2/FolderPagedView;->access$102(Lcom/android/launcher2/FolderPagedView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void
@@ -93,7 +92,7 @@
 
     check-cast v3, Landroid/graphics/drawable/LayerDrawable;
 
-    const v4, 0x7f100120
+    const v4, 0x7f110120
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -105,7 +104,7 @@
 
     check-cast v1, Landroid/graphics/drawable/NinePatchDrawable;
 
-    const v4, 0x7f100121
+    const v4, 0x7f110121
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -141,7 +140,6 @@
 
     const/4 v5, 0x0
 
-    # setter for: Lcom/android/launcher2/FolderPagedView;->mBackgroundAnimator:Landroid/animation/ValueAnimator;
     invoke-static {v4, v5}, Lcom/android/launcher2/FolderPagedView;->access$102(Lcom/android/launcher2/FolderPagedView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void

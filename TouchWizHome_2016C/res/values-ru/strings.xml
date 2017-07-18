@@ -138,6 +138,7 @@
     <string name="new_items">Новых элементов: %d</string>
     <string name="no_downloaded_apps">Нет загруженных приложений</string>
     <string name="no_room_any_page">Нет места ни на одной из страниц.</string>
+    <string name="no_space_page">На странице нет места. Добавьте ярлык на другую страницу.</string>
     <string name="not_selected">Не выбрано</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виджет %s уже находится на главном экране.</string>

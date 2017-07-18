@@ -138,6 +138,7 @@
     <string name="new_items">ລາຍການໃໝ່ %d ລາຍການ</string>
     <string name="no_downloaded_apps">ບໍ່ມີແອັບທີ່ດາວໂຫຼດໄວ້</string>
     <string name="no_room_any_page">ບໍ່ມີຫ້ອງຢູ່ໃນໜ້າໃດອີກ.</string>
+    <string name="no_space_page">ບໍ່ມີພື້ນທີ່ໃນໜ້າ. ລອງເພີ່ມທາງລັດໃສ່ໜ້າອື່ນ.</string>
     <string name="not_selected">ບໍ່ໄດ້ເລືອກ</string>
     <string name="ok">ຕົກລົງ</string>
     <string name="only_one_widget_instance_allowed">ເພີ່ມວິດເຈັດ %s ໃສ່ໜ້າຈໍຫຼັກແລ້ວ.</string>

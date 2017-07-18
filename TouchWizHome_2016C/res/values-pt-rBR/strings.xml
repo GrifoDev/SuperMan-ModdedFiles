@@ -10,7 +10,7 @@
     <string name="menu_search">Pesquisar</string>
     <string name="out_of_space">Não há mais espaço nesta página</string>
     <string name="shortcut_duplicate">O atalho %s já existe.</string>
-    <string name="shortcut_installed">Atalho para %s adicionado na tela de início.</string>
+    <string name="shortcut_installed">Atalho para %s adicionado na Tela inicial.</string>
     <string name="shortcut_uninstalled">Atalho %s removido.</string>
     <string name="widgets_tab_label">Widgets</string>
     <string name="Long_press_on_any_widget">Mantenha pressionado o widget que deseja adicionar</string>
@@ -102,7 +102,7 @@
     <string name="home_screen_mode_change_to_apps_alert">Uma tela de Aplicativos separada será criada para que você possa encontrar seus aplicativos mais importantes com facilidade através do ícone Aplicativos na tela de início. Quaisquer personalizações feitas anteriormente na tela de início serão descartadas.</string>
     <string name="home_screen_mode_change_to_only_home_alert">Todos os seus aplicativos serão exibidos na tela de início. Quaisquer personalizações feitas anteriormente à tela de início serão descartadas.</string>
     <string name="home_screen_mode_only_home">Exibir apps na Tela inicial</string>
-    <string name="homes_screen_settings">Config. da tela de início</string>
+    <string name="homes_screen_settings">Config. da Tela inicial</string>
     <string name="item_added">Item adicionado.</string>
     <string name="item_moved">Item movido.</string>
     <string name="item_moved_to_other_page">Item movido para a tela de início %1$d de %2$d.</string>
@@ -138,6 +138,7 @@
     <string name="new_items">%d itens novos</string>
     <string name="no_downloaded_apps">Nenhuma aplicação baixada</string>
     <string name="no_room_any_page">Nenhum local em nenhuma página.</string>
+    <string name="no_space_page">Sem espaço na página. Tente adicionar o atalho a uma página diferente.</string>
     <string name="not_selected">Não selecionado</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">O widget %s já foi adicionado à tela inicial.</string>
@@ -162,11 +163,11 @@
     <string name="quick_contact">Contato</string>
     <string name="quick_options_help_text">Deslize um atalho de aplicativo para baixo para ver suas opções rápidas. As opções rápidas permitem que você gerencie os aplicativos facilmente.</string>
     <string name="quickoption_sleep">Suspender</string>
-    <string name="quickoptions_add_apps">Adição de aplicativos</string>
+    <string name="quickoptions_add_apps">Adicionar aplicativos</string>
     <string name="quickoptions_add_to_secure_folder">"Adicionar à
 Pasta Segura"</string>
     <string name="quickoptions_app_info">Informações do aplicativo</string>
-    <string name="quickoptions_clear_badge">Apagar conquista</string>
+    <string name="quickoptions_clear_badge">Apagar notificações</string>
     <string name="quickoptions_disable">Desativar</string>
     <string name="quickoptions_sleep_alert">A suspensão deste aplicativo impedirá que ele use a bateria em segundo plano. Os aplicativos suspensos não poderão receber atualizações ou enviar suas notificações, mas serão ativados quando você abri-los.</string>
     <string name="quickoptions_uninstall">Desinstalar</string>

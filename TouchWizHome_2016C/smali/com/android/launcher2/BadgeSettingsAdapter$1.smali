@@ -102,7 +102,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsAdapter$1;->this$0:Lcom/android/launcher2/BadgeSettingsAdapter;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsAdapter;->mOnChangeListener:Lcom/android/launcher2/BadgeSettingsAdapter$OnChangeListener;
     invoke-static {v1}, Lcom/android/launcher2/BadgeSettingsAdapter;->access$000(Lcom/android/launcher2/BadgeSettingsAdapter;)Lcom/android/launcher2/BadgeSettingsAdapter$OnChangeListener;
 
     move-result-object v1

@@ -138,6 +138,7 @@
     <string name="new_items">%d jauni objekti</string>
     <string name="no_downloaded_apps">Nav lejupielādētu programmu</string>
     <string name="no_room_any_page">Nevienā lapā nav nevienas telpas.</string>
+    <string name="no_space_page">Lapā nav vietas. Mēģiniet īsceļu pievienot citā lapā.</string>
     <string name="not_selected">Nav izvēlēts</string>
     <string name="ok">Labi</string>
     <string name="only_one_widget_instance_allowed">Logrīks %s jau ir pievienots sākuma ekrānam.</string>

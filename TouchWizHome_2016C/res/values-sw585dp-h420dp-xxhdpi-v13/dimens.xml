@@ -308,6 +308,8 @@
     <dimen name="menufolder_icon_drawablepadding">2.0dip</dimen>
     <dimen name="menufolder_icon_drawablepadding_5">3.0dip</dimen>
     <dimen name="menuwidget_dim_marginbottom">2.0dip</dimen>
+    <dimen name="moveApps_cellGapX">11.0dip</dimen>
+    <dimen name="moveApps_cellHeight">70.0dip</dimen>
     <dimen name="moveApps_cellWidth">75.0dip</dimen>
     <dimen name="moveApps_containerHeight">85.0dip</dimen>
     <dimen name="moveApps_drawableFolderPadding">4.0dip</dimen>
@@ -316,6 +318,7 @@
     <dimen name="moveApps_intro_text_margin_left">30.0dip</dimen>
     <dimen name="moveApps_intro_text_width">470.0dip</dimen>
     <dimen name="moveApps_scroll_margin">9.5dip</dimen>
+    <dimen name="moveApps_textSize">13.0dip</dimen>
     <dimen name="moveApps_topGap">5.0dip</dimen>
     <dimen name="folder_multi_title_count_text_size">13.0dip</dimen>
     <dimen name="searchbar_searchview_padding_end">-18.5dip</dimen>
@@ -335,8 +338,7 @@
     <dimen name="menuWidgets_widgetFolderOpen_extra_margin_for_indicator">442.0dip</dimen>
     <dimen name="menuwidgets_folderopen_height">533.0dip</dimen>
     <dimen name="more_icon_btn_height">36.0dip</dimen>
-    <dimen name="moveApps_cellHeight">70.0dip</dimen>
-    <dimen name="moveApps_textSize">13.0dip</dimen>
+    <dimen name="moveApps_edgeMargin">15.0dip</dimen>
     <dimen name="quick_options_item_height">23.0dip</dimen>
     <dimen name="quick_options_item_width">182.0dip</dimen>
     <dimen name="quick_options_popup_divider_height">8.0dip</dimen>
@@ -356,8 +358,6 @@
     <dimen name="appsearch_grid_cell_padding">7.5dip</dimen>
     <dimen name="appsearch_grid_padding_top">20.0dip</dimen>
     <dimen name="folder_icon_marginTop">4.0dip</dimen>
-    <dimen name="moveApps_cellGapX">11.0dip</dimen>
-    <dimen name="moveApps_edgeMargin">15.0dip</dimen>
     <dimen name="appsearch_result_margin_top">49.0dip</dimen>
     <dimen name="folder_multi_header_text_height">19.0dip</dimen>
     <dimen name="folder_multi_icon_text_size">12.0dip</dimen>
@@ -373,7 +373,6 @@
     <dimen name="appsearch_list_item_text_size">12.0dip</dimen>
     <dimen name="appsearch_searchview_height">49.0dip</dimen>
     <dimen name="folder_multi_icon_checkbox_size">21.0dip</dimen>
-    <dimen name="moveApps_intro_text_size">18.0dip</dimen>
     <dimen name="folder_multi_header_margin_end">32.0dip</dimen>
     <dimen name="folder_multi_header_margin_start">12.0dip</dimen>
     <dimen name="home_zero_page_dual_image_gap">32.0dip</dimen>
@@ -411,6 +410,7 @@
     <dimen name="moveApps_help_margin">94.0dip</dimen>
     <dimen name="moveApps_help_next_text_size">15.0sp</dimen>
     <dimen name="moveApps_help_text_margin">15.0dip</dimen>
+    <dimen name="moveApps_intro_text_size">18.0dip</dimen>
     <dimen name="noti_textHeight">143.0dip</dimen>
     <dimen name="quick_options_dismiss_distance">35.0dip</dimen>
     <dimen name="searchbar_divider_shape_padding_top">7.5dip</dimen>

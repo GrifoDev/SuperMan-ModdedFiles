@@ -169,7 +169,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800c8
+    const v10, 0x7f0900c9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800c8
+    const v10, 0x7f0900c9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f080039
+    const v12, 0x7f090039
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -247,7 +247,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f080039
+    const v11, 0x7f090039
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 
     move-result-object v9
 
-    const v11, 0x7f0800c8
+    const v11, 0x7f0900c9
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -316,7 +316,7 @@
 
     move-result-object v9
 
-    const v11, 0x7f08008e
+    const v11, 0x7f09008f
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -331,7 +331,6 @@
 
     iget-object v9, p0, Lcom/android/launcher2/QuickViewWorkspace$5;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v9}, Lcom/android/launcher2/QuickViewWorkspace;->access$100(Lcom/android/launcher2/QuickViewWorkspace;)Lcom/android/launcher2/Workspace;
 
     move-result-object v9

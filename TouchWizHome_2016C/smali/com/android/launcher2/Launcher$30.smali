@@ -116,7 +116,6 @@
     if-eqz v4, :cond_0
 
     :cond_2
-    # getter for: Lcom/android/launcher2/Launcher;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/launcher2/Launcher;->access$1600()Z
 
     move-result v4
@@ -199,7 +198,6 @@
     :cond_5
     iget-object v4, p0, Lcom/android/launcher2/Launcher$30;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v4}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v4
@@ -208,7 +206,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher$30;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v4}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v4
@@ -221,7 +218,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/Launcher$30;->this$0:Lcom/android/launcher2/Launcher;
 
-    # getter for: Lcom/android/launcher2/Launcher;->mMenuView:Lcom/android/launcher2/MenuView;
     invoke-static {v4}, Lcom/android/launcher2/Launcher;->access$400(Lcom/android/launcher2/Launcher;)Lcom/android/launcher2/MenuView;
 
     move-result-object v4

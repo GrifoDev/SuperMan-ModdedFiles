@@ -53,7 +53,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/MenuWidgets;->mListenerAttached:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/MenuWidgets;->access$302(Lcom/android/launcher2/MenuWidgets;Z)Z
 
     return-void

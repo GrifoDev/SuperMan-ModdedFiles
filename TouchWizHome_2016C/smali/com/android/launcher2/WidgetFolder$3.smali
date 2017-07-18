@@ -36,7 +36,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->onCloseComplete()V
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$500(Lcom/android/launcher2/WidgetFolder;)V
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
@@ -51,7 +50,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
 
     move-result-object v1
@@ -60,7 +58,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mPagedView:Lcom/android/launcher2/WidgetFolderPagedView;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$600(Lcom/android/launcher2/WidgetFolder;)Lcom/android/launcher2/WidgetFolderPagedView;
 
     move-result-object v1
@@ -74,7 +71,6 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # getter for: Lcom/android/launcher2/WidgetFolder;->mScrollView:Landroid/widget/ScrollView;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$700(Lcom/android/launcher2/WidgetFolder;)Landroid/widget/ScrollView;
 
     move-result-object v1
@@ -83,7 +79,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/WidgetFolder$3;->this$0:Lcom/android/launcher2/WidgetFolder;
 
-    # invokes: Lcom/android/launcher2/WidgetFolder;->getGridLayoutOfFirstPage()Landroid/widget/GridLayout;
     invoke-static {v1}, Lcom/android/launcher2/WidgetFolder;->access$800(Lcom/android/launcher2/WidgetFolder;)Landroid/widget/GridLayout;
 
     move-result-object v0

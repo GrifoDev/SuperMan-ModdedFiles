@@ -134,7 +134,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v24
@@ -151,7 +150,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v24
@@ -168,7 +166,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -189,7 +186,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -233,7 +229,6 @@
 
     move-object/from16 v25, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v25 .. v25}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v25
@@ -244,7 +239,6 @@
 
     move-object/from16 v26, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v26 .. v26}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v26
@@ -277,7 +271,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -298,7 +291,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -319,7 +311,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -340,7 +331,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -361,7 +351,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -385,7 +374,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -443,7 +431,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -458,7 +445,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v24
@@ -475,7 +461,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -494,7 +479,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -559,7 +543,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -578,7 +561,6 @@
 
     move-object/from16 v23, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static/range {v23 .. v23}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v23
@@ -653,7 +635,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v24
@@ -753,7 +734,6 @@
 
     move-object/from16 v24, v0
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mTableName:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Lcom/android/launcher2/AutoInstallsLayout;->access$300(Lcom/android/launcher2/AutoInstallsLayout;)Ljava/lang/String;
 
     move-result-object v24
@@ -770,7 +750,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     const-string v23, "screen"
@@ -779,7 +758,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     const-string v23, "cell"
@@ -788,7 +766,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
@@ -846,7 +823,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     const-string v23, "screen"
@@ -855,7 +831,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     const-string v23, "cellX"
@@ -864,7 +839,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     const-string v23, "cellY"
@@ -873,7 +847,6 @@
 
     move-object/from16 v1, v23
 
-    # invokes: Lcom/android/launcher2/AutoInstallsLayout;->copyInteger(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
     invoke-static {v0, v7, v1}, Lcom/android/launcher2/AutoInstallsLayout;->access$400(Landroid/content/ContentValues;Landroid/content/ContentValues;Ljava/lang/String;)V
 
     move-object/from16 v0, p0

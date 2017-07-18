@@ -6294,13 +6294,40 @@
     return v2
 
     :cond_0
-    sget-boolean v3, Lcom/android/launcher2/MenuAppLoader;->mIsLoaded:Z
+    invoke-static {}, Lcom/android/launcher2/customer/PostPosition;->getInstance()Lcom/android/launcher2/customer/PostPosition;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/customer/PostPosition;->isEnabled()Z
+
+    move-result v3
 
     if-eqz v3, :cond_1
 
-    invoke-direct {p0, p2, v1, p3}, Lcom/android/launcher2/MenuAppLoader;->updatePackageActivities(Ljava/lang/String;Ljava/util/List;Lcom/android/launcher2/compat/UserHandleCompat;)V
+    sget-boolean v3, Lcom/android/launcher2/MenuAppLoader;->mIsLoaded:Z
+
+    if-nez v3, :cond_1
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->getInst()Lcom/android/launcher2/LauncherApplication;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher2/LauncherApplication;->isKnoxMode()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    invoke-static {}, Lcom/android/launcher2/LauncherApplication;->isOwner()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
 
     :cond_1
+    invoke-direct {p0, p2, v1, p3}, Lcom/android/launcher2/MenuAppLoader;->updatePackageActivities(Ljava/lang/String;Ljava/util/List;Lcom/android/launcher2/compat/UserHandleCompat;)V
+
+    :cond_2
     const/4 v2, 0x0
 
     goto :goto_0

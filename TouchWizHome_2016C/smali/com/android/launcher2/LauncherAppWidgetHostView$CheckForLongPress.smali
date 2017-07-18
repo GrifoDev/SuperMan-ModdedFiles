@@ -41,7 +41,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$CheckForLongPress;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher2/LauncherAppWidgetHostView;->getWindowAttachCount()I
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$200(Lcom/android/launcher2/LauncherAppWidgetHostView;)I
 
     move-result v0
@@ -76,7 +75,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$CheckForLongPress;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # invokes: Lcom/android/launcher2/LauncherAppWidgetHostView;->getWindowAttachCount()I
     invoke-static {v1}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$000(Lcom/android/launcher2/LauncherAppWidgetHostView;)I
 
     move-result v1
@@ -85,7 +83,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$CheckForLongPress;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # getter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mHasPerformedLongPress:Z
     invoke-static {v0}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$100(Lcom/android/launcher2/LauncherAppWidgetHostView;)Z
 
     move-result v0
@@ -102,7 +99,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/LauncherAppWidgetHostView$CheckForLongPress;->this$0:Lcom/android/launcher2/LauncherAppWidgetHostView;
 
-    # setter for: Lcom/android/launcher2/LauncherAppWidgetHostView;->mHasPerformedLongPress:Z
     invoke-static {v0, v2}, Lcom/android/launcher2/LauncherAppWidgetHostView;->access$102(Lcom/android/launcher2/LauncherAppWidgetHostView;Z)Z
 
     sput-boolean v2, Lcom/android/launcher2/LauncherAppWidgetHostView;->sIsDrag:Z

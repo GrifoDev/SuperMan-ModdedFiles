@@ -51,7 +51,6 @@
 
     const/4 v1, 0x1
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->showGalaxyAppsResult(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsSearch;->access$1000(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
     :goto_0
@@ -76,7 +75,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsSearch$16;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->startGalaxyAppsSearch()V
     invoke-static {v0}, Lcom/android/launcher2/MenuAppsSearch;->access$1900(Lcom/android/launcher2/MenuAppsSearch;)V
 
     :cond_1
@@ -84,7 +82,6 @@
 
     const/4 v1, 0x0
 
-    # invokes: Lcom/android/launcher2/MenuAppsSearch;->showGalaxyAppsResult(Z)V
     invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsSearch;->access$1000(Lcom/android/launcher2/MenuAppsSearch;Z)V
 
     goto :goto_0

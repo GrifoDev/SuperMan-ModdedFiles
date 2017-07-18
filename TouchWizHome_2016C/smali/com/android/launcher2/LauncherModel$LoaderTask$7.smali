@@ -43,7 +43,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$7;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
-    # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->getLoaderTaskCallbacks()Lcom/android/launcher2/LauncherModel$Callbacks;
     invoke-static {v2}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$200(Lcom/android/launcher2/LauncherModel$LoaderTask;)Lcom/android/launcher2/LauncherModel$Callbacks;
 
     move-result-object v0

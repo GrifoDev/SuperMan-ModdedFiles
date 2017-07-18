@@ -104,7 +104,6 @@
     return v1
 
     :cond_0
-    # getter for: Landroid/support/v4/text/TextUtilsCompat;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
     invoke-static {}, Landroid/support/v4/text/TextUtilsCompat;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -115,7 +114,6 @@
 
     if-nez v1, :cond_1
 
-    # getter for: Landroid/support/v4/text/TextUtilsCompat;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
     invoke-static {}, Landroid/support/v4/text/TextUtilsCompat;->access$100()Ljava/lang/String;
 
     move-result-object v1

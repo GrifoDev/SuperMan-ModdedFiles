@@ -69,7 +69,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FestivalPageManager$2;->this$0:Lcom/android/launcher2/FestivalPageManager;
 
-    # getter for: Lcom/android/launcher2/FestivalPageManager;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v2}, Lcom/android/launcher2/FestivalPageManager;->access$000(Lcom/android/launcher2/FestivalPageManager;)Lcom/android/launcher2/Workspace;
 
     move-result-object v2
@@ -156,7 +155,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FestivalPageManager$2;->this$0:Lcom/android/launcher2/FestivalPageManager;
 
-    # getter for: Lcom/android/launcher2/FestivalPageManager;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v2}, Lcom/android/launcher2/FestivalPageManager;->access$100(Lcom/android/launcher2/FestivalPageManager;)Lcom/android/launcher2/HomeView;
 
     move-result-object v2
@@ -215,7 +213,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FestivalPageManager$2;->this$0:Lcom/android/launcher2/FestivalPageManager;
 
-    # getter for: Lcom/android/launcher2/FestivalPageManager;->mWorkspace:Lcom/android/launcher2/Workspace;
     invoke-static {v2}, Lcom/android/launcher2/FestivalPageManager;->access$000(Lcom/android/launcher2/FestivalPageManager;)Lcom/android/launcher2/Workspace;
 
     move-result-object v2
@@ -224,7 +221,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/FestivalPageManager$2;->this$0:Lcom/android/launcher2/FestivalPageManager;
 
-    # getter for: Lcom/android/launcher2/FestivalPageManager;->mHomeView:Lcom/android/launcher2/HomeView;
     invoke-static {v2}, Lcom/android/launcher2/FestivalPageManager;->access$100(Lcom/android/launcher2/FestivalPageManager;)Lcom/android/launcher2/HomeView;
 
     move-result-object v2
@@ -239,7 +235,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/FestivalPageManager$2;->val$festivalName:Ljava/lang/String;
 
-    # invokes: Lcom/android/launcher2/FestivalPageManager;->sendFestivalWidgetType(IILjava/lang/String;)V
     invoke-static {v2, v3, p1, v4}, Lcom/android/launcher2/FestivalPageManager;->access$200(Lcom/android/launcher2/FestivalPageManager;IILjava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -248,7 +243,6 @@
 
     check-cast v2, Lcom/android/launcher2/LauncherApplication;
 
-    # invokes: Lcom/android/launcher2/FestivalPageManager;->setFestivalString(Lcom/android/launcher2/LauncherApplication;)V
     invoke-static {v2}, Lcom/android/launcher2/FestivalPageManager;->access$300(Lcom/android/launcher2/LauncherApplication;)V
 
     goto/16 :goto_0

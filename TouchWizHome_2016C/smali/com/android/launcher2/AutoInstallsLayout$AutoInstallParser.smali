@@ -70,7 +70,6 @@
     :cond_1
     iget-object v3, p0, Lcom/android/launcher2/AutoInstallsLayout$AutoInstallParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static {v3}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v3

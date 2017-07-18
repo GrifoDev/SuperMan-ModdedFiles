@@ -29,6 +29,7 @@
         <item>com.samsung.contacts/com.android.contacts.activities.PeopleActivity| com.samsung.android.contacts/com.android.contacts.activities.PeopleActivity</item>
         <item>com.samsung.contacts/com.android.dialer.DialtactsActivity| com.samsung.android.contacts/com.android.dialer.DialtactsActivity</item>
         <item>com.samsung.android.video/.list.activity.VideoList| com.samsung.android.videolist/.list.activity.VideoList</item>
+        <item>com.cequint.ecid/com.cequint.hs.client.frontend.WebShell| com.vzw.ecid/com.cequint.hs.client.frontend.WebShell</item>
     </string-array>
     <string-array name="changed_component_widgetlist">
         <item>com.android.calendar/.widget.MonthWidgetProvider| com.samsung.android.calendar/com.android.calendar.widget.MonthWidgetProvider</item>

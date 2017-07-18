@@ -53,7 +53,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/DragState$4;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/DragState;->access$000(Lcom/android/launcher2/DragState;)Landroid/content/Context;
 
     move-result-object v3
@@ -70,7 +69,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/DragState$4;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/DragState;->access$000(Lcom/android/launcher2/DragState;)Landroid/content/Context;
 
     move-result-object v3
@@ -85,7 +83,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/DragState$4;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/DragState;->access$000(Lcom/android/launcher2/DragState;)Landroid/content/Context;
 
     move-result-object v3
@@ -106,7 +103,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/DragState$4;->this$0:Lcom/android/launcher2/DragState;
 
-    # getter for: Lcom/android/launcher2/DragState;->ctx:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/launcher2/DragState;->access$000(Lcom/android/launcher2/DragState;)Landroid/content/Context;
 
     move-result-object v3
@@ -121,7 +117,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0800d1
+    const v4, 0x7f0900d2
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -137,7 +133,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800da
+    const v4, 0x7f0900db
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

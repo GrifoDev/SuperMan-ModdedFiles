@@ -34,7 +34,7 @@
 
     invoke-direct {p0, p2}, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const v0, 0x7f100024
+    const v0, 0x7f110024
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -42,7 +42,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/BadgeSettingsAdapter$ViewHolder;->mView:Landroid/view/View;
 
-    const v0, 0x7f100025
+    const v0, 0x7f110025
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -52,7 +52,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/BadgeSettingsAdapter$ViewHolder;->appIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f100026
+    const v0, 0x7f110026
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

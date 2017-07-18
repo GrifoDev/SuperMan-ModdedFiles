@@ -114,7 +114,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$ItemViewPool;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f03004c
+    const v1, 0x7f04004c
 
     const/4 v2, 0x0
 
@@ -156,7 +156,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$ItemViewPool;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f03004c
+    const v1, 0x7f04004c
 
     const/4 v2, 0x0
 
@@ -179,7 +179,7 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$ItemViewPool;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030007
+    const v1, 0x7f040007
 
     const/4 v2, 0x0
 
@@ -215,7 +215,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$ItemViewPool;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030007
+    const v1, 0x7f040007
 
     const/4 v2, 0x0
 

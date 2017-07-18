@@ -332,7 +332,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f030048
+    const v2, 0x7f040048
 
     invoke-virtual {p0, v2}, Lcom/android/launcher2/HomeScreenSettingsActivity;->setContentView(I)V
 
@@ -342,7 +342,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1000fe
+    const v3, 0x7f1100fe
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -356,7 +356,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f1000ff
+    const v3, 0x7f1100ff
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -370,7 +370,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f100100
+    const v3, 0x7f110100
 
     invoke-virtual {v2, v3}, Landroid/app/FragmentManager;->findFragmentById(I)Landroid/app/Fragment;
 
@@ -633,7 +633,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f080030
+    const v1, 0x7f090030
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeScreenSettingsActivity;->setTitle(I)V
 
@@ -679,7 +679,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f080065
+    const v1, 0x7f090065
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeScreenSettingsActivity;->setTitle(I)V
 
@@ -720,7 +720,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f08006a
+    const v1, 0x7f09006a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/HomeScreenSettingsActivity;->setTitle(I)V
 

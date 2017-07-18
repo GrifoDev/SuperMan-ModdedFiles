@@ -36,21 +36,18 @@
 
     iget-object v0, p0, Lcom/android/launcher2/Workspace$5;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mWallpaperManager:Landroid/app/WallpaperManager;
     invoke-static {v0}, Lcom/android/launcher2/Workspace;->access$900(Lcom/android/launcher2/Workspace;)Landroid/app/WallpaperManager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/Workspace$5;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mWallpaperWidth:I
     invoke-static {v1}, Lcom/android/launcher2/Workspace;->access$700(Lcom/android/launcher2/Workspace;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/launcher2/Workspace$5;->this$0:Lcom/android/launcher2/Workspace;
 
-    # getter for: Lcom/android/launcher2/Workspace;->mWallpaperHeight:I
     invoke-static {v2}, Lcom/android/launcher2/Workspace;->access$800(Lcom/android/launcher2/Workspace;)I
 
     move-result v2

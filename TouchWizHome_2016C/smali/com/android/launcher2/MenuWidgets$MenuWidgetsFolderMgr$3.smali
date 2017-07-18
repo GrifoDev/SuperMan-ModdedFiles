@@ -36,7 +36,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuWidgets$MenuWidgetsFolderMgr$3;->this$1:Lcom/android/launcher2/MenuWidgets$MenuWidgetsFolderMgr;
 
-    # getter for: Lcom/android/launcher2/MenuWidgets$MenuWidgetsFolderMgr;->mWidgeticon:Lcom/android/launcher2/WidgetFolderView;
     invoke-static {v0}, Lcom/android/launcher2/MenuWidgets$MenuWidgetsFolderMgr;->access$2800(Lcom/android/launcher2/MenuWidgets$MenuWidgetsFolderMgr;)Lcom/android/launcher2/WidgetFolderView;
 
     move-result-object v0

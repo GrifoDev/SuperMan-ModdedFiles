@@ -45,7 +45,6 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/launcher2/FolderClickDialogFragment$1;->this$0:Lcom/android/launcher2/FolderClickDialogFragment;
 
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher2/FolderClickDialogFragment;->access$000(Lcom/android/launcher2/FolderClickDialogFragment;)Landroid/content/Context;
 
     move-result-object v1
@@ -62,7 +61,6 @@
 
     invoke-virtual {v0}, Lcom/android/launcher2/MenuAppsGrid;->cancelClicksOnChildrenForCurrentPage()V
 
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mFolder:Lcom/android/launcher2/FolderItem;
     invoke-static {}, Lcom/android/launcher2/FolderClickDialogFragment;->access$100()Lcom/android/launcher2/FolderItem;
 
     move-result-object v1
@@ -74,7 +72,6 @@
     goto :goto_0
 
     :pswitch_1
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mFolder:Lcom/android/launcher2/FolderItem;
     invoke-static {}, Lcom/android/launcher2/FolderClickDialogFragment;->access$100()Lcom/android/launcher2/FolderItem;
 
     move-result-object v1
@@ -87,7 +84,6 @@
 
     sget-object v2, Lcom/android/launcher2/MenuAppModel;->INSTANCE:Lcom/android/launcher2/MenuAppModel;
 
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mFolder:Lcom/android/launcher2/FolderItem;
     invoke-static {}, Lcom/android/launcher2/FolderClickDialogFragment;->access$100()Lcom/android/launcher2/FolderItem;
 
     move-result-object v1
@@ -102,7 +98,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/FolderClickDialogFragment$1;->this$0:Lcom/android/launcher2/FolderClickDialogFragment;
 
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/launcher2/FolderClickDialogFragment;->access$000(Lcom/android/launcher2/FolderClickDialogFragment;)Landroid/content/Context;
 
     move-result-object v1
@@ -118,7 +113,6 @@
     goto :goto_0
 
     :cond_0
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mFolder:Lcom/android/launcher2/FolderItem;
     invoke-static {}, Lcom/android/launcher2/FolderClickDialogFragment;->access$100()Lcom/android/launcher2/FolderItem;
 
     move-result-object v1
@@ -135,7 +129,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/FolderClickDialogFragment$1;->this$0:Lcom/android/launcher2/FolderClickDialogFragment;
 
-    # getter for: Lcom/android/launcher2/FolderClickDialogFragment;->mTitle:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/launcher2/FolderClickDialogFragment;->access$200(Lcom/android/launcher2/FolderClickDialogFragment;)Ljava/lang/String;
 
     move-result-object v3

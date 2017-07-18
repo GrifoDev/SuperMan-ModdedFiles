@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="config_workspaceEditModeShrinkPercentage">91</integer>
-    <integer name="moveApps_base_grid_size">6</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">100</integer>
 </resources>

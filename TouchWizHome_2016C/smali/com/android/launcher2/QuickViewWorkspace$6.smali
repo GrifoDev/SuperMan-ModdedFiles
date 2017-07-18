@@ -73,7 +73,6 @@
 
     iget-object v3, p0, Lcom/android/launcher2/QuickViewWorkspace$6;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mZeroPageOnOffSwitch:Landroid/widget/Switch;
     invoke-static {v3}, Lcom/android/launcher2/QuickViewWorkspace;->access$200(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/widget/Switch;
 
     move-result-object v3
@@ -140,7 +139,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/QuickViewWorkspace$6;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mHomeBgDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v4}, Lcom/android/launcher2/QuickViewWorkspace;->access$300(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
@@ -262,7 +260,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/QuickViewWorkspace$6;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mHomeZeroOffBgDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v4}, Lcom/android/launcher2/QuickViewWorkspace;->access$400(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4

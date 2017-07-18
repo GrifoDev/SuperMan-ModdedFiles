@@ -138,6 +138,7 @@
     <string name="new_items">%d ҷузъҳои нав</string>
     <string name="no_downloaded_apps">Ягон барномаи боргиришуда нест.</string>
     <string name="no_room_any_page">Дар ягон саҳифа ягон қисмат нест.</string>
+    <string name="no_space_page">Дар саҳифа ҷой нест. Миёнбурро ба саҳифаи дигаре илова кунед.</string>
     <string name="not_selected">Интихоб нашудааст</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Видҷети %s аллакай ба экрани асосӣ илова карда шудааст.</string>

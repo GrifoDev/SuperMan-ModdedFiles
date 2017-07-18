@@ -40,7 +40,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -49,7 +48,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090005
+    const v1, 0x7f0a0005
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -65,7 +64,6 @@
 
     if-eq v0, v1, :cond_0
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -74,7 +72,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901c7
+    const v1, 0x7f0a01c7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -205,16 +203,15 @@
 .end method
 
 .method private set(IIIII)V
-    .locals 6
+    .locals 7
 
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
-    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
+    invoke-static {v3}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Lcom/android/launcher2/theme/OpenThemeManager;->getContext()Landroid/content/Context;
+    invoke-virtual {v3}, Lcom/android/launcher2/theme/OpenThemeManager;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -226,93 +223,132 @@
 
     iput p3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
 
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
-    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
+    invoke-static {v3}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
 
-    move-result-object v2
+    move-result-object v3
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
-    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
+    invoke-static {v3}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "open_folder_background_theme"
+    const-string v4, "open_folder_background_theme"
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v4}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iput-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    instance-of v2, v2, Landroid/graphics/drawable/NinePatchDrawable;
+    instance-of v3, v3, Landroid/graphics/drawable/NinePatchDrawable;
 
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
-
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
-    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
-
-    move-result-object v2
-
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
-    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
-
-    move-result-object v2
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
 
-    iget-object v3, v3, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->key:[Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
 
-    sget-object v4, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;->OPEN_FOLDER_BG:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;
+    move-result-object v3
 
-    invoke-virtual {v4}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;->value()I
+    invoke-static {v3}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
-    move-result v4
+    move-result-object v3
 
-    aget-object v3, v3, v4
+    iget-object v4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
 
-    const/4 v4, 0x1
+    iget-object v4, v4, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->key:[Ljava/lang/String;
 
-    sget-object v5, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
+    sget-object v5, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;->OPEN_FOLDER_BG:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;
 
-    invoke-virtual {v5}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
+    invoke-virtual {v5}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderStyleItems;->value()I
 
     move-result v5
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemBitmap(Ljava/lang/String;ZI)Landroid/graphics/Bitmap;
+    aget-object v4, v4, v5
 
-    move-result-object v1
+    const/4 v5, 0x1
 
-    if-eqz v1, :cond_0
+    sget-object v6, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->HOME:Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;
 
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
+    invoke-virtual {v6}, Lcom/android/launcher2/theme/OpenThemeManager$ThemeType;->value()I
+
+    move-result v6
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemBitmap(Ljava/lang/String;ZI)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
     :cond_0
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_1
-
-    iget v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
-
-    const v3, 0x1ffffff
-
-    if-eq v2, v3, :cond_1
-
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    if-eqz v3, :cond_1
 
     iget v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
 
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+    const v4, 0x1ffffff
 
-    invoke-virtual {v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    if-eq v3, v4, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+
+    iget v4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
+
+    sget-object v5, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v3, v4, v5}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     :cond_1
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mFolderShapeRes:[I
+    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$500()[I
+
+    move-result-object v3
+
+    aget v3, v3, p1
+
+    invoke-static {v0, v3, p2}, Lcom/android/launcher2/Utilities;->getBitmapWithColor(Landroid/content/Context;II)Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    iget v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->folderSize:I
+
+    invoke-static {v1, v3}, Lcom/android/launcher2/theme/ThemeUtils;->resizeBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
+
+    return-void
+.end method
+
+.method private set(IILandroid/graphics/drawable/Drawable;II)V
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
+
+    invoke-static {v2}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher2/theme/OpenThemeManager;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iput p2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderColor:I
+
+    iput-object p3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+
+    iput p4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTitleColor:I
+
+    iput p5, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTextColor:I
+
     invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$500()[I
 
     move-result-object v2
@@ -321,79 +357,23 @@
 
     invoke-static {v0, v2, p2}, Lcom/android/launcher2/Utilities;->getBitmapWithColor(Landroid/content/Context;II)Landroid/graphics/Bitmap;
 
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
-
-    iget-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
-
-    iget v3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->folderSize:I
-
-    invoke-static {v2, v3}, Lcom/android/launcher2/theme/ThemeUtils;->resizeBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
-
-    return-void
-.end method
-
-.method private set(IILandroid/graphics/drawable/Drawable;II)V
-    .locals 3
-
-    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
-
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
-    invoke-static {v1}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
-
     move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher2/theme/OpenThemeManager;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iput p2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderColor:I
-
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mFolderShapeRes:[I
-    invoke-static {}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$500()[I
-
-    move-result-object v1
-
-    aget v1, v1, p1
-
-    invoke-static {v0, v1, p2}, Lcom/android/launcher2/Utilities;->getBitmapWithColor(Landroid/content/Context;II)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
-
-    iput-object p3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
-
-    iput p4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTitleColor:I
-
-    iput p5, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTextColor:I
-
-    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
 
     iget v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->folderSize:I
 
     invoke-static {v1, v2}, Lcom/android/launcher2/theme/ThemeUtils;->resizeBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    iput-object v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
     return-void
 .end method
 
 .method private set(Landroid/graphics/drawable/Drawable;III)V
-    .locals 3
-
-    invoke-static {p1}, Lcom/android/launcher2/Utilities;->getBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    .locals 4
 
     iput p2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
 
@@ -401,48 +381,50 @@
 
     iput p4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTextColor:I
 
-    iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
+    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->this$0:Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->mThemeManager:Lcom/android/launcher2/theme/OpenThemeManager;
-    invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
+    invoke-static {v1}, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;->access$400(Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle;)Lcom/android/launcher2/theme/OpenThemeManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    # getter for: Lcom/android/launcher2/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher2/theme/OpenThemeLoader;
-    invoke-static {v0}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
+    invoke-static {v1}, Lcom/android/launcher2/theme/OpenThemeManager;->access$000(Lcom/android/launcher2/theme/OpenThemeManager;)Lcom/android/launcher2/theme/OpenThemeLoader;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "open_folder_background_theme"
+    const-string v2, "open_folder_background_theme"
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v2}, Lcom/android/launcher2/theme/OpenThemeLoader;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
-    iget v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
+    iget v2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderBgColor:I
 
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    invoke-static {p1}, Lcom/android/launcher2/Utilities;->getBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->folderSize:I
 
     invoke-static {v0, v1}, Lcom/android/launcher2/theme/ThemeUtils;->resizeBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     return-void
 .end method
@@ -450,27 +432,25 @@
 .method private set(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;II)V
     .locals 2
 
-    invoke-static {p1}, Lcom/android/launcher2/Utilities;->getBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
-
     iput-object p2, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderImage:Landroid/graphics/drawable/Drawable;
 
     iput p3, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTitleColor:I
 
     iput p4, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mOpenFolderTextColor:I
 
-    iget-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    invoke-static {p1}, Lcom/android/launcher2/Utilities;->getBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->folderSize:I
 
     invoke-static {v0, v1}, Lcom/android/launcher2/theme/ThemeUtils;->resizeBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Lcom/android/launcher2/theme/OpenThemeManager$FolderStyle$FolderAttr;->mCloseFolderImage:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     return-void
 .end method

@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsFragment$1;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # getter for: Lcom/android/launcher2/BadgeSettingsFragment;->mBadgeAppItems:Ljava/util/List;
     invoke-static {v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$000(Lcom/android/launcher2/BadgeSettingsFragment;)Ljava/util/List;
 
     move-result-object v1
@@ -52,7 +51,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/BadgeSettingsFragment$1;->this$0:Lcom/android/launcher2/BadgeSettingsFragment;
 
-    # invokes: Lcom/android/launcher2/BadgeSettingsFragment;->updateAllSwitch()V
     invoke-static {v1}, Lcom/android/launcher2/BadgeSettingsFragment;->access$100(Lcom/android/launcher2/BadgeSettingsFragment;)V
 
     return-void

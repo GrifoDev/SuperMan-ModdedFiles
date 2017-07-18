@@ -43,7 +43,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$2;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$100(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/view/View;
 
     move-result-object v4
@@ -58,7 +57,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$2;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$100(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/view/View;
 
     move-result-object v4
@@ -71,7 +69,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$2;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$100(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/view/View;
 
     move-result-object v4
@@ -92,7 +89,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/searchapp/SearchAppListFragment$2;->this$0:Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
-    # getter for: Lcom/android/launcher2/searchapp/SearchAppListFragment;->mRootLayout:Landroid/view/View;
     invoke-static {v4}, Lcom/android/launcher2/searchapp/SearchAppListFragment;->access$100(Lcom/android/launcher2/searchapp/SearchAppListFragment;)Landroid/view/View;
 
     move-result-object v4

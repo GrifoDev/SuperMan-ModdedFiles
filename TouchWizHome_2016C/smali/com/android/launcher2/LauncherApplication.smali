@@ -2248,7 +2248,7 @@
 .method public static setScreenBriefingCountChangeMode(Landroid/content/Context;Z)I
     .locals 9
 
-    const v6, 0x7f0b0002
+    const v6, 0x7f0c0002
 
     const/4 v8, 0x0
 
@@ -3231,7 +3231,7 @@
 
     if-nez v19, :cond_0
 
-    const v19, 0x7f0c0019
+    const v19, 0x7f0d0019
 
     move/from16 v0, v19
 
@@ -3329,7 +3329,7 @@
 
     sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenDensity:F
 
-    const v19, 0x7f0c0003
+    const v19, 0x7f0d0003
 
     move/from16 v0, v19
 
@@ -3655,7 +3655,7 @@
 
     sput v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountBriefing:I
 
-    const v19, 0x7f0b004a
+    const v19, 0x7f0c004a
 
     move/from16 v0, v19
 
@@ -3704,7 +3704,7 @@
 
     if-gtz v19, :cond_6
 
-    const v19, 0x7f0b0002
+    const v19, 0x7f0c0002
 
     move/from16 v0, v19
 
@@ -3826,11 +3826,15 @@
 
     move-result v18
 
+    sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+
     move-object/from16 v0, p0
 
     move/from16 v1, v18
 
-    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
+    move/from16 v2, v19
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
     move-result v19
 
@@ -3843,7 +3847,7 @@
     if-eqz v19, :cond_a
 
     :cond_9
-    const v19, 0x7f0b0046
+    const v19, 0x7f0c0046
 
     move/from16 v0, v19
 
@@ -3870,11 +3874,15 @@
 
     sget v19, Lcom/android/launcher2/LauncherApplication;->sScreenIndexNormal:I
 
+    sget v20, Lcom/android/launcher2/LauncherApplication;->sScreenCountNormal:I
+
     move-object/from16 v0, p0
 
     move/from16 v1, v19
 
-    invoke-direct {v0, v1, v15}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
+    move/from16 v2, v20
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher2/LauncherApplication;->isValidIndex(II)Z
 
     move-result v19
 
@@ -3923,7 +3931,7 @@
 
     if-eqz v19, :cond_f
 
-    const v19, 0x7f0b0049
+    const v19, 0x7f0c0049
 
     move/from16 v0, v19
 

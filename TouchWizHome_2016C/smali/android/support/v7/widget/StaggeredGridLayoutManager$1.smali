@@ -39,7 +39,6 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$1;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
-    # invokes: Landroid/support/v7/widget/StaggeredGridLayoutManager;->checkForGaps()V
     invoke-static {v0}, Landroid/support/v7/widget/StaggeredGridLayoutManager;->access$100(Landroid/support/v7/widget/StaggeredGridLayoutManager;)V
 
     return-void

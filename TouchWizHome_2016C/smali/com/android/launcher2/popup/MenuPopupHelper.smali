@@ -21,7 +21,7 @@
 
 
 # static fields
-.field static final ITEM_LAYOUT:I = 0x7f03003d
+.field static final ITEM_LAYOUT:I = 0x7f04003d
 
 
 # instance fields
@@ -429,7 +429,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/popup/MenuPopupHelper;->mAdapter:Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;
 
-    # getter for: Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->mAdapterMenu:Lcom/android/launcher2/popup/MenuBuilder;
     invoke-static {v0}, Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;->access$000(Lcom/android/launcher2/popup/MenuPopupHelper$MenuAdapter;)Lcom/android/launcher2/popup/MenuBuilder;
 
     move-result-object v1
@@ -750,7 +749,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901b6
+    const v7, 0x7f0a01b6
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -766,7 +765,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09027c
+    const v5, 0x7f0a0283
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

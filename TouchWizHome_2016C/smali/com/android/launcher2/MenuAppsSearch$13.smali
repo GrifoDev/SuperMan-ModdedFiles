@@ -88,7 +88,6 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/launcher2/MenuAppsSearch$13;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v4}, Lcom/android/launcher2/MenuAppsSearch;->access$400(Lcom/android/launcher2/MenuAppsSearch;)Landroid/os/Handler;
 
     move-result-object v4
@@ -101,13 +100,11 @@
 
     invoke-direct {v5}, Landroid/os/Handler;-><init>()V
 
-    # setter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v4, v5}, Lcom/android/launcher2/MenuAppsSearch;->access$402(Lcom/android/launcher2/MenuAppsSearch;Landroid/os/Handler;)Landroid/os/Handler;
 
     :cond_0
     iget-object v4, p0, Lcom/android/launcher2/MenuAppsSearch$13;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mHandler:Landroid/os/Handler;
     invoke-static {v4}, Lcom/android/launcher2/MenuAppsSearch;->access$400(Lcom/android/launcher2/MenuAppsSearch;)Landroid/os/Handler;
 
     move-result-object v4
@@ -122,7 +119,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/MenuAppsSearch$13;->this$0:Lcom/android/launcher2/MenuAppsSearch;
 
-    # getter for: Lcom/android/launcher2/MenuAppsSearch;->mContext:Landroid/content/Context;
     invoke-static {v4}, Lcom/android/launcher2/MenuAppsSearch;->access$100(Lcom/android/launcher2/MenuAppsSearch;)Landroid/content/Context;
 
     move-result-object v4

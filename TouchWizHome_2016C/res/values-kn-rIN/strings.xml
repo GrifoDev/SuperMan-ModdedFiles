@@ -138,6 +138,7 @@
     <string name="new_items">%d ಹೊಸ ಅಂಶಗಳು</string>
     <string name="no_downloaded_apps">ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಇಲ್ಲ</string>
     <string name="no_room_any_page">ಯಾವುದೇ ಪುಟದಲ್ಲಿ ಯಾವುದೇ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ.</string>
+    <string name="no_space_page">ಪುಟದಲ್ಲಿ ಸ್ಪೇಸ್ ಇಲ್ಲ. ಬೇರೊಂದು ಪುಟಕ್ಕೆ ಶಾರ್ಟ್‍ಕಟ್ ಸೇರಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="not_selected">ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ</string>
     <string name="ok">ಸರಿ</string>
     <string name="only_one_widget_instance_allowed">%s ವಿಜೆಟ್ ಅನ್ನು ಈಗಾಗಲೇ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ.</string>

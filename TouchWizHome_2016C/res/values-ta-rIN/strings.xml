@@ -138,6 +138,7 @@
     <string name="new_items">%d புதிய உருப்படிகள்</string>
     <string name="no_downloaded_apps">பதிவிறக்கப்பட்ட பயன்பாடுகள் இல்லை</string>
     <string name="no_room_any_page">எந்தப் பக்கத்திலும் இடமில்லை.</string>
+    <string name="no_space_page">பக்கத்தில் இடமில்லை. வேறொரு பக்கத்திற்கு குறுக்குவழியைச் சேர்க்க முயற்சிக்கவும்.</string>
     <string name="not_selected">தேர்வு செய்யப்படவில்லை</string>
     <string name="ok">சரி</string>
     <string name="only_one_widget_instance_allowed">%s விட்ஜெட் ஏற்கனவே முகப்புத் திரையில் சேர்க்கப்பட்டுள்ளது.</string>

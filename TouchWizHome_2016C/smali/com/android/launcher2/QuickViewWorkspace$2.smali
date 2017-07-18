@@ -38,7 +38,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$2;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->vDeleteDropLayout:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$000(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/view/View;
 
     move-result-object v0
@@ -47,7 +46,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$2;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->vDeleteDropLayout:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$000(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/view/View;
 
     move-result-object v0
@@ -60,7 +58,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$2;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->vDeleteDropLayout:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$000(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/view/View;
 
     move-result-object v0
@@ -71,7 +68,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$2;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->vDeleteDropLayout:Landroid/view/View;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$000(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/view/View;
 
     move-result-object v0

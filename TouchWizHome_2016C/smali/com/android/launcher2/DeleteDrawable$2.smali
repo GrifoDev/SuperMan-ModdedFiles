@@ -49,7 +49,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # getter for: Lcom/android/launcher2/DeleteDrawable;->mBulgeAnimationListener:Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$000(Lcom/android/launcher2/DeleteDrawable;)Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
 
     move-result-object v0
@@ -58,7 +57,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # getter for: Lcom/android/launcher2/DeleteDrawable;->mBulgeAnimationListener:Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$000(Lcom/android/launcher2/DeleteDrawable;)Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
 
     move-result-object v0
@@ -70,19 +68,16 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/DeleteDrawable;->mIsAnimatingBulge:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/DeleteDrawable;->access$102(Lcom/android/launcher2/DeleteDrawable;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/DeleteDrawable;->mTrashCanOffsetY:F
     invoke-static {v0, v1}, Lcom/android/launcher2/DeleteDrawable;->access$202(Lcom/android/launcher2/DeleteDrawable;F)F
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # invokes: Lcom/android/launcher2/DeleteDrawable;->stopCurrentAnimation()V
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$300(Lcom/android/launcher2/DeleteDrawable;)V
 
     return-void
@@ -99,7 +94,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # getter for: Lcom/android/launcher2/DeleteDrawable;->mIsAnimatingBulge:Z
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$100(Lcom/android/launcher2/DeleteDrawable;)Z
 
     move-result v0
@@ -108,7 +102,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # getter for: Lcom/android/launcher2/DeleteDrawable;->mBulgeAnimationListener:Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$000(Lcom/android/launcher2/DeleteDrawable;)Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
 
     move-result-object v0
@@ -117,7 +110,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/DeleteDrawable$2;->this$0:Lcom/android/launcher2/DeleteDrawable;
 
-    # getter for: Lcom/android/launcher2/DeleteDrawable;->mBulgeAnimationListener:Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
     invoke-static {v0}, Lcom/android/launcher2/DeleteDrawable;->access$000(Lcom/android/launcher2/DeleteDrawable;)Lcom/android/launcher2/DeleteDrawable$BulgeAnimationListener;
 
     move-result-object v0
@@ -129,7 +121,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/DeleteDrawable$2;->val$set:Landroid/animation/AnimatorSet;
 
-    # setter for: Lcom/android/launcher2/DeleteDrawable;->mCurrentAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lcom/android/launcher2/DeleteDrawable;->access$402(Lcom/android/launcher2/DeleteDrawable;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     return-void

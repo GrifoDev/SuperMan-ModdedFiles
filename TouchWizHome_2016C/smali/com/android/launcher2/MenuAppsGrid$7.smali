@@ -38,7 +38,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/MenuAppsGrid;->mIsStartUninstallAni:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/MenuAppsGrid;->access$2602(Lcom/android/launcher2/MenuAppsGrid;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$7;->this$0:Lcom/android/launcher2/MenuAppsGrid;

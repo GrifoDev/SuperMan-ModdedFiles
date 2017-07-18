@@ -39,7 +39,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$23;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mBadgeCache:Lcom/android/launcher2/BadgeCache;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2300(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/BadgeCache;
 
     move-result-object v4
@@ -90,7 +89,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/LauncherModel$23;->this$0:Lcom/android/launcher2/LauncherModel;
 
-    # getter for: Lcom/android/launcher2/LauncherModel;->mHomeLoader:Lcom/android/launcher2/HomeLoader;
     invoke-static {v4}, Lcom/android/launcher2/LauncherModel;->access$2200(Lcom/android/launcher2/LauncherModel;)Lcom/android/launcher2/HomeLoader;
 
     move-result-object v4

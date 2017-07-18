@@ -47,7 +47,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/PageIndicatorManager$FastScrollConverter;->this$0:Lcom/android/launcher2/PageIndicatorManager;
 
-    # getter for: Lcom/android/launcher2/PageIndicatorManager;->mIsLongPressPending:Z
     invoke-static {v0}, Lcom/android/launcher2/PageIndicatorManager;->access$100(Lcom/android/launcher2/PageIndicatorManager;)Z
 
     move-result v0
@@ -58,21 +57,18 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/android/launcher2/PageIndicatorManager;->mIsLongPressPending:Z
     invoke-static {v0, v1}, Lcom/android/launcher2/PageIndicatorManager;->access$102(Lcom/android/launcher2/PageIndicatorManager;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher2/PageIndicatorManager$FastScrollConverter;->this$0:Lcom/android/launcher2/PageIndicatorManager;
 
     iget-object v1, p0, Lcom/android/launcher2/PageIndicatorManager$FastScrollConverter;->this$0:Lcom/android/launcher2/PageIndicatorManager;
 
-    # getter for: Lcom/android/launcher2/PageIndicatorManager;->mLastMotionX:F
     invoke-static {v1}, Lcom/android/launcher2/PageIndicatorManager;->access$200(Lcom/android/launcher2/PageIndicatorManager;)F
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/launcher2/PageIndicatorManager$FastScrollConverter;->this$0:Lcom/android/launcher2/PageIndicatorManager;
 
-    # getter for: Lcom/android/launcher2/PageIndicatorManager;->mLastMotionY:F
     invoke-static {v2}, Lcom/android/launcher2/PageIndicatorManager;->access$300(Lcom/android/launcher2/PageIndicatorManager;)F
 
     move-result v2

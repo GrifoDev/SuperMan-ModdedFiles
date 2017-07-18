@@ -141,7 +141,6 @@
 
     iget-object v1, p0, Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager;->mContext:Landroid/content/Context;
 
-    # getter for: Landroid/support/v4/app/NotificationManagerCompat;->SIDE_CHANNEL_BIND_FLAGS:I
     invoke-static {}, Landroid/support/v4/app/NotificationManagerCompat;->access$000()I
 
     move-result v2

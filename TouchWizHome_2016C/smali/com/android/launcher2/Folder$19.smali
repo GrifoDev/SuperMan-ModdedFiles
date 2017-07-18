@@ -36,7 +36,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$19;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSearchAppListFragment:Lcom/android/launcher2/searchapp/SearchAppListFragment;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1100(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
     move-result-object v2
@@ -67,7 +66,6 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$19;->this$0:Lcom/android/launcher2/Folder;
 
-    # getter for: Lcom/android/launcher2/Folder;->mSearchAppListFragment:Lcom/android/launcher2/searchapp/SearchAppListFragment;
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1100(Lcom/android/launcher2/Folder;)Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
     move-result-object v2
@@ -78,21 +76,18 @@
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$19;->this$0:Lcom/android/launcher2/Folder;
 
-    # invokes: Lcom/android/launcher2/Folder;->popBackStackFragment()Z
     invoke-static {v2}, Lcom/android/launcher2/Folder;->access$1200(Lcom/android/launcher2/Folder;)Z
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$19;->this$0:Lcom/android/launcher2/Folder;
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher2/Folder;->mSearchAppListFragment:Lcom/android/launcher2/searchapp/SearchAppListFragment;
     invoke-static {v2, v3}, Lcom/android/launcher2/Folder;->access$1102(Lcom/android/launcher2/Folder;Lcom/android/launcher2/searchapp/SearchAppListFragment;)Lcom/android/launcher2/searchapp/SearchAppListFragment;
 
     iget-object v2, p0, Lcom/android/launcher2/Folder$19;->this$0:Lcom/android/launcher2/Folder;
 
     const/4 v3, 0x0
 
-    # setter for: Lcom/android/launcher2/Folder;->mIsHidingSearchAppList:Z
     invoke-static {v2, v3}, Lcom/android/launcher2/Folder;->access$1302(Lcom/android/launcher2/Folder;Z)Z
 
     goto :goto_0

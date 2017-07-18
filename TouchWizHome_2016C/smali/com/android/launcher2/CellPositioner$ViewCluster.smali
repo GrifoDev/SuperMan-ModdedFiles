@@ -96,7 +96,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v0}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v0
@@ -107,7 +106,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v0}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v0
@@ -118,7 +116,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v0}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v0
@@ -129,7 +126,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v0}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v0
@@ -238,7 +234,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v8}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v8
@@ -281,7 +276,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v8}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v8
@@ -315,7 +309,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v8}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v8
@@ -358,7 +351,6 @@
 
     iget-object v8, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v8}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v8
@@ -660,7 +652,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v5}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v5
@@ -695,7 +686,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v5}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v5
@@ -726,7 +716,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v5}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v5
@@ -761,7 +750,6 @@
 
     iget-object v5, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v5}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v5
@@ -801,7 +789,6 @@
     :goto_0
     iget-object v1, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountX:I
     invoke-static {v1}, Lcom/android/launcher2/CellPositioner;->access$100(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v1
@@ -826,7 +813,6 @@
     :goto_1
     iget-object v1, p0, Lcom/android/launcher2/CellPositioner$ViewCluster;->this$0:Lcom/android/launcher2/CellPositioner;
 
-    # getter for: Lcom/android/launcher2/CellPositioner;->mCountY:I
     invoke-static {v1}, Lcom/android/launcher2/CellPositioner;->access$000(Lcom/android/launcher2/CellPositioner;)I
 
     move-result v1

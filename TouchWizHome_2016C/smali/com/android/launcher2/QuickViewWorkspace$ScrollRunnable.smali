@@ -63,7 +63,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$ScrollRunnable;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$1100(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/os/Handler;
 
     move-result-object v0
@@ -103,14 +102,12 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$ScrollRunnable;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$1100(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher2/QuickViewWorkspace$ScrollRunnable;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mScrollDelay:I
     invoke-static {v1}, Lcom/android/launcher2/QuickViewWorkspace;->access$1000(Lcom/android/launcher2/QuickViewWorkspace;)I
 
     move-result v1
@@ -144,7 +141,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/QuickViewWorkspace$ScrollRunnable;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/launcher2/QuickViewWorkspace;->access$1100(Lcom/android/launcher2/QuickViewWorkspace;)Landroid/os/Handler;
 
     move-result-object v0
@@ -207,7 +203,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher2/QuickViewWorkspace$ScrollRunnable;->this$0:Lcom/android/launcher2/QuickViewWorkspace;
 
-    # getter for: Lcom/android/launcher2/QuickViewWorkspace;->mScrollState:I
     invoke-static {v1}, Lcom/android/launcher2/QuickViewWorkspace;->access$900(Lcom/android/launcher2/QuickViewWorkspace;)I
 
     move-result v1

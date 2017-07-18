@@ -138,6 +138,7 @@
     <string name="new_items">Počet nových položiek: %d</string>
     <string name="no_downloaded_apps">Žiadne stiahnuté aplikácie</string>
     <string name="no_room_any_page">Na žiadnej stránke nie je voľné miesto.</string>
+    <string name="no_space_page">Na stránke nie je žiadne voľné miesto. Skúste pridať odkaz na inú stránku.</string>
     <string name="not_selected">Nevybraté</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Miniaplikácia %s je už pridaná na domovskú obrazovku.</string>

@@ -208,7 +208,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/AnimationLayer$Anim$6;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # getter for: Lcom/android/launcher2/AnimationLayer$Anim;->mBitmap:Landroid/graphics/Bitmap;
     invoke-static {v14}, Lcom/android/launcher2/AnimationLayer$Anim;->access$400(Lcom/android/launcher2/AnimationLayer$Anim;)Landroid/graphics/Bitmap;
 
     move-result-object v14
@@ -221,7 +220,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/AnimationLayer$Anim$6;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # getter for: Lcom/android/launcher2/AnimationLayer$Anim;->mBitmap:Landroid/graphics/Bitmap;
     invoke-static {v14}, Lcom/android/launcher2/AnimationLayer$Anim;->access$400(Lcom/android/launcher2/AnimationLayer$Anim;)Landroid/graphics/Bitmap;
 
     move-result-object v14
@@ -607,7 +605,6 @@
 
     iget-object v14, v0, Lcom/android/launcher2/AnimationLayer$Anim$6;->this$1:Lcom/android/launcher2/AnimationLayer$Anim;
 
-    # getter for: Lcom/android/launcher2/AnimationLayer$Anim;->mShadowFadeStarted:Z
     invoke-static {v14}, Lcom/android/launcher2/AnimationLayer$Anim;->access$300(Lcom/android/launcher2/AnimationLayer$Anim;)Z
 
     move-result v14
@@ -649,7 +646,6 @@
 
     const/4 v15, 0x1
 
-    # setter for: Lcom/android/launcher2/AnimationLayer$Anim;->mShadowFadeStarted:Z
     invoke-static {v14, v15}, Lcom/android/launcher2/AnimationLayer$Anim;->access$302(Lcom/android/launcher2/AnimationLayer$Anim;Z)Z
 
     move-object/from16 v0, p0

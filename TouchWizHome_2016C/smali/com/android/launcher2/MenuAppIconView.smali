@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/MenuAppIconView;->mUninstallIconHideAnimationListener:Landroid/view/animation/Animation$AnimationListener;
 
-    const v0, 0x7f04001c
+    const v0, 0x7f05001c
 
     invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -67,7 +67,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/MenuAppIconView;->mUninstallIconShowAnimation:Landroid/view/animation/Animation;
 
-    const v0, 0x7f04001b
+    const v0, 0x7f05001b
 
     invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -209,7 +209,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800ba
+    const v2, 0x7f0900bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080041
+    const v2, 0x7f090041
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -268,7 +268,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800e6
+    const v2, 0x7f0900e7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -284,7 +284,7 @@
 
     invoke-static {p1, p0}, Lcom/android/launcher2/RotateHelper;->setViewAttributes(Landroid/content/res/TypedArray;Landroid/view/View;)V
 
-    const v1, 0x7f100090
+    const v1, 0x7f110090
 
     invoke-virtual {p0, v1}, Lcom/android/launcher2/MenuAppIconView;->findViewById(I)Landroid/view/View;
 
@@ -741,7 +741,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f100090
+    const v0, 0x7f110090
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/MenuAppIconView;->findViewById(I)Landroid/view/View;
 
@@ -751,7 +751,7 @@
 
     iput-object v0, p0, Lcom/android/launcher2/MenuAppIconView;->mAppIcon:Lcom/android/launcher2/AppIconView;
 
-    const v0, 0x7f10004e
+    const v0, 0x7f11004e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher2/MenuAppIconView;->findViewById(I)Landroid/view/View;
 
@@ -765,7 +765,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020057
+    const v1, 0x7f020058
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -968,7 +968,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0043
+    const v2, 0x7f0c0043
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

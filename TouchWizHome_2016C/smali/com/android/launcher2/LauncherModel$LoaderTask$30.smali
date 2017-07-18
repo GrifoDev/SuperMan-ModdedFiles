@@ -39,7 +39,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$30;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
-    # invokes: Lcom/android/launcher2/LauncherModel$LoaderTask;->getLoaderTaskCallbacks()Lcom/android/launcher2/LauncherModel$Callbacks;
     invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$200(Lcom/android/launcher2/LauncherModel$LoaderTask;)Lcom/android/launcher2/LauncherModel$Callbacks;
 
     move-result-object v0
@@ -48,7 +47,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/LauncherModel$LoaderTask$30;->this$1:Lcom/android/launcher2/LauncherModel$LoaderTask;
 
-    # getter for: Lcom/android/launcher2/LauncherModel$LoaderTask;->mIsFestival:Z
     invoke-static {v1}, Lcom/android/launcher2/LauncherModel$LoaderTask;->access$2100(Lcom/android/launcher2/LauncherModel$LoaderTask;)Z
 
     move-result v1

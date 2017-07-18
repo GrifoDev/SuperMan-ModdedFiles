@@ -65,7 +65,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/PagedView$HoverScrollHandler;->this$0:Lcom/android/launcher2/PagedView;
 
-    # getter for: Lcom/android/launcher2/PagedView;->mScrollByHover:Z
     invoke-static {v1}, Lcom/android/launcher2/PagedView;->access$700(Lcom/android/launcher2/PagedView;)Z
 
     move-result v1
@@ -74,7 +73,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/PagedView$HoverScrollHandler;->this$0:Lcom/android/launcher2/PagedView;
 
-    # getter for: Lcom/android/launcher2/PagedView;->mHoverScrollDir:I
     invoke-static {v1}, Lcom/android/launcher2/PagedView;->access$800(Lcom/android/launcher2/PagedView;)I
 
     move-result v1
@@ -122,7 +120,6 @@
     :cond_2
     iget-object v1, p0, Lcom/android/launcher2/PagedView$HoverScrollHandler;->this$0:Lcom/android/launcher2/PagedView;
 
-    # getter for: Lcom/android/launcher2/PagedView;->mHoverScrollDir:I
     invoke-static {v1}, Lcom/android/launcher2/PagedView;->access$800(Lcom/android/launcher2/PagedView;)I
 
     move-result v1

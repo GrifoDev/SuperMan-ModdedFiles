@@ -82,14 +82,12 @@
 
     iget-object v4, p0, Lcom/android/launcher2/AutoInstallsLayout$ShortcutParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static {v4}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/launcher2/AutoInstallsLayout$ShortcutParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/launcher2/AutoInstallsLayout;->access$100(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/Context;
 
     move-result-object v5
@@ -114,7 +112,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/AutoInstallsLayout$ShortcutParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static {v4}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v4
@@ -129,7 +126,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/AutoInstallsLayout$ShortcutParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static {v4}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v4
@@ -146,7 +142,6 @@
 
     iget-object v4, p0, Lcom/android/launcher2/AutoInstallsLayout$ShortcutParser;->this$0:Lcom/android/launcher2/AutoInstallsLayout;
 
-    # getter for: Lcom/android/launcher2/AutoInstallsLayout;->mValues:Landroid/content/ContentValues;
     invoke-static {v4}, Lcom/android/launcher2/AutoInstallsLayout;->access$000(Lcom/android/launcher2/AutoInstallsLayout;)Landroid/content/ContentValues;
 
     move-result-object v4

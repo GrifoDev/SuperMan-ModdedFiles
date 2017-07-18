@@ -87,7 +87,6 @@
     :goto_0
     iget-object v3, p0, Lcom/android/launcher2/MenuAppsGrid$StateAtoZ;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v3}, Lcom/android/launcher2/MenuAppsGrid;->access$400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v3
@@ -98,7 +97,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateAtoZ;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v1
@@ -115,7 +113,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateAtoZ;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # getter for: Lcom/android/launcher2/MenuAppsGrid;->mTitleBarManager:Lcom/android/launcher2/MenuTitleBarManager;
     invoke-static {v1}, Lcom/android/launcher2/MenuAppsGrid;->access$400(Lcom/android/launcher2/MenuAppsGrid;)Lcom/android/launcher2/MenuTitleBarManager;
 
     move-result-object v1
@@ -128,7 +125,6 @@
 
     iget-object v1, p0, Lcom/android/launcher2/MenuAppsGrid$StateAtoZ;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->animatePageZoomOut(Ljava/util/List;Z)V
     invoke-static {v1, p1, v0}, Lcom/android/launcher2/MenuAppsGrid;->access$1900(Lcom/android/launcher2/MenuAppsGrid;Ljava/util/List;Z)V
 
     return-void
@@ -184,7 +180,6 @@
 
     move-result-object v5
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->setIconTextAndShadowVisibilityOnItem(ZLcom/android/launcher2/AppIconView;)V
     invoke-static {v3, v4, v5}, Lcom/android/launcher2/MenuAppsGrid;->access$2100(Lcom/android/launcher2/MenuAppsGrid;ZLcom/android/launcher2/AppIconView;)V
 
     goto :goto_0
@@ -227,7 +222,6 @@
 
     iget-object v0, p0, Lcom/android/launcher2/MenuAppsGrid$StateAtoZ;->this$0:Lcom/android/launcher2/MenuAppsGrid;
 
-    # invokes: Lcom/android/launcher2/MenuAppsGrid;->animatePageZoomIn(Ljava/util/List;)V
     invoke-static {v0, p1}, Lcom/android/launcher2/MenuAppsGrid;->access$2000(Lcom/android/launcher2/MenuAppsGrid;Ljava/util/List;)V
 
     invoke-static {}, Lcom/android/launcher2/Launcher;->getInstance()Lcom/android/launcher2/Launcher;

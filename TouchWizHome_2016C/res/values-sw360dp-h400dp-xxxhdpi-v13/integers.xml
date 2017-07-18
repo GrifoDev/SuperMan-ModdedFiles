@@ -6,5 +6,5 @@
     <integer name="open_folder_appicon_max_visible_rows">3</integer>
     <integer name="home_icon_text_maxline">1</integer>
     <integer name="menu_icon_text_maxline">1</integer>
-    <integer name="config_workspaceEditModeShrinkPercentage">80</integer>
+    <integer name="config_workspaceEditModeShrinkPercentage">100</integer>
 </resources>
