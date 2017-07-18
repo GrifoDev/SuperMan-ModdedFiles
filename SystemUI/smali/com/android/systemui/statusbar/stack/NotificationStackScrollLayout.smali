@@ -7667,7 +7667,7 @@
 .method allowTransparency()Z
     .locals 2
 
-    const-string v0, "unlock_notification_colors"
+    const-string v0, "notification_transparency"
 
     const v1, 0x0
 
