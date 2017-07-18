@@ -37,7 +37,7 @@
     .end annotation
 .end field
 
-.field private final mGrayscaleIconMaxSize:I
+.field private mGrayscaleIconMaxSize:I
 
 .field private final mImageUtils:Lcom/android/internal/util/ImageUtils;
 
@@ -471,9 +471,38 @@
 .end method
 
 .method public static resolveColor(Landroid/content/Context;I)I
-    .locals 1
+    .locals 7
 
-    if-nez p1, :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "unlock_notification_colors"
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "notification_icon_color"
+
+    const v3, -0xa38b80
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_0
+    if-nez p1, :cond_1
 
     const v0, 0x1060052
 
@@ -483,8 +512,11 @@
 
     return v0
 
-    :cond_0
+    :cond_1
     return p1
+
+    :goto_0
+    return v0
 .end method
 
 .method public static resolveContrastColor(Landroid/content/Context;I)I
@@ -941,4 +973,22 @@
 
     :cond_7
     return v4
+.end method
+
+.method public updateGrayScaleIconMaxSize(Landroid/content/Context;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x1050005
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/internal/util/NotificationColorUtil;->mGrayscaleIconMaxSize:I
+
+    return-void
 .end method
