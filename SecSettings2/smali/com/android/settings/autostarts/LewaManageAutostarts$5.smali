@@ -44,7 +44,6 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$5;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->progressDialog:Landroid/app/ProgressDialog;
     invoke-static {v0}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$500(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/app/ProgressDialog;
 
     move-result-object v0
@@ -53,7 +52,6 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$5;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->progressDialog:Landroid/app/ProgressDialog;
     invoke-static {v0}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$500(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/app/ProgressDialog;
 
     move-result-object v0
@@ -63,7 +61,6 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$5;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->appItems:Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
     invoke-static {v0}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$100(Lcom/android/settings/autostarts/LewaManageAutostarts;)Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
 
     move-result-object v0
@@ -72,7 +69,6 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$5;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->optimizableAppItems:Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
     invoke-static {v0}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$200(Lcom/android/settings/autostarts/LewaManageAutostarts;)Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
 
     move-result-object v0

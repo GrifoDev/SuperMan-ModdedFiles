@@ -39,14 +39,12 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$2;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->appsList:Landroid/widget/ListView;
     invoke-static {v0}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$300(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/widget/ListView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$2;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->appItems:Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
     invoke-static {v1}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$100(Lcom/android/settings/autostarts/LewaManageAutostarts;)Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
 
     move-result-object v1

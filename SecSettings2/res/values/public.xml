@@ -11823,6 +11823,33 @@
     <public type="string" name="nfc_osaifukeitai_summary_on_clf_not_support_uim" id="0x7f0b1bb4" />
     <public type="string" name="nfc_osaifukeitai_summary_not_insert_uim" id="0x7f0b1bb5" />
     <public type="string" name="nfc_osaifukeitai_summary_not_support_uim" id="0x7f0b1bb6" />
+    <public type="string" name="device_info" id="0x7f0b1bb7" />
+    <public type="string" name="rom_info" id="0x7f0b1bb8" />
+    <public type="string" name="rom_name" id="0x7f0b1bb9" />
+    <public type="string" name="rom_name_details" id="0x7f0b1bba" />
+    <public type="string" name="rom_ver" id="0x7f0b1bbb" />
+    <public type="string" name="rom_ver_details" id="0x7f0b1bbc" />
+    <public type="string" name="rom_date" id="0x7f0b1bbd" />
+    <public type="string" name="rom_date_details" id="0x7f0b1bbe" />
+    <public type="string" name="rom_developer" id="0x7f0b1bbf" />
+    <public type="string" name="rom_developer_name" id="0x7f0b1bc0" />
+    <public type="string" name="autostarts_title" id="0x7f0b1bc1" />
+    <public type="string" name="autostarts_progress_msg" id="0x7f0b1bc2" />
+    <public type="string" name="autostarts_empty_msg" id="0x7f0b1bc3" />
+    <public type="string" name="autostarts_optimize_empty_msg" id="0x7f0b1bc4" />
+    <public type="string" name="autostarts_optimize_btn_title" id="0x7f0b1bc5" />
+    <public type="string" name="autostarts_all_btn_title" id="0x7f0b1bc6" />
+    <public type="string" name="led_indicator_charging" id="0x7f0b1bc7" />
+    <public type="string" name="led_indicator_charging_summary" id="0x7f0b1bc8" />
+    <public type="string" name="led_indicator_notifications" id="0x7f0b1bc9" />
+    <public type="string" name="led_indicator_notifications_summary" id="0x7f0b1bca" />
+    <public type="string" name="led_indicator_voice_recording" id="0x7f0b1bcb" />
+    <public type="string" name="led_indicator_voice_recording_summary" id="0x7f0b1bcc" />
+    <public type="string" name="led_indicator_incoming_notification" id="0x7f0b1bcd" />
+    <public type="string" name="led_indicator_incoming_notification_summary" id="0x7f0b1bce" />
+    <public type="string" name="led_indicator_low_battery" id="0x7f0b1bcf" />
+    <public type="string" name="led_indicator_low_battery_summary" id="0x7f0b1bd0" />
+    <public type="string" name="notification_reminder_led_toast" id="0x7f0b1bd1" />
     <public type="string" name="font" id="0x7f0b0f1a" />
     <public type="string" name="sdcard_encrypt_err_storage" id="0x7f0b0f1b" />
     <public type="string" name="wifi_unknown_secured_ap" id="0x7f0b0f1c" />

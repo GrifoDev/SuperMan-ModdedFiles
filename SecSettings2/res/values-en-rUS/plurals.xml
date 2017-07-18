@@ -49,10 +49,10 @@
         <item quantity="one">Access to 1 folder/file</item>
     </plurals>
     <plurals name="ssl_ca_cert_info_message_device_owner">
-        <item quantity="other">"%s has installed CA certificates on your &amp;lt;cst>device&amp;lt;/cst>, which may allow them to monitor your &amp;lt;cst>device's&amp;lt;/cst> network activity, including your usage of emails, apps, and secure websites.
+        <item quantity="other">"%s has installed CA certificates on your &lt;cst>device&lt;/cst>, which may allow them to monitor your &lt;cst>device's&lt;/cst> network activity, including your usage of emails, apps, and secure websites.
 
 For more information about these certificates, contact your IT administrator."</item>
-        <item quantity="one">"%s has installed a CA certificate on your &amp;lt;cst>device&amp;lt;/cst>, which may allow them to monitor your &amp;lt;cst>device's&amp;lt;/cst> network activity, including your usage of emails, apps, and secure websites.
+        <item quantity="one">"%s has installed a CA certificate on your &lt;cst>device&lt;/cst>, which may allow them to monitor your &lt;cst>device's&lt;/cst> network activity, including your usage of emails, apps, and secure websites.
 
 For more information about this certificate, contact your IT administrator."</item>
     </plurals>

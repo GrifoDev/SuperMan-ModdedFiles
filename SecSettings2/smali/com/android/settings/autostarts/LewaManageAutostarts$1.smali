@@ -50,7 +50,6 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$1;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->showOptimizeList:Z
     invoke-static {v1}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$000(Lcom/android/settings/autostarts/LewaManageAutostarts;)Z
 
     move-result v1
@@ -59,7 +58,6 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$1;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->appItems:Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
     invoke-static {v1}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$100(Lcom/android/settings/autostarts/LewaManageAutostarts;)Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
 
     move-result-object v1
@@ -83,7 +81,6 @@
     :cond_0
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$1;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->optimizableAppItems:Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
     invoke-static {v1}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$200(Lcom/android/settings/autostarts/LewaManageAutostarts;)Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;
 
     move-result-object v1

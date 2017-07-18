@@ -125,7 +125,6 @@
 
     iget-object v5, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$AppAdapter;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->mLayoutInflater:Landroid/view/LayoutInflater;
     invoke-static {v5}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$600(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/view/LayoutInflater;
 
     move-result-object v5

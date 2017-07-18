@@ -3,6 +3,7 @@ apkFileName: SecSettings2.apk
 compressionType: false
 doNotCompress:
 - arsc
+- dex
 - zip
 - qmg
 - pio
@@ -31,6 +32,7 @@ doNotCompress:
 - res/drawable/messages_bubble_sentmessage_01.9.qmg
 - res/drawable/stat_notify_performancebooster.png.qio
 - res/drawable/tw_no_item_popup_bg_holo_dark.9.qmg
+- xml
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'

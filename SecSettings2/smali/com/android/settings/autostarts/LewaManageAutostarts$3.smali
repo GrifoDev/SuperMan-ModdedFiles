@@ -68,7 +68,6 @@
 
     iget-object v6, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$3;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->pm:Landroid/content/pm/PackageManager;
     invoke-static {v6}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$400(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
@@ -112,7 +111,6 @@
 
     iget-object v6, p0, Lcom/android/settings/autostarts/LewaManageAutostarts$3;->this$0:Lcom/android/settings/autostarts/LewaManageAutostarts;
 
-    # getter for: Lcom/android/settings/autostarts/LewaManageAutostarts;->pm:Landroid/content/pm/PackageManager;
     invoke-static {v6}, Lcom/android/settings/autostarts/LewaManageAutostarts;->access$400(Lcom/android/settings/autostarts/LewaManageAutostarts;)Landroid/content/pm/PackageManager;
 
     move-result-object v6
