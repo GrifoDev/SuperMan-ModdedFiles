@@ -35,6 +35,9 @@
 .method public abstract acquireSleepToken(Ljava/lang/String;)Landroid/app/ActivityManagerInternal$SleepToken;
 .end method
 
+.method public abstract checkContentProviderAccess(Ljava/lang/String;I)Ljava/lang/String;
+.end method
+
 .method public abstract getHomeActivityForUser(I)Landroid/content/ComponentName;
 .end method
 

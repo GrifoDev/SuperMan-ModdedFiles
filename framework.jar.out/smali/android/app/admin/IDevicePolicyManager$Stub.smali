@@ -26,103 +26,101 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.admin.IDevicePolicyManager"
 
-.field static final TRANSACTION_addCrossProfileIntentFilter:I = 0x9a
+.field static final TRANSACTION_addCrossProfileIntentFilter:I = 0x97
 
-.field static final TRANSACTION_addCrossProfileIntentFilterMDM:I = 0x108
+.field static final TRANSACTION_addCrossProfileIntentFilterMDM:I = 0x105
 
-.field static final TRANSACTION_addCrossProfileWidgetProvider:I = 0xc4
+.field static final TRANSACTION_addCrossProfileWidgetProvider:I = 0xc1
 
-.field static final TRANSACTION_addPersistentPreferredActivity:I = 0x8f
+.field static final TRANSACTION_addPersistentPreferredActivity:I = 0x8c
 
-.field static final TRANSACTION_approveCaCert:I = 0x86
+.field static final TRANSACTION_approveCaCert:I = 0x83
 
-.field static final TRANSACTION_choosePrivateKeyAlias:I = 0x8a
+.field static final TRANSACTION_choosePrivateKeyAlias:I = 0x87
 
-.field static final TRANSACTION_clearCrossProfileIntentFilters:I = 0x9b
+.field static final TRANSACTION_clearCrossProfileIntentFilters:I = 0x98
 
-.field static final TRANSACTION_clearCrossProfileIntentFiltersMDM:I = 0x109
+.field static final TRANSACTION_clearCrossProfileIntentFiltersMDM:I = 0x106
 
-.field static final TRANSACTION_clearDeviceOwner:I = 0x4c
+.field static final TRANSACTION_clearDeviceOwner:I = 0x4d
 
-.field static final TRANSACTION_clearPackagePersistentPreferredActivities:I = 0x90
+.field static final TRANSACTION_clearPackagePersistentPreferredActivities:I = 0x8d
 
-.field static final TRANSACTION_clearProfileOwner:I = 0x53
+.field static final TRANSACTION_clearProfileOwner:I = 0x54
 
-.field static final TRANSACTION_copyAlternativeToActivePasswordState:I = 0x85
+.field static final TRANSACTION_createAndManageUser:I = 0xa3
 
-.field static final TRANSACTION_createAndManageUser:I = 0xa6
+.field static final TRANSACTION_enableSystemApp:I = 0xa6
 
-.field static final TRANSACTION_enableSystemApp:I = 0xa9
+.field static final TRANSACTION_enableSystemAppWithIntent:I = 0xa7
 
-.field static final TRANSACTION_enableSystemAppWithIntent:I = 0xaa
-
-.field static final TRANSACTION_enforceCanManageCaCerts:I = 0x5b
+.field static final TRANSACTION_enforceCanManageCaCerts:I = 0x5c
 
 .field static final TRANSACTION_forceRemoveActiveAdmin:I = 0x40
 
-.field static final TRANSACTION_getAccountTypesWithManagementDisabled:I = 0xac
+.field static final TRANSACTION_getAccountTypesWithManagementDisabled:I = 0xa9
 
-.field static final TRANSACTION_getAccountTypesWithManagementDisabledAsUser:I = 0xad
+.field static final TRANSACTION_getAccountTypesWithManagementDisabledAsUser:I = 0xaa
 
 .field static final TRANSACTION_getActiveAdmins:I = 0x3c
 
-.field static final TRANSACTION_getActualDeviceOwnerMDM:I = 0xf6
+.field static final TRANSACTION_getActualDeviceOwnerMDM:I = 0xf3
 
-.field static final TRANSACTION_getAllowCamera:I = 0x71
+.field static final TRANSACTION_getAllowCamera:I = 0x72
 
-.field static final TRANSACTION_getAlwaysOnVpnPackage:I = 0x8e
+.field static final TRANSACTION_getAlwaysOnVpnPackage:I = 0x8b
 
-.field static final TRANSACTION_getApplicationRestrictions:I = 0x92
+.field static final TRANSACTION_getApplicationRestrictions:I = 0x8f
 
-.field static final TRANSACTION_getApplicationRestrictionsMDM:I = 0x107
+.field static final TRANSACTION_getApplicationRestrictionsMDM:I = 0x104
 
-.field static final TRANSACTION_getApplicationRestrictionsManagingPackage:I = 0x94
+.field static final TRANSACTION_getApplicationRestrictionsManagingPackage:I = 0x91
 
-.field static final TRANSACTION_getAutoTimeRequired:I = 0xc8
+.field static final TRANSACTION_getAutoTimeRequired:I = 0xc5
 
-.field static final TRANSACTION_getBluetoothContactSharingDisabled:I = 0xc0
+.field static final TRANSACTION_getBluetoothContactSharingDisabled:I = 0xbd
 
-.field static final TRANSACTION_getBluetoothContactSharingDisabledForUser:I = 0xc1
+.field static final TRANSACTION_getBluetoothContactSharingDisabledForUser:I = 0xbe
 
 .field static final TRANSACTION_getCameraDisabled:I = 0x35
 
-.field static final TRANSACTION_getCertInstallerPackage:I = 0x8c
+.field static final TRANSACTION_getCertInstallerPackage:I = 0x89
 
-.field static final TRANSACTION_getCrossProfileCallerIdDisabled:I = 0xb9
+.field static final TRANSACTION_getCrossProfileCallerIdDisabled:I = 0xb6
 
-.field static final TRANSACTION_getCrossProfileCallerIdDisabledForUser:I = 0xba
+.field static final TRANSACTION_getCrossProfileCallerIdDisabledForUser:I = 0xb7
 
-.field static final TRANSACTION_getCrossProfileContactsSearchDisabled:I = 0xbc
+.field static final TRANSACTION_getCrossProfileContactsSearchDisabled:I = 0xb9
 
-.field static final TRANSACTION_getCrossProfileContactsSearchDisabledForUser:I = 0xbd
+.field static final TRANSACTION_getCrossProfileContactsSearchDisabledForUser:I = 0xba
 
-.field static final TRANSACTION_getCrossProfileWidgetProviders:I = 0xc6
+.field static final TRANSACTION_getCrossProfileWidgetProviders:I = 0xc3
 
 .field static final TRANSACTION_getCurrentFailedPasswordAttempts:I = 0x18
 
-.field static final TRANSACTION_getDeviceOwnerComponent:I = 0x4a
+.field static final TRANSACTION_getDeviceOwnerComponent:I = 0x4b
 
-.field static final TRANSACTION_getDeviceOwnerLockScreenInfo:I = 0x56
+.field static final TRANSACTION_getDeviceOwnerLockScreenInfo:I = 0x57
 
-.field static final TRANSACTION_getDeviceOwnerName:I = 0x4b
+.field static final TRANSACTION_getDeviceOwnerName:I = 0x4c
 
-.field static final TRANSACTION_getDeviceOwnerUserId:I = 0x4d
+.field static final TRANSACTION_getDeviceOwnerUserId:I = 0x4e
 
-.field static final TRANSACTION_getDoNotAskCredentialsOnBoot:I = 0xd1
+.field static final TRANSACTION_getDoNotAskCredentialsOnBoot:I = 0xce
 
-.field static final TRANSACTION_getForceEphemeralUsers:I = 0xca
+.field static final TRANSACTION_getForceEphemeralUsers:I = 0xc7
 
 .field static final TRANSACTION_getGlobalProxyAdmin:I = 0x23
 
-.field static final TRANSACTION_getKeepUninstalledPackages:I = 0xd9
+.field static final TRANSACTION_getKeepUninstalledPackages:I = 0xd6
 
 .field static final TRANSACTION_getKeyguardDisabledFeatures:I = 0x39
 
-.field static final TRANSACTION_getLockTaskPackages:I = 0xaf
+.field static final TRANSACTION_getLockTaskPackages:I = 0xac
 
-.field static final TRANSACTION_getLongSupportMessage:I = 0xe1
+.field static final TRANSACTION_getLongSupportMessage:I = 0xde
 
-.field static final TRANSACTION_getLongSupportMessageForUser:I = 0xe3
+.field static final TRANSACTION_getLongSupportMessageForUser:I = 0xe0
 
 .field static final TRANSACTION_getMaximumFailedPasswordsForWipe:I = 0x1b
 
@@ -132,13 +130,13 @@
 
 .field static final TRANSACTION_getNeedToGetAlternativePasswdForODE:I = 0x32
 
-.field static final TRANSACTION_getOrganizationColor:I = 0xe7
+.field static final TRANSACTION_getOrganizationColor:I = 0xe4
 
-.field static final TRANSACTION_getOrganizationColorForUser:I = 0xe8
+.field static final TRANSACTION_getOrganizationColorForUser:I = 0xe5
 
-.field static final TRANSACTION_getOrganizationName:I = 0xea
+.field static final TRANSACTION_getOrganizationName:I = 0xe7
 
-.field static final TRANSACTION_getOrganizationNameForUser:I = 0xeb
+.field static final TRANSACTION_getOrganizationNameForUser:I = 0xe8
 
 .field static final TRANSACTION_getPasswordExpiration:I = 0x15
 
@@ -162,21 +160,21 @@
 
 .field static final TRANSACTION_getPasswordQuality:I = 0x2
 
-.field static final TRANSACTION_getPermissionGrantState:I = 0xd6
+.field static final TRANSACTION_getPermissionGrantState:I = 0xd3
 
-.field static final TRANSACTION_getPermissionPolicy:I = 0xd4
+.field static final TRANSACTION_getPermissionPolicy:I = 0xd1
 
-.field static final TRANSACTION_getPermittedAccessibilityServices:I = 0x9d
+.field static final TRANSACTION_getPermittedAccessibilityServices:I = 0x9a
 
-.field static final TRANSACTION_getPermittedAccessibilityServicesForUser:I = 0x9e
+.field static final TRANSACTION_getPermittedAccessibilityServicesForUser:I = 0x9b
 
-.field static final TRANSACTION_getPermittedInputMethods:I = 0xa1
+.field static final TRANSACTION_getPermittedInputMethods:I = 0x9e
 
-.field static final TRANSACTION_getPermittedInputMethodsForCurrentUser:I = 0xa2
+.field static final TRANSACTION_getPermittedInputMethodsForCurrentUser:I = 0x9f
 
-.field static final TRANSACTION_getProfileOwner:I = 0x4f
+.field static final TRANSACTION_getProfileOwner:I = 0x50
 
-.field static final TRANSACTION_getProfileOwnerName:I = 0x50
+.field static final TRANSACTION_getProfileOwnerName:I = 0x51
 
 .field static final TRANSACTION_getProfileWithMinimumFailedPasswordsForWipe:I = 0x19
 
@@ -184,7 +182,7 @@
 
 .field static final TRANSACTION_getRemoveWarning:I = 0x3e
 
-.field static final TRANSACTION_getRestrictionsProvider:I = 0x97
+.field static final TRANSACTION_getRestrictionsProvider:I = 0x94
 
 .field static final TRANSACTION_getSamsungEncryptionStatus:I = 0x29
 
@@ -194,65 +192,65 @@
 
 .field static final TRANSACTION_getScreenCaptureDisabled:I = 0x37
 
-.field static final TRANSACTION_getShortSupportMessage:I = 0xdf
+.field static final TRANSACTION_getShortSupportMessage:I = 0xdc
 
-.field static final TRANSACTION_getShortSupportMessageForUser:I = 0xe2
+.field static final TRANSACTION_getShortSupportMessageForUser:I = 0xdf
 
 .field static final TRANSACTION_getStorageEncryption:I = 0x26
 
 .field static final TRANSACTION_getStorageEncryptionStatus:I = 0x27
 
-.field static final TRANSACTION_getSystemUpdatePolicy:I = 0xce
+.field static final TRANSACTION_getSystemUpdatePolicy:I = 0xcb
 
-.field static final TRANSACTION_getTrustAgentConfiguration:I = 0xc3
+.field static final TRANSACTION_getTrustAgentConfiguration:I = 0xc0
 
-.field static final TRANSACTION_getUserProvisioningState:I = 0xec
+.field static final TRANSACTION_getUserProvisioningState:I = 0xe9
 
-.field static final TRANSACTION_getUserRestrictions:I = 0x99
+.field static final TRANSACTION_getUserRestrictions:I = 0x96
 
-.field static final TRANSACTION_getWifiMacAddress:I = 0xdc
+.field static final TRANSACTION_getWifiMacAddress:I = 0xd9
 
 .field static final TRANSACTION_hasGrantedPolicy:I = 0x41
 
-.field static final TRANSACTION_hasUserSetupCompleted:I = 0x54
+.field static final TRANSACTION_hasUserSetupCompleted:I = 0x55
 
-.field static final TRANSACTION_installCaCert:I = 0x59
+.field static final TRANSACTION_installCaCert:I = 0x5a
 
-.field static final TRANSACTION_installKeyPair:I = 0x88
+.field static final TRANSACTION_installKeyPair:I = 0x85
 
-.field static final TRANSACTION_isAccessibilityServicePermittedByAdmin:I = 0x9f
+.field static final TRANSACTION_isAccessibilityServicePermittedByAdmin:I = 0x9c
 
 .field static final TRANSACTION_isActivePasswordSufficient:I = 0x16
 
 .field static final TRANSACTION_isAdminActive:I = 0x3b
 
-.field static final TRANSACTION_isAffiliatedUser:I = 0xef
+.field static final TRANSACTION_isAffiliatedUser:I = 0xec
 
-.field static final TRANSACTION_isApplicationHidden:I = 0xa5
+.field static final TRANSACTION_isApplicationHidden:I = 0xa2
 
-.field static final TRANSACTION_isCaCertApproved:I = 0x87
+.field static final TRANSACTION_isCaCertApproved:I = 0x84
 
-.field static final TRANSACTION_isCallerApplicationRestrictionsManagingPackage:I = 0x95
+.field static final TRANSACTION_isCallerApplicationRestrictionsManagingPackage:I = 0x92
 
-.field static final TRANSACTION_isInputMethodPermittedByAdmin:I = 0xa3
+.field static final TRANSACTION_isInputMethodPermittedByAdmin:I = 0xa0
 
-.field static final TRANSACTION_isLockTaskPermitted:I = 0xb0
+.field static final TRANSACTION_isLockTaskPermitted:I = 0xad
 
-.field static final TRANSACTION_isManagedProfile:I = 0xda
+.field static final TRANSACTION_isManagedProfile:I = 0xd7
 
-.field static final TRANSACTION_isMasterVolumeMuted:I = 0xb4
+.field static final TRANSACTION_isMasterVolumeMuted:I = 0xb1
 
-.field static final TRANSACTION_isPackageSuspended:I = 0x58
+.field static final TRANSACTION_isPackageSuspended:I = 0x59
 
 .field static final TRANSACTION_isProfileActivePasswordSufficientForParent:I = 0x17
 
-.field static final TRANSACTION_isProvisioningAllowed:I = 0xd7
+.field static final TRANSACTION_isProvisioningAllowed:I = 0xd4
 
-.field static final TRANSACTION_isRemovingAdmin:I = 0xcb
+.field static final TRANSACTION_isRemovingAdmin:I = 0xc8
 
-.field static final TRANSACTION_isSecurityLoggingEnabled:I = 0xf1
+.field static final TRANSACTION_isSecurityLoggingEnabled:I = 0xee
 
-.field static final TRANSACTION_isSeparateProfileChallengeAllowed:I = 0xe4
+.field static final TRANSACTION_isSeparateProfileChallengeAllowed:I = 0xe1
 
 .field static final TRANSACTION_isSupportFingerprintForODE:I = 0x30
 
@@ -260,75 +258,77 @@
 
 .field static final TRANSACTION_isSupportTrustedBootForODE:I = 0x2d
 
-.field static final TRANSACTION_isSystemOnlyUser:I = 0xdb
+.field static final TRANSACTION_isSystemOnlyUser:I = 0xd8
 
-.field static final TRANSACTION_isUninstallBlocked:I = 0xb7
+.field static final TRANSACTION_isUninstallBlocked:I = 0xb4
 
-.field static final TRANSACTION_isUninstallInQueue:I = 0xf4
+.field static final TRANSACTION_isUninstallInQueue:I = 0xf1
 
 .field static final TRANSACTION_lockNow:I = 0x20
 
-.field static final TRANSACTION_notifyLockTaskModeChanged:I = 0xb5
+.field static final TRANSACTION_notifyLockTaskModeChanged:I = 0xb2
 
-.field static final TRANSACTION_notifyPendingSystemUpdate:I = 0xd2
+.field static final TRANSACTION_notifyPendingSystemUpdate:I = 0xcf
 
 .field static final TRANSACTION_packageHasActiveAdmins:I = 0x3d
 
-.field static final TRANSACTION_reboot:I = 0xdd
+.field static final TRANSACTION_reboot:I = 0xda
 
-.field static final TRANSACTION_rebootMDM:I = 0xf7
+.field static final TRANSACTION_rebootMDM:I = 0xf4
 
-.field static final TRANSACTION_recoverPassword:I = 0x77
+.field static final TRANSACTION_recoverPassword:I = 0x78
 
 .field static final TRANSACTION_removeActiveAdmin:I = 0x3f
 
-.field static final TRANSACTION_removeCrossProfileWidgetProvider:I = 0xc5
+.field static final TRANSACTION_removeCrossProfileWidgetProvider:I = 0xc2
 
-.field static final TRANSACTION_removeKeyPair:I = 0x89
+.field static final TRANSACTION_removeKeyPair:I = 0x86
 
-.field static final TRANSACTION_removeUser:I = 0xa7
+.field static final TRANSACTION_removeUser:I = 0xa4
 
-.field static final TRANSACTION_reportFailedFingerprintAttempt:I = 0x45
+.field static final TRANSACTION_reportFailedFingerprintAttempt:I = 0x46
 
-.field static final TRANSACTION_reportFailedPasswordAttempt:I = 0x43
+.field static final TRANSACTION_reportFailedPasswordAttempt:I = 0x44
 
-.field static final TRANSACTION_reportKeyguardDismissed:I = 0x47
+.field static final TRANSACTION_reportKeyguardDismissed:I = 0x48
 
-.field static final TRANSACTION_reportKeyguardSecured:I = 0x48
+.field static final TRANSACTION_reportKeyguardSecured:I = 0x49
 
-.field static final TRANSACTION_reportSuccessfulFingerprintAttempt:I = 0x46
+.field static final TRANSACTION_reportPasswordChanged:I = 0x43
 
-.field static final TRANSACTION_reportSuccessfulPasswordAttempt:I = 0x44
+.field static final TRANSACTION_reportSuccessfulFingerprintAttempt:I = 0x47
+
+.field static final TRANSACTION_reportSuccessfulPasswordAttempt:I = 0x45
 
 .field static final TRANSACTION_requestBugreport:I = 0x33
 
 .field static final TRANSACTION_resetPassword:I = 0x1c
 
-.field static final TRANSACTION_resetPasswordMDM:I = 0x103
+.field static final TRANSACTION_resetPasswordMDM:I = 0x100
 
-.field static final TRANSACTION_retrievePreRebootSecurityLogs:I = 0xf3
+.field static final TRANSACTION_retrievePreRebootSecurityLogs:I = 0xf0
 
-.field static final TRANSACTION_retrieveSecurityLogs:I = 0xf2
+.field static final TRANSACTION_retrieveSecurityLogs:I = 0xef
 
 .field static final TRANSACTION_satisfyFIPSPassword:I = 0x28
 
-.field static final TRANSACTION_semCheckPassword:I = 0x74
+.field static final TRANSACTION_semCheckPassword:I = 0x75
 
-.field static final TRANSACTION_semGetAllowBluetoothMode:I = 0x6d
+.field static final TRANSACTION_semGetAllowBluetoothMode:I = 0x6e
 
-.field static final TRANSACTION_semGetAllowBrowser:I = 0x69
+.field static final TRANSACTION_semGetAllowBrowser:I = 0x6a
 
-.field static final TRANSACTION_semGetAllowDesktopSync:I = 0x6f
+.field static final TRANSACTION_semGetAllowDesktopSync:I = 0x70
 
-.field static final TRANSACTION_semGetAllowInternetSharing:I = 0x6b
+.field static final TRANSACTION_semGetAllowInternetSharing:I = 0x6c
 
-.field static final TRANSACTION_semGetAllowIrda:I = 0x73
+.field static final TRANSACTION_semGetAllowIrda:I = 0x74
 
-.field static final TRANSACTION_semGetAllowPopImapEmail:I = 0x67
+.field static final TRANSACTION_semGetAllowPopImapEmail:I = 0x68
 
-.field static final TRANSACTION_semGetAllowStorageCard:I = 0x5f
+.field static final TRANSACTION_semGetAllowStorageCard:I = 0x60
 
-.field static final TRANSACTION_semGetAllowTextMessaging:I = 0x65
+.field static final TRANSACTION_semGetAllowTextMessaging:I = 0x66
 
 .field static final TRANSACTION_semGetAllowThirdPartyAppList:I = 0x7c
 
@@ -336,31 +336,31 @@
 
 .field static final TRANSACTION_semGetAllowUnsignedInstallationPackage:I = 0x82
 
-.field static final TRANSACTION_semGetAllowWifi:I = 0x63
+.field static final TRANSACTION_semGetAllowWifi:I = 0x64
 
 .field static final TRANSACTION_semGetBlockPreloadedPackages:I = 0x7e
 
-.field static final TRANSACTION_semGetRequireStorageCardEncryption:I = 0x76
+.field static final TRANSACTION_semGetRequireStorageCardEncryption:I = 0x77
 
-.field static final TRANSACTION_semIsPasswordRecoverable:I = 0x5d
+.field static final TRANSACTION_semIsPasswordRecoverable:I = 0x5e
 
-.field static final TRANSACTION_semIsSimplePasswordEnabled:I = 0x61
+.field static final TRANSACTION_semIsSimplePasswordEnabled:I = 0x62
 
-.field static final TRANSACTION_semSetAllowBluetoothMode:I = 0x6c
+.field static final TRANSACTION_semSetAllowBluetoothMode:I = 0x6d
 
-.field static final TRANSACTION_semSetAllowBrowser:I = 0x68
+.field static final TRANSACTION_semSetAllowBrowser:I = 0x69
 
-.field static final TRANSACTION_semSetAllowDesktopSync:I = 0x6e
+.field static final TRANSACTION_semSetAllowDesktopSync:I = 0x6f
 
-.field static final TRANSACTION_semSetAllowInternetSharing:I = 0x6a
+.field static final TRANSACTION_semSetAllowInternetSharing:I = 0x6b
 
-.field static final TRANSACTION_semSetAllowIrda:I = 0x72
+.field static final TRANSACTION_semSetAllowIrda:I = 0x73
 
-.field static final TRANSACTION_semSetAllowPopImapEmail:I = 0x66
+.field static final TRANSACTION_semSetAllowPopImapEmail:I = 0x67
 
-.field static final TRANSACTION_semSetAllowStorageCard:I = 0x5e
+.field static final TRANSACTION_semSetAllowStorageCard:I = 0x5f
 
-.field static final TRANSACTION_semSetAllowTextMessaging:I = 0x64
+.field static final TRANSACTION_semSetAllowTextMessaging:I = 0x65
 
 .field static final TRANSACTION_semSetAllowThirdPartyAppList:I = 0x7b
 
@@ -368,191 +368,185 @@
 
 .field static final TRANSACTION_semSetAllowUnsignedInstallationPackage:I = 0x81
 
-.field static final TRANSACTION_semSetAllowWifi:I = 0x62
+.field static final TRANSACTION_semSetAllowWifi:I = 0x63
 
 .field static final TRANSACTION_semSetBlockPreloadedPackages:I = 0x7d
 
-.field static final TRANSACTION_semSetChangeNotificationEnabled:I = 0x78
+.field static final TRANSACTION_semSetChangeNotificationEnabled:I = 0x79
 
-.field static final TRANSACTION_semSetPasswordRecoverable:I = 0x5c
+.field static final TRANSACTION_semSetPasswordRecoverable:I = 0x5d
 
-.field static final TRANSACTION_semSetRequireStorageCardEncryption:I = 0x75
+.field static final TRANSACTION_semSetRequireStorageCardEncryption:I = 0x76
 
-.field static final TRANSACTION_semSetSimplePasswordEnabled:I = 0x60
+.field static final TRANSACTION_semSetSimplePasswordEnabled:I = 0x61
 
-.field static final TRANSACTION_setAccountManagementDisabled:I = 0xab
+.field static final TRANSACTION_setAccountManagementDisabled:I = 0xa8
 
 .field static final TRANSACTION_setActiveAdmin:I = 0x3a
 
 .field static final TRANSACTION_setActivePasswordState:I = 0x42
 
-.field static final TRANSACTION_setActivePasswordStateForEAS:I = 0x7a
+.field static final TRANSACTION_setAdminPermissions:I = 0x7a
 
-.field static final TRANSACTION_setAdminPermissions:I = 0x79
+.field static final TRANSACTION_setAffiliationIds:I = 0xeb
 
-.field static final TRANSACTION_setAffiliationIds:I = 0xee
+.field static final TRANSACTION_setAllowCamera:I = 0x71
 
-.field static final TRANSACTION_setAllowCamera:I = 0x70
+.field static final TRANSACTION_setAlwaysOnVpnPackage:I = 0x8a
 
-.field static final TRANSACTION_setAlternativePasswordState:I = 0x83
+.field static final TRANSACTION_setApplicationHidden:I = 0xa1
 
-.field static final TRANSACTION_setAlternativePasswordStateForEAS:I = 0x84
+.field static final TRANSACTION_setApplicationRestrictions:I = 0x8e
 
-.field static final TRANSACTION_setAlwaysOnVpnPackage:I = 0x8d
+.field static final TRANSACTION_setApplicationRestrictionsMDM:I = 0x103
 
-.field static final TRANSACTION_setApplicationHidden:I = 0xa4
+.field static final TRANSACTION_setApplicationRestrictionsManagingPackage:I = 0x90
 
-.field static final TRANSACTION_setApplicationRestrictions:I = 0x91
+.field static final TRANSACTION_setAutoTimeRequired:I = 0xc4
 
-.field static final TRANSACTION_setApplicationRestrictionsMDM:I = 0x106
-
-.field static final TRANSACTION_setApplicationRestrictionsManagingPackage:I = 0x93
-
-.field static final TRANSACTION_setAutoTimeRequired:I = 0xc7
-
-.field static final TRANSACTION_setBluetoothContactSharingDisabled:I = 0xbf
+.field static final TRANSACTION_setBluetoothContactSharingDisabled:I = 0xbc
 
 .field static final TRANSACTION_setCameraDisabled:I = 0x34
 
-.field static final TRANSACTION_setCertInstallerPackage:I = 0x8b
+.field static final TRANSACTION_setCertInstallerPackage:I = 0x88
 
-.field static final TRANSACTION_setCrossProfileCallerIdDisabled:I = 0xb8
+.field static final TRANSACTION_setCrossProfileCallerIdDisabled:I = 0xb5
 
-.field static final TRANSACTION_setCrossProfileContactsSearchDisabled:I = 0xbb
+.field static final TRANSACTION_setCrossProfileContactsSearchDisabled:I = 0xb8
 
-.field static final TRANSACTION_setDeviceOwner:I = 0x49
+.field static final TRANSACTION_setDeviceOwner:I = 0x4a
 
-.field static final TRANSACTION_setDeviceOwnerLockScreenInfo:I = 0x55
+.field static final TRANSACTION_setDeviceOwnerLockScreenInfo:I = 0x56
 
-.field static final TRANSACTION_setForceEphemeralUsers:I = 0xc9
+.field static final TRANSACTION_setForceEphemeralUsers:I = 0xc6
 
 .field static final TRANSACTION_setGlobalProxy:I = 0x22
 
-.field static final TRANSACTION_setGlobalSetting:I = 0xb1
+.field static final TRANSACTION_setGlobalSetting:I = 0xae
 
-.field static final TRANSACTION_setKeepUninstalledPackages:I = 0xd8
+.field static final TRANSACTION_setKeepUninstalledPackages:I = 0xd5
 
-.field static final TRANSACTION_setKeyguardDisabled:I = 0xcf
+.field static final TRANSACTION_setKeyguardDisabled:I = 0xcc
 
 .field static final TRANSACTION_setKeyguardDisabledFeatures:I = 0x38
 
-.field static final TRANSACTION_setKeyguardDisabledFeaturesMDM:I = 0x105
+.field static final TRANSACTION_setKeyguardDisabledFeaturesMDM:I = 0x102
 
-.field static final TRANSACTION_setLockTaskPackages:I = 0xae
+.field static final TRANSACTION_setLockTaskPackages:I = 0xab
 
-.field static final TRANSACTION_setLongSupportMessage:I = 0xe0
+.field static final TRANSACTION_setLongSupportMessage:I = 0xdd
 
-.field static final TRANSACTION_setMasterVolumeMuted:I = 0xb3
+.field static final TRANSACTION_setMasterVolumeMuted:I = 0xb0
 
 .field static final TRANSACTION_setMaximumFailedPasswordsForWipe:I = 0x1a
 
-.field static final TRANSACTION_setMaximumFailedPasswordsForWipeMDM:I = 0x102
+.field static final TRANSACTION_setMaximumFailedPasswordsForWipeMDM:I = 0xff
 
 .field static final TRANSACTION_setMaximumTimeToLock:I = 0x1d
 
-.field static final TRANSACTION_setMaximumTimeToLockMDM:I = 0x104
+.field static final TRANSACTION_setMaximumTimeToLockMDM:I = 0x101
 
 .field static final TRANSACTION_setNeedToGetAlternativePasswdForODE:I = 0x31
 
-.field static final TRANSACTION_setOrganizationColor:I = 0xe5
+.field static final TRANSACTION_setOrganizationColor:I = 0xe2
 
-.field static final TRANSACTION_setOrganizationColorForUser:I = 0xe6
+.field static final TRANSACTION_setOrganizationColorForUser:I = 0xe3
 
-.field static final TRANSACTION_setOrganizationName:I = 0xe9
+.field static final TRANSACTION_setOrganizationName:I = 0xe6
 
-.field static final TRANSACTION_setPackagesSuspended:I = 0x57
+.field static final TRANSACTION_setPackagesSuspended:I = 0x58
 
 .field static final TRANSACTION_setPasswordExpirationTimeout:I = 0x13
 
-.field static final TRANSACTION_setPasswordExpirationTimeoutMDM:I = 0x101
+.field static final TRANSACTION_setPasswordExpirationTimeoutMDM:I = 0xfe
 
 .field static final TRANSACTION_setPasswordHistoryLength:I = 0x11
 
-.field static final TRANSACTION_setPasswordHistoryLengthMDM:I = 0x100
+.field static final TRANSACTION_setPasswordHistoryLengthMDM:I = 0xfd
 
 .field static final TRANSACTION_setPasswordMinimumLength:I = 0x3
 
-.field static final TRANSACTION_setPasswordMinimumLengthMDM:I = 0xf9
+.field static final TRANSACTION_setPasswordMinimumLengthMDM:I = 0xf6
 
 .field static final TRANSACTION_setPasswordMinimumLetters:I = 0x9
 
-.field static final TRANSACTION_setPasswordMinimumLettersMDM:I = 0xfc
+.field static final TRANSACTION_setPasswordMinimumLettersMDM:I = 0xf9
 
 .field static final TRANSACTION_setPasswordMinimumLowerCase:I = 0x7
 
-.field static final TRANSACTION_setPasswordMinimumLowerCaseMDM:I = 0xfb
+.field static final TRANSACTION_setPasswordMinimumLowerCaseMDM:I = 0xf8
 
 .field static final TRANSACTION_setPasswordMinimumNonLetter:I = 0xf
 
-.field static final TRANSACTION_setPasswordMinimumNonLetterMDM:I = 0xff
+.field static final TRANSACTION_setPasswordMinimumNonLetterMDM:I = 0xfc
 
 .field static final TRANSACTION_setPasswordMinimumNumeric:I = 0xb
 
-.field static final TRANSACTION_setPasswordMinimumNumericMDM:I = 0xfd
+.field static final TRANSACTION_setPasswordMinimumNumericMDM:I = 0xfa
 
 .field static final TRANSACTION_setPasswordMinimumSymbols:I = 0xd
 
-.field static final TRANSACTION_setPasswordMinimumSymbolsMDM:I = 0xfe
+.field static final TRANSACTION_setPasswordMinimumSymbolsMDM:I = 0xfb
 
 .field static final TRANSACTION_setPasswordMinimumUpperCase:I = 0x5
 
-.field static final TRANSACTION_setPasswordMinimumUpperCaseMDM:I = 0xfa
+.field static final TRANSACTION_setPasswordMinimumUpperCaseMDM:I = 0xf7
 
 .field static final TRANSACTION_setPasswordQuality:I = 0x1
 
-.field static final TRANSACTION_setPasswordQualityMDM:I = 0xf8
+.field static final TRANSACTION_setPasswordQualityMDM:I = 0xf5
 
-.field static final TRANSACTION_setPermissionGrantState:I = 0xd5
+.field static final TRANSACTION_setPermissionGrantState:I = 0xd2
 
-.field static final TRANSACTION_setPermissionPolicy:I = 0xd3
+.field static final TRANSACTION_setPermissionPolicy:I = 0xd0
 
-.field static final TRANSACTION_setPermittedAccessibilityServices:I = 0x9c
+.field static final TRANSACTION_setPermittedAccessibilityServices:I = 0x99
 
-.field static final TRANSACTION_setPermittedInputMethods:I = 0xa0
+.field static final TRANSACTION_setPermittedInputMethods:I = 0x9d
 
-.field static final TRANSACTION_setProfileEnabled:I = 0x51
+.field static final TRANSACTION_setProfileEnabled:I = 0x52
 
-.field static final TRANSACTION_setProfileName:I = 0x52
+.field static final TRANSACTION_setProfileName:I = 0x53
 
-.field static final TRANSACTION_setProfileOwner:I = 0x4e
+.field static final TRANSACTION_setProfileOwner:I = 0x4f
 
 .field static final TRANSACTION_setPropertyIntoFooter:I = 0x2e
 
 .field static final TRANSACTION_setRecommendedGlobalProxy:I = 0x24
 
-.field static final TRANSACTION_setRestrictionsProvider:I = 0x96
+.field static final TRANSACTION_setRestrictionsProvider:I = 0x93
 
 .field static final TRANSACTION_setScreenCaptureDisabled:I = 0x36
 
-.field static final TRANSACTION_setSecureSetting:I = 0xb2
+.field static final TRANSACTION_setSecureSetting:I = 0xaf
 
-.field static final TRANSACTION_setSecurityLoggingEnabled:I = 0xf0
+.field static final TRANSACTION_setSecurityLoggingEnabled:I = 0xed
 
-.field static final TRANSACTION_setShortSupportMessage:I = 0xde
+.field static final TRANSACTION_setShortSupportMessage:I = 0xdb
 
-.field static final TRANSACTION_setStatusBarDisabled:I = 0xd0
+.field static final TRANSACTION_setStatusBarDisabled:I = 0xcd
 
 .field static final TRANSACTION_setStorageEncryption:I = 0x25
 
-.field static final TRANSACTION_setSystemUpdatePolicy:I = 0xcd
+.field static final TRANSACTION_setSystemUpdatePolicy:I = 0xca
 
-.field static final TRANSACTION_setTrustAgentConfiguration:I = 0xc2
+.field static final TRANSACTION_setTrustAgentConfiguration:I = 0xbf
 
-.field static final TRANSACTION_setUninstallBlocked:I = 0xb6
+.field static final TRANSACTION_setUninstallBlocked:I = 0xb3
 
-.field static final TRANSACTION_setUserIcon:I = 0xcc
+.field static final TRANSACTION_setUserIcon:I = 0xc9
 
-.field static final TRANSACTION_setUserProvisioningState:I = 0xed
+.field static final TRANSACTION_setUserProvisioningState:I = 0xea
 
-.field static final TRANSACTION_setUserRestriction:I = 0x98
+.field static final TRANSACTION_setUserRestriction:I = 0x95
 
-.field static final TRANSACTION_startManagedQuickContact:I = 0xbe
+.field static final TRANSACTION_startManagedQuickContact:I = 0xbb
 
-.field static final TRANSACTION_switchUser:I = 0xa8
+.field static final TRANSACTION_switchUser:I = 0xa5
 
-.field static final TRANSACTION_uninstallCaCerts:I = 0x5a
+.field static final TRANSACTION_uninstallCaCerts:I = 0x5b
 
-.field static final TRANSACTION_uninstallPackageWithActiveAdmins:I = 0xf5
+.field static final TRANSACTION_uninstallPackageWithActiveAdmins:I = 0xf2
 
 .field static final TRANSACTION_wipeData:I = 0x21
 
@@ -4386,7 +4380,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportFailedPasswordAttempt(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportPasswordChanged(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4407,7 +4401,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportSuccessfulPasswordAttempt(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportFailedPasswordAttempt(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4428,7 +4422,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportFailedFingerprintAttempt(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportSuccessfulPasswordAttempt(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4449,7 +4443,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportSuccessfulFingerprintAttempt(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportFailedFingerprintAttempt(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4470,7 +4464,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportKeyguardDismissed(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportSuccessfulFingerprintAttempt(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4491,7 +4485,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportKeyguardSecured(I)V
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportKeyguardDismissed(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -4500,6 +4494,27 @@
     return v4
 
     :sswitch_49
+    const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->reportKeyguardSecured(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_4a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4564,7 +4579,7 @@
 
     goto :goto_6f
 
-    :sswitch_4a
+    :sswitch_4b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4625,7 +4640,7 @@
 
     goto :goto_71
 
-    :sswitch_4b
+    :sswitch_4c
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4648,7 +4663,7 @@
 
     return v4
 
-    :sswitch_4c
+    :sswitch_4d
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4671,7 +4686,7 @@
 
     return v4
 
-    :sswitch_4d
+    :sswitch_4e
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4694,7 +4709,7 @@
 
     return v4
 
-    :sswitch_4e
+    :sswitch_4f
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4759,7 +4774,7 @@
 
     goto :goto_73
 
-    :sswitch_4f
+    :sswitch_50
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4808,7 +4823,7 @@
 
     goto :goto_74
 
-    :sswitch_50
+    :sswitch_51
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4837,7 +4852,7 @@
 
     return v4
 
-    :sswitch_51
+    :sswitch_52
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4876,7 +4891,7 @@
 
     goto :goto_75
 
-    :sswitch_52
+    :sswitch_53
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4921,7 +4936,7 @@
 
     goto :goto_76
 
-    :sswitch_53
+    :sswitch_54
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4960,7 +4975,7 @@
 
     goto :goto_77
 
-    :sswitch_54
+    :sswitch_55
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -4991,7 +5006,7 @@
 
     goto :goto_78
 
-    :sswitch_55
+    :sswitch_56
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5054,7 +5069,7 @@
 
     goto :goto_7a
 
-    :sswitch_56
+    :sswitch_57
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5097,7 +5112,7 @@
 
     goto :goto_7b
 
-    :sswitch_57
+    :sswitch_58
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5166,7 +5181,7 @@
 
     goto :goto_7d
 
-    :sswitch_58
+    :sswitch_59
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5227,7 +5242,7 @@
 
     goto :goto_7f
 
-    :sswitch_59
+    :sswitch_5a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5288,7 +5303,7 @@
 
     goto :goto_81
 
-    :sswitch_5a
+    :sswitch_5b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5333,7 +5348,7 @@
 
     goto :goto_82
 
-    :sswitch_5b
+    :sswitch_5c
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5372,7 +5387,7 @@
 
     goto :goto_83
 
-    :sswitch_5c
+    :sswitch_5d
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5431,7 +5446,7 @@
 
     goto :goto_85
 
-    :sswitch_5d
+    :sswitch_5e
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5490,7 +5505,7 @@
 
     goto :goto_87
 
-    :sswitch_5e
+    :sswitch_5f
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5549,7 +5564,7 @@
 
     goto :goto_89
 
-    :sswitch_5f
+    :sswitch_60
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5608,7 +5623,7 @@
 
     goto :goto_8b
 
-    :sswitch_60
+    :sswitch_61
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5667,7 +5682,7 @@
 
     goto :goto_8d
 
-    :sswitch_61
+    :sswitch_62
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5726,7 +5741,7 @@
 
     goto :goto_8f
 
-    :sswitch_62
+    :sswitch_63
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5785,7 +5800,7 @@
 
     goto :goto_91
 
-    :sswitch_63
+    :sswitch_64
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5844,7 +5859,7 @@
 
     goto :goto_93
 
-    :sswitch_64
+    :sswitch_65
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5903,7 +5918,7 @@
 
     goto :goto_95
 
-    :sswitch_65
+    :sswitch_66
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -5962,7 +5977,7 @@
 
     goto :goto_97
 
-    :sswitch_66
+    :sswitch_67
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6021,7 +6036,7 @@
 
     goto :goto_99
 
-    :sswitch_67
+    :sswitch_68
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6080,7 +6095,7 @@
 
     goto :goto_9b
 
-    :sswitch_68
+    :sswitch_69
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6139,7 +6154,7 @@
 
     goto :goto_9d
 
-    :sswitch_69
+    :sswitch_6a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6198,7 +6213,7 @@
 
     goto :goto_9f
 
-    :sswitch_6a
+    :sswitch_6b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6257,7 +6272,7 @@
 
     goto :goto_a1
 
-    :sswitch_6b
+    :sswitch_6c
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6316,7 +6331,7 @@
 
     goto :goto_a3
 
-    :sswitch_6c
+    :sswitch_6d
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6363,7 +6378,7 @@
 
     goto :goto_a4
 
-    :sswitch_6d
+    :sswitch_6e
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6414,7 +6429,7 @@
 
     goto :goto_a5
 
-    :sswitch_6e
+    :sswitch_6f
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6473,7 +6488,7 @@
 
     goto :goto_a7
 
-    :sswitch_6f
+    :sswitch_70
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6532,7 +6547,7 @@
 
     goto :goto_a9
 
-    :sswitch_70
+    :sswitch_71
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6591,7 +6606,7 @@
 
     goto :goto_ab
 
-    :sswitch_71
+    :sswitch_72
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6650,7 +6665,7 @@
 
     goto :goto_ad
 
-    :sswitch_72
+    :sswitch_73
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6709,7 +6724,7 @@
 
     goto :goto_af
 
-    :sswitch_73
+    :sswitch_74
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6768,7 +6783,7 @@
 
     goto :goto_b1
 
-    :sswitch_74
+    :sswitch_75
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6833,7 +6848,7 @@
 
     goto :goto_b3
 
-    :sswitch_75
+    :sswitch_76
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6892,7 +6907,7 @@
 
     goto :goto_b5
 
-    :sswitch_76
+    :sswitch_77
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6951,7 +6966,7 @@
 
     goto :goto_b7
 
-    :sswitch_77
+    :sswitch_78
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -6972,7 +6987,7 @@
 
     return v4
 
-    :sswitch_78
+    :sswitch_79
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7031,7 +7046,7 @@
 
     goto :goto_b9
 
-    :sswitch_79
+    :sswitch_7a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7073,59 +7088,6 @@
     const/4 v15, 0x0
 
     goto :goto_ba
-
-    :sswitch_7a
-    const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v7
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v9
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v11
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    move-object/from16 v4, p0
-
-    invoke-virtual/range {v4 .. v13}, Landroid/app/admin/IDevicePolicyManager$Stub;->setActivePasswordStateForEAS(IIIIIIIII)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
 
     :sswitch_7b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
@@ -7570,125 +7532,6 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v7
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v9
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v11
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    move-object/from16 v4, p0
-
-    invoke-virtual/range {v4 .. v12}, Landroid/app/admin/IDevicePolicyManager$Stub;->setAlternativePasswordState(IIIIIIII)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_84
-    const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v7
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v9
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v11
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    move-object/from16 v4, p0
-
-    invoke-virtual/range {v4 .. v12}, Landroid/app/admin/IDevicePolicyManager$Stub;->setAlternativePasswordStateForEAS(IIIIIIII)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_85
-    const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5}, Landroid/app/admin/IDevicePolicyManager$Stub;->copyAlternativeToActivePasswordState(I)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_86
-    const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v27
@@ -7741,7 +7584,7 @@
 
     goto :goto_c8
 
-    :sswitch_87
+    :sswitch_84
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7784,7 +7627,7 @@
 
     goto :goto_c9
 
-    :sswitch_88
+    :sswitch_85
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7869,7 +7712,7 @@
 
     goto :goto_cc
 
-    :sswitch_89
+    :sswitch_86
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7930,7 +7773,7 @@
 
     goto :goto_ce
 
-    :sswitch_8a
+    :sswitch_87
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -7987,7 +7830,7 @@
 
     goto :goto_cf
 
-    :sswitch_8b
+    :sswitch_88
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8032,7 +7875,7 @@
 
     goto :goto_d0
 
-    :sswitch_8c
+    :sswitch_89
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8079,7 +7922,7 @@
 
     goto :goto_d1
 
-    :sswitch_8d
+    :sswitch_8a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8156,7 +7999,7 @@
 
     goto :goto_d4
 
-    :sswitch_8e
+    :sswitch_8b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8203,7 +8046,7 @@
 
     goto :goto_d5
 
-    :sswitch_8f
+    :sswitch_8c
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8290,7 +8133,7 @@
 
     goto :goto_d8
 
-    :sswitch_90
+    :sswitch_8d
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8335,7 +8178,7 @@
 
     goto :goto_d9
 
-    :sswitch_91
+    :sswitch_8e
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8404,7 +8247,7 @@
 
     goto :goto_db
 
-    :sswitch_92
+    :sswitch_8f
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8477,7 +8320,7 @@
 
     goto :goto_dd
 
-    :sswitch_93
+    :sswitch_90
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8538,7 +8381,7 @@
 
     goto :goto_df
 
-    :sswitch_94
+    :sswitch_91
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8585,7 +8428,7 @@
 
     goto :goto_e0
 
-    :sswitch_95
+    :sswitch_92
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8616,7 +8459,7 @@
 
     goto :goto_e1
 
-    :sswitch_96
+    :sswitch_93
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8679,7 +8522,7 @@
 
     goto :goto_e3
 
-    :sswitch_97
+    :sswitch_94
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8728,7 +8571,7 @@
 
     goto :goto_e4
 
-    :sswitch_98
+    :sswitch_95
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8789,7 +8632,7 @@
 
     goto :goto_e6
 
-    :sswitch_99
+    :sswitch_96
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8856,7 +8699,7 @@
 
     goto :goto_e8
 
-    :sswitch_9a
+    :sswitch_97
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8923,7 +8766,7 @@
 
     goto :goto_ea
 
-    :sswitch_9b
+    :sswitch_98
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -8962,7 +8805,7 @@
 
     goto :goto_eb
 
-    :sswitch_9c
+    :sswitch_99
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9035,7 +8878,7 @@
 
     goto :goto_ed
 
-    :sswitch_9d
+    :sswitch_9a
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9082,7 +8925,7 @@
 
     goto :goto_ee
 
-    :sswitch_9e
+    :sswitch_9b
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9111,7 +8954,7 @@
 
     return v4
 
-    :sswitch_9f
+    :sswitch_9c
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9176,7 +9019,7 @@
 
     goto :goto_f0
 
-    :sswitch_a0
+    :sswitch_9d
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9249,7 +9092,7 @@
 
     goto :goto_f2
 
-    :sswitch_a1
+    :sswitch_9e
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9296,7 +9139,7 @@
 
     goto :goto_f3
 
-    :sswitch_a2
+    :sswitch_9f
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9319,7 +9162,7 @@
 
     return v4
 
-    :sswitch_a3
+    :sswitch_a0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9384,7 +9227,7 @@
 
     goto :goto_f5
 
-    :sswitch_a4
+    :sswitch_a1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9461,7 +9304,7 @@
 
     goto :goto_f8
 
-    :sswitch_a5
+    :sswitch_a2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9522,7 +9365,7 @@
 
     goto :goto_fa
 
-    :sswitch_a6
+    :sswitch_a3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9645,7 +9488,7 @@
 
     goto :goto_fe
 
-    :sswitch_a7
+    :sswitch_a4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9724,7 +9567,7 @@
 
     goto :goto_101
 
-    :sswitch_a8
+    :sswitch_a5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9803,7 +9646,7 @@
 
     goto :goto_104
 
-    :sswitch_a9
+    :sswitch_a6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9848,7 +9691,7 @@
 
     goto :goto_105
 
-    :sswitch_aa
+    :sswitch_a7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9919,7 +9762,7 @@
 
     goto :goto_107
 
-    :sswitch_ab
+    :sswitch_a8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -9980,7 +9823,7 @@
 
     goto :goto_109
 
-    :sswitch_ac
+    :sswitch_a9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10003,7 +9846,7 @@
 
     return v4
 
-    :sswitch_ad
+    :sswitch_aa
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10032,7 +9875,7 @@
 
     return v4
 
-    :sswitch_ae
+    :sswitch_ab
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10077,7 +9920,7 @@
 
     goto :goto_10a
 
-    :sswitch_af
+    :sswitch_ac
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10124,7 +9967,7 @@
 
     goto :goto_10b
 
-    :sswitch_b0
+    :sswitch_ad
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10163,7 +10006,7 @@
 
     goto :goto_10c
 
-    :sswitch_b1
+    :sswitch_ae
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10214,7 +10057,7 @@
 
     goto :goto_10d
 
-    :sswitch_b2
+    :sswitch_af
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10265,7 +10108,7 @@
 
     goto :goto_10e
 
-    :sswitch_b3
+    :sswitch_b0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10320,7 +10163,7 @@
 
     goto :goto_110
 
-    :sswitch_b4
+    :sswitch_b1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10375,7 +10218,7 @@
 
     goto :goto_112
 
-    :sswitch_b5
+    :sswitch_b2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10418,7 +10261,7 @@
 
     goto :goto_113
 
-    :sswitch_b6
+    :sswitch_b3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10479,7 +10322,7 @@
 
     goto :goto_115
 
-    :sswitch_b7
+    :sswitch_b4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10540,7 +10383,7 @@
 
     goto :goto_117
 
-    :sswitch_b8
+    :sswitch_b5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10595,7 +10438,7 @@
 
     goto :goto_119
 
-    :sswitch_b9
+    :sswitch_b6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10650,7 +10493,7 @@
 
     goto :goto_11b
 
-    :sswitch_ba
+    :sswitch_b7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10687,7 +10530,7 @@
 
     goto :goto_11c
 
-    :sswitch_bb
+    :sswitch_b8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10742,7 +10585,7 @@
 
     goto :goto_11e
 
-    :sswitch_bc
+    :sswitch_b9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10797,7 +10640,7 @@
 
     goto :goto_120
 
-    :sswitch_bd
+    :sswitch_ba
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10834,7 +10677,7 @@
 
     goto :goto_121
 
-    :sswitch_be
+    :sswitch_bb
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10899,7 +10742,7 @@
 
     goto :goto_123
 
-    :sswitch_bf
+    :sswitch_bc
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -10954,7 +10797,7 @@
 
     goto :goto_125
 
-    :sswitch_c0
+    :sswitch_bd
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11009,7 +10852,7 @@
 
     goto :goto_127
 
-    :sswitch_c1
+    :sswitch_be
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11046,7 +10889,7 @@
 
     goto :goto_128
 
-    :sswitch_c2
+    :sswitch_bf
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11149,7 +10992,7 @@
 
     goto :goto_12c
 
-    :sswitch_c3
+    :sswitch_c0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11240,7 +11083,7 @@
 
     goto :goto_12f
 
-    :sswitch_c4
+    :sswitch_c1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11301,7 +11144,7 @@
 
     goto :goto_131
 
-    :sswitch_c5
+    :sswitch_c2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11362,7 +11205,7 @@
 
     goto :goto_133
 
-    :sswitch_c6
+    :sswitch_c3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11409,7 +11252,7 @@
 
     goto :goto_134
 
-    :sswitch_c7
+    :sswitch_c4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11464,7 +11307,7 @@
 
     goto :goto_136
 
-    :sswitch_c8
+    :sswitch_c5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11495,7 +11338,7 @@
 
     goto :goto_137
 
-    :sswitch_c9
+    :sswitch_c6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11550,7 +11393,7 @@
 
     goto :goto_139
 
-    :sswitch_ca
+    :sswitch_c7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11605,7 +11448,7 @@
 
     goto :goto_13b
 
-    :sswitch_cb
+    :sswitch_c8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11664,7 +11507,7 @@
 
     goto :goto_13d
 
-    :sswitch_cc
+    :sswitch_c9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11727,7 +11570,7 @@
 
     goto :goto_13f
 
-    :sswitch_cd
+    :sswitch_ca
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11790,7 +11633,7 @@
 
     goto :goto_141
 
-    :sswitch_ce
+    :sswitch_cb
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11833,7 +11676,7 @@
 
     goto :goto_142
 
-    :sswitch_cf
+    :sswitch_cc
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11904,7 +11747,7 @@
 
     goto :goto_145
 
-    :sswitch_d0
+    :sswitch_cd
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -11975,7 +11818,7 @@
 
     goto :goto_148
 
-    :sswitch_d1
+    :sswitch_ce
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12006,7 +11849,7 @@
 
     goto :goto_149
 
-    :sswitch_d2
+    :sswitch_cf
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12029,7 +11872,7 @@
 
     return v4
 
-    :sswitch_d3
+    :sswitch_d0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12072,7 +11915,7 @@
 
     goto :goto_14a
 
-    :sswitch_d4
+    :sswitch_d1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12119,7 +11962,7 @@
 
     goto :goto_14b
 
-    :sswitch_d5
+    :sswitch_d2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12190,7 +12033,7 @@
 
     goto :goto_14d
 
-    :sswitch_d6
+    :sswitch_d3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12249,7 +12092,7 @@
 
     goto :goto_14e
 
-    :sswitch_d7
+    :sswitch_d4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12288,7 +12131,7 @@
 
     goto :goto_14f
 
-    :sswitch_d8
+    :sswitch_d5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12333,7 +12176,7 @@
 
     goto :goto_150
 
-    :sswitch_d9
+    :sswitch_d6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12380,7 +12223,7 @@
 
     goto :goto_151
 
-    :sswitch_da
+    :sswitch_d7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12435,7 +12278,7 @@
 
     goto :goto_153
 
-    :sswitch_db
+    :sswitch_d8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12490,7 +12333,7 @@
 
     goto :goto_155
 
-    :sswitch_dc
+    :sswitch_d9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12537,7 +12380,7 @@
 
     goto :goto_156
 
-    :sswitch_dd
+    :sswitch_da
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12576,7 +12419,7 @@
 
     goto :goto_157
 
-    :sswitch_de
+    :sswitch_db
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12639,7 +12482,7 @@
 
     goto :goto_159
 
-    :sswitch_df
+    :sswitch_dc
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12706,7 +12549,7 @@
 
     goto :goto_15b
 
-    :sswitch_e0
+    :sswitch_dd
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12769,7 +12612,7 @@
 
     goto :goto_15d
 
-    :sswitch_e1
+    :sswitch_de
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12836,7 +12679,7 @@
 
     goto :goto_15f
 
-    :sswitch_e2
+    :sswitch_df
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12907,7 +12750,7 @@
 
     goto :goto_161
 
-    :sswitch_e3
+    :sswitch_e0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -12978,7 +12821,7 @@
 
     goto :goto_163
 
-    :sswitch_e4
+    :sswitch_e1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13015,7 +12858,7 @@
 
     goto :goto_164
 
-    :sswitch_e5
+    :sswitch_e2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13058,7 +12901,7 @@
 
     goto :goto_165
 
-    :sswitch_e6
+    :sswitch_e3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13083,7 +12926,7 @@
 
     return v4
 
-    :sswitch_e7
+    :sswitch_e4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13130,7 +12973,7 @@
 
     goto :goto_166
 
-    :sswitch_e8
+    :sswitch_e5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13159,7 +13002,7 @@
 
     return v4
 
-    :sswitch_e9
+    :sswitch_e6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13222,7 +13065,7 @@
 
     goto :goto_168
 
-    :sswitch_ea
+    :sswitch_e7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13289,7 +13132,7 @@
 
     goto :goto_16a
 
-    :sswitch_eb
+    :sswitch_e8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13338,7 +13181,7 @@
 
     goto :goto_16b
 
-    :sswitch_ec
+    :sswitch_e9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13361,7 +13204,7 @@
 
     return v4
 
-    :sswitch_ed
+    :sswitch_ea
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13386,7 +13229,7 @@
 
     return v4
 
-    :sswitch_ee
+    :sswitch_eb
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13431,7 +13274,7 @@
 
     goto :goto_16c
 
-    :sswitch_ef
+    :sswitch_ec
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13462,7 +13305,7 @@
 
     goto :goto_16d
 
-    :sswitch_f0
+    :sswitch_ed
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13517,7 +13360,7 @@
 
     goto :goto_16f
 
-    :sswitch_f1
+    :sswitch_ee
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13572,7 +13415,7 @@
 
     goto :goto_171
 
-    :sswitch_f2
+    :sswitch_ef
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13639,7 +13482,7 @@
 
     goto :goto_173
 
-    :sswitch_f3
+    :sswitch_f0
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13706,7 +13549,7 @@
 
     goto :goto_175
 
-    :sswitch_f4
+    :sswitch_f1
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13745,7 +13588,7 @@
 
     goto :goto_176
 
-    :sswitch_f5
+    :sswitch_f2
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13768,7 +13611,7 @@
 
     return v4
 
-    :sswitch_f6
+    :sswitch_f3
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13791,7 +13634,7 @@
 
     return v4
 
-    :sswitch_f7
+    :sswitch_f4
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13814,7 +13657,7 @@
 
     return v4
 
-    :sswitch_f8
+    :sswitch_f5
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13861,7 +13704,7 @@
 
     goto :goto_177
 
-    :sswitch_f9
+    :sswitch_f6
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13908,7 +13751,7 @@
 
     goto :goto_178
 
-    :sswitch_fa
+    :sswitch_f7
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -13955,7 +13798,7 @@
 
     goto :goto_179
 
-    :sswitch_fb
+    :sswitch_f8
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14002,7 +13845,7 @@
 
     goto :goto_17a
 
-    :sswitch_fc
+    :sswitch_f9
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14049,7 +13892,7 @@
 
     goto :goto_17b
 
-    :sswitch_fd
+    :sswitch_fa
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14096,7 +13939,7 @@
 
     goto :goto_17c
 
-    :sswitch_fe
+    :sswitch_fb
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14143,7 +13986,7 @@
 
     goto :goto_17d
 
-    :sswitch_ff
+    :sswitch_fc
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14190,7 +14033,7 @@
 
     goto :goto_17e
 
-    :sswitch_100
+    :sswitch_fd
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14237,7 +14080,7 @@
 
     goto :goto_17f
 
-    :sswitch_101
+    :sswitch_fe
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14286,7 +14129,7 @@
 
     goto :goto_180
 
-    :sswitch_102
+    :sswitch_ff
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14333,7 +14176,7 @@
 
     goto :goto_181
 
-    :sswitch_103
+    :sswitch_100
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14380,7 +14223,7 @@
 
     goto :goto_182
 
-    :sswitch_104
+    :sswitch_101
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14429,7 +14272,7 @@
 
     goto :goto_183
 
-    :sswitch_105
+    :sswitch_102
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14476,7 +14319,7 @@
 
     goto :goto_184
 
-    :sswitch_106
+    :sswitch_103
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14549,7 +14392,7 @@
 
     goto :goto_186
 
-    :sswitch_107
+    :sswitch_104
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14626,7 +14469,7 @@
 
     goto :goto_188
 
-    :sswitch_108
+    :sswitch_105
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -14697,7 +14540,7 @@
 
     goto :goto_18a
 
-    :sswitch_109
+    :sswitch_106
     const-string/jumbo v4, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -15006,9 +14849,6 @@
         0x104 -> :sswitch_104
         0x105 -> :sswitch_105
         0x106 -> :sswitch_106
-        0x107 -> :sswitch_107
-        0x108 -> :sswitch_108
-        0x109 -> :sswitch_109
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

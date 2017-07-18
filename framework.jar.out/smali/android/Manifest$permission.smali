@@ -736,6 +736,8 @@
 
 .field public static final MDM_SMARTCARD:Ljava/lang/String; = "android.permission.sec.MDM_SMARTCARD"
 
+.field public static final MDM_SPDCONTROL:Ljava/lang/String; = "com.sec.enterprise.permission.MDM_SPDCONTROL"
+
 .field public static final MDM_SSO:Ljava/lang/String; = "com.sec.enterprise.mdm.permission.MDM_SSO"
 
 .field public static final MDM_UMC_INTERNAL:Ljava/lang/String; = "android.permission.sec.MDM_UMC_INTERNAL"

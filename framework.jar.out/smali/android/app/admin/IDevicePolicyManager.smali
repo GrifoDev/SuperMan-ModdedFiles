@@ -103,14 +103,6 @@
     .end annotation
 .end method
 
-.method public abstract copyAlternativeToActivePasswordState(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract createAndManageUser(Landroid/content/ComponentName;Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/PersistableBundle;I)Landroid/os/UserHandle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1142,6 +1134,14 @@
     .end annotation
 .end method
 
+.method public abstract reportPasswordChanged(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract reportSuccessfulFingerprintAttempt(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1502,14 +1502,6 @@
     .end annotation
 .end method
 
-.method public abstract setActivePasswordStateForEAS(IIIIIIIII)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setAdminPermissions(Landroid/content/ComponentName;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1538,22 +1530,6 @@
 .end method
 
 .method public abstract setAllowCamera(Landroid/content/ComponentName;ZI)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setAlternativePasswordState(IIIIIIII)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setAlternativePasswordStateForEAS(IIIIIIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

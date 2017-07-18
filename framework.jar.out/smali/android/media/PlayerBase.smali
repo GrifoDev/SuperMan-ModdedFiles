@@ -3,6 +3,20 @@
 .source "PlayerBase.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/media/PlayerBase$IAppOpsCallbackWrapper;
+    }
+.end annotation
+
+
+# static fields
+.field private static final DEBUG_APP_OPS:Z = false
+
+.field private static final TAG:Ljava/lang/String; = "PlayerBase"
+
+
 # instance fields
 .field private final mAppOps:Lcom/android/internal/app/IAppOpsService;
 
@@ -22,12 +36,12 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/media/PlayerBase;)Ljava/lang/Object;
-    .locals 1
+.method static synthetic -wrap0(Landroid/media/PlayerBase;)V
+    .locals 0
 
-    iget-object v0, p0, Landroid/media/PlayerBase;->mAppOpsLock:Ljava/lang/Object;
+    invoke-direct {p0}, Landroid/media/PlayerBase;->updateAppOpsPlayAudio()V
 
-    return-object v0
+    return-void
 .end method
 
 .method constructor <init>(Landroid/media/AudioAttributes;)V
@@ -80,11 +94,11 @@
 
     iput-object v2, p0, Landroid/media/PlayerBase;->mAppOps:Lcom/android/internal/app/IAppOpsService;
 
-    invoke-virtual {p0}, Landroid/media/PlayerBase;->updateAppOpsPlayAudio_sync()V
+    invoke-direct {p0}, Landroid/media/PlayerBase;->updateAppOpsPlayAudio()V
 
-    new-instance v2, Landroid/media/PlayerBase$1;
+    new-instance v2, Landroid/media/PlayerBase$IAppOpsCallbackWrapper;
 
-    invoke-direct {v2, p0}, Landroid/media/PlayerBase$1;-><init>(Landroid/media/PlayerBase;)V
+    invoke-direct {v2, p0}, Landroid/media/PlayerBase$IAppOpsCallbackWrapper;-><init>(Landroid/media/PlayerBase;)V
 
     iput-object v2, p0, Landroid/media/PlayerBase;->mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
 
@@ -116,6 +130,30 @@
     goto :goto_0
 .end method
 
+.method private updateAppOpsPlayAudio()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/media/PlayerBase;->mAppOpsLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/media/PlayerBase;->updateAppOpsPlayAudio_sync()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
 
 # virtual methods
 .method baseRelease()V
@@ -128,7 +166,7 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/app/IAppOpsService;->stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-void

@@ -10111,51 +10111,51 @@
 .end method
 
 .method public getNetworkOperatorName(I)Ljava/lang/String;
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
 
-    move-result v2
+    move-result v3
 
-    const-string/jumbo v4, "gsm.operator.numeric"
+    const-string/jumbo v5, "gsm.operator.numeric"
 
-    const-string/jumbo v5, ""
+    const-string/jumbo v6, ""
 
-    invoke-static {v2, v4, v5}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v5, v6}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v4, "gsm.sim.operator.numeric"
+    const-string/jumbo v5, "gsm.sim.operator.numeric"
 
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v4, "SPR"
+    const-string/jumbo v5, "SPR"
 
     invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
     invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
-    move-result v4
+    move-result v5
 
-    if-ne v4, v6, :cond_0
+    if-ne v5, v7, :cond_0
 
-    const-string/jumbo v4, "ro.cdma.home.operator.alpha"
+    const-string/jumbo v5, "ro.cdma.home.operator.alpha"
 
-    const-string/jumbo v5, ""
+    const-string/jumbo v6, ""
 
-    invoke-static {v2, v4, v5}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v5, v6}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -10163,130 +10163,135 @@
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v5
 
-    if-lt v4, v6, :cond_0
+    if-lt v5, v7, :cond_0
 
-    const-string/jumbo v4, "Chameleon"
+    const-string/jumbo v5, "Chameleon"
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
     const-string/jumbo v0, "Samsung"
 
     return-object v0
 
     :cond_0
-    const-string/jumbo v4, "gsm.operator.numeric.real"
+    const-string/jumbo v5, "gsm.operator.numeric.real"
 
-    invoke-static {v2, v4, v1}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v5, v2}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v5, "44020"
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "SoftBank"
+
+    return-object v5
+
+    :cond_1
+    const-string/jumbo v5, "IUS"
+
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    const-string/jumbo v5, "MNX"
+
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    :cond_2
+    const-string/jumbo v5, "334050"
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const-string/jumbo v5, "334090"
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    :cond_3
+    invoke-virtual {p0, p1}, Landroid/telephony/TelephonyManager;->getSimSerialNumber(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v4, "44020"
+    const-string/jumbo v5, "334050"
 
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_4
 
-    const-string/jumbo v4, "SoftBank"
+    if-eqz v1, :cond_4
 
-    return-object v4
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    :cond_1
-    const-string/jumbo v4, "IUS"
+    move-result v5
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName()Ljava/lang/String;
+    const/16 v6, 0x9
 
-    move-result-object v5
+    if-lt v5, v6, :cond_4
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v5, 0x8
 
-    move-result v4
+    invoke-virtual {v1, v5}, Ljava/lang/String;->charAt(I)C
 
-    if-nez v4, :cond_2
+    move-result v5
 
-    const-string/jumbo v4, "MNX"
+    const/16 v6, 0x31
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName()Ljava/lang/String;
+    if-ne v5, v6, :cond_4
 
-    move-result-object v5
+    const-string/jumbo v5, "UNEFON"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    :cond_2
-    const-string/jumbo v4, "334090"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const-string/jumbo v4, "334090"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const-string/jumbo v4, "AT&T"
-
-    return-object v4
-
-    :cond_3
-    const-string/jumbo v4, "334050"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "334050"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "Unefon"
-
-    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getSimOperatorName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string/jumbo v4, "UNEFON"
-
-    return-object v4
+    return-object v5
 
     :cond_4
-    const-string/jumbo v4, "gsm.operator.alpha"
+    const-string/jumbo v5, "AT&T"
 
-    const-string/jumbo v5, ""
+    return-object v5
 
-    invoke-static {v2, v4, v5}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :cond_5
+    const-string/jumbo v5, "gsm.operator.alpha"
 
-    move-result-object v4
+    const-string/jumbo v6, ""
 
-    return-object v4
+    invoke-static {v3, v5, v6}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
 .end method
 
 .method public getNetworkType()I

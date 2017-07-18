@@ -19,6 +19,10 @@
 
 .field private static final DEFAULT_WEEK_START:I = 0x1
 
+.field private static final LEAP_MONTH:I = 0x1
+
+.field private static final LEAP_MONTH_WEIGHT:F = 0.5f
+
 .field private static final MIN_HEIGHT:I = 0xa
 
 .field private static final SIZE_UNSPECIFIED:I = -0x1
@@ -75,9 +79,13 @@
 
 .field private mEnabledDayStart:I
 
-.field private mEndCalendar:Ljava/util/Calendar;
+.field private mEndDay:I
 
 .field private mEndDayColor:I
+
+.field private mEndMonth:I
+
+.field private mEndYear:I
 
 .field private final mFormatter:Ljava/util/Formatter;
 
@@ -91,7 +99,11 @@
 
 .field private mHasToday:Z
 
+.field private mIsLeapEndMonth:I
+
 .field private mIsLeapMonth:Z
+
+.field private mIsLeapStartMonth:I
 
 .field private mIsLunar:Z
 
@@ -125,7 +137,11 @@
 
 .field private mSolarLunarConverter:Ljava/lang/Object;
 
-.field private mStartCalendar:Ljava/util/Calendar;
+.field private mStartDay:I
+
+.field private mStartMonth:I
+
+.field private mStartYear:I
 
 .field private final mStringBuilder:Ljava/lang/StringBuilder;
 
@@ -414,18 +430,6 @@
 
     iput-object v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayLabelCalendar:Ljava/util/Calendar;
 
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
     iput v6, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
 
     new-array v3, v9, [I
@@ -671,7 +675,7 @@
 .end method
 
 .method private drawDays(Landroid/graphics/Canvas;)V
-    .locals 30
+    .locals 29
 
     move-object/from16 v0, p0
 
@@ -679,7 +683,7 @@
 
     mul-int/lit8 v2, v2, 0x2
 
-    div-int/lit8 v24, v2, 0x3
+    div-int/lit8 v26, v2, 0x3
 
     move-object/from16 v0, p0
 
@@ -695,7 +699,7 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemSimpleMonthView;->findDayOffset()I
 
-    move-result v16
+    move-result v17
 
     const/4 v9, 0x1
 
@@ -704,21 +708,21 @@
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumCells:I
 
-    if-gt v9, v2, :cond_1a
+    if-gt v9, v2, :cond_1d
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsRTL:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_a
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumDays:I
 
-    add-int/lit8 v18, v2, -0x1
+    add-int/lit8 v20, v2, -0x1
 
-    sub-int v2, v18, v16
+    sub-int v2, v20, v17
 
     mul-int/lit8 v2, v2, 0x2
 
@@ -730,65 +734,14 @@
 
     iget v5, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mPadding:I
 
-    add-int v23, v2, v5
+    add-int v25, v2, v5
 
     :goto_1
     move-object/from16 v0, p0
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mSelectedDay:I
-
-    if-ne v2, v9, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
-
-    if-nez v2, :cond_0
-
-    move/from16 v0, v23
-
-    int-to-float v2, v0
-
-    move/from16 v0, v24
-
-    int-to-float v5, v0
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMiniDayNumberTextSize:I
-
-    int-to-float v6, v6
-
-    const v25, 0x402ccccd    # 2.7f
-
-    div-float v6, v6, v25
-
-    sub-float/2addr v5, v6
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDaySelectedCircleSize:I
-
-    int-to-float v6, v6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberSelectedPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v25, v0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v2, v5, v6, v1}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
-
-    :cond_0
-    move-object/from16 v0, p0
-
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mWeekStart:I
 
-    add-int v2, v2, v16
+    add-int v2, v2, v17
 
     move-object/from16 v0, p0
 
@@ -812,15 +765,15 @@
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEnabledDayStart:I
 
-    if-lt v9, v2, :cond_1
+    if-lt v9, v2, :cond_0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEnabledDayEnd:I
 
-    if-le v9, v2, :cond_2
+    if-le v9, v2, :cond_1
 
-    :cond_1
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberPaint:Landroid/graphics/Paint;
@@ -831,108 +784,164 @@
 
     invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    :cond_2
-    const/16 v19, -0x1
+    :cond_1
+    const/16 v21, -0x1
 
     const/4 v12, -0x1
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
+    iget v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartYear:I
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartMonth:I
+
+    int-to-float v0, v2
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartDay:I
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndYear:I
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndMonth:I
+
+    int-to-float v14, v2
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndDay:I
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLunar:Z
+
+    if-eqz v2, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLeapStartMonth:I
 
     const/4 v5, 0x1
 
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
+    if-ne v2, v5, :cond_2
 
-    move-result v22
+    const/high16 v2, 0x3f000000    # 0.5f
+
+    add-float v23, v23, v2
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLunar:Z
+
+    if-eqz v2, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    const/4 v5, 0x2
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
-
-    move-result v21
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    const/4 v5, 0x5
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
-
-    move-result v20
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLeapEndMonth:I
 
     const/4 v5, 0x1
 
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
+    if-ne v2, v5, :cond_3
 
-    move-result v15
+    const/high16 v2, 0x3f000000    # 0.5f
 
+    add-float/2addr v14, v2
+
+    :cond_3
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
+    iget v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
 
-    const/4 v5, 0x2
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
-
-    move-result v14
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    const/4 v5, 0x5
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
-
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->after(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v10, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberSelectedPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
-
-    move/from16 v0, v22
-
-    if-ne v0, v2, :cond_9
+    move/from16 v27, v0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
 
-    move/from16 v0, v21
+    int-to-float v0, v2
 
-    if-ne v0, v2, :cond_9
+    move/from16 v18, v0
 
-    move/from16 v0, v20
+    move-object/from16 v0, p0
 
-    if-ne v0, v9, :cond_9
+    iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLunar:Z
+
+    if-eqz v2, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLeapMonth:Z
+
+    if-eqz v2, :cond_4
+
+    const/high16 v2, 0x3f000000    # 0.5f
+
+    add-float v18, v18, v2
+
+    :cond_4
+    move/from16 v0, v24
+
+    mul-int/lit16 v2, v0, 0x2710
+
+    const/high16 v5, 0x42c80000    # 100.0f
+
+    mul-float v5, v5, v23
+
+    float-to-int v5, v5
+
+    add-int/2addr v2, v5
+
+    add-int v2, v2, v22
+
+    mul-int/lit16 v5, v15, 0x2710
+
+    const/high16 v6, 0x42c80000    # 100.0f
+
+    mul-float/2addr v6, v14
+
+    float-to-int v6, v6
+
+    add-int/2addr v5, v6
+
+    add-int/2addr v5, v13
+
+    if-le v2, v5, :cond_b
+
+    const/16 v16, 0x1
+
+    :goto_2
+    if-eqz v16, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberSelectedPaint:Landroid/graphics/Paint;
+
+    move/from16 v0, v24
+
+    move/from16 v1, v27
+
+    if-ne v0, v1, :cond_c
+
+    cmpl-float v2, v23, v18
+
+    if-nez v2, :cond_c
+
+    move/from16 v0, v22
+
+    if-ne v0, v9, :cond_c
 
     move-object/from16 v0, p0
 
@@ -940,9 +949,9 @@
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_9
+    if-ne v2, v5, :cond_c
 
-    :goto_2
+    :goto_3
     sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -953,11 +962,11 @@
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -967,9 +976,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -983,20 +992,16 @@
 
     invoke-virtual {v0, v2, v5, v6, v10}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    :cond_3
-    move-object/from16 v0, p0
+    :cond_5
+    move/from16 v0, v27
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
+    if-ne v15, v0, :cond_d
 
-    if-ne v15, v2, :cond_a
+    cmpl-float v2, v14, v18
 
-    move-object/from16 v0, p0
+    if-nez v2, :cond_d
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    if-ne v14, v2, :cond_a
-
-    if-ne v13, v9, :cond_a
+    if-ne v13, v9, :cond_d
 
     move-object/from16 v0, p0
 
@@ -1004,9 +1009,9 @@
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_a
+    if-ne v2, v5, :cond_d
 
-    :goto_3
+    :goto_4
     sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -1023,11 +1028,11 @@
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1037,9 +1042,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1053,13 +1058,13 @@
 
     invoke-virtual {v0, v2, v5, v6, v10}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    :cond_4
-    :goto_4
+    :cond_6
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -1067,23 +1072,23 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v5, :cond_18
+    if-ne v2, v5, :cond_1b
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    if-ne v9, v0, :cond_18
+    if-ne v9, v0, :cond_1b
 
-    :cond_5
-    :goto_5
+    :cond_7
+    :goto_6
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndDayColor:I
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    :cond_6
+    :cond_8
     const-string/jumbo v2, "%d"
 
     const/4 v5, 0x1
@@ -1094,53 +1099,53 @@
 
     move-result-object v6
 
-    const/16 v25, 0x0
+    const/16 v28, 0x0
 
-    aput-object v6, v5, v25
+    aput-object v6, v5, v28
 
     invoke-static {v2, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v5, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v6, v0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v2, v5, v6, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumDays:I
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_9
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mWeekHeight:I
 
-    add-int v24, v24, v2
+    add-int v26, v26, v2
 
-    :cond_7
+    :cond_9
     add-int/lit8 v9, v9, 0x1
 
     goto/16 :goto_0
 
-    :cond_8
-    mul-int/lit8 v2, v16, 0x2
+    :cond_a
+    mul-int/lit8 v2, v17, 0x2
 
     add-int/lit8 v2, v2, 0x1
 
@@ -1150,55 +1155,25 @@
 
     iget v5, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mPadding:I
 
-    add-int v23, v2, v5
+    add-int v25, v2, v5
 
     goto/16 :goto_1
 
-    :cond_9
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
-
-    if-ne v15, v2, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    if-ne v14, v2, :cond_3
-
-    if-ne v13, v9, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
-
-    const/4 v5, 0x1
-
-    if-ne v2, v5, :cond_3
+    :cond_b
+    const/16 v16, 0x0
 
     goto/16 :goto_2
 
-    :cond_a
-    move-object/from16 v0, p0
+    :cond_c
+    move/from16 v0, v27
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
+    if-ne v15, v0, :cond_5
 
-    move/from16 v0, v22
+    cmpl-float v2, v14, v18
 
-    if-ne v0, v2, :cond_4
+    if-nez v2, :cond_5
 
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    move/from16 v0, v21
-
-    if-ne v0, v2, :cond_4
-
-    move/from16 v0, v20
-
-    if-ne v0, v9, :cond_4
+    if-ne v13, v9, :cond_5
 
     move-object/from16 v0, p0
 
@@ -1206,11 +1181,36 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v5, :cond_4
+    if-ne v2, v5, :cond_5
 
     goto/16 :goto_3
 
-    :cond_b
+    :cond_d
+    move/from16 v0, v24
+
+    move/from16 v1, v27
+
+    if-ne v0, v1, :cond_6
+
+    cmpl-float v2, v23, v18
+
+    if-nez v2, :cond_6
+
+    move/from16 v0, v22
+
+    if-ne v0, v9, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
+
+    const/4 v5, 0x1
+
+    if-ne v2, v5, :cond_6
+
+    goto/16 :goto_4
+
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayStartEndPaint:Landroid/graphics/Paint;
@@ -1231,47 +1231,41 @@
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    move/from16 v0, v22
+    move/from16 v0, v24
 
-    if-ne v0, v15, :cond_e
+    if-ne v0, v15, :cond_11
 
-    move/from16 v0, v21
+    cmpl-float v2, v23, v14
 
-    if-ne v0, v14, :cond_e
+    if-nez v2, :cond_11
 
-    move-object/from16 v0, p0
+    move/from16 v0, v27
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
+    move/from16 v1, v24
 
-    move/from16 v0, v22
+    if-ne v0, v1, :cond_11
 
-    if-ne v2, v0, :cond_e
+    cmpl-float v2, v18, v23
 
-    move-object/from16 v0, p0
+    if-nez v2, :cond_11
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    move/from16 v0, v21
-
-    if-ne v2, v0, :cond_e
-
-    move/from16 v19, v20
+    move/from16 v21, v22
 
     move v12, v13
 
-    :cond_c
-    :goto_6
-    move/from16 v0, v19
+    :cond_f
+    :goto_7
+    move/from16 v0, v21
 
-    if-ge v0, v9, :cond_d
+    if-ge v0, v9, :cond_10
 
-    if-ge v9, v12, :cond_d
+    if-ge v9, v12, :cond_10
 
-    sub-int v2, v23, v11
+    sub-int v2, v25, v11
 
     int-to-float v3, v2
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v2, v0
 
@@ -1333,30 +1327,30 @@
 
     invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    :cond_d
+    :cond_10
     const/4 v2, -0x1
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    if-eq v0, v2, :cond_12
+    if-eq v0, v2, :cond_15
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    if-ne v0, v12, :cond_12
+    if-ne v0, v12, :cond_15
 
-    move/from16 v0, v19
+    move/from16 v0, v21
 
-    if-ne v9, v0, :cond_12
+    if-ne v9, v0, :cond_15
 
     sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1366,9 +1360,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1382,149 +1376,129 @@
 
     invoke-virtual {v0, v2, v5, v6, v10}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_4
-
-    :cond_e
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v26
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v28
-
-    cmp-long v2, v26, v28
-
-    if-gez v2, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v26
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide v28
-
-    cmp-long v2, v26, v28
-
-    if-gez v2, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
-
-    if-ne v2, v15, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    if-eq v2, v14, :cond_10
-
-    :cond_f
-    const/16 v19, 0x0
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumCells:I
-
-    add-int/lit8 v12, v2, 0x1
-
-    goto/16 :goto_6
-
-    :cond_10
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
-
-    move/from16 v0, v22
-
-    if-ne v2, v0, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
-
-    move/from16 v0, v21
-
-    if-ne v2, v0, :cond_11
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    const/4 v5, 0x5
-
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
-
-    move-result v19
-
-    move-object/from16 v0, p0
-
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumCells:I
-
-    add-int/lit8 v12, v2, 0x1
-
-    goto/16 :goto_6
+    goto/16 :goto_5
 
     :cond_11
-    move-object/from16 v0, p0
+    move/from16 v0, v24
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
+    mul-int/lit16 v2, v0, 0x2710
 
-    if-ne v2, v15, :cond_c
+    const/high16 v5, 0x42c80000    # 100.0f
 
-    move-object/from16 v0, p0
+    mul-float v5, v5, v23
 
-    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
+    float-to-int v5, v5
 
-    if-ne v2, v14, :cond_c
+    add-int/2addr v2, v5
 
-    const/16 v19, 0x0
+    move/from16 v0, v27
 
-    move-object/from16 v0, p0
+    mul-int/lit16 v5, v0, 0x2710
 
-    iget-object v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
+    const/high16 v6, 0x42c80000    # 100.0f
 
-    const/4 v5, 0x5
+    mul-float v6, v6, v18
 
-    invoke-virtual {v2, v5}, Ljava/util/Calendar;->get(I)I
+    float-to-int v6, v6
 
-    move-result v12
+    add-int/2addr v5, v6
 
-    goto/16 :goto_6
+    if-ge v2, v5, :cond_12
+
+    move/from16 v0, v27
+
+    mul-int/lit16 v2, v0, 0x2710
+
+    const/high16 v5, 0x42c80000    # 100.0f
+
+    mul-float v5, v5, v18
+
+    float-to-int v5, v5
+
+    add-int/2addr v2, v5
+
+    mul-int/lit16 v5, v15, 0x2710
+
+    const/high16 v6, 0x42c80000    # 100.0f
+
+    mul-float/2addr v6, v14
+
+    float-to-int v6, v6
+
+    add-int/2addr v5, v6
+
+    if-ge v2, v5, :cond_12
+
+    move/from16 v0, v27
+
+    if-ne v0, v15, :cond_13
+
+    cmpl-float v2, v18, v14
+
+    if-nez v2, :cond_13
 
     :cond_12
-    if-ne v12, v9, :cond_15
+    move/from16 v0, v27
+
+    move/from16 v1, v24
+
+    if-ne v0, v1, :cond_14
+
+    cmpl-float v2, v18, v23
+
+    if-nez v2, :cond_14
+
+    move/from16 v21, v22
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumCells:I
+
+    add-int/lit8 v12, v2, 0x1
+
+    goto/16 :goto_7
+
+    :cond_13
+    const/16 v21, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mNumCells:I
+
+    add-int/lit8 v12, v2, 0x1
+
+    goto/16 :goto_7
+
+    :cond_14
+    move/from16 v0, v27
+
+    if-ne v0, v15, :cond_f
+
+    cmpl-float v2, v18, v14
+
+    if-nez v2, :cond_f
+
+    const/16 v21, 0x0
+
+    move v12, v13
+
+    goto/16 :goto_7
+
+    :cond_15
+    if-ne v12, v9, :cond_18
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsRTL:Z
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_16
 
-    move/from16 v2, v23
+    move/from16 v2, v25
 
-    :goto_7
+    :goto_8
     int-to-float v3, v2
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v2, v0
 
@@ -1584,11 +1558,11 @@
 
     invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1598,9 +1572,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1614,11 +1588,11 @@
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberEndPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v25, v0
+    move-object/from16 v28, v0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v2, v5, v6, v1}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
@@ -1628,18 +1602,18 @@
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_14
+    if-ne v2, v5, :cond_17
 
     sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    :goto_8
-    move/from16 v0, v23
+    :goto_9
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1649,9 +1623,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1665,37 +1639,37 @@
 
     invoke-virtual {v0, v2, v5, v6, v10}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_13
-    sub-int v2, v23, v11
+    :cond_16
+    sub-int v2, v25, v11
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
-    :cond_14
+    :cond_17
     sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    goto :goto_8
+    goto :goto_9
 
-    :cond_15
-    move/from16 v0, v19
+    :cond_18
+    move/from16 v0, v21
 
-    if-ne v0, v9, :cond_4
+    if-ne v0, v9, :cond_6
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsRTL:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_19
 
-    sub-int v2, v23, v11
+    sub-int v2, v25, v11
 
-    :goto_9
+    :goto_a
     int-to-float v3, v2
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v2, v0
 
@@ -1755,11 +1729,11 @@
 
     invoke-virtual/range {v2 .. v7}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    move/from16 v0, v23
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1769,9 +1743,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1785,11 +1759,11 @@
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mDayNumberEndPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v25, v0
+    move-object/from16 v28, v0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v2, v5, v6, v1}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
@@ -1799,18 +1773,18 @@
 
     const/4 v5, 0x1
 
-    if-ne v2, v5, :cond_17
+    if-ne v2, v5, :cond_1a
 
     sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    :goto_a
-    move/from16 v0, v23
+    :goto_b
+    move/from16 v0, v25
 
     int-to-float v2, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     int-to-float v5, v0
 
@@ -1820,9 +1794,9 @@
 
     int-to-float v6, v6
 
-    const v25, 0x402ccccd    # 2.7f
+    const v28, 0x402ccccd    # 2.7f
 
-    div-float v6, v6, v25
+    div-float v6, v6, v28
 
     sub-float/2addr v5, v6
 
@@ -1836,43 +1810,43 @@
 
     invoke-virtual {v0, v2, v5, v6, v10}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
-    :cond_16
-    move/from16 v2, v23
+    :cond_19
+    move/from16 v2, v25
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
-    :cond_17
+    :cond_1a
     sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v10, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    goto :goto_a
+    goto :goto_b
 
-    :cond_18
+    :cond_1b
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
 
     const/4 v5, 0x2
 
-    if-ne v2, v5, :cond_19
+    if-ne v2, v5, :cond_1c
 
-    if-eq v9, v12, :cond_5
+    if-eq v9, v12, :cond_7
 
-    :cond_19
+    :cond_1c
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_8
 
-    if-ne v9, v12, :cond_6
+    if-ne v9, v12, :cond_8
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :cond_1a
+    :cond_1d
     return-void
 .end method
 
@@ -2734,36 +2708,28 @@
 .method private onDayClick(I)V
     .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mOnDayClickListener:Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mOnDayClickListener:Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    const/4 v0, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
 
-    invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
+    iget-object v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mOnDayClickListener:Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;
 
     iget v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mYear:I
 
     iget v2, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMonth:I
 
-    invoke-virtual {v0, v1, v2, p1}, Ljava/util/Calendar;->set(III)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Landroid/view/View;->playSoundEffect(I)V
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mOnDayClickListener:Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;
-
-    invoke-interface {v1, p0, v0}, Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;->onDayClick(Lcom/samsung/android/widget/SemSimpleMonthView;Ljava/util/Calendar;)V
+    invoke-interface {v0, p0, v1, v2, p1}, Lcom/samsung/android/widget/SemSimpleMonthView$OnDayClickListener;->onDayClick(Lcom/samsung/android/widget/SemSimpleMonthView;III)V
 
     :cond_0
-    iget-object v1, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mTouchHelper:Lcom/samsung/android/widget/SemSimpleMonthView$MonthViewTouchHelper;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mTouchHelper:Lcom/samsung/android/widget/SemSimpleMonthView$MonthViewTouchHelper;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, p1, v2}, Lcom/android/internal/widget/ExploreByTouchHelper;->sendEventForVirtualView(II)Z
+    invoke-virtual {v0, p1, v1}, Lcom/android/internal/widget/ExploreByTouchHelper;->sendEventForVirtualView(II)Z
 
     return-void
 .end method
@@ -3367,10 +3333,10 @@
     return-void
 .end method
 
-.method setMonthParams(IIIIIILjava/util/Calendar;Ljava/util/Calendar;Ljava/util/Calendar;Ljava/util/Calendar;I)V
+.method setMonthParams(IIIIIILjava/util/Calendar;Ljava/util/Calendar;IIIIIIIII)V
     .locals 12
 
-    move/from16 v0, p11
+    move/from16 v0, p17
 
     iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mMode:I
 
@@ -3761,97 +3727,37 @@
 
     invoke-virtual {v7}, Lcom/android/internal/widget/ExploreByTouchHelper;->invalidateRoot()V
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
+    move/from16 v0, p9
 
-    invoke-virtual {v7}, Ljava/util/Calendar;->clear()V
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartYear:I
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
+    move/from16 v0, p10
 
-    const/4 v8, 0x2
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartMonth:I
 
-    move-object/from16 v0, p9
+    move/from16 v0, p11
 
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartDay:I
 
-    move-result v8
+    move/from16 v0, p12
 
-    const/4 v9, 0x2
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLeapStartMonth:I
 
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
+    move/from16 v0, p13
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndYear:I
 
-    const/4 v8, 0x1
+    move/from16 v0, p14
 
-    move-object/from16 v0, p9
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndMonth:I
 
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
+    move/from16 v0, p15
 
-    move-result v8
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndDay:I
 
-    const/4 v9, 0x1
+    move/from16 v0, p16
 
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mStartCalendar:Ljava/util/Calendar;
-
-    const/4 v8, 0x5
-
-    move-object/from16 v0, p9
-
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    const/4 v9, 0x5
-
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    invoke-virtual {v7}, Ljava/util/Calendar;->clear()V
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    const/4 v8, 0x2
-
-    move-object/from16 v0, p10
-
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    const/4 v9, 0x2
-
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    const/4 v8, 0x1
-
-    move-object/from16 v0, p10
-
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mEndCalendar:Ljava/util/Calendar;
-
-    const/4 v8, 0x5
-
-    move-object/from16 v0, p10
-
-    invoke-virtual {v0, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    const/4 v9, 0x5
-
-    invoke-virtual {v7, v9, v8}, Ljava/util/Calendar;->set(II)V
+    iput v0, p0, Lcom/samsung/android/widget/SemSimpleMonthView;->mIsLeapEndMonth:I
 
     return-void
 

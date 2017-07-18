@@ -792,36 +792,6 @@
     throw v1
 .end method
 
-.method public copyAlternativeToActivePasswordState(I)V
-    .locals 3
-
-    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->copyAlternativeToActivePasswordState(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "Failed talking with device policy service"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public createAndInitializeUser(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/Bundle;)Landroid/os/UserHandle;
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
@@ -6011,6 +5981,33 @@
     throw v1
 .end method
 
+.method public reportPasswordChanged(I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->reportPasswordChanged(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public reportSuccessfulFingerprintAttempt(I)V
     .locals 2
 
@@ -7730,54 +7727,6 @@
     throw v0
 .end method
 
-.method public setActivePasswordStateForEAS(IIIIIIIII)V
-    .locals 11
-
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    if-eqz v0, :cond_0
-
-    :try_start_0
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move/from16 v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-interface/range {v0 .. v9}, Landroid/app/admin/IDevicePolicyManager;->setActivePasswordStateForEAS(IIIIIIIII)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v10
-
-    sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v1, "Failed talking with device policy service"
-
-    invoke-static {v0, v1, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public setActiveProfileOwner(Landroid/content/ComponentName;Ljava/lang/String;)Z
     .locals 4
     .param p2    # Ljava/lang/String;
@@ -7922,98 +7871,6 @@
 
     :cond_0
     const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setAlternativePasswordState(IIIIIIII)V
-    .locals 10
-
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    if-eqz v0, :cond_0
-
-    :try_start_0
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    invoke-interface/range {v0 .. v8}, Landroid/app/admin/IDevicePolicyManager;->setAlternativePasswordState(IIIIIIII)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v9
-
-    sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v1, "Failed talking with device policy service"
-
-    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public setAlternativePasswordStateForEAS(IIIIIIII)V
-    .locals 10
-
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    if-eqz v0, :cond_0
-
-    :try_start_0
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    invoke-interface/range {v0 .. v8}, Landroid/app/admin/IDevicePolicyManager;->setAlternativePasswordStateForEAS(IIIIIIII)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v9
-
-    sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v1, "Failed talking with device policy service"
-
-    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method

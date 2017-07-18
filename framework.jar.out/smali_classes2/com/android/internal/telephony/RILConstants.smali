@@ -112,6 +112,8 @@
 
 .field public static final DEACTIVATE_REASON_RADIO_OFF:I = 0x1
 
+.field public static final DEACTIVATE_REASON_WIFI_CONNECTED:I = 0x4
+
 .field public static final DEVICE_IN_USE:I = 0x40
 
 .field public static final DIAL_MODIFIED_TO_DIAL:I = 0x14

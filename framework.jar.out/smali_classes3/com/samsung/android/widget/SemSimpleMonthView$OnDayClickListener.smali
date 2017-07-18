@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onDayClick(Lcom/samsung/android/widget/SemSimpleMonthView;Ljava/util/Calendar;)V
+.method public abstract onDayClick(Lcom/samsung/android/widget/SemSimpleMonthView;III)V
 .end method

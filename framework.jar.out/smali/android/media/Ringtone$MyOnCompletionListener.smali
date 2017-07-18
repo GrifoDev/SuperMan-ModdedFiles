@@ -56,6 +56,10 @@
 
     monitor-exit v1
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
+
     return-void
 
     :catchall_0

@@ -23,7 +23,7 @@
 
     const/4 v3, 0x0
 
-    const/16 v0, 0x1d
+    const/16 v0, 0x1e
 
     new-array v0, v0, [[Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     aput-object v2, v1, v3
 
-    const-string/jumbo v2, "No available space in disk."
+    const-string/jumbo v2, "Write or fstat to the shm file is failed."
 
     aput-object v2, v1, v4
 
@@ -424,6 +424,20 @@
     aput-object v2, v1, v4
 
     const/16 v2, 0x1c
+
+    aput-object v1, v0, v2
+
+    new-array v1, v5, [Ljava/lang/String;
+
+    const-string/jumbo v2, "SQLITE_IOERR_SHMSIZE_FULL"
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "No available space in disk.(ENOSPC)"
+
+    aput-object v2, v1, v4
+
+    const/16 v2, 0x1d
 
     aput-object v1, v0, v2
 

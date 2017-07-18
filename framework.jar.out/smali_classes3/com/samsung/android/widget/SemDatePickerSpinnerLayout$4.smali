@@ -35,463 +35,766 @@
 
 # virtual methods
 .method public onValueChange(Lcom/samsung/android/widget/SemNumberPicker;II)V
-    .locals 11
+    .locals 16
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v5
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-result-object v10
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    move-result-object v6
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-virtual {v6}, Ljava/util/Calendar;->getTimeInMillis()J
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    move-result-wide v6
+    move-result-object v11
 
-    invoke-virtual {v5, v6, v7}, Ljava/util/Calendar;->setTimeInMillis(J)V
+    invoke-virtual {v11}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    const/4 v4, 0x0
+    move-result-wide v12
 
-    const/4 v3, 0x0
+    invoke-virtual {v10, v12, v13}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
 
-    move-result-object v5
+    move-result v10
 
-    if-ne p1, v5, :cond_7
+    if-eqz v10, :cond_0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    const/4 v6, 0x5
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-virtual {v5, v6}, Ljava/util/Calendar;->getActualMaximum(I)I
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get9(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    move-result v2
+    move-result v11
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    if-eqz v5, :cond_0
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get8(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    move-result v11
 
-    move-result-object v6
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
 
-    const/4 v7, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v6, v7}, Ljava/util/Calendar;->get(I)I
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result v6
+    move-object/from16 v0, p0
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    move-result-object v7
+    move-result v11
 
-    const/4 v8, 0x2
-
-    invoke-virtual {v7, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
-
-    move-result v8
-
-    invoke-static {v5, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)I
-
-    move-result v2
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
 
     :cond_0
-    if-ne p2, v2, :cond_5
+    const/4 v9, 0x0
 
-    const/4 v5, 0x1
+    const/4 v7, 0x0
 
-    if-ne p3, v5, :cond_5
+    const/4 v2, 0x0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v5
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
 
-    const/4 v6, 0x5
+    move-result-object v10
 
-    invoke-virtual {v5, v6, p3}, Ljava/util/Calendar;->set(II)V
+    move-object/from16 v0, p1
 
-    :goto_0
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    if-ne v0, v10, :cond_a
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    if-eqz v5, :cond_2
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-result-object v10
 
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    const/4 v11, 0x5
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v6
-
-    const/4 v7, 0x1
-
-    invoke-virtual {v6, v7}, Ljava/util/Calendar;->get(I)I
-
-    move-result v6
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v7
-
-    const/4 v8, 0x2
-
-    invoke-virtual {v7, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v7
-
-    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
-
-    move-result v8
-
-    invoke-static {v5, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)I
-
-    move-result v2
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v5
-
-    const/4 v6, 0x5
-
-    invoke-virtual {v5, v6}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v10, v11}, Ljava/util/Calendar;->getActualMaximum(I)I
 
     move-result v5
 
-    if-le v5, v2, :cond_1
+    move-object/from16 v0, p0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
 
-    move-result-object v5
+    move-result v10
 
-    const/4 v6, 0x5
+    if-eqz v10, :cond_1
 
-    invoke-virtual {v5, v6, v2}, Ljava/util/Calendar;->set(II)V
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v11
+
+    const/4 v12, 0x1
+
+    invoke-virtual {v11, v12}, Ljava/util/Calendar;->get(I)I
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v12}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v12
+
+    const/4 v13, 0x2
+
+    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v13}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v13
+
+    invoke-static {v10, v11, v12, v13}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)I
+
+    move-result v5
 
     :cond_1
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move/from16 v0, p2
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/reflect/Method;
-
-    move-result-object v7
-
-    const/4 v8, 0x2
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v9
+    if-ne v0, v5, :cond_8
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10}, Ljava/util/Calendar;->get(I)I
+    move/from16 v0, p3
 
-    move-result v9
+    if-ne v0, v10, :cond_8
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v0, p0
 
-    move-result-object v9
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    const/4 v10, 0x0
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    aput-object v9, v8, v10
+    move-result-object v10
 
-    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    const/4 v11, 0x5
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    move/from16 v0, p3
 
-    move-result-object v9
+    invoke-virtual {v10, v11, v0}, Ljava/util/Calendar;->set(II)V
 
-    const/4 v10, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v9, v10}, Ljava/util/Calendar;->get(I)I
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result v9
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v10
 
-    move-result-object v9
+    if-eqz v10, :cond_2
 
-    const/4 v10, 0x1
+    move-object/from16 v0, p0
 
-    aput-object v9, v8, v10
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v5, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+    move/from16 v0, p3
 
-    move-result-object v1
-
-    instance-of v5, v1, Ljava/lang/Boolean;
-
-    if-eqz v5, :cond_2
-
-    nop
-
-    nop
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v5
-
-    if-nez v5, :cond_2
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    const/4 v6, 0x0
-
-    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)Z
+    invoke-static {v10, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
 
     :cond_2
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    :goto_0
+    move-object/from16 v0, p0
 
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
 
-    move-result-object v6
+    move-result v10
 
-    const/4 v7, 0x1
+    if-eqz v10, :cond_4
 
-    invoke-virtual {v6, v7}, Ljava/util/Calendar;->get(I)I
+    move-object/from16 v0, p0
 
-    move-result v6
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v7
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    const/4 v8, 0x2
+    move-result v11
 
-    invoke-virtual {v7, v8}, Ljava/util/Calendar;->get(I)I
+    move-object/from16 v0, p0
 
-    move-result v7
+    iget-object v12, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    invoke-static {v12}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    invoke-static {v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    move-result v12
 
-    move-result-object v8
+    move-object/from16 v0, p0
 
-    const/4 v9, 0x5
+    iget-object v13, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-virtual {v8, v9}, Ljava/util/Calendar;->get(I)I
+    invoke-static {v13}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v13
+
+    invoke-static {v10, v11, v12, v13}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v10
+
+    if-le v10, v5, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10, v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get17(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v12}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/reflect/Method;
+
+    move-result-object v12
+
+    const/4 v13, 0x2
+
+    new-array v13, v13, [Ljava/lang/Object;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v14
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    const/4 v15, 0x0
+
+    aput-object v14, v13, v15
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v14
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    const/4 v15, 0x1
+
+    aput-object v14, v13, v15
+
+    invoke-static {v10, v11, v12, v13}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    instance-of v10, v4, Ljava/lang/Boolean;
+
+    if-eqz v10, :cond_4
+
+    nop
+
+    nop
+
+    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v10
+
+    if-nez v10, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    const/4 v11, 0x0
+
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)Z
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Ljava/util/Calendar;->get(I)I
 
     move-result v8
 
-    invoke-static {v5, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;III)V
+    move-object/from16 v0, p0
 
-    if-nez v4, :cond_3
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    if-nez v3, :cond_3
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    if-eqz v0, :cond_4
+    move-result-object v10
 
-    :cond_3
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    const/4 v11, 0x2
 
-    const/4 v6, 0x0
+    invoke-virtual {v10, v11}, Ljava/util/Calendar;->get(I)I
 
-    invoke-static {v5, v6, v4, v3, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;ZZZZ)V
+    move-result v6
 
-    :cond_4
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    const/4 v11, 0x5
+
+    invoke-virtual {v10, v11}, Ljava/util/Calendar;->get(I)I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v8
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get10(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v3
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10, v8, v6, v3}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;III)V
+
+    if-nez v9, :cond_6
+
+    if-nez v7, :cond_6
+
+    if-eqz v2, :cond_7
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    const/4 v11, 0x0
+
+    invoke-static {v10, v11, v9, v7, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;ZZZZ)V
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    const/4 v11, 0x1
+
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)V
 
     return-void
 
-    :cond_5
-    const/4 v5, 0x1
-
-    if-ne p2, v5, :cond_6
-
-    if-ne p3, v2, :cond_6
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v5
-
-    const/4 v6, 0x5
-
-    invoke-virtual {v5, v6, p3}, Ljava/util/Calendar;->set(II)V
-
-    goto/16 :goto_0
-
-    :cond_6
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v5
-
-    sub-int v6, p3, p2
-
-    const/4 v7, 0x5
-
-    invoke-virtual {v5, v7, v6}, Ljava/util/Calendar;->add(II)V
-
-    goto/16 :goto_0
-
-    :cond_7
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get7(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
-
-    move-result-object v5
-
-    if-ne p1, v5, :cond_a
-
-    const/16 v5, 0xb
-
-    if-ne p2, v5, :cond_8
-
-    if-nez p3, :cond_8
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-
-    move-result-object v5
-
-    const/4 v6, 0x2
-
-    invoke-virtual {v5, v6, p3}, Ljava/util/Calendar;->set(II)V
-
-    :goto_1
-    const/4 v0, 0x1
-
-    goto/16 :goto_0
-
     :cond_8
-    if-nez p2, :cond_9
+    const/4 v10, 0x1
 
-    const/16 v5, 0xb
+    move/from16 v0, p2
 
-    if-ne p3, v5, :cond_9
+    if-ne v0, v10, :cond_9
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move/from16 v0, p3
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    if-ne v0, v5, :cond_9
 
-    move-result-object v5
+    move-object/from16 v0, p0
 
-    const/4 v6, 0x2
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-virtual {v5, v6, p3}, Ljava/util/Calendar;->set(II)V
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    goto :goto_1
+    move-result-object v10
+
+    const/4 v11, 0x5
+
+    move/from16 v0, p3
+
+    invoke-virtual {v10, v11, v0}, Ljava/util/Calendar;->set(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    move/from16 v0, p3
+
+    invoke-static {v10, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
+    goto/16 :goto_0
 
     :cond_9
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v5
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
 
-    sub-int v6, p3, p2
+    move-result-object v10
 
-    const/4 v7, 0x2
+    sub-int v11, p3, p2
 
-    invoke-virtual {v5, v7, v6}, Ljava/util/Calendar;->add(II)V
+    const/4 v12, 0x5
 
-    goto :goto_1
+    invoke-virtual {v10, v12, v11}, Ljava/util/Calendar;->add(II)V
 
-    :cond_a
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    move-object/from16 v0, p0
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get14(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    move-result-object v5
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
 
-    if-ne p1, v5, :cond_b
+    move-result v10
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+    if-eqz v10, :cond_2
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    move-result-object v5
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    sub-int v6, p3, p2
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get10(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
 
-    const/4 v7, 0x1
+    move-result v11
 
-    invoke-virtual {v5, v7, v6}, Ljava/util/Calendar;->add(II)V
+    sub-int v12, p3, p2
 
-    const/4 v3, 0x1
+    add-int/2addr v11, v12
 
-    const/4 v0, 0x1
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
 
     goto/16 :goto_0
 
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get13(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+
+    move-result-object v10
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v10, :cond_e
+
+    const/16 v10, 0xb
+
+    move/from16 v0, p2
+
+    if-ne v0, v10, :cond_c
+
+    if-nez p3, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    const/4 v11, 0x2
+
+    move/from16 v0, p3
+
+    invoke-virtual {v10, v11, v0}, Ljava/util/Calendar;->set(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    move/from16 v0, p3
+
+    invoke-static {v10, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
     :cond_b
-    new-instance v5, Ljava/lang/IllegalArgumentException;
+    :goto_1
+    const/4 v2, 0x1
 
-    invoke-direct {v5}, Ljava/lang/IllegalArgumentException;-><init>()V
+    goto/16 :goto_0
 
-    throw v5
+    :cond_c
+    if-nez p2, :cond_d
+
+    const/16 v10, 0xb
+
+    move/from16 v0, p3
+
+    if-ne v0, v10, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    const/4 v11, 0x2
+
+    move/from16 v0, p3
+
+    invoke-virtual {v10, v11, v0}, Ljava/util/Calendar;->set(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    move/from16 v0, p3
+
+    invoke-static {v10, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
+    goto :goto_1
+
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    sub-int v11, p3, p2
+
+    const/4 v12, 0x2
+
+    invoke-virtual {v10, v12, v11}, Ljava/util/Calendar;->add(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get11(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v11
+
+    sub-int v12, p3, p2
+
+    add-int/2addr v11, v12
+
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
+    goto :goto_1
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get20(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+
+    move-result-object v10
+
+    move-object/from16 v0, p1
+
+    if-ne v0, v10, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+
+    move-result-object v10
+
+    sub-int v11, p3, p2
+
+    const/4 v12, 0x1
+
+    invoke-virtual {v10, v12, v11}, Ljava/util/Calendar;->add(II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v10, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-get12(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+
+    move-result v11
+
+    sub-int v12, p3, p2
+
+    add-int/2addr v11, v12
+
+    invoke-static {v10, v11}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+
+    :cond_f
+    const/4 v7, 0x1
+
+    const/4 v2, 0x1
+
+    goto/16 :goto_0
+
+    :cond_10
+    new-instance v10, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v10}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v10
 .end method

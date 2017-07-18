@@ -34,6 +34,8 @@
 
 .field public static final EXTRA_APPWIDGET_OPTIONS:Ljava/lang/String; = "appWidgetOptions"
 
+.field public static final EXTRA_APPWIDGET_PACKAGENAME:Ljava/lang/String; = "appWidgetPackageName"
+
 .field public static final EXTRA_APPWIDGET_PROVIDER:Ljava/lang/String; = "appWidgetProvider"
 
 .field public static final EXTRA_APPWIDGET_PROVIDER_PROFILE:Ljava/lang/String; = "appWidgetProviderProfile"
@@ -61,6 +63,8 @@
 .field public static final OPTION_APPWIDGET_MIN_HEIGHT:Ljava/lang/String; = "appWidgetMinHeight"
 
 .field public static final OPTION_APPWIDGET_MIN_WIDTH:Ljava/lang/String; = "appWidgetMinWidth"
+
+.field public static final SEM_ACTION_APPWIDGET_UNBIND:Ljava/lang/String; = "com.samsung.android.appwidget.action.APPWIDGET_UNBIND"
 
 
 # instance fields

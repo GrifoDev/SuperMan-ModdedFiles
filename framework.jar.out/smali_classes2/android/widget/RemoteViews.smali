@@ -2757,6 +2757,8 @@
 
     invoke-direct {p0, v8}, Landroid/widget/RemoteViews;->setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
 
+    invoke-direct {p0}, Landroid/widget/RemoteViews;->recalculateMemoryUsage()V
+
     return-void
 
     :catchall_0

@@ -8,6 +8,8 @@
 
 .field private mCACertName:Ljava/lang/String;
 
+.field private mCACertNameFromSystem:Ljava/lang/String;
+
 .field private mCAKeyIndex:Ljava/lang/String;
 
 .field private mCertName:Ljava/lang/String;
@@ -72,9 +74,13 @@
 
     iput-object v0, p0, Landroid/content/pm/AASATokenParser;->mCertName:Ljava/lang/String;
 
-    const-string/jumbo v0, "/data/system/.aasa/AASApolicy/ASKS_INTER_1.crt"
+    const-string/jumbo v0, "/data/system/.aasa/AASApolicy/ASKS_INTER_"
 
     iput-object v0, p0, Landroid/content/pm/AASATokenParser;->mCACertName:Ljava/lang/String;
+
+    const-string/jumbo v0, "/system/etc/ASKS_INTER_"
+
+    iput-object v0, p0, Landroid/content/pm/AASATokenParser;->mCACertNameFromSystem:Ljava/lang/String;
 
     const-string/jumbo v0, "/system/etc/ASKS_ROOT_1.crt"
 
@@ -7487,38 +7493,38 @@
 .end method
 
 .method checkIntegrity([B)[B
-    .locals 35
+    .locals 36
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
-    const/16 v19, 0x200
+    const/16 v20, 0x200
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCertName:Ljava/lang/String;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    const-string/jumbo v33, ""
+    const-string/jumbo v34, ""
 
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v32
+    move-result v33
 
-    if-nez v32, :cond_0
+    if-nez v33, :cond_0
 
-    const/16 v17, 0x1
+    const/16 v18, 0x1
 
     :cond_0
-    if-nez v17, :cond_1
+    if-nez v18, :cond_1
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    if-eqz v32, :cond_2
+    if-eqz v33, :cond_2
 
     :cond_1
     :goto_0
@@ -7526,110 +7532,110 @@
 
     array-length v0, v0
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    move/from16 v0, v32
+    move/from16 v0, v33
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     if-ge v0, v1, :cond_3
 
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
     :cond_2
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "AASA Token change key 256"
+    const-string/jumbo v34, "AASA Token change key 256"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v19, 0x100
+    const/16 v20, 0x100
 
     goto :goto_0
 
     :cond_3
     :try_start_0
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     new-array v0, v0, [B
 
-    move-object/from16 v25, v0
-
-    const/16 v32, 0x0
+    move-object/from16 v26, v0
 
     const/16 v33, 0x0
 
+    const/16 v34, 0x0
+
     move-object/from16 v0, p1
-
-    move/from16 v1, v32
-
-    move-object/from16 v2, v25
-
-    move/from16 v3, v33
-
-    move/from16 v4, v19
-
-    invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    const/16 v32, 0x7
-
-    move/from16 v0, v32
-
-    new-array v0, v0, [B
-
-    move-object/from16 v29, v0
-
-    const/16 v21, 0x0
-
-    const/16 v16, 0x0
-
-    move/from16 v14, v19
-
-    :goto_1
-    aget-byte v32, p1, v14
-
-    const/16 v33, 0x2c
-
-    move/from16 v0, v32
 
     move/from16 v1, v33
 
+    move-object/from16 v2, v26
+
+    move/from16 v3, v34
+
+    move/from16 v4, v20
+
+    invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    const/16 v33, 0x7
+
+    move/from16 v0, v33
+
+    new-array v0, v0, [B
+
+    move-object/from16 v30, v0
+
+    const/16 v22, 0x0
+
+    const/16 v17, 0x0
+
+    move/from16 v15, v20
+
+    :goto_1
+    aget-byte v33, p1, v15
+
+    const/16 v34, 0x2c
+
+    move/from16 v0, v33
+
+    move/from16 v1, v34
+
     if-eq v0, v1, :cond_4
 
-    const/16 v32, 0x7
+    const/16 v33, 0x7
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
     if-lt v0, v1, :cond_5
 
-    const/16 v16, 0x1
+    const/16 v17, 0x1
 
     :cond_4
-    if-eqz v16, :cond_8
+    if-eqz v17, :cond_8
 
-    if-nez v17, :cond_6
+    if-nez v18, :cond_6
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    if-eqz v32, :cond_6
+    if-eqz v33, :cond_6
 
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "AASA Token might be signed 256"
+    const-string/jumbo v34, "AASA Token might be signed 256"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    move/from16 v0, v32
+    move/from16 v0, v33
 
     move-object/from16 v1, p0
 
@@ -7637,18 +7643,18 @@
 
     invoke-virtual/range {p0 .. p1}, Landroid/content/pm/AASATokenParser;->checkIntegrity([B)[B
 
-    move-result-object v32
+    move-result-object v33
 
-    return-object v32
+    return-object v33
 
     :cond_5
-    aget-byte v32, p1, v14
+    aget-byte v33, p1, v15
 
-    aput-byte v32, v29, v21
+    aput-byte v33, v30, v22
 
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v15, v15, 0x1
 
-    add-int/lit8 v21, v21, 0x1
+    add-int/lit8 v22, v22, 0x1
 
     goto :goto_1
 
@@ -7657,79 +7663,329 @@
 
     iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    if-nez v32, :cond_7
+    if-nez v33, :cond_7
 
-    const/16 v32, 0x1
+    const/16 v33, 0x1
 
-    move/from16 v0, v32
+    move/from16 v0, v33
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
 
     :cond_7
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
     :cond_8
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     new-array v0, v0, [B
 
-    move-object/from16 v20, v0
-
-    const/16 v32, 0x0
+    move-object/from16 v21, v0
 
     const/16 v33, 0x0
 
-    move-object/from16 v0, v29
+    const/16 v34, 0x0
 
-    move/from16 v1, v32
+    move-object/from16 v0, v30
 
-    move-object/from16 v2, v20
+    move/from16 v1, v33
 
-    move/from16 v3, v33
+    move-object/from16 v2, v21
 
-    move/from16 v4, v21
+    move/from16 v3, v34
+
+    move/from16 v4, v22
 
     invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    new-instance v32, Ljava/lang/String;
+    new-instance v33, Ljava/lang/String;
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
 
-    invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v33 .. v33}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v28
+    move-result v29
 
-    move/from16 v0, v28
+    move/from16 v0, v29
 
     new-array v0, v0, [B
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
 
-    add-int v32, v19, v21
+    add-int v33, v20, v22
 
-    const-string/jumbo v33, ","
+    const-string/jumbo v34, ","
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/String;->length()I
+
+    move-result v34
+
+    add-int v33, v33, v34
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
+
+    move-object/from16 v34, v0
+
+    const/16 v35, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v33
+
+    move-object/from16 v2, v34
+
+    move/from16 v3, v35
+
+    move/from16 v4, v29
+
+    invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
+
+    const-string/jumbo v33, "SHA256WithRSAEncryption"
+
+    invoke-static/range {v33 .. v33}, Ljava/security/Signature;->getInstance(Ljava/lang/String;)Ljava/security/Signature;
+
+    move-result-object v27
+
+    const-string/jumbo v33, "x.509"
+
+    invoke-static/range {v33 .. v33}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    const/16 v28, 0x0
+
+    if-eqz v18, :cond_15
+
+    const/16 v31, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v14, 0x0
+
+    new-instance v31, Ljava/util/jar/JarFile;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mArchiveSourcePath:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v33
+
+    invoke-direct {v0, v1}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
+
+    if-eqz v31, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCertName:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/util/jar/JarFile;->getJarEntry(Ljava/lang/String;)Ljava/util/jar/JarEntry;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_f
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v7}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
+
+    move-result-object v14
+
+    invoke-virtual {v8, v14}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+
+    move-result-object v28
+
+    check-cast v28, Ljava/security/cert/X509Certificate;
+
+    :cond_9
+    if-eqz v31, :cond_a
+
+    invoke-virtual/range {v31 .. v31}, Ljava/util/zip/ZipFile;->close()V
+
+    :cond_a
+    if-eqz v14, :cond_b
+
+    invoke-virtual {v14}, Ljava/io/InputStream;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+
+    :cond_b
+    :try_start_1
+    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v23
+
+    new-instance v33, Ljava/io/ByteArrayInputStream;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
+
+    move-object/from16 v34, v0
+
+    invoke-direct/range {v33 .. v34}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    const/16 v34, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v34
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+
+    new-instance v32, Ljava/util/ArrayList;
+
+    invoke-direct/range {v32 .. v32}, Ljava/util/ArrayList;-><init>()V
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+
+    :try_start_2
+    const-string/jumbo v33, "INDEX"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v33
+
+    move-object/from16 v3, v32
+
+    invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/AASATokenParser;->parseXML(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/ArrayList;)Z
 
     move-result v33
 
-    add-int v32, v32, v33
+    if-eqz v33, :cond_c
+
+    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v23
+
+    new-instance v33, Ljava/io/ByteArrayInputStream;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
+
+    move-object/from16 v34, v0
+
+    invoke-direct/range {v33 .. v34}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    const/16 v34, 0x0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v34
+
+    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    :cond_c
+    const/16 v33, 0x0
+
+    :try_start_3
+    invoke-virtual/range {v32 .. v33}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Ljava/lang/String;
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, "index : "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v33, "0.0"
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_11
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    const-string/jumbo v34, "ENG Cert Index"
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
+    :cond_d
+    move-object v10, v9
+
+    :goto_2
+    :try_start_4
+    invoke-virtual/range {v27 .. v28}, Ljava/security/Signature;->initVerify(Ljava/security/cert/Certificate;)V
 
     move-object/from16 v0, p0
 
@@ -7739,209 +7995,66 @@
 
     const/16 v34, 0x0
 
-    move-object/from16 v0, p1
+    move-object/from16 v0, v27
 
-    move/from16 v1, v32
+    move-object/from16 v1, v33
 
-    move-object/from16 v2, v33
+    move/from16 v2, v34
 
-    move/from16 v3, v34
+    move/from16 v3, v29
 
-    move/from16 v4, v28
+    invoke-virtual {v0, v1, v2, v3}, Ljava/security/Signature;->update([BII)V
 
-    invoke-static {v0, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy([BI[BII)V
+    move-object/from16 v0, v27
 
-    const-string/jumbo v32, "SHA256WithRSAEncryption"
+    move-object/from16 v1, v26
 
-    invoke-static/range {v32 .. v32}, Ljava/security/Signature;->getInstance(Ljava/lang/String;)Ljava/security/Signature;
+    invoke-virtual {v0, v1}, Ljava/security/Signature;->verify([B)Z
 
-    move-result-object v26
+    move-result v33
 
-    const-string/jumbo v32, "x.509"
+    if-eqz v33, :cond_1e
 
-    invoke-static/range {v32 .. v32}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+    const-string/jumbo v33, "AASATokenParser"
 
-    move-result-object v8
+    const-string/jumbo v34, "Token is verificated in checkIntegrity!"
 
-    const/4 v9, 0x0
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
-    const/16 v27, 0x0
+    if-eqz v18, :cond_1c
 
-    if-eqz v17, :cond_15
+    const/4 v5, 0x0
 
-    const/16 v30, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v13, 0x0
-
-    new-instance v30, Ljava/util/jar/JarFile;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mArchiveSourcePath:Ljava/lang/String;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v32
-
-    invoke-direct {v0, v1}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
-
-    if-eqz v30, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCertName:Ljava/lang/String;
-
-    move-object/from16 v32, v0
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v32
-
-    invoke-virtual {v0, v1}, Ljava/util/jar/JarFile;->getJarEntry(Ljava/lang/String;)Ljava/util/jar/JarEntry;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_f
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v7}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
-
-    move-result-object v13
-
-    invoke-virtual {v8, v13}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
-
-    move-result-object v27
-
-    check-cast v27, Ljava/security/cert/X509Certificate;
-
-    :cond_9
-    if-eqz v30, :cond_a
-
-    invoke-virtual/range {v30 .. v30}, Ljava/util/zip/ZipFile;->close()V
-
-    :cond_a
-    if-eqz v13, :cond_b
-
-    invoke-virtual {v13}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
-
-    :cond_b
-    :try_start_1
-    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
-
-    move-result-object v23
-
-    invoke-virtual/range {v23 .. v23}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
-
-    move-result-object v22
-
-    new-instance v32, Ljava/io/ByteArrayInputStream;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
-
-    move-object/from16 v33, v0
-
-    invoke-direct/range {v32 .. v33}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    const/16 v33, 0x0
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v32
-
-    move-object/from16 v2, v33
-
-    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
-
-    new-instance v31, Ljava/util/ArrayList;
-
-    invoke-direct/range {v31 .. v31}, Ljava/util/ArrayList;-><init>()V
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
-
-    :try_start_2
-    const-string/jumbo v32, "INDEX"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    move-object/from16 v2, v32
-
-    move-object/from16 v3, v31
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/AASATokenParser;->parseXML(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/ArrayList;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_c
-
-    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
-
-    move-result-object v23
-
-    invoke-virtual/range {v23 .. v23}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
-
-    move-result-object v22
-
-    new-instance v32, Ljava/io/ByteArrayInputStream;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
-
-    move-object/from16 v33, v0
-
-    invoke-direct/range {v32 .. v33}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    const/16 v33, 0x0
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v32
-
-    move-object/from16 v2, v33
-
-    invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
-
-    :cond_c
-    const/16 v32, 0x0
-
-    :try_start_3
-    invoke-virtual/range {v31 .. v32}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Ljava/lang/String;
-
-    const-string/jumbo v32, "AASATokenParser"
-
+    :try_start_5
     new-instance v33, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "index : "
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCACertName:Ljava/lang/String;
+
+    move-object/from16 v34, v0
 
     invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v33
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCAKeyIndex:Ljava/lang/String;
+
+    move-object/from16 v34, v0
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    const-string/jumbo v34, ".crt"
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v33
 
@@ -7949,67 +8062,11 @@
 
     move-result-object v33
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, v33
 
-    const-string/jumbo v32, "0.0"
+    move-object/from16 v1, p0
 
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_11
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    const-string/jumbo v33, "ENG Cert Index"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
-
-    :cond_d
-    :goto_2
-    :try_start_4
-    invoke-virtual/range {v26 .. v27}, Ljava/security/Signature;->initVerify(Ljava/security/cert/Certificate;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
-
-    move-object/from16 v32, v0
-
-    const/16 v33, 0x0
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v32
-
-    move/from16 v2, v33
-
-    move/from16 v3, v28
-
-    invoke-virtual {v0, v1, v2, v3}, Ljava/security/Signature;->update([BII)V
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, v25
-
-    invoke-virtual {v0, v1}, Ljava/security/Signature;->verify([B)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_1e
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    const-string/jumbo v33, "Token is verificated in checkIntegrity!"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v17, :cond_1c
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCACertName:Ljava/lang/String;
 
     new-instance v9, Ljava/io/FileInputStream;
 
@@ -8017,85 +8074,89 @@
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCACertName:Ljava/lang/String;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     invoke-direct {v9, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
+    :try_start_6
     invoke-virtual {v8, v9}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
 
     move-result-object v5
 
     check-cast v5, Ljava/security/cert/X509Certificate;
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_7
 
-    :try_start_5
+    :goto_3
+    :try_start_7
     invoke-virtual {v5}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
 
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "signerCert is verificated!"
+    const-string/jumbo v34, "signerCert is verificated!"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_4
 
-    :try_start_6
+    :try_start_8
     new-instance v9, Ljava/io/FileInputStream;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mRootCertName:Ljava/lang/String;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     invoke-direct {v9, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v8, v9}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
 
-    move-result-object v24
+    move-result-object v25
 
-    check-cast v24, Ljava/security/cert/X509Certificate;
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
+    check-cast v25, Ljava/security/cert/X509Certificate;
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
 
-    :try_start_7
-    invoke-virtual/range {v24 .. v24}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+    :try_start_9
+    invoke-virtual/range {v25 .. v25}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     invoke-virtual {v5, v0}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
 
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "CAcert is verificated!"
+    const-string/jumbo v34, "CAcert is verificated!"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_4
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_5
 
-    :try_start_8
-    invoke-virtual/range {v24 .. v24}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+    :try_start_a
+    invoke-virtual/range {v25 .. v25}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v33
 
     invoke-virtual {v0, v1}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
 
@@ -8104,113 +8165,449 @@
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
 
     :cond_e
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "rootCert is verificated!"
+    const-string/jumbo v34, "rootCert is verificated!"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
 
-    move-object/from16 v32, v0
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_5
+    move-object/from16 v33, v0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_6
 
-    return-object v32
+    return-object v33
 
     :cond_f
-    :try_start_9
-    const-string/jumbo v32, "AASATokenParser"
+    :try_start_b
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "Token Cert does not exist!"
+    const-string/jumbo v34, "Token Cert does not exist!"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v30, :cond_10
+    if-eqz v31, :cond_10
 
-    invoke-virtual/range {v30 .. v30}, Ljava/util/zip/ZipFile;->close()V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
+    invoke-virtual/range {v31 .. v31}, Ljava/util/zip/ZipFile;->close()V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
 
     :cond_10
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
     :catch_0
-    move-exception v10
+    move-exception v11
 
-    :try_start_a
-    const-string/jumbo v32, "AASATokenParser"
+    :try_start_c
+    const-string/jumbo v33, "AASATokenParser"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v34, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, " "
+    const-string/jumbo v35, " "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual {v10}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v34
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v35
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v34
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/16 v32, 0x0
+    move-result-object v34
 
-    return-object v32
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v33, 0x0
+
+    return-object v33
 
     :cond_11
-    const-string/jumbo v32, "\\."
+    const-string/jumbo v33, "\\."
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-object/from16 v1, v33
 
-    move-result-object v18
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenName:Ljava/lang/String;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    const-string/jumbo v33, "[^0-9]"
+    const-string/jumbo v34, "[^0-9]"
 
-    const-string/jumbo v34, ""
+    const-string/jumbo v35, ""
 
-    invoke-virtual/range {v32 .. v34}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v33 .. v35}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    const-string/jumbo v32, "AASATokenParser"
+    const/16 v33, 0x0
+
+    aget-object v33, v19, v33
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCAKeyIndex:Ljava/lang/String;
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, "mTokenName : "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenName:Ljava/lang/String;
+
+    move-object/from16 v35, v0
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    const-string/jumbo v35, " SignerVersion : "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v33, ""
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_12
+
+    const-string/jumbo v6, "1"
+
+    :cond_12
+    const/16 v33, 0x1
+
+    aget-object v33, v19, v33
+
+    move-object/from16 v0, v33
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v33
+
+    if-nez v33, :cond_13
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    const-string/jumbo v34, "Signer Cert File is not matched with index!"
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v33, 0x0
+
+    return-object v33
+
+    :cond_13
+    const-string/jumbo v33, "SIGNER"
+
+    const/16 v34, 0x1
+
+    aget-object v34, v19, v34
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v34
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->SKA_CheckList(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_14
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    const-string/jumbo v34, "SIGNER is in CRL"
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v33, 0x0
+
+    return-object v33
+
+    :cond_14
+    const-string/jumbo v33, "INTER"
+
+    const/16 v34, 0x0
+
+    aget-object v34, v19, v34
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v33
+
+    move-object/from16 v2, v34
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->SKA_CheckList(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_d
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    const-string/jumbo v34, "INTER is in CRL"
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_c
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_c .. :try_end_c} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+
+    const/16 v33, 0x0
+
+    return-object v33
+
+    :catch_1
+    move-exception v13
+
+    :try_start_d
+    const-string/jumbo v33, "AASATokenParser"
+
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, " "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual {v13}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+
+    move-result-object v35
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v33, 0x0
+
+    return-object v33
+
+    :cond_15
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
+
+    move/from16 v33, v0
+
+    if-eqz v33, :cond_17
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->misDeviceMode:Z
+
+    move/from16 v33, v0
+
+    if-eqz v33, :cond_16
+
+    const-string/jumbo v33, "/system/etc/aasa_real_crt2.crt"
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+
+    :goto_4
+    new-instance v9, Ljava/io/FileInputStream;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, v33
+
+    invoke-direct {v9, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v8, v9}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+
+    move-result-object v28
+
+    check-cast v28, Ljava/security/cert/X509Certificate;
+
+    move-object v10, v9
+
+    goto/16 :goto_2
+
+    :cond_16
+    const-string/jumbo v33, "/system/etc/aasa_test_crt2.crt"
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_2
+
+    goto :goto_4
+
+    :catch_2
+    move-exception v12
+
+    const-string/jumbo v33, "AASATokenParser"
+
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, "ERROR: checkIntegrity "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v33, 0x0
+
+    return-object v33
+
+    :cond_17
+    :try_start_e
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->misDeviceMode:Z
+
+    move/from16 v33, v0
+
+    if-eqz v33, :cond_18
+
+    const-string/jumbo v33, "/system/etc/aasa_real_crt.crt"
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+
+    :goto_5
+    const/16 v33, 0x1
+
+    move/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-boolean v0, v1, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
+
+    goto :goto_4
+
+    :cond_18
+    const-string/jumbo v33, "/system/etc/aasa_test_crt.crt"
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+
+    goto :goto_5
+
+    :catch_3
+    move-exception v12
+
+    move-object v9, v10
+
+    :goto_6
+    const-string/jumbo v33, "AASATokenParser"
+
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v35, "Look at system File. "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v33, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "mTokenName : "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCACertNameFromSystem:Ljava/lang/String;
 
     move-object/from16 v34, v0
 
@@ -8218,423 +8615,196 @@
 
     move-result-object v33
 
-    const-string/jumbo v34, " SignerVersion : "
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCAKeyIndex:Ljava/lang/String;
+
+    move-object/from16 v34, v0
 
     invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    const-string/jumbo v34, ".crt"
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v33
 
     move-object/from16 v0, v33
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v32, ""
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_12
-
-    const-string/jumbo v6, "1"
-
-    :cond_12
-    const/16 v32, 0x1
-
-    aget-object v32, v18, v32
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v32
-
-    if-nez v32, :cond_13
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    const-string/jumbo v33, "Signer Cert File is not matched with index!"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x0
-
-    return-object v32
-
-    :cond_13
-    const-string/jumbo v32, "SIGNER"
-
-    const/16 v33, 0x1
-
-    aget-object v33, v18, v33
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v32
-
-    move-object/from16 v2, v33
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->SKA_CheckList(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_14
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    const-string/jumbo v33, "SIGNER is in CRL"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x0
-
-    return-object v32
-
-    :cond_14
-    const-string/jumbo v32, "INTER"
-
-    const/16 v33, 0x0
-
-    aget-object v33, v18, v33
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v32
-
-    move-object/from16 v2, v33
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/AASATokenParser;->SKA_CheckList(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v32
-
-    if-eqz v32, :cond_d
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    const-string/jumbo v33, "INTER is in CRL"
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_a .. :try_end_a} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
-
-    const/16 v32, 0x0
-
-    return-object v32
-
-    :catch_1
-    move-exception v12
-
-    :try_start_b
-    const-string/jumbo v32, "AASATokenParser"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, " "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual {v12}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
-
-    move-result-object v34
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x0
-
-    return-object v32
-
-    :cond_15
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_17
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->misDeviceMode:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_16
-
-    const-string/jumbo v32, "/system/etc/aasa_real_crt2.crt"
-
-    move-object/from16 v0, v32
-
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCACertNameFromSystem:Ljava/lang/String;
 
-    :goto_3
     new-instance v9, Ljava/io/FileInputStream;
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mCACertNameFromSystem:Ljava/lang/String;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     invoke-direct {v9, v0}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v8, v9}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
 
-    move-result-object v27
+    move-result-object v5
 
-    check-cast v27, Ljava/security/cert/X509Certificate;
+    check-cast v5, Ljava/security/cert/X509Certificate;
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_16
-    const-string/jumbo v32, "/system/etc/aasa_test_crt2.crt"
+    :catch_4
+    move-exception v12
 
-    move-object/from16 v0, v32
+    const-string/jumbo v33, "AASATokenParser"
 
-    move-object/from16 v1, p0
+    new-instance v34, Ljava/lang/StringBuilder;
 
-    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_3
+    const-string/jumbo v35, "ERROR: SignerCert is not verified by CACert "
 
-    :catch_2
-    move-exception v11
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v32, "AASATokenParser"
+    move-result-object v34
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    move-object/from16 v0, v34
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v34, "ERROR: checkIntegrity "
+    move-result-object v34
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v34
 
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v32, 0x0
-
-    return-object v32
-
-    :cond_17
-    :try_start_c
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Landroid/content/pm/AASATokenParser;->misDeviceMode:Z
-
-    move/from16 v32, v0
-
-    if-eqz v32, :cond_18
-
-    const-string/jumbo v32, "/system/etc/aasa_real_crt.crt"
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
-
-    :goto_4
-    const/16 v32, 0x1
-
-    move/from16 v0, v32
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/content/pm/AASATokenParser;->mIsSigned512:Z
-
-    goto :goto_3
-
-    :cond_18
-    const-string/jumbo v32, "/system/etc/aasa_test_crt.crt"
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Landroid/content/pm/AASATokenParser;->mCertPath:Ljava/lang/String;
-
-    goto :goto_4
-
-    :catch_3
-    move-exception v11
-
-    const-string/jumbo v32, "AASATokenParser"
-
-    new-instance v33, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v34, "ERROR: SignerCert is not verified by CACert "
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v33
-
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v33
-
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz v9, :cond_19
 
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
 
     :cond_19
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
-    :catch_4
-    move-exception v11
+    :catch_5
+    move-exception v12
 
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v34, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "ERROR: CACert is not verified by RootCert "
+    const-string/jumbo v35, "ERROR: CACert is not verified by RootCert "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v34
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v34
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v34
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz v9, :cond_1a
 
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
 
     :cond_1a
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
-    :catch_5
-    move-exception v11
+    :catch_6
+    move-exception v12
 
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    new-instance v33, Ljava/lang/StringBuilder;
+    new-instance v34, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v34, "ERROR: rootCert is not verified "
+    const-string/jumbo v35, "ERROR: rootCert is not verified "
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v34
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v34
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v34
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v34
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz v9, :cond_1b
 
     invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
 
     :cond_1b
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
 
     :cond_1c
-    if-eqz v9, :cond_1d
+    if-eqz v10, :cond_1d
 
-    invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
 
     :cond_1d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AASATokenParser;->mTokenContents:[B
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
-    return-object v32
+    return-object v33
 
     :cond_1e
-    const-string/jumbo v32, "AASATokenParser"
+    const-string/jumbo v33, "AASATokenParser"
 
-    const-string/jumbo v33, "Token is NOT verificated in checkIntegrity!"
+    const-string/jumbo v34, "Token is NOT verificated in checkIntegrity!"
 
-    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v9, :cond_1f
+    if-eqz v10, :cond_1f
 
-    invoke-virtual {v9}, Ljava/io/FileInputStream;->close()V
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+    invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_2
 
     :cond_1f
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    return-object v32
+    return-object v33
+
+    :catch_7
+    move-exception v12
+
+    goto/16 :goto_6
 .end method
 
 .method public getValue()Ljava/util/ArrayList;

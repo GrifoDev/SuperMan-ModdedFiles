@@ -3211,6 +3211,8 @@
 
     const/4 v2, 0x0
 
+    invoke-direct {p0}, Landroid/inputmethodservice/InputMethodService;->dismissClipboard()V
+
     invoke-super {p0}, Landroid/inputmethodservice/AbstractInputMethodService;->onDestroy()V
 
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService;->mRootView:Landroid/view/View;

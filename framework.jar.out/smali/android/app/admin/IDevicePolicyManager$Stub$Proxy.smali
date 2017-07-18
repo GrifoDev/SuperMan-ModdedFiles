@@ -81,7 +81,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x9a
+    const/16 v3, 0x97
 
     const/4 v4, 0x0
 
@@ -176,7 +176,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x108
+    const/16 v3, 0x105
 
     const/4 v4, 0x0
 
@@ -258,7 +258,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc4
+    const/16 v4, 0xc1
 
     const/4 v5, 0x0
 
@@ -364,7 +364,7 @@
     :goto_2
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x8f
+    const/16 v3, 0x8c
 
     const/4 v4, 0x0
 
@@ -453,7 +453,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x86
+    const/16 v4, 0x83
 
     const/4 v5, 0x0
 
@@ -541,7 +541,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x8a
+    const/16 v3, 0x87
 
     const/4 v4, 0x0
 
@@ -611,7 +611,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x9b
+    const/16 v3, 0x98
 
     const/4 v4, 0x0
 
@@ -683,7 +683,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x109
+    const/16 v3, 0x106
 
     const/4 v4, 0x0
 
@@ -744,7 +744,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4c
+    const/16 v3, 0x4d
 
     const/4 v4, 0x0
 
@@ -806,7 +806,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x90
+    const/16 v3, 0x8d
 
     const/4 v4, 0x0
 
@@ -876,7 +876,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x53
+    const/16 v3, 0x54
 
     const/4 v4, 0x0
 
@@ -901,57 +901,6 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public copyAlternativeToActivePasswordState(I)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v2, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x85
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
 
     :catchall_0
     move-exception v2
@@ -1023,7 +972,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa6
+    const/16 v4, 0xa3
 
     const/4 v5, 0x0
 
@@ -1132,7 +1081,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xa9
+    const/16 v3, 0xa6
 
     const/4 v4, 0x0
 
@@ -1213,7 +1162,7 @@
     :goto_1
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xaa
+    const/16 v4, 0xa7
 
     const/4 v5, 0x0
 
@@ -1297,7 +1246,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5b
+    const/16 v3, 0x5c
 
     const/4 v4, 0x0
 
@@ -1428,7 +1377,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xac
+    const/16 v4, 0xa9
 
     const/4 v5, 0x0
 
@@ -1483,7 +1432,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xad
+    const/16 v4, 0xaa
 
     const/4 v5, 0x0
 
@@ -1603,7 +1552,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf6
+    const/16 v4, 0xf3
 
     const/4 v5, 0x0
 
@@ -1669,7 +1618,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x71
+    const/16 v4, 0x72
 
     const/4 v5, 0x0
 
@@ -1753,7 +1702,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8e
+    const/16 v4, 0x8b
 
     const/4 v5, 0x0
 
@@ -1829,7 +1778,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x92
+    const/16 v4, 0x8f
 
     const/4 v5, 0x0
 
@@ -1923,7 +1872,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x107
+    const/16 v4, 0x104
 
     const/4 v5, 0x0
 
@@ -2013,7 +1962,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x94
+    const/16 v4, 0x91
 
     const/4 v5, 0x0
 
@@ -2076,7 +2025,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc8
+    const/16 v4, 0xc5
 
     const/4 v5, 0x0
 
@@ -2150,7 +2099,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc0
+    const/16 v4, 0xbd
 
     const/4 v5, 0x0
 
@@ -2225,7 +2174,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc1
+    const/16 v4, 0xbe
 
     const/4 v5, 0x0
 
@@ -2385,7 +2334,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8c
+    const/16 v4, 0x89
 
     const/4 v5, 0x0
 
@@ -2426,6 +2375,155 @@
 .end method
 
 .method public getCrossProfileCallerIdDisabled(Landroid/content/ComponentName;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.app.admin.IDevicePolicyManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xb6
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v2, 0x1
+
+    :goto_1
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v3, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
+.end method
+
+.method public getCrossProfileCallerIdDisabledForUser(I)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.app.admin.IDevicePolicyManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xb7
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getCrossProfileContactsSearchDisabled(Landroid/content/ComponentName;)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2509,155 +2607,6 @@
     goto :goto_1
 .end method
 
-.method public getCrossProfileCallerIdDisabledForUser(I)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xba
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getCrossProfileContactsSearchDisabled(Landroid/content/ComponentName;)Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    if-eqz p1, :cond_0
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_0
-    iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xbc
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const/4 v2, 0x1
-
-    :goto_1
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :cond_0
-    const/4 v3, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-
-    :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_1
-.end method
-
 .method public getCrossProfileContactsSearchDisabledForUser(I)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -2683,7 +2632,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xbd
+    const/16 v4, 0xba
 
     const/4 v5, 0x0
 
@@ -2769,7 +2718,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc6
+    const/16 v4, 0xc3
 
     const/4 v5, 0x0
 
@@ -2905,7 +2854,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4a
+    const/16 v4, 0x4b
 
     const/4 v5, 0x0
 
@@ -2974,7 +2923,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x56
+    const/16 v4, 0x57
 
     const/4 v5, 0x0
 
@@ -3043,7 +2992,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4b
+    const/16 v4, 0x4c
 
     const/4 v5, 0x0
 
@@ -3096,7 +3045,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4d
+    const/16 v4, 0x4e
 
     const/4 v5, 0x0
 
@@ -3149,7 +3098,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd1
+    const/16 v4, 0xce
 
     const/4 v5, 0x0
 
@@ -3223,7 +3172,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xca
+    const/16 v4, 0xc7
 
     const/4 v5, 0x0
 
@@ -3398,7 +3347,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd9
+    const/16 v4, 0xd6
 
     const/4 v5, 0x0
 
@@ -3562,7 +3511,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xaf
+    const/16 v4, 0xac
 
     const/4 v5, 0x0
 
@@ -3636,7 +3585,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe1
+    const/16 v4, 0xde
 
     const/4 v5, 0x0
 
@@ -3728,7 +3677,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe3
+    const/16 v4, 0xe0
 
     const/4 v5, 0x0
 
@@ -4139,7 +4088,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe7
+    const/16 v4, 0xe4
 
     const/4 v5, 0x0
 
@@ -4204,7 +4153,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe8
+    const/16 v4, 0xe5
 
     const/4 v5, 0x0
 
@@ -4268,7 +4217,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xea
+    const/16 v4, 0xe7
 
     const/4 v5, 0x0
 
@@ -4349,7 +4298,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xeb
+    const/16 v4, 0xe8
 
     const/4 v5, 0x0
 
@@ -5423,7 +5372,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd6
+    const/16 v4, 0xd3
 
     const/4 v5, 0x0
 
@@ -5497,7 +5446,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd4
+    const/16 v4, 0xd1
 
     const/4 v5, 0x0
 
@@ -5571,7 +5520,7 @@
     :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x9d
+    const/16 v5, 0x9a
 
     const/4 v6, 0x0
 
@@ -5644,7 +5593,7 @@
 
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x9e
+    const/16 v5, 0x9b
 
     const/4 v6, 0x0
 
@@ -5716,7 +5665,7 @@
     :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0xa1
+    const/16 v5, 0x9e
 
     const/4 v6, 0x0
 
@@ -5787,7 +5736,7 @@
 
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0xa2
+    const/16 v5, 0x9f
 
     const/4 v6, 0x0
 
@@ -5850,7 +5799,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4f
+    const/16 v4, 0x50
 
     const/4 v5, 0x0
 
@@ -5921,7 +5870,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x50
+    const/16 v4, 0x51
 
     const/4 v5, 0x0
 
@@ -6211,7 +6160,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x97
+    const/16 v4, 0x94
 
     const/4 v5, 0x0
 
@@ -6625,7 +6574,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xdf
+    const/16 v4, 0xdc
 
     const/4 v5, 0x0
 
@@ -6717,7 +6666,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe2
+    const/16 v4, 0xdf
 
     const/4 v5, 0x0
 
@@ -6939,7 +6888,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xce
+    const/16 v4, 0xcb
 
     const/4 v5, 0x0
 
@@ -7054,7 +7003,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc3
+    const/16 v4, 0xc0
 
     const/4 v5, 0x0
 
@@ -7134,7 +7083,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xec
+    const/16 v4, 0xe9
 
     const/4 v5, 0x0
 
@@ -7198,7 +7147,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x99
+    const/16 v4, 0x96
 
     const/4 v5, 0x0
 
@@ -7288,7 +7237,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xdc
+    const/16 v4, 0xd9
 
     const/4 v5, 0x0
 
@@ -7439,7 +7388,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x54
+    const/16 v4, 0x55
 
     const/4 v5, 0x0
 
@@ -7515,7 +7464,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x59
+    const/16 v4, 0x5a
 
     const/4 v5, 0x0
 
@@ -7616,7 +7565,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x88
+    const/16 v4, 0x85
 
     const/4 v5, 0x0
 
@@ -7709,7 +7658,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9f
+    const/16 v4, 0x9c
 
     const/4 v5, 0x0
 
@@ -7942,7 +7891,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xef
+    const/16 v4, 0xec
 
     const/4 v5, 0x0
 
@@ -8018,7 +7967,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa5
+    const/16 v4, 0xa2
 
     const/4 v5, 0x0
 
@@ -8095,7 +8044,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x87
+    const/16 v4, 0x84
 
     const/4 v5, 0x0
 
@@ -8158,7 +8107,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x95
+    const/16 v4, 0x92
 
     const/4 v5, 0x0
 
@@ -8236,7 +8185,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa3
+    const/16 v4, 0xa0
 
     const/4 v5, 0x0
 
@@ -8311,7 +8260,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xb0
+    const/16 v4, 0xad
 
     const/4 v5, 0x0
 
@@ -8385,7 +8334,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xda
+    const/16 v4, 0xd7
 
     const/4 v5, 0x0
 
@@ -8469,7 +8418,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xb4
+    const/16 v4, 0xb1
 
     const/4 v5, 0x0
 
@@ -8555,7 +8504,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x58
+    const/16 v4, 0x59
 
     const/4 v5, 0x0
 
@@ -8695,7 +8644,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd7
+    const/16 v4, 0xd4
 
     const/4 v5, 0x0
 
@@ -8771,7 +8720,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xcb
+    const/16 v4, 0xc8
 
     const/4 v5, 0x0
 
@@ -8855,7 +8804,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf1
+    const/16 v4, 0xee
 
     const/4 v5, 0x0
 
@@ -8930,7 +8879,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe4
+    const/16 v4, 0xe1
 
     const/4 v5, 0x0
 
@@ -9262,7 +9211,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xdb
+    const/16 v4, 0xd8
 
     const/4 v5, 0x0
 
@@ -9348,7 +9297,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xb7
+    const/16 v4, 0xb4
 
     const/4 v5, 0x0
 
@@ -9423,7 +9372,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf4
+    const/16 v4, 0xf1
 
     const/4 v5, 0x0
 
@@ -9557,7 +9506,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb5
+    const/16 v3, 0xb2
 
     const/4 v4, 0x0
 
@@ -9608,7 +9557,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xd2
+    const/16 v3, 0xcf
 
     const/4 v4, 0x0
 
@@ -9735,7 +9684,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xdd
+    const/16 v3, 0xda
 
     const/4 v4, 0x0
 
@@ -9796,7 +9745,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf7
+    const/16 v3, 0xf4
 
     const/4 v4, 0x0
 
@@ -9847,7 +9796,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x77
+    const/16 v3, 0x78
 
     const/4 v4, 0x0
 
@@ -9981,7 +9930,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xc5
+    const/16 v4, 0xc2
 
     const/4 v5, 0x0
 
@@ -10067,7 +10016,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x89
+    const/16 v4, 0x86
 
     const/4 v5, 0x0
 
@@ -10162,7 +10111,7 @@
     :goto_1
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa7
+    const/16 v4, 0xa4
 
     const/4 v5, 0x0
 
@@ -10247,7 +10196,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x45
+    const/16 v3, 0x46
 
     const/4 v4, 0x0
 
@@ -10298,7 +10247,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x43
+    const/16 v3, 0x44
 
     const/4 v4, 0x0
 
@@ -10349,7 +10298,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x47
+    const/16 v3, 0x48
 
     const/4 v4, 0x0
 
@@ -10400,7 +10349,58 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x48
+    const/16 v3, 0x49
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public reportPasswordChanged(I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "android.app.admin.IDevicePolicyManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x43
 
     const/4 v4, 0x0
 
@@ -10451,7 +10451,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x46
+    const/16 v3, 0x47
 
     const/4 v4, 0x0
 
@@ -10502,7 +10502,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x44
+    const/16 v3, 0x45
 
     const/4 v4, 0x0
 
@@ -10708,7 +10708,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x103
+    const/16 v4, 0x100
 
     const/4 v5, 0x0
 
@@ -10782,7 +10782,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf3
+    const/16 v4, 0xf0
 
     const/4 v5, 0x0
 
@@ -10872,7 +10872,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf2
+    const/16 v4, 0xef
 
     const/4 v5, 0x0
 
@@ -11031,7 +11031,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x74
+    const/16 v4, 0x75
 
     const/4 v5, 0x0
 
@@ -11117,7 +11117,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6d
+    const/16 v4, 0x6e
 
     const/4 v5, 0x0
 
@@ -11193,7 +11193,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x69
+    const/16 v4, 0x6a
 
     const/4 v5, 0x0
 
@@ -11279,7 +11279,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6f
+    const/16 v4, 0x70
 
     const/4 v5, 0x0
 
@@ -11365,7 +11365,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x6b
+    const/16 v4, 0x6c
 
     const/4 v5, 0x0
 
@@ -11451,7 +11451,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x73
+    const/16 v4, 0x74
 
     const/4 v5, 0x0
 
@@ -11537,7 +11537,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x67
+    const/16 v4, 0x68
 
     const/4 v5, 0x0
 
@@ -11623,7 +11623,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5f
+    const/16 v4, 0x60
 
     const/4 v5, 0x0
 
@@ -11709,7 +11709,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x65
+    const/16 v4, 0x66
 
     const/4 v5, 0x0
 
@@ -12043,7 +12043,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x63
+    const/16 v4, 0x64
 
     const/4 v5, 0x0
 
@@ -12205,7 +12205,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x76
+    const/16 v4, 0x77
 
     const/4 v5, 0x0
 
@@ -12291,7 +12291,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x5d
+    const/16 v4, 0x5e
 
     const/4 v5, 0x0
 
@@ -12377,7 +12377,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x61
+    const/16 v4, 0x62
 
     const/4 v5, 0x0
 
@@ -12465,7 +12465,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x6c
+    const/16 v3, 0x6d
 
     const/4 v4, 0x0
 
@@ -12546,7 +12546,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x68
+    const/16 v3, 0x69
 
     const/4 v4, 0x0
 
@@ -12632,7 +12632,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x6e
+    const/16 v3, 0x6f
 
     const/4 v4, 0x0
 
@@ -12718,7 +12718,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x6a
+    const/16 v3, 0x6b
 
     const/4 v4, 0x0
 
@@ -12804,7 +12804,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x72
+    const/16 v3, 0x73
 
     const/4 v4, 0x0
 
@@ -12890,7 +12890,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x66
+    const/16 v3, 0x67
 
     const/4 v4, 0x0
 
@@ -12976,7 +12976,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5e
+    const/16 v3, 0x5f
 
     const/4 v4, 0x0
 
@@ -13062,7 +13062,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x64
+    const/16 v3, 0x65
 
     const/4 v4, 0x0
 
@@ -13394,7 +13394,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x62
+    const/16 v3, 0x63
 
     const/4 v4, 0x0
 
@@ -13554,7 +13554,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x78
+    const/16 v3, 0x79
 
     const/4 v4, 0x0
 
@@ -13640,7 +13640,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5c
+    const/16 v3, 0x5d
 
     const/4 v4, 0x0
 
@@ -13726,7 +13726,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x75
+    const/16 v3, 0x76
 
     const/4 v4, 0x0
 
@@ -13812,7 +13812,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x60
+    const/16 v3, 0x61
 
     const/4 v4, 0x0
 
@@ -13898,7 +13898,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xab
+    const/16 v3, 0xa8
 
     const/4 v4, 0x0
 
@@ -14092,73 +14092,6 @@
     throw v2
 .end method
 
-.method public setActivePasswordStateForEAS(IIIIIIIII)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v2, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p9}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x7a
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
-
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
 .method public setAdminPermissions(Landroid/content/ComponentName;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
@@ -14195,7 +14128,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x79
+    const/16 v3, 0x7a
 
     const/4 v4, 0x0
 
@@ -14278,7 +14211,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xee
+    const/16 v3, 0xeb
 
     const/4 v4, 0x0
 
@@ -14359,7 +14292,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x70
+    const/16 v3, 0x71
 
     const/4 v4, 0x0
 
@@ -14398,136 +14331,6 @@
     move v2, v3
 
     goto :goto_1
-.end method
-
-.method public setAlternativePasswordState(IIIIIIII)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v2, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x83
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
-
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public setAlternativePasswordStateForEAS(IIIIIIII)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v2, "android.app.admin.IDevicePolicyManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x84
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return-void
-
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
 .end method
 
 .method public setAlwaysOnVpnPackage(Landroid/content/ComponentName;Ljava/lang/String;Z)Z
@@ -14575,7 +14378,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8d
+    const/16 v4, 0x8a
 
     const/4 v5, 0x0
 
@@ -14675,7 +14478,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa4
+    const/16 v4, 0xa1
 
     const/4 v5, 0x0
 
@@ -14777,7 +14580,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x91
+    const/16 v3, 0x8e
 
     const/4 v4, 0x0
 
@@ -14872,7 +14675,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x106
+    const/16 v3, 0x103
 
     const/4 v4, 0x0
 
@@ -14954,7 +14757,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x93
+    const/16 v4, 0x90
 
     const/4 v5, 0x0
 
@@ -15047,7 +14850,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xc7
+    const/16 v3, 0xc4
 
     const/4 v4, 0x0
 
@@ -15131,7 +14934,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xbf
+    const/16 v3, 0xbc
 
     const/4 v4, 0x0
 
@@ -15292,7 +15095,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x8b
+    const/16 v3, 0x88
 
     const/4 v4, 0x0
 
@@ -15371,7 +15174,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb8
+    const/16 v3, 0xb5
 
     const/4 v4, 0x0
 
@@ -15455,7 +15258,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xbb
+    const/16 v3, 0xb8
 
     const/4 v4, 0x0
 
@@ -15534,7 +15337,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x49
+    const/16 v4, 0x4a
 
     const/4 v5, 0x0
 
@@ -15629,7 +15432,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x55
+    const/16 v3, 0x56
 
     const/4 v4, 0x0
 
@@ -15718,7 +15521,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xc9
+    const/16 v3, 0xc6
 
     const/4 v4, 0x0
 
@@ -15891,7 +15694,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb1
+    const/16 v3, 0xae
 
     const/4 v4, 0x0
 
@@ -15974,7 +15777,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xd8
+    const/16 v3, 0xd5
 
     const/4 v4, 0x0
 
@@ -16053,7 +15856,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xcf
+    const/16 v4, 0xcc
 
     const/4 v5, 0x0
 
@@ -16232,7 +16035,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x105
+    const/16 v3, 0x102
 
     const/4 v4, 0x0
 
@@ -16304,7 +16107,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xae
+    const/16 v3, 0xab
 
     const/4 v4, 0x0
 
@@ -16385,7 +16188,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xe0
+    const/16 v3, 0xdd
 
     const/4 v4, 0x0
 
@@ -16474,7 +16277,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb3
+    const/16 v3, 0xb0
 
     const/4 v4, 0x0
 
@@ -16639,7 +16442,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x102
+    const/16 v3, 0xff
 
     const/4 v4, 0x0
 
@@ -16799,7 +16602,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x104
+    const/16 v3, 0x101
 
     const/4 v4, 0x0
 
@@ -16957,7 +16760,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xe5
+    const/16 v3, 0xe2
 
     const/4 v4, 0x0
 
@@ -17020,7 +16823,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xe6
+    const/16 v3, 0xe3
 
     const/4 v4, 0x0
 
@@ -17091,7 +16894,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xe9
+    const/16 v3, 0xe6
 
     const/4 v4, 0x0
 
@@ -17182,7 +16985,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x57
+    const/16 v4, 0x58
 
     const/4 v5, 0x0
 
@@ -17351,7 +17154,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x101
+    const/16 v3, 0xfe
 
     const/4 v4, 0x0
 
@@ -17511,7 +17314,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x100
+    const/16 v3, 0xfd
 
     const/4 v4, 0x0
 
@@ -17671,7 +17474,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf9
+    const/16 v3, 0xf6
 
     const/4 v4, 0x0
 
@@ -17831,7 +17634,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xfc
+    const/16 v3, 0xf9
 
     const/4 v4, 0x0
 
@@ -17991,7 +17794,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xfb
+    const/16 v3, 0xf8
 
     const/4 v4, 0x0
 
@@ -18151,7 +17954,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xff
+    const/16 v3, 0xfc
 
     const/4 v4, 0x0
 
@@ -18311,7 +18114,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xfd
+    const/16 v3, 0xfa
 
     const/4 v4, 0x0
 
@@ -18471,7 +18274,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xfe
+    const/16 v3, 0xfb
 
     const/4 v4, 0x0
 
@@ -18631,7 +18434,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xfa
+    const/16 v3, 0xf7
 
     const/4 v4, 0x0
 
@@ -18791,7 +18594,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf8
+    const/16 v3, 0xf5
 
     const/4 v4, 0x0
 
@@ -18867,7 +18670,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd5
+    const/16 v4, 0xd2
 
     const/4 v5, 0x0
 
@@ -18953,7 +18756,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xd3
+    const/16 v3, 0xd0
 
     const/4 v4, 0x0
 
@@ -19025,7 +18828,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9c
+    const/16 v4, 0x99
 
     const/4 v5, 0x0
 
@@ -19111,7 +18914,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa0
+    const/16 v4, 0x9d
 
     const/4 v5, 0x0
 
@@ -19195,7 +18998,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x51
+    const/16 v3, 0x52
 
     const/4 v4, 0x0
 
@@ -19267,7 +19070,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x52
+    const/16 v3, 0x53
 
     const/4 v4, 0x0
 
@@ -19341,7 +19144,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4e
+    const/16 v4, 0x4f
 
     const/4 v5, 0x0
 
@@ -19617,7 +19420,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x96
+    const/16 v3, 0x93
 
     const/4 v4, 0x0
 
@@ -19785,7 +19588,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb2
+    const/16 v3, 0xaf
 
     const/4 v4, 0x0
 
@@ -19864,7 +19667,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf0
+    const/16 v3, 0xed
 
     const/4 v4, 0x0
 
@@ -19950,7 +19753,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xde
+    const/16 v3, 0xdb
 
     const/4 v4, 0x0
 
@@ -20039,7 +19842,7 @@
 
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd0
+    const/16 v4, 0xcd
 
     const/4 v5, 0x0
 
@@ -20227,7 +20030,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xcd
+    const/16 v3, 0xca
 
     const/4 v4, 0x0
 
@@ -20338,7 +20141,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xc2
+    const/16 v3, 0xbf
 
     const/4 v4, 0x0
 
@@ -20441,7 +20244,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb6
+    const/16 v3, 0xb3
 
     const/4 v4, 0x0
 
@@ -20527,7 +20330,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xcc
+    const/16 v3, 0xc9
 
     const/4 v4, 0x0
 
@@ -20600,7 +20403,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xed
+    const/16 v3, 0xea
 
     const/4 v4, 0x0
 
@@ -20671,7 +20474,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x98
+    const/16 v3, 0x95
 
     const/4 v4, 0x0
 
@@ -20761,7 +20564,7 @@
     :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xbe
+    const/16 v3, 0xbb
 
     const/4 v4, 0x0
 
@@ -20847,7 +20650,7 @@
     :goto_1
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa8
+    const/16 v4, 0xa5
 
     const/4 v5, 0x0
 
@@ -20943,7 +20746,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x5a
+    const/16 v3, 0x5b
 
     const/4 v4, 0x0
 
@@ -21004,7 +20807,7 @@
 
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf5
+    const/16 v3, 0xf2
 
     const/4 v4, 0x0
 

@@ -14,120 +14,13 @@
 .end annotation
 
 
-# static fields
-.field private static final synthetic -android-graphics-Bitmap$ConfigSwitchesValues:[I
-
-
 # instance fields
-.field final synthetic $SWITCH_TABLE$android$graphics$Bitmap$Config:[I
-
 .field mMemoryUsage:I
 
 .field final synthetic this$0:Landroid/widget/RemoteViews;
 
 
 # direct methods
-.method private static synthetic -getandroid-graphics-Bitmap$ConfigSwitchesValues()[I
-    .locals 3
-
-    sget-object v0, Landroid/widget/RemoteViews$MemoryUsageCounter;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Landroid/widget/RemoteViews$MemoryUsageCounter;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
-
-    return-object v0
-
-    :cond_0
-    invoke-static {}, Landroid/graphics/Bitmap$Config;->values()[Landroid/graphics/Bitmap$Config;
-
-    move-result-object v0
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    :try_start_0
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3
-
-    :goto_0
-    :try_start_1
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2
-
-    :goto_1
-    :try_start_2
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1
-
-    :goto_2
-    :try_start_3
-    sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
-
-    :goto_3
-    sput-object v0, Landroid/widget/RemoteViews$MemoryUsageCounter;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
-
-    return-object v0
-
-    :catch_0
-    move-exception v1
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v1
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v1
-
-    goto :goto_1
-
-    :catch_3
-    move-exception v1
-
-    goto :goto_0
-.end method
-
 .method private constructor <init>(Landroid/widget/RemoteViews;)V
     .locals 0
 
@@ -149,68 +42,15 @@
 
 # virtual methods
 .method public addBitmapMemory(Landroid/graphics/Bitmap;)V
-    .locals 4
+    .locals 1
 
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
-    move-result-object v1
+    move-result v0
 
-    const/4 v0, 0x4
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/widget/RemoteViews$MemoryUsageCounter;->-getandroid-graphics-Bitmap$ConfigSwitchesValues()[I
-
-    move-result-object v2
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
-
-    move-result v3
-
-    aget v2, v2, v3
-
-    packed-switch v2, :pswitch_data_0
-
-    :cond_0
-    :goto_0
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v3
-
-    mul-int/2addr v2, v3
-
-    mul-int/2addr v2, v0
-
-    invoke-virtual {p0, v2}, Landroid/widget/RemoteViews$MemoryUsageCounter;->increment(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/RemoteViews$MemoryUsageCounter;->increment(I)V
 
     return-void
-
-    :pswitch_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :pswitch_1
-    const/4 v0, 0x2
-
-    goto :goto_0
-
-    :pswitch_2
-    const/4 v0, 0x4
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
 .end method
 
 .method public clear()V

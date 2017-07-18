@@ -2118,12 +2118,17 @@
 
     move-result-object v3
 
+    if-nez v3, :cond_0
+
+    return v5
+
+    :cond_0
     array-length v6, v3
 
     move v4, v5
 
     :goto_0
-    if-ge v4, v6, :cond_1
+    if-ge v4, v6, :cond_2
 
     aget-object v1, v3, v4
 
@@ -2148,7 +2153,7 @@
 
     and-int/lit8 v7, v7, 0x1
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_1
 
     const/4 v4, 0x1
 
@@ -2159,12 +2164,12 @@
 
     return v5
 
-    :cond_0
+    :cond_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return v5
 .end method
 

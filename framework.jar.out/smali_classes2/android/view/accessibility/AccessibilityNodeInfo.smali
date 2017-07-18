@@ -1377,393 +1377,321 @@
 .end method
 
 .method private initFromParcel(Landroid/os/Parcel;)V
-    .locals 18
+    .locals 15
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v0, v1, :cond_1
 
-    const/16 v16, 0x1
+    const/4 v13, 0x1
 
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mParentNodeId:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mParentNodeId:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLabelForId:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLabelForId:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLabeledById:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLabeledById:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTraversalBefore:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTraversalBefore:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    move-object/from16 v0, p0
-
-    iput-wide v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTraversalAfter:J
+    iput-wide v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTraversalAfter:J
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    if-gtz v7, :cond_2
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
+
+    :cond_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->top:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->bottom:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->left:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->right:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->top:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->bottom:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->left:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/Rect;->right:I
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    invoke-direct {p0, v11}, Landroid/view/accessibility/AccessibilityNodeInfo;->addLegacyStandardActions(I)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v12
 
-    if-gtz v12, :cond_2
-
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
-
-    :cond_0
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->bottom:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->left:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->right:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->bottom:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->left:I
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/Rect;->right:I
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v9
-
-    if-lez v9, :cond_3
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v14
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v14}, Landroid/view/accessibility/AccessibilityNodeInfo;->addLegacyStandardActions(I)V
-
-    invoke-static {v14}, Ljava/lang/Integer;->bitCount(I)I
-
-    move-result v2
-
-    sub-int v15, v9, v2
-
-    const/4 v13, 0x0
+    const/4 v10, 0x0
 
     :goto_1
-    if-ge v13, v15, :cond_3
+    if-ge v10, v12, :cond_3
 
-    new-instance v8, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
+    new-instance v6, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v8, v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v6, v0, v1}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;-><init>(ILjava/lang/CharSequence;)V
 
-    move-object/from16 v0, p0
+    invoke-direct {p0, v6}, Landroid/view/accessibility/AccessibilityNodeInfo;->addActionUnchecked(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
 
-    invoke-direct {v0, v8}, Landroid/view/accessibility/AccessibilityNodeInfo;->addActionUnchecked(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
-
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/16 v16, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_0
 
     :cond_2
-    new-instance v2, Landroid/util/LongArray;
+    new-instance v0, Landroid/util/LongArray;
 
-    invoke-direct {v2, v12}, Landroid/util/LongArray;-><init>(I)V
+    invoke-direct {v0, v7}, Landroid/util/LongArray;-><init>(I)V
 
-    move-object/from16 v0, p0
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
 
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
-
-    const/4 v13, 0x0
+    const/4 v10, 0x0
 
     :goto_2
-    if-ge v13, v12, :cond_0
+    if-ge v10, v7, :cond_0
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v10
+    move-result-wide v8
 
-    move-object/from16 v0, p0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
 
-    iget-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
+    invoke-virtual {v0, v8, v9}, Landroid/util/LongArray;->add(J)V
 
-    invoke-virtual {v2, v10, v11}, Landroid/util/LongArray;->add(J)V
-
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_2
 
     :cond_3
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMaxTextLength:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMaxTextLength:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMovementGranularities:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMovementGranularities:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBooleanProperties:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBooleanProperties:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mPackageName:Ljava/lang/CharSequence;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mPackageName:Ljava/lang/CharSequence;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mClassName:Ljava/lang/CharSequence;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mClassName:Ljava/lang/CharSequence;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mText:Ljava/lang/CharSequence;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mText:Ljava/lang/CharSequence;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mError:Ljava/lang/CharSequence;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mError:Ljava/lang/CharSequence;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mContentDescription:Ljava/lang/CharSequence;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mContentDescription:Ljava/lang/CharSequence;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mViewIdResourceName:Ljava/lang/String;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mViewIdResourceName:Ljava/lang/String;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionStart:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionStart:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionEnd:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionEnd:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mInputType:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mInputType:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLiveRegion:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLiveRegion:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p0
-
-    iput v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mDrawingOrderInParent:I
+    iput v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mDrawingOrderInParent:I
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    if-ne v2, v3, :cond_7
+    if-ne v0, v1, :cond_7
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
 
     :goto_3
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    if-ne v2, v3, :cond_4
+    if-ne v0, v1, :cond_4
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v1
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
 
@@ -1771,70 +1699,66 @@
 
     move-result v3
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readFloat()F
+    invoke-static {v0, v1, v2, v3}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->obtain(IFFF)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    move-result v4
+    move-result-object v0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readFloat()F
-
-    move-result v5
-
-    invoke-static {v2, v3, v4, v5}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->obtain(IFFF)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
-
-    move-result-object v2
-
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
     :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_5
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
     move-result v2
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_5
+    if-ne v0, v3, :cond_8
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    const/4 v5, 0x1
-
-    if-ne v2, v5, :cond_8
-
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     :goto_4
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v3
 
-    invoke-static {v3, v4, v2, v5}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->obtain(IIZI)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    invoke-static {v1, v2, v0, v3}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->obtain(IIZI)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
     :cond_5
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    if-ne v2, v3, :cond_6
+    if-ne v0, v1, :cond_6
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
@@ -1848,72 +1772,54 @@
 
     move-result v4
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+    const/4 v5, 0x1
 
-    move-result v5
+    if-ne v4, v5, :cond_9
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    const/4 v7, 0x1
-
-    if-ne v6, v7, :cond_9
-
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
     :goto_5
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v5
 
-    const/16 v17, 0x1
+    const/4 v14, 0x1
 
-    move/from16 v0, v17
+    if-ne v5, v14, :cond_a
 
-    if-ne v7, v0, :cond_a
-
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
     :goto_6
-    invoke-static/range {v2 .. v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->obtain(IIIIZZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    invoke-static/range {v0 .. v5}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->obtain(IIIIZZ)Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
     :cond_6
-    move/from16 v0, v16
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Landroid/view/accessibility/AccessibilityNodeInfo;->mSealed:Z
+    iput-boolean v13, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSealed:Z
 
     return-void
 
     :cond_7
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    move-object/from16 v0, p0
-
-    iput-object v2, v0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
 
     goto :goto_3
 
     :cond_8
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     goto :goto_4
 
     :cond_9
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
     goto :goto_5
 
     :cond_a
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     goto :goto_6
 .end method
@@ -4351,28 +4257,28 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 12
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->isSealed()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    move v6, v7
+    move v7, v8
 
     :goto_0
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-wide v10, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J
 
     invoke-virtual {p1, v10, v11}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mWindowId:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-wide v10, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mParentNodeId:J
 
@@ -4394,292 +4300,294 @@
 
     invoke-virtual {p1, v10, v11}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mConnectionId:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v2, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray;
 
     if-nez v2, :cond_4
 
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_0
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->top:I
+    iget v7, v7, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->bottom:I
+    iget v7, v7, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->left:I
+    iget v7, v7, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInParent:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->right:I
+    iget v7, v7, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->top:I
+    iget v7, v7, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->bottom:I
+    iget v7, v7, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->left:I
+    iget v7, v7, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBoundsInScreen:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->right:I
+    iget v7, v7, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_1
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_5
+    if-eqz v7, :cond_5
 
     :cond_1
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_2
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMaxTextLength:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMovementGranularities:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBooleanProperties:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mPackageName:Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mClassName:Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mText:Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mError:Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mContentDescription:Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mViewIdResourceName:Ljava/lang/String;
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionStart:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionEnd:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mInputType:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLiveRegion:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mDrawingOrderInParent:I
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
-
-    if-eqz v6, :cond_9
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMaxTextLength:I
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mMovementGranularities:I
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mBooleanProperties:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mPackageName:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mClassName:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mText:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mError:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mContentDescription:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mViewIdResourceName:Ljava/lang/String;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionStart:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mTextSelectionEnd:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mInputType:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mLiveRegion:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mDrawingOrderInParent:I
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
+
+    if-eqz v7, :cond_9
+
+    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mExtras:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     :goto_1
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    if-eqz v6, :cond_a
+    if-eqz v7, :cond_a
+
+    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getType()I
+
+    move-result v7
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getType()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMin()F
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeFloat(F)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMin()F
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMax()F
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeFloat(F)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeFloat(F)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getMax()F
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getCurrent()F
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeFloat(F)V
-
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mRangeInfo:Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
-
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->getCurrent()F
-
-    move-result v6
-
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeFloat(F)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeFloat(F)V
 
     :goto_2
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    if-eqz v6, :cond_c
+    if-eqz v7, :cond_c
+
+    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getRowCount()I
+
+    move-result v7
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getRowCount()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getColumnCount()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getColumnCount()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->isHierarchical()Z
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v7, :cond_b
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
-
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->isHierarchical()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_b
-
-    move v6, v7
+    move v7, v8
 
     :goto_3
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getSelectionMode()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionInfo;->getSelectionMode()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     :goto_4
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    if-eqz v6, :cond_f
+    if-eqz v7, :cond_f
+
+    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getRowIndex()I
+
+    move-result v7
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getRowIndex()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getRowSpan()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getRowSpan()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getColumnIndex()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getColumnIndex()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getColumnSpan()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->getColumnSpan()I
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isHeading()Z
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v7, :cond_d
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
-
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isHeading()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_d
-
-    move v6, v7
+    move v7, v8
 
     :goto_5
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mCollectionItemInfo:Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;
 
-    invoke-virtual {v6}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isSelected()Z
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo$CollectionItemInfo;->isSelected()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_e
+    if-eqz v7, :cond_e
 
     :goto_6
-    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
 
     :goto_7
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
@@ -4687,7 +4595,7 @@
     return-void
 
     :cond_3
-    move v6, v8
+    move v7, v9
 
     goto/16 :goto_0
 
@@ -4714,13 +4622,13 @@
     goto :goto_8
 
     :cond_5
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v6, 0x0
 
     const/4 v4, 0x0
 
@@ -4729,9 +4637,9 @@
     :goto_9
     if-ge v5, v1, :cond_7
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
 
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -4739,32 +4647,39 @@
 
     invoke-static {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->isDefaultLegacyStandardAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_6
+    if-eqz v7, :cond_6
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->getId()I
 
-    move-result v6
+    move-result v7
 
-    or-int/2addr v4, v6
+    or-int/2addr v4, v7
 
-    :cond_6
+    :goto_a
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_9
 
+    :cond_6
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_a
+
     :cond_7
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
+    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+
     const/4 v5, 0x0
 
-    :goto_a
+    :goto_b
     if-ge v5, v1, :cond_2
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
+    iget-object v7, p0, Landroid/view/accessibility/AccessibilityNodeInfo;->mActions:Ljava/util/ArrayList;
 
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -4772,59 +4687,59 @@
 
     invoke-static {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->isDefaultLegacyStandardAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_8
+    if-nez v7, :cond_8
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->getId()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->getLabel()Ljava/lang/CharSequence;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
 
     :cond_8
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_9
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_1
 
     :cond_a
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_2
 
     :cond_b
-    move v6, v8
+    move v7, v9
 
     goto/16 :goto_3
 
     :cond_c
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_4
 
     :cond_d
-    move v6, v8
+    move v7, v9
 
     goto/16 :goto_5
 
     :cond_e
-    move v7, v8
+    move v8, v9
 
     goto :goto_6
 
     :cond_f
-    invoke-virtual {p1, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_7
+    goto/16 :goto_7
 .end method

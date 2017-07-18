@@ -80,7 +80,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get20(Lcom/samsung/android/widget/SemDatePicker;)J
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get22(Lcom/samsung/android/widget/SemDatePicker;)J
 
     move-result-wide v2
 

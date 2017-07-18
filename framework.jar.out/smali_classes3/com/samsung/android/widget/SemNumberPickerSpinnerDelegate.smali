@@ -33,6 +33,10 @@
 
 .field private static final INPUT:I = 0x3
 
+.field private static final INPUT_TYPE_MONTH:Ljava/lang/String; = "inputType=month_edittext"
+
+.field private static final INPUT_TYPE_YEAR_DATE_TIME:Ljava/lang/String; = "inputType=YearDateTime_edittext"
+
 .field private static final LONG_PRESSED_SCROLL_COUNT:I = 0xa
 
 .field private static final SELECTOR_ADJUSTMENT_DURATION_MILLIS:I = 0x12c
@@ -3278,7 +3282,7 @@
 .end method
 
 .method private needCompareEqualMonthLanguage()Z
-    .locals 3
+    .locals 4
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -3296,14 +3300,25 @@
 
     if-eqz v2, :cond_0
 
-    const/4 v2, 0x1
+    const-string/jumbo v2, "inputType=month_edittext"
 
+    iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mInputText:Landroid/widget/EditText;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getPrivateImeOptions()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    :goto_0
     return v2
 
     :cond_0
     const/4 v2, 0x0
 
-    return v2
+    goto :goto_0
 .end method
 
 .method private notifyChange(II)V

@@ -2002,6 +2002,18 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
+    sget-object v0, Landroid/os/PersonaPolicyManager;->SHARE_WITH_KNOX:Ljava/util/HashSet;
+
+    const-string/jumbo v1, "font_scale"
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/os/PersonaPolicyManager;->SHARE_WITH_KNOX:Ljava/util/HashSet;
+
+    const-string/jumbo v1, "system_locales"
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
     sget-object v0, Landroid/os/PersonaPolicyManager;->SHARE_WITH_KNOX_TO_SECURE:Ljava/util/HashSet;
 
     const-string/jumbo v1, "enabled_accessibility_services"
@@ -2296,7 +2308,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const/16 v0, 0x14b
+    const/16 v0, 0x164
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -3608,421 +3620,421 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "support_web_signin"
+    const-string/jumbo v1, "psm_screen_seekbar"
 
     const/16 v2, 0xda
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_fingerprint_add"
+    const-string/jumbo v1, "psm_restricted_device"
 
     const/16 v2, 0xdb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "unlock_set_pattern"
+    const-string/jumbo v1, "psm_restricted_bgdata"
 
     const/16 v2, 0xdc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "unlock_set_pin"
+    const-string/jumbo v1, "psm_restricted_network"
 
     const/16 v2, 0xdd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "unlock_set_password"
+    const-string/jumbo v1, "psm_aod_disable"
 
     const/16 v2, 0xde
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "fingerprint_category"
+    const-string/jumbo v1, "support_web_signin"
 
     const/16 v2, 0xdf
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_fingerprint_item_1"
+    const-string/jumbo v1, "key_fingerprint_add"
 
     const/16 v2, 0xe0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_fingerprint_item_2"
+    const-string/jumbo v1, "unlock_set_pattern"
 
     const/16 v2, 0xe1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_fingerprint_item_3"
+    const-string/jumbo v1, "unlock_set_pin"
 
     const/16 v2, 0xe2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_fingerprint_item_4"
+    const-string/jumbo v1, "unlock_set_password"
 
     const/16 v2, 0xe3
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mac_address"
+    const-string/jumbo v1, "fingerprint_category"
 
     const/16 v2, 0xe4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "current_ip_address"
+    const-string/jumbo v1, "key_fingerprint_item_1"
 
     const/16 v2, 0xe5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "frequency_band"
+    const-string/jumbo v1, "key_fingerprint_item_2"
 
     const/16 v2, 0xe6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "notify_open_networks"
+    const-string/jumbo v1, "key_fingerprint_item_3"
 
     const/16 v2, 0xe7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sleep_policy"
+    const-string/jumbo v1, "key_fingerprint_item_4"
 
     const/16 v2, 0xe8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_poor_network_detection"
+    const-string/jumbo v1, "mac_address"
 
     const/16 v2, 0xe9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "att_auto_connect"
+    const-string/jumbo v1, "current_ip_address"
 
     const/16 v2, 0xea
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "install_credentials"
+    const-string/jumbo v1, "frequency_band"
 
     const/16 v2, 0xeb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_assistant"
+    const-string/jumbo v1, "notify_open_networks"
 
     const/16 v2, 0xec
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_hs20_enable"
+    const-string/jumbo v1, "sleep_policy"
 
     const/16 v2, 0xed
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wlan_notify_cmcc"
+    const-string/jumbo v1, "wifi_poor_network_detection"
 
     const/16 v2, 0xee
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_connection_type"
+    const-string/jumbo v1, "att_auto_connect"
 
     const/16 v2, 0xef
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_reset"
+    const-string/jumbo v1, "install_credentials"
 
     const/16 v2, 0xf0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "storage_space"
+    const-string/jumbo v1, "wifi_assistant"
 
     const/16 v2, 0xf1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "storage_used"
+    const-string/jumbo v1, "wifi_hs20_enable"
 
     const/16 v2, 0xf2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "change_storage_button"
+    const-string/jumbo v1, "wlan_notify_cmcc"
 
     const/16 v2, 0xf3
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "total_size"
+    const-string/jumbo v1, "wifi_connection_type"
 
     const/16 v2, 0xf4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "app_size"
+    const-string/jumbo v1, "wifi_reset"
 
     const/16 v2, 0xf5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "data_size"
+    const-string/jumbo v1, "storage_space"
 
     const/16 v2, 0xf6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "clear_data_button"
+    const-string/jumbo v1, "storage_used"
 
     const/16 v2, 0xf7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "cache_size"
+    const-string/jumbo v1, "change_storage_button"
 
     const/16 v2, 0xf8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "clear_cache_button"
+    const-string/jumbo v1, "total_size"
 
     const/16 v2, 0xf9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "header_view"
+    const-string/jumbo v1, "app_size"
 
     const/16 v2, 0xfa
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "storage_settings"
+    const-string/jumbo v1, "data_size"
 
     const/16 v2, 0xfb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "data_settings"
+    const-string/jumbo v1, "clear_data_button"
 
     const/16 v2, 0xfc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "permission_settings"
+    const-string/jumbo v1, "cache_size"
 
     const/16 v2, 0xfd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "notification_settings"
+    const-string/jumbo v1, "clear_cache_button"
 
     const/16 v2, 0xfe
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "preferred_settings"
+    const-string/jumbo v1, "header_view"
 
     const/16 v2, 0xff
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "battery"
+    const-string/jumbo v1, "storage_settings"
 
     const/16 v2, 0x100
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "memory"
+    const-string/jumbo v1, "data_settings"
 
     const/16 v2, 0x101
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_always_scanning"
+    const-string/jumbo v1, "permission_settings"
 
     const/16 v2, 0x102
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "bluetooth_always_scanning"
+    const-string/jumbo v1, "notification_settings"
 
     const/16 v2, 0x103
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "header_view"
+    const-string/jumbo v1, "preferred_settings"
 
     const/16 v2, 0x104
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "storage_settings"
+    const-string/jumbo v1, "battery"
 
     const/16 v2, 0x105
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "data_settings"
+    const-string/jumbo v1, "memory"
 
     const/16 v2, 0x106
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "permission_settings"
+    const-string/jumbo v1, "wifi_always_scanning"
 
     const/16 v2, 0x107
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "notification_settings"
+    const-string/jumbo v1, "bluetooth_always_scanning"
 
     const/16 v2, 0x108
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "preferred_settings"
+    const-string/jumbo v1, "header_view"
 
     const/16 v2, 0x109
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "high_accuracy"
+    const-string/jumbo v1, "storage_settings"
 
     const/16 v2, 0x10a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "battery_saving"
+    const-string/jumbo v1, "data_settings"
 
     const/16 v2, 0x10b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sensors_only"
+    const-string/jumbo v1, "permission_settings"
 
     const/16 v2, 0x10c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "ring_vibration"
+    const-string/jumbo v1, "notification_settings"
 
     const/16 v2, 0x10d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "notification_vibration"
+    const-string/jumbo v1, "preferred_settings"
 
     const/16 v2, 0x10e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "system_vibration"
+    const-string/jumbo v1, "high_accuracy"
 
     const/16 v2, 0x10f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "health_safety"
+    const-string/jumbo v1, "battery_saving"
 
     const/16 v2, 0x110
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "warranty"
+    const-string/jumbo v1, "sensors_only"
 
     const/16 v2, 0x111
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "end_user_license_agreement"
+    const-string/jumbo v1, "ring_vibration"
 
     const/16 v2, 0x112
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_writing_buddy"
+    const-string/jumbo v1, "notification_vibration"
 
     const/16 v2, 0x113
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_spen_pointer_switch"
+    const-string/jumbo v1, "system_vibration"
 
     const/16 v2, 0x114
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "loss_prevention_alert"
+    const-string/jumbo v1, "health_safety"
 
     const/16 v2, 0x115
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_additional_feedback_pen_sound"
+    const-string/jumbo v1, "warranty"
 
     const/16 v2, 0x116
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "key_additional_feedback_pen_haptic"
+    const-string/jumbo v1, "end_user_license_agreement"
 
     const/16 v2, 0x117
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "rename_device"
+    const-string/jumbo v1, "key_writing_buddy"
 
     const/16 v2, 0x118
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "unpair"
+    const-string/jumbo v1, "key_spen_pointer_switch"
 
     const/16 v2, 0x119
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "profile_container"
+    const-string/jumbo v1, "loss_prevention_alert"
 
     const/16 v2, 0x11a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "PAN"
+    const-string/jumbo v1, "key_additional_feedback_pen_sound"
 
     const/16 v2, 0x11b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "profile_container"
+    const-string/jumbo v1, "key_additional_feedback_pen_haptic"
 
     const/16 v2, 0x11c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "HEADSET"
+    const-string/jumbo v1, "rename_device"
 
     const/16 v2, 0x11d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "A2DP"
+    const-string/jumbo v1, "unpair"
 
     const/16 v2, 0x11e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "AVRCP_CONTROLLER"
+    const-string/jumbo v1, "profile_container"
 
     const/16 v2, 0x11f
 
@@ -4034,255 +4046,405 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "INPUT_DEVICE"
+    const-string/jumbo v1, "profile_container"
 
     const/16 v2, 0x121
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "MAP"
+    const-string/jumbo v1, "HEADSET"
 
     const/16 v2, 0x122
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_settings"
+    const-string/jumbo v1, "A2DP"
 
     const/16 v2, 0x123
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_calling_settings_open"
+    const-string/jumbo v1, "AVRCP_CONTROLLER"
 
     const/16 v2, 0x124
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "bluetooth_settings"
+    const-string/jumbo v1, "PAN"
 
     const/16 v2, 0x125
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "nfc_settings"
+    const-string/jumbo v1, "INPUT_DEVICE"
 
     const/16 v2, 0x126
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tethering_and_hotspot"
+    const-string/jumbo v1, "MAP"
 
     const/16 v2, 0x127
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "location_settings"
+    const-string/jumbo v1, "wifi_settings"
 
     const/16 v2, 0x128
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "device_info_date_time_settings"
+    const-string/jumbo v1, "wifi_calling_settings_open"
 
     const/16 v2, 0x129
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mobile_network_settings"
+    const-string/jumbo v1, "bluetooth_settings"
 
     const/16 v2, 0x12a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "simcard_management"
+    const-string/jumbo v1, "nfc_settings"
 
     const/16 v2, 0x12b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sim_status"
+    const-string/jumbo v1, "tethering_and_hotspot"
 
     const/16 v2, 0x12c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "imei_info"
+    const-string/jumbo v1, "location_settings"
 
     const/16 v2, 0x12d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_ip_address"
+    const-string/jumbo v1, "device_info_date_time_settings"
 
     const/16 v2, 0x12e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_mac_address"
+    const-string/jumbo v1, "mobile_network_settings"
 
     const/16 v2, 0x12f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "bt_address"
+    const-string/jumbo v1, "simcard_management"
 
     const/16 v2, 0x130
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "ethernet_mac_address"
+    const-string/jumbo v1, "apn_name"
 
     const/16 v2, 0x131
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "serial_number"
+    const-string/jumbo v1, "apn_apn"
 
     const/16 v2, 0x132
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "up_time"
+    const-string/jumbo v1, "apn_http_proxy"
 
     const/16 v2, 0x133
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wimax_mac_address"
+    const-string/jumbo v1, "apn_http_port"
 
     const/16 v2, 0x134
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sysscope_status"
+    const-string/jumbo v1, "apn_user"
 
     const/16 v2, 0x135
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "installment_balance"
+    const-string/jumbo v1, "apn_password"
 
     const/16 v2, 0x136
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "operator_name"
+    const-string/jumbo v1, "apn_server"
 
     const/16 v2, 0x137
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "signal_strength"
+    const-string/jumbo v1, "apn_mmsc"
 
     const/16 v2, 0x138
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "network_type"
+    const-string/jumbo v1, "apn_mms_proxy"
 
     const/16 v2, 0x139
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "latest_area_info"
+    const-string/jumbo v1, "apn_mms_port"
 
     const/16 v2, 0x13a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "service_state"
+    const-string/jumbo v1, "apn_mcc"
 
     const/16 v2, 0x13b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "roaming_state"
+    const-string/jumbo v1, "apn_mnc"
 
     const/16 v2, 0x13c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "data_state"
+    const-string/jumbo v1, "auth_type"
 
     const/16 v2, 0x13d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mmsc_server_acg"
+    const-string/jumbo v1, "apn_type"
 
     const/16 v2, 0x13e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sim_lock_status_kddi"
+    const-string/jumbo v1, "apn_protocol"
 
     const/16 v2, 0x13f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sim_state_status"
+    const-string/jumbo v1, "apn_roaming_protocol"
 
     const/16 v2, 0x140
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sim_state_code"
+    const-string/jumbo v1, "carrier_enabled"
 
     const/16 v2, 0x141
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "meid_number"
+    const-string/jumbo v1, "bearer_multi"
 
     const/16 v2, 0x142
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "imei"
+    const-string/jumbo v1, "mvno_type"
 
     const/16 v2, 0x143
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "imei_sv"
+    const-string/jumbo v1, "mvno_match_data"
 
     const/16 v2, 0x144
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "_imei0"
+    const-string/jumbo v1, "sim_status"
 
     const/16 v2, 0x145
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "_imei_sv0"
+    const-string/jumbo v1, "imei_info"
 
     const/16 v2, 0x146
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "_imei1"
+    const-string/jumbo v1, "wifi_ip_address"
 
     const/16 v2, 0x147
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "_imei_sv1"
+    const-string/jumbo v1, "wifi_mac_address"
 
     const/16 v2, 0x148
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "icc_id"
+    const-string/jumbo v1, "bt_address"
 
     const/16 v2, 0x149
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "ims_reg"
+    const-string/jumbo v1, "ethernet_mac_address"
 
     const/16 v2, 0x14a
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "serial_number"
+
+    const/16 v2, 0x14b
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "up_time"
+
+    const/16 v2, 0x14c
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "wimax_mac_address"
+
+    const/16 v2, 0x14d
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sysscope_status"
+
+    const/16 v2, 0x14e
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "installment_balance"
+
+    const/16 v2, 0x14f
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "operator_name"
+
+    const/16 v2, 0x150
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "signal_strength"
+
+    const/16 v2, 0x151
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "network_type"
+
+    const/16 v2, 0x152
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "latest_area_info"
+
+    const/16 v2, 0x153
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "service_state"
+
+    const/16 v2, 0x154
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "roaming_state"
+
+    const/16 v2, 0x155
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "data_state"
+
+    const/16 v2, 0x156
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "mmsc_server_acg"
+
+    const/16 v2, 0x157
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_lock_status_kddi"
+
+    const/16 v2, 0x158
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_state_status"
+
+    const/16 v2, 0x159
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "sim_state_code"
+
+    const/16 v2, 0x15a
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "meid_number"
+
+    const/16 v2, 0x15b
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "imei"
+
+    const/16 v2, 0x15c
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "imei_sv"
+
+    const/16 v2, 0x15d
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei0"
+
+    const/16 v2, 0x15e
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei_sv0"
+
+    const/16 v2, 0x15f
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei1"
+
+    const/16 v2, 0x160
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "_imei_sv1"
+
+    const/16 v2, 0x161
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "icc_id"
+
+    const/16 v2, 0x162
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "ims_reg"
+
+    const/16 v2, 0x163
 
     aput-object v1, v0, v2
 
