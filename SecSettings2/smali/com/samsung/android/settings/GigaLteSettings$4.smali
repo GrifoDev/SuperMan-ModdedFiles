@@ -125,7 +125,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap3(Lcom/samsung/android/settings/GigaLteSettings;Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap5(Lcom/samsung/android/settings/GigaLteSettings;Z)V
 
     :cond_2
     :goto_0
@@ -249,7 +249,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap3(Lcom/samsung/android/settings/GigaLteSettings;Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap5(Lcom/samsung/android/settings/GigaLteSettings;Z)V
 
     goto :goto_0
 .end method

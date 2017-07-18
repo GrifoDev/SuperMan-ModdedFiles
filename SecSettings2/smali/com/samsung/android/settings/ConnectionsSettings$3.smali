@@ -285,6 +285,19 @@
     if-eqz v14, :cond_1e
 
     :goto_5
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportMptcp()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1f
+
+    invoke-static/range {p1 .. p1}, Lcom/android/settings/Utils;->isAisSIMValid(Landroid/content/Context;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1f
+
+    :goto_6
     invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
 
     move-result-object v10
@@ -389,7 +402,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_1f
+    if-eqz v14, :cond_20
 
     :cond_12
     const-string/jumbo v14, "tethering_and_hotspot"
@@ -397,7 +410,7 @@
     invoke-virtual {v9, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_13
-    :goto_6
+    :goto_7
     const/4 v14, 0x1
 
     invoke-static {v14}, Lcom/android/settings/Utils;->checkKnoxCustomSettingsHiddenItem(I)Z
@@ -558,6 +571,13 @@
     goto/16 :goto_5
 
     :cond_1f
+    const-string/jumbo v14, "ais_mptcp"
+
+    invoke-virtual {v9, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_6
+
+    :cond_20
     invoke-static {}, Lcom/android/settings/Utils;->isSprModel()Z
 
     move-result v14
@@ -568,7 +588,7 @@
 
     invoke-virtual {v9, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 .end method
 
 .method public getRawDataToIndex(Landroid/content/Context;Z)Ljava/util/List;

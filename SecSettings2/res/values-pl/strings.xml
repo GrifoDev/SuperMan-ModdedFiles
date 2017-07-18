@@ -866,6 +866,7 @@ Dane aplikacji mogą obejmować informacje osobiste, takie jak kontakty, wiadomo
     <string name="content_description_hand">Dotknij niebieskiego kółka na środku ekranu i przytrzymaj je.</string>
     <string name="nearby_scanning_help_msg_sub">Podczas skanowania urządzeń w pobliżu używane jest skanowanie Bluetooth Low Energy i mikrofon. Skanowanie Bluetooth Low Energy może być używane nawet po wyłączeniu funkcji Bluetooth na urządzeniu.</string>
     <string name="sec_bluetooth_no_devices_found">Nie znaleziono urządzeń Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Brak urządzeń</string>
     <string name="bt_tether_title">Router Bluetooth</string>
     <string name="bt_tether_settings_on">Włączony</string>
     <string name="bt_tether_settings_off">Wyłączony</string>
@@ -1032,6 +1033,7 @@ Nawet po wyłączeniu funkcji Przechwytywanie inteligentne można uzyskiwać dos
     <string name="general_device_management_title">Zarządzanie ogólne</string>
     <string name="application_settings_summary">Domyślne aplikacje, uprawnienia, dezinstalacja</string>
     <string name="notifications_settings_summary">Blokuj, zezwalaj, określaj priorytety</string>
+    <string name="ime_security_warning_title">Włączyć wybraną klawiaturę?</string>
     <string name="language_settings_summary">Dodaj poniżej wiele języków, aby gdy aplikacja nie obsługuje języka domyślnego (na górze listy), zamiast niego został użyty kolejny obsługiwany język z listy. Przenieś język na górę listy, aby ustawić go jako domyślny.</string>
     <string name="more_connection_settings_title">Więcej ustawień połączenia</string>
     <string name="lock_and_security_settings_title">Ekran blokady i zabezpieczenia</string>
@@ -1827,7 +1829,8 @@ Urządzenie wyposażone jest w dodatkowe opcje zabezpieczeń. Aby z nich skorzys
 "</string>
     <string name="knox_twofactor_bio_description">Wybierz typ blokady biometrycznej oraz drugi typ blokady do odblokowania %s.</string>
     <string name="fingerprint_registered">Zarejestrowane odciski palców będą używane wraz z wybraną metodą odblokowania.</string>
-    <string name="knox_twofactor_description">Użyj dwóch typów blokowania, aby zapewnić jeszcze lepsze bezpieczeństwo aplikacji Knox. Twoje odciski palców będą używane jako pierwszy typ blokowania. Wybierz drugi typ blokowania poniżej.</string>
+    <string name="knox_twofactor_description">Wybierz biometrię oraz drugi typ blokady do odblokowania %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Użyj odcisków palców i wybierz drugi typ blokady w celu odblokowania kontenera %s.</string>
     <string name="two_factor_setup">Konfiguruj</string>
     <string name="icon">Ikony</string>
     <string name="vibration">Wibracja</string>
@@ -3683,6 +3686,7 @@ Uwaga: Twój odcisk palca może być mniej bezpieczny niż silny symbol lub kod 
     <string name="bluetooth_confirm_passkey_msg">Potwierdź, że klucz dostępu to %2$s, aby powiązać z urządzeniem %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Od:&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Powiązać z tym urządzeniem?</string>
     <string name="bluetooth_display_passkey_pin_msg">Aby powiązać, wprowadź %1$s w urządzeniu %2$s i dotknij przycisku Powrót lub OK.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nie można połączyć z: %1$s. Spróbuj nawiązać połączenie z: %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nie można nawiązać połączenia z %s.</string>
     <string name="bluetooth_preference_scan_title">Skanuj</string>
     <string name="bluetooth_preference_paired_devices">Połączone urządzenia</string>
@@ -4083,7 +4087,7 @@ Rozważ użycie szybszej karty pamięci lub urządzenia pamięci USB w celu popr
     <string name="master_clear_final_desc">Wszystkie informacje osobiste i pobrane aplikacje zostaną usunięte i nie będzie można ich odzyskać.</string>
     <string name="master_clear_final_button_text">Usuń wszystko</string>
     <string name="master_clear_not_available">Ten profil gościa nie ma uprawnień do przywracania ustawień fabrycznych.</string>
-    <string name="master_clear_progress_title">Wyzeruj</string>
+    <string name="master_clear_progress_title">Resetowanie</string>
     <string name="master_clear_progress_text">Proszę czekać…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Router USB</string>

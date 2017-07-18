@@ -3,7 +3,7 @@
 .source "FindMyMobileSettings.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnKeyListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
@@ -34,31 +34,12 @@
 
 
 # virtual methods
-.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .locals 3
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$7;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
 
-    const/4 v1, 0x4
+    invoke-static {v0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-wrap2(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
 
-    if-ne p2, v1, :cond_0
-
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$7;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
-
-    invoke-static {v1}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-wrap1(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
-
-    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
+    return-void
 .end method

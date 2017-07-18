@@ -678,9 +678,9 @@
 .method private updateDefaultPreferences()V
     .locals 8
 
-    const v7, 0x7f0b19cb
+    const v7, 0x7f0b19d9
 
-    const v6, 0x7f0b19ca
+    const v6, 0x7f0b19d8
 
     const/4 v2, 0x1
 
@@ -1125,7 +1125,7 @@
 
     invoke-direct {v11, p0, v2, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing$5;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;)V
 
-    const v12, 0x7f0b150a
+    const v12, 0x7f0b1518
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1220,7 +1220,7 @@
 
     invoke-direct {v11, p0}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing$8;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;)V
 
-    const v12, 0x7f0b0f9d
+    const v12, 0x7f0b0fac
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2171,7 +2171,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b19ca
+    const v12, 0x7f0b19d8
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2235,7 +2235,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b19cb
+    const v12, 0x7f0b19d9
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2289,7 +2289,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mSamsungCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b19ca
+    const v12, 0x7f0b19d8
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2353,7 +2353,7 @@
 
     iget-object v11, v0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mSamsungCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v12, 0x7f0b19cb
+    const v12, 0x7f0b19d9
 
     invoke-virtual {v11, v12}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 

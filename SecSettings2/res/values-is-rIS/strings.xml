@@ -867,6 +867,7 @@ Forritagögn geta innhaldið persónuupplýsingar líkt og tengiliði, skilaboð
     <string name="content_description_hand">Haltu fingri á bláa hringnum á miðjum skjánum.</string>
     <string name="nearby_scanning_help_msg_sub">Leit að nálægum tækjum notar Bluetooth Low Energy-leit og hljóðnemann. Hægt er að nota Bluetooth Low Energy-leit jafnvel þótt slökkt sé á Bluetooth í tækinu.</string>
     <string name="sec_bluetooth_no_devices_found">Engin Bluetooth-tæki fundust</string>
+    <string name="sec_bluetooth_no_tethered_devices">Engin tæki</string>
     <string name="bt_tether_title">Bluetooth-tjóðrun</string>
     <string name="bt_tether_settings_on">Kveikt</string>
     <string name="bt_tether_settings_off">Slökkt</string>
@@ -1033,6 +1034,7 @@ Jafnvel þótt slökkt sé á snjallmyndatöku geturðu opnað eiginleika hennar
     <string name="general_device_management_title">Almenn stjórnun</string>
     <string name="application_settings_summary">Sjálfgefin forrit, heimildir, fjarlægja</string>
     <string name="notifications_settings_summary">Útiloka, leyfa, forgangsraða</string>
+    <string name="ime_security_warning_title">Viltu kveikja á völdu lyklaborði?</string>
     <string name="language_settings_summary">Hér að neðan geturðu bætt við mörgum tungumálum. Ef forrit styður ekki sjálfgefna tungumállið þitt (efst á listanum) er næsta tungumál á listanum notað. Tungumál er stillt á sjálfgefið með því að færa það efst á listann.</string>
     <string name="more_connection_settings_title">Fleiri tengistillingar</string>
     <string name="lock_and_security_settings_title">Lásskjár og öryggi</string>
@@ -1828,7 +1830,8 @@ Aðrir öryggisvalmöguleikar eru fáanlegir fyrir tækið þitt. Skoðaðu lei�
 "</string>
     <string name="knox_twofactor_bio_description">Veldu lífkennilásgerð og aðra lásgerð til að opna %s.</string>
     <string name="fingerprint_registered">Skráð fingraför verða notuð með valinni opnunaraðferð.</string>
-    <string name="knox_twofactor_description">Notaðu tvær gerðir lása til að gera Knox enn öruggara. Fingraförin þín verða notuð sem fyrri lásgerð. Veldu seinni gerð láss hér að neðan.</string>
+    <string name="knox_twofactor_description">Veldu lífkennin þín og aðra lásgerð til að opna %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Notaðu fingraförin þín og veldu aðra lásgerð til að opna %s.</string>
     <string name="two_factor_setup">Setja upp</string>
     <string name="icon">Tákn</string>
     <string name="vibration">Titringur</string>
@@ -3684,6 +3687,7 @@ Athugaðu: Sterkt mynstur eða PIN-númer kann að vera öruggara en fingrafari�
     <string name="bluetooth_confirm_passkey_msg">Staðfesta að aðgangslykill sé %2$s til að para við %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Frá&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Para við þetta tæki?</string>
     <string name="bluetooth_display_passkey_pin_msg">Sláðu inn %1$s á %2$s og ýttu síðan á færsluhnapp til að para.</string>
+    <string name="bluetooth_HID_connecting_error_message">Ekki er hægt að tengjast við %1$s. Prófaðu að tengja úr %2$s.</string>
     <string name="bluetooth_connecting_error_message">Mistókst að tengjast %s.</string>
     <string name="bluetooth_preference_scan_title">Leita</string>
     <string name="bluetooth_preference_paired_devices">Pöruð tæki</string>

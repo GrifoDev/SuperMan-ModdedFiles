@@ -867,6 +867,7 @@ I dati delle applicazioni possono includere informazioni personali come contatti
     <string name="content_description_hand">Toccate e tenete premuto il cerchio blu al centro dello schermo.</string>
     <string name="nearby_scanning_help_msg_sub">Per la ricerca dei dispositivi vicini vengono utilizzati la scansione Consumi bassi Bluetooth e il microfono. Potete utilizzare la scansione Consumi bassi Bluetooth anche quando il Bluetooth è disattivato sul dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">Nessun dispositivo Bluetooth trovato</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nessun dispositivo</string>
     <string name="bt_tether_title">Tethering Bluetooth</string>
     <string name="bt_tether_settings_on">Attivato</string>
     <string name="bt_tether_settings_off">Disattivato</string>
@@ -1033,6 +1034,7 @@ Potete accedere alle funzioni di Acquisizione intelligente con Air command, anch
     <string name="general_device_management_title">Gestione generale</string>
     <string name="application_settings_summary">Applicazioni predefinite, autorizzazioni, annulla installazione</string>
     <string name="notifications_settings_summary">Blocca, consenti, assegna priorità</string>
+    <string name="ime_security_warning_title">Attivare la tastiera selezionata?</string>
     <string name="language_settings_summary">"Aggiungete più lingue di seguito in modo che, se un'applicazione non supporta la lingua predefinita (in cima all'elenco), venga utilizzata la successiva lingua supportata dell'elenco. Spostate una lingua in cima all'elenco per impostarla come predefinita."</string>
     <string name="more_connection_settings_title">Altre impostazioni di rete</string>
     <string name="lock_and_security_settings_title">Scherm. blocco e sicurezza</string>
@@ -1828,7 +1830,8 @@ Opzioni di sicurezza alternative sono disponibili sul dispositivo dell’utente.
 "</string>
     <string name="knox_twofactor_bio_description">Selezionate il tipo di blocco biometrico e il tipo di blocco secondario per sbloccare %s.</string>
     <string name="fingerprint_registered">Le impronte digitali registrate verranno utilizzate con il metodo di sblocco selezionato.</string>
-    <string name="knox_twofactor_description">Utilizzate due tipi di blocco per rendere Knox ancora più sicuro. Le impronte digitali verranno utilizzate come primo tipo di blocco. Selezionate un secondo tipo di blocco di seguito.</string>
+    <string name="knox_twofactor_description">Selezionate i dati biometrici e un tipo di blocco secondario per sbloccare %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Utilizzate le impronte digitali e selezionate un secondo tipo di blocco per sbloccare %s.</string>
     <string name="two_factor_setup">Configura</string>
     <string name="icon">Icone</string>
     <string name="vibration">Vibrazione</string>
@@ -3683,6 +3686,7 @@ Nota: le impronte digitali potrebbero essere meno sicure di un segno o di un PIN
     <string name="bluetooth_confirm_passkey_msg">La passkey di conferma per associarsi con %1$s è %2$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Da&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Associare con questo dispositivo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Immettete %1$s in %2$s per associarsi, quindi toccate Indietro o Invio.</string>
+    <string name="bluetooth_HID_connecting_error_message">Impossibile connettersi a %1$s. Provate a connettervi da %2$s.</string>
     <string name="bluetooth_connecting_error_message">Impossibile connettersi a %s.</string>
     <string name="bluetooth_preference_scan_title">Ricerca</string>
     <string name="bluetooth_preference_paired_devices">Dispositivi associati</string>

@@ -155,7 +155,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v5, 0x7f0b05a3
+    const v5, 0x7f0b05a4
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/SmartStaySettings;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const v4, 0x7f0b05a3
+    const v4, 0x7f0b05a4
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/SmartStaySettings;->getString(I)Ljava/lang/String;
 

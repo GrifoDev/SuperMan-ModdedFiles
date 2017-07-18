@@ -311,7 +311,7 @@
 
     if-nez v2, :cond_0
 
-    const v2, 0x7f0b153f
+    const v2, 0x7f0b154d
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -375,7 +375,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b19f7
+    const v1, 0x7f0b1a05
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
     if-nez v9, :cond_1
 
     :cond_0
-    const v9, 0x7f0b153e
+    const v9, 0x7f0b154c
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -444,7 +444,7 @@
 
     if-eqz v9, :cond_4
 
-    const v9, 0x7f0b19f7
+    const v9, 0x7f0b1a05
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -697,7 +697,7 @@
     return-object v9
 
     :cond_7
-    const v9, 0x7f0b153e
+    const v9, 0x7f0b154c
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -722,7 +722,7 @@
 
     aput-object v2, v9, v10
 
-    const v10, 0x7f0b19f5
+    const v10, 0x7f0b1a03
 
     invoke-virtual {p1, v10, v9}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -734,7 +734,7 @@
 .method private initDataButtons()V
     .locals 4
 
-    const v3, 0x7f0b150b
+    const v3, 0x7f0b1519
 
     const/4 v2, 0x0
 
@@ -842,7 +842,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/AppStorageSettings;->mClearDataButton:Landroid/widget/Button;
 
-    const v1, 0x7f0b151d
+    const v1, 0x7f0b152b
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -1153,7 +1153,7 @@
 
     invoke-direct {v14, v15}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v15, 0x7f0b19fc
+    const v15, 0x7f0b1a0a
 
     invoke-virtual {v14, v15}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1165,7 +1165,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0b10f5
+    const v15, 0x7f0b1102
 
     const/16 v16, 0x0
 
@@ -1300,7 +1300,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/applications/AppStorageSettings;->mClearDataButton:Landroid/widget/Button;
 
-    const v4, 0x7f0b152b
+    const v4, 0x7f0b1539
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(I)V
 
@@ -1351,7 +1351,7 @@
 
     iget-object v4, p0, Lcom/android/settings/applications/AppStorageSettings;->mClearDataButton:Landroid/widget/Button;
 
-    const v5, 0x7f0b150b
+    const v5, 0x7f0b1519
 
     invoke-virtual {v4, v5}, Landroid/widget/Button;->setText(I)V
 
@@ -2227,7 +2227,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b153e
+    const v3, 0x7f0b154c
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2239,7 +2239,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b153f
+    const v3, 0x7f0b154d
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2338,7 +2338,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b137b
+    const v3, 0x7f0b1389
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -2384,7 +2384,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/AppStorageSettings;->mChangeStorageButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b19fb
+    const v3, 0x7f0b1a09
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -2418,7 +2418,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/AppStorageSettings;->mClearCacheButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b14fc
+    const v3, 0x7f0b150a
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -2456,7 +2456,7 @@
 
     iget-object v2, p0, Lcom/android/settings/applications/AppStorageSettings;->mClearUriButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b14fe
+    const v3, 0x7f0b150c
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -2491,7 +2491,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b152d
+    const v2, 0x7f0b153b
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2505,13 +2505,13 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/applications/AppStorageSettings$2;-><init>(Lcom/android/settings/applications/AppStorageSettings;)V
 
-    const v2, 0x7f0b178d
+    const v2, 0x7f0b179b
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b152f
+    const v1, 0x7f0b153d
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2536,7 +2536,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1533
+    const v2, 0x7f0b1541
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2550,7 +2550,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1534
+    const v2, 0x7f0b1542
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2564,7 +2564,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/applications/AppStorageSettings$3;-><init>(Lcom/android/settings/applications/AppStorageSettings;)V
 
-    const v2, 0x7f0b152e
+    const v2, 0x7f0b153c
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

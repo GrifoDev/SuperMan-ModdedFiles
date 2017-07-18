@@ -18,25 +18,47 @@
 
 # virtual methods
 .method public isAvailable(Landroid/content/Context;)Z
-    .locals 1
+    .locals 5
 
-    invoke-static {p1}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    const/4 v2, 0x1
 
-    move-result-object v0
+    const/4 v3, 0x0
 
-    invoke-static {v0}, Lcom/android/settings/Utils;->getManagedProfile(Landroid/os/UserManager;)Landroid/os/UserHandle;
+    const-string/jumbo v4, "user"
+
+    invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    invoke-static {v1}, Lcom/android/settings/Utils;->getManagedProfile(Landroid/os/UserManager;)Landroid/os/UserHandle;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    invoke-static {v1, v2}, Lcom/android/settings/Utils;->getManagedProfiles(Landroid/os/UserManager;Z)Ljava/util/List;
 
-    :goto_0
-    return v0
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-nez v4, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
+    return v3
+
+    :cond_1
+    if-eqz v0, :cond_2
+
+    :goto_0
+    return v2
+
+    :cond_2
+    move v2, v3
 
     goto :goto_0
 .end method

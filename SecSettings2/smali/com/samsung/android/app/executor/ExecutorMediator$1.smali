@@ -43,7 +43,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorMediator$1;->this$0:Lcom/samsung/android/app/executor/ExecutorMediator;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorMediator;->mInterimListener:Lcom/samsung/android/app/executor/ExecutorMediator$InterimStateListener;
     invoke-static {v0}, Lcom/samsung/android/app/executor/ExecutorMediator;->access$000(Lcom/samsung/android/app/executor/ExecutorMediator;)Lcom/samsung/android/app/executor/ExecutorMediator$InterimStateListener;
 
     move-result-object v0
@@ -52,7 +51,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorMediator$1;->this$0:Lcom/samsung/android/app/executor/ExecutorMediator;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorMediator;->mInterimListener:Lcom/samsung/android/app/executor/ExecutorMediator$InterimStateListener;
     invoke-static {v0}, Lcom/samsung/android/app/executor/ExecutorMediator;->access$000(Lcom/samsung/android/app/executor/ExecutorMediator;)Lcom/samsung/android/app/executor/ExecutorMediator$InterimStateListener;
 
     move-result-object v0
@@ -67,7 +65,6 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorMediator$1;->this$0:Lcom/samsung/android/app/executor/ExecutorMediator;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorMediator;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/samsung/android/app/executor/ExecutorMediator;->access$100(Lcom/samsung/android/app/executor/ExecutorMediator;)Landroid/os/Handler;
 
     move-result-object v0

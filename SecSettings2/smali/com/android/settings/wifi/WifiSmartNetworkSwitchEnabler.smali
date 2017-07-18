@@ -394,7 +394,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b12be    # 1.8486E38f
+    const v1, 0x7f0b12cc
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -411,7 +411,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b12bf
+    const v1, 0x7f0b12cd
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -428,7 +428,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b12c0
+    const v1, 0x7f0b12ce
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -648,7 +648,7 @@
 .method public setPreferenceState()V
     .locals 6
 
-    const v5, 0x7f0b0c7a
+    const v5, 0x7f0b0c89
 
     const/4 v2, 0x1
 
@@ -704,7 +704,7 @@
 
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b0c79
+    const v4, 0x7f0b0c88
 
     invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -750,7 +750,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0c87
+    const v3, 0x7f0b0c96
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -764,7 +764,7 @@
     :cond_5
     iget-object v2, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b12af
+    const v3, 0x7f0b12bd
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

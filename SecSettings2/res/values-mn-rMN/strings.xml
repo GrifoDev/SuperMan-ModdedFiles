@@ -866,6 +866,7 @@ Wi-Fi ба Bluetooth мөн унтрах боловч түргэн тохирг�
     <string name="content_description_hand">Дэлгэцийн төв дэх хөх тойргийг товшиж, барь.</string>
     <string name="nearby_scanning_help_msg_sub">Бага чадлын Bluetooth ба микрофоныг ашиглан ойролцоох төхөөрөмжүүдийг унш. Энэ төхөөрөмжийн Bluetooth унтарсан ч гэсэн энэ функцээр Бага чадлын Bluetooth-г ашиглах боломжтой.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth төхөөрөмж олдсонгүй</string>
+    <string name="sec_bluetooth_no_tethered_devices">Төхөөрөмж алга</string>
     <string name="bt_tether_title">Bluetooth модем болгох</string>
     <string name="bt_tether_settings_on">Асаах</string>
     <string name="bt_tether_settings_off">Унтраах</string>
@@ -1032,6 +1033,7 @@ Wi-Fi ба Bluetooth мөн унтрах боловч түргэн тохирг�
     <string name="general_device_management_title">Ерөнхий удирдлага</string>
     <string name="application_settings_summary">Өгөгдмөл хэрэглүүр, зөвшөөрөл, устгах</string>
     <string name="notifications_settings_summary">Хориглох, зөвшөөрөх, чухалчлах</string>
+    <string name="ime_security_warning_title">Сонгосон товчлуурыг асаах уу?</string>
     <string name="language_settings_summary">Энд олон хэл нэмснээр ажиллаж буй хэрэглүүр таны хэлний жагсаалтын эхэнд буй өгөгдмөл хэлд нийцэхгүй бол дараагийн хэлийг ашиглана. Жагсаалтын хамгийн эхэнд буй нь өгөгдмөл хэл болно.</string>
     <string name="more_connection_settings_title">Бусад холболтын тохиргоо</string>
     <string name="lock_and_security_settings_title">Дэлгэц түгж ба Хамгаалалт</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">Биометрийн түгжээний төрөл болон хоёр дахь түгжээний төрлөө сонгоод %s-н түгжээг тайл.</string>
     <string name="fingerprint_registered">Сонгосон нээх аргатай бүртгэлтэй хуруунуудыг ашиглана.</string>
-    <string name="knox_twofactor_description">Хоёр төрлийн түгжээ ашиглаж Knox илүү найдвартай болго. Таны хурууны хээ эхний түгжээний төрлөөр ашиглагдана. Хоёр дахь түгжээний төрлөө доорхоос сонго.</string>
+    <string name="knox_twofactor_description">Биометрээ сонгоод %s-н түгжээг тайлах хоёр дахь түгжээний төрлийг сонгоно уу.</string>
+    <string name="knox_twofactor_description_fingerprint">Хурууны хээгээ ашиглан, %s-н түгжээг тайлахын тулд хоёр дахь түгжээний төрөлөө сонго.</string>
     <string name="two_factor_setup">Тохируулах</string>
     <string name="icon">Дүрс</string>
     <string name="vibration">Чичиргээ</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">Нэвтрэх түлхүүр нь %1$s-тай хослуулах %2$s болохыг баталгаажуул</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>-с&lt;br/>&lt;br/>Энэ төхөөрөмжтэй хослуулах уу?</string>
     <string name="bluetooth_display_passkey_pin_msg">%2$s дээр %1$s хослуулахаар оруулаад, дараа нь Return эсвэл Enter-г товш</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s-д холбогдох боломжгүй. %2$s-с холбогдоод үзнэ үү.</string>
     <string name="bluetooth_connecting_error_message">%s-тэй холбогдох боломжгүй.</string>
     <string name="bluetooth_preference_scan_title">Хайх</string>
     <string name="bluetooth_preference_paired_devices">Хослогдсон төхөөрөмжүүд</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Таны хувийн бүх мэдээлэл болон татаж авсан програмууд арилах бөгөөд сэргээх боломжгүй.</string>
     <string name="master_clear_final_button_text">Бүгдийг устгах</string>
     <string name="master_clear_not_available">Энэхүү зочны профиль нь үйлдвэрийн шинээр тохируулга хийхэд хандах эрхгүй байна.</string>
-    <string name="master_clear_progress_title">Тэглэх</string>
+    <string name="master_clear_progress_title">Дахин тохируулах</string>
     <string name="master_clear_progress_text">Хүлээнэ үү…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB холболт</string>

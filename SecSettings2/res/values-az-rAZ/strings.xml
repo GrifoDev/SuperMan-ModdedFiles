@@ -865,6 +865,7 @@ Proqram məlumatı kontaktlar, mesajlar və şəkillər kimi şəxsi məlumatdan
     <string name="content_description_hand">Ekranın ortasındakı mavi dairəyə vurub saxlayın.</string>
     <string name="nearby_scanning_help_msg_sub">Yaxın cihaz axtarışı Bluetooth Aşağı Enerji axtarış və mikrofondan istifadə edir. Bu cihazda Bluetooth sönülü olduqda belə bu funksiya Bluetooth Aşağı Enerji skanlamasından istifadə edir.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth cihazı tapılmadı</string>
+    <string name="sec_bluetooth_no_tethered_devices">Cihaz yoxdur</string>
     <string name="bt_tether_title">Bluetooth bağlanması</string>
     <string name="bt_tether_settings_on">İşlək</string>
     <string name="bt_tether_settings_off">Qeyri-işlək</string>
@@ -1031,6 +1032,7 @@ Hətta ağıllı çəkim qeyri-aktiv edilən zaman Hava əmri ilə onun funksiya
     <string name="general_device_management_title">Ümumi idarəetmə</string>
     <string name="application_settings_summary">Defolt proqramlar, icazələr, poz</string>
     <string name="notifications_settings_summary">Blokla, icazə ver, üstünlük ver</string>
+    <string name="ime_security_warning_title">Seçilən klaviatura yansın?</string>
     <string name="language_settings_summary">Aşağıda bir neçə dil əlavə edin ki, proqram defolt dili dəstəkləmədikdə (siyahının yuxarısında) növbəti dəstəklənən dil əvəzində istifadə edilsin. Defolt kimi qurmaq üçün dili siyahının yuxarısına köçür.</string>
     <string name="more_connection_settings_title">Daha çox bağlantı parametri</string>
     <string name="lock_and_security_settings_title">Kilid ekr və təhlükəs</string>
@@ -1826,7 +1828,8 @@ Cihazınızda alternativ təhlükəsizlik seçimləri mövcuddur. Bu xüsusiyyə
 "</string>
     <string name="knox_twofactor_bio_description">Biometrik kilid növünü və ikinci kilid növünü seçin və %s kiliddən açın.</string>
     <string name="fingerprint_registered">Qeydiyyatdan keçilmiş barmaq izləri seçilən kiliddən açma metodu ilə istifadə ediləcək.</string>
-    <string name="knox_twofactor_description">Knox-u daha təhlükəsiz etmək üçün iki kilid növündən istifadə edin. Barmaq izləriniz ilk kilidləmə forması kimi istifadə ediləcək. Aşağıdan ikinci kilidləmə formasını seçin.</string>
+    <string name="knox_twofactor_description">Bioölçüləri və ikinci kilid növünü seç və %s kiliddən aç.</string>
+    <string name="knox_twofactor_description_fingerprint">%s kiliddən açmaq üçün barmaq izindən istifadə edin və ikinci kilid növünü seçin.</string>
     <string name="two_factor_setup">Qur</string>
     <string name="icon">Nişanlar</string>
     <string name="vibration">Vibrasiya</string>
@@ -3682,6 +3685,7 @@ Qeyd: Sizin barmaq iziniz güclü model və ya PIN-dən daha az təhlükəsiz ol
     <string name="bluetooth_confirm_passkey_msg">Təsdiq parolu %1$s ilə qoşulmaq üçün %2$s -dir.</string>
     <string name="bluetooth_incoming_pairing_msg">Buradan:&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Bu cihazla qoşulsun?</string>
     <string name="bluetooth_display_passkey_pin_msg">Qoşulmaq üçün %2$s-da %1$s daxil edin və sonra Geri qayıt və ya Daxil et seçin.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s-a qoşulmaq olmur. %2$s ilə qoşulmağa çalış.</string>
     <string name="bluetooth_connecting_error_message">%s-ə qoşulmaq mümkün deyildir.</string>
     <string name="bluetooth_preference_scan_title">Axtar</string>
     <string name="bluetooth_preference_paired_devices">Qoşulmuş cihazlar</string>

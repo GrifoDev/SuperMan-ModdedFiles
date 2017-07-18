@@ -49,19 +49,16 @@
 
     move-result v0
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->colorViewOffAnimationValue:I
     invoke-static {v1, v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->access$302(Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;I)I
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->fingerView:Lcom/samsung/android/visualeffect/progressfingerscan/object/FingerView;
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->access$200(Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;)Lcom/samsung/android/visualeffect/progressfingerscan/object/FingerView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->colorViewOffAnimationValue:I
     invoke-static {v1}, Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;->access$300(Lcom/samsung/android/visualeffect/progressfingerscan/object/Finger;)I
 
     move-result v1

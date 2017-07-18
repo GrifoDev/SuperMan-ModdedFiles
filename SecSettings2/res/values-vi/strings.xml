@@ -866,6 +866,7 @@ Dữ liệu ứng dụng có thể bao gồm thông tin cá nhân như danh bạ
     <string name="content_description_hand">Chạm và giữ vòng tròn màu xanh ở giữa màn hình.</string>
     <string name="nearby_scanning_help_msg_sub">Dò tìm thiết bị ở gần bằng tính năng Dò tìm Bluetooth tiết kiệm năng lượng và micro. Dò tìm Bluetooth tiết kiệm năng lượng có thể được dùng ngay cả khi Bluetooth tắt trên thiết bị này.</string>
     <string name="sec_bluetooth_no_devices_found">Không tìm thấy thiết bị Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Không có thiết bị</string>
     <string name="bt_tether_title">Kết nối Bluetooth internet</string>
     <string name="bt_tether_settings_on">Bật</string>
     <string name="bt_tether_settings_off">Tắt</string>
@@ -1032,6 +1033,7 @@ Ngay cả khi tắt Chụp thông minh, bạn vẫn có thể truy cập các t�
     <string name="general_device_management_title">Quản lý chung</string>
     <string name="application_settings_summary">Ứng dụng mặc định, quyền, gỡ cài đặt</string>
     <string name="notifications_settings_summary">Chặn, cho phép, ưu tiên</string>
+    <string name="ime_security_warning_title">Bật bàn phím đã chọn?</string>
     <string name="language_settings_summary">Thêm nhiều ngôn ngữ bên dưới để nếu một ứng dụng không hỗ trợ ngôn ngữ mặc định của bạn (ở trên cùng danh sách) thì ngôn ngữ hỗ trợ tiếp theo trong danh sách sẽ được sử dụng để thay thế. Chuyển một ngôn ngữ lên đầu danh sách để đặt làm mặc định.</string>
     <string name="more_connection_settings_title">Cài đặt kết nối khác</string>
     <string name="lock_and_security_settings_title">Màn hình khóa và bảo mật</string>
@@ -1363,7 +1365,7 @@ Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="intelligent_help_summary_1">Bạn đang ở nơi có ánh sáng tốt và không bị ánh nắng trực tiếp.</string>
     <string name="intelligent_help_summary_2">Các ứng dụng khác hiện không sử dụng máy ảnh trước.</string>
     <string name="enable_smartstay_title">Bật %s</string>
-    <string name="device_visibility_title">Tính hiển thị của đ.thoại</string>
+    <string name="device_visibility_title">Ẩn/hiện điện thoại</string>
     <string name="device_visibility_text">Cho phép các thiết bị khác tìm điện thoại của bạn và truyền file.</string>
     <string name="device_visibility_text_full">Cho phép các thiết bị khác tìm điện thoại của bạn (%s) và truyền file. Điện thoại của bạn sẽ xuất hiện trong danh sách các thiết bị hiện có khi file được truyền qua Truyền file đến thiết bị.</string>
     <string name="easy_mode">Chế độ Đơn giản</string>
@@ -1827,7 +1829,8 @@ Các tùy chọn an toàn khác có sẵn trên thiết bị của bạn. Vui l�
 "</string>
     <string name="knox_twofactor_bio_description">Chọn kiểu khóa sinh trắc học và kiểu khóa thứ hai để mở khóa %s.</string>
     <string name="fingerprint_registered">Vân tay đã đăng ký sẽ được sử dụng với phương pháp mở khóa được chọn.</string>
-    <string name="knox_twofactor_description">Sử dụng hai kiểu khóa để tăng độ bảo mật cho Knox. Vân tay của bạn sẽ được dùng làm kiểu khóa đầu tiên. Hãy chọn kiểu khóa thứ hai bên dưới.</string>
+    <string name="knox_twofactor_description">Chọn dữ liệu sinh trắc học và kiểu khóa thứ hai để mở khóa %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Sử dụng vân tay và chọn kiểu khóa thứ hai để mở khóa %s.</string>
     <string name="two_factor_setup">Cài đặt</string>
     <string name="icon">Biểu tượng</string>
     <string name="vibration">Rung</string>
@@ -3683,6 +3686,7 @@ Lưu ý: Vân tay của bạn có thể ít bảo mật hơn mã PIN hoặc mẫ
     <string name="bluetooth_confirm_passkey_msg">Xác nhận mật mã %2$s để ghép đôi với %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Từ&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Cặp đôi với thiết bị này?</string>
     <string name="bluetooth_display_passkey_pin_msg">Nhập %1$s trên %2$s để ghép đôi, sau đó chạm vào Trở lại hoặc Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Không thể kết nối với %1$s. Hãy thử kết nối từ %2$s.</string>
     <string name="bluetooth_connecting_error_message">Không thể kết nối đến %s.</string>
     <string name="bluetooth_preference_scan_title">Dò</string>
     <string name="bluetooth_preference_paired_devices">Các thiết bị đã ghép đôi</string>
@@ -4083,7 +4087,7 @@ Hãy xem xét sử dụng thẻ SD hoặc thiết bị lưu trữ USB nhanh hơn
     <string name="master_clear_final_desc">Tất cả thông tin cá nhân của bạn và ứng dụng đã tải về sẽ bị xóa và không thể khôi phục.</string>
     <string name="master_clear_final_button_text">Xóa hết</string>
     <string name="master_clear_not_available">Hồ sơ khách này không được phép thực hiện khôi phục cài đặt gốc.</string>
-    <string name="master_clear_progress_title">Xóa</string>
+    <string name="master_clear_progress_title">Đặt lại</string>
     <string name="master_clear_progress_text">Xin chờ…</string>
     <string name="tether_settings_uid_title_vzw">Chia sẻ kết nối internet</string>
     <string name="usb_tethering_button_text">Kết nối USB internet</string>

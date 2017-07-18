@@ -730,6 +730,7 @@ Podaci aplikacije mogu sadržavati lične informacije kao što su kontakti, poru
     <string name="content_description_hand">Dodirnite i zadržite plavi krug u centru ekrana.</string>
     <string name="nearby_scanning_help_msg_sub">Opcija Skeniranje uređaja u blizini koristi Nizak nivo energije Bluetooth skeniranja i mikrofon. Nizak nivo energije Bluetooth skeniranja se može koristiti čak i dok je Bluetooth isključen na ovom uređaju.</string>
     <string name="sec_bluetooth_no_devices_found">Nisu pronađeni Bluetooth uređaji</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nema uređaja</string>
     <string name="bt_tether_title">Bluetooth dijeljenje</string>
     <string name="bt_tether_settings_on">Uključen</string>
     <string name="bt_tether_settings_off">Isključen</string>
@@ -896,6 +897,7 @@ Možete promijeniti ovu opciju kasnije odlaskom na Bluetooth postavke."</string>
     <string name="general_device_management_title">Opšte upravljanje</string>
     <string name="application_settings_summary">Zadane aplikacije, dozvole, deinstalacija</string>
     <string name="notifications_settings_summary">Blokiraj, dozvoli, dodijeli prednost</string>
+    <string name="ime_security_warning_title">Uključiti izabranu tastaturu?</string>
     <string name="language_settings_summary">Dodajte više jezika ispod kako bi se, u slučaju da određena aplikacija ne podržava zadani jezik (na vrhu spiska), primijenio sljedeći podržani jezik sa spiska. Pomjerite jezik na vrh spiska da biste ga postavili kao zadani jezik.</string>
     <string name="more_connection_settings_title">Dodatne postavke veze</string>
     <string name="lock_and_security_settings_title">Zaključan ekran i zaštita</string>
@@ -1691,7 +1693,8 @@ Na vašem uređaju postoje druge sigurnosne opcije. Pratite sva uputstva kako bi
 "</string>
     <string name="knox_twofactor_bio_description">Izaberite biometrijsku vrstu zaključavanja i drugu vrstu zaključavanja da biste otključali uređaj %s.</string>
     <string name="fingerprint_registered">Registrovani otisci prstiju će se koristiti sa izabranim načinom otključavanja.</string>
-    <string name="knox_twofactor_description">Za dodatnu sigurnost opcije Knox, koristite dvije vrste zaključavanja. Otisci prstiju koristit će se kao prva vrsta zaključavanja. Izaberite drugu vrstu zaključavanja u nastavku.</string>
+    <string name="knox_twofactor_description">Izaberite biometrijsku i drugu vrstu zaključavanja za otključavanje uređaja %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Koristite otiske prstiju i izaberite drugu vrstu zaključavanja da otključate %s.</string>
     <string name="two_factor_setup">Postavi</string>
     <string name="icon">Ikone</string>
     <string name="vibration">Vibracija</string>
@@ -3545,6 +3548,7 @@ Napomena: vaš otisak prsta može biti manje siguran od snažnog obrasca ili PIN
     <string name="bluetooth_confirm_passkey_msg">Potvrdite lozinku %2$s za sparivanje sa %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">From&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Pair with this device?</string>
     <string name="bluetooth_display_passkey_pin_msg">Unesite %1$s na %2$s za sparivanje, zatim dodirnite opciju Povratak ili Unos.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nije moguće povezivanje na %1$s. Pokušajte se povezati sa %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nije moguće povezivanje na %s.</string>
     <string name="bluetooth_preference_scan_title">Skeniraj</string>
     <string name="bluetooth_preference_paired_devices">Spareni uređaji</string>

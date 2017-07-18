@@ -72,7 +72,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap3(Lcom/samsung/android/settings/GigaLteSettings;Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap5(Lcom/samsung/android/settings/GigaLteSettings;Z)V
 
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings$8;->this$0:Lcom/samsung/android/settings/GigaLteSettings;

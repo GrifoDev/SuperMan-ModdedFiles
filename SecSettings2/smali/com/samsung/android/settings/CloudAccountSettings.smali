@@ -170,7 +170,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->intent:Landroid/content/Intent;
 
-    const v2, 0x7f0b1135
+    const v2, 0x7f0b1142
 
     iput v2, v1, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -430,7 +430,7 @@
 
     const/4 v5, 0x0
 
-    const v6, 0x7f0b0b10
+    const v6, 0x7f0b0b13
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/CloudAccountSettings;->getString(I)Ljava/lang/String;
 
@@ -470,7 +470,7 @@
 
     invoke-direct {v7, p0}, Lcom/samsung/android/settings/CloudAccountSettings$4;-><init>(Lcom/samsung/android/settings/CloudAccountSettings;)V
 
-    const v8, 0x7f0b05b7
+    const v8, 0x7f0b05b8
 
     invoke-virtual {v6, v8, v7}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

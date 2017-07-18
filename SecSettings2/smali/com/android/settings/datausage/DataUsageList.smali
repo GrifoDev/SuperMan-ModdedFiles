@@ -947,7 +947,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b19f8
+    const v3, 0x7f0b1a06
 
     const/4 v4, 0x0
 
@@ -1161,7 +1161,7 @@
 
     aput-object v14, v10, v15
 
-    const v15, 0x7f0b1afb
+    const v15, 0x7f0b1b09
 
     move-object/from16 v0, p0
 

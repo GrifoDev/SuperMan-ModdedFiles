@@ -216,7 +216,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0d6c
+    const v2, 0x7f0b0d7b
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b178d
+    const v7, 0x7f0b179b
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -693,7 +693,7 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/net/wifi/WifiApWhiteList;->addWhiteList(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0b0cf1
+    const v3, 0x7f0b0d00
 
     new-instance v4, Landroid/os/Message;
 
@@ -766,7 +766,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApConnectedDevice;->reloadWhiteList()V
 
-    const v3, 0x7f0b0cf2
+    const v3, 0x7f0b0d01
 
     new-instance v2, Landroid/os/Message;
 

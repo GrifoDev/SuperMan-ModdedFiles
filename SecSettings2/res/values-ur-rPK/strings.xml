@@ -866,6 +866,7 @@ Wi-Fi اور بلیوٹوتھ کو بھی آف کر دیا جائے گا لیک�
     <string name="content_description_hand">اسکرین کے مرکز میں نیلے دائرے کو تھپتھپائیں اور تھام کر رکھیں۔</string>
     <string name="nearby_scanning_help_msg_sub">قریبی آلہ کی اسکیننگ بلیوٹوتھ لو اینرجی اسکیننگ اور مائیکروفون استعمال کرتی ہے۔ اس آلہ پر بلیوٹوتھ کے آف ہونے پر بھی بلیوٹوتھ لو اینرجی اسکیننگ کا استعمال کیا جا سکتا ہے۔</string>
     <string name="sec_bluetooth_no_devices_found">کوئی بلیوٹوتھ آلات نہیں پائے گئے</string>
+    <string name="sec_bluetooth_no_tethered_devices">کوئی آلہ نہیں</string>
     <string name="bt_tether_title">بلیوٹوتھ ٹیتھرنگ</string>
     <string name="bt_tether_settings_on">آن</string>
     <string name="bt_tether_settings_off">آف</string>
@@ -1032,6 +1033,7 @@ Wi-Fi اور بلیوٹوتھ کو بھی آف کر دیا جائے گا لیک�
     <string name="general_device_management_title">عام نظم</string>
     <string name="application_settings_summary">ڈیفالٹ ایپلیکیشنز، اجازتیں، نا تنصیب</string>
     <string name="notifications_settings_summary">بلاک کریں، اجازت دیں، ترجیح</string>
+    <string name="ime_security_warning_title">منتخب شدہ کی بورڈ آن کریں؟</string>
     <string name="language_settings_summary">اس طرح کی متعدد زبانیں ذیل میں شامل کریں، اگر کوئی ایپلیکیشن آپ کے ڈیفالٹ زبان کے (فہرست کے سب سے اوپر) معاون نہیں ہے، تو اس کے باوجود فہرست کا اگلا تعاون یافتہ زبان استعمال کیا جائے گا۔ بطورر ڈیفالٹ کے فہرست کے سب سے اوپر اسے سیٹ کرنے کے لیے زبان کو منتقل کریں۔</string>
     <string name="more_connection_settings_title">مزید کنکشن کی سیٹنگز</string>
     <string name="lock_and_security_settings_title">مقفل اسکرین اور سیکیورٹی</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">اپنا بایومیٹرک لاک قسم اور %s انلاک کرنے کے لیے دوسرا لاک قسم منتخب کریں۔</string>
     <string name="fingerprint_registered">منتخب ان لاک طریقے کے ساتھ رجسٹرڈ فنگر پرنٹس استعمال کیے جائیں گے۔</string>
-    <string name="knox_twofactor_description">‏Knox کو مذید محفوظ بنانے کے لیے دو مقفل قسم کا استعمال کریں۔ آپ کے فنگرپرنٹس پہلے مقفل قسم کے بطور استعمال کی جائے گی۔ نیچے ایک دوسری مقفل قسم کو منتخب کریں۔</string>
+    <string name="knox_twofactor_description">%s انلاک کرنے کے لیے اپنا بایومیٹرکز اور دوسرا لاک قسم منتخب کریں۔</string>
+    <string name="knox_twofactor_description_fingerprint">اپنا فنگرپرنٹز استعمال کریں اور %s انلاک کرنے کے لیے دوسری لاک قسم منتخب کریں۔</string>
     <string name="two_factor_setup">ترتیب دیں</string>
     <string name="icon">آئیکنز</string>
     <string name="vibration">تھرتھراہٹ</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">تصدیق کریں کہ یہ پاس کی %2$s کی %1$s کے ساتھ جوڑی بنانے کے لئے ہے</string>
     <string name="bluetooth_incoming_pairing_msg">‏&lt;br/><b>%1$s</b>&lt;br/>&lt;br/> سے اس ڈیوائس کے ساتھ جوڑا بنائیں؟</string>
     <string name="bluetooth_display_passkey_pin_msg">جوڑی بنانے کے لئے %1$s پر %2$s داخل کریں، پھر [واپسی کلید] یا [اینٹر] پر تھپتھپائیں</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s سے جوڑ نہیں سکتے۔ %2$s سے مربوط ہونے کی کوشش کریں۔</string>
     <string name="bluetooth_connecting_error_message">%s سے متصل کرنے سے قاصر۔</string>
     <string name="bluetooth_preference_scan_title">اسکین</string>
     <string name="bluetooth_preference_paired_devices">جوڑی دار آلے</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">آپ کی تمام ذاتی معلومات اور ڈاؤن لوڈ کردہ اپلیکیشنز حذف ہوجائیں گی اور ان کی بازیافت نہیں ہوسکتی۔</string>
     <string name="master_clear_final_button_text">تمام مٹانا</string>
     <string name="master_clear_not_available">اس مہمان پروفائل کو فیکٹری ڈیٹا ری سیٹ کرنے کی اجازت نہیں ہے۔</string>
-    <string name="master_clear_progress_title">دوبارہ سیٹ</string>
+    <string name="master_clear_progress_title">پھرسیٹ</string>
     <string name="master_clear_progress_text">انتظار کریں…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">‏USB ٹیتھرنگ</string>

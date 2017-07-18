@@ -485,9 +485,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0c5c
+    const v0, 0x7f0b0c6b
 
-    const v1, 0x7f0b0c5f
+    const v1, 0x7f0b0c6e
 
     const/4 v2, 0x0
 
@@ -665,7 +665,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0cbc
+    const v3, 0x7f0b0ccb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1297,7 +1297,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0cbd
+    const v2, 0x7f0b0ccc
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1676,7 +1676,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0c5d
+    const v8, 0x7f0b0c6c
 
     invoke-static {v7, v8, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2012,7 +2012,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v2, 0x7f0b0c55
+    const v2, 0x7f0b0c64
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->getString(I)Ljava/lang/String;
 
@@ -2557,7 +2557,7 @@
 
     const/4 v3, 0x0
 
-    const v1, 0x7f0b0c5a
+    const v1, 0x7f0b0c69
 
     invoke-interface {p1, v3, v2, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2717,7 +2717,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b0cbd
+    const v4, 0x7f0b0ccc
 
     invoke-virtual {v1, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2743,7 +2743,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 11
 
-    const v10, 0x7f0b0cbd
+    const v10, 0x7f0b0ccc
 
     const/4 v7, 0x0
 
@@ -4073,7 +4073,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0c5b
+    const v4, 0x7f0b0c6a
 
     invoke-static {v3, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -4168,7 +4168,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0cbd
+    const v4, 0x7f0b0ccc
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

@@ -109,7 +109,7 @@
 
     aput-object v3, v0, v1
 
-    const v3, 0x7f0b13e9
+    const v3, 0x7f0b13f7
 
     invoke-virtual {p0, v3, v0}, Lcom/android/settings/deviceinfo/StorageWizardInit;->setHeaderText(I[Ljava/lang/String;)V
 

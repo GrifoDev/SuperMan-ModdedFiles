@@ -37,7 +37,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 3
 
-    const v0, 0x7f0b089b
+    const v0, 0x7f0b089e
 
     invoke-static {v0}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity$LearnMoreDialog;->newInstance(I)Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity$LearnMoreDialog;
 

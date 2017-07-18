@@ -866,6 +866,7 @@ Wi-Fi နှင့် ဘလူးတုသ်တို့ကိုလည်း 
     <string name="content_description_hand">ဖန်သားပြင် အလယ်ရှိ အပြာရောင် စက်ဝိုင်းကို နှိပ်၍ ကိုင်ထားပါ။</string>
     <string name="nearby_scanning_help_msg_sub">အနီးဝန်းကျင်ရှိ ကိရိယာရှာဖွေမှုသည် ဘလူးတုသ် စွမ်းအင်နိမ့်ရှာဖွေမှုနှင့် မိုက်ကရိုဖုန်းကို အသုံးပြုသည်။ ဤကိရိယာတွင် ဘလူးတုသ်ကိုပိတ်ထားလင့်ကစား ဘလူးတုသ် စွမ်းအင်နိမ့်ရှာဖွေမှုကို အသုံးပြုနိုင်သည်။</string>
     <string name="sec_bluetooth_no_devices_found">မည်သည့် ဘလူးတုသ်ကိရိယာများကိုမှ ရှာမတွေ့ပါ</string>
+    <string name="sec_bluetooth_no_tethered_devices">မည်သည့် ကိရိယာမှ မရှိပါ</string>
     <string name="bt_tether_title">ဘလူးတုသ်ဖြင့် မျှဝေအသုံးပြုခြင်း</string>
     <string name="bt_tether_settings_on">ဖွင့်</string>
     <string name="bt_tether_settings_off">ပိတ်</string>
@@ -1032,6 +1033,7 @@ Smart capture ကို ပိတ်ထားလင့်ကစား ၎င်�
     <string name="general_device_management_title">အထွေထွေ စီမံချက်</string>
     <string name="application_settings_summary">မူရင်ပါပုံစံ အက်ပ်များ၊ ခွင့်ပြုချက်များ၊ ဖြုတ်ရန်</string>
     <string name="notifications_settings_summary">ပိတ်ဆို့ပါ၊ ခွင့်ပြုပါ၊ ဦးစားပေးပါ</string>
+    <string name="ime_security_warning_title">ရွေးထားသည့် ကီးဘုတ်ကို ဖွင့်မလား?</string>
     <string name="language_settings_summary">ဘာသာစကားမျိုးစုံကို အောက်၌ ထည့်ပါ၊ သို့ဖြစ်၍ အက်ပ်တစ်ခုက သင်၏ မူရင်းပုံစံပါဘာသာစကား (စာရင်းထိပ်ပိုင်း၌) ကို ပံ့ပိုးမပေးလျှင်၊ စာရင်းထဲရှိ ပံ့ပိုးသော နောက်ဘာသာစကားတစ်ခုကို အစားထိုး သုံးပါမည်။ ဘာသာစကားတစ်ခုကို မူရင်းပုံစံပါအဖြစ် သတ်မှတ်ရန် စာရင်းထိပ်ဆုံးသို့ ရွှေ့ပါ။</string>
     <string name="more_connection_settings_title">နောက်ထပ် ချိတ်ဆက်မှု သတ်မှတ်ချက်များ</string>
     <string name="lock_and_security_settings_title">သော့ဖန်သားပြင် နှင့် လုံခြုံရေး</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s ကိုသော့ဖွင့်ရန် လက်ဗွေနှိပ်စနစ် သော့အမျိုးအစားနှင့် ဒုတိယသော့အမျိုးအစားကိုရွေးချယ်ပါ။</string>
     <string name="fingerprint_registered">မှတ်ပုံတင်ထားသည့် လက်ဗွေများကို ရွေးထားသည့် သော့ဖွင့် နည်းဖြင့် သုံးမည်။</string>
-    <string name="knox_twofactor_description">Knox ကိုတောင်မှ ပို၍ စိတ်ချရအောင် ပြုလုပ်ရန် သော့ပုံစံ နှစ်မျိုး သုံးပါ။ သင့်လက်ဗွေများကို ပထမ သော့ပုံစံအဖြစ် သုံးပါလိမ့်မည်။ ဒုတိယ သော့ပုံစံ တစ်ခုကို အောက်မှာ ရွေးပါ။</string>
+    <string name="knox_twofactor_description">%s ကို သော့ဖွင့်ရန် သင်၏ ဇီဝရုပ်လက္ခဏာများ သို့မဟုတ် ဒုတိယ သော့ခတ် အမျိုးအစားတစ်ခုကို ရွေးချယ်ပါ။</string>
+    <string name="knox_twofactor_description_fingerprint">%s ကို သော့ဖွင့်ရန် သင်၏ လက်ဗွေများကို သုံးပြီး ဒုတိယ သော့ခတ် အမျိုးအစားတစ်ခုကို ရွေးချယ်ပါ။</string>
     <string name="two_factor_setup">တည်ဆောက်ပါ</string>
     <string name="icon">သင်္ကေတများ</string>
     <string name="vibration">တုန်ခါမှု</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s နှင့် တွဲရန် ပတ်စ်ကီးမှာ %2$s ဟုတ်မဟုတ် သေချာစေပါ။</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>မှ ဤကိရိယာဖြင့် တွဲမည်လား?</string>
     <string name="bluetooth_display_passkey_pin_msg">%1$s သည် %2$s အပေါ်၌ တွဲချိတ်ရန်၊ ပြီးနောက် “ပြန်ထားပါ” (သို့) “ထည့်သွင်းပါ” ကိုနှိပ်ပါ။</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s နှင့် ချိတ်ဆက်မရပါ။ %2$s မှ ချိတ်ဆက်ကြည့်ပါ။</string>
     <string name="bluetooth_connecting_error_message">%s သို့ ချိတ်ဆက်၍ မရပါ။</string>
     <string name="bluetooth_preference_scan_title">ရှာဖွေ</string>
     <string name="bluetooth_preference_paired_devices">တွဲဖက်ထားသည့်ကိရိယာများ</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">သင့် ပုဂ္ဂိုလ်ရေး အချက်အလက်နှင့် ဒေါင်းလုတ်လုပ်ထားသော အပလီကေးရှင်း အားလုံး ဖျက်ပစ်ပြီး ပြန်ရနိုင်တော့မည် မဟုတ်ပါ။</string>
     <string name="master_clear_final_button_text">အားလုံးဖျက်ပစ်ပါ</string>
     <string name="master_clear_not_available">ဤဧည့်သည်၏ ပရိုဖိုင်တွင် စက်ရုံထုတ် ဒေတာပုံစံသို့ ပြန်သတ်မှတ်ခြင်းကို ဆောင်ရွက်ရန် ခွင့်ပြုချက် မရှိပါ။</string>
-    <string name="master_clear_progress_title">ပြန်သတ်မှတ်ပါ</string>
+    <string name="master_clear_progress_title">ပြန်လည်သတ်မှတ်ပါ</string>
     <string name="master_clear_progress_text">ကျေးဇူးပြု၍စောင့်ပါ….</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB ဖြင့် မျှဝေအသုံးပြုခြင်း</string>

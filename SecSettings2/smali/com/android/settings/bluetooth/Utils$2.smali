@@ -39,9 +39,37 @@
 .method public showConnectingError(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x7f0b11de
+    const v0, 0x7f0b11ec
 
     invoke-static {p1, p2, v0}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public showHIDConnectingError(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
+
+    const-string/jumbo v0, ""
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p2, v1, v2
+
+    const/4 v2, 0x1
+
+    aput-object p2, v1, v2
+
+    const v2, 0x7f0b11eb
+
+    invoke-virtual {p1, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;)V
 
     return-void
 .end method

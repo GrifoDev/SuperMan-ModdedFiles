@@ -241,7 +241,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0864
+    const v7, 0x7f0b0867
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -261,7 +261,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ae5
+    const v7, 0x7f0b0ae8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     if-eqz v3, :cond_9
 
-    const v3, 0x7f0b19ca
+    const v3, 0x7f0b19d8
 
     :goto_4
     invoke-virtual {v4, v3}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -499,7 +499,7 @@
     goto :goto_6
 
     :cond_9
-    const v3, 0x7f0b19cb
+    const v3, 0x7f0b19d9
 
     goto :goto_4
 
@@ -1053,14 +1053,14 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b0847
+    const v2, 0x7f0b084a
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :goto_0
-    const v2, 0x7f0b0845
+    const v2, 0x7f0b0848
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1089,7 +1089,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f0b0848
+    const v2, 0x7f0b084b
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1191,7 +1191,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const v2, 0x7f0b0846
+    const v2, 0x7f0b0849
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
 
@@ -1205,7 +1205,7 @@
     :cond_3
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const v2, 0x7f0b112a
+    const v2, 0x7f0b1137
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settingslib/RestrictedPreference;->setSummary(I)V
 
@@ -1630,7 +1630,7 @@
 
     const-string/jumbo v2, "com.android.settings.WeatherSettings"
 
-    const v3, 0x7f0b0845
+    const v3, 0x7f0b0848
 
     move-object v0, p0
 
@@ -1677,7 +1677,7 @@
     return v0
 
     :cond_a
-    const v0, 0x7f0b112b
+    const v0, 0x7f0b1138
 
     invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->newInstance(I)Lcom/samsung/android/settings/lockscreen/OwnerInfo;
 

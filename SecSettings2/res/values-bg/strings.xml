@@ -866,6 +866,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="content_description_hand">Чукнете и задръжте синия кръг в центъра на екрана.</string>
     <string name="nearby_scanning_help_msg_sub">Сканирането на устройства наблизо използва сканиране с Bluetooth с ниска енергия и микрофона. Сканирането с Bluetooth с ниска енергия може да се използва дори когато Bluetooth е изключен на устройството.</string>
     <string name="sec_bluetooth_no_devices_found">Няма открити Bluetooth устройства</string>
+    <string name="sec_bluetooth_no_tethered_devices">Няма устройства</string>
     <string name="bt_tether_title">Bluetooth привързване</string>
     <string name="bt_tether_settings_on">Включено</string>
     <string name="bt_tether_settings_off">Изключено</string>
@@ -1032,6 +1033,7 @@ Wi-Fi и Bluetooth също ще бъдат изключени, но може д
     <string name="general_device_management_title">Основно управление</string>
     <string name="application_settings_summary">Приложения по подразбиране, разрешения, деинсталиране</string>
     <string name="notifications_settings_summary">Блокиране, разрешаване, приоритизиране</string>
+    <string name="ime_security_warning_title">Включване на избраната клавиатура?</string>
     <string name="language_settings_summary">Добавете няколко езика по-долу, така че ако дадено приложение не поддържа езика по подразбиране (в началото на списъка), вместо него ще се използва следващият поддържан език в списъка. Преместете даден език в началото на списъка, за да го зададете по подразбиране.</string>
     <string name="more_connection_settings_title">Още настройки за свързване</string>
     <string name="lock_and_security_settings_title">Заключен екран и защита</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">Изберете биометричен тип на заключване и втори тип на заключване, за да отключите %s.</string>
     <string name="fingerprint_registered">Регистрираните пръстови отпечатъци ще се използват с избрания метод на отключване.</string>
-    <string name="knox_twofactor_description">Използвайте два типа заключване, за да направите Knox още по-защитен. Вашите пръстови отпечатъци ще бъдат използвани като първи тип заключване. Изберете втори тип заключване по-долу.</string>
+    <string name="knox_twofactor_description">Изберете биометричните си данни и втори тип на заключване, за да отключите %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Използвайте пръстови отпечатъци и изберете втори тип на заключване, за да отключите %s.</string>
     <string name="two_factor_setup">Настр.</string>
     <string name="icon">Икони</string>
     <string name="vibration">Вибрация</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">Паролата за потвърждаване е %2$s за сдвояване с %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">От&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Сдвояване с това устройство?</string>
     <string name="bluetooth_display_passkey_pin_msg">Въведете %1$s на %2$s за сдвояване, след което чукнете върху Return или Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Неуспешно свързване с %1$s. Опитайте да се свържете от %2$s.</string>
     <string name="bluetooth_connecting_error_message">Невъзможно свързване с %s.</string>
     <string name="bluetooth_preference_scan_title">Сканиране</string>
     <string name="bluetooth_preference_paired_devices">Сдвоени устройства</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Цялата ви лична информация и всички изтеглени приложения ще бъдат изтрити и не могат да се възстановят.</string>
     <string name="master_clear_final_button_text">Изтрий всички</string>
     <string name="master_clear_not_available">Този профил на гост няма разрешение да извършва нулиране към фабричните данни.</string>
-    <string name="master_clear_progress_title">Нyлиране</string>
+    <string name="master_clear_progress_title">Нулиране</string>
     <string name="master_clear_progress_text">Изчакайте…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Сдвояване през USB</string>

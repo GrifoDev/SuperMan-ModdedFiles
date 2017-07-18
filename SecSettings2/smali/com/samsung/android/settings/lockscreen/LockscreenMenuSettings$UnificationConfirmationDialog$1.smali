@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$UnificationConfirmationDialog$1;->val$parentFragment:Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap2(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap1(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
 
     :goto_0
     return-void
@@ -59,7 +59,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$UnificationConfirmationDialog$1;->val$parentFragment:Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap5(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap4(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
 
     goto :goto_0
 .end method

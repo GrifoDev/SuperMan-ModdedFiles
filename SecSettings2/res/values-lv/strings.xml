@@ -866,6 +866,7 @@ Programmu dati var ietvert personisku informāciju, piemēram, kontaktus, ziņas
     <string name="content_description_hand">Pieskarieties ekrāna centrā zilajam aplim un turiet.</string>
     <string name="nearby_scanning_help_msg_sub">Lai atrastu tuvumā esošās ierīces, tiek izmantota Bluetooth zemas enerģijas meklēšanas funkcija un mikrofons. Bluetooth zemas enerģijas meklēšanu var izmantot arī tad, ja šajā ierīcē ir izslēgta funkcija Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nav atrasta neviena Bluetooth ierīce</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nav ierīču</string>
     <string name="bt_tether_title">Bluetooth piesaiste</string>
     <string name="bt_tether_settings_on">Ieslēgts</string>
     <string name="bt_tether_settings_off">Izslēgts</string>
@@ -1032,6 +1033,7 @@ Pat tad, ja Viedā tveršana ir deaktivizēta, jūs varat piekļūt tās funkcij
     <string name="general_device_management_title">Vispārīga pārvaldība</string>
     <string name="application_settings_summary">Noklusējuma programmas, atļaujas, atinstalēšana</string>
     <string name="notifications_settings_summary">Bloķējiet, atļaujiet, piešķiriet prioritāti</string>
+    <string name="ime_security_warning_title">Vai ieslēgt izvēlēto tastatūru?</string>
     <string name="language_settings_summary">Tālāk pievienojiet vairākas valodas, lai tad, ja programma neatbalsta jūsu noklusējuma valodu (saraksta sākumā), tās vietā tiktu izmantota nākamā saraksta valoda. Pārvietojiet valodu uz saraksta sākumu, lai iestatītu to kā noklusējuma valodu.</string>
     <string name="more_connection_settings_title">Citi savienojuma iestatījumi</string>
     <string name="lock_and_security_settings_title">Bloķēšanas ekr. un drošība</string>
@@ -1827,7 +1829,8 @@ Ierīcē ir pieejamas izvēles drošības opcijas. Lūdzu, ievērojiet visus nor
 "</string>
     <string name="knox_twofactor_bio_description">Izvēlieties savu biometriskās bloķēšanas veidu un otru bloķēšanas veidu, lai atbloķētu %s.</string>
     <string name="fingerprint_registered">Reģistrētie pirkstu nospiedumi tiks izmantoti ar izvēlēto atbloķēšanas metodi.</string>
-    <string name="knox_twofactor_description">Lai vēl vairāk uzlabotu Knox drošību, izmantojiet divus bloķēšanas veidus. Pirkstu nospiedumi tiks izmantoti kā pirmais bloķēšanas veids. Tālāk izvēlieties otru bloķēšanas veidu.</string>
+    <string name="knox_twofactor_description">Izvēlieties savus biometrijas datus un otru bloķēšanas veidu, lai atbloķētu %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Izmantojiet savus pirkstu nospiedumus un izvēlieties otru atbloķēšanas veidu, lai atbloķētu %s.</string>
     <string name="two_factor_setup">Iestatīt</string>
     <string name="icon">Ikonas</string>
     <string name="vibration">Vibrācija</string>
@@ -3685,6 +3688,7 @@ Piezīme. Pirksta nospiedums negarantē tādu aizsardzību kā droša figūra va
     <string name="bluetooth_confirm_passkey_msg">Apstipriniet piekļuves kodu %2$s, lai izveidotu savienojumu pārī ar %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">No&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Vai savienot pārī ar šo ierīci?</string>
     <string name="bluetooth_display_passkey_pin_msg">Ierīcē %2$s ievadiet %1$s, lai savienotu pārī, pēc tam pieskarieties pie Atgriezties vai Ievadīt.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nevar izveidot savienojumu ar %1$s. Mēģiniet izveidot savienojumu no %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nevar izveidot savienojumu ar %s.</string>
     <string name="bluetooth_preference_scan_title">Meklēt</string>
     <string name="bluetooth_preference_paired_devices">Pārī savienotas ierīces</string>

@@ -174,7 +174,7 @@
 .method private confirmFingerprintPassword(I)Z
     .locals 10
 
-    const v5, 0x7f0b0a08
+    const v5, 0x7f0b0a0b
 
     const/4 v9, 0x1
 
@@ -233,7 +233,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1188
+    const v7, 0x7f0b1195
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -270,7 +270,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1184
+    const v7, 0x7f0b1191
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -307,7 +307,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1186
+    const v7, 0x7f0b1193
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -748,7 +748,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mInlineHelp:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v2, 0x7f0b09ff
+    const v2, 0x7f0b0a02
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->getString(I)Ljava/lang/String;
 
@@ -867,7 +867,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0a0d
+    const v4, 0x7f0b0a10
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1188,7 +1188,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b09f2
+    const v2, 0x7f0b09f5
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1360,7 +1360,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mLockTypeFinger:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0a0b
+    const v2, 0x7f0b0a0e
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1421,7 +1421,7 @@
     :goto_2
     iget-object v1, p0, Lcom/samsung/android/settings/personalpage/PersonalPageLockTypeFragment;->mLockTypeFinger:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0a0a
+    const v2, 0x7f0b0a0d
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

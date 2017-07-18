@@ -866,6 +866,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="content_description_hand">ប៉ះ​រង្វង់​ខៀវ​ឲ្យ​ជាប់​ក្នុង​ចំណុច​កណ្ដាល​នៃ​អេក្រង់។</string>
     <string name="nearby_scanning_help_msg_sub">ការស្កេន​ឧបករណ៍​នៅក្បែរ​ប្រើ​ការស្កេន​ថាមពល​ទាប Bluetooth និង មីក្រូហ្វូន។ ការស្កេន​ថាមពល​ទាប Bluetooth អាច​ប្រើ​បាន សូម្បី​ខណៈពេល​បាន​បិទ Bluetooth លើ​ឧបករណ៍​នេះ​ក៏​ដោយ។</string>
     <string name="sec_bluetooth_no_devices_found">រក​មិន​ឃើញ​ឧបករណ៍ Bluetooth ណា​មួយ</string>
+    <string name="sec_bluetooth_no_tethered_devices">គ្មាន​ឧបករណ៍</string>
     <string name="bt_tether_title">ចំណង Bluetooth</string>
     <string name="bt_tether_settings_on">បើក</string>
     <string name="bt_tether_settings_off">បិទ</string>
@@ -1032,6 +1033,7 @@ Wi-Fi និង Bluetooth ក៏​នឹង​ត្រូវ​បាន​ប
     <string name="general_device_management_title">ការគ្រប់គ្រង​ទូទៅ</string>
     <string name="application_settings_summary">កម្មវិធី​លំនាំដើម, ការអនុញ្ញាត, លុប</string>
     <string name="notifications_settings_summary">ខ្ទង់, អនុញ្ញាត, អាទិភាព</string>
+    <string name="ime_security_warning_title">បើក​ក្ដារចុច​ដែល​បាន​ជ្រើស?</string>
     <string name="language_settings_summary">ថែម​ភាសា​ច្រើន​ខាងក្រោម ដូច្នេះ បើ​កម្មវិធី​មួយ​មិន​គាំទ្រ​ភាសា​លំនាំដើម​របស់​អ្នក (នៅ​កំពូល​បញ្ជី) ភាសា​ដែល​បាន​គាំទ្រ​បន្ទាប់​ក្នុង​បញ្ជី នឹង​ត្រូវ​បាន​ប្រើ​ជំនួស​នោះ។ ផ្លាស់ទី​ភាសា​មួយ​ទៅ​កំពូល​បញ្ជី ដើម្បី​កំណត់​វា​ជា​លំនាំដើម។</string>
     <string name="more_connection_settings_title">ការកំណត់​ការភ្ជាប់​ច្រើនទៀត</string>
     <string name="lock_and_security_settings_title">អេក្រង់​ជាប់សោ និង សន្តិសុខ</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">ជ្រើស​ប្រភេទ​សោ​ជីវមាត្រ​របស់​អ្នក​និង​ប្រភេទ​សោ​ទី​ពីរ ដើម្បី​ដោះសោ %s។</string>
     <string name="fingerprint_registered">នឹង​ប្រើ​ស្នាមម្រាមដៃ​ដែល​បាន​ចុះបញ្ជី​ជាមួយ​វិធី​ដោះសោ​ដែល​បាន​ជ្រើស។</string>
-    <string name="knox_twofactor_description">ប្រើ​សោ​ពីរ​ប្រភេទ ដើម្បី​ធ្វើ​ឲ្យ Knox កាន់តែ​មាន​សន្តិសុខ។ ស្នាមម្រាមដៃ​របស់​អ្នក​នឹង​ត្រូវ​បាន​ប្រើ​ជា​ប្រភេទ​សោ​ដំបូង។ ជ្រើស​ប្រភេទ​សោ​ទី​ពីរ​ខាងក្រោម។</string>
+    <string name="knox_twofactor_description">ប្រើ​ជីវមាត្រ​របស់​អ្នក និង ជ្រើស​ប្រភេទ​សោ​ទី​ពីរ ដើម្បី​ដោះសោ %s។</string>
+    <string name="knox_twofactor_description_fingerprint">ប្រើ​ខ្ចៅដៃ​របស់​អ្នក និង ជ្រើស​ប្រភេទ​សោ​ទី​ពីរ ដើម្បី​ដោះសោ %s។</string>
     <string name="two_factor_setup">រៀបចំ</string>
     <string name="icon">អាយខុន</string>
     <string name="vibration">រំញ័រ</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">សោ​សម្ងាត់​បញ្ជាក់​គឺ %2$s ដើម្បី​ផ្គូ​ជាមួយ %1$s។</string>
     <string name="bluetooth_incoming_pairing_msg">ពី&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>ផ្គូ​ជាមួយ​ឧបករណ៍​នេះ?</string>
     <string name="bluetooth_display_passkey_pin_msg">វាយបញ្ចូល %1$s លើ %2$s ដើម្បី​ផ្គូ​គ្នា រួច​ប៉ះ ត្រឡប់ ឬ ចូល។</string>
+    <string name="bluetooth_HID_connecting_error_message">មិន​អាច​ភ្ជាប់​ទៅ %1$s។ សាកល្បង​ភ្ជាប់​ពី %2$s។</string>
     <string name="bluetooth_connecting_error_message">មិន​អាច​ភ្ជាប់​ទៅ %s។</string>
     <string name="bluetooth_preference_scan_title">ស្កេន</string>
     <string name="bluetooth_preference_paired_devices">ឧបករណ៍​បាន​ផ្គូ</string>

@@ -166,7 +166,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1988
+    const v4, 0x7f0b1996
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/notification/ZenModeRuleSettingsBase;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -176,7 +176,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b10f5
+    const v3, 0x7f0b1102
 
     invoke-virtual {v2, v3, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -186,7 +186,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/settings/notification/ZenModeRuleSettingsBase$4;-><init>(Lcom/android/settings/notification/ZenModeRuleSettingsBase;)V
 
-    const v4, 0x7f0b1989
+    const v4, 0x7f0b1997
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -241,7 +241,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/ZenModeRuleSettingsBase;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b199a
+    const v1, 0x7f0b19a8
 
     const/4 v2, 0x0
 
@@ -523,7 +523,7 @@
 
     new-array v3, v7, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b1946
+    const v4, 0x7f0b1954
 
     invoke-virtual {p0, v4}, Lcom/android/settings/notification/ZenModeRuleSettingsBase;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
 
     aput-object v4, v3, v8
 
-    const v4, 0x7f0b1947
+    const v4, 0x7f0b1955
 
     invoke-virtual {p0, v4}, Lcom/android/settings/notification/ZenModeRuleSettingsBase;->getString(I)Ljava/lang/String;
 
@@ -539,7 +539,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1948
+    const v4, 0x7f0b1956
 
     invoke-virtual {p0, v4}, Lcom/android/settings/notification/ZenModeRuleSettingsBase;->getString(I)Ljava/lang/String;
 

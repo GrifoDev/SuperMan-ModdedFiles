@@ -866,6 +866,7 @@ Data aplikací mohou zahrnovat osobní informace, například kontakty, zprávy 
     <string name="content_description_hand">Klepněte na modrý kruh uprostřed obrazovky a přidržte ho.</string>
     <string name="nearby_scanning_help_msg_sub">Hledání nedalekých zařízení používá vyhledávání pomocí Bluetooth Low Energy a mikrofon. Vyhledávání pomocí Bluetooth Low Energy lze použít i když je Bluetooth v zařízení vypnuté.</string>
     <string name="sec_bluetooth_no_devices_found">Nebyla nalezena žádná zařízení Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Žádná zařízení</string>
     <string name="bt_tether_title">Sdílení připojení Bluetooth</string>
     <string name="bt_tether_settings_on">Zapnuto</string>
     <string name="bt_tether_settings_off">Vypnuto</string>
@@ -1032,6 +1033,7 @@ I když je Inteligentní zachycení vypnuté, budete mít přístup k jeho funkc
     <string name="general_device_management_title">Obecná správa</string>
     <string name="application_settings_summary">Výchozí aplikace, oprávnění, odinstalovat</string>
     <string name="notifications_settings_summary">Blokovat, povolit, stanovit prioritu</string>
+    <string name="ime_security_warning_title">Zapnout vybranou klávesnici?</string>
     <string name="language_settings_summary">Přidejte níže další jazyky, aby v případě, že aplikace nepodporuje výchozí jazyk (na začátku seznamu), byl místo něho použit další podporovaný jazyk. Jazyk nastavíte jako výchozí přesunutím na začátek seznamu.</string>
     <string name="more_connection_settings_title">Další nastavení připojení</string>
     <string name="lock_and_security_settings_title">Zamykací obr. a zabezp.</string>
@@ -1827,7 +1829,8 @@ V zařízení jsou k dispozici alternativní možnosti zabezpečení. Dodržujte
 "</string>
     <string name="knox_twofactor_bio_description">Vyberte biometrický typ zámku a druhý typ zámku pro odemknutí %s.</string>
     <string name="fingerprint_registered">Zaregistrované otisky prstů budou použity s vybranou metodou odemknutí.</string>
-    <string name="knox_twofactor_description">Použijte dva typy zamknutí, aby byl Knox ještě lépe zabezpečený. Jako první typ zamknutí budou použity otisky prstů. Druhý typ zamknutí vyberte.</string>
+    <string name="knox_twofactor_description">Vyberte biometriku a druhý typ zámku pro odemknutí %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Použijte otisky prstů a vyberte druhý typ zámku pro odemknutí %s.</string>
     <string name="two_factor_setup">Nastavení</string>
     <string name="icon">Ikony</string>
     <string name="vibration">Vibrace</string>
@@ -3683,6 +3686,7 @@ Poznámka: Váš otisk prstu může představovat nižší úroveň zabezpečen�
     <string name="bluetooth_confirm_passkey_msg">Potvrzení kódu je %2$s pro spárování s %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Od&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Párovat s tímto zařízením?</string>
     <string name="bluetooth_display_passkey_pin_msg">Zadejte %1$s v %2$s pro spárování a klepněte na klávesu Return nebo Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Připojení k %1$s se nezdařilo. Připojte se z %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nelze se připojit k %s.</string>
     <string name="bluetooth_preference_scan_title">Hledat</string>
     <string name="bluetooth_preference_paired_devices">Spárovaná zařízení</string>

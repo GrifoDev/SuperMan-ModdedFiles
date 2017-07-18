@@ -867,6 +867,7 @@ Programdata kan omfatta personliga uppgifter som kontakter, meddelanden och bild
     <string name="content_description_hand">Tryck på den blå cirkeln i mitten av skärmen och håll den nedtryckt.</string>
     <string name="nearby_scanning_help_msg_sub">Söka efter enheter i närheten använder Bluetooth-lågenergisökning och mikrofonen. Bluetooth-lågenergisökning går att använda även när Bluetooth stängs av på enheten.</string>
     <string name="sec_bluetooth_no_devices_found">Inga Bluetooth-enheter hittades</string>
+    <string name="sec_bluetooth_no_tethered_devices">Inga enheter</string>
     <string name="bt_tether_title">Bluetooth-internetdelning</string>
     <string name="bt_tether_settings_on">På</string>
     <string name="bt_tether_settings_off">Av</string>
@@ -1033,6 +1034,7 @@ Du kan öppna funktionerna i Smart bild via Luftkommando, även om Smart bild ä
     <string name="general_device_management_title">Allmän hantering</string>
     <string name="application_settings_summary">Standardprogram, behörigheter, avinstallera</string>
     <string name="notifications_settings_summary">Spärra, tillåt, prioritera</string>
+    <string name="ime_security_warning_title">Vill du slå på det valda tangentbordet?</string>
     <string name="language_settings_summary">Lägg till fler språk nedan. Om ett program inte stödjer ditt standardspråk (överst i listan) används i stället nästa möjliga språk i listan. Gör ett språk till standardspråk genom att placera det först i listan.</string>
     <string name="more_connection_settings_title">Fler anslutningsinställningar</string>
     <string name="lock_and_security_settings_title">Låsskärm och säkerhet</string>
@@ -1828,7 +1830,8 @@ Andra säkerhetsalternativ finns på enheten. Följ alla instruktioner vid anvä
 "</string>
     <string name="knox_twofactor_bio_description">Välj din biometriska låstyp och en sekundär låstyp för att kunna låsa upp %s.</string>
     <string name="fingerprint_registered">Registrerade fingeravtryck kommer att användas med valda upplåsningsmetoder.</string>
-    <string name="knox_twofactor_description">Använd två låstyper för att göra Knox ännu säkrare. Dina fingeravtryck används som den första låstypen. Välj den andra låstypen nedan.</string>
+    <string name="knox_twofactor_description">Välj din biometrik och en sekundär låstyp för att kunna låsa upp %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Använd dina fingeravtryck och välj ytterligare en låstyp för att låsa upp %s.</string>
     <string name="two_factor_setup">Ställ in</string>
     <string name="icon">Ikoner</string>
     <string name="vibration">Vibration</string>
@@ -3684,6 +3687,7 @@ Obs! Ditt fingeravtryck kan vara mindre säkert än ett bra mönster eller en br
     <string name="bluetooth_confirm_passkey_msg">Bekräfta att koden är %2$s för sammankoppling med %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Från&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Sammankoppla med den här enheten?</string>
     <string name="bluetooth_display_passkey_pin_msg">Ange %1$s på %2$s för att sammankoppla och tryck sedan retur eller enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Det går inte att ansluta till %1$s. Försök att ansluta från %2$s.</string>
     <string name="bluetooth_connecting_error_message">Det går inte att ansluta till %s.</string>
     <string name="bluetooth_preference_scan_title">Sök</string>
     <string name="bluetooth_preference_paired_devices">Sammankopplade enheter</string>

@@ -866,6 +866,7 @@ Podaci aplikacije mogu da sadrže lične informacije kao što su kontakti, poruk
     <string name="content_description_hand">Kucni i zadrži plavi krug u centru ekrana.</string>
     <string name="nearby_scanning_help_msg_sub">Opcija Skeniranje uređaja u blizini koristi Nizak nivo energije Bluetooth skeniranja i mikrofon. Nizak nivo energije Bluetooth skeniranja može da se koristi čak i dok je Bluetooth isključen na ovom uređaju.</string>
     <string name="sec_bluetooth_no_devices_found">Nisu pronađeni Bluetooth uređaji</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nema uređaja</string>
     <string name="bt_tether_title">Deljenje preko vezivanja</string>
     <string name="bt_tether_settings_on">Uključen</string>
     <string name="bt_tether_settings_off">Isključen</string>
@@ -1032,6 +1033,7 @@ Možeš da promeniš ovo kasnije odlaskom na Bluetooth podešavanja."</string>
     <string name="general_device_management_title">Opšte upravljanje</string>
     <string name="application_settings_summary">Podrazumevane aplikacije, dozvole, deinstaliranje</string>
     <string name="notifications_settings_summary">Blokiranje, dozvola, davanje prioriteta</string>
+    <string name="ime_security_warning_title">Uključiti izabranu tastaturu?</string>
     <string name="language_settings_summary">Dodajte više jezika u nastavku da bi se koristio naredni podržani jezik na listi u slučaju da neka aplikacija ne podržava podrazumevani jezik (na vrhu liste). Premestite jezik na vrh liste da biste ga podesili kao podrazumevani jezik.</string>
     <string name="more_connection_settings_title">Još podešavanja veze</string>
     <string name="lock_and_security_settings_title">Zaključan ekran i zaštita</string>
@@ -1827,7 +1829,8 @@ Alternativne bezbednosne opcije su dostupne na vašem uređaju. Pratite sva uput
 "</string>
     <string name="knox_twofactor_bio_description">Izaberite biometrički tip zaključavanja i drugi tip zaključavanja da biste otključali uređaj %s.</string>
     <string name="fingerprint_registered">Registrovani otisci prstiju će se koristiti sa izabranim načinom otključavanja.</string>
-    <string name="knox_twofactor_description">Radi dodatne bezbednosti Knoxa koristi dva tipa zaključavanja. Tvoji otisci prstiju koristiće se kao prvi tip zaključavanja. Izaberi drugi tip zaključavanja u nastavku.</string>
+    <string name="knox_twofactor_description">Izaberite biometriju i drugi tip zaključavanja da biste otključali uređaj %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Koristite otiske prstiju i izaberite drugi tip zaključavanja da biste otključali %s.</string>
     <string name="two_factor_setup">Podesi</string>
     <string name="icon">Ikone</string>
     <string name="vibration">Vibracija</string>
@@ -3683,6 +3686,7 @@ Napomena: vaš otisak prsta može predstavljati manju zaštitu od jakog obrasca 
     <string name="bluetooth_confirm_passkey_msg">Potvrdna šifra je %2$s za uparivanje sa %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Šalje&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Upariti sa ovim uređajem?</string>
     <string name="bluetooth_display_passkey_pin_msg">Unesi %1$s na %2$s za uparivanje, a zatim kucni na Vrati ili Unesi.</string>
+    <string name="bluetooth_HID_connecting_error_message">Ne može da se uspostavi veza sa uređajem %1$s. Pokušajte da uspostavite vezu na uređaju %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nemoguće povezivanje na %s.</string>
     <string name="bluetooth_preference_scan_title">Skeniraj</string>
     <string name="bluetooth_preference_paired_devices">Upareni uređaji</string>
@@ -4083,7 +4087,7 @@ Razmislite o upotrebi brže SD kartice ili USB uređaja za skladištenje da bist
     <string name="master_clear_final_desc">Izbrisaće se svi tvoji lični podaci kao i preuzete aplikacije i neće moći da se vrate.</string>
     <string name="master_clear_final_button_text">Izbriši sve</string>
     <string name="master_clear_not_available">Profil ovog gosta nema dozvolu da resetuje podešavanje na fabričke vrednosti.</string>
-    <string name="master_clear_progress_title">Resetuj</string>
+    <string name="master_clear_progress_title">Resetujte</string>
     <string name="master_clear_progress_text">Sačekaj…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB vezivanje</string>

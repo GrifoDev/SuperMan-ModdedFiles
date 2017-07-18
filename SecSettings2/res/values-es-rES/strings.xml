@@ -730,6 +730,7 @@ Los datos de las aplicaciones pueden incluir información personal como contacto
     <string name="content_description_hand">Mantenga pulsado el círculo azul en el centro de la pantalla</string>
     <string name="nearby_scanning_help_msg_sub">La función de búsqueda de dispositivos cercanos utiliza la búsqueda de Bluetooth de baja energía y el micrófono. La búsqueda de Bluetooth de baja energía se puede utilizar incluso cuando el Bluetooth está desactivado en este dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">No se ha encontrado ningún dispositivo Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">No hay dispositivos</string>
     <string name="bt_tether_title">Módem Bluetooth</string>
     <string name="bt_tether_settings_on">Activado</string>
     <string name="bt_tether_settings_off">Desactivado</string>
@@ -896,6 +897,7 @@ Aunque la opción Captura completa esté desactivada, puede acceder a sus funcio
     <string name="general_device_management_title">Administración general</string>
     <string name="application_settings_summary">Aplicaciones predeterminadas, permisos, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">¿Activar el teclado seleccionado?</string>
     <string name="language_settings_summary">Añada varios idiomas a continuación de modo que, si una aplicación no admite su idioma predeterminado (el primero de la lista), se utilice en su lugar el siguiente idioma admitido de la lista. Mueva un idioma al principio de la lista para establecerlo como predeterminado.</string>
     <string name="more_connection_settings_title">Más ajustes de conexión</string>
     <string name="lock_and_security_settings_title">Pantalla Bloqueo y seguridad</string>
@@ -1692,7 +1694,8 @@ Las opciones de seguridad alternativas están disponibles en su dispositivo. Sig
 "</string>
     <string name="knox_twofactor_bio_description">Seleccione el tipo de bloqueo biométrico y un segundo tipo de bloqueo para desbloquear %s.</string>
     <string name="fingerprint_registered">Se utilizarán las huellas digitales registradas con el método de desbloqueo seleccionado.</string>
-    <string name="knox_twofactor_description">Utilice dos tipos de bloqueo para que Knox sea aún más seguro. Sus huellas digitales se utilizarán como primer tipo de bloqueo. Seleccione a continuación un segundo tipo de bloqueo.</string>
+    <string name="knox_twofactor_description">Seleccione sus datos biométricos y un segundo tipo de bloqueo para desbloquear %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Use sus huellas digitales y seleccione un segundo tipo de bloqueo para desbloquear %s.</string>
     <string name="two_factor_setup">Configurar</string>
     <string name="icon">Iconos</string>
     <string name="vibration">Vibración</string>
@@ -3546,6 +3549,7 @@ Nota: la huella digital puede ser menos segura que un patrón complejo o un PIN.
     <string name="bluetooth_confirm_passkey_msg">La contraseña de confirmación es %2$s para vincular con %1$s</string>
     <string name="bluetooth_incoming_pairing_msg">Desde&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>¿Vincular con este dispositivo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Introduzca %1$s en %2$s para vincular y toque Retorno o Intro</string>
+    <string name="bluetooth_HID_connecting_error_message">No se puede conectar a %1$s. Intente conectarse desde %2$s.</string>
     <string name="bluetooth_connecting_error_message">No es posible conectar con %s</string>
     <string name="bluetooth_preference_scan_title">Buscar</string>
     <string name="bluetooth_preference_paired_devices">Dispositivos vinculados</string>

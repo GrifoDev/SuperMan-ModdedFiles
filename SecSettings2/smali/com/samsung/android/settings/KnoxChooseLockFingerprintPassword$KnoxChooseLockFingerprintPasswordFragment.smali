@@ -1103,7 +1103,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b11b5
+    const v1, 0x7f0b11c2
 
     invoke-virtual {p0, v1, v0}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1138,7 +1138,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b08c8
+    const v1, 0x7f0b08cb
 
     invoke-virtual {p0, v1, v0}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1157,7 +1157,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b11b4
+    const v1, 0x7f0b11c1
 
     invoke-virtual {p0, v1, v0}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1176,7 +1176,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b08c7
+    const v1, 0x7f0b08ca
 
     invoke-virtual {p0, v1, v0}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1365,7 +1365,7 @@
 
     if-eqz v5, :cond_a
 
-    const v5, 0x7f0b11b4
+    const v5, 0x7f0b11c1
 
     :goto_3
     new-array v6, v6, [Ljava/lang/Object;
@@ -1391,7 +1391,7 @@
     goto :goto_2
 
     :cond_a
-    const v5, 0x7f0b11b5
+    const v5, 0x7f0b11c2
 
     goto :goto_3
 
@@ -1402,7 +1402,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v7, 0x7f0b083a
+    const v7, 0x7f0b083d
 
     invoke-virtual {v5, v7}, Landroid/widget/TextView;->setText(I)V
 
@@ -1561,7 +1561,7 @@
 
     if-eqz v29, :cond_0
 
-    const v29, 0x7f0b08bd
+    const v29, 0x7f0b08c0
 
     move-object/from16 v0, p0
 
@@ -1808,7 +1808,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087a
+    const v30, 0x7f0b087d
 
     move-object/from16 v0, p0
 
@@ -1847,7 +1847,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0879
+    const v30, 0x7f0b087c
 
     move-object/from16 v0, p0
 
@@ -1884,7 +1884,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087c
+    const v30, 0x7f0b087f
 
     move-object/from16 v0, p0
 
@@ -1905,7 +1905,7 @@
 
     if-ne v13, v0, :cond_4
 
-    const v29, 0x7f0b087b
+    const v29, 0x7f0b087e
 
     move-object/from16 v0, p0
 
@@ -1942,7 +1942,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087d
+    const v30, 0x7f0b0880
 
     move-object/from16 v0, p0
 
@@ -1959,7 +1959,7 @@
     :cond_5
     if-nez v18, :cond_6
 
-    const v29, 0x7f0b087e
+    const v29, 0x7f0b0881
 
     move-object/from16 v0, p0
 
@@ -1999,7 +1999,7 @@
 
     if-eqz v29, :cond_8
 
-    const v29, 0x7f0b06f0
+    const v29, 0x7f0b06f1
 
     :goto_0
     move-object/from16 v0, p0
@@ -2013,7 +2013,7 @@
     return-object v29
 
     :cond_8
-    const v29, 0x7f0b08bf
+    const v29, 0x7f0b08c2
 
     goto :goto_0
 
@@ -2032,7 +2032,7 @@
 
     if-eqz v29, :cond_a
 
-    const v29, 0x7f0b070b
+    const v29, 0x7f0b070c
 
     :goto_1
     move-object/from16 v0, p0
@@ -2046,7 +2046,7 @@
     return-object v29
 
     :cond_a
-    const v29, 0x7f0b08be
+    const v29, 0x7f0b08c1
 
     goto :goto_1
 
@@ -2097,7 +2097,7 @@
     if-le v6, v0, :cond_d
 
     :cond_c
-    const v29, 0x7f0b11bb
+    const v29, 0x7f0b11c8
 
     move-object/from16 v0, p0
 
@@ -2219,7 +2219,7 @@
 
     if-gtz v29, :cond_14
 
-    const v29, 0x7f0b11b9
+    const v29, 0x7f0b11c6
 
     move-object/from16 v0, p0
 
@@ -2258,7 +2258,7 @@
 
     if-le v0, v1, :cond_25
 
-    const v29, 0x7f0b11c0
+    const v29, 0x7f0b11cd
 
     move-object/from16 v0, p0
 
@@ -2694,7 +2694,7 @@
     if-lez v27, :cond_1d
 
     :cond_1c
-    const v29, 0x7f0b0872
+    const v29, 0x7f0b0875
 
     move-object/from16 v0, p0
 
@@ -2786,7 +2786,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b077c
+    const v30, 0x7f0b077f
 
     move-object/from16 v0, p0
 
@@ -2833,7 +2833,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0687
+    const v30, 0x7f0b0688
 
     move-object/from16 v0, p0
 
@@ -2855,7 +2855,7 @@
     :cond_23
     if-nez v19, :cond_24
 
-    const v29, 0x7f0b11bc
+    const v29, 0x7f0b11c9
 
     move-object/from16 v0, p0
 
@@ -2872,7 +2872,7 @@
 
     if-nez v22, :cond_25
 
-    const v29, 0x7f0b11bd
+    const v29, 0x7f0b11ca
 
     move-object/from16 v0, p0
 
@@ -2932,7 +2932,7 @@
 
     if-eqz v29, :cond_27
 
-    const v29, 0x7f0b11b7
+    const v29, 0x7f0b11c4
 
     :goto_6
     const/16 v30, 0x1
@@ -2970,7 +2970,7 @@
     return-object v29
 
     :cond_27
-    const v29, 0x7f0b11b8
+    const v29, 0x7f0b11c5
 
     goto :goto_6
 
@@ -3005,7 +3005,7 @@
 
     if-eqz v29, :cond_29
 
-    const v29, 0x7f0b11bf
+    const v29, 0x7f0b11cc
 
     :goto_7
     move-object/from16 v0, p0
@@ -3019,7 +3019,7 @@
     return-object v29
 
     :cond_29
-    const v29, 0x7f0b11ba
+    const v29, 0x7f0b11c7
 
     goto :goto_7
 
@@ -3301,7 +3301,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087a
+    const v30, 0x7f0b087d
 
     move-object/from16 v0, p0
 
@@ -3352,7 +3352,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b0879
+    const v30, 0x7f0b087c
 
     move-object/from16 v0, p0
 
@@ -3389,7 +3389,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087c
+    const v30, 0x7f0b087f
 
     move-object/from16 v0, p0
 
@@ -3410,7 +3410,7 @@
 
     if-ne v13, v0, :cond_31
 
-    const v29, 0x7f0b087b
+    const v29, 0x7f0b087e
 
     move-object/from16 v0, p0
 
@@ -3447,7 +3447,7 @@
 
     aput-object v30, v29, v31
 
-    const v30, 0x7f0b087d
+    const v30, 0x7f0b0880
 
     move-object/from16 v0, p0
 
@@ -3464,7 +3464,7 @@
     :cond_32
     if-nez v18, :cond_2d
 
-    const v29, 0x7f0b087e
+    const v29, 0x7f0b0881
 
     move-object/from16 v0, p0
 
@@ -5515,7 +5515,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08b7
+    const v1, 0x7f0b08ba
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -5538,7 +5538,7 @@
     :cond_3
     iget-object v0, p0, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->mHeaderText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b08b8
+    const v1, 0x7f0b08bb
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -5804,7 +5804,7 @@
 
     if-eqz v7, :cond_e
 
-    const v7, 0x7f0b06e9
+    const v7, 0x7f0b06ea
 
     :goto_2
     invoke-virtual {v4, v7}, Landroid/widget/TextView;->setText(I)V
@@ -5867,7 +5867,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b0ea5
+    const v8, 0x7f0b0eb4
 
     invoke-virtual {p0, v8, v7}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5973,7 +5973,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->mChooseLockSettingsHelper:Lcom/android/settings/ChooseLockSettingsHelper;
 
-    const v8, 0x7f0b117b
+    const v8, 0x7f0b1188
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/KnoxChooseLockFingerprintPassword$KnoxChooseLockFingerprintPasswordFragment;->getString(I)Ljava/lang/String;
 
@@ -6076,7 +6076,7 @@
     goto/16 :goto_1
 
     :cond_e
-    const v7, 0x7f0b06e8
+    const v7, 0x7f0b06e9
 
     goto/16 :goto_2
 

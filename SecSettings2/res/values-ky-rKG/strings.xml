@@ -866,6 +866,7 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="content_description_hand">Экрандын ортосунда көк тегеректи таптап, жана кармаңыз.</string>
     <string name="nearby_scanning_help_msg_sub">Жакынкы түзмөк издөөсү, Bluetooth Төмөн Кубаттуулук издөөсүн жана микрофонду колдонот. Bluetooth, бул түзмөктөн өчүрүлгөн учурда дагы Bluetooth Төмөн Кубаттуулук издөөсүн колдонууга болот.</string>
     <string name="sec_bluetooth_no_devices_found">Эч кандай Bluetooth түзмөк табылган жок</string>
+    <string name="sec_bluetooth_no_tethered_devices">Түзмөктөр жок</string>
     <string name="bt_tether_title">Bluetooth таратуусу</string>
     <string name="bt_tether_settings_on">Күйүк</string>
     <string name="bt_tether_settings_off">Өчүк</string>
@@ -1032,6 +1033,7 @@ Wi-Fi жана Bluetooth да өчүрүлөт, бирок кайра алард
     <string name="general_device_management_title">Жалпы башкаруулар</string>
     <string name="application_settings_summary">Баштапкы колдонмолор, уруксаттар, өчүрүү</string>
     <string name="notifications_settings_summary">Камоо, уруксат берүү, маанилүүлүгү боюнча иреттөө</string>
+    <string name="ime_security_warning_title">Тандалган клавиатураны күйгүзүүбү?</string>
     <string name="language_settings_summary">Эгерде колдонмо баштапкы тилиңизди (тизменин жогору жагындагы) колдоого албаса, ордуна тизмедеги кийинки колдоого алынган тил колдонула тургандай кылып, төмөндөн бир нече тил кошуңуз. Тилди баштапкы катары орнотуу үчүн, аны тизменин башына жылдырыңыз.</string>
     <string name="more_connection_settings_title">Башка туташуу орнотуулары</string>
     <string name="lock_and_security_settings_title">Кулпу экран &amp; коопсуздук</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s кулпудан чыгаруу үчүн, биометрикалык кулпу түрүн жана экинчи кулпу түрүн тандаңыз.</string>
     <string name="fingerprint_registered">Катталган бармак издери, тандалган кулпуну ачуу ыкмасы менен кошо колдонулат.</string>
-    <string name="knox_twofactor_description">Knox’ту дагы да коопсуз кылуу үчүн эки кулпулоо түрүн колдонуңуз. Бармак издериңиз биринчи кулпулоо түрү катары колдонулат. Экинчи кулпулоо түрүн ылдыйдан тандаңыз.</string>
+    <string name="knox_twofactor_description">%s кулпусун ачуу үчүн, биометрикаңызды жана экинчи кулпу түрүн тандаңыз.</string>
+    <string name="knox_twofactor_description_fingerprint">%s кулпусун ачуу үчүн бармак издериңизди колдонуп, экинчи кулпулоо түрүн тандаңыз.</string>
     <string name="two_factor_setup">Орнотуу</string>
     <string name="icon">Сүротчөлөр</string>
     <string name="vibration">Дирилдөө</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s менен кошоктотуу үчүн кирүү ачкычы %2$s болгонун ырастоо</string>
     <string name="bluetooth_incoming_pairing_msg">Кимден&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Бул түзмөк менен кошоктотуубу?</string>
     <string name="bluetooth_display_passkey_pin_msg">Кошоктотуу үчүн %2$s ичине %1$s киргизиңиз, андан соң Кайтарууну же Киргизүүнү таптаңыз</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s туташа албайт. %2$s туташууга аракет кылыңыз.</string>
     <string name="bluetooth_connecting_error_message">%s менен туташуу мүмкүн эмес.</string>
     <string name="bluetooth_preference_scan_title">Издөө</string>
     <string name="bluetooth_preference_paired_devices">Байланышкан түзмөктөр</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Сиздин бардык жеке маалыматыңыз жана жүктөлгөн колдонмолоруңуз өчүрүлөт жана калыбына келтирүүгө мүмкүн болбойт.</string>
     <string name="master_clear_final_button_text">Баарын жок кылуу</string>
     <string name="master_clear_not_available">Бул конок профили дайындарды баштапкы абалга келтире албайт.</string>
-    <string name="master_clear_progress_title">Кайра коюу</string>
+    <string name="master_clear_progress_title">Кайра кой</string>
     <string name="master_clear_progress_text">Күтө туруңуз…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB модем</string>

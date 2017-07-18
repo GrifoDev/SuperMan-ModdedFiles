@@ -65,15 +65,15 @@
 
     iput-object v1, v0, Lcom/android/settings/utils/ManagedServiceSettings$Config;->noun:Ljava/lang/String;
 
-    const v1, 0x7f0b1971
+    const v1, 0x7f0b197f
 
     iput v1, v0, Lcom/android/settings/utils/ManagedServiceSettings$Config;->warningDialogTitle:I
 
-    const v1, 0x7f0b1972
+    const v1, 0x7f0b1980
 
     iput v1, v0, Lcom/android/settings/utils/ManagedServiceSettings$Config;->warningDialogSummary:I
 
-    const v1, 0x7f0b1970
+    const v1, 0x7f0b197e
 
     iput v1, v0, Lcom/android/settings/utils/ManagedServiceSettings$Config;->emptyText:I
 

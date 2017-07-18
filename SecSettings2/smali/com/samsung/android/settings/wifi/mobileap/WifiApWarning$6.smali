@@ -37,7 +37,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 9
 
-    const v8, 0x7f0b0d74
+    const v8, 0x7f0b0d83
 
     const/4 v7, 0x1
 
@@ -266,7 +266,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0d76
+    const v3, 0x7f0b0d85
 
     invoke-static {v2, v3, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

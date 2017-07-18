@@ -75,7 +75,7 @@
     return-void
 
     :cond_2
-    const v3, 0x7f0b1394
+    const v3, 0x7f0b13a2
 
     invoke-virtual {p0, v3}, Lcom/android/settings/wifi/WifiSettingsForSetupWizard;->getString(I)Ljava/lang/String;
 

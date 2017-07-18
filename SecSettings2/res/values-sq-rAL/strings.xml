@@ -865,6 +865,7 @@ Të dhënat e app-eve mund të përfshijnë informacion personal, të tillë si 
     <string name="content_description_hand">Trokit dhe mbaj rrethin e kaltër në qendër të ekranit</string>
     <string name="nearby_scanning_help_msg_sub">Skanimi për pajisje të afërta përdor skanim Bluetooth me Energji të Ulët dhe mikrofonin. Skanimi Bluetooth me Energji të Ulët mund të përdoret edhe kur Bluetooth është fikur në këtë pajisje.</string>
     <string name="sec_bluetooth_no_devices_found">Nuk u gjet asnjë pajisje Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nuk ka pajisje</string>
     <string name="bt_tether_title">Lidhje Bluetooth</string>
     <string name="bt_tether_settings_on">Ndezur</string>
     <string name="bt_tether_settings_off">Fikur</string>
@@ -1031,6 +1032,7 @@ Edhe kur Kapja inteligjente është paaftësuar, mund t‘ia aksesosh funksional
     <string name="general_device_management_title">Menaxhimi i përgjithshëm</string>
     <string name="application_settings_summary">App-et me parazgjedhje, lejet, çinstalo</string>
     <string name="notifications_settings_summary">Blloko, lejo, jep përparësi</string>
+    <string name="ime_security_warning_title">Ta ndez tastierën e përzgjedhur?</string>
     <string name="language_settings_summary">Shto disa gjuhë më poshtë në mënyrë që, po të mos e mbështetë app-i gjuhën tënde të parazgjedhur (në krye të listës), të përdoret gjuha e mbështetur pasuese nga lista. Zhvendose një gjuhë në krye të listës, për ta cilësuar si parazgjedhje.</string>
     <string name="more_connection_settings_title">Cilësime të tjera të lidhjes</string>
     <string name="lock_and_security_settings_title">Ekrani bllok. dhe siguria</string>
@@ -1826,7 +1828,8 @@ Në pajisje ke në dispozicion opsione alternative të sigurisë. Lutemi ndiq t�
 "</string>
     <string name="knox_twofactor_bio_description">Përzgjidh llojin e bllokimit biometrik dhe një lloj të dytë bllokimi për ta zhbllokuar %s.</string>
     <string name="fingerprint_registered">Shenjat e gishtave të regjistruara do të përdoren me metodën e përzgjedhur të zhbllokimit.</string>
-    <string name="knox_twofactor_description">Përdor dy mënyra bllokimi, për ta bërë Knox edhe më të sigurtë. Shenjat e gishtave do të përdoren si mënyrë e parë bllokimi. Përzgjidh një mënyrë të dytë bllokimi nga më poshtë.</string>
+    <string name="knox_twofactor_description">Përzgjidh biometrikën dhe një lloj të dytë bllokimi për ta zhbllokuar %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Përdor shenjat e gishtit dhe përzgjidh një lloj të dytë bllokimi për të zhbllokuar %s.</string>
     <string name="two_factor_setup">Konfiguro</string>
     <string name="icon">Ikonat</string>
     <string name="vibration">Dridhja</string>
@@ -3682,6 +3685,7 @@ Shënim: Shenja jote e gishtit mund të jetë më pak e sigurt se një motiv ose
     <string name="bluetooth_confirm_passkey_msg">"Konfirmo që fjalëkalimi është %2$s për t'u çiftuar me %1$s."</string>
     <string name="bluetooth_incoming_pairing_msg">Nga&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Të çiftohet me këtë pajisje?</string>
     <string name="bluetooth_display_passkey_pin_msg">Fut %1$s në %2$s për çiftim, pastaj prek mbi Kthehu ose Fut.</string>
+    <string name="bluetooth_HID_connecting_error_message">S’mund të lidhem me %1$s. Provo të lidhesh nga %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nuk lidhem dot me %s.</string>
     <string name="bluetooth_preference_scan_title">Kërko</string>
     <string name="bluetooth_preference_paired_devices">Pajisje të çiftuara</string>
@@ -4082,7 +4086,7 @@ Shih se mos përdor një kartë SD ose një magazinë USB më të shpejtë, për
     <string name="master_clear_final_desc">Të gjitha të dhënat e tua personale dhe aplikacionet e shkarkuara do të fshihen dhe nuk mund të rikuperohen më.</string>
     <string name="master_clear_final_button_text">Fshij të gjitha</string>
     <string name="master_clear_not_available">Ky profil mysafiri nuk ka leje për të kryer resetim në të dhënat e fabrikës.</string>
-    <string name="master_clear_progress_title">Ricilëso</string>
+    <string name="master_clear_progress_title">Reseto</string>
     <string name="master_clear_progress_text">Prisni…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Lidhja USB</string>

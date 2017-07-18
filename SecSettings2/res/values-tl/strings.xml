@@ -866,6 +866,7 @@ Maaaring kasama sa data ng App ang personal na impormasyon gaya ng mga contact, 
     <string name="content_description_hand">I-tap nang matagal ang asul na bilog sa gitna ng screen.</string>
     <string name="nearby_scanning_help_msg_sub">Ginagamit ng Nearby device scanning ang Bluetooth Low Energy scanning at mikropono. Magagamit ang Bluetooth Low Energy scanning kahit na naka-off ang Bluetooth sa device na ito.</string>
     <string name="sec_bluetooth_no_devices_found">Walang nakitang mga Bluetooth device</string>
+    <string name="sec_bluetooth_no_tethered_devices">Walang mga device</string>
     <string name="bt_tether_title">Pag-tether sa pamamagitan ng Bluetooth</string>
     <string name="bt_tether_settings_on">Naka-on</string>
     <string name="bt_tether_settings_off">Naka-off</string>
@@ -1032,6 +1033,7 @@ Kahit na hindi gumagana ang Smart capture, maa-access mo ang mga feature nito ga
     <string name="general_device_management_title">Pangkalahatang pamamahala</string>
     <string name="application_settings_summary">Mga default app, mga pahintulot, i-uninstall</string>
     <string name="notifications_settings_summary">I-block, payagan, unahin</string>
+    <string name="ime_security_warning_title">I-on ang napiling keyboard?</string>
     <string name="language_settings_summary">Magdagdag ng maraming wika sa ibaba para, kung hindi suportado ng app ang default na wika mo (sa itaas ng lista), gagamitin ang susunod na wika sa lista. Ilipat ang isang wika sa itaas ng lista para i-set ito bilang default.</string>
     <string name="more_connection_settings_title">Marami pang setting ng koneksyon</string>
     <string name="lock_and_security_settings_title">Lock ng screen at seguridad</string>
@@ -1827,7 +1829,8 @@ May mga kahaliling opsyon sa seguridad sa device mo. Pakisunod ang lahat ng tagu
 "</string>
     <string name="knox_twofactor_bio_description">Piliin ang uri ng biometric lock at ikalawang uri ng lock para i-unlock ang %s.</string>
     <string name="fingerprint_registered">Gagamitin ang mga nakarehistrong fingerprint sa piniling paraan ng pag-unlock.</string>
-    <string name="knox_twofactor_description">Gumamit ng dalawang uri ng lock para gawing mas secure ang Knox. Ang iyong mga fingerprint ay gagamitin bilang unang uri ng lock. Pumili ng pangalawang uri ng lock sa ibaba.</string>
+    <string name="knox_twofactor_description">Piliin ang biometrics mo at isang ikalawang uri ng lock para i-unlock ang %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Gamitin ang mga fingerprint mo at pumili ng ikalawang uri ng lock para i-unlock ang %s.</string>
     <string name="two_factor_setup">I-set up</string>
     <string name="icon">Mga Icon</string>
     <string name="vibration">Pag-vibrate</string>
@@ -3682,6 +3685,7 @@ Tandaan: Maaaring hindi kasing-ligtas ang fingerprint mo kaysa sa isang matibay 
     <string name="bluetooth_confirm_passkey_msg">Ang passkey sa pagkumpirma ay %2$s upang i-pair sa %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Mula sa&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>I-pair sa device na ito?</string>
     <string name="bluetooth_display_passkey_pin_msg">Ilagay ang %1$s sa %2$s na ipe-pair, pagkatapos ay i-tap ang Bumalik o ang Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Hindi makakonekta sa %1$s. Subukang kumonekta mula sa %2$s.</string>
     <string name="bluetooth_connecting_error_message">Hindi makakonekta sa %s.</string>
     <string name="bluetooth_preference_scan_title">Mag-scan</string>
     <string name="bluetooth_preference_paired_devices">Mga na-pair na device</string>

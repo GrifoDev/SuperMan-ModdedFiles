@@ -866,6 +866,7 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="content_description_hand">திரையின் மையத்தில் நீலநிற வட்டத்தை டேப் செய்து பிடிக்கவும்.</string>
     <string name="nearby_scanning_help_msg_sub">அருகாமையிலுள்ள சாதனங்கள் ஸ்கேனிங், ப்ளூடூத் குறைவு சக்தி ஸ்கேனிங் மற்றும் மைக்ரோஃபோனை பயன்படுத்துகிறது. ப்ளூடூத் குறைவு சக்தி ஸ்கேனிங், இந்தச் சாதனத்தில் ப்ளூடூத் ஆஃப் செய்யப்பட்டிருக்கும் போதும் பயன்படுத்தப்படும்.</string>
     <string name="sec_bluetooth_no_devices_found">ப்ளூடூத் சாதனங்கள் ஏதுமில்லை</string>
+    <string name="sec_bluetooth_no_tethered_devices">சாதனங்கள் இல்லை</string>
     <string name="bt_tether_title">ப்ளூடூத் டித்தரிங்</string>
     <string name="bt_tether_settings_on">ஆன்</string>
     <string name="bt_tether_settings_off">ஆஃப்</string>
@@ -1032,6 +1033,7 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="general_device_management_title">பொது மேலாண்மை</string>
     <string name="application_settings_summary">டீஃபால்ட் பயன்பாடுகள், அனுமதிகள், நிறுவல் நீக்கவும்</string>
     <string name="notifications_settings_summary">தடை செய்யவும், அனுமதிக்கவும், முன்னுரிமை வழங்கவும்</string>
+    <string name="ime_security_warning_title">தேர்வு செய்த விசைப்பலகையை ஆன் செய்யவா?</string>
     <string name="language_settings_summary">கீழே உள்ள பல மொழிகளைச் சேர்க்கவும், இதனால் பயன்பாடானது உங்கள் டீஃபால்ட் மொழியை ஆதரிக்கவில்லையெனில் (பட்டியலின் மேலே), அதற்குப் பதிலாக பட்டியலில் உள்ள அடுத்த ஆதரிக்கப்படும் மொழியைப் பயன்படுத்தப்படும். மொழியை டீஃபால்ட்டாக அமைக்க பட்டியலின் மேலே அதை நகர்த்தவும்.</string>
     <string name="more_connection_settings_title">மேலும் இணைப்பு அமைவுகள்</string>
     <string name="lock_and_security_settings_title">பூட்டு திரை மற்றும் பாதுகாப்பு</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s-ஐ பூட்டுநீக்க, உங்கள் பயோமெட்ரிக் பூட்டு வகையையும் இரண்டாம் பூட்டு வகையையும் தேர்வு செய்க.</string>
     <string name="fingerprint_registered">பதிவுசெய்த ரேகைப்பதிவுகள் தேர்ந்தெடுத்த பூட்டுநீக்க முறையுடன் பயன்படுத்தப்படும்.</string>
-    <string name="knox_twofactor_description">Knox-ஐ மேலும் பாதுகாப்பானதாக ஆக்குவதற்கு, இரண்டு பூட்டு வகைகளைப் பயன்படுத்தவும். உங்கள் கைரேகைப் பதிவுகள், முதல் பூட்டு வகையாகப் பயன்படுத்தப்படும். கீழே இரண்டாவது பூட்டு வகையைத் தேர்வுசெய்யவும்.</string>
+    <string name="knox_twofactor_description">%s-ஐ பூட்டுநீக்க, உங்கள் பயோமெட்ரிக்ஸையும், இரண்டாம் பூட்டு வகையையும் தேர்வு செய்க.</string>
+    <string name="knox_twofactor_description_fingerprint">%s-ஐ பூட்டுநீக்க உங்கள் கைரேகைப் பதிவுகளைப் பயன்படுத்தவும் மற்றும் இரண்டாவது பூட்டு வகையைத் தேர்வுசெய்யவும்.</string>
     <string name="two_factor_setup">அமைவு</string>
     <string name="icon">சின்னங்கள்</string>
     <string name="vibration">அதிர்வு</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%2$s என்பதை %1$s உடன் இணைக்க கடவுச்சொல்லை உறுதிப்படுத்துக.</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>இலிருந்து இந்த சாதனத்துடன் பிணைக்கவா?</string>
     <string name="bluetooth_display_passkey_pin_msg">இணைக்க, %1$s என்பதை %2$s என்பதில் உள்ளிடுக, பிறகு “பின்செல்” அல்லது “எண்டர்” என்பதை டேப் செய்க.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s உடன் இணைக்க இயலாது. %2$s வழியாக இணைக்க முயலுக.</string>
     <string name="bluetooth_connecting_error_message">%s உடன் இணைக்க இயலாது.</string>
     <string name="bluetooth_preference_scan_title">ஸ்கேன்</string>
     <string name="bluetooth_preference_paired_devices">இணைக்கப்பட்ட சாதனங்கள்</string>

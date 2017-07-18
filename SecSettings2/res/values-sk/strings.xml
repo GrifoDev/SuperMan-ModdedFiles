@@ -866,6 +866,7 @@ Tiež sa vypnú funkcie Wi-Fi a Bluetooth, môžete ich však znova zapnúť v m
     <string name="content_description_hand">Ťuknite na modrý kruh v strede obrazovky a podržte ho.</string>
     <string name="nearby_scanning_help_msg_sub">Funkcia Hľadanie blízkych zariadení používa vyhľadávanie cez Bluetooth Low Energy a mikrofón. Vyhľadávanie cez Bluetooth Low Energy možno použiť aj vtedy, keď je v zariadení vypnuté rozhranie Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nenašli sa žiadne zariadenia Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Žiadne zariadenia</string>
     <string name="bt_tether_title">Zdieľanie pripojenia Bluetooth</string>
     <string name="bt_tether_settings_on">Zapnúť</string>
     <string name="bt_tether_settings_off">Vypnúť</string>
@@ -1032,6 +1033,7 @@ Aj keď je funkcia Inteligentné snímanie vypnutá, môžete pristupovať k jej
     <string name="general_device_management_title">Všeobecné spravovanie</string>
     <string name="application_settings_summary">Predvolené aplikácie, povolenia, odinštalovať</string>
     <string name="notifications_settings_summary">Blokovať, povoliť, uprednostniť</string>
+    <string name="ime_security_warning_title">Chcete zapnúť vybratú klávesnicu?</string>
     <string name="language_settings_summary">Nižšie môžete pridať viacero jazykov, aby sa v prípade, ak aplikácia nepodporuje predvolený jazyk (na začiatku zoznamu), použil namiesto neho nasledujúci podporovaný jazyk v zozname. Premiestnením jazyka na začiatok zoznamu ho nastavíte ako predvolený.</string>
     <string name="more_connection_settings_title">Ďalšie nastavenia pripojenia</string>
     <string name="lock_and_security_settings_title">Zamknutie a zabezpečenie</string>
@@ -1827,7 +1829,8 @@ V zariadení sú k dispozícii alternatívne možnosti zabezpečenia. Dodržujte
 "</string>
     <string name="knox_twofactor_bio_description">Vyberte biometrický typ zámku a druhý typ zámku, ktorým sa odomkne %s.</string>
     <string name="fingerprint_registered">S vybratým spôsobom odomknutia sa budú používať registrované odtlačky prstov.</string>
-    <string name="knox_twofactor_description">Použitím dvoch typov zámkov môžete ešte viac zvýšiť bezpečnosť služby Knox. Ako prvý typ zámku sa budú používať vaše odtlačky prstov. Nižšie vyberte druhý typ zámku.</string>
+    <string name="knox_twofactor_description">Vyberte biometrické údaje a druhý typ zámku, ktorým sa bude odomykať %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Použite odtlačky prstov a vyberte druhý typ zámku na odomknutie kontajnera %s.</string>
     <string name="two_factor_setup">Nastaviť</string>
     <string name="icon">Ikony</string>
     <string name="vibration">Vibrácia</string>
@@ -3683,6 +3686,7 @@ Poznámka: Odtlačok prsta môže predstavovať nižšiu úroveň zabezpečenia 
     <string name="bluetooth_confirm_passkey_msg">Potvrďte prístupový kľúč %2$s na spárovanie so zariadením %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Z&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Párovať s týmto zariadením?</string>
     <string name="bluetooth_display_passkey_pin_msg">Zadajte %1$s v zariadení %2$s na spárovanie a potom ťuknite na tlačidlo Return alebo Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nedá sa pripojiť k zariadeniu %1$s. Skúste sa pripojiť zo zariadenia %2$s.</string>
     <string name="bluetooth_connecting_error_message">Nedá sa pripojiť k %s.</string>
     <string name="bluetooth_preference_scan_title">Vyhľadať</string>
     <string name="bluetooth_preference_paired_devices">Spárované zariadenia</string>
@@ -4083,7 +4087,7 @@ Zvážte použitie rýchlejšej karty SD alebo rýchlejšieho pamäťového zari
     <string name="master_clear_final_desc">Všetky vaše osobné údaje a stiahnuté aplikácie sa vymažú a nemožno ich obnoviť.</string>
     <string name="master_clear_final_button_text">Vymazať všetko</string>
     <string name="master_clear_not_available">Tento hosťovský profil nemá povolenie na vykonanie obnovenia nastavení od výrobcu.</string>
-    <string name="master_clear_progress_title">Vynulovať</string>
+    <string name="master_clear_progress_title">Resetovanie</string>
     <string name="master_clear_progress_text">Čakajte prosím…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Zdieľanie pripojenia USB</string>

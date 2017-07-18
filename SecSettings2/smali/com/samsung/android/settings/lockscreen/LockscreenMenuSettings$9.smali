@@ -135,7 +135,7 @@
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$9;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;
 
-    invoke-static {v3, v5}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap4(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;Z)V
+    invoke-static {v3, v5}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap3(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;Z)V
 
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$9;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;
 

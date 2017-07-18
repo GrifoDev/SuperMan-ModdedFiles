@@ -39,7 +39,7 @@
         }
     .end annotation
 
-    const v4, 0x7f0b1aac
+    const v4, 0x7f0b1aba
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -61,7 +61,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v3, 0x7f0b1aae
+    const v3, 0x7f0b1abc
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

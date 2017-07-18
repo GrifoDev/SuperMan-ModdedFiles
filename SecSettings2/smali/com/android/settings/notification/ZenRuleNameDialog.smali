@@ -115,7 +115,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b1985
+    const v1, 0x7f0b1993
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
@@ -130,13 +130,13 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/notification/ZenRuleNameDialog$1;-><init>(Lcom/android/settings/notification/ZenRuleNameDialog;)V
 
-    const v3, 0x7f0b0f9d
+    const v3, 0x7f0b0fac
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b10f5
+    const v2, 0x7f0b1102
 
     invoke-virtual {v1, v2, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -156,7 +156,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1982
+    const v1, 0x7f0b1990
 
     goto :goto_1
 .end method

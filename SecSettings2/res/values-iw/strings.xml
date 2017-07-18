@@ -866,12 +866,13 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">הקש ממושכות על העיגול הכחול במרכז המסך.</string>
     <string name="nearby_scanning_help_msg_sub">סריקה לאיתור מכשירים סמוכים נעזרת בסריקת Bluetooth באנרגיה נמוכה ובמיקרופון. ניתן להשתמש בסריקת Bluetooth באנרגיה נמוכה אפילו כאשר ה-Bluetooth כבוי במכשיר זה.</string>
     <string name="sec_bluetooth_no_devices_found">לא נמצאו מכשירי Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">אין מכשירים</string>
     <string name="bt_tether_title">שימוש כמודם Bluetooth</string>
     <string name="bt_tether_settings_on">מופעל</string>
     <string name="bt_tether_settings_off">כבוי</string>
     <string name="bt_tether_off_brief_text_phone">שתף את חיבור האינטרנט של הטלפון שלך עם מכשירים אחרים המשתמשים ב-Bluetooth.</string>
     <string name="bt_tether_off_brief_text_tablet">שתף את חיבור האינטרנט של הטאבלט שלך עם מכשירים אחרים המשתמשים ב-Bluetooth.</string>
-    <string name="bt_tether_preference_tethered_device_list">מכשירים קשורים</string>
+    <string name="bt_tether_preference_tethered_device_list">מכשירים מחוברים</string>
     <string name="bt_tether_server_description_phone">"שתף את חיבור האינטרנט של הטלפון על ידי שיוך עם מכשיר אחר המשתמש ב-Bluetooth. אם המכשיר כבר חובר בעבר, תוכל לחבר אותו שוב על ידי בחירתו מתוך רשימת 'מכשירים מחוברים'."</string>
     <string name="bt_tether_server_description_tablet">"שתף את חיבור האינטרנט של הטאבלט על ידי שיוך עם מכשיר אחר המשתמש ב-Bluetooth. אם המכשיר כבר חובר בעבר, תוכל לחבר אותו שוב על ידי בחירתו מתוך רשימת 'מכשירים מחוברים'."</string>
     <string name="bluetooth_consent_pairing_msg">"לשיוך עם %s, הקש על 'אישור'."</string>
@@ -1032,6 +1033,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">ניהול כללי</string>
     <string name="application_settings_summary">יישומי ברירת מחדל, הרשאות, הסרה</string>
     <string name="notifications_settings_summary">חסום, אפשר, תעדף</string>
+    <string name="ime_security_warning_title">האם להפעיל את המקלדת שנבחרה?</string>
     <string name="language_settings_summary">הוסף מספר שפות להלן, כדי שאם תיתקל ביישום שאינו תומך בשפת ברירת המחדל שלך (המופיעה בראש הרשימה) היישום ישתמש בשפה הנתמכת הבאה ברשימה. כדי לקבוע שפה מסוימת כברירת מחדל, העבר אותה לראש הרשימה.</string>
     <string name="more_connection_settings_title">הגדרות חיבור נוספות</string>
     <string name="lock_and_security_settings_title">נעילת מסך ואבטחה</string>
@@ -1363,7 +1365,7 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
     <string name="intelligent_help_summary_1">אתה נמצא במקום מואר היטב אך ללא אור שמש ישיר.</string>
     <string name="intelligent_help_summary_2">אף יישום אינו משתמש במצלמה הקדמית.</string>
     <string name="enable_smartstay_title">הפעל את %s</string>
-    <string name="device_visibility_title">ניראות הטלפון</string>
+    <string name="device_visibility_title">נראות הטלפון</string>
     <string name="device_visibility_text">אפשר למכשירים אחרים לאתר את הטלפון שלך ולהעביר קבצים.</string>
     <string name="device_visibility_text_full">"אפשר למכשירים אחרים לאתר את הטלפון שלך (%s) ולהעביר קבצים. הטלפון שלך יופיע ברשימת המכשירים הזמינים בעת העברה של קבצים באמצעות 'שלח קבצים אל מכשירים'."</string>
     <string name="easy_mode">מצב קל</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">בחר סוג נעילה ביומטרית וסוג נעילה נוסף לביטול הנעילה של %s.</string>
     <string name="fingerprint_registered">טביעות האצבע הרשומות ישמשו להפעלת שיטת ביטול הנעילה שנבחרה.</string>
-    <string name="knox_twofactor_description">כדי להגביר את אבטחת Knox, השתמש בשני סוגי נעילה. טביעות האצבע שלך יהיו סוג הנעילה הראשון. בחר להלן סוג נעילה נוסף.</string>
+    <string name="knox_twofactor_description">בחר נתונים ביומטריים וסוג נעילה נוסף לביטול הנעילה של %s.</string>
+    <string name="knox_twofactor_description_fingerprint">כדי לבטל את הנעילה של %s, השתמש בטביעת אצבע ובחר סוג נוסף של נעילה.</string>
     <string name="two_factor_setup">הגדר</string>
     <string name="icon">סמלים</string>
     <string name="vibration">רטט</string>
@@ -3684,6 +3687,7 @@ Wi-Fi is now on."</string>
     <string name="bluetooth_confirm_passkey_msg">אשר שהסיסמה היא %2$s כדי לבצע התאמה עם %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">מאת&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>לבצע התאמה עם התקן זה?</string>
     <string name="bluetooth_display_passkey_pin_msg">הזן %1$s ב-%2$s כדי לבצע התאמה, ולאחר מכן הקש Return או Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">לא ניתן להתחבר אל %1$s. נסה להתחבר מ-%2$s.</string>
     <string name="bluetooth_connecting_error_message">לא ניתן להתחבר ל-%s.</string>
     <string name="bluetooth_preference_scan_title">סרוק</string>
     <string name="bluetooth_preference_paired_devices">מכשירים מותאמים</string>

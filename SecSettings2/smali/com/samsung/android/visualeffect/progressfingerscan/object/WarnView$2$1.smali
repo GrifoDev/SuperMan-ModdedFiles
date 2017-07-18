@@ -45,7 +45,6 @@
 
     iget-object v1, v1, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v1}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$000(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;)I
 
     move-result v1

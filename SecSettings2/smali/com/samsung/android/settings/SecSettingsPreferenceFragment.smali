@@ -16,21 +16,6 @@
 .end annotation
 
 
-# static fields
-.field private static mArrayLinkKey:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field protected static mSettingValue:I
-
-
 # instance fields
 .field private SETTINGS_FOR_KNOX:[Ljava/lang/String;
 
@@ -61,10 +46,6 @@
 .field private mHighlightDrawable:Landroid/graphics/drawable/Drawable;
 
 .field private mIsDataSetObserverRegistered:Z
-
-.field protected mOpenDetailMenu:Z
-
-.field private mOpenDetailMenuKey:Ljava/lang/String;
 
 .field private mPinnedHeaderFrameLayout:Landroid/view/ViewGroup;
 
@@ -145,21 +126,9 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mDataSetObserver:Landroid/database/DataSetObserver;
 
-    iput-boolean v1, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenu:Z
-
-    iput-object v1, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenuKey:Ljava/lang/String;
-
     iput-object v1, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
     iput-object v1, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
-
-    const/4 v0, -0x1
-
-    sput v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mSettingValue:I
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -701,203 +670,231 @@
 .end method
 
 .method protected buildPreferenceForCOM()V
-    .locals 9
+    .locals 12
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v7
+    move-result-object v10
 
-    invoke-static {v7}, Lcom/android/settings/Utils;->isContainerOnlyModeFromOwner(Landroid/content/Context;)Z
+    invoke-static {v10}, Lcom/android/settings/Utils;->isContainerOnlyModeFromOwner(Landroid/content/Context;)Z
 
-    move-result v7
+    move-result v10
 
-    if-eqz v7, :cond_b
+    if-eqz v10, :cond_c
 
     invoke-direct {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getCurrentKeyList()Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v5
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    move-result v7
+    move-result v10
 
-    if-ge v1, v7, :cond_6
+    if-ge v2, v10, :cond_7
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    const/4 v5, 0x1
+    const/4 v8, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_1
-    iget-object v7, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
 
-    array-length v7, v7
+    array-length v10, v10
 
-    if-ge v2, v7, :cond_1
+    if-ge v4, v10, :cond_1
 
     if-eqz v0, :cond_0
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
 
-    aget-object v7, v7, v2
+    aget-object v10, v10, v4
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v10
 
-    if-eqz v7, :cond_3
+    if-eqz v10, :cond_4
 
     :cond_0
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     :cond_1
-    if-eqz v5, :cond_2
+    if-eqz v8, :cond_2
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    if-eqz v0, :cond_2
 
-    move-result-object v6
+    :try_start_0
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getParentPreference(Ljava/lang/String;)Landroid/preference/Preference;
+    move-result v3
 
-    move-result-object v4
-
-    instance-of v7, v6, Landroid/preference/PreferenceCategory;
-
-    if-eqz v7, :cond_4
+    const/4 v8, 0x0
 
     :cond_2
     :goto_2
-    add-int/lit8 v1, v1, 0x1
+    if-eqz v8, :cond_3
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v9
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getParentPreference(Ljava/lang/String;)Landroid/preference/Preference;
+
+    move-result-object v7
+
+    instance-of v10, v9, Landroid/preference/PreferenceCategory;
+
+    if-eqz v10, :cond_5
+
+    :cond_3
+    :goto_3
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_3
-    add-int/lit8 v2, v2, 0x1
+    :cond_4
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    :cond_4
-    if-eqz v0, :cond_2
+    :catch_0
+    move-exception v1
 
-    if-eqz v4, :cond_5
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    instance-of v7, v4, Landroid/preference/PreferenceGroup;
+    goto :goto_2
 
-    if-eqz v7, :cond_5
-
-    check-cast v4, Landroid/preference/PreferenceGroup;
-
-    invoke-virtual {v4, v6}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+    :catch_1
+    move-exception v6
 
     goto :goto_2
 
     :cond_5
-    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->removePreference(Ljava/lang/String;)V
+    if-eqz v0, :cond_3
 
-    goto :goto_2
+    if-eqz v7, :cond_6
+
+    instance-of v10, v7, Landroid/preference/PreferenceGroup;
+
+    if-eqz v10, :cond_6
+
+    check-cast v7, Landroid/preference/PreferenceGroup;
+
+    invoke-virtual {v7, v9}, Landroid/preference/PreferenceGroup;->removePreference(Landroid/preference/Preference;)Z
+
+    goto :goto_3
 
     :cond_6
+    invoke-virtual {p0, v0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->removePreference(Ljava/lang/String;)V
+
+    goto :goto_3
+
+    :cond_7
     invoke-direct {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getCurrentKeyList()Ljava/util/ArrayList;
 
-    move-result-object v3
-
-    const/4 v1, 0x0
-
-    :goto_3
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    if-ge v1, v7, :cond_b
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/CharSequence;
-
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_a
-
-    instance-of v7, v6, Landroid/preference/PreferenceCategory;
-
-    if-eqz v7, :cond_a
-
-    check-cast v6, Landroid/preference/PreferenceCategory;
-
-    invoke-virtual {v6}, Landroid/preference/PreferenceCategory;->getPreferenceCount()I
-
-    move-result v7
-
-    if-nez v7, :cond_a
-
-    const/4 v5, 0x1
+    move-result-object v5
 
     const/4 v2, 0x0
 
     :goto_4
-    iget-object v7, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    array-length v7, v7
+    move-result v10
 
-    if-ge v2, v7, :cond_9
+    if-ge v2, v10, :cond_c
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v10
 
-    if-eqz v7, :cond_7
+    check-cast v10, Ljava/lang/CharSequence;
 
-    iget-object v7, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+    invoke-virtual {p0, v10}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    aget-object v7, v7, v2
+    move-result-object v9
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    if-eqz v9, :cond_b
 
-    move-result-object v8
+    instance-of v10, v9, Landroid/preference/PreferenceCategory;
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v10, :cond_b
 
-    move-result v7
+    check-cast v9, Landroid/preference/PreferenceCategory;
 
-    if-eqz v7, :cond_8
+    invoke-virtual {v9}, Landroid/preference/PreferenceCategory;->getPreferenceCount()I
 
-    :cond_7
-    const/4 v5, 0x0
+    move-result v10
+
+    if-nez v10, :cond_b
+
+    const/4 v8, 0x1
+
+    const/4 v4, 0x0
+
+    :goto_5
+    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+
+    array-length v10, v10
+
+    if-ge v4, v10, :cond_a
+
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_8
+
+    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->SETTINGS_FOR_KNOX:[Ljava/lang/String;
+
+    aget-object v10, v10, v4
+
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_9
 
     :cond_8
+    const/4 v8, 0x0
+
+    :cond_9
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_5
+
+    :cond_a
+    if-eqz v8, :cond_b
+
+    invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/lang/String;
+
+    invoke-virtual {p0, v10}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->removePreference(Ljava/lang/String;)V
+
+    :cond_b
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
-    :cond_9
-    if-eqz v5, :cond_a
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/lang/String;
-
-    invoke-virtual {p0, v7}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->removePreference(Ljava/lang/String;)V
-
-    :cond_a
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_3
-
-    :cond_b
+    :cond_c
     return-void
 .end method
 
@@ -1103,23 +1100,6 @@
     return-void
 .end method
 
-.method protected getArrayLinkKey()Ljava/util/ArrayList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    sget-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
 .method public getButtonBar()Landroid/view/ViewGroup;
     .locals 1
 
@@ -1185,7 +1165,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1882
+    const v0, 0x7f0b1890
 
     return v0
 .end method
@@ -1916,218 +1896,6 @@
     return-void
 .end method
 
-.method protected openSearchDetailMenu()V
-    .locals 13
-
-    const-wide/16 v4, 0x0
-
-    const/4 v2, 0x0
-
-    iget-boolean v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenu:Z
-
-    if-eqz v10, :cond_2
-
-    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenuKey:Ljava/lang/String;
-
-    if-eqz v10, :cond_1
-
-    const-string v10, "SettingsSearch"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "=== mOpenDetailMenuKey:  "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    iget-object v12, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenuKey:Ljava/lang/String;
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenuKey:Ljava/lang/String;
-
-    invoke-virtual {p0, v10}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getListView()Landroid/widget/ListView;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getRootAdapter()Landroid/widget/ListAdapter;
-
-    move-result-object v9
-
-    const-string v10, "SettingsSearch"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "getPreferenceCount : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
-
-    move-result v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string v12, " , preferenceAdapter size : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-interface {v9}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x0
-
-    const/4 v3, 0x0
-
-    :goto_0
-    invoke-interface {v9}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v10
-
-    if-ge v3, v10, :cond_1
-
-    invoke-interface {v9, v3}, Landroid/widget/ListAdapter;->getItem(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/preference/Preference;
-
-    iget-object v10, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenuKey:Ljava/lang/String;
-
-    invoke-virtual {v7}, Landroid/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_5
-
-    const-string v10, "SettingsSearch"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "=== position : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v1, v3}, Landroid/widget/ListView;->setSelection(I)V
-
-    sget v10, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mSettingValue:I
-
-    const/4 v11, -0x1
-
-    if-eq v10, v11, :cond_3
-
-    instance-of v10, v8, Lcom/android/settings/SwitchPreferenceScreen;
-
-    if-nez v10, :cond_0
-
-    invoke-virtual/range {v0 .. v5}, Landroid/preference/PreferenceScreen;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-
-    :cond_0
-    :goto_1
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->removeOneDepthArrayLinkKey()V
-
-    :cond_1
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mOpenDetailMenu:Z
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v6
-
-    instance-of v2, v6, Lcom/android/settings/Settings;
-
-    if-eqz v2, :cond_2
-
-    check-cast v6, Lcom/android/settings/Settings;
-
-    :cond_2
-    return-void
-
-    :cond_3
-    instance-of v10, v8, Landroid/preference/CheckBoxPreference;
-
-    if-nez v10, :cond_4
-
-    invoke-virtual {v7}, Landroid/preference/Preference;->isEnabled()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_4
-
-    invoke-virtual/range {v0 .. v5}, Landroid/preference/PreferenceScreen;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-
-    goto :goto_1
-
-    :cond_4
-    sput-object v2, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    goto :goto_1
-
-    :cond_5
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-.end method
-
 .method public registerObserverIfNeeded()V
     .locals 2
 
@@ -2230,41 +1998,6 @@
     :cond_0
     iput-object v1, p0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mDialogFragment:Lcom/samsung/android/settings/SecSettingsPreferenceFragment$SettingsDialogFragment;
 
-    return-void
-.end method
-
-.method protected removeOneDepthArrayLinkKey()V
-    .locals 2
-
-    sget-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    sget-object v1, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    sget-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->mArrayLinkKey:Ljava/util/ArrayList;
-
-    :cond_0
     return-void
 .end method
 

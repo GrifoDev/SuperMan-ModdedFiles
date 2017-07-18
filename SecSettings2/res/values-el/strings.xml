@@ -866,6 +866,7 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">Πατήστε παρατεταμένα τον μπλε κύκλο στο κέντρο της οθόνης.</string>
     <string name="nearby_scanning_help_msg_sub">Η σάρωση κοντινής συσκευής χρησιμοποιεί σάρωση Bluetooth Low Energy και το μικρόφωνο. Η σάρωση Bluetooth Low Energy μπορεί να χρησιμοποιηθεί ακόμη και όταν το Bluetooth είναι απενεργοποιημένο σε αυτήν τη συσκευή.</string>
     <string name="sec_bluetooth_no_devices_found">Δεν βρέθηκαν συσκευές Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Καμία συσκευή</string>
     <string name="bt_tether_title">Tethering μέσω Bluetooth</string>
     <string name="bt_tether_settings_on">Ενεργό</string>
     <string name="bt_tether_settings_off">Ανενεργό</string>
@@ -1032,6 +1033,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">Γενική διαχείριση</string>
     <string name="application_settings_summary">Προεπιλεγμένες εφαρμογές, δικαιώματα, κατάργηση εγκατάστασης</string>
     <string name="notifications_settings_summary">Αποκλεισμός, αποδοχή, προτεραιότητα</string>
+    <string name="ime_security_warning_title">Να ενεργοπ. το επιλεγμένο πληκτρολόγιο;</string>
     <string name="language_settings_summary">Προσθέστε παρακάτω πολλές γλώσσες ώστε αν μια εφαρμογή δεν υποστηρίζει την προεπιλεγμένη γλώσσα (αυτή που βρίσκεται στην κορυφή της λίστας), να χρησιμοποιηθεί η επόμενη υποστηριζόμενη γλώσσα της λίστας. Μεταφέρετε μια γλώσσα στην κορυφή της λίστας για να την ορίσετε ως την προεπιλεγμένη γλώσσα.</string>
     <string name="more_connection_settings_title">Περισσότερες ρυθμίσεις σύνδεσης</string>
     <string name="lock_and_security_settings_title">Οθόνη κλειδ. και ασφάλεια</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">Επιλέξτε τον τύπο βιομετρικού κλειδώματος και τον δεύτερο τύπο κλειδώματος για να ξεκλειδώσετε το %s.</string>
     <string name="fingerprint_registered">Θα χρησιμοποιηθούν τα καταχωρημένα δαχτυλικά αποτυπώματα με την επιλεγμένη μέθοδο ξεκλειδώματος.</string>
-    <string name="knox_twofactor_description">Χρησιμοποιήστε δύο τύπους ξεκλειδώματος για να είναι το Knox ακόμη πιο ασφαλές. Τα αποτυπώματά σας θα χρησιμοποιηθούν ως ο πρώτος τύπος ξεκλειδώματος. Επιλέξτε παρακάτω το δεύτερο τύπο ξεκλειδώματος.</string>
+    <string name="knox_twofactor_description">Επιλέξτε τα βιομετρικά δεδομένα και έναν δεύτερο τύπο κλειδώματος για να ξεκλειδώσετε το %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Χρησιμοποιήστε τα δαχτυλικά σας αποτυπώματα και επιλέξτε ένα δεύτερο τύπο κλειδώματος για το ξεκλείδωμα του %s.</string>
     <string name="two_factor_setup">Ρύθμιση</string>
     <string name="icon">Εικονίδια</string>
     <string name="vibration">Δόνηση</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">Επιβεβαιώστε ότι ο κωδικός πρόσβασης για τη δημιουργία ζεύγους με το %1$s είναι %2$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Από&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Να γίνει αντιστοίχιση με αυτήν τη συσκευή;</string>
     <string name="bluetooth_display_passkey_pin_msg">Εισαγάγετε τον κωδικό %1$s στη συσκευή %2$s για αντιστοίχιση και πατήστε «Επιστροφή» ή «Εισαγωγή».</string>
+    <string name="bluetooth_HID_connecting_error_message">Δεν είναι δυνατή η σύνδεση στο %1$s. Δοκιμάστε να συνδεθείτε από το %2$s.</string>
     <string name="bluetooth_connecting_error_message">Δεν είναι δυνατή η Σύνδεση με %s.</string>
     <string name="bluetooth_preference_scan_title">Σάρωση</string>
     <string name="bluetooth_preference_paired_devices">Αντιστοιχισμένες συσκευές</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Όλες οι προσωπικές πληροφορίες και οι εφαρμογές που έχετε λάβει θα διαγραφούν. Δεν θα είναι δυνατή η ανάκτησή τους.</string>
     <string name="master_clear_final_button_text">Διαγραφή όλων</string>
     <string name="master_clear_not_available">Αυτό το προφίλ επισκέπτη δεν διαθέτει τα δικαιώματα για την εκτέλεση επαναφοράς εργοστασιακών δεδομένων.</string>
-    <string name="master_clear_progress_title">Μηδενισμός</string>
+    <string name="master_clear_progress_title">Επαναφορά</string>
     <string name="master_clear_progress_text">Περιμένετε…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Tethering μέσω USB</string>

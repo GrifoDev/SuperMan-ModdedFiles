@@ -867,6 +867,7 @@ App-gegevens kunnen persoonlijke gegevens bevatten, zoals contacten, berichten e
     <string name="content_description_hand">Tik op de blauwe cirkel en houd deze in het midden van het scherm vast.</string>
     <string name="nearby_scanning_help_msg_sub">Apparaten in de buurt gebruikt Bluetooth Low Energy-scannen en de microfoon. Bluetooth Low Energy-scannen kan zelfs worden gebruikt terwijl Bluetooth is uitgeschakeld op dit apparaat.</string>
     <string name="sec_bluetooth_no_devices_found">Geen Bluetooth-apparaten gevonden</string>
+    <string name="sec_bluetooth_no_tethered_devices">Geen apparaten</string>
     <string name="bt_tether_title">Bluetooth-tethering</string>
     <string name="bt_tether_settings_on">Aan</string>
     <string name="bt_tether_settings_off">Uit</string>
@@ -1033,6 +1034,7 @@ Zelfs wanneer Slim vastleggen is uitgeschakeld, hebt u toegang tot de functies e
     <string name="general_device_management_title">Algemeen beheer</string>
     <string name="application_settings_summary">Standaard-apps, machtigingen, verwijderen</string>
     <string name="notifications_settings_summary">Blokkeren, toestaan, voorrang geven</string>
+    <string name="ime_security_warning_title">Geselecteerd toetsenbord inschakelen?</string>
     <string name="language_settings_summary">Voeg hieronder meerdere talen toe zodat, als een app niet uw standaardtaal (boven aan de lijst) ondersteunt, in plaats daarvan de volgende ondersteunde taal op de lijst wordt gebruikt. Verplaats een taal naar het begin van de lijst om deze als standaard in te stellen.</string>
     <string name="more_connection_settings_title">Meer verbindingsinstellingen</string>
     <string name="lock_and_security_settings_title">Schermvergr. en beveilig.</string>
@@ -1828,7 +1830,8 @@ Op uw apparaat zijn alternatieve beveiligingsopties beschikbaar. Volg alle instr
 "</string>
     <string name="knox_twofactor_bio_description">Selecteer uw biometrische vergrendeltype en tweede vergrendeltype om %s te ontgrendelen.</string>
     <string name="fingerprint_registered">Geregistreerde vingerafdrukken worden gebruikt met geselecteerde ontgrendelmethode.</string>
-    <string name="knox_twofactor_description">Gebruik twee vergrendeltypes om Knox nog veiliger te maken. Uw vingerafdrukken worden gebruikt als het eerste vergrendeltype. Selecteer hieronder een tweede vergrendeltype.</string>
+    <string name="knox_twofactor_description">Selecteer uw biometrische gegevens en een tweede vergrendeltype om %s te ontgrendelen.</string>
+    <string name="knox_twofactor_description_fingerprint">Gebruik uw vingerafdrukken en selecteer een tweede vergrendeltype om %s te ontgrendelen.</string>
     <string name="two_factor_setup">Instellen</string>
     <string name="icon">Pictogrammen</string>
     <string name="vibration">Trillen</string>
@@ -3684,6 +3687,7 @@ Opmerking: uw vingerafdruk is mogelijk minder veilig dan een sterk patroon of ee
     <string name="bluetooth_confirm_passkey_msg">Bevestig dat sleutel %2$s is voor koppelen met %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Van&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Koppelen met dit apparaat?</string>
     <string name="bluetooth_display_passkey_pin_msg">Geef %1$s in op %2$s om te koppelen, en tik dan op Return of Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Kan niet verbinden met %1$s. Probeer te verbinden vanaf %2$s.</string>
     <string name="bluetooth_connecting_error_message">Kan niet verbinden met %s.</string>
     <string name="bluetooth_preference_scan_title">Scannen</string>
     <string name="bluetooth_preference_paired_devices">Gekoppelde apparaten</string>

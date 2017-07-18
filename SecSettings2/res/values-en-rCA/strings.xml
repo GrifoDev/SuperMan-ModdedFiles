@@ -841,6 +841,7 @@ Even while Smart capture is disabled, you can access its features via Air comman
     <string name="general_device_management_title">General management</string>
     <string name="application_settings_summary">Default apps, permissions, uninstall</string>
     <string name="notifications_settings_summary">Block, allow, prioritize</string>
+    <string name="ime_security_warning_title">Turn on the selected keyboard?</string>
     <string name="language_settings_summary">Add multiple languages below so that, if an app does not support your default language (at the top of the list), the next supported language in the list will be used instead. Move a language to the top of the list to set it as the default.</string>
     <string name="more_connection_settings_title">More connection settings</string>
     <string name="lock_and_security_settings_title">Lock screen and security</string>
@@ -1548,6 +1549,8 @@ Before you request a repair under the warranty, Reactivation lock must be disabl
     <string name="empty_content_toast">No content to save.</string>
     <string name="find_my_mobile_message_zero">"Track and control your device remotely using the Find My Mobile web service. For more information and to find out what other functions are available, visit the following website:
 %s"</string>
+    <string name="send_last_location_title">Send last location</string>
+    <string name="send_last_location_summary">"Allow your phone to send its last location to the Find My Mobile server before it's turned off."</string>
     <string name="high_power_description">Enable Optimize battery usage for individual apps. Some functions, such as those that use mobile networks or sync data, will be restricted to save battery power.</string>
     <string name="wifi_display_summary_off">Off</string>
     <string name="battery_usage_description">View battery usage data since your phone was last fully charged.</string>
@@ -3533,6 +3536,7 @@ Note: Your fingerprint may be less secure than a strong pattern or PIN.
     <string name="bluetooth_confirm_passkey_msg">Confirm passkey is %2$s to pair with %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">From&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Pair with this device?</string>
     <string name="bluetooth_display_passkey_pin_msg">Enter %1$s on %2$s to pair, then tap Return or Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">"Can't connect to %1$s. Try to connect from %2$s."</string>
     <string name="bluetooth_connecting_error_message">Unable to connect to %s.</string>
     <string name="bluetooth_preference_scan_title">Scan</string>
     <string name="bluetooth_preference_paired_devices">Paired devices</string>
@@ -5203,8 +5207,6 @@ Turn on Face unlock to use your biometrics or your %s to unlock your phone."</st
     <string name="biometrics_button_turn_on">Turn on</string>
     <string name="improve_location_title">Improve location accuracy</string>
     <string name="improve_location_summary">Use WLANs and mobile networks to provide more accurate information about the location of your device.</string>
-    <string name="send_last_location_title">Send last location</string>
-    <string name="send_last_location_summary">"Allow your phone to send its last location to the Find My Mobile server before it's turned off."</string>
     <string name="iris_add_summary">Register your irises.</string>
     <string name="iris_register_summary">Your irises have been registered.</string>
     <string name="use_biometrics_description">"You're currently using the %1$s screen lock type.

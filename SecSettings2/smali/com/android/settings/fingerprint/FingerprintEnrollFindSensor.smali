@@ -57,7 +57,7 @@
 .method private launchConfirmLock()V
     .locals 9
 
-    const v8, 0x7f0b113c
+    const v8, 0x7f0b1149
 
     const/4 v2, 0x1
 
@@ -368,7 +368,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setContentView(I)V
 
-    const v0, 0x7f0b114c
+    const v0, 0x7f0b1159
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setHeaderText(I)V
 

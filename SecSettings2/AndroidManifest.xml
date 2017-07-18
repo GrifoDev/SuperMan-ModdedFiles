@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:sharedUserId="android.uid.system" coreApp="true" package="com.android.settings" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:androidprv="http://schemas.android.com/apk/prv/res/android" android:sharedUserId="android.uid.system" coreApp="true" package="com.android.settings" platformBuildVersionCode="24" platformBuildVersionName="7.0">
     <original-package android:name="com.android.settings"/>
     <uses-permission android:name="com.sec.vsimservice.PERMISSION"/>
     <uses-permission android:name="com.sec.nsds.READ_NSDS_PERMISSION"/>

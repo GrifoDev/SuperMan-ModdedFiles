@@ -724,6 +724,7 @@ App data may include personal information such as contacts, messages, and pictur
     <string name="content_description_hand">Press and hold the blue circle in the center of the screen.</string>
     <string name="nearby_scanning_help_msg_sub">Nearby device scanning uses Bluetooth Low Energy scanning and the microphone. Bluetooth Low Energy scanning can be used even while Bluetooth is turned off on this <cst>device</cst>.</string>
     <string name="sec_bluetooth_no_devices_found">No Bluetooth devices found</string>
+    <string name="sec_bluetooth_no_tethered_devices">No devices</string>
     <string name="bt_tether_title">Bluetooth tethering</string>
     <string name="bt_tether_settings_on">On</string>
     <string name="bt_tether_settings_off">Off</string>
@@ -890,6 +891,7 @@ Even while Smart capture is turned off, you can access its features via Air comm
     <string name="general_device_management_title">General management</string>
     <string name="application_settings_summary">Default apps, permissions, uninstall</string>
     <string name="notifications_settings_summary">Block, allow, prioritize</string>
+    <string name="ime_security_warning_title">Turn on the selected keyboard?</string>
     <string name="language_settings_summary">Add multiple languages below so that, if an app does not support your default language (at the top of the list), the next supported language in the list will be used instead. Move a language to the top of the list to set it as the default.</string>
     <string name="more_connection_settings_title">More connection settings</string>
     <string name="lock_and_security_settings_title">Lock screen and security</string>
@@ -1685,7 +1687,8 @@ Alternative security options are available on your device. Please follow all ins
 "</string>
     <string name="knox_twofactor_bio_description">Select your biometric lock type and second lock type to unlock %s.</string>
     <string name="fingerprint_registered">Registered fingerprints will be used with selected unlock method.</string>
-    <string name="knox_twofactor_description">Use 2 lock types to make Knox even more secure. Your fingerprints will be used as the first lock type. Select a second lock type below.</string>
+    <string name="knox_twofactor_description">Select your biometrics and a second lock type to unlock %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Use your fingerprints and select a second lock type to unlock %s.</string>
     <string name="two_factor_setup">Set up</string>
     <string name="icon">Icons</string>
     <string name="vibration">Vibration</string>
@@ -3539,6 +3542,7 @@ Note: Your fingerprint may be less secure than a strong pattern or PIN.
     <string name="bluetooth_confirm_passkey_msg">Confirm passkey is %2$s to pair with %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">From&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Pair with this device?</string>
     <string name="bluetooth_display_passkey_pin_msg">Enter %1$s on %2$s to pair, then tap Return or Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">"Can't connect to %1$s. Try to connect from %2$s."</string>
     <string name="bluetooth_connecting_error_message">Unable to connect to %s.</string>
     <string name="bluetooth_preference_scan_title">Scan</string>
     <string name="bluetooth_preference_paired_devices">Paired devices</string>

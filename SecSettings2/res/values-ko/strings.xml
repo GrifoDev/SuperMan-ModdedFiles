@@ -1032,6 +1032,7 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="general_device_management_title">일반</string>
     <string name="application_settings_summary">기본 앱, 권한, 설치 삭제</string>
     <string name="notifications_settings_summary">차단, 허용, 중요 알림</string>
+    <string name="ime_security_warning_title">선택한 키보드 실행</string>
     <string name="language_settings_summary">앱에서 기본 언어(목록의 맨 위)가 지원되지 않을 경우 목록에 있는 언어 중 지원되는 언어를 대신 사용할 수 있도록 여러 개의 언어를 추가하세요. 기본으로 설정할 언어를 목록의 맨 위로 이동하세요.</string>
     <string name="more_connection_settings_title">기타 연결 설정</string>
     <string name="lock_and_security_settings_title">잠금화면 및 보안</string>
@@ -1358,7 +1359,7 @@ Wi-Fi 및 블루투스 기능도 자동으로 해제되지만 [설정] 또는 �
     <string name="intelligent_help_summary_1">직사광이 아닌 밝은 곳에 있을 때</string>
     <string name="intelligent_help_summary_2">다른 앱에서 전면 카메라를 사용하지 않을 때</string>
     <string name="enable_smartstay_title">%s 실행</string>
-    <string name="device_visibility_title">휴대전화 검색 설정</string>
+    <string name="device_visibility_title">휴대전화 검색 허용</string>
     <string name="device_visibility_text">다른 디바이스에서 내 휴대전화를 찾고 파일을 전송할 수 있도록 허용합니다.</string>
     <string name="device_visibility_text_full">다른 디바이스에서 내 휴대전화(%s)를 찾고 파일을 전송할 수 있도록 허용합니다. [디바이스에 파일 전송]으로 파일을 보낼 때 연결 가능한 디바이스 목록에 내 휴대전화가 나타납니다.</string>
     <string name="easy_mode">쉬운 사용 모드</string>
@@ -1829,7 +1830,8 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
 "</string>
     <string name="knox_twofactor_bio_description">사용할 생체 인식 방식을 선택하고 %s용 추가 인증 방식을 선택하세요.</string>
     <string name="fingerprint_registered">등록한 지문을 선택한 잠금해제 방식과 함께 사용합니다.</string>
-    <string name="knox_twofactor_description">Knox 보안을 더 강화할 수 있도록 2개의 잠금해제 방식을 사용하세요. 첫 번째 잠금해제 방식으로는 지문이 사용됩니다. 아래에서 두 번째 잠금해제 방식을 선택하세요.</string>
+    <string name="knox_twofactor_description">%s에서 생체 인식과 함께 사용할 추가 잠금 방식을 선택하세요.</string>
+    <string name="knox_twofactor_description_fingerprint">%s에서 지문과 함께 사용할 추가 잠금 방식을 선택하세요.</string>
     <string name="two_factor_setup">설정</string>
     <string name="icon">아이콘</string>
     <string name="vibration">진동</string>
@@ -3686,6 +3688,7 @@ SMS 수신"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s 디바이스와 연결하려면 인증번호를 확인하세요.&lt;br/>인증번호: %2$s</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>에서&lt;br/>&lt;br/>이 디바이스를 등록할까요?</string>
     <string name="bluetooth_display_passkey_pin_msg">등록하려면 %2$s 디바이스에서 %1$s 키를 입력한 후, 엔터를 누르세요.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s에 연결할 수 없습니다. %2$s에서 연결을 시도하세요.</string>
     <string name="bluetooth_connecting_error_message">%s에 연결할 수 없습니다.</string>
     <string name="bluetooth_preference_scan_title">찾기</string>
     <string name="bluetooth_preference_paired_devices">등록된 디바이스</string>

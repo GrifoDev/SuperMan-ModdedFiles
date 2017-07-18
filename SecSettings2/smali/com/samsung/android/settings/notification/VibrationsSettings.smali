@@ -399,7 +399,7 @@
 .method public onResume()V
     .locals 8
 
-    const v7, 0x7f0b099f
+    const v7, 0x7f0b09a2
 
     const/4 v3, 0x1
 
@@ -522,7 +522,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/VibrationsSettings;->mVibrationOnTouch:Landroid/support/v14/preference/SwitchPreference;
 
-    const v5, 0x7f0b0988
+    const v5, 0x7f0b098b
 
     invoke-virtual {v2, v5}, Landroid/support/v14/preference/SwitchPreference;->setSummary(I)V
 
@@ -540,7 +540,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/VibrationsSettings;->mKeyboardVibration:Landroid/support/v14/preference/SwitchPreference;
 
-    const v4, 0x7f0b099c
+    const v4, 0x7f0b099f
 
     invoke-virtual {v2, v4}, Landroid/support/v14/preference/SwitchPreference;->setSummary(I)V
 

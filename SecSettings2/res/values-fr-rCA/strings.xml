@@ -866,6 +866,7 @@ Les données d'application peuvent inclure des informations personnelles telles 
     <string name="content_description_hand">"Touchez longuement le cercle bleu au centre de l'écran"</string>
     <string name="nearby_scanning_help_msg_sub">"La recherche des appareils à proximité utilise l'analyse Bluetooth Low Energy et le microphone. L'analyse Bluetooth Low Energy peut être utilisée même lorsque le Bluetooth est désactivé sur cet appareil."</string>
     <string name="sec_bluetooth_no_devices_found">Aucun périphérique Bluetooth trouvé</string>
+    <string name="sec_bluetooth_no_tethered_devices">Aucun appareil</string>
     <string name="bt_tether_title">Modem Bluetooth</string>
     <string name="bt_tether_settings_on">Activé</string>
     <string name="bt_tether_settings_off">Désactivé</string>
@@ -1032,6 +1033,7 @@ Même lorsque la fonction Capture intelligente est désactivée, vous pouvez acc
     <string name="general_device_management_title">Gestion globale</string>
     <string name="application_settings_summary">Applications par défaut, autorisations, désinstaller</string>
     <string name="notifications_settings_summary">Bloquer, autoriser, prioriser</string>
+    <string name="ime_security_warning_title">Activer le clavier sélectionné ?</string>
     <string name="language_settings_summary">Ajoutez plusieurs langues ci-dessous. Ainsi, si une application ne prend pas en charge votre langue par défaut (en haut de la liste), la langue prise en charge qui suit dans la liste sera utilisée à la place. Déplacez une langue vers le haut de la liste pour la définir par défaut.</string>
     <string name="more_connection_settings_title">Plus de paramètres de connexion</string>
     <string name="lock_and_security_settings_title">Écran verr. et sécurité</string>
@@ -1827,7 +1829,8 @@ D’autres options de sécurité sont accessibles sur votre appareil. Veuillez s
 "</string>
     <string name="knox_twofactor_bio_description">Sélectionnez votre type de verrouillage biométrique et votre second type de verrouillage pour déverrouiller %s.</string>
     <string name="fingerprint_registered">Les empreintes enregistrées seront utilisées avec la méthode de déverrouillage sélectionnée.</string>
-    <string name="knox_twofactor_description">Utilisez deux méthodes de verrouillage afin de sécuriser davantage Knox. Vos empreintes seront utilisées comme première méthode de verrouillage. Sélectionnez-en une seconde ci-dessous.</string>
+    <string name="knox_twofactor_description">Sélectionnez vos données biométriques et un second type de verrouillage pour déverrouiller %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Utilisez vos empreintes et sélectionnez un second type de verrouillage pour déverrouiller %s.</string>
     <string name="two_factor_setup">Config.</string>
     <string name="icon">Icônes</string>
     <string name="vibration">Vibreur</string>
@@ -3682,6 +3685,7 @@ Note : Votre empreinte risque d'être moins sécurisée qu'un modèle ou un code
     <string name="bluetooth_confirm_passkey_msg">Confirmer le mot de passe %2$s pour le coupler à %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">De&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Associer avec cet appareil ?</string>
     <string name="bluetooth_display_passkey_pin_msg">Entrez %1$s sur %2$s pour effectuer le couplage, puis touchez Retour ou Entrée.</string>
+    <string name="bluetooth_HID_connecting_error_message">Impossible de se connecter à %1$s. Essayez de vous connecter à partir de %2$s.</string>
     <string name="bluetooth_connecting_error_message">Connexion à %s impossible</string>
     <string name="bluetooth_preference_scan_title">Rechercher</string>
     <string name="bluetooth_preference_paired_devices">Périphériques couplés</string>
@@ -4080,7 +4084,7 @@ Envisagez d'utiliser une carte SD ou un périphérique de stockage USB plus rapi
     <string name="master_clear_final_desc">Toutes vos données personnelles et vos applications téléchargées seront effacées. Ces données seront irrécupérables.</string>
     <string name="master_clear_final_button_text">Supprimer tout</string>
     <string name="master_clear_not_available">"Ce profil invité n'est pas autorisé à rétablir les données par défaut."</string>
-    <string name="master_clear_progress_title">Réinitialiser</string>
+    <string name="master_clear_progress_title">Réinitialisation</string>
     <string name="master_clear_progress_text">Veuillez patienter…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot et modem</string>
     <string name="usb_tethering_button_text">Modem USB</string>

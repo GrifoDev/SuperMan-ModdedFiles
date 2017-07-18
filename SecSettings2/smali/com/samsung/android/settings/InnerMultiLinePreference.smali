@@ -35,7 +35,7 @@
 .method public onBindView(Landroid/view/View;)V
     .locals 7
 
-    const v6, 0x7f0b078e
+    const v6, 0x7f0b0791
 
     const/4 v3, 0x1
 

@@ -108,7 +108,7 @@
     :goto_0
     invoke-direct {v4, v5, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v3, 0x7f0b0c2e
+    const v3, 0x7f0b0c3d
 
     invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -128,7 +128,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0c2f
+    const v5, 0x7f0b0c3e
 
     invoke-virtual {p0, v5, v4}, Lcom/samsung/android/settings/wifi/WifiWarningDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

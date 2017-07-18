@@ -866,6 +866,7 @@ Ilova ma’lumotlari kontaktlar, xabarlar va rasmlar kabi shaxsiy ma’lumotlarn
     <string name="content_description_hand">Ekranning markazida joylashgan ko‘k aylanani bosib turing.</string>
     <string name="nearby_scanning_help_msg_sub">Yaqin-atrofdagi qurilmani qidirish Bluetooth Kam Quvvat skanerlanishi va mikrofondan foydalanadi. Ushbu qurilmada Bluetooth o‘chirilgan bo‘lsa ham, Bluetooth Kam Quvvat skanerlanishidan foydalanish mumkin bo‘ladi.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth qurilmalari topilmadi</string>
+    <string name="sec_bluetooth_no_tethered_devices">Qurilmalar yo‘q</string>
     <string name="bt_tether_title">Bluetooth bog‘lanishi</string>
     <string name="bt_tether_settings_on">Yoq</string>
     <string name="bt_tether_settings_off">O‘ch</string>
@@ -1032,6 +1033,7 @@ Hatto Smart rasmga olish o‘chirilgan bo‘lsa ham, Havodagi buyruq orqali unin
     <string name="general_device_management_title">Umumiy boshqaruv</string>
     <string name="application_settings_summary">Birlamchi ilovalar, ruxsatlar, olib tashlash</string>
     <string name="notifications_settings_summary">Bloklash, ruxsat berish, xususiylashtirish</string>
+    <string name="ime_security_warning_title">Tanlangan klaviatura yoqilsinmi?</string>
     <string name="language_settings_summary">Quyida bir nechta til qo‘shing, agar ilova birlamchi o‘rnatilgan tilni (ro‘yxatning eng yuqorisidagi) qo‘llab-quvvatlanmasa, uning o‘rniga ro‘yxatdagi keyingi qo‘llab-quvvatlanadigan til ishlatiladi. Tilni birlamchi sifatida o‘rnatish uchun uni ro‘yxatning eng yuqorisiga ko‘chiring.</string>
     <string name="more_connection_settings_title">Qo‘shimcha ulanish parametrlari</string>
     <string name="lock_and_security_settings_title">Blk ekrani va xavfsizlik</string>
@@ -1827,7 +1829,8 @@ Qurilmangizda muqobil xavfsizlik parametrlari mavjud. Bu funksiyadan foydalanish
 "</string>
     <string name="knox_twofactor_bio_description">%s’ni blokdan chiqarish uchun biometrik bloklash turini va ikkinchi bloklash turini tanlang.</string>
     <string name="fingerprint_registered">Ro‘yxatga olingan barmoq izlari tanlangan blokdan chiqarish usuli bilan ishlatiladi.</string>
-    <string name="knox_twofactor_description">"Knox'ni yanada xavfsiz qilish uchun ikki xil qulflash turidan foydalaning. Barmoq izlaringiz birinchi qulflash turi sifatida foydalaniladi. Quyidan ikkinchi qulflash turini tanlang."</string>
+    <string name="knox_twofactor_description">%s’ni blokdan chiqarish uchun biometrik ma’lumotlari va ikkinchi bloklash turini tanlang.</string>
+    <string name="knox_twofactor_description_fingerprint">%s’ni blokdan chiqarish uchun barmoq izi hamda ikkinchi bloklash usulini tanlang.</string>
     <string name="two_factor_setup">O‘rnatish</string>
     <string name="icon">Ikonachalar</string>
     <string name="vibration">Vibratsiya</string>
@@ -3682,6 +3685,7 @@ Eslatma: Barmoq izingiz qiyin chizma yoki PIN-kodga nisbatan yaxshiroq himoya qi
     <string name="bluetooth_confirm_passkey_msg">%2$s- bu tasdiqlash kirish kaliti, %1$s bilan bog‘lanish uchun.</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>dan&lt;br/>Ushbu qurilma bilan bog‘lanilsinmi?</string>
     <string name="bluetooth_display_passkey_pin_msg">Bog‘lanish uchun %2$sda %1$sni kiriting, so‘ngra Qaytish yoki Kiritishga teging.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s’ga ulanib bo‘lmaydi. %2$s’dan ulanishga qayta urinib ko‘ring.</string>
     <string name="bluetooth_connecting_error_message">%sga ulanib bo‘lmaydi.</string>
     <string name="bluetooth_preference_scan_title">Qidirish</string>
     <string name="bluetooth_preference_paired_devices">Bog‘langan qurilmalar</string>

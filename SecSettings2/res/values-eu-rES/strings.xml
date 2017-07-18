@@ -866,6 +866,7 @@ Aplikazio datuen artean datu pertsonalak egon litezke, hala nola kontaktuak, mez
     <string name="content_description_hand">Ukitu eta eutsi zirkulu urdina pantailaren erdian</string>
     <string name="nearby_scanning_help_msg_sub">Inguruko gailuen bilaketak Bluetooth Low Energy bilaketa eta mikrofonoa darabiltza. Gailuan Bluetooth desaktibatuta dagoenean ere erabil daiteke Bluetooth Low Energy bilaketa.</string>
     <string name="sec_bluetooth_no_devices_found">Ez da Bluetooth gailurik aurkitu</string>
+    <string name="sec_bluetooth_no_tethered_devices">Gailurik ez</string>
     <string name="bt_tether_title">Bluetooth ainguraketa</string>
     <string name="bt_tether_settings_on">Piztuta</string>
     <string name="bt_tether_settings_off">Itzalita</string>
@@ -1032,6 +1033,7 @@ Smart capture desgaituta badago ere, Air command bidez atzitu ahal izango dituzu
     <string name="general_device_management_title">Kudeaketa orokorra</string>
     <string name="application_settings_summary">Aplikazio lehenetsiak, baimenak, desinstalatu</string>
     <string name="notifications_settings_summary">Blokeatu, baimendu, eman lehentasuna</string>
+    <string name="ime_security_warning_title">Hautatutako teklatua aktibatu?</string>
     <string name="language_settings_summary">Gehitu hizkuntza anitz behean. Horrela, aplikazioan zure hizkuntza lehenetsia onartzen ez bada (zerrendaren goialdean), onartzen den hurrengo hizkuntza erabiliko da. Eraman hizkuntza bat zerrendaren goialdera lehenetsi gisa ezartzeko.</string>
     <string name="more_connection_settings_title">Konexio ezarpen gehiago</string>
     <string name="lock_and_security_settings_title">Pan. blokeo eta segurtas.</string>
@@ -1828,7 +1830,8 @@ Gailuan dituzu ordezko segurtasun aukerak. Jarraitu eginbide hau erabiltzeko jar
 "</string>
     <string name="knox_twofactor_bio_description">Hautatu %s desblokeatzeko blokeo mota biometrikoa eta bigarren blokeo mota.</string>
     <string name="fingerprint_registered">Erregistratutako hatz aztarnak hautatutako desblokeo metodoarekin hautatuko dira.</string>
-    <string name="knox_twofactor_description">Erabili bi blokeo modu Knox are seguruagoa izan dadin. Hatz aztarnak lehen blokeo modu gisa erabiliko dira. Hautatu bigarren blokeo mota bat behean.</string>
+    <string name="knox_twofactor_description">Hautatu %s desblokeatzeko datu biometrikoak eta bigarren blokeo mota bat.</string>
+    <string name="knox_twofactor_description_fingerprint">%s desblokeatzeko, erabili hatz aztarnak eta hautatu bigarren blokeo mota.</string>
     <string name="two_factor_setup">Konfiguratu</string>
     <string name="icon">Ikonoak</string>
     <string name="vibration">Dardara</string>
@@ -3684,6 +3687,7 @@ Oharra: baliteke hatz aztarna ez izatea patroia edo PINa bezain segurua.
     <string name="bluetooth_confirm_passkey_msg">Baieztatu pasahitza %2$s dela %1$s-(r)ekin parekatzeko</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>-(e)tik Parekatu gailu honekin?</string>
     <string name="bluetooth_display_passkey_pin_msg">Adierazi %1$s %2$s-(e)n parekatzeko, eta ondoren ukitu Itzuli edo Intro</string>
+    <string name="bluetooth_HID_connecting_error_message">Ezin da konektatu %1$s osagarrira. Konektatu %2$s bidez.</string>
     <string name="bluetooth_connecting_error_message">Ezin da %s-ra konektatu</string>
     <string name="bluetooth_preference_scan_title">Arakatu</string>
     <string name="bluetooth_preference_paired_devices">Sinkronizatutako gailuak</string>

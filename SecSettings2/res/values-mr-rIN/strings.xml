@@ -866,6 +866,7 @@ Wi-Fi आणि ब्‍लुटूथ देखील बंद होईल,
     <string name="content_description_hand">स्‍क्रीनच्‍या मध्‍यभागी निळे वर्तुळ टॅप आणि होल्‍ड करा.</string>
     <string name="nearby_scanning_help_msg_sub">जवळपासचे उपकरण स्कॅनिंग ब्लुटूथ कमी ऊर्जा स्कॅनिंग आणि मायक्रोफोन वापरते. ब्लुटूथ कमी ऊर्जा स्कॅनिंग या उपकरणावर ब्लुटूथ बंद असताना देखील वापरले जाऊ शकते.</string>
     <string name="sec_bluetooth_no_devices_found">कोणतीही ब्लुटूथ उपकरणे सापडली नाहीत</string>
+    <string name="sec_bluetooth_no_tethered_devices">उपकरणे नाही</string>
     <string name="bt_tether_title">ब्लुटूथ टेथरिंग</string>
     <string name="bt_tether_settings_on">चालू</string>
     <string name="bt_tether_settings_off">बंद</string>
@@ -1032,6 +1033,7 @@ Wi-Fi आणि ब्‍लुटूथ देखील बंद होईल,
     <string name="general_device_management_title">साधारण व्यवस्थापन</string>
     <string name="application_settings_summary">डिफॉल्ट अनुप्रयोग, परवानग्या, अनइन्स्टॉल करा</string>
     <string name="notifications_settings_summary">अवरोधित करा, अनुमती द्या, प्राधान्य द्या</string>
+    <string name="ime_security_warning_title">निवडलेला कीबोर्ड चालू करायचा?</string>
     <string name="language_settings_summary">खाली बहुविध भाषा जोडा जणेकरून अनुप्रयोग आपल्या डिफॉल्ट भाषेचे समर्थन करत नसल्यास (सूचीच्या शीर्षा वर), त्याऐवजी यादी मधील पुढील समर्थित भाषा वापरली जाईल. भाषेला डिफॉल्ट म्हणून सेट करण्या साठी यादीच्या शीर्षावर ती हलवा.</string>
     <string name="more_connection_settings_title">अधिक कनेक्‍शन सेटिंग्‍स</string>
     <string name="lock_and_security_settings_title">लॉक स्क्रीन आणि सुरक्षितता</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s अनलॉक करण्यासाठी आपला बायोमेट्रिक लॉक प्रकार आणि दुसरा लॉक प्रकार निवडा.</string>
     <string name="fingerprint_registered">नोंदणीकृत फिंगरप्रिंट्स निवडलेल्या अनलॉक पद्धतीसह वापरल्या जातील.</string>
-    <string name="knox_twofactor_description">Knox अधिक सुरक्षित करण्‍यासाठी दोन लॉक प्रकार वापरा. आपल्‍या फिंगरप्रिंट्स प्रथम लॉक प्रकार म्हणून वापरण्यात येतील. खालील दुसरा लॉक प्रकार निवडा.</string>
+    <string name="knox_twofactor_description">%s अनलॉक करण्या साठी आपले बायोमॅट्रिक्स आणि दुसरा लॉक प्रकार निवडा.</string>
+    <string name="knox_twofactor_description_fingerprint">%s अनलॉक करण्या साठी आपले फिंगरप्रिंट्स वापरा आणि दुसरा लॉक प्रकार निवडा.</string>
     <string name="two_factor_setup">सेट करा</string>
     <string name="icon">आयकॉन्स</string>
     <string name="vibration">कंपन</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s-शी पेअर करण्यासाठी पासकी %2$s सुनिश्चित करा.</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>वरुन&lt;br/>&lt;br/>या डिव्हाइससह पेअर करायचे?</string>
     <string name="bluetooth_display_passkey_pin_msg">पेअर करण्यासाठी %2$s वर %1$s प्रविष्ट करा, नंतर “परत या” किंवा “प्रविष्ट करा” टॅप करा.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s शी कनेक्ट करू शकत नाही. %2$s मधून कनेक्ट करण्याचा प्रयत्न करा.</string>
     <string name="bluetooth_connecting_error_message">%s कनेक्ट करण्यास अक्षम.</string>
     <string name="bluetooth_preference_scan_title">स्कॅन करा</string>
     <string name="bluetooth_preference_paired_devices">पेअर्ड उपकरणे</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">आपली सर्व वैयक्तिक माहिती आणि डाउनलोड केलेले अनुप्रयोग खोडण्यात येतील आणि पुर्नप्राप्त करता येणार नाहीत.</string>
     <string name="master_clear_final_button_text">सर्व काढून टाका</string>
     <string name="master_clear_not_available">या पाहुण्या प्रोफाइलला फॅक्टरी डेटाची पुन्हा मांडणी करण्याची परवानगी नाही.</string>
-    <string name="master_clear_progress_title">पुन्हा मांडणी करा.</string>
+    <string name="master_clear_progress_title">पुन्हा मांडणी करा</string>
     <string name="master_clear_progress_text">कृपया वाट पहा…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB टेथरिंग</string>

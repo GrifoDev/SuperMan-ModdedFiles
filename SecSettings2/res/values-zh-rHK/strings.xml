@@ -865,6 +865,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="content_description_hand">輕觸並按住螢幕中央的藍色圓圈。</string>
     <string name="nearby_scanning_help_msg_sub">附近裝置掃描使用藍牙低功耗掃描與話筒。即使藍牙已在此裝置上關閉，仍然可以使用藍牙低功耗掃描。</string>
     <string name="sec_bluetooth_no_devices_found">找不到藍牙裝置</string>
+    <string name="sec_bluetooth_no_tethered_devices">無裝置</string>
     <string name="bt_tether_title">藍牙網絡共享</string>
     <string name="bt_tether_settings_on">開啟</string>
     <string name="bt_tether_settings_off">關閉</string>
@@ -1031,6 +1032,7 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
     <string name="general_device_management_title">一般管理</string>
     <string name="application_settings_summary">預設應用程式、權限、解除安裝</string>
     <string name="notifications_settings_summary">封鎖、允許、優先</string>
+    <string name="ime_security_warning_title">開啟已選擇的鍵盤嗎？</string>
     <string name="language_settings_summary">在下方加入多種語言，當應用程式不支援您的預設語言 (清單最上方) 時，將以清單中的下一個語言取代。請移動語言至清單頂部以將其設定為預設。</string>
     <string name="more_connection_settings_title">更多連接設定</string>
     <string name="lock_and_security_settings_title">鎖定螢幕與安全性</string>
@@ -1826,7 +1828,8 @@ Wi-Fi 與藍牙也將關閉，但可於 [設定] 或快速設定面板中再次�
 "</string>
     <string name="knox_twofactor_bio_description">選擇您的生物特徵鎖定類型與第二鎖定類型以解鎖 %s。</string>
     <string name="fingerprint_registered">已註冊的指紋將用於選擇的解鎖方式。</string>
-    <string name="knox_twofactor_description">使用兩種鎖定類型可使 Knox 更加安全。您的指紋將用作第一種鎖定類型。從下方選擇第二種鎖定類型。</string>
+    <string name="knox_twofactor_description">選擇您的生物特徵與第二鎖定類型以解鎖 %s。</string>
+    <string name="knox_twofactor_description_fingerprint">使用您的指紋並選擇第二鎖定類型以解鎖 %s。</string>
     <string name="two_factor_setup">設定</string>
     <string name="icon">圖示</string>
     <string name="vibration">震動</string>
@@ -3681,6 +3684,7 @@ Wi-Fi 現已開啟。"</string>
     <string name="bluetooth_confirm_passkey_msg">確認密碼為 %2$s 以與 %1$s 配對。</string>
     <string name="bluetooth_incoming_pairing_msg">來自&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>與此裝置配對？</string>
     <string name="bluetooth_display_passkey_pin_msg">於 %2$s 上輸入 %1$s 以配對，然後輕觸 [返回] 或 [輸入]。</string>
+    <string name="bluetooth_HID_connecting_error_message">無法連接至 %1$s。請嘗試從 %2$s 連接。</string>
     <string name="bluetooth_connecting_error_message">無法連接到 %s。</string>
     <string name="bluetooth_preference_scan_title">掃描</string>
     <string name="bluetooth_preference_paired_devices">已配對裝置</string>

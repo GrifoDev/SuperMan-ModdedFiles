@@ -866,6 +866,7 @@ Programų duomenyse gali būti asmeninės informacijos, pvz., adresatų, žinuč
     <string name="content_description_hand">Bakstelėkite ir palaikykite mėlyną apskritimą ekrano centre.</string>
     <string name="nearby_scanning_help_msg_sub">Įrenginių netoliese ieška naudoja „Bluetooth“ mažų energijos sąnaudų nuskaitymą ir mikrofoną. „Bluetooth“ mažų energijos sąnaudų nuskaitymo režimą galima naudoti, net jei šiame įrenginyje „Bluetooth“ yra išjungtas.</string>
     <string name="sec_bluetooth_no_devices_found">Neaptikta „Bluetooth“ įrenginių</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nėra įrenginių</string>
     <string name="bt_tether_title">„Bluetooth“ siejimas</string>
     <string name="bt_tether_settings_on">Įjungta</string>
     <string name="bt_tether_settings_off">Išjungta</string>
@@ -1032,6 +1033,7 @@ Net jei išmaniojo fiksavimo funkcija yra išjungta, jūs galite pasiekti funkci
     <string name="general_device_management_title">Bendrasis valdymas</string>
     <string name="application_settings_summary">Numatytosios programos, leidimai, išdiegti</string>
     <string name="notifications_settings_summary">Blokuoti, leisti, suteikti pirmenybę</string>
+    <string name="ime_security_warning_title">Įjungti pasirinktą klaviatūrą?</string>
     <string name="language_settings_summary">Žemiau pridėkite kelias kalbas, kad, jei programa nepalaikytų numatytosios kalbos (sąrašo viršuje), būtų naudojama kita sąraše nurodyta palaikoma kalba. Perkelkite kalbą į sąrašo viršų – taip ją nustatysite kaip numatytąją.</string>
     <string name="more_connection_settings_title">Daugiau ryšio nustatymų</string>
     <string name="lock_and_security_settings_title">Užrakinimo ekranas, sauga</string>
@@ -1828,7 +1830,8 @@ Jūsų įrenginyje yra ir kitų saugumo parinkčių. Laikykitės visų instrukci
 "</string>
     <string name="knox_twofactor_bio_description">Pasirinkite biometrinio užrakto tipą ir antrąjį užrakinimo būdą, kad atrakintumėte %s.</string>
     <string name="fingerprint_registered">Registruoti pirštų atspaudai bus naudojami su pasirinktu atrakinimo būdu.</string>
-    <string name="knox_twofactor_description">Norėdami labiau apsaugoti Knox, naudokite du užrakinimo būdus. Pirštų atspaudai bus naudojami kaip pirmas užrakinimo būdas. Toliau pasirinkite antrąjį užrakinimo būdą.</string>
+    <string name="knox_twofactor_description">Pasirinkite savo biometrinius duomenis ir antrąjį %s užrakinimo tipą.</string>
+    <string name="knox_twofactor_description_fingerprint">Pasinaudokite pirštų atspaudais ir pasirinkite antrą užrakinimo būdą, kad atrakintumėte %s.</string>
     <string name="two_factor_setup">Nustatyti</string>
     <string name="icon">Piktogramos</string>
     <string name="vibration">Vibruoti</string>
@@ -3684,6 +3687,7 @@ Pastaba. Stiprus šablonas arba PIN gali būti saugesnis už piršto atspaudą.
     <string name="bluetooth_confirm_passkey_msg">Kad būtų galima sujungti su %1$s, patvirtinkite, kad slaptažodis yra %2$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Iš&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Susieti su šiuo įrenginiu?</string>
     <string name="bluetooth_display_passkey_pin_msg">Norėdami susieti, %2$s įveskite %1$s, tada bakstelėkite „Grįžti“ arba „Įvesti“.</string>
+    <string name="bluetooth_HID_connecting_error_message">Negalima prisijungti prie %1$s. Bandykite prisijungti per %2$s.</string>
     <string name="bluetooth_connecting_error_message">Negalima prisijungti prie %s.</string>
     <string name="bluetooth_preference_scan_title">Nuskait.</string>
     <string name="bluetooth_preference_paired_devices">Suporuoti įrenginiai</string>
@@ -4084,7 +4088,7 @@ Kad veikimas būtų geresnis, galbūt vertėtų naudoti spartesnę SD kortelę a
     <string name="master_clear_final_desc">Visa jūsų asmeninė informacija ir atsisiųstos programos bus ištrintos, o jų atkurti nebus galima.</string>
     <string name="master_clear_final_button_text">Trinti viską</string>
     <string name="master_clear_not_available">Šis svečio profilis neturi leidimo atlikti gamyklinių duomenų atkūrimo.</string>
-    <string name="master_clear_progress_title">Atstatyti</string>
+    <string name="master_clear_progress_title">Atkurti</string>
     <string name="master_clear_progress_text">Palaukite…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB siejimas</string>

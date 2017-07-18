@@ -196,9 +196,9 @@
 
     move-result-object v6
 
-    const v5, 0x7f0b047e
+    const v5, 0x7f0b047f
 
-    const v9, 0x7f0b0858
+    const v9, 0x7f0b085b
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -257,7 +257,7 @@
 
     iput-object v8, v2, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v9, 0x7f0b047e
+    const v9, 0x7f0b047f
 
     iput v9, v2, Lcom/android/settings/search/SearchIndexableRaw;->parentTitleRes:I
 
@@ -305,7 +305,7 @@
     if-eqz v9, :cond_3
 
     :cond_1
-    const v9, 0x7f0b086b
+    const v9, 0x7f0b086e
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -322,7 +322,7 @@
     return-object v7
 
     :cond_3
-    const v9, 0x7f0b1126
+    const v9, 0x7f0b1133
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

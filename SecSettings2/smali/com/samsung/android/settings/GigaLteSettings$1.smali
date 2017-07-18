@@ -36,11 +36,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings$1;->this$0:Lcom/samsung/android/settings/GigaLteSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-get3(Lcom/samsung/android/settings/GigaLteSettings;)Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isRoaming(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap1(Lcom/samsung/android/settings/GigaLteSettings;)Z
 
     move-result v0
 
@@ -48,7 +44,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings$1;->this$0:Lcom/samsung/android/settings/GigaLteSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap1(Lcom/samsung/android/settings/GigaLteSettings;)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap2(Lcom/samsung/android/settings/GigaLteSettings;)Z
 
     move-result v0
 
@@ -56,7 +52,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings$1;->this$0:Lcom/samsung/android/settings/GigaLteSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap2(Lcom/samsung/android/settings/GigaLteSettings;)Z
+    invoke-static {v0}, Lcom/samsung/android/settings/GigaLteSettings;->-wrap3(Lcom/samsung/android/settings/GigaLteSettings;)Z
 
     move-result v0
 

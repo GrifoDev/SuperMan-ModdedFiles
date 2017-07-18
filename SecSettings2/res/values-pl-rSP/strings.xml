@@ -730,6 +730,7 @@ Dane aplikacyji poradzōm ôbyjmować informacyje prywatne, take co kōntakty, w
     <string name="content_description_hand">Tyknij modrego kōłka na strzodku ekranu i trzimej je.</string>
     <string name="nearby_scanning_help_msg_sub">Kej skanujesz masziny po blisku używane je skanowanie Bluetooth Low Energy i mikrofōn. Skanowanie Bluetooth Low Energy może być używane i po wyłōnczyniu fōnkcyji Bluetooth na maszinie.</string>
     <string name="sec_bluetooth_no_devices_found">Niy znojdziōno maszin Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Niy ma maszinōw</string>
     <string name="bt_tether_title">Router Bluetooth</string>
     <string name="bt_tether_settings_on">Załōnczōne</string>
     <string name="bt_tether_settings_off">Wyłōnczōne</string>
@@ -896,6 +897,7 @@ Ale tyż po wyłōnczyniu fōnkcyji Przechytywanie inteligyntne idzie mieć dost
     <string name="general_device_management_title">Reskyrowanie ôgōlne</string>
     <string name="application_settings_summary">Dōmyślne aplikacyje, uprŏwniynia, dezinstalacyjo</string>
     <string name="notifications_settings_summary">Bloknij, dozwolej, ôkryślej priorytety</string>
+    <string name="ime_security_warning_title">Włączyć wybraną klawiaturę?</string>
     <string name="language_settings_summary">Dodaj poniżej wiele języków, aby gdy aplikacja nie obsługuje języka domyślnego (na górze listy), zamiast niego został użyty kolejny obsługiwany język z listy. Przenieś język na górę listy, aby ustawić go jako domyślny.</string>
     <string name="more_connection_settings_title">Wiyncyj sztalowań połōnczynia</string>
     <string name="lock_and_security_settings_title">Ekran blokady a bezpieczyństwo</string>
@@ -1227,7 +1229,7 @@ Dotknij OK, aby zezwolić na zwiększenie jasności powyżej bezpiecznego poziom
     <string name="intelligent_help_summary_1">Jesteś w dobrze oświetlonym miejscu, ale nie w bezpośrednim świetle słonecznym.</string>
     <string name="intelligent_help_summary_2">Przedni aparat nie jest używany przez inną aplikację.</string>
     <string name="enable_smartstay_title">Załōncz %s</string>
-    <string name="device_visibility_title">Widoczność telefonu</string>
+    <string name="device_visibility_title">Widoczność telefōnu</string>
     <string name="device_visibility_text">Zezwalaj innym urządzeniom na znajdowanie Twojego telefonu i przesyłanie plików.</string>
     <string name="device_visibility_text_full">Zezwalaj innym urządzeniom na znajdowanie Twojego telefonu (%s) i przesyłanie plików. Twój telefon pojawi się na liście dostępnych urządzeń podczas przesyłania plików za pomocą funkcji Przesyłanie plików do urządzeń.</string>
     <string name="easy_mode">Tryb Ulekszynia</string>
@@ -1691,7 +1693,8 @@ Urządzenie wyposażone jest w dodatkowe opcje zabezpieczeń. Aby z nich skorzys
 "</string>
     <string name="knox_twofactor_bio_description">Ôbier typ blokady biometrycznyj i drugi typ blokady do ôdblokowaniŏ %s.</string>
     <string name="fingerprint_registered">Byda użiwoł zaregistrowanych ôdciskōw ôd palcōw wrŏz z ôbranōm metodōm ôdmykaniŏ.</string>
-    <string name="knox_twofactor_description">Użyj dwōch zortōw blokowaniŏ, coby aplikacyjŏ KNOX bōła jeszcze bardzij bezpiecznŏ. Twoje ôdciski palcōw bydōm używane jako piyrszŏ zorta blokowaniŏ. Niżyj ôbier drugŏ zorta.</string>
+    <string name="knox_twofactor_description">Ôbier biōmetryjŏ i drugi typ blokady do ôdblokowaniŏ %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Użyj ôdciskōw palcōw i ôbier drugo zorta blokniyńcio coby ôdbloknōńć kōntyner %s.</string>
     <string name="two_factor_setup">Nastŏw</string>
     <string name="icon">Ikōny</string>
     <string name="vibration">Wibracyjŏ</string>
@@ -3544,6 +3547,7 @@ Uwaga: Twój odcisk palca może być mniej bezpieczny niż silny symbol lub kod 
     <string name="bluetooth_confirm_passkey_msg">Je żeś zicher, co klucz dostympu to %2$s, coby powiōnzać ze maszinōm %1$s?</string>
     <string name="bluetooth_incoming_pairing_msg">Ôd:&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Zepnōńć z tōm maszinōm?</string>
     <string name="bluetooth_display_passkey_pin_msg">Podej %1$s na %2$s coby skuplować, a potym tyknij Nazŏd abo OK.</string>
+    <string name="bluetooth_HID_connecting_error_message">Niy idzie zepnōńć z: %1$s. Wybadej coby chycić gŏdka z: %2$s.</string>
     <string name="bluetooth_connecting_error_message">Niy idzie połōnczyć z %s.</string>
     <string name="bluetooth_preference_scan_title">Szukej za</string>
     <string name="bluetooth_preference_paired_devices">Skuplowane masziny</string>
@@ -3944,7 +3948,7 @@ Rozważ użycie szybszej karty pamięci lub urządzenia pamięci USB w celu popr
     <string name="master_clear_final_desc">Wszyjskie info ȏsobiste i zebrane aplikacyje bydōm wyciepniynte i niy poradzisz ich wrōcić nazŏd.</string>
     <string name="master_clear_final_button_text">Wyciep wszyjsko</string>
     <string name="master_clear_not_available">Profil gościa niy mŏ przizwolyniŏ, coby łōnaczyć fabryczny reset danych.</string>
-    <string name="master_clear_progress_title">Wynuluj</string>
+    <string name="master_clear_progress_title">Resetowanie</string>
     <string name="master_clear_progress_text">Czekejcie…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB tethering</string>

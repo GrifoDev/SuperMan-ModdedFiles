@@ -1033,6 +1033,7 @@ Incluído con Captura completa desactivado, podes acceder ás súas funcións me
     <string name="general_device_management_title">Xestión xeral</string>
     <string name="application_settings_summary">Aplicacións predeterminadas, permisos, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, dar prioridade</string>
+    <string name="ime_security_warning_title">Queres activar o teclado seleccionado?</string>
     <string name="language_settings_summary">Engade varios idiomas a continuación para que, en caso de que unha aplicación non admita o teu idioma predeterminado (situado na parte superior da lista), se utilice o seguinte idioma admitido da lista no seu lugar. Move un idioma á parte superior da lista para definilo como predeterminado.</string>
     <string name="more_connection_settings_title">Máis axustes de conexión</string>
     <string name="lock_and_security_settings_title">Pant. bloqueo e seguridade</string>
@@ -1828,7 +1829,8 @@ Hai dispoñibles opcións de seguridade alternativas no teu dispositivo. Sigue t
 "</string>
     <string name="knox_twofactor_bio_description">Selecciona o teu tipo de bloqueo biométrico e o segundo tipo de bloqueo para desbloquear %s.</string>
     <string name="fingerprint_registered">As impresións dixitais rexistradas utilizaranse co método de desbloqueo seleccionado.</string>
-    <string name="knox_twofactor_description">Utiliza dous tipos de bloqueo para aumentar a seguridade de Knox. As túas impresións dixitais utilizaranse como o primeiro tipo de bloqueo. Selecciona un segundo tipo de bloqueo a continuación.</string>
+    <string name="knox_twofactor_description">Selecciona os teus datos biométricos e un segundo tipo de bloqueo para desbloquear %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Usa as túas impresións dixitais e selecciona un segundo tipo de bloqueo para desbloquear %s.</string>
     <string name="two_factor_setup">Configurar</string>
     <string name="icon">Iconas</string>
     <string name="vibration">Vibración</string>
@@ -3684,6 +3686,7 @@ Nota: É posible que a túa impresión dixital sexa menos segura que un patrón 
     <string name="bluetooth_confirm_passkey_msg">Confirma que a clave de paso é %2$s para vincularse con %1$s</string>
     <string name="bluetooth_incoming_pairing_msg">De&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Emparellar con este dispositivo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Introduce %1$s en %2$s para realizar a vinculación e, a continuación, toca Volver ou Introducir</string>
+    <string name="bluetooth_HID_connecting_error_message">Non se pode conectar con %1$s. Tenta conectarte desde %2$s.</string>
     <string name="bluetooth_connecting_error_message">Non se pode conectar a %s</string>
     <string name="bluetooth_preference_scan_title">Buscar</string>
     <string name="bluetooth_preference_paired_devices">Dispositivos vinculados</string>

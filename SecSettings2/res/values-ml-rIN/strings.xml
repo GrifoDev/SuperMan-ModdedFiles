@@ -866,6 +866,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="content_description_hand">സ്ക്രീനിന്‍റെ മധ്യത്തിലുള്ള നീല വൃത്തത്തിൽ സ്പർശിച്ചുപിടിക്കുക.</string>
     <string name="nearby_scanning_help_msg_sub">ചുറ്റുവട്ട ഉപകരണ സ്കാനിംഗ് ഉപയോഗിക്കുന്നത് ബ്ലൂടൂത്ത് ലോ എനർജി സ്കാനിംഗ്, മൈക്രോഫോൺ എന്നിവയെയാണ്. ഈ ഉപകരണത്തിൽ ബ്ലൂടൂത്ത് ഓഫ് ചെയ്തിരിക്കുന്ന സമയത്ത് പോലും ബ്ലൂടൂത്ത് ലോ എനർജി സ്കാനിംഗ് ഉപയോഗിക്കാവുന്നതാണ്.</string>
     <string name="sec_bluetooth_no_devices_found">ബ്ലൂടൂത്ത് ഉപകരണങ്ങള്‍ ഒന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="sec_bluetooth_no_tethered_devices">ഉപകരണങ്ങള്‍ ഇല്ല</string>
     <string name="bt_tether_title">ബ്ലൂടൂത്ത് ടെതറിംഗ്</string>
     <string name="bt_tether_settings_on">ഓണ്‍‌</string>
     <string name="bt_tether_settings_off">ഓഫ്</string>
@@ -1032,6 +1033,7 @@ Wi-Fi, ബ്ലൂടൂത്ത് എന്നിവ കൂടി ഓഫ് 
     <string name="general_device_management_title">പൊതുവായ മാനേജ്മെന്‍റ്</string>
     <string name="application_settings_summary">ഡിഫോൾട്ട് ആപ്ലിക്കേഷനുകൾ, അനുമതികൾ, അൺഇൻസ്റ്റാൾ ചെയ്യുക</string>
     <string name="notifications_settings_summary">തടയുക, അനുവദിക്കുക, മുൻഗണന നൽകുക</string>
+    <string name="ime_security_warning_title">തിരഞ്ഞെടുത്തെ കീബോർഡ് ഓൺ ചെയ്യണോ?</string>
     <string name="language_settings_summary">താഴെ നിരവധി ഭാഷകൾ ചേർക്കുക, അതുവഴി ഒരു ആപ്ലിക്കേഷൻ നിങ്ങളുടെ ഡിഫോൾട്ട് ഭാഷയെ (പട്ടികയുടെ മുകൾഭാഗത്തുള്ളത്) പിന്തുണയ്ക്കുന്നില്ലെങ്കിൽ, പട്ടികയിലെ പിന്തുണയ്ക്കുന്ന അടുത്ത ഭാഷ പകരം ഉപയോഗിക്കപ്പെടും. ഒരു ഭാഷയെ ഡിഫോൾട്ടായി ക്രമീകരിക്കുന്നതിന് അതിനെ പട്ടികയുടെ മുകൾഭാഗത്തേക്ക് നീക്കുക.</string>
     <string name="more_connection_settings_title">കൂടുതൽ കണക്ഷൻ ക്രമീകരണങ്ങൾ</string>
     <string name="lock_and_security_settings_title">ലോക്ക് സ്ക്രീനും സുരക്ഷയും</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s അൺലോക്ക് ചെയ്യുന്നതിനുള്ള നിങ്ങളുടെ ബയോമെട്രിക്ക് ലോക്ക് തരവും രണ്ടാമത്തെ ലോക്ക് തരവും തിരഞ്ഞെടുക്കുക.</string>
     <string name="fingerprint_registered">തിരഞ്ഞെടുത്ത അൺലോക്ക് രീതിയ്ക്കൊപ്പം രജിസ്റ്റർ ചെയ്ത വിരലടയാളങ്ങൾ ഉപയോഗിക്കപ്പെടും.</string>
-    <string name="knox_twofactor_description">Knox ഇനിയും കൂടുതൽ സുരക്ഷിതമാക്കുന്നതിന് രണ്ട് ലോക്ക് തരങ്ങൾ ഉപയോഗിക്കുക. ആദ്യ ലോക്ക് തരമായി നിങ്ങളുടെ വിരലടയാളങ്ങൾ ഉപയോഗിക്കപ്പെടും. രണ്ടാമതൊരു ലോക്ക് തരം താഴെ തിരഞ്ഞെടുക്കുക.</string>
+    <string name="knox_twofactor_description">%s അൺലോക്ക് ചെയ്യുന്നതിനുള്ള നിങ്ങളുടെ ബയോമെട്രിക്ക്സും രണ്ടാമത്തെ ഒരു ലോക്ക് തരവും തിരഞ്ഞെടുക്കുക.</string>
+    <string name="knox_twofactor_description_fingerprint">%s അൺലോക്ക് ചെയ്യുന്നതിന് നിങ്ങളുടെ വിരലടയാളം ഉപയോഗിച്ച ശേഷം രണ്ടാമത്തെ ഒരു ലോക്ക് തരം തിരഞ്ഞെടുക്കുക.</string>
     <string name="two_factor_setup">സെറ്റപ്പ്</string>
     <string name="icon">ഐക്കണുകൾ</string>
     <string name="vibration">വൈബ്രേഷന്‍</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s-മായി പെയര്‍ ചെയ്യുന്നതിന് %2$s പാസ്‍കീ സ്ഥിരീകരിക്കുക.</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>ല്‍ നിന്നും ഈ സാമഗ്രിയുമായി പെയര്‍ ചെയ്യണമോ?</string>
     <string name="bluetooth_display_passkey_pin_msg">പെയര്‍ ചെയ്യുന്നതിന് %2$s-ല്‍ %1$s നല്‍കുക, എന്നിട്ട് “മടങ്ങുക” അല്ലെങ്കില്‍ “നൽകുക” എന്നതില്‍ സ്പർശിക്കുക.</string>
+    <string name="bluetooth_HID_connecting_error_message">‌%1$s-ലേക്ക് ബന്ധിപ്പിക്കാനാവില്ല. %2$s-ൽ നിന്ന് ബന്ധിപ്പിക്കാൻ ശ്രമിക്കുക.</string>
     <string name="bluetooth_connecting_error_message">%sലേക്ക് കണക്റ്റ് ചെയ്യാനാവില്ല.</string>
     <string name="bluetooth_preference_scan_title">സ്കാന്‍ ചെയ്യുക</string>
     <string name="bluetooth_preference_paired_devices">ജോടിയാക്കിയ ഉപകരണം</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">നിങ്ങളുടെ എല്ലാ വ്യക്തിഗത വിവരങ്ങളും ഡൗൺലോഡ് ചെയ്യപ്പെട്ട ആപ്ലിക്കേഷനുകളും വീണ്ടെടുക്കാനാവാത്തവിധം മായ്ക്കപ്പെടും.</string>
     <string name="master_clear_final_button_text">എല്ലാം ഇല്ലാതാ.</string>
     <string name="master_clear_not_available">ഈ അതിഥി പ്രൊഫൈലിന് ഒരു ഫാക്ടറി ഡാറ്റ പുനഃക്രമീകരണം നിർവഹിക്കാനുള്ള അനുമതി ഇല്ല.</string>
-    <string name="master_clear_progress_title">റീസെറ്റ്</string>
+    <string name="master_clear_progress_title">പുനഃക്രരിക്കുക</string>
     <string name="master_clear_progress_text">ദയവായി കാത്തിരിക്കുക…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB ടെതറിംഗ്</string>

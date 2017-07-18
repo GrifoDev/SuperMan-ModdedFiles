@@ -866,6 +866,7 @@ Az alkalmazásadatok között személyes adatok, úgymint névjegyek, üzenetek 
     <string name="content_description_hand">Tartsa ujját a kék körön a képernyő közepén.</string>
     <string name="nearby_scanning_help_msg_sub">A közeli eszközök keresése a Bluetooth Low Energy-keresést, valamint a mikrofont használja. A Bluetooth Low Energy-keresés akkor is használható, ha az eszközön ki van kapcsolva a Bluetooth.</string>
     <string name="sec_bluetooth_no_devices_found">Nem található Bluetooth-eszköz</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nincs eszköz</string>
     <string name="bt_tether_title">Bluetooth internetmegosztás</string>
     <string name="bt_tether_settings_on">Be</string>
     <string name="bt_tether_settings_off">Ki</string>
@@ -1032,6 +1033,7 @@ A Gyors funkciók használatával akkor is hozzáférhet az Intelligens felvéte
     <string name="general_device_management_title">Általános kezelés</string>
     <string name="application_settings_summary">Alapértelmezett alkalmazások, engedélyek, eltávolítás</string>
     <string name="notifications_settings_summary">Blokkolás, engedélyezés, előnyben részesítés</string>
+    <string name="ime_security_warning_title">Bekapcsolja a kiválasztott billentyűzetet?</string>
     <string name="language_settings_summary">Vegyen fel több nyelvet alább, és ha egy alkalmazás nem támogatja az alapértelmezett (a lista tetején szereplő) nyelvet, akkor a listában található következő támogatott nyelvet használja. Az alapértelmezettként beállítani kívánt nyelvet helyezze a lista tetejére.</string>
     <string name="more_connection_settings_title">Egyéb kapcsolatbeállítások</string>
     <string name="lock_and_security_settings_title">Zárolt képernyő és védelem</string>
@@ -1827,7 +1829,8 @@ Az eszköz alternatív biztonsági opciókkal is rendelkezik. Tartsa be a funkci
 "</string>
     <string name="knox_twofactor_bio_description">Válassza ki a(z) %s feloldásához használni kívánt biometrikus, illetve másodlagos zár típusát.</string>
     <string name="fingerprint_registered">A regisztrált ujjlenyomatok használatban lesznek a kiválasztott feloldási módszerrel.</string>
-    <string name="knox_twofactor_description">Két zárolási típust használhat a Knox még nagyobb biztonsága érdekében. Az első zárolási típus az ujjlenyomat lesz. A másodikat válassza ki alább.</string>
+    <string name="knox_twofactor_description">Válassza ki biometrikus adatait és a(z) %s feloldásához használni kívánt másodlagos zár típusát.</string>
+    <string name="knox_twofactor_description_fingerprint">A(z) %s feloldásához használja ujjlenyomatait, valamint válasszon egy másodlagos zárolási típust.</string>
     <string name="two_factor_setup">Beállítás</string>
     <string name="icon">Ikonok</string>
     <string name="vibration">Rezgés</string>
@@ -3683,6 +3686,7 @@ Megjegyzés: Előfordulhat, hogy az ujjlenyomatos hitelesítés kevésbé bizton
     <string name="bluetooth_confirm_passkey_msg">Erősítse meg, hogy %2$s a jelszó a(z) %1$s eszközzel való párosításhoz.</string>
     <string name="bluetooth_incoming_pairing_msg">Küldő:&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Párosít ezzel az eszközzel?</string>
     <string name="bluetooth_display_passkey_pin_msg">A párosításhoz adja meg a(z) %1$s kódot a(z) %2$s eszközön, majd érintse meg a Return vagy Enter gombot.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nem lehet csatlakozni a(z) %1$s tartozékhoz. Próbáljon meg a(z) %2$s tartozékról csatlakozni.</string>
     <string name="bluetooth_connecting_error_message">Nem lehet csatlakozni a következőhöz: %s.</string>
     <string name="bluetooth_preference_scan_title">Keresés</string>
     <string name="bluetooth_preference_paired_devices">Párosított eszközök</string>
@@ -4083,7 +4087,7 @@ A teljesítmény javítása érdekében mérlegelje egy gyorsabb SD-kártya vagy
     <string name="master_clear_final_desc">Ezzel a visszaállítás lehetősége nélkül törli személyes adatait és minden letöltött alkalmazást.</string>
     <string name="master_clear_final_button_text">Törli mindet</string>
     <string name="master_clear_not_available">A vendégprofilnak nincs engedélye a gyári adatok visszaállítására.</string>
-    <string name="master_clear_progress_title">Visszaállít</string>
+    <string name="master_clear_progress_title">Visszaállítás</string>
     <string name="master_clear_progress_text">Kérem, várjon…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB-internetmegosztás</string>

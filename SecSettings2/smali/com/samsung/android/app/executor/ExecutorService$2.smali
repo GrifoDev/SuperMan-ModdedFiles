@@ -39,7 +39,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -66,12 +65,10 @@
 
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorService$2;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # setter for: Lcom/samsung/android/app/executor/ExecutorService;->mJsonCommandFromEm:Ljava/lang/String;
     invoke-static {v0, p1}, Lcom/samsung/android/app/executor/ExecutorService;->access$302(Lcom/samsung/android/app/executor/ExecutorService;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorService$2;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/samsung/android/app/executor/ExecutorService;->access$400(Lcom/samsung/android/app/executor/ExecutorService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -95,7 +92,6 @@
         }
     .end annotation
 
-    # getter for: Lcom/samsung/android/app/executor/ExecutorService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/samsung/android/app/executor/ExecutorService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -106,7 +102,6 @@
 
     iget-object v0, p0, Lcom/samsung/android/app/executor/ExecutorService$2;->this$0:Lcom/samsung/android/app/executor/ExecutorService;
 
-    # setter for: Lcom/samsung/android/app/executor/ExecutorService;->mCallbackToEm:Lcom/samsung/android/app/executor/IExecutorServiceCallback;
     invoke-static {v0, p1}, Lcom/samsung/android/app/executor/ExecutorService;->access$102(Lcom/samsung/android/app/executor/ExecutorService;Lcom/samsung/android/app/executor/IExecutorServiceCallback;)Lcom/samsung/android/app/executor/IExecutorServiceCallback;
 
     return-void

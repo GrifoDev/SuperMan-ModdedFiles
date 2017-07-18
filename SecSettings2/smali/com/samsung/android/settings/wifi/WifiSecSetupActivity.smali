@@ -2272,7 +2272,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c76
+    const v11, 0x7f0b0c85
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2456,7 +2456,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c76
+    const v11, 0x7f0b0c85
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2727,7 +2727,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1243
+    const v13, 0x7f0b1251
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2743,7 +2743,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1246
+    const v13, 0x7f0b1254
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2769,7 +2769,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1248
+    const v13, 0x7f0b1256
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2786,7 +2786,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b0c88
+    const v13, 0x7f0b0c97
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2802,7 +2802,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b123b
+    const v13, 0x7f0b1249
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2856,7 +2856,7 @@
 
     const/4 v12, 0x0
 
-    const v13, 0x7f0b1881
+    const v13, 0x7f0b188f
 
     invoke-interface {v9, v10, v11, v12, v13}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
     :try_end_0
@@ -3181,7 +3181,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b124c
+    const v5, 0x7f0b125a
 
     move-object v0, p0
 
@@ -3299,9 +3299,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b129b
+    const v1, 0x7f0b12a9
 
-    const v2, 0x7f0b129b
+    const v2, 0x7f0b12a9
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;
 
@@ -3700,9 +3700,9 @@
     goto :goto_1
 
     :cond_7
-    const v1, 0x7f0b0c64
+    const v1, 0x7f0b0c73
 
-    const v2, 0x7f0b0c64
+    const v2, 0x7f0b0c73
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;
 

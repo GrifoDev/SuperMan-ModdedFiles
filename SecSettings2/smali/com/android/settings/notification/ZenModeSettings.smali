@@ -53,7 +53,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b153b
+    const v2, 0x7f0b1549
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -120,7 +120,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b19ad
+    const v2, 0x7f0b19bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -132,7 +132,7 @@
 
     move-result v1
 
-    const v2, 0x7f0b19ae
+    const v2, 0x7f0b19bc
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -146,7 +146,7 @@
 
     move-result v1
 
-    const v2, 0x7f0b19af
+    const v2, 0x7f0b19bd
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -168,7 +168,7 @@
 
     if-nez v1, :cond_2
 
-    const v1, 0x7f0b19a7
+    const v1, 0x7f0b19b5
 
     invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -192,7 +192,7 @@
 
     if-nez v1, :cond_3
 
-    const v1, 0x7f0b19b0
+    const v1, 0x7f0b19be
 
     invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -207,7 +207,7 @@
     return-void
 
     :cond_2
-    const v1, 0x7f0b19a8
+    const v1, 0x7f0b19b6
 
     invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -216,7 +216,7 @@
     goto :goto_0
 
     :cond_3
-    const v1, 0x7f0b19b1
+    const v1, 0x7f0b19bf
 
     invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -235,7 +235,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0b19b2
+    const v1, 0x7f0b19c0
 
     invoke-direct {p0, v0, v3, v1}, Lcom/android/settings/notification/ZenModeSettings;->appendLowercase(Ljava/lang/String;ZI)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     const/4 v2, 0x1
 
-    const v1, 0x7f0b19c3
+    const v1, 0x7f0b19d1
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ZenModeSettings;->getString(I)Ljava/lang/String;
 
@@ -269,7 +269,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0b19c6
+    const v1, 0x7f0b19d4
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ZenModeSettings;->getString(I)Ljava/lang/String;
 
@@ -290,7 +290,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0b19c4
+    const v1, 0x7f0b19d2
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ZenModeSettings;->getString(I)Ljava/lang/String;
 
@@ -305,7 +305,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0b19c5
+    const v1, 0x7f0b19d3
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ZenModeSettings;->getString(I)Ljava/lang/String;
 
@@ -319,7 +319,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1887
+    const v0, 0x7f0b1895
 
     return v0
 .end method

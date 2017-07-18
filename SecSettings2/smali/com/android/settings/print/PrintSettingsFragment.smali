@@ -253,7 +253,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1641
+    const v2, 0x7f0b164f
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -366,7 +366,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b188d
+    const v0, 0x7f0b189b
 
     return v0
 .end method
@@ -660,7 +660,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0b163b
+    const v3, 0x7f0b1649
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

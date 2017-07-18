@@ -115,7 +115,7 @@
 
     aput-object v3, v4, v5
 
-    const v5, 0x7f0b13e7
+    const v5, 0x7f0b13f5
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$OtherInfoFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -127,7 +127,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$OtherInfoFragment$1;-><init>(Lcom/android/settings/deviceinfo/PrivateVolumeSettings$OtherInfoFragment;)V
 
-    const v5, 0x7f0b13c0
+    const v5, 0x7f0b13ce
 
     invoke-virtual {v0, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

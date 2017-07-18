@@ -866,6 +866,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="content_description_hand">ਸਕ੍ਰੀਨ ਦੇ ਮੱਧ ਵਿੱਚ ਨੀਲੇ ਚੱਕਰ ਨੂੰ ਟੈਪ ਕਰਕੇ ਰੱਖੋ।</string>
     <string name="nearby_scanning_help_msg_sub">ਨੇੜਲਾ ਡਿਵਾਈਸ ਸਕੈਨਿੰਗ ਬਲੂਟੁੱਥ ਘੱਟ ਊਰਜਾ ਸਕੈਨਿੰਗ ਅਤੇ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ। ਬਲੂਟੁੱਥ ਘੱਟ ਊਰਜਾ ਸਕੈਨਿੰਗ ਦੀ ਵਰਤੋਂ ਉਦੋਂ ਵੀ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ ਜਦੋਂ ਇਸ ਡਿਵਾਈਸ ਤੇ ਬਲੂਟੁੱਥ ਬੰਦ ਹੁੰਦਾ ਹੈ।</string>
     <string name="sec_bluetooth_no_devices_found">ਕੋਈ ਬਲੂਟੁੱਥ ਡਿਵਾਈਸਿਸ ਨਹੀਂ ਮਿਲੇ</string>
+    <string name="sec_bluetooth_no_tethered_devices">ਕੋਈ ਡਿਵਾਈਸਿਸ ਨਹੀਂ</string>
     <string name="bt_tether_title">ਬਲੂਟੁੱਥ ਟੈਥਰਿੰਗ</string>
     <string name="bt_tether_settings_on">ਚਾਲੂ</string>
     <string name="bt_tether_settings_off">ਬੰਦ</string>
@@ -1032,6 +1033,7 @@ Wi-Fi ਅਤੇ ਬਲੂਟੁੱਥ ਵੀ ਬੰਦ ਹੋ ਜਾਵੇਗਾ
     <string name="general_device_management_title">ਆਮ ਪ੍ਰਬੰਧਨ</string>
     <string name="application_settings_summary">ਡਿਫਾੱਲਟ ਐਪਸ, ਅਨੁਮਤੀਆਂ, ਅਣਸਥਾਪਿਤ ਕਰੋ</string>
     <string name="notifications_settings_summary">ਬਲੌਕ ਕਰੋ, ਆਗਿਆ ਦਿਉ, ਪ੍ਰਾਥਮਿਕਤਾ ਦਿਉ</string>
+    <string name="ime_security_warning_title">ਕੀ ਚੁਣੇ ਹੋਏ ਕੀਬੋਰਡ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
     <string name="language_settings_summary">ਹੇਠਾਂ ਅਨੇਕ ਭਾਸ਼ਾਵਾਂ ਜੋੜੋ, ਤਾਂ ਕਿ ਜੇਕਰ ਕੋਈ ਐਪ ਤੁਹਾਡੀ ਡਿਫਾੱਲਟ ਭਾਸ਼ਾ (ਜੋ ਸੂਚੀ ਵਿੱਚ ਸਭ ਤੋਂ ਸਿਖਰ ਤੇ ਹੈ) ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ, ਤਾਂ ਉਸ ਦੀ ਬਜਾਏ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਅਗਲੀ ਸਮਰਥਿਤ ਭਾਸ਼ਾ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਕਿਸੇ ਭਾਸ਼ਾ ਨੂੰ ਡਿਫਾੱਲਟ ਵਜੋਂ ਸੈੱਟ ਕਰਨ ਲਈ ਉਸ ਨੂੰ ਸੂਚੀ ਵਿੱਚ ਸਭ ਤੋਂ ਸਿਖਰ ਤੇ ਮੂਵ ਕਰੋ।</string>
     <string name="more_connection_settings_title">ਹੋਰ ਕਨੈਕਸ਼ਨ ਸੈੱਟਿੰਗਸ</string>
     <string name="lock_and_security_settings_title">ਲੌਕ ਸਕ੍ਰੀਨ ਅਤੇ ਸੁਰੱਖਿਆ</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">%s ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਆਪਣਾ ਬਾਇਓਮੀਟ੍ਰਿਕ ਲੌਕ ਪ੍ਰਕਾਰ ਅਤੇ ਦੂਜਾ ਲੌਕ ਪ੍ਰਕਾਰ ਚੁਣੋ।</string>
     <string name="fingerprint_registered">ਚੋਣ ਕੀਤੀ ਗਈ ਅਨਲੌਕ ਵਿਧੀ ਦੇ ਨਾਲ ਰਜਿਸਟਰ ਕੀਤੇ ਗਏ ਫਿੰਗਰਪ੍ਰਿੰਟ ਕੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾਵੇਗੀ।</string>
-    <string name="knox_twofactor_description">Knox ਨੂੰ ਹੋਰ ਸੁਰੱਖਿਅਤ ਬਣਾਉਣ ਲਈ ਦੋ ਪ੍ਰਕਾਰ ਦੇ ਲੌਕ ਦਾ ਉਪਯੋਗ ਕਰੋ। ਤੁਹਾਡੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਨੂੰ ਪਹਿਲੇ ਲੌਕ ਪ੍ਰਕਾਰ ਵਜੋਂ ਉਪਯੋਗ ਕੀਤਾ ਜਾਵੇਗਾ। ਹੇਠਾਂ ਦੂਜੇ ਪ੍ਰਕਾਰ ਦਾ ਲੌਕ ਚੁਣੋ।</string>
+    <string name="knox_twofactor_description">%s ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਆਪਣੇ ਬਾਇਓਮੀਟ੍ਰਿਕਸ ਨੂੰ ਚੁਣੋ ਅਤੇ ਇੱਕ ਦੂਜਾ ਲੌਕ ਪ੍ਰਕਾਰ ਚੁਣੋ।</string>
+    <string name="knox_twofactor_description_fingerprint">%s ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ ਆਪਣੇ ਫਿੰਗਰਪ੍ਰਿੰਟਸ ਦੀ ਵਰਤੋਂ ਕਰੋ ਅਤੇ ਦੂਜਾ ਲੌਕ ਪ੍ਰਕਾਰ ਚੁਣੋ।</string>
     <string name="two_factor_setup">ਸੈੱਟ ਅਪ</string>
     <string name="icon">ਪ੍ਰਤੀਰੂਪ</string>
     <string name="vibration">ਵਾਈਬ੍ਰੇਸ਼ਨ</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%1$s ਨਾਲ ਜੋੜਾ ਬਣਾਉਣ ਲਈ ਪੁਸ਼ਟੀ ਕੁੰਜੀ %2$s ਹੈ।</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>ਤੋਂ ਇਸ ਡੀਵਾਈਸ ਨਾਲ ਜੋਡ਼ਾ ਬਣਾਈਏ?</string>
     <string name="bluetooth_display_passkey_pin_msg">ਜੋੜਾ ਬਣਾਉਣ ਲਈ %2$s ਤੇ %1$s ਦਾਖ਼ਲ ਕਰੋ, ਫਿਰ “ਵਾਪਸ ਜਾਉ” ਜਾਂ “ਦਾਖ਼ਲ ਕਰੋ” ਟੈਪ ਕਰੋ।</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। %2$s ਰਾਹੀਂ ਕਨੈਕਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="bluetooth_connecting_error_message">%s ਤੇ ਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ।</string>
     <string name="bluetooth_preference_scan_title">ਸਕੈਨ ਕਰੋ</string>
     <string name="bluetooth_preference_paired_devices">ਜੋੜੇ ਹੋਏ ਡਿਵਾਈਸਿਸ</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">ਤੁਹਾਡੀ ਸਾਰੀ ਵਿਅਕਤੀਗਤ ਜਾਣਕਾਰੀ ਅਤੇ ਡਾਉਨਲੋਡ ਕੀਤੇ ਗਏ ਅਨੁਪ੍ਰਯੋਗਾਂ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ ਅਤੇ ਇਸ ਨੂੰ ਪੁਨਰ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।</string>
     <string name="master_clear_final_button_text">ਸਭ ਮਿਟਾਓ</string>
     <string name="master_clear_not_available">ਇਸ ਮਹਿਮਾਨ ਪ੍ਰੋਫਾਈਲ ਕੋਲ ਫੈਕਟਰੀ ਡੈਟਾ ਰੀਸੈੱਟ ਕਰਨ ਦੀ ਅਨੁਮਤੀ ਨਹੀਂ ਹੈ।</string>
-    <string name="master_clear_progress_title">ਰੀਸੈੱਟ</string>
+    <string name="master_clear_progress_title">ਰੀਸੈੱਟ ਕਰੋ</string>
     <string name="master_clear_progress_text">ਕਿਰਪਾ ਕਰਕੇ ਉਡੀਕ ਕਰੋ…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB ਟੈਥਰਿੰਗ</string>

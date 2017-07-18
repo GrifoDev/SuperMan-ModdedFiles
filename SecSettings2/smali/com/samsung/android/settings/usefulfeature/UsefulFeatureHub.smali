@@ -577,7 +577,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v5, 0x7f0b0900
+    const v5, 0x7f0b0903
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -687,7 +687,7 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const v4, 0x7f0b0900
+    const v4, 0x7f0b0903
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -767,9 +767,9 @@
 
     const v7, 0x7f10019e
 
-    const v6, 0x7f0b0912
+    const v6, 0x7f0b0915
 
-    const v5, 0x7f0b0911
+    const v5, 0x7f0b0914
 
     const v4, 0x7f0b040a
 
@@ -816,7 +816,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_0
-    const v1, 0x7f0b08fd
+    const v1, 0x7f0b0900
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -845,7 +845,7 @@
     if-eqz v1, :cond_a
 
     :cond_0
-    const v1, 0x7f0b090d
+    const v1, 0x7f0b0910
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -930,7 +930,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_2
-    const v1, 0x7f0b08fe
+    const v1, 0x7f0b0901
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -959,7 +959,7 @@
     if-eqz v1, :cond_c
 
     :cond_2
-    const v1, 0x7f0b090f
+    const v1, 0x7f0b0912
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1042,7 +1042,7 @@
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
     :goto_4
-    const v1, 0x7f0b08ff
+    const v1, 0x7f0b0902
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
@@ -1166,11 +1166,11 @@
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
-    const v1, 0x7f0b0900
+    const v1, 0x7f0b0903
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
-    const v1, 0x7f0b0910
+    const v1, 0x7f0b0913
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1245,11 +1245,11 @@
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->animation:I
 
-    const v1, 0x7f0b0903
+    const v1, 0x7f0b0906
 
     iput v1, v0, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub$Description;->title:I
 
-    const v1, 0x7f0b0904
+    const v1, 0x7f0b0907
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1504,7 +1504,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const v1, 0x7f0b090c
+    const v1, 0x7f0b090f
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1522,7 +1522,7 @@
     goto/16 :goto_2
 
     :cond_c
-    const v1, 0x7f0b090e
+    const v1, 0x7f0b0911
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 
@@ -1570,7 +1570,7 @@
     goto/16 :goto_4
 
     :cond_10
-    const v1, 0x7f0b0913
+    const v1, 0x7f0b0916
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/usefulfeature/UsefulFeatureHub;->getString(I)Ljava/lang/String;
 

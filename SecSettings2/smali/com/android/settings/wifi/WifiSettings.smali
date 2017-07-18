@@ -463,7 +463,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b188f
+    const v0, 0x7f0b189d
 
     return v0
 .end method
@@ -963,7 +963,7 @@
 
     const/4 v4, 0x7
 
-    const v5, 0x7f0b124e
+    const v5, 0x7f0b125c
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1106,7 +1106,7 @@
 
     const/16 v4, 0x8
 
-    const v5, 0x7f0b1250
+    const v5, 0x7f0b125e
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1165,7 +1165,7 @@
     if-nez v4, :cond_a
 
     :cond_f
-    const v4, 0x7f0b1251
+    const v4, 0x7f0b125f
 
     invoke-interface {p1, v6, v8, v6, v4}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1182,7 +1182,7 @@
 
     const/16 v4, 0xa
 
-    const v5, 0x7f0b1252
+    const v5, 0x7f0b1260
 
     invoke-interface {p1, v6, v4, v6, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1370,13 +1370,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0c39
+    const v1, 0x7f0b0c48
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0c38
+    const v1, 0x7f0b0c47
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

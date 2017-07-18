@@ -555,7 +555,7 @@
         }
     .end annotation
 
-    const v8, 0x7f0b047e
+    const v8, 0x7f0b047f
 
     new-instance v5, Ljava/util/ArrayList;
 
@@ -581,7 +581,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v6, 0x7f0b117b
+    const v6, 0x7f0b1188
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -613,7 +613,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v6, 0x7f0b0831
+    const v6, 0x7f0b0834
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -625,13 +625,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_7
 
     invoke-static {p1}, Lcom/android/settings/Utils;->hasCoverSettingOptions(Landroid/content/Context;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_7
 
     invoke-static {p1}, Lcom/android/settings/Utils;->getTypeOfCover(Landroid/content/Context;)I
 
@@ -639,9 +639,9 @@
 
     const/16 v6, 0x8
 
-    if-ne v0, v6, :cond_7
+    if-ne v0, v6, :cond_6
 
-    const v6, 0x7f0b0857
+    const v6, 0x7f0b085a
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -666,7 +666,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v6, 0x7f0b14ed
+    const v6, 0x7f0b14fb
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -678,9 +678,9 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_9
 
-    const v6, 0x7f0b0820
+    const v6, 0x7f0b0823
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -722,7 +722,7 @@
 
     if-eqz v3, :cond_1
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
     :cond_1
     :goto_2
@@ -754,7 +754,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v6, 0x7f0b0858
+    const v6, 0x7f0b085b
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -801,7 +801,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v6, 0x7f0b0838
+    const v6, 0x7f0b083b
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -809,7 +809,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v6, 0x7f0b0839
+    const v6, 0x7f0b083c
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -826,28 +826,21 @@
     invoke-interface {v5, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_3
-    invoke-static {p1}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap1(Landroid/content/Context;)Z
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportIris()Z
 
     move-result v6
 
     if-eqz v6, :cond_4
 
-    new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
+    invoke-static {p1}, Lcom/android/settings/Utils;->isShopDemo(Landroid/content/Context;)Z
 
-    invoke-direct {v1, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
+    move-result v6
 
-    const-string/jumbo v6, "find_my_mobile"
-
-    iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
-
-    const/4 v6, 0x3
-
-    iput v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->menu_type:I
-
-    invoke-interface {v5, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-eqz v6, :cond_b
 
     :cond_4
-    invoke-static {}, Lcom/android/settings/Utils;->isSupportIris()Z
+    :goto_3
+    invoke-static {p1}, Lcom/android/settings/Utils;->hasFingerprintFeature(Landroid/content/Context;)Z
 
     move-result v6
 
@@ -860,25 +853,28 @@
     if-eqz v6, :cond_c
 
     :cond_5
-    :goto_3
-    invoke-static {p1}, Lcom/android/settings/Utils;->hasFingerprintFeature(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    invoke-static {p1}, Lcom/android/settings/Utils;->isShopDemo(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_d
-
-    :cond_6
     :goto_4
     return-object v5
 
+    :cond_6
+    const v6, 0x7f0b0859
+
+    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
+
+    goto/16 :goto_0
+
     :cond_7
-    const v6, 0x7f0b0856
+    invoke-static {p1}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_8
+
+    const v6, 0x7f0b0858
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -889,13 +885,7 @@
     goto/16 :goto_0
 
     :cond_8
-    invoke-static {p1}, Lcom/android/settings/Utils;->isWifiOnly(Landroid/content/Context;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    const v6, 0x7f0b0855
+    const v6, 0x7f0b0835
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -906,17 +896,6 @@
     goto/16 :goto_0
 
     :cond_9
-    const v6, 0x7f0b0832
-
-    invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
-
-    goto/16 :goto_0
-
-    :cond_a
     const v6, 0x7f0b0390
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -927,7 +906,7 @@
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
 
     invoke-direct {v1, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
@@ -936,7 +915,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v6, 0x7f0b0729
+    const v6, 0x7f0b072a
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -962,12 +941,12 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_b
     invoke-static {p1}, Lcom/android/settings/Utils;->isSharedDeviceEnabled(Landroid/content/Context;)Z
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_4
 
     new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
 
@@ -981,7 +960,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v6, 0x7f0b0749
+    const v6, 0x7f0b074c
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1003,12 +982,12 @@
 
     goto/16 :goto_3
 
-    :cond_d
+    :cond_c
     invoke-static {p1}, Lcom/android/settings/Utils;->isSharedDeviceEnabled(Landroid/content/Context;)Z
 
     move-result v6
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_5
 
     new-instance v1, Lcom/android/settings/search/SearchIndexableRaw;
 
@@ -1030,7 +1009,7 @@
 
     iput-object v6, v1, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v6, 0x7f0b066c
+    const v6, 0x7f0b066d
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

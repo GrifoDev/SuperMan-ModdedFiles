@@ -345,7 +345,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettings;->onCreate(Landroid/content/Context;)V
 
-    const v0, 0x7f0b1b79
+    const v0, 0x7f0b1b87
 
     invoke-virtual {v9, v0}, Landroid/app/ActionBar;->setTitle(I)V
 

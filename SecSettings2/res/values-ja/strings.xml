@@ -1032,6 +1032,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="general_device_management_title">一般管理</string>
     <string name="application_settings_summary">標準アプリ、権限、アンインストール</string>
     <string name="notifications_settings_summary">ブロック、許可、重要な通知</string>
+    <string name="ime_security_warning_title">選択したキーボードをONにしますか？</string>
     <string name="language_settings_summary">アプリが標準言語(リストの一番上の言語)に対応していない場合は、リスト内から対応している言語が代わりに使用されるように、複数の言語を追加してください。標準言語として設定する言語をリストの一番上に移動してください。</string>
     <string name="more_connection_settings_title">その他の接続設定</string>
     <string name="lock_and_security_settings_title">ロック画面とセキュリティ</string>
@@ -1827,7 +1828,8 @@ PINと生体認証データを一緒に使用するには、[指紋認証]また
 "</string>
     <string name="knox_twofactor_bio_description">%sのロックを解除する生体認証の種類と、2番目に使用するロックの種類を選択してください。</string>
     <string name="fingerprint_registered">登録した指紋は選択したロック解除方法で使用できます。</string>
-    <string name="knox_twofactor_description">Knoxをより安全にするためには、2種類のロックを使用します。最初のロックの種類として、指紋認証を使用します。2番目に使用するロックの種類を以下から選択してください。</string>
+    <string name="knox_twofactor_description">%sのロック解除に使用する生体認証と、2番目に使用するロックの種類を選択してください。</string>
+    <string name="knox_twofactor_description_fingerprint">%sのロック解除に指紋認証を使用します。2番目に使用するロックの種類を選択してください。</string>
     <string name="two_factor_setup">設定</string>
     <string name="icon">アイコン</string>
     <string name="vibration">バイブ</string>
@@ -3682,6 +3684,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="bluetooth_confirm_passkey_msg">パスキー「%2$s」を確認し、%1$sとペアリングしてください。</string>
     <string name="bluetooth_incoming_pairing_msg"><b>%1$s</b>&lt;br/>&lt;br/>上記のデバイスとペアリングしますか？</string>
     <string name="bluetooth_display_passkey_pin_msg">ペアリングするには、%2$sで「%1$s」を入力してからEnterキーまたはReturnキーを押してください。</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$sに接続できません。%2$sからの接続をお試しください。</string>
     <string name="bluetooth_connecting_error_message">%sに接続できません。</string>
     <string name="bluetooth_preference_scan_title">スキャン</string>
     <string name="bluetooth_preference_paired_devices">ペアリング済みデバイス</string>

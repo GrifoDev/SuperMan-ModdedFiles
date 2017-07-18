@@ -866,6 +866,7 @@ Os dados de aplicativos podem incluir informações pessoais, como contatos, men
     <string name="content_description_hand">Mantenha pressionado o círculo azul no centro da tela</string>
     <string name="nearby_scanning_help_msg_sub">A busca de aparelhos próximos usa busca de Bluetooth de baixo consumo e o microfone. A busca de Bluetooth de baixo consumo poderá ser usada até mesmo enquanto o Bluetooth estiver desativado neste aparelho.</string>
     <string name="sec_bluetooth_no_devices_found">Nenhum aparelho Bluetooth foi encontrado</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nenhum dispositivo</string>
     <string name="bt_tether_title">Ancoragem Bluetooth</string>
     <string name="bt_tether_settings_on">Ativado</string>
     <string name="bt_tether_settings_off">Desativado</string>
@@ -1032,6 +1033,7 @@ Até mesmo enquanto a Captura inteligente estiver desativada, você poderá aces
     <string name="general_device_management_title">Gerenciamento geral</string>
     <string name="application_settings_summary">Aplicativos padrão, permissões, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">Ativar o teclado selecionado?</string>
     <string name="language_settings_summary">Adicione vários idiomas abaixo de modo que, se um aplicativo não for compatível com o seu idioma padrão (na parte superior da lista), o próximo idioma compatível da lista seja usado. Mova um idioma para a parte superior da lista para defini-lo como o padrão.</string>
     <string name="more_connection_settings_title">Mais configurações de conexão</string>
     <string name="lock_and_security_settings_title">Tela de bloqueio e Segurança</string>
@@ -1829,7 +1831,8 @@ Opções alternativas de segurança estão disponíveis em seu dispositivo. Siga
 "</string>
     <string name="knox_twofactor_bio_description">Selecione seu tipo de bloqueio biométrico e o segundo tipo de bloqueio para desbloquear %s.</string>
     <string name="fingerprint_registered">As impressões digitais registradas serão usadas com o método de desbloqueio selecionado.</string>
-    <string name="knox_twofactor_description">Use dois tipos de bloqueio para tornar o Knox ainda mais seguro. Suas impressões digitais serão usadas como o primeiro tipo de bloqueio. Selecione o segundo tipo de bloqueio abaixo.</string>
+    <string name="knox_twofactor_description">Selecione seus dados biométricos e um segundo tipo de bloqueio para desbloquear %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Use suas impressões digitais e selecione um segundo tipo de bloqueio para desbloquear o %s.</string>
     <string name="two_factor_setup">Configurar</string>
     <string name="icon">Ícones</string>
     <string name="vibration">Vibração</string>
@@ -3685,6 +3688,7 @@ Nota: sua impressão digital pode ser menos segura do que um PIN ou um padrão f
     <string name="bluetooth_confirm_passkey_msg">Confirme se a chave de acesso é %2$s para parear com %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">De&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Parear com este dispositivo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Insira %1$s em %2$s para parear, em seguida toque em Voltar ou Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Não é possível conectar ao %1$s. Tente conectar-se do %2$s.</string>
     <string name="bluetooth_connecting_error_message">Impossível conectar a %s.</string>
     <string name="bluetooth_preference_scan_title">Procurar</string>
     <string name="bluetooth_preference_paired_devices">Dispositivos pareados</string>
@@ -4085,7 +4089,7 @@ Tente usar um cartão SD ou um aparelho de armazenamento USB mais rápido para m
     <string name="master_clear_final_desc">Todas as sua informações pessoais e aplicativos baixados serão apagados e não poderão ser recuperados.</string>
     <string name="master_clear_final_button_text">Apagar tudo</string>
     <string name="master_clear_not_available">Este perfil de convidado não tem permissão para realizar uma redefinição de dados de fábrica.</string>
-    <string name="master_clear_progress_title">Zerar</string>
+    <string name="master_clear_progress_title">Restaurar</string>
     <string name="master_clear_progress_text">Por favor, aguarde…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot e ancoragem</string>
     <string name="usb_tethering_button_text">Ancoragem via USB</string>

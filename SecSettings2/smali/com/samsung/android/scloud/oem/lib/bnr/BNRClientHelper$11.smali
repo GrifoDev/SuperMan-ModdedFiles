@@ -107,7 +107,6 @@
 
     move-object/from16 v2, p2
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->clearPrerestoredData(Landroid/content/Context;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$4(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;)V
 
     :cond_0
@@ -152,7 +151,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mResult:Landroid/os/Bundle;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$5(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Landroid/os/Bundle;
 
     move-result-object v19
@@ -171,7 +169,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mResult:Landroid/os/Bundle;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$5(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Landroid/os/Bundle;
 
     move-result-object v19
@@ -185,7 +182,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$1(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
 
     move-result-object v19
@@ -216,7 +212,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedFileList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$9(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -252,7 +247,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedFileList:Ljava/util/List;
     invoke-static/range {v21 .. v21}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$9(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v21
@@ -277,7 +271,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedFileList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$9(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -329,7 +322,6 @@
 
     move-object/from16 v2, v21
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->fileCopy(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
     invoke-static {v0, v1, v7, v2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$11(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v20
@@ -366,7 +358,6 @@
 
     move-object/from16 v2, v21
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->fileCopy(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
     invoke-static {v0, v1, v2, v7}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$11(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v20
@@ -391,7 +382,6 @@
 
     move-object/from16 v2, p2
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->clearPrerestoredData(Landroid/content/Context;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$4(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;)V
 
     goto/16 :goto_0
@@ -409,7 +399,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mResult:Landroid/os/Bundle;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$5(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Landroid/os/Bundle;
 
     move-result-object v19
@@ -426,7 +415,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mResult:Landroid/os/Bundle;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$5(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Landroid/os/Bundle;
 
     move-result-object v19
@@ -464,7 +452,6 @@
 
     move-object/from16 v20, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
     invoke-static/range {v20 .. v20}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$1(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
 
     move-result-object v20
@@ -548,7 +535,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -584,7 +570,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v21 .. v21}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v21
@@ -609,7 +594,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -632,7 +616,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedFileList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$9(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -751,7 +734,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mClient:Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$1(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Lcom/samsung/android/scloud/oem/lib/bnr/ISCloudBNRClient;
 
     move-result-object v20
@@ -762,7 +744,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -773,7 +754,6 @@
 
     move-object/from16 v21, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v21 .. v21}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v21
@@ -822,7 +802,6 @@
 
     move-object/from16 v2, p2
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->clearPrerestoredData(Landroid/content/Context;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$4(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;)V
 
     goto/16 :goto_5
@@ -1023,7 +1002,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedKeyList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$12(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19
@@ -1036,7 +1014,6 @@
 
     move-object/from16 v19, v0
 
-    # getter for: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->mProcessedFileList:Ljava/util/List;
     invoke-static/range {v19 .. v19}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$9(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;)Ljava/util/List;
 
     move-result-object v19

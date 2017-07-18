@@ -866,6 +866,7 @@ Rakenduste andmete hulgas võib olla isiklikku teavet, nt kontaktid, sõnumid ja
     <string name="content_description_hand">Toksake ja hoidke sõrme ekraani keskel oleval sinisel ringil.</string>
     <string name="nearby_scanning_help_msg_sub">Lähedalasuvate seadmete otsimine kasutab Bluetoothi madala energiaga otsimist ja mikrofoni. Bluetoothi madala energiaga otsimist saab kasutada isegi siis, kui Bluetooth on selles seadmes välja lülitatud.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth-seadmeid ei leitud</string>
+    <string name="sec_bluetooth_no_tethered_devices">Seadmeid pole</string>
     <string name="bt_tether_title">Bluetooth-jagamine</string>
     <string name="bt_tether_settings_on">Sees</string>
     <string name="bt_tether_settings_off">Väljas</string>
@@ -1032,6 +1033,7 @@ Isegi kui nutikas jäädvustamine on inaktiveeritud, pääsete ligi selle funkts
     <string name="general_device_management_title">Üldine haldus</string>
     <string name="application_settings_summary">Vaikimisi rakendused, load, desinstalli</string>
     <string name="notifications_settings_summary">Blokeeri, luba, sea prioriteet</string>
+    <string name="ime_security_warning_title">Kas lülitada valitud klaviatuur sisse?</string>
     <string name="language_settings_summary">Lisage all mitu keelt. Nii valib rakendus, mis ei toeta teie vaikimisi keelt (nimekirja alguses), nimekirjast järgmise toetatud keele. Tõstke keel nimekirja ette, et määrata see vaikekeeleks.</string>
     <string name="more_connection_settings_title">Veel ühenduseseadeid</string>
     <string name="lock_and_security_settings_title">Luk.ekraan ja turvalisus</string>
@@ -1827,7 +1829,8 @@ Teie seadmel on saadaval alternatiivsed turbevalikud. Selle funktsiooni kasutami
 "</string>
     <string name="knox_twofactor_bio_description">Valige seadme %s avamiseks oma biomeetrilise luku tüüp ja teise luku tüüp.</string>
     <string name="fingerprint_registered">Registreeritud sõrmejälgi kasutatakse valitud avamismeetodiga.</string>
-    <string name="knox_twofactor_description">Kahe lukutüübi kasutamisel saate muuta Knox-i veelgi turvalisemaks. Teie sõrmejälgi kasutatakse esimese lukutüübina. Valige allpool teine lukutüüp.</string>
+    <string name="knox_twofactor_description">Valige oma biomeetria ja teine lukutüüp, et avada %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Kasutage oma sõrmejälgi ja valige teine lukutüüp, et avada %s.</string>
     <string name="two_factor_setup">Seadista</string>
     <string name="icon">Ikoonid</string>
     <string name="vibration">Värin</string>
@@ -3683,6 +3686,7 @@ Märkus. Teie sõrmejälg võib olla vähem turvaline kui tugev muster või PIN-
     <string name="bluetooth_confirm_passkey_msg">Kinnituse paasukood on %2$s, et siduda seadmega %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Allikas:&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Kas siduda selle seadmega?</string>
     <string name="bluetooth_display_passkey_pin_msg">Sisestage sidumiseks %1$s seadmes %2$s, seejarel toksake nupul Tagasta voi Sisesta.</string>
+    <string name="bluetooth_HID_connecting_error_message">Seadmega %1$s ei saa ühendust luua. Proovige ühendada seadme %2$s kaudu.</string>
     <string name="bluetooth_connecting_error_message">%s-ühendust ei saa luua.</string>
     <string name="bluetooth_preference_scan_title">Otsi</string>
     <string name="bluetooth_preference_paired_devices">Seotud seadmed</string>
@@ -4083,7 +4087,7 @@ Kaaluge parema jõudluse tagamiseks kiirema SD-kaardi või USB-mäluseadme kasut
     <string name="master_clear_final_desc">Kõik teie isiklikud andmed ja allalaetud rakendused kustutatakse ning neid ei saa taastada.</string>
     <string name="master_clear_final_button_text">Kustuta kõik</string>
     <string name="master_clear_not_available">Sellel külalisprofiilil pole luba teostada tehaseandmete lähtestamist.</string>
-    <string name="master_clear_progress_title">Lähtesta</string>
+    <string name="master_clear_progress_title">Lähtestamine</string>
     <string name="master_clear_progress_text">Palun oodake…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB-modem</string>

@@ -866,6 +866,7 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="content_description_hand">ხანგრძლივად შეეხეთ ლურჯ წრეს ეკრანის ცენტრში.</string>
     <string name="nearby_scanning_help_msg_sub">„ახლო მოწყობილობის ძებნა“ იყენებს „Bluetooth-ის დაბალენერგიულ ძებნასა“ და მიკროფონს. „Bluetooth-ის დაბალენერგიული ძებნის“ გამოყენება შესაძლებელია მაშინაც კი, როცა Bluetooth გამორთულია ამ მოწყობილობაში.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth მოწყობილობები ვერ მოიძებნა</string>
+    <string name="sec_bluetooth_no_tethered_devices">მოწყობილობები არ არის</string>
     <string name="bt_tether_title">მობილური ინტერნეტის გაზიარება Bluetooth-ით</string>
     <string name="bt_tether_settings_on">ჩართვა</string>
     <string name="bt_tether_settings_off">გამორთვა</string>
@@ -1032,6 +1033,7 @@ Wi-Fi და Bluetooth ასევე გამოირთვება, მა
     <string name="general_device_management_title">ზოგადი მართვა</string>
     <string name="application_settings_summary">ნაგულისხმევი აპლიკაციები, ნებართვები, დეინსტალაცია</string>
     <string name="notifications_settings_summary">დაბლოკვა, დაშვება, პრიორიტეტის მინიჭება</string>
+    <string name="ime_security_warning_title">ჩაირთოს შერჩეული კლავიატურა?</string>
     <string name="language_settings_summary">ქვემოთ (ენების სიის თავში) დაამატეთ რამდენიმე ენა, და იმ შემთხვევაში, როცა აპლიკაციას არ აქვს თქვენი ნაგულისხმევი ენის მხარდაჭერა, სანაცვლოდ გამოყენებული იქნება შემდეგი მხარდაჭერილი ენა. გადაიტანეთ ენა სიის თავში, რომ დააყენოთ ნაგულისხმევ ვარიანტად.</string>
     <string name="more_connection_settings_title">კავშირის სხვა პარამეტრები</string>
     <string name="lock_and_security_settings_title">დაბლოკვა და უსაფრთხოება</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">აირჩიეთ ბიომეტრული დაბლოკვის ტიპი და დაბლოკვის მეორე ტიპი, რომ განბლოკოთ %s.</string>
     <string name="fingerprint_registered">რეგისტრირებული თითის ანაბეჭდი გამოყენებული იქნება განბლოკვის შერჩეული მეთოდით.</string>
-    <string name="knox_twofactor_description">გამოიყენეთ დაბლოკვის ორი ტიპი, რათა Knox კიდევ უფრო უსაფრთხო გახდეს. თითის ანაბეჭდები გამოყენებული იქნება დაბლოკვის პირველ ტიპად. ქვემოთ აირჩიეთ დაბლოკვის მეორე ტიპი.</string>
+    <string name="knox_twofactor_description">აირჩიეთ ბიომეტრული მონაცემები და დაბლოკვის მეორე ტიპი, რომლითაც განიბლოკება %s.</string>
+    <string name="knox_twofactor_description_fingerprint">გამოიყენეთ თითის ანაბეჭდები და აირჩიეთ დაბლოკვის მეორე ტიპი, რომ განბლოკოთ %s.</string>
     <string name="two_factor_setup">დაყენება</string>
     <string name="icon">ღილაკები</string>
     <string name="vibration">ვიბრაცია</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">დადასტურების პაროლ-კოდი არის %2$s, რომ მოხდეს დაწყვილება მოწყობილობასთან „%1$s“.</string>
     <string name="bluetooth_incoming_pairing_msg">ვისგან&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>დაწყვილდეს ამ აპარატთან?</string>
     <string name="bluetooth_display_passkey_pin_msg">ჩაწერეთ %1$s %2$s-ში და დააწყვილეთ, შემდეგ შეეხეთ „დაბრუნება“-ს ან „შეყვანა“-ს.</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s-თან დაკავშირება შეუძლებელია. სცადეთ, დაუკავშირდეთ %2$s-ით.</string>
     <string name="bluetooth_connecting_error_message">ვერ უკავშირდება %s.</string>
     <string name="bluetooth_preference_scan_title">სკანირება</string>
     <string name="bluetooth_preference_paired_devices">დაკავშირებული მოწყობილობები</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">მთელი თქვენი პერსონალური ინფორმაცია და ჩამოტვირთული პროგრამები წაიშლება და არ აღდგება.</string>
     <string name="master_clear_final_button_text">ყველაფრის წაშლა</string>
     <string name="master_clear_not_available">ამ სტუმრის პროფილს არ აქვს ქარხნული პარამეტრების დაბრუნების ნებართვა.</string>
-    <string name="master_clear_progress_title">გაუქმება</string>
+    <string name="master_clear_progress_title">პარამეტრების თავიდან დაყენება</string>
     <string name="master_clear_progress_text">გთხოვთ, დაელოდოთ…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">მობილური ქსელი USB-თი</string>

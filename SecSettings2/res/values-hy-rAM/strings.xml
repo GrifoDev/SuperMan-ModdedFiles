@@ -866,6 +866,7 @@ Wi-Fi-ն ու Bluetooth-ը նույնպես կանջատվեն, բայց կար�
     <string name="content_description_hand">Թակեք և պահեք էկրանի կենտրոնում գտնվող կապույտ շրջանը:</string>
     <string name="nearby_scanning_help_msg_sub">Մոտակա սարքերի տեսածրումն օգտագործում է Bluetooth Ցածր էներգիայի տեսածրում և միկրոֆոն: Bluetooth Ցածր էներգիայի տեսածրումը կարելի է օգտագործել, նույնիսկ երբ Bluetooth-ն անջատված է այս սարքում:</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth սարքեր չեն գտնվել</string>
+    <string name="sec_bluetooth_no_tethered_devices">Սարքեր չկան</string>
     <string name="bt_tether_title">Bluetooth տեղակապում</string>
     <string name="bt_tether_settings_on">Միացված</string>
     <string name="bt_tether_settings_off">Անջատված</string>
@@ -1032,6 +1033,7 @@ Wi-Fi-ն ու Bluetooth-ը նույնպես կանջատվեն, բայց կար�
     <string name="general_device_management_title">Ընդհանուր կառավարում</string>
     <string name="application_settings_summary">Կանխադրված ծրագրեր, թույլտվություններ, ապատեղադրել</string>
     <string name="notifications_settings_summary">Արգելափակել, թույլ տալ, առաջնահերթություն տալ</string>
+    <string name="ime_security_warning_title">Միացնե՞լ ընտրված ստեղնաշարը:</string>
     <string name="language_settings_summary">Ստորև ավելացրեք մեկից ավելի լեզուներ, որպեսզի, եթե որևէ ծրագիր չապահովի գործարկումը կանխադրված լեզվով (ցանկի վերին մասում), փոխարենը օգտագործվի ցանկում նշված հաջորդ ապահովվող լեզուն: Լեզուն տեղափոխեք ցանկի ամենավերևը՝ այն կանխադրելու համար:</string>
     <string name="more_connection_settings_title">Միացման այլ դրվածքներ</string>
     <string name="lock_and_security_settings_title">Կողպված էկրան և անվտանգ.</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">Ընտրեք Ձեր կենսաչափական կողպման տեսակն ու երկրորդ կողպման տեսակը՝ %s արգելաբացելու համար:</string>
     <string name="fingerprint_registered">Գրանցված մատնահետքերը կօգտագործվեն ընտրված ապակողպման եղանակով:</string>
-    <string name="knox_twofactor_description">Օգտագործեք երկու կողպման տեսակ, որպեսզի է՛լ ավելի ապահով դարձնեք Knox-ը: Ձեր մատնահետքերը կօգտագործվեն որպես առաջին կողպման տեսակ: Ստորև ընտրեք երկրորդ կողպման տեսակը:</string>
+    <string name="knox_twofactor_description">Ընտրեք Ձեր կենսաչափական տվյալները և երկրորդ կողպման տեսակը՝ %s արգելաբացելու համար:</string>
+    <string name="knox_twofactor_description_fingerprint">Օգտագործեք մատնահետքերը և ընտրեք երկրորդ կողպման տեսակ՝ %s-ն արգելաբացելու համար:</string>
     <string name="two_factor_setup">Տեղակայել</string>
     <string name="icon">Պատկերակներ</string>
     <string name="vibration">Թրթռիչ</string>
@@ -3683,6 +3686,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">Հաստատել, որ մուտքի բանալին%2$s է՝ %1$s-ի հետ զուգտակելու համար:</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>-ից.&lt;br/>&lt;br/>զուգտակե՞լ այս սարքի հետ:</string>
     <string name="bluetooth_display_passkey_pin_msg">Մուտքագրել %1$s %2$s-ում՝ զուգտակելու համար, հետո թակեք Վերադարձ կամ Մուտքագրել:</string>
+    <string name="bluetooth_HID_connecting_error_message">Հնարավոր չէ կապակցվել %1$s-ին: Փորձեք կապակցվել %2$s-ից:</string>
     <string name="bluetooth_connecting_error_message">Հնարավոր չէ միանալ %s-ին:</string>
     <string name="bluetooth_preference_scan_title">Տեսածրել</string>
     <string name="bluetooth_preference_paired_devices">Նախկինում զուգակցված սարքեր</string>
@@ -4083,7 +4087,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Ձեր բոլոր անձնական տեղեկություններն ու ներբեռնված ծրագրերը կջնջվեն և չեն կարող վերականգնվել:</string>
     <string name="master_clear_final_button_text">Ջնջել բոլորը</string>
     <string name="master_clear_not_available">Այս հյուրի պրոֆիլը չունի գործարանային տվյալների հետադարձում կատարելու թույլտվություն:</string>
-    <string name="master_clear_progress_title">Զրոյացնել</string>
+    <string name="master_clear_progress_title">Հետադարձել</string>
     <string name="master_clear_progress_text">Սպասեք…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB տեղակապում</string>

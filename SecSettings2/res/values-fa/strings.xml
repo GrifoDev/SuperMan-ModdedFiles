@@ -866,6 +866,7 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">به دایره آبی در مرکز صفحه ضربه بزنيد و نگهدارید.</string>
     <string name="nearby_scanning_help_msg_sub">اسکن دستگاه‌های نزدیک از اسکن بلوتوث با مصرف انرژی کم و میکروفن استفاده می‌کند. از اسکن بلوتوث با مصرف انرژی کم حتی وقتی بلوتوث در این دستگاه خاموش است نیز می‌توان استفاده نمود.</string>
     <string name="sec_bluetooth_no_devices_found">هیچ دستگاه بلوتوثی یافت نشد</string>
+    <string name="sec_bluetooth_no_tethered_devices">دستگاهی وجود ندارد</string>
     <string name="bt_tether_title">اشتراک گذاری اینترنت با بلوتوث</string>
     <string name="bt_tether_settings_on">روشن</string>
     <string name="bt_tether_settings_off">خاموش</string>
@@ -1032,6 +1033,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">مدیریت عمومی</string>
     <string name="application_settings_summary">برنامه‌های پیش‌فرض، مجوزها، حذف</string>
     <string name="notifications_settings_summary">انسداد، اجازه، اولویت‌بندی</string>
+    <string name="ime_security_warning_title">صفحه کلید انتخابی روشن شود؟</string>
     <string name="language_settings_summary">چند زبان را در اینجا اضافه کنید تا اگر یکی از برنامه‌ها از زبان پیش‌فرض شما (در بالای لیست) پشتیبانی نکرد، زبان پشتیبانی‌شده بعدی در لیست به جای آن استفاده شود. یک زبان را به بالای لیست انتقال دهید تا بعنوان پیش‌فرض تنظیم شود.</string>
     <string name="more_connection_settings_title">تنظیمات اتصال بیشتر</string>
     <string name="lock_and_security_settings_title">صفحه قفل و امنیت</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">برای بازگشایی قفل %s، نوع قفل بیومتری و نوع قفل دوم را انتخاب کنید.</string>
     <string name="fingerprint_registered">اثر انگشت‌های ثبت شده در روش باز کردن قفل استفاده خواهند شد.</string>
-    <string name="knox_twofactor_description">از دو نوع قفل برای ایمن کردن Knox استفاده کنید. از اثرهای انگشت شما به عنوان روش اول قفل کردن استفاده خواهد شد. نوع دوم قفل کردن را از زیر انتخاب کنید.</string>
+    <string name="knox_twofactor_description">برای بازگشایی قفل %s، اطلاعات بیومتریک و نوع قفل دومی را انتخاب کنید.</string>
+    <string name="knox_twofactor_description_fingerprint">برای بازگشایی قفل %s از اثر انگشت استفاده کنید و روش قفل کردن ثانویه‌ای را انتخاب نمایید.</string>
     <string name="two_factor_setup">تنظیم</string>
     <string name="icon">نمادها</string>
     <string name="vibration">لرزش</string>
@@ -3682,6 +3685,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">%2$s:%1$s. کلید عبور تأیید برای وصل شدن به</string>
     <string name="bluetooth_incoming_pairing_msg">از &lt;br/><b>%1$s</b>&lt;br/>&lt;br/>با این دستگاه جفت شود؟</string>
     <string name="bluetooth_display_passkey_pin_msg">برای جفت شدن %1$s را در %2$s وارد کنید، سپس بر روی &lt;برگشت> یا &lt;وارد کردن> ضربه بزنید.</string>
+    <string name="bluetooth_HID_connecting_error_message">اتصال به %1$s ممکن نیست. اتصال از طریق %2$s را امتحان کنید.</string>
     <string name="bluetooth_connecting_error_message">اتصال به %s ممکن نیست.</string>
     <string name="bluetooth_preference_scan_title">اسکن</string>
     <string name="bluetooth_preference_paired_devices">دستگاه های جفت شده</string>
@@ -4082,7 +4086,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">تمام اطلاعات شخصی و برنامه‌های دانلود شده شما پاک شده و قابل بازیابی نخواهند بود.</string>
     <string name="master_clear_final_button_text">حذف همه</string>
     <string name="master_clear_not_available">این نمایه مهمان اجازه بازنشانی کارخانه‌ای داده‌ها را ندارد.</string>
-    <string name="master_clear_progress_title">تنظیم مجدد</string>
+    <string name="master_clear_progress_title">بازنشانی</string>
     <string name="master_clear_progress_text">کمی صبر کنيد…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">اتصال USB</string>

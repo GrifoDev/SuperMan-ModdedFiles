@@ -41,7 +41,6 @@
 
     const/4 v1, -0x2
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v0, v1}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$002(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;I)I
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
@@ -58,12 +57,10 @@
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
 
-    # operator++ for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$008(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;)I
 
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$000(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;)I
 
     move-result v0
@@ -79,7 +76,6 @@
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v0}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$000(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;)I
 
     move-result v0
@@ -96,7 +92,6 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView$2;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->mStatus:I
     invoke-static {v0, v2}, Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;->access$002(Lcom/samsung/android/visualeffect/progressfingerscan/object/WarnView;I)I
 
     goto :goto_0

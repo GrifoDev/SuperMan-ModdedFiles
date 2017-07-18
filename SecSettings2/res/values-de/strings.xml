@@ -867,6 +867,7 @@ App-Daten können persönliche Informationen, wie Kontakte, Nachrichten und Bild
     <string name="content_description_hand">Auf den blauen Kreis in der Mitte des Bildschirms tippen und halten.</string>
     <string name="nearby_scanning_help_msg_sub">Suche nach Geräten in der Nähe verwendet Bluetooth Low Energy-Scanning und das Mikrofon. Bluetooth Low Energy-Scanning kann auch verwendet werden, wenn Bluetooth auf diesem Gerät ausgeschaltet ist.</string>
     <string name="sec_bluetooth_no_devices_found">Keine Bluetooth-Geräte gefunden.</string>
+    <string name="sec_bluetooth_no_tethered_devices">Keine Geräte</string>
     <string name="bt_tether_title">Bluetooth-Tethering</string>
     <string name="bt_tether_settings_on">An</string>
     <string name="bt_tether_settings_off">Aus</string>
@@ -1033,6 +1034,7 @@ Auch wenn Smart-Aufnahme deaktiviert ist, können Sie auf diese Funktionen über
     <string name="general_device_management_title">Allgemeine Verwaltung</string>
     <string name="application_settings_summary">Standard-Apps, Berechtigungen, deinstallieren</string>
     <string name="notifications_settings_summary">Sperren, zulassen, priorisieren</string>
+    <string name="ime_security_warning_title">Die ausgewählte Tastatur einschalten?</string>
     <string name="language_settings_summary">Fügen Sie unten mehrere Sprachen hinzu. So wird von einer App, die Ihre Standardsprache (die erste in der Liste) nicht unterstützt, stattdessen die nächste unterstützte Sprache in der Liste verwendet. Verschieben Sie eine Sprache an den Anfang der Liste, um sie als Standard festzulegen.</string>
     <string name="more_connection_settings_title">Weitere Verbindungseinstellungen</string>
     <string name="lock_and_security_settings_title">Gerätesicherheit</string>
@@ -1828,7 +1830,8 @@ An Ihrem Gerät stehen alternative Sicherheitsoptionen zur Verfügung. Bitte bea
 "</string>
     <string name="knox_twofactor_bio_description">Wählen Sie Ihren biometrischen Sperrtyp und den zweiten Sperrtyp aus, um %s zu entsperren.</string>
     <string name="fingerprint_registered">Registrierte Fingerabdrücke werden mit der ausgewählten Entsperrmethode verwendet.</string>
-    <string name="knox_twofactor_description">Verwenden Sie zwei Sperrtypen, um Knox noch sicherer zu machen. Ihre Fingerabdrücke werden als erster Sperrtyp verwendet. Wählen Sie unten einen zweiten Sperrtyp aus.</string>
+    <string name="knox_twofactor_description">Wählen Sie Ihre Biometrie und einen zweiten Sperrtyp aus, um %s zu entsperren.</string>
+    <string name="knox_twofactor_description_fingerprint">Verwenden Sie Ihre Fingerabdrücke und wählen Sie einen zweiten Sperrtyp zum Entsperren von %s aus.</string>
     <string name="two_factor_setup">Einrichten</string>
     <string name="icon">Symbole</string>
     <string name="vibration">Vibrieren</string>
@@ -3684,6 +3687,7 @@ Hinweis: Ihr Fingerabdruck ist möglicherweise weniger sicher als ein sicheres M
     <string name="bluetooth_confirm_passkey_msg">Passkey %2$s bestätigen und mit %1$s koppeln.</string>
     <string name="bluetooth_incoming_pairing_msg">Von&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Mit diesem Gerät koppeln?</string>
     <string name="bluetooth_display_passkey_pin_msg">Zum Koppeln %1$s auf %2$s eingeben, anschließend auf „Enter“ oder „Return“ tippen.</string>
+    <string name="bluetooth_HID_connecting_error_message">Verbindung zu %1$s nicht möglich. Versuchen Sie, über %2$s zu verbinden.</string>
     <string name="bluetooth_connecting_error_message">Verbindung zu %s kann nicht hergestellt werden</string>
     <string name="bluetooth_preference_scan_title">Scannen</string>
     <string name="bluetooth_preference_paired_devices">Gekoppelte Geräte</string>

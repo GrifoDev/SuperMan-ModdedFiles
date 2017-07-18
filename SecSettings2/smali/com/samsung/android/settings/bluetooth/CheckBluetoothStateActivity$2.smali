@@ -1,5 +1,5 @@
 .class Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;
-.super Landroid/os/Handler;
+.super Landroid/content/BroadcastReceiver;
 .source "CheckBluetoothStateActivity.java"
 
 
@@ -24,137 +24,151 @@
 
     iput-object p1, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 9
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    const/4 v8, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v5, "CheckBluetoothStateActivity"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "mKeyGuardReceiver onReceive :: action = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "com.samsung.intent.action.BLUETOOTH_KEYGUARD_UNLOCK"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
+
+    invoke-static {v5}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get4(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
+
+    move-result v1
+
+    const/16 v5, 0xa
+
+    if-ne v1, v5, :cond_1
+
+    iget-object v5, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
+
+    invoke-static {v5}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-wrap1(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;)V
 
     :cond_0
     :goto_0
     return-void
 
-    :pswitch_0
-    const-string/jumbo v0, "CheckBluetoothStateActivity"
+    :cond_1
+    const/16 v5, 0xc
 
-    const-string/jumbo v1, "Received BT_ENABLE_TIMEOUT"
+    if-ne v1, v5, :cond_0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v4, Ljava/lang/Thread;
 
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
+    new-instance v5, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2$1;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get3(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;)Landroid/os/Handler;
+    invoke-direct {v5, p0}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2$1;-><init>(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;)V
 
-    move-result-object v0
+    invoke-direct {v4, v5}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
-
-    const-string/jumbo v0, "CheckBluetoothStateActivity"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "BluetoothState = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
-
-    invoke-static {v2}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get2(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", mExpectingBluetoothOn = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get0()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", mIsDestroyed = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get1()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
-
-    invoke-static {v0}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get2(Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;)Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothAdapter;->getBluetoothState()I
-
-    move-result v0
-
-    const/16 v1, 0xa
-
-    if-ne v0, v1, :cond_0
-
-    invoke-static {}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get0()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->-get1()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
-
-    invoke-virtual {v0}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->finish()V
+    invoke-virtual {v4}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 
-    nop
+    :cond_2
+    const-string/jumbo v5, "com.samsung.keyguard.KEYGUARD_STATE_UPDATE"
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "showing"
+
+    invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    const-string/jumbo v5, "bouncerShowing"
+
+    invoke-virtual {p2, v5, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    const-string/jumbo v5, "CheckBluetoothStateActivity"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "keyguard onReceive :: showing = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", bouncerShowing = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v2, :cond_0
+
+    if-eqz v3, :cond_0
+
+    iget-object v5, p0, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity$2;->this$0:Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;
+
+    invoke-virtual {v5}, Lcom/samsung/android/settings/bluetooth/CheckBluetoothStateActivity;->finish()V
+
+    goto :goto_0
 .end method

@@ -866,6 +866,7 @@ Data aplikasi mungkin merangkumi maklumat peribadi seperti kenalan, mesej dan ga
     <string name="content_description_hand">Ketik dan tahan bulat yang berwarna biru di tengah skrin.</string>
     <string name="nearby_scanning_help_msg_sub">Imbasan peranti berdekatan menggunakan imbasan Bluetooth Tenaga Rendah dan mikrofon. Imbasan Bluetooth Tenaga Rendah boleh digunakan walaupun ketika Bluetooth dimatikan pada peranti ini.</string>
     <string name="sec_bluetooth_no_devices_found">Tiada peranti Bluetooth ditemui</string>
+    <string name="sec_bluetooth_no_tethered_devices">Tiada peranti</string>
     <string name="bt_tether_title">Penambatan Bluetooth</string>
     <string name="bt_tether_settings_on">Hidupkan</string>
     <string name="bt_tether_settings_off">Matikan</string>
@@ -1032,6 +1033,7 @@ Walaupun jika Tangkapan pintar dinyahaktifkan, anda boleh mencapai cirinya melal
     <string name="general_device_management_title">Pengurusan am</string>
     <string name="application_settings_summary">Aplikasi lalai, kebenaran, nyahpasang</string>
     <string name="notifications_settings_summary">Sekat, benarkan, utamakan</string>
+    <string name="ime_security_warning_title">Hidupkan papan kekunci terpilih?</string>
     <string name="language_settings_summary">Tambah berbilang bahasa di bawah agar bahasa seterusnya yang disokong dalam senarai akan digunakan jika aplikasi tidak menyokong bahasa lalai (teratas dalam senarai) anda. Alihkan bahasa ke bahagian atas senarai untuk menetapkannya sebagai bahasa lalai.</string>
     <string name="more_connection_settings_title">Lebih aturan sambungan</string>
     <string name="lock_and_security_settings_title">Skrn kunci dan keselamatan</string>
@@ -1827,7 +1829,8 @@ Pilihan keselamatan alternatif tersedia pada peranti anda. Sila ikuti semua arah
 "</string>
     <string name="knox_twofactor_bio_description">Pilih jenis kunci biometrik dan jenis kunci kedua anda untuk membuka kunci %s.</string>
     <string name="fingerprint_registered">Cap jari berdaftar akan digunakan dengan kaedah buka kunci yang dipilih.</string>
-    <string name="knox_twofactor_description">Gunakan dua jenis kunci untuk menjadikan Knox lebih selamat. Cap jari anda akan digunakan sebagai jenis kunci yang pertama. Pilih jenis kunci kedua di bawah.</string>
+    <string name="knox_twofactor_description">Pilih biometrik anda dan jenis kunci kedua anda untuk membuka kunci %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Gunakan cap jari anda dan pilih jenis kunci kedua untuk membuka kunci %s.</string>
     <string name="two_factor_setup">Persediaan</string>
     <string name="icon">Ikon</string>
     <string name="vibration">Getaran</string>
@@ -3683,6 +3686,7 @@ Nota: Cap jari anda mungkin kurang selamat berbanding corak atau PIN yang kukuh.
     <string name="bluetooth_confirm_passkey_msg">Sahkan kunci laluan adalah %2$s untuk memasangkan dengan %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Daripada&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Pasangkan dengan peranti ini?</string>
     <string name="bluetooth_display_passkey_pin_msg">Masukkan %1$s pada %2$s untuk memasangkan, kemudian ketik Kembali atau Masuk.</string>
+    <string name="bluetooth_HID_connecting_error_message">Tidak dapat menyambung ke %1$s. Cuba menyambung daripada %2$s.</string>
     <string name="bluetooth_connecting_error_message">Tdk dpt menyambung ke %s.</string>
     <string name="bluetooth_preference_scan_title">Imbas</string>
     <string name="bluetooth_preference_paired_devices">Peranti yang berpasangan</string>

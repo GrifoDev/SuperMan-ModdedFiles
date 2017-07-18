@@ -51,21 +51,18 @@
 
     iget-object v2, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->previousPercent:F
     invoke-static {v2}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->access$100(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;)F
 
     move-result v2
 
     iget-object v3, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->targetPercent:F
     invoke-static {v3}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->access$200(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;)F
 
     move-result v3
 
     iget-object v4, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;
 
-    # getter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->previousPercent:F
     invoke-static {v4}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->access$100(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;)F
 
     move-result v4
@@ -76,7 +73,6 @@
 
     add-float/2addr v2, v3
 
-    # setter for: Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->currentPercent:F
     invoke-static {v1, v2}, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;->access$002(Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;F)F
 
     iget-object v1, p0, Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle$1;->this$0:Lcom/samsung/android/visualeffect/progressfingerscan/object/ProgressCircle;

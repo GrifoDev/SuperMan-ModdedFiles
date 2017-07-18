@@ -866,6 +866,7 @@ Sovellustiedoissa voi olla henkilökohtaisia tietoja, kuten yhteystietoja, viest
     <string name="content_description_hand">Paina näytön keskellä olevaa sinistä ympyrää jonkin aikaa.</string>
     <string name="nearby_scanning_help_msg_sub">Läheisten laitteiden haku -toiminto käyttää Bluetooth Low Energy -hakua ja mikrofonia. Bluetooth Low Energy -hakua voidaan käyttää myös silloin, kun Bluetooth-toiminto on poistettu laitteessa käytöstä.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth-laitteita ei löytynyt</string>
+    <string name="sec_bluetooth_no_tethered_devices">Ei laitteita</string>
     <string name="bt_tether_title">Bluetooth-liitos</string>
     <string name="bt_tether_settings_on">Käytössä</string>
     <string name="bt_tether_settings_off">Ei käytössä</string>
@@ -1032,6 +1033,7 @@ Vaikka Älykäs näyttökuva on poistettu käytöstä, voit käyttää sen toimi
     <string name="general_device_management_title">Yleinen hallinta</string>
     <string name="application_settings_summary">Oletussovellukset, käyttöoikeudet, poista asennus</string>
     <string name="notifications_settings_summary">Estä, salli, priorisoi</string>
+    <string name="ime_security_warning_title">Otetaanko valittu näppäimistö käyttöön?</string>
     <string name="language_settings_summary">Lisää alle useita kieliä, niin jos sovellus ei tue oletuskieltä (joka on luettelon alussa), se käyttää seuraavaa luettelossa olevaa kieltä. Voit asettaa kielen oletukseksi siirtämällä sen luettelon alkuun.</string>
     <string name="more_connection_settings_title">Lisää yhteysasetuksia</string>
     <string name="lock_and_security_settings_title">Lukitusnäyttö ja suojaus</string>
@@ -1827,7 +1829,8 @@ Laitteelle on saatavilla vaihtoehtoisia suojausasetuksia. Noudata kaikkia tämä
 "</string>
     <string name="knox_twofactor_bio_description">Valitse biometrinen lukitustapa ja toinen lukitustapa kohteen %s lukituksen poistamista varten.</string>
     <string name="fingerprint_registered">Rekisteröityjä sormenjälkiä käytetään valitun lukituksen poistotavan kanssa.</string>
-    <string name="knox_twofactor_description">Voit parantaa Knoxin suojausta käyttämällä kahta lukitustapaa. Ensimmäisenä lukitustapana käytetään sormenjälkiä. Valitse toinen lukitustapa alta.</string>
+    <string name="knox_twofactor_description">Valitse biometriset tiedot ja toinen lukitustapa kohteen %s lukituksen poistamista varten.</string>
+    <string name="knox_twofactor_description_fingerprint">Käytä sormenjälkiä ja valitse toinen lukitustapa säilön %s lukituksen poistamista varten.</string>
     <string name="two_factor_setup">Määritä</string>
     <string name="icon">Kuvakkeet</string>
     <string name="vibration">Värinä</string>
@@ -3683,6 +3686,7 @@ Huomaa, että sormenjälkesi ei ehkä ole niin turvallinen kuin vahva kuvio tai 
     <string name="bluetooth_confirm_passkey_msg">Laitteen %1$s kanssa pariliitokseen tarvittava vahvistussalasana on %2$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Kohteesta &lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Muodostetaanko pariliitos tämän laitteen kanssa?</string>
     <string name="bluetooth_display_passkey_pin_msg">Muodosta pariliitos antamalla %1$s laitteessa %2$s ja napauta Return- tai Enter-painiketta.</string>
+    <string name="bluetooth_HID_connecting_error_message">Lisälaitteeseen %1$s ei voi muodostaa yhteyttä. Yritä muodostaa yhteys lisälaitteesta %2$s.</string>
     <string name="bluetooth_connecting_error_message">Yhteyttä ei voi muodostaa: %s.</string>
     <string name="bluetooth_preference_scan_title">Hae</string>
     <string name="bluetooth_preference_paired_devices">Pariksi liitetyt laitteet</string>
@@ -4083,7 +4087,7 @@ Harkitse suorituskyvyn parantamiseksi nopeamman SD-kortin tai USB-tallennuslaitt
     <string name="master_clear_final_desc">Kaikki henkilökohtaiset tiedot ja ladatut sovellukset poistetaan, eikä niitä voi palauttaa.</string>
     <string name="master_clear_final_button_text">Poista kaikki</string>
     <string name="master_clear_not_available">Tällä vierasprofiililla ei ole oikeuksia tietojen tehdaspalautuksen suorittamiseen.</string>
-    <string name="master_clear_progress_title">Nollaa</string>
+    <string name="master_clear_progress_title">Palauta</string>
     <string name="master_clear_progress_text">Ole hyvä ja odota…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">USB-yhteys</string>

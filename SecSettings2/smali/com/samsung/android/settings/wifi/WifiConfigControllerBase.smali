@@ -3550,7 +3550,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1268
+    const v11, 0x7f0b1276
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3581,7 +3581,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b1267
+    const v11, 0x7f0b1275
 
     invoke-virtual {p0, v4, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3627,7 +3627,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b126c
+    const v11, 0x7f0b127a
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3641,7 +3641,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mContext:Landroid/content/Context;
 
-    const v11, 0x7f0b126e
+    const v11, 0x7f0b127c
 
     invoke-virtual {v10, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3661,7 +3661,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b126d
+    const v11, 0x7f0b127b
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3744,7 +3744,7 @@
     :cond_7
     if-eqz v7, :cond_1
 
-    const v10, 0x7f0b1268
+    const v10, 0x7f0b1276
 
     invoke-virtual {p0, v3, v10, v7}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3779,7 +3779,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b126c
+    const v11, 0x7f0b127a
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3802,7 +3802,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c25
+    const v11, 0x7f0b0c34
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3817,7 +3817,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b12ad
+    const v11, 0x7f0b12bb
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3832,7 +3832,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b12ab
+    const v11, 0x7f0b12b9
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3847,7 +3847,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b12ac
+    const v11, 0x7f0b12ba
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
@@ -3870,21 +3870,21 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0c26
+    const v11, 0x7f0b0c35
 
     invoke-virtual {p0, v3, v11, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addRow(Landroid/view/ViewGroup;ILjava/lang/String;)V
 
     goto/16 :goto_2
 
     :cond_e
-    const v10, 0x7f0b0c54
+    const v10, 0x7f0b0c63
 
     invoke-virtual {p0, v3, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addGatewayRow(Landroid/view/ViewGroup;I)V
 
     goto/16 :goto_3
 
     :cond_f
-    const v10, 0x7f0b0c54
+    const v10, 0x7f0b0c63
 
     invoke-direct {p0, v4, v10}, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->addCaptivePortalRow(Landroid/view/ViewGroup;I)V
 
@@ -3932,7 +3932,7 @@
 
     aput-object v1, v3, v5
 
-    const v4, 0x7f0b0c23
+    const v4, 0x7f0b0c32
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4159,7 +4159,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b0cc1
+    const v1, 0x7f0b0cd0
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -4233,7 +4233,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b170e
+    const v2, 0x7f0b171c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4264,7 +4264,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mPasswordView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b127d
+    const v1, 0x7f0b128b
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -4361,7 +4361,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/WifiConfigControllerBase;->mSsidView:Landroid/widget/EditText;
 
-    const v1, 0x7f0b1266
+    const v1, 0x7f0b1274
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
@@ -5685,7 +5685,7 @@
 
     if-eqz v11, :cond_1
 
-    const v11, 0x7f0b12a7
+    const v11, 0x7f0b12b5
 
     return v11
 
@@ -5696,7 +5696,7 @@
 
     if-nez v7, :cond_2
 
-    const v11, 0x7f0b12a7
+    const v11, 0x7f0b12b5
 
     return v11
 
@@ -5766,19 +5766,19 @@
     if-le v10, v11, :cond_7
 
     :cond_5
-    const v11, 0x7f0b12aa
+    const v11, 0x7f0b12b8
 
     return v11
 
     :catch_0
     move-exception v3
 
-    const v11, 0x7f0b12a7
+    const v11, 0x7f0b12b5
 
     return v11
 
     :cond_6
-    const v11, 0x7f0b12aa
+    const v11, 0x7f0b12b8
 
     return v11
 
@@ -5807,14 +5807,14 @@
 
     if-eqz v11, :cond_8
 
-    const v11, 0x7f0b12a8
+    const v11, 0x7f0b12b6
 
     return v11
 
     :catch_1
     move-exception v4
 
-    const v11, 0x7f0b12aa
+    const v11, 0x7f0b12b8
 
     return v11
 
@@ -5862,14 +5862,14 @@
 
     if-eqz v11, :cond_9
 
-    const v11, 0x7f0b12a9
+    const v11, 0x7f0b12b7
 
     return v11
 
     :catch_2
     move-exception v3
 
-    const v11, 0x7f0b12a8
+    const v11, 0x7f0b12b6
 
     return v11
 
@@ -5919,7 +5919,7 @@
     :catch_3
     move-exception v3
 
-    const v11, 0x7f0b12a9
+    const v11, 0x7f0b12b7
 
     return v11
 
@@ -5937,7 +5937,7 @@
     :catch_4
     move-exception v3
 
-    const v11, 0x7f0b12a9
+    const v11, 0x7f0b12b7
 
     return v11
 .end method

@@ -415,7 +415,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b150a
+    const v3, 0x7f0b1518
 
     invoke-virtual {v2, v3, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -467,19 +467,19 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b1b3a
+    const v3, 0x7f0b1b48
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b1b3b
+    const v3, 0x7f0b1b49
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f0b0f9d
+    const v3, 0x7f0b0fac
 
     invoke-virtual {v2, v3, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1396,31 +1396,11 @@
 .end method
 
 .method private static showEnableOemUnlockPreference()Z
-    .locals 2
-
-    const-string/jumbo v0, "ro.frp.pst"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    .locals 1
 
     const/4 v0, 0x0
 
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private showKeyguardConfirmation(Landroid/content/res/Resources;I)Z
@@ -1496,7 +1476,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1a67
+    const v3, 0x7f0b1a75    # 1.8490006E38f
 
     const/4 v6, 0x0
 
@@ -4326,7 +4306,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b1ae9
+    const v1, 0x7f0b1af7
 
     const/4 v2, 0x1
 

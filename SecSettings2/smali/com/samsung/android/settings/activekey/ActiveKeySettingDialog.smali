@@ -67,7 +67,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog$1;-><init>(Lcom/samsung/android/settings/activekey/ActiveKeySettingDialog;)V
 
-    const v3, 0x7f0b10f9
+    const v3, 0x7f0b1106
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

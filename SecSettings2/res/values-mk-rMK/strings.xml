@@ -864,6 +864,7 @@ Wi-Fi и Bluetooth исто ќе се исклучат, но можат да с�
     <string name="content_description_hand">Допрете го и задржете го синиот круг во средината на екранот.</string>
     <string name="nearby_scanning_help_msg_sub">Скенирањето на уредите во близина користи Нискоенергетско скенирање на Bluetooth и микрофонот. Нискоенергетско скенирање на Bluetooth може да се користи дури и кога Bluetooth е исклучен на овој уред.</string>
     <string name="sec_bluetooth_no_devices_found">Не се најдени уреди со Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Нема уреди</string>
     <string name="bt_tether_title">Споделување врска преку Bluetooth</string>
     <string name="bt_tether_settings_on">Вклучено</string>
     <string name="bt_tether_settings_off">Исклучено</string>
@@ -1030,6 +1031,7 @@ Wi-Fi и Bluetooth исто ќе се исклучат, но можат да с�
     <string name="general_device_management_title">Општо управување</string>
     <string name="application_settings_summary">Основни апликации, дозволи, одинсталирајте</string>
     <string name="notifications_settings_summary">Блокирајте, дозволете, направете приоритети</string>
+    <string name="ime_security_warning_title">Да се вклучи избраната тастатура?</string>
     <string name="language_settings_summary">Додајте повеќе јазици подолу за ако некоја апликација не го поддржува Вашиот основен јазик (најгоре на листата), ќе се користи следниот поддржан јазик на листата. Преместете јазик на врвот на листата за да го поставите како основен.</string>
     <string name="more_connection_settings_title">Повеќе поставувања за поврзување</string>
     <string name="lock_and_security_settings_title">Екран за закл.и безбедност</string>
@@ -1825,7 +1827,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">Изберете ги биометрискиот начин на заклучување и вториот начин на заклучување за отклучување на %s.</string>
     <string name="fingerprint_registered">Регистрираните отпечатоци ќе се користат со избраниот начин за отклучување.</string>
-    <string name="knox_twofactor_description">Користете два вида заклучување за да биде Knox уште побезбеден. Отпечатоците ќе се користат како прв вид заклучување. Изберете втор вид заклучување подолу.</string>
+    <string name="knox_twofactor_description">Изберете ги биометријата и втор начин на заклучување за отклучување на %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Користете го Вашите отпечатоци од прст и изберете втор начин на заклучување за отклучување на %s.</string>
     <string name="two_factor_setup">Постави</string>
     <string name="icon">Икони</string>
     <string name="vibration">Вибрации</string>
@@ -3681,6 +3684,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">Потврда дека лозинката е %2$s за поврзување со %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Од&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Да се поврзе со овој уред?</string>
     <string name="bluetooth_display_passkey_pin_msg">Внесете %1$s на %2$s за спојување, па допрете Нов ред или Внеси.</string>
+    <string name="bluetooth_HID_connecting_error_message">Не може да се поврзе со %1$s. Обидете се да се поврзете од %2$s.</string>
     <string name="bluetooth_connecting_error_message">Не е можно поврзување со %s.</string>
     <string name="bluetooth_preference_scan_title">Скенирај</string>
     <string name="bluetooth_preference_paired_devices">Поврзани уреди</string>
@@ -4081,7 +4085,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">Сите Ваши лични информации и преземени апликации ќе се избришат и нема да може да се вратат.</string>
     <string name="master_clear_final_button_text">Избриши сè</string>
     <string name="master_clear_not_available">Овој гостински профил нема дозвола да изврши фабричко ресетирање на податоците.</string>
-    <string name="master_clear_progress_title">Ресетирај</string>
+    <string name="master_clear_progress_title">Ресетирање</string>
     <string name="master_clear_progress_text">Ве молам почекајте…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Споделув. врска преку USB</string>

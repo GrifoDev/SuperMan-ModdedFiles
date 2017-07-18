@@ -866,6 +866,7 @@ Os dados das aplicações podem incluir informações pessoais como contactos, m
     <string name="content_description_hand">Toque sem soltar no círculo azul no centro do ecrã.</string>
     <string name="nearby_scanning_help_msg_sub">A pesquisa de dispositivos próximos utiliza a pesquisa Bluetooth Low Energy e o microfone. A pesquisa Bluetooth Low Energy pode ser utilizada mesmo quando o Bluetooth está desligado neste dispositivo.</string>
     <string name="sec_bluetooth_no_devices_found">Nenhum dispositivo Bluetooth encontrado</string>
+    <string name="sec_bluetooth_no_tethered_devices">Sem dispositivos</string>
     <string name="bt_tether_title">Ancoragem Bluetooth</string>
     <string name="bt_tether_settings_on">Ligado</string>
     <string name="bt_tether_settings_off">Desligado</string>
@@ -1032,6 +1033,7 @@ Mesmo quando a Captura inteligente está desactivada, pode aceder às respectiva
     <string name="general_device_management_title">Gestão geral</string>
     <string name="application_settings_summary">Aplicações padrão, permissões, desinstalar</string>
     <string name="notifications_settings_summary">Bloquear, permitir, priorizar</string>
+    <string name="ime_security_warning_title">Ligar o teclado seleccionado?</string>
     <string name="language_settings_summary">Adicione vários idiomas abaixo de modo a que, caso uma aplicação não suporte o seu idioma padrão (no início da lista), seja utilizado o idioma suportado seguinte na lista. Mova um idioma para o início da lista, para o definir como padrão.</string>
     <string name="more_connection_settings_title">Mais definições de ligação</string>
     <string name="lock_and_security_settings_title">Ecrã bloqueio e segurança</string>
@@ -1827,7 +1829,8 @@ Estão disponíveis opções de segurança alternativas no dispositivo. O Utiliz
 "</string>
     <string name="knox_twofactor_bio_description">Seleccione o seu tipo de bloqueio biométrico e um segundo tipo de bloqueio para desbloquear %s.</string>
     <string name="fingerprint_registered">As impressões digitais registadas serão utilizadas com o método de desbloqueio seleccionado.</string>
-    <string name="knox_twofactor_description">Utilize dois tipos de bloqueio para tornar o Knox ainda mais seguro. As suas impressões digitais serão utilizadas como primeiro tipo de bloqueio. Seleccione abaixo um segundo tipo de bloqueio.</string>
+    <string name="knox_twofactor_description">Seleccione os seus dados biométricos e um segundo tipo de bloqueio para desbloquear o %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Utilize as suas impressões digitais e seleccione um segundo tipo de bloqueio para desbloquear o %s.</string>
     <string name="two_factor_setup">Configurar</string>
     <string name="icon">Ícones</string>
     <string name="vibration">Vibração</string>
@@ -3683,6 +3686,7 @@ Nota: A sua impressão digital pode ser menos segura do que um padrão ou PIN fo
     <string name="bluetooth_confirm_passkey_msg">Confirmar que a chave de acesso é %2$s para emparelhar com %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">De&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Emparelhar com este dispositivo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Introduza %1$s em %2$s para emparelhar, em seguida toque em Retrocesso ou Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Impossível estabelecer ligação com %1$s. Tente ligar a partir de %2$s.</string>
     <string name="bluetooth_connecting_error_message">Impossível ligar a %s.</string>
     <string name="bluetooth_preference_scan_title">Pesquisar</string>
     <string name="bluetooth_preference_paired_devices">Dispositivos emparelhados</string>

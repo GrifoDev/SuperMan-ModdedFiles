@@ -865,6 +865,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="content_description_hand">长按屏幕中心的蓝色圆圈。</string>
     <string name="nearby_scanning_help_msg_sub">附近设备扫描使用蓝牙低功耗扫描和麦克风。蓝牙低功耗扫描即使在设备上已关闭蓝牙时也可以使用。</string>
     <string name="sec_bluetooth_no_devices_found">未找到蓝牙设备</string>
+    <string name="sec_bluetooth_no_tethered_devices">没有设备</string>
     <string name="bt_tether_title">蓝牙网络共享</string>
     <string name="bt_tether_settings_on">开</string>
     <string name="bt_tether_settings_off">关闭</string>
@@ -1031,6 +1032,7 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
     <string name="general_device_management_title">常规管理</string>
     <string name="application_settings_summary">默认应用程序，权限，卸载</string>
     <string name="notifications_settings_summary">阻止，允许，优先</string>
+    <string name="ime_security_warning_title">是否启用已选择的键盘？</string>
     <string name="language_settings_summary">请在下面添加多个语言，以便在应用程序不支持您的默认语言 (在列表顶部显示) 时，改为使用列表中下一个受支持的语言。将一种语言移至列表顶部可将其设为默认语言。</string>
     <string name="more_connection_settings_title">更多连接设置</string>
     <string name="lock_and_security_settings_title">锁定屏幕和安全</string>
@@ -1826,7 +1828,8 @@ Wi-Fi 和蓝牙也将关闭，但可以在【设置】或快捷设置面板中�
 "</string>
     <string name="knox_twofactor_bio_description">请选择用于解锁 %s 的生物识别锁定类型和第二锁定类型。</string>
     <string name="fingerprint_registered">已注册的指纹将用于选中的解锁方法</string>
-    <string name="knox_twofactor_description">使用两种锁定类型以使 Knox 更加安全。您的指纹将用作第一种锁定类型。从下方选择第二种锁定类型。</string>
+    <string name="knox_twofactor_description">请选择生物识别以及用于解锁%s的第二种锁定类型。</string>
+    <string name="knox_twofactor_description_fingerprint">使用您的指纹并选择用于解锁%s的第二种锁定类型。</string>
     <string name="two_factor_setup">设置</string>
     <string name="icon">图标</string>
     <string name="vibration">振动</string>
@@ -3681,6 +3684,7 @@ Wi-Fi 已开启。"</string>
     <string name="bluetooth_confirm_passkey_msg">确认密码为 %2$s 以与 %1$s 配对。</string>
     <string name="bluetooth_incoming_pairing_msg">来自&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>是否与本设备配对？</string>
     <string name="bluetooth_display_passkey_pin_msg">在 %2$s 上输入 %1$s 以配对，然后点击【返回】或【输入】。</string>
+    <string name="bluetooth_HID_connecting_error_message">无法连接至%1$s。请尝试从%2$s侧连接。</string>
     <string name="bluetooth_connecting_error_message">无法连接到 %s。</string>
     <string name="bluetooth_preference_scan_title">扫描</string>
     <string name="bluetooth_preference_paired_devices">已配对的设备</string>

@@ -866,6 +866,7 @@ Datele aplicațiilor pot include informații personale, cum ar fi contacte, mesa
     <string name="content_description_hand">Atingeți lung cercul albastru din centrul ecranului.</string>
     <string name="nearby_scanning_help_msg_sub">Căutarea dispozitivelor din apropiere utilizează căutarea Bluetooth Low Energy și microfonul. Căutarea Bluetooth Low Energy poate fi utilizată chiar și atunci când conexiunea Bluetooth este oprită pe dispozitiv.</string>
     <string name="sec_bluetooth_no_devices_found">Nu s-a găsit niciun dispozitiv Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Nu există dispozitive</string>
     <string name="bt_tether_title">Tethering prin Bluetooth</string>
     <string name="bt_tether_settings_on">Activat</string>
     <string name="bt_tether_settings_off">Dezactivat</string>
@@ -1032,6 +1033,7 @@ Chiar dacă funcția Captură inteligentă este dezactivată, caracteristicile a
     <string name="general_device_management_title">Gestionare generală</string>
     <string name="application_settings_summary">Aplicații implicite, permisiuni, dezinstalare</string>
     <string name="notifications_settings_summary">Blocare, permitere, prioritizare</string>
+    <string name="ime_security_warning_title">Porniți tastatura selectată?</string>
     <string name="language_settings_summary">Adăugați mai multe limbi mai jos pentru ca, dacă o aplicație nu acceptă limba dvs. implicită (cea din partea de sus a listei), următoarea limbă acceptată din listă va fi utilizată în schimb. Mutați o limbă în partea de sus a listei pentru a o seta drept implicită.</string>
     <string name="more_connection_settings_title">Mai multe setări de conexiune</string>
     <string name="lock_and_security_settings_title">Ecran blocare și securit.</string>
@@ -1827,7 +1829,8 @@ Pe dispozitivul dvs. sunt disponibile opțiuni de securitate alternative. Respec
 "</string>
     <string name="knox_twofactor_bio_description">Selectați tipul de blocare biometrică și al doilea tip de blocare pentru a debloca %s.</string>
     <string name="fingerprint_registered">Amprentele înregistrate vor fi utilizate cu metoda de deblocare selectată.</string>
-    <string name="knox_twofactor_description">Utilizați două metode de blocare pentru a securiza suplimentar Knox. Amprentele dvs. vor fi utilizate pentru prima metodă de blocare. Selectați mai jos a doua metodă de blocare.</string>
+    <string name="knox_twofactor_description">Selectați datele biometrice și al doilea tip de blocare pentru a debloca %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Pentru a debloca %s, utilizați amprentele și selectați a doua metodă de blocare.</string>
     <string name="two_factor_setup">Configur.</string>
     <string name="icon">Pictograme</string>
     <string name="vibration">Vibrație</string>
@@ -3683,6 +3686,7 @@ Notă: este posibil ca amprenta dvs. să fie mai puțin sigură decât un model 
     <string name="bluetooth_confirm_passkey_msg">Confirmați cheia %2$s pentru asocierea cu %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">De la&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Asociaţi cu acest dispozitiv?</string>
     <string name="bluetooth_display_passkey_pin_msg">Introduceți %1$s la %2$s pentru asociere, apoi apăsați pe tasta Return sau Enter.</string>
+    <string name="bluetooth_HID_connecting_error_message">Nu se poate realiza conectarea la %1$s. Încercați să vă conectați de la %2$s.</string>
     <string name="bluetooth_connecting_error_message">Imposibil de conectat la %s</string>
     <string name="bluetooth_preference_scan_title">Căutare</string>
     <string name="bluetooth_preference_paired_devices">Dispozitive împerecheate</string>
@@ -4083,7 +4087,7 @@ Se recomandă să utilizaţi un card SD sau un dispozitiv de stocare USB mai rap
     <string name="master_clear_final_desc">Toate informațiile personale și aplicațiile descărcate vor fi șterse și nu vor putea fi recuperate.</string>
     <string name="master_clear_final_button_text">Ștergere totală</string>
     <string name="master_clear_not_available">Acest profil de invitat nu are permisiunea de a efectua resetarea la datele din fabrică.</string>
-    <string name="master_clear_progress_title">Reinițial.</string>
+    <string name="master_clear_progress_title">Resetare</string>
     <string name="master_clear_progress_text">Așteptați…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">Partajare conex. Internet</string>

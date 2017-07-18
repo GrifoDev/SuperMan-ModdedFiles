@@ -35,11 +35,46 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 4
 
-    iget-object v0, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$6;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
+    new-instance v1, Landroid/content/Intent;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-wrap1(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
+    const-string/jumbo v2, "com.osp.app.signin"
+
+    const-string/jumbo v3, "com.osp.app.signin.UserValidateCheck"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "MODE"
+
+    const-string/jumbo v3, "REMOTE_CONTROLS"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v2, "RL_MODE"
+
+    const-string/jumbo v3, "LOCK"
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$6;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
+
+    const/16 v3, 0x3e8
+
+    invoke-virtual {v2, v1, v3}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->startActivityForResult(Landroid/content/Intent;I)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
+
+    goto :goto_0
 .end method

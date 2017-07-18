@@ -866,6 +866,7 @@ Data aplikasi mungkin mencakup informasi pribadi seperti kontak, pesan, dan gamb
     <string name="content_description_hand">Ketuk dan tahan lingkaran biru di bagian tengah layar.</string>
     <string name="nearby_scanning_help_msg_sub">Pemindaian perangkat terdekat menggunakan pemindaian Bluetooth Hemat Energi dan mikrofon. Pemindaian Bluetooth Hemat Energi dapat digunakan bahkan saat Bluetooth di perangkat ini nonaktif.</string>
     <string name="sec_bluetooth_no_devices_found">Perangkat Bluetooth tidak ditemukan</string>
+    <string name="sec_bluetooth_no_tethered_devices">Tidak ada perangkat</string>
     <string name="bt_tether_title">Bluetooth tethering</string>
     <string name="bt_tether_settings_on">Hidup</string>
     <string name="bt_tether_settings_off">Tidak aktif</string>
@@ -1032,6 +1033,7 @@ Bahkan saat Tangkap cerdas nonaktif, Anda dapat mengakses fiturnya lewat Perinta
     <string name="general_device_management_title">Manajemen umum</string>
     <string name="application_settings_summary">Aplikasi default, izin, hapus instalasi</string>
     <string name="notifications_settings_summary">Blokir, izinkan, prioritaskan</string>
+    <string name="ime_security_warning_title">Aktifkan keyboard yang dipilih?</string>
     <string name="language_settings_summary">Tambahkan beberapa bahasa berikut, sehingga jika aplikasi tidak mendukung bahasa default Anda (di atas daftar), bahasa berikutnya yang didukung dalam daftar akan digunakan. Pindahkan bahasa ke atas daftar untuk mengaturnya sebagai default.</string>
     <string name="more_connection_settings_title">Pengaturan koneksi lainnya</string>
     <string name="lock_and_security_settings_title">Layar kunci dan keamanan</string>
@@ -1828,7 +1830,8 @@ Pilihan keamanan alternatif tersedia di perangkat Anda. Harap ikuti semua petunj
 "</string>
     <string name="knox_twofactor_bio_description">Pilih tipe kunci biometrik dan tipe kunci kedua untuk membuka kunci %s.</string>
     <string name="fingerprint_registered">Sidik jari yang terdaftar akan digunakan dalam metode buka-kunci yang dipilih.</string>
-    <string name="knox_twofactor_description">Gunakan dua tipe kunci untuk membuat Knox semakin aman. Sidik jari Anda akan digunakan sebagai tipe kunci pertama. Pilih tipe kunci kedua berikut ini.</string>
+    <string name="knox_twofactor_description">Pilih biometrik dan tipe kunci kedua untuk membuka kunci %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Gunakan sidik jari dan pilih tipe kunci kedua untuk membuka kunci %s.</string>
     <string name="two_factor_setup">Atur</string>
     <string name="icon">Ikon</string>
     <string name="vibration">Getar</string>
@@ -3684,6 +3687,7 @@ Catatan: Sidik jari Anda mungkin kurang aman dibanding PIN atau pola yang kuat.
     <string name="bluetooth_confirm_passkey_msg">Kunci sandi konfirmasi adalah %2$s untuk berpasangan dengan %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">Dari&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Pasangkan dengan perangkat ini?</string>
     <string name="bluetooth_display_passkey_pin_msg">Masukkan %1$s pada %2$s untuk memasangkan, lalu ketuk Kembali atau Masukkan.</string>
+    <string name="bluetooth_HID_connecting_error_message">Tidak dapat tersambung ke %1$s. Coba menyambung dari %2$s.</string>
     <string name="bluetooth_connecting_error_message">Tidak bisa menyambung ke %s.</string>
     <string name="bluetooth_preference_scan_title">Pindai</string>
     <string name="bluetooth_preference_paired_devices">Perangkat terpasang</string>

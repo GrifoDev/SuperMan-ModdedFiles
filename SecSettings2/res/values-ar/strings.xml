@@ -866,6 +866,7 @@ Enter the code you get from Verizon:"</string>
     <string name="content_description_hand">انقر مع الاستمرار فوق الدائرة الزرقاء في منتصف الشاشة.</string>
     <string name="nearby_scanning_help_msg_sub">يستخدم مسح الأجهزة المجاورة الميكروفون والمسح عبر تقنية البلوتوث باستهلاك منخفض للطاقة. يمكن استخدام المسح عبر تقنية البلوتوث باستهلاك منخفض للطاقة حتى أثناء إيقاف تشغيل البلوتوث على هذا الجهاز.</string>
     <string name="sec_bluetooth_no_devices_found">تعذر العثور على أجهزة البلوتوث</string>
+    <string name="sec_bluetooth_no_tethered_devices">لا توجد أجهزة</string>
     <string name="bt_tether_title">تقييد البلوتوث</string>
     <string name="bt_tether_settings_on">تشغيل</string>
     <string name="bt_tether_settings_off">إيقاف التشغيل</string>
@@ -1032,6 +1033,7 @@ Enter the code you get from Verizon:"</string>
     <string name="general_device_management_title">الإدارة العامة</string>
     <string name="application_settings_summary">التطبيقات الافتراضية، الأذونات، إلغاء التثبيت</string>
     <string name="notifications_settings_summary">حظر، سماح، منح أولوية</string>
+    <string name="ime_security_warning_title">هل تريد تشغيل لوحة المفاتيح المحددة؟</string>
     <string name="language_settings_summary">يمكنك إضافة عدة لغات أدناه بحيث إذا لم يكن أحد التطبيقات يدعم لغتك الافتراضية (الموجودة في أعلى القائمة)، فسيتم استخدام اللغة المدعومة التالية في القائمة كبديل. يمكنك نقل أية لغة إلى أعلى القائمة لتعيينها كلغة افتراضية.</string>
     <string name="more_connection_settings_title">المزيد من ضبط الاتصال</string>
     <string name="lock_and_security_settings_title">شاشة القفل والحماية</string>
@@ -1827,7 +1829,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">حدد نوع القفل الحيوي ونوع قفل آخر لإلغاء قفل %s.</string>
     <string name="fingerprint_registered">سيتم استخدام بصمات الأصابع المسجلة بطريقة إلغاء القفل المحددة.</string>
-    <string name="knox_twofactor_description">استخدم نوعي قفل لجعل Knox أكثر أماناً. سيتم استخدام بصماتك كأول نوع قفل. حدد نوع قفل ثانٍ أدناه.</string>
+    <string name="knox_twofactor_description">حدد المقاييس الحيوية ونوع قفل آخر لإلغاء قفل %s.</string>
+    <string name="knox_twofactor_description_fingerprint">استخدم بصمة أصابعك وحدد نوع قفل ثانٍ لإلغاء قفل %s.</string>
     <string name="two_factor_setup">إعداد</string>
     <string name="icon">الرموز</string>
     <string name="vibration">اهتزاز</string>
@@ -3683,6 +3686,7 @@ Wi-Fi is now on."</string>
     <string name="bluetooth_confirm_passkey_msg">‫قم بتأكيد أن مفتاح المرور هو %2$s للإقتران مع %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">من&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>هل تريد الإقتران بهذا الجهاز؟</string>
     <string name="bluetooth_display_passkey_pin_msg">أدخل %1$s على %2$s للإقتران ثم انقر فوق ”رجوع“ أو ”إدخال“.</string>
+    <string name="bluetooth_HID_connecting_error_message">يتعذر الاتصال بـ %1$s. حاول الاتصال من %2$s.</string>
     <string name="bluetooth_connecting_error_message">يتعذر الاتصال بـ %s.</string>
     <string name="bluetooth_preference_scan_title">بحث</string>
     <string name="bluetooth_preference_paired_devices">الأجهزة المقترنة</string>
@@ -4083,7 +4087,7 @@ Wi-Fi is now on."</string>
     <string name="master_clear_final_desc">سيتم حذف جميع معلوماتك الشخصية والتطبيقات التي تم تنزيلها وسيتعذّر استردادها.</string>
     <string name="master_clear_final_button_text">مسح الكل</string>
     <string name="master_clear_not_available">لا يملك ملف تعريف الضيف هذا إذناً لإجراء إعادة ضبط بيانات المصنع.</string>
-    <string name="master_clear_progress_title">إرجاع</string>
+    <string name="master_clear_progress_title">إعادة الضبط</string>
     <string name="master_clear_progress_text">يرجى الانتظار …</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">تقييد USB</string>

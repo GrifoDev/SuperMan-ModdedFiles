@@ -39,7 +39,7 @@
         }
     .end annotation
 
-    const v5, 0x7f0b182d
+    const v5, 0x7f0b183b
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -95,7 +95,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0b182f
+    const v4, 0x7f0b183d
 
     :goto_0
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -116,7 +116,7 @@
     return-object v2
 
     :cond_3
-    const v4, 0x7f0b1830
+    const v4, 0x7f0b183e
 
     goto :goto_0
 .end method

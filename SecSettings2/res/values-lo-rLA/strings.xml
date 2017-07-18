@@ -865,6 +865,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="content_description_hand">ແຕະວົງມົນສີຟ້າຢູ່ໃຈກາງຂອງໜ້າຈໍຄ້າງໄວ້.</string>
     <string name="nearby_scanning_help_msg_sub">ການສະແກນອຸປະກອນໃກ້ຄຽງໃຊ້ການສະແກນບລູທູດແລະໄມໂຄຣໂຟນທີ່ໃຊ້ພະລັງຕ່ຳ. ການສະແກນບລູທູດທີ່ໃຊ້ພະລັງງານຕ່ຳສາມາດໃຊ້ແມ້ກະທັ້ງໃນຂະນະທີ່ບລູທູດປິດຢູ່ໃນອຸປະກອນນີ້.</string>
     <string name="sec_bluetooth_no_devices_found">ບໍ່ພົບອຸປະກອນບລູທູດ</string>
+    <string name="sec_bluetooth_no_tethered_devices">ບໍ່ມີເຄື່ອງອຸປະກອນ</string>
     <string name="bt_tether_title">ການເຊື່ອມໂຍງເຄືອຂ່າຍດ້ວຍບລູທູດ</string>
     <string name="bt_tether_settings_on">ເປີດ</string>
     <string name="bt_tether_settings_off">ປິດ</string>
@@ -1031,6 +1032,7 @@ Wi-Fi ແລະ​ບ​ລູ​ທູດ​ຈະ​ປິດ, ແຕ່​ສ
     <string name="general_device_management_title">ການຈັດການທົ່ວໄປ</string>
     <string name="application_settings_summary">ແອັບມາດຕະຖານ, ການອະນຸຍາດ, ຖອນຕິດຕັ້ງ</string>
     <string name="notifications_settings_summary">ບລັອກ, ອະນຸຍາດ, ຈັດລໍາດັບຄວາມສໍາຄັນ</string>
+    <string name="ime_security_warning_title">ເປີດຄີບອດທີ່ເລືອກໄວ້ບໍ?</string>
     <string name="language_settings_summary">ເພີ່ມຫຼາຍໆພາສາລຸ່ມນີ້ເຂົ້າເພື່ອວ່າ, ຖ້າແອັບບໍ່ຮອງຮັບພາສາມາດຕະຖານຂອງທ່ານ (ຢູ່ດ້ານເທິງສຸດຂອງລາຍການ), ພາສາທີ່ຮອງຮັບຖັດໄປຢູ່ໃນລາຍການຈະຖືກໃຊ້ແທນ. ຍ້າຍພາສາໃສ່ດ້ານເທິງສຸດຂອງລາຍການເພື່ອຕັ້ງມັນເປັນມາດຕະຖານ.</string>
     <string name="more_connection_settings_title">ການຕັ້ງຄ່າການ​ແກ້​ໄຂ​ເພີ່ມເຕີມ</string>
     <string name="lock_and_security_settings_title">ໜ້າຈໍລັອກ ແລະຄວາມປອດໄພ</string>
@@ -1825,7 +1827,8 @@ You will also need it when:"</string>
 "</string>
     <string name="knox_twofactor_bio_description">ເລືອກປະເພດລັອກໄບໂອແມັດທຣິກຂອງທ່ານ ແລະປະເພດລັອກທີສອງເພື່ອປົດລັອກ %s.</string>
     <string name="fingerprint_registered">ລາຍນີ້ວມືທີ່ຈົດຈຳແລ້ວຈະຖືກນໍາໃຊ້ກັບວິທີການປົດລັອກທີ່ເລືອກໄວ້.</string>
-    <string name="knox_twofactor_description">ໃຊ້ປະ​ເພດປົດລັອກສອງປະ​ເພດ ເພື່ອເຮັດໃຫ້ Knox ມີ​ຄວາມ​ປອດ​ໄພຂຶ້ນຕື່ມ. ລາຍນີ້ວມືຂອງທ່ານຈະຖືກໃຊ້ເປັນປະ​ເພດລັອກທໍາອິດ. ເລືອກປະ​ເພດລັອກທີສອງຢູ່ລຸ່ມນີ້.</string>
+    <string name="knox_twofactor_description">ເລືອກໄບໂອແມັດທຣິກຂອງທ່ານ ແລະປະເພດລັອກທີສອງເພື່ອປົດລັອກ %s.</string>
+    <string name="knox_twofactor_description_fingerprint">ໃຊ້ລາຍນິ້ວມືຂອງທ່ານ ແລະ ເລືອກປະເພດລັອກທີສອງເພື່ອປົດລັອກ %s.</string>
     <string name="two_factor_setup">ຕັ້ງ</string>
     <string name="icon">ໄອຄອນ</string>
     <string name="vibration">ສັ່ນ</string>
@@ -3680,6 +3683,7 @@ Receiving SMS"</string>
     <string name="bluetooth_confirm_passkey_msg">ຢືນຢັນລະຫັດຜ່ານແມ່ນ %2$s ເພື່ອຈັບຄູ່ກັບ %1$s.</string>
     <string name="bluetooth_incoming_pairing_msg">ຈາກ&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>ຈັບຄູ່ກັບເຄື່ອງນີ້ບໍ?</string>
     <string name="bluetooth_display_passkey_pin_msg">ໃສ່ %1$s ໃນ %2$s ເພື່ອຈັບຄູ່, ຈາກນັ້ນແຕະ [ປຸ່ມກັບຄືນ] ຫຼືເອັນເທີ.</string>
+    <string name="bluetooth_HID_connecting_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ %1$s ໄດ້. ລອງເຊື່ອມຕໍ່ຈາກ %2$s.</string>
     <string name="bluetooth_connecting_error_message">ບໍ່ສາມາດເຊື່ອມຕໍ່ຫາ %s.</string>
     <string name="bluetooth_preference_scan_title">ສະແກນ</string>
     <string name="bluetooth_preference_paired_devices">ເຄື່ອງໄດ້ຈັບຄູ່ແລ້ວ</string>
@@ -4080,7 +4084,7 @@ Receiving SMS"</string>
     <string name="master_clear_final_desc">ຂໍ້ມູນສ່ວນຕົວ ແລະແອັບທີ່ໄດ້ດາວໂຫຼດໄວ້ທັງໝົດຈະຖືກລຶບ ແລະສາມາດກູ້ຄືນມາໄດ້.</string>
     <string name="master_clear_final_button_text">ລຶບທັງໝົດ</string>
     <string name="master_clear_not_available">ໂປຣໄຟລ໌ແຂກນີ້ບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ເຮັດການຕັ້ງຄ່າຂໍ້ມູນໂຮງງານໃໝ່.</string>
-    <string name="master_clear_progress_title">ຕັ້ງຄ່າ​ຄືນ​ໃໝ່</string>
+    <string name="master_clear_progress_title">ຕັ້ງຄືນ​ໃໝ່</string>
     <string name="master_clear_progress_text">ກະລຸນາ ລໍຖ້າ…</string>
     <string name="tether_settings_uid_title_vzw">Mobile Hotspot and tethering</string>
     <string name="usb_tethering_button_text">ການເຊື່ອມໂຍງເຄືອຂ່າຍ USB</string>

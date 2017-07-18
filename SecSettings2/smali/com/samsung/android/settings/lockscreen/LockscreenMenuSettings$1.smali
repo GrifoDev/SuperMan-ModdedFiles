@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings$1;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap3(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
+    invoke-static {v0}, Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;->-wrap2(Lcom/samsung/android/settings/lockscreen/LockscreenMenuSettings;)V
 
     return-void
 .end method

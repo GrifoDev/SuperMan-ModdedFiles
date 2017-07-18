@@ -1,5 +1,5 @@
 .class Lcom/samsung/android/settings/fmm/FindMyMobileSettings$3;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/database/ContentObserver;
 .source "FindMyMobileSettings.java"
 
 
@@ -19,24 +19,52 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
+.method constructor <init>(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$3;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+.method public onChange(Z)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$3;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
+    const/4 v3, 0x0
 
-    invoke-static {v0}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-wrap2(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)V
+    iget-object v1, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$3;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-wrap0(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "send_last_location"
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    iget-object v1, p0, Lcom/samsung/android/settings/fmm/FindMyMobileSettings$3;->this$0:Lcom/samsung/android/settings/fmm/FindMyMobileSettings;
+
+    invoke-static {v1}, Lcom/samsung/android/settings/fmm/FindMyMobileSettings;->-get4(Lcom/samsung/android/settings/fmm/FindMyMobileSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

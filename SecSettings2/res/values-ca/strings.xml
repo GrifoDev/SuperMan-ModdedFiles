@@ -866,6 +866,7 @@ Les dades d'aplicacions poden incloure informació personal, com contactes, miss
     <string name="content_description_hand">Mantingui tocat el cercle de color blau del centre de la pantalla</string>
     <string name="nearby_scanning_help_msg_sub">"Cercar dispositius propers utilitza la cerca Bluetooth Low Energy i el micròfon. La cerca Bluetooth Low Energy es pot utilitzar fins i tot quan el Bluetooth d'aquest dispositiu està desactivat."</string>
     <string name="sec_bluetooth_no_devices_found">"No s'han trobat dispositius Bluetooth"</string>
+    <string name="sec_bluetooth_no_tethered_devices">Sense dispositius</string>
     <string name="bt_tether_title">Tethering Bluetooth</string>
     <string name="bt_tether_settings_on">Activat</string>
     <string name="bt_tether_settings_off">Desactivat</string>
@@ -1032,6 +1033,7 @@ Fins i tot mentre la Captura sencera estigui desactivada, pot accedir a les seve
     <string name="general_device_management_title">Administració general</string>
     <string name="application_settings_summary">Apps predeterminades, permisos, desinstal·lar</string>
     <string name="notifications_settings_summary">Bloquejar, concedir, prioritzar</string>
+    <string name="ime_security_warning_title">Vol activar el teclat seleccionat?</string>
     <string name="language_settings_summary">"Afegeixi múltiples idiomes a continuació de manera que, si una aplicació no admet l'idioma predeterminat (a l'extrem superior de la llista), s'utilitzi l'idioma compatible següent de la llista. Mogui un idioma a l'extrem superior de la llista per establir-lo com a predeterminat."</string>
     <string name="more_connection_settings_title">Més ajustaments de connexió</string>
     <string name="lock_and_security_settings_title">Pantalla bloq i seguretat</string>
@@ -1827,7 +1829,8 @@ Hi ha opcions de seguretat alternatives disponibles al dispositiu. Segueixi tote
 "</string>
     <string name="knox_twofactor_bio_description">Seleccioni el tipus de bloqueig biomètric i el segon tipus de bloqueig per desbloquejar %s.</string>
     <string name="fingerprint_registered">"Les empremtes registrades s'utilitzaran amb el mètode de desbloqueig seleccionat."</string>
-    <string name="knox_twofactor_description">"Utilitzi dos mètodes de bloqueig per fer Knox encara més segur. Les seves empremtes s'utilitzaran com a primer tipus de bloqueig. Seleccioni un segon tipus de bloqueig a continuació."</string>
+    <string name="knox_twofactor_description">Seleccioni la biometria i un segon tipus de bloqueig per desbloquejar %s.</string>
+    <string name="knox_twofactor_description_fingerprint">Utilitzi les empremtes i seleccioni un segon tipus de bloqueig per desbloquejar %s.</string>
     <string name="two_factor_setup">Configurar</string>
     <string name="icon">Icones</string>
     <string name="vibration">Vibració</string>
@@ -3683,6 +3686,7 @@ Nota: és possible que la seva empremta sigui menys segura que un patró o un PI
     <string name="bluetooth_confirm_passkey_msg">La clau de pas de confirmació és %2$s per vincular amb %1$s</string>
     <string name="bluetooth_incoming_pairing_msg">De&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Vincular amb aquest dispositiu?</string>
     <string name="bluetooth_display_passkey_pin_msg">Introdueixi %1$s a %2$s per vincular i toqui Retorn o Intro</string>
+    <string name="bluetooth_HID_connecting_error_message">No es pot connectar a %1$s. Torni a intentar la connexió de %2$s.</string>
     <string name="bluetooth_connecting_error_message">No es pot connectar amb %s</string>
     <string name="bluetooth_preference_scan_title">Escanejar</string>
     <string name="bluetooth_preference_paired_devices">Dispositius aparellats</string>

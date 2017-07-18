@@ -730,6 +730,7 @@ Is féidir go n-áireofaí le sonraí feidhmchláir faisnéis phearsanta amhail 
     <string name="content_description_hand">Tapáil agus coinnigh an ciorcal gorm i lár an scáileáin.</string>
     <string name="nearby_scanning_help_msg_sub">Úsáideann Scanadh do gharghléasanna Scanadh Bluetooth Ísealfhuinnimh agus an micreafón. Is féidir Scanadh Bluetooth Ísealfhuinnimh a úsáid ar an ngléas seo fiú nuair atá Bluetooth casta as.</string>
     <string name="sec_bluetooth_no_devices_found">Níor aimsíodh gléasanna Bluetooth</string>
+    <string name="sec_bluetooth_no_tethered_devices">Níl gléasanna ann</string>
     <string name="bt_tether_title">Nascaireacht Bluetooth</string>
     <string name="bt_tether_settings_on">Air</string>
     <string name="bt_tether_settings_off">As</string>
@@ -896,6 +897,7 @@ Fiú agus Gabháil chliste díchumasaithe, is féidir leat a cuid gnéithe a roc
     <string name="general_device_management_title">Bainistiú ginearálta</string>
     <string name="application_settings_summary">Feidhmchláir réamhshocruithe, ceadanna, díshuiteáil</string>
     <string name="notifications_settings_summary">Cuir bac air, ceadaigh, cuir in ord tosaíochta</string>
+    <string name="ime_security_warning_title">Cas air an t-eochairchlár roghnaithe?</string>
     <string name="language_settings_summary">Cuir roinnt teangacha leis thíos ionas go n-úsáidfear an chéad teanga eile sa liosta sa chás nach bhfuil tacú i bhfeidhmchlár do do theanga réamhshocraithe (an ceann ag barr an liosta). Bog teanga chuig barr an liosta lena socrú mar an réamhshocrú.</string>
     <string name="more_connection_settings_title">Tuilleadh socruithe nasctha</string>
     <string name="lock_and_security_settings_title">Scáil. glasála &amp; slándáil</string>
@@ -1691,7 +1693,8 @@ Tá roghanna malartacha slándála le fáil ar do ghléas. Lean na treoracha uil
 "</string>
     <string name="knox_twofactor_bio_description">Roghnaigh do chineál glais bhithmhéadraigh agus an dara cineál glais atá agat le %s a dhíghlasáil.</string>
     <string name="fingerprint_registered">Úsáidfear na méarloirg cláraithe le modh díghlasála roghnaithe.</string>
-    <string name="knox_twofactor_description">Úsáid dhá chineál glais le Knox a dhéanamh níos sláine fós. Bainfear úsáid as do mhéarloirg don chéad chineál glais. Roghnaigh dara cineál glais thíos.</string>
+    <string name="knox_twofactor_description">Roghnaigh do chuid sonraí bithmhéadracha agus cineál glais tánaisteach le %s a dhíghlasáil.</string>
+    <string name="knox_twofactor_description_fingerprint">Úsáid do mhéarloirg agus roghnaigh cineál glais eile le %s a dhíghlasáil.</string>
     <string name="two_factor_setup">Socrú</string>
     <string name="icon">Íocóin</string>
     <string name="vibration">Crith</string>
@@ -3544,6 +3547,7 @@ Tabhair faoi deara: Is féidir nach mbeidh do mhéarloirg chomh slán le patrún
     <string name="bluetooth_confirm_passkey_msg">Deimhnigh gurb í %2$s an phaseochair le péireáil le %1$s</string>
     <string name="bluetooth_incoming_pairing_msg">Ó &lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Péireáil leis an ngléas seo?</string>
     <string name="bluetooth_display_passkey_pin_msg">Iontráil %1$s ar %2$s le péireáil, ansin tapáil Fill nó Iontráil</string>
+    <string name="bluetooth_HID_connecting_error_message">Nascadh le %1$s dodhéanta. Triail nascadh ó %2$s.</string>
     <string name="bluetooth_connecting_error_message">Ní féidir nascadh le %s.</string>
     <string name="bluetooth_preference_scan_title">Scan</string>
     <string name="bluetooth_preference_paired_devices">Gléasanna péireáilte</string>

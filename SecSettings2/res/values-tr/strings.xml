@@ -866,6 +866,7 @@ Uygulama verileri, kişiler, mesajlar ve fotoğraflar gibi kişisel bilgileri i�
     <string name="content_description_hand">Ekranın ortasındaki mavi daireye basın ve öyle tutun.</string>
     <string name="nearby_scanning_help_msg_sub">Yakındaki cihazı tarama, Bluetooth Düşük Enerji taramasını ve mikrofonu kullanır. Bluetooth Düşük Enerji taraması, bu cihazda Bluetooth kapalıyken bile kullanılabilir.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth cihazı bulunamadı</string>
+    <string name="sec_bluetooth_no_tethered_devices">Cihaz yok</string>
     <string name="bt_tether_title">Bluetooth bağlantısı</string>
     <string name="bt_tether_settings_on">Açık</string>
     <string name="bt_tether_settings_off">Kapalı</string>
@@ -1032,6 +1033,7 @@ Akıllı yakalama devre dışıyken bile Temassız komut yoluyla özelliklerine 
     <string name="general_device_management_title">Genel yönetim</string>
     <string name="application_settings_summary">Varsayılan uygulamalar, izinler, kaldır</string>
     <string name="notifications_settings_summary">Engelle, izin ver, önceliklendir</string>
+    <string name="ime_security_warning_title">Seçilen klavye açılsın mı?</string>
     <string name="language_settings_summary">Bir uygulama varsayılan dilinizi (listenin en üstündeki) desteklemiyorsa bunun yerine listedeki bir sonraki desteklenen dilin kullanılması için aşağıda birkaç dil ekleyin. Varsayılan olarak ayarlamak için bir dili listenin en üstüne taşıyın.</string>
     <string name="more_connection_settings_title">Diğer bağlantı ayarları</string>
     <string name="lock_and_security_settings_title">Kilit ekranı ve güvenlik</string>
@@ -1827,7 +1829,8 @@ Alternatif güvenlik seçenekleri cihazınızda mevcuttur. Lütfen bu özelliği
 "</string>
     <string name="knox_twofactor_bio_description">%s kilidini açmak için biometrik kilit türünüzü ve ikinci kilit türünüzü seçin.</string>
     <string name="fingerprint_registered">Kayıtlı parmak izleri seçilen kilit açma yöntemi ile birlikte kullanılacaktır.</string>
-    <string name="knox_twofactor_description">"Knox'u çok daha güvenli hale getirmek için iki kilit türü kullanın. Parmak izleriniz birinci kilit türü olarak kullanılacak. Aşağıdan ikinci bir kilit türü seçin."</string>
+    <string name="knox_twofactor_description">%s kilidini açmak için biyometrik verilerinizi ve ikinci bir kilit türü seçin.</string>
+    <string name="knox_twofactor_description_fingerprint">%s kilidini açmak için parmak izlerinizi kullanın ve ikinci bir kilit türü seçin.</string>
     <string name="two_factor_setup">Ayarla</string>
     <string name="icon">Simgeler</string>
     <string name="vibration">Titreşim</string>
@@ -3683,6 +3686,7 @@ Not: Parmak iziniz, güçlü bir desen veya PIN'den daha az güvenli olabilir.
     <string name="bluetooth_confirm_passkey_msg">%1$s ile eşleşmek için onaylama şifresi %2$s.</string>
     <string name="bluetooth_incoming_pairing_msg">&lt;br/><b>%1$s</b>"&lt;br/>&lt;br/>'den Bu cihazla eşleştirilsin mi?"</string>
     <string name="bluetooth_display_passkey_pin_msg">"Eşlemek %1$s şifresini %2$s cihazına girin ardından Geri veya Tamam'a dokunun."</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s öğesine bağlanılamıyor. %2$s yoluyla bağlanmayı deneyin.</string>
     <string name="bluetooth_connecting_error_message">%s ile bağlantı yok.</string>
     <string name="bluetooth_preference_scan_title">Tara</string>
     <string name="bluetooth_preference_paired_devices">Eşleşen cihazlar</string>

@@ -152,7 +152,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b05d7
+    const v7, 0x7f0b05d8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -166,7 +166,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b053f
+    const v7, 0x7f0b0540
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0b05c4
+    const v2, 0x7f0b05c5
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1253,11 +1253,11 @@
 .method public getFontName(I)Ljava/lang/String;
     .locals 5
 
-    const v4, 0x7f0b05ac
+    const v4, 0x7f0b05ad
 
-    const v3, 0x7f0b05ab
+    const v3, 0x7f0b05ac
 
-    const v2, 0x7f0b05aa
+    const v2, 0x7f0b05ab
 
     iget-object v1, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->mFontNames:Ljava/util/Vector;
 
@@ -1413,14 +1413,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-nez v1, :cond_7
 
-    const-string/jumbo v0, "Samsung Sans"
-
-    goto :goto_0
-
-    :cond_7
-    const-string/jumbo v1, "Applemint"
+    const-string/jumbo v1, "SamsungSans"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1428,24 +1423,13 @@
 
     if-eqz v1, :cond_8
 
-    iget-object v1, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->context:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0b05ad
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
+    :cond_7
+    const-string/jumbo v0, "Samsung Sans"
 
     goto/16 :goto_0
 
     :cond_8
-    const-string/jumbo v1, "Tinkerbell"
+    const-string/jumbo v1, "Applemint"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1470,7 +1454,7 @@
     goto/16 :goto_0
 
     :cond_9
-    const-string/jumbo v1, "Shaonv"
+    const-string/jumbo v1, "Tinkerbell"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1484,7 +1468,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b2
+    const v2, 0x7f0b05af
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1495,7 +1479,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const-string/jumbo v1, "Kaiti"
+    const-string/jumbo v1, "Shaonv"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1520,7 +1504,7 @@
     goto/16 :goto_0
 
     :cond_b
-    const-string/jumbo v1, "Miao"
+    const-string/jumbo v1, "Kaiti"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1545,7 +1529,7 @@
     goto/16 :goto_0
 
     :cond_c
-    const-string/jumbo v1, "UDRGothic"
+    const-string/jumbo v1, "Miao"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1559,7 +1543,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05af
+    const v2, 0x7f0b05b5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1570,7 +1554,7 @@
     goto/16 :goto_0
 
     :cond_d
-    const-string/jumbo v1, "UDMincho"
+    const-string/jumbo v1, "UDRGothic"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1595,7 +1579,7 @@
     goto/16 :goto_0
 
     :cond_e
-    const-string/jumbo v1, "Pop"
+    const-string/jumbo v1, "UDMincho"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1620,7 +1604,7 @@
     goto/16 :goto_0
 
     :cond_f
-    const-string/jumbo v1, "Current theme\'s default"
+    const-string/jumbo v1, "Pop"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1634,7 +1618,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b053f
+    const v2, 0x7f0b05b2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1645,7 +1629,7 @@
     goto/16 :goto_0
 
     :cond_10
-    const-string/jumbo v1, "Foundation"
+    const-string/jumbo v1, "Current theme\'s default"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1659,7 +1643,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b05b5
+    const v2, 0x7f0b0540
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1670,6 +1654,31 @@
     goto/16 :goto_0
 
     :cond_11
+    const-string/jumbo v1, "Foundation"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_12
+
+    iget-object v1, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->context:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0b05b6
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    :cond_12
     iget-object v1, p0, Lcom/samsung/android/settings/flipfont/FontListAdapter;->downloadFontString:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1907,7 +1916,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b05bd
+    const v10, 0x7f0b05be
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1933,7 +1942,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b05bc
+    const v10, 0x7f0b05bd
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

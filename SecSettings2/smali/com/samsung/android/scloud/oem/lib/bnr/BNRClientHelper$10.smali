@@ -69,7 +69,6 @@
 
     move-result-object v3
 
-    # invokes: Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->addToList(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static {v1, p1, p2, v2, v3}, Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;->access$8(Lcom/samsung/android/scloud/oem/lib/bnr/BNRClientHelper;Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)V
 
     const-string/jumbo v1, "BNRClientHelper"

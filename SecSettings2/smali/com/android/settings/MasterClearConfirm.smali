@@ -119,13 +119,13 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b0b1d
+    const v1, 0x7f0b0b20
 
     invoke-virtual {p0, v1}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f0b0b1f
+    const v2, 0x7f0b0b22
 
     invoke-virtual {p0, v2}, Lcom/android/settings/MasterClearConfirm;->getString(I)Ljava/lang/String;
 

@@ -297,7 +297,7 @@
 
     invoke-virtual {v7, v12}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    const v10, 0x7f0b1a80
+    const v10, 0x7f0b1a8e
 
     invoke-virtual {p0, v10}, Lcom/android/settings/notification/ZenAccessSettings;->getString(I)Ljava/lang/String;
 

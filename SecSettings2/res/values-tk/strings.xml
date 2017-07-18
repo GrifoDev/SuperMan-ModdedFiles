@@ -730,6 +730,7 @@ Goýma maglumatyna şahsy maglumatlar (mes. kontaktlar, hatlar we suratlar) degi
     <string name="content_description_hand">Ekranyň ortasyndaky gök tegelege basyp saklaň.</string>
     <string name="nearby_scanning_help_msg_sub">Golaýdan enjam skanlamak Bluetooth Pes-energiýa skany we mikrofony ulanýar. Bluetooth Pes-energiýa skany bu enjamda Bluetooth ýapyk wagty hem ulanyp bolýar.</string>
     <string name="sec_bluetooth_no_devices_found">Bluetooth enjamy tapylmady</string>
+    <string name="sec_bluetooth_no_tethered_devices">Enjam ýok</string>
     <string name="bt_tether_title">Bluetooth baglanmasy</string>
     <string name="bt_tether_settings_on">Açyk</string>
     <string name="bt_tether_settings_off">Ýap</string>
@@ -896,6 +897,7 @@ Smart-düşüriş ýapyk hem bolsa, Degmeýän buýruk arkaly onuň funksiýalar
     <string name="general_device_management_title">Umumy dolandyryş</string>
     <string name="application_settings_summary">Standart goýmalar, rugsatlar, gurnawdan aýyr</string>
     <string name="notifications_settings_summary">Bekle, rugsat ber, öňürtilik ber</string>
+    <string name="ime_security_warning_title">Saýlanan klawiaturany açmalymy?</string>
     <string name="language_settings_summary">Eger bir goýma standart diliňizi goldamaýan bolsa (sanawyň iň ýokarsynda), oňa derek sanawdaky indiki goldanylýan dil ulanylar ýaly, aşak birnäçe dil goşuň. Dili standart edip bellemek üçin, ony sanawyň iň ýokarsyna geçiriň.</string>
     <string name="more_connection_settings_title">Has köp birikme sazlamalary</string>
     <string name="lock_and_security_settings_title">Gulply ekran we howpsuzlyk</string>
@@ -1691,7 +1693,8 @@ Enjamyňyzda alternatiw howpsuzlyk opsiýalary elýeterlidir. Bu funksiýany ula
 "</string>
     <string name="knox_twofactor_bio_description">%s gulpuny açmak üçin, biometrik gulp görnüşiňizi we ikinji gulp görnüşiňizi saýlaň.</string>
     <string name="fingerprint_registered">Hasaba alynan barmak yzlary saýlanan açyş usuly boýunça ulanylar.</string>
-    <string name="knox_twofactor_description">Knox-y has-da howpsuzlandyrmak üçin, iki görnüş gulp ulanyň. Barmak yzlaryňyzy birinji görnüş gulp hökmünde ulanylar. Aşakdan ikinji gulp görnüşini saýlaň.</string>
+    <string name="knox_twofactor_description">%s gulpuny açmak üçin, biometrikaňyzy we ikinji gulp görnüşiňizi saýlaň.</string>
+    <string name="knox_twofactor_description_fingerprint">%s gulpuny açmak üçin, barmak yzlaryňyzy ulanyň we ikinji gulp görnüşini saýlaň.</string>
     <string name="two_factor_setup">Gurnamak</string>
     <string name="icon">Şekiljikler</string>
     <string name="vibration">Wibrirle</string>
@@ -3543,6 +3546,7 @@ Bellik: Barmak yzyňyz şablonça ýa-da PIN-çe howpsuz bolman biler.
     <string name="bluetooth_confirm_passkey_msg">Tassyklanan açar %1$s bilen %2$s</string>
     <string name="bluetooth_incoming_pairing_msg">Şundan&lt;br/><b>%1$s</b>&lt;br/>&lt;br/>Bu enjam bilen jübütlemelimi?</string>
     <string name="bluetooth_display_passkey_pin_msg">%1$s-i %2$s-niň üstüne jübütlemäge giriz, soňra Yzyňa dolanma ýa-da Girizme düwmesine bas</string>
+    <string name="bluetooth_HID_connecting_error_message">%1$s birigip bolmaýar. %2$s içinden birigip görüň.</string>
     <string name="bluetooth_connecting_error_message">%s birigip bolmaýar.</string>
     <string name="bluetooth_preference_scan_title">Skan et</string>
     <string name="bluetooth_preference_paired_devices">Jübütleşdirilen enjamlar</string>

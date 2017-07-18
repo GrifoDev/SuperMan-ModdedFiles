@@ -279,7 +279,7 @@
 
     aput-object v0, v12, v1
 
-    const v0, 0x7f0b164a
+    const v0, 0x7f0b1658
 
     invoke-virtual {v11, v0, v12}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -344,7 +344,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b164b
+    const v2, 0x7f0b1659
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -369,7 +369,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b164c
+    const v2, 0x7f0b165a
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -394,7 +394,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b164d
+    const v2, 0x7f0b165b
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b164e
+    const v2, 0x7f0b165c
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b164c
+    const v2, 0x7f0b165a
 
     invoke-virtual {v0, v2, v1}, Lcom/android/settings/print/PrintSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
