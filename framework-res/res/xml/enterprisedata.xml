@@ -962,6 +962,8 @@
             <application name="com.samsung.app.highlightplayer" />
             <application name="com.samsung.android.authfw" />
             <application name="com.samsung.android.samsungpass" />
+            <application name="com.samsung.android.server.iris" />
+            <application name="com.sec.android.app.servicemodeapp" />
         </column>
         <column name="ProtectedPkgList">
             <protectedPkg name="com.sec.knox.setup" />

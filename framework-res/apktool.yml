@@ -15,7 +15,7 @@ unknownFiles:
   SEC-INF/buildConfirm.crt: '8'
   SEC-INF/buildinfo.xml: '8'
 usesFramework: null
-version: 2.2.2
+version: 2.2.3
 versionInfo:
   versionCode: '24'
   versionName: '7.0'

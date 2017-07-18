@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:sharedUserLabel="@string/android_system_label" coreApp="true" package="android">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:sharedUserLabel="@string/android_system_label" coreApp="true" package="android">
     <eat-comment/>
     <protected-broadcast android:name="com.samsung.intent.action.CHANGE_STATUSBAR_ICON"/>
     <protected-broadcast android:name="com.samsung.android.app.dtv.ACTION_CLEAR_NOTI"/>
@@ -177,6 +176,8 @@
     <protected-broadcast android:name="com.android.bluetooth.pbap.userconfirmtimeout"/>
     <protected-broadcast android:name="com.android.bluetooth.pbap.authresponse"/>
     <protected-broadcast android:name="com.android.bluetooth.pbap.authcancelled"/>
+    <protected-broadcast android:name="com.samsung.intent.action.BCS_REQUEST"/>
+    <protected-broadcast android:name="android.intent.action.BCS_REQUEST"/>
     <protected-broadcast android:name="com.samsung.bt.hfp.intent.action.MESSAGE_DELIVERY_FOR_ATMSG"/>
     <protected-broadcast android:name="com.samsung.bt.hfp.intent.action.MESSAGE_SENT_FOR_ATMSG"/>
     <protected-broadcast android:name="com.samsung.bt.hfp.intent.action.SET_BSSF"/>
@@ -324,6 +325,10 @@
     <protected-broadcast android:name="android.net.wigig.p2p.DISCOVERY_STATE_CHANGE"/>
     <protected-broadcast android:name="android.net.wigig.p2p.THIS_DEVICE_CHANGED"/>
     <protected-broadcast android:name="android.net.wigig.p2p.PERSISTENT_GROUPS_CHANGED"/>
+    <protected-broadcast android:name="com.samsung.action.REDIRECT_STATUS"/>
+    <protected-broadcast android:name="com.samsung.action.HOTSPOT_EXEC_COMMAND"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_START_OSU_PROCESS_NOSIGMA"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_TRIGGER_INSTALL_FILE"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_AP_STATE_CHANGED"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_CREDENTIAL_CHANGED"/>
@@ -377,6 +382,7 @@
     <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_SUBSCRIPTION_CHANGED"/>
     <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_SMS_SUBSCRIPTION_CHANGED"/>
     <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED"/>
+    <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGE_STARTED"/>
     <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_FAILED"/>
     <protected-broadcast android:name="android.intent.action.ACTION_DEFAULT_VOICE_SUBSCRIPTION_CHANGED"/>
     <protected-broadcast android:name="android.intent.action.ACTION_SUBINFO_CONTENT_CHANGE"/>
@@ -631,6 +637,8 @@
     <protected-broadcast android:name="android.intent.action.enterprise.TERMINATE_KIOSK"/>
     <protected-broadcast android:name="com.samsung.android.mdm.VPN_BIND_RESULT"/>
     <protected-broadcast android:name="com.sec.enterprise.mdm.services.vpn.INTERFACE_STATUS"/>
+    <protected-broadcast android:name="com.samsung.knox.ec.container.removed"/>
+    <protected-broadcast android:name="com.samsung.knox.ec.container.added"/>
     <protected-broadcast android:name="com.samsung.android.knox.intent.action.AUDIT_CRITICAL_SIZE"/>
     <protected-broadcast android:name="com.samsung.android.knox.intent.action.AUDIT_FULL_SIZE"/>
     <protected-broadcast android:name="com.samsung.android.knox.intent.action.AUDIT_MAXIMUM_SIZE"/>
@@ -708,6 +716,7 @@
     <protected-broadcast android:name="com.samsung.android.multiwindow.MINIMIZE_ALL_BY_SYSTEM"/>
     <protected-broadcast android:name="com.samsung.android.multiwindow.action.DISMISS_MINIMIZED_DOCKED_STACK"/>
     <protected-broadcast android:name="com.samsung.android.action.PANIC_CALL"/>
+    <protected-broadcast android:name="com.samsung.pen.INSERT"/>
     <protected-broadcast android:name="diagandroid.app.ApplicationState"/>
     <protected-broadcast android:name="diagandroid.phone.detailedCallState"/>
     <protected-broadcast android:name="diagandroid.data.PDPContextState"/>
@@ -777,6 +786,9 @@
     <protected-broadcast android:name="com.samsung.intent.action.START_PROVISIONING"/>
     <protected-broadcast android:name="com.samsung.android.intent.action.WIFIAP_RESET"/>
     <protected-broadcast android:name="com.samsung.settings.wifi.wifiap_power_mode_alarm"/>
+    <protected-broadcast android:name="com.samsung.android.net.wifi.SEC_NETWORK_STATE_CHANGED"/>
+    <protected-broadcast android:name="com.samsung.android.server.wifi.AutoWifiNotificationController.CANCEL_NOTI"/>
+    <protected-broadcast android:name="com.samsung.android.server.wifi.AutoWifiNotificationController.SETTINGS"/>
     <protected-broadcast android:name="com.sec.android.wifi.scan.result"/>
     <protected-broadcast android:name="com.sec.android.wifi.GEOFENCE_TRIGGERED"/>
     <protected-broadcast android:name="com.sec.android.wifi.geofence.state"/>
@@ -928,6 +940,7 @@
     <protected-broadcast android:name="com.samsung.android.motion.PALM_DOWN"/>
     <protected-broadcast android:name="com.samsung.android.motion.PALM_UP"/>
     <protected-broadcast android:name="com.android.angryGps.XtraSettings"/>
+    <protected-broadcast android:name="android.intent.action.AGPS_UDP_RECEIVED"/>
     <protected-broadcast android:name="com.samsung.android.location.current_gps_status_alarm"/>
     <protected-broadcast android:name="com.samsung.android.location.current_reach_expected_distance_alarm"/>
     <protected-broadcast android:name="com.samsung.android.location.gps_status_key"/>
@@ -1146,6 +1159,7 @@
     <protected-broadcast android:name="android.provider.Telephony.GET_SMSC"/>
     <protected-broadcast android:name="android.provider.Telephony.SECRET_CODE"/>
     <protected-broadcast android:name="android.intent.action.SECPHONE_READY"/>
+    <protected-broadcast android:name="com.samsung.settings.SIMCARD_MGT"/>
     <protected-broadcast android:name="android.intent.action.CSC_COMPARE"/>
     <protected-broadcast android:name="com.samsung.intent.action.CSC_COMPARE"/>
     <protected-broadcast android:name="com.samsung.intent.action.CSC_SHOW_SIM_PROFILE"/>
@@ -1181,7 +1195,10 @@
     <protected-broadcast android:name="com.sec.android.intent.action.SG_REPORT"/>
     <protected-broadcast android:name="com.samsung.ssrm.RESOLUTION_CHANGED"/>
     <protected-broadcast android:name="com.samsung.context.hqmbigdata.intent"/>
+    <protected-broadcast android:name="com.sec.android.intent.action.HQM_UPDATE_USER_ID"/>
     <protected-broadcast android:name="com.kddi.agent.action.SCREEN_PINNING_CONDITION"/>
+    <protected-broadcast android:name="com.samsung.android.appwidget.action.APPWIDGET_UNBIND"/>
+    <protected-broadcast android:name="com.samsung.android.security.SemSdCardEncryption.UNMOUNT_POLICY"/>
     <permission-group android:name="com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE"/>
     <permission android:name="com.samsung.android.authfw.pass.permission.SEM_PASS_B2B_USE_PASS" android:permissionGroup="com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE" android:protectionLevel="system|signature"/>
     <permission android:name="com.samsung.android.authfw.pass.permission.SEM_PASS_B2B_USE_IRIS" android:permissionGroup="com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE" android:protectionLevel="system|signature"/>
@@ -1219,6 +1236,7 @@
     <permission android:description="@string/permdesc_mdmBrowserProxy" android:label="@string/permlab_mdmBrowserProxy" android:name="com.sec.enterprise.mdm.permission.BROWSER_PROXY" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_mdmDateTime" android:label="@string/permlab_mdmDateTime" android:name="android.permission.sec.MDM_DATE_TIME" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_spdControl" android:label="@string/permlab_spdControl" android:name="com.samsung.android.knox.permission.KNOX_SPDCONTROL" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
+    <permission android:description="@string/permdesc_spdControl" android:label="@string/permlab_spdControl" android:name="com.sec.enterprise.permission.MDM_SPDCONTROL" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_mdmEnterpriseVpn" android:label="@string/permlab_mdmEnterpriseVpn" android:name="android.permission.sec.MDM_ENTERPRISE_VPN" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_knoxGenericVpn" android:label="@string/permlab_knoxGenericVpn" android:name="com.sec.enterprise.knox.KNOX_GENERIC_VPN" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_knoxContainerVpn" android:label="@string/permlab_knoxContainerVpn" android:name="com.sec.enterprise.knox.KNOX_CONTAINER_VPN" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="signature"/>

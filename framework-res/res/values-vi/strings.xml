@@ -1954,7 +1954,7 @@ Bật chế độ Máy bay?"</string>
     <string name="permlab_sendSmsNoConfirmation">Gửi tin nhắn SMS mà không có xác nhận</string>
     <string name="permdesc_sendSmsNoConfirmation">Cho phép ứng dụng gửi tin nhắn SMS. Việc này có thể phát sinh phí không mong muốn. Các ứng dụng có hại có thể khiến bạn tốn tiền bằng cách gửi các tin nhắn mà không có xác nhận của bạn.</string>
     <string name="phoneTypeConference">Hội nghị</string>
-    <string name="more">KHÁC</string>
+    <string name="more">N.hơn</string>
     <string name="close">Đóng</string>
     <string name="clearDefaultHintMsgUI2013">Xóa cài đặt ứng dụng mặc định bằng cách đi đến Cài đặt > Cài đặt chung > Ứng dụng mặc định, rồi chạm Xóa.</string>
     <string name="mobile_data_isoff_alert_toast">Bây giờ dữ liệu di động đã tắt. Nếu bạn cần kết nối Internet, vui lòng bật từ thanh thông báo.</string>
