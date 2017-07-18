@@ -42,14 +42,12 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mPin:[C
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$302(Lcom/sec/smartcard/pinservice/SmartCardPinManager;[C)[C
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mIsCallbackCalled:Z
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$402(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Z)Z
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->val$cv:Landroid/os/ConditionVariable;
@@ -64,14 +62,12 @@
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager;
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mPin:[C
     invoke-static {v0, p1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$302(Lcom/sec/smartcard/pinservice/SmartCardPinManager;[C)[C
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mIsCallbackCalled:Z
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$402(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Z)Z
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->val$cv:Landroid/os/ConditionVariable;
@@ -88,14 +84,12 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mPin:[C
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$302(Lcom/sec/smartcard/pinservice/SmartCardPinManager;[C)[C
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mIsCallbackCalled:Z
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$402(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Z)Z
 
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$2;->val$cv:Landroid/os/ConditionVariable;

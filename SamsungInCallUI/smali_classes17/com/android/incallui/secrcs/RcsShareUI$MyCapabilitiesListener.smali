@@ -218,81 +218,9 @@
 
     invoke-static {v1, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "onCapabilitiesReceived myCapabilities.getSupportedExtensions().contains(\"gsma.callcomposer\") :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Lcom/gsma/services/rcs/capability/Capabilities;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/gsma/services/rcs/capability/Capabilities;->getSupportedExtensions()Ljava/util/Set;
-
-    move-result-object v3
-
-    const-string v4, "gsma.sharedmap"
-
-    invoke-interface {v3, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "onCapabilitiesReceived remoteCapabilities.getSupportedExtensions().contains(\"gsma.callcomposer\") :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$200()Lcom/gsma/services/rcs/capability/Capabilities;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/gsma/services/rcs/capability/Capabilities;->getSupportedExtensions()Ljava/util/Set;
-
-    move-result-object v3
-
-    const-string v4, "gsma.callcomposer"
-
-    invoke-interface {v3, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    if-eqz v1, :cond_1
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Lcom/gsma/services/rcs/capability/Capabilities;
 
@@ -324,7 +252,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     :cond_0
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -337,6 +265,7 @@
 
     invoke-static {v1, v2, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    :cond_1
     :goto_1
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$300()Lcom/gsma/services/rcs/capability/Capabilities;
 
@@ -352,7 +281,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
@@ -371,7 +300,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_5
 
     sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
 
@@ -432,7 +361,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -442,7 +371,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -458,7 +387,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_1
+    :cond_2
     return-void
 
     :catch_0
@@ -468,7 +397,7 @@
 
     goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -481,12 +410,12 @@
 
     goto/16 :goto_1
 
-    :cond_3
+    :cond_4
     sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
 
     goto :goto_3

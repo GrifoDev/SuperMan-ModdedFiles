@@ -1739,12 +1739,13 @@
     <public type="layout" name="tw_transient_notification_actionbar" id="0x7f040183" />
     <public type="layout" name="unread_count_tab" id="0x7f040184" />
     <public type="layout" name="vcc_user_agreement_dialog" id="0x7f040185" />
-    <public type="layout" name="video_call_fragment" id="0x7f040186" />
-    <public type="layout" name="video_call_pip_layout" id="0x7f040187" />
-    <public type="layout" name="video_call_simulation" id="0x7f040188" />
-    <public type="layout" name="video_call_views" id="0x7f040189" />
-    <public type="layout" name="video_hide_show_floating_button_layout" id="0x7f04018a" />
-    <public type="layout" name="volte_videocall_enable_dialog" id="0x7f04018b" />
+    <public type="layout" name="vcc_user_agreement_dialog_emergencymode" id="0x7f040186" />
+    <public type="layout" name="video_call_fragment" id="0x7f040187" />
+    <public type="layout" name="video_call_pip_layout" id="0x7f040188" />
+    <public type="layout" name="video_call_simulation" id="0x7f040189" />
+    <public type="layout" name="video_call_views" id="0x7f04018a" />
+    <public type="layout" name="video_hide_show_floating_button_layout" id="0x7f04018b" />
+    <public type="layout" name="volte_videocall_enable_dialog" id="0x7f04018c" />
     <public type="anim" name="abc_fade_in" id="0x7f050000" />
     <public type="anim" name="abc_fade_out" id="0x7f050001" />
     <public type="anim" name="abc_grow_fade_in_from_bottom" id="0x7f050002" />

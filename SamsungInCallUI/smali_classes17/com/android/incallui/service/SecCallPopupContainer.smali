@@ -9388,9 +9388,9 @@
 
     const/4 v4, 0x0
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_9
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -9420,7 +9420,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_a
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getResources()Landroid/content/res/Resources;
 
@@ -9663,7 +9663,7 @@
 
     iget-object v7, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhotoContainer:Landroid/view/View;
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     iget-object v7, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhotoContainer:Landroid/view/View;
 
@@ -9673,7 +9673,7 @@
 
     const/16 v8, 0x8
 
-    if-ne v7, v8, :cond_a
+    if-ne v7, v8, :cond_b
 
     const/4 v7, -0x1
 
@@ -9685,9 +9685,12 @@
 
     :cond_8
     :goto_1
-    return-void
+    invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->updateTextSize()V
 
     :cond_9
+    return-void
+
+    :cond_a
     invoke-direct {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->getNameForCall(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)Ljava/lang/String;
 
     move-result-object v3
@@ -9736,7 +9739,7 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     iget-object v7, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhotoContainer:Landroid/view/View;
 
     if-eqz v7, :cond_8

@@ -41,7 +41,6 @@
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/samsung/android/transcode/core/EncodeVideo;->formatupdated:Z
     invoke-static {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->access$002(Lcom/samsung/android/transcode/core/EncodeVideo;Z)Z
 
     return-void

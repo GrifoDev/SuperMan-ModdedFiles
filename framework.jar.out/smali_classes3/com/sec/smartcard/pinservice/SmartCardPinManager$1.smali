@@ -43,7 +43,6 @@
 
     move-result-object v1
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mSmartCardPin:Lcom/sec/smartcard/pinservice/ISmartCardPinService;
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$002(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Lcom/sec/smartcard/pinservice/ISmartCardPinService;)Lcom/sec/smartcard/pinservice/ISmartCardPinService;
 
     const-string/jumbo v0, "SmartCardPinManager"
@@ -56,10 +55,8 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mServiceConnectionProgress:Z
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$102(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Z)Z
 
-    # getter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->queue:Ljava/util/concurrent/BlockingQueue;
     invoke-static {}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$200()Ljava/util/concurrent/BlockingQueue;
 
     move-result-object v0
@@ -77,7 +74,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    # getter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->queue:Ljava/util/concurrent/BlockingQueue;
     invoke-static {}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$200()Ljava/util/concurrent/BlockingQueue;
 
     move-result-object v0
@@ -105,7 +101,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mSmartCardPin:Lcom/sec/smartcard/pinservice/ISmartCardPinService;
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$002(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Lcom/sec/smartcard/pinservice/ISmartCardPinService;)Lcom/sec/smartcard/pinservice/ISmartCardPinService;
 
     const-string/jumbo v0, "SmartCardPinManager"
@@ -118,7 +113,6 @@
 
     const/4 v1, 0x0
 
-    # setter for: Lcom/sec/smartcard/pinservice/SmartCardPinManager;->mServiceConnectionProgress:Z
     invoke-static {v0, v1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager;->access$102(Lcom/sec/smartcard/pinservice/SmartCardPinManager;Z)Z
 
     return-void

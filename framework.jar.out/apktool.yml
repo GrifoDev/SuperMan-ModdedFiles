@@ -26,5 +26,5 @@ unknownFiles:
   com/absolute/android/persistence/MethodReturnValue.aidl: '8'
   com/absolute/android/persistence/MethodSpec.aidl: '8'
 usesFramework: null
-version: 2.2.2
+version: 2.2.3
 versionInfo: null

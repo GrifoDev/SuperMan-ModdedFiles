@@ -56,6 +56,10 @@
     :cond_0
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$1;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
 
+    invoke-virtual {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->updateTextSize()V
+
+    iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer$1;->this$0:Lcom/android/incallui/service/SecCallPopupContainer;
+
     invoke-static {v1}, Lcom/android/incallui/service/SecCallPopupContainer;->access$000(Lcom/android/incallui/service/SecCallPopupContainer;)Lcom/android/incallui/service/SecCallPopupService;
 
     move-result-object v1

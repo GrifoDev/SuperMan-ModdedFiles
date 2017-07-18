@@ -3,7 +3,7 @@
 
 
 # static fields
-.field private static final a:Ljava/lang/String; = "SamsungAnalytics:1.8.25"
+.field private static final a:Ljava/lang/String; = "SamsungAnalytics:1.8.30"
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -41,6 +41,24 @@
     move-result-object v1
 
     const-string v2, "] "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -73,7 +91,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -138,7 +156,7 @@
 .method public static b(Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     invoke-static {v0, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -184,7 +202,7 @@
 .method public static c(Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -194,7 +212,7 @@
 .method public static d(Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -204,7 +222,7 @@
 .method public static e(Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "SamsungAnalytics:1.8.25"
+    const-string v0, "SamsungAnalytics:1.8.30"
 
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

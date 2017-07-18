@@ -5526,6 +5526,10 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    if-eqz v3, :cond_0
+
     sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
 
     if-eqz v3, :cond_15

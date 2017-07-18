@@ -101,7 +101,7 @@
     :cond_3
     const-string v0, "Tracker"
 
-    const-string v1, "Tracker start:1.8.25"
+    const-string v1, "Tracker start:1.8.30"
 
     invoke-static {v0, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/i/a;->a(Ljava/lang/String;Ljava/lang/String;)V
 

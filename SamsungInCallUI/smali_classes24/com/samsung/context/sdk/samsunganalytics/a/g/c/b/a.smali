@@ -84,7 +84,21 @@
     return-void
 .end method
 
-.method public b()Z
+.method public b()J
+    .locals 2
+
+    iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/g/c/b/a;->a:Ljava/util/concurrent/LinkedBlockingQueue;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/LinkedBlockingQueue;->size()I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    return-wide v0
+.end method
+
+.method public c()Z
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/g/c/b/a;->a:Ljava/util/concurrent/LinkedBlockingQueue;

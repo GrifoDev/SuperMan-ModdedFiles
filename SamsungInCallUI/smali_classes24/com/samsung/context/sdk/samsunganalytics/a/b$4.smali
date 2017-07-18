@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b$4;->a:Lcom/samsung/context/sdk/samsunganalytics/a/b;
 
@@ -60,43 +60,67 @@
 
     invoke-interface {v0, v1, p2}, Lcom/samsung/context/sdk/samsunganalytics/a/c/a;->a(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b$4;->a:Lcom/samsung/context/sdk/samsunganalytics/a/b;
+    iget-object v2, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b$4;->a:Lcom/samsung/context/sdk/samsunganalytics/a/b;
 
-    new-instance v2, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;
+    new-instance v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
 
-    invoke-direct {v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;->setMessage(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;
-
-    move-result-object v0
-
-    const-string v2, "pn"
+    const-string v3, "pn"
 
     invoke-virtual {p1}, Ljava/lang/Thread;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;->isCrash(Z)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;
+    invoke-virtual {v0, v3, v4}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$ExceptionBuilder;->build()Ljava/util/Map;
+    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
+
+    const-string v3, "ecn"
+
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
 
     move-result-object v0
 
-    const/4 v2, 0x0
+    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
 
-    invoke-virtual {v1, v0, v2}, Lcom/samsung/context/sdk/samsunganalytics/a/b;->a(Ljava/util/Map;Z)I
+    const-string v3, "exd"
+
+    invoke-virtual {v0, v3, v1}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
+
+    const-string v1, "t"
+
+    const-string v3, "ex"
+
+    invoke-virtual {v0, v1, v3}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
+
+    invoke-virtual {v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->build()Ljava/util/Map;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v2, v0, v1}, Lcom/samsung/context/sdk/samsunganalytics/a/b;->a(Ljava/util/Map;Z)I
 
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/b$4;->a:Lcom/samsung/context/sdk/samsunganalytics/a/b;
 

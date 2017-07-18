@@ -86,7 +86,7 @@
 
     const-string v8, ""
 
-    const-string v9, "1.8.25"
+    const-string v9, "1.8.30"
 
     iget-object v0, p0, Lcom/samsung/context/sdk/samsunganalytics/a/g/a/c;->d:Lcom/samsung/context/sdk/samsunganalytics/a/g/d;
 

@@ -3,7 +3,7 @@
 
 
 # static fields
-.field public static final SDK_VERSION:Ljava/lang/String; = "1.8.25"
+.field public static final SDK_VERSION:Ljava/lang/String; = "1.8.30"
 
 .field private static instance:Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
 

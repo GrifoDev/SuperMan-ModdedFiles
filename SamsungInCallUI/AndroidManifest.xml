@@ -283,7 +283,7 @@
         <uses-library android:name="com.sec.imslibrary" android:required="false"/>
         <uses-library android:name="TmoWfcUtils" android:required="false"/>
         <uses-library android:name="imsmanager" android:required="false"/>
-        <meta-data android:name="SPDE.build.signature" android:value="4045882/14062460/release/SamsungInCallUI-201026-2.1.71"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4080771/14308814/release/SamsungInCallUI-201028-2.1.71"/>
         <meta-data android:name="SPDE.env.version" android:value="2.1.3/L24.2.16/24.2.10"/>
     </application>
 </manifest>

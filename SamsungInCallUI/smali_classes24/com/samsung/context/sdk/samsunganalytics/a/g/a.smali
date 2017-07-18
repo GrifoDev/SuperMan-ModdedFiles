@@ -92,7 +92,7 @@
 
     const-string v0, "v"
 
-    const-string v1, "1.8.25"
+    const-string v1, "1.8.30"
 
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
