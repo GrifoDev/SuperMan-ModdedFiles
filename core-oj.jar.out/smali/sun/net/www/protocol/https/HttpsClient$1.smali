@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "val$phost"    # Ljava/lang/String;
-    .param p2, "val$pport"    # I
 
-    .prologue
-    .line 203
     iput-object p1, p0, Lsun/net/www/protocol/https/HttpsClient$1;->val$phost:Ljava/lang/String;
 
     iput p2, p0, Lsun/net/www/protocol/https/HttpsClient$1;->val$pport:I
@@ -60,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 204
     invoke-virtual {p0}, Lsun/net/www/protocol/https/HttpsClient$1;->run()Ljava/net/InetSocketAddress;
 
     move-result-object v0
@@ -72,8 +66,6 @@
 .method public run()Ljava/net/InetSocketAddress;
     .locals 3
 
-    .prologue
-    .line 205
     new-instance v0, Ljava/net/InetSocketAddress;
 
     iget-object v1, p0, Lsun/net/www/protocol/https/HttpsClient$1;->val$phost:Ljava/lang/String;

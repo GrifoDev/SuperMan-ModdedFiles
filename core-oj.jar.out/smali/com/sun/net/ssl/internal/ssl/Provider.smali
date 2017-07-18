@@ -11,61 +11,46 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
     invoke-direct {p0}, Lsun/security/ssl/SunJSSE;-><init>()V
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "cryptoProvider"    # Ljava/lang/String;
 
-    .prologue
-    .line 51
     invoke-direct {p0, p1}, Lsun/security/ssl/SunJSSE;-><init>(Ljava/lang/String;)V
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Ljava/security/Provider;)V
     .locals 0
-    .param p1, "cryptoProvider"    # Ljava/security/Provider;
 
-    .prologue
-    .line 46
     invoke-direct {p0, p1}, Lsun/security/ssl/SunJSSE;-><init>(Ljava/security/Provider;)V
 
-    .line 45
     return-void
 .end method
 
 .method public static declared-synchronized install()V
     .locals 1
 
-    .prologue
     const-class v0, Lcom/sun/net/ssl/internal/ssl/Provider;
 
     monitor-enter v0
 
     monitor-exit v0
 
-    .line 62
     return-void
 .end method
 
 .method public static declared-synchronized isFIPS()Z
     .locals 2
 
-    .prologue
     const-class v0, Lcom/sun/net/ssl/internal/ssl/Provider;
 
     monitor-enter v0
 
-    .line 56
     :try_start_0
     invoke-static {}, Lsun/security/ssl/SunJSSE;->isFIPS()Z
     :try_end_0

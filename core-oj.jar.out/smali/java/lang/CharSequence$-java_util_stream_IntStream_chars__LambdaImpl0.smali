@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/lang/CharSequence;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/lang/CharSequence$-java_util_stream_IntStream_chars__LambdaImpl0;->val$this:Ljava/lang/CharSequence;
@@ -38,7 +37,6 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
     iget-object v0, p0, Ljava/lang/CharSequence$-java_util_stream_IntStream_chars__LambdaImpl0;->val$this:Ljava/lang/CharSequence;
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->-java_lang_CharSequence_lambda$1()Ljava/util/Spliterator$OfInt;

@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/http/HttpClient;Ljava/net/InetSocketAddress;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/net/www/http/HttpClient;
-    .param p2, "val$server"    # Ljava/net/InetSocketAddress;
 
-    .prologue
-    .line 482
     iput-object p1, p0, Lsun/net/www/http/HttpClient$1;->this$0:Lsun/net/www/http/HttpClient;
 
     iput-object p2, p0, Lsun/net/www/http/HttpClient$1;->val$server:Ljava/net/InetSocketAddress;
@@ -60,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 483
     invoke-virtual {p0}, Lsun/net/www/http/HttpClient$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -77,8 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 484
     iget-object v0, p0, Lsun/net/www/http/HttpClient$1;->this$0:Lsun/net/www/http/HttpClient;
 
     iget-object v1, p0, Lsun/net/www/http/HttpClient$1;->val$server:Ljava/net/InetSocketAddress;
@@ -95,7 +87,6 @@
 
     invoke-virtual {v0, v1, v2}, Lsun/net/www/http/HttpClient;->openServer(Ljava/lang/String;I)V
 
-    .line 485
     const/4 v0, 0x0
 
     return-object v0

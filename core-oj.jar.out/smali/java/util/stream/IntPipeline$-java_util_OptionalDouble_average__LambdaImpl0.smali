@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,7 +31,6 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
     invoke-static {}, Ljava/util/stream/IntPipeline;->-java_util_stream_IntPipeline_lambda$9()[J
 
     move-result-object v0

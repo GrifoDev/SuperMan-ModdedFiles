@@ -60,20 +60,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 1546
-    .local p0, "this":Ljava/util/stream/Collectors$Partition;, "Ljava/util/stream/Collectors$Partition<TT;>;"
-    .local p1, "forTrue":Ljava/lang/Object;, "TT;"
-    .local p2, "forFalse":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
-    .line 1547
     iput-object p1, p0, Ljava/util/stream/Collectors$Partition;->forTrue:Ljava/lang/Object;
 
-    .line 1548
     iput-object p2, p0, Ljava/util/stream/Collectors$Partition;->forFalse:Ljava/lang/Object;
 
-    .line 1546
     return-void
 .end method
 
@@ -93,9 +85,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1553
-    .local p0, "this":Ljava/util/stream/Collectors$Partition;, "Ljava/util/stream/Collectors$Partition<TT;>;"
     new-instance v0, Ljava/util/stream/Collectors$Partition$1;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Collectors$Partition$1;-><init>(Ljava/util/stream/Collectors$Partition;)V

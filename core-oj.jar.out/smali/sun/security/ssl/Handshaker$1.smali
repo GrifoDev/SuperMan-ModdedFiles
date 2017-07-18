@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/Handshaker;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/security/ssl/Handshaker;
 
-    .prologue
-    .line 806
     iput-object p1, p0, Lsun/security/ssl/Handshaker$1;->this$0:Lsun/security/ssl/Handshaker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 807
     invoke-virtual {p0}, Lsun/security/ssl/Handshaker$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -72,13 +67,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 808
     iget-object v0, p0, Lsun/security/ssl/Handshaker$1;->this$0:Lsun/security/ssl/Handshaker;
 
     invoke-virtual {v0}, Lsun/security/ssl/Handshaker;->processLoop()V
 
-    .line 809
     const/4 v0, 0x0
 
     return-object v0

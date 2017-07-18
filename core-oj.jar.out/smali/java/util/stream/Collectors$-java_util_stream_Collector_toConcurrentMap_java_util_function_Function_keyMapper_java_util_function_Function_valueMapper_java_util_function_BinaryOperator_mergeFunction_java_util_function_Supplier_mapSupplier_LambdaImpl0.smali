@@ -29,7 +29,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_toConcurrentMap_java_util_function_Function_keyMapper_java_util_function_Function_valueMapper_java_util_function_BinaryOperator_mergeFunction_java_util_function_Supplier_mapSupplier_LambdaImpl0;->val$keyMapper:Ljava/util/function/Function;
@@ -45,10 +44,7 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 3
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_toConcurrentMap_java_util_function_Function_keyMapper_java_util_function_Function_valueMapper_java_util_function_BinaryOperator_mergeFunction_java_util_function_Supplier_mapSupplier_LambdaImpl0;->val$keyMapper:Ljava/util/function/Function;
 
     iget-object v1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_toConcurrentMap_java_util_function_Function_keyMapper_java_util_function_Function_valueMapper_java_util_function_BinaryOperator_mergeFunction_java_util_function_Supplier_mapSupplier_LambdaImpl0;->val$valueMapper:Ljava/util/function/Function;
@@ -57,7 +53,6 @@
 
     check-cast p1, Ljava/util/concurrent/ConcurrentMap;
 
-    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {v0, v1, v2, p1, p2}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$80(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/concurrent/ConcurrentMap;Ljava/lang/Object;)V
 
     return-void

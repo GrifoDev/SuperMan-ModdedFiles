@@ -22,18 +22,14 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .prologue
-    .line 206
     const/16 v1, 0x100
 
     new-array v1, v1, [Ljava/lang/Short;
 
     sput-object v1, Ljava/lang/Short$ShortCache;->cache:[Ljava/lang/Short;
 
-    .line 209
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     sget-object v1, Ljava/lang/Short$ShortCache;->cache:[Ljava/lang/Short;
 
@@ -41,7 +37,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 210
     sget-object v1, Ljava/lang/Short$ShortCache;->cache:[Ljava/lang/Short;
 
     new-instance v2, Ljava/lang/Short;
@@ -54,12 +49,10 @@
 
     aput-object v2, v1, v0
 
-    .line 209
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 203
     :cond_0
     return-void
 .end method
@@ -67,8 +60,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

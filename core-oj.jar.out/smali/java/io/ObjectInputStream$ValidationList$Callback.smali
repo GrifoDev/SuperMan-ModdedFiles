@@ -27,27 +27,16 @@
 # direct methods
 .method constructor <init>(Ljava/io/ObjectInputValidation;ILjava/io/ObjectInputStream$ValidationList$Callback;Ljava/security/AccessControlContext;)V
     .locals 0
-    .param p1, "obj"    # Ljava/io/ObjectInputValidation;
-    .param p2, "priority"    # I
-    .param p3, "next"    # Ljava/io/ObjectInputStream$ValidationList$Callback;
-    .param p4, "acc"    # Ljava/security/AccessControlContext;
 
-    .prologue
-    .line 2200
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2203
     iput-object p1, p0, Ljava/io/ObjectInputStream$ValidationList$Callback;->obj:Ljava/io/ObjectInputValidation;
 
-    .line 2204
     iput p2, p0, Ljava/io/ObjectInputStream$ValidationList$Callback;->priority:I
 
-    .line 2205
     iput-object p3, p0, Ljava/io/ObjectInputStream$ValidationList$Callback;->next:Ljava/io/ObjectInputStream$ValidationList$Callback;
 
-    .line 2206
     iput-object p4, p0, Ljava/io/ObjectInputStream$ValidationList$Callback;->acc:Ljava/security/AccessControlContext;
 
-    .line 2201
     return-void
 .end method

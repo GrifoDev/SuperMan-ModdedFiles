@@ -42,12 +42,7 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath;Ljava/lang/String;Z)V
     .locals 1
-    .param p1, "this$0"    # Lsun/misc/URLClassPath;
-    .param p2, "val$name"    # Ljava/lang/String;
-    .param p3, "val$check"    # Z
 
-    .prologue
-    .line 217
     iput-object p1, p0, Lsun/misc/URLClassPath$1;->this$0:Lsun/misc/URLClassPath;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$1;->val$name:Ljava/lang/String;
@@ -56,35 +51,28 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 218
     const/4 v0, 0x0
 
     iput v0, p0, Lsun/misc/URLClassPath$1;->index:I
 
-    .line 219
     const/4 v0, 0x0
 
     iput-object v0, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
-    .line 217
     return-void
 .end method
 
 .method private next()Z
     .locals 5
 
-    .prologue
     const/4 v4, 0x1
 
-    .line 222
     iget-object v1, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
     if-eqz v1, :cond_0
 
-    .line 223
     return v4
 
-    .line 226
     :cond_0
     iget-object v1, p0, Lsun/misc/URLClassPath$1;->this$0:Lsun/misc/URLClassPath;
 
@@ -98,10 +86,8 @@
 
     move-result-object v0
 
-    .local v0, "loader":Lsun/misc/URLClassPath$Loader;
     if-eqz v0, :cond_1
 
-    .line 227
     iget-object v1, p0, Lsun/misc/URLClassPath$1;->val$name:Ljava/lang/String;
 
     iget-boolean v2, p0, Lsun/misc/URLClassPath$1;->val$check:Z
@@ -112,15 +98,12 @@
 
     iput-object v1, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
-    .line 228
     iget-object v1, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
     if-eqz v1, :cond_0
 
-    .line 229
     return v4
 
-    .line 232
     :cond_1
     const/4 v1, 0x0
 
@@ -132,8 +115,6 @@
 .method public hasMoreElements()Z
     .locals 1
 
-    .prologue
-    .line 237
     invoke-direct {p0}, Lsun/misc/URLClassPath$1;->next()Z
 
     move-result v0
@@ -144,8 +125,6 @@
 .method public bridge synthetic nextElement()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 240
     invoke-virtual {p0}, Lsun/misc/URLClassPath$1;->nextElement()Ljava/net/URL;
 
     move-result-object v0
@@ -156,31 +135,24 @@
 .method public nextElement()Ljava/net/URL;
     .locals 2
 
-    .prologue
-    .line 241
     invoke-direct {p0}, Lsun/misc/URLClassPath$1;->next()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 242
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
-    .line 244
     :cond_0
     iget-object v0, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
-    .line 245
-    .local v0, "u":Ljava/net/URL;
     const/4 v1, 0x0
 
     iput-object v1, p0, Lsun/misc/URLClassPath$1;->url:Ljava/net/URL;
 
-    .line 246
     return-object v0
 .end method

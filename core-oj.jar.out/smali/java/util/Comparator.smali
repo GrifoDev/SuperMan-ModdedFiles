@@ -31,23 +31,15 @@
 # direct methods
 .method public static synthetic -java_util_Comparator_lambda$2(Ljava/util/Comparator;Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
-    .param p0, "keyComparator"    # Ljava/util/Comparator;
-    .param p1, "keyExtractor"    # Ljava/util/function/Function;
-    .param p2, "c1"    # Ljava/lang/Object;
-    .param p3, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 436
     invoke-interface {p1, p2}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 437
     invoke-interface {p1, p3}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 436
     invoke-interface {p0, v0, v1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
@@ -57,12 +49,7 @@
 
 .method public static synthetic -java_util_Comparator_lambda$3(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
-    .param p0, "keyExtractor"    # Ljava/util/function/Function;
-    .param p1, "c1"    # Ljava/lang/Object;
-    .param p2, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 469
     invoke-interface {p0, p1}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -82,12 +69,7 @@
 
 .method public static synthetic -java_util_Comparator_lambda$4(Ljava/util/function/ToIntFunction;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 2
-    .param p0, "keyExtractor"    # Ljava/util/function/ToIntFunction;
-    .param p1, "c1"    # Ljava/lang/Object;
-    .param p2, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 490
     invoke-interface {p0, p1}, Ljava/util/function/ToIntFunction;->applyAsInt(Ljava/lang/Object;)I
 
     move-result v0
@@ -105,12 +87,7 @@
 
 .method public static synthetic -java_util_Comparator_lambda$5(Ljava/util/function/ToLongFunction;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 4
-    .param p0, "keyExtractor"    # Ljava/util/function/ToLongFunction;
-    .param p1, "c1"    # Ljava/lang/Object;
-    .param p2, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 511
     invoke-interface {p0, p1}, Ljava/util/function/ToLongFunction;->applyAsLong(Ljava/lang/Object;)J
 
     move-result-wide v0
@@ -128,12 +105,7 @@
 
 .method public static synthetic -java_util_Comparator_lambda$6(Ljava/util/function/ToDoubleFunction;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 4
-    .param p0, "keyExtractor"    # Ljava/util/function/ToDoubleFunction;
-    .param p1, "c1"    # Ljava/lang/Object;
-    .param p2, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 532
     invoke-interface {p0, p1}, Ljava/util/function/ToDoubleFunction;->applyAsDouble(Ljava/lang/Object;)D
 
     move-result-wide v0
@@ -165,17 +137,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 467
-    .local p0, "keyExtractor":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;+TU;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 469
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_comparing_java_util_function_Function_keyExtractor_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Comparator$-java_util_Comparator_comparing_java_util_function_Function_keyExtractor_LambdaImpl0;-><init>(Ljava/util/function/Function;)V
 
-    .line 468
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -199,21 +166,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 433
-    .local p0, "keyExtractor":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;+TU;>;"
-    .local p1, "keyComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TU;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 434
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 436
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_comparing_java_util_function_Function_keyExtractor_java_util_Comparator_keyComparator_LambdaImpl0;
 
     invoke-direct {v0, p1, p0}, Ljava/util/Comparator$-java_util_Comparator_comparing_java_util_function_Function_keyExtractor_java_util_Comparator_keyComparator_LambdaImpl0;-><init>(Ljava/util/Comparator;Ljava/util/function/Function;)V
 
-    .line 435
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -233,17 +193,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 530
-    .local p0, "keyExtractor":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<-TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 532
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_comparingDouble_java_util_function_ToDoubleFunction_keyExtractor_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Comparator$-java_util_Comparator_comparingDouble_java_util_function_ToDoubleFunction_keyExtractor_LambdaImpl0;-><init>(Ljava/util/function/ToDoubleFunction;)V
 
-    .line 531
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -263,17 +218,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 488
-    .local p0, "keyExtractor":Ljava/util/function/ToIntFunction;, "Ljava/util/function/ToIntFunction<-TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 490
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_comparingInt_java_util_function_ToIntFunction_keyExtractor_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Comparator$-java_util_Comparator_comparingInt_java_util_function_ToIntFunction_keyExtractor_LambdaImpl0;-><init>(Ljava/util/function/ToIntFunction;)V
 
-    .line 489
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -293,17 +243,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 509
-    .local p0, "keyExtractor":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 511
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_comparingLong_java_util_function_ToLongFunction_keyExtractor_LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/Comparator$-java_util_Comparator_comparingLong_java_util_function_ToLongFunction_keyExtractor_LambdaImpl0;-><init>(Ljava/util/function/ToLongFunction;)V
 
-    .line 510
     check-cast v0, Ljava/io/Serializable;
 
     return-object v0
@@ -321,8 +266,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 357
     sget-object v0, Ljava/util/Comparators$NaturalOrderComparator;->INSTANCE:Ljava/util/Comparators$NaturalOrderComparator;
 
     return-object v0
@@ -342,9 +285,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 378
-    .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     new-instance v0, Ljava/util/Comparators$NullComparator;
 
     const/4 v1, 0x1
@@ -368,9 +308,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 399
-    .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     new-instance v0, Ljava/util/Comparators$NullComparator;
 
     const/4 v1, 0x0
@@ -392,8 +329,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 339
     invoke-static {}, Ljava/util/Collections;->reverseOrder()Ljava/util/Comparator;
 
     move-result-object v0
@@ -405,26 +340,16 @@
 # virtual methods
 .method public synthetic -java_util_Comparator_lambda$1(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "other"    # Ljava/util/Comparator;
-    .param p2, "c1"    # Ljava/lang/Object;
-    .param p3, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 216
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
     invoke-interface {p0, p2, p3}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 217
-    .local v0, "res":I
     if-eqz v0, :cond_0
 
-    .end local v0    # "res":I
     :goto_0
     return v0
 
-    .restart local v0    # "res":I
     :cond_0
     invoke-interface {p1, p2, p3}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
@@ -454,9 +379,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 185
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
     invoke-static {p0}, Ljava/util/Collections;->reverseOrder(Ljava/util/Comparator;)Ljava/util/Comparator;
 
     move-result-object v0
@@ -476,13 +398,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 214
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "other":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 215
     new-instance v0, Ljava/util/Comparator$-java_util_Comparator_thenComparing_java_util_Comparator_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Comparator$-java_util_Comparator_thenComparing_java_util_Comparator_other_LambdaImpl0;-><init>(Ljava/util/Comparator;Ljava/util/Comparator;)V
@@ -506,10 +423,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 265
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "keyExtractor":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;+TU;>;"
     invoke-static {p1}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;)Ljava/util/Comparator;
 
     move-result-object v0
@@ -537,11 +450,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 242
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "keyExtractor":Ljava/util/function/Function;, "Ljava/util/function/Function<-TT;+TU;>;"
-    .local p2, "keyComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TU;>;"
     invoke-static {p1, p2}, Ljava/util/Comparator;->comparing(Ljava/util/function/Function;Ljava/util/Comparator;)Ljava/util/Comparator;
 
     move-result-object v0
@@ -565,10 +473,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 322
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "keyExtractor":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<-TT;>;"
     invoke-static {p1}, Ljava/util/Comparator;->comparingDouble(Ljava/util/function/ToDoubleFunction;)Ljava/util/Comparator;
 
     move-result-object v0
@@ -592,10 +496,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 284
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "keyExtractor":Ljava/util/function/ToIntFunction;, "Ljava/util/function/ToIntFunction<-TT;>;"
     invoke-static {p1}, Ljava/util/Comparator;->comparingInt(Ljava/util/function/ToIntFunction;)Ljava/util/Comparator;
 
     move-result-object v0
@@ -619,10 +519,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 303
-    .local p0, "this":Ljava/util/Comparator;, "Ljava/util/Comparator<TT;>;"
-    .local p1, "keyExtractor":Ljava/util/function/ToLongFunction;, "Ljava/util/function/ToLongFunction<-TT;>;"
     invoke-static {p1}, Ljava/util/Comparator;->comparingLong(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
 
     move-result-object v0

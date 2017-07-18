@@ -31,8 +31,6 @@
 .method public static synthetic -java_util_function_Predicate-mthref-0(Ljava/lang/Object;)Z
     .locals 1
 
-    .prologue
-    .line 116
     invoke-static {p0}, Ljava/util/Objects;->isNull(Ljava/lang/Object;)Z
 
     move-result v0
@@ -42,11 +40,7 @@
 
 .method public static synthetic -java_util_function_Predicate_lambda$5(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p0, "targetRef"    # Ljava/lang/Object;
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .prologue
-    .line 117
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -56,7 +50,6 @@
 
 .method public static isEqual(Ljava/lang/Object;)Ljava/util/function/Predicate;
     .locals 1
-    .param p0, "targetRef"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -69,20 +62,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 115
     if-nez p0, :cond_0
 
-    .line 116
     new-instance v0, Ljava/util/function/Predicate$-java_util_function_Predicate_isEqual_java_lang_Object_targetRef_LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/function/Predicate$-java_util_function_Predicate_isEqual_java_lang_Object_targetRef_LambdaImpl0;-><init>()V
 
-    .line 115
     :goto_0
     return-object v0
 
-    .line 117
     :cond_0
     new-instance v0, Ljava/util/function/Predicate$-java_util_function_Predicate_isEqual_java_lang_Object_targetRef_LambdaImpl1;
 
@@ -95,12 +83,7 @@
 # virtual methods
 .method public synthetic -java_util_function_Predicate_lambda$1(Ljava/util/function/Predicate;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "other"    # Ljava/util/function/Predicate;
-    .param p2, "t"    # Ljava/lang/Object;
 
-    .prologue
-    .line 69
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
     invoke-interface {p0, p2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v0
@@ -122,11 +105,7 @@
 
 .method public synthetic -java_util_function_Predicate_lambda$2(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "t"    # Ljava/lang/Object;
 
-    .prologue
-    .line 80
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
     invoke-interface {p0, p1}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v0
@@ -146,12 +125,7 @@
 
 .method public synthetic -java_util_function_Predicate_lambda$3(Ljava/util/function/Predicate;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "other"    # Ljava/util/function/Predicate;
-    .param p2, "t"    # Ljava/lang/Object;
 
-    .prologue
-    .line 101
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
     invoke-interface {p0, p2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v0
@@ -183,13 +157,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 68
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
-    .local p1, "other":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
     new-instance v0, Ljava/util/function/Predicate$-java_util_function_Predicate_and_java_util_function_Predicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/Predicate$-java_util_function_Predicate_and_java_util_function_Predicate_other_LambdaImpl0;-><init>(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V
@@ -207,9 +176,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 80
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
     new-instance v0, Ljava/util/function/Predicate$-java_util_function_Predicate_negate__LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/function/Predicate$-java_util_function_Predicate_negate__LambdaImpl0;-><init>(Ljava/util/function/Predicate;)V
@@ -229,13 +195,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 100
-    .local p0, "this":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<TT;>;"
-    .local p1, "other":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 101
     new-instance v0, Ljava/util/function/Predicate$-java_util_function_Predicate_or_java_util_function_Predicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/Predicate$-java_util_function_Predicate_or_java_util_function_Predicate_other_LambdaImpl0;-><init>(Ljava/util/function/Predicate;Ljava/util/function/Predicate;)V

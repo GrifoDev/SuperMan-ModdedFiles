@@ -20,23 +20,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 47
     invoke-static {}, Ljava/lang/Void;->lookupType()Ljava/lang/Class;
 
     move-result-object v0
 
     sput-object v0, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
-    .line 41
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,8 +49,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 52
     :try_start_0
     const-class v2, Ljava/lang/Runnable;
 
@@ -67,8 +60,6 @@
 
     move-result-object v1
 
-    .line 53
-    .local v1, "method":Ljava/lang/reflect/Method;
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -77,12 +68,9 @@
 
     return-object v2
 
-    .line 54
     :catch_0
     move-exception v0
 
-    .line 55
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v2, Ljava/lang/AssertionError;
 
     invoke-direct {v2, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V

@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/net/SocksSocketImpl;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/net/SocksSocketImpl;
 
-    .prologue
-    .line 652
     iput-object p1, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 653
     invoke-virtual {p0}, Ljava/net/SocksSocketImpl$5;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -72,8 +67,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 654
     iget-object v0, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
 
     new-instance v1, Ljava/net/Socket;
@@ -86,7 +79,6 @@
 
     invoke-static {v0, v1}, Ljava/net/SocksSocketImpl;->-set2(Ljava/net/SocksSocketImpl;Ljava/net/Socket;)Ljava/net/Socket;
 
-    .line 655
     iget-object v0, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-static {v0}, Ljava/net/SocksSocketImpl;->-get0(Ljava/net/SocksSocketImpl;)Ljava/net/Socket;
@@ -111,7 +103,6 @@
 
     invoke-virtual {v0, v1}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;)V
 
-    .line 656
     iget-object v0, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
 
     iget-object v1, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
@@ -126,7 +117,6 @@
 
     invoke-static {v0, v1}, Ljava/net/SocksSocketImpl;->-set0(Ljava/net/SocksSocketImpl;Ljava/io/InputStream;)Ljava/io/InputStream;
 
-    .line 657
     iget-object v0, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
 
     iget-object v1, p0, Ljava/net/SocksSocketImpl$5;->this$0:Ljava/net/SocksSocketImpl;
@@ -141,7 +131,6 @@
 
     invoke-static {v0, v1}, Ljava/net/SocksSocketImpl;->-set1(Ljava/net/SocksSocketImpl;Ljava/io/OutputStream;)Ljava/io/OutputStream;
 
-    .line 658
     const/4 v0, 0x0
 
     return-object v0

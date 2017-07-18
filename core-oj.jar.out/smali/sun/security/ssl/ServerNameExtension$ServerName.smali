@@ -27,25 +27,18 @@
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
     .locals 1
-    .param p1, "type"    # I
-    .param p2, "hostname"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 377
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 378
     iput p1, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->type:I
 
-    .line 379
     iput-object p2, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->hostname:Ljava/lang/String;
 
-    .line 380
     const-string/jumbo v0, "UTF8"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -54,7 +47,6 @@
 
     iput-object v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->data:[B
 
-    .line 381
     iget-object v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->data:[B
 
     array-length v0, v0
@@ -63,38 +55,31 @@
 
     iput v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->length:I
 
-    .line 377
     return-void
 .end method
 
 .method constructor <init>(Lsun/security/ssl/HandshakeInStream;)V
     .locals 3
-    .param p1, "s"    # Lsun/security/ssl/HandshakeInStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 385
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 386
     invoke-virtual {p1}, Lsun/security/ssl/HandshakeInStream;->getInt8()I
 
     move-result v0
 
     iput v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->type:I
 
-    .line 387
     invoke-virtual {p1}, Lsun/security/ssl/HandshakeInStream;->getBytes16()[B
 
     move-result-object v0
 
     iput-object v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->data:[B
 
-    .line 388
     iget-object v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->data:[B
 
     array-length v0, v0
@@ -103,12 +88,10 @@
 
     iput v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->length:I
 
-    .line 390
     iget v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->type:I
 
     if-nez v0, :cond_0
 
-    .line 391
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->data:[B
@@ -119,11 +102,9 @@
 
     iput-object v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->hostname:Ljava/lang/String;
 
-    .line 385
     :goto_0
     return-void
 
-    .line 393
     :cond_0
     const/4 v0, 0x0
 
@@ -137,13 +118,10 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 398
     iget v0, p0, Lsun/security/ssl/ServerNameExtension$ServerName;->type:I
 
     if-nez v0, :cond_0
 
-    .line 399
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -166,7 +144,6 @@
 
     return-object v0
 
-    .line 401
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 

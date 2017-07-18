@@ -24,16 +24,11 @@
 # direct methods
 .method public constructor <init>(Ljavax/crypto/SecretKey;)V
     .locals 2
-    .param p1, "secretKey"    # Ljavax/crypto/SecretKey;
 
-    .prologue
-    .line 532
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 533
     if-nez p1, :cond_0
 
-    .line 534
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "invalid null input"
@@ -42,11 +37,9 @@
 
     throw v0
 
-    .line 536
     :cond_0
     iput-object p1, p0, Ljava/security/KeyStore$SecretKeyEntry;->sKey:Ljavax/crypto/SecretKey;
 
-    .line 532
     return-void
 .end method
 
@@ -55,8 +48,6 @@
 .method public getSecretKey()Ljavax/crypto/SecretKey;
     .locals 1
 
-    .prologue
-    .line 545
     iget-object v0, p0, Ljava/security/KeyStore$SecretKeyEntry;->sKey:Ljavax/crypto/SecretKey;
 
     return-object v0
@@ -65,8 +56,6 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 553
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

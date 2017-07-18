@@ -23,25 +23,17 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/ftp/FtpURLConnection;Lsun/net/ftp/FtpClient;Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "this$0"    # Lsun/net/www/protocol/ftp/FtpURLConnection;
-    .param p2, "cl"    # Lsun/net/ftp/FtpClient;
-    .param p3, "fd"    # Ljava/io/InputStream;
 
-    .prologue
-    .line 123
     iput-object p1, p0, Lsun/net/www/protocol/ftp/FtpURLConnection$FtpInputStream;->this$0:Lsun/net/www/protocol/ftp/FtpURLConnection;
 
-    .line 124
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, p3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     invoke-direct {p0, v0}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 125
     iput-object p2, p0, Lsun/net/www/protocol/ftp/FtpURLConnection$FtpInputStream;->ftp:Lsun/net/ftp/FtpClient;
 
-    .line 123
     return-void
 .end method
 
@@ -55,21 +47,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 130
     invoke-super {p0}, Ljava/io/FilterInputStream;->close()V
 
-    .line 131
     iget-object v0, p0, Lsun/net/www/protocol/ftp/FtpURLConnection$FtpInputStream;->ftp:Lsun/net/ftp/FtpClient;
 
     if-eqz v0, :cond_0
 
-    .line 132
     iget-object v0, p0, Lsun/net/www/protocol/ftp/FtpURLConnection$FtpInputStream;->ftp:Lsun/net/ftp/FtpClient;
 
     invoke-virtual {v0}, Lsun/net/ftp/FtpClient;->close()V
 
-    .line 129
     :cond_0
     return-void
 .end method

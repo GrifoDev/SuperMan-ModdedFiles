@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "val$fname"    # Ljava/lang/String;
 
-    .prologue
-    .line 127
     iput-object p1, p0, Lsun/util/calendar/LocalGregorianCalendar$1;->val$fname:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,19 +42,14 @@
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 129
     new-instance v2, Ljava/util/Properties;
 
     invoke-direct {v2}, Ljava/util/Properties;-><init>()V
 
-    .line 130
-    .local v2, "props":Ljava/util/Properties;
     const/4 v0, 0x0
 
-    .local v0, "fis":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
@@ -68,16 +60,12 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 131
-    .end local v0    # "fis":Ljava/io/FileInputStream;
-    .local v1, "fis":Ljava/io/FileInputStream;
     :try_start_1
     invoke-virtual {v2, v1}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
-    .line 132
     if-eqz v1, :cond_0
 
     :try_start_2
@@ -96,12 +84,9 @@
 
     goto :goto_0
 
-    .end local v1    # "fis":Ljava/io/FileInputStream;
-    .restart local v0    # "fis":Ljava/io/FileInputStream;
     :catch_1
     move-exception v3
 
-    .end local v0    # "fis":Ljava/io/FileInputStream;
     :goto_1
     :try_start_3
     throw v3
@@ -150,38 +135,25 @@
     :cond_3
     throw v3
 
-    .line 133
-    .restart local v1    # "fis":Ljava/io/FileInputStream;
     :cond_4
     return-object v2
 
-    .line 132
-    .end local v1    # "fis":Ljava/io/FileInputStream;
-    .restart local v0    # "fis":Ljava/io/FileInputStream;
     :catchall_1
     move-exception v3
 
     goto :goto_2
 
-    .end local v0    # "fis":Ljava/io/FileInputStream;
-    .restart local v1    # "fis":Ljava/io/FileInputStream;
     :catchall_2
     move-exception v3
 
     move-object v0, v1
 
-    .end local v1    # "fis":Ljava/io/FileInputStream;
-    .local v0, "fis":Ljava/io/FileInputStream;
     goto :goto_2
 
-    .end local v0    # "fis":Ljava/io/FileInputStream;
-    .restart local v1    # "fis":Ljava/io/FileInputStream;
     :catch_3
     move-exception v3
 
     move-object v0, v1
 
-    .end local v1    # "fis":Ljava/io/FileInputStream;
-    .restart local v0    # "fis":Ljava/io/FileInputStream;
     goto :goto_1
 .end method

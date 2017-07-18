@@ -93,38 +93,27 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     const/4 v0, 0x0
 
-    .line 1428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1453
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->keySet:Ljava/util/Set;
 
-    .line 1454
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->entrySet:Ljava/util/Set;
 
-    .line 1455
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->values:Ljava/util/Collection;
 
-    .line 1429
     if-nez p1, :cond_0
 
-    .line 1430
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 1431
     :cond_0
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
-    .line 1428
     return-void
 .end method
 
@@ -133,9 +122,6 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 1450
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -153,11 +139,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1531
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "remappingFunction":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TV;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -175,11 +156,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1519
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "mappingFunction":Ljava/util/function/Function;, "Ljava/util/function/Function<-TK;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -197,11 +173,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1525
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "remappingFunction":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TV;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -211,11 +182,7 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1436
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -227,11 +194,7 @@
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "val"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1437
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsValue(Ljava/lang/Object;)Z
@@ -253,14 +216,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1464
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->entrySet:Ljava/util/Set;
 
     if-nez v0, :cond_0
 
-    .line 1465
     new-instance v0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
@@ -273,7 +232,6 @@
 
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->entrySet:Ljava/util/Set;
 
-    .line 1466
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->entrySet:Ljava/util/Set;
 
@@ -282,11 +240,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1475
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     if-eq p1, p0, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
@@ -314,21 +268,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 1489
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "action":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<-TK;-TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->forEach(Ljava/util/function/BiConsumer;)V
 
-    .line 1488
     return-void
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,9 +285,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1438
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -351,7 +296,6 @@
 
 .method public getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "k"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -360,10 +304,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1484
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p2, "defaultValue":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -376,9 +316,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 1476
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->hashCode()I
@@ -391,9 +328,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 1435
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
@@ -413,14 +347,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1458
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->keySet:Ljava/util/Set;
 
     if-nez v0, :cond_0
 
-    .line 1459
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -433,7 +363,6 @@
 
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->keySet:Ljava/util/Set;
 
-    .line 1460
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->keySet:Ljava/util/Set;
 
@@ -450,12 +379,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1537
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
-    .local p3, "remappingFunction":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TV;-TV;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -471,11 +394,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1441
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -493,10 +411,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1447
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -512,11 +426,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1499
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -526,7 +435,6 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -535,9 +443,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1444
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -547,12 +452,7 @@
 
 .method public remove(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1504
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -568,11 +468,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1514
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -588,12 +483,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1509
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "oldValue":Ljava/lang/Object;, "TV;"
-    .local p3, "newValue":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -611,10 +500,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1494
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
-    .local p1, "function":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<-TK;-TV;+TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -625,9 +510,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 1434
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -640,9 +522,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 1477
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -662,14 +541,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1470
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->values:Ljava/util/Collection;
 
     if-nez v0, :cond_0
 
-    .line 1471
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -682,7 +557,6 @@
 
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->values:Ljava/util/Collection;
 
-    .line 1472
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap;->values:Ljava/util/Collection;
 

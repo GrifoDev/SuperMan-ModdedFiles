@@ -27,13 +27,7 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath$JarLoader;Ljava/lang/String;Ljava/net/URL;Ljava/util/jar/JarEntry;)V
     .locals 0
-    .param p1, "this$1"    # Lsun/misc/URLClassPath$JarLoader;
-    .param p2, "val$name"    # Ljava/lang/String;
-    .param p3, "val$url"    # Ljava/net/URL;
-    .param p4, "val$entry"    # Ljava/util/jar/JarEntry;
 
-    .prologue
-    .line 769
     iput-object p1, p0, Lsun/misc/URLClassPath$JarLoader$2;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$name:Ljava/lang/String;
@@ -52,8 +46,6 @@
 .method public getCertificates()[Ljava/security/cert/Certificate;
     .locals 1
 
-    .prologue
-    .line 780
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$entry:Ljava/util/jar/JarEntry;
 
     invoke-virtual {v0}, Ljava/util/jar/JarEntry;->getCertificates()[Ljava/security/cert/Certificate;
@@ -66,8 +58,6 @@
 .method public getCodeSigners()[Ljava/security/CodeSigner;
     .locals 1
 
-    .prologue
-    .line 782
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$entry:Ljava/util/jar/JarEntry;
 
     invoke-virtual {v0}, Ljava/util/jar/JarEntry;->getCodeSigners()[Ljava/security/CodeSigner;
@@ -80,8 +70,6 @@
 .method public getCodeSourceURL()Ljava/net/URL;
     .locals 1
 
-    .prologue
-    .line 772
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v0}, Lsun/misc/URLClassPath$JarLoader;->-get0(Lsun/misc/URLClassPath$JarLoader;)Ljava/net/URL;
@@ -94,8 +82,6 @@
 .method public getContentLength()I
     .locals 2
 
-    .prologue
-    .line 776
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$entry:Ljava/util/jar/JarEntry;
 
     invoke-virtual {v0}, Ljava/util/zip/ZipEntry;->getSize()J
@@ -115,8 +101,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 774
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v0}, Lsun/misc/URLClassPath$JarLoader;->-get3(Lsun/misc/URLClassPath$JarLoader;)Ljava/util/jar/JarFile;
@@ -140,8 +124,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 778
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v0}, Lsun/misc/URLClassPath$JarLoader;->-get3(Lsun/misc/URLClassPath$JarLoader;)Ljava/util/jar/JarFile;
@@ -158,8 +140,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 770
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$name:Ljava/lang/String;
 
     return-object v0
@@ -168,8 +148,6 @@
 .method public getURL()Ljava/net/URL;
     .locals 1
 
-    .prologue
-    .line 771
     iget-object v0, p0, Lsun/misc/URLClassPath$JarLoader$2;->val$url:Ljava/net/URL;
 
     return-object v0

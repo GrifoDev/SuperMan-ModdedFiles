@@ -9,13 +9,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/security/cert/Certificate;)V
     .locals 1
-    .param p1, "type"    # Ljava/lang/String;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "actions"    # Ljava/lang/String;
-    .param p4, "certs"    # [Ljava/security/cert/Certificate;
 
-    .prologue
-    .line 48
     const-string/jumbo v0, ""
 
     invoke-direct {p0, v0}, Ljava/security/Permission;-><init>(Ljava/lang/String;)V
@@ -28,8 +22,6 @@
 .method public getActions()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 52
     const/4 v0, 0x0
 
     return-object v0
@@ -38,8 +30,6 @@
 .method public getUnresolvedActions()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 58
     const/4 v0, 0x0
 
     return-object v0
@@ -48,8 +38,6 @@
 .method public getUnresolvedCerts()[Ljava/security/cert/Certificate;
     .locals 1
 
-    .prologue
-    .line 60
     const/4 v0, 0x0
 
     return-object v0
@@ -58,8 +46,6 @@
 .method public getUnresolvedName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 56
     const/4 v0, 0x0
 
     return-object v0
@@ -68,8 +54,6 @@
 .method public getUnresolvedType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 54
     const/4 v0, 0x0
 
     return-object v0
@@ -77,10 +61,7 @@
 
 .method public implies(Ljava/security/Permission;)Z
     .locals 1
-    .param p1, "p"    # Ljava/security/Permission;
 
-    .prologue
-    .line 50
     const/4 v0, 0x0
 
     return v0

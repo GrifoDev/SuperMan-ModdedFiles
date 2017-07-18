@@ -23,11 +23,7 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/HeaderParser;Ljava/lang/String;)V
     .locals 0
-    .param p1, "h"    # Lsun/net/www/HeaderParser;
-    .param p2, "r"    # Ljava/lang/String;
 
-    .prologue
-    .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p2, p0, Lsun/net/www/protocol/http/AuthenticationHeader$SchemeMapValue;->raw:Ljava/lang/String;

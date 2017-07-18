@@ -30,23 +30,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 520
     new-instance v0, Lsun/util/LocaleServiceProviderPool$NullProvider;
 
     invoke-direct {v0}, Lsun/util/LocaleServiceProviderPool$NullProvider;-><init>()V
 
     sput-object v0, Lsun/util/LocaleServiceProviderPool$NullProvider;->INSTANCE:Lsun/util/LocaleServiceProviderPool$NullProvider;
 
-    .line 519
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 519
     invoke-direct {p0}, Ljava/util/spi/LocaleServiceProvider;-><init>()V
 
     return-void
@@ -57,8 +52,6 @@
 .method public getAvailableLocales()[Ljava/util/Locale;
     .locals 2
 
-    .prologue
-    .line 523
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Should not get called."

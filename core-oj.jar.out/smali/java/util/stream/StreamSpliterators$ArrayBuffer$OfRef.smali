@@ -35,19 +35,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 1
-    .param p1, "size"    # I
 
-    .prologue
-    .line 1455
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef<TT;>;"
     invoke-direct {p0}, Ljava/util/stream/StreamSpliterators$ArrayBuffer;-><init>()V
 
-    .line 1456
     new-array v0, p1, [Ljava/lang/Object;
 
     iput-object v0, p0, Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;->array:[Ljava/lang/Object;
 
-    .line 1455
     return-void
 .end method
 
@@ -61,10 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1461
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;->array:[Ljava/lang/Object;
 
     iget v1, p0, Ljava/util/stream/StreamSpliterators$ArrayBuffer;->index:I
@@ -75,13 +65,11 @@
 
     aput-object p1, v0, v1
 
-    .line 1460
     return-void
 .end method
 
 .method public forEach(Ljava/util/function/Consumer;J)V
     .locals 4
-    .param p2, "fence"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,13 +78,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1465
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;, "Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef<TT;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     int-to-long v2, v0
 
@@ -104,22 +87,16 @@
 
     if-gez v2, :cond_0
 
-    .line 1467
     iget-object v2, p0, Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfRef;->array:[Ljava/lang/Object;
 
     aget-object v1, v2, v0
 
-    .line 1468
-    .local v1, "t":Ljava/lang/Object;, "TT;"
     invoke-interface {p1, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 1465
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1464
-    .end local v1    # "t":Ljava/lang/Object;, "TT;"
     :cond_0
     return-void
 .end method

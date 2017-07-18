@@ -32,21 +32,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/IntPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntPredicate;)V
     .locals 0
-    .param p3, "$anonymous1"    # Ljava/util/stream/StreamShape;
-    .param p4, "$anonymous2"    # I
-    .param p5, "val$predicate"    # Ljava/util/function/IntPredicate;
 
-    .prologue
-    .line 332
-    .local p1, "this$0":Ljava/util/stream/IntPipeline;, "Ljava/util/stream/IntPipeline<TE_IN;>;"
-    .local p2, "$anonymous0":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;"
     iput-object p1, p0, Ljava/util/stream/IntPipeline$9;->this$0:Ljava/util/stream/IntPipeline;
 
     iput-object p5, p0, Ljava/util/stream/IntPipeline$9;->val$predicate:Ljava/util/function/IntPredicate;
 
     invoke-direct {p0, p2, p3, p4}, Ljava/util/stream/IntPipeline$StatelessOp;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
 
-    .line 333
     return-void
 .end method
 
@@ -54,7 +46,6 @@
 # virtual methods
 .method public opWrapSink(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;
     .locals 2
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -69,9 +60,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 336
-    .local p2, "sink":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<Ljava/lang/Integer;>;"
     new-instance v0, Ljava/util/stream/IntPipeline$9$1;
 
     iget-object v1, p0, Ljava/util/stream/IntPipeline$9;->val$predicate:Ljava/util/function/IntPredicate;

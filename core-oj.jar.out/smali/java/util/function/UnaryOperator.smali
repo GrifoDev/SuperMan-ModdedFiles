@@ -31,10 +31,7 @@
 # direct methods
 .method public static synthetic -java_util_function_UnaryOperator_lambda$1(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p0, "t"    # Ljava/lang/Object;
 
-    .prologue
-    .line 50
     return-object p0
 .end method
 
@@ -50,8 +47,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 50
     new-instance v0, Ljava/util/function/UnaryOperator$-java_util_function_UnaryOperator_identity__LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/function/UnaryOperator$-java_util_function_UnaryOperator_identity__LambdaImpl0;-><init>()V

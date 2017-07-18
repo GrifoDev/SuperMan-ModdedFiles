@@ -100,13 +100,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 170
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
-    .local p1, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TA;>;"
-    .local p2, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TA;TT;>;"
-    .local p3, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TA;>;"
-    .local p4, "characteristics":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;"
     invoke-static {}, Ljava/util/stream/Collectors;->-wrap0()Ljava/util/function/Function;
 
     move-result-object v4
@@ -123,7 +116,6 @@
 
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/Collectors$CollectorImpl;-><init>(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V
 
-    .line 169
     return-void
 .end method
 
@@ -147,32 +139,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 154
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
-    .local p1, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TA;>;"
-    .local p2, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TA;TT;>;"
-    .local p3, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TA;>;"
-    .local p4, "finisher":Ljava/util/function/Function;, "Ljava/util/function/Function<TA;TR;>;"
-    .local p5, "characteristics":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 159
     iput-object p1, p0, Ljava/util/stream/Collectors$CollectorImpl;->supplier:Ljava/util/function/Supplier;
 
-    .line 160
     iput-object p2, p0, Ljava/util/stream/Collectors$CollectorImpl;->accumulator:Ljava/util/function/BiConsumer;
 
-    .line 161
     iput-object p3, p0, Ljava/util/stream/Collectors$CollectorImpl;->combiner:Ljava/util/function/BinaryOperator;
 
-    .line 162
     iput-object p4, p0, Ljava/util/stream/Collectors$CollectorImpl;->finisher:Ljava/util/function/Function;
 
-    .line 163
     iput-object p5, p0, Ljava/util/stream/Collectors$CollectorImpl;->characteristics:Ljava/util/Set;
 
-    .line 158
     return-void
 .end method
 
@@ -188,9 +166,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 175
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
     iget-object v0, p0, Ljava/util/stream/Collectors$CollectorImpl;->accumulator:Ljava/util/function/BiConsumer;
 
     return-object v0
@@ -208,9 +183,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 195
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
     iget-object v0, p0, Ljava/util/stream/Collectors$CollectorImpl;->characteristics:Ljava/util/Set;
 
     return-object v0
@@ -226,9 +198,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 185
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
     iget-object v0, p0, Ljava/util/stream/Collectors$CollectorImpl;->combiner:Ljava/util/function/BinaryOperator;
 
     return-object v0
@@ -244,9 +213,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 190
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
     iget-object v0, p0, Ljava/util/stream/Collectors$CollectorImpl;->finisher:Ljava/util/function/Function;
 
     return-object v0
@@ -262,9 +228,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 180
-    .local p0, "this":Ljava/util/stream/Collectors$CollectorImpl;, "Ljava/util/stream/Collectors$CollectorImpl<TT;TA;TR;>;"
     iget-object v0, p0, Ljava/util/stream/Collectors$CollectorImpl;->supplier:Ljava/util/function/Supplier;
 
     return-object v0

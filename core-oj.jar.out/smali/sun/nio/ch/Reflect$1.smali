@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/AccessibleObject;)V
     .locals 0
-    .param p1, "val$ao"    # Ljava/lang/reflect/AccessibleObject;
 
-    .prologue
-    .line 46
     iput-object p1, p0, Lsun/nio/ch/Reflect$1;->val$ao:Ljava/lang/reflect/AccessibleObject;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 47
     invoke-virtual {p0}, Lsun/nio/ch/Reflect$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -62,15 +57,12 @@
 .method public run()Ljava/lang/Void;
     .locals 2
 
-    .prologue
-    .line 48
     iget-object v0, p0, Lsun/nio/ch/Reflect$1;->val$ao:Ljava/lang/reflect/AccessibleObject;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    .line 49
     const/4 v0, 0x0
 
     return-object v0

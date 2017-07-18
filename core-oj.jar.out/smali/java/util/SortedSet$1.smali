@@ -28,17 +28,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/SortedSet;Ljava/util/Collection;I)V
     .locals 0
-    .param p3, "$anonymous1"    # I
 
-    .prologue
-    .line 256
-    .local p1, "this$0":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    .local p2, "$anonymous0":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iput-object p1, p0, Ljava/util/SortedSet$1;->this$0:Ljava/util/SortedSet;
 
     invoke-direct {p0, p2, p3}, Ljava/util/Spliterators$IteratorSpliterator;-><init>(Ljava/util/Collection;I)V
 
-    .line 257
     return-void
 .end method
 
@@ -54,8 +48,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 260
     iget-object v0, p0, Ljava/util/SortedSet$1;->this$0:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->comparator()Ljava/util/Comparator;

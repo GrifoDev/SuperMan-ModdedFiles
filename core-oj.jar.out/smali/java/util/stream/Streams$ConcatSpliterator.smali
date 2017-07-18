@@ -77,25 +77,16 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
-    .local p1, "aSpliterator":Ljava/util/Spliterator;, "TT_SPLITR;"
-    .local p2, "bSpliterator":Ljava/util/Spliterator;, "TT_SPLITR;"
     const/4 v0, 0x1
 
-    .line 707
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 708
     iput-object p1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
-    .line 709
     iput-object p2, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
-    .line 710
     iput-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    .line 713
     invoke-interface {p1}, Ljava/util/Spliterator;->estimateSize()J
 
     move-result-wide v2
@@ -115,10 +106,8 @@
     :goto_0
     iput-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->unsized:Z
 
-    .line 707
     return-void
 
-    .line 713
     :cond_0
     const/4 v0, 0x0
 
@@ -130,14 +119,10 @@
 .method public characteristics()I
     .locals 2
 
-    .prologue
-    .line 761
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v0, :cond_1
 
-    .line 763
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->characteristics()I
@@ -152,31 +137,26 @@
 
     and-int/2addr v1, v0
 
-    .line 765
     iget-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->unsized:Z
 
     if-eqz v0, :cond_0
 
     const/16 v0, 0x4040
 
-    .line 764
     :goto_0
     or-int/lit8 v0, v0, 0x5
 
     not-int v0, v0
 
-    .line 763
     and-int/2addr v0, v1
 
     return v0
 
-    .line 765
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 768
     :cond_1
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
@@ -190,14 +170,10 @@
 .method public estimateSize()J
     .locals 6
 
-    .prologue
-    .line 748
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v2, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v2, :cond_1
 
-    .line 751
     iget-object v2, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v2}, Ljava/util/Spliterator;->estimateSize()J
@@ -212,26 +188,20 @@
 
     add-long v0, v2, v4
 
-    .line 752
-    .local v0, "size":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
 
     if-ltz v2, :cond_0
 
-    .end local v0    # "size":J
     :goto_0
     return-wide v0
 
-    .restart local v0    # "size":J
     :cond_0
     const-wide v0, 0x7fffffffffffffffL
 
     goto :goto_0
 
-    .line 755
-    .end local v0    # "size":J
     :cond_1
     iget-object v2, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
@@ -252,26 +222,19 @@
         }
     .end annotation
 
-    .prologue
-    .line 741
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
-    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v0, :cond_0
 
-    .line 742
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 743
     :cond_0
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 740
     return-void
 .end method
 
@@ -285,21 +248,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 774
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v0, :cond_0
 
-    .line 775
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 776
     :cond_0
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
@@ -320,44 +278,32 @@
         }
     .end annotation
 
-    .prologue
-    .line 727
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
-    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-boolean v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v1, :cond_1
 
-    .line 728
     iget-object v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v1, p1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v0
 
-    .line 729
-    .local v0, "hasNext":Z
     if-nez v0, :cond_0
 
-    .line 730
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    .line 731
     iget-object v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
     invoke-interface {v1, p1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
     move-result v0
 
-    .line 736
     :cond_0
     :goto_0
     return v0
 
-    .line 735
-    .end local v0    # "hasNext":Z
     :cond_1
     iget-object v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
@@ -365,7 +311,6 @@
 
     move-result v0
 
-    .restart local v0    # "hasNext":Z
     goto :goto_0
 .end method
 
@@ -378,27 +323,19 @@
         }
     .end annotation
 
-    .prologue
-    .line 719
-    .local p0, "this":Ljava/util/stream/Streams$ConcatSpliterator;, "Ljava/util/stream/Streams$ConcatSpliterator<TT;TT_SPLITR;>;"
     iget-boolean v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
     if-eqz v1, :cond_0
 
     iget-object v0, p0, Ljava/util/stream/Streams$ConcatSpliterator;->aSpliterator:Ljava/util/Spliterator;
 
-    .line 720
-    .local v0, "ret":Ljava/util/Spliterator;, "TT_SPLITR;"
     :goto_0
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->beforeSplit:Z
 
-    .line 721
     return-object v0
 
-    .line 719
-    .end local v0    # "ret":Ljava/util/Spliterator;, "TT_SPLITR;"
     :cond_0
     iget-object v1, p0, Ljava/util/stream/Streams$ConcatSpliterator;->bSpliterator:Ljava/util/Spliterator;
 
@@ -406,6 +343,5 @@
 
     move-result-object v0
 
-    .restart local v0    # "ret":Ljava/util/Spliterator;, "TT_SPLITR;"
     goto :goto_0
 .end method

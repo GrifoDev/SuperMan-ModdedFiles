@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/EnumMap;)V
     .locals 1
 
-    .prologue
-    .line 555
-    .local p0, "this":Ljava/util/EnumMap$ValueIterator;, "Ljava/util/EnumMap<TK;TV;>.ValueIterator;"
-    .local p1, "this$0":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/EnumMap$ValueIterator;->this$0:Ljava/util/EnumMap;
 
     const/4 v0, 0x0
@@ -44,10 +40,7 @@
 
 .method synthetic constructor <init>(Ljava/util/EnumMap;Ljava/util/EnumMap$ValueIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/EnumMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/EnumMap$ValueIterator;, "Ljava/util/EnumMap<TK;TV;>.ValueIterator;"
     invoke-direct {p0, p1}, Ljava/util/EnumMap$ValueIterator;-><init>(Ljava/util/EnumMap;)V
 
     return-void
@@ -63,23 +56,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 557
-    .local p0, "this":Ljava/util/EnumMap$ValueIterator;, "Ljava/util/EnumMap<TK;TV;>.ValueIterator;"
     invoke-virtual {p0}, Ljava/util/EnumMap$ValueIterator;->hasNext()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 558
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
-    .line 559
     :cond_0
     iget v0, p0, Ljava/util/EnumMap$ValueIterator;->index:I
 
@@ -89,7 +77,6 @@
 
     iput v0, p0, Ljava/util/EnumMap$ValueIterator;->lastReturnedIndex:I
 
-    .line 560
     iget-object v0, p0, Ljava/util/EnumMap$ValueIterator;->this$0:Ljava/util/EnumMap;
 
     iget-object v1, p0, Ljava/util/EnumMap$ValueIterator;->this$0:Ljava/util/EnumMap;

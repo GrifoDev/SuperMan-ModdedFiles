@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/stream/Sink;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$-java_util_function_DoubleConsumer_adapt_java_util_stream_Sink_sink_LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
@@ -37,9 +36,7 @@
 # virtual methods
 .method public accept(D)V
     .locals 1
-    .param p1, "arg0"    # D
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/DoublePipeline$-java_util_function_DoubleConsumer_adapt_java_util_stream_Sink_sink_LambdaImpl0;->val$-lambdaCtx:Ljava/util/stream/Sink;
 
     invoke-static {v0, p1, p2}, Ljava/util/stream/DoublePipeline;->-java_util_stream_DoublePipeline-mthref-0(Ljava/util/stream/Sink;D)V

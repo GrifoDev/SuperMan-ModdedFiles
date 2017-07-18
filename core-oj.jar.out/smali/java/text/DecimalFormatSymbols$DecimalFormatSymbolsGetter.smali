@@ -46,7 +46,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -60,15 +59,12 @@
     :goto_0
     sput-boolean v0, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;->-assertionsDisabled:Z
 
-    .line 1057
     new-instance v0, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;
 
     invoke-direct {v0}, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;-><init>()V
 
-    .line 1056
     sput-object v0, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;->INSTANCE:Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;
 
-    .line 1053
     return-void
 
     :cond_0
@@ -80,8 +76,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1053
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -91,16 +85,9 @@
 # virtual methods
 .method public bridge synthetic getObject(Ljava/lang/Object;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "decimalFormatSymbolsProvider"    # Ljava/lang/Object;
-    .param p2, "locale"    # Ljava/util/Locale;
-    .param p3, "key"    # Ljava/lang/String;
-    .param p4, "params"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 1059
     check-cast p1, Ljava/text/spi/DecimalFormatSymbolsProvider;
 
-    .end local p1    # "decimalFormatSymbolsProvider":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2, p3, p4}, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;->getObject(Ljava/text/spi/DecimalFormatSymbolsProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/text/DecimalFormatSymbols;
 
     move-result-object v0
@@ -110,15 +97,9 @@
 
 .method public varargs getObject(Ljava/text/spi/DecimalFormatSymbolsProvider;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/text/DecimalFormatSymbols;
     .locals 2
-    .param p1, "decimalFormatSymbolsProvider"    # Ljava/text/spi/DecimalFormatSymbolsProvider;
-    .param p2, "locale"    # Ljava/util/Locale;
-    .param p3, "key"    # Ljava/lang/String;
-    .param p4, "params"    # [Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 1064
     sget-boolean v1, Ljava/text/DecimalFormatSymbols$DecimalFormatSymbolsGetter;->-assertionsDisabled:Z
 
     if-nez v1, :cond_1
@@ -138,7 +119,6 @@
 
     throw v0
 
-    .line 1065
     :cond_1
     invoke-virtual {p1, p2}, Ljava/text/spi/DecimalFormatSymbolsProvider;->getInstance(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;
 

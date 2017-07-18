@@ -82,8 +82,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 4432
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -91,25 +89,19 @@
 
 .method static isValid(C)Z
     .locals 1
-    .param p0, "c"    # C
 
-    .prologue
-    .line 4480
     packed-switch p0, :pswitch_data_0
 
-    .line 4527
     :pswitch_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 4525
     :pswitch_1
     const/4 v0, 0x1
 
     return v0
 
-    .line 4480
     nop
 
     :pswitch_data_0

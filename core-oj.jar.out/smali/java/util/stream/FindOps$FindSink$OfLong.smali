@@ -32,9 +32,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 213
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink$OfLong;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>.OfLong;"
     invoke-direct {p0}, Ljava/util/stream/FindOps$FindSink;-><init>()V
 
     return-void
@@ -44,28 +41,19 @@
 # virtual methods
 .method public accept(J)V
     .locals 1
-    .param p1, "value"    # J
 
-    .prologue
-    .line 218
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink$OfLong;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>.OfLong;"
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Ljava/util/stream/FindOps$FindSink;->accept(Ljava/lang/Object;)V
 
-    .line 216
     return-void
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Long;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Long;
 
-    .prologue
-    .line 177
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink$OfLong;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>.OfLong;"
     invoke-virtual {p0, p1}, Ljava/util/stream/FindOps$FindSink;->accept(Ljava/lang/Object;)V
 
     return-void
@@ -74,9 +62,6 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 222
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink$OfLong;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>.OfLong;"
     invoke-virtual {p0}, Ljava/util/stream/FindOps$FindSink$OfLong;->get()Ljava/util/OptionalLong;
 
     move-result-object v0
@@ -87,9 +72,6 @@
 .method public get()Ljava/util/OptionalLong;
     .locals 2
 
-    .prologue
-    .line 223
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink$OfLong;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>.OfLong;"
     iget-boolean v0, p0, Ljava/util/stream/FindOps$FindSink;->hasValue:Z
 
     if-eqz v0, :cond_0

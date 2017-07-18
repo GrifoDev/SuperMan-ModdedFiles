@@ -13,19 +13,11 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V
     .locals 2
-    .param p1, "certPath"    # Ljava/security/cert/CertPath;
-    .param p2, "trustAnchor"    # Ljava/security/cert/TrustAnchor;
-    .param p3, "policyTree"    # Ljava/security/cert/PolicyNode;
-    .param p4, "subjectPublicKey"    # Ljava/security/PublicKey;
 
-    .prologue
-    .line 82
     invoke-direct {p0, p2, p3, p4}, Ljava/security/cert/PKIXCertPathValidatorResult;-><init>(Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V
 
-    .line 83
     if-nez p1, :cond_0
 
-    .line 84
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "certPath must be non-null"
@@ -34,11 +26,9 @@
 
     throw v0
 
-    .line 85
     :cond_0
     iput-object p1, p0, Ljava/security/cert/PKIXCertPathBuilderResult;->certPath:Ljava/security/cert/CertPath;
 
-    .line 80
     return-void
 .end method
 
@@ -47,8 +37,6 @@
 .method public getCertPath()Ljava/security/cert/CertPath;
     .locals 1
 
-    .prologue
-    .line 99
     iget-object v0, p0, Ljava/security/cert/PKIXCertPathBuilderResult;->certPath:Ljava/security/cert/CertPath;
 
     return-object v0
@@ -57,19 +45,14 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 110
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 111
-    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string/jumbo v1, "PKIXCertPathBuilderResult: [\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 112
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -98,7 +81,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 113
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -133,7 +115,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 114
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -168,7 +149,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 115
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -199,12 +179,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 116
     const-string/jumbo v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 117
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1

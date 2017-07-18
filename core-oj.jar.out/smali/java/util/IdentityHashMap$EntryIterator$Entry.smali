@@ -50,30 +50,19 @@
 
 .method private constructor <init>(Ljava/util/IdentityHashMap$EntryIterator;I)V
     .locals 0
-    .param p2, "index"    # I
 
-    .prologue
-    .line 863
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
-    .local p1, "this$1":Ljava/util/IdentityHashMap$EntryIterator;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator;"
     iput-object p1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 864
     iput p2, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->index:I
 
-    .line 863
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/IdentityHashMap$EntryIterator;ILjava/util/IdentityHashMap$EntryIterator$Entry;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/IdentityHashMap$EntryIterator;
-    .param p2, "index"    # I
 
-    .prologue
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     invoke-direct {p0, p1, p2}, Ljava/util/IdentityHashMap$EntryIterator$Entry;-><init>(Ljava/util/IdentityHashMap$EntryIterator;I)V
 
     return-void
@@ -82,14 +71,10 @@
 .method private checkIndexForEntryUse()V
     .locals 2
 
-    .prologue
-    .line 918
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     iget v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->index:I
 
     if-gez v0, :cond_0
 
-    .line 919
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Entry was removed"
@@ -98,7 +83,6 @@
 
     throw v0
 
-    .line 917
     :cond_0
     return-void
 .end method
@@ -107,41 +91,31 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     const/4 v1, 0x0
 
-    .line 891
     iget v2, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->index:I
 
     if-gez v2, :cond_0
 
-    .line 892
     invoke-super {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     return v1
 
-    .line 894
     :cond_0
     instance-of v2, p1, Ljava/util/Map$Entry;
 
     if-nez v2, :cond_1
 
-    .line 895
     return v1
 
     :cond_1
     move-object v0, p1
 
-    .line 896
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 897
-    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -160,7 +134,6 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 898
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
@@ -179,7 +152,6 @@
 
     const/4 v1, 0x1
 
-    .line 897
     :cond_2
     return v1
 .end method
@@ -192,12 +164,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 869
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     invoke-direct {p0}, Ljava/util/IdentityHashMap$EntryIterator$Entry;->checkIndexForEntryUse()V
 
-    .line 870
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v0, v0, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -221,12 +189,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 875
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     invoke-direct {p0}, Ljava/util/IdentityHashMap$EntryIterator$Entry;->checkIndexForEntryUse()V
 
-    .line 876
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v0, v0, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -243,23 +207,18 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 902
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget v0, v0, Ljava/util/IdentityHashMap$EntryIterator;->lastReturnedIndex:I
 
     if-gez v0, :cond_0
 
-    .line 903
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
     return v0
 
-    .line 905
     :cond_0
     iget-object v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
@@ -277,7 +236,6 @@
 
     move-result v0
 
-    .line 906
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -292,7 +250,6 @@
 
     move-result v1
 
-    .line 905
     xor-int/2addr v0, v1
 
     return v0
@@ -306,13 +263,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 881
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/util/IdentityHashMap$EntryIterator$Entry;->checkIndexForEntryUse()V
 
-    .line 882
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -323,8 +275,6 @@
 
     aget-object v0, v1, v2
 
-    .line 883
-    .local v0, "oldValue":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -335,7 +285,6 @@
 
     aput-object p1, v1, v2
 
-    .line 885
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -350,7 +299,6 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 886
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->this$0:Ljava/util/IdentityHashMap;
@@ -365,7 +313,6 @@
 
     invoke-virtual {v1, v2, p1}, Ljava/util/IdentityHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 887
     :cond_0
     return-object v0
 .end method
@@ -373,21 +320,16 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 910
-    .local p0, "this":Ljava/util/IdentityHashMap$EntryIterator$Entry;, "Ljava/util/IdentityHashMap<TK;TV;>.EntryIterator.Entry;"
     iget v0, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->index:I
 
     if-gez v0, :cond_0
 
-    .line 911
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 913
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -415,7 +357,6 @@
 
     move-result-object v0
 
-    .line 914
     iget-object v1, p0, Ljava/util/IdentityHashMap$EntryIterator$Entry;->this$1:Ljava/util/IdentityHashMap$EntryIterator;
 
     iget-object v1, v1, Ljava/util/IdentityHashMap$EntryIterator;->traversalTable:[Ljava/lang/Object;
@@ -426,7 +367,6 @@
 
     aget-object v1, v1, v2
 
-    .line 913
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 84
     invoke-virtual {p0}, Lsun/security/jca/ProviderList$3;->run()Lsun/security/jca/ProviderList;
 
     move-result-object v0
@@ -55,8 +51,6 @@
 .method public run()Lsun/security/jca/ProviderList;
     .locals 2
 
-    .prologue
-    .line 85
     new-instance v0, Lsun/security/jca/ProviderList;
 
     const/4 v1, 0x0

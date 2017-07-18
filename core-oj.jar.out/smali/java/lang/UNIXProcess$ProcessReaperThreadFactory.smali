@@ -25,23 +25,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 93
     invoke-static {}, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;->getRootThreadGroup()Ljava/lang/ThreadGroup;
 
     move-result-object v0
 
     sput-object v0, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;->group:Ljava/lang/ThreadGroup;
 
-    .line 92
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -50,7 +45,6 @@
 .method synthetic constructor <init>(Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;-><init>()V
 
     return-void
@@ -59,8 +53,6 @@
 .method private static getRootThreadGroup()Ljava/lang/ThreadGroup;
     .locals 1
 
-    .prologue
-    .line 96
     new-instance v0, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory$1;
 
     invoke-direct {v0}, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory$1;-><init>()V
@@ -78,10 +70,7 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 6
-    .param p1, "grimReaper"    # Ljava/lang/Runnable;
 
-    .prologue
-    .line 107
     new-instance v0, Ljava/lang/Thread;
 
     sget-object v1, Ljava/lang/UNIXProcess$ProcessReaperThreadFactory;->group:Ljava/lang/ThreadGroup;
@@ -94,17 +83,13 @@
 
     invoke-direct/range {v0 .. v5}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V
 
-    .line 108
-    .local v0, "t":Ljava/lang/Thread;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    .line 110
     const/16 v1, 0xa
 
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setPriority(I)V
 
-    .line 111
     return-object v0
 .end method

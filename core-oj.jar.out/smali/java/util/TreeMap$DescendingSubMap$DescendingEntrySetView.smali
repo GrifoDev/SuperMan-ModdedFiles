@@ -29,10 +29,6 @@
 .method constructor <init>(Ljava/util/TreeMap$DescendingSubMap;)V
     .locals 0
 
-    .prologue
-    .line 2041
-    .local p0, "this":Ljava/util/TreeMap$DescendingSubMap$DescendingEntrySetView;, "Ljava/util/TreeMap<TK;TV;>.DescendingSubMap<TK;TV;>.DescendingEntrySetView;"
-    .local p1, "this$1":Ljava/util/TreeMap$DescendingSubMap;, "Ljava/util/TreeMap<TK;TV;>.DescendingSubMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$DescendingSubMap$DescendingEntrySetView;->this$1:Ljava/util/TreeMap$DescendingSubMap;
 
     invoke-direct {p0, p1}, Ljava/util/TreeMap$NavigableSubMap$EntrySetView;-><init>(Ljava/util/TreeMap$NavigableSubMap;)V
@@ -54,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2043
-    .local p0, "this":Ljava/util/TreeMap$DescendingSubMap$DescendingEntrySetView;, "Ljava/util/TreeMap<TK;TV;>.DescendingSubMap<TK;TV;>.DescendingEntrySetView;"
     new-instance v0, Ljava/util/TreeMap$NavigableSubMap$DescendingSubMapEntryIterator;
 
     iget-object v1, p0, Ljava/util/TreeMap$DescendingSubMap$DescendingEntrySetView;->this$1:Ljava/util/TreeMap$DescendingSubMap;

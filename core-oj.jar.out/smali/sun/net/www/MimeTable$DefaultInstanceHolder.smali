@@ -22,23 +22,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 82
     invoke-static {}, Lsun/net/www/MimeTable$DefaultInstanceHolder;->getDefaultInstance()Lsun/net/www/MimeTable;
 
     move-result-object v0
 
     sput-object v0, Lsun/net/www/MimeTable$DefaultInstanceHolder;->defaultInstance:Lsun/net/www/MimeTable;
 
-    .line 81
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,13 +42,10 @@
 .method static getDefaultInstance()Lsun/net/www/MimeTable;
     .locals 1
 
-    .prologue
-    .line 86
     new-instance v0, Lsun/net/www/MimeTable$DefaultInstanceHolder$1;
 
     invoke-direct {v0}, Lsun/net/www/MimeTable$DefaultInstanceHolder$1;-><init>()V
 
-    .line 85
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v0

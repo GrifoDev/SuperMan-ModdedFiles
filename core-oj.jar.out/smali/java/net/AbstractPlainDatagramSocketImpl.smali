@@ -33,15 +33,12 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 64
     new-instance v0, Lsun/security/action/GetPropertyAction;
 
     const-string/jumbo v1, "os.name"
 
     invoke-direct {v0, v1}, Lsun/security/action/GetPropertyAction;-><init>(Ljava/lang/String;)V
 
-    .line 63
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v0
@@ -50,7 +47,6 @@
 
     sput-object v0, Ljava/net/AbstractPlainDatagramSocketImpl;->os:Ljava/lang/String;
 
-    .line 70
     sget-object v0, Ljava/net/AbstractPlainDatagramSocketImpl;->os:Ljava/lang/String;
 
     const-string/jumbo v1, "OS X"
@@ -61,93 +57,71 @@
 
     sput-boolean v0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectDisabled:Z
 
-    .line 47
     return-void
 .end method
 
 .method constructor <init>()V
     .locals 3
 
-    .prologue
     const/4 v2, -0x1
 
     const/4 v1, 0x0
 
-    .line 47
     invoke-direct {p0}, Ljava/net/DatagramSocketImpl;-><init>()V
 
-    .line 50
     iput v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->timeout:I
 
-    .line 51
     iput-boolean v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connected:Z
 
-    .line 52
     iput v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->trafficClass:I
 
-    .line 53
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedAddress:Ljava/net/InetAddress;
 
-    .line 54
     iput v2, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedPort:I
 
-    .line 57
     iput v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->multicastInterface:I
 
-    .line 58
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->loopbackMode:Z
 
-    .line 59
     iput v2, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->ttl:I
 
-    .line 61
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->guard:Ldalvik/system/CloseGuard;
 
-    .line 47
     return-void
 .end method
 
 .method static getNIFirstAddress(I)Ljava/net/InetAddress;
     .locals 3
-    .param p0, "niIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .prologue
-    .line 372
     if-lez p0, :cond_0
 
-    .line 373
     invoke-static {p0}, Ljava/net/NetworkInterface;->getByIndex(I)Ljava/net/NetworkInterface;
 
     move-result-object v1
 
-    .line 374
-    .local v1, "networkInterface":Ljava/net/NetworkInterface;
     invoke-virtual {v1}, Ljava/net/NetworkInterface;->getInetAddresses()Ljava/util/Enumeration;
 
     move-result-object v0
 
-    .line 375
-    .local v0, "addressesEnum":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/net/InetAddress;>;"
     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 376
     invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
     move-result-object v2
@@ -156,9 +130,6 @@
 
     return-object v2
 
-    .line 379
-    .end local v0    # "addressesEnum":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/net/InetAddress;>;"
-    .end local v1    # "networkInterface":Ljava/net/NetworkInterface;
     :cond_0
     invoke-static {}, Ljava/net/InetAddress;->anyLocalAddress()Ljava/net/InetAddress;
 
@@ -171,18 +142,14 @@
 # virtual methods
 .method protected declared-synchronized bind(ILjava/net/InetAddress;)V
     .locals 1
-    .param p1, "lport"    # I
-    .param p2, "laddr"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 96
     :try_start_0
     invoke-virtual {p0, p1, p2}, Ljava/net/AbstractPlainDatagramSocketImpl;->bind0(ILjava/net/InetAddress;)V
     :try_end_0
@@ -190,7 +157,6 @@
 
     monitor-exit p0
 
-    .line 95
     return-void
 
     :catchall_0
@@ -212,66 +178,50 @@
 .method protected close()V
     .locals 2
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 232
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->guard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
-    .line 234
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-eqz v0, :cond_0
 
-    .line 235
     invoke-virtual {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;->datagramSocketClose()V
 
-    .line 236
     invoke-static {}, Lsun/net/ResourceManager;->afterUdpClose()V
 
-    .line 237
     iput-object v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
-    .line 231
     :cond_0
     return-void
 .end method
 
 .method protected connect(Ljava/net/InetAddress;I)V
     .locals 1
-    .param p1, "address"    # Ljava/net/InetAddress;
-    .param p2, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .prologue
-    .line 117
     invoke-static {}, Ldalvik/system/BlockGuard;->getThreadPolicy()Ldalvik/system/BlockGuard$Policy;
 
     move-result-object v0
 
     invoke-interface {v0}, Ldalvik/system/BlockGuard$Policy;->onNetwork()V
 
-    .line 118
     invoke-virtual {p0, p1, p2}, Ljava/net/AbstractPlainDatagramSocketImpl;->connect0(Ljava/net/InetAddress;I)V
 
-    .line 119
     iput-object p1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedAddress:Ljava/net/InetAddress;
 
-    .line 120
     iput p2, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedPort:I
 
-    .line 121
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connected:Z
 
-    .line 116
     return-void
 .end method
 
@@ -291,14 +241,11 @@
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 76
     :try_start_0
     invoke-static {}, Lsun/net/ResourceManager;->beforeUdpCreate()V
 
-    .line 77
     new-instance v1, Ljava/io/FileDescriptor;
 
     invoke-direct {v1}, Ljava/io/FileDescriptor;-><init>()V
@@ -307,14 +254,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 79
     :try_start_1
     invoke-virtual {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;->datagramSocketCreate()V
     :try_end_1
     .catch Ljava/net/SocketException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 86
     :try_start_2
     iget-object v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
@@ -328,7 +273,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 87
     iget-object v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->guard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v2, "close"
@@ -340,29 +284,22 @@
     :cond_0
     monitor-exit p0
 
-    .line 75
     return-void
 
-    .line 80
     :catch_0
     move-exception v0
 
-    .line 81
-    .local v0, "ioe":Ljava/net/SocketException;
     :try_start_3
     invoke-static {}, Lsun/net/ResourceManager;->afterUdpClose()V
 
-    .line 82
     const/4 v1, 0x0
 
     iput-object v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
-    .line 83
     throw v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .end local v0    # "ioe":Ljava/net/SocketException;
     :catchall_0
     move-exception v1
 
@@ -385,8 +322,6 @@
 .method protected disconnect()V
     .locals 1
 
-    .prologue
-    .line 129
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedAddress:Ljava/net/InetAddress;
 
     invoke-virtual {v0}, Ljava/net/InetAddress;->holder()Ljava/net/InetAddress$InetAddressHolder;
@@ -399,22 +334,18 @@
 
     invoke-virtual {p0, v0}, Ljava/net/AbstractPlainDatagramSocketImpl;->disconnect0(I)V
 
-    .line 130
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connected:Z
 
-    .line 131
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedAddress:Ljava/net/InetAddress;
 
-    .line 132
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectedPort:I
 
-    .line 128
     return-void
 .end method
 
@@ -424,43 +355,34 @@
 .method protected finalize()V
     .locals 1
 
-    .prologue
-    .line 246
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->guard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_0
 
-    .line 247
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->guard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
 
-    .line 250
     :cond_0
     invoke-virtual {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;->close()V
 
-    .line 245
     return-void
 .end method
 
 .method public getOption(I)Ljava/lang/Object;
     .locals 4
-    .param p1, "optID"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .prologue
-    .line 328
     invoke-virtual {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;->isClosed()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 329
     new-instance v1, Ljava/net/SocketException;
 
     const-string/jumbo v2, "Socket Closed"
@@ -469,11 +391,9 @@
 
     throw v1
 
-    .line 334
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 362
     new-instance v1, Ljava/net/SocketException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -498,7 +418,6 @@
 
     throw v1
 
-    .line 336
     :sswitch_0
     new-instance v0, Ljava/lang/Integer;
 
@@ -506,23 +425,17 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
-    .line 365
-    .local v0, "result":Ljava/lang/Object;
     :cond_1
     :goto_0
     return-object v0
 
-    .line 340
-    .end local v0    # "result":Ljava/lang/Object;
     :sswitch_1
     invoke-virtual {p0, p1}, Ljava/net/AbstractPlainDatagramSocketImpl;->socketGetOption(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .restart local v0    # "result":Ljava/lang/Object;
     move-object v1, v0
 
-    .line 341
     check-cast v1, Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -533,34 +446,25 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 342
     new-instance v0, Ljava/lang/Integer;
 
-    .end local v0    # "result":Ljava/lang/Object;
     iget v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->trafficClass:I
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
-    .restart local v0    # "result":Ljava/lang/Object;
     goto :goto_0
 
-    .line 354
-    .end local v0    # "result":Ljava/lang/Object;
     :sswitch_2
     invoke-virtual {p0, p1}, Ljava/net/AbstractPlainDatagramSocketImpl;->socketGetOption(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 356
-    .restart local v0    # "result":Ljava/lang/Object;
     const/16 v1, 0x10
 
     if-ne p1, v1, :cond_1
 
-    .line 357
     check-cast v0, Ljava/lang/Integer;
 
-    .end local v0    # "result":Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -571,7 +475,6 @@
 
     return-object v1
 
-    .line 334
     nop
 
     :sswitch_data_0
@@ -608,8 +511,6 @@
 .method protected isClosed()Z
     .locals 1
 
-    .prologue
-    .line 242
     iget-object v0, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->fd:Ljava/io/FileDescriptor;
 
     if-nez v0, :cond_0
@@ -627,20 +528,16 @@
 
 .method protected join(Ljava/net/InetAddress;)V
     .locals 1
-    .param p1, "inetaddr"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 180
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Ljava/net/AbstractPlainDatagramSocketImpl;->join(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V
 
-    .line 179
     return-void
 .end method
 
@@ -654,37 +551,28 @@
 
 .method protected joinGroup(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V
     .locals 2
-    .param p1, "mcastaddr"    # Ljava/net/SocketAddress;
-    .param p2, "netIf"    # Ljava/net/NetworkInterface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 202
     if-eqz p1, :cond_0
 
     instance-of v0, p1, Ljava/net/InetSocketAddress;
 
     if-eqz v0, :cond_0
 
-    .line 204
     check-cast p1, Ljava/net/InetSocketAddress;
 
-    .end local p1    # "mcastaddr":Ljava/net/SocketAddress;
     invoke-virtual {p1}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p2}, Ljava/net/AbstractPlainDatagramSocketImpl;->join(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V
 
-    .line 201
     return-void
 
-    .line 203
-    .restart local p1    # "mcastaddr":Ljava/net/SocketAddress;
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -697,20 +585,16 @@
 
 .method protected leave(Ljava/net/InetAddress;)V
     .locals 1
-    .param p1, "inetaddr"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 188
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Ljava/net/AbstractPlainDatagramSocketImpl;->leave(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V
 
-    .line 187
     return-void
 .end method
 
@@ -724,37 +608,28 @@
 
 .method protected leaveGroup(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V
     .locals 2
-    .param p1, "mcastaddr"    # Ljava/net/SocketAddress;
-    .param p2, "netIf"    # Ljava/net/NetworkInterface;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 220
     if-eqz p1, :cond_0
 
     instance-of v0, p1, Ljava/net/InetSocketAddress;
 
     if-eqz v0, :cond_0
 
-    .line 222
     check-cast p1, Ljava/net/InetSocketAddress;
 
-    .end local p1    # "mcastaddr":Ljava/net/SocketAddress;
     invoke-virtual {p1}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p2}, Ljava/net/AbstractPlainDatagramSocketImpl;->leave(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)V
 
-    .line 219
     return-void
 
-    .line 221
-    .restart local p1    # "mcastaddr":Ljava/net/SocketAddress;
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -768,8 +643,6 @@
 .method protected nativeConnectDisabled()Z
     .locals 1
 
-    .prologue
-    .line 392
     sget-boolean v0, Ljava/net/AbstractPlainDatagramSocketImpl;->connectDisabled:Z
 
     return v0
@@ -793,17 +666,14 @@
 
 .method protected declared-synchronized receive(Ljava/net/DatagramPacket;)V
     .locals 1
-    .param p1, "p"    # Ljava/net/DatagramPacket;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 147
     :try_start_0
     invoke-virtual {p0, p1}, Ljava/net/AbstractPlainDatagramSocketImpl;->receive0(Ljava/net/DatagramPacket;)V
     :try_end_0
@@ -811,7 +681,6 @@
 
     monitor-exit p0
 
-    .line 146
     return-void
 
     :catchall_0
@@ -840,23 +709,18 @@
 
 .method public setOption(ILjava/lang/Object;)V
     .locals 5
-    .param p1, "optID"    # I
-    .param p2, "o"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
         }
     .end annotation
 
-    .prologue
-    .line 259
     invoke-virtual {p0}, Ljava/net/AbstractPlainDatagramSocketImpl;->isClosed()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 260
     new-instance v2, Ljava/net/SocketException;
 
     const-string/jumbo v3, "Socket Closed"
@@ -865,11 +729,9 @@
 
     throw v2
 
-    .line 262
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 318
     new-instance v2, Ljava/net/SocketException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -894,7 +756,6 @@
 
     throw v2
 
-    .line 268
     :sswitch_0
     if-eqz p2, :cond_1
 
@@ -902,19 +763,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 271
     check-cast p2, Ljava/lang/Integer;
 
-    .end local p2    # "o":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    .line 272
-    .local v1, "tmp":I
     if-gez v1, :cond_2
 
-    .line 273
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "timeout < 0"
@@ -923,9 +779,6 @@
 
     throw v2
 
-    .line 269
-    .end local v1    # "tmp":I
-    .restart local p2    # "o":Ljava/lang/Object;
     :cond_1
     new-instance v2, Ljava/net/SocketException;
 
@@ -935,18 +788,11 @@
 
     throw v2
 
-    .line 274
-    .end local p2    # "o":Ljava/lang/Object;
-    .restart local v1    # "tmp":I
     :cond_2
     iput v1, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->timeout:I
 
-    .line 275
     return-void
 
-    .line 277
-    .end local v1    # "tmp":I
-    .restart local p2    # "o":Ljava/lang/Object;
     :sswitch_1
     if-eqz p2, :cond_4
 
@@ -956,7 +802,6 @@
 
     move-object v2, p2
 
-    .line 280
     check-cast v2, Ljava/lang/Integer;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -965,15 +810,12 @@
 
     iput v2, p0, Ljava/net/AbstractPlainDatagramSocketImpl;->trafficClass:I
 
-    .line 320
     :cond_3
     :goto_0
     invoke-virtual {p0, p1, p2}, Ljava/net/AbstractPlainDatagramSocketImpl;->socketSetOption(ILjava/lang/Object;)V
 
-    .line 258
     return-void
 
-    .line 278
     :cond_4
     new-instance v2, Ljava/net/SocketException;
 
@@ -983,7 +825,6 @@
 
     throw v2
 
-    .line 283
     :sswitch_2
     if-eqz p2, :cond_5
 
@@ -991,7 +832,6 @@
 
     if-nez v2, :cond_3
 
-    .line 284
     :cond_5
     new-instance v2, Ljava/net/SocketException;
 
@@ -1001,7 +841,6 @@
 
     throw v2
 
-    .line 288
     :sswitch_3
     if-eqz p2, :cond_6
 
@@ -1009,7 +848,6 @@
 
     if-nez v2, :cond_3
 
-    .line 289
     :cond_6
     new-instance v2, Ljava/net/SocketException;
 
@@ -1019,7 +857,6 @@
 
     throw v2
 
-    .line 293
     :sswitch_4
     new-instance v2, Ljava/net/SocketException;
 
@@ -1029,7 +866,6 @@
 
     throw v2
 
-    .line 296
     :sswitch_5
     if-eqz p2, :cond_7
 
@@ -1039,7 +875,6 @@
 
     move-object v2, p2
 
-    .line 297
     check-cast v2, Ljava/lang/Integer;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -1048,7 +883,6 @@
 
     if-gez v2, :cond_3
 
-    .line 298
     :cond_7
     new-instance v2, Ljava/net/SocketException;
 
@@ -1058,7 +892,6 @@
 
     throw v2
 
-    .line 303
     :sswitch_6
     if-eqz p2, :cond_8
 
@@ -1066,7 +899,6 @@
 
     if-nez v2, :cond_3
 
-    .line 304
     :cond_8
     new-instance v2, Ljava/net/SocketException;
 
@@ -1076,7 +908,6 @@
 
     throw v2
 
-    .line 307
     :sswitch_7
     if-eqz p2, :cond_a
 
@@ -1088,32 +919,25 @@
 
     if-eqz v2, :cond_a
 
-    .line 309
     :cond_9
     instance-of v2, p2, Ljava/net/NetworkInterface;
 
     if-eqz v2, :cond_3
 
-    .line 310
     new-instance v0, Ljava/lang/Integer;
 
     check-cast p2, Ljava/net/NetworkInterface;
 
-    .end local p2    # "o":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/net/NetworkInterface;->getIndex()I
 
     move-result v2
 
     invoke-direct {v0, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    .local v0, "o":Ljava/lang/Object;
     move-object p2, v0
 
-    .end local v0    # "o":Ljava/lang/Object;
-    .restart local p2    # "o":Ljava/lang/Object;
     goto :goto_0
 
-    .line 308
     :cond_a
     new-instance v2, Ljava/net/SocketException;
 
@@ -1123,7 +947,6 @@
 
     throw v2
 
-    .line 314
     :sswitch_8
     if-eqz p2, :cond_b
 
@@ -1131,7 +954,6 @@
 
     if-nez v2, :cond_3
 
-    .line 315
     :cond_b
     new-instance v2, Ljava/net/SocketException;
 
@@ -1141,7 +963,6 @@
 
     throw v2
 
-    .line 262
     :sswitch_data_0
     .sparse-switch
         0x3 -> :sswitch_1

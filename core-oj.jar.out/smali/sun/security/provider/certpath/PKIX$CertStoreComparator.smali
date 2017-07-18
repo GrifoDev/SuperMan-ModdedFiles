@@ -31,8 +31,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 302
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,7 +39,6 @@
 .method synthetic constructor <init>(Lsun/security/provider/certpath/PKIX$CertStoreComparator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Lsun/security/provider/certpath/PKIX$CertStoreComparator;-><init>()V
 
     return-void
@@ -51,17 +48,11 @@
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "store1"    # Ljava/lang/Object;
-    .param p2, "store2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 304
     check-cast p1, Ljava/security/cert/CertStore;
 
-    .end local p1    # "store1":Ljava/lang/Object;
     check-cast p2, Ljava/security/cert/CertStore;
 
-    .end local p2    # "store2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lsun/security/provider/certpath/PKIX$CertStoreComparator;->compare(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I
 
     move-result v0
@@ -71,11 +62,7 @@
 
 .method public compare(Ljava/security/cert/CertStore;Ljava/security/cert/CertStore;)I
     .locals 2
-    .param p1, "store1"    # Ljava/security/cert/CertStore;
-    .param p2, "store2"    # Ljava/security/cert/CertStore;
 
-    .prologue
-    .line 305
     invoke-virtual {p1}, Ljava/security/cert/CertStore;->getType()Ljava/lang/String;
 
     move-result-object v0
@@ -88,23 +75,19 @@
 
     if-nez v0, :cond_0
 
-    .line 306
     invoke-virtual {p1}, Ljava/security/cert/CertStore;->getCertStoreParameters()Ljava/security/cert/CertStoreParameters;
 
     move-result-object v0
 
     instance-of v0, v0, Ljava/security/cert/CollectionCertStoreParameters;
 
-    .line 305
     if-eqz v0, :cond_1
 
-    .line 308
     :cond_0
     const/4 v0, -0x1
 
     return v0
 
-    .line 310
     :cond_1
     const/4 v0, 0x1
 

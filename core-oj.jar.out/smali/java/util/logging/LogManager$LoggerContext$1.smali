@@ -38,12 +38,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/LogManager$LoggerContext;Ljava/util/logging/Logger;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/logging/LogManager$LoggerContext;
-    .param p2, "val$logger"    # Ljava/util/logging/Logger;
-    .param p3, "val$name"    # Ljava/lang/String;
 
-    .prologue
-    .line 665
     iput-object p1, p0, Ljava/util/logging/LogManager$LoggerContext$1;->this$1:Ljava/util/logging/LogManager$LoggerContext;
 
     iput-object p2, p0, Ljava/util/logging/LogManager$LoggerContext$1;->val$logger:Ljava/util/logging/Logger;
@@ -60,8 +55,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 666
     invoke-virtual {p0}, Ljava/util/logging/LogManager$LoggerContext$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -72,8 +65,6 @@
 .method public run()Ljava/lang/Void;
     .locals 4
 
-    .prologue
-    .line 667
     iget-object v1, p0, Ljava/util/logging/LogManager$LoggerContext$1;->val$logger:Ljava/util/logging/Logger;
 
     invoke-static {}, Ljava/util/logging/LogManager;->-get2()Ljava/util/logging/LogManager;
@@ -86,7 +77,6 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 668
     invoke-static {}, Ljava/util/logging/LogManager;->-get2()Ljava/util/logging/LogManager;
 
     move-result-object v1
@@ -117,19 +107,14 @@
 
     move-result v0
 
-    .line 669
-    .local v0, "useParent":Z
     if-nez v0, :cond_0
 
-    .line 670
     iget-object v1, p0, Ljava/util/logging/LogManager$LoggerContext$1;->val$logger:Ljava/util/logging/Logger;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->setUseParentHandlers(Z)V
 
-    .line 673
-    .end local v0    # "useParent":Z
     :cond_0
     const/4 v1, 0x0
 

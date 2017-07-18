@@ -63,18 +63,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 3417
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p2, "keyType":Ljava/lang/Class;, "Ljava/lang/Class<TK;>;"
-    .local p3, "valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     invoke-direct {p0, p1, p2, p3}, Ljava/util/Collections$CheckedMap;-><init>(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 3418
     iput-object p1, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
-    .line 3416
     return-void
 .end method
 
@@ -90,9 +82,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3421
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
@@ -110,9 +99,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3422
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->firstKey()Ljava/lang/Object;
@@ -132,10 +118,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3430
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -161,9 +143,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3423
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
@@ -183,23 +162,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 3426
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
     move-result-object v0
 
-    .line 3427
     iget-object v1, p0, Ljava/util/Collections$CheckedSortedMap;->keyType:Ljava/lang/Class;
 
     iget-object v2, p0, Ljava/util/Collections$CheckedSortedMap;->valueType:Ljava/lang/Class;
 
-    .line 3426
     invoke-static {v0, v1, v2}, Ljava/util/Collections;->checkedSortedMap(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/SortedMap;
 
     move-result-object v0
@@ -217,10 +189,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3433
-    .local p0, "this":Ljava/util/Collections$CheckedSortedMap;, "Ljava/util/Collections$CheckedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;

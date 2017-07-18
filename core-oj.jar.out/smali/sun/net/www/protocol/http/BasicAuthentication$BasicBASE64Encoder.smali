@@ -21,10 +21,7 @@
 # direct methods
 .method private constructor <init>(Lsun/net/www/protocol/http/BasicAuthentication;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/net/www/protocol/http/BasicAuthentication;
 
-    .prologue
-    .line 206
     iput-object p1, p0, Lsun/net/www/protocol/http/BasicAuthentication$BasicBASE64Encoder;->this$0:Lsun/net/www/protocol/http/BasicAuthentication;
 
     invoke-direct {p0}, Lsun/misc/BASE64Encoder;-><init>()V
@@ -34,9 +31,7 @@
 
 .method synthetic constructor <init>(Lsun/net/www/protocol/http/BasicAuthentication;Lsun/net/www/protocol/http/BasicAuthentication$BasicBASE64Encoder;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/net/www/protocol/http/BasicAuthentication;
 
-    .prologue
     invoke-direct {p0, p1}, Lsun/net/www/protocol/http/BasicAuthentication$BasicBASE64Encoder;-><init>(Lsun/net/www/protocol/http/BasicAuthentication;)V
 
     return-void
@@ -47,8 +42,6 @@
 .method protected bytesPerLine()I
     .locals 1
 
-    .prologue
-    .line 209
     const/16 v0, 0x2710
 
     return v0

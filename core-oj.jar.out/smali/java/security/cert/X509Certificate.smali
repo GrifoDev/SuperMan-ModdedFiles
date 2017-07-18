@@ -20,13 +20,10 @@
 .method protected constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 116
     const-string/jumbo v0, "X.509"
 
     invoke-direct {p0, v0}, Ljava/security/cert/Certificate;-><init>(Ljava/lang/String;)V
 
-    .line 115
     return-void
 .end method
 
@@ -71,8 +68,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 508
     invoke-static {p0}, Lsun/security/x509/X509CertImpl;->getExtendedKeyUsage(Ljava/security/cert/X509Certificate;)Ljava/util/List;
 
     move-result-object v0
@@ -98,8 +93,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 647
     invoke-static {p0}, Lsun/security/x509/X509CertImpl;->getIssuerAlternativeNames(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;
 
     move-result-object v0
@@ -116,20 +109,16 @@
 .method public getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
     .locals 1
 
-    .prologue
-    .line 247
     iget-object v0, p0, Ljava/security/cert/X509Certificate;->issuerX500Principal:Ljavax/security/auth/x500/X500Principal;
 
     if-nez v0, :cond_0
 
-    .line 248
     invoke-static {p0}, Lsun/security/x509/X509CertImpl;->getIssuerX500Principal(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/security/cert/X509Certificate;->issuerX500Principal:Ljavax/security/auth/x500/X500Principal;
 
-    .line 250
     :cond_0
     iget-object v0, p0, Ljava/security/cert/X509Certificate;->issuerX500Principal:Ljavax/security/auth/x500/X500Principal;
 
@@ -178,8 +167,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 605
     invoke-static {p0}, Lsun/security/x509/X509CertImpl;->getSubjectAlternativeNames(Ljava/security/cert/X509Certificate;)Ljava/util/Collection;
 
     move-result-object v0
@@ -196,20 +183,16 @@
 .method public getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
     .locals 1
 
-    .prologue
-    .line 290
     iget-object v0, p0, Ljava/security/cert/X509Certificate;->subjectX500Principal:Ljavax/security/auth/x500/X500Principal;
 
     if-nez v0, :cond_0
 
-    .line 291
     invoke-static {p0}, Lsun/security/x509/X509CertImpl;->getSubjectX500Principal(Ljava/security/cert/X509Certificate;)Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/security/cert/X509Certificate;->subjectX500Principal:Ljavax/security/auth/x500/X500Principal;
 
-    .line 293
     :cond_0
     iget-object v0, p0, Ljava/security/cert/X509Certificate;->subjectX500Principal:Ljavax/security/auth/x500/X500Principal;
 
@@ -229,8 +212,6 @@
 
 .method public verify(Ljava/security/PublicKey;Ljava/security/Provider;)V
     .locals 0
-    .param p1, "key"    # Ljava/security/PublicKey;
-    .param p2, "sigProvider"    # Ljava/security/Provider;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;,
@@ -240,10 +221,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 676
     invoke-static {p0, p1, p2}, Lsun/security/x509/X509CertImpl;->verify(Ljava/security/cert/X509Certificate;Ljava/security/PublicKey;Ljava/security/Provider;)V
 
-    .line 675
     return-void
 .end method

@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/LongPredicate;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/LongPredicate$-java_util_function_LongPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/LongPredicate;
@@ -37,9 +36,7 @@
 # virtual methods
 .method public test(J)Z
     .locals 1
-    .param p1, "arg0"    # J
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/LongPredicate$-java_util_function_LongPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/LongPredicate;
 
     invoke-interface {v0, p1, p2}, Ljava/util/function/LongPredicate;->-java_util_function_LongPredicate_lambda$2(J)Z

@@ -35,19 +35,14 @@
 .method constructor <init>(Ljava/util/Vector;)V
     .locals 1
 
-    .prologue
-    .line 339
-    .local p1, "this$0":Ljava/util/Vector;, "Ljava/util/Vector<TE;>;"
     iput-object p1, p0, Ljava/util/Vector$1;->this$0:Ljava/util/Vector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 340
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/util/Vector$1;->count:I
 
-    .line 339
     return-void
 .end method
 
@@ -56,8 +51,6 @@
 .method public hasMoreElements()Z
     .locals 2
 
-    .prologue
-    .line 343
     iget v0, p0, Ljava/util/Vector$1;->count:I
 
     iget-object v1, p0, Ljava/util/Vector$1;->this$0:Ljava/util/Vector;
@@ -85,13 +78,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 347
     iget-object v1, p0, Ljava/util/Vector$1;->this$0:Ljava/util/Vector;
 
     monitor-enter v1
 
-    .line 348
     :try_start_0
     iget v0, p0, Ljava/util/Vector$1;->count:I
 
@@ -101,7 +91,6 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 349
     iget-object v0, p0, Ljava/util/Vector$1;->this$0:Ljava/util/Vector;
 
     iget v2, p0, Ljava/util/Vector$1;->count:I
@@ -123,7 +112,6 @@
     :cond_0
     monitor-exit v1
 
-    .line 352
     new-instance v0, Ljava/util/NoSuchElementException;
 
     const-string/jumbo v1, "Vector Enumeration"
@@ -132,7 +120,6 @@
 
     throw v0
 
-    .line 347
     :catchall_0
     move-exception v0
 

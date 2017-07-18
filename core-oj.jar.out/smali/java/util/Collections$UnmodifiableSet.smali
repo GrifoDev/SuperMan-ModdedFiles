@@ -46,10 +46,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1203
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSet;, "Ljava/util/Collections$UnmodifiableSet<TE;>;"
-    .local p1, "s":Ljava/util/Set;, "Ljava/util/Set<+TE;>;"
     invoke-direct {p0, p1}, Ljava/util/Collections$UnmodifiableCollection;-><init>(Ljava/util/Collection;)V
 
     return-void
@@ -59,11 +55,7 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1204
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSet;, "Ljava/util/Collections$UnmodifiableSet<TE;>;"
     if-eq p1, p0, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSet;->c:Ljava/util/Collection;
@@ -84,9 +76,6 @@
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 1205
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSet;, "Ljava/util/Collections$UnmodifiableSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSet;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->hashCode()I

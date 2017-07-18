@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/AbstractPreferences;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/prefs/AbstractPreferences;
 
-    .prologue
-    .line 1023
     iput-object p1, p0, Ljava/util/prefs/AbstractPreferences$1;->this$0:Ljava/util/prefs/AbstractPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public run()Ljava/lang/Boolean;
     .locals 2
 
-    .prologue
-    .line 1025
     iget-object v0, p0, Ljava/util/prefs/AbstractPreferences$1;->this$0:Ljava/util/prefs/AbstractPreferences;
 
     invoke-static {v0}, Ljava/util/prefs/AbstractPreferences;->-get1(Ljava/util/prefs/AbstractPreferences;)Ljava/util/prefs/AbstractPreferences;
@@ -82,8 +77,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 1024
     invoke-virtual {p0}, Ljava/util/prefs/AbstractPreferences$1;->run()Ljava/lang/Boolean;
 
     move-result-object v0

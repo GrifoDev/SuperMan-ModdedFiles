@@ -25,8 +25,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1513
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,12 +34,8 @@
 # virtual methods
 .method public accept(J)V
     .locals 1
-    .param p1, "value"    # J
 
-    .prologue
-    .line 1518
     iput-wide p1, p0, Ljava/util/Spliterators$AbstractLongSpliterator$HoldingLongConsumer;->value:J
 
-    .line 1517
     return-void
 .end method

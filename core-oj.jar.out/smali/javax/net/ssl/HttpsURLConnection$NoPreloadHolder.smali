@@ -33,8 +33,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
-    .line 200
     :try_start_0
     const-string/jumbo v1, "com.android.okhttp.internal.tls.OkHostnameVerifier"
 
@@ -42,28 +40,22 @@
 
     move-result-object v1
 
-    .line 201
     const-string/jumbo v2, "INSTANCE"
 
-    .line 200
     invoke-virtual {v1, v2}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
 
-    .line 201
     const/4 v2, 0x0
 
-    .line 200
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 199
     check-cast v1, Ljavax/net/ssl/HostnameVerifier;
 
     sput-object v1, Ljavax/net/ssl/HttpsURLConnection$NoPreloadHolder;->defaultHostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
-    .line 202
     sget-object v1, Ljavax/net/ssl/HttpsURLConnection$NoPreloadHolder;->defaultHostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -74,15 +66,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 188
     return-void
 
-    .line 203
     :catch_0
     move-exception v0
 
-    .line 204
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/AssertionError;
 
     const-string/jumbo v2, "Failed to obtain okhttp HostnameVerifier"
@@ -95,8 +83,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

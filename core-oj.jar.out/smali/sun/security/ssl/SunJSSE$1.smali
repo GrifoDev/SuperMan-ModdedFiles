@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/SunJSSE;Z)V
     .locals 0
-    .param p1, "this$0"    # Lsun/security/ssl/SunJSSE;
-    .param p2, "val$isfips"    # Z
 
-    .prologue
-    .line 150
     iput-object p1, p0, Lsun/security/ssl/SunJSSE$1;->this$0:Lsun/security/ssl/SunJSSE;
 
     iput-boolean p2, p0, Lsun/security/ssl/SunJSSE$1;->val$isfips:Z
@@ -55,15 +51,12 @@
 .method public run()Ljava/lang/Object;
     .locals 2
 
-    .prologue
-    .line 152
     iget-object v0, p0, Lsun/security/ssl/SunJSSE$1;->this$0:Lsun/security/ssl/SunJSSE;
 
     iget-boolean v1, p0, Lsun/security/ssl/SunJSSE$1;->val$isfips:Z
 
     invoke-static {v0, v1}, Lsun/security/ssl/SunJSSE;->-wrap0(Lsun/security/ssl/SunJSSE;Z)V
 
-    .line 153
     const/4 v0, 0x0
 
     return-object v0

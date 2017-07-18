@@ -24,16 +24,11 @@
 # direct methods
 .method constructor <init>(Ljava/security/KeyStore$ProtectionParameter;)V
     .locals 0
-    .param p1, "protection"    # Ljava/security/KeyStore$ProtectionParameter;
 
-    .prologue
-    .line 1793
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1794
     iput-object p1, p0, Ljava/security/KeyStore$SimpleLoadStoreParameter;->protection:Ljava/security/KeyStore$ProtectionParameter;
 
-    .line 1793
     return-void
 .end method
 
@@ -42,8 +37,6 @@
 .method public getProtectionParameter()Ljava/security/KeyStore$ProtectionParameter;
     .locals 1
 
-    .prologue
-    .line 1798
     iget-object v0, p0, Ljava/security/KeyStore$SimpleLoadStoreParameter;->protection:Ljava/security/KeyStore$ProtectionParameter;
 
     return-object v0

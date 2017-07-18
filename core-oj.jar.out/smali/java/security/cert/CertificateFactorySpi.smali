@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,15 +44,12 @@
 
 .method public engineGenerateCertPath(Ljava/io/InputStream;)Ljava/security/cert/CertPath;
     .locals 1
-    .param p1, "inStream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;
         }
     .end annotation
 
-    .prologue
-    .line 127
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -64,16 +59,12 @@
 
 .method public engineGenerateCertPath(Ljava/io/InputStream;Ljava/lang/String;)Ljava/security/cert/CertPath;
     .locals 1
-    .param p1, "inStream"    # Ljava/io/InputStream;
-    .param p2, "encoding"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;
         }
     .end annotation
 
-    .prologue
-    .line 152
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -100,9 +91,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 179
-    .local p1, "certificates":Ljava/util/List;, "Ljava/util/List<+Ljava/security/cert/Certificate;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -150,8 +138,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 205
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

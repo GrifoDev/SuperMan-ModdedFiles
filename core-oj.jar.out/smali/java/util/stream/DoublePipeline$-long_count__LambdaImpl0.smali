@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,9 +30,7 @@
 # virtual methods
 .method public applyAsLong(D)J
     .locals 3
-    .param p1, "arg0"    # D
 
-    .prologue
     invoke-static {p1, p2}, Ljava/util/stream/DoublePipeline;->-java_util_stream_DoublePipeline_lambda$13(D)J
 
     move-result-wide v0

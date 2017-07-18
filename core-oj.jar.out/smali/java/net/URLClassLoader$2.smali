@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/net/URLClassLoader;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/net/URLClassLoader;
-    .param p2, "val$name"    # Ljava/lang/String;
 
-    .prologue
-    .line 547
     iput-object p1, p0, Ljava/net/URLClassLoader$2;->this$0:Ljava/net/URLClassLoader;
 
     iput-object p2, p0, Ljava/net/URLClassLoader$2;->val$name:Ljava/lang/String;
@@ -55,8 +51,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 548
     invoke-virtual {p0}, Ljava/net/URLClassLoader$2;->run()Ljava/net/URL;
 
     move-result-object v0
@@ -67,8 +61,6 @@
 .method public run()Ljava/net/URL;
     .locals 3
 
-    .prologue
-    .line 549
     iget-object v0, p0, Ljava/net/URLClassLoader$2;->this$0:Ljava/net/URLClassLoader;
 
     invoke-static {v0}, Ljava/net/URLClassLoader;->-get1(Ljava/net/URLClassLoader;)Lsun/misc/URLClassPath;

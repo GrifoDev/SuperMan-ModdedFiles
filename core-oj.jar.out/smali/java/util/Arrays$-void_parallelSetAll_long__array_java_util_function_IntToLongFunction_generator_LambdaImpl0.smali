@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>([JLjava/util/function/IntToLongFunction;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/Arrays$-void_parallelSetAll_long__array_java_util_function_IntToLongFunction_generator_LambdaImpl0;->val$array:[J
@@ -41,9 +40,7 @@
 # virtual methods
 .method public accept(I)V
     .locals 2
-    .param p1, "arg0"    # I
 
-    .prologue
     iget-object v0, p0, Ljava/util/Arrays$-void_parallelSetAll_long__array_java_util_function_IntToLongFunction_generator_LambdaImpl0;->val$array:[J
 
     iget-object v1, p0, Ljava/util/Arrays$-void_parallelSetAll_long__array_java_util_function_IntToLongFunction_generator_LambdaImpl0;->val$generator:Ljava/util/function/IntToLongFunction;

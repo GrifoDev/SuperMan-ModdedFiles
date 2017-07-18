@@ -17,18 +17,11 @@
 # direct methods
 .method public constructor <init>(Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V
     .locals 2
-    .param p1, "trustAnchor"    # Ljava/security/cert/TrustAnchor;
-    .param p2, "policyTree"    # Ljava/security/cert/PolicyNode;
-    .param p3, "subjectPublicKey"    # Ljava/security/PublicKey;
 
-    .prologue
-    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
     if-nez p3, :cond_0
 
-    .line 80
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "subjectPublicKey must be non-null"
@@ -37,11 +30,9 @@
 
     throw v0
 
-    .line 81
     :cond_0
     if-nez p1, :cond_1
 
-    .line 82
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "trustAnchor must be non-null"
@@ -50,17 +41,13 @@
 
     throw v0
 
-    .line 83
     :cond_1
     iput-object p1, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->trustAnchor:Ljava/security/cert/TrustAnchor;
 
-    .line 84
     iput-object p2, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->policyTree:Ljava/security/cert/PolicyNode;
 
-    .line 85
     iput-object p3, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->subjectPublicKey:Ljava/security/PublicKey;
 
-    .line 77
     return-void
 .end method
 
@@ -69,8 +56,6 @@
 .method public clone()Ljava/lang/Object;
     .locals 3
 
-    .prologue
-    .line 136
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
     :try_end_0
@@ -80,12 +65,9 @@
 
     return-object v1
 
-    .line 137
     :catch_0
     move-exception v0
 
-    .line 139
-    .local v0, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v1, Ljava/lang/InternalError;
 
     invoke-virtual {v0}, Ljava/lang/CloneNotSupportedException;->toString()Ljava/lang/String;
@@ -100,8 +82,6 @@
 .method public getPolicyTree()Ljava/security/cert/PolicyNode;
     .locals 1
 
-    .prologue
-    .line 116
     iget-object v0, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->policyTree:Ljava/security/cert/PolicyNode;
 
     return-object v0
@@ -110,8 +90,6 @@
 .method public getPublicKey()Ljava/security/PublicKey;
     .locals 1
 
-    .prologue
-    .line 126
     iget-object v0, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->subjectPublicKey:Ljava/security/PublicKey;
 
     return-object v0
@@ -120,8 +98,6 @@
 .method public getTrustAnchor()Ljava/security/cert/TrustAnchor;
     .locals 1
 
-    .prologue
-    .line 95
     iget-object v0, p0, Ljava/security/cert/PKIXCertPathValidatorResult;->trustAnchor:Ljava/security/cert/TrustAnchor;
 
     return-object v0
@@ -130,19 +106,14 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 151
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 152
-    .local v0, "sb":Ljava/lang/StringBuffer;
     const-string/jumbo v1, "PKIXCertPathValidatorResult: [\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 153
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -175,7 +146,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 154
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -208,7 +178,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 155
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -237,12 +206,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 156
     const-string/jumbo v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 157
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1

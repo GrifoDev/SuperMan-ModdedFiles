@@ -30,9 +30,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 93
-    .local p0, "this":Lsun/security/ssl/X509KeyManagerImpl$SizedMap;, "Lsun/security/ssl/X509KeyManagerImpl$SizedMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/LinkedHashMap;-><init>()V
 
     return-void
@@ -41,8 +38,6 @@
 .method synthetic constructor <init>(Lsun/security/ssl/X509KeyManagerImpl$SizedMap;)V
     .locals 0
 
-    .prologue
-    .local p0, "this":Lsun/security/ssl/X509KeyManagerImpl$SizedMap;, "Lsun/security/ssl/X509KeyManagerImpl$SizedMap<TK;TV;>;"
     invoke-direct {p0}, Lsun/security/ssl/X509KeyManagerImpl$SizedMap;-><init>()V
 
     return-void
@@ -60,10 +55,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 95
-    .local p0, "this":Lsun/security/ssl/X509KeyManagerImpl$SizedMap;, "Lsun/security/ssl/X509KeyManagerImpl$SizedMap<TK;TV;>;"
-    .local p1, "eldest":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-virtual {p0}, Ljava/util/HashMap;->size()I
 
     move-result v0

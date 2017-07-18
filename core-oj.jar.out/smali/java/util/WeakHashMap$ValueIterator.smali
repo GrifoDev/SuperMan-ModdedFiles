@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/WeakHashMap;)V
     .locals 0
 
-    .prologue
-    .line 814
-    .local p0, "this":Ljava/util/WeakHashMap$ValueIterator;, "Ljava/util/WeakHashMap<TK;TV;>.ValueIterator;"
-    .local p1, "this$0":Ljava/util/WeakHashMap;, "Ljava/util/WeakHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/WeakHashMap$ValueIterator;->this$0:Ljava/util/WeakHashMap;
 
     invoke-direct {p0, p1}, Ljava/util/WeakHashMap$HashIterator;-><init>(Ljava/util/WeakHashMap;)V
@@ -42,10 +38,7 @@
 
 .method synthetic constructor <init>(Ljava/util/WeakHashMap;Ljava/util/WeakHashMap$ValueIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/WeakHashMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/WeakHashMap$ValueIterator;, "Ljava/util/WeakHashMap<TK;TV;>.ValueIterator;"
     invoke-direct {p0, p1}, Ljava/util/WeakHashMap$ValueIterator;-><init>(Ljava/util/WeakHashMap;)V
 
     return-void
@@ -61,9 +54,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 816
-    .local p0, "this":Ljava/util/WeakHashMap$ValueIterator;, "Ljava/util/WeakHashMap<TK;TV;>.ValueIterator;"
     invoke-virtual {p0}, Ljava/util/WeakHashMap$ValueIterator;->nextEntry()Ljava/util/WeakHashMap$Entry;
 
     move-result-object v0

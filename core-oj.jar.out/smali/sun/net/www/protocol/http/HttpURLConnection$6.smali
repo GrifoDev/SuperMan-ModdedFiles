@@ -38,12 +38,7 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/io/IOException;[Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/net/www/protocol/http/HttpURLConnection;
-    .param p2, "val$rememberedException"    # Ljava/io/IOException;
-    .param p3, "val$args"    # [Ljava/lang/Object;
 
-    .prologue
-    .line 1674
     iput-object p1, p0, Lsun/net/www/protocol/http/HttpURLConnection$6;->this$0:Lsun/net/www/protocol/http/HttpURLConnection;
 
     iput-object p2, p0, Lsun/net/www/protocol/http/HttpURLConnection$6;->val$rememberedException:Ljava/io/IOException;
@@ -65,15 +60,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 1677
     iget-object v0, p0, Lsun/net/www/protocol/http/HttpURLConnection$6;->val$rememberedException:Ljava/io/IOException;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 1678
     const/4 v1, 0x1
 
     new-array v1, v1, [Ljava/lang/Class;
@@ -84,22 +76,18 @@
 
     aput-object v2, v1, v3
 
-    .line 1677
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0
 
-    .line 1679
     iget-object v1, p0, Lsun/net/www/protocol/http/HttpURLConnection$6;->val$args:[Ljava/lang/Object;
 
-    .line 1677
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/io/IOException;
 
-    .line 1676
     return-object v0
 .end method
 
@@ -111,8 +99,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1675
     invoke-virtual {p0}, Lsun/net/www/protocol/http/HttpURLConnection$6;->run()Ljava/io/IOException;
 
     move-result-object v0

@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,12 +30,9 @@
 # virtual methods
 .method public applyAsDouble(Ljava/lang/Object;)D
     .locals 2
-    .param p1, "arg0"    # Ljava/lang/Object;
 
-    .prologue
     check-cast p1, Ljava/lang/Double;
 
-    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {p1}, Ljava/util/stream/DoublePipeline;->-java_util_stream_DoublePipeline_lambda$4(Ljava/lang/Double;)D
 
     move-result-wide v0

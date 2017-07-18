@@ -41,27 +41,20 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 2674
     new-instance v0, Llibcore/util/BasicLruCache;
 
     const/16 v1, 0x8
 
     invoke-direct {v0, v1}, Llibcore/util/BasicLruCache;-><init>(I)V
 
-    .line 2673
     sput-object v0, Ljava/lang/Class$Caches;->genericInterfaces:Llibcore/util/BasicLruCache;
 
-    .line 2666
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 2666
-    .local p0, "this":Ljava/lang/Class$Caches;, "Ljava/lang/Class<TT;>.Caches;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

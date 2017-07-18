@@ -38,12 +38,7 @@
 # direct methods
 .method constructor <init>(Ljava/net/URLClassLoader;Ljava/lang/SecurityManager;Ljava/security/Permission;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/net/URLClassLoader;
-    .param p2, "val$sm"    # Ljava/lang/SecurityManager;
-    .param p3, "val$fp"    # Ljava/security/Permission;
 
-    .prologue
-    .line 686
     iput-object p1, p0, Ljava/net/URLClassLoader$4;->this$0:Ljava/net/URLClassLoader;
 
     iput-object p2, p0, Ljava/net/URLClassLoader$4;->val$sm:Ljava/lang/SecurityManager;
@@ -60,8 +55,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 687
     invoke-virtual {p0}, Ljava/net/URLClassLoader$4;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -77,15 +70,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 688
     iget-object v0, p0, Ljava/net/URLClassLoader$4;->val$sm:Ljava/lang/SecurityManager;
 
     iget-object v1, p0, Ljava/net/URLClassLoader$4;->val$fp:Ljava/security/Permission;
 
     invoke-virtual {v0, v1}, Ljava/lang/SecurityManager;->checkPermission(Ljava/security/Permission;)V
 
-    .line 689
     const/4 v0, 0x0
 
     return-object v0

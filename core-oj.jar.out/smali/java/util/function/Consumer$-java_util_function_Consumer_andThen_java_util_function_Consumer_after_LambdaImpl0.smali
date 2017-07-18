@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/Consumer$-java_util_function_Consumer_andThen_java_util_function_Consumer_after_LambdaImpl0;->val$this:Ljava/util/function/Consumer;
@@ -41,9 +40,7 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "arg0"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/Consumer$-java_util_function_Consumer_andThen_java_util_function_Consumer_after_LambdaImpl0;->val$this:Ljava/util/function/Consumer;
 
     iget-object v1, p0, Ljava/util/function/Consumer$-java_util_function_Consumer_andThen_java_util_function_Consumer_after_LambdaImpl0;->val$after:Ljava/util/function/Consumer;

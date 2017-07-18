@@ -14,16 +14,11 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "c"    # I
 
-    .prologue
-    .line 52
     invoke-direct {p0}, Ljava/util/IllegalFormatException;-><init>()V
 
-    .line 53
     iput p1, p0, Ljava/util/IllegalFormatCodePointException;->c:I
 
-    .line 52
     return-void
 .end method
 
@@ -32,8 +27,6 @@
 .method public getCodePoint()I
     .locals 1
 
-    .prologue
-    .line 63
     iget v0, p0, Ljava/util/IllegalFormatCodePointException;->c:I
 
     return v0
@@ -42,8 +35,6 @@
 .method public getMessage()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 67
     const-string/jumbo v0, "Code point = %#x"
 
     const/4 v1, 0x1

@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/BiPredicate;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/BiPredicate$-java_util_function_BiPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/BiPredicate;
@@ -37,10 +36,7 @@
 # virtual methods
 .method public test(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/BiPredicate$-java_util_function_BiPredicate_negate__LambdaImpl0;->val$this:Ljava/util/function/BiPredicate;
 
     invoke-interface {v0, p1, p2}, Ljava/util/function/BiPredicate;->-java_util_function_BiPredicate_lambda$2(Ljava/lang/Object;Ljava/lang/Object;)Z

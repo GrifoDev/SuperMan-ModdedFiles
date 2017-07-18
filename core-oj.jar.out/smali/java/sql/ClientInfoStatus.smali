@@ -30,7 +30,6 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -39,47 +38,38 @@
 
     const/4 v2, 0x0
 
-    .line 38
     new-instance v0, Ljava/sql/ClientInfoStatus;
 
     const-string/jumbo v1, "REASON_UNKNOWN"
 
     invoke-direct {v0, v1, v2}, Ljava/sql/ClientInfoStatus;-><init>(Ljava/lang/String;I)V
 
-    .line 42
     sput-object v0, Ljava/sql/ClientInfoStatus;->REASON_UNKNOWN:Ljava/sql/ClientInfoStatus;
 
-    .line 44
     new-instance v0, Ljava/sql/ClientInfoStatus;
 
     const-string/jumbo v1, "REASON_UNKNOWN_PROPERTY"
 
     invoke-direct {v0, v1, v3}, Ljava/sql/ClientInfoStatus;-><init>(Ljava/lang/String;I)V
 
-    .line 49
     sput-object v0, Ljava/sql/ClientInfoStatus;->REASON_UNKNOWN_PROPERTY:Ljava/sql/ClientInfoStatus;
 
-    .line 51
     new-instance v0, Ljava/sql/ClientInfoStatus;
 
     const-string/jumbo v1, "REASON_VALUE_INVALID"
 
     invoke-direct {v0, v1, v4}, Ljava/sql/ClientInfoStatus;-><init>(Ljava/lang/String;I)V
 
-    .line 55
     sput-object v0, Ljava/sql/ClientInfoStatus;->REASON_VALUE_INVALID:Ljava/sql/ClientInfoStatus;
 
-    .line 57
     new-instance v0, Ljava/sql/ClientInfoStatus;
 
     const-string/jumbo v1, "REASON_VALUE_TRUNCATED"
 
     invoke-direct {v0, v1, v5}, Ljava/sql/ClientInfoStatus;-><init>(Ljava/lang/String;I)V
 
-    .line 61
     sput-object v0, Ljava/sql/ClientInfoStatus;->REASON_VALUE_TRUNCATED:Ljava/sql/ClientInfoStatus;
 
-    .line 36
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/sql/ClientInfoStatus;
@@ -108,8 +98,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 36
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -117,10 +105,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljava/sql/ClientInfoStatus;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 36
     const-class v0, Ljava/sql/ClientInfoStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -135,8 +120,6 @@
 .method public static values()[Ljava/sql/ClientInfoStatus;
     .locals 1
 
-    .prologue
-    .line 36
     sget-object v0, Ljava/sql/ClientInfoStatus;->$VALUES:[Ljava/sql/ClientInfoStatus;
 
     return-object v0

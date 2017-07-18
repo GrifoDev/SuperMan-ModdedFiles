@@ -35,10 +35,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "val$o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 340
     iput-object p1, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->val$o:Ljava/lang/Object;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,8 +48,6 @@
 .method public bridge synthetic getKey()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 341
     invoke-virtual {p0}, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->getKey()Ljava/lang/ProcessEnvironment$Variable;
 
     move-result-object v0
@@ -63,8 +58,6 @@
 .method public getKey()Ljava/lang/ProcessEnvironment$Variable;
     .locals 1
 
-    .prologue
-    .line 342
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->val$o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -83,8 +76,6 @@
 .method public bridge synthetic getValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 344
     invoke-virtual {p0}, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->getValue()Ljava/lang/ProcessEnvironment$Value;
 
     move-result-object v0
@@ -95,8 +86,6 @@
 .method public getValue()Ljava/lang/ProcessEnvironment$Value;
     .locals 1
 
-    .prologue
-    .line 345
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->val$o:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/Map$Entry;
@@ -114,13 +103,9 @@
 
 .method public bridge synthetic setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .prologue
-    .line 347
     check-cast p1, Ljava/lang/ProcessEnvironment$Value;
 
-    .end local p1    # "value":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/lang/ProcessEnvironment$StringEntrySet$2;->setValue(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/ProcessEnvironment$Value;
 
     move-result-object v0
@@ -130,10 +115,7 @@
 
 .method public setValue(Ljava/lang/ProcessEnvironment$Value;)Ljava/lang/ProcessEnvironment$Value;
     .locals 1
-    .param p1, "value"    # Ljava/lang/ProcessEnvironment$Value;
 
-    .prologue
-    .line 348
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

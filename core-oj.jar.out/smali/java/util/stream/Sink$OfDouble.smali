@@ -35,16 +35,11 @@
 
 .method public accept(Ljava/lang/Double;)V
     .locals 2
-    .param p1, "i"    # Ljava/lang/Double;
 
-    .prologue
-    .line 230
-    .local p0, "this":Ljava/util/stream/Sink$OfDouble;, "Ljava/util/stream/Sink<TT;>.OfDouble;"
     sget-boolean v0, Ljava/util/stream/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_0
 
-    .line 231
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -53,7 +48,6 @@
 
     invoke-static {v0, v1}, Ljava/util/stream/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 232
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
 
@@ -61,20 +55,14 @@
 
     invoke-interface {p0, v0, v1}, Ljava/util/stream/Sink$OfDouble;->accept(D)V
 
-    .line 229
     return-void
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "i"    # Ljava/lang/Object;
 
-    .prologue
-    .line 229
-    .local p0, "this":Ljava/util/stream/Sink$OfDouble;, "Ljava/util/stream/Sink<TT;>.OfDouble;"
     check-cast p1, Ljava/lang/Double;
 
-    .end local p1    # "i":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/stream/Sink$OfDouble;->accept(Ljava/lang/Double;)V
 
     return-void

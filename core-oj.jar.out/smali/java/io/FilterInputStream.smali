@@ -10,16 +10,11 @@
 # direct methods
 .method protected constructor <init>(Ljava/io/InputStream;)V
     .locals 0
-    .param p1, "in"    # Ljava/io/InputStream;
 
-    .prologue
-    .line 61
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    .line 62
     iput-object p1, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
-    .line 61
     return-void
 .end method
 
@@ -33,8 +28,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 168
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->available()I
@@ -52,24 +45,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 181
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    .line 180
     return-void
 .end method
 
 .method public declared-synchronized mark(I)V
     .locals 1
-    .param p1, "readlimit"    # I
 
-    .prologue
     monitor-enter p0
 
-    .line 201
     :try_start_0
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
@@ -79,7 +66,6 @@
 
     monitor-exit p0
 
-    .line 200
     return-void
 
     :catchall_0
@@ -93,8 +79,6 @@
 .method public markSupported()Z
     .locals 1
 
-    .prologue
-    .line 243
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
@@ -112,8 +96,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 83
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->read()I
@@ -125,15 +107,12 @@
 
 .method public read([B)I
     .locals 2
-    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 107
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -147,17 +126,12 @@
 
 .method public read([BII)I
     .locals 1
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 133
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
@@ -175,10 +149,8 @@
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 226
     :try_start_0
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
@@ -188,7 +160,6 @@
 
     monitor-exit p0
 
-    .line 225
     return-void
 
     :catchall_0
@@ -201,15 +172,12 @@
 
 .method public skip(J)J
     .locals 3
-    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 151
     iget-object v0, p0, Ljava/io/FilterInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J

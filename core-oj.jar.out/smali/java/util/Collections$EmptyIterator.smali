@@ -45,25 +45,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 3465
     new-instance v0, Ljava/util/Collections$EmptyIterator;
 
     invoke-direct {v0}, Ljava/util/Collections$EmptyIterator;-><init>()V
 
-    .line 3464
     sput-object v0, Ljava/util/Collections$EmptyIterator;->EMPTY_ITERATOR:Ljava/util/Collections$EmptyIterator;
 
-    .line 3463
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 3463
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -72,8 +65,6 @@
 .method synthetic constructor <init>(Ljava/util/Collections$EmptyIterator;)V
     .locals 0
 
-    .prologue
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
     invoke-direct {p0}, Ljava/util/Collections$EmptyIterator;-><init>()V
 
     return-void
@@ -91,22 +82,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 3472
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 3471
     return-void
 .end method
 
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 3467
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
     const/4 v0, 0x0
 
     return v0
@@ -120,9 +103,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3468
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -133,9 +113,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 3469
-    .local p0, "this":Ljava/util/Collections$EmptyIterator;, "Ljava/util/Collections$EmptyIterator<TE;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V

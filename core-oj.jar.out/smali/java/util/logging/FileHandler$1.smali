@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/logging/FileHandler;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/logging/FileHandler;
 
-    .prologue
-    .line 586
     iput-object p1, p0, Ljava/util/logging/FileHandler$1;->this$0:Ljava/util/logging/FileHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,13 +47,10 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 588
     iget-object v0, p0, Ljava/util/logging/FileHandler$1;->this$0:Ljava/util/logging/FileHandler;
 
     invoke-static {v0}, Ljava/util/logging/FileHandler;->-wrap0(Ljava/util/logging/FileHandler;)V
 
-    .line 589
     const/4 v0, 0x0
 
     return-object v0

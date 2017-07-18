@@ -10,8 +10,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,8 +20,6 @@
 .method public systemRoot()Ljava/util/prefs/Preferences;
     .locals 1
 
-    .prologue
-    .line 45
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getSystemRoot()Ljava/util/prefs/Preferences;
 
     move-result-object v0
@@ -34,8 +30,6 @@
 .method public userRoot()Ljava/util/prefs/Preferences;
     .locals 1
 
-    .prologue
-    .line 41
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->getUserRoot()Ljava/util/prefs/Preferences;
 
     move-result-object v0

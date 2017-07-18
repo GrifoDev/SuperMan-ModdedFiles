@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,9 +30,7 @@
 # virtual methods
 .method public applyAsDouble(D)D
     .locals 3
-    .param p1, "arg0"    # D
 
-    .prologue
     invoke-static {p1, p2}, Ljava/util/function/DoubleUnaryOperator;->-java_util_function_DoubleUnaryOperator_lambda$3(D)D
 
     move-result-wide v0

@@ -23,20 +23,13 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "cn"    # Ljava/lang/String;
-    .param p2, "msg"    # Ljava/lang/String;
 
-    .prologue
-    .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 137
     iput-object p1, p0, Ljava/io/ObjectStreamClass$ExceptionInfo;->className:Ljava/lang/String;
 
-    .line 138
     iput-object p2, p0, Ljava/io/ObjectStreamClass$ExceptionInfo;->message:Ljava/lang/String;
 
-    .line 136
     return-void
 .end method
 
@@ -45,8 +38,6 @@
 .method newInvalidClassException()Ljava/io/InvalidClassException;
     .locals 3
 
-    .prologue
-    .line 147
     new-instance v0, Ljava/io/InvalidClassException;
 
     iget-object v1, p0, Ljava/io/ObjectStreamClass$ExceptionInfo;->className:Ljava/lang/String;

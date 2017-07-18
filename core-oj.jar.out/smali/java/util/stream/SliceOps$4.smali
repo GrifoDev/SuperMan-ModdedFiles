@@ -39,8 +39,6 @@
 .method static synthetic -java_util_stream_SliceOps$4-mthref-0(I)[Ljava/lang/Double;
     .locals 1
 
-    .prologue
-    .line 481
     new-array v0, p0, [Ljava/lang/Double;
 
     return-object v0
@@ -48,21 +46,13 @@
 
 .method constructor <init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJ)V
     .locals 0
-    .param p2, "$anonymous1"    # Ljava/util/stream/StreamShape;
-    .param p3, "$anonymous2"    # I
-    .param p4, "val$skip"    # J
-    .param p6, "val$limit"    # J
 
-    .prologue
-    .line 453
-    .local p1, "$anonymous0":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;"
     iput-wide p4, p0, Ljava/util/stream/SliceOps$4;->val$skip:J
 
     iput-wide p6, p0, Ljava/util/stream/SliceOps$4;->val$limit:J
 
     invoke-direct {p0, p1, p2, p3}, Ljava/util/stream/DoublePipeline$StatefulOp;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V
 
-    .line 454
     return-void
 .end method
 
@@ -92,17 +82,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 490
-    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;"
-    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    .local p3, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[Ljava/lang/Double;>;"
     invoke-virtual/range {p1 .. p2}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v8
 
-    .line 491
-    .local v8, "size":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v8, v2
@@ -119,7 +102,6 @@
 
     if-eqz v2, :cond_0
 
-    .line 497
     invoke-virtual/range {p1 .. p1}, Ljava/util/stream/PipelineHelper;->getSourceShape()Ljava/util/stream/StreamShape;
 
     move-result-object v2
@@ -138,8 +120,6 @@
 
     move-result-object v20
 
-    .line 498
-    .local v20, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     const/4 v2, 0x1
 
     move-object/from16 v0, p1
@@ -152,8 +132,6 @@
 
     return-object v2
 
-    .line 499
-    .end local v20    # "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     :cond_0
     sget-object v2, Ljava/util/stream/StreamOpFlag;->ORDERED:Ljava/util/stream/StreamOpFlag;
 
@@ -167,14 +145,12 @@
 
     if-nez v2, :cond_1
 
-    .line 501
     invoke-virtual/range {p1 .. p2}, Ljava/util/stream/PipelineHelper;->wrapSpliterator(Ljava/util/Spliterator;)Ljava/util/Spliterator;
 
     move-result-object v3
 
     check-cast v3, Ljava/util/Spliterator$OfDouble;
 
-    .line 502
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Ljava/util/stream/SliceOps$4;->val$skip:J
@@ -185,13 +161,10 @@
 
     move-object/from16 v2, p0
 
-    .line 500
     invoke-virtual/range {v2 .. v9}, Ljava/util/stream/SliceOps$4;->unorderedSkipLimitSpliterator(Ljava/util/Spliterator$OfDouble;JJJ)Ljava/util/Spliterator$OfDouble;
 
     move-result-object v10
 
-    .line 507
-    .local v10, "s":Ljava/util/Spliterator$OfDouble;
     const/4 v2, 0x1
 
     move-object/from16 v0, p0
@@ -202,8 +175,6 @@
 
     return-object v2
 
-    .line 510
-    .end local v10    # "s":Ljava/util/Spliterator$OfDouble;
     :cond_1
     new-instance v11, Ljava/util/stream/SliceOps$SliceTask;
 
@@ -258,16 +229,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 469
-    .local p1, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;"
-    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-virtual/range {p1 .. p2}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v8
 
-    .line 470
-    .local v8, "size":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v8, v2
@@ -284,22 +249,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 471
     new-instance v2, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfDouble;
 
-    .line 472
     invoke-virtual/range {p1 .. p2}, Ljava/util/stream/PipelineHelper;->wrapSpliterator(Ljava/util/Spliterator;)Ljava/util/Spliterator;
 
     move-result-object v3
 
     check-cast v3, Ljava/util/Spliterator$OfDouble;
 
-    .line 473
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Ljava/util/stream/SliceOps$4;->val$skip:J
 
-    .line 474
     move-object/from16 v0, p0
 
     iget-wide v6, v0, Ljava/util/stream/SliceOps$4;->val$skip:J
@@ -312,12 +273,10 @@
 
     move-result-wide v6
 
-    .line 471
     invoke-direct/range {v2 .. v7}, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfDouble;-><init>(Ljava/util/Spliterator$OfDouble;JJ)V
 
     return-object v2
 
-    .line 475
     :cond_0
     sget-object v2, Ljava/util/stream/StreamOpFlag;->ORDERED:Ljava/util/stream/StreamOpFlag;
 
@@ -331,14 +290,12 @@
 
     if-nez v2, :cond_1
 
-    .line 477
     invoke-virtual/range {p1 .. p2}, Ljava/util/stream/PipelineHelper;->wrapSpliterator(Ljava/util/Spliterator;)Ljava/util/Spliterator;
 
     move-result-object v3
 
     check-cast v3, Ljava/util/Spliterator$OfDouble;
 
-    .line 478
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Ljava/util/stream/SliceOps$4;->val$skip:J
@@ -349,14 +306,12 @@
 
     move-object/from16 v2, p0
 
-    .line 476
     invoke-virtual/range {v2 .. v9}, Ljava/util/stream/SliceOps$4;->unorderedSkipLimitSpliterator(Ljava/util/Spliterator$OfDouble;JJJ)Ljava/util/Spliterator$OfDouble;
 
     move-result-object v2
 
     return-object v2
 
-    .line 481
     :cond_1
     new-instance v11, Ljava/util/stream/SliceOps$SliceTask;
 
@@ -399,7 +354,6 @@
 
 .method public opWrapSink(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;
     .locals 8
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -414,9 +368,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 517
-    .local p2, "sink":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<Ljava/lang/Double;>;"
     new-instance v1, Ljava/util/stream/SliceOps$4$1;
 
     iget-wide v4, p0, Ljava/util/stream/SliceOps$4;->val$skip:J
@@ -434,18 +385,11 @@
 
 .method unorderedSkipLimitSpliterator(Ljava/util/Spliterator$OfDouble;JJJ)Ljava/util/Spliterator$OfDouble;
     .locals 6
-    .param p1, "s"    # Ljava/util/Spliterator$OfDouble;
-    .param p2, "skip"    # J
-    .param p4, "limit"    # J
-    .param p6, "sizeIfKnown"    # J
 
-    .prologue
-    .line 457
     cmp-long v0, p2, p6
 
     if-gtz v0, :cond_0
 
-    .line 460
     const-wide/16 v0, 0x0
 
     cmp-long v0, p4, v0
@@ -458,11 +402,9 @@
 
     move-result-wide p4
 
-    .line 461
     :goto_0
     const-wide/16 p2, 0x0
 
-    .line 463
     :cond_0
     new-instance v0, Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$OfDouble;
 
@@ -476,7 +418,6 @@
 
     return-object v0
 
-    .line 460
     :cond_1
     sub-long p4, p6, p2
 

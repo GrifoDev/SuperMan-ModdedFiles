@@ -21,26 +21,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 117
     invoke-direct {p0}, Ljava/util/ResourceBundle;-><init>()V
 
-    .line 203
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 
-    .line 117
     return-void
 .end method
 
 .method private declared-synchronized loadLookup()V
     .locals 7
 
-    .prologue
     monitor-enter p0
 
-    .line 186
     :try_start_0
     iget-object v5, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
     :try_end_0
@@ -50,35 +44,27 @@
 
     monitor-exit p0
 
-    .line 187
     return-void
 
-    .line 189
     :cond_0
     :try_start_1
     invoke-virtual {p0}, Ljava/util/ListResourceBundle;->getContents()[[Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 190
-    .local v0, "contents":[[Ljava/lang/Object;
     new-instance v3, Ljava/util/HashMap;
 
     array-length v5, v0
 
     invoke-direct {v3, v5}, Ljava/util/HashMap;-><init>(I)V
 
-    .line 191
-    .local v3, "temp":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     array-length v5, v0
 
     if-ge v1, v5, :cond_3
 
-    .line 193
     aget-object v5, v0, v1
 
     const/4 v6, 0x0
@@ -87,21 +73,16 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 194
-    .local v2, "key":Ljava/lang/String;
     aget-object v5, v0, v1
 
     const/4 v6, 0x1
 
     aget-object v4, v5, v6
 
-    .line 195
-    .local v4, "value":Ljava/lang/Object;
     if-eqz v2, :cond_1
 
     if-nez v4, :cond_2
 
-    .line 196
     :cond_1
     new-instance v5, Ljava/lang/NullPointerException;
 
@@ -111,11 +92,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .end local v0    # "contents":[[Ljava/lang/Object;
-    .end local v1    # "i":I
-    .end local v2    # "key":Ljava/lang/String;
-    .end local v3    # "temp":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v4    # "value":Ljava/lang/Object;
     :catchall_0
     move-exception v5
 
@@ -123,24 +99,14 @@
 
     throw v5
 
-    .line 198
-    .restart local v0    # "contents":[[Ljava/lang/Object;
-    .restart local v1    # "i":I
-    .restart local v2    # "key":Ljava/lang/String;
-    .restart local v3    # "temp":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
-    .restart local v4    # "value":Ljava/lang/Object;
     :cond_2
     :try_start_2
     invoke-virtual {v3, v2, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 191
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 200
-    .end local v2    # "key":Ljava/lang/String;
-    .end local v4    # "value":Ljava/lang/Object;
     :cond_3
     iput-object v3, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
     :try_end_2
@@ -148,7 +114,6 @@
 
     monitor-exit p0
 
-    .line 185
     return-void
 .end method
 
@@ -169,23 +134,17 @@
         }
     .end annotation
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 142
     iget-object v2, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 
     if-nez v2, :cond_0
 
-    .line 143
     invoke-direct {p0}, Ljava/util/ListResourceBundle;->loadLookup()V
 
-    .line 146
     :cond_0
     iget-object v0, p0, Ljava/util/ResourceBundle;->parent:Ljava/util/ResourceBundle;
 
-    .line 147
-    .local v0, "parent":Ljava/util/ResourceBundle;
     new-instance v2, Lsun/util/ResourceBundleEnumeration;
 
     iget-object v3, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
@@ -194,14 +153,12 @@
 
     move-result-object v3
 
-    .line 148
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/util/ResourceBundle;->getKeys()Ljava/util/Enumeration;
 
     move-result-object v1
 
-    .line 147
     :cond_1
     invoke-direct {v2, v3, v1}, Lsun/util/ResourceBundleEnumeration;-><init>(Ljava/util/Set;Ljava/util/Enumeration;)V
 
@@ -210,29 +167,22 @@
 
 .method public final handleGetObject(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
-    .prologue
-    .line 123
     iget-object v0, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 
     if-nez v0, :cond_0
 
-    .line 124
     invoke-direct {p0}, Ljava/util/ListResourceBundle;->loadLookup()V
 
-    .line 126
     :cond_0
     if-nez p1, :cond_1
 
-    .line 127
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 129
     :cond_1
     iget-object v0, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 
@@ -255,16 +205,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 161
     iget-object v0, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 
     if-nez v0, :cond_0
 
-    .line 162
     invoke-direct {p0}, Ljava/util/ListResourceBundle;->loadLookup()V
 
-    .line 164
     :cond_0
     iget-object v0, p0, Ljava/util/ListResourceBundle;->lookup:Ljava/util/Map;
 

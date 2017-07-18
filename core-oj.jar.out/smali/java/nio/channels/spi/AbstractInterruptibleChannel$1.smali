@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
-    .prologue
-    .line 158
     iput-object p1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +36,7 @@
 # virtual methods
 .method public interrupt(Ljava/lang/Thread;)V
     .locals 4
-    .param p1, "target"    # Ljava/lang/Thread;
 
-    .prologue
-    .line 160
     iget-object v1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
     invoke-static {v1}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->-get0(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)Ljava/lang/Object;
@@ -51,7 +45,6 @@
 
     monitor-enter v2
 
-    .line 161
     :try_start_0
     iget-object v1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
@@ -65,10 +58,8 @@
 
     monitor-exit v2
 
-    .line 162
     return-void
 
-    .line 163
     :cond_0
     :try_start_1
     iget-object v1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
@@ -77,14 +68,12 @@
 
     invoke-static {v1, v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->-set1(Ljava/nio/channels/spi/AbstractInterruptibleChannel;Z)Z
 
-    .line 164
     iget-object v1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
     invoke-static {v1, p1}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->-set0(Ljava/nio/channels/spi/AbstractInterruptibleChannel;Ljava/lang/Thread;)Ljava/lang/Thread;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 166
     :try_start_2
     iget-object v1, p0, Ljava/nio/channels/spi/AbstractInterruptibleChannel$1;->this$0:Ljava/nio/channels/spi/AbstractInterruptibleChannel;
 
@@ -96,10 +85,8 @@
     :goto_0
     monitor-exit v2
 
-    .line 159
     return-void
 
-    .line 160
     :catchall_0
     move-exception v1
 
@@ -107,10 +94,8 @@
 
     throw v1
 
-    .line 167
     :catch_0
     move-exception v0
 
-    .local v0, "x":Ljava/io/IOException;
     goto :goto_0
 .end method

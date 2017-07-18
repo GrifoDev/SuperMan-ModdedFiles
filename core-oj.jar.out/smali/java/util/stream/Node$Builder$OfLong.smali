@@ -36,9 +36,6 @@
 .method public bridge synthetic build()Ljava/util/stream/Node;
     .locals 1
 
-    .prologue
-    .line 212
-    .local p0, "this":Ljava/util/stream/Node$Builder$OfLong;, "Ljava/util/stream/Node<TT;>.Builder<TT;>.OfLong;"
     invoke-interface {p0}, Ljava/util/stream/Node$Builder$OfLong;->build()Ljava/util/stream/Node$OfLong;
 
     move-result-object v0

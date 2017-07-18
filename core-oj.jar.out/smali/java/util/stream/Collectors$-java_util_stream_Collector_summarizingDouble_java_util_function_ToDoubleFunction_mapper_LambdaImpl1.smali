@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/ToDoubleFunction;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_summarizingDouble_java_util_function_ToDoubleFunction_mapper_LambdaImpl1;->val$mapper:Ljava/util/function/ToDoubleFunction;
@@ -37,15 +36,11 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_summarizingDouble_java_util_function_ToDoubleFunction_mapper_LambdaImpl1;->val$mapper:Ljava/util/function/ToDoubleFunction;
 
     check-cast p1, Ljava/util/DoubleSummaryStatistics;
 
-    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {v0, p1, p2}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$88(Ljava/util/function/ToDoubleFunction;Ljava/util/DoubleSummaryStatistics;Ljava/lang/Object;)V
 
     return-void

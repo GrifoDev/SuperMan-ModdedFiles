@@ -11,8 +11,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 37
     invoke-direct {p0}, Ljava/lang/SecurityManager;-><init>()V
 
     return-void
@@ -22,10 +20,7 @@
 # virtual methods
 .method getCryptoPermission(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;
     .locals 1
-    .param p1, "alg"    # Ljava/lang/String;
 
-    .prologue
-    .line 41
     const/4 v0, 0x0
 
     return-object v0

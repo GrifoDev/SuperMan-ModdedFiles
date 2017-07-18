@@ -51,15 +51,11 @@
 # direct methods
 .method constructor <init>(Ljava/lang/ProcessEnvironment$StringEntrySet;)V
     .locals 1
-    .param p1, "this$1"    # Ljava/lang/ProcessEnvironment$StringEntrySet;
 
-    .prologue
-    .line 328
     iput-object p1, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->this$1:Ljava/lang/ProcessEnvironment$StringEntrySet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 329
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->this$1:Ljava/lang/ProcessEnvironment$StringEntrySet;
 
     invoke-static {v0}, Ljava/lang/ProcessEnvironment$StringEntrySet;->-get0(Ljava/lang/ProcessEnvironment$StringEntrySet;)Ljava/util/Set;
@@ -72,7 +68,6 @@
 
     iput-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->i:Ljava/util/Iterator;
 
-    .line 328
     return-void
 .end method
 
@@ -81,8 +76,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 330
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -95,8 +88,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 331
     invoke-virtual {p0}, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -117,8 +108,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 332
     new-instance v1, Ljava/lang/ProcessEnvironment$StringEntry;
 
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->i:Ljava/util/Iterator;
@@ -137,8 +126,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 334
     iget-object v0, p0, Ljava/lang/ProcessEnvironment$StringEntrySet$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V

@@ -25,16 +25,11 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/String;
 
-    .prologue
-    .line 135
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 136
     iput-object p1, p0, Ljava/security/cert/CertPath;->type:Ljava/lang/String;
 
-    .line 135
     return-void
 .end method
 
@@ -42,36 +37,27 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 179
     if-ne p0, p1, :cond_0
 
-    .line 180
     const/4 v3, 0x1
 
     return v3
 
-    .line 182
     :cond_0
     instance-of v3, p1, Ljava/security/cert/CertPath;
 
     if-nez v3, :cond_1
 
-    .line 183
     return v5
 
     :cond_1
     move-object v0, p1
 
-    .line 185
     check-cast v0, Ljava/security/cert/CertPath;
 
-    .line 186
-    .local v0, "otherCP":Ljava/security/cert/CertPath;
     invoke-virtual {v0}, Ljava/security/cert/CertPath;->getType()Ljava/lang/String;
 
     move-result-object v3
@@ -84,23 +70,17 @@
 
     if-nez v3, :cond_2
 
-    .line 187
     return v5
 
-    .line 189
     :cond_2
     invoke-virtual {p0}, Ljava/security/cert/CertPath;->getCertificates()Ljava/util/List;
 
     move-result-object v2
 
-    .line 190
-    .local v2, "thisCertList":Ljava/util/List;, "Ljava/util/List<+Ljava/security/cert/Certificate;>;"
     invoke-virtual {v0}, Ljava/security/cert/CertPath;->getCertificates()Ljava/util/List;
 
     move-result-object v1
 
-    .line 191
-    .local v1, "otherCertList":Ljava/util/List;, "Ljava/util/List<+Ljava/security/cert/Certificate;>;"
     invoke-interface {v2, v1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -151,8 +131,6 @@
 .method public getType()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 149
     iget-object v0, p0, Ljava/security/cert/CertPath;->type:Ljava/lang/String;
 
     return-object v0
@@ -161,16 +139,12 @@
 .method public hashCode()I
     .locals 3
 
-    .prologue
-    .line 210
     iget-object v1, p0, Ljava/security/cert/CertPath;->type:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    .line 211
-    .local v0, "hashCode":I
     mul-int/lit8 v1, v0, 0x1f
 
     invoke-virtual {p0}, Ljava/security/cert/CertPath;->getCertificates()Ljava/util/List;
@@ -183,21 +157,16 @@
 
     add-int v0, v1, v2
 
-    .line 212
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 6
 
-    .prologue
-    .line 223
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 225
-    .local v1, "sb":Ljava/lang/StringBuffer;
     invoke-virtual {p0}, Ljava/security/cert/CertPath;->getCertificates()Ljava/util/List;
 
     move-result-object v4
@@ -206,8 +175,6 @@
 
     move-result-object v3
 
-    .line 227
-    .local v3, "stringIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+Ljava/security/cert/Certificate;>;"
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -230,7 +197,6 @@
 
     move-result-object v4
 
-    .line 228
     invoke-virtual {p0}, Ljava/security/cert/CertPath;->getCertificates()Ljava/util/List;
 
     move-result-object v5
@@ -239,15 +205,12 @@
 
     move-result v5
 
-    .line 227
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    .line 228
     const-string/jumbo v5, ".\n"
 
-    .line 227
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -258,16 +221,12 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 229
     const-string/jumbo v4, "[\n"
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 230
     const/4 v0, 0x1
 
-    .line 231
-    .local v0, "i":I
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -275,7 +234,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 232
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -290,10 +248,8 @@
 
     move-result-object v4
 
-    .line 233
     const-string/jumbo v5, " start.\n"
 
-    .line 232
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -304,22 +260,18 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 234
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/security/cert/Certificate;
 
-    .line 235
-    .local v2, "stringCert":Ljava/security/cert/Certificate;
     invoke-virtual {v2}, Ljava/security/cert/Certificate;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 236
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -334,10 +286,8 @@
 
     move-result-object v4
 
-    .line 237
     const-string/jumbo v5, " end.\n\n\n"
 
-    .line 236
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -348,19 +298,15 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 238
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 241
-    .end local v2    # "stringCert":Ljava/security/cert/Certificate;
     :cond_0
     const-string/jumbo v4, "\n]"
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 242
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -376,8 +322,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 287
     :try_start_0
     new-instance v2, Ljava/security/cert/CertPath$CertPathRep;
 
@@ -393,15 +337,11 @@
 
     return-object v2
 
-    .line 288
     :catch_0
     move-exception v0
 
-    .line 290
-    .local v0, "ce":Ljava/security/cert/CertificateException;
     new-instance v1, Ljava/io/NotSerializableException;
 
-    .line 291
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -422,13 +362,9 @@
 
     move-result-object v2
 
-    .line 290
     invoke-direct {v1, v2}, Ljava/io/NotSerializableException;-><init>(Ljava/lang/String;)V
 
-    .line 292
-    .local v1, "nse":Ljava/io/NotSerializableException;
     invoke-virtual {v1, v0}, Ljava/io/NotSerializableException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 293
     throw v1
 .end method

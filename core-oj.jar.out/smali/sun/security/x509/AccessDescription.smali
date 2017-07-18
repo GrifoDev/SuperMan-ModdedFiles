@@ -25,10 +25,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
     const/16 v1, 0x9
 
-    .line 46
     new-array v0, v1, [I
 
     fill-array-data v0, :array_0
@@ -37,10 +35,8 @@
 
     move-result-object v0
 
-    .line 45
     sput-object v0, Lsun/security/x509/AccessDescription;->Ad_OCSP_Id:Lsun/security/util/ObjectIdentifier;
 
-    .line 49
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
@@ -49,10 +45,8 @@
 
     move-result-object v0
 
-    .line 48
     sput-object v0, Lsun/security/x509/AccessDescription;->Ad_CAISSUERS_Id:Lsun/security/util/ObjectIdentifier;
 
-    .line 52
     new-array v0, v1, [I
 
     fill-array-data v0, :array_2
@@ -61,10 +55,8 @@
 
     move-result-object v0
 
-    .line 51
     sput-object v0, Lsun/security/x509/AccessDescription;->Ad_TIMESTAMPING_Id:Lsun/security/util/ObjectIdentifier;
 
-    .line 55
     new-array v0, v1, [I
 
     fill-array-data v0, :array_3
@@ -73,13 +65,10 @@
 
     move-result-object v0
 
-    .line 54
     sput-object v0, Lsun/security/x509/AccessDescription;->Ad_CAREPOSITORY_Id:Lsun/security/util/ObjectIdentifier;
 
-    .line 37
     return-void
 
-    .line 46
     nop
 
     :array_0
@@ -95,7 +84,6 @@
         0x1
     .end array-data
 
-    .line 49
     :array_1
     .array-data 4
         0x1
@@ -109,7 +97,6 @@
         0x2
     .end array-data
 
-    .line 52
     :array_2
     .array-data 4
         0x1
@@ -123,7 +110,6 @@
         0x3
     .end array-data
 
-    .line 55
     :array_3
     .array-data 4
         0x1
@@ -140,36 +126,28 @@
 
 .method public constructor <init>(Lsun/security/util/DerValue;)V
     .locals 3
-    .param p1, "derValue"    # Lsun/security/util/DerValue;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     const/4 v1, -0x1
 
     iput v1, p0, Lsun/security/x509/AccessDescription;->myhash:I
 
-    .line 63
     invoke-virtual {p1}, Lsun/security/util/DerValue;->getData()Lsun/security/util/DerInputStream;
 
     move-result-object v0
 
-    .line 64
-    .local v0, "derIn":Lsun/security/util/DerInputStream;
     invoke-virtual {v0}, Lsun/security/util/DerInputStream;->getOID()Lsun/security/util/ObjectIdentifier;
 
     move-result-object v1
 
     iput-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
-    .line 65
     new-instance v1, Lsun/security/x509/GeneralName;
 
     invoke-virtual {v0}, Lsun/security/util/DerInputStream;->getDerValue()Lsun/security/util/DerValue;
@@ -180,31 +158,22 @@
 
     iput-object v1, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(Lsun/security/util/ObjectIdentifier;Lsun/security/x509/GeneralName;)V
     .locals 1
-    .param p1, "accessMethod"    # Lsun/security/util/ObjectIdentifier;
-    .param p2, "accessLocation"    # Lsun/security/x509/GeneralName;
 
-    .prologue
-    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     const/4 v0, -0x1
 
     iput v0, p0, Lsun/security/x509/AccessDescription;->myhash:I
 
-    .line 58
     iput-object p1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
-    .line 59
     iput-object p2, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
-    .line 57
     return-void
 .end method
 
@@ -212,47 +181,36 @@
 # virtual methods
 .method public encode(Lsun/security/util/DerOutputStream;)V
     .locals 2
-    .param p1, "out"    # Lsun/security/util/DerOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 77
     new-instance v0, Lsun/security/util/DerOutputStream;
 
     invoke-direct {v0}, Lsun/security/util/DerOutputStream;-><init>()V
 
-    .line 78
-    .local v0, "tmp":Lsun/security/util/DerOutputStream;
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
     invoke-virtual {v0, v1}, Lsun/security/util/DerOutputStream;->putOID(Lsun/security/util/ObjectIdentifier;)V
 
-    .line 79
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
     invoke-virtual {v1, v0}, Lsun/security/x509/GeneralName;->encode(Lsun/security/util/DerOutputStream;)V
 
-    .line 80
     const/16 v1, 0x30
 
     invoke-virtual {p1, v1, v0}, Lsun/security/util/DerOutputStream;->write(BLsun/security/util/DerOutputStream;)V
 
-    .line 76
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 91
     if-eqz p1, :cond_0
 
     instance-of v2, p1, Lsun/security/x509/AccessDescription;
@@ -261,25 +219,17 @@
 
     move-object v0, p1
 
-    .line 94
     check-cast v0, Lsun/security/x509/AccessDescription;
 
-    .line 96
-    .local v0, "that":Lsun/security/x509/AccessDescription;
     if-ne p0, v0, :cond_1
 
-    .line 97
     const/4 v1, 0x1
 
     return v1
 
-    .line 92
-    .end local v0    # "that":Lsun/security/x509/AccessDescription;
     :cond_0
     return v1
 
-    .line 99
-    .restart local v0    # "that":Lsun/security/x509/AccessDescription;
     :cond_1
     iget-object v2, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
@@ -293,7 +243,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 100
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
     invoke-virtual {v0}, Lsun/security/x509/AccessDescription;->getAccessLocation()Lsun/security/x509/GeneralName;
@@ -304,7 +253,6 @@
 
     move-result v1
 
-    .line 99
     :cond_2
     return v1
 .end method
@@ -312,8 +260,6 @@
 .method public getAccessLocation()Lsun/security/x509/GeneralName;
     .locals 1
 
-    .prologue
-    .line 73
     iget-object v0, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
     return-object v0
@@ -322,8 +268,6 @@
 .method public getAccessMethod()Lsun/security/util/ObjectIdentifier;
     .locals 1
 
-    .prologue
-    .line 69
     iget-object v0, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
     return-object v0
@@ -332,15 +276,12 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 84
     iget v0, p0, Lsun/security/x509/AccessDescription;->myhash:I
 
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 85
     iget-object v0, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
     invoke-virtual {v0}, Lsun/security/util/ObjectIdentifier;->hashCode()I
@@ -357,7 +298,6 @@
 
     iput v0, p0, Lsun/security/x509/AccessDescription;->myhash:I
 
-    .line 87
     :cond_0
     iget v0, p0, Lsun/security/x509/AccessDescription;->myhash:I
 
@@ -367,12 +307,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 104
     const/4 v0, 0x0
 
-    .line 105
-    .local v0, "method":Ljava/lang/String;
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
     sget-object v2, Lsun/security/x509/AccessDescription;->Ad_CAISSUERS_Id:Lsun/security/util/ObjectIdentifier;
@@ -383,11 +319,8 @@
 
     if-eqz v1, :cond_0
 
-    .line 106
     const-string/jumbo v0, "caIssuers"
 
-    .line 116
-    .local v0, "method":Ljava/lang/String;
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -403,30 +336,24 @@
 
     move-result-object v1
 
-    .line 117
     const-string/jumbo v2, "\n   accessLocation: "
 
-    .line 116
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 117
     iget-object v2, p0, Lsun/security/x509/AccessDescription;->accessLocation:Lsun/security/x509/GeneralName;
 
     invoke-virtual {v2}, Lsun/security/x509/GeneralName;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 116
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 117
     const-string/jumbo v2, "\n"
 
-    .line 116
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -437,8 +364,6 @@
 
     return-object v1
 
-    .line 107
-    .local v0, "method":Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
@@ -450,14 +375,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 108
     const-string/jumbo v0, "caRepository"
 
-    .local v0, "method":Ljava/lang/String;
     goto :goto_0
 
-    .line 109
-    .local v0, "method":Ljava/lang/String;
     :cond_1
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
@@ -469,14 +390,10 @@
 
     if-eqz v1, :cond_2
 
-    .line 110
     const-string/jumbo v0, "timeStamping"
 
-    .local v0, "method":Ljava/lang/String;
     goto :goto_0
 
-    .line 111
-    .local v0, "method":Ljava/lang/String;
     :cond_2
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
@@ -488,14 +405,10 @@
 
     if-eqz v1, :cond_3
 
-    .line 112
     const-string/jumbo v0, "ocsp"
 
-    .local v0, "method":Ljava/lang/String;
     goto :goto_0
 
-    .line 114
-    .local v0, "method":Ljava/lang/String;
     :cond_3
     iget-object v1, p0, Lsun/security/x509/AccessDescription;->accessMethod:Lsun/security/util/ObjectIdentifier;
 
@@ -503,6 +416,5 @@
 
     move-result-object v0
 
-    .local v0, "method":Ljava/lang/String;
     goto :goto_0
 .end method

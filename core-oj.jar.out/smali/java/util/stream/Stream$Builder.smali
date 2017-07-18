@@ -47,13 +47,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1126
-    .local p0, "this":Ljava/util/stream/Stream$Builder;, "Ljava/util/stream/Stream<TT;>.Builder<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-interface {p0, p1}, Ljava/util/stream/Stream$Builder;->accept(Ljava/lang/Object;)V
 
-    .line 1127
     return-object p0
 .end method
 

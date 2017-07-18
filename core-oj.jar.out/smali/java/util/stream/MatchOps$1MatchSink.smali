@@ -30,19 +30,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Predicate;)V
     .locals 0
-    .param p1, "val$matchKind"    # Ljava/util/stream/MatchOps$MatchKind;
 
-    .prologue
-    .line 84
-    .local p2, "val$predicate":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TT;>;"
     iput-object p1, p0, Ljava/util/stream/MatchOps$1MatchSink;->val$matchKind:Ljava/util/stream/MatchOps$MatchKind;
 
     iput-object p2, p0, Ljava/util/stream/MatchOps$1MatchSink;->val$predicate:Ljava/util/function/Predicate;
 
-    .line 85
     invoke-direct {p0, p1}, Ljava/util/stream/MatchOps$BooleanTerminalSink;-><init>(Ljava/util/stream/MatchOps$MatchKind;)V
 
-    .line 84
     return-void
 .end method
 
@@ -56,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 90
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->stop:Z
 
     if-nez v0, :cond_0
@@ -77,12 +68,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 91
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->stop:Z
 
-    .line 92
     iget-object v0, p0, Ljava/util/stream/MatchOps$1MatchSink;->val$matchKind:Ljava/util/stream/MatchOps$MatchKind;
 
     invoke-static {v0}, Ljava/util/stream/MatchOps$MatchKind;->-get0(Ljava/util/stream/MatchOps$MatchKind;)Z
@@ -91,7 +80,6 @@
 
     iput-boolean v0, p0, Ljava/util/stream/MatchOps$BooleanTerminalSink;->value:Z
 
-    .line 89
     :cond_0
     return-void
 .end method

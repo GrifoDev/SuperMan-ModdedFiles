@@ -16,31 +16,22 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;C)V
     .locals 1
-    .param p1, "f"    # Ljava/lang/String;
-    .param p2, "c"    # C
 
-    .prologue
-    .line 56
     invoke-direct {p0}, Ljava/util/IllegalFormatException;-><init>()V
 
-    .line 57
     if-nez p1, :cond_0
 
-    .line 58
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 59
     :cond_0
     iput-object p1, p0, Ljava/util/FormatFlagsConversionMismatchException;->f:Ljava/lang/String;
 
-    .line 60
     iput-char p2, p0, Ljava/util/FormatFlagsConversionMismatchException;->c:C
 
-    .line 56
     return-void
 .end method
 
@@ -49,8 +40,6 @@
 .method public getConversion()C
     .locals 1
 
-    .prologue
-    .line 78
     iget-char v0, p0, Ljava/util/FormatFlagsConversionMismatchException;->c:C
 
     return v0
@@ -59,8 +48,6 @@
 .method public getFlags()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 69
     iget-object v0, p0, Ljava/util/FormatFlagsConversionMismatchException;->f:Ljava/lang/String;
 
     return-object v0
@@ -69,8 +56,6 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 82
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

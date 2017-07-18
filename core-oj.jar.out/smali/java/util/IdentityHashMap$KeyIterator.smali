@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/IdentityHashMap;)V
     .locals 1
 
-    .prologue
-    .line 828
-    .local p0, "this":Ljava/util/IdentityHashMap$KeyIterator;, "Ljava/util/IdentityHashMap<TK;TV;>.KeyIterator;"
-    .local p1, "this$0":Ljava/util/IdentityHashMap;, "Ljava/util/IdentityHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/IdentityHashMap$KeyIterator;->this$0:Ljava/util/IdentityHashMap;
 
     const/4 v0, 0x0
@@ -44,10 +40,7 @@
 
 .method synthetic constructor <init>(Ljava/util/IdentityHashMap;Ljava/util/IdentityHashMap$KeyIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/IdentityHashMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/IdentityHashMap$KeyIterator;, "Ljava/util/IdentityHashMap<TK;TV;>.KeyIterator;"
     invoke-direct {p0, p1}, Ljava/util/IdentityHashMap$KeyIterator;-><init>(Ljava/util/IdentityHashMap;)V
 
     return-void
@@ -63,9 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 831
-    .local p0, "this":Ljava/util/IdentityHashMap$KeyIterator;, "Ljava/util/IdentityHashMap<TK;TV;>.KeyIterator;"
     iget-object v0, p0, Ljava/util/IdentityHashMap$KeyIterator;->traversalTable:[Ljava/lang/Object;
 
     invoke-virtual {p0}, Ljava/util/IdentityHashMap$KeyIterator;->nextIndex()I

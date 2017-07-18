@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 176
     invoke-virtual {p0}, Lsun/net/www/http/KeepAliveStream$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -55,10 +51,8 @@
 .method public run()Ljava/lang/Void;
     .locals 6
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 179
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
@@ -67,25 +61,19 @@
 
     move-result-object v0
 
-    .line 180
-    .local v0, "grp":Ljava/lang/ThreadGroup;
     const/4 v1, 0x0
 
-    .line 181
     :goto_0
     invoke-virtual {v0}, Ljava/lang/ThreadGroup;->getParent()Ljava/lang/ThreadGroup;
 
     move-result-object v1
 
-    .local v1, "parent":Ljava/lang/ThreadGroup;
     if-eqz v1, :cond_0
 
-    .line 182
     move-object v0, v1
 
     goto :goto_0
 
-    .line 185
     :cond_0
     new-instance v2, Ljava/lang/Thread;
 
@@ -99,7 +87,6 @@
 
     invoke-static {v2}, Lsun/net/www/http/KeepAliveStream;->-set0(Ljava/lang/Thread;)Ljava/lang/Thread;
 
-    .line 186
     invoke-static {}, Lsun/net/www/http/KeepAliveStream;->-get0()Ljava/lang/Thread;
 
     move-result-object v2
@@ -108,7 +95,6 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    .line 187
     invoke-static {}, Lsun/net/www/http/KeepAliveStream;->-get0()Ljava/lang/Thread;
 
     move-result-object v2
@@ -117,20 +103,17 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/Thread;->setPriority(I)V
 
-    .line 190
     invoke-static {}, Lsun/net/www/http/KeepAliveStream;->-get0()Ljava/lang/Thread;
 
     move-result-object v2
 
     invoke-virtual {v2, v5}, Ljava/lang/Thread;->setContextClassLoader(Ljava/lang/ClassLoader;)V
 
-    .line 191
     invoke-static {}, Lsun/net/www/http/KeepAliveStream;->-get0()Ljava/lang/Thread;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    .line 192
     return-object v5
 .end method

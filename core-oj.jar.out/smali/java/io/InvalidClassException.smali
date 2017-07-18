@@ -14,29 +14,19 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "reason"    # Ljava/lang/String;
 
-    .prologue
-    .line 58
     invoke-direct {p0, p1}, Ljava/io/ObjectStreamException;-><init>(Ljava/lang/String;)V
 
-    .line 57
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "cname"    # Ljava/lang/String;
-    .param p2, "reason"    # Ljava/lang/String;
 
-    .prologue
-    .line 68
     invoke-direct {p0, p2}, Ljava/io/ObjectStreamException;-><init>(Ljava/lang/String;)V
 
-    .line 69
     iput-object p1, p0, Ljava/io/InvalidClassException;->classname:Ljava/lang/String;
 
-    .line 67
     return-void
 .end method
 
@@ -45,20 +35,16 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 76
     iget-object v0, p0, Ljava/io/InvalidClassException;->classname:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 77
     invoke-super {p0}, Ljava/io/ObjectStreamException;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 79
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 

@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 170
     invoke-virtual {p0}, Ljava/nio/channels/spi/SelectorProvider$1;->run()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0
@@ -55,22 +51,18 @@
 .method public run()Ljava/nio/channels/spi/SelectorProvider;
     .locals 1
 
-    .prologue
-    .line 171
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->-wrap1()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 172
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->-get0()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0
 
     return-object v0
 
-    .line 173
     :cond_0
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->-wrap0()Z
 
@@ -78,14 +70,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 174
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->-get0()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0
 
     return-object v0
 
-    .line 175
     :cond_1
     invoke-static {}, Lsun/nio/ch/DefaultSelectorProvider;->create()Ljava/nio/channels/spi/SelectorProvider;
 
@@ -93,7 +83,6 @@
 
     invoke-static {v0}, Ljava/nio/channels/spi/SelectorProvider;->-set0(Ljava/nio/channels/spi/SelectorProvider;)Ljava/nio/channels/spi/SelectorProvider;
 
-    .line 176
     invoke-static {}, Ljava/nio/channels/spi/SelectorProvider;->-get0()Ljava/nio/channels/spi/SelectorProvider;
 
     move-result-object v0

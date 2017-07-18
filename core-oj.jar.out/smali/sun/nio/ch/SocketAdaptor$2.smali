@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Lsun/nio/ch/SocketAdaptor;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/nio/ch/SocketAdaptor;
 
-    .prologue
-    .line 297
     iput-object p1, p0, Lsun/nio/ch/SocketAdaptor$2;->this$0:Lsun/nio/ch/SocketAdaptor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 299
     iget-object v0, p0, Lsun/nio/ch/SocketAdaptor$2;->this$0:Lsun/nio/ch/SocketAdaptor;
 
     invoke-static {v0}, Lsun/nio/ch/SocketAdaptor;->-get0(Lsun/nio/ch/SocketAdaptor;)Lsun/nio/ch/SocketChannelImpl;
@@ -78,8 +73,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 298
     invoke-virtual {p0}, Lsun/nio/ch/SocketAdaptor$2;->run()Ljava/io/OutputStream;
 
     move-result-object v0

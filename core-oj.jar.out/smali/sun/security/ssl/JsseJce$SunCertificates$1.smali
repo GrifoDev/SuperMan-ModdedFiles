@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/JsseJce$SunCertificates;Ljava/security/Provider;)V
     .locals 0
-    .param p1, "this$1"    # Lsun/security/ssl/JsseJce$SunCertificates;
-    .param p2, "val$p"    # Ljava/security/Provider;
 
-    .prologue
-    .line 115
     iput-object p1, p0, Lsun/security/ssl/JsseJce$SunCertificates$1;->this$1:Lsun/security/ssl/JsseJce$SunCertificates;
 
     iput-object p2, p0, Lsun/security/ssl/JsseJce$SunCertificates$1;->val$p:Ljava/security/Provider;
@@ -55,8 +51,6 @@
 .method public run()Ljava/lang/Object;
     .locals 5
 
-    .prologue
-    .line 118
     iget-object v3, p0, Lsun/security/ssl/JsseJce$SunCertificates$1;->val$p:Ljava/security/Provider;
 
     invoke-virtual {v3}, Ljava/security/Provider;->entrySet()Ljava/util/Set;
@@ -67,7 +61,6 @@
 
     move-result-object v1
 
-    .local v1, "entry$iterator":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -82,16 +75,12 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 119
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 120
-    .local v2, "key":Ljava/lang/String;
     const-string/jumbo v3, "CertPathValidator."
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -100,37 +89,30 @@
 
     if-nez v3, :cond_1
 
-    .line 121
     const-string/jumbo v3, "CertPathBuilder."
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    .line 120
     if-nez v3, :cond_1
 
-    .line 122
     const-string/jumbo v3, "CertStore."
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    .line 120
     if-nez v3, :cond_1
 
-    .line 123
     const-string/jumbo v3, "CertificateFactory."
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    .line 120
     if-eqz v3, :cond_0
 
-    .line 124
     :cond_1
     iget-object v3, p0, Lsun/security/ssl/JsseJce$SunCertificates$1;->this$1:Lsun/security/ssl/JsseJce$SunCertificates;
 
@@ -142,9 +124,6 @@
 
     goto :goto_0
 
-    .line 127
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;"
-    .end local v2    # "key":Ljava/lang/String;
     :cond_2
     const/4 v3, 0x0
 

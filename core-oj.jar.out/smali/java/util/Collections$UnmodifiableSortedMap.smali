@@ -59,10 +59,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1785
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;+TV;>;"
     invoke-direct {p0, p1}, Ljava/util/Collections$UnmodifiableMap;-><init>(Ljava/util/Map;)V
 
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
@@ -82,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1786
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
@@ -102,9 +95,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1793
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->firstKey()Ljava/lang/Object;
@@ -124,10 +114,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1790
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedMap;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
@@ -149,9 +135,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1794
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
@@ -171,11 +154,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1788
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedMap;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;
@@ -199,10 +177,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1792
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedMap;, "Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedMap;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedMap;->sm:Ljava/util/SortedMap;

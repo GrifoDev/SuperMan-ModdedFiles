@@ -27,8 +27,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 395
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -39,8 +37,6 @@
 .method protected initialValue()Ljava/lang/FloatingDecimal;
     .locals 2
 
-    .prologue
-    .line 397
     new-instance v0, Ljava/lang/FloatingDecimal;
 
     const/4 v1, 0x0
@@ -53,8 +49,6 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 396
     invoke-virtual {p0}, Ljava/lang/FloatingDecimal$1;->initialValue()Ljava/lang/FloatingDecimal;
 
     move-result-object v0

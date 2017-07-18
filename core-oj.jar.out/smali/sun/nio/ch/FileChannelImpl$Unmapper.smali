@@ -43,7 +43,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Lsun/nio/ch/FileChannelImpl$Unmapper;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -57,14 +56,12 @@
     :goto_0
     sput-boolean v0, Lsun/nio/ch/FileChannelImpl$Unmapper;->-assertionsDisabled:Z
 
-    .line 778
     new-instance v0, Lsun/nio/ch/FileDispatcherImpl;
 
     invoke-direct {v0}, Lsun/nio/ch/FileDispatcherImpl;-><init>()V
 
     sput-object v0, Lsun/nio/ch/FileChannelImpl$Unmapper;->nd:Lsun/nio/ch/NativeDispatcher;
 
-    .line 774
     return-void
 
     :cond_0
@@ -75,16 +72,9 @@
 
 .method private constructor <init>(JJILjava/io/FileDescriptor;)V
     .locals 7
-    .param p1, "address"    # J
-    .param p3, "size"    # J
-    .param p5, "cap"    # I
-    .param p6, "fd"    # Ljava/io/FileDescriptor;
 
-    .prologue
-    .line 790
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 793
     sget-boolean v0, Lsun/nio/ch/FileChannelImpl$Unmapper;->-assertionsDisabled:Z
 
     if-nez v0, :cond_1
@@ -111,25 +101,19 @@
 
     goto :goto_0
 
-    .line 794
     :cond_1
     iput-wide p1, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->address:J
 
-    .line 795
     iput-wide p3, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->size:J
 
-    .line 796
     iput p5, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->cap:I
 
-    .line 797
     iput-object p6, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->fd:Ljava/io/FileDescriptor;
 
-    .line 799
     const-class v1, Lsun/nio/ch/FileChannelImpl$Unmapper;
 
     monitor-enter v1
 
-    .line 800
     :try_start_0
     sget v0, Lsun/nio/ch/FileChannelImpl$Unmapper;->count:I
 
@@ -137,14 +121,12 @@
 
     sput v0, Lsun/nio/ch/FileChannelImpl$Unmapper;->count:I
 
-    .line 801
     sget-wide v2, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalSize:J
 
     add-long/2addr v2, p3
 
     sput-wide v2, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalSize:J
 
-    .line 802
     sget-wide v2, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalCapacity:J
 
     int-to-long v4, p5
@@ -157,10 +139,8 @@
 
     monitor-exit v1
 
-    .line 791
     return-void
 
-    .line 799
     :catchall_0
     move-exception v0
 
@@ -171,12 +151,7 @@
 
 .method synthetic constructor <init>(JJILjava/io/FileDescriptor;Lsun/nio/ch/FileChannelImpl$Unmapper;)V
     .locals 1
-    .param p1, "address"    # J
-    .param p3, "size"    # J
-    .param p5, "cap"    # I
-    .param p6, "fd"    # Ljava/io/FileDescriptor;
 
-    .prologue
     invoke-direct/range {p0 .. p6}, Lsun/nio/ch/FileChannelImpl$Unmapper;-><init>(JJILjava/io/FileDescriptor;)V
 
     return-void
@@ -187,20 +162,16 @@
 .method public run()V
     .locals 8
 
-    .prologue
     const-wide/16 v6, 0x0
 
-    .line 807
     iget-wide v2, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->address:J
 
     cmp-long v1, v2, v6
 
     if-nez v1, :cond_0
 
-    .line 808
     return-void
 
-    .line 809
     :cond_0
     iget-wide v2, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->address:J
 
@@ -208,10 +179,8 @@
 
     invoke-static {v2, v3, v4, v5}, Lsun/nio/ch/FileChannelImpl;->-wrap0(JJ)I
 
-    .line 810
     iput-wide v6, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->address:J
 
-    .line 813
     iget-object v1, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->fd:Ljava/io/FileDescriptor;
 
     invoke-virtual {v1}, Ljava/io/FileDescriptor;->valid()Z
@@ -220,7 +189,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 815
     :try_start_0
     sget-object v1, Lsun/nio/ch/FileChannelImpl$Unmapper;->nd:Lsun/nio/ch/NativeDispatcher;
 
@@ -230,14 +198,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 821
     :cond_1
     :goto_0
     const-class v2, Lsun/nio/ch/FileChannelImpl$Unmapper;
 
     monitor-enter v2
 
-    .line 822
     :try_start_1
     sget v1, Lsun/nio/ch/FileChannelImpl$Unmapper;->count:I
 
@@ -245,7 +211,6 @@
 
     sput v1, Lsun/nio/ch/FileChannelImpl$Unmapper;->count:I
 
-    .line 823
     sget-wide v4, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalSize:J
 
     iget-wide v6, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->size:J
@@ -254,7 +219,6 @@
 
     sput-wide v4, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalSize:J
 
-    .line 824
     sget-wide v4, Lsun/nio/ch/FileChannelImpl$Unmapper;->totalCapacity:J
 
     iget v1, p0, Lsun/nio/ch/FileChannelImpl$Unmapper;->cap:I
@@ -269,10 +233,8 @@
 
     monitor-exit v2
 
-    .line 806
     return-void
 
-    .line 821
     :catchall_0
     move-exception v1
 
@@ -280,10 +242,8 @@
 
     throw v1
 
-    .line 816
     :catch_0
     move-exception v0
 
-    .local v0, "ignore":Ljava/io/IOException;
     goto :goto_0
 .end method

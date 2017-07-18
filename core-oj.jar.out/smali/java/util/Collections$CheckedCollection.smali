@@ -75,24 +75,16 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     const/4 v0, 0x0
 
-    .line 2614
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2656
     iput-object v0, p0, Ljava/util/Collections$CheckedCollection;->zeroLengthElementArray:[Ljava/lang/Object;
 
-    .line 2615
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 2616
     :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -100,24 +92,17 @@
 
     throw v0
 
-    .line 2617
     :cond_1
     iput-object p1, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
-    .line 2618
     iput-object p2, p0, Ljava/util/Collections$CheckedCollection;->type:Ljava/lang/Class;
 
-    .line 2614
     return-void
 .end method
 
 .method private badElementMsg(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2610
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -136,18 +121,14 @@
 
     move-result-object v0
 
-    .line 2611
     const-string/jumbo v1, " element into collection with element type "
 
-    .line 2610
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 2611
     iget-object v1, p0, Ljava/util/Collections$CheckedCollection;->type:Ljava/lang/Class;
 
-    .line 2610
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -167,9 +148,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2659
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->zeroLengthElementArray:[Ljava/lang/Object;
 
     if-eqz v0, :cond_0
@@ -179,7 +157,6 @@
     :goto_0
     return-object v0
 
-    .line 2660
     :cond_0
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->type:Ljava/lang/Class;
 
@@ -202,13 +179,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 2652
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0, p1}, Ljava/util/Collections$CheckedCollection;->typeCheck(Ljava/lang/Object;)V
 
-    .line 2653
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
@@ -228,10 +200,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2691
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-virtual {p0, p1}, Ljava/util/Collections$CheckedCollection;->checkedCopyOf(Ljava/util/Collection;)Ljava/util/Collection;
@@ -257,27 +225,17 @@
         }
     .end annotation
 
-    .prologue
-    .line 2665
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     const/4 v0, 0x0
 
-    .line 2667
-    .local v0, "a":[Ljava/lang/Object;
     :try_start_0
     invoke-direct {p0}, Ljava/util/Collections$CheckedCollection;->zeroLengthElementArray()[Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 2668
-    .local v3, "z":[Ljava/lang/Object;, "[TE;"
     invoke-interface {p1, v3}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 2670
-    .local v0, "a":[Ljava/lang/Object;
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -288,7 +246,6 @@
 
     if-eq v4, v5, :cond_0
 
-    .line 2671
     array-length v4, v0
 
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -301,8 +258,6 @@
 
     move-result-object v0
 
-    .line 2683
-    .end local v3    # "z":[Ljava/lang/Object;, "[TE;"
     :cond_0
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -310,13 +265,9 @@
 
     return-object v4
 
-    .line 2672
-    .end local v0    # "a":[Ljava/lang/Object;
     :catch_0
     move-exception v1
 
-    .line 2678
-    .local v1, "ignore":Ljava/lang/ArrayStoreException;
     invoke-interface {p1}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v4
@@ -327,8 +278,6 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 2679
-    .restart local v0    # "a":[Ljava/lang/Object;
     const/4 v4, 0x0
 
     array-length v5, v0
@@ -338,11 +287,8 @@
 
     aget-object v2, v0, v4
 
-    .line 2680
-    .local v2, "o":Ljava/lang/Object;
     invoke-virtual {p0, v2}, Ljava/util/Collections$CheckedCollection;->typeCheck(Ljava/lang/Object;)V
 
-    .line 2679
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
@@ -351,9 +297,6 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 2628
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->clear()V
@@ -363,11 +306,7 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2623
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
@@ -387,10 +326,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2631
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->containsAll(Ljava/util/Collection;)Z
@@ -410,10 +345,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2696
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->forEach(Ljava/util/function/Consumer;)V
@@ -424,9 +355,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 2622
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
@@ -446,17 +374,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 2643
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v1, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 2644
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     new-instance v1, Ljava/util/Collections$CheckedCollection$1;
 
     invoke-direct {v1, p0, v0}, Ljava/util/Collections$CheckedCollection$1;-><init>(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V
@@ -474,9 +397,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2706
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->parallelStream()Ljava/util/stream/Stream;
@@ -488,11 +408,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2627
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
@@ -512,10 +428,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2634
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
@@ -535,10 +447,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2699
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
@@ -558,10 +466,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2637
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->retainAll(Ljava/util/Collection;)Z
@@ -574,9 +478,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 2621
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->size()I
@@ -596,9 +497,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2702
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->spliterator()Ljava/util/Spliterator;
@@ -618,9 +516,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2704
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->stream()Ljava/util/stream/Stream;
@@ -633,9 +528,6 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 2624
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
@@ -655,10 +547,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2625
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p1, "a":[Ljava/lang/Object;, "[TT;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -671,9 +559,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 2626
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->c:Ljava/util/Collection;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -685,11 +570,7 @@
 
 .method typeCheck(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 2605
-    .local p0, "this":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection;->type:Ljava/lang/Class;
@@ -700,11 +581,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 2604
     :cond_0
     return-void
 
-    .line 2606
     :cond_1
     new-instance v0, Ljava/lang/ClassCastException;
 

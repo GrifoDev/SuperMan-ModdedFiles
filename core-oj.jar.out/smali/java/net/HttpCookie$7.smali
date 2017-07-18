@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1072
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,12 +30,7 @@
 # virtual methods
 .method public assign(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "cookie"    # Ljava/net/HttpCookie;
-    .param p2, "attrName"    # Ljava/lang/String;
-    .param p3, "attrValue"    # Ljava/lang/String;
 
-    .prologue
-    .line 1074
     invoke-virtual {p1}, Ljava/net/HttpCookie;->getPortlist()Ljava/lang/String;
 
     move-result-object v0
@@ -48,11 +41,9 @@
 
     const-string/jumbo p3, ""
 
-    .end local p3    # "attrValue":Ljava/lang/String;
     :cond_0
     invoke-virtual {p1, p3}, Ljava/net/HttpCookie;->setPortlist(Ljava/lang/String;)V
 
-    .line 1073
     :cond_1
     return-void
 .end method

@@ -27,29 +27,22 @@
 # direct methods
 .method public constructor <init>([C)V
     .locals 2
-    .param p1, "password"    # [C
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 296
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 286
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Ljava/security/KeyStore$PasswordProtection;->destroyed:Z
 
-    .line 297
     if-nez p1, :cond_0
 
     :goto_0
     iput-object v0, p0, Ljava/security/KeyStore$PasswordProtection;->password:[C
 
-    .line 296
     return-void
 
-    .line 297
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -70,21 +63,17 @@
         }
     .end annotation
 
-    .prologue
     monitor-enter p0
 
-    .line 328
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Ljava/security/KeyStore$PasswordProtection;->destroyed:Z
 
-    .line 329
     iget-object v0, p0, Ljava/security/KeyStore$PasswordProtection;->password:[C
 
     if-eqz v0, :cond_0
 
-    .line 330
     iget-object v0, p0, Ljava/security/KeyStore$PasswordProtection;->password:[C
 
     const/16 v1, 0x20
@@ -96,7 +85,6 @@
     :cond_0
     monitor-exit p0
 
-    .line 327
     return-void
 
     :catchall_0
@@ -110,16 +98,13 @@
 .method public declared-synchronized getPassword()[C
     .locals 2
 
-    .prologue
     monitor-enter p0
 
-    .line 314
     :try_start_0
     iget-boolean v0, p0, Ljava/security/KeyStore$PasswordProtection;->destroyed:Z
 
     if-eqz v0, :cond_0
 
-    .line 315
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "password has been cleared"
@@ -137,7 +122,6 @@
 
     throw v0
 
-    .line 317
     :cond_0
     :try_start_1
     iget-object v0, p0, Ljava/security/KeyStore$PasswordProtection;->password:[C
@@ -152,10 +136,8 @@
 .method public declared-synchronized isDestroyed()Z
     .locals 1
 
-    .prologue
     monitor-enter p0
 
-    .line 340
     :try_start_0
     iget-boolean v0, p0, Ljava/security/KeyStore$PasswordProtection;->destroyed:Z
     :try_end_0

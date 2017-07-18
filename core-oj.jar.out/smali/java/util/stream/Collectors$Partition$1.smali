@@ -33,9 +33,6 @@
 .method constructor <init>(Ljava/util/stream/Collectors$Partition;)V
     .locals 0
 
-    .prologue
-    .line 1553
-    .local p1, "this$1":Ljava/util/stream/Collectors$Partition;, "Ljava/util/stream/Collectors$Partition<TT;>;"
     iput-object p1, p0, Ljava/util/stream/Collectors$Partition$1;->this$1:Ljava/util/stream/Collectors$Partition;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -59,12 +56,10 @@
         }
     .end annotation
 
-    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 1556
     new-instance v0, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -77,8 +72,6 @@
 
     invoke-direct {v0, v2, v3}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 1557
-    .local v0, "falseEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;"
     new-instance v1, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -91,8 +84,6 @@
 
     invoke-direct {v1, v2, v3}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 1558
-    .local v1, "trueEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Boolean;TT;>;"
     const/4 v2, 0x2
 
     new-array v2, v2, [Ljava/util/Map$Entry;
@@ -115,8 +106,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 1563
     const/4 v0, 0x2
 
     return v0

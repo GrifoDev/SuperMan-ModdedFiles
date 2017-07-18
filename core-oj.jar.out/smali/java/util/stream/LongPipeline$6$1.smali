@@ -38,12 +38,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/LongPipeline$6;Ljava/util/stream/Sink;Ljava/util/function/LongFunction;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/LongPipeline$6;
 
-    .prologue
-    .line 279
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Long;>;"
-    .local p3, "val$mapper":Ljava/util/function/LongFunction;, "Ljava/util/function/LongFunction<+Ljava/util/stream/LongStream;>;"
     iput-object p1, p0, Ljava/util/stream/LongPipeline$6$1;->this$1:Ljava/util/stream/LongPipeline$6;
 
     iput-object p3, p0, Ljava/util/stream/LongPipeline$6$1;->val$mapper:Ljava/util/function/LongFunction;
@@ -57,29 +52,21 @@
 # virtual methods
 .method synthetic -java_util_stream_LongPipeline$6$1_lambda$3(J)V
     .locals 1
-    .param p1, "i"    # J
 
-    .prologue
-    .line 290
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Sink;->accept(J)V
 
-    .line 0
     return-void
 .end method
 
 .method public accept(J)V
     .locals 7
-    .param p1, "t"    # J
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 287
     const/4 v1, 0x0
 
-    .local v1, "result":Ljava/util/stream/LongStream;
     :try_start_0
     iget-object v2, p0, Ljava/util/stream/LongPipeline$6$1;->val$mapper:Ljava/util/function/LongFunction;
 
@@ -93,11 +80,8 @@
 
     move-object v1, v0
 
-    .line 289
-    .local v1, "result":Ljava/util/stream/LongStream;
     if-eqz v1, :cond_0
 
-    .line 290
     invoke-interface {v1}, Ljava/util/stream/LongStream;->sequential()Ljava/util/stream/LongStream;
 
     move-result-object v2
@@ -111,7 +95,6 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 291
     :cond_0
     if-eqz v1, :cond_1
 
@@ -131,7 +114,6 @@
 
     goto :goto_0
 
-    .end local v1    # "result":Ljava/util/stream/LongStream;
     :catch_1
     move-exception v2
 
@@ -182,13 +164,9 @@
     :cond_4
     throw v2
 
-    .line 286
-    .restart local v1    # "result":Ljava/util/stream/LongStream;
     :cond_5
     return-void
 
-    .line 291
-    .end local v1    # "result":Ljava/util/stream/LongStream;
     :catchall_1
     move-exception v2
 
@@ -197,16 +175,12 @@
 
 .method public begin(J)V
     .locals 4
-    .param p1, "size"    # J
 
-    .prologue
-    .line 282
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     const-wide/16 v2, -0x1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
-    .line 281
     return-void
 .end method

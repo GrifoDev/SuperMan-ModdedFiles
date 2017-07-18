@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath$JarLoader;Ljava/net/URL;)V
     .locals 0
-    .param p1, "this$1"    # Lsun/misc/URLClassPath$JarLoader;
-    .param p2, "val$url"    # Ljava/net/URL;
 
-    .prologue
-    .line 889
     iput-object p1, p0, Lsun/misc/URLClassPath$JarLoader$3;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$JarLoader$3;->val$url:Ljava/net/URL;
@@ -60,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 890
     invoke-virtual {p0}, Lsun/misc/URLClassPath$JarLoader$3;->run()Lsun/misc/URLClassPath$JarLoader;
 
     move-result-object v0
@@ -77,8 +71,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 891
     new-instance v0, Lsun/misc/URLClassPath$JarLoader;
 
     iget-object v1, p0, Lsun/misc/URLClassPath$JarLoader$3;->val$url:Ljava/net/URL;
@@ -89,14 +81,12 @@
 
     move-result-object v2
 
-    .line 892
     iget-object v3, p0, Lsun/misc/URLClassPath$JarLoader$3;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v3}, Lsun/misc/URLClassPath$JarLoader;->-get4(Lsun/misc/URLClassPath$JarLoader;)Ljava/util/HashMap;
 
     move-result-object v3
 
-    .line 891
     invoke-direct {v0, v1, v2, v3}, Lsun/misc/URLClassPath$JarLoader;-><init>(Ljava/net/URL;Ljava/net/URLStreamHandler;Ljava/util/HashMap;)V
 
     return-object v0

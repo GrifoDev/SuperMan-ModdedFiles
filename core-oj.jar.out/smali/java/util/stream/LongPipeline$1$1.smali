@@ -30,11 +30,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/LongPipeline$1;Ljava/util/stream/Sink;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/LongPipeline$1;
 
-    .prologue
-    .line 190
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
     iput-object p1, p0, Ljava/util/stream/LongPipeline$1$1;->this$1:Ljava/util/stream/LongPipeline$1;
 
     invoke-direct {p0, p2}, Ljava/util/stream/Sink$ChainedLong;-><init>(Ljava/util/stream/Sink;)V
@@ -46,16 +42,12 @@
 # virtual methods
 .method public accept(J)V
     .locals 5
-    .param p1, "t"    # J
 
-    .prologue
-    .line 193
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     long-to-double v2, p1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->accept(D)V
 
-    .line 192
     return-void
 .end method

@@ -43,7 +43,6 @@
 
 .method constructor <init>(Ljava/util/Set;Ljavax/net/ssl/HandshakeCompletedEvent;)V
     .locals 1
-    .param p2, "e"    # Ljavax/net/ssl/HandshakeCompletedEvent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,24 +58,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 2496
-    .local p1, "entrySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;>;"
     const-string/jumbo v0, "HandshakeCompletedNotify-Thread"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 2497
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0, p1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
     iput-object v0, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;->targets:Ljava/util/Set;
 
-    .line 2498
     iput-object p2, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;->event:Ljavax/net/ssl/HandshakeCompletedEvent;
 
-    .line 2494
     return-void
 .end method
 
@@ -85,16 +78,12 @@
 .method public run()V
     .locals 5
 
-    .prologue
-    .line 2504
     iget-object v4, p0, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;->targets:Ljava/util/Set;
 
-    .line 2503
     invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "entry$iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -108,24 +97,18 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 2506
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;"
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljavax/net/ssl/HandshakeCompletedListener;
 
-    .line 2507
-    .local v3, "l":Ljavax/net/ssl/HandshakeCompletedListener;
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/security/AccessControlContext;
 
-    .line 2508
-    .local v0, "acc":Ljava/security/AccessControlContext;
     new-instance v4, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;
 
     invoke-direct {v4, p0, v3}, Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread$1;-><init>(Lsun/security/ssl/SSLSocketImpl$NotifyHandshakeThread;Ljavax/net/ssl/HandshakeCompletedListener;)V
@@ -134,10 +117,6 @@
 
     goto :goto_0
 
-    .line 2501
-    .end local v0    # "acc":Ljava/security/AccessControlContext;
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;"
-    .end local v3    # "l":Ljavax/net/ssl/HandshakeCompletedListener;
     :cond_0
     return-void
 .end method

@@ -20,33 +20,24 @@
         }
     .end annotation
 
-    .prologue
-    .line 51
     invoke-direct {p0}, Ljavax/net/ssl/SSLServerSocketFactory;-><init>()V
 
-    .line 52
     invoke-static {}, Lsun/security/ssl/SSLContextImpl$DefaultSSLContext;->getDefaultImpl()Lsun/security/ssl/SSLContextImpl;
 
     move-result-object v0
 
     iput-object v0, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
 
-    .line 51
     return-void
 .end method
 
 .method constructor <init>(Lsun/security/ssl/SSLContextImpl;)V
     .locals 0
-    .param p1, "context"    # Lsun/security/ssl/SSLContextImpl;
 
-    .prologue
-    .line 58
     invoke-direct {p0}, Ljavax/net/ssl/SSLServerSocketFactory;-><init>()V
 
-    .line 60
     iput-object p1, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
 
-    .line 58
     return-void
 .end method
 
@@ -60,8 +51,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 71
     new-instance v0, Lsun/security/ssl/SSLServerSocketImpl;
 
     iget-object v1, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
@@ -73,15 +62,12 @@
 
 .method public createServerSocket(I)Ljava/net/ServerSocket;
     .locals 3
-    .param p1, "port"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 77
     new-instance v0, Lsun/security/ssl/SSLServerSocketImpl;
 
     iget-object v1, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
@@ -95,16 +81,12 @@
 
 .method public createServerSocket(II)Ljava/net/ServerSocket;
     .locals 2
-    .param p1, "port"    # I
-    .param p2, "backlog"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 84
     new-instance v0, Lsun/security/ssl/SSLServerSocketImpl;
 
     iget-object v1, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
@@ -116,17 +98,12 @@
 
 .method public createServerSocket(IILjava/net/InetAddress;)Ljava/net/ServerSocket;
     .locals 2
-    .param p1, "port"    # I
-    .param p2, "backlog"    # I
-    .param p3, "ifAddress"    # Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 91
     new-instance v0, Lsun/security/ssl/SSLServerSocketImpl;
 
     iget-object v1, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
@@ -139,8 +116,6 @@
 .method public getDefaultCipherSuites()[Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 102
     iget-object v0, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
 
     const/4 v1, 0x1
@@ -159,8 +134,6 @@
 .method public getSupportedCipherSuites()[Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 116
     iget-object v0, p0, Lsun/security/ssl/SSLServerSocketFactoryImpl;->context:Lsun/security/ssl/SSLContextImpl;
 
     invoke-virtual {v0}, Lsun/security/ssl/SSLContextImpl;->getSupportedCipherSuiteList()Lsun/security/ssl/CipherSuiteList;

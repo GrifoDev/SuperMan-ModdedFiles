@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/reflect/annotation/AnnotationType;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/reflect/annotation/AnnotationType;
 
-    .prologue
-    .line 100
-    .local p2, "val$annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     iput-object p1, p0, Lsun/reflect/annotation/AnnotationType$1;->this$0:Lsun/reflect/annotation/AnnotationType;
 
     iput-object p2, p0, Lsun/reflect/annotation/AnnotationType$1;->val$annotationClass:Ljava/lang/Class;
@@ -55,8 +51,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 101
     invoke-virtual {p0}, Lsun/reflect/annotation/AnnotationType$1;->run()[Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -67,8 +61,6 @@
 .method public run()[Ljava/lang/reflect/Method;
     .locals 1
 
-    .prologue
-    .line 103
     iget-object v0, p0, Lsun/reflect/annotation/AnnotationType$1;->val$annotationClass:Ljava/lang/Class;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;

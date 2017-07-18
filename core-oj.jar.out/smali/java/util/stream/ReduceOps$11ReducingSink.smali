@@ -42,11 +42,7 @@
 # direct methods
 .method constructor <init>(DLjava/util/function/DoubleBinaryOperator;)V
     .locals 1
-    .param p1, "val$identity"    # D
-    .param p3, "val$operator"    # Ljava/util/function/DoubleBinaryOperator;
 
-    .prologue
-    .line 519
     iput-wide p1, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->val$identity:D
 
     iput-object p3, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->val$operator:Ljava/util/function/DoubleBinaryOperator;
@@ -60,10 +56,7 @@
 # virtual methods
 .method public accept(D)V
     .locals 5
-    .param p1, "t"    # D
 
-    .prologue
-    .line 530
     iget-object v0, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->val$operator:Ljava/util/function/DoubleBinaryOperator;
 
     iget-wide v2, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->state:D
@@ -74,19 +67,14 @@
 
     iput-wide v0, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->state:D
 
-    .line 529
     return-void
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "i"    # Ljava/lang/Object;
 
-    .prologue
-    .line 229
     check-cast p1, Ljava/lang/Double;
 
-    .end local p1    # "i":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/stream/Sink$OfDouble;->accept(Ljava/lang/Double;)V
 
     return-void
@@ -94,41 +82,29 @@
 
 .method public begin(J)V
     .locals 2
-    .param p1, "size"    # J
 
-    .prologue
-    .line 525
     iget-wide v0, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->val$identity:D
 
     iput-wide v0, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->state:D
 
-    .line 524
     return-void
 .end method
 
 .method public combine(Ljava/util/stream/ReduceOps$11ReducingSink;)V
     .locals 2
-    .param p1, "other"    # Ljava/util/stream/ReduceOps$11ReducingSink;
 
-    .prologue
-    .line 540
     iget-wide v0, p1, Ljava/util/stream/ReduceOps$11ReducingSink;->state:D
 
     invoke-virtual {p0, v0, v1}, Ljava/util/stream/ReduceOps$11ReducingSink;->accept(D)V
 
-    .line 539
     return-void
 .end method
 
 .method public bridge synthetic combine(Ljava/util/stream/ReduceOps$AccumulatingSink;)V
     .locals 0
-    .param p1, "other"    # Ljava/util/stream/ReduceOps$AccumulatingSink;
 
-    .prologue
-    .line 539
     check-cast p1, Ljava/util/stream/ReduceOps$11ReducingSink;
 
-    .end local p1    # "other":Ljava/util/stream/ReduceOps$AccumulatingSink;
     invoke-virtual {p0, p1}, Ljava/util/stream/ReduceOps$11ReducingSink;->combine(Ljava/util/stream/ReduceOps$11ReducingSink;)V
 
     return-void
@@ -137,8 +113,6 @@
 .method public get()Ljava/lang/Double;
     .locals 2
 
-    .prologue
-    .line 535
     iget-wide v0, p0, Ljava/util/stream/ReduceOps$11ReducingSink;->state:D
 
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -151,8 +125,6 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 534
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$11ReducingSink;->get()Ljava/lang/Double;
 
     move-result-object v0

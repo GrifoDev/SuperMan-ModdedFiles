@@ -32,12 +32,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/DoublePipeline$7;Ljava/util/stream/Sink;Ljava/util/function/DoublePredicate;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/DoublePipeline$7;
-    .param p3, "val$predicate"    # Ljava/util/function/DoublePredicate;
 
-    .prologue
-    .line 300
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$7$1;->this$1:Ljava/util/stream/DoublePipeline$7;
 
     iput-object p3, p0, Ljava/util/stream/DoublePipeline$7$1;->val$predicate:Ljava/util/function/DoublePredicate;
@@ -51,10 +46,7 @@
 # virtual methods
 .method public accept(D)V
     .locals 1
-    .param p1, "t"    # D
 
-    .prologue
-    .line 308
     iget-object v0, p0, Ljava/util/stream/DoublePipeline$7$1;->val$predicate:Ljava/util/function/DoublePredicate;
 
     invoke-interface {v0, p1, p2}, Ljava/util/function/DoublePredicate;->test(D)Z
@@ -63,28 +55,22 @@
 
     if-eqz v0, :cond_0
 
-    .line 309
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedDouble;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Sink;->accept(D)V
 
-    .line 307
     :cond_0
     return-void
 .end method
 
 .method public begin(J)V
     .locals 4
-    .param p1, "size"    # J
 
-    .prologue
-    .line 303
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedDouble;->downstream:Ljava/util/stream/Sink;
 
     const-wide/16 v2, -0x1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
-    .line 302
     return-void
 .end method

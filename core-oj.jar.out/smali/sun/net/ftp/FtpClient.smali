@@ -22,8 +22,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 98
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,14 +30,10 @@
 .method public static create()Lsun/net/ftp/FtpClient;
     .locals 2
 
-    .prologue
-    .line 108
     invoke-static {}, Lsun/net/ftp/FtpClientProvider;->provider()Lsun/net/ftp/FtpClientProvider;
 
     move-result-object v0
 
-    .line 109
-    .local v0, "provider":Lsun/net/ftp/FtpClientProvider;
     invoke-virtual {v0}, Lsun/net/ftp/FtpClientProvider;->createFtpClient()Lsun/net/ftp/FtpClient;
 
     move-result-object v1
@@ -49,7 +43,6 @@
 
 .method public static create(Ljava/lang/String;)Lsun/net/ftp/FtpClient;
     .locals 2
-    .param p0, "dest"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lsun/net/ftp/FtpProtocolException;,
@@ -57,8 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 140
     new-instance v0, Ljava/net/InetSocketAddress;
 
     const/16 v1, 0x15
@@ -74,7 +65,6 @@
 
 .method public static create(Ljava/net/InetSocketAddress;)Lsun/net/ftp/FtpClient;
     .locals 1
-    .param p0, "dest"    # Ljava/net/InetSocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lsun/net/ftp/FtpProtocolException;,
@@ -82,20 +72,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 122
     invoke-static {}, Lsun/net/ftp/FtpClient;->create()Lsun/net/ftp/FtpClient;
 
     move-result-object v0
 
-    .line 123
-    .local v0, "client":Lsun/net/ftp/FtpClient;
     if-eqz p0, :cond_0
 
-    .line 124
     invoke-virtual {v0, p0}, Lsun/net/ftp/FtpClient;->connect(Ljava/net/SocketAddress;)Lsun/net/ftp/FtpClient;
 
-    .line 126
     :cond_0
     return-object v0
 .end method
@@ -103,8 +87,6 @@
 .method public static final defaultPort()I
     .locals 1
 
-    .prologue
-    .line 90
     const/16 v0, 0x15
 
     return v0
@@ -417,8 +399,6 @@
 
 .method public putFile(Ljava/lang/String;Ljava/io/InputStream;)Lsun/net/ftp/FtpClient;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "local"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lsun/net/ftp/FtpProtocolException;,
@@ -426,8 +406,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 463
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Lsun/net/ftp/FtpClient;->putFile(Ljava/lang/String;Ljava/io/InputStream;Z)Lsun/net/ftp/FtpClient;
@@ -448,7 +426,6 @@
 
 .method public putFileStream(Ljava/lang/String;)Ljava/io/OutputStream;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lsun/net/ftp/FtpProtocolException;,
@@ -456,8 +433,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 405
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lsun/net/ftp/FtpClient;->putFileStream(Ljava/lang/String;Z)Ljava/io/OutputStream;
@@ -512,13 +487,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 691
     sget-object v0, Lsun/net/ftp/FtpClient$TransferType;->ASCII:Lsun/net/ftp/FtpClient$TransferType;
 
     invoke-virtual {p0, v0}, Lsun/net/ftp/FtpClient;->setType(Lsun/net/ftp/FtpClient$TransferType;)Lsun/net/ftp/FtpClient;
 
-    .line 692
     return-object p0
 .end method
 
@@ -531,13 +503,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 676
     sget-object v0, Lsun/net/ftp/FtpClient$TransferType;->BINARY:Lsun/net/ftp/FtpClient$TransferType;
 
     invoke-virtual {p0, v0}, Lsun/net/ftp/FtpClient;->setType(Lsun/net/ftp/FtpClient$TransferType;)Lsun/net/ftp/FtpClient;
 
-    .line 677
     return-object p0
 .end method
 

@@ -18,8 +18,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,8 +25,6 @@
 
 .method public static makeDouble(DLjava/util/function/DoubleBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "identity"    # D
-    .param p2, "operator"    # Ljava/util/function/DoubleBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(D",
@@ -42,11 +38,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 518
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 543
     new-instance v0, Ljava/util/stream/ReduceOps$11;
 
     sget-object v1, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
@@ -58,7 +51,6 @@
 
 .method public static makeDouble(Ljava/util/function/DoubleBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "operator"    # Ljava/util/function/DoubleBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,11 +64,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 560
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 593
     new-instance v0, Ljava/util/stream/ReduceOps$12;
 
     sget-object v1, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
@@ -106,20 +95,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 616
-    .local p0, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
-    .local p1, "accumulator":Ljava/util/function/ObjDoubleConsumer;, "Ljava/util/function/ObjDoubleConsumer<TR;>;"
-    .local p2, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TR;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 617
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 618
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 636
     new-instance v0, Ljava/util/stream/ReduceOps$13;
 
     sget-object v1, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
@@ -131,8 +112,6 @@
 
 .method public static makeInt(ILjava/util/function/IntBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "identity"    # I
-    .param p1, "operator"    # Ljava/util/function/IntBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -146,11 +125,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 246
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 271
     new-instance v0, Ljava/util/stream/ReduceOps$5;
 
     sget-object v1, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
@@ -162,7 +138,6 @@
 
 .method public static makeInt(Ljava/util/function/IntBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "operator"    # Ljava/util/function/IntBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,11 +151,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 288
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 321
     new-instance v0, Ljava/util/stream/ReduceOps$6;
 
     sget-object v1, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
@@ -210,20 +182,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 344
-    .local p0, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
-    .local p1, "accumulator":Ljava/util/function/ObjIntConsumer;, "Ljava/util/function/ObjIntConsumer<TR;>;"
-    .local p2, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TR;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 345
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 346
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 364
     new-instance v0, Ljava/util/stream/ReduceOps$7;
 
     sget-object v1, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
@@ -235,8 +199,6 @@
 
 .method public static makeLong(JLjava/util/function/LongBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "identity"    # J
-    .param p2, "operator"    # Ljava/util/function/LongBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -250,11 +212,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 382
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 407
     new-instance v0, Ljava/util/stream/ReduceOps$8;
 
     sget-object v1, Ljava/util/stream/StreamShape;->LONG_VALUE:Ljava/util/stream/StreamShape;
@@ -266,7 +225,6 @@
 
 .method public static makeLong(Ljava/util/function/LongBinaryOperator;)Ljava/util/stream/TerminalOp;
     .locals 2
-    .param p0, "operator"    # Ljava/util/function/LongBinaryOperator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -280,11 +238,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 424
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 457
     new-instance v0, Ljava/util/stream/ReduceOps$9;
 
     sget-object v1, Ljava/util/stream/StreamShape;->LONG_VALUE:Ljava/util/stream/StreamShape;
@@ -314,20 +269,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 480
-    .local p0, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
-    .local p1, "accumulator":Ljava/util/function/ObjLongConsumer;, "Ljava/util/function/ObjLongConsumer<TR;>;"
-    .local p2, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TR;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 481
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 482
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 500
     new-instance v0, Ljava/util/stream/ReduceOps$10;
 
     sget-object v1, Ljava/util/stream/StreamShape;->LONG_VALUE:Ljava/util/stream/StreamShape;
@@ -355,17 +302,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
-    .local p0, "seed":Ljava/lang/Object;, "TU;"
-    .local p1, "reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<TU;-TT;TU;>;"
-    .local p2, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TU;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 71
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 88
     new-instance v0, Ljava/util/stream/ReduceOps$1;
 
     sget-object v1, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
@@ -391,12 +331,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 106
-    .local p0, "operator":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 138
     new-instance v0, Ljava/util/stream/ReduceOps$2;
 
     sget-object v1, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
@@ -426,20 +362,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 208
-    .local p0, "seedFactory":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TR;>;"
-    .local p1, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TR;-TT;>;"
-    .local p2, "reducer":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TR;TR;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 209
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 210
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 228
     new-instance v0, Ljava/util/stream/ReduceOps$4;
 
     sget-object v1, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
@@ -465,9 +393,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 157
-    .local p0, "collector":Ljava/util/stream/Collector;, "Ljava/util/stream/Collector<-TT;TI;*>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -478,20 +403,14 @@
 
     move-result-object v3
 
-    .line 158
-    .local v3, "supplier":Ljava/util/function/Supplier;, "Ljava/util/function/Supplier<TI;>;"
     invoke-interface {p0}, Ljava/util/stream/Collector;->accumulator()Ljava/util/function/BiConsumer;
 
     move-result-object v4
 
-    .line 159
-    .local v4, "accumulator":Ljava/util/function/BiConsumer;, "Ljava/util/function/BiConsumer<TI;-TT;>;"
     invoke-interface {p0}, Ljava/util/stream/Collector;->combiner()Ljava/util/function/BinaryOperator;
 
     move-result-object v5
 
-    .line 177
-    .local v5, "combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TI;>;"
     new-instance v0, Ljava/util/stream/ReduceOps$3;
 
     sget-object v1, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;

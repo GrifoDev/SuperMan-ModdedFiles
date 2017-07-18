@@ -30,12 +30,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/LongPipeline$3;Ljava/util/stream/Sink;Ljava/util/function/LongFunction;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/LongPipeline$3;
 
-    .prologue
-    .line 229
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TU;>;"
-    .local p3, "val$mapper":Ljava/util/function/LongFunction;, "Ljava/util/function/LongFunction<+TU;>;"
     iput-object p1, p0, Ljava/util/stream/LongPipeline$3$1;->this$1:Ljava/util/stream/LongPipeline$3;
 
     iput-object p3, p0, Ljava/util/stream/LongPipeline$3$1;->val$mapper:Ljava/util/function/LongFunction;
@@ -49,10 +44,7 @@
 # virtual methods
 .method public accept(J)V
     .locals 3
-    .param p1, "t"    # J
 
-    .prologue
-    .line 232
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedLong;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/LongPipeline$3$1;->val$mapper:Ljava/util/function/LongFunction;
@@ -63,6 +55,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
-    .line 231
     return-void
 .end method

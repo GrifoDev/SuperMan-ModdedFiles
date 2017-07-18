@@ -75,15 +75,12 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 1242
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->NULL_VALUE:Ljava/lang/Object;
 
-    .line 1239
     return-void
 .end method
 
@@ -97,17 +94,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 1254
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
     invoke-direct {p0, p1, v0}, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;-><init>(Ljava/util/Spliterator;Ljava/util/concurrent/ConcurrentHashMap;)V
 
-    .line 1253
     return-void
 .end method
 
@@ -125,20 +117,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 1257
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
-    .local p2, "seen":Ljava/util/concurrent/ConcurrentHashMap;, "Ljava/util/concurrent/ConcurrentHashMap<TT;Ljava/lang/Boolean;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1258
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
-    .line 1259
     iput-object p2, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->seen:Ljava/util/concurrent/ConcurrentHashMap;
 
-    .line 1257
     return-void
 .end method
 
@@ -150,17 +134,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 1269
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     if-eqz p1, :cond_0
 
-    .end local p1    # "t":Ljava/lang/Object;, "TT;"
     :goto_0
     return-object p1
 
-    .restart local p1    # "t":Ljava/lang/Object;, "TT;"
     :cond_0
     sget-object p1, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->NULL_VALUE:Ljava/lang/Object;
 
@@ -171,12 +149,7 @@
 # virtual methods
 .method synthetic -java_util_stream_StreamSpliterators$DistinctSpliterator_lambda$18(Ljava/util/function/Consumer;Ljava/lang/Object;)V
     .locals 3
-    .param p1, "action"    # Ljava/util/function/Consumer;
-    .param p2, "t"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1287
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->seen:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {p0, p2}, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->mapNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -191,10 +164,8 @@
 
     if-nez v0, :cond_0
 
-    .line 1288
     invoke-interface {p1, p2}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 0
     :cond_0
     return-void
 .end method
@@ -207,22 +178,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 1264
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->tmpSlot:Ljava/lang/Object;
 
-    .line 1263
     return-void
 .end method
 
 .method public characteristics()I
     .locals 1
 
-    .prologue
-    .line 1306
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->characteristics()I
@@ -239,9 +202,6 @@
 .method public estimateSize()J
     .locals 2
 
-    .prologue
-    .line 1301
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->estimateSize()J
@@ -261,10 +221,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1286
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
     new-instance v1, Ljava/util/stream/StreamSpliterators$DistinctSpliterator$-void_forEachRemaining_java_util_function_Consumer_action_LambdaImpl0;
@@ -273,7 +229,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 1285
     return-void
 .end method
 
@@ -287,9 +242,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1313
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->getComparator()Ljava/util/Comparator;
@@ -309,12 +261,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     const/4 v3, 0x0
 
-    .line 1274
     :cond_0
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
@@ -324,7 +272,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 1275
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->seen:Ljava/util/concurrent/ConcurrentHashMap;
 
     iget-object v1, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->tmpSlot:Ljava/lang/Object;
@@ -341,20 +288,16 @@
 
     if-nez v0, :cond_0
 
-    .line 1276
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->tmpSlot:Ljava/lang/Object;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 1277
     iput-object v3, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->tmpSlot:Ljava/lang/Object;
 
-    .line 1278
     const/4 v0, 0x1
 
     return v0
 
-    .line 1281
     :cond_1
     const/4 v0, 0x0
 
@@ -371,19 +314,14 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$DistinctSpliterator;, "Ljava/util/stream/StreamSpliterators$DistinctSpliterator<TT;>;"
     const/4 v1, 0x0
 
-    .line 1295
     iget-object v2, p0, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v2}, Ljava/util/Spliterator;->trySplit()Ljava/util/Spliterator;
 
     move-result-object v0
 
-    .line 1296
-    .local v0, "split":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     if-eqz v0, :cond_0
 
     new-instance v1, Ljava/util/stream/StreamSpliterators$DistinctSpliterator;

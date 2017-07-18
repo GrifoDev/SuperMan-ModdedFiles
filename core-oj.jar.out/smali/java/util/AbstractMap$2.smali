@@ -29,9 +29,6 @@
 .method constructor <init>(Ljava/util/AbstractMap;)V
     .locals 0
 
-    .prologue
-    .line 375
-    .local p1, "this$0":Ljava/util/AbstractMap;, "Ljava/util/AbstractMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -44,22 +41,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 403
     iget-object v0, p0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
 
     invoke-virtual {v0}, Ljava/util/AbstractMap;->clear()V
 
-    .line 402
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "v"    # Ljava/lang/Object;
 
-    .prologue
-    .line 407
     iget-object v0, p0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
 
     invoke-virtual {v0, p1}, Ljava/util/AbstractMap;->containsValue(Ljava/lang/Object;)Z
@@ -72,8 +63,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 399
     iget-object v0, p0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
 
     invoke-virtual {v0}, Ljava/util/AbstractMap;->isEmpty()Z
@@ -93,8 +82,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 377
     new-instance v0, Ljava/util/AbstractMap$2$1;
 
     invoke-direct {v0, p0}, Ljava/util/AbstractMap$2$1;-><init>(Ljava/util/AbstractMap$2;)V
@@ -105,8 +92,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 395
     iget-object v0, p0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
 
     invoke-virtual {v0}, Ljava/util/AbstractMap;->size()I

@@ -19,7 +19,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Lsun/security/ssl/EngineOutputRecord;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -33,7 +32,6 @@
     :goto_0
     sput-boolean v0, Lsun/security/ssl/EngineOutputRecord;->-assertionsDisabled:Z
 
-    .line 47
     return-void
 
     :cond_0
@@ -44,55 +42,42 @@
 
 .method constructor <init>(BLsun/security/ssl/SSLEngineImpl;)V
     .locals 1
-    .param p1, "type"    # B
-    .param p2, "engine"    # Lsun/security/ssl/SSLEngineImpl;
 
-    .prologue
-    .line 65
     invoke-static {p1}, Lsun/security/ssl/EngineOutputRecord;->recordSize(B)I
 
     move-result v0
 
     invoke-direct {p0, p1, v0}, Lsun/security/ssl/OutputRecord;-><init>(BI)V
 
-    .line 52
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lsun/security/ssl/EngineOutputRecord;->finishedMsg:Z
 
-    .line 66
     iput-object p2, p0, Lsun/security/ssl/EngineOutputRecord;->engine:Lsun/security/ssl/SSLEngineImpl;
 
-    .line 67
     iget-object v0, p2, Lsun/security/ssl/SSLEngineImpl;->writer:Lsun/security/ssl/EngineWriter;
 
     iput-object v0, p0, Lsun/security/ssl/EngineOutputRecord;->writer:Lsun/security/ssl/EngineWriter;
 
-    .line 64
     return-void
 .end method
 
 .method private addMAC(Lsun/security/ssl/MAC;Ljava/nio/ByteBuffer;)V
     .locals 3
-    .param p1, "signer"    # Lsun/security/ssl/MAC;
-    .param p2, "bb"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 122
     invoke-virtual {p1}, Lsun/security/ssl/MAC;->MAClen()I
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 123
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->contentType()B
 
     move-result v1
@@ -101,8 +86,6 @@
 
     move-result-object v0
 
-    .line 132
-    .local v0, "hash":[B
     invoke-virtual {p2}, Ljava/nio/Buffer;->limit()I
 
     move-result v1
@@ -113,24 +96,17 @@
 
     invoke-virtual {p2, v1}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 133
     invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 120
-    .end local v0    # "hash":[B
     :cond_0
     return-void
 .end method
 
 .method private static recordSize(B)I
     .locals 3
-    .param p0, "type"    # B
 
-    .prologue
-    .line 78
     packed-switch p0, :pswitch_data_0
 
-    .line 91
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -155,25 +131,21 @@
 
     throw v0
 
-    .line 82
     :pswitch_0
     const/16 v0, 0x21b
 
     return v0
 
-    .line 85
     :pswitch_1
     const/16 v0, 0x4219
 
     return v0
 
-    .line 88
     :pswitch_2
     const/4 v0, 0x0
 
     return v0
 
-    .line 78
     nop
 
     :pswitch_data_0
@@ -189,14 +161,9 @@
 # virtual methods
 .method encrypt(Lsun/security/ssl/CipherBox;Ljava/nio/ByteBuffer;)V
     .locals 0
-    .param p1, "box"    # Lsun/security/ssl/CipherBox;
-    .param p2, "bb"    # Ljava/nio/ByteBuffer;
 
-    .prologue
-    .line 148
     invoke-virtual {p1, p2}, Lsun/security/ssl/CipherBox;->encrypt(Ljava/nio/ByteBuffer;)I
 
-    .line 147
     return-void
 .end method
 
@@ -208,21 +175,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 99
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lsun/security/ssl/EngineOutputRecord;->finishedMsg:Z
 
-    .line 98
     return-void
 .end method
 
 .method isFinishedMsg()Z
     .locals 1
 
-    .prologue
-    .line 103
     iget-boolean v0, p0, Lsun/security/ssl/EngineOutputRecord;->finishedMsg:Z
 
     return v0
@@ -231,33 +193,25 @@
 .method setFinishedMsg()V
     .locals 1
 
-    .prologue
-    .line 95
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lsun/security/ssl/EngineOutputRecord;->finishedMsg:Z
 
-    .line 94
     return-void
 .end method
 
 .method write(Lsun/security/ssl/EngineArgs;Lsun/security/ssl/MAC;Lsun/security/ssl/CipherBox;)V
     .locals 5
-    .param p1, "ea"    # Lsun/security/ssl/EngineArgs;
-    .param p2, "writeMAC"    # Lsun/security/ssl/MAC;
-    .param p3, "writeCipher"    # Lsun/security/ssl/CipherBox;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    .line 216
     sget-boolean v3, Lsun/security/ssl/EngineOutputRecord;->-assertionsDisabled:Z
 
     if-nez v3, :cond_1
@@ -281,16 +235,13 @@
 
     throw v1
 
-    .line 222
     :cond_1
     sget-object v1, Lsun/security/ssl/MAC;->NULL:Lsun/security/ssl/MAC;
 
     if-ne p2, v1, :cond_2
 
-    .line 223
     return-void
 
-    .line 234
     :cond_2
     invoke-virtual {p1}, Lsun/security/ssl/EngineArgs;->getAppRemaining()I
 
@@ -298,10 +249,8 @@
 
     if-nez v1, :cond_3
 
-    .line 235
     return-void
 
-    .line 259
     :cond_3
     iget-object v1, p0, Lsun/security/ssl/EngineOutputRecord;->engine:Lsun/security/ssl/SSLEngineImpl;
 
@@ -313,39 +262,28 @@
 
     if-eqz v1, :cond_5
 
-    .line 260
     invoke-virtual {p0, p1, p2, p3, v2}, Lsun/security/ssl/EngineOutputRecord;->write(Lsun/security/ssl/EngineArgs;Lsun/security/ssl/MAC;Lsun/security/ssl/CipherBox;I)V
 
-    .line 261
     invoke-virtual {p1}, Lsun/security/ssl/EngineArgs;->resetLim()V
 
-    .line 262
     invoke-virtual {p1}, Lsun/security/ssl/EngineArgs;->getAppRemaining()I
 
     move-result v1
 
-    .line 263
     const/16 v2, 0x3de6
 
-    .line 262
     invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
-    .line 269
-    .local v0, "length":I
     :goto_0
     if-lez v0, :cond_4
 
-    .line 270
     invoke-virtual {p0, p1, p2, p3, v0}, Lsun/security/ssl/EngineOutputRecord;->write(Lsun/security/ssl/EngineArgs;Lsun/security/ssl/MAC;Lsun/security/ssl/CipherBox;I)V
 
-    .line 273
     :cond_4
     return-void
 
-    .line 265
-    .end local v0    # "length":I
     :cond_5
     invoke-virtual {p1}, Lsun/security/ssl/EngineArgs;->getAppRemaining()I
 
@@ -357,81 +295,57 @@
 
     move-result v0
 
-    .restart local v0    # "length":I
     goto :goto_0
 .end method
 
 .method write(Lsun/security/ssl/EngineArgs;Lsun/security/ssl/MAC;Lsun/security/ssl/CipherBox;I)V
     .locals 8
-    .param p1, "ea"    # Lsun/security/ssl/EngineArgs;
-    .param p2, "writeMAC"    # Lsun/security/ssl/MAC;
-    .param p3, "writeCipher"    # Lsun/security/ssl/CipherBox;
-    .param p4, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 281
     iget-object v0, p1, Lsun/security/ssl/EngineArgs;->netData:Ljava/nio/ByteBuffer;
 
-    .line 282
-    .local v0, "dstBB":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/Buffer;->position()I
 
     move-result v3
 
-    .line 283
-    .local v3, "dstPos":I
     invoke-virtual {v0}, Ljava/nio/Buffer;->limit()I
 
     move-result v2
 
-    .line 291
-    .local v2, "dstLim":I
     add-int/lit8 v1, v3, 0x5
 
-    .line 292
-    .local v1, "dstData":I
     invoke-virtual {v0, v1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    .line 294
     invoke-virtual {p1, p4}, Lsun/security/ssl/EngineArgs;->gather(I)V
 
-    .line 301
     invoke-virtual {v0}, Ljava/nio/Buffer;->position()I
 
     move-result v5
 
     invoke-virtual {v0, v5}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 302
     invoke-virtual {v0, v1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    .line 303
     invoke-direct {p0, p2, v0}, Lsun/security/ssl/EngineOutputRecord;->addMAC(Lsun/security/ssl/MAC;Ljava/nio/ByteBuffer;)V
 
-    .line 308
     invoke-virtual {v0}, Ljava/nio/Buffer;->position()I
 
     move-result v5
 
     invoke-virtual {v0, v5}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 309
     invoke-virtual {v0, v1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    .line 310
     invoke-virtual {p0, p3, v0}, Lsun/security/ssl/EngineOutputRecord;->encrypt(Lsun/security/ssl/CipherBox;Ljava/nio/ByteBuffer;)V
 
-    .line 312
     sget-object v5, Lsun/security/ssl/EngineOutputRecord;->debug:Lsun/security/ssl/Debug;
 
     if-eqz v5, :cond_3
 
-    .line 313
     const-string/jumbo v5, "record"
 
     invoke-static {v5}, Lsun/security/ssl/Debug;->isOn(Ljava/lang/String;)Z
@@ -446,10 +360,8 @@
 
     move-result v5
 
-    .line 312
     if-eqz v5, :cond_3
 
-    .line 314
     :cond_0
     sget-object v5, Lsun/security/ssl/EngineOutputRecord;->debug:Lsun/security/ssl/Debug;
 
@@ -463,7 +375,6 @@
 
     if-nez v5, :cond_2
 
-    .line 315
     :cond_1
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->contentType()B
 
@@ -473,7 +384,6 @@
 
     if-ne v5, v6, :cond_3
 
-    .line 316
     :cond_2
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -493,31 +403,24 @@
 
     move-result-object v6
 
-    .line 318
     const-string/jumbo v7, ", WRITE: "
 
-    .line 316
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 318
     iget-object v7, p0, Lsun/security/ssl/OutputRecord;->protocolVersion:Lsun/security/ssl/ProtocolVersion;
 
-    .line 316
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 319
     const-string/jumbo v7, " "
 
-    .line 316
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 319
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->contentType()B
 
     move-result v7
@@ -526,15 +429,12 @@
 
     move-result-object v7
 
-    .line 316
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    .line 320
     const-string/jumbo v7, ", length = "
 
-    .line 316
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
@@ -549,7 +449,6 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 323
     :cond_3
     invoke-virtual {v0}, Ljava/nio/Buffer;->limit()I
 
@@ -557,15 +456,12 @@
 
     sub-int v4, v5, v1
 
-    .line 328
-    .local v4, "packetLength":I
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->contentType()B
 
     move-result v5
 
     invoke-virtual {v0, v3, v5}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
-    .line 329
     add-int/lit8 v5, v3, 0x1
 
     iget-object v6, p0, Lsun/security/ssl/OutputRecord;->protocolVersion:Lsun/security/ssl/ProtocolVersion;
@@ -574,7 +470,6 @@
 
     invoke-virtual {v0, v5, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
-    .line 330
     add-int/lit8 v5, v3, 0x2
 
     iget-object v6, p0, Lsun/security/ssl/OutputRecord;->protocolVersion:Lsun/security/ssl/ProtocolVersion;
@@ -583,7 +478,6 @@
 
     invoke-virtual {v0, v5, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
-    .line 331
     add-int/lit8 v5, v3, 0x3
 
     shr-int/lit8 v6, v4, 0x8
@@ -592,41 +486,33 @@
 
     invoke-virtual {v0, v5, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
-    .line 332
     add-int/lit8 v5, v3, 0x4
 
     int-to-byte v6, v4
 
     invoke-virtual {v0, v5, v6}, Ljava/nio/ByteBuffer;->put(IB)Ljava/nio/ByteBuffer;
 
-    .line 337
     invoke-virtual {v0, v2}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 339
     return-void
 .end method
 
 .method write(Lsun/security/ssl/MAC;Lsun/security/ssl/CipherBox;)V
     .locals 3
-    .param p1, "writeMAC"    # Lsun/security/ssl/MAC;
-    .param p2, "writeCipher"    # Lsun/security/ssl/CipherBox;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 177
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->contentType()B
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 183
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "unexpected byte buffers"
@@ -635,7 +521,6 @@
 
     throw v0
 
-    .line 196
     :pswitch_0
     invoke-virtual {p0}, Lsun/security/ssl/OutputRecord;->isEmpty()Z
 
@@ -643,34 +528,27 @@
 
     if-nez v0, :cond_0
 
-    .line 198
     invoke-virtual {p0, p1}, Lsun/security/ssl/OutputRecord;->addMAC(Lsun/security/ssl/MAC;)V
 
-    .line 199
     invoke-virtual {p0, p2}, Lsun/security/ssl/OutputRecord;->encrypt(Lsun/security/ssl/CipherBox;)V
 
     move-object v0, v1
 
-    .line 200
     nop
 
     nop
 
-    .line 201
     nop
 
     nop
 
-    .line 200
     const/4 v2, 0x0
 
     invoke-virtual {p0, v0, v2, v1}, Lsun/security/ssl/OutputRecord;->write(Ljava/io/OutputStream;ZLjava/io/ByteArrayOutputStream;)V
 
-    .line 203
     :cond_0
     return-void
 
-    .line 177
     nop
 
     :pswitch_data_0
@@ -683,19 +561,12 @@
 
 .method writeBuffer(Ljava/io/OutputStream;[BIII)V
     .locals 3
-    .param p1, "s"    # Ljava/io/OutputStream;
-    .param p2, "buf"    # [B
-    .param p3, "off"    # I
-    .param p4, "len"    # I
-    .param p5, "debugOffset"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 165
     invoke-static {p4}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
@@ -710,15 +581,11 @@
 
     move-result-object v0
 
-    .line 164
     check-cast v0, Ljava/nio/ByteBuffer;
 
-    .line 166
-    .local v0, "netBB":Ljava/nio/ByteBuffer;
     iget-object v1, p0, Lsun/security/ssl/EngineOutputRecord;->writer:Lsun/security/ssl/EngineWriter;
 
     invoke-virtual {v1, v0}, Lsun/security/ssl/EngineWriter;->putOutboundData(Ljava/nio/ByteBuffer;)V
 
-    .line 160
     return-void
 .end method

@@ -21,8 +21,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1067
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,12 +30,7 @@
 # virtual methods
 .method public assign(Ljava/net/HttpCookie;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "cookie"    # Ljava/net/HttpCookie;
-    .param p2, "attrName"    # Ljava/lang/String;
-    .param p3, "attrValue"    # Ljava/lang/String;
 
-    .prologue
-    .line 1069
     invoke-virtual {p1}, Ljava/net/HttpCookie;->getPath()Ljava/lang/String;
 
     move-result-object v0
@@ -46,7 +39,6 @@
 
     invoke-virtual {p1, p3}, Ljava/net/HttpCookie;->setPath(Ljava/lang/String;)V
 
-    .line 1068
     :cond_0
     return-void
 .end method

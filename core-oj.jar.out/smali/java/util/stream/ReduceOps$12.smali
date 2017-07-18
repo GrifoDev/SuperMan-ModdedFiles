@@ -32,11 +32,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;Ljava/util/function/DoubleBinaryOperator;)V
     .locals 0
-    .param p1, "$anonymous0"    # Ljava/util/stream/StreamShape;
-    .param p2, "val$operator"    # Ljava/util/function/DoubleBinaryOperator;
 
-    .prologue
-    .line 593
     iput-object p2, p0, Ljava/util/stream/ReduceOps$12;->val$operator:Ljava/util/function/DoubleBinaryOperator;
 
     invoke-direct {p0, p1}, Ljava/util/stream/ReduceOps$ReduceOp;-><init>(Ljava/util/stream/StreamShape;)V
@@ -49,8 +45,6 @@
 .method public makeSink()Ljava/util/stream/ReduceOps$12ReducingSink;
     .locals 2
 
-    .prologue
-    .line 596
     new-instance v0, Ljava/util/stream/ReduceOps$12ReducingSink;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$12;->val$operator:Ljava/util/function/DoubleBinaryOperator;
@@ -63,8 +57,6 @@
 .method public bridge synthetic makeSink()Ljava/util/stream/ReduceOps$AccumulatingSink;
     .locals 1
 
-    .prologue
-    .line 595
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$12;->makeSink()Ljava/util/stream/ReduceOps$12ReducingSink;
 
     move-result-object v0

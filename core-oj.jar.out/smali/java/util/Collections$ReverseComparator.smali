@@ -41,24 +41,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 4313
     new-instance v0, Ljava/util/Collections$ReverseComparator;
 
     invoke-direct {v0}, Ljava/util/Collections$ReverseComparator;-><init>()V
 
-    .line 4312
     sput-object v0, Ljava/util/Collections$ReverseComparator;->REVERSE_ORDER:Ljava/util/Collections$ReverseComparator;
 
-    .line 4307
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 4307
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,8 +61,6 @@
 .method private readResolve()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 4319
     invoke-static {}, Ljava/util/Collections;->reverseOrder()Ljava/util/Comparator;
 
     move-result-object v0
@@ -94,10 +86,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4316
-    .local p1, "c1":Ljava/lang/Comparable;, "Ljava/lang/Comparable<Ljava/lang/Object;>;"
-    .local p2, "c2":Ljava/lang/Comparable;, "Ljava/lang/Comparable<Ljava/lang/Object;>;"
     invoke-interface {p2, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -107,17 +95,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "c1"    # Ljava/lang/Object;
-    .param p2, "c2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 4315
     check-cast p1, Ljava/lang/Comparable;
 
-    .end local p1    # "c1":Ljava/lang/Object;
     check-cast p2, Ljava/lang/Comparable;
 
-    .end local p2    # "c2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Ljava/util/Collections$ReverseComparator;->compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 
     move-result v0
@@ -139,8 +121,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4323
     invoke-static {}, Ljava/util/Comparator;->naturalOrder()Ljava/util/Comparator;
 
     move-result-object v0

@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/BiConsumer;Ljava/util/function/Function;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_mapping_java_util_function_Function_mapper_java_util_stream_Collector_downstream_LambdaImpl0;->val$downstreamAccumulator:Ljava/util/function/BiConsumer;
@@ -41,10 +40,7 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 2
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_mapping_java_util_function_Function_mapper_java_util_stream_Collector_downstream_LambdaImpl0;->val$downstreamAccumulator:Ljava/util/function/BiConsumer;
 
     iget-object v1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_mapping_java_util_function_Function_mapper_java_util_stream_Collector_downstream_LambdaImpl0;->val$mapper:Ljava/util/function/Function;

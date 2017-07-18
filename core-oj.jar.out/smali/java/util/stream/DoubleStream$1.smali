@@ -28,23 +28,17 @@
 # direct methods
 .method constructor <init>(DLjava/util/function/DoubleUnaryOperator;)V
     .locals 3
-    .param p1, "val$seed"    # D
-    .param p3, "val$f"    # Ljava/util/function/DoubleUnaryOperator;
 
-    .prologue
-    .line 775
     iput-wide p1, p0, Ljava/util/stream/DoubleStream$1;->val$seed:D
 
     iput-object p3, p0, Ljava/util/stream/DoubleStream$1;->val$f:Ljava/util/function/DoubleUnaryOperator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 776
     iget-wide v0, p0, Ljava/util/stream/DoubleStream$1;->val$seed:D
 
     iput-wide v0, p0, Ljava/util/stream/DoubleStream$1;->t:D
 
-    .line 775
     return-void
 .end method
 
@@ -52,13 +46,9 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 259
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/PrimitiveIterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
     return-void
@@ -67,8 +57,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 780
     const/4 v0, 0x1
 
     return v0
@@ -77,8 +65,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 272
     invoke-interface {p0}, Ljava/util/PrimitiveIterator$OfDouble;->next()Ljava/lang/Double;
 
     move-result-object v0
@@ -89,12 +75,8 @@
 .method public nextDouble()D
     .locals 6
 
-    .prologue
-    .line 785
     iget-wide v0, p0, Ljava/util/stream/DoubleStream$1;->t:D
 
-    .line 786
-    .local v0, "v":D
     iget-object v2, p0, Ljava/util/stream/DoubleStream$1;->val$f:Ljava/util/function/DoubleUnaryOperator;
 
     iget-wide v4, p0, Ljava/util/stream/DoubleStream$1;->t:D
@@ -105,6 +87,5 @@
 
     iput-wide v2, p0, Ljava/util/stream/DoubleStream$1;->t:D
 
-    .line 787
     return-wide v0
 .end method

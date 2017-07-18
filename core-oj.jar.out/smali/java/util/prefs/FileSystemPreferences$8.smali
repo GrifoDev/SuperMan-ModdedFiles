@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/FileSystemPreferences;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
 
-    .prologue
-    .line 732
     iput-object p1, p0, Ljava/util/prefs/FileSystemPreferences$8;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,12 +47,10 @@
 .method public run()Ljava/lang/Long;
     .locals 6
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    .line 735
     iget-object v4, p0, Ljava/util/prefs/FileSystemPreferences$8;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-virtual {v4}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
@@ -64,7 +59,6 @@
 
     if-eqz v4, :cond_1
 
-    .line 736
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get10()Ljava/io/File;
 
     move-result-object v4
@@ -73,8 +67,6 @@
 
     move-result-wide v0
 
-    .line 737
-    .local v0, "nmt":J
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get11()J
 
     move-result-wide v4
@@ -86,7 +78,6 @@
     :goto_0
     invoke-static {v2}, Ljava/util/prefs/FileSystemPreferences;->-set2(Z)Z
 
-    .line 742
     :goto_1
     new-instance v2, Ljava/lang/Long;
 
@@ -97,11 +88,8 @@
     :cond_0
     move v2, v3
 
-    .line 737
     goto :goto_0
 
-    .line 739
-    .end local v0    # "nmt":J
     :cond_1
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get6()Ljava/io/File;
 
@@ -111,8 +99,6 @@
 
     move-result-wide v0
 
-    .line 740
-    .restart local v0    # "nmt":J
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get7()J
 
     move-result-wide v4
@@ -135,8 +121,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 733
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences$8;->run()Ljava/lang/Long;
 
     move-result-object v0

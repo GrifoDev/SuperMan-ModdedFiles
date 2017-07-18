@@ -52,14 +52,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 847
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
-    .local p1, "left":Ljava/util/stream/Node$OfPrimitive;, "TT_NODE;"
-    .local p2, "right":Ljava/util/stream/Node$OfPrimitive;, "TT_NODE;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/Nodes$AbstractConcNode;-><init>(Ljava/util/stream/Node;Ljava/util/stream/Node;)V
 
-    .line 846
     return-void
 .end method
 
@@ -73,22 +67,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 866
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$AbstractConcNode;->count()J
 
     move-result-wide v2
 
-    .line 867
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 868
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -97,7 +85,6 @@
 
     throw v1
 
-    .line 869
     :cond_0
     long-to-int v1, v2
 
@@ -105,36 +92,27 @@
 
     move-result-object v0
 
-    .line 870
-    .local v0, "array":Ljava/lang/Object;, "TT_ARR;"
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Ljava/util/stream/Nodes$ConcNode$OfPrimitive;->copyInto(Ljava/lang/Object;I)V
 
-    .line 871
     return-object v0
 .end method
 
 .method public copyInto(Ljava/lang/Object;I)V
     .locals 4
-    .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_ARR;I)V"
         }
     .end annotation
 
-    .prologue
-    .line 858
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
-    .local p1, "array":Ljava/lang/Object;, "TT_ARR;"
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     check-cast v0, Ljava/util/stream/Node$OfPrimitive;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Node$OfPrimitive;->copyInto(Ljava/lang/Object;I)V
 
-    .line 861
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     check-cast v0, Ljava/util/stream/Node$OfPrimitive;
@@ -153,7 +131,6 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/stream/Node$OfPrimitive;->copyInto(Ljava/lang/Object;I)V
 
-    .line 857
     return-void
 .end method
 
@@ -165,34 +142,24 @@
         }
     .end annotation
 
-    .prologue
-    .line 852
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
-    .local p1, "consumer":Ljava/lang/Object;, "TT_CONS;"
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     check-cast v0, Ljava/util/stream/Node$OfPrimitive;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Node$OfPrimitive;->forEach(Ljava/lang/Object;)V
 
-    .line 853
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     check-cast v0, Ljava/util/stream/Node$OfPrimitive;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Node$OfPrimitive;->forEach(Ljava/lang/Object;)V
 
-    .line 851
     return-void
 .end method
 
 .method public bridge synthetic getChild(I)Ljava/util/stream/Node$OfPrimitive;
     .locals 1
-    .param p1, "i"    # I
 
-    .prologue
-    .line 766
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/Nodes$AbstractConcNode;->getChild(I)Ljava/util/stream/Node;
 
     move-result-object v0
@@ -205,15 +172,12 @@
 .method public toString()Ljava/lang/String;
     .locals 7
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode$OfPrimitive;, "Ljava/util/stream/Nodes$ConcNode<TT;>.OfPrimitive<TE;TT_CONS;TT_ARR;TT_SPLITR;TT_NODE;>;"
     const/4 v6, 0x2
 
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 876
     invoke-virtual {p0}, Ljava/util/stream/Nodes$AbstractConcNode;->count()J
 
     move-result-wide v0
@@ -224,7 +188,6 @@
 
     if-gez v0, :cond_0
 
-    .line 877
     const-string/jumbo v0, "%s[%s.%s]"
 
     const/4 v1, 0x3
@@ -255,7 +218,6 @@
 
     return-object v0
 
-    .line 879
     :cond_0
     const-string/jumbo v0, "%s[size=%d]"
 

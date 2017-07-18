@@ -21,12 +21,8 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 358
     invoke-direct {p0, p1}, Ljava/text/AttributedCharacterIterator$Attribute;-><init>(Ljava/lang/String;)V
 
-    .line 357
     return-void
 .end method

@@ -15,8 +15,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 52
     const-string/jumbo v0, "certpath"
 
     invoke-static {v0}, Lsun/security/util/Debug;->getInstance(Ljava/lang/String;)Lsun/security/util/Debug;
@@ -25,26 +23,16 @@
 
     sput-object v0, Lsun/security/provider/certpath/SunCertPathBuilderResult;->debug:Lsun/security/util/Debug;
 
-    .line 50
     return-void
 .end method
 
 .method constructor <init>(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;Lsun/security/provider/certpath/AdjacencyList;)V
     .locals 0
-    .param p1, "certPath"    # Ljava/security/cert/CertPath;
-    .param p2, "trustAnchor"    # Ljava/security/cert/TrustAnchor;
-    .param p3, "policyTree"    # Ljava/security/cert/PolicyNode;
-    .param p4, "subjectPublicKey"    # Ljava/security/PublicKey;
-    .param p5, "adjList"    # Lsun/security/provider/certpath/AdjacencyList;
 
-    .prologue
-    .line 71
     invoke-direct {p0, p1, p2, p3, p4}, Ljava/security/cert/PKIXCertPathBuilderResult;-><init>(Ljava/security/cert/CertPath;Ljava/security/cert/TrustAnchor;Ljava/security/cert/PolicyNode;Ljava/security/PublicKey;)V
 
-    .line 72
     iput-object p5, p0, Lsun/security/provider/certpath/SunCertPathBuilderResult;->adjList:Lsun/security/provider/certpath/AdjacencyList;
 
-    .line 69
     return-void
 .end method
 
@@ -53,8 +41,6 @@
 .method public getAdjacencyList()Lsun/security/provider/certpath/AdjacencyList;
     .locals 1
 
-    .prologue
-    .line 81
     iget-object v0, p0, Lsun/security/provider/certpath/SunCertPathBuilderResult;->adjList:Lsun/security/provider/certpath/AdjacencyList;
 
     return-object v0

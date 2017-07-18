@@ -36,9 +36,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 1280
-    .local p0, "this":Ljava/util/Spliterators$AbstractSpliterator$HoldingConsumer;, "Ljava/util/Spliterators$AbstractSpliterator<TT;>.HoldingConsumer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -54,12 +51,7 @@
         }
     .end annotation
 
-    .prologue
-    .line 1285
-    .local p0, "this":Ljava/util/Spliterators$AbstractSpliterator$HoldingConsumer;, "Ljava/util/Spliterators$AbstractSpliterator<TT;>.HoldingConsumer<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Ljava/util/Spliterators$AbstractSpliterator$HoldingConsumer;->value:Ljava/lang/Object;
 
-    .line 1284
     return-void
 .end method

@@ -43,7 +43,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -54,7 +53,6 @@
 
     const/4 v3, 0x0
 
-    .line 373
     new-instance v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     const-string/jumbo v1, "EQ"
@@ -69,7 +67,6 @@
 
     invoke-direct {v0, v1, v4}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;-><init>(Ljava/lang/String;I)V
 
-    .line 374
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->NE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     new-instance v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
@@ -78,7 +75,6 @@
 
     invoke-direct {v0, v1, v5}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;-><init>(Ljava/lang/String;I)V
 
-    .line 375
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->LT:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     new-instance v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
@@ -87,7 +83,6 @@
 
     invoke-direct {v0, v1, v6}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;-><init>(Ljava/lang/String;I)V
 
-    .line 376
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->LE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     new-instance v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
@@ -96,7 +91,6 @@
 
     invoke-direct {v0, v1, v7}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;-><init>(Ljava/lang/String;I)V
 
-    .line 377
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->GT:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     new-instance v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
@@ -107,10 +101,8 @@
 
     invoke-direct {v0, v1, v2}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;-><init>(Ljava/lang/String;I)V
 
-    .line 378
     sput-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->GE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
-    .line 372
     const/4 v0, 0x6
 
     new-array v0, v0, [Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
@@ -149,8 +141,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 372
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -158,10 +148,7 @@
 
 .method static of(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
     .locals 3
-    .param p0, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 381
     const-string/jumbo v0, "=="
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -170,12 +157,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 383
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->EQ:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 381
     :cond_0
     const-string/jumbo v0, "!="
 
@@ -185,12 +170,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 385
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->NE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 381
     :cond_1
     const-string/jumbo v0, "<"
 
@@ -200,12 +183,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 387
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->LT:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 381
     :cond_2
     const-string/jumbo v0, "<="
 
@@ -215,12 +196,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 389
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->LE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 381
     :cond_3
     const-string/jumbo v0, ">"
 
@@ -230,12 +209,10 @@
 
     if-eqz v0, :cond_4
 
-    .line 391
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->GT:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 381
     :cond_4
     const-string/jumbo v0, ">="
 
@@ -245,16 +222,13 @@
 
     if-eqz v0, :cond_5
 
-    .line 393
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->GE:Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0
 
-    .line 396
     :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    .line 397
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -273,7 +247,6 @@
 
     move-result-object v1
 
-    .line 396
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
@@ -281,10 +254,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 372
     const-class v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -299,8 +269,6 @@
 .method public static values()[Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
     .locals 1
 
-    .prologue
-    .line 372
     sget-object v0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;->$VALUES:[Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
 
     return-object v0

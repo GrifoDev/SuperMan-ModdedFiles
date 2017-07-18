@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 325
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 326
     invoke-virtual {p0}, Ljava/security/cert/CertPathValidator$1;->run()Ljava/lang/String;
 
     move-result-object v0
@@ -55,8 +51,6 @@
 .method public run()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 327
     const-string/jumbo v0, "certpathvalidator.type"
 
     invoke-static {v0}, Ljava/security/Security;->getProperty(Ljava/lang/String;)Ljava/lang/String;

@@ -39,11 +39,6 @@
 .method constructor <init>(Ljava/util/Collections$CheckedMap$CheckedEntrySet;Ljava/util/Iterator;Ljava/lang/Class;)V
     .locals 0
 
-    .prologue
-    .line 3204
-    .local p1, "this$2":Ljava/util/Collections$CheckedMap$CheckedEntrySet;, "Ljava/util/Collections$CheckedMap<TK;TV;>.CheckedEntrySet<TK;TV;>;"
-    .local p2, "val$i":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    .local p3, "val$valueType":Ljava/lang/Class;, "Ljava/lang/Class<TV;>;"
     iput-object p1, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->this$2:Ljava/util/Collections$CheckedMap$CheckedEntrySet;
 
     iput-object p2, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->val$i:Ljava/util/Iterator;
@@ -60,8 +55,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 3205
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->val$i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -74,8 +67,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 3208
     invoke-virtual {p0}, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -93,8 +84,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 3209
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->val$i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -115,8 +104,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 3206
     iget-object v0, p0, Ljava/util/Collections$CheckedMap$CheckedEntrySet$1;->val$i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V

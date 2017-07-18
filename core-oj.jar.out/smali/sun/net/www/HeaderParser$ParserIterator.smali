@@ -28,19 +28,13 @@
 # direct methods
 .method constructor <init>(Lsun/net/www/HeaderParser;Z)V
     .locals 0
-    .param p1, "this$0"    # Lsun/net/www/HeaderParser;
-    .param p2, "returnValue"    # Z
 
-    .prologue
-    .line 199
     iput-object p1, p0, Lsun/net/www/HeaderParser$ParserIterator;->this$0:Lsun/net/www/HeaderParser;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 200
     iput-boolean p2, p0, Lsun/net/www/HeaderParser$ParserIterator;->returnsValue:Z
 
-    .line 199
     return-void
 .end method
 
@@ -49,8 +43,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 203
     iget v0, p0, Lsun/net/www/HeaderParser$ParserIterator;->index:I
 
     iget-object v1, p0, Lsun/net/www/HeaderParser$ParserIterator;->this$0:Lsun/net/www/HeaderParser;
@@ -73,8 +65,6 @@
 .method public next()Ljava/lang/Object;
     .locals 3
 
-    .prologue
-    .line 206
     iget-object v0, p0, Lsun/net/www/HeaderParser$ParserIterator;->this$0:Lsun/net/www/HeaderParser;
 
     iget-object v0, v0, Lsun/net/www/HeaderParser;->tab:[[Ljava/lang/String;
@@ -107,8 +97,6 @@
 .method public remove()V
     .locals 2
 
-    .prologue
-    .line 209
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "remove not supported"

@@ -10,16 +10,11 @@
 # direct methods
 .method constructor <init>(Lsun/security/ssl/ExtensionType;)V
     .locals 0
-    .param p1, "type"    # Lsun/security/ssl/ExtensionType;
 
-    .prologue
-    .line 234
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 235
     iput-object p1, p0, Lsun/security/ssl/HelloExtension;->type:Lsun/security/ssl/ExtensionType;
 
-    .line 234
     return-void
 .end method
 

@@ -46,8 +46,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 1028
     new-instance v0, Ljava/util/HashMap;
 
     const/16 v1, 0xb
@@ -56,7 +54,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->instanceMap:Ljava/util/Map;
 
-    .line 1065
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "integer"
@@ -65,7 +62,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->INTEGER:Ljava/text/NumberFormat$Field;
 
-    .line 1070
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "fraction"
@@ -74,7 +70,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->FRACTION:Ljava/text/NumberFormat$Field;
 
-    .line 1075
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "exponent"
@@ -83,17 +78,14 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->EXPONENT:Ljava/text/NumberFormat$Field;
 
-    .line 1081
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "decimal separator"
 
     invoke-direct {v0, v1}, Ljava/text/NumberFormat$Field;-><init>(Ljava/lang/String;)V
 
-    .line 1080
     sput-object v0, Ljava/text/NumberFormat$Field;->DECIMAL_SEPARATOR:Ljava/text/NumberFormat$Field;
 
-    .line 1086
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "sign"
@@ -102,28 +94,22 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->SIGN:Ljava/text/NumberFormat$Field;
 
-    .line 1092
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "grouping separator"
 
     invoke-direct {v0, v1}, Ljava/text/NumberFormat$Field;-><init>(Ljava/lang/String;)V
 
-    .line 1091
     sput-object v0, Ljava/text/NumberFormat$Field;->GROUPING_SEPARATOR:Ljava/text/NumberFormat$Field;
 
-    .line 1097
     new-instance v0, Ljava/text/NumberFormat$Field;
 
-    .line 1098
     const-string/jumbo v1, "exponent symbol"
 
-    .line 1097
     invoke-direct {v0, v1}, Ljava/text/NumberFormat$Field;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Ljava/text/NumberFormat$Field;->EXPONENT_SYMBOL:Ljava/text/NumberFormat$Field;
 
-    .line 1103
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "percent"
@@ -132,7 +118,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->PERCENT:Ljava/text/NumberFormat$Field;
 
-    .line 1108
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "per mille"
@@ -141,7 +126,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->PERMILLE:Ljava/text/NumberFormat$Field;
 
-    .line 1113
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "currency"
@@ -150,7 +134,6 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->CURRENCY:Ljava/text/NumberFormat$Field;
 
-    .line 1118
     new-instance v0, Ljava/text/NumberFormat$Field;
 
     const-string/jumbo v1, "exponent sign"
@@ -159,19 +142,14 @@
 
     sput-object v0, Ljava/text/NumberFormat$Field;->EXPONENT_SIGN:Ljava/text/NumberFormat$Field;
 
-    .line 1022
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 1037
     invoke-direct {p0, p1}, Ljava/text/Format$Field;-><init>(Ljava/lang/String;)V
 
-    .line 1038
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -180,12 +158,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1039
     sget-object v0, Ljava/text/NumberFormat$Field;->instanceMap:Ljava/util/Map;
 
     invoke-interface {v0, p1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1036
     :cond_0
     return-void
 .end method
@@ -200,8 +176,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1050
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -210,7 +184,6 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 1051
     new-instance v1, Ljava/io/InvalidObjectException;
 
     const-string/jumbo v2, "subclass didn\'t correctly implement readResolve"
@@ -219,7 +192,6 @@
 
     throw v1
 
-    .line 1054
     :cond_0
     sget-object v1, Ljava/text/NumberFormat$Field;->instanceMap:Ljava/util/Map;
 
@@ -231,14 +203,10 @@
 
     move-result-object v0
 
-    .line 1055
-    .local v0, "instance":Ljava/lang/Object;
     if-eqz v0, :cond_1
 
-    .line 1056
     return-object v0
 
-    .line 1058
     :cond_1
     new-instance v1, Ljava/io/InvalidObjectException;
 

@@ -41,26 +41,18 @@
 # direct methods
 .method static synthetic -java_util_stream_StreamSpliterators$SliceSpliterator$OfRef_lambda$13(Ljava/lang/Object;)V
     .locals 0
-    .param p0, "e"    # Ljava/lang/Object;
 
-    .prologue
-    .line 0
     return-void
 .end method
 
 .method static synthetic -java_util_stream_StreamSpliterators$SliceSpliterator$OfRef_lambda$14(Ljava/lang/Object;)V
     .locals 0
-    .param p0, "e"    # Ljava/lang/Object;
 
-    .prologue
-    .line 0
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/Spliterator;JJ)V
     .locals 10
-    .param p2, "sliceOrigin"    # J
-    .param p4, "sliceFence"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,10 +61,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 694
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     const-wide/16 v6, 0x0
 
     invoke-interface {p1}, Ljava/util/Spliterator;->estimateSize()J
@@ -93,16 +81,11 @@
 
     invoke-direct/range {v0 .. v9}, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;-><init>(Ljava/util/Spliterator;JJJJ)V
 
-    .line 693
     return-void
 .end method
 
 .method private constructor <init>(Ljava/util/Spliterator;JJJJ)V
     .locals 0
-    .param p2, "sliceOrigin"    # J
-    .param p4, "sliceFence"    # J
-    .param p6, "origin"    # J
-    .param p8, "fence"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,13 +94,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 699
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     invoke-direct/range {p0 .. p9}, Ljava/util/stream/StreamSpliterators$SliceSpliterator;-><init>(Ljava/util/Spliterator;JJJJ)V
 
-    .line 698
     return-void
 .end method
 
@@ -133,15 +111,10 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     const-wide/16 v4, 0x1
 
-    .line 730
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 732
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
 
     iget-wide v2, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->fence:J
@@ -150,10 +123,8 @@
 
     if-ltz v0, :cond_0
 
-    .line 733
     return-void
 
-    .line 735
     :cond_0
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
@@ -163,10 +134,8 @@
 
     if-ltz v0, :cond_1
 
-    .line 736
     return-void
 
-    .line 738
     :cond_1
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
@@ -192,21 +161,17 @@
 
     if-gtz v0, :cond_3
 
-    .line 740
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 741
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->fence:J
 
     iput-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
-    .line 729
     :cond_2
     return-void
 
-    .line 744
     :cond_3
     :goto_0
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
@@ -217,7 +182,6 @@
 
     if-lez v0, :cond_4
 
-    .line 745
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->s:Ljava/util/Spliterator;
 
     new-instance v1, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef$-void_forEachRemaining_java_util_function_Consumer_action_LambdaImpl0;
@@ -226,7 +190,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
-    .line 746
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     add-long/2addr v0, v4
@@ -235,7 +198,6 @@
 
     goto :goto_0
 
-    .line 749
     :cond_4
     :goto_1
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
@@ -246,12 +208,10 @@
 
     if-gez v0, :cond_2
 
-    .line 750
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
-    .line 749
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     add-long/2addr v0, v4
@@ -263,10 +223,6 @@
 
 .method protected makeSpliterator(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;
     .locals 10
-    .param p2, "sliceOrigin"    # J
-    .param p4, "sliceFence"    # J
-    .param p6, "origin"    # J
-    .param p8, "fence"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,10 +233,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 706
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TT;>;"
     new-instance v0, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;
 
     move-object v1, p1
@@ -308,17 +260,12 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;, "Ljava/util/stream/StreamSpliterators$SliceSpliterator<TT;TT_SPLITR;>.OfRef<TT;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     const-wide/16 v6, 0x1
 
     const/4 v4, 0x0
 
-    .line 711
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 713
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
 
     iget-wide v2, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->fence:J
@@ -327,10 +274,8 @@
 
     if-ltz v0, :cond_0
 
-    .line 714
     return v4
 
-    .line 716
     :cond_0
     :goto_0
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->sliceOrigin:J
@@ -341,7 +286,6 @@
 
     if-lez v0, :cond_1
 
-    .line 717
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->s:Ljava/util/Spliterator;
 
     new-instance v1, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef$-boolean_tryAdvance_java_util_function_Consumer_action_LambdaImpl0;
@@ -350,7 +294,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
-    .line 718
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
     add-long/2addr v0, v6
@@ -359,7 +302,6 @@
 
     goto :goto_0
 
-    .line 721
     :cond_1
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
@@ -369,10 +311,8 @@
 
     if-ltz v0, :cond_2
 
-    .line 722
     return v4
 
-    .line 724
     :cond_2
     iget-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
@@ -380,7 +320,6 @@
 
     iput-wide v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->index:J
 
-    .line 725
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$SliceSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z

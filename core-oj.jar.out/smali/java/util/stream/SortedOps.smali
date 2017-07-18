@@ -30,8 +30,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,9 +50,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 93
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;"
     new-instance v0, Ljava/util/stream/SortedOps$OfDouble;
 
     invoke-direct {v0, p0}, Ljava/util/stream/SortedOps$OfDouble;-><init>(Ljava/util/stream/AbstractPipeline;)V
@@ -77,9 +72,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 73
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;"
     new-instance v0, Ljava/util/stream/SortedOps$OfInt;
 
     invoke-direct {v0, p0}, Ljava/util/stream/SortedOps$OfInt;-><init>(Ljava/util/stream/AbstractPipeline;)V
@@ -102,9 +94,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 83
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;"
     new-instance v0, Ljava/util/stream/SortedOps$OfLong;
 
     invoke-direct {v0, p0}, Ljava/util/stream/SortedOps$OfLong;-><init>(Ljava/util/stream/AbstractPipeline;)V
@@ -126,9 +115,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 51
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TT;*>;"
     new-instance v0, Ljava/util/stream/SortedOps$OfRef;
 
     invoke-direct {v0, p0}, Ljava/util/stream/SortedOps$OfRef;-><init>(Ljava/util/stream/AbstractPipeline;)V
@@ -152,10 +138,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 63
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TT;*>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     new-instance v0, Ljava/util/stream/SortedOps$OfRef;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/SortedOps$OfRef;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)V

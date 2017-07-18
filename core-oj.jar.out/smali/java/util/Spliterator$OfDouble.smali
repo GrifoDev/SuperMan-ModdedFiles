@@ -40,8 +40,6 @@
 .method public static synthetic -java_util_Spliterator$OfDouble-mthref-0(Ljava/util/function/Consumer;D)V
     .locals 1
 
-    .prologue
-    .line 804
     invoke-static {p1, p2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
@@ -54,8 +52,6 @@
 .method public static synthetic -java_util_Spliterator$OfDouble-mthref-1(Ljava/util/function/Consumer;D)V
     .locals 1
 
-    .prologue
-    .line 828
     invoke-static {p1, p2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
@@ -69,14 +65,9 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 781
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
     return-void
@@ -94,43 +85,30 @@
         }
     .end annotation
 
-    .prologue
-    .line 821
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 822
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->forEachRemaining(Ljava/util/function/DoubleConsumer;)V
 
-    .line 820
     :goto_0
     return-void
 
-    .line 825
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 826
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 827
     const-string/jumbo v1, "{0} calling Spliterator.OfDouble.forEachRemaining((DoubleConsumer) action::accept)"
 
-    .line 826
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 828
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -145,11 +123,7 @@
 
 .method public forEachRemaining(Ljava/util/function/DoubleConsumer;)V
     .locals 1
-    .param p1, "action"    # Ljava/util/function/DoubleConsumer;
 
-    .prologue
-    .line 782
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
     :cond_0
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
@@ -157,20 +131,14 @@
 
     if-nez v0, :cond_0
 
-    .line 781
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 778
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
     move-result v0
@@ -190,43 +158,31 @@
         }
     .end annotation
 
-    .prologue
-    .line 797
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     instance-of v0, p1, Ljava/util/function/DoubleConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 798
     check-cast p1, Ljava/util/function/DoubleConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfDouble;->tryAdvance(Ljava/util/function/DoubleConsumer;)Z
 
     move-result v0
 
     return v0
 
-    .line 801
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Double;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 802
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 803
     const-string/jumbo v1, "{0} calling Spliterator.OfDouble.tryAdvance((DoubleConsumer) action::accept)"
 
-    .line 802
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 804
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -250,9 +206,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
-    .prologue
-    .line 775
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfDouble;->trySplit()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0
@@ -263,9 +216,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
-    .prologue
-    .line 775
-    .local p0, "this":Ljava/util/Spliterator$OfDouble;, "Ljava/util/Spliterator<TT;>.OfDouble;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfDouble;->trySplit()Ljava/util/Spliterator$OfDouble;
 
     move-result-object v0

@@ -45,9 +45,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 558
-    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -65,10 +62,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 562
-    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
-    .local p1, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     const/4 v0, 0x0
 
     invoke-interface {p1, v0}, Ljava/util/function/IntFunction;->apply(I)Ljava/lang/Object;
@@ -82,26 +75,18 @@
 
 .method public copyInto(Ljava/lang/Object;I)V
     .locals 0
-    .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT_ARR;I)V"
         }
     .end annotation
 
-    .prologue
-    .line 565
-    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
-    .local p1, "array":Ljava/lang/Object;, "TT_ARR;"
     return-void
 .end method
 
 .method public count()J
     .locals 2
 
-    .prologue
-    .line 569
-    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -115,9 +100,5 @@
         }
     .end annotation
 
-    .prologue
-    .line 572
-    .local p0, "this":Ljava/util/stream/Nodes$EmptyNode;, "Ljava/util/stream/Nodes$EmptyNode<TT;TT_ARR;TT_CONS;>;"
-    .local p1, "consumer":Ljava/lang/Object;, "TT_CONS;"
     return-void
 .end method

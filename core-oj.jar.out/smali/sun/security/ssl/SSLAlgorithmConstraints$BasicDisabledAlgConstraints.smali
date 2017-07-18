@@ -350,13 +350,9 @@
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "propertyName"    # Ljava/lang/String;
 
-    .prologue
-    .line 259
     invoke-direct {p0, p1}, Lsun/security/util/DisabledAlgorithmConstraints;-><init>(Ljava/lang/String;)V
 
-    .line 258
     return-void
 .end method
 
@@ -364,7 +360,6 @@
 # virtual methods
 .method protected decomposes(Lsun/security/ssl/CipherSuite$BulkCipher;)Ljava/util/Set;
     .locals 2
-    .param p1, "bulkCipher"    # Lsun/security/ssl/CipherSuite$BulkCipher;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -377,19 +372,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 359
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 361
-    .local v0, "components":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v1, p1, Lsun/security/ssl/CipherSuite$BulkCipher;->transformation:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 362
     iget-object v1, p1, Lsun/security/ssl/CipherSuite$BulkCipher;->transformation:Ljava/lang/String;
 
     invoke-super {p0, v1}, Lsun/security/util/DisabledAlgorithmConstraints;->decomposes(Ljava/lang/String;)Ljava/util/Set;
@@ -398,15 +388,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 365
     :cond_0
     return-object v0
 .end method
 
 .method protected decomposes(Lsun/security/ssl/CipherSuite$KeyExchange;Z)Ljava/util/Set;
     .locals 3
-    .param p1, "keyExchange"    # Lsun/security/ssl/CipherSuite$KeyExchange;
-    .param p2, "forCertPathOnly"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -419,14 +406,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 264
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 265
-    .local v0, "components":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-static {}, Lsun/security/ssl/SSLAlgorithmConstraints$BasicDisabledAlgConstraints;->-getsun-security-ssl-CipherSuite$KeyExchangeSwitchesValues()[I
 
     move-result-object v1
@@ -439,23 +422,19 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 355
     :cond_0
     :goto_0
     return-object v0
 
-    .line 267
     :pswitch_0
     if-nez p2, :cond_0
 
-    .line 268
     const-string/jumbo v1, "NULL"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 272
     :pswitch_1
     const-string/jumbo v1, "RSA"
 
@@ -463,273 +442,225 @@
 
     goto :goto_0
 
-    .line 275
     :pswitch_2
     const-string/jumbo v1, "RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 276
     const-string/jumbo v1, "RSA_EXPORT"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 279
     :pswitch_3
     const-string/jumbo v1, "RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 280
     const-string/jumbo v1, "DH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 281
     const-string/jumbo v1, "DiffieHellman"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 282
     const-string/jumbo v1, "DH_RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 285
     :pswitch_4
     const-string/jumbo v1, "DSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 286
     const-string/jumbo v1, "DSS"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 287
     const-string/jumbo v1, "DH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 288
     const-string/jumbo v1, "DiffieHellman"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 289
     const-string/jumbo v1, "DH_DSS"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 292
     :pswitch_5
     const-string/jumbo v1, "DSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 293
     const-string/jumbo v1, "DSS"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 294
     const-string/jumbo v1, "DH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 295
     const-string/jumbo v1, "DHE"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 296
     const-string/jumbo v1, "DiffieHellman"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 297
     const-string/jumbo v1, "DHE_DSS"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 300
     :pswitch_6
     const-string/jumbo v1, "RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 301
     const-string/jumbo v1, "DH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 302
     const-string/jumbo v1, "DHE"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 303
     const-string/jumbo v1, "DiffieHellman"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 304
     const-string/jumbo v1, "DHE_RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 307
     :pswitch_7
     if-nez p2, :cond_0
 
-    .line 308
     const-string/jumbo v1, "ANON"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 309
     const-string/jumbo v1, "DH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 310
     const-string/jumbo v1, "DiffieHellman"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 311
     const-string/jumbo v1, "DH_ANON"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 315
     :pswitch_8
     const-string/jumbo v1, "ECDH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 316
     const-string/jumbo v1, "ECDSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 317
     const-string/jumbo v1, "ECDH_ECDSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 320
     :pswitch_9
     const-string/jumbo v1, "ECDH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 321
     const-string/jumbo v1, "RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 322
     const-string/jumbo v1, "ECDH_RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 325
     :pswitch_a
     const-string/jumbo v1, "ECDHE"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 326
     const-string/jumbo v1, "ECDSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 327
     const-string/jumbo v1, "ECDHE_ECDSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 330
     :pswitch_b
     const-string/jumbo v1, "ECDHE"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 331
     const-string/jumbo v1, "RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 332
     const-string/jumbo v1, "ECDHE_RSA"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 335
     :pswitch_c
     if-nez p2, :cond_0
 
-    .line 336
     const-string/jumbo v1, "ECDH"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 337
     const-string/jumbo v1, "ANON"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 338
     const-string/jumbo v1, "ECDH_ANON"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 342
     :pswitch_d
     if-nez p2, :cond_0
 
-    .line 343
     const-string/jumbo v1, "KRB5"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 347
     :pswitch_e
     if-nez p2, :cond_0
 
-    .line 348
     const-string/jumbo v1, "KRB5_EXPORT"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    .line 265
     nop
 
     :pswitch_data_0
@@ -754,7 +685,6 @@
 
 .method protected decomposes(Lsun/security/ssl/CipherSuite$MacAlg;)Ljava/util/Set;
     .locals 2
-    .param p1, "macAlg"    # Lsun/security/ssl/CipherSuite$MacAlg;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -767,96 +697,77 @@
         }
     .end annotation
 
-    .prologue
-    .line 369
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    .line 371
-    .local v0, "components":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     sget-object v1, Lsun/security/ssl/CipherSuite;->M_MD5:Lsun/security/ssl/CipherSuite$MacAlg;
 
     if-ne p1, v1, :cond_1
 
-    .line 372
     const-string/jumbo v1, "MD5"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 373
     const-string/jumbo v1, "HmacMD5"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 388
     :cond_0
     :goto_0
     return-object v0
 
-    .line 374
     :cond_1
     sget-object v1, Lsun/security/ssl/CipherSuite;->M_SHA:Lsun/security/ssl/CipherSuite$MacAlg;
 
     if-ne p1, v1, :cond_2
 
-    .line 375
     const-string/jumbo v1, "SHA1"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 376
     const-string/jumbo v1, "SHA-1"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 377
     const-string/jumbo v1, "HmacSHA1"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 378
     :cond_2
     sget-object v1, Lsun/security/ssl/CipherSuite;->M_SHA256:Lsun/security/ssl/CipherSuite$MacAlg;
 
     if-ne p1, v1, :cond_3
 
-    .line 379
     const-string/jumbo v1, "SHA256"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 380
     const-string/jumbo v1, "SHA-256"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 381
     const-string/jumbo v1, "HmacSHA256"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 382
     :cond_3
     sget-object v1, Lsun/security/ssl/CipherSuite;->M_SHA384:Lsun/security/ssl/CipherSuite$MacAlg;
 
     if-ne p1, v1, :cond_0
 
-    .line 383
     const-string/jumbo v1, "SHA384"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 384
     const-string/jumbo v1, "SHA-384"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 385
     const-string/jumbo v1, "HmacSHA384"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z

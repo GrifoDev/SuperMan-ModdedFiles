@@ -55,18 +55,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 287
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
-    .local p1, "op":Ljava/util/stream/MatchOps$MatchOp;, "Ljava/util/stream/MatchOps$MatchOp<TP_OUT;>;"
-    .local p2, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TP_OUT;>;"
-    .local p3, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-direct {p0, p2, p3}, Ljava/util/stream/AbstractShortCircuitTask;-><init>(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)V
 
-    .line 288
     iput-object p1, p0, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
 
-    .line 286
     return-void
 .end method
 
@@ -82,19 +74,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 295
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
-    .local p1, "parent":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
-    .local p2, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/AbstractShortCircuitTask;-><init>(Ljava/util/stream/AbstractShortCircuitTask;Ljava/util/Spliterator;)V
 
-    .line 296
     iget-object v0, p1, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
 
     iput-object v0, p0, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
 
-    .line 294
     return-void
 .end method
 
@@ -103,9 +88,6 @@
 .method protected doLeaf()Ljava/lang/Boolean;
     .locals 4
 
-    .prologue
-    .line 306
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
     iget-object v2, p0, Ljava/util/stream/AbstractTask;->helper:Ljava/util/stream/PipelineHelper;
 
     iget-object v1, p0, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
@@ -130,8 +112,6 @@
 
     move-result v0
 
-    .line 307
-    .local v0, "b":Z
     iget-object v1, p0, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
 
     iget-object v1, v1, Ljava/util/stream/MatchOps$MatchOp;->matchKind:Ljava/util/stream/MatchOps$MatchKind;
@@ -142,14 +122,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 308
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Ljava/util/stream/AbstractShortCircuitTask;->shortCircuit(Ljava/lang/Object;)V
 
-    .line 309
     :cond_0
     const/4 v1, 0x0
 
@@ -159,9 +137,6 @@
 .method protected bridge synthetic doLeaf()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 305
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
     invoke-virtual {p0}, Ljava/util/stream/MatchOps$MatchTask;->doLeaf()Ljava/lang/Boolean;
 
     move-result-object v0
@@ -172,9 +147,6 @@
 .method protected getEmptyResult()Ljava/lang/Boolean;
     .locals 1
 
-    .prologue
-    .line 314
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
     iget-object v0, p0, Ljava/util/stream/MatchOps$MatchTask;->op:Ljava/util/stream/MatchOps$MatchOp;
 
     iget-object v0, v0, Ljava/util/stream/MatchOps$MatchOp;->matchKind:Ljava/util/stream/MatchOps$MatchKind;
@@ -203,9 +175,6 @@
 .method protected bridge synthetic getEmptyResult()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 313
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
     invoke-virtual {p0}, Ljava/util/stream/MatchOps$MatchTask;->getEmptyResult()Ljava/lang/Boolean;
 
     move-result-object v0
@@ -215,11 +184,7 @@
 
 .method protected bridge synthetic makeChild(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;
     .locals 1
-    .param p1, "spliterator"    # Ljava/util/Spliterator;
 
-    .prologue
-    .line 300
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/MatchOps$MatchTask;->makeChild(Ljava/util/Spliterator;)Ljava/util/stream/MatchOps$MatchTask;
 
     move-result-object v0
@@ -239,10 +204,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 301
-    .local p0, "this":Ljava/util/stream/MatchOps$MatchTask;, "Ljava/util/stream/MatchOps$MatchTask<TP_IN;TP_OUT;>;"
-    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     new-instance v0, Ljava/util/stream/MatchOps$MatchTask;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/MatchOps$MatchTask;-><init>(Ljava/util/stream/MatchOps$MatchTask;Ljava/util/Spliterator;)V

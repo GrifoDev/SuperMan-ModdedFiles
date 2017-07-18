@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/Hashtable;)V
     .locals 0
 
-    .prologue
-    .line 637
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
-    .local p1, "this$0":Ljava/util/Hashtable;, "Ljava/util/Hashtable<TK;TV;>;"
     iput-object p1, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -42,10 +38,7 @@
 
 .method synthetic constructor <init>(Ljava/util/Hashtable;Ljava/util/Hashtable$KeySet;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/Hashtable;
 
-    .prologue
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     invoke-direct {p0, p1}, Ljava/util/Hashtable$KeySet;-><init>(Ljava/util/Hashtable;)V
 
     return-void
@@ -56,24 +49,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 651
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     invoke-virtual {v0}, Ljava/util/Hashtable;->clear()V
 
-    .line 650
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 645
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->containsKey(Ljava/lang/Object;)Z
@@ -93,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 639
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     const/4 v1, 0x0
@@ -109,11 +91,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 648
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -136,9 +114,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 642
-    .local p0, "this":Ljava/util/Hashtable$KeySet;, "Ljava/util/Hashtable<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/Hashtable$KeySet;->this$0:Ljava/util/Hashtable;
 
     invoke-static {v0}, Ljava/util/Hashtable;->-get0(Ljava/util/Hashtable;)I

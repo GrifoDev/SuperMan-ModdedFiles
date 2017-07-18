@@ -122,10 +122,7 @@
 
 .method static synthetic -java_util_stream_SliceOps_lambda$1(I)[Ljava/lang/Object;
     .locals 1
-    .param p0, "size"    # I
 
-    .prologue
-    .line 101
     new-array v0, p0, [Ljava/lang/Object;
 
     return-object v0
@@ -133,12 +130,7 @@
 
 .method static synthetic -wrap0(Ljava/util/stream/StreamShape;Ljava/util/Spliterator;JJ)Ljava/util/Spliterator;
     .locals 2
-    .param p0, "shape"    # Ljava/util/stream/StreamShape;
-    .param p1, "s"    # Ljava/util/Spliterator;
-    .param p2, "skip"    # J
-    .param p4, "limit"    # J
 
-    .prologue
     invoke-static/range {p0 .. p5}, Ljava/util/stream/SliceOps;->sliceSpliterator(Ljava/util/stream/StreamShape;Ljava/util/Spliterator;JJ)Ljava/util/Spliterator;
 
     move-result-object v0
@@ -158,11 +150,7 @@
 
 .method static synthetic -wrap2(JJJ)J
     .locals 2
-    .param p0, "size"    # J
-    .param p2, "skip"    # J
-    .param p4, "limit"    # J
 
-    .prologue
     invoke-static/range {p0 .. p5}, Ljava/util/stream/SliceOps;->calcSize(JJJ)J
 
     move-result-wide v0
@@ -172,10 +160,7 @@
 
 .method static synthetic -wrap3(JJ)J
     .locals 2
-    .param p0, "skip"    # J
-    .param p2, "limit"    # J
 
-    .prologue
     invoke-static {p0, p1, p2, p3}, Ljava/util/stream/SliceOps;->calcSliceFence(JJ)J
 
     move-result-wide v0
@@ -186,7 +171,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Ljava/util/stream/SliceOps;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -200,7 +184,6 @@
     :goto_0
     sput-boolean v0, Ljava/util/stream/SliceOps;->-assertionsDisabled:Z
 
-    .line 37
     return-void
 
     :cond_0
@@ -212,8 +195,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -221,14 +202,9 @@
 
 .method private static calcSize(JJJ)J
     .locals 4
-    .param p0, "size"    # J
-    .param p2, "skip"    # J
-    .param p4, "limit"    # J
 
-    .prologue
     const-wide/16 v0, -0x1
 
-    .line 53
     const-wide/16 v2, 0x0
 
     cmp-long v2, p0, v2
@@ -251,43 +227,33 @@
 
 .method private static calcSliceFence(JJ)J
     .locals 8
-    .param p0, "skip"    # J
-    .param p2, "limit"    # J
 
-    .prologue
     const-wide v2, 0x7fffffffffffffffL
 
     const-wide/16 v6, 0x0
 
-    .line 65
     cmp-long v4, p2, v6
 
     if-ltz v4, :cond_0
 
     add-long v0, p0, p2
 
-    .line 67
-    .local v0, "sliceFence":J
     :goto_0
     cmp-long v4, v0, v6
 
     if-ltz v4, :cond_1
 
-    .end local v0    # "sliceFence":J
     :goto_1
     return-wide v0
 
     :cond_0
     move-wide v0, v2
 
-    .line 65
     goto :goto_0
 
-    .restart local v0    # "sliceFence":J
     :cond_1
     move-wide v0, v2
 
-    .line 67
     goto :goto_1
 .end method
 
@@ -303,8 +269,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 101
     new-instance v0, Ljava/util/stream/SliceOps$-java_util_function_IntFunction_castingArray__LambdaImpl0;
 
     invoke-direct {v0}, Ljava/util/stream/SliceOps$-java_util_function_IntFunction_castingArray__LambdaImpl0;-><init>()V
@@ -314,10 +278,7 @@
 
 .method private static flags(J)I
     .locals 4
-    .param p0, "limit"    # J
 
-    .prologue
-    .line 549
     sget v1, Ljava/util/stream/StreamOpFlag;->NOT_SIZED:I
 
     const-wide/16 v2, -0x1
@@ -341,8 +302,6 @@
 
 .method public static makeDouble(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/DoubleStream;
     .locals 9
-    .param p1, "skip"    # J
-    .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -354,16 +313,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 450
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 451
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -388,13 +343,11 @@
 
     throw v0
 
-    .line 453
     :cond_0
     new-instance v0, Ljava/util/stream/SliceOps$4;
 
     sget-object v2, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
 
-    .line 454
     invoke-static {p3, p4}, Ljava/util/stream/SliceOps;->flags(J)I
 
     move-result v3
@@ -405,7 +358,6 @@
 
     move-wide v6, p3
 
-    .line 453
     invoke-direct/range {v0 .. v7}, Ljava/util/stream/SliceOps$4;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJ)V
 
     return-object v0
@@ -413,8 +365,6 @@
 
 .method public static makeInt(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/IntStream;
     .locals 9
-    .param p1, "skip"    # J
-    .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -426,16 +376,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 232
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 233
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -460,13 +406,11 @@
 
     throw v0
 
-    .line 235
     :cond_0
     new-instance v0, Ljava/util/stream/SliceOps$2;
 
     sget-object v2, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
 
-    .line 236
     invoke-static {p3, p4}, Ljava/util/stream/SliceOps;->flags(J)I
 
     move-result v3
@@ -477,7 +421,6 @@
 
     move-wide v6, p3
 
-    .line 235
     invoke-direct/range {v0 .. v7}, Ljava/util/stream/SliceOps$2;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJ)V
 
     return-object v0
@@ -485,8 +428,6 @@
 
 .method public static makeLong(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/LongStream;
     .locals 9
-    .param p1, "skip"    # J
-    .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -498,16 +439,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 341
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 342
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -532,13 +469,11 @@
 
     throw v0
 
-    .line 344
     :cond_0
     new-instance v0, Ljava/util/stream/SliceOps$3;
 
     sget-object v2, Ljava/util/stream/StreamShape;->LONG_VALUE:Ljava/util/stream/StreamShape;
 
-    .line 345
     invoke-static {p3, p4}, Ljava/util/stream/SliceOps;->flags(J)I
 
     move-result v3
@@ -549,7 +484,6 @@
 
     move-wide v6, p3
 
-    .line 344
     invoke-direct/range {v0 .. v7}, Ljava/util/stream/SliceOps$3;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJ)V
 
     return-object v0
@@ -557,8 +491,6 @@
 
 .method public static makeRef(Ljava/util/stream/AbstractPipeline;JJ)Ljava/util/stream/Stream;
     .locals 9
-    .param p1, "skip"    # J
-    .param p3, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -571,16 +503,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 116
-    .local p0, "upstream":Ljava/util/stream/AbstractPipeline;, "Ljava/util/stream/AbstractPipeline<*TT;*>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-gez v0, :cond_0
 
-    .line 117
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -605,13 +533,11 @@
 
     throw v0
 
-    .line 119
     :cond_0
     new-instance v0, Ljava/util/stream/SliceOps$1;
 
     sget-object v2, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
 
-    .line 120
     invoke-static {p3, p4}, Ljava/util/stream/SliceOps;->flags(J)I
 
     move-result v3
@@ -622,7 +548,6 @@
 
     move-wide v6, p3
 
-    .line 119
     invoke-direct/range {v0 .. v7}, Ljava/util/stream/SliceOps$1;-><init>(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;IJJ)V
 
     return-object v0
@@ -630,9 +555,6 @@
 
 .method private static sliceSpliterator(Ljava/util/stream/StreamShape;Ljava/util/Spliterator;JJ)Ljava/util/Spliterator;
     .locals 6
-    .param p0, "shape"    # Ljava/util/stream/StreamShape;
-    .param p2, "skip"    # J
-    .param p4, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -646,9 +568,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 79
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     sget-boolean v0, Ljava/util/stream/SliceOps;->-assertionsDisabled:Z
 
     if-nez v0, :cond_0
@@ -667,14 +586,11 @@
 
     throw v0
 
-    .line 80
     :cond_0
     invoke-static {p2, p3, p4, p5}, Ljava/util/stream/SliceOps;->calcSliceFence(JJ)J
 
     move-result-wide v4
 
-    .line 81
-    .local v4, "sliceFence":J
     invoke-static {}, Ljava/util/stream/SliceOps;->-getjava-util-stream-StreamShapeSwitchesValues()[I
 
     move-result-object v0
@@ -687,7 +603,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 95
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -712,7 +627,6 @@
 
     throw v0
 
-    .line 83
     :pswitch_0
     new-instance v0, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfRef;
 
@@ -724,55 +638,45 @@
 
     return-object v0
 
-    .line 86
     :pswitch_1
     new-instance v0, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfInt;
 
     move-object v1, p1
 
-    .line 87
     check-cast v1, Ljava/util/Spliterator$OfInt;
 
     move-wide v2, p2
 
-    .line 86
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfInt;-><init>(Ljava/util/Spliterator$OfInt;JJ)V
 
     return-object v0
 
-    .line 89
     :pswitch_2
     new-instance v0, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfLong;
 
     move-object v1, p1
 
-    .line 90
     check-cast v1, Ljava/util/Spliterator$OfLong;
 
     move-wide v2, p2
 
-    .line 89
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfLong;-><init>(Ljava/util/Spliterator$OfLong;JJ)V
 
     return-object v0
 
-    .line 92
     :pswitch_3
     new-instance v0, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfDouble;
 
     move-object v1, p1
 
-    .line 93
     check-cast v1, Ljava/util/Spliterator$OfDouble;
 
     move-wide v2, p2
 
-    .line 92
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/StreamSpliterators$SliceSpliterator$OfDouble;-><init>(Ljava/util/Spliterator$OfDouble;JJ)V
 
     return-object v0
 
-    .line 81
     nop
 
     :pswitch_data_0

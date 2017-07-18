@@ -60,52 +60,38 @@
 .method private constructor <init>(Ljava/util/TreeMap;)V
     .locals 1
 
-    .prologue
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
-    .local p1, "this$0":Ljava/util/TreeMap;, "Ljava/util/TreeMap<TK;TV;>;"
     const/4 v0, 0x0
 
-    .line 2069
     iput-object p1, p0, Ljava/util/TreeMap$SubMap;->this$0:Ljava/util/TreeMap;
 
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
-    .line 2072
     iput-boolean v0, p0, Ljava/util/TreeMap$SubMap;->fromStart:Z
 
     iput-boolean v0, p0, Ljava/util/TreeMap$SubMap;->toEnd:Z
 
-    .line 2069
     return-void
 .end method
 
 .method private readResolve()Ljava/lang/Object;
     .locals 8
 
-    .prologue
-    .line 2075
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
     new-instance v0, Ljava/util/TreeMap$AscendingSubMap;
 
     iget-object v1, p0, Ljava/util/TreeMap$SubMap;->this$0:Ljava/util/TreeMap;
 
-    .line 2076
     iget-boolean v2, p0, Ljava/util/TreeMap$SubMap;->fromStart:Z
 
     iget-object v3, p0, Ljava/util/TreeMap$SubMap;->fromKey:Ljava/lang/Object;
 
-    .line 2077
     iget-boolean v5, p0, Ljava/util/TreeMap$SubMap;->toEnd:Z
 
     iget-object v6, p0, Ljava/util/TreeMap$SubMap;->toKey:Ljava/lang/Object;
 
-    .line 2076
     const/4 v4, 0x1
 
-    .line 2077
     const/4 v7, 0x0
 
-    .line 2075
     invoke-direct/range {v0 .. v7}, Ljava/util/TreeMap$AscendingSubMap;-><init>(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V
 
     return-object v0
@@ -123,9 +109,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2085
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -145,9 +128,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2079
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -163,9 +143,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2081
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -183,10 +160,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2083
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -202,9 +175,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2080
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -222,11 +192,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2082
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
@@ -244,10 +209,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2084
-    .local p0, "this":Ljava/util/TreeMap$SubMap;, "Ljava/util/TreeMap<TK;TV;>.SubMap;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Ljava/lang/InternalError;
 
     invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V

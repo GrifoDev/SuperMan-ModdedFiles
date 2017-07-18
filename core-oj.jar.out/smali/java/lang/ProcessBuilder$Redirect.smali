@@ -34,7 +34,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Ljava/lang/ProcessBuilder$Redirect;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -48,21 +47,18 @@
     :goto_0
     sput-boolean v0, Ljava/lang/ProcessBuilder$Redirect;->-assertionsDisabled:Z
 
-    .line 448
     new-instance v0, Ljava/lang/ProcessBuilder$Redirect$1;
 
     invoke-direct {v0}, Ljava/lang/ProcessBuilder$Redirect$1;-><init>()V
 
     sput-object v0, Ljava/lang/ProcessBuilder$Redirect;->PIPE:Ljava/lang/ProcessBuilder$Redirect;
 
-    .line 463
     new-instance v0, Ljava/lang/ProcessBuilder$Redirect$2;
 
     invoke-direct {v0}, Ljava/lang/ProcessBuilder$Redirect$2;-><init>()V
 
     sput-object v0, Ljava/lang/ProcessBuilder$Redirect;->INHERIT:Ljava/lang/ProcessBuilder$Redirect;
 
-    .line 396
     return-void
 
     :cond_0
@@ -74,8 +70,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 600
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -84,7 +78,6 @@
 .method synthetic constructor <init>(Ljava/lang/ProcessBuilder$Redirect;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/ProcessBuilder$Redirect;-><init>()V
 
     return-void
@@ -92,20 +85,15 @@
 
 .method public static appendTo(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;
     .locals 1
-    .param p0, "file"    # Ljava/io/File;
 
-    .prologue
-    .line 553
     if-nez p0, :cond_0
 
-    .line 554
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 555
     :cond_0
     new-instance v0, Ljava/lang/ProcessBuilder$Redirect$5;
 
@@ -116,20 +104,15 @@
 
 .method public static from(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;
     .locals 1
-    .param p0, "file"    # Ljava/io/File;
 
-    .prologue
-    .line 497
     if-nez p0, :cond_0
 
-    .line 498
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 499
     :cond_0
     new-instance v0, Ljava/lang/ProcessBuilder$Redirect$3;
 
@@ -140,20 +123,15 @@
 
 .method public static to(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;
     .locals 1
-    .param p0, "file"    # Ljava/io/File;
 
-    .prologue
-    .line 523
     if-nez p0, :cond_0
 
-    .line 524
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 525
     :cond_0
     new-instance v0, Ljava/lang/ProcessBuilder$Redirect$4;
 
@@ -167,8 +145,6 @@
 .method append()Z
     .locals 1
 
-    .prologue
-    .line 481
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -178,38 +154,29 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 573
     if-ne p1, p0, :cond_0
 
-    .line 574
     return v1
 
-    .line 575
     :cond_0
     instance-of v3, p1, Ljava/lang/ProcessBuilder$Redirect;
 
     if-nez v3, :cond_1
 
-    .line 576
     return v2
 
     :cond_1
     move-object v0, p1
 
-    .line 577
     nop
 
     nop
 
-    .line 578
-    .local v0, "r":Ljava/lang/ProcessBuilder$Redirect;
     invoke-virtual {v0}, Ljava/lang/ProcessBuilder$Redirect;->type()Ljava/lang/ProcessBuilder$Redirect$Type;
 
     move-result-object v3
@@ -220,10 +187,8 @@
 
     if-eq v3, v4, :cond_2
 
-    .line 579
     return v2
 
-    .line 580
     :cond_2
     sget-boolean v3, Ljava/lang/ProcessBuilder$Redirect;->-assertionsDisabled:Z
 
@@ -249,7 +214,6 @@
 
     goto :goto_0
 
-    .line 581
     :cond_4
     invoke-virtual {p0}, Ljava/lang/ProcessBuilder$Redirect;->file()Ljava/io/File;
 
@@ -269,8 +233,6 @@
 .method public file()Ljava/io/File;
     .locals 1
 
-    .prologue
-    .line 474
     const/4 v0, 0x0
 
     return-object v0
@@ -279,24 +241,18 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 589
     invoke-virtual {p0}, Ljava/lang/ProcessBuilder$Redirect;->file()Ljava/io/File;
 
     move-result-object v0
 
-    .line 590
-    .local v0, "file":Ljava/io/File;
     if-nez v0, :cond_0
 
-    .line 591
     invoke-super {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
     return v1
 
-    .line 593
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->hashCode()I
 

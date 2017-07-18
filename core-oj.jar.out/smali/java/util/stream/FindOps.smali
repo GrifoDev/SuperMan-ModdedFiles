@@ -25,8 +25,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-0(Ljava/util/Optional;)Z
     .locals 1
 
-    .prologue
-    .line 59
     invoke-virtual {p0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
@@ -37,8 +35,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-1()Ljava/util/stream/TerminalSink;
     .locals 1
 
-    .prologue
-    .line 59
     new-instance v0, Ljava/util/stream/FindOps$FindSink$OfRef;
 
     invoke-direct {v0}, Ljava/util/stream/FindOps$FindSink$OfRef;-><init>()V
@@ -49,8 +45,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-2(Ljava/util/OptionalInt;)Z
     .locals 1
 
-    .prologue
-    .line 71
     invoke-virtual {p0}, Ljava/util/OptionalInt;->isPresent()Z
 
     move-result v0
@@ -61,8 +55,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-3()Ljava/util/stream/TerminalSink;
     .locals 1
 
-    .prologue
-    .line 71
     new-instance v0, Ljava/util/stream/FindOps$FindSink$OfInt;
 
     invoke-direct {v0}, Ljava/util/stream/FindOps$FindSink$OfInt;-><init>()V
@@ -73,8 +65,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-4(Ljava/util/OptionalLong;)Z
     .locals 1
 
-    .prologue
-    .line 83
     invoke-virtual {p0}, Ljava/util/OptionalLong;->isPresent()Z
 
     move-result v0
@@ -85,8 +75,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-5()Ljava/util/stream/TerminalSink;
     .locals 1
 
-    .prologue
-    .line 83
     new-instance v0, Ljava/util/stream/FindOps$FindSink$OfLong;
 
     invoke-direct {v0}, Ljava/util/stream/FindOps$FindSink$OfLong;-><init>()V
@@ -97,8 +85,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-6(Ljava/util/OptionalDouble;)Z
     .locals 1
 
-    .prologue
-    .line 95
     invoke-virtual {p0}, Ljava/util/OptionalDouble;->isPresent()Z
 
     move-result v0
@@ -109,8 +95,6 @@
 .method static synthetic -java_util_stream_FindOps-mthref-7()Ljava/util/stream/TerminalSink;
     .locals 1
 
-    .prologue
-    .line 95
     new-instance v0, Ljava/util/stream/FindOps$FindSink$OfDouble;
 
     invoke-direct {v0}, Ljava/util/stream/FindOps$FindSink$OfDouble;-><init>()V
@@ -121,8 +105,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -130,7 +112,6 @@
 
 .method public static makeDouble(Z)Ljava/util/stream/TerminalOp;
     .locals 6
-    .param p0, "mustFindFirst"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -142,8 +123,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 94
     new-instance v0, Ljava/util/stream/FindOps$FindOp;
 
     sget-object v2, Ljava/util/stream/StreamShape;->DOUBLE_VALUE:Ljava/util/stream/StreamShape;
@@ -152,7 +131,6 @@
 
     move-result-object v3
 
-    .line 95
     new-instance v4, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeDouble_boolean_mustFindFirst_LambdaImpl0;
 
     invoke-direct {v4}, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeDouble_boolean_mustFindFirst_LambdaImpl0;-><init>()V
@@ -163,7 +141,6 @@
 
     move v1, p0
 
-    .line 94
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/FindOps$FindOp;-><init>(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
 
     return-object v0
@@ -171,7 +148,6 @@
 
 .method public static makeInt(Z)Ljava/util/stream/TerminalOp;
     .locals 6
-    .param p0, "mustFindFirst"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -183,8 +159,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
     new-instance v0, Ljava/util/stream/FindOps$FindOp;
 
     sget-object v2, Ljava/util/stream/StreamShape;->INT_VALUE:Ljava/util/stream/StreamShape;
@@ -193,7 +167,6 @@
 
     move-result-object v3
 
-    .line 71
     new-instance v4, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeInt_boolean_mustFindFirst_LambdaImpl0;
 
     invoke-direct {v4}, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeInt_boolean_mustFindFirst_LambdaImpl0;-><init>()V
@@ -204,7 +177,6 @@
 
     move v1, p0
 
-    .line 70
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/FindOps$FindOp;-><init>(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
 
     return-object v0
@@ -212,7 +184,6 @@
 
 .method public static makeLong(Z)Ljava/util/stream/TerminalOp;
     .locals 6
-    .param p0, "mustFindFirst"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -224,8 +195,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 82
     new-instance v0, Ljava/util/stream/FindOps$FindOp;
 
     sget-object v2, Ljava/util/stream/StreamShape;->LONG_VALUE:Ljava/util/stream/StreamShape;
@@ -234,7 +203,6 @@
 
     move-result-object v3
 
-    .line 83
     new-instance v4, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeLong_boolean_mustFindFirst_LambdaImpl0;
 
     invoke-direct {v4}, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeLong_boolean_mustFindFirst_LambdaImpl0;-><init>()V
@@ -245,7 +213,6 @@
 
     move v1, p0
 
-    .line 82
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/FindOps$FindOp;-><init>(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
 
     return-object v0
@@ -253,7 +220,6 @@
 
 .method public static makeRef(Z)Ljava/util/stream/TerminalOp;
     .locals 6
-    .param p0, "mustFindFirst"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -266,8 +232,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 58
     new-instance v0, Ljava/util/stream/FindOps$FindOp;
 
     sget-object v2, Ljava/util/stream/StreamShape;->REFERENCE:Ljava/util/stream/StreamShape;
@@ -276,7 +240,6 @@
 
     move-result-object v3
 
-    .line 59
     new-instance v4, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeRef_boolean_mustFindFirst_LambdaImpl0;
 
     invoke-direct {v4}, Ljava/util/stream/FindOps$-java_util_stream_TerminalOp_makeRef_boolean_mustFindFirst_LambdaImpl0;-><init>()V
@@ -287,7 +250,6 @@
 
     move v1, p0
 
-    .line 58
     invoke-direct/range {v0 .. v5}, Ljava/util/stream/FindOps$FindOp;-><init>(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V
 
     return-object v0

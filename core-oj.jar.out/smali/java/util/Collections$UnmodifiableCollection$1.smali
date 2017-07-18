@@ -42,14 +42,10 @@
 .method constructor <init>(Ljava/util/Collections$UnmodifiableCollection;)V
     .locals 1
 
-    .prologue
-    .line 1111
-    .local p1, "this$1":Ljava/util/Collections$UnmodifiableCollection;, "Ljava/util/Collections$UnmodifiableCollection<TE;>;"
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableCollection$1;->this$1:Ljava/util/Collections$UnmodifiableCollection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1112
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableCollection$1;->this$1:Ljava/util/Collections$UnmodifiableCollection;
 
     iget-object v0, v0, Ljava/util/Collections$UnmodifiableCollection;->c:Ljava/util/Collection;
@@ -60,7 +56,6 @@
 
     iput-object v0, p0, Ljava/util/Collections$UnmodifiableCollection$1;->i:Ljava/util/Iterator;
 
-    .line 1111
     return-void
 .end method
 
@@ -76,22 +71,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 1122
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableCollection$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0, p1}, Ljava/util/Iterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 1120
     return-void
 .end method
 
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 1114
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableCollection$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -109,8 +98,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1115
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableCollection$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -123,8 +110,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 1117
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

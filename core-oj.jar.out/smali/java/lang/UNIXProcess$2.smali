@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/UNIXProcess;[I)V
     .locals 0
-    .param p1, "this$0"    # Ljava/lang/UNIXProcess;
-    .param p2, "val$fds"    # [I
 
-    .prologue
-    .line 141
     iput-object p1, p0, Ljava/lang/UNIXProcess$2;->this$0:Ljava/lang/UNIXProcess;
 
     iput-object p2, p0, Ljava/lang/UNIXProcess$2;->val$fds:[I
@@ -60,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 142
     invoke-virtual {p0}, Ljava/lang/UNIXProcess$2;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -77,15 +71,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 143
     iget-object v0, p0, Ljava/lang/UNIXProcess$2;->this$0:Ljava/lang/UNIXProcess;
 
     iget-object v1, p0, Ljava/lang/UNIXProcess$2;->val$fds:[I
 
     invoke-virtual {v0, v1}, Ljava/lang/UNIXProcess;->initStreams([I)V
 
-    .line 144
     const/4 v0, 0x0
 
     return-object v0

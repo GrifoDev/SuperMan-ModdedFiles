@@ -35,7 +35,6 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    .prologue
     const/4 v7, 0x1
 
     const/4 v6, 0x0
@@ -53,12 +52,10 @@
     :goto_0
     sput-boolean v0, Lsun/util/calendar/JulianCalendar;->-assertionsDisabled:Z
 
-    .line 41
     const/4 v0, 0x2
 
     new-array v0, v0, [Lsun/util/calendar/Era;
 
-    .line 42
     new-instance v1, Lsun/util/calendar/Era;
 
     const-string/jumbo v2, "BeforeCommonEra"
@@ -71,7 +68,6 @@
 
     aput-object v1, v0, v6
 
-    .line 43
     new-instance v1, Lsun/util/calendar/Era;
 
     const-string/jumbo v2, "CommonEra"
@@ -86,10 +82,8 @@
 
     aput-object v1, v0, v7
 
-    .line 41
     sput-object v0, Lsun/util/calendar/JulianCalendar;->eras:[Lsun/util/calendar/Era;
 
-    .line 36
     return-void
 
     :cond_0
@@ -101,16 +95,12 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Lsun/util/calendar/BaseCalendar;-><init>()V
 
-    .line 114
     sget-object v0, Lsun/util/calendar/JulianCalendar;->eras:[Lsun/util/calendar/Era;
 
     invoke-virtual {p0, v0}, Lsun/util/calendar/JulianCalendar;->setEras([Lsun/util/calendar/Era;)V
 
-    .line 113
     return-void
 .end method
 
@@ -119,8 +109,6 @@
 .method public bridge synthetic getCalendarDate()Lsun/util/calendar/CalendarDate;
     .locals 1
 
-    .prologue
-    .line 121
     invoke-virtual {p0}, Lsun/util/calendar/JulianCalendar;->getCalendarDate()Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -130,10 +118,7 @@
 
 .method public bridge synthetic getCalendarDate(J)Lsun/util/calendar/CalendarDate;
     .locals 1
-    .param p1, "millis"    # J
 
-    .prologue
-    .line 125
     invoke-virtual {p0, p1, p2}, Lsun/util/calendar/JulianCalendar;->getCalendarDate(J)Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -143,11 +128,7 @@
 
 .method public bridge synthetic getCalendarDate(JLjava/util/TimeZone;)Lsun/util/calendar/CalendarDate;
     .locals 1
-    .param p1, "millis"    # J
-    .param p3, "zone"    # Ljava/util/TimeZone;
 
-    .prologue
-    .line 133
     invoke-virtual {p0, p1, p2, p3}, Lsun/util/calendar/JulianCalendar;->getCalendarDate(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -157,11 +138,7 @@
 
 .method public bridge synthetic getCalendarDate(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;
     .locals 1
-    .param p1, "millis"    # J
-    .param p3, "date"    # Lsun/util/calendar/CalendarDate;
 
-    .prologue
-    .line 129
     invoke-virtual {p0, p1, p2, p3}, Lsun/util/calendar/JulianCalendar;->getCalendarDate(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -172,8 +149,6 @@
 .method public getCalendarDate()Lsun/util/calendar/JulianCalendar$Date;
     .locals 3
 
-    .prologue
-    .line 122
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -191,10 +166,7 @@
 
 .method public getCalendarDate(J)Lsun/util/calendar/JulianCalendar$Date;
     .locals 1
-    .param p1, "millis"    # J
 
-    .prologue
-    .line 126
     invoke-virtual {p0}, Lsun/util/calendar/JulianCalendar;->newCalendarDate()Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -208,11 +180,7 @@
 
 .method public getCalendarDate(JLjava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;
     .locals 1
-    .param p1, "millis"    # J
-    .param p3, "zone"    # Ljava/util/TimeZone;
 
-    .prologue
-    .line 134
     invoke-virtual {p0, p3}, Lsun/util/calendar/JulianCalendar;->newCalendarDate(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -226,11 +194,7 @@
 
 .method public getCalendarDate(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/JulianCalendar$Date;
     .locals 1
-    .param p1, "millis"    # J
-    .param p3, "date"    # Lsun/util/calendar/CalendarDate;
 
-    .prologue
-    .line 130
     invoke-super {p0, p1, p2, p3}, Lsun/util/calendar/BaseCalendar;->getCalendarDate(JLsun/util/calendar/CalendarDate;)Lsun/util/calendar/CalendarDate;
 
     move-result-object v0
@@ -242,17 +206,11 @@
 
 .method public getCalendarDateFromFixedDate(Lsun/util/calendar/CalendarDate;J)V
     .locals 14
-    .param p1, "date"    # Lsun/util/calendar/CalendarDate;
-    .param p2, "fixedDate"    # J
 
-    .prologue
     move-object v5, p1
 
-    .line 186
     check-cast v5, Lsun/util/calendar/JulianCalendar$Date;
 
-    .line 187
-    .local v5, "jdate":Lsun/util/calendar/JulianCalendar$Date;
     const-wide/16 v10, -0x1
 
     sub-long v10, p2, v10
@@ -265,23 +223,18 @@
 
     add-long v2, v10, v12
 
-    .line 189
-    .local v2, "fd":J
     const-wide/16 v10, 0x0
 
     cmp-long v9, v2, v10
 
     if-ltz v9, :cond_1
 
-    .line 190
     const-wide/16 v10, 0x5b5
 
     div-long v10, v2, v10
 
     long-to-int v8, v10
 
-    .line 194
-    .local v8, "year":I
     :goto_0
     const/4 v9, 0x1
 
@@ -295,14 +248,10 @@
 
     long-to-int v7, v10
 
-    .line 195
-    .local v7, "priorDays":I
     invoke-static {v8}, Lsun/util/calendar/CalendarUtils;->isJulianLeapYear(I)Z
 
     move-result v4
 
-    .line 196
-    .local v4, "isLeap":Z
     const/4 v9, 0x3
 
     const/4 v10, 0x1
@@ -315,7 +264,6 @@
 
     if-ltz v9, :cond_0
 
-    .line 197
     if-eqz v4, :cond_2
 
     const/4 v9, 0x1
@@ -323,20 +271,15 @@
     :goto_1
     add-int/2addr v7, v9
 
-    .line 199
     :cond_0
     mul-int/lit8 v9, v7, 0xc
 
     add-int/lit16 v6, v9, 0x175
 
-    .line 200
-    .local v6, "month":I
     if-lez v6, :cond_3
 
-    .line 201
     div-int/lit16 v6, v6, 0x16f
 
-    .line 205
     :goto_2
     const/4 v9, 0x1
 
@@ -350,14 +293,10 @@
 
     add-int/lit8 v0, v9, 0x1
 
-    .line 206
-    .local v0, "dayOfMonth":I
     invoke-static/range {p2 .. p3}, Lsun/util/calendar/JulianCalendar;->getDayOfWeekFromFixedDate(J)I
 
     move-result v1
 
-    .line 207
-    .local v1, "dayOfWeek":I
     sget-boolean v9, Lsun/util/calendar/JulianCalendar;->-assertionsDisabled:Z
 
     if-nez v9, :cond_5
@@ -393,13 +332,6 @@
 
     throw v9
 
-    .line 192
-    .end local v0    # "dayOfMonth":I
-    .end local v1    # "dayOfWeek":I
-    .end local v4    # "isLeap":Z
-    .end local v6    # "month":I
-    .end local v7    # "priorDays":I
-    .end local v8    # "year":I
     :cond_1
     const-wide/16 v10, 0x5b5
 
@@ -409,19 +341,13 @@
 
     long-to-int v8, v10
 
-    .restart local v8    # "year":I
     goto :goto_0
 
-    .line 197
-    .restart local v4    # "isLeap":Z
-    .restart local v7    # "priorDays":I
     :cond_2
     const/4 v9, 0x2
 
     goto :goto_1
 
-    .line 203
-    .restart local v6    # "month":I
     :cond_3
     const/16 v9, 0x16f
 
@@ -431,51 +357,36 @@
 
     goto :goto_2
 
-    .line 207
-    .restart local v0    # "dayOfMonth":I
-    .restart local v1    # "dayOfWeek":I
     :cond_4
     const/4 v9, 0x0
 
     goto :goto_3
 
-    .line 208
     :cond_5
     invoke-virtual {v5, v8}, Lsun/util/calendar/JulianCalendar$Date;->setNormalizedYear(I)V
 
-    .line 209
     invoke-virtual {v5, v6}, Lsun/util/calendar/JulianCalendar$Date;->setMonth(I)Lsun/util/calendar/CalendarDate;
 
-    .line 210
     invoke-virtual {v5, v0}, Lsun/util/calendar/JulianCalendar$Date;->setDayOfMonth(I)Lsun/util/calendar/CalendarDate;
 
-    .line 211
     invoke-virtual {v5, v1}, Lsun/util/calendar/JulianCalendar$Date;->setDayOfWeek(I)V
 
-    .line 212
     invoke-virtual {v5, v4}, Lsun/util/calendar/JulianCalendar$Date;->setLeapYear(Z)V
 
-    .line 213
     const/4 v9, 0x1
 
     invoke-virtual {v5, v9}, Lsun/util/calendar/JulianCalendar$Date;->setNormalized(Z)V
 
-    .line 185
     return-void
 .end method
 
 .method public getDayOfWeek(Lsun/util/calendar/CalendarDate;)I
     .locals 3
-    .param p1, "date"    # Lsun/util/calendar/CalendarDate;
 
-    .prologue
-    .line 227
     invoke-virtual {p0, p1}, Lsun/util/calendar/JulianCalendar;->getFixedDate(Lsun/util/calendar/CalendarDate;)J
 
     move-result-wide v0
 
-    .line 228
-    .local v0, "fixedDate":J
     invoke-static {v0, v1}, Lsun/util/calendar/JulianCalendar;->getDayOfWeekFromFixedDate(J)I
 
     move-result v2
@@ -485,13 +396,7 @@
 
 .method public getFixedDate(IIILsun/util/calendar/BaseCalendar$Date;)J
     .locals 10
-    .param p1, "jyear"    # I
-    .param p2, "month"    # I
-    .param p3, "dayOfMonth"    # I
-    .param p4, "cache"    # Lsun/util/calendar/BaseCalendar$Date;
 
-    .prologue
-    .line 149
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_0
@@ -502,8 +407,6 @@
 
     const/4 v2, 0x1
 
-    .line 152
-    .local v2, "isJan1":Z
     :goto_0
     if-eqz p4, :cond_2
 
@@ -513,25 +416,19 @@
 
     if-eqz v3, :cond_2
 
-    .line 153
     if-eqz v2, :cond_1
 
-    .line 154
     invoke-virtual {p4}, Lsun/util/calendar/BaseCalendar$Date;->getCachedJan1()J
 
     move-result-wide v6
 
     return-wide v6
 
-    .line 149
-    .end local v2    # "isJan1":Z
     :cond_0
     const/4 v2, 0x0
 
-    .restart local v2    # "isJan1":Z
     goto :goto_0
 
-    .line 156
     :cond_1
     invoke-virtual {p4}, Lsun/util/calendar/BaseCalendar$Date;->getCachedJan1()J
 
@@ -549,12 +446,9 @@
 
     return-wide v6
 
-    .line 159
     :cond_2
     int-to-long v4, p1
 
-    .line 160
-    .local v4, "y":J
     const-wide/16 v6, 0x1
 
     sub-long v6, v4, v6
@@ -571,15 +465,12 @@
 
     add-long v0, v6, v8
 
-    .line 161
-    .local v0, "days":J
     const-wide/16 v6, 0x0
 
     cmp-long v3, v4, v6
 
     if-lez v3, :cond_5
 
-    .line 163
     const-wide/16 v6, 0x1
 
     sub-long v6, v4, v6
@@ -590,11 +481,9 @@
 
     add-long/2addr v0, v6
 
-    .line 168
     :goto_1
     if-lez p2, :cond_6
 
-    .line 169
     int-to-long v6, p2
 
     const-wide/16 v8, 0x16f
@@ -611,13 +500,11 @@
 
     add-long/2addr v0, v6
 
-    .line 173
     :goto_2
     const/4 v3, 0x2
 
     if-le p2, v3, :cond_3
 
-    .line 174
     invoke-static {p1}, Lsun/util/calendar/CalendarUtils;->isJulianLeapYear(I)Z
 
     move-result v3
@@ -631,13 +518,11 @@
 
     sub-long/2addr v0, v6
 
-    .line 178
     :cond_3
     if-eqz p4, :cond_4
 
     if-eqz v2, :cond_4
 
-    .line 179
     invoke-static {p1}, Lsun/util/calendar/CalendarUtils;->isJulianLeapYear(I)Z
 
     move-result v3
@@ -649,11 +534,9 @@
     :goto_4
     invoke-virtual {p4, p1, v0, v1, v3}, Lsun/util/calendar/BaseCalendar$Date;->setCache(IJI)V
 
-    .line 182
     :cond_4
     return-wide v0
 
-    .line 166
     :cond_5
     const-wide/16 v6, 0x1
 
@@ -669,7 +552,6 @@
 
     goto :goto_1
 
-    .line 171
     :cond_6
     int-to-long v6, p2
 
@@ -691,13 +573,11 @@
 
     goto :goto_2
 
-    .line 174
     :cond_7
     const/4 v3, 0x2
 
     goto :goto_3
 
-    .line 179
     :cond_8
     const/16 v3, 0x16d
 
@@ -707,8 +587,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 118
     const-string/jumbo v0, "julian"
 
     return-object v0
@@ -716,10 +594,7 @@
 
 .method public getYearFromFixedDate(J)I
     .locals 7
-    .param p1, "fixedDate"    # J
 
-    .prologue
-    .line 220
     const-wide/16 v2, -0x1
 
     sub-long v2, p1, v2
@@ -740,17 +615,12 @@
 
     long-to-int v0, v2
 
-    .line 221
-    .local v0, "year":I
     return v0
 .end method
 
 .method isLeapYear(I)Z
     .locals 1
-    .param p1, "jyear"    # I
 
-    .prologue
-    .line 232
     invoke-static {p1}, Lsun/util/calendar/CalendarUtils;->isJulianLeapYear(I)Z
 
     move-result v0
@@ -761,8 +631,6 @@
 .method public bridge synthetic newCalendarDate()Lsun/util/calendar/CalendarDate;
     .locals 1
 
-    .prologue
-    .line 137
     invoke-virtual {p0}, Lsun/util/calendar/JulianCalendar;->newCalendarDate()Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -772,10 +640,7 @@
 
 .method public bridge synthetic newCalendarDate(Ljava/util/TimeZone;)Lsun/util/calendar/CalendarDate;
     .locals 1
-    .param p1, "zone"    # Ljava/util/TimeZone;
 
-    .prologue
-    .line 141
     invoke-virtual {p0, p1}, Lsun/util/calendar/JulianCalendar;->newCalendarDate(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;
 
     move-result-object v0
@@ -786,8 +651,6 @@
 .method public newCalendarDate()Lsun/util/calendar/JulianCalendar$Date;
     .locals 1
 
-    .prologue
-    .line 138
     new-instance v0, Lsun/util/calendar/JulianCalendar$Date;
 
     invoke-direct {v0}, Lsun/util/calendar/JulianCalendar$Date;-><init>()V
@@ -797,10 +660,7 @@
 
 .method public newCalendarDate(Ljava/util/TimeZone;)Lsun/util/calendar/JulianCalendar$Date;
     .locals 1
-    .param p1, "zone"    # Ljava/util/TimeZone;
 
-    .prologue
-    .line 142
     new-instance v0, Lsun/util/calendar/JulianCalendar$Date;
 
     invoke-direct {v0, p1}, Lsun/util/calendar/JulianCalendar$Date;-><init>(Ljava/util/TimeZone;)V

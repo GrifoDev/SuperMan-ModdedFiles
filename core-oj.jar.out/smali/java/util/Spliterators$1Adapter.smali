@@ -46,19 +46,14 @@
 .method constructor <init>(Ljava/util/Spliterator;)V
     .locals 1
 
-    .prologue
-    .line 668
-    .local p1, "val$spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<+TT;>;"
     iput-object p1, p0, Ljava/util/Spliterators$1Adapter;->val$spliterator:Ljava/util/Spliterator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 669
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
-    .line 668
     return-void
 .end method
 
@@ -72,35 +67,26 @@
         }
     .end annotation
 
-    .prologue
-    .line 674
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
-    .line 675
     iput-object p1, p0, Ljava/util/Spliterators$1Adapter;->nextElement:Ljava/lang/Object;
 
-    .line 673
     return-void
 .end method
 
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 680
     iget-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
     if-nez v0, :cond_0
 
-    .line 681
     iget-object v0, p0, Ljava/util/Spliterators$1Adapter;->val$spliterator:Ljava/util/Spliterator;
 
     invoke-interface {v0, p0}, Ljava/util/Spliterator;->tryAdvance(Ljava/util/function/Consumer;)Z
 
-    .line 682
     :cond_0
     iget-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
@@ -115,8 +101,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 687
     iget-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
     if-nez v0, :cond_0
@@ -127,18 +111,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 690
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Ljava/util/Spliterators$1Adapter;->valueReady:Z
 
-    .line 691
     iget-object v0, p0, Ljava/util/Spliterators$1Adapter;->nextElement:Ljava/lang/Object;
 
     return-object v0
 
-    .line 688
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 

@@ -28,8 +28,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 755
     invoke-direct {p0}, Lsun/util/locale/LocaleObjectCache;-><init>()V
 
     return-void
@@ -38,7 +36,6 @@
 .method synthetic constructor <init>(Ljava/util/Locale$Cache;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/util/Locale$Cache;-><init>()V
 
     return-void
@@ -48,13 +45,9 @@
 # virtual methods
 .method protected bridge synthetic createObject(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
-    .prologue
-    .line 759
     check-cast p1, Ljava/util/Locale$LocaleKey;
 
-    .end local p1    # "key":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Ljava/util/Locale$Cache;->createObject(Ljava/util/Locale$LocaleKey;)Ljava/util/Locale;
 
     move-result-object v0
@@ -64,10 +57,7 @@
 
 .method protected createObject(Ljava/util/Locale$LocaleKey;)Ljava/util/Locale;
     .locals 4
-    .param p1, "key"    # Ljava/util/Locale$LocaleKey;
 
-    .prologue
-    .line 760
     new-instance v0, Ljava/util/Locale;
 
     invoke-static {p1}, Ljava/util/Locale$LocaleKey;->-get0(Ljava/util/Locale$LocaleKey;)Lsun/util/locale/BaseLocale;

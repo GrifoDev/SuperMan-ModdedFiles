@@ -43,15 +43,11 @@
 # direct methods
 .method constructor <init>(Ljava/util/AbstractMap$2;)V
     .locals 1
-    .param p1, "this$1"    # Ljava/util/AbstractMap$2;
 
-    .prologue
-    .line 377
     iput-object p1, p0, Ljava/util/AbstractMap$2$1;->this$1:Ljava/util/AbstractMap$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 378
     iget-object v0, p0, Ljava/util/AbstractMap$2$1;->this$1:Ljava/util/AbstractMap$2;
 
     iget-object v0, v0, Ljava/util/AbstractMap$2;->this$0:Ljava/util/AbstractMap;
@@ -66,7 +62,6 @@
 
     iput-object v0, p0, Ljava/util/AbstractMap$2$1;->i:Ljava/util/Iterator;
 
-    .line 377
     return-void
 .end method
 
@@ -75,8 +70,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 381
     iget-object v0, p0, Ljava/util/AbstractMap$2$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -94,8 +87,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 385
     iget-object v0, p0, Ljava/util/AbstractMap$2$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -114,12 +105,9 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 389
     iget-object v0, p0, Ljava/util/AbstractMap$2$1;->i:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 388
     return-void
 .end method

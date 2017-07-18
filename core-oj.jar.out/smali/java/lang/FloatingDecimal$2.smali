@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 994
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -30,10 +28,8 @@
 .method protected declared-synchronized initialValue()Ljava/lang/Object;
     .locals 1
 
-    .prologue
     monitor-enter p0
 
-    .line 996
     const/16 v0, 0x1a
 
     :try_start_0

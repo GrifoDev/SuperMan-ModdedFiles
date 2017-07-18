@@ -31,10 +31,6 @@
 .method private constructor <init>(Ljava/util/LinkedHashMap;)V
     .locals 1
 
-    .prologue
-    .line 421
-    .local p0, "this":Ljava/util/LinkedHashMap$KeyIterator;, "Ljava/util/LinkedHashMap<TK;TV;>.KeyIterator;"
-    .local p1, "this$0":Ljava/util/LinkedHashMap;, "Ljava/util/LinkedHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/LinkedHashMap$KeyIterator;->this$0:Ljava/util/LinkedHashMap;
 
     const/4 v0, 0x0
@@ -46,10 +42,7 @@
 
 .method synthetic constructor <init>(Ljava/util/LinkedHashMap;Ljava/util/LinkedHashMap$KeyIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/LinkedHashMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/LinkedHashMap$KeyIterator;, "Ljava/util/LinkedHashMap<TK;TV;>.KeyIterator;"
     invoke-direct {p0, p1}, Ljava/util/LinkedHashMap$KeyIterator;-><init>(Ljava/util/LinkedHashMap;)V
 
     return-void
@@ -65,9 +58,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 422
-    .local p0, "this":Ljava/util/LinkedHashMap$KeyIterator;, "Ljava/util/LinkedHashMap<TK;TV;>.KeyIterator;"
     invoke-virtual {p0}, Ljava/util/LinkedHashMap$KeyIterator;->nextEntry()Ljava/util/Map$Entry;
 
     move-result-object v0

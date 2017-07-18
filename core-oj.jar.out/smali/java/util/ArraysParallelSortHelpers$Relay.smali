@@ -49,19 +49,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 102
-    .local p1, "task":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, v0, v1}, Ljava/util/concurrent/CountedCompleter;-><init>(Ljava/util/concurrent/CountedCompleter;I)V
 
-    .line 103
     iput-object p1, p0, Ljava/util/ArraysParallelSortHelpers$Relay;->task:Ljava/util/concurrent/CountedCompleter;
 
-    .line 101
     return-void
 .end method
 
@@ -70,8 +65,6 @@
 .method public final compute()V
     .locals 0
 
-    .prologue
-    .line 105
     return-void
 .end method
 
@@ -85,13 +78,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 107
-    .local p1, "t":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     iget-object v0, p0, Ljava/util/ArraysParallelSortHelpers$Relay;->task:Ljava/util/concurrent/CountedCompleter;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountedCompleter;->compute()V
 
-    .line 106
     return-void
 .end method

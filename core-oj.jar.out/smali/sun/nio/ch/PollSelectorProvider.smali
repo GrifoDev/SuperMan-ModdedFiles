@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 32
     invoke-direct {p0}, Lsun/nio/ch/SelectorProviderImpl;-><init>()V
 
     return-void
@@ -24,8 +22,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 40
     invoke-static {}, Lsun/nio/ch/InheritedChannel;->getChannel()Ljava/nio/channels/Channel;
 
     move-result-object v0
@@ -41,8 +37,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 36
     new-instance v0, Lsun/nio/ch/PollSelectorImpl;
 
     invoke-direct {v0, p0}, Lsun/nio/ch/PollSelectorImpl;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V

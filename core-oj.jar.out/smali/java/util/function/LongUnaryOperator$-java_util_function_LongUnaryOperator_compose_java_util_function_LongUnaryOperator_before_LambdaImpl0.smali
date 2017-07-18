@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/LongUnaryOperator;Ljava/util/function/LongUnaryOperator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/LongUnaryOperator$-java_util_function_LongUnaryOperator_compose_java_util_function_LongUnaryOperator_before_LambdaImpl0;->val$this:Ljava/util/function/LongUnaryOperator;
@@ -41,9 +40,7 @@
 # virtual methods
 .method public applyAsLong(J)J
     .locals 3
-    .param p1, "arg0"    # J
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/LongUnaryOperator$-java_util_function_LongUnaryOperator_compose_java_util_function_LongUnaryOperator_before_LambdaImpl0;->val$this:Ljava/util/function/LongUnaryOperator;
 
     iget-object v1, p0, Ljava/util/function/LongUnaryOperator$-java_util_function_LongUnaryOperator_compose_java_util_function_LongUnaryOperator_before_LambdaImpl0;->val$before:Ljava/util/function/LongUnaryOperator;

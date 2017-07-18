@@ -32,23 +32,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 57
     invoke-static {}, Lsun/nio/ch/SocketOptionRegistry$LazyInitialization;->options()Ljava/util/Map;
 
     move-result-object v0
 
     sput-object v0, Lsun/nio/ch/SocketOptionRegistry$LazyInitialization;->options:Ljava/util/Map;
 
-    .line 56
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,7 +62,6 @@
         }
     .end annotation
 
-    .prologue
     const/4 v7, 0x6
 
     const/16 v6, 0x29
@@ -76,13 +70,10 @@
 
     const/4 v4, 0x1
 
-    .line 60
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 61
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<Lsun/nio/ch/SocketOptionRegistry$RegistryKey;Lsun/nio/ch/OptionKey;>;"
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_BROADCAST:Ljava/net/SocketOption;
@@ -97,7 +88,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 62
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_KEEPALIVE:Ljava/net/SocketOption;
@@ -114,7 +104,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_LINGER:Ljava/net/SocketOption;
@@ -131,7 +120,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_SNDBUF:Ljava/net/SocketOption;
@@ -148,7 +136,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_RCVBUF:Ljava/net/SocketOption;
@@ -165,7 +152,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 66
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->SO_REUSEADDR:Ljava/net/SocketOption;
@@ -182,7 +168,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->TCP_NODELAY:Ljava/net/SocketOption;
@@ -197,7 +182,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 68
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_TOS:Ljava/net/SocketOption;
@@ -212,7 +196,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_IF:Ljava/net/SocketOption;
@@ -229,7 +212,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_TTL:Ljava/net/SocketOption;
@@ -246,7 +228,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 71
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_LOOP:Ljava/net/SocketOption;
@@ -263,7 +244,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 72
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_IF:Ljava/net/SocketOption;
@@ -280,7 +260,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_TTL:Ljava/net/SocketOption;
@@ -297,7 +276,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 74
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Ljava/net/StandardSocketOptions;->IP_MULTICAST_LOOP:Ljava/net/SocketOption;
@@ -314,7 +292,6 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 75
     new-instance v1, Lsun/nio/ch/SocketOptionRegistry$RegistryKey;
 
     sget-object v2, Lsun/nio/ch/ExtendedSocketOption;->SO_OOBINLINE:Ljava/net/SocketOption;
@@ -331,6 +308,5 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 76
     return-object v0
 .end method

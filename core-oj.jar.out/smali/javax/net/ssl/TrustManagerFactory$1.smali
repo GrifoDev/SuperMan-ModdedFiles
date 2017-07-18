@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 68
     invoke-virtual {p0}, Ljavax/net/ssl/TrustManagerFactory$1;->run()Ljava/lang/String;
 
     move-result-object v0
@@ -55,11 +51,8 @@
 .method public run()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 70
     const-string/jumbo v0, "ssl.TrustManagerFactory.algorithm"
 
-    .line 69
     invoke-static {v0}, Ljava/security/Security;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

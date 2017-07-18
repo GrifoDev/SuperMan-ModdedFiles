@@ -11,8 +11,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 41
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     return-void

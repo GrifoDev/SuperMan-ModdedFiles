@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,9 +30,7 @@
 # virtual methods
 .method public applyAsInt(I)I
     .locals 1
-    .param p1, "arg0"    # I
 
-    .prologue
     invoke-static {p1}, Ljava/util/function/IntUnaryOperator;->-java_util_function_IntUnaryOperator_lambda$3(I)I
 
     move-result v0

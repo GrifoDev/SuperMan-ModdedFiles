@@ -10,10 +10,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,15 +20,12 @@
 # virtual methods
 .method public checkGuard(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/SecurityException;
         }
     .end annotation
 
-    .prologue
-    .line 36
     return-void
 .end method
 
@@ -41,8 +35,6 @@
 .method public final getName()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 40
     const/4 v0, 0x0
 
     return-object v0
@@ -54,8 +46,6 @@
 .method public newPermissionCollection()Ljava/security/PermissionCollection;
     .locals 1
 
-    .prologue
-    .line 44
     new-instance v0, Ljava/security/Permissions;
 
     invoke-direct {v0}, Ljava/security/Permissions;-><init>()V

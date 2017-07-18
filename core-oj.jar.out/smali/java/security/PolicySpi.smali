@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -18,10 +16,7 @@
 # virtual methods
 .method protected engineGetPermissions(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;
     .locals 1
-    .param p1, "codesource"    # Ljava/security/CodeSource;
 
-    .prologue
-    .line 92
     sget-object v0, Ljava/security/Policy;->UNSUPPORTED_EMPTY_COLLECTION:Ljava/security/PermissionCollection;
 
     return-object v0
@@ -29,10 +24,7 @@
 
 .method protected engineGetPermissions(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;
     .locals 1
-    .param p1, "domain"    # Ljava/security/ProtectionDomain;
 
-    .prologue
-    .line 116
     sget-object v0, Ljava/security/Policy;->UNSUPPORTED_EMPTY_COLLECTION:Ljava/security/PermissionCollection;
 
     return-object v0
@@ -44,7 +36,5 @@
 .method protected engineRefresh()V
     .locals 0
 
-    .prologue
-    .line 69
     return-void
 .end method

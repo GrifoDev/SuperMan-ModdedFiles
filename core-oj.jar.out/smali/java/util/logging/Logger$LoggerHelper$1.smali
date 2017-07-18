@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "val$key"    # Ljava/lang/String;
 
-    .prologue
-    .line 327
     iput-object p1, p0, Ljava/util/logging/Logger$LoggerHelper$1;->val$key:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 328
     invoke-virtual {p0}, Ljava/util/logging/Logger$LoggerHelper$1;->run()Ljava/lang/String;
 
     move-result-object v0
@@ -62,8 +57,6 @@
 .method public run()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 329
     iget-object v0, p0, Ljava/util/logging/Logger$LoggerHelper$1;->val$key:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;

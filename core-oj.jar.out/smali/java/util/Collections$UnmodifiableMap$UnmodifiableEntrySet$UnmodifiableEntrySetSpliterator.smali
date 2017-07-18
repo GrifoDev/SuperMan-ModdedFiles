@@ -58,16 +58,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1572
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
-    .local p1, "s":Ljava/util/Spliterator;, "Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1573
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
-    .line 1572
     return-void
 .end method
 
@@ -76,9 +70,6 @@
 .method public characteristics()I
     .locals 1
 
-    .prologue
-    .line 1608
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->characteristics()I
@@ -91,9 +82,6 @@
 .method public estimateSize()J
     .locals 2
 
-    .prologue
-    .line 1598
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->estimateSize()J
@@ -115,13 +103,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1584
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1585
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-static {p1}, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;->entryConsumer(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
@@ -130,7 +113,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Spliterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 1583
     return-void
 .end method
 
@@ -146,9 +128,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1618
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->getComparator()Ljava/util/Comparator;
@@ -161,9 +140,6 @@
 .method public getExactSizeIfKnown()J
     .locals 2
 
-    .prologue
-    .line 1603
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0}, Ljava/util/Spliterator;->getExactSizeIfKnown()J
@@ -175,11 +151,7 @@
 
 .method public hasCharacteristics(I)Z
     .locals 1
-    .param p1, "characteristics"    # I
 
-    .prologue
-    .line 1613
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v0, p1}, Ljava/util/Spliterator;->hasCharacteristics(I)Z
@@ -201,13 +173,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1578
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1579
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-static {p1}, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet;->entryConsumer(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;
@@ -233,25 +200,19 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;, "Ljava/util/Collections$UnmodifiableMap<TK;TV;>.UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetSpliterator<TK;TV;>;"
     const/4 v1, 0x0
 
-    .line 1590
     iget-object v2, p0, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;->s:Ljava/util/Spliterator;
 
     invoke-interface {v2}, Ljava/util/Spliterator;->trySplit()Ljava/util/Spliterator;
 
     move-result-object v0
 
-    .line 1591
-    .local v0, "split":Ljava/util/Spliterator;, "Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     if-nez v0, :cond_0
 
     :goto_0
     return-object v1
 
-    .line 1593
     :cond_0
     new-instance v1, Ljava/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntrySetSpliterator;
 

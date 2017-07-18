@@ -35,10 +35,6 @@
 .method constructor <init>(Ljava/util/Collections$CheckedCollection;Ljava/util/Iterator;)V
     .locals 0
 
-    .prologue
-    .line 2644
-    .local p1, "this$1":Ljava/util/Collections$CheckedCollection;, "Ljava/util/Collections$CheckedCollection<TE;>;"
-    .local p2, "val$it":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     iput-object p1, p0, Ljava/util/Collections$CheckedCollection$1;->this$1:Ljava/util/Collections$CheckedCollection;
 
     iput-object p2, p0, Ljava/util/Collections$CheckedCollection$1;->val$it:Ljava/util/Iterator;
@@ -53,8 +49,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 2645
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection$1;->val$it:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -72,8 +66,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2646
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection$1;->val$it:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -86,8 +78,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 2647
     iget-object v0, p0, Ljava/util/Collections$CheckedCollection$1;->val$it:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V

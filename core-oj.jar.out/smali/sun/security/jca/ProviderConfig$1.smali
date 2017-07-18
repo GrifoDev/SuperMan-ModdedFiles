@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/jca/ProviderConfig;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/security/jca/ProviderConfig;
 
-    .prologue
-    .line 103
     iput-object p1, p0, Lsun/security/jca/ProviderConfig$1;->this$0:Lsun/security/jca/ProviderConfig;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,35 +47,27 @@
 .method public run()Ljava/lang/Boolean;
     .locals 3
 
-    .prologue
-    .line 105
     new-instance v0, Ljava/io/File;
 
     const-string/jumbo v1, "/usr/lib/libpkcs11.so"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 106
-    .local v0, "file":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 107
     sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     return-object v1
 
-    .line 109
     :cond_0
     const-string/jumbo v1, "false"
 
-    .line 110
     const-string/jumbo v2, "sun.security.pkcs11.enable-solaris"
 
-    .line 109
     invoke-static {v2}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -89,12 +78,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 111
     sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     return-object v1
 
-    .line 113
     :cond_1
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
@@ -104,8 +91,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 104
     invoke-virtual {p0}, Lsun/security/jca/ProviderConfig$1;->run()Ljava/lang/Boolean;
 
     move-result-object v0

@@ -23,13 +23,9 @@
 
 .method public add(D)Ljava/util/stream/DoubleStream$Builder;
     .locals 1
-    .param p1, "t"    # D
 
-    .prologue
-    .line 876
     invoke-interface {p0, p1, p2}, Ljava/util/stream/DoubleStream$Builder;->accept(D)V
 
-    .line 877
     return-object p0
 .end method
 

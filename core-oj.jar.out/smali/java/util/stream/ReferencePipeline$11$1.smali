@@ -30,12 +30,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$11;Ljava/util/stream/Sink;Ljava/util/function/Consumer;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$11;
 
-    .prologue
-    .line 370
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TP_OUT;>;"
-    .local p3, "val$action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TP_OUT;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$11$1;->this$1:Ljava/util/stream/ReferencePipeline$11;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$11$1;->val$action:Ljava/util/function/Consumer;
@@ -55,18 +50,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 373
-    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     iget-object v0, p0, Ljava/util/stream/ReferencePipeline$11$1;->val$action:Ljava/util/function/Consumer;
 
     invoke-interface {v0, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 374
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Sink;->accept(Ljava/lang/Object;)V
 
-    .line 372
     return-void
 .end method

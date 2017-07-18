@@ -21,13 +21,9 @@
 # direct methods
 .method protected constructor <init>(Ljava/nio/channels/spi/SelectorProvider;)V
     .locals 0
-    .param p1, "provider"    # Ljava/nio/channels/spi/SelectorProvider;
 
-    .prologue
-    .line 68
     invoke-direct {p0, p1}, Ljava/nio/channels/spi/AbstractSelectableChannel;-><init>(Ljava/nio/channels/spi/SelectorProvider;)V
 
-    .line 67
     return-void
 .end method
 
@@ -36,8 +32,6 @@
 .method public final validOps()I
     .locals 1
 
-    .prologue
-    .line 81
     const/4 v0, 0x1
 
     return v0

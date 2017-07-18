@@ -36,10 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/security/jca/ProviderList$ServiceList;)V
     .locals 0
-    .param p1, "this$1"    # Lsun/security/jca/ProviderList$ServiceList;
 
-    .prologue
-    .line 481
     iput-object p1, p0, Lsun/security/jca/ProviderList$ServiceList$1;->this$1:Lsun/security/jca/ProviderList$ServiceList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,8 +49,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 485
     iget-object v0, p0, Lsun/security/jca/ProviderList$ServiceList$1;->this$1:Lsun/security/jca/ProviderList$ServiceList;
 
     iget v1, p0, Lsun/security/jca/ProviderList$ServiceList$1;->index:I
@@ -78,8 +73,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 488
     invoke-virtual {p0}, Lsun/security/jca/ProviderList$ServiceList$1;->next()Ljava/security/Provider$Service;
 
     move-result-object v0
@@ -90,8 +83,6 @@
 .method public next()Ljava/security/Provider$Service;
     .locals 3
 
-    .prologue
-    .line 489
     iget-object v1, p0, Lsun/security/jca/ProviderList$ServiceList$1;->this$1:Lsun/security/jca/ProviderList$ServiceList;
 
     iget v2, p0, Lsun/security/jca/ProviderList$ServiceList$1;->index:I
@@ -100,18 +91,14 @@
 
     move-result-object v0
 
-    .line 490
-    .local v0, "s":Ljava/security/Provider$Service;
     if-nez v0, :cond_0
 
-    .line 491
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v1
 
-    .line 493
     :cond_0
     iget v1, p0, Lsun/security/jca/ProviderList$ServiceList$1;->index:I
 
@@ -119,15 +106,12 @@
 
     iput v1, p0, Lsun/security/jca/ProviderList$ServiceList$1;->index:I
 
-    .line 494
     return-object v0
 .end method
 
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 498
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

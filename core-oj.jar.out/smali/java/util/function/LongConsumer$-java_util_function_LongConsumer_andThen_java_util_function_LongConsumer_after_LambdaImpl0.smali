@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/LongConsumer;Ljava/util/function/LongConsumer;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/LongConsumer$-java_util_function_LongConsumer_andThen_java_util_function_LongConsumer_after_LambdaImpl0;->val$this:Ljava/util/function/LongConsumer;
@@ -41,9 +40,7 @@
 # virtual methods
 .method public accept(J)V
     .locals 3
-    .param p1, "arg0"    # J
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/LongConsumer$-java_util_function_LongConsumer_andThen_java_util_function_LongConsumer_after_LambdaImpl0;->val$this:Ljava/util/function/LongConsumer;
 
     iget-object v1, p0, Ljava/util/function/LongConsumer$-java_util_function_LongConsumer_andThen_java_util_function_LongConsumer_after_LambdaImpl0;->val$after:Ljava/util/function/LongConsumer;

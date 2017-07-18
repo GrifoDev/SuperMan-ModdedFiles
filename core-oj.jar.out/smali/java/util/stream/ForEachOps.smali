@@ -17,8 +17,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,8 +24,6 @@
 
 .method public static makeDouble(Ljava/util/function/DoubleConsumer;Z)Ljava/util/stream/TerminalOp;
     .locals 1
-    .param p0, "action"    # Ljava/util/function/DoubleConsumer;
-    .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,11 +37,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 117
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 118
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachOp$OfDouble;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/ForEachOps$ForEachOp$OfDouble;-><init>(Ljava/util/function/DoubleConsumer;Z)V
@@ -55,8 +48,6 @@
 
 .method public static makeInt(Ljava/util/function/IntConsumer;Z)Ljava/util/stream/TerminalOp;
     .locals 1
-    .param p0, "action"    # Ljava/util/function/IntConsumer;
-    .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,11 +61,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 87
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 88
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachOp$OfInt;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/ForEachOps$ForEachOp$OfInt;-><init>(Ljava/util/function/IntConsumer;Z)V
@@ -84,8 +72,6 @@
 
 .method public static makeLong(Ljava/util/function/LongConsumer;Z)Ljava/util/stream/TerminalOp;
     .locals 1
-    .param p0, "action"    # Ljava/util/function/LongConsumer;
-    .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,11 +85,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 102
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 103
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachOp$OfLong;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/ForEachOps$ForEachOp$OfLong;-><init>(Ljava/util/function/LongConsumer;Z)V
@@ -113,7 +96,6 @@
 
 .method public static makeRef(Ljava/util/function/Consumer;Z)Ljava/util/stream/TerminalOp;
     .locals 1
-    .param p1, "ordered"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -128,12 +110,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 72
-    .local p0, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
     new-instance v0, Ljava/util/stream/ForEachOps$ForEachOp$OfRef;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/ForEachOps$ForEachOp$OfRef;-><init>(Ljava/util/function/Consumer;Z)V

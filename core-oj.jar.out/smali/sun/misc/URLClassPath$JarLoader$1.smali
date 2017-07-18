@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath$JarLoader;)V
     .locals 0
-    .param p1, "this$1"    # Lsun/misc/URLClassPath$JarLoader;
 
-    .prologue
-    .line 665
     iput-object p1, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 666
     invoke-virtual {p0}, Lsun/misc/URLClassPath$JarLoader$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -72,17 +67,14 @@
         }
     .end annotation
 
-    .prologue
     const/4 v8, 0x0
 
-    .line 667
     invoke-static {}, Lsun/misc/URLClassPath;->-get0()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    .line 668
     sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -111,10 +103,8 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 669
     invoke-static {}, Ljava/lang/Thread;->dumpStack()V
 
-    .line 672
     :cond_0
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
@@ -132,7 +122,6 @@
 
     invoke-static {v5, v6}, Lsun/misc/URLClassPath$JarLoader;->-set1(Lsun/misc/URLClassPath$JarLoader;Ljava/util/jar/JarFile;)Ljava/util/jar/JarFile;
 
-    .line 673
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     iget-object v6, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
@@ -153,7 +142,6 @@
 
     invoke-static {v5, v6}, Lsun/misc/URLClassPath$JarLoader;->-set0(Lsun/misc/URLClassPath$JarLoader;Lsun/misc/JarIndex;)Lsun/misc/JarIndex;
 
-    .line 674
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v5}, Lsun/misc/URLClassPath$JarLoader;->-get2(Lsun/misc/URLClassPath$JarLoader;)Lsun/misc/JarIndex;
@@ -162,7 +150,6 @@
 
     if-eqz v5, :cond_2
 
-    .line 675
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v5}, Lsun/misc/URLClassPath$JarLoader;->-get2(Lsun/misc/URLClassPath$JarLoader;)Lsun/misc/JarIndex;
@@ -173,17 +160,13 @@
 
     move-result-object v3
 
-    .line 681
-    .local v3, "jarfiles":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     array-length v5, v3
 
     if-ge v1, v5, :cond_2
 
-    .line 683
     :try_start_0
     new-instance v2, Ljava/net/URL;
 
@@ -197,14 +180,10 @@
 
     invoke-direct {v2, v5, v6}, Ljava/net/URL;-><init>(Ljava/net/URL;Ljava/lang/String;)V
 
-    .line 685
-    .local v2, "jarURL":Ljava/net/URL;
     invoke-static {v2}, Lsun/net/util/URLUtil;->urlNoFragString(Ljava/net/URL;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 686
-    .local v4, "urlNoFragString":Ljava/lang/String;
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v5}, Lsun/misc/URLClassPath$JarLoader;->-get4(Lsun/misc/URLClassPath$JarLoader;)Ljava/util/HashMap;
@@ -217,7 +196,6 @@
 
     if-nez v5, :cond_1
 
-    .line 687
     iget-object v5, p0, Lsun/misc/URLClassPath$JarLoader$1;->this$1:Lsun/misc/URLClassPath$JarLoader;
 
     invoke-static {v5}, Lsun/misc/URLClassPath$JarLoader;->-get4(Lsun/misc/URLClassPath$JarLoader;)Ljava/util/HashMap;
@@ -230,27 +208,17 @@
     :try_end_0
     .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 681
-    .end local v2    # "jarURL":Ljava/net/URL;
-    .end local v4    # "urlNoFragString":Ljava/lang/String;
     :cond_1
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 694
-    .end local v1    # "i":I
-    .end local v3    # "jarfiles":[Ljava/lang/String;
     :cond_2
     return-object v8
 
-    .line 689
-    .restart local v1    # "i":I
-    .restart local v3    # "jarfiles":[Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .local v0, "e":Ljava/net/MalformedURLException;
     goto :goto_1
 .end method

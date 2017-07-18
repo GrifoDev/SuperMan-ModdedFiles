@@ -40,27 +40,20 @@
 .method constructor <init>(Ljava/util/RegularEnumSet;)V
     .locals 2
 
-    .prologue
-    .line 91
-    .local p0, "this":Ljava/util/RegularEnumSet$EnumSetIterator;, "Ljava/util/RegularEnumSet<TE;>.EnumSetIterator<TE;>;"
-    .local p1, "this$0":Ljava/util/RegularEnumSet;, "Ljava/util/RegularEnumSet<TE;>;"
     iput-object p1, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->this$0:Ljava/util/RegularEnumSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 89
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->lastReturned:J
 
-    .line 92
     invoke-static {p1}, Ljava/util/RegularEnumSet;->-get0(Ljava/util/RegularEnumSet;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
-    .line 91
     return-void
 .end method
 
@@ -69,9 +62,6 @@
 .method public hasNext()Z
     .locals 4
 
-    .prologue
-    .line 96
-    .local p0, "this":Ljava/util/RegularEnumSet$EnumSetIterator;, "Ljava/util/RegularEnumSet<TE;>.EnumSetIterator<TE;>;"
     iget-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
     const-wide/16 v2, 0x0
@@ -99,9 +89,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 100
-    .local p0, "this":Ljava/util/RegularEnumSet$EnumSetIterator;, "Ljava/util/RegularEnumSet<TE;>.EnumSetIterator<TE;>;"
     iget-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
     const-wide/16 v2, 0x0
@@ -110,14 +97,12 @@
 
     if-nez v0, :cond_0
 
-    .line 101
     new-instance v0, Ljava/util/NoSuchElementException;
 
     invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v0
 
-    .line 102
     :cond_0
     iget-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
@@ -129,7 +114,6 @@
 
     iput-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->lastReturned:J
 
-    .line 103
     iget-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
     iget-wide v2, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->lastReturned:J
@@ -138,7 +122,6 @@
 
     iput-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->unseen:J
 
-    .line 104
     iget-object v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->this$0:Ljava/util/RegularEnumSet;
 
     iget-object v0, v0, Ljava/util/RegularEnumSet;->universe:[Ljava/lang/Enum;
@@ -157,9 +140,6 @@
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 99
-    .local p0, "this":Ljava/util/RegularEnumSet$EnumSetIterator;, "Ljava/util/RegularEnumSet<TE;>.EnumSetIterator<TE;>;"
     invoke-virtual {p0}, Ljava/util/RegularEnumSet$EnumSetIterator;->next()Ljava/lang/Enum;
 
     move-result-object v0
@@ -170,25 +150,20 @@
 .method public remove()V
     .locals 8
 
-    .prologue
-    .local p0, "this":Ljava/util/RegularEnumSet$EnumSetIterator;, "Ljava/util/RegularEnumSet<TE;>.EnumSetIterator<TE;>;"
     const-wide/16 v6, 0x0
 
-    .line 108
     iget-wide v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->lastReturned:J
 
     cmp-long v0, v0, v6
 
     if-nez v0, :cond_0
 
-    .line 109
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 110
     :cond_0
     iget-object v0, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->this$0:Ljava/util/RegularEnumSet;
 
@@ -204,9 +179,7 @@
 
     invoke-static {v0, v2, v3}, Ljava/util/RegularEnumSet;->-set0(Ljava/util/RegularEnumSet;J)J
 
-    .line 111
     iput-wide v6, p0, Ljava/util/RegularEnumSet$EnumSetIterator;->lastReturned:J
 
-    .line 107
     return-void
 .end method

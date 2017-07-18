@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/BinaryOperator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_reducing_java_util_function_BinaryOperator_op_LambdaImpl0;->val$op:Ljava/util/function/BinaryOperator;
@@ -38,7 +37,6 @@
 .method public get()Ljava/lang/Object;
     .locals 1
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_reducing_java_util_function_BinaryOperator_op_LambdaImpl0;->val$op:Ljava/util/function/BinaryOperator;
 
     invoke-static {v0}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors-mthref-12(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collectors$1OptionalBox;

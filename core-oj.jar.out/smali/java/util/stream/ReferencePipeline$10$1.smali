@@ -41,8 +41,6 @@
 .method static synthetic -java_util_stream_ReferencePipeline$10$1-mthref-0(Ljava/util/stream/Sink;J)V
     .locals 1
 
-    .prologue
-    .line 344
     invoke-interface {p0, p1, p2}, Ljava/util/stream/Sink;->accept(J)V
 
     return-void
@@ -50,19 +48,13 @@
 
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$10;Ljava/util/stream/Sink;Ljava/util/function/Function;)V
     .locals 2
-    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$10;
 
-    .prologue
-    .line 343
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Long;>;"
-    .local p3, "val$mapper":Ljava/util/function/Function;, "Ljava/util/function/Function<-TP_OUT;+Ljava/util/stream/LongStream;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$10$1;->this$1:Ljava/util/stream/ReferencePipeline$10;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$10$1;->val$mapper:Ljava/util/function/Function;
 
     invoke-direct {p0, p2}, Ljava/util/stream/Sink$ChainedReference;-><init>(Ljava/util/stream/Sink;)V
 
-    .line 344
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -73,7 +65,6 @@
 
     iput-object v1, p0, Ljava/util/stream/ReferencePipeline$10$1;->downstreamAsLong:Ljava/util/function/LongConsumer;
 
-    .line 343
     return-void
 .end method
 
@@ -87,14 +78,10 @@
         }
     .end annotation
 
-    .prologue
-    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     const/4 v3, 0x0
 
-    .line 352
     const/4 v1, 0x0
 
-    .local v1, "result":Ljava/util/stream/LongStream;
     :try_start_0
     iget-object v2, p0, Ljava/util/stream/ReferencePipeline$10$1;->val$mapper:Ljava/util/function/Function;
 
@@ -108,11 +95,8 @@
 
     move-object v1, v0
 
-    .line 354
-    .local v1, "result":Ljava/util/stream/LongStream;
     if-eqz v1, :cond_0
 
-    .line 355
     invoke-interface {v1}, Ljava/util/stream/LongStream;->sequential()Ljava/util/stream/LongStream;
 
     move-result-object v2
@@ -124,7 +108,6 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 356
     :cond_0
     if-eqz v1, :cond_1
 
@@ -144,7 +127,6 @@
 
     goto :goto_0
 
-    .end local v1    # "result":Ljava/util/stream/LongStream;
     :catch_1
     move-exception v2
 
@@ -195,13 +177,9 @@
     :cond_4
     throw v2
 
-    .line 351
-    .restart local v1    # "result":Ljava/util/stream/LongStream;
     :cond_5
     return-void
 
-    .line 356
-    .end local v1    # "result":Ljava/util/stream/LongStream;
     :catchall_1
     move-exception v2
 
@@ -210,16 +188,12 @@
 
 .method public begin(J)V
     .locals 4
-    .param p1, "size"    # J
 
-    .prologue
-    .line 347
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     const-wide/16 v2, -0x1
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->begin(J)V
 
-    .line 346
     return-void
 .end method

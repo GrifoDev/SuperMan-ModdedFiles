@@ -39,7 +39,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Lsun/misc/DoubleConsts;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -53,12 +52,10 @@
     :goto_0
     sput-boolean v0, Lsun/misc/DoubleConsts;->-assertionsDisabled:Z
 
-    .line 112
     sget-boolean v0, Lsun/misc/DoubleConsts;->-assertionsDisabled:Z
 
     if-nez v0, :cond_0
 
-    .line 35
     :cond_0
     return-void
 
@@ -71,8 +68,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

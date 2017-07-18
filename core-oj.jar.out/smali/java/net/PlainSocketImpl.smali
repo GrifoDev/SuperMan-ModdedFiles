@@ -7,30 +7,22 @@
 .method constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 43
     new-instance v0, Ljava/io/FileDescriptor;
 
     invoke-direct {v0}, Ljava/io/FileDescriptor;-><init>()V
 
     invoke-direct {p0, v0}, Ljava/net/PlainSocketImpl;-><init>(Ljava/io/FileDescriptor;)V
 
-    .line 42
     return-void
 .end method
 
 .method constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 0
-    .param p1, "fd"    # Ljava/io/FileDescriptor;
 
-    .prologue
-    .line 49
     invoke-direct {p0}, Ljava/net/AbstractPlainSocketImpl;-><init>()V
 
-    .line 50
     iput-object p1, p0, Ljava/net/PlainSocketImpl;->fd:Ljava/io/FileDescriptor;
 
-    .line 49
     return-void
 .end method
 

@@ -7,11 +7,8 @@
 .method private constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     new-instance v0, Ljava/lang/Error;
 
     const-string/jumbo v1, "No instances"
@@ -23,38 +20,29 @@
 
 .method public static singleWordWangJenkinsHash(Ljava/lang/Object;)I
     .locals 3
-    .param p0, "k"    # Ljava/lang/Object;
 
-    .prologue
-    .line 48
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    .line 50
-    .local v0, "h":I
     shl-int/lit8 v1, v0, 0xf
 
     xor-int/lit16 v1, v1, -0x3283
 
     add-int/2addr v0, v1
 
-    .line 51
     ushr-int/lit8 v1, v0, 0xa
 
     xor-int/2addr v0, v1
 
-    .line 52
     shl-int/lit8 v1, v0, 0x3
 
     add-int/2addr v0, v1
 
-    .line 53
     ushr-int/lit8 v1, v0, 0x6
 
     xor-int/2addr v0, v1
 
-    .line 54
     shl-int/lit8 v1, v0, 0x2
 
     shl-int/lit8 v2, v0, 0xe
@@ -63,7 +51,6 @@
 
     add-int/2addr v0, v1
 
-    .line 55
     ushr-int/lit8 v1, v0, 0x10
 
     xor-int/2addr v1, v0

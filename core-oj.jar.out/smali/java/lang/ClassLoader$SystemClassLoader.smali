@@ -22,23 +22,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 183
     invoke-static {}, Ljava/lang/ClassLoader;->-wrap0()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
     sput-object v0, Ljava/lang/ClassLoader$SystemClassLoader;->loader:Ljava/lang/ClassLoader;
 
-    .line 182
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 182
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

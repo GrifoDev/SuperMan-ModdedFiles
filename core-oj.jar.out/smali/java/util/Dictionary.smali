@@ -20,9 +20,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 55
-    .local p0, "this":Ljava/util/Dictionary;, "Ljava/util/Dictionary<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

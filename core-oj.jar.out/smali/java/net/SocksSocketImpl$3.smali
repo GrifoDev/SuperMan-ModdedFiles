@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/net/SocksSocketImpl;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/net/SocksSocketImpl;
 
-    .prologue
-    .line 522
     iput-object p1, p0, Ljava/net/SocksSocketImpl$3;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 523
     invoke-virtual {p0}, Ljava/net/SocksSocketImpl$3;->run()Ljava/net/InetAddress;
 
     move-result-object v0
@@ -62,8 +57,6 @@
 .method public run()Ljava/net/InetAddress;
     .locals 1
 
-    .prologue
-    .line 524
     iget-object v0, p0, Ljava/net/SocksSocketImpl$3;->this$0:Ljava/net/SocksSocketImpl;
 
     invoke-static {v0}, Ljava/net/SocksSocketImpl;->-get0(Ljava/net/SocksSocketImpl;)Ljava/net/Socket;

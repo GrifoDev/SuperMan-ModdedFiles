@@ -10,8 +10,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 100
     invoke-direct {p0}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;-><init>()V
 
     return-void
@@ -44,16 +42,12 @@
 
 .method public final register(Ljava/nio/channels/Selector;I)Ljava/nio/channels/SelectionKey;
     .locals 1
-    .param p1, "sel"    # Ljava/nio/channels/Selector;
-    .param p2, "ops"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/channels/ClosedChannelException;
         }
     .end annotation
 
-    .prologue
-    .line 277
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Ljava/nio/channels/SelectableChannel;->register(Ljava/nio/channels/Selector;ILjava/lang/Object;)Ljava/nio/channels/SelectionKey;

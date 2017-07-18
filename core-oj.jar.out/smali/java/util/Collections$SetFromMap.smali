@@ -70,20 +70,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 4648
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TE;Ljava/lang/Boolean;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
-    .line 4649
     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 4650
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Map is non-empty"
@@ -92,24 +86,20 @@
 
     throw v0
 
-    .line 4651
     :cond_0
     iput-object p1, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
-    .line 4652
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
-    .line 4648
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -117,12 +107,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 4694
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 4695
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -131,7 +117,6 @@
 
     iput-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
-    .line 4692
     return-void
 .end method
 
@@ -145,10 +130,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4660
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -173,9 +154,6 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 4655
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
@@ -185,11 +163,7 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 4658
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -209,10 +183,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4667
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
@@ -224,11 +194,7 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 4666
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     if-eq p1, p0, :cond_0
 
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
@@ -256,24 +222,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 4675
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->forEach(Ljava/util/function/Consumer;)V
 
-    .line 4674
     return-void
 .end method
 
 .method public hashCode()I
     .locals 1
 
-    .prologue
-    .line 4665
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->hashCode()I
@@ -286,9 +244,6 @@
 .method public isEmpty()Z
     .locals 1
 
-    .prologue
-    .line 4657
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
@@ -308,9 +263,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4661
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
@@ -330,9 +282,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4687
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->parallelStream()Ljava/util/stream/Stream;
@@ -344,11 +293,7 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 4659
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -378,10 +323,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4668
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
@@ -401,10 +342,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4679
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
@@ -424,10 +361,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4669
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "c":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
@@ -440,9 +373,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 4656
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->m:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -462,9 +392,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4683
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->spliterator()Ljava/util/Spliterator;
@@ -484,9 +411,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4685
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->stream()Ljava/util/stream/Stream;
@@ -499,9 +423,6 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 4662
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
@@ -521,10 +442,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 4663
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
-    .local p1, "a":[Ljava/lang/Object;, "[TT;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -537,9 +454,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 4664
-    .local p0, "this":Ljava/util/Collections$SetFromMap;, "Ljava/util/Collections$SetFromMap<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$SetFromMap;->s:Ljava/util/Set;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

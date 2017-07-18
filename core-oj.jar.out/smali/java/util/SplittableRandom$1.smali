@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 238
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public run()Ljava/lang/Boolean;
     .locals 1
 
-    .prologue
-    .line 240
     const-string/jumbo v0, "java.util.secureRandomSeed"
 
     invoke-static {v0}, Ljava/lang/Boolean;->getBoolean(Ljava/lang/String;)Z
@@ -61,8 +57,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 239
     invoke-virtual {p0}, Ljava/util/SplittableRandom$1;->run()Ljava/lang/Boolean;
 
     move-result-object v0

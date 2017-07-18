@@ -18,69 +18,49 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/InputStream;
 
-    .prologue
-    .line 78
     new-instance v0, Ljava/util/zip/Deflater;
 
     invoke-direct {v0}, Ljava/util/zip/Deflater;-><init>()V
 
     invoke-direct {p0, p1, v0}, Ljava/util/zip/DeflaterInputStream;-><init>(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V
 
-    .line 79
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/zip/DeflaterInputStream;->usesDefaultDeflater:Z
 
-    .line 77
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "defl"    # Ljava/util/zip/Deflater;
 
-    .prologue
-    .line 91
     const/16 v0, 0x200
 
     invoke-direct {p0, p1, p2, v0}, Ljava/util/zip/DeflaterInputStream;-><init>(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V
 
-    .line 90
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V
     .locals 3
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "defl"    # Ljava/util/zip/Deflater;
-    .param p3, "bufLen"    # I
 
-    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    .line 105
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 53
     new-array v0, v2, [B
 
     iput-object v0, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
-    .line 56
     iput-boolean v1, p0, Ljava/util/zip/DeflaterInputStream;->usesDefaultDeflater:Z
 
-    .line 59
     iput-boolean v1, p0, Ljava/util/zip/DeflaterInputStream;->reachEOF:Z
 
-    .line 108
     if-nez p1, :cond_0
 
-    .line 109
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "Null input"
@@ -89,11 +69,9 @@
 
     throw v0
 
-    .line 110
     :cond_0
     if-nez p2, :cond_1
 
-    .line 111
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "Null deflater"
@@ -102,11 +80,9 @@
 
     throw v0
 
-    .line 112
     :cond_1
     if-ge p3, v2, :cond_2
 
-    .line 113
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Buffer size < 1"
@@ -115,16 +91,13 @@
 
     throw v0
 
-    .line 116
     :cond_2
     iput-object p2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
-    .line 117
     new-array v0, p3, [B
 
     iput-object v0, p0, Ljava/util/zip/DeflaterInputStream;->buf:[B
 
-    .line 104
     return-void
 .end method
 
@@ -136,13 +109,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 65
     iget-object v0, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
     if-nez v0, :cond_0
 
-    .line 66
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "Stream closed"
@@ -151,7 +121,6 @@
 
     throw v0
 
-    .line 64
     :cond_0
     return-void
 .end method
@@ -166,21 +135,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 266
     invoke-direct {p0}, Ljava/util/zip/DeflaterInputStream;->ensureOpen()V
 
-    .line 267
     iget-boolean v0, p0, Ljava/util/zip/DeflaterInputStream;->reachEOF:Z
 
     if-eqz v0, :cond_0
 
-    .line 268
     const/4 v0, 0x0
 
     return v0
 
-    .line 270
     :cond_0
     const/4 v0, 0x1
 
@@ -195,26 +159,21 @@
         }
     .end annotation
 
-    .prologue
     const/4 v1, 0x0
 
-    .line 127
     iget-object v0, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
     if-eqz v0, :cond_1
 
-    .line 130
     :try_start_0
     iget-boolean v0, p0, Ljava/util/zip/DeflaterInputStream;->usesDefaultDeflater:Z
 
     if-eqz v0, :cond_0
 
-    .line 131
     iget-object v0, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
     invoke-virtual {v0}, Ljava/util/zip/Deflater;->end()V
 
-    .line 134
     :cond_0
     iget-object v0, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
@@ -222,38 +181,28 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 136
     iput-object v1, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
-    .line 126
     :cond_1
     return-void
 
-    .line 135
     :catchall_0
     move-exception v0
 
-    .line 136
     iput-object v1, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
-    .line 135
     throw v0
 .end method
 
 .method public mark(I)V
     .locals 0
-    .param p1, "limit"    # I
 
-    .prologue
-    .line 288
     return-void
 .end method
 
 .method public markSupported()Z
     .locals 1
 
-    .prologue
-    .line 280
     const/4 v0, 0x0
 
     return v0
@@ -267,10 +216,8 @@
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 152
     iget-object v1, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
     const/4 v2, 0x1
@@ -279,16 +226,12 @@
 
     move-result v0
 
-    .line 153
-    .local v0, "len":I
     if-gtz v0, :cond_0
 
-    .line 154
     const/4 v1, -0x1
 
     return v1
 
-    .line 155
     :cond_0
     iget-object v1, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
@@ -301,25 +244,18 @@
 
 .method public read([BII)I
     .locals 6
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v5, 0x0
 
-    .line 174
     invoke-direct {p0}, Ljava/util/zip/DeflaterInputStream;->ensureOpen()V
 
-    .line 175
     if-nez p1, :cond_0
 
-    .line 176
     new-instance v2, Ljava/lang/NullPointerException;
 
     const-string/jumbo v3, "Null buffer for read"
@@ -328,13 +264,11 @@
 
     throw v2
 
-    .line 177
     :cond_0
     if-ltz p2, :cond_1
 
     if-gez p3, :cond_2
 
-    .line 178
     :cond_1
     new-instance v2, Ljava/lang/IndexOutOfBoundsException;
 
@@ -342,7 +276,6 @@
 
     throw v2
 
-    .line 177
     :cond_2
     array-length v2, p1
 
@@ -350,18 +283,13 @@
 
     if-gt p3, v2, :cond_1
 
-    .line 179
     if-nez p3, :cond_3
 
-    .line 180
     return v5
 
-    .line 184
     :cond_3
     const/4 v0, 0x0
 
-    .line 185
-    .local v0, "cnt":I
     :goto_0
     if-lez p3, :cond_4
 
@@ -373,7 +301,6 @@
 
     if-eqz v2, :cond_6
 
-    .line 208
     :cond_4
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
@@ -383,22 +310,17 @@
 
     if-eqz v2, :cond_5
 
-    .line 209
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Ljava/util/zip/DeflaterInputStream;->reachEOF:Z
 
-    .line 210
     if-nez v0, :cond_5
 
-    .line 211
     const/4 v0, -0x1
 
-    .line 215
     :cond_5
     return v0
 
-    .line 189
     :cond_6
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
@@ -408,7 +330,6 @@
 
     if-eqz v2, :cond_7
 
-    .line 190
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->in:Ljava/io/InputStream;
 
     iget-object v3, p0, Ljava/util/zip/DeflaterInputStream;->buf:[B
@@ -421,17 +342,12 @@
 
     move-result v1
 
-    .line 191
-    .local v1, "n":I
     if-gez v1, :cond_8
 
-    .line 193
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
     invoke-virtual {v2}, Ljava/util/zip/Deflater;->finish()V
 
-    .line 200
-    .end local v1    # "n":I
     :cond_7
     :goto_1
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
@@ -440,23 +356,17 @@
 
     move-result v1
 
-    .line 201
-    .restart local v1    # "n":I
     add-int/2addr v0, v1
 
-    .line 202
     add-int/2addr p2, v1
 
-    .line 203
     sub-int/2addr p3, v1
 
     goto :goto_0
 
-    .line 194
     :cond_8
     if-lez v1, :cond_7
 
-    .line 195
     iget-object v2, p0, Ljava/util/zip/DeflaterInputStream;->def:Ljava/util/zip/Deflater;
 
     iget-object v3, p0, Ljava/util/zip/DeflaterInputStream;->buf:[B
@@ -474,8 +384,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 298
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "mark/reset not supported"
@@ -487,26 +395,22 @@
 
 .method public skip(J)J
     .locals 9
-    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/16 v7, 0x200
 
     const/4 v6, 0x0
 
-    .line 231
     const-wide/16 v4, 0x0
 
     cmp-long v4, p1, v4
 
     if-gez v4, :cond_0
 
-    .line 232
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "negative skip length"
@@ -515,23 +419,19 @@
 
     throw v4
 
-    .line 234
     :cond_0
     invoke-direct {p0}, Ljava/util/zip/DeflaterInputStream;->ensureOpen()V
 
-    .line 237
     iget-object v4, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
     array-length v4, v4
 
     if-ge v4, v7, :cond_1
 
-    .line 238
     new-array v4, v7, [B
 
     iput-object v4, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
-    .line 240
     :cond_1
     const-wide/32 v4, 0x7fffffff
 
@@ -541,16 +441,11 @@
 
     long-to-int v3, v4
 
-    .line 241
-    .local v3, "total":I
     const-wide/16 v0, 0x0
 
-    .line 242
-    .local v0, "cnt":J
     :goto_0
     if-lez v3, :cond_2
 
-    .line 244
     iget-object v5, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
     iget-object v4, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
@@ -566,16 +461,11 @@
 
     move-result v2
 
-    .line 246
-    .local v2, "len":I
     if-gez v2, :cond_4
 
-    .line 252
-    .end local v2    # "len":I
     :cond_2
     return-wide v0
 
-    .line 244
     :cond_3
     iget-object v4, p0, Ljava/util/zip/DeflaterInputStream;->rbuf:[B
 
@@ -583,14 +473,11 @@
 
     goto :goto_1
 
-    .line 249
-    .restart local v2    # "len":I
     :cond_4
     int-to-long v4, v2
 
     add-long/2addr v0, v4
 
-    .line 250
     sub-int/2addr v3, v2
 
     goto :goto_0

@@ -15,52 +15,38 @@
 .method protected constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 63
     const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/Throwable;
 
     invoke-direct {p0, v0}, Ljava/lang/ReflectiveOperationException;-><init>(Ljava/lang/Throwable;)V
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "target"    # Ljava/lang/Throwable;
 
-    .prologue
-    .line 72
     const/4 v0, 0x0
 
     check-cast v0, Ljava/lang/Throwable;
 
     invoke-direct {p0, v0}, Ljava/lang/ReflectiveOperationException;-><init>(Ljava/lang/Throwable;)V
 
-    .line 73
     iput-object p1, p0, Ljava/lang/reflect/InvocationTargetException;->target:Ljava/lang/Throwable;
 
-    .line 71
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;Ljava/lang/String;)V
     .locals 1
-    .param p1, "target"    # Ljava/lang/Throwable;
-    .param p2, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 84
     const/4 v0, 0x0
 
     invoke-direct {p0, p2, v0}, Ljava/lang/ReflectiveOperationException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 85
     iput-object p1, p0, Ljava/lang/reflect/InvocationTargetException;->target:Ljava/lang/Throwable;
 
-    .line 83
     return-void
 .end method
 
@@ -69,8 +55,6 @@
 .method public getCause()Ljava/lang/Throwable;
     .locals 1
 
-    .prologue
-    .line 109
     iget-object v0, p0, Ljava/lang/reflect/InvocationTargetException;->target:Ljava/lang/Throwable;
 
     return-object v0
@@ -79,8 +63,6 @@
 .method public getTargetException()Ljava/lang/Throwable;
     .locals 1
 
-    .prologue
-    .line 98
     iget-object v0, p0, Ljava/lang/reflect/InvocationTargetException;->target:Ljava/lang/Throwable;
 
     return-object v0

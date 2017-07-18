@@ -26,14 +26,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 80
-    .local p0, "this":Ljava/lang/ref/PhantomReference;, "Ljava/lang/ref/PhantomReference<TT;>;"
-    .local p1, "referent":Ljava/lang/Object;, "TT;"
-    .local p2, "q":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<-TT;>;"
     invoke-direct {p0, p1, p2}, Ljava/lang/ref/Reference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    .line 79
     return-void
 .end method
 
@@ -47,9 +41,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 63
-    .local p0, "this":Ljava/lang/ref/PhantomReference;, "Ljava/lang/ref/PhantomReference<TT;>;"
     const/4 v0, 0x0
 
     return-object v0

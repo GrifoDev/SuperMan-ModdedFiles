@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/net/URLClassLoader$3;Ljava/util/Enumeration;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/net/URLClassLoader$3;
 
-    .prologue
-    .line 579
-    .local p2, "val$e":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/net/URL;>;"
     iput-object p1, p0, Ljava/net/URLClassLoader$3$1;->this$1:Ljava/net/URLClassLoader$3;
 
     iput-object p2, p0, Ljava/net/URLClassLoader$3$1;->val$e:Ljava/util/Enumeration;
@@ -55,8 +51,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 580
     invoke-virtual {p0}, Ljava/net/URLClassLoader$3$1;->run()Ljava/net/URL;
 
     move-result-object v0
@@ -67,8 +61,6 @@
 .method public run()Ljava/net/URL;
     .locals 1
 
-    .prologue
-    .line 581
     iget-object v0, p0, Ljava/net/URLClassLoader$3$1;->val$e:Ljava/util/Enumeration;
 
     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
@@ -77,12 +69,10 @@
 
     if-nez v0, :cond_0
 
-    .line 582
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 583
     :cond_0
     iget-object v0, p0, Ljava/net/URLClassLoader$3$1;->val$e:Ljava/util/Enumeration;
 

@@ -12,31 +12,23 @@
 # direct methods
 .method constructor <init>(Ljava/util/TaskQueue;)V
     .locals 1
-    .param p1, "queue"    # Ljava/util/TaskQueue;
 
-    .prologue
-    .line 499
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 489
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/TimerThread;->newTasksMayBeScheduled:Z
 
-    .line 500
     iput-object p1, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
-    .line 499
     return-void
 .end method
 
 .method private mainLoop()V
     .locals 14
 
-    .prologue
     const-wide/16 v12, 0x0
 
-    .line 523
     :cond_0
     :goto_0
     :try_start_0
@@ -46,7 +38,6 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 525
     :goto_1
     :try_start_1
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
@@ -61,7 +52,6 @@
 
     if-eqz v7, :cond_1
 
-    .line 526
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     invoke-virtual {v7}, Ljava/util/TaskQueue;->wait()V
@@ -70,7 +60,6 @@
 
     goto :goto_1
 
-    .line 523
     :catchall_0
     move-exception v7
 
@@ -81,15 +70,11 @@
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 556
     :catch_0
     move-exception v2
 
-    .local v2, "e":Ljava/lang/InterruptedException;
     goto :goto_0
 
-    .line 527
-    .end local v2    # "e":Ljava/lang/InterruptedException;
     :cond_1
     :try_start_3
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
@@ -107,10 +92,8 @@
     :try_end_4
     .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 518
     return-void
 
-    .line 532
     :cond_2
     :try_start_5
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
@@ -119,15 +102,12 @@
 
     move-result-object v3
 
-    .line 533
-    .local v3, "task":Ljava/util/TimerTask;
     iget-object v11, v3, Ljava/util/TimerTask;->lock:Ljava/lang/Object;
 
     monitor-enter v11
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 534
     :try_start_6
     iget v7, v3, Ljava/util/TimerTask;->state:I
 
@@ -135,7 +115,6 @@
 
     if-ne v7, v8, :cond_3
 
-    .line 535
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     invoke-virtual {v7}, Ljava/util/TaskQueue;->removeMin()V
@@ -154,42 +133,33 @@
 
     goto :goto_0
 
-    .line 538
     :cond_3
     :try_start_9
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 539
-    .local v0, "currentTime":J
     iget-wide v4, v3, Ljava/util/TimerTask;->nextExecutionTime:J
 
-    .line 540
-    .local v4, "executionTime":J
     cmp-long v7, v4, v0
 
     if-gtz v7, :cond_6
 
     const/4 v6, 0x1
 
-    .local v6, "taskFired":Z
     :goto_2
     if-eqz v6, :cond_4
 
-    .line 541
     iget-wide v8, v3, Ljava/util/TimerTask;->period:J
 
     cmp-long v7, v8, v12
 
     if-nez v7, :cond_7
 
-    .line 542
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     invoke-virtual {v7}, Ljava/util/TaskQueue;->removeMin()V
 
-    .line 543
     const/4 v7, 0x2
 
     iput v7, v3, Ljava/util/TimerTask;->state:I
@@ -201,10 +171,8 @@
     :try_start_a
     monitor-exit v11
 
-    .line 551
     if-nez v6, :cond_5
 
-    .line 552
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     sub-long v8, v4, v0
@@ -217,30 +185,23 @@
     :try_start_b
     monitor-exit v10
 
-    .line 554
     if-eqz v6, :cond_0
 
-    .line 555
     invoke-virtual {v3}, Ljava/util/TimerTask;->run()V
     :try_end_b
     .catch Ljava/lang/InterruptedException; {:try_start_b .. :try_end_b} :catch_0
 
     goto :goto_0
 
-    .line 540
-    .end local v6    # "taskFired":Z
     :cond_6
     const/4 v6, 0x0
 
     goto :goto_2
 
-    .line 545
-    .restart local v6    # "taskFired":Z
     :cond_7
     :try_start_c
     iget-object v7, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
-    .line 546
     iget-wide v8, v3, Ljava/util/TimerTask;->period:J
 
     cmp-long v8, v8, v12
@@ -251,7 +212,6 @@
 
     sub-long v8, v0, v8
 
-    .line 545
     :goto_4
     invoke-virtual {v7, v8, v9}, Ljava/util/TaskQueue;->rescheduleMin(J)V
     :try_end_c
@@ -259,10 +219,6 @@
 
     goto :goto_3
 
-    .line 533
-    .end local v0    # "currentTime":J
-    .end local v4    # "executionTime":J
-    .end local v6    # "taskFired":Z
     :catchall_1
     move-exception v7
 
@@ -273,10 +229,6 @@
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_0
 
-    .line 547
-    .restart local v0    # "currentTime":J
-    .restart local v4    # "executionTime":J
-    .restart local v6    # "taskFired":Z
     :cond_8
     :try_start_e
     iget-wide v8, v3, Ljava/util/TimerTask;->period:J
@@ -293,25 +245,20 @@
 .method public run()V
     .locals 3
 
-    .prologue
-    .line 505
     :try_start_0
     invoke-direct {p0}, Ljava/util/TimerThread;->mainLoop()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 508
     iget-object v1, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     monitor-enter v1
 
-    .line 509
     const/4 v0, 0x0
 
     :try_start_1
     iput-boolean v0, p0, Ljava/util/TimerThread;->newTasksMayBeScheduled:Z
 
-    .line 510
     iget-object v0, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     invoke-virtual {v0}, Ljava/util/TaskQueue;->clear()V
@@ -320,10 +267,8 @@
 
     monitor-exit v1
 
-    .line 503
     return-void
 
-    .line 508
     :catchall_0
     move-exception v0
 
@@ -331,22 +276,18 @@
 
     throw v0
 
-    .line 506
     :catchall_1
     move-exception v0
 
-    .line 508
     iget-object v1, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     monitor-enter v1
 
-    .line 509
     const/4 v2, 0x0
 
     :try_start_2
     iput-boolean v2, p0, Ljava/util/TimerThread;->newTasksMayBeScheduled:Z
 
-    .line 510
     iget-object v2, p0, Ljava/util/TimerThread;->queue:Ljava/util/TaskQueue;
 
     invoke-virtual {v2}, Ljava/util/TaskQueue;->clear()V
@@ -355,10 +296,8 @@
 
     monitor-exit v1
 
-    .line 506
     throw v0
 
-    .line 508
     :catchall_2
     move-exception v0
 

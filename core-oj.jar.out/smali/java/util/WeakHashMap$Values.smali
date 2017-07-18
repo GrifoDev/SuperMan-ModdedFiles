@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/WeakHashMap;)V
     .locals 0
 
-    .prologue
-    .line 903
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
-    .local p1, "this$0":Ljava/util/WeakHashMap;, "Ljava/util/WeakHashMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -42,10 +38,7 @@
 
 .method synthetic constructor <init>(Ljava/util/WeakHashMap;Ljava/util/WeakHashMap$Values;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/WeakHashMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     invoke-direct {p0, p1}, Ljava/util/WeakHashMap$Values;-><init>(Ljava/util/WeakHashMap;)V
 
     return-void
@@ -56,24 +49,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 917
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->clear()V
 
-    .line 916
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 913
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->containsValue(Ljava/lang/Object;)Z
@@ -93,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 905
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     new-instance v0, Ljava/util/WeakHashMap$ValueIterator;
 
     iget-object v1, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;
@@ -110,9 +92,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 909
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     iget-object v0, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0}, Ljava/util/WeakHashMap;->size()I
@@ -132,11 +111,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/WeakHashMap$Values;, "Ljava/util/WeakHashMap<TK;TV;>.Values;"
     const/4 v2, 0x0
 
-    .line 921
     new-instance v0, Ljava/util/WeakHashMap$ValueSpliterator;
 
     iget-object v1, p0, Ljava/util/WeakHashMap$Values;->this$0:Ljava/util/WeakHashMap;

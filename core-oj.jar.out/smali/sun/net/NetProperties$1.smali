@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 46
     invoke-virtual {p0}, Lsun/net/NetProperties$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -55,11 +51,8 @@
 .method public run()Ljava/lang/Void;
     .locals 1
 
-    .prologue
-    .line 47
     invoke-static {}, Lsun/net/NetProperties;->-wrap0()V
 
-    .line 48
     const/4 v0, 0x0
 
     return-object v0

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(ZZLjava/util/Set;)V
     .locals 1
-    .param p1, "isServer"    # Z
-    .param p2, "needCertificateVerify"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ",
@@ -38,32 +36,24 @@
         }
     .end annotation
 
-    .prologue
-    .line 130
-    .local p3, "algs":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 109
     const/4 v0, -0x1
 
     iput v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
-    .line 110
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     iput-object v0, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
 
-    .line 119
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lsun/security/ssl/HandshakeHash;->cvAlgDetermined:Z
 
-    .line 132
     iput-boolean p1, p0, Lsun/security/ssl/HandshakeHash;->isServer:Z
 
-    .line 133
     if-eqz p2, :cond_0
 
     const/4 v0, 0x3
@@ -71,10 +61,8 @@
     :goto_0
     iput v0, p0, Lsun/security/ssl/HandshakeHash;->clonesNeeded:I
 
-    .line 131
     return-void
 
-    .line 133
     :cond_0
     const/4 v0, 0x2
 
@@ -83,10 +71,7 @@
 
 .method private static cloneDigest(Ljava/security/MessageDigest;)Ljava/security/MessageDigest;
     .locals 3
-    .param p0, "digest"    # Ljava/security/MessageDigest;
 
-    .prologue
-    .line 217
     :try_start_0
     invoke-virtual {p0}, Ljava/security/MessageDigest;->clone()Ljava/lang/Object;
 
@@ -98,12 +83,9 @@
 
     return-object v1
 
-    .line 218
     :catch_0
     move-exception v0
 
-    .line 220
-    .local v0, "e":Ljava/lang/CloneNotSupportedException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "Could not clone digest"
@@ -115,19 +97,15 @@
 
 .method private static normalizeAlgName(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p0, "alg"    # Ljava/lang/String;
 
-    .prologue
     const/4 v2, 0x3
 
-    .line 229
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object p0
 
-    .line 230
     const-string/jumbo v0, "SHA"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -136,19 +114,16 @@
 
     if-eqz v0, :cond_1
 
-    .line 231
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
     if-ne v0, v2, :cond_0
 
-    .line 232
     const-string/jumbo v0, "SHA-1"
 
     return-object v0
 
-    .line 234
     :cond_0
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
@@ -158,7 +133,6 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 235
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -183,7 +157,6 @@
 
     return-object v0
 
-    .line 238
     :cond_1
     return-object p0
 .end method
@@ -193,8 +166,6 @@
 .method getAllHandshakeMessages()[B
     .locals 1
 
-    .prologue
-    .line 291
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -207,8 +178,6 @@
 .method getFinishedHash()[B
     .locals 3
 
-    .prologue
-    .line 309
     :try_start_0
     iget-object v1, p0, Lsun/security/ssl/HandshakeHash;->finMD:Ljava/security/MessageDigest;
 
@@ -224,12 +193,9 @@
 
     return-object v1
 
-    .line 310
     :catch_0
     move-exception v0
 
-    .line 311
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/Error;
 
     const-string/jumbo v2, "BAD"
@@ -242,26 +208,20 @@
 .method getMD5Clone()Ljava/security/MessageDigest;
     .locals 2
 
-    .prologue
-    .line 197
     iget v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 198
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 199
     const-string/jumbo v1, "getMD5Clone() can be only be called for TLS 1.1"
 
-    .line 198
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 201
     :cond_0
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->md5:Ljava/security/MessageDigest;
 
@@ -275,26 +235,20 @@
 .method getSHAClone()Ljava/security/MessageDigest;
     .locals 2
 
-    .prologue
-    .line 208
     iget v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 209
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 210
     const-string/jumbo v1, "getSHAClone() can be only be called for TLS 1.1"
 
-    .line 209
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 212
     :cond_0
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->sha:Ljava/security/MessageDigest;
 
@@ -307,12 +261,9 @@
 
 .method protocolDetermined(Lsun/security/ssl/ProtocolVersion;)V
     .locals 5
-    .param p1, "pv"    # Lsun/security/ssl/ProtocolVersion;
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 168
     iget v2, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     const/4 v3, -0x1
@@ -321,7 +272,6 @@
 
     return-void
 
-    .line 170
     :cond_0
     sget-object v2, Lsun/security/ssl/ProtocolVersion;->TLS12:Lsun/security/ssl/ProtocolVersion;
 
@@ -336,23 +286,19 @@
     :goto_0
     iput v2, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
-    .line 171
     iget v2, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 165
     :goto_1
     :pswitch_0
     return-void
 
-    .line 170
     :cond_1
     const/4 v2, 0x1
 
     goto :goto_0
 
-    .line 175
     :pswitch_1
     :try_start_0
     const-string/jumbo v2, "MD5"
@@ -365,7 +311,6 @@
 
     iput-object v2, p0, Lsun/security/ssl/HandshakeHash;->md5:Ljava/security/MessageDigest;
 
-    .line 176
     const-string/jumbo v2, "SHA"
 
     iget v3, p0, Lsun/security/ssl/HandshakeHash;->clonesNeeded:I
@@ -378,39 +323,29 @@
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 181
     iget-object v2, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v0
 
-    .line 182
-    .local v0, "bytes":[B
     array-length v2, v0
 
     invoke-virtual {p0, v0, v4, v2}, Lsun/security/ssl/HandshakeHash;->update([BII)V
 
     goto :goto_1
 
-    .line 177
-    .end local v0    # "bytes":[B
     :catch_0
     move-exception v1
 
-    .line 178
-    .local v1, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v2, Ljava/lang/RuntimeException;
 
-    .line 179
     const-string/jumbo v3, "Algorithm MD5 or SHA not available"
 
-    .line 178
     invoke-direct {v2, v3, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 
-    .line 171
     nop
 
     :pswitch_data_0
@@ -423,32 +358,25 @@
 .method reset()V
     .locals 2
 
-    .prologue
-    .line 157
     iget v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 158
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 159
     const-string/jumbo v1, "reset() can be only be called before protocolDetermined"
 
-    .line 158
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 161
     :cond_0
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->reset()V
 
-    .line 156
     return-void
 .end method
 
@@ -464,61 +392,47 @@
         }
     .end annotation
 
-    .prologue
-    .line 270
-    .local p1, "algs":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 271
     new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 272
     const-string/jumbo v1, "setCertificateVerifyAlg() cannot be called for TLS 1.1"
 
-    .line 271
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 269
     :cond_0
     return-void
 .end method
 
 .method setCertificateVerifyAlg(Ljava/lang/String;)V
     .locals 2
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 284
     iget-boolean v1, p0, Lsun/security/ssl/HandshakeHash;->cvAlgDetermined:Z
 
     if-eqz v1, :cond_0
 
     return-void
 
-    .line 286
     :cond_0
     if-nez p1, :cond_1
 
     :goto_0
     iput-object v0, p0, Lsun/security/ssl/HandshakeHash;->cvAlg:Ljava/lang/String;
 
-    .line 287
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lsun/security/ssl/HandshakeHash;->cvAlgDetermined:Z
 
-    .line 281
     return-void
 
-    .line 286
     :cond_1
     invoke-static {p1}, Lsun/security/ssl/HandshakeHash;->normalizeAlgName(Ljava/lang/String;)Ljava/lang/String;
 
@@ -529,24 +443,17 @@
 
 .method setFinishedAlg(Ljava/lang/String;)V
     .locals 3
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 246
     if-nez p1, :cond_0
 
-    .line 247
     new-instance v1, Ljava/lang/RuntimeException;
 
-    .line 248
     const-string/jumbo v2, "setFinishedAlg\'s argument cannot be null"
 
-    .line 247
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 252
     :cond_0
     iget-object v1, p0, Lsun/security/ssl/HandshakeHash;->finMD:Ljava/security/MessageDigest;
 
@@ -554,7 +461,6 @@
 
     return-void
 
-    .line 255
     :cond_1
     :try_start_0
     invoke-static {p1}, Lsun/security/ssl/HandshakeHash;->normalizeAlgName(Ljava/lang/String;)Ljava/lang/String;
@@ -571,7 +477,6 @@
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 259
     iget-object v1, p0, Lsun/security/ssl/HandshakeHash;->finMD:Ljava/security/MessageDigest;
 
     iget-object v2, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
@@ -582,15 +487,11 @@
 
     invoke-virtual {v1, v2}, Ljava/security/MessageDigest;->update([B)V
 
-    .line 245
     return-void
 
-    .line 256
     :catch_0
     move-exception v0
 
-    .line 257
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v1, Ljava/lang/Error;
 
     invoke-direct {v1, v0}, Ljava/lang/Error;-><init>(Ljava/lang/Throwable;)V
@@ -600,50 +501,38 @@
 
 .method update([BII)V
     .locals 1
-    .param p1, "b"    # [B
-    .param p2, "offset"    # I
-    .param p3, "len"    # I
 
-    .prologue
-    .line 137
     iget v0, p0, Lsun/security/ssl/HandshakeHash;->version:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 143
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->finMD:Ljava/security/MessageDigest;
 
     if-eqz v0, :cond_0
 
-    .line 144
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->finMD:Ljava/security/MessageDigest;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/security/MessageDigest;->update([BII)V
 
-    .line 146
     :cond_0
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->data:Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    .line 136
     :goto_0
     return-void
 
-    .line 139
     :pswitch_0
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->md5:Ljava/security/MessageDigest;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/security/MessageDigest;->update([BII)V
 
-    .line 140
     iget-object v0, p0, Lsun/security/ssl/HandshakeHash;->sha:Ljava/security/MessageDigest;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/security/MessageDigest;->update([BII)V
 
     goto :goto_0
 
-    .line 137
     nop
 
     :pswitch_data_0

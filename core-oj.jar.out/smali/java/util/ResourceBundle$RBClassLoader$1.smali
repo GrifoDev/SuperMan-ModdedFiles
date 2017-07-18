@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 441
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 442
     invoke-virtual {p0}, Ljava/util/ResourceBundle$RBClassLoader$1;->run()Ljava/util/ResourceBundle$RBClassLoader;
 
     move-result-object v0
@@ -55,8 +51,6 @@
 .method public run()Ljava/util/ResourceBundle$RBClassLoader;
     .locals 2
 
-    .prologue
-    .line 443
     new-instance v0, Ljava/util/ResourceBundle$RBClassLoader;
 
     const/4 v1, 0x0

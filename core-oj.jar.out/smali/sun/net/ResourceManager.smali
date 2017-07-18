@@ -15,30 +15,22 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
-    .line 57
     new-instance v3, Lsun/security/action/GetPropertyAction;
 
     const-string/jumbo v4, "sun.net.maxDatagramSockets"
 
     invoke-direct {v3, v4}, Lsun/security/action/GetPropertyAction;-><init>(Ljava/lang/String;)V
 
-    .line 56
     invoke-static {v3}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 59
-    .local v2, "prop":Ljava/lang/String;
     const/16 v0, 0x19
 
-    .line 61
-    .local v0, "defmax":I
     if-eqz v2, :cond_0
 
-    .line 62
     :try_start_0
     invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
@@ -46,12 +38,10 @@
 
     move-result v0
 
-    .line 65
     :cond_0
     :goto_0
     sput v0, Lsun/net/ResourceManager;->maxSockets:I
 
-    .line 66
     new-instance v3, Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v4, 0x0
@@ -60,22 +50,17 @@
 
     sput-object v3, Lsun/net/ResourceManager;->numSockets:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 40
     return-void
 
-    .line 64
     :catch_0
     move-exception v1
 
-    .local v1, "e":Ljava/lang/NumberFormatException;
     goto :goto_0
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -84,20 +69,16 @@
 .method public static afterUdpClose()V
     .locals 1
 
-    .prologue
-    .line 79
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 80
     sget-object v0, Lsun/net/ResourceManager;->numSockets:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 78
     :cond_0
     return-void
 .end method
@@ -110,15 +91,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 70
     invoke-static {}, Ljava/lang/System;->getSecurityManager()Ljava/lang/SecurityManager;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 71
     sget-object v0, Lsun/net/ResourceManager;->numSockets:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
@@ -129,12 +107,10 @@
 
     if-le v0, v1, :cond_0
 
-    .line 72
     sget-object v0, Lsun/net/ResourceManager;->numSockets:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 73
     new-instance v0, Ljava/net/SocketException;
 
     const-string/jumbo v1, "maximum number of DatagramSockets reached"
@@ -143,7 +119,6 @@
 
     throw v0
 
-    .line 69
     :cond_0
     return-void
 .end method

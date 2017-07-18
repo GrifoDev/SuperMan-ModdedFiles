@@ -19,11 +19,7 @@
 # virtual methods
 .method public synthetic -java_util_function_DoublePredicate_lambda$1(Ljava/util/function/DoublePredicate;D)Z
     .locals 2
-    .param p1, "other"    # Ljava/util/function/DoublePredicate;
-    .param p2, "value"    # D
 
-    .prologue
-    .line 70
     invoke-interface {p0, p2, p3}, Ljava/util/function/DoublePredicate;->test(D)Z
 
     move-result v0
@@ -45,10 +41,7 @@
 
 .method public synthetic -java_util_function_DoublePredicate_lambda$2(D)Z
     .locals 1
-    .param p1, "value"    # D
 
-    .prologue
-    .line 81
     invoke-interface {p0, p1, p2}, Ljava/util/function/DoublePredicate;->test(D)Z
 
     move-result v0
@@ -68,11 +61,7 @@
 
 .method public synthetic -java_util_function_DoublePredicate_lambda$3(Ljava/util/function/DoublePredicate;D)Z
     .locals 2
-    .param p1, "other"    # Ljava/util/function/DoublePredicate;
-    .param p2, "value"    # D
 
-    .prologue
-    .line 102
     invoke-interface {p0, p2, p3}, Ljava/util/function/DoublePredicate;->test(D)Z
 
     move-result v0
@@ -94,13 +83,9 @@
 
 .method public and(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;
     .locals 1
-    .param p1, "other"    # Ljava/util/function/DoublePredicate;
 
-    .prologue
-    .line 69
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
     new-instance v0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_and_java_util_function_DoublePredicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_and_java_util_function_DoublePredicate_other_LambdaImpl0;-><init>(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V
@@ -111,8 +96,6 @@
 .method public negate()Ljava/util/function/DoublePredicate;
     .locals 1
 
-    .prologue
-    .line 81
     new-instance v0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_negate__LambdaImpl0;
 
     invoke-direct {v0, p0}, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_negate__LambdaImpl0;-><init>(Ljava/util/function/DoublePredicate;)V
@@ -122,13 +105,9 @@
 
 .method public or(Ljava/util/function/DoublePredicate;)Ljava/util/function/DoublePredicate;
     .locals 1
-    .param p1, "other"    # Ljava/util/function/DoublePredicate;
 
-    .prologue
-    .line 101
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 102
     new-instance v0, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_or_java_util_function_DoublePredicate_other_LambdaImpl0;
 
     invoke-direct {v0, p0, p1}, Ljava/util/function/DoublePredicate$-java_util_function_DoublePredicate_or_java_util_function_DoublePredicate_other_LambdaImpl0;-><init>(Ljava/util/function/DoublePredicate;Ljava/util/function/DoublePredicate;)V

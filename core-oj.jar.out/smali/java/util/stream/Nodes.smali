@@ -181,10 +181,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 67
     new-instance v0, Ljava/util/stream/Nodes$EmptyNode$OfRef;
 
     const/4 v1, 0x0
@@ -193,54 +191,44 @@
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_NODE:Ljava/util/stream/Node;
 
-    .line 68
     new-instance v0, Ljava/util/stream/Nodes$EmptyNode$OfInt;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$EmptyNode$OfInt;-><init>()V
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_INT_NODE:Ljava/util/stream/Node$OfInt;
 
-    .line 69
     new-instance v0, Ljava/util/stream/Nodes$EmptyNode$OfLong;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$EmptyNode$OfLong;-><init>()V
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_LONG_NODE:Ljava/util/stream/Node$OfLong;
 
-    .line 70
     new-instance v0, Ljava/util/stream/Nodes$EmptyNode$OfDouble;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$EmptyNode$OfDouble;-><init>()V
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_DOUBLE_NODE:Ljava/util/stream/Node$OfDouble;
 
-    .line 1308
     new-array v0, v2, [I
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_INT_ARRAY:[I
 
-    .line 1309
     new-array v0, v2, [J
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_LONG_ARRAY:[J
 
-    .line 1310
     new-array v0, v2, [D
 
     sput-object v0, Ljava/util/stream/Nodes;->EMPTY_DOUBLE_ARRAY:[D
 
-    .line 52
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
     new-instance v0, Ljava/lang/Error;
 
     const-string/jumbo v1, "no instances"
@@ -262,8 +250,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 179
     new-instance v0, Ljava/util/stream/Nodes$SpinedNodeBuilder;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$SpinedNodeBuilder;-><init>()V
@@ -273,7 +259,6 @@
 
 .method static builder(JLjava/util/function/IntFunction;)Ljava/util/stream/Node$Builder;
     .locals 2
-    .param p0, "exactSizeIfKnown"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -286,9 +271,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 167
-    .local p2, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
@@ -301,16 +283,13 @@
 
     if-gez v0, :cond_0
 
-    .line 168
     new-instance v0, Ljava/util/stream/Nodes$FixedNodeBuilder;
 
     invoke-direct {v0, p0, p1, p2}, Ljava/util/stream/Nodes$FixedNodeBuilder;-><init>(JLjava/util/function/IntFunction;)V
 
-    .line 167
     :goto_0
     return-object v0
 
-    .line 169
     :cond_0
     invoke-static {}, Ljava/util/stream/Nodes;->builder()Ljava/util/stream/Node$Builder;
 
@@ -321,7 +300,6 @@
 
 .method public static collect(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;ZLjava/util/function/IntFunction;)Ljava/util/stream/Node;
     .locals 6
-    .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -340,17 +318,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 320
-    .local p0, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<TP_OUT;>;"
-    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
-    .local p3, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TP_OUT;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v2
 
-    .line 321
-    .local v2, "size":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v2, v4
@@ -365,14 +336,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 322
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v4, v2, v4
 
     if-ltz v4, :cond_0
 
-    .line 323
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "Stream size exceeds max array size"
@@ -381,7 +350,6 @@
 
     throw v4
 
-    .line 324
     :cond_0
     long-to-int v4, v2
 
@@ -391,23 +359,18 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 325
-    .local v0, "array":[Ljava/lang/Object;, "[TP_OUT;"
     new-instance v4, Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;
 
     invoke-direct {v4, p1, p0, v0}, Ljava/util/stream/Nodes$SizedCollectorTask$OfRef;-><init>(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[Ljava/lang/Object;)V
 
     invoke-virtual {v4}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 326
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([Ljava/lang/Object;)Ljava/util/stream/Node;
 
     move-result-object v4
 
     return-object v4
 
-    .line 328
-    .end local v0    # "array":[Ljava/lang/Object;, "[TP_OUT;"
     :cond_1
     new-instance v4, Ljava/util/stream/Nodes$CollectorTask$OfRef;
 
@@ -419,22 +382,18 @@
 
     check-cast v1, Ljava/util/stream/Node;
 
-    .line 329
-    .local v1, "node":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
     if-eqz p2, :cond_2
 
     invoke-static {v1, p3}, Ljava/util/stream/Nodes;->flatten(Ljava/util/stream/Node;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;
 
     move-result-object v1
 
-    .end local v1    # "node":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TP_OUT;>;"
     :cond_2
     return-object v1
 .end method
 
 .method public static collectDouble(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfDouble;
     .locals 6
-    .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -450,16 +409,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 433
-    .local p0, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Double;>;"
-    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v2
 
-    .line 434
-    .local v2, "size":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v2, v4
@@ -474,14 +427,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 435
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v4, v2, v4
 
     if-ltz v4, :cond_0
 
-    .line 436
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "Stream size exceeds max array size"
@@ -490,29 +441,23 @@
 
     throw v4
 
-    .line 437
     :cond_0
     long-to-int v4, v2
 
     new-array v0, v4, [D
 
-    .line 438
-    .local v0, "array":[D
     new-instance v4, Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;
 
     invoke-direct {v4, p1, p0, v0}, Ljava/util/stream/Nodes$SizedCollectorTask$OfDouble;-><init>(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[D)V
 
     invoke-virtual {v4}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 439
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([D)Ljava/util/stream/Node$OfDouble;
 
     move-result-object v4
 
     return-object v4
 
-    .line 442
-    .end local v0    # "array":[D
     :cond_1
     new-instance v4, Ljava/util/stream/Nodes$CollectorTask$OfDouble;
 
@@ -524,22 +469,18 @@
 
     check-cast v1, Ljava/util/stream/Node$OfDouble;
 
-    .line 443
-    .local v1, "node":Ljava/util/stream/Node$OfDouble;
     if-eqz p2, :cond_2
 
     invoke-static {v1}, Ljava/util/stream/Nodes;->flattenDouble(Ljava/util/stream/Node$OfDouble;)Ljava/util/stream/Node$OfDouble;
 
     move-result-object v1
 
-    .end local v1    # "node":Ljava/util/stream/Node$OfDouble;
     :cond_2
     return-object v1
 .end method
 
 .method public static collectInt(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfInt;
     .locals 6
-    .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -555,16 +496,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 357
-    .local p0, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;"
-    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v2
 
-    .line 358
-    .local v2, "size":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v2, v4
@@ -579,14 +514,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 359
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v4, v2, v4
 
     if-ltz v4, :cond_0
 
-    .line 360
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "Stream size exceeds max array size"
@@ -595,29 +528,23 @@
 
     throw v4
 
-    .line 361
     :cond_0
     long-to-int v4, v2
 
     new-array v0, v4, [I
 
-    .line 362
-    .local v0, "array":[I
     new-instance v4, Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;
 
     invoke-direct {v4, p1, p0, v0}, Ljava/util/stream/Nodes$SizedCollectorTask$OfInt;-><init>(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[I)V
 
     invoke-virtual {v4}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 363
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([I)Ljava/util/stream/Node$OfInt;
 
     move-result-object v4
 
     return-object v4
 
-    .line 366
-    .end local v0    # "array":[I
     :cond_1
     new-instance v4, Ljava/util/stream/Nodes$CollectorTask$OfInt;
 
@@ -629,22 +556,18 @@
 
     check-cast v1, Ljava/util/stream/Node$OfInt;
 
-    .line 367
-    .local v1, "node":Ljava/util/stream/Node$OfInt;
     if-eqz p2, :cond_2
 
     invoke-static {v1}, Ljava/util/stream/Nodes;->flattenInt(Ljava/util/stream/Node$OfInt;)Ljava/util/stream/Node$OfInt;
 
     move-result-object v1
 
-    .end local v1    # "node":Ljava/util/stream/Node$OfInt;
     :cond_2
     return-object v1
 .end method
 
 .method public static collectLong(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Z)Ljava/util/stream/Node$OfLong;
     .locals 6
-    .param p2, "flattenTree"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P_IN:",
@@ -660,16 +583,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 395
-    .local p0, "helper":Ljava/util/stream/PipelineHelper;, "Ljava/util/stream/PipelineHelper<Ljava/lang/Long;>;"
-    .local p1, "spliterator":Ljava/util/Spliterator;, "Ljava/util/Spliterator<TP_IN;>;"
     invoke-virtual {p0, p1}, Ljava/util/stream/PipelineHelper;->exactOutputSizeIfKnown(Ljava/util/Spliterator;)J
 
     move-result-wide v2
 
-    .line 396
-    .local v2, "size":J
     const-wide/16 v4, 0x0
 
     cmp-long v4, v2, v4
@@ -684,14 +601,12 @@
 
     if-eqz v4, :cond_1
 
-    .line 397
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v4, v2, v4
 
     if-ltz v4, :cond_0
 
-    .line 398
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "Stream size exceeds max array size"
@@ -700,29 +615,23 @@
 
     throw v4
 
-    .line 399
     :cond_0
     long-to-int v4, v2
 
     new-array v0, v4, [J
 
-    .line 400
-    .local v0, "array":[J
     new-instance v4, Ljava/util/stream/Nodes$SizedCollectorTask$OfLong;
 
     invoke-direct {v4, p1, p0, v0}, Ljava/util/stream/Nodes$SizedCollectorTask$OfLong;-><init>(Ljava/util/Spliterator;Ljava/util/stream/PipelineHelper;[J)V
 
     invoke-virtual {v4}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 401
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([J)Ljava/util/stream/Node$OfLong;
 
     move-result-object v4
 
     return-object v4
 
-    .line 404
-    .end local v0    # "array":[J
     :cond_1
     new-instance v4, Ljava/util/stream/Nodes$CollectorTask$OfLong;
 
@@ -734,22 +643,18 @@
 
     check-cast v1, Ljava/util/stream/Node$OfLong;
 
-    .line 405
-    .local v1, "node":Ljava/util/stream/Node$OfLong;
     if-eqz p2, :cond_2
 
     invoke-static {v1}, Ljava/util/stream/Nodes;->flattenLong(Ljava/util/stream/Node$OfLong;)Ljava/util/stream/Node$OfLong;
 
     move-result-object v1
 
-    .end local v1    # "node":Ljava/util/stream/Node$OfLong;
     :cond_2
     return-object v1
 .end method
 
 .method static conc(Ljava/util/stream/StreamShape;Ljava/util/stream/Node;Ljava/util/stream/Node;)Ljava/util/stream/Node;
     .locals 3
-    .param p0, "shape"    # Ljava/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -765,10 +670,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 114
-    .local p1, "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    .local p2, "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     invoke-static {}, Ljava/util/stream/Nodes;->-getjava-util-stream-StreamShapeSwitchesValues()[I
 
     move-result-object v0
@@ -781,7 +682,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 124
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -806,7 +706,6 @@
 
     throw v0
 
-    .line 116
     :pswitch_0
     new-instance v0, Ljava/util/stream/Nodes$ConcNode;
 
@@ -814,53 +713,39 @@
 
     return-object v0
 
-    .line 118
     :pswitch_1
     new-instance v0, Ljava/util/stream/Nodes$ConcNode$OfInt;
 
     check-cast p1, Ljava/util/stream/Node$OfInt;
 
-    .end local p1    # "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     check-cast p2, Ljava/util/stream/Node$OfInt;
 
-    .end local p2    # "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     invoke-direct {v0, p1, p2}, Ljava/util/stream/Nodes$ConcNode$OfInt;-><init>(Ljava/util/stream/Node$OfInt;Ljava/util/stream/Node$OfInt;)V
 
     return-object v0
 
-    .line 120
-    .restart local p1    # "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    .restart local p2    # "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     :pswitch_2
     new-instance v0, Ljava/util/stream/Nodes$ConcNode$OfLong;
 
     check-cast p1, Ljava/util/stream/Node$OfLong;
 
-    .end local p1    # "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     check-cast p2, Ljava/util/stream/Node$OfLong;
 
-    .end local p2    # "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     invoke-direct {v0, p1, p2}, Ljava/util/stream/Nodes$ConcNode$OfLong;-><init>(Ljava/util/stream/Node$OfLong;Ljava/util/stream/Node$OfLong;)V
 
     return-object v0
 
-    .line 122
-    .restart local p1    # "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    .restart local p2    # "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     :pswitch_3
     new-instance v0, Ljava/util/stream/Nodes$ConcNode$OfDouble;
 
     check-cast p1, Ljava/util/stream/Node$OfDouble;
 
-    .end local p1    # "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     check-cast p2, Ljava/util/stream/Node$OfDouble;
 
-    .end local p2    # "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     invoke-direct {v0, p1, p2}, Ljava/util/stream/Nodes$ConcNode$OfDouble;-><init>(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V
 
     return-object v0
 
-    .line 114
     nop
 
     :pswitch_data_0
@@ -875,8 +760,6 @@
 .method static doubleBuilder()Ljava/util/stream/Node$Builder$OfDouble;
     .locals 1
 
-    .prologue
-    .line 290
     new-instance v0, Ljava/util/stream/Nodes$DoubleSpinedNodeBuilder;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$DoubleSpinedNodeBuilder;-><init>()V
@@ -886,10 +769,7 @@
 
 .method static doubleBuilder(J)Ljava/util/stream/Node$Builder$OfDouble;
     .locals 2
-    .param p0, "exactSizeIfKnown"    # J
 
-    .prologue
-    .line 279
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
@@ -902,16 +782,13 @@
 
     if-gez v0, :cond_0
 
-    .line 280
     new-instance v0, Ljava/util/stream/Nodes$DoubleFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Nodes$DoubleFixedNodeBuilder;-><init>(J)V
 
-    .line 279
     :goto_0
     return-object v0
 
-    .line 281
     :cond_0
     invoke-static {}, Ljava/util/stream/Nodes;->doubleBuilder()Ljava/util/stream/Node$Builder$OfDouble;
 
@@ -922,7 +799,6 @@
 
 .method static emptyNode(Ljava/util/stream/StreamShape;)Ljava/util/stream/Node;
     .locals 3
-    .param p0, "shape"    # Ljava/util/stream/StreamShape;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -935,8 +811,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 83
     invoke-static {}, Ljava/util/stream/Nodes;->-getjava-util-stream-StreamShapeSwitchesValues()[I
 
     move-result-object v0
@@ -949,7 +823,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 89
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -974,31 +847,26 @@
 
     throw v0
 
-    .line 84
     :pswitch_0
     sget-object v0, Ljava/util/stream/Nodes;->EMPTY_NODE:Ljava/util/stream/Node;
 
     return-object v0
 
-    .line 85
     :pswitch_1
     sget-object v0, Ljava/util/stream/Nodes;->EMPTY_INT_NODE:Ljava/util/stream/Node$OfInt;
 
     return-object v0
 
-    .line 86
     :pswitch_2
     sget-object v0, Ljava/util/stream/Nodes;->EMPTY_LONG_NODE:Ljava/util/stream/Node$OfLong;
 
     return-object v0
 
-    .line 87
     :pswitch_3
     sget-object v0, Ljava/util/stream/Nodes;->EMPTY_DOUBLE_NODE:Ljava/util/stream/Node$OfDouble;
 
     return-object v0
 
-    .line 83
     nop
 
     :pswitch_data_0
@@ -1026,32 +894,24 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "node":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    .local p1, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     const/4 v6, 0x0
 
-    .line 465
     invoke-interface {p0}, Ljava/util/stream/Node;->getChildCount()I
 
     move-result v1
 
     if-lez v1, :cond_1
 
-    .line 466
     invoke-interface {p0}, Ljava/util/stream/Node;->count()J
 
     move-result-wide v2
 
-    .line 467
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 468
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -1060,7 +920,6 @@
 
     throw v1
 
-    .line 469
     :cond_0
     long-to-int v1, v2
 
@@ -1070,8 +929,6 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 470
-    .local v0, "array":[Ljava/lang/Object;, "[TT;"
     new-instance v1, Ljava/util/stream/Nodes$ToArrayTask$OfRef;
 
     const/4 v4, 0x0
@@ -1080,48 +937,37 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 471
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([Ljava/lang/Object;)Ljava/util/stream/Node;
 
     move-result-object v1
 
     return-object v1
 
-    .line 473
-    .end local v0    # "array":[Ljava/lang/Object;, "[TT;"
-    .end local v2    # "size":J
     :cond_1
     return-object p0
 .end method
 
 .method public static flattenDouble(Ljava/util/stream/Node$OfDouble;)Ljava/util/stream/Node$OfDouble;
     .locals 7
-    .param p0, "node"    # Ljava/util/stream/Node$OfDouble;
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 543
     invoke-interface {p0}, Ljava/util/stream/Node$OfDouble;->getChildCount()I
 
     move-result v1
 
     if-lez v1, :cond_1
 
-    .line 544
     invoke-interface {p0}, Ljava/util/stream/Node$OfDouble;->count()J
 
     move-result-wide v2
 
-    .line 545
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 546
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -1130,14 +976,11 @@
 
     throw v1
 
-    .line 547
     :cond_0
     long-to-int v1, v2
 
     new-array v0, v1, [D
 
-    .line 548
-    .local v0, "array":[D
     new-instance v1, Ljava/util/stream/Nodes$ToArrayTask$OfDouble;
 
     const/4 v4, 0x0
@@ -1146,48 +989,37 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 549
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([D)Ljava/util/stream/Node$OfDouble;
 
     move-result-object v1
 
     return-object v1
 
-    .line 551
-    .end local v0    # "array":[D
-    .end local v2    # "size":J
     :cond_1
     return-object p0
 .end method
 
 .method public static flattenInt(Ljava/util/stream/Node$OfInt;)Ljava/util/stream/Node$OfInt;
     .locals 7
-    .param p0, "node"    # Ljava/util/stream/Node$OfInt;
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 491
     invoke-interface {p0}, Ljava/util/stream/Node$OfInt;->getChildCount()I
 
     move-result v1
 
     if-lez v1, :cond_1
 
-    .line 492
     invoke-interface {p0}, Ljava/util/stream/Node$OfInt;->count()J
 
     move-result-wide v2
 
-    .line 493
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 494
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -1196,14 +1028,11 @@
 
     throw v1
 
-    .line 495
     :cond_0
     long-to-int v1, v2
 
     new-array v0, v1, [I
 
-    .line 496
-    .local v0, "array":[I
     new-instance v1, Ljava/util/stream/Nodes$ToArrayTask$OfInt;
 
     const/4 v4, 0x0
@@ -1212,48 +1041,37 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 497
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([I)Ljava/util/stream/Node$OfInt;
 
     move-result-object v1
 
     return-object v1
 
-    .line 499
-    .end local v0    # "array":[I
-    .end local v2    # "size":J
     :cond_1
     return-object p0
 .end method
 
 .method public static flattenLong(Ljava/util/stream/Node$OfLong;)Ljava/util/stream/Node$OfLong;
     .locals 7
-    .param p0, "node"    # Ljava/util/stream/Node$OfLong;
 
-    .prologue
     const/4 v6, 0x0
 
-    .line 517
     invoke-interface {p0}, Ljava/util/stream/Node$OfLong;->getChildCount()I
 
     move-result v1
 
     if-lez v1, :cond_1
 
-    .line 518
     invoke-interface {p0}, Ljava/util/stream/Node$OfLong;->count()J
 
     move-result-wide v2
 
-    .line 519
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 520
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -1262,14 +1080,11 @@
 
     throw v1
 
-    .line 521
     :cond_0
     long-to-int v1, v2
 
     new-array v0, v1, [J
 
-    .line 522
-    .local v0, "array":[J
     new-instance v1, Ljava/util/stream/Nodes$ToArrayTask$OfLong;
 
     const/4 v4, 0x0
@@ -1278,16 +1093,12 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ForkJoinTask;->invoke()Ljava/lang/Object;
 
-    .line 523
     invoke-static {v0}, Ljava/util/stream/Nodes;->node([J)Ljava/util/stream/Node$OfLong;
 
     move-result-object v1
 
     return-object v1
 
-    .line 525
-    .end local v0    # "array":[J
-    .end local v2    # "size":J
     :cond_1
     return-object p0
 .end method
@@ -1295,8 +1106,6 @@
 .method static intBuilder()Ljava/util/stream/Node$Builder$OfInt;
     .locals 1
 
-    .prologue
-    .line 216
     new-instance v0, Ljava/util/stream/Nodes$IntSpinedNodeBuilder;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$IntSpinedNodeBuilder;-><init>()V
@@ -1306,10 +1115,7 @@
 
 .method static intBuilder(J)Ljava/util/stream/Node$Builder$OfInt;
     .locals 2
-    .param p0, "exactSizeIfKnown"    # J
 
-    .prologue
-    .line 205
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
@@ -1322,16 +1128,13 @@
 
     if-gez v0, :cond_0
 
-    .line 206
     new-instance v0, Ljava/util/stream/Nodes$IntFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Nodes$IntFixedNodeBuilder;-><init>(J)V
 
-    .line 205
     :goto_0
     return-object v0
 
-    .line 207
     :cond_0
     invoke-static {}, Ljava/util/stream/Nodes;->intBuilder()Ljava/util/stream/Node$Builder$OfInt;
 
@@ -1343,8 +1146,6 @@
 .method static longBuilder()Ljava/util/stream/Node$Builder$OfLong;
     .locals 1
 
-    .prologue
-    .line 253
     new-instance v0, Ljava/util/stream/Nodes$LongSpinedNodeBuilder;
 
     invoke-direct {v0}, Ljava/util/stream/Nodes$LongSpinedNodeBuilder;-><init>()V
@@ -1354,10 +1155,7 @@
 
 .method static longBuilder(J)Ljava/util/stream/Node$Builder$OfLong;
     .locals 2
-    .param p0, "exactSizeIfKnown"    # J
 
-    .prologue
-    .line 242
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
@@ -1370,16 +1168,13 @@
 
     if-gez v0, :cond_0
 
-    .line 243
     new-instance v0, Ljava/util/stream/Nodes$LongFixedNodeBuilder;
 
     invoke-direct {v0, p0, p1}, Ljava/util/stream/Nodes$LongFixedNodeBuilder;-><init>(J)V
 
-    .line 242
     :goto_0
     return-object v0
 
-    .line 244
     :cond_0
     invoke-static {}, Ljava/util/stream/Nodes;->longBuilder()Ljava/util/stream/Node$Builder$OfLong;
 
@@ -1390,10 +1185,7 @@
 
 .method static node([D)Ljava/util/stream/Node$OfDouble;
     .locals 1
-    .param p0, "array"    # [D
 
-    .prologue
-    .line 267
     new-instance v0, Ljava/util/stream/Nodes$DoubleArrayNode;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$DoubleArrayNode;-><init>([D)V
@@ -1403,10 +1195,7 @@
 
 .method static node([I)Ljava/util/stream/Node$OfInt;
     .locals 1
-    .param p0, "array"    # [I
 
-    .prologue
-    .line 193
     new-instance v0, Ljava/util/stream/Nodes$IntArrayNode;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$IntArrayNode;-><init>([I)V
@@ -1416,10 +1205,7 @@
 
 .method static node([J)Ljava/util/stream/Node$OfLong;
     .locals 1
-    .param p0, "array"    # [J
 
-    .prologue
-    .line 230
     new-instance v0, Ljava/util/stream/Nodes$LongArrayNode;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$LongArrayNode;-><init>([J)V
@@ -1441,9 +1227,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 153
-    .local p0, "c":Ljava/util/Collection;, "Ljava/util/Collection<TT;>;"
     new-instance v0, Ljava/util/stream/Nodes$CollectionNode;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$CollectionNode;-><init>(Ljava/util/Collection;)V
@@ -1463,9 +1246,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 140
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     new-instance v0, Ljava/util/stream/Nodes$ArrayNode;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$ArrayNode;-><init>([Ljava/lang/Object;)V

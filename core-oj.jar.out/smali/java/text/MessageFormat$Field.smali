@@ -24,30 +24,22 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .prologue
-    .line 1167
     new-instance v0, Ljava/text/MessageFormat$Field;
 
     const-string/jumbo v1, "message argument field"
 
     invoke-direct {v0, v1}, Ljava/text/MessageFormat$Field;-><init>(Ljava/lang/String;)V
 
-    .line 1166
     sput-object v0, Ljava/text/MessageFormat$Field;->ARGUMENT:Ljava/text/MessageFormat$Field;
 
-    .line 1126
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 1137
     invoke-direct {p0, p1}, Ljava/text/Format$Field;-><init>(Ljava/lang/String;)V
 
-    .line 1136
     return-void
 .end method
 
@@ -61,8 +53,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1148
     invoke-virtual {p0}, Ljava/text/MessageFormat$Field;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -71,7 +61,6 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 1149
     new-instance v0, Ljava/io/InvalidObjectException;
 
     const-string/jumbo v1, "subclass didn\'t correctly implement readResolve"
@@ -80,7 +69,6 @@
 
     throw v0
 
-    .line 1152
     :cond_0
     sget-object v0, Ljava/text/MessageFormat$Field;->ARGUMENT:Ljava/text/MessageFormat$Field;
 

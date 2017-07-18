@@ -40,29 +40,17 @@
 # direct methods
 .method constructor <init>(IILjava/lang/String;[Ljava/security/cert/Certificate;Lsun/security/ssl/X509KeyManagerImpl$CheckResult;)V
     .locals 0
-    .param p1, "builderIndex"    # I
-    .param p2, "keyIndex"    # I
-    .param p3, "alias"    # Ljava/lang/String;
-    .param p4, "chain"    # [Ljava/security/cert/Certificate;
-    .param p5, "checkResult"    # Lsun/security/ssl/X509KeyManagerImpl$CheckResult;
 
-    .prologue
-    .line 448
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 450
     iput p1, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->builderIndex:I
 
-    .line 451
     iput p2, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->keyIndex:I
 
-    .line 452
     iput-object p3, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->alias:Ljava/lang/String;
 
-    .line 453
     iput-object p5, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->checkResult:Lsun/security/ssl/X509KeyManagerImpl$CheckResult;
 
-    .line 449
     return-void
 .end method
 
@@ -70,13 +58,9 @@
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .prologue
-    .line 456
     check-cast p1, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;
 
-    .end local p1    # "other":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->compareTo(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I
 
     move-result v0
@@ -86,10 +70,7 @@
 
 .method public compareTo(Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;)I
     .locals 3
-    .param p1, "other"    # Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;
 
-    .prologue
-    .line 457
     iget-object v1, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->checkResult:Lsun/security/ssl/X509KeyManagerImpl$CheckResult;
 
     iget-object v2, p1, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->checkResult:Lsun/security/ssl/X509KeyManagerImpl$CheckResult;
@@ -98,8 +79,6 @@
 
     move-result v0
 
-    .line 458
-    .local v0, "result":I
     if-nez v0, :cond_0
 
     iget v1, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->keyIndex:I
@@ -108,7 +87,6 @@
 
     sub-int v0, v1, v2
 
-    .end local v0    # "result":I
     :cond_0
     return v0
 .end method
@@ -116,8 +94,6 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .prologue
-    .line 462
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -150,16 +126,12 @@
 
     move-result-object v0
 
-    .line 463
-    .local v0, "s":Ljava/lang/String;
     iget v1, p0, Lsun/security/ssl/X509KeyManagerImpl$EntryStatus;->builderIndex:I
 
     if-nez v1, :cond_0
 
-    .line 464
     return-object v0
 
-    .line 466
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 

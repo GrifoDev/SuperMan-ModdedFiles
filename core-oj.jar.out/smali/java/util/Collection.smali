@@ -83,9 +83,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 589
-    .local p0, "this":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-interface {p0}, Ljava/util/Collection;->spliterator()Ljava/util/Spliterator;
 
     move-result-object v0
@@ -122,23 +119,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 397
-    .local p0, "this":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 398
     const/4 v1, 0x0
 
-    .line 399
-    .local v1, "removed":Z
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 400
-    .local v0, "each":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -147,7 +135,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 401
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -158,15 +145,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 402
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 403
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 406
     :cond_1
     return v1
 .end method
@@ -194,9 +178,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 549
-    .local p0, "this":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     const/4 v0, 0x0
 
     invoke-static {p0, v0}, Ljava/util/Spliterators;->spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator;
@@ -216,9 +197,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 568
-    .local p0, "this":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-interface {p0}, Ljava/util/Collection;->spliterator()Ljava/util/Spliterator;
 
     move-result-object v0

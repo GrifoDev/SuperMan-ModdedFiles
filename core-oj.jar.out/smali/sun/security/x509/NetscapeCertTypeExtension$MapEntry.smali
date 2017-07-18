@@ -23,19 +23,12 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "position"    # I
 
-    .prologue
-    .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 94
     iput-object p1, p0, Lsun/security/x509/NetscapeCertTypeExtension$MapEntry;->mName:Ljava/lang/String;
 
-    .line 95
     iput p2, p0, Lsun/security/x509/NetscapeCertTypeExtension$MapEntry;->mPosition:I
 
-    .line 93
     return-void
 .end method

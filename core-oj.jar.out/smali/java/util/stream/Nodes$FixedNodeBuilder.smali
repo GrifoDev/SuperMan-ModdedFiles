@@ -37,7 +37,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
     const-class v0, Ljava/util/stream/Nodes$FixedNodeBuilder;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -51,7 +50,6 @@
     :goto_0
     sput-boolean v0, Ljava/util/stream/Nodes$FixedNodeBuilder;->-assertionsDisabled:Z
 
-    .line 1194
     return-void
 
     :cond_0
@@ -62,7 +60,6 @@
 
 .method constructor <init>(JLjava/util/function/IntFunction;)V
     .locals 3
-    .param p1, "size"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -71,13 +68,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 1199
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
-    .local p3, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     invoke-direct {p0, p1, p2, p3}, Ljava/util/stream/Nodes$ArrayNode;-><init>(JLjava/util/function/IntFunction;)V
 
-    .line 1200
     sget-boolean v0, Ljava/util/stream/Nodes$FixedNodeBuilder;->-assertionsDisabled:Z
 
     if-nez v0, :cond_1
@@ -104,7 +96,6 @@
 
     goto :goto_0
 
-    .line 1198
     :cond_1
     return-void
 .end method
@@ -119,10 +110,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1221
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
     iget-object v1, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
@@ -131,7 +118,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1222
     iget-object v0, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
 
     iget v1, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
@@ -142,10 +128,8 @@
 
     aput-object p1, v0, v1
 
-    .line 1220
     return-void
 
-    .line 1224
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -155,7 +139,6 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 1225
     iget-object v3, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
 
     array-length v3, v3
@@ -168,7 +151,6 @@
 
     aput-object v3, v2, v4
 
-    .line 1224
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -180,13 +162,9 @@
 
 .method public begin(J)V
     .locals 5
-    .param p1, "size"    # J
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
     const/4 v4, 0x0
 
-    .line 1213
     iget-object v0, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
 
     array-length v0, v0
@@ -197,7 +175,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1214
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Begin size %d is not equal to fixed size %d"
@@ -206,7 +183,6 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 1215
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v3
@@ -225,7 +201,6 @@
 
     aput-object v3, v2, v4
 
-    .line 1214
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -234,11 +209,9 @@
 
     throw v0
 
-    .line 1216
     :cond_0
     iput v4, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
-    .line 1212
     return-void
 .end method
 
@@ -252,9 +225,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1205
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
     iget v0, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
     iget-object v1, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
@@ -263,7 +233,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1206
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Current size %d is less than fixed size %d"
@@ -272,7 +241,6 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 1207
     iget v3, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -295,7 +263,6 @@
 
     aput-object v3, v2, v4
 
-    .line 1206
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -304,7 +271,6 @@
 
     throw v0
 
-    .line 1208
     :cond_0
     return-object p0
 .end method
@@ -312,9 +278,6 @@
 .method public end()V
     .locals 5
 
-    .prologue
-    .line 1231
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
     iget v0, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
     iget-object v1, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
@@ -323,7 +286,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1232
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "End size %d is less than fixed size %d"
@@ -332,7 +294,6 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 1233
     iget v3, p0, Ljava/util/stream/Nodes$ArrayNode;->curSize:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -355,7 +316,6 @@
 
     aput-object v3, v2, v4
 
-    .line 1232
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
@@ -364,7 +324,6 @@
 
     throw v0
 
-    .line 1230
     :cond_0
     return-void
 .end method
@@ -372,16 +331,12 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 1238
-    .local p0, "this":Ljava/util/stream/Nodes$FixedNodeBuilder;, "Ljava/util/stream/Nodes$FixedNodeBuilder<TT;>;"
     const-string/jumbo v0, "FixedNodeBuilder[%d][%s]"
 
     const/4 v1, 0x2
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 1239
     iget-object v2, p0, Ljava/util/stream/Nodes$ArrayNode;->array:[Ljava/lang/Object;
 
     array-length v2, v2
@@ -408,7 +363,6 @@
 
     aput-object v2, v1, v3
 
-    .line 1238
     invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

@@ -21,50 +21,37 @@
 .method protected constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 163
     const/4 v0, 0x0
 
     iput-object v0, p0, Ljava/io/Reader;->skipBuffer:[C
 
-    .line 67
     iput-object p0, p0, Ljava/io/Reader;->lock:Ljava/lang/Object;
 
-    .line 66
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "lock"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 163
     iput-object v0, p0, Ljava/io/Reader;->skipBuffer:[C
 
-    .line 77
     if-nez p1, :cond_0
 
-    .line 78
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 80
     :cond_0
     iput-object p1, p0, Ljava/io/Reader;->lock:Ljava/lang/Object;
 
-    .line 76
     return-void
 .end method
 
@@ -80,15 +67,12 @@
 
 .method public mark(I)V
     .locals 2
-    .param p1, "readAheadLimit"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 232
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "mark() not supported"
@@ -101,8 +85,6 @@
 .method public markSupported()Z
     .locals 1
 
-    .prologue
-    .line 215
     const/4 v0, 0x0
 
     return v0
@@ -116,28 +98,22 @@
         }
     .end annotation
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
-    .line 120
     new-array v0, v1, [C
 
-    .line 121
-    .local v0, "cb":[C
     invoke-virtual {p0, v0, v3, v1}, Ljava/io/Reader;->read([CII)I
 
     move-result v1
 
     if-ne v1, v2, :cond_0
 
-    .line 122
     return v2
 
-    .line 124
     :cond_0
     aget-char v1, v0, v3
 
@@ -146,54 +122,40 @@
 
 .method public read(Ljava/nio/CharBuffer;)I
     .locals 4
-    .param p1, "target"    # Ljava/nio/CharBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v3, 0x0
 
-    .line 98
     invoke-virtual {p1}, Ljava/nio/CharBuffer;->remaining()I
 
     move-result v1
 
-    .line 99
-    .local v1, "len":I
     new-array v0, v1, [C
 
-    .line 100
-    .local v0, "cbuf":[C
     invoke-virtual {p0, v0, v3, v1}, Ljava/io/Reader;->read([CII)I
 
     move-result v2
 
-    .line 101
-    .local v2, "n":I
     if-lez v2, :cond_0
 
-    .line 102
     invoke-virtual {p1, v0, v3, v2}, Ljava/nio/CharBuffer;->put([CII)Ljava/nio/CharBuffer;
 
-    .line 103
     :cond_0
     return v2
 .end method
 
 .method public read([C)I
     .locals 2
-    .param p1, "cbuf"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 140
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -221,8 +183,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 204
     const/4 v0, 0x0
 
     return v0
@@ -236,8 +196,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 249
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "reset() not supported"
@@ -249,22 +207,18 @@
 
 .method public skip(J)J
     .locals 11
-    .param p1, "n"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const-wide/16 v8, 0x0
 
-    .line 177
     cmp-long v4, p1, v8
 
     if-gez v4, :cond_0
 
-    .line 178
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v5, "skip value is negative"
@@ -273,7 +227,6 @@
 
     throw v4
 
-    .line 179
     :cond_0
     const-wide/16 v4, 0x2000
 
@@ -283,13 +236,10 @@
 
     long-to-int v1, v4
 
-    .line 180
-    .local v1, "nn":I
     iget-object v5, p0, Ljava/io/Reader;->lock:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 181
     :try_start_0
     iget-object v4, p0, Ljava/io/Reader;->skipBuffer:[C
 
@@ -301,24 +251,19 @@
 
     if-ge v4, v1, :cond_2
 
-    .line 182
     :cond_1
     new-array v4, v1, [C
 
     iput-object v4, p0, Ljava/io/Reader;->skipBuffer:[C
 
-    .line 183
     :cond_2
     move-wide v2, p1
 
-    .line 184
-    .local v2, "r":J
     :goto_0
     cmp-long v4, v2, v8
 
     if-lez v4, :cond_3
 
-    .line 185
     iget-object v4, p0, Ljava/io/Reader;->skipBuffer:[C
 
     int-to-long v6, v1
@@ -337,14 +282,10 @@
 
     move-result v0
 
-    .line 186
-    .local v0, "nc":I
     const/4 v4, -0x1
 
     if-ne v0, v4, :cond_4
 
-    .line 190
-    .end local v0    # "nc":I
     :cond_3
     sub-long v6, p1, v2
 
@@ -352,8 +293,6 @@
 
     return-wide v6
 
-    .line 188
-    .restart local v0    # "nc":I
     :cond_4
     int-to-long v6, v0
 
@@ -361,9 +300,6 @@
 
     goto :goto_0
 
-    .line 180
-    .end local v0    # "nc":I
-    .end local v2    # "r":J
     :catchall_0
     move-exception v4
 

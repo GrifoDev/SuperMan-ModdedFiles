@@ -67,7 +67,6 @@
 # direct methods
 .method private constructor <init>(Ljava/util/ServiceLoader;Ljava/lang/Class;Ljava/lang/ClassLoader;)V
     .locals 1
-    .param p3, "loader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,44 +77,28 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/ServiceLoader$LazyIterator;, "Ljava/util/ServiceLoader<TS;>.LazyIterator;"
-    .local p1, "this$0":Ljava/util/ServiceLoader;, "Ljava/util/ServiceLoader<TS;>;"
-    .local p2, "service":Ljava/lang/Class;, "Ljava/lang/Class<TS;>;"
     const/4 v0, 0x0
 
-    .line 326
     iput-object p1, p0, Ljava/util/ServiceLoader$LazyIterator;->this$0:Ljava/util/ServiceLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 322
     iput-object v0, p0, Ljava/util/ServiceLoader$LazyIterator;->configs:Ljava/util/Enumeration;
 
-    .line 323
     iput-object v0, p0, Ljava/util/ServiceLoader$LazyIterator;->pending:Ljava/util/Iterator;
 
-    .line 324
     iput-object v0, p0, Ljava/util/ServiceLoader$LazyIterator;->nextName:Ljava/lang/String;
 
-    .line 327
     iput-object p2, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
-    .line 328
     iput-object p3, p0, Ljava/util/ServiceLoader$LazyIterator;->loader:Ljava/lang/ClassLoader;
 
-    .line 326
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/ServiceLoader;Ljava/lang/Class;Ljava/lang/ClassLoader;Ljava/util/ServiceLoader$LazyIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/ServiceLoader;
-    .param p2, "service"    # Ljava/lang/Class;
-    .param p3, "loader"    # Ljava/lang/ClassLoader;
 
-    .prologue
-    .local p0, "this":Ljava/util/ServiceLoader$LazyIterator;, "Ljava/util/ServiceLoader<TS;>.LazyIterator;"
     invoke-direct {p0, p1, p2, p3}, Ljava/util/ServiceLoader$LazyIterator;-><init>(Ljava/util/ServiceLoader;Ljava/lang/Class;Ljava/lang/ClassLoader;)V
 
     return-void
@@ -126,25 +109,19 @@
 .method public hasNext()Z
     .locals 6
 
-    .prologue
-    .local p0, "this":Ljava/util/ServiceLoader$LazyIterator;, "Ljava/util/ServiceLoader<TS;>.LazyIterator;"
     const/4 v5, 0x1
 
-    .line 332
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->nextName:Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
-    .line 333
     return v5
 
-    .line 335
     :cond_0
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->configs:Ljava/util/Enumeration;
 
     if-nez v2, :cond_1
 
-    .line 337
     :try_start_0
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -170,13 +147,10 @@
 
     move-result-object v0
 
-    .line 338
-    .local v0, "fullName":Ljava/lang/String;
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->loader:Ljava/lang/ClassLoader;
 
     if-nez v2, :cond_2
 
-    .line 339
     invoke-static {v0}, Ljava/lang/ClassLoader;->getSystemResources(Ljava/lang/String;)Ljava/util/Enumeration;
 
     move-result-object v2
@@ -185,8 +159,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 346
-    .end local v0    # "fullName":Ljava/lang/String;
     :cond_1
     :goto_0
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->pending:Ljava/util/Iterator;
@@ -201,7 +173,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 352
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->pending:Ljava/util/Iterator;
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -212,11 +183,8 @@
 
     iput-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->nextName:Ljava/lang/String;
 
-    .line 353
     return v5
 
-    .line 341
-    .restart local v0    # "fullName":Ljava/lang/String;
     :cond_2
     :try_start_1
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->loader:Ljava/lang/ClassLoader;
@@ -231,13 +199,9 @@
 
     goto :goto_0
 
-    .line 342
-    .end local v0    # "fullName":Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 343
-    .local v1, "x":Ljava/io/IOException;
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
     const-string/jumbo v3, "Error locating configuration files"
@@ -246,8 +210,6 @@
 
     goto :goto_0
 
-    .line 347
-    .end local v1    # "x":Ljava/io/IOException;
     :cond_3
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->configs:Ljava/util/Enumeration;
 
@@ -257,12 +219,10 @@
 
     if-nez v2, :cond_4
 
-    .line 348
     const/4 v2, 0x0
 
     return v2
 
-    .line 350
     :cond_4
     iget-object v3, p0, Ljava/util/ServiceLoader$LazyIterator;->this$0:Ljava/util/ServiceLoader;
 
@@ -293,37 +253,27 @@
         }
     .end annotation
 
-    .prologue
-    .line 357
-    .local p0, "this":Ljava/util/ServiceLoader$LazyIterator;, "Ljava/util/ServiceLoader<TS;>.LazyIterator;"
     invoke-virtual {p0}, Ljava/util/ServiceLoader$LazyIterator;->hasNext()Z
 
     move-result v6
 
     if-nez v6, :cond_0
 
-    .line 358
     new-instance v6, Ljava/util/NoSuchElementException;
 
     invoke-direct {v6}, Ljava/util/NoSuchElementException;-><init>()V
 
     throw v6
 
-    .line 360
     :cond_0
     iget-object v2, p0, Ljava/util/ServiceLoader$LazyIterator;->nextName:Ljava/lang/String;
 
-    .line 361
-    .local v2, "cn":Ljava/lang/String;
     const/4 v6, 0x0
 
     iput-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->nextName:Ljava/lang/String;
 
-    .line 362
     const/4 v0, 0x0
 
-    .line 364
-    .local v0, "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->loader:Ljava/lang/ClassLoader;
 
@@ -335,8 +285,6 @@
 
     move-result-object v0
 
-    .line 369
-    .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :goto_0
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
@@ -346,10 +294,8 @@
 
     if-nez v6, :cond_1
 
-    .line 370
     new-instance v1, Ljava/lang/ClassCastException;
 
-    .line 371
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -382,14 +328,10 @@
 
     move-result-object v6
 
-    .line 370
     invoke-direct {v1, v6}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
 
-    .line 372
-    .local v1, "cce":Ljava/lang/ClassCastException;
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
-    .line 373
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,11 +356,8 @@
 
     move-result-object v7
 
-    .line 372
     invoke-static {v6, v7, v1}, Ljava/util/ServiceLoader;->-wrap1(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 376
-    .end local v1    # "cce":Ljava/lang/ClassCastException;
     :cond_1
     :try_start_1
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
@@ -431,8 +370,6 @@
 
     move-result-object v3
 
-    .line 377
-    .local v3, "p":Ljava/lang/Object;, "TS;"
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->this$0:Ljava/util/ServiceLoader;
 
     invoke-static {v6}, Ljava/util/ServiceLoader;->-get1(Ljava/util/ServiceLoader;)Ljava/util/LinkedHashMap;
@@ -443,20 +380,13 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 378
     return-object v3
 
-    .line 365
-    .end local v3    # "p":Ljava/lang/Object;, "TS;"
-    .restart local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
     move-exception v4
 
-    .line 366
-    .local v4, "x":Ljava/lang/ClassNotFoundException;
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
-    .line 367
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -481,22 +411,15 @@
 
     move-result-object v7
 
-    .line 366
     invoke-static {v6, v7, v4}, Ljava/util/ServiceLoader;->-wrap1(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto/16 :goto_0
 
-    .line 379
-    .end local v0    # "c":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v4    # "x":Ljava/lang/ClassNotFoundException;
     :catch_1
     move-exception v5
 
-    .line 380
-    .local v5, "x":Ljava/lang/Throwable;
     iget-object v6, p0, Ljava/util/ServiceLoader$LazyIterator;->service:Ljava/lang/Class;
 
-    .line 381
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -525,10 +448,8 @@
 
     move-result-object v7
 
-    .line 380
     invoke-static {v6, v7, v5}, Ljava/util/ServiceLoader;->-wrap1(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 384
     new-instance v6, Ljava/lang/Error;
 
     invoke-direct {v6}, Ljava/lang/Error;-><init>()V
@@ -539,9 +460,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 388
-    .local p0, "this":Ljava/util/ServiceLoader$LazyIterator;, "Ljava/util/ServiceLoader<TS;>.LazyIterator;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

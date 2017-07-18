@@ -40,8 +40,6 @@
 .method public static synthetic -java_util_Spliterator$OfInt-mthref-0(Ljava/util/function/Consumer;I)V
     .locals 1
 
-    .prologue
-    .line 676
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -54,8 +52,6 @@
 .method public static synthetic -java_util_Spliterator$OfInt-mthref-1(Ljava/util/function/Consumer;I)V
     .locals 1
 
-    .prologue
-    .line 699
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -69,14 +65,9 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 653
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
     check-cast p1, Ljava/util/function/IntConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
     return-void
@@ -94,43 +85,30 @@
         }
     .end annotation
 
-    .prologue
-    .line 692
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/function/IntConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 693
     check-cast p1, Ljava/util/function/IntConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
-    .line 691
     :goto_0
     return-void
 
-    .line 696
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 697
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 698
     const-string/jumbo v1, "{0} calling Spliterator.OfInt.forEachRemaining((IntConsumer) action::accept)"
 
-    .line 697
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 699
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -145,11 +123,7 @@
 
 .method public forEachRemaining(Ljava/util/function/IntConsumer;)V
     .locals 1
-    .param p1, "action"    # Ljava/util/function/IntConsumer;
 
-    .prologue
-    .line 654
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
     :cond_0
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
@@ -157,20 +131,14 @@
 
     if-nez v0, :cond_0
 
-    .line 653
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 650
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
     check-cast p1, Ljava/util/function/IntConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v0
@@ -190,43 +158,31 @@
         }
     .end annotation
 
-    .prologue
-    .line 669
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     instance-of v0, p1, Ljava/util/function/IntConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 670
     check-cast p1, Ljava/util/function/IntConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->tryAdvance(Ljava/util/function/IntConsumer;)Z
 
     move-result v0
 
     return v0
 
-    .line 673
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Integer;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 674
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 675
     const-string/jumbo v1, "{0} calling Spliterator.OfInt.tryAdvance((IntConsumer) action::accept)"
 
-    .line 674
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 676
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -250,9 +206,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
-    .prologue
-    .line 647
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfInt;->trySplit()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -263,9 +216,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
-    .prologue
-    .line 647
-    .local p0, "this":Ljava/util/Spliterator$OfInt;, "Ljava/util/Spliterator<TT;>.OfInt;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfInt;->trySplit()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0

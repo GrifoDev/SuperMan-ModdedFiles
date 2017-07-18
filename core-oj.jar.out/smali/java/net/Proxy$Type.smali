@@ -37,44 +37,36 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 46
     new-instance v0, Ljava/net/Proxy$Type;
 
     const-string/jumbo v1, "DIRECT"
 
     invoke-direct {v0, v1, v2}, Ljava/net/Proxy$Type;-><init>(Ljava/lang/String;I)V
 
-    .line 49
     sput-object v0, Ljava/net/Proxy$Type;->DIRECT:Ljava/net/Proxy$Type;
 
-    .line 50
     new-instance v0, Ljava/net/Proxy$Type;
 
     const-string/jumbo v1, "HTTP"
 
     invoke-direct {v0, v1, v3}, Ljava/net/Proxy$Type;-><init>(Ljava/lang/String;I)V
 
-    .line 53
     sput-object v0, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    .line 54
     new-instance v0, Ljava/net/Proxy$Type;
 
     const-string/jumbo v1, "SOCKS"
 
     invoke-direct {v0, v1, v4}, Ljava/net/Proxy$Type;-><init>(Ljava/lang/String;I)V
 
-    .line 57
     sput-object v0, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
 
-    .line 45
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/net/Proxy$Type;
@@ -99,8 +91,6 @@
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .prologue
-    .line 45
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -108,10 +98,7 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljava/net/Proxy$Type;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 45
     const-class v0, Ljava/net/Proxy$Type;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -126,8 +113,6 @@
 .method public static values()[Ljava/net/Proxy$Type;
     .locals 1
 
-    .prologue
-    .line 45
     sget-object v0, Ljava/net/Proxy$Type;->$VALUES:[Ljava/net/Proxy$Type;
 
     return-object v0

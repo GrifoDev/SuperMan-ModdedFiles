@@ -57,10 +57,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1238
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
-    .local p1, "s":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
     invoke-direct {p0, p1}, Ljava/util/Collections$UnmodifiableSet;-><init>(Ljava/util/Set;)V
 
     iput-object p1, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
@@ -80,9 +76,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1240
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->comparator()Ljava/util/Comparator;
@@ -100,9 +93,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1252
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->first()Ljava/lang/Object;
@@ -122,10 +112,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1246
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedSet;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
@@ -147,9 +133,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1253
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->last()Ljava/lang/Object;
@@ -169,11 +152,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1243
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedSet;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;
@@ -197,10 +175,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1249
-    .local p0, "this":Ljava/util/Collections$UnmodifiableSortedSet;, "Ljava/util/Collections$UnmodifiableSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     new-instance v0, Ljava/util/Collections$UnmodifiableSortedSet;
 
     iget-object v1, p0, Ljava/util/Collections$UnmodifiableSortedSet;->ss:Ljava/util/SortedSet;

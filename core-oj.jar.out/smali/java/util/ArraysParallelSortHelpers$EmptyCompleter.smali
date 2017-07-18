@@ -38,9 +38,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 91
-    .local p1, "p":Ljava/util/concurrent/CountedCompleter;, "Ljava/util/concurrent/CountedCompleter<*>;"
     invoke-direct {p0, p1}, Ljava/util/concurrent/CountedCompleter;-><init>(Ljava/util/concurrent/CountedCompleter;)V
 
     return-void
@@ -51,7 +48,5 @@
 .method public final compute()V
     .locals 0
 
-    .prologue
-    .line 92
     return-void
 .end method

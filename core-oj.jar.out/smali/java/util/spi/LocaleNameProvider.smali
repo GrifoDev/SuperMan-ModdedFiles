@@ -7,8 +7,6 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 43
     invoke-direct {p0}, Ljava/util/spi/LocaleServiceProvider;-><init>()V
 
     return-void
@@ -24,11 +22,7 @@
 
 .method public getDisplayScript(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
-    .param p1, "scriptCode"    # Ljava/lang/String;
-    .param p2, "locale"    # Ljava/util/Locale;
 
-    .prologue
-    .line 98
     const/4 v0, 0x0
 
     return-object v0

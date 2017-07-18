@@ -43,10 +43,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 636
-    .local p0, "this":Ljava/util/Spliterator$OfPrimitive;, "Ljava/util/Spliterator<TT;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
-    .local p1, "action":Ljava/lang/Object;, "TT_CONS;"
     :cond_0
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfPrimitive;->tryAdvance(Ljava/lang/Object;)Z
 
@@ -54,7 +50,6 @@
 
     if-nez v0, :cond_0
 
-    .line 635
     return-void
 .end method
 
@@ -78,9 +73,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
-    .prologue
-    .line 602
-    .local p0, "this":Ljava/util/Spliterator$OfPrimitive;, "Ljava/util/Spliterator<TT;>.OfPrimitive<TT;TT_CONS;TT_SPLITR;>;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfPrimitive;->trySplit()Ljava/util/Spliterator$OfPrimitive;
 
     move-result-object v0

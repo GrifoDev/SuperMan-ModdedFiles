@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/io/ObjectStreamClass;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/io/ObjectStreamClass;
 
-    .prologue
-    .line 237
     iput-object p1, p0, Ljava/io/ObjectStreamClass$1;->this$0:Ljava/io/ObjectStreamClass;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public run()Ljava/lang/Long;
     .locals 2
 
-    .prologue
-    .line 239
     iget-object v0, p0, Ljava/io/ObjectStreamClass$1;->this$0:Ljava/io/ObjectStreamClass;
 
     invoke-static {v0}, Ljava/io/ObjectStreamClass;->-get0(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
@@ -72,8 +67,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 238
     invoke-virtual {p0}, Ljava/io/ObjectStreamClass$1;->run()Ljava/lang/Long;
 
     move-result-object v0

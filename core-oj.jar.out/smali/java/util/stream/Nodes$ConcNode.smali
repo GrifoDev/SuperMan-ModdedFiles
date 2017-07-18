@@ -53,14 +53,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 783
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
-    .local p1, "left":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
-    .local p2, "right":Ljava/util/stream/Node;, "Ljava/util/stream/Node<TT;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/stream/Nodes$AbstractConcNode;-><init>(Ljava/util/stream/Node;Ljava/util/stream/Node;)V
 
-    .line 782
     return-void
 .end method
 
@@ -76,23 +70,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 802
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
-    .local p1, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     invoke-virtual {p0}, Ljava/util/stream/Nodes$AbstractConcNode;->count()J
 
     move-result-wide v2
 
-    .line 803
-    .local v2, "size":J
     const-wide/32 v4, 0x7ffffff7
 
     cmp-long v1, v2, v4
 
     if-ltz v1, :cond_0
 
-    .line 804
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "Stream size exceeds max array size"
@@ -101,7 +88,6 @@
 
     throw v1
 
-    .line 805
     :cond_0
     long-to-int v1, v2
 
@@ -111,37 +97,27 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 806
-    .local v0, "array":[Ljava/lang/Object;, "[TT;"
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Ljava/util/stream/Nodes$ConcNode;->copyInto([Ljava/lang/Object;I)V
 
-    .line 807
     return-object v0
 .end method
 
 .method public copyInto([Ljava/lang/Object;I)V
     .locals 4
-    .param p2, "offset"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;I)V"
         }
     .end annotation
 
-    .prologue
-    .line 793
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 794
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Node;->copyInto([Ljava/lang/Object;I)V
 
-    .line 797
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     iget-object v1, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
@@ -156,7 +132,6 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/stream/Node;->copyInto([Ljava/lang/Object;I)V
 
-    .line 792
     return-void
 .end method
 
@@ -170,20 +145,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 812
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
-    .local p1, "consumer":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TT;>;"
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Node;->forEach(Ljava/util/function/Consumer;)V
 
-    .line 813
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     invoke-interface {v0, p1}, Ljava/util/stream/Node;->forEach(Ljava/util/function/Consumer;)V
 
-    .line 811
     return-void
 .end method
 
@@ -197,9 +166,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 788
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
     new-instance v0, Ljava/util/stream/Nodes$InternalNodeSpliterator$OfRef;
 
     invoke-direct {v0, p0}, Ljava/util/stream/Nodes$InternalNodeSpliterator$OfRef;-><init>(Ljava/util/stream/Node;)V
@@ -210,13 +176,10 @@
 .method public toString()Ljava/lang/String;
     .locals 6
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
-    .line 833
     invoke-virtual {p0}, Ljava/util/stream/Nodes$AbstractConcNode;->count()J
 
     move-result-wide v0
@@ -227,7 +190,6 @@
 
     if-gez v0, :cond_0
 
-    .line 834
     const-string/jumbo v0, "ConcNode[%s.%s]"
 
     const/4 v1, 0x2
@@ -248,7 +210,6 @@
 
     return-object v0
 
-    .line 836
     :cond_0
     const-string/jumbo v0, "ConcNode[size=%d]"
 
@@ -273,8 +234,6 @@
 
 .method public truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;
     .locals 13
-    .param p1, "from"    # J
-    .param p3, "to"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -285,10 +244,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 818
-    .local p0, "this":Ljava/util/stream/Nodes$ConcNode;, "Ljava/util/stream/Nodes$ConcNode<TT;>;"
-    .local p5, "generator":Ljava/util/function/IntFunction;, "Ljava/util/function/IntFunction<[TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -303,10 +258,8 @@
 
     if-nez v0, :cond_0
 
-    .line 819
     return-object p0
 
-    .line 820
     :cond_0
     iget-object v0, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
@@ -314,13 +267,10 @@
 
     move-result-wide v4
 
-    .line 821
-    .local v4, "leftCount":J
     cmp-long v0, p1, v4
 
     if-ltz v0, :cond_1
 
-    .line 822
     iget-object v1, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     sub-long v2, p1, v4
@@ -331,19 +281,15 @@
 
     invoke-interface/range {v1 .. v6}, Ljava/util/stream/Node;->truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;
 
-    .end local v4    # "leftCount":J
     move-result-object v0
 
     return-object v0
 
-    .line 823
-    .restart local v4    # "leftCount":J
     :cond_1
     cmp-long v0, p3, v4
 
     if-gtz v0, :cond_2
 
-    .line 824
     iget-object v1, p0, Ljava/util/stream/Nodes$AbstractConcNode;->left:Ljava/util/stream/Node;
 
     move-wide v2, p1
@@ -354,13 +300,10 @@
 
     invoke-interface/range {v1 .. v6}, Ljava/util/stream/Node;->truncate(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;
 
-    .end local v4    # "leftCount":J
     move-result-object v0
 
     return-object v0
 
-    .line 826
-    .restart local v4    # "leftCount":J
     :cond_2
     invoke-virtual {p0}, Ljava/util/stream/Nodes$ConcNode;->getShape()Ljava/util/stream/StreamShape;
 
@@ -376,7 +319,6 @@
 
     move-result-object v1
 
-    .line 827
     iget-object v7, p0, Ljava/util/stream/Nodes$AbstractConcNode;->right:Ljava/util/stream/Node;
 
     const-wide/16 v8, 0x0
@@ -389,7 +331,6 @@
 
     move-result-object v2
 
-    .line 826
     invoke-static {v0, v1, v2}, Ljava/util/stream/Nodes;->conc(Ljava/util/stream/StreamShape;Ljava/util/stream/Node;Ljava/util/stream/Node;)Ljava/util/stream/Node;
 
     move-result-object v0

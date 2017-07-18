@@ -10,8 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,8 +38,6 @@
 .method public isReadOnly()Z
     .locals 1
 
-    .prologue
-    .line 44
     const/4 v0, 0x1
 
     return v0
@@ -50,7 +46,5 @@
 .method public setReadOnly()V
     .locals 0
 
-    .prologue
-    .line 42
     return-void
 .end method

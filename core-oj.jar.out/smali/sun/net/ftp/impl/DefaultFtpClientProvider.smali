@@ -7,8 +7,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Lsun/net/ftp/FtpClientProvider;-><init>()V
 
     return-void
@@ -19,8 +17,6 @@
 .method public createFtpClient()Lsun/net/ftp/FtpClient;
     .locals 1
 
-    .prologue
-    .line 35
     invoke-static {}, Lsun/net/ftp/impl/FtpClient;->create()Lsun/net/ftp/FtpClient;
 
     move-result-object v0

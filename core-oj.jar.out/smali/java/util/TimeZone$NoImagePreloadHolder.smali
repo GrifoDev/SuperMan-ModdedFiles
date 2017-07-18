@@ -22,8 +22,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 165
     const-string/jumbo v0, "^GMT[-+](\\d{1,2})(:?(\\d\\d))?$"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -32,15 +30,12 @@
 
     sput-object v0, Ljava/util/TimeZone$NoImagePreloadHolder;->CUSTOM_ZONE_ID_PATTERN:Ljava/util/regex/Pattern;
 
-    .line 164
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

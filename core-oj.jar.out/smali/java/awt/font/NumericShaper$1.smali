@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/awt/font/NumericShaper;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/awt/font/NumericShaper;
 
-    .prologue
-    .line 1062
     iput-object p1, p0, Ljava/awt/font/NumericShaper$1;->this$0:Ljava/awt/font/NumericShaper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,11 +46,7 @@
 # virtual methods
 .method public compare(Ljava/awt/font/NumericShaper$Range;Ljava/awt/font/NumericShaper$Range;)I
     .locals 2
-    .param p1, "s1"    # Ljava/awt/font/NumericShaper$Range;
-    .param p2, "s2"    # Ljava/awt/font/NumericShaper$Range;
 
-    .prologue
-    .line 1064
     invoke-static {p1}, Ljava/awt/font/NumericShaper$Range;->-get0(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
@@ -92,17 +85,11 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "s1"    # Ljava/lang/Object;
-    .param p2, "s2"    # Ljava/lang/Object;
 
-    .prologue
-    .line 1063
     check-cast p1, Ljava/awt/font/NumericShaper$Range;
 
-    .end local p1    # "s1":Ljava/lang/Object;
     check-cast p2, Ljava/awt/font/NumericShaper$Range;
 
-    .end local p2    # "s2":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Ljava/awt/font/NumericShaper$1;->compare(Ljava/awt/font/NumericShaper$Range;Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0

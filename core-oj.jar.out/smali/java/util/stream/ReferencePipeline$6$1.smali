@@ -32,12 +32,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/ReferencePipeline$6;Ljava/util/stream/Sink;Ljava/util/function/ToDoubleFunction;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/ReferencePipeline$6;
 
-    .prologue
-    .line 242
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
-    .local p3, "val$mapper":Ljava/util/function/ToDoubleFunction;, "Ljava/util/function/ToDoubleFunction<-TP_OUT;>;"
     iput-object p1, p0, Ljava/util/stream/ReferencePipeline$6$1;->this$1:Ljava/util/stream/ReferencePipeline$6;
 
     iput-object p3, p0, Ljava/util/stream/ReferencePipeline$6$1;->val$mapper:Ljava/util/function/ToDoubleFunction;
@@ -57,9 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 245
-    .local p1, "u":Ljava/lang/Object;, "TP_OUT;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedReference;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/ReferencePipeline$6$1;->val$mapper:Ljava/util/function/ToDoubleFunction;
@@ -70,6 +62,5 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/stream/Sink;->accept(D)V
 
-    .line 244
     return-void
 .end method

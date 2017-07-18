@@ -18,8 +18,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 423
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
     return-void
@@ -30,10 +28,7 @@
 .method public run()V
     .locals 0
 
-    .prologue
-    .line 425
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-wrap3()V
 
-    .line 424
     return-void
 .end method

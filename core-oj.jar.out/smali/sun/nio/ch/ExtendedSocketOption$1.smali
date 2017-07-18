@@ -31,8 +31,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,8 +41,6 @@
 .method public name()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 40
     const-string/jumbo v0, "SO_OOBINLINE"
 
     return-object v0
@@ -53,8 +49,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 42
     invoke-virtual {p0}, Lsun/nio/ch/ExtendedSocketOption$1;->name()Ljava/lang/String;
 
     move-result-object v0
@@ -74,8 +68,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 41
     const-class v0, Ljava/lang/Boolean;
 
     return-object v0

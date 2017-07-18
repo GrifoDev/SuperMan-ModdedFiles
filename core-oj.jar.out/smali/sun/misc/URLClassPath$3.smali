@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Lsun/misc/URLClassPath;Ljava/net/URL;)V
     .locals 0
-    .param p1, "this$0"    # Lsun/misc/URLClassPath;
-    .param p2, "val$url"    # Ljava/net/URL;
 
-    .prologue
-    .line 357
     iput-object p1, p0, Lsun/misc/URLClassPath$3;->this$0:Lsun/misc/URLClassPath;
 
     iput-object p2, p0, Lsun/misc/URLClassPath$3;->val$url:Ljava/net/URL;
@@ -60,8 +56,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 358
     invoke-virtual {p0}, Lsun/misc/URLClassPath$3;->run()Lsun/misc/URLClassPath$Loader;
 
     move-result-object v0
@@ -77,16 +71,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 359
     iget-object v1, p0, Lsun/misc/URLClassPath$3;->val$url:Ljava/net/URL;
 
     invoke-virtual {v1}, Ljava/net/URL;->getFile()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 360
-    .local v0, "file":Ljava/lang/String;
     if-eqz v0, :cond_1
 
     const-string/jumbo v1, "/"
@@ -97,7 +87,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 361
     const-string/jumbo v1, "file"
 
     iget-object v2, p0, Lsun/misc/URLClassPath$3;->val$url:Ljava/net/URL;
@@ -112,7 +101,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 362
     new-instance v1, Lsun/misc/URLClassPath$FileLoader;
 
     iget-object v2, p0, Lsun/misc/URLClassPath$3;->val$url:Ljava/net/URL;
@@ -121,7 +109,6 @@
 
     return-object v1
 
-    .line 364
     :cond_0
     new-instance v1, Lsun/misc/URLClassPath$Loader;
 
@@ -131,7 +118,6 @@
 
     return-object v1
 
-    .line 367
     :cond_1
     new-instance v1, Lsun/misc/URLClassPath$JarLoader;
 

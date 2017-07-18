@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/stream/StreamSpliterators$WrappingSpliterator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/StreamSpliterators$WrappingSpliterator$-void_initPartialTraversalState__LambdaImpl1;->val$this:Ljava/util/stream/StreamSpliterators$WrappingSpliterator;
@@ -38,7 +37,6 @@
 .method public getAsBoolean()Z
     .locals 1
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/StreamSpliterators$WrappingSpliterator$-void_initPartialTraversalState__LambdaImpl1;->val$this:Ljava/util/stream/StreamSpliterators$WrappingSpliterator;
 
     invoke-virtual {v0}, Ljava/util/stream/StreamSpliterators$WrappingSpliterator;->-java_util_stream_StreamSpliterators$WrappingSpliterator_lambda$2()Z

@@ -57,8 +57,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,8 +65,6 @@
 .method public static classModifiers()I
     .locals 1
 
-    .prologue
-    .line 410
     const/16 v0, 0xc1f
 
     return v0
@@ -77,8 +73,6 @@
 .method public static constructorModifiers()I
     .locals 1
 
-    .prologue
-    .line 436
     const/4 v0, 0x7
 
     return v0
@@ -87,8 +81,6 @@
 .method public static fieldModifiers()I
     .locals 1
 
-    .prologue
-    .line 463
     const/16 v0, 0xdf
 
     return v0
@@ -97,8 +89,6 @@
 .method public static interfaceModifiers()I
     .locals 1
 
-    .prologue
-    .line 423
     const/16 v0, 0xc0f
 
     return v0
@@ -106,12 +96,9 @@
 
 .method public static isAbstract(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 183
     and-int/lit16 v1, p0, 0x400
 
     if-eqz v1, :cond_0
@@ -124,12 +111,9 @@
 
 .method public static isConstructor(I)Z
     .locals 2
-    .param p0, "modifiers"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 135
     const/high16 v1, 0x10000
 
     and-int/2addr v1, p0
@@ -144,12 +128,9 @@
 
 .method public static isFinal(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 103
     and-int/lit8 v1, p0, 0x10
 
     if-eqz v1, :cond_0
@@ -162,12 +143,9 @@
 
 .method public static isInterface(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 171
     and-int/lit16 v1, p0, 0x200
 
     if-eqz v1, :cond_0
@@ -180,12 +158,9 @@
 
 .method public static isNative(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 159
     and-int/lit16 v1, p0, 0x100
 
     if-eqz v1, :cond_0
@@ -198,12 +173,9 @@
 
 .method public static isPrivate(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 67
     and-int/lit8 v1, p0, 0x2
 
     if-eqz v1, :cond_0
@@ -216,12 +188,9 @@
 
 .method public static isProtected(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 79
     and-int/lit8 v1, p0, 0x4
 
     if-eqz v1, :cond_0
@@ -234,12 +203,9 @@
 
 .method public static isPublic(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 55
     and-int/lit8 v1, p0, 0x1
 
     if-eqz v1, :cond_0
@@ -252,12 +218,9 @@
 
 .method public static isStatic(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 91
     and-int/lit8 v1, p0, 0x8
 
     if-eqz v1, :cond_0
@@ -270,12 +233,9 @@
 
 .method public static isStrict(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 195
     and-int/lit16 v1, p0, 0x800
 
     if-eqz v1, :cond_0
@@ -288,12 +248,9 @@
 
 .method public static isSynchronized(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 115
     and-int/lit8 v1, p0, 0x20
 
     if-eqz v1, :cond_0
@@ -306,12 +263,9 @@
 
 .method static isSynthetic(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 343
     and-int/lit16 v1, p0, 0x1000
 
     if-eqz v1, :cond_0
@@ -324,12 +278,9 @@
 
 .method public static isTransient(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 147
     and-int/lit16 v1, p0, 0x80
 
     if-eqz v1, :cond_0
@@ -342,12 +293,9 @@
 
 .method public static isVolatile(I)Z
     .locals 2
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 127
     and-int/lit8 v1, p0, 0x40
 
     if-eqz v1, :cond_0
@@ -361,8 +309,6 @@
 .method public static methodModifiers()I
     .locals 1
 
-    .prologue
-    .line 449
     const/16 v0, 0xd3f
 
     return v0
@@ -370,18 +316,13 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 5
-    .param p0, "mod"    # I
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 230
     new-instance v1, Ljava/lang/StringBuffer;
 
     invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 233
-    .local v1, "sb":Ljava/lang/StringBuffer;
     and-int/lit8 v2, p0, 0x1
 
     if-eqz v2, :cond_0
@@ -390,7 +331,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 234
     :cond_0
     and-int/lit8 v2, p0, 0x4
 
@@ -400,7 +340,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 235
     :cond_1
     and-int/lit8 v2, p0, 0x2
 
@@ -410,7 +349,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 238
     :cond_2
     and-int/lit16 v2, p0, 0x400
 
@@ -420,7 +358,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 239
     :cond_3
     and-int/lit8 v2, p0, 0x8
 
@@ -430,7 +367,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 240
     :cond_4
     and-int/lit8 v2, p0, 0x10
 
@@ -440,7 +376,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 241
     :cond_5
     and-int/lit16 v2, p0, 0x80
 
@@ -450,7 +385,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 242
     :cond_6
     and-int/lit8 v2, p0, 0x40
 
@@ -460,7 +394,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 243
     :cond_7
     and-int/lit8 v2, p0, 0x20
 
@@ -470,7 +403,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 244
     :cond_8
     and-int/lit16 v2, p0, 0x100
 
@@ -480,7 +412,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 245
     :cond_9
     and-int/lit16 v2, p0, 0x800
 
@@ -490,7 +421,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 246
     :cond_a
     and-int/lit16 v2, p0, 0x200
 
@@ -500,16 +430,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 248
     :cond_b
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->length()I
 
     move-result v0
 
-    .local v0, "len":I
     if-lez v0, :cond_c
 
-    .line 249
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -522,7 +449,6 @@
 
     return-object v2
 
-    .line 250
     :cond_c
     const-string/jumbo v2, ""
 

@@ -32,12 +32,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/IntPipeline$3;Ljava/util/stream/Sink;Ljava/util/function/IntUnaryOperator;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/util/stream/IntPipeline$3;
-    .param p3, "val$mapper"    # Ljava/util/function/IntUnaryOperator;
 
-    .prologue
-    .line 231
-    .local p2, "$anonymous0":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Integer;>;"
     iput-object p1, p0, Ljava/util/stream/IntPipeline$3$1;->this$1:Ljava/util/stream/IntPipeline$3;
 
     iput-object p3, p0, Ljava/util/stream/IntPipeline$3$1;->val$mapper:Ljava/util/function/IntUnaryOperator;
@@ -51,10 +46,7 @@
 # virtual methods
 .method public accept(I)V
     .locals 2
-    .param p1, "t"    # I
 
-    .prologue
-    .line 234
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     iget-object v1, p0, Ljava/util/stream/IntPipeline$3$1;->val$mapper:Ljava/util/function/IntUnaryOperator;
@@ -65,6 +57,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/stream/Sink;->accept(I)V
 
-    .line 233
     return-void
 .end method

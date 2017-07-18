@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/IntFunction;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Nodes$CollectorTask$OfRef$-void__init__java_util_stream_PipelineHelper_helper_java_util_function_IntFunction_generator_java_util_Spliterator_spliterator_LambdaImpl0;->val$generator:Ljava/util/function/IntFunction;
@@ -37,9 +36,7 @@
 # virtual methods
 .method public apply(J)Ljava/lang/Object;
     .locals 1
-    .param p1, "arg0"    # J
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Nodes$CollectorTask$OfRef$-void__init__java_util_stream_PipelineHelper_helper_java_util_function_IntFunction_generator_java_util_Spliterator_spliterator_LambdaImpl0;->val$generator:Ljava/util/function/IntFunction;
 
     invoke-static {v0, p1, p2}, Ljava/util/stream/Nodes$CollectorTask$OfRef;->-java_util_stream_Nodes$CollectorTask$OfRef_lambda$1(Ljava/util/function/IntFunction;J)Ljava/util/stream/Node$Builder;

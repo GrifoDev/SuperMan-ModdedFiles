@@ -40,34 +40,24 @@
 .method private constructor <init>(Ljava/util/EnumMap;)V
     .locals 1
 
-    .prologue
-    .line 517
-    .local p0, "this":Ljava/util/EnumMap$EnumMapIterator;, "Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<TT;>;"
-    .local p1, "this$0":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/EnumMap$EnumMapIterator;->this$0:Ljava/util/EnumMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 519
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/util/EnumMap$EnumMapIterator;->index:I
 
-    .line 522
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/util/EnumMap$EnumMapIterator;->lastReturnedIndex:I
 
-    .line 517
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/EnumMap;Ljava/util/EnumMap$EnumMapIterator;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/EnumMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/EnumMap$EnumMapIterator;, "Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<TT;>;"
     invoke-direct {p0, p1}, Ljava/util/EnumMap$EnumMapIterator;-><init>(Ljava/util/EnumMap;)V
 
     return-void
@@ -76,21 +66,16 @@
 .method private checkLastReturnedIndex()V
     .locals 1
 
-    .prologue
-    .line 541
-    .local p0, "this":Ljava/util/EnumMap$EnumMapIterator;, "Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<TT;>;"
     iget v0, p0, Ljava/util/EnumMap$EnumMapIterator;->lastReturnedIndex:I
 
     if-gez v0, :cond_0
 
-    .line 542
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 540
     :cond_0
     return-void
 .end method
@@ -100,9 +85,6 @@
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 525
-    .local p0, "this":Ljava/util/EnumMap$EnumMapIterator;, "Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<TT;>;"
     :goto_0
     iget v0, p0, Ljava/util/EnumMap$EnumMapIterator;->index:I
 
@@ -128,7 +110,6 @@
 
     if-nez v0, :cond_0
 
-    .line 526
     iget v0, p0, Ljava/util/EnumMap$EnumMapIterator;->index:I
 
     add-int/lit8 v0, v0, 0x1
@@ -137,7 +118,6 @@
 
     goto :goto_0
 
-    .line 527
     :cond_0
     iget v0, p0, Ljava/util/EnumMap$EnumMapIterator;->index:I
 
@@ -165,14 +145,10 @@
 .method public remove()V
     .locals 3
 
-    .prologue
-    .local p0, "this":Ljava/util/EnumMap$EnumMapIterator;, "Ljava/util/EnumMap<TK;TV;>.EnumMapIterator<TT;>;"
     const/4 v2, 0x0
 
-    .line 531
     invoke-direct {p0}, Ljava/util/EnumMap$EnumMapIterator;->checkLastReturnedIndex()V
 
-    .line 533
     iget-object v0, p0, Ljava/util/EnumMap$EnumMapIterator;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v0}, Ljava/util/EnumMap;->-get2(Ljava/util/EnumMap;)[Ljava/lang/Object;
@@ -185,7 +161,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 534
     iget-object v0, p0, Ljava/util/EnumMap$EnumMapIterator;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v0}, Ljava/util/EnumMap;->-get2(Ljava/util/EnumMap;)[Ljava/lang/Object;
@@ -196,7 +171,6 @@
 
     aput-object v2, v0, v1
 
-    .line 535
     iget-object v0, p0, Ljava/util/EnumMap$EnumMapIterator;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v0}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I
@@ -207,12 +181,10 @@
 
     invoke-static {v0, v1}, Ljava/util/EnumMap;->-set0(Ljava/util/EnumMap;I)I
 
-    .line 537
     :cond_0
     const/4 v0, -0x1
 
     iput v0, p0, Ljava/util/EnumMap$EnumMapIterator;->lastReturnedIndex:I
 
-    .line 530
     return-void
 .end method

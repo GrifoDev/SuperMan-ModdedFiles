@@ -36,11 +36,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/Long;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/prefs/FileSystemPreferences;
-    .param p2, "val$newModTime"    # Ljava/lang/Long;
 
-    .prologue
-    .line 747
     iput-object p1, p0, Ljava/util/prefs/FileSystemPreferences$9;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     iput-object p2, p0, Ljava/util/prefs/FileSystemPreferences$9;->val$newModTime:Ljava/lang/Long;
@@ -55,8 +51,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 748
     invoke-virtual {p0}, Ljava/util/prefs/FileSystemPreferences$9;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -67,10 +61,8 @@
 .method public run()Ljava/lang/Void;
     .locals 4
 
-    .prologue
     const-wide/16 v2, 0x3e8
 
-    .line 749
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences$9;->this$0:Ljava/util/prefs/FileSystemPreferences;
 
     invoke-virtual {v0}, Ljava/util/prefs/FileSystemPreferences;->isUserNode()Z
@@ -79,7 +71,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 750
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences$9;->val$newModTime:Ljava/lang/Long;
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
@@ -90,7 +81,6 @@
 
     invoke-static {v0, v1}, Ljava/util/prefs/FileSystemPreferences;->-set9(J)J
 
-    .line 751
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get10()Ljava/io/File;
 
     move-result-object v0
@@ -101,13 +91,11 @@
 
     invoke-virtual {v0, v2, v3}, Ljava/io/File;->setLastModified(J)Z
 
-    .line 756
     :goto_0
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 753
     :cond_0
     iget-object v0, p0, Ljava/util/prefs/FileSystemPreferences$9;->val$newModTime:Ljava/lang/Long;
 
@@ -119,7 +107,6 @@
 
     invoke-static {v0, v1}, Ljava/util/prefs/FileSystemPreferences;->-set6(J)J
 
-    .line 754
     invoke-static {}, Ljava/util/prefs/FileSystemPreferences;->-get6()Ljava/io/File;
 
     move-result-object v0

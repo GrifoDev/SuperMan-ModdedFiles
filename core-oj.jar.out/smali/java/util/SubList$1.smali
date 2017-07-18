@@ -43,18 +43,13 @@
 # direct methods
 .method constructor <init>(Ljava/util/SubList;I)V
     .locals 3
-    .param p2, "val$index"    # I
 
-    .prologue
-    .line 698
-    .local p1, "this$0":Ljava/util/SubList;, "Ljava/util/SubList<TE;>;"
     iput-object p1, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     iput p2, p0, Ljava/util/SubList$1;->val$index:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 699
     iget-object v0, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     invoke-static {v0}, Ljava/util/SubList;->-get0(Ljava/util/SubList;)Ljava/util/AbstractList;
@@ -77,7 +72,6 @@
 
     iput-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
-    .line 698
     return-void
 .end method
 
@@ -91,14 +85,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 742
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 743
     iget-object v0, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     iget-object v1, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
@@ -111,7 +101,6 @@
 
     iput v1, v0, Ljava/util/SubList;->modCount:I
 
-    .line 744
     iget-object v0, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     invoke-static {v0}, Ljava/util/SubList;->-get2(Ljava/util/SubList;)I
@@ -122,15 +111,12 @@
 
     invoke-static {v0, v1}, Ljava/util/SubList;->-set0(Ljava/util/SubList;I)I
 
-    .line 741
     return-void
 .end method
 
 .method public hasNext()Z
     .locals 2
 
-    .prologue
-    .line 702
     invoke-virtual {p0}, Ljava/util/SubList$1;->nextIndex()I
 
     move-result v0
@@ -157,10 +143,8 @@
 .method public hasPrevious()Z
     .locals 2
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 713
     invoke-virtual {p0}, Ljava/util/SubList$1;->previousIndex()I
 
     move-result v1
@@ -181,15 +165,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 706
     invoke-virtual {p0}, Ljava/util/SubList$1;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 707
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -198,7 +179,6 @@
 
     return-object v0
 
-    .line 709
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -210,8 +190,6 @@
 .method public nextIndex()I
     .locals 2
 
-    .prologue
-    .line 724
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -237,15 +215,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 717
     invoke-virtual {p0}, Ljava/util/SubList$1;->hasPrevious()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 718
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -254,7 +229,6 @@
 
     return-object v0
 
-    .line 720
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -266,8 +240,6 @@
 .method public previousIndex()I
     .locals 2
 
-    .prologue
-    .line 728
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -288,13 +260,10 @@
 .method public remove()V
     .locals 2
 
-    .prologue
-    .line 732
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 733
     iget-object v0, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     iget-object v1, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
@@ -307,7 +276,6 @@
 
     iput v1, v0, Ljava/util/SubList;->modCount:I
 
-    .line 734
     iget-object v0, p0, Ljava/util/SubList$1;->this$0:Ljava/util/SubList;
 
     invoke-static {v0}, Ljava/util/SubList;->-get2(Ljava/util/SubList;)I
@@ -318,7 +286,6 @@
 
     invoke-static {v0, v1}, Ljava/util/SubList;->-set0(Ljava/util/SubList;I)I
 
-    .line 731
     return-void
 .end method
 
@@ -330,13 +297,9 @@
         }
     .end annotation
 
-    .prologue
-    .line 738
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/SubList$1;->i:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 737
     return-void
 .end method

@@ -21,26 +21,22 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .prologue
     const/4 v5, 0x2
 
     const/4 v8, 0x1
 
     const/4 v3, 0x0
 
-    .line 32
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     sput-object v2, Lsun/util/calendar/TzIDOldMapping;->MAP:Ljava/util/Map;
 
-    .line 34
     const/16 v2, 0x1c
 
     new-array v0, v2, [[Ljava/lang/String;
 
-    .line 35
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "ACT"
@@ -53,7 +49,6 @@
 
     aput-object v2, v0, v3
 
-    .line 36
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "AET"
@@ -66,7 +61,6 @@
 
     aput-object v2, v0, v8
 
-    .line 37
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "AGT"
@@ -79,7 +73,6 @@
 
     aput-object v2, v0, v5
 
-    .line 38
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "ART"
@@ -94,7 +87,6 @@
 
     aput-object v2, v0, v4
 
-    .line 39
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "AST"
@@ -109,7 +101,6 @@
 
     aput-object v2, v0, v4
 
-    .line 40
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "BET"
@@ -124,7 +115,6 @@
 
     aput-object v2, v0, v4
 
-    .line 41
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "BST"
@@ -139,7 +129,6 @@
 
     aput-object v2, v0, v4
 
-    .line 42
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "CAT"
@@ -154,7 +143,6 @@
 
     aput-object v2, v0, v4
 
-    .line 43
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "CNT"
@@ -169,7 +157,6 @@
 
     aput-object v2, v0, v4
 
-    .line 44
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "CST"
@@ -184,7 +171,6 @@
 
     aput-object v2, v0, v4
 
-    .line 45
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "CTT"
@@ -199,7 +185,6 @@
 
     aput-object v2, v0, v4
 
-    .line 46
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "EAT"
@@ -214,7 +199,6 @@
 
     aput-object v2, v0, v4
 
-    .line 47
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "ECT"
@@ -229,7 +213,6 @@
 
     aput-object v2, v0, v4
 
-    .line 48
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "EST"
@@ -244,7 +227,6 @@
 
     aput-object v2, v0, v4
 
-    .line 49
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "HST"
@@ -259,7 +241,6 @@
 
     aput-object v2, v0, v4
 
-    .line 50
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "IET"
@@ -274,7 +255,6 @@
 
     aput-object v2, v0, v4
 
-    .line 51
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "IST"
@@ -289,7 +269,6 @@
 
     aput-object v2, v0, v4
 
-    .line 52
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "JST"
@@ -304,7 +283,6 @@
 
     aput-object v2, v0, v4
 
-    .line 53
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "MIT"
@@ -319,7 +297,6 @@
 
     aput-object v2, v0, v4
 
-    .line 54
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "MST"
@@ -334,7 +311,6 @@
 
     aput-object v2, v0, v4
 
-    .line 55
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "NET"
@@ -349,7 +325,6 @@
 
     aput-object v2, v0, v4
 
-    .line 56
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "NST"
@@ -364,7 +339,6 @@
 
     aput-object v2, v0, v4
 
-    .line 57
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "PLT"
@@ -379,7 +353,6 @@
 
     aput-object v2, v0, v4
 
-    .line 58
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "PNT"
@@ -394,7 +367,6 @@
 
     aput-object v2, v0, v4
 
-    .line 59
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "PRT"
@@ -409,7 +381,6 @@
 
     aput-object v2, v0, v4
 
-    .line 60
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "PST"
@@ -424,7 +395,6 @@
 
     aput-object v2, v0, v4
 
-    .line 61
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "SST"
@@ -439,7 +409,6 @@
 
     aput-object v2, v0, v4
 
-    .line 62
     new-array v2, v5, [Ljava/lang/String;
 
     const-string/jumbo v4, "VST"
@@ -454,8 +423,6 @@
 
     aput-object v2, v0, v4
 
-    .line 64
-    .local v0, "oldmap":[[Ljava/lang/String;
     array-length v4, v0
 
     move v2, v3
@@ -465,8 +432,6 @@
 
     aget-object v1, v0, v2
 
-    .line 65
-    .local v1, "pair":[Ljava/lang/String;
     sget-object v5, Lsun/util/calendar/TzIDOldMapping;->MAP:Ljava/util/Map;
 
     aget-object v6, v1, v3
@@ -475,13 +440,10 @@
 
     invoke-interface {v5, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 31
-    .end local v1    # "pair":[Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -489,8 +451,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -26,7 +26,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/ToIntFunction;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/Comparator$-java_util_Comparator_comparingInt_java_util_function_ToIntFunction_keyExtractor_LambdaImpl0;->val$keyExtractor:Ljava/util/function/ToIntFunction;
@@ -38,10 +37,7 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/Comparator$-java_util_Comparator_comparingInt_java_util_function_ToIntFunction_keyExtractor_LambdaImpl0;->val$keyExtractor:Ljava/util/function/ToIntFunction;
 
     invoke-static {v0, p1, p2}, Ljava/util/Comparator;->-java_util_Comparator_lambda$4(Ljava/util/function/ToIntFunction;Ljava/lang/Object;Ljava/lang/Object;)I

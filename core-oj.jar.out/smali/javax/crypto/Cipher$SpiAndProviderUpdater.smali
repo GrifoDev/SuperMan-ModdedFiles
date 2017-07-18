@@ -27,30 +27,21 @@
 # direct methods
 .method constructor <init>(Ljavax/crypto/Cipher;Ljava/security/Provider;Ljavax/crypto/CipherSpi;)V
     .locals 1
-    .param p1, "this$0"    # Ljavax/crypto/Cipher;
-    .param p2, "specifiedProvider"    # Ljava/security/Provider;
-    .param p3, "specifiedSpi"    # Ljavax/crypto/CipherSpi;
 
-    .prologue
-    .line 2755
     iput-object p1, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->this$0:Ljavax/crypto/Cipher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2743
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->initSpiLock:Ljava/lang/Object;
 
-    .line 2756
     iput-object p2, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedProvider:Ljava/security/Provider;
 
-    .line 2757
     iput-object p3, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedSpi:Ljavax/crypto/CipherSpi;
 
-    .line 2755
     return-void
 .end method
 
@@ -58,20 +49,15 @@
 # virtual methods
 .method getCurrentSpi(Ljavax/crypto/CipherSpi;)Ljavax/crypto/CipherSpi;
     .locals 1
-    .param p1, "spiImpl"    # Ljavax/crypto/CipherSpi;
 
-    .prologue
-    .line 2812
     iget-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedSpi:Ljavax/crypto/CipherSpi;
 
     if-eqz v0, :cond_0
 
-    .line 2813
     iget-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedSpi:Ljavax/crypto/CipherSpi;
 
     return-object v0
 
-    .line 2816
     :cond_0
     iget-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->initSpiLock:Ljava/lang/Object;
 
@@ -79,35 +65,25 @@
 
     monitor-exit v0
 
-    .line 2817
     return-object p1
 .end method
 
 .method setCipherSpiImplAndProvider(Ljavax/crypto/CipherSpi;Ljava/security/Provider;)V
     .locals 1
-    .param p1, "cipherSpi"    # Ljavax/crypto/CipherSpi;
-    .param p2, "provider"    # Ljava/security/Provider;
 
-    .prologue
-    .line 2761
     iget-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->this$0:Ljavax/crypto/Cipher;
 
     invoke-static {v0, p1}, Ljavax/crypto/Cipher;->-set1(Ljavax/crypto/Cipher;Ljavax/crypto/CipherSpi;)Ljavax/crypto/CipherSpi;
 
-    .line 2762
     iget-object v0, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->this$0:Ljavax/crypto/Cipher;
 
     invoke-static {v0, p2}, Ljavax/crypto/Cipher;->-set0(Ljavax/crypto/Cipher;Ljava/security/Provider;)Ljava/security/Provider;
 
-    .line 2760
     return-void
 .end method
 
 .method updateAndGetSpiAndProvider(Ljavax/crypto/Cipher$InitParams;Ljavax/crypto/CipherSpi;Ljava/security/Provider;)Ljavax/crypto/Cipher$CipherSpiAndProvider;
     .locals 5
-    .param p1, "initParams"    # Ljavax/crypto/Cipher$InitParams;
-    .param p2, "spiImpl"    # Ljavax/crypto/CipherSpi;
-    .param p3, "provider"    # Ljava/security/Provider;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;,
@@ -115,13 +91,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2779
     iget-object v1, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedSpi:Ljavax/crypto/CipherSpi;
 
     if-eqz v1, :cond_0
 
-    .line 2780
     new-instance v1, Ljavax/crypto/Cipher$CipherSpiAndProvider;
 
     iget-object v2, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedSpi:Ljavax/crypto/CipherSpi;
@@ -130,18 +103,15 @@
 
     return-object v1
 
-    .line 2782
     :cond_0
     iget-object v2, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->initSpiLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 2786
     if-eqz p2, :cond_1
 
     if-nez p1, :cond_1
 
-    .line 2787
     :try_start_0
     new-instance v1, Ljavax/crypto/Cipher$CipherSpiAndProvider;
 
@@ -153,7 +123,6 @@
 
     return-object v1
 
-    .line 2790
     :cond_1
     :try_start_1
     iget-object v1, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->specifiedProvider:Ljava/security/Provider;
@@ -164,16 +133,12 @@
 
     move-result-object v3
 
-    .line 2789
     invoke-static {p1, v1, v3}, Ljavax/crypto/Cipher;->tryCombinations(Ljavax/crypto/Cipher$InitParams;Ljava/security/Provider;[Ljava/lang/String;)Ljavax/crypto/Cipher$CipherSpiAndProvider;
 
     move-result-object v0
 
-    .line 2791
-    .local v0, "sap":Ljavax/crypto/Cipher$CipherSpiAndProvider;
     if-nez v0, :cond_2
 
-    .line 2792
     new-instance v1, Ljava/security/ProviderException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -186,7 +151,6 @@
 
     move-result-object v3
 
-    .line 2793
     iget-object v4, p0, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->this$0:Ljavax/crypto/Cipher;
 
     invoke-static {v4}, Ljavax/crypto/Cipher;->-get0(Ljavax/crypto/Cipher;)[Ljava/lang/String;
@@ -197,7 +161,6 @@
 
     move-result-object v4
 
-    .line 2792
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -212,8 +175,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 2782
-    .end local v0    # "sap":Ljavax/crypto/Cipher$CipherSpiAndProvider;
     :catchall_0
     move-exception v1
 
@@ -221,8 +182,6 @@
 
     throw v1
 
-    .line 2795
-    .restart local v0    # "sap":Ljavax/crypto/Cipher$CipherSpiAndProvider;
     :cond_2
     :try_start_2
     iget-object v1, v0, Ljavax/crypto/Cipher$CipherSpiAndProvider;->cipherSpi:Ljavax/crypto/CipherSpi;
@@ -231,7 +190,6 @@
 
     invoke-virtual {p0, v1, v3}, Ljavax/crypto/Cipher$SpiAndProviderUpdater;->setCipherSpiImplAndProvider(Ljavax/crypto/CipherSpi;Ljava/security/Provider;)V
 
-    .line 2796
     new-instance v1, Ljavax/crypto/Cipher$CipherSpiAndProvider;
 
     iget-object v3, v0, Ljavax/crypto/Cipher$CipherSpiAndProvider;->cipherSpi:Ljavax/crypto/CipherSpi;
@@ -249,11 +207,7 @@
 
 .method updateAndGetSpiAndProvider(Ljavax/crypto/CipherSpi;Ljava/security/Provider;)Ljavax/crypto/Cipher$CipherSpiAndProvider;
     .locals 3
-    .param p1, "spiImpl"    # Ljavax/crypto/CipherSpi;
-    .param p2, "provider"    # Ljava/security/Provider;
 
-    .prologue
-    .line 2805
     const/4 v1, 0x0
 
     :try_start_0
@@ -266,12 +220,9 @@
 
     return-object v1
 
-    .line 2806
     :catch_0
     move-exception v0
 
-    .line 2807
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/security/ProviderException;
 
     const-string/jumbo v2, "Exception thrown when params == null"

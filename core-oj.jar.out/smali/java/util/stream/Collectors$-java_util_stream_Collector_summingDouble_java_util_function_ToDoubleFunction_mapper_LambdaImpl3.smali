@@ -21,7 +21,6 @@
 .method public synthetic constructor <init>()V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,12 +30,9 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
 
-    .prologue
     check-cast p1, [D
 
-    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {p1}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$34([D)Ljava/lang/Double;
 
     move-result-object v0

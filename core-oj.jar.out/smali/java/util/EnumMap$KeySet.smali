@@ -29,10 +29,6 @@
 .method private constructor <init>(Ljava/util/EnumMap;)V
     .locals 0
 
-    .prologue
-    .line 389
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
-    .local p1, "this$0":Ljava/util/EnumMap;, "Ljava/util/EnumMap<TK;TV;>;"
     iput-object p1, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -42,10 +38,7 @@
 
 .method synthetic constructor <init>(Ljava/util/EnumMap;Ljava/util/EnumMap$KeySet;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/util/EnumMap;
 
-    .prologue
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     invoke-direct {p0, p1}, Ljava/util/EnumMap$KeySet;-><init>(Ljava/util/EnumMap;)V
 
     return-void
@@ -56,24 +49,16 @@
 .method public clear()V
     .locals 1
 
-    .prologue
-    .line 405
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-virtual {v0}, Ljava/util/EnumMap;->clear()V
 
-    .line 404
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 397
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-virtual {v0, p1}, Ljava/util/EnumMap;->containsKey(Ljava/lang/Object;)Z
@@ -93,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 391
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     new-instance v0, Ljava/util/EnumMap$KeyIterator;
 
     iget-object v1, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
@@ -109,24 +91,17 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
-    .line 400
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     iget-object v1, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I
 
     move-result v0
 
-    .line 401
-    .local v0, "oldSize":I
     iget-object v1, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-virtual {v1, p1}, Ljava/util/EnumMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 402
     iget-object v1, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v1}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I
@@ -149,9 +124,6 @@
 .method public size()I
     .locals 1
 
-    .prologue
-    .line 394
-    .local p0, "this":Ljava/util/EnumMap$KeySet;, "Ljava/util/EnumMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Ljava/util/EnumMap$KeySet;->this$0:Ljava/util/EnumMap;
 
     invoke-static {v0}, Ljava/util/EnumMap;->-get1(Ljava/util/EnumMap;)I

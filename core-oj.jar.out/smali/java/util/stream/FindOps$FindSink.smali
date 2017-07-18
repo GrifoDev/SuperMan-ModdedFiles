@@ -55,9 +55,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 174
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -73,23 +70,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 178
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Ljava/util/stream/FindOps$FindSink;->hasValue:Z
 
     if-nez v0, :cond_0
 
-    .line 179
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/FindOps$FindSink;->hasValue:Z
 
-    .line 180
     iput-object p1, p0, Ljava/util/stream/FindOps$FindSink;->value:Ljava/lang/Object;
 
-    .line 177
     :cond_0
     return-void
 .end method
@@ -97,9 +87,6 @@
 .method public cancellationRequested()Z
     .locals 1
 
-    .prologue
-    .line 186
-    .local p0, "this":Ljava/util/stream/FindOps$FindSink;, "Ljava/util/stream/FindOps$FindSink<TT;TO;>;"
     iget-boolean v0, p0, Ljava/util/stream/FindOps$FindSink;->hasValue:Z
 
     return v0

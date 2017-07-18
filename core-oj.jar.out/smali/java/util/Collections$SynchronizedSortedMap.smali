@@ -57,22 +57,15 @@
         }
     .end annotation
 
-    .prologue
-    .line 2485
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Ljava/util/Collections$SynchronizedMap;-><init>(Ljava/util/Map;)V
 
-    .line 2486
     iput-object p1, p0, Ljava/util/Collections$SynchronizedSortedMap;->sm:Ljava/util/SortedMap;
 
-    .line 2484
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "mutex"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,16 +76,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2489
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "m":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$SynchronizedMap;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
 
-    .line 2490
     iput-object p1, p0, Ljava/util/Collections$SynchronizedSortedMap;->sm:Ljava/util/SortedMap;
 
-    .line 2488
     return-void
 .end method
 
@@ -108,9 +95,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2494
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -144,9 +128,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2515
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -182,15 +163,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2504
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 2505
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedMap;
 
@@ -210,7 +186,6 @@
 
     return-object v0
 
-    .line 2504
     :catchall_0
     move-exception v0
 
@@ -227,9 +202,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2518
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
@@ -265,20 +237,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 2498
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 2499
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedMap;
 
-    .line 2500
     iget-object v2, p0, Ljava/util/Collections$SynchronizedSortedMap;->sm:Ljava/util/SortedMap;
 
     invoke-interface {v2, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -287,7 +252,6 @@
 
     iget-object v3, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
-    .line 2499
     invoke-direct {v0, v2, v3}, Ljava/util/Collections$SynchronizedSortedMap;-><init>(Ljava/util/SortedMap;Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -296,7 +260,6 @@
 
     return-object v0
 
-    .line 2498
     :catchall_0
     move-exception v0
 
@@ -315,15 +278,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2509
-    .local p0, "this":Ljava/util/Collections$SynchronizedSortedMap;, "Ljava/util/Collections$SynchronizedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Ljava/util/Collections$SynchronizedSortedMap;->mutex:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 2510
     :try_start_0
     new-instance v0, Ljava/util/Collections$SynchronizedSortedMap;
 
@@ -343,7 +301,6 @@
 
     return-object v0
 
-    .line 2509
     :catchall_0
     move-exception v0
 

@@ -17,12 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;DLjava/lang/String;)V
     .locals 0
-    .param p1, "$anonymous0"    # Ljava/lang/String;
-    .param p2, "$anonymous1"    # D
-    .param p4, "$anonymous2"    # Ljava/lang/String;
 
-    .prologue
-    .line 65
     invoke-direct {p0, p1, p2, p3, p4}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
     return-void

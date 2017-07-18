@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/io/ObjectInputStream$ValidationList;)V
     .locals 0
-    .param p1, "this$1"    # Ljava/io/ObjectInputStream$ValidationList;
 
-    .prologue
-    .line 2254
     iput-object p1, p0, Ljava/io/ObjectInputStream$ValidationList$1;->this$1:Ljava/io/ObjectInputStream$ValidationList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +52,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2256
     invoke-virtual {p0}, Ljava/io/ObjectInputStream$ValidationList$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -72,8 +67,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2257
     iget-object v0, p0, Ljava/io/ObjectInputStream$ValidationList$1;->this$1:Ljava/io/ObjectInputStream$ValidationList;
 
     invoke-static {v0}, Ljava/io/ObjectInputStream$ValidationList;->-get0(Ljava/io/ObjectInputStream$ValidationList;)Ljava/io/ObjectInputStream$ValidationList$Callback;
@@ -84,7 +77,6 @@
 
     invoke-interface {v0}, Ljava/io/ObjectInputValidation;->validateObject()V
 
-    .line 2258
     const/4 v0, 0x0
 
     return-object v0

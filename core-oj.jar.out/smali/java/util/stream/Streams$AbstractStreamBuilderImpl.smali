@@ -38,9 +38,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 301
-    .local p0, "this":Ljava/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,8 +46,6 @@
 .method synthetic constructor <init>(Ljava/util/stream/Streams$AbstractStreamBuilderImpl;)V
     .locals 0
 
-    .prologue
-    .local p0, "this":Ljava/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
     invoke-direct {p0}, Ljava/util/stream/Streams$AbstractStreamBuilderImpl;-><init>()V
 
     return-void
@@ -61,9 +56,6 @@
 .method public characteristics()I
     .locals 1
 
-    .prologue
-    .line 324
-    .local p0, "this":Ljava/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
     const/16 v0, 0x4450
 
     return v0
@@ -72,9 +64,6 @@
 .method public estimateSize()J
     .locals 2
 
-    .prologue
-    .line 319
-    .local p0, "this":Ljava/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
     iget v0, p0, Ljava/util/stream/Streams$AbstractStreamBuilderImpl;->count:I
 
     neg-int v0, v0
@@ -94,9 +83,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 314
-    .local p0, "this":Ljava/util/stream/Streams$AbstractStreamBuilderImpl;, "Ljava/util/stream/Streams$AbstractStreamBuilderImpl<TT;TS;>;"
     const/4 v0, 0x0
 
     return-object v0

@@ -21,16 +21,11 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .prologue
-    .line 451
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 452
     iput-object p1, p0, Lsun/util/logging/PlatformLogger$LoggerProxy;->name:Ljava/lang/String;
 
-    .line 451
     return-void
 .end method
 

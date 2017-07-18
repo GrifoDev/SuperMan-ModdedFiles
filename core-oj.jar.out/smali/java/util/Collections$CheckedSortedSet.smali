@@ -59,17 +59,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 2799
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
-    .local p1, "s":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TE;>;"
     invoke-direct {p0, p1, p2}, Ljava/util/Collections$CheckedSet;-><init>(Ljava/util/Set;Ljava/lang/Class;)V
 
-    .line 2800
     iput-object p1, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
-    .line 2798
     return-void
 .end method
 
@@ -85,9 +78,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2803
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->comparator()Ljava/util/Comparator;
@@ -105,9 +95,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2804
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->first()Ljava/lang/Object;
@@ -127,10 +114,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2811
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -154,9 +137,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2805
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->last()Ljava/lang/Object;
@@ -176,11 +156,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2808
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -206,10 +181,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2814
-    .local p0, "this":Ljava/util/Collections$CheckedSortedSet;, "Ljava/util/Collections$CheckedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$CheckedSortedSet;->ss:Ljava/util/SortedSet;
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;

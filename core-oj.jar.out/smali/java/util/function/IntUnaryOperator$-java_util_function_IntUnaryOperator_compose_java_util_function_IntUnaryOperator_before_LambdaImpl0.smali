@@ -27,7 +27,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/IntUnaryOperator;Ljava/util/function/IntUnaryOperator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/IntUnaryOperator$-java_util_function_IntUnaryOperator_compose_java_util_function_IntUnaryOperator_before_LambdaImpl0;->val$this:Ljava/util/function/IntUnaryOperator;
@@ -41,9 +40,7 @@
 # virtual methods
 .method public applyAsInt(I)I
     .locals 2
-    .param p1, "arg0"    # I
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/IntUnaryOperator$-java_util_function_IntUnaryOperator_compose_java_util_function_IntUnaryOperator_before_LambdaImpl0;->val$this:Ljava/util/function/IntUnaryOperator;
 
     iget-object v1, p0, Ljava/util/function/IntUnaryOperator$-java_util_function_IntUnaryOperator_compose_java_util_function_IntUnaryOperator_before_LambdaImpl0;->val$before:Ljava/util/function/IntUnaryOperator;

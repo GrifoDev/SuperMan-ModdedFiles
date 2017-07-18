@@ -14,8 +14,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,8 +24,6 @@
 .method public byteValue()B
     .locals 1
 
-    .prologue
-    .line 95
     invoke-virtual {p0}, Ljava/lang/Number;->intValue()I
 
     move-result v0
@@ -52,8 +48,6 @@
 .method public shortValue()S
     .locals 1
 
-    .prologue
-    .line 107
     invoke-virtual {p0}, Ljava/lang/Number;->intValue()I
 
     move-result v0

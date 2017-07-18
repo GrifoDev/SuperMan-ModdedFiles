@@ -40,8 +40,6 @@
 .method public static synthetic -java_util_Spliterator$OfLong-mthref-0(Ljava/util/function/Consumer;J)V
     .locals 1
 
-    .prologue
-    .line 740
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
@@ -54,8 +52,6 @@
 .method public static synthetic -java_util_Spliterator$OfLong-mthref-1(Ljava/util/function/Consumer;J)V
     .locals 1
 
-    .prologue
-    .line 763
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
@@ -69,14 +65,9 @@
 # virtual methods
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 717
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
     check-cast p1, Ljava/util/function/LongConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfLong;->forEachRemaining(Ljava/util/function/LongConsumer;)V
 
     return-void
@@ -94,43 +85,30 @@
         }
     .end annotation
 
-    .prologue
-    .line 756
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     instance-of v0, p1, Ljava/util/function/LongConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 757
     check-cast p1, Ljava/util/function/LongConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfLong;->forEachRemaining(Ljava/util/function/LongConsumer;)V
 
-    .line 755
     :goto_0
     return-void
 
-    .line 760
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 761
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 762
     const-string/jumbo v1, "{0} calling Spliterator.OfLong.forEachRemaining((LongConsumer) action::accept)"
 
-    .line 761
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 763
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -145,11 +123,7 @@
 
 .method public forEachRemaining(Ljava/util/function/LongConsumer;)V
     .locals 1
-    .param p1, "action"    # Ljava/util/function/LongConsumer;
 
-    .prologue
-    .line 718
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
     :cond_0
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfLong;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
@@ -157,20 +131,14 @@
 
     if-nez v0, :cond_0
 
-    .line 717
     return-void
 .end method
 
 .method public bridge synthetic tryAdvance(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 714
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
     check-cast p1, Ljava/util/function/LongConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfLong;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
     move-result v0
@@ -190,43 +158,31 @@
         }
     .end annotation
 
-    .prologue
-    .line 733
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     instance-of v0, p1, Ljava/util/function/LongConsumer;
 
     if-eqz v0, :cond_0
 
-    .line 734
     check-cast p1, Ljava/util/function/LongConsumer;
 
-    .end local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfLong;->tryAdvance(Ljava/util/function/LongConsumer;)Z
 
     move-result v0
 
     return v0
 
-    .line 737
-    .restart local p1    # "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-Ljava/lang/Long;>;"
     :cond_0
     sget-boolean v0, Ljava/util/Tripwire;->ENABLED:Z
 
     if-eqz v0, :cond_1
 
-    .line 738
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 739
     const-string/jumbo v1, "{0} calling Spliterator.OfLong.tryAdvance((LongConsumer) action::accept)"
 
-    .line 738
     invoke-static {v0, v1}, Ljava/util/Tripwire;->trip(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 740
     :cond_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -250,9 +206,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
-    .prologue
-    .line 711
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfLong;->trySplit()Ljava/util/Spliterator$OfLong;
 
     move-result-object v0
@@ -263,9 +216,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
-    .prologue
-    .line 711
-    .local p0, "this":Ljava/util/Spliterator$OfLong;, "Ljava/util/Spliterator<TT;>.OfLong;"
     invoke-interface {p0}, Ljava/util/Spliterator$OfLong;->trySplit()Ljava/util/Spliterator$OfLong;
 
     move-result-object v0

@@ -16,7 +16,6 @@
 # direct methods
 .method public constructor <init>(CLjava/lang/Class;)V
     .locals 1
-    .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C",
@@ -25,29 +24,21 @@
         }
     .end annotation
 
-    .prologue
-    .line 55
-    .local p2, "arg":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/util/IllegalFormatException;-><init>()V
 
-    .line 56
     if-nez p2, :cond_0
 
-    .line 57
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 58
     :cond_0
     iput-char p1, p0, Ljava/util/IllegalFormatConversionException;->c:C
 
-    .line 59
     iput-object p2, p0, Ljava/util/IllegalFormatConversionException;->arg:Ljava/lang/Class;
 
-    .line 55
     return-void
 .end method
 
@@ -63,8 +54,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 77
     iget-object v0, p0, Ljava/util/IllegalFormatConversionException;->arg:Ljava/lang/Class;
 
     return-object v0
@@ -73,8 +62,6 @@
 .method public getConversion()C
     .locals 1
 
-    .prologue
-    .line 68
     iget-char v0, p0, Ljava/util/IllegalFormatConversionException;->c:C
 
     return v0
@@ -83,8 +70,6 @@
 .method public getMessage()Ljava/lang/String;
     .locals 4
 
-    .prologue
-    .line 82
     const-string/jumbo v0, "%c != %s"
 
     const/4 v1, 0x2

@@ -17,12 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;IIII)V
     .locals 7
-    .param p3, "$anonymous0"    # I
-    .param p4, "$anonymous1"    # I
-    .param p5, "$anonymous2"    # I
 
-    .prologue
-    .line 234
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -47,8 +42,6 @@
 .method getNumericBase()C
     .locals 1
 
-    .prologue
-    .line 236
     const/4 v0, 0x1
 
     return v0

@@ -24,10 +24,7 @@
 # direct methods
 .method constructor <init>(Ljava/nio/channels/spi/AbstractSelector;)V
     .locals 0
-    .param p1, "this$0"    # Ljava/nio/channels/spi/AbstractSelector;
 
-    .prologue
-    .line 208
     iput-object p1, p0, Ljava/nio/channels/spi/AbstractSelector$1;->this$0:Ljava/nio/channels/spi/AbstractSelector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,14 +36,10 @@
 # virtual methods
 .method public interrupt(Ljava/lang/Thread;)V
     .locals 1
-    .param p1, "ignore"    # Ljava/lang/Thread;
 
-    .prologue
-    .line 210
     iget-object v0, p0, Ljava/nio/channels/spi/AbstractSelector$1;->this$0:Ljava/nio/channels/spi/AbstractSelector;
 
     invoke-virtual {v0}, Ljava/nio/channels/spi/AbstractSelector;->wakeup()Ljava/nio/channels/Selector;
 
-    .line 209
     return-void
 .end method

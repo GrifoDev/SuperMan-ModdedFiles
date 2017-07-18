@@ -17,12 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;DLjava/lang/String;)V
     .locals 0
-    .param p1, "$anonymous0"    # Ljava/lang/String;
-    .param p2, "$anonymous1"    # D
-    .param p4, "$anonymous2"    # Ljava/lang/String;
 
-    .prologue
-    .line 71
     invoke-direct {p0, p1, p2, p3, p4}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
     return-void
@@ -32,11 +27,7 @@
 # virtual methods
 .method public getService(Ljava/lang/String;Ljava/lang/String;)Ljava/security/Provider$Service;
     .locals 1
-    .param p1, "type"    # Ljava/lang/String;
-    .param p2, "algorithm"    # Ljava/lang/String;
 
-    .prologue
-    .line 74
     const/4 v0, 0x0
 
     return-object v0

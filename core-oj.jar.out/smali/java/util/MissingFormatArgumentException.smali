@@ -14,27 +14,20 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "s"    # Ljava/lang/String;
 
-    .prologue
-    .line 52
     invoke-direct {p0}, Ljava/util/IllegalFormatException;-><init>()V
 
-    .line 53
     if-nez p1, :cond_0
 
-    .line 54
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v0
 
-    .line 55
     :cond_0
     iput-object p1, p0, Ljava/util/MissingFormatArgumentException;->s:Ljava/lang/String;
 
-    .line 52
     return-void
 .end method
 
@@ -43,8 +36,6 @@
 .method public getFormatSpecifier()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 64
     iget-object v0, p0, Ljava/util/MissingFormatArgumentException;->s:Ljava/lang/String;
 
     return-object v0
@@ -53,8 +44,6 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
-    .prologue
-    .line 68
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -40,9 +40,6 @@
 .method constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 838
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,9 +50,6 @@
 .method public characteristics()I
     .locals 1
 
-    .prologue
-    .line 858
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
     const/16 v0, 0x4040
 
     return v0
@@ -64,9 +58,6 @@
 .method public estimateSize()J
     .locals 2
 
-    .prologue
-    .line 854
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -80,13 +71,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 850
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
-    .local p1, "consumer":Ljava/lang/Object;, "TC;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 849
     return-void
 .end method
 
@@ -98,13 +84,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 845
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
-    .local p1, "consumer":Ljava/lang/Object;, "TC;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 846
     const/4 v0, 0x0
 
     return v0
@@ -118,9 +99,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 841
-    .local p0, "this":Ljava/util/Spliterators$EmptySpliterator;, "Ljava/util/Spliterators$EmptySpliterator<TT;TS;TC;>;"
     const/4 v0, 0x0
 
     return-object v0

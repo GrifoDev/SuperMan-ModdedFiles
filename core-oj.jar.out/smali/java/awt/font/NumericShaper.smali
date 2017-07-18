@@ -141,8 +141,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 498
     const/16 v0, 0x13
 
     new-array v0, v0, [C
@@ -151,7 +149,6 @@
 
     sput-object v0, Ljava/awt/font/NumericShaper;->bases:[C
 
-    .line 522
     const/16 v0, 0x27
 
     new-array v0, v0, [C
@@ -160,12 +157,10 @@
 
     sput-object v0, Ljava/awt/font/NumericShaper;->contexts:[C
 
-    .line 548
     const/4 v0, 0x0
 
     sput v0, Ljava/awt/font/NumericShaper;->ctCache:I
 
-    .line 549
     sget-object v0, Ljava/awt/font/NumericShaper;->contexts:[C
 
     array-length v0, v0
@@ -174,7 +169,6 @@
 
     sput v0, Ljava/awt/font/NumericShaper;->ctCacheLimit:I
 
-    .line 603
     const/16 v0, 0x234
 
     new-array v0, v0, [I
@@ -183,10 +177,8 @@
 
     sput-object v0, Ljava/awt/font/NumericShaper;->strongTable:[I
 
-    .line 136
     return-void
 
-    .line 498
     :array_0
     .array-data 2
         0x0s
@@ -210,7 +202,6 @@
         0x17e0s
     .end array-data
 
-    .line 522
     nop
 
     :array_1
@@ -256,7 +247,6 @@
         -0x1s
     .end array-data
 
-    .line 603
     nop
 
     :array_2
@@ -830,36 +820,26 @@
 
 .method private constructor <init>(II)V
     .locals 1
-    .param p1, "key"    # I
-    .param p2, "mask"    # I
 
-    .prologue
-    .line 1035
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 564
     sget-object v0, Ljava/awt/font/NumericShaper$Range;->EUROPEAN:Ljava/awt/font/NumericShaper$Range;
 
     iput-object v0, p0, Ljava/awt/font/NumericShaper;->currentRange:Ljava/awt/font/NumericShaper$Range;
 
-    .line 891
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/awt/font/NumericShaper;->stCache:I
 
-    .line 1036
     iput p1, p0, Ljava/awt/font/NumericShaper;->key:I
 
-    .line 1037
     iput p2, p0, Ljava/awt/font/NumericShaper;->mask:I
 
-    .line 1035
     return-void
 .end method
 
 .method private constructor <init>(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set;)V
     .locals 2
-    .param p1, "defaultContext"    # Ljava/awt/font/NumericShaper$Range;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -871,32 +851,24 @@
         }
     .end annotation
 
-    .prologue
-    .line 1040
-    .local p2, "ranges":Ljava/util/Set;, "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 564
     sget-object v0, Ljava/awt/font/NumericShaper$Range;->EUROPEAN:Ljava/awt/font/NumericShaper$Range;
 
     iput-object v0, p0, Ljava/awt/font/NumericShaper;->currentRange:Ljava/awt/font/NumericShaper$Range;
 
-    .line 891
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/awt/font/NumericShaper;->stCache:I
 
-    .line 1041
     iput-object p1, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
-    .line 1042
     invoke-static {p2}, Ljava/util/EnumSet;->copyOf(Ljava/util/Collection;)Ljava/util/EnumSet;
 
     move-result-object v0
 
     iput-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
-    .line 1046
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->EASTERN_ARABIC:Ljava/awt/font/NumericShaper$Range;
@@ -907,7 +879,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1047
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->ARABIC:Ljava/awt/font/NumericShaper$Range;
@@ -916,17 +887,14 @@
 
     move-result v0
 
-    .line 1046
     if-eqz v0, :cond_0
 
-    .line 1048
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->ARABIC:Ljava/awt/font/NumericShaper$Range;
 
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 1053
     :cond_0
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
@@ -938,7 +906,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 1054
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->TAI_THAM_HORA:Ljava/awt/font/NumericShaper$Range;
@@ -947,17 +914,14 @@
 
     move-result v0
 
-    .line 1053
     if-eqz v0, :cond_1
 
-    .line 1055
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->TAI_THAM_HORA:Ljava/awt/font/NumericShaper$Range;
 
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 1058
     :cond_1
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
@@ -977,7 +941,6 @@
 
     iput-object v0, p0, Ljava/awt/font/NumericShaper;->rangeArray:[Ljava/awt/font/NumericShaper$Range;
 
-    .line 1059
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeArray:[Ljava/awt/font/NumericShaper$Range;
 
     array-length v0, v0
@@ -986,33 +949,23 @@
 
     if-le v0, v1, :cond_2
 
-    .line 1061
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeArray:[Ljava/awt/font/NumericShaper$Range;
 
-    .line 1062
     new-instance v1, Ljava/awt/font/NumericShaper$1;
 
     invoke-direct {v1, p0}, Ljava/awt/font/NumericShaper$1;-><init>(Ljava/awt/font/NumericShaper;)V
 
-    .line 1061
     invoke-static {v0, v1}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
-    .line 1040
     :cond_2
     return-void
 .end method
 
 .method private checkParams([CII)V
     .locals 3
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
 
-    .prologue
-    .line 1168
     if-nez p1, :cond_0
 
-    .line 1169
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "text is null"
@@ -1021,20 +974,16 @@
 
     throw v0
 
-    .line 1171
     :cond_0
     if-ltz p2, :cond_1
 
-    .line 1172
     array-length v0, p1
 
     if-le p2, v0, :cond_2
 
-    .line 1175
     :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    .line 1176
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1055,36 +1004,29 @@
 
     move-result-object v1
 
-    .line 1175
     invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1173
     :cond_2
     add-int v0, p2, p3
 
     if-ltz v0, :cond_1
 
-    .line 1174
     add-int v0, p2, p3
 
     array-length v1, p1
 
     if-gt v0, v1, :cond_1
 
-    .line 1167
     return-void
 .end method
 
 .method private static getContextKey(C)I
     .locals 3
-    .param p0, "c"    # C
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 553
     sget-object v1, Ljava/awt/font/NumericShaper;->contexts:[C
 
     sget v2, Ljava/awt/font/NumericShaper;->ctCache:I
@@ -1093,7 +1035,6 @@
 
     if-ge p0, v1, :cond_0
 
-    .line 554
     :goto_0
     sget v1, Ljava/awt/font/NumericShaper;->ctCache:I
 
@@ -1115,7 +1056,6 @@
 
     goto :goto_0
 
-    .line 555
     :cond_0
     sget-object v1, Ljava/awt/font/NumericShaper;->contexts:[C
 
@@ -1127,7 +1067,6 @@
 
     if-lt p0, v1, :cond_1
 
-    .line 556
     :goto_1
     sget v1, Ljava/awt/font/NumericShaper;->ctCache:I
 
@@ -1153,7 +1092,6 @@
 
     goto :goto_1
 
-    .line 560
     :cond_1
     sget v1, Ljava/awt/font/NumericShaper;->ctCache:I
 
@@ -1171,15 +1109,11 @@
 
 .method public static getContextualShaper(I)Ljava/awt/font/NumericShaper;
     .locals 2
-    .param p0, "ranges"    # I
 
-    .prologue
-    .line 960
     const/high16 v0, -0x80000000
 
     or-int/2addr p0, v0
 
-    .line 961
     new-instance v0, Ljava/awt/font/NumericShaper;
 
     const/4 v1, 0x0
@@ -1191,22 +1125,15 @@
 
 .method public static getContextualShaper(II)Ljava/awt/font/NumericShaper;
     .locals 2
-    .param p0, "ranges"    # I
-    .param p1, "defaultContext"    # I
 
-    .prologue
-    .line 1002
     invoke-static {p1}, Ljava/awt/font/NumericShaper;->getKeyFromMask(I)I
 
     move-result v0
 
-    .line 1003
-    .local v0, "key":I
     const/high16 v1, -0x80000000
 
     or-int/2addr p0, v1
 
-    .line 1004
     new-instance v1, Ljava/awt/font/NumericShaper;
 
     invoke-direct {v1, v0, p0}, Ljava/awt/font/NumericShaper;-><init>(II)V
@@ -1227,28 +1154,21 @@
         }
     .end annotation
 
-    .prologue
-    .line 981
-    .local p0, "ranges":Ljava/util/Set;, "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;"
     new-instance v0, Ljava/awt/font/NumericShaper;
 
     sget-object v1, Ljava/awt/font/NumericShaper$Range;->EUROPEAN:Ljava/awt/font/NumericShaper$Range;
 
     invoke-direct {v0, v1, p0}, Ljava/awt/font/NumericShaper;-><init>(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set;)V
 
-    .line 982
-    .local v0, "shaper":Ljava/awt/font/NumericShaper;
     const/high16 v1, -0x80000000
 
     iput v1, v0, Ljava/awt/font/NumericShaper;->mask:I
 
-    .line 983
     return-object v0
 .end method
 
 .method public static getContextualShaper(Ljava/util/Set;Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;
     .locals 2
-    .param p1, "defaultContext"    # Ljava/awt/font/NumericShaper$Range;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1262,127 +1182,93 @@
         }
     .end annotation
 
-    .prologue
-    .line 1024
-    .local p0, "ranges":Ljava/util/Set;, "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;"
     if-nez p1, :cond_0
 
-    .line 1025
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
 
     throw v1
 
-    .line 1027
     :cond_0
     new-instance v0, Ljava/awt/font/NumericShaper;
 
     invoke-direct {v0, p1, p0}, Ljava/awt/font/NumericShaper;-><init>(Ljava/awt/font/NumericShaper$Range;Ljava/util/Set;)V
 
-    .line 1028
-    .local v0, "shaper":Ljava/awt/font/NumericShaper;
     const/high16 v1, -0x80000000
 
     iput v1, v0, Ljava/awt/font/NumericShaper;->mask:I
 
-    .line 1029
     return-object v0
 .end method
 
 .method private static getHighBit(I)I
     .locals 2
-    .param p0, "value"    # I
 
-    .prologue
-    .line 1427
     if-gtz p0, :cond_0
 
-    .line 1428
     const/16 v1, -0x20
 
     return v1
 
-    .line 1431
     :cond_0
     const/4 v0, 0x0
 
-    .line 1433
-    .local v0, "bit":I
     const/high16 v1, 0x10000
 
     if-lt p0, v1, :cond_1
 
-    .line 1434
     shr-int/lit8 p0, p0, 0x10
 
-    .line 1435
     const/16 v0, 0x10
 
-    .line 1438
     :cond_1
     const/16 v1, 0x100
 
     if-lt p0, v1, :cond_2
 
-    .line 1439
     shr-int/lit8 p0, p0, 0x8
 
-    .line 1440
     add-int/lit8 v0, v0, 0x8
 
-    .line 1443
     :cond_2
     const/16 v1, 0x10
 
     if-lt p0, v1, :cond_3
 
-    .line 1444
     shr-int/lit8 p0, p0, 0x4
 
-    .line 1445
     add-int/lit8 v0, v0, 0x4
 
-    .line 1448
     :cond_3
     const/4 v1, 0x4
 
     if-lt p0, v1, :cond_4
 
-    .line 1449
     shr-int/lit8 p0, p0, 0x2
 
-    .line 1450
     add-int/lit8 v0, v0, 0x2
 
-    .line 1453
     :cond_4
     const/4 v1, 0x2
 
     if-lt p0, v1, :cond_5
 
-    .line 1454
     add-int/lit8 v0, v0, 0x1
 
-    .line 1457
     :cond_5
     return v0
 .end method
 
 .method private static getKeyFromMask(I)I
     .locals 4
-    .param p0, "mask"    # I
 
-    .prologue
     const/16 v3, 0x13
 
     const/4 v2, 0x1
 
-    .line 907
     const/4 v0, 0x0
 
-    .line 908
-    .local v0, "key":I
     :goto_0
     if-ge v0, v3, :cond_0
 
@@ -1392,12 +1278,10 @@
 
     if-nez v1, :cond_0
 
-    .line 909
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 911
     :cond_0
     if-eq v0, v3, :cond_1
 
@@ -1409,7 +1293,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 912
     :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1439,23 +1322,17 @@
 
     throw v1
 
-    .line 914
     :cond_2
     return v0
 .end method
 
 .method public static getShaper(I)Ljava/awt/font/NumericShaper;
     .locals 2
-    .param p0, "singleRange"    # I
 
-    .prologue
-    .line 926
     invoke-static {p0}, Ljava/awt/font/NumericShaper;->getKeyFromMask(I)I
 
     move-result v0
 
-    .line 927
-    .local v0, "key":I
     new-instance v1, Ljava/awt/font/NumericShaper;
 
     invoke-direct {v1, v0, p0}, Ljava/awt/font/NumericShaper;-><init>(II)V
@@ -1465,10 +1342,7 @@
 
 .method public static getShaper(Ljava/awt/font/NumericShaper$Range;)Ljava/awt/font/NumericShaper;
     .locals 2
-    .param p0, "singleRange"    # Ljava/awt/font/NumericShaper$Range;
 
-    .prologue
-    .line 942
     new-instance v0, Ljava/awt/font/NumericShaper;
 
     invoke-static {p0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
@@ -1482,21 +1356,15 @@
 
 .method private isStrongDirectional(C)Z
     .locals 5
-    .param p1, "c"    # C
 
-    .prologue
-    .line 894
     iget v0, p0, Ljava/awt/font/NumericShaper;->stCache:I
 
-    .line 895
-    .local v0, "cachedIndex":I
     sget-object v2, Ljava/awt/font/NumericShaper;->strongTable:[I
 
     aget v2, v2, v0
 
     if-ge p1, v2, :cond_1
 
-    .line 896
     sget-object v2, Ljava/awt/font/NumericShaper;->strongTable:[I
 
     const/4 v3, 0x0
@@ -1505,7 +1373,6 @@
 
     move-result v0
 
-    .line 901
     :cond_0
     :goto_0
     and-int/lit8 v2, v0, 0x1
@@ -1516,16 +1383,11 @@
 
     const/4 v1, 0x1
 
-    .line 902
-    .local v1, "val":Z
     :goto_1
     iput v0, p0, Ljava/awt/font/NumericShaper;->stCache:I
 
-    .line 903
     return v1
 
-    .line 897
-    .end local v1    # "val":Z
     :cond_1
     sget-object v2, Ljava/awt/font/NumericShaper;->strongTable:[I
 
@@ -1535,12 +1397,10 @@
 
     if-lt p1, v2, :cond_0
 
-    .line 898
     sget-object v2, Ljava/awt/font/NumericShaper;->strongTable:[I
 
     add-int/lit8 v3, v0, 0x1
 
-    .line 899
     sget-object v4, Ljava/awt/font/NumericShaper;->strongTable:[I
 
     array-length v4, v4
@@ -1549,27 +1409,21 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    .line 898
     invoke-static {p1, v2, v3, v4}, Ljava/awt/font/NumericShaper;->search(I[III)I
 
     move-result v0
 
     goto :goto_0
 
-    .line 901
     :cond_2
     const/4 v1, 0x0
 
-    .restart local v1    # "val":Z
     goto :goto_1
 .end method
 
 .method private rangeForCodePoint(I)Ljava/awt/font/NumericShaper$Range;
     .locals 8
-    .param p1, "codepoint"    # I
 
-    .prologue
-    .line 567
     iget-object v6, p0, Ljava/awt/font/NumericShaper;->currentRange:Ljava/awt/font/NumericShaper$Range;
 
     invoke-static {v6, p1}, Ljava/awt/font/NumericShaper$Range;->-wrap0(Ljava/awt/font/NumericShaper$Range;I)Z
@@ -1578,60 +1432,44 @@
 
     if-eqz v6, :cond_0
 
-    .line 568
     iget-object v6, p0, Ljava/awt/font/NumericShaper;->currentRange:Ljava/awt/font/NumericShaper$Range;
 
     return-object v6
 
-    .line 571
     :cond_0
     iget-object v5, p0, Ljava/awt/font/NumericShaper;->rangeArray:[Ljava/awt/font/NumericShaper$Range;
 
-    .line 572
-    .local v5, "ranges":[Ljava/awt/font/NumericShaper$Range;
     array-length v6, v5
 
     const/4 v7, 0x3
 
     if-le v6, v7, :cond_3
 
-    .line 573
     const/4 v2, 0x0
 
-    .line 574
-    .local v2, "lo":I
     array-length v6, v5
 
     add-int/lit8 v0, v6, -0x1
 
-    .line 575
-    .local v0, "hi":I
     :goto_0
     if-gt v2, v0, :cond_5
 
-    .line 576
     add-int v6, v2, v0
 
     div-int/lit8 v3, v6, 0x2
 
-    .line 577
-    .local v3, "mid":I
     aget-object v4, v5, v3
 
-    .line 578
-    .local v4, "range":Ljava/awt/font/NumericShaper$Range;
     invoke-static {v4}, Ljava/awt/font/NumericShaper$Range;->-get2(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v6
 
     if-ge p1, v6, :cond_1
 
-    .line 579
     add-int/lit8 v0, v3, -0x1
 
     goto :goto_0
 
-    .line 580
     :cond_1
     invoke-static {v4}, Ljava/awt/font/NumericShaper$Range;->-get1(Ljava/awt/font/NumericShaper$Range;)I
 
@@ -1639,33 +1477,23 @@
 
     if-lt p1, v6, :cond_2
 
-    .line 581
     add-int/lit8 v2, v3, 0x1
 
     goto :goto_0
 
-    .line 583
     :cond_2
     iput-object v4, p0, Ljava/awt/font/NumericShaper;->currentRange:Ljava/awt/font/NumericShaper$Range;
 
-    .line 584
     return-object v4
 
-    .line 588
-    .end local v0    # "hi":I
-    .end local v2    # "lo":I
-    .end local v3    # "mid":I
-    .end local v4    # "range":Ljava/awt/font/NumericShaper$Range;
     :cond_3
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_1
     array-length v6, v5
 
     if-ge v1, v6, :cond_5
 
-    .line 589
     aget-object v6, v5, v1
 
     invoke-static {v6, p1}, Ljava/awt/font/NumericShaper$Range;->-wrap0(Ljava/awt/font/NumericShaper$Range;I)Z
@@ -1674,19 +1502,15 @@
 
     if-eqz v6, :cond_4
 
-    .line 590
     aget-object v6, v5, v1
 
     return-object v6
 
-    .line 588
     :cond_4
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 594
-    .end local v1    # "i":I
     :cond_5
     sget-object v6, Ljava/awt/font/NumericShaper$Range;->EUROPEAN:Ljava/awt/font/NumericShaper$Range;
 
@@ -1695,80 +1519,54 @@
 
 .method private static search(I[III)I
     .locals 6
-    .param p0, "value"    # I
-    .param p1, "array"    # [I
-    .param p2, "start"    # I
-    .param p3, "length"    # I
 
-    .prologue
     const/4 v5, 0x1
 
-    .line 1465
     invoke-static {p3}, Ljava/awt/font/NumericShaper;->getHighBit(I)I
 
     move-result v4
 
     shl-int v2, v5, v4
 
-    .line 1466
-    .local v2, "power":I
     sub-int v0, p3, v2
 
-    .line 1467
-    .local v0, "extra":I
     move v3, v2
 
-    .line 1468
-    .local v3, "probe":I
     move v1, p2
 
-    .line 1470
-    .local v1, "index":I
     add-int v4, p2, v0
 
     aget v4, p1, v4
 
     if-lt p0, v4, :cond_0
 
-    .line 1471
     add-int v1, p2, v0
 
-    .line 1474
     :cond_0
     :goto_0
     if-le v3, v5, :cond_1
 
-    .line 1475
     shr-int/lit8 v3, v3, 0x1
 
-    .line 1477
     add-int v4, v1, v3
 
     aget v4, p1, v4
 
     if-lt p0, v4, :cond_0
 
-    .line 1478
     add-int/2addr v1, v3
 
     goto :goto_0
 
-    .line 1482
     :cond_1
     return v1
 .end method
 
 .method private declared-synchronized shapeContextually([CIII)V
     .locals 10
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
-    .param p4, "ctxKey"    # I
 
-    .prologue
     monitor-enter p0
 
-    .line 1253
     :try_start_0
     iget v7, p0, Ljava/awt/font/NumericShaper;->mask:I
 
@@ -1780,29 +1578,21 @@
 
     if-nez v7, :cond_0
 
-    .line 1254
     const/4 p4, 0x0
 
-    .line 1256
     :cond_0
     move v4, p4
 
-    .line 1258
-    .local v4, "lastkey":I
     sget-object v7, Ljava/awt/font/NumericShaper;->bases:[C
 
     aget-char v0, v7, p4
 
-    .line 1259
-    .local v0, "base":I
     const/16 v7, 0x10
 
     if-ne p4, v7, :cond_5
 
     const/16 v5, 0x31
 
-    .line 1261
-    .local v5, "minDigit":C
     :goto_0
     const-class v8, Ljava/awt/font/NumericShaper;
 
@@ -1810,36 +1600,28 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 1262
     move v3, p2
 
-    .local v3, "i":I
     add-int v2, p2, p3
 
-    .local v2, "e":I
     :goto_1
     if-ge v3, v2, :cond_a
 
-    .line 1263
     :try_start_1
     aget-char v1, p1, v3
 
-    .line 1264
-    .local v1, "c":C
     if-lt v1, v5, :cond_1
 
     const/16 v7, 0x39
 
     if-gt v1, v7, :cond_1
 
-    .line 1265
     add-int v7, v1, v0
 
     int-to-char v7, v7
 
     aput-char v7, p1, v3
 
-    .line 1268
     :cond_1
     invoke-direct {p0, v1}, Ljava/awt/font/NumericShaper;->isStrongDirectional(C)Z
 
@@ -1847,80 +1629,56 @@
 
     if-eqz v7, :cond_4
 
-    .line 1269
     invoke-static {v1}, Ljava/awt/font/NumericShaper;->getContextKey(C)I
 
     move-result v6
 
-    .line 1270
-    .local v6, "newkey":I
     if-eq v6, v4, :cond_4
 
-    .line 1271
     move v4, v6
 
-    .line 1273
     move p4, v6
 
-    .line 1274
     iget v7, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     and-int/lit8 v7, v7, 0x4
 
     if-eqz v7, :cond_6
 
-    .line 1275
     const/4 v7, 0x1
 
     if-eq v6, v7, :cond_2
 
-    .line 1276
     const/4 v7, 0x2
 
     if-ne v6, v7, :cond_6
 
-    .line 1277
     :cond_2
     const/4 p4, 0x2
 
-    .line 1286
     :cond_3
     :goto_2
     sget-object v7, Ljava/awt/font/NumericShaper;->bases:[C
 
     aget-char v0, v7, p4
 
-    .line 1288
     const/16 v7, 0x10
 
     if-ne p4, v7, :cond_9
 
     const/16 v5, 0x31
 
-    .line 1262
-    .end local v6    # "newkey":I
     :cond_4
     :goto_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 1259
-    .end local v1    # "c":C
-    .end local v2    # "e":I
-    .end local v3    # "i":I
-    .end local v5    # "minDigit":C
     :cond_5
     const/16 v5, 0x30
 
-    .restart local v5    # "minDigit":C
     goto :goto_0
 
-    .line 1278
-    .restart local v1    # "c":C
-    .restart local v2    # "e":I
-    .restart local v3    # "i":I
-    .restart local v6    # "newkey":I
     :cond_6
     iget v7, p0, Ljava/awt/font/NumericShaper;->mask:I
 
@@ -1928,23 +1686,19 @@
 
     if-eqz v7, :cond_8
 
-    .line 1279
     const/4 v7, 0x1
 
     if-eq v6, v7, :cond_7
 
-    .line 1280
     const/4 v7, 0x2
 
     if-ne v6, v7, :cond_8
 
-    .line 1281
     :cond_7
     const/4 p4, 0x1
 
     goto :goto_2
 
-    .line 1282
     :cond_8
     iget v7, p0, Ljava/awt/font/NumericShaper;->mask:I
     :try_end_1
@@ -1958,19 +1712,15 @@
 
     if-nez v7, :cond_3
 
-    .line 1283
     const/4 p4, 0x0
 
     goto :goto_2
 
-    .line 1288
     :cond_9
     const/16 v5, 0x30
 
     goto :goto_3
 
-    .end local v1    # "c":C
-    .end local v6    # "newkey":I
     :cond_a
     :try_start_2
     monitor-exit v8
@@ -1979,10 +1729,8 @@
 
     monitor-exit p0
 
-    .line 1250
     return-void
 
-    .line 1261
     :catchall_0
     move-exception v7
 
@@ -1993,11 +1741,6 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .end local v0    # "base":I
-    .end local v2    # "e":I
-    .end local v3    # "i":I
-    .end local v4    # "lastkey":I
-    .end local v5    # "minDigit":C
     :catchall_1
     move-exception v7
 
@@ -2008,13 +1751,7 @@
 
 .method private shapeContextually([CIILjava/awt/font/NumericShaper$Range;)V
     .locals 7
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
-    .param p4, "ctxKey"    # Ljava/awt/font/NumericShaper$Range;
 
-    .prologue
-    .line 1297
     if-eqz p4, :cond_1
 
     iget-object v6, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
@@ -2025,18 +1762,13 @@
 
     if-eqz v6, :cond_1
 
-    .line 1301
     :goto_0
     move-object v4, p4
 
-    .line 1302
-    .local v4, "lastKey":Ljava/awt/font/NumericShaper$Range;
     invoke-static {p4}, Ljava/awt/font/NumericShaper$Range;->-wrap1(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
 
-    .line 1303
-    .local v0, "base":I
     invoke-virtual {p4}, Ljava/awt/font/NumericShaper$Range;->getNumericBase()C
 
     move-result v6
@@ -2045,62 +1777,38 @@
 
     int-to-char v5, v6
 
-    .line 1304
-    .local v5, "minDigit":C
     add-int v2, p2, p3
 
-    .line 1305
-    .local v2, "end":I
     move v3, p2
 
-    .local v3, "i":I
     :goto_1
     if-ge v3, v2, :cond_3
 
-    .line 1306
     aget-char v1, p1, v3
 
-    .line 1307
-    .local v1, "c":C
     if-lt v1, v5, :cond_2
 
     const/16 v6, 0x39
 
     if-gt v1, v6, :cond_2
 
-    .line 1308
     add-int v6, v1, v0
 
     int-to-char v6, v6
 
     aput-char v6, p1, v3
 
-    .line 1305
     :cond_0
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 1298
-    .end local v0    # "base":I
-    .end local v1    # "c":C
-    .end local v2    # "end":I
-    .end local v3    # "i":I
-    .end local v4    # "lastKey":Ljava/awt/font/NumericShaper$Range;
-    .end local v5    # "minDigit":C
     :cond_1
     sget-object p4, Ljava/awt/font/NumericShaper$Range;->EUROPEAN:Ljava/awt/font/NumericShaper$Range;
 
     goto :goto_0
 
-    .line 1311
-    .restart local v0    # "base":I
-    .restart local v1    # "c":C
-    .restart local v2    # "end":I
-    .restart local v3    # "i":I
-    .restart local v4    # "lastKey":Ljava/awt/font/NumericShaper$Range;
-    .restart local v5    # "minDigit":C
     :cond_2
     invoke-direct {p0, v1}, Ljava/awt/font/NumericShaper;->isStrongDirectional(C)Z
 
@@ -2108,23 +1816,18 @@
 
     if-eqz v6, :cond_0
 
-    .line 1312
     invoke-direct {p0, v1}, Ljava/awt/font/NumericShaper;->rangeForCodePoint(I)Ljava/awt/font/NumericShaper$Range;
 
     move-result-object p4
 
-    .line 1313
     if-eq p4, v4, :cond_0
 
-    .line 1314
     move-object v4, p4
 
-    .line 1315
     invoke-static {p4}, Ljava/awt/font/NumericShaper$Range;->-wrap1(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
 
-    .line 1316
     invoke-virtual {p4}, Ljava/awt/font/NumericShaper$Range;->getNumericBase()C
 
     move-result v6
@@ -2135,37 +1838,25 @@
 
     goto :goto_2
 
-    .line 1295
-    .end local v1    # "c":C
     :cond_3
     return-void
 .end method
 
 .method private shapeNonContextually([CII)V
     .locals 7
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
 
-    .prologue
-    .line 1228
     const/16 v4, 0x30
 
-    .line 1229
-    .local v4, "minDigit":C
     iget-object v5, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     if-eqz v5, :cond_2
 
-    .line 1230
     iget-object v5, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     invoke-static {v5}, Ljava/awt/font/NumericShaper$Range;->-wrap1(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
 
-    .line 1231
-    .local v0, "base":I
     iget-object v5, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     invoke-virtual {v5}, Ljava/awt/font/NumericShaper$Range;->getNumericBase()C
@@ -2176,49 +1867,34 @@
 
     int-to-char v4, v5
 
-    .line 1238
-    .end local v4    # "minDigit":C
     :cond_0
     :goto_0
     move v3, p2
 
-    .local v3, "i":I
     add-int v2, p2, p3
 
-    .local v2, "e":I
     :goto_1
     if-ge v3, v2, :cond_3
 
-    .line 1239
     aget-char v1, p1, v3
 
-    .line 1240
-    .local v1, "c":C
     if-lt v1, v4, :cond_1
 
     const/16 v5, 0x39
 
     if-gt v1, v5, :cond_1
 
-    .line 1241
     add-int v5, v1, v0
 
     int-to-char v5, v5
 
     aput-char v5, p1, v3
 
-    .line 1238
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 1233
-    .end local v0    # "base":I
-    .end local v1    # "c":C
-    .end local v2    # "e":I
-    .end local v3    # "i":I
-    .restart local v4    # "minDigit":C
     :cond_2
     sget-object v5, Ljava/awt/font/NumericShaper;->bases:[C
 
@@ -2226,67 +1902,49 @@
 
     aget-char v0, v5, v6
 
-    .line 1234
-    .restart local v0    # "base":I
     iget v5, p0, Ljava/awt/font/NumericShaper;->key:I
 
     const/16 v6, 0x10
 
     if-ne v5, v6, :cond_0
 
-    .line 1235
     const/16 v5, 0x31
 
     int-to-char v4, v5
 
-    .local v4, "minDigit":C
     goto :goto_0
 
-    .line 1226
-    .end local v4    # "minDigit":C
-    .restart local v2    # "e":I
-    .restart local v3    # "i":I
     :cond_3
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 3
-    .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 1496
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     if-eqz v1, :cond_0
 
-    .line 1497
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     invoke-static {v1}, Ljava/awt/font/NumericShaper$Range;->-wrap2(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
 
-    .line 1498
-    .local v0, "index":I
     if-ltz v0, :cond_0
 
-    .line 1499
     iput v0, p0, Ljava/awt/font/NumericShaper;->key:I
 
-    .line 1502
-    .end local v0    # "index":I
     :cond_0
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v1, :cond_1
 
-    .line 1503
     iget v1, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     iget-object v2, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
@@ -2299,11 +1957,9 @@
 
     iput v1, p0, Ljava/awt/font/NumericShaper;->mask:I
 
-    .line 1505
     :cond_1
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 1495
     return-void
 .end method
 
@@ -2311,17 +1967,13 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 9
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .prologue
     const/4 v5, 0x1
 
     const/4 v6, 0x0
 
-    .line 1358
     if-eqz p1, :cond_8
 
-    .line 1360
     :try_start_0
     move-object v0, p1
 
@@ -2329,18 +1981,14 @@
 
     move-object v2, v0
 
-    .line 1361
-    .local v2, "rhs":Ljava/awt/font/NumericShaper;
     iget-object v7, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v7, :cond_4
 
-    .line 1362
     iget-object v7, v2, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v7, :cond_2
 
-    .line 1363
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
     move-result v7
@@ -2351,7 +1999,6 @@
 
     if-ne v7, v8, :cond_1
 
-    .line 1364
     iget-object v7, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     iget-object v8, v2, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
@@ -2360,33 +2007,27 @@
 
     move-result v7
 
-    .line 1363
     if-eqz v7, :cond_1
 
-    .line 1365
     iget-object v7, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     iget-object v8, v2, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     if-ne v7, v8, :cond_0
 
-    .line 1363
     :goto_0
     return v5
 
     :cond_0
     move v5, v6
 
-    .line 1365
     goto :goto_0
 
     :cond_1
     move v5, v6
 
-    .line 1363
     goto :goto_0
 
-    .line 1367
     :cond_2
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
@@ -2398,7 +2039,6 @@
 
     if-ne v7, v8, :cond_3
 
-    .line 1368
     iget-object v7, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     iget v8, v2, Ljava/awt/font/NumericShaper;->mask:I
@@ -2411,10 +2051,8 @@
 
     move-result v7
 
-    .line 1367
     if-eqz v7, :cond_3
 
-    .line 1369
     iget-object v7, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     iget v8, v2, Ljava/awt/font/NumericShaper;->key:I
@@ -2427,33 +2065,26 @@
 
     move v6, v5
 
-    .line 1367
     :cond_3
     return v6
 
-    .line 1370
     :cond_4
     iget-object v7, v2, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v7, :cond_6
 
-    .line 1371
     iget v7, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     invoke-static {v7}, Ljava/awt/font/NumericShaper$Range;->-wrap5(I)Ljava/util/Set;
 
     move-result-object v3
 
-    .line 1372
-    .local v3, "rset":Ljava/util/Set;, "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;"
     iget v7, p0, Ljava/awt/font/NumericShaper;->key:I
 
     invoke-static {v7}, Ljava/awt/font/NumericShaper$Range;->-wrap4(I)Ljava/awt/font/NumericShaper$Range;
 
     move-result-object v4
 
-    .line 1373
-    .local v4, "srange":Ljava/awt/font/NumericShaper$Range;
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
     move-result v7
@@ -2464,30 +2095,23 @@
 
     if-ne v7, v8, :cond_5
 
-    .line 1374
     iget-object v7, v2, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     invoke-interface {v3, v7}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    .line 1373
     if-eqz v7, :cond_5
 
-    .line 1375
     iget-object v7, v2, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     if-ne v4, v7, :cond_5
 
     move v6, v5
 
-    .line 1373
     :cond_5
     return v6
 
-    .line 1377
-    .end local v3    # "rset":Ljava/util/Set;, "Ljava/util/Set<Ljava/awt/font/NumericShaper$Range;>;"
-    .end local v4    # "srange":Ljava/awt/font/NumericShaper$Range;
     :cond_6
     iget v7, v2, Ljava/awt/font/NumericShaper;->mask:I
 
@@ -2508,12 +2132,9 @@
     :cond_7
     return v6
 
-    .line 1379
-    .end local v2    # "rhs":Ljava/awt/font/NumericShaper;
     :catch_0
     move-exception v1
 
-    .line 1382
     :cond_8
     return v6
 .end method
@@ -2530,13 +2151,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1217
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v0, :cond_0
 
-    .line 1218
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     invoke-static {v0}, Ljava/util/EnumSet;->copyOf(Ljava/util/Collection;)Ljava/util/EnumSet;
@@ -2545,7 +2163,6 @@
 
     return-object v0
 
-    .line 1220
     :cond_0
     iget v0, p0, Ljava/awt/font/NumericShaper;->mask:I
 
@@ -2559,8 +2176,6 @@
 .method public getRanges()I
     .locals 2
 
-    .prologue
-    .line 1206
     iget v0, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     const v1, 0x7fffffff
@@ -2573,22 +2188,16 @@
 .method public hashCode()I
     .locals 2
 
-    .prologue
-    .line 1328
     iget v0, p0, Ljava/awt/font/NumericShaper;->mask:I
 
-    .line 1329
-    .local v0, "hash":I
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v1, :cond_0
 
-    .line 1333
     const/high16 v1, -0x80000000
 
     and-int/2addr v0, v1
 
-    .line 1334
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->hashCode()I
@@ -2597,7 +2206,6 @@
 
     xor-int/2addr v0, v1
 
-    .line 1336
     :cond_0
     return v0
 .end method
@@ -2605,10 +2213,8 @@
 .method public isContextual()Z
     .locals 3
 
-    .prologue
     const/4 v0, 0x0
 
-    .line 1187
     iget v1, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     const/high16 v2, -0x80000000
@@ -2625,36 +2231,26 @@
 
 .method public shape([CII)V
     .locals 1
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
 
-    .prologue
-    .line 1083
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->checkParams([CII)V
 
-    .line 1084
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1085
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-nez v0, :cond_0
 
-    .line 1086
     iget v0, p0, Ljava/awt/font/NumericShaper;->key:I
 
     invoke-direct {p0, p1, p2, p3, v0}, Ljava/awt/font/NumericShaper;->shapeContextually([CIII)V
 
-    .line 1082
     :goto_0
     return-void
 
-    .line 1088
     :cond_0
     iget-object v0, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
@@ -2662,7 +2258,6 @@
 
     goto :goto_0
 
-    .line 1091
     :cond_1
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->shapeNonContextually([CII)V
 
@@ -2671,43 +2266,28 @@
 
 .method public shape([CIII)V
     .locals 2
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
-    .param p4, "context"    # I
 
-    .prologue
-    .line 1114
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->checkParams([CII)V
 
-    .line 1115
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 1116
     invoke-static {p4}, Ljava/awt/font/NumericShaper;->getKeyFromMask(I)I
 
     move-result v0
 
-    .line 1117
-    .local v0, "ctxKey":I
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-nez v1, :cond_0
 
-    .line 1118
     invoke-direct {p0, p1, p2, p3, v0}, Ljava/awt/font/NumericShaper;->shapeContextually([CIII)V
 
-    .line 1113
-    .end local v0    # "ctxKey":I
     :goto_0
     return-void
 
-    .line 1120
-    .restart local v0    # "ctxKey":I
     :cond_0
     invoke-static {}, Ljava/awt/font/NumericShaper$Range;->values()[Ljava/awt/font/NumericShaper$Range;
 
@@ -2719,8 +2299,6 @@
 
     goto :goto_0
 
-    .line 1123
-    .end local v0    # "ctxKey":I
     :cond_1
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->shapeNonContextually([CII)V
 
@@ -2729,19 +2307,11 @@
 
 .method public shape([CIILjava/awt/font/NumericShaper$Range;)V
     .locals 3
-    .param p1, "text"    # [C
-    .param p2, "start"    # I
-    .param p3, "count"    # I
-    .param p4, "context"    # Ljava/awt/font/NumericShaper$Range;
 
-    .prologue
-    .line 1146
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->checkParams([CII)V
 
-    .line 1147
     if-nez p4, :cond_0
 
-    .line 1148
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string/jumbo v2, "context is null"
@@ -2750,7 +2320,6 @@
 
     throw v1
 
-    .line 1151
     :cond_0
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
@@ -2758,34 +2327,26 @@
 
     if-eqz v1, :cond_3
 
-    .line 1152
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-eqz v1, :cond_1
 
-    .line 1153
     invoke-direct {p0, p1, p2, p3, p4}, Ljava/awt/font/NumericShaper;->shapeContextually([CIILjava/awt/font/NumericShaper$Range;)V
 
-    .line 1145
     :goto_0
     return-void
 
-    .line 1155
     :cond_1
     invoke-static {p4}, Ljava/awt/font/NumericShaper$Range;->-wrap2(Ljava/awt/font/NumericShaper$Range;)I
 
     move-result v0
 
-    .line 1156
-    .local v0, "key":I
     if-ltz v0, :cond_2
 
-    .line 1157
     invoke-direct {p0, p1, p2, p3, v0}, Ljava/awt/font/NumericShaper;->shapeContextually([CIII)V
 
     goto :goto_0
 
-    .line 1159
     :cond_2
     iget-object v1, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
@@ -2793,8 +2354,6 @@
 
     goto :goto_0
 
-    .line 1163
-    .end local v0    # "key":I
     :cond_3
     invoke-direct {p0, p1, p2, p3}, Ljava/awt/font/NumericShaper;->shapeNonContextually([CII)V
 
@@ -2804,8 +2363,6 @@
 .method public toString()Ljava/lang/String;
     .locals 6
 
-    .prologue
-    .line 1391
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -2814,8 +2371,6 @@
 
     invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 1393
-    .local v0, "buf":Ljava/lang/StringBuilder;
     const-string/jumbo v4, "[contextual:"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2828,23 +2383,18 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 1395
     const/4 v3, 0x0
 
-    .line 1396
-    .local v3, "keyNames":[Ljava/lang/String;
     invoke-virtual {p0}, Ljava/awt/font/NumericShaper;->isContextual()Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    .line 1397
     const-string/jumbo v4, ", context:"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1398
     iget-object v4, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     if-nez v4, :cond_2
@@ -2860,31 +2410,24 @@
     :goto_0
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1401
     :cond_0
     iget-object v4, p0, Ljava/awt/font/NumericShaper;->rangeSet:Ljava/util/Set;
 
     if-nez v4, :cond_4
 
-    .line 1402
     const-string/jumbo v4, ", range(s): "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1403
     const/4 v1, 0x1
 
-    .line 1404
-    .local v1, "first":Z
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_1
     const/16 v4, 0x13
 
     if-ge v2, v4, :cond_5
 
-    .line 1405
     iget v4, p0, Ljava/awt/font/NumericShaper;->mask:I
 
     const/4 v5, 0x1
@@ -2895,13 +2438,10 @@
 
     if-eqz v4, :cond_1
 
-    .line 1406
     if-eqz v1, :cond_3
 
-    .line 1407
     const/4 v1, 0x0
 
-    .line 1411
     :goto_2
     invoke-static {}, Ljava/awt/font/NumericShaper$Range;->values()[Ljava/awt/font/NumericShaper$Range;
 
@@ -2911,23 +2451,16 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1404
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 1398
-    .end local v1    # "first":Z
-    .end local v2    # "i":I
     :cond_2
     iget-object v4, p0, Ljava/awt/font/NumericShaper;->shapingRange:Ljava/awt/font/NumericShaper$Range;
 
     goto :goto_0
 
-    .line 1409
-    .restart local v1    # "first":Z
-    .restart local v2    # "i":I
     :cond_3
     const-string/jumbo v4, ", "
 
@@ -2935,9 +2468,6 @@
 
     goto :goto_2
 
-    .line 1415
-    .end local v1    # "first":Z
-    .end local v2    # "i":I
     :cond_4
     const-string/jumbo v4, ", range set: "
 
@@ -2949,13 +2479,11 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1417
     :cond_5
     const/16 v4, 0x5d
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1419
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4

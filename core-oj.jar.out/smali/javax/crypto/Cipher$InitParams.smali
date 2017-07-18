@@ -31,35 +31,20 @@
 # direct methods
 .method constructor <init>(Ljavax/crypto/Cipher$InitType;ILjava/security/Key;Ljava/security/SecureRandom;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/AlgorithmParameters;)V
     .locals 0
-    .param p1, "initType"    # Ljavax/crypto/Cipher$InitType;
-    .param p2, "opmode"    # I
-    .param p3, "key"    # Ljava/security/Key;
-    .param p4, "random"    # Ljava/security/SecureRandom;
-    .param p5, "spec"    # Ljava/security/spec/AlgorithmParameterSpec;
-    .param p6, "params"    # Ljava/security/AlgorithmParameters;
 
-    .prologue
-    .line 2720
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2722
     iput-object p1, p0, Ljavax/crypto/Cipher$InitParams;->initType:Ljavax/crypto/Cipher$InitType;
 
-    .line 2723
     iput p2, p0, Ljavax/crypto/Cipher$InitParams;->opmode:I
 
-    .line 2724
     iput-object p3, p0, Ljavax/crypto/Cipher$InitParams;->key:Ljava/security/Key;
 
-    .line 2725
     iput-object p4, p0, Ljavax/crypto/Cipher$InitParams;->random:Ljava/security/SecureRandom;
 
-    .line 2726
     iput-object p5, p0, Ljavax/crypto/Cipher$InitParams;->spec:Ljava/security/spec/AlgorithmParameterSpec;
 
-    .line 2727
     iput-object p6, p0, Ljavax/crypto/Cipher$InitParams;->params:Ljava/security/AlgorithmParameters;
 
-    .line 2721
     return-void
 .end method

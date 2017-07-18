@@ -174,23 +174,17 @@
 
 .method public constructor <init>(Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;I)V
     .locals 5
-    .param p1, "operator"    # Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint$Operator;
-    .param p2, "length"    # I
 
-    .prologue
     const/4 v4, -0x1
 
     const v3, 0x7fffffff
 
     const/4 v0, 0x0
 
-    .line 405
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 403
     iput v4, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->prohibitedSize:I
 
-    .line 406
     invoke-static {}, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->-getsun-security-util-DisabledAlgorithmConstraints$KeySizeConstraint$OperatorSwitchesValues()[I
 
     move-result-object v1
@@ -203,71 +197,55 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 434
     iput v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 435
     iput v4, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
-    .line 405
     :goto_0
     return-void
 
-    .line 408
     :pswitch_0
     iput v0, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 409
     iput v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
-    .line 410
     iput p2, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->prohibitedSize:I
 
     goto :goto_0
 
-    .line 413
     :pswitch_1
     iput p2, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 414
     iput p2, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
     goto :goto_0
 
-    .line 417
     :pswitch_2
     iput p2, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 418
     iput v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
     goto :goto_0
 
-    .line 421
     :pswitch_3
     add-int/lit8 v0, p2, 0x1
 
     iput v0, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 422
     iput v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
     goto :goto_0
 
-    .line 425
     :pswitch_4
     iput v0, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 426
     iput p2, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->maxSize:I
 
     goto :goto_0
 
-    .line 429
     :pswitch_5
     iput v0, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
-    .line 430
     const/4 v1, 0x1
 
     if-le p2, v1, :cond_0
@@ -279,7 +257,6 @@
 
     goto :goto_0
 
-    .line 406
     nop
 
     :pswitch_data_0
@@ -297,30 +274,22 @@
 # virtual methods
 .method public disables(Ljava/security/Key;)Z
     .locals 4
-    .param p1, "key"    # Ljava/security/Key;
 
-    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 441
     invoke-static {p1}, Lsun/security/util/KeyUtil;->getKeySize(Ljava/security/Key;)I
 
     move-result v0
 
-    .line 443
-    .local v0, "size":I
     if-nez v0, :cond_0
 
-    .line 444
     return v1
 
-    .line 445
     :cond_0
     if-lez v0, :cond_3
 
-    .line 446
     iget v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->minSize:I
 
     if-lt v0, v3, :cond_1
@@ -333,7 +302,6 @@
     :goto_0
     return v1
 
-    .line 447
     :cond_2
     iget v3, p0, Lsun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint;->prohibitedSize:I
 
@@ -343,7 +311,6 @@
 
     goto :goto_0
 
-    .line 451
     :cond_3
     return v2
 .end method

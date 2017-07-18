@@ -30,28 +30,22 @@
 .method protected constructor <init>()V
     .locals 2
 
-    .prologue
-    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Ljava/util/TimerTask;->lock:Ljava/lang/Object;
 
-    .line 45
     const/4 v0, 0x0
 
     iput v0, p0, Ljava/util/TimerTask;->state:I
 
-    .line 81
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Ljava/util/TimerTask;->period:J
 
-    .line 86
     return-void
 .end method
 
@@ -60,13 +54,10 @@
 .method public cancel()Z
     .locals 4
 
-    .prologue
-    .line 117
     iget-object v2, p0, Ljava/util/TimerTask;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 118
     :try_start_0
     iget v1, p0, Ljava/util/TimerTask;->state:I
 
@@ -76,8 +67,6 @@
 
     const/4 v0, 0x1
 
-    .line 119
-    .local v0, "result":Z
     :goto_0
     const/4 v1, 0x3
 
@@ -87,19 +76,13 @@
 
     monitor-exit v2
 
-    .line 120
     return v0
 
-    .line 118
-    .end local v0    # "result":Z
     :cond_0
     const/4 v0, 0x0
 
-    .restart local v0    # "result":Z
     goto :goto_0
 
-    .line 117
-    .end local v0    # "result":Z
     :catchall_0
     move-exception v1
 
@@ -114,13 +97,10 @@
 .method public scheduledExecutionTime()J
     .locals 6
 
-    .prologue
-    .line 153
     iget-object v2, p0, Ljava/util/TimerTask;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 154
     :try_start_0
     iget-wide v0, p0, Ljava/util/TimerTask;->period:J
 
@@ -143,7 +123,6 @@
 
     return-wide v0
 
-    .line 155
     :cond_0
     :try_start_1
     iget-wide v0, p0, Ljava/util/TimerTask;->nextExecutionTime:J
@@ -156,7 +135,6 @@
 
     goto :goto_0
 
-    .line 153
     :catchall_0
     move-exception v0
 

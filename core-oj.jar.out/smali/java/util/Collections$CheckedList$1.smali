@@ -35,10 +35,6 @@
 .method constructor <init>(Ljava/util/Collections$CheckedList;Ljava/util/ListIterator;)V
     .locals 0
 
-    .prologue
-    .line 2891
-    .local p1, "this$1":Ljava/util/Collections$CheckedList;, "Ljava/util/Collections$CheckedList<TE;>;"
-    .local p2, "val$i":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     iput-object p1, p0, Ljava/util/Collections$CheckedList$1;->this$1:Ljava/util/Collections$CheckedList;
 
     iput-object p2, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
@@ -58,19 +54,14 @@
         }
     .end annotation
 
-    .prologue
-    .line 2906
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->this$1:Ljava/util/Collections$CheckedList;
 
     invoke-virtual {v0, p1}, Ljava/util/Collections$CheckedCollection;->typeCheck(Ljava/lang/Object;)V
 
-    .line 2907
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 2905
     return-void
 .end method
 
@@ -84,22 +75,16 @@
         }
     .end annotation
 
-    .prologue
-    .line 2912
-    .local p1, "action":Ljava/util/function/Consumer;, "Ljava/util/function/Consumer<-TE;>;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->forEachRemaining(Ljava/util/function/Consumer;)V
 
-    .line 2911
     return-void
 .end method
 
 .method public hasNext()Z
     .locals 1
 
-    .prologue
-    .line 2892
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
@@ -112,8 +97,6 @@
 .method public hasPrevious()Z
     .locals 1
 
-    .prologue
-    .line 2894
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
@@ -131,8 +114,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2893
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -145,8 +126,6 @@
 .method public nextIndex()I
     .locals 1
 
-    .prologue
-    .line 2896
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -164,8 +143,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 2895
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -178,8 +155,6 @@
 .method public previousIndex()I
     .locals 1
 
-    .prologue
-    .line 2897
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -192,8 +167,6 @@
 .method public remove()V
     .locals 1
 
-    .prologue
-    .line 2898
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
@@ -209,18 +182,13 @@
         }
     .end annotation
 
-    .prologue
-    .line 2901
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->this$1:Ljava/util/Collections$CheckedList;
 
     invoke-virtual {v0, p1}, Ljava/util/Collections$CheckedCollection;->typeCheck(Ljava/lang/Object;)V
 
-    .line 2902
     iget-object v0, p0, Ljava/util/Collections$CheckedList$1;->val$i:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 2900
     return-void
 .end method

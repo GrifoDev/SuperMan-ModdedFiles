@@ -40,12 +40,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 513
-    .local p1, "downstream":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Long;>;"
     invoke-direct {p0, p1}, Ljava/util/stream/Sink$ChainedLong;-><init>(Ljava/util/stream/Sink;)V
 
-    .line 512
     return-void
 .end method
 
@@ -54,13 +50,10 @@
 .method public final cancellationRequested()Z
     .locals 1
 
-    .prologue
-    .line 518
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/SortedOps$AbstractLongSortingSink;->cancellationWasRequested:Z
 
-    .line 519
     const/4 v0, 0x0
 
     return v0

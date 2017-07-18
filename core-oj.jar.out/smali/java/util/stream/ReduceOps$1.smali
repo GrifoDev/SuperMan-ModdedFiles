@@ -34,13 +34,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/BiFunction;Ljava/util/function/BinaryOperator;)V
     .locals 0
-    .param p1, "$anonymous0"    # Ljava/util/stream/StreamShape;
 
-    .prologue
-    .line 88
-    .local p2, "val$seed":Ljava/lang/Object;, "TU;"
-    .local p3, "val$reducer":Ljava/util/function/BiFunction;, "Ljava/util/function/BiFunction<TU;-TT;TU;>;"
-    .local p4, "val$combiner":Ljava/util/function/BinaryOperator;, "Ljava/util/function/BinaryOperator<TU;>;"
     iput-object p2, p0, Ljava/util/stream/ReduceOps$1;->val$seed:Ljava/lang/Object;
 
     iput-object p3, p0, Ljava/util/stream/ReduceOps$1;->val$reducer:Ljava/util/function/BiFunction;
@@ -57,8 +51,6 @@
 .method public makeSink()Ljava/util/stream/ReduceOps$1ReducingSink;
     .locals 4
 
-    .prologue
-    .line 91
     new-instance v0, Ljava/util/stream/ReduceOps$1ReducingSink;
 
     iget-object v1, p0, Ljava/util/stream/ReduceOps$1;->val$seed:Ljava/lang/Object;
@@ -75,8 +67,6 @@
 .method public bridge synthetic makeSink()Ljava/util/stream/ReduceOps$AccumulatingSink;
     .locals 1
 
-    .prologue
-    .line 90
     invoke-virtual {p0}, Ljava/util/stream/ReduceOps$1;->makeSink()Ljava/util/stream/ReduceOps$1ReducingSink;
 
     move-result-object v0

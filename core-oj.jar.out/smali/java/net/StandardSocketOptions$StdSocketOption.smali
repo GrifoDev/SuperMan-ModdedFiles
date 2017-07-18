@@ -44,7 +44,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,19 +53,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 356
-    .local p0, "this":Ljava/net/StandardSocketOptions$StdSocketOption;, "Ljava/net/StandardSocketOptions$StdSocketOption<TT;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 357
     iput-object p1, p0, Ljava/net/StandardSocketOptions$StdSocketOption;->name:Ljava/lang/String;
 
-    .line 358
     iput-object p2, p0, Ljava/net/StandardSocketOptions$StdSocketOption;->type:Ljava/lang/Class;
 
-    .line 356
     return-void
 .end method
 
@@ -75,9 +67,6 @@
 .method public name()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 360
-    .local p0, "this":Ljava/net/StandardSocketOptions$StdSocketOption;, "Ljava/net/StandardSocketOptions$StdSocketOption<TT;>;"
     iget-object v0, p0, Ljava/net/StandardSocketOptions$StdSocketOption;->name:Ljava/lang/String;
 
     return-object v0
@@ -86,9 +75,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .prologue
-    .line 362
-    .local p0, "this":Ljava/net/StandardSocketOptions$StdSocketOption;, "Ljava/net/StandardSocketOptions$StdSocketOption<TT;>;"
     iget-object v0, p0, Ljava/net/StandardSocketOptions$StdSocketOption;->name:Ljava/lang/String;
 
     return-object v0
@@ -104,9 +90,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 361
-    .local p0, "this":Ljava/net/StandardSocketOptions$StdSocketOption;, "Ljava/net/StandardSocketOptions$StdSocketOption<TT;>;"
     iget-object v0, p0, Ljava/net/StandardSocketOptions$StdSocketOption;->type:Ljava/lang/Class;
 
     return-object v0

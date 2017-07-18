@@ -25,16 +25,12 @@
 .method public constructor <init>()V
     .locals 1
 
-    .prologue
-    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Ljava/util/logging/ErrorManager;->reported:Z
 
-    .line 39
     return-void
 .end method
 
@@ -42,14 +38,9 @@
 # virtual methods
 .method public declared-synchronized error(Ljava/lang/String;Ljava/lang/Exception;I)V
     .locals 3
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "ex"    # Ljava/lang/Exception;
-    .param p3, "code"    # I
 
-    .prologue
     monitor-enter p0
 
-    .line 84
     :try_start_0
     iget-boolean v1, p0, Ljava/util/logging/ErrorManager;->reported:Z
     :try_end_0
@@ -59,17 +50,14 @@
 
     monitor-exit p0
 
-    .line 87
     return-void
 
-    .line 89
     :cond_0
     const/4 v1, 0x1
 
     :try_start_1
     iput-boolean v1, p0, Ljava/util/logging/ErrorManager;->reported:Z
 
-    .line 90
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -88,11 +76,8 @@
 
     move-result-object v0
 
-    .line 91
-    .local v0, "text":Ljava/lang/String;
     if-eqz p1, :cond_1
 
-    .line 92
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -115,16 +100,13 @@
 
     move-result-object v0
 
-    .line 94
     :cond_1
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     invoke-virtual {v1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 95
     if-eqz p2, :cond_2
 
-    .line 96
     invoke-virtual {p2}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -132,10 +114,8 @@
     :cond_2
     monitor-exit p0
 
-    .line 83
     return-void
 
-    .end local v0    # "text":Ljava/lang/String;
     :catchall_0
     move-exception v1
 

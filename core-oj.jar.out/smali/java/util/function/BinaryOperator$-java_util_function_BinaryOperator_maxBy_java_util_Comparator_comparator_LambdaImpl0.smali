@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/Comparator;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/function/BinaryOperator$-java_util_function_BinaryOperator_maxBy_java_util_Comparator_comparator_LambdaImpl0;->val$comparator:Ljava/util/Comparator;
@@ -37,10 +36,7 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
-    .param p2, "arg1"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/function/BinaryOperator$-java_util_function_BinaryOperator_maxBy_java_util_Comparator_comparator_LambdaImpl0;->val$comparator:Ljava/util/Comparator;
 
     invoke-static {v0, p1, p2}, Ljava/util/function/BinaryOperator;->-java_util_function_BinaryOperator_lambda$2(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

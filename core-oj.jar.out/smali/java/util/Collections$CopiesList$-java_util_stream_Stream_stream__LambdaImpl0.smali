@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/Collections$CopiesList;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/Collections$CopiesList$-java_util_stream_Stream_stream__LambdaImpl0;->val$this:Ljava/util/Collections$CopiesList;
@@ -37,9 +36,7 @@
 # virtual methods
 .method public apply(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "arg0"    # I
 
-    .prologue
     iget-object v0, p0, Ljava/util/Collections$CopiesList$-java_util_stream_Stream_stream__LambdaImpl0;->val$this:Ljava/util/Collections$CopiesList;
 
     invoke-virtual {v0, p1}, Ljava/util/Collections$CopiesList;->-java_util_Collections$CopiesList_lambda$6(I)Ljava/lang/Object;

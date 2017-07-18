@@ -25,22 +25,16 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "nap"    # I
 
-    .prologue
-    .line 248
     invoke-direct {p0}, Ljava/util/Stack;-><init>()V
 
-    .line 249
     iput p1, p0, Lsun/net/www/http/ClientVector;->nap:I
 
-    .line 248
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -48,8 +42,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 290
     new-instance v0, Ljava/io/NotSerializableException;
 
     invoke-direct {v0}, Ljava/io/NotSerializableException;-><init>()V
@@ -59,15 +51,12 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 285
     new-instance v0, Ljava/io/NotSerializableException;
 
     invoke-direct {v0}, Ljava/io/NotSerializableException;-><init>()V
@@ -80,12 +69,10 @@
 .method declared-synchronized get()Lsun/net/www/http/HttpClient;
     .locals 8
 
-    .prologue
     const/4 v5, 0x0
 
     monitor-enter p0
 
-    .line 253
     :try_start_0
     invoke-virtual {p0}, Ljava/util/Stack;->empty()Z
     :try_end_0
@@ -97,23 +84,16 @@
 
     monitor-exit p0
 
-    .line 254
     return-object v5
 
-    .line 257
     :cond_0
     const/4 v3, 0x0
 
-    .line 258
-    .local v3, "hc":Lsun/net/www/http/HttpClient;
     :try_start_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 260
-    .end local v3    # "hc":Lsun/net/www/http/HttpClient;
-    .local v0, "currentTime":J
     :cond_1
     invoke-virtual {p0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
@@ -121,8 +101,6 @@
 
     check-cast v2, Lsun/net/www/http/KeepAliveEntry;
 
-    .line 261
-    .local v2, "e":Lsun/net/www/http/KeepAliveEntry;
     iget-wide v4, v2, Lsun/net/www/http/KeepAliveEntry;->idleStartTime:J
 
     sub-long v4, v0, v4
@@ -135,12 +113,10 @@
 
     if-lez v4, :cond_3
 
-    .line 262
     iget-object v4, v2, Lsun/net/www/http/KeepAliveEntry;->hc:Lsun/net/www/http/HttpClient;
 
     invoke-virtual {v4}, Lsun/net/www/http/HttpClient;->closeServer()V
 
-    .line 266
     :goto_0
     if-nez v3, :cond_2
 
@@ -155,22 +131,16 @@
     :cond_2
     monitor-exit p0
 
-    .line 267
     return-object v3
 
-    .line 264
     :cond_3
     :try_start_2
     iget-object v3, v2, Lsun/net/www/http/KeepAliveEntry;->hc:Lsun/net/www/http/HttpClient;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .local v3, "hc":Lsun/net/www/http/HttpClient;
     goto :goto_0
 
-    .end local v0    # "currentTime":J
-    .end local v2    # "e":Lsun/net/www/http/KeepAliveEntry;
-    .end local v3    # "hc":Lsun/net/www/http/HttpClient;
     :catchall_0
     move-exception v4
 
@@ -181,12 +151,9 @@
 
 .method declared-synchronized put(Lsun/net/www/http/HttpClient;)V
     .locals 4
-    .param p1, "h"    # Lsun/net/www/http/HttpClient;
 
-    .prologue
     monitor-enter p0
 
-    .line 273
     :try_start_0
     invoke-virtual {p0}, Ljava/util/Vector;->size()I
 
@@ -198,7 +165,6 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 274
     invoke-virtual {p1}, Lsun/net/www/http/HttpClient;->closeServer()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -206,10 +172,8 @@
     :goto_0
     monitor-exit p0
 
-    .line 272
     return-void
 
-    .line 276
     :cond_0
     :try_start_1
     new-instance v0, Lsun/net/www/http/KeepAliveEntry;

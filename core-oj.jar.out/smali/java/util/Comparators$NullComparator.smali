@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(ZLjava/util/Comparator;)V
     .locals 0
-    .param p1, "nullFirst"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -59,19 +58,12 @@
         }
     .end annotation
 
-    .prologue
-    .line 71
-    .local p0, "this":Ljava/util/Comparators$NullComparator;, "Ljava/util/Comparators$NullComparator<TT;>;"
-    .local p2, "real":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     iput-boolean p1, p0, Ljava/util/Comparators$NullComparator;->nullFirst:Z
 
-    .line 73
     iput-object p2, p0, Ljava/util/Comparators$NullComparator;->real:Ljava/util/Comparator;
 
-    .line 71
     return-void
 .end method
 
@@ -85,20 +77,14 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/Comparators$NullComparator;, "Ljava/util/Comparators$NullComparator<TT;>;"
-    .local p1, "a":Ljava/lang/Object;, "TT;"
-    .local p2, "b":Ljava/lang/Object;, "TT;"
     const/4 v2, 0x1
 
     const/4 v0, 0x0
 
     const/4 v1, -0x1
 
-    .line 78
     if-nez p1, :cond_2
 
-    .line 79
     if-nez p2, :cond_0
 
     :goto_0
@@ -118,11 +104,9 @@
 
     goto :goto_0
 
-    .line 80
     :cond_2
     if-nez p2, :cond_4
 
-    .line 81
     iget-boolean v0, p0, Ljava/util/Comparators$NullComparator;->nullFirst:Z
 
     if-eqz v0, :cond_3
@@ -135,7 +119,6 @@
 
     goto :goto_1
 
-    .line 83
     :cond_4
     iget-object v1, p0, Ljava/util/Comparators$NullComparator;->real:Ljava/util/Comparator;
 
@@ -164,11 +147,8 @@
         }
     .end annotation
 
-    .prologue
-    .local p0, "this":Ljava/util/Comparators$NullComparator;, "Ljava/util/Comparators$NullComparator<TT;>;"
     const/4 v1, 0x0
 
-    .line 95
     new-instance v2, Ljava/util/Comparators$NullComparator;
 
     iget-boolean v0, p0, Ljava/util/Comparators$NullComparator;->nullFirst:Z
@@ -214,13 +194,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 89
-    .local p0, "this":Ljava/util/Comparators$NullComparator;, "Ljava/util/Comparators$NullComparator<TT;>;"
-    .local p1, "other":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 90
     new-instance v0, Ljava/util/Comparators$NullComparator;
 
     iget-boolean v1, p0, Ljava/util/Comparators$NullComparator;->nullFirst:Z
@@ -229,13 +204,11 @@
 
     if-nez v2, :cond_0
 
-    .end local p1    # "other":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     :goto_0
     invoke-direct {v0, v1, p1}, Ljava/util/Comparators$NullComparator;-><init>(ZLjava/util/Comparator;)V
 
     return-object v0
 
-    .restart local p1    # "other":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     :cond_0
     iget-object v2, p0, Ljava/util/Comparators$NullComparator;->real:Ljava/util/Comparator;
 

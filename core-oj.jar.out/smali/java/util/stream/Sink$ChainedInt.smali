@@ -49,13 +49,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 280
-    .local p0, "this":Ljava/util/stream/Sink$ChainedInt;, "Ljava/util/stream/Sink<TT;>.ChainedInt<TE_OUT;>;"
-    .local p1, "downstream":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-TE_OUT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 281
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -64,7 +59,6 @@
 
     iput-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
-    .line 280
     return-void
 .end method
 
@@ -72,14 +66,9 @@
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "i"    # Ljava/lang/Object;
 
-    .prologue
-    .line 195
-    .local p0, "this":Ljava/util/stream/Sink$ChainedInt;, "Ljava/util/stream/Sink<TT;>.ChainedInt<TE_OUT;>;"
     check-cast p1, Ljava/lang/Integer;
 
-    .end local p1    # "i":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/stream/Sink$OfInt;->accept(Ljava/lang/Integer;)V
 
     return-void
@@ -87,25 +76,17 @@
 
 .method public begin(J)V
     .locals 1
-    .param p1, "size"    # J
 
-    .prologue
-    .line 286
-    .local p0, "this":Ljava/util/stream/Sink$ChainedInt;, "Ljava/util/stream/Sink<TT;>.ChainedInt<TE_OUT;>;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0, p1, p2}, Ljava/util/stream/Sink;->begin(J)V
 
-    .line 285
     return-void
 .end method
 
 .method public cancellationRequested()Z
     .locals 1
 
-    .prologue
-    .line 296
-    .local p0, "this":Ljava/util/stream/Sink$ChainedInt;, "Ljava/util/stream/Sink<TT;>.ChainedInt<TE_OUT;>;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0}, Ljava/util/stream/Sink;->cancellationRequested()Z
@@ -118,13 +99,9 @@
 .method public end()V
     .locals 1
 
-    .prologue
-    .line 291
-    .local p0, "this":Ljava/util/stream/Sink$ChainedInt;, "Ljava/util/stream/Sink<TT;>.ChainedInt<TE_OUT;>;"
     iget-object v0, p0, Ljava/util/stream/Sink$ChainedInt;->downstream:Ljava/util/stream/Sink;
 
     invoke-interface {v0}, Ljava/util/stream/Sink;->end()V
 
-    .line 290
     return-void
 .end method

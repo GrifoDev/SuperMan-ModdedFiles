@@ -15,8 +15,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,11 +22,7 @@
 
 .method public static isNormalized(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Z
     .locals 3
-    .param p0, "src"    # Ljava/lang/CharSequence;
-    .param p1, "form"    # Ljava/text/Normalizer$Form;
 
-    .prologue
-    .line 188
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -48,11 +42,7 @@
 
 .method public static normalize(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Ljava/lang/String;
     .locals 2
-    .param p0, "src"    # Ljava/lang/CharSequence;
-    .param p1, "form"    # Ljava/text/Normalizer$Form;
 
-    .prologue
-    .line 170
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0

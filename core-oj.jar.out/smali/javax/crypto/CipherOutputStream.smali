@@ -16,56 +16,41 @@
 # direct methods
 .method protected constructor <init>(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/OutputStream;
 
-    .prologue
-    .line 104
     invoke-direct {p0, p1}, Ljava/io/FilterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 72
     const/4 v0, 0x1
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Ljavax/crypto/CipherOutputStream;->ibuffer:[B
 
-    .line 105
     iput-object p1, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
-    .line 106
     new-instance v0, Ljavax/crypto/NullCipher;
 
     invoke-direct {v0}, Ljavax/crypto/NullCipher;-><init>()V
 
     iput-object v0, p0, Ljavax/crypto/CipherOutputStream;->cipher:Ljavax/crypto/Cipher;
 
-    .line 103
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/OutputStream;
-    .param p2, "c"    # Ljavax/crypto/Cipher;
 
-    .prologue
-    .line 89
     invoke-direct {p0, p1}, Ljava/io/FilterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 72
     const/4 v0, 0x1
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Ljavax/crypto/CipherOutputStream;->ibuffer:[B
 
-    .line 90
     iput-object p1, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
-    .line 91
     iput-object p2, p0, Ljavax/crypto/CipherOutputStream;->cipher:Ljavax/crypto/Cipher;
 
-    .line 88
     return-void
 .end method
 
@@ -79,10 +64,8 @@
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
-    .line 202
     :try_start_0
     iget-object v3, p0, Ljavax/crypto/CipherOutputStream;->cipher:Ljavax/crypto/Cipher;
 
@@ -95,49 +78,36 @@
     .catch Ljavax/crypto/IllegalBlockSizeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljavax/crypto/BadPaddingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 209
     :goto_0
     :try_start_1
     invoke-virtual {p0}, Ljavax/crypto/CipherOutputStream;->flush()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 211
     :goto_1
     iget-object v3, p0, Ljavax/crypto/CipherOutputStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v3}, Ljava/io/OutputStream;->close()V
 
-    .line 200
     return-void
 
-    .line 205
     :catch_0
     move-exception v0
 
-    .line 206
-    .local v0, "e":Ljavax/crypto/BadPaddingException;
     iput-object v4, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     goto :goto_0
 
-    .line 203
-    .end local v0    # "e":Ljavax/crypto/BadPaddingException;
     :catch_1
     move-exception v1
 
-    .line 204
-    .local v1, "e":Ljavax/crypto/IllegalBlockSizeException;
     iput-object v4, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     goto :goto_0
 
-    .line 210
-    .end local v1    # "e":Ljavax/crypto/IllegalBlockSizeException;
     :catch_2
     move-exception v2
 
-    .local v2, "ignored":Ljava/io/IOException;
     goto :goto_1
 .end method
 
@@ -149,56 +119,46 @@
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 177
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     if-eqz v0, :cond_0
 
-    .line 178
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
     iget-object v1, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    .line 179
     iput-object v2, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
-    .line 181
     :cond_0
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
 
-    .line 176
     return-void
 .end method
 
 .method public write(I)V
     .locals 5
-    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v4, 0x0
 
     const/4 v3, 0x0
 
-    .line 117
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->ibuffer:[B
 
     int-to-byte v1, p1
 
     aput-byte v1, v0, v3
 
-    .line 118
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->cipher:Ljavax/crypto/Cipher;
 
     iget-object v1, p0, Ljavax/crypto/CipherOutputStream;->ibuffer:[B
@@ -211,62 +171,49 @@
 
     iput-object v0, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
-    .line 119
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     if-eqz v0, :cond_0
 
-    .line 120
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
     iget-object v1, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    .line 121
     iput-object v4, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
-    .line 116
     :cond_0
     return-void
 .end method
 
 .method public write([B)V
     .locals 2
-    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
-    .line 141
     array-length v0, p1
 
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, v1, v0}, Ljavax/crypto/CipherOutputStream;->write([BII)V
 
-    .line 140
     return-void
 .end method
 
 .method public write([BII)V
     .locals 3
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .prologue
     const/4 v2, 0x0
 
-    .line 155
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->cipher:Ljavax/crypto/Cipher;
 
     invoke-virtual {v0, p1, p2, p3}, Ljavax/crypto/Cipher;->update([BII)[B
@@ -275,22 +222,18 @@
 
     iput-object v0, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
-    .line 156
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     if-eqz v0, :cond_0
 
-    .line 157
     iget-object v0, p0, Ljavax/crypto/CipherOutputStream;->output:Ljava/io/OutputStream;
 
     iget-object v1, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
     invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
 
-    .line 158
     iput-object v2, p0, Ljavax/crypto/CipherOutputStream;->obuffer:[B
 
-    .line 154
     :cond_0
     return-void
 .end method

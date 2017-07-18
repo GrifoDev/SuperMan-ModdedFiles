@@ -19,9 +19,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .prologue
-    .line 48
-    .local p0, "this":Ljava/lang/InheritableThreadLocal;, "Ljava/lang/InheritableThreadLocal<TT;>;"
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
 
     return-void
@@ -37,16 +34,11 @@
         }
     .end annotation
 
-    .prologue
-    .line 62
-    .local p0, "this":Ljava/lang/InheritableThreadLocal;, "Ljava/lang/InheritableThreadLocal<TT;>;"
-    .local p1, "parentValue":Ljava/lang/Object;, "TT;"
     return-object p1
 .end method
 
 .method createMap(Ljava/lang/Thread;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Thread;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,27 +47,18 @@
         }
     .end annotation
 
-    .prologue
-    .line 82
-    .local p0, "this":Ljava/lang/InheritableThreadLocal;, "Ljava/lang/InheritableThreadLocal<TT;>;"
-    .local p2, "firstValue":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/lang/ThreadLocal$ThreadLocalMap;
 
     invoke-direct {v0, p0, p2}, Ljava/lang/ThreadLocal$ThreadLocalMap;-><init>(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V
 
     iput-object v0, p1, Ljava/lang/Thread;->inheritableThreadLocals:Ljava/lang/ThreadLocal$ThreadLocalMap;
 
-    .line 81
     return-void
 .end method
 
 .method getMap(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;
     .locals 1
-    .param p1, "t"    # Ljava/lang/Thread;
 
-    .prologue
-    .line 71
-    .local p0, "this":Ljava/lang/InheritableThreadLocal;, "Ljava/lang/InheritableThreadLocal<TT;>;"
     iget-object v0, p1, Ljava/lang/Thread;->inheritableThreadLocals:Ljava/lang/ThreadLocal$ThreadLocalMap;
 
     return-object v0

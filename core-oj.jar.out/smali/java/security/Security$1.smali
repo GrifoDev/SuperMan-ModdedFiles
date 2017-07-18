@@ -34,10 +34,7 @@
 # direct methods
 .method constructor <init>(Z)V
     .locals 0
-    .param p1, "val$pa"    # Z
 
-    .prologue
-    .line 707
     iput-boolean p1, p0, Ljava/security/Security$1;->val$pa:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,8 +47,6 @@
 .method public bridge synthetic run()Ljava/lang/Object;
     .locals 1
 
-    .prologue
-    .line 708
     invoke-virtual {p0}, Ljava/security/Security$1;->run()Ljava/lang/Void;
 
     move-result-object v0
@@ -62,10 +57,8 @@
 .method public run()Ljava/lang/Void;
     .locals 8
 
-    .prologue
     const/4 v7, 0x0
 
-    .line 712
     :try_start_0
     const-string/jumbo v4, "java.lang.SecurityManager"
 
@@ -73,64 +66,42 @@
 
     const/4 v6, 0x0
 
-    .line 711
     invoke-static {v4, v5, v6}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v1
 
-    .line 713
-    .local v1, "cl":Ljava/lang/Class;
     const/4 v3, 0x0
 
-    .line 714
-    .local v3, "f":Ljava/lang/reflect/Field;
     const/4 v0, 0x0
 
-    .line 716
-    .local v0, "accessible":Z
     iget-boolean v4, p0, Ljava/security/Security$1;->val$pa:Z
 
     if-eqz v4, :cond_0
 
-    .line 717
     const-string/jumbo v4, "packageAccessValid"
 
     invoke-virtual {v1, v4}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v3
 
-    .line 718
-    .local v3, "f":Ljava/lang/reflect/Field;
     invoke-virtual {v3}, Ljava/lang/reflect/AccessibleObject;->isAccessible()Z
 
     move-result v0
 
-    .line 719
-    .local v0, "accessible":Z
     const/4 v4, 0x1
 
     invoke-virtual {v3, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    .line 725
     :goto_0
     const/4 v4, 0x0
 
     invoke-virtual {v3, v3, v4}, Ljava/lang/reflect/Field;->setBoolean(Ljava/lang/Object;Z)V
 
-    .line 726
     invoke-virtual {v3, v0}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
-    .line 739
-    .end local v0    # "accessible":Z
-    .end local v1    # "cl":Ljava/lang/Class;
-    .end local v3    # "f":Ljava/lang/reflect/Field;
     :goto_1
     return-object v7
 
-    .line 721
-    .local v0, "accessible":Z
-    .restart local v1    # "cl":Ljava/lang/Class;
-    .local v3, "f":Ljava/lang/reflect/Field;
     :cond_0
     const-string/jumbo v4, "packageDefinitionValid"
 
@@ -138,14 +109,10 @@
 
     move-result-object v3
 
-    .line 722
-    .local v3, "f":Ljava/lang/reflect/Field;
     invoke-virtual {v3}, Ljava/lang/reflect/AccessibleObject;->isAccessible()Z
 
     move-result v0
 
-    .line 723
-    .local v0, "accessible":Z
     const/4 v4, 0x1
 
     invoke-virtual {v3, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
@@ -154,13 +121,8 @@
 
     goto :goto_0
 
-    .line 728
-    .end local v0    # "accessible":Z
-    .end local v1    # "cl":Ljava/lang/Class;
-    .end local v3    # "f":Ljava/lang/reflect/Field;
     :catch_0
     move-exception v2
 
-    .local v2, "e1":Ljava/lang/Exception;
     goto :goto_1
 .end method

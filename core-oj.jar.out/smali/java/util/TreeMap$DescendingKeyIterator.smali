@@ -36,17 +36,10 @@
         }
     .end annotation
 
-    .prologue
-    .line 1291
-    .local p0, "this":Ljava/util/TreeMap$DescendingKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.DescendingKeyIterator;"
-    .local p1, "this$0":Ljava/util/TreeMap;, "Ljava/util/TreeMap<TK;TV;>;"
-    .local p2, "first":Ljava/util/TreeMap$TreeMapEntry;, "Ljava/util/TreeMap$TreeMapEntry<TK;TV;>;"
     iput-object p1, p0, Ljava/util/TreeMap$DescendingKeyIterator;->this$0:Ljava/util/TreeMap;
 
-    .line 1292
     invoke-direct {p0, p1, p2}, Ljava/util/TreeMap$PrivateEntryIterator;-><init>(Ljava/util/TreeMap;Ljava/util/TreeMap$TreeMapEntry;)V
 
-    .line 1291
     return-void
 .end method
 
@@ -60,9 +53,6 @@
         }
     .end annotation
 
-    .prologue
-    .line 1295
-    .local p0, "this":Ljava/util/TreeMap$DescendingKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.DescendingKeyIterator;"
     invoke-virtual {p0}, Ljava/util/TreeMap$PrivateEntryIterator;->prevEntry()Ljava/util/TreeMap$TreeMapEntry;
 
     move-result-object v0
@@ -75,23 +65,18 @@
 .method public remove()V
     .locals 3
 
-    .prologue
-    .local p0, "this":Ljava/util/TreeMap$DescendingKeyIterator;, "Ljava/util/TreeMap<TK;TV;>.DescendingKeyIterator;"
     const/4 v2, 0x0
 
-    .line 1298
     iget-object v0, p0, Ljava/util/TreeMap$PrivateEntryIterator;->lastReturned:Ljava/util/TreeMap$TreeMapEntry;
 
     if-nez v0, :cond_0
 
-    .line 1299
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v0
 
-    .line 1300
     :cond_0
     iget-object v0, p0, Ljava/util/TreeMap$DescendingKeyIterator;->this$0:Ljava/util/TreeMap;
 
@@ -103,14 +88,12 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 1301
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
     throw v0
 
-    .line 1302
     :cond_1
     iget-object v0, p0, Ljava/util/TreeMap$DescendingKeyIterator;->this$0:Ljava/util/TreeMap;
 
@@ -118,10 +101,8 @@
 
     invoke-static {v0, v1}, Ljava/util/TreeMap;->-wrap0(Ljava/util/TreeMap;Ljava/util/TreeMap$TreeMapEntry;)V
 
-    .line 1303
     iput-object v2, p0, Ljava/util/TreeMap$PrivateEntryIterator;->lastReturned:Ljava/util/TreeMap$TreeMapEntry;
 
-    .line 1304
     iget-object v0, p0, Ljava/util/TreeMap$DescendingKeyIterator;->this$0:Ljava/util/TreeMap;
 
     invoke-static {v0}, Ljava/util/TreeMap;->-get2(Ljava/util/TreeMap;)I
@@ -130,6 +111,5 @@
 
     iput v0, p0, Ljava/util/TreeMap$PrivateEntryIterator;->expectedModCount:I
 
-    .line 1297
     return-void
 .end method

@@ -40,30 +40,20 @@
 # direct methods
 .method protected constructor <init>(JI)V
     .locals 1
-    .param p1, "est"    # J
-    .param p3, "additionalCharacteristics"    # I
 
-    .prologue
-    .line 1396
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1397
     iput-wide p1, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
-    .line 1398
     and-int/lit8 v0, p3, 0x40
 
     if-eqz v0, :cond_0
 
-    .line 1399
     or-int/lit16 p3, p3, 0x4000
 
-    .line 1398
-    .end local p3    # "additionalCharacteristics":I
     :cond_0
     iput p3, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->characteristics:I
 
-    .line 1396
     return-void
 .end method
 
@@ -72,8 +62,6 @@
 .method public characteristics()I
     .locals 1
 
-    .prologue
-    .line 1460
     iget v0, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->characteristics:I
 
     return v0
@@ -82,8 +70,6 @@
 .method public estimateSize()J
     .locals 2
 
-    .prologue
-    .line 1448
     iget-wide v0, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
     return-wide v0
@@ -91,13 +77,9 @@
 
 .method public bridge synthetic forEachRemaining(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
-    .prologue
-    .line 653
     check-cast p1, Ljava/util/function/IntConsumer;
 
-    .end local p1    # "action":Ljava/lang/Object;
     invoke-interface {p0, p1}, Ljava/util/Spliterator$OfInt;->forEachRemaining(Ljava/util/function/IntConsumer;)V
 
     return-void
@@ -106,18 +88,12 @@
 .method public trySplit()Ljava/util/Spliterator$OfInt;
     .locals 10
 
-    .prologue
-    .line 1419
     new-instance v1, Ljava/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;
 
     invoke-direct {v1}, Ljava/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;-><init>()V
 
-    .line 1420
-    .local v1, "holder":Ljava/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;
     iget-wide v4, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
-    .line 1421
-    .local v4, "s":J
     const-wide/16 v6, 0x1
 
     cmp-long v6, v4, v6
@@ -130,41 +106,30 @@
 
     if-eqz v6, :cond_5
 
-    .line 1422
     iget v6, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->batch:I
 
     add-int/lit16 v3, v6, 0x400
 
-    .line 1423
-    .local v3, "n":I
     int-to-long v6, v3
 
     cmp-long v6, v6, v4
 
     if-lez v6, :cond_0
 
-    .line 1424
     long-to-int v3, v4
 
-    .line 1425
     :cond_0
     const/high16 v6, 0x2000000
 
     if-le v3, v6, :cond_1
 
-    .line 1426
     const/high16 v3, 0x2000000
 
-    .line 1427
     :cond_1
     new-array v0, v3, [I
 
-    .line 1428
-    .local v0, "a":[I
     const/4 v2, 0x0
 
-    .line 1429
-    .local v2, "j":I
     :cond_2
     iget v6, v1, Ljava/util/Spliterators$AbstractIntSpliterator$HoldingIntConsumer;->value:I
 
@@ -180,11 +145,9 @@
 
     if-nez v6, :cond_2
 
-    .line 1430
     :cond_3
     iput v2, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->batch:I
 
-    .line 1431
     iget-wide v6, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
     const-wide v8, 0x7fffffffffffffffL
@@ -193,7 +156,6 @@
 
     if-eqz v6, :cond_4
 
-    .line 1432
     iget-wide v6, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
     int-to-long v8, v2
@@ -202,7 +164,6 @@
 
     iput-wide v6, p0, Ljava/util/Spliterators$AbstractIntSpliterator;->est:J
 
-    .line 1433
     :cond_4
     new-instance v6, Ljava/util/Spliterators$IntArraySpliterator;
 
@@ -216,10 +177,6 @@
 
     return-object v6
 
-    .line 1435
-    .end local v0    # "a":[I
-    .end local v2    # "j":I
-    .end local v3    # "n":I
     :cond_5
     const/4 v6, 0x0
 
@@ -229,8 +186,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator$OfPrimitive;
     .locals 1
 
-    .prologue
-    .line 1418
     invoke-virtual {p0}, Ljava/util/Spliterators$AbstractIntSpliterator;->trySplit()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0
@@ -241,8 +196,6 @@
 .method public bridge synthetic trySplit()Ljava/util/Spliterator;
     .locals 1
 
-    .prologue
-    .line 1418
     invoke-virtual {p0}, Ljava/util/Spliterators$AbstractIntSpliterator;->trySplit()Ljava/util/Spliterator$OfInt;
 
     move-result-object v0

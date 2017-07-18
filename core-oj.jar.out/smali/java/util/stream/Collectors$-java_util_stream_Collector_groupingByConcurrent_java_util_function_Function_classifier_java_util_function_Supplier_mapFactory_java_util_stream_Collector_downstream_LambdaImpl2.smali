@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/function/Function;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_groupingByConcurrent_java_util_function_Function_classifier_java_util_function_Supplier_mapFactory_java_util_stream_Collector_downstream_LambdaImpl2;->val$downstreamFinisher:Ljava/util/function/Function;
@@ -37,14 +36,11 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/Object;
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/Collectors$-java_util_stream_Collector_groupingByConcurrent_java_util_function_Function_classifier_java_util_function_Supplier_mapFactory_java_util_stream_Collector_downstream_LambdaImpl2;->val$downstreamFinisher:Ljava/util/function/Function;
 
     check-cast p1, Ljava/util/concurrent/ConcurrentMap;
 
-    .end local p1    # "arg0":Ljava/lang/Object;
     invoke-static {v0, p1}, Ljava/util/stream/Collectors;->-java_util_stream_Collectors_lambda$69(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0

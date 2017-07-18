@@ -25,7 +25,6 @@
 .method public synthetic constructor <init>(Ljava/util/stream/DoublePipeline$5$1;)V
     .locals 0
 
-    .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Ljava/util/stream/DoublePipeline$5$1$-void_accept_double_t_LambdaImpl0;->val$this:Ljava/util/stream/DoublePipeline$5$1;
@@ -37,9 +36,7 @@
 # virtual methods
 .method public accept(D)V
     .locals 1
-    .param p1, "arg0"    # D
 
-    .prologue
     iget-object v0, p0, Ljava/util/stream/DoublePipeline$5$1$-void_accept_double_t_LambdaImpl0;->val$this:Ljava/util/stream/DoublePipeline$5$1;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/stream/DoublePipeline$5$1;->-java_util_stream_DoublePipeline$5$1_lambda$3(D)V

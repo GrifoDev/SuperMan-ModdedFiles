@@ -30,17 +30,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/ThreadLocal;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "k"    # Ljava/lang/ThreadLocal;
-    .param p2, "v"    # Ljava/lang/Object;
 
-    .prologue
-    .line 276
-    .local p0, "this":Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;, "Ljava/lang/ThreadLocal<TT;>.ThreadLocalMap.Entry;"
     invoke-direct {p0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    .line 277
     iput-object p2, p0, Ljava/lang/ThreadLocal$ThreadLocalMap$Entry;->value:Ljava/lang/Object;
 
-    .line 275
     return-void
 .end method

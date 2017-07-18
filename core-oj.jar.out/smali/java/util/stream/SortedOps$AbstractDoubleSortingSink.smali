@@ -40,12 +40,8 @@
         }
     .end annotation
 
-    .prologue
-    .line 611
-    .local p1, "downstream":Ljava/util/stream/Sink;, "Ljava/util/stream/Sink<-Ljava/lang/Double;>;"
     invoke-direct {p0, p1}, Ljava/util/stream/Sink$ChainedDouble;-><init>(Ljava/util/stream/Sink;)V
 
-    .line 610
     return-void
 .end method
 
@@ -54,13 +50,10 @@
 .method public final cancellationRequested()Z
     .locals 1
 
-    .prologue
-    .line 616
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Ljava/util/stream/SortedOps$AbstractDoubleSortingSink;->cancellationWasRequested:Z
 
-    .line 617
     const/4 v0, 0x0
 
     return v0
