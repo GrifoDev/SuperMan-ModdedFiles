@@ -1,0 +1,37 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: 7JLpgPsFoA1ePAdrel/Gt5VYDVo=
+Created-By: 1.0 (Android SignApk)
+
+Name: assets/databases/SysScope.db
+SHA1-Digest: nBxjYdDmcaH6hVvn6D+cXcV7EU0=
+
+Name: lib/arm64-v8a/libcordon.so
+SHA1-Digest: 62sVhEmpWFVqfApXQIdKhRITfts=
+
+Name: lib/armeabi/libcordon.so
+SHA1-Digest: 06uI0mIps7/O/28yxbDvdzoK5GE=
+
+Name: AndroidManifest.xml
+SHA1-Digest: a6QVZUSohKEbjEn8SczSVvrvrDs=
+
+Name: SEC-INF/buildConfirm.crt
+SHA1-Digest: ir36zvd3F1FnMg/xKS909hQVlS8=
+
+Name: res/drawable-mdpi-v4/icon.qmg
+SHA1-Digest: uZ9nkL5JLnGIXFJJqSEAMe+hPzE=
+
+Name: res/drawable-ldpi-v4/icon.qmg
+SHA1-Digest: SKlb3I3yjMEmD/5rY2y7d7x2DmQ=
+
+Name: res/layout/main.xml
+SHA1-Digest: cpXDlaH2c29Au0ol5WGr75dVuTE=
+
+Name: SEC-INF/buildinfo.xml
+SHA1-Digest: CVHf/s1DLCLWjWze8dDOocjan5k=
+
+Name: resources.arsc
+SHA1-Digest: /N5xoyL0VrE2pjrmVUMzzgIiWJs=
+
+Name: res/drawable-hdpi-v4/icon.qmg
+SHA1-Digest: hzfFY7HApwss2Sf3APJqLCKjvl4=
+

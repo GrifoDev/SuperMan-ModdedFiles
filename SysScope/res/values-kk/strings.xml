@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Шығу</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Қарап шығу</string>
+    <string name="permgrouplab_sysscope">SysScope рұқсаттары</string>
+    <string name="permlab_run_sysscope">SysScope іске қосу</string>
+    <string name="progress_title">Күтіңіз</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Välju</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Otsi</string>
+    <string name="permgrouplab_sysscope">SysScope õigused</string>
+    <string name="permlab_run_sysscope">Käivita SysScope</string>
+    <string name="progress_title">Palun oodake</string>
+</resources>

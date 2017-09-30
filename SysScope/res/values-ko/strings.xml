@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">종료</string>
+    <string name="btn_ok">확인</string>
+    <string name="btn_scan">검색</string>
+    <string name="permgrouplab_sysscope">SysScope 허용</string>
+    <string name="permlab_run_sysscope">SysScope 실행</string>
+    <string name="progress_title">잠시만 기다리세요</string>
+    <string name="permdesc_run_sysscope">애플리케이션이 SysScope 서비스를 실행할 수 있도록 허용합니다.</string>
+    <string name="permgroupdesc_sysscope">애플리케이션이 SysScope를 실행할 수 있도록 허용합니다.</string>
+</resources>

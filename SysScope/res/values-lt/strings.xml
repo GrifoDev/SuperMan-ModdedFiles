@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Išeiti</string>
+    <string name="btn_ok">Gerai</string>
+    <string name="btn_scan">Skenuoti</string>
+    <string name="permgrouplab_sysscope">SysScope leidimai</string>
+    <string name="permlab_run_sysscope">Paleisti SysScope</string>
+    <string name="progress_title">Palaukite</string>
+</resources>

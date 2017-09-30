@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Irten</string>
+    <string name="btn_ok">Onartu</string>
+    <string name="btn_scan">Eskaneatzea</string>
+    <string name="permgrouplab_sysscope">SysScope baimenak</string>
+    <string name="permlab_run_sysscope">Abiarazi SysScope</string>
+    <string name="progress_title">Itxaron</string>
+</resources>

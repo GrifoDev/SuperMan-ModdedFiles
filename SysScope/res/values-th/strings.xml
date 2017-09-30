@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">ปิด</string>
+    <string name="btn_ok">ตกลง</string>
+    <string name="btn_scan">ค้น​หา</string>
+    <string name="permgrouplab_sysscope">การอนุญาต SysScope</string>
+    <string name="permlab_run_sysscope">รัน SysScope</string>
+    <string name="progress_title">กรุณา​รอ</string>
+</resources>

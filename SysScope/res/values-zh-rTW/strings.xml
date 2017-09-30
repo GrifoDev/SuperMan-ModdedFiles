@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">退出</string>
+    <string name="btn_ok">確認</string>
+    <string name="btn_scan">掃描</string>
+    <string name="permgrouplab_sysscope">SysScope 權限</string>
+    <string name="permlab_run_sysscope">執行 SysScope</string>
+    <string name="progress_title">請稍候</string>
+</resources>

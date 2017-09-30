@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Fara út</string>
+    <string name="btn_ok">Í lagi</string>
+    <string name="btn_scan">Skanna</string>
+    <string name="permgrouplab_sysscope">SysScope-leyfi</string>
+    <string name="permlab_run_sysscope">Keyra SysScope</string>
+    <string name="progress_title">Augnablik</string>
+</resources>

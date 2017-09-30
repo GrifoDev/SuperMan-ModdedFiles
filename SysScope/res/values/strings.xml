@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Exit</string>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_scan">Scan</string>
+    <string name="permgrouplab_sysscope">SysScope permissions</string>
+    <string name="permlab_run_sysscope">Run SysScope</string>
+    <string name="progress_title">Please Wait</string>
+    <string name="permdesc_run_sysscope">Allow applications to run SysScope.</string>
+    <string name="permgroupdesc_sysscope">Allow applications to run SysScope services.</string>
+    <string name="app_name">SysScope</string>
+    <string name="msg_no_class_def_found">No SysDial class definition found in your device</string>
+    <string name="progress_message">Message Here</string>
+</resources>

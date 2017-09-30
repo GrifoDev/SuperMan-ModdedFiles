@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Izađi</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Skeniraj</string>
+    <string name="permgrouplab_sysscope">Dozvole za SysScope</string>
+    <string name="permlab_run_sysscope">Pokreni SysScope</string>
+    <string name="progress_title">Molim sačekajte</string>
+</resources>

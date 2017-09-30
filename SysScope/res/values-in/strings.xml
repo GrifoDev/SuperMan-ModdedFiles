@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Keluar</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Menscan</string>
+    <string name="permgrouplab_sysscope">Izin SysScope</string>
+    <string name="permlab_run_sysscope">Jalankan SysScope</string>
+    <string name="progress_title">Harap tunggu</string>
+</resources>

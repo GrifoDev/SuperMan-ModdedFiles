@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">יציאה</string>
+    <string name="btn_ok">אישור</string>
+    <string name="btn_scan">סרוק</string>
+    <string name="permgrouplab_sysscope">הרשאות SysScope</string>
+    <string name="permlab_run_sysscope">הפעל את SysScope</string>
+    <string name="progress_title">אנא המתן</string>
+</resources>

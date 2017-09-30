@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Kilépés</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Keresés</string>
+    <string name="permgrouplab_sysscope">SysScope-engedélyek</string>
+    <string name="permlab_run_sysscope">SysScope futtatása</string>
+    <string name="progress_title">Kérem várjon</string>
+</resources>

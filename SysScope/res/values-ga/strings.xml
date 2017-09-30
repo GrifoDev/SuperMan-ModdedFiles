@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Scoir</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Scan</string>
+    <string name="permgrouplab_sysscope">Ceadanna SysScope</string>
+    <string name="permlab_run_sysscope">Rith SysScope</string>
+    <string name="progress_title">Fan go fóill</string>
+</resources>

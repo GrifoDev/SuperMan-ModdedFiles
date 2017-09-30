@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Sluiten</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Scannen</string>
+    <string name="permgrouplab_sysscope">SysScope-machtigingen</string>
+    <string name="permlab_run_sysscope">SysScope uitvoeren</string>
+    <string name="progress_title">Even geduld</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Koniec</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Vyhľadať</string>
+    <string name="permgrouplab_sysscope">Povolenia pre SysScope</string>
+    <string name="permlab_run_sysscope">Spustiť SysScope</string>
+    <string name="progress_title">Čakajte prosím</string>
+</resources>

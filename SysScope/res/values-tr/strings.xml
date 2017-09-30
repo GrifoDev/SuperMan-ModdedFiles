@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Çıkış</string>
+    <string name="btn_ok">Tamam</string>
+    <string name="btn_scan">Tara</string>
+    <string name="permgrouplab_sysscope">SysScope izinleri</string>
+    <string name="permlab_run_sysscope">"SysScope'u çalıştır"</string>
+    <string name="progress_title">Lütfen bekleyin</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Çıx</string>
+    <string name="btn_ok">Oldu</string>
+    <string name="btn_scan">Axtarın</string>
+    <string name="permgrouplab_sysscope">SysScope icazələri</string>
+    <string name="permlab_run_sysscope">SysScope icra et</string>
+    <string name="progress_title">Gözləyin</string>
+</resources>

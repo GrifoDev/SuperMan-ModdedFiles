@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Avsluta</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Skanna</string>
+    <string name="permgrouplab_sysscope">SysScope-behörigheter</string>
+    <string name="permlab_run_sysscope">Kör SysScope</string>
+    <string name="progress_title">Var god vänta</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Вихід</string>
+    <string name="btn_ok">ОК</string>
+    <string name="btn_scan">Сканувати</string>
+    <string name="permgrouplab_sysscope">Дозволи SysScope</string>
+    <string name="permlab_run_sysscope">Запуск SysScope</string>
+    <string name="progress_title">Зачекайте</string>
+</resources>

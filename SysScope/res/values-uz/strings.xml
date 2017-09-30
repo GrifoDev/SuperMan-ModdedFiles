@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Chiqish</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Skanerlash</string>
+    <string name="permgrouplab_sysscope">SysScope ruxsatnomalari</string>
+    <string name="permlab_run_sysscope">SysScopeni ishga tushirish</string>
+    <string name="progress_title">Iltimos, kuting</string>
+</resources>

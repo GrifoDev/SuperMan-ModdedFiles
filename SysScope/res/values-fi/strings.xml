@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Poistu</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Hae</string>
+    <string name="permgrouplab_sysscope">SysScopen käyttöoikeudet</string>
+    <string name="permlab_run_sysscope">Suorita SysScope</string>
+    <string name="progress_title">Ole hyvä ja odota...</string>
+</resources>

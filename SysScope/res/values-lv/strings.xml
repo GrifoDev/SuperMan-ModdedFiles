@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Iziet</string>
+    <string name="btn_ok">Labi</string>
+    <string name="btn_scan">Meklēt</string>
+    <string name="permgrouplab_sysscope">SysScope atļaujas</string>
+    <string name="permlab_run_sysscope">Palaist SysScope</string>
+    <string name="progress_title">Lūdzu, uzgaidiet</string>
+</resources>

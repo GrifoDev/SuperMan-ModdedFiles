@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Ieşire</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Căutare</string>
+    <string name="permgrouplab_sysscope">Permisiuni SysScope</string>
+    <string name="permlab_run_sysscope">Executare SysScope</string>
+    <string name="progress_title">Aşteptaţi</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">نکلنا</string>
+    <string name="btn_ok">ٹھیک ہے</string>
+    <string name="btn_scan">اسکین کریں</string>
+    <string name="permgrouplab_sysscope">SysScope permissions</string>
+    <string name="permlab_run_sysscope">Run SysScope</string>
+    <string name="progress_title">انتظار کریں</string>
+</resources>

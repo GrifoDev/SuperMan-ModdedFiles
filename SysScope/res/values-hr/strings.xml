@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_exit">Prekid</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_scan">Traži</string>
+    <string name="permgrouplab_sysscope">Dopuštenja za SysScope</string>
+    <string name="permlab_run_sysscope">Pokreni SysScope</string>
+    <string name="progress_title">Pričekajte</string>
+</resources>
