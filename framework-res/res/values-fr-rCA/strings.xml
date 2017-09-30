@@ -1560,6 +1560,13 @@ Command"</string>
     <string name="batt_cooldown_mode_attention">Application fermée</string>
     <string name="batt_cooldown_mode_attentions">Applications fermées</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Surchauffe du téléphone</string>
+    <string name="overheat_limit_warning">Votre téléphone est en surchauffe. Fermez cette application immédiatement. %s se fermera automatiquement dans 1 minute, et les données non enregistrées seront perdues.</string>
+    <string name="overheat_limit_warning_phone_second">Votre téléphone est en surchauffe. Fermez cette application immédiatement. %1$s se fermera automatiquement dans %2$d secondes, et les données non enregistrées seront perdues.</string>
+    <string name="overheat_limit_warning_tablet_second">Votre tablette est en surchauffe. Fermez cette application immédiatement. %1$s se fermera automatiquement dans %2$d secondes, et les données non enregistrées seront perdues.</string>
+    <string name="overheat_limit_closed_title">Application fermée</string>
+    <string name="overheat_limit_closed">"L'application %1$s s'est fermée. Votre téléphone est en surchauffe. Réessayez d'utiliser %2$s une fois que votre téléphone aura refroidi."</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">"L'appareil va redémarrer."</string>
     <string name="tw_reboot_safemode_title_vzw">Redém. en mode Sécurisé</string>
     <string name="tw_reboot_safemode_confirm_vzw">"Voulez-vous redémarrer votre téléphone en mode Sécurisé ? Lorsque ce mode est activé, les applications qui n'étaient pas fournies avec votre téléphone seront temporairement désactivées pour vous aider à résoudre les problèmes de votre téléphone. Au prochain démarrage de votre téléphone, le mode Sécurisé sera désactivé et vos applications seront de nouveau disponibles."</string>
@@ -1884,6 +1891,7 @@ Pour la décrocher, touchez longuement la touche Menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">"Impossible d'activer %s lorsque Wifi Direct est activé."</string>
     <string name="mptcp_message_mptcp_capability_noresponse">"Aucune réponse de l'opérateur."</string>
     <string name="mptcp_message_mptcp_capability_sendfail">"La demande d'activation du service %s a échoué. Reconnexion via les réseaux disponibles…"</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">"Impossible d'activer %1$s. La fonction %2$s n'est pas disponible avec votre service Internet, ou aucune réponse n'a été reçue du serveur %3$s."</string>
     <string name="mptcp_message_setting_disabled_overheating">"Impossible d'activer %s. L'appareil est en surchauffe. Attendez qu'il refroidisse et réessayez."</string>
     <string name="mptcp_message_operation_disabled_overheating">"Le service %s a été désactivé pour empêcher la surchauffe de l'appareil. Téléchargement via le réseau mobile…"</string>
     <string name="mptcp_message_data_usage_limit">"La limite d'utilisation des données a été atteinte. Pour modifier la limite d'utilisation des données, accédez à Paramètres."</string>

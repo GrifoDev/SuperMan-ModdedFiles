@@ -1566,6 +1566,13 @@ komm."</string>
     <string name="batt_cooldown_mode_attention">Program har stängts</string>
     <string name="batt_cooldown_mode_attentions">Program har stängts</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefonen överhettas</string>
+    <string name="overheat_limit_warning">Telefonen överhettas. Stäng denna app omedelbart. %s stängs automatiskt om en minut och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonen överhettas. Stäng denna app omedelbart. %1$s stängs automatiskt om %2$d sekunder och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_warning_tablet_second">Surfplattan överhettas. Stäng denna app omedelbart. %1$s stängs automatiskt om %2$d sekunder och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_closed_title">Appen har stängts</string>
+    <string name="overheat_limit_closed">%1$s stängdes. Telefonen håller på att överhettas. Försök använda %2$s igen när telefonen har svalnat.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Enheten startas om.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Ta loss ett program genom att hålla ned menyknappen."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Det går inte att aktivera %s när Wi-Fi Direct är aktivt.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Inget svar från tjänsteleverantören.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Det gick inte att skicka en aktiveringsbegäran till %s. Återansluter via tillgängliga nätverk …</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Det går inte att aktivera %1$s. %2$s är inte tillgängligt med ditt internetpaket, eller så kom inget svar från %3$s-servern.</string>
     <string name="mptcp_message_setting_disabled_overheating">Det går inte att aktivera %s. Enheten håller på att överhettas. Vänta tills den har svalnat och försök igen.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s har inaktiverats för att förebygga överhettning av enheten. Hämtar via mobilnät i stället …</string>
     <string name="mptcp_message_data_usage_limit">Maxgränsen för dataanvändning har nåtts. Om du vill ändra gränsen öppnar du Inställningar.</string>

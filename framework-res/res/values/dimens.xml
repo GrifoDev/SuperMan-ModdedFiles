@@ -518,6 +518,7 @@
     <dimen name="tw_global_actions_item_scaled_height">131.0dip</dimen>
     <dimen name="tw_global_actions_item_scaled_width">310.0dip</dimen>
     <dimen name="tw_global_actions_item_scaled_width_land">310.0dip</dimen>
+    <dimen name="tw_global_actions_item_scaled_width_for_sview_cover_closed">277.0dip</dimen>
     <dimen name="tw_global_actions_item_single_bottom_view_item_width">200.0dip</dimen>
     <dimen name="tw_global_actions_item_single_bottom_view_cancel_item_width">140.0dip</dimen>
     <dimen name="tw_global_actions_item_double_bottom_view_item_width">158.0dip</dimen>

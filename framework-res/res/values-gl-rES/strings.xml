@@ -1561,6 +1561,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Aplicación pechada</string>
     <string name="batt_cooldown_mode_attentions">Aplicacións pechadas</string>
     <string name="batt_cooldown_mode_ok">Aceptar</string>
+    <string name="overheat_limit_warning_title">Teléfono demasiado quente</string>
+    <string name="overheat_limit_warning">O teléfono está demasiado quente. Pecha esta aplicación inmediatamente. %s pecharase automaticamente dentro de 1 minuto e os datos sen gardar perderanse.</string>
+    <string name="overheat_limit_warning_phone_second">O teléfono está demasiado quente. Pecha esta aplicación inmediatamente. %1$s pecharase automaticamente dentro de %2$d segundos e perderanse todos os datos sen gardar.</string>
+    <string name="overheat_limit_warning_tablet_second">A tableta está demasiado quente. Pecha esta aplicación inmediatamente. %1$s pecharase automaticamente dentro de %2$d segundos e perderanse todos os datos sen gardar.</string>
+    <string name="overheat_limit_closed_title">Aplicación pechada</string>
+    <string name="overheat_limit_closed">Pechouse %1$s. O teléfono está demasiado quente. Tenta volver usar %2$s cando arrefríe o teléfono.</string>
+    <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">O dispositivo reiniciarase.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@ Para quitar unha aplicación, mantén pulsada a tecla do menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Non se pode activar %s mentres Wi-Fi Direct está activado.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Non hai resposta do provedor de servizos.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Non se puido enviar a solicitude de activación de %s. Volvendo conectar a través de redes dispoñibles…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Non se pode activar %1$s. %2$s non está dispoñible co teu paquete de Internet ou non se recibiu ningunha resposta do servidor de %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Non se pode activar %s. O dispositivo está demasiado quente. Agarda a que se arrefríe o dispositivo e téntao outra vez.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s desactivado para evitar que o dispositivo se quente demasiado. Descargando a través da rede móbil no seu lugar…</string>
     <string name="mptcp_message_data_usage_limit">Alcanzouse o límite de uso de datos. Para cambiar o límite de uso de datos, vai a Axustes.</string>

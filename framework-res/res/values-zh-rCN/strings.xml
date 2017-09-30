@@ -1569,6 +1569,13 @@
     <string name="batt_cooldown_mode_attention">已关闭应用程序</string>
     <string name="batt_cooldown_mode_attentions">已关闭应用程序</string>
     <string name="batt_cooldown_mode_ok">确定</string>
+    <string name="overheat_limit_warning_title">手机过热</string>
+    <string name="overheat_limit_warning">您的手机过热，请立即关闭此应用程序。%s将在 1 分钟后自动关闭，并且未保存的数据将丢失。</string>
+    <string name="overheat_limit_warning_phone_second">您的手机过热，请立即关闭此应用程序。%1$s将在 %2$d 秒钟后自动关闭，并且未保存的数据将丢失。</string>
+    <string name="overheat_limit_warning_tablet_second">您的平板电脑过热，请立即关闭此应用程序。%1$s将在 %2$d 秒钟后自动关闭，并且未保存的数据将丢失。</string>
+    <string name="overheat_limit_closed_title">已关闭应用程序</string>
+    <string name="overheat_limit_closed">您的手机过热，%1$s已关闭。请在手机冷却后再尝试用%2$s。</string>
+    <string name="overheat_limit_ok">确定</string>
     <string name="restart_confirm">设备将重新启动。</string>
     <string name="tw_reboot_safemode_title_vzw">以安全模式重新启动</string>
     <string name="tw_reboot_safemode_confirm_vzw">是否要以安全模式重新启动您的手机？在安全模式中，不是您手机附带的应用程序将暂时禁用以帮助您排除手机的故障。当您下一次重新启动手机时，安全模式将关闭且您的应用程序将重新可用。</string>
@@ -1893,6 +1900,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">在 Wi-Fi 直连启用期间无法启用%s</string>
     <string name="mptcp_message_mptcp_capability_noresponse">无来自服务运营商的响应</string>
     <string name="mptcp_message_mptcp_capability_sendfail">发送%s激活请求失败。正在通过可用网络重新连接…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">无法启用%1$s。您的上网套餐不提供%2$s，或者未收到%3$s服务器的响应。</string>
     <string name="mptcp_message_setting_disabled_overheating">设备过热，无法启用%s。请等待设备冷却后重试。</string>
     <string name="mptcp_message_operation_disabled_overheating">已禁用%s防止设备过热。正在通过移动网络下载…</string>
     <string name="mptcp_message_data_usage_limit">已达到流量使用量限制。若要更改流量使用量限制，请进入设置。</string>

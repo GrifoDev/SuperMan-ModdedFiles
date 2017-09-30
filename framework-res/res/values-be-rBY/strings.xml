@@ -1398,6 +1398,13 @@
     <string name="batt_cooldown_mode_attention">Праграма закрыта</string>
     <string name="batt_cooldown_mode_attentions">Праграмы закрыты</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Перагрэў тэлефона</string>
+    <string name="overheat_limit_warning">Ваш тэлефон перагрэўся. Неадкладна закрыйце гэту праграму. Праграма %s будзе аўтаматычна закрыта праз 1 хвіліну, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_warning_phone_second">Ваш тэлефон пераграваецца. Неадкладна закрыйце гэту праграму. Праграма %1$s будзе аўтаматычна закрыта праз %2$d с, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_warning_tablet_second">Ваш планшэт пераграваецца. Неадкладна закрыйце гэту праграму. Праграма %1$s будзе аўтаматычна закрыта праз %2$d с, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_closed_title">Праграма закрыта</string>
+    <string name="overheat_limit_closed">%1$s закрыта. Ваш тэлефон перагрэўся. Паспрабуйце выкарыстаць %2$s яшчэ раз, калі тэлефон астыне.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">Немагчыма адключыць прылады, калі ўключана функцыя «Не дазваляць адключэнне сілкавання падчас блакіроўкі». Паўтарыце спробу пасля разблакіроўкі экрана.</string>
@@ -1405,6 +1412,7 @@
     <string name="wifi_notification_sns_exception_title">Інтэрнэт можа быць недаступны</string>
     <string name="wifi_notification_sns_exception_hun_detail">Падлучыцца да даступнай сеткі.</string>
     <string name="bluetooth_china_popup_title">Bluetooth</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Немагчыма ўключыць %1$s. %2$s адсутнічае ў пакеце для Інтэрнэту, ці адказ ад сервера %3$s не быў атрыманы.</string>
     <string name="sem_date_picker_increment_month_button_text">Наступны месяц</string>
     <string name="sem_date_picker_decrement_month_button_text">Папярэдні месяц</string>
     <string name="sem_date_picker_switch_to_wheel_view_description">Двойчы націсніце, каб пераключыцца на прагляд кола.</string>

@@ -1565,6 +1565,13 @@ příkaz"</string>
     <string name="batt_cooldown_mode_attention">Aplikace ukončena</string>
     <string name="batt_cooldown_mode_attentions">Aplikace ukončeny</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon se přehřívá</string>
+    <string name="overheat_limit_warning">Telefon se přehřívá. Okamžitě ukončete aplikaci. Aplikace %s bude automaticky ukončena za 1 minutu a veškerá neuložená data budou ztracena.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon se přehřívá. Okamžitě ukončete aplikaci. Aplikace %1$s bude automaticky ukončena za %2$d sekund a veškerá neuložená data budou ztracena.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet se přehřívá. Okamžitě ukončete aplikaci. Aplikace %1$s bude automaticky ukončena za %2$d sekund a veškerá neuložená data budou ztracena.</string>
+    <string name="overheat_limit_closed_title">Aplikace ukončena</string>
+    <string name="overheat_limit_closed">Aplikace %1$s byla ukončena. Telefon se přehřívá. Aplikaci %2$s použijte znovu až telefon vychladne.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Zařízení bude restartováno.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1889,6 +1896,7 @@ Chcete-li aplikaci odepnout, stiskněte a přidržte tlačítko menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Když je zapnuté Wi-Fi Direct, nelze zapnout %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Poskytovatel služeb neodpovídá.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nepodařilo se odeslat požadavek na aktivaci %s. Probíhá připojování prostřednictvím dostupných sítí…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funkci %1$s nelze zapnout. Funkce %2$s není v internetovém balíčku dostupná nebo nebyla přijata žádná odpověď ze serveru %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s nelze zapnout. Zařízení se přehřívá. Počkejte až zařízení vychladne a opakujte akci.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s byla vypnuta, aby se zabránilo přehřátí zařízení. Probíhá stahování prostřednictvím mobilní sítě…</string>
     <string name="mptcp_message_data_usage_limit">Bylo dosaženo limitu využití dat. Chcete-li změnit limit využití dat, přejděte na Nastavení.</string>

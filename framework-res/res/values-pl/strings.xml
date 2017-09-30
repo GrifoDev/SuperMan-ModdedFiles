@@ -1566,6 +1566,13 @@ wskaz."</string>
     <string name="batt_cooldown_mode_attention">Aplikacja zamknięta</string>
     <string name="batt_cooldown_mode_attentions">Aplikacje zamknięte</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Przegrzanie telefonu</string>
+    <string name="overheat_limit_warning">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %s zostanie zamknięta automatycznie za 1 minutę, a dowolne niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %1$s zostanie zamknięta automatycznie za %2$d s, a niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %1$s zostanie zamknięta automatycznie za %2$d s, a niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_closed_title">Aplikacja zamknięta</string>
+    <string name="overheat_limit_closed">Aplikacja %1$s została zamknięta. Telefon się przegrzewa. Spróbuj ponownie użyć aplikacji %2$s po ostygnięciu telefonu.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Urządzenie zostanie uruchomione ponownie.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Aby odpiąć aplikację, naciśnij i przytrzymaj klawisz menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nie można włączyć funkcji %s przy włączonej funkcji Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Brak odpowiedzi od operatora sieci.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Błąd wysyłania żądania aktywacji usługi %s. Ponowne łączenie przez dostępne sieci…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nie można włączyć funkcji %1$s. Funkcja %2$s jest niedostępna w Twoim pakiecie internetowym lub nie otrzymano odpowiedzi z serwera funkcji %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nie można włączyć %s. Przegrzanie urządzenia. Spróbuj ponownie po ostygnięciu urządzenia.</string>
     <string name="mptcp_message_operation_disabled_overheating">Wyłączono %s, aby zapobiec przegrzewaniu urządzenia. Pobieranie zamiast tego przez sieć komórkową…</string>
     <string name="mptcp_message_data_usage_limit">Osiągnięto limit wykorzystania danych. Aby zmienić ten limit, przejdź do Ustawień.</string>

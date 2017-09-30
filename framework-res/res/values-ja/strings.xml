@@ -1567,6 +1567,13 @@
     <string name="batt_cooldown_mode_attention">アプリを終了</string>
     <string name="batt_cooldown_mode_attentions">アプリを終了</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">端末の過熱</string>
+    <string name="overheat_limit_warning">端末が過熱しています。直ちにこのアプリを終了してください。%sは1分後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_warning_phone_second">端末が過熱しています。直ちにこのアプリを終了してください。%1$sは%2$d秒後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_warning_tablet_second">タブレットが過熱しています。直ちにこのアプリを終了してください。%1$sは%2$d秒後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_closed_title">アプリを終了</string>
+    <string name="overheat_limit_closed">端末が過熱しているため、%1$sを終了しました。%2$sは端末の温度が下がってから使用してください。</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">端末を再起動します。</string>
     <string name="tw_reboot_safemode_title_vzw">セーフモードで再起動</string>
     <string name="tw_reboot_safemode_confirm_vzw">端末をセーフモードで再起動しますか？セーフモードの間は、端末に付属していないアプリは、端末のトラブルシューティングをしやすくするため、一時的に無効になります。次回端末を再起動したときに、セーフモードはOFFになり、アプリは再度使用できるようになります。</string>
@@ -1891,6 +1898,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Directが有効な間は、%sを有効にできません。</string>
     <string name="mptcp_message_mptcp_capability_noresponse">サービスプロバイダから応答がありません。</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%sの有効化要求の送信に失敗しました。利用可能なネットワークで再接続しています…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$sを有効にできません。%2$sはインターネットパッケージで利用できないか、受信した%3$sサーバーから応答がありません。</string>
     <string name="mptcp_message_setting_disabled_overheating">端末が過熱しているため、%sを有効にできません。端末の温度が下がってから再度実行してください。</string>
     <string name="mptcp_message_operation_disabled_overheating">端末の過熱を防止するため、%sを無効にしました。代わりにモバイルネットワークでダウンロード中…</string>
     <string name="mptcp_message_data_usage_limit">データ使用制限に達しました。データ使用制限を変更するには、[設定]に移動してください。</string>

@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">تم إغلاق التطبيق</string>
     <string name="batt_cooldown_mode_attentions">تم إغلاق التطبيقات</string>
     <string name="batt_cooldown_mode_ok">موافق</string>
+    <string name="overheat_limit_warning_title">تجاوزت درجة حرارة الهاتف المستوى المسموح به</string>
+    <string name="overheat_limit_warning">تجاوزت درجة حرارة هاتفك المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %s تلقائياً في غضون دقيقة واحدة، وسيتم فقدان أي بيانات غير محفوظة.</string>
+    <string name="overheat_limit_warning_phone_second">تتجاوز درجة حرارة هاتفك المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %1$s تلقائياً في غضون %2$d من الثواني، وسيتم فقدان أي بيانات غير محفوظة.</string>
+    <string name="overheat_limit_warning_tablet_second">تتجاوز درجة حرارة جهازك اللوحي المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %1$s تلقائياً في غضون %2$d من الثواني، وسيتم فقدان أي بيانات غير محفوظة.</string>
+    <string name="overheat_limit_closed_title">تم إغلاق التطبيق</string>
+    <string name="overheat_limit_closed">تم إغلاق %1$s. تجاوزت درجة حرارة هاتفك المستوى المسموح به. حاول استخدام %2$s مجدداً بعد أن يبرد هاتفك.</string>
+    <string name="overheat_limit_ok">موافق</string>
     <string name="restart_confirm">سيُعاد تشغيل الجهاز.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">يتعذر تفعيل %s عندما يكون Wi-Fi مباشر قيد التفعيل.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ما من استجابة من مزود الخدمة.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">فشل إرسال طلب لتفعيل %s. عملية إعادة الاتصال عبر الشبكات المتوفرة جارية…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">يتعذر تفعيل %1$s. لا تتوفر %2$s مع حزمة الإنترنت أو لم يتم تلقي استجابة من خادم %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">يتعذر تفعيل %s. درجة حرارة الجهاز عالية. انتظر حتى يبرد الجهاز ثم حاول مرة أخرى.</string>
     <string name="mptcp_message_operation_disabled_overheating">تم تعطيل %s لمنع ارتفاع درجة حرارة الجهاز. جارٍ التنزيل عبر شبكة الهاتف المحمول بدلاً من ذلك…</string>
     <string name="mptcp_message_data_usage_limit">تم بلوغ حد استخدام البيانات. لتغيير حد استخدام البيانات، انتقل إلى الضبط.</string>

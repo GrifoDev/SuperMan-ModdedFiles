@@ -848,6 +848,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App closed</string>
     <string name="batt_cooldown_mode_attentions">Apps closed</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Phone overheating</string>
+    <string name="overheat_limit_warning">Your phone is overheating. Close this app immediately. %s will be closed automatically in 1 minute, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_warning_phone_second">Your phone is overheating. Close this app immediately. %1$s will be closed automatically in %2$d seconds, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_warning_tablet_second">Your tablet is overheating. Close this app immediately. %1$s will be closed automatically in %2$d seconds, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_closed_title">App closed</string>
+    <string name="overheat_limit_closed">%1$s closed. Your phone is overheating. Try using %2$s again after your phone cools down.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">The device will restart.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1172,6 +1179,7 @@ To unpin an application, press and hold the menu key."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Unable to enable %s while Wi-Fi Direct enabled.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No response from service provider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Failed to send %s activation request. Reconnecting via available networks…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Unable to enable %1$s. %2$s not available with your internet package or no response from %3$s server received.</string>
     <string name="mptcp_message_setting_disabled_overheating">Unable to enable %s. Device overheating. Wait until device cools down and try again.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s disabled to prevent device overheating. Downloading via mobile network instead…</string>
     <string name="mptcp_message_data_usage_limit">Data usage limit reached. To change data usage limit, go to Settings.</string>

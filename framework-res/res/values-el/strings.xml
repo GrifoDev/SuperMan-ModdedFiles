@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">Η εφαρμογή έκλεισε</string>
     <string name="batt_cooldown_mode_attentions">Οι εφαρμογές έκλεισαν</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Υπερθέρμανση τηλεφώνου</string>
+    <string name="overheat_limit_warning">Το τηλέφωνό σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %s θα κλείσει αυτόματα σε 1 λεπτό και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_warning_phone_second">Το τηλέφωνό σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %1$s θα κλείσει αυτόματα σε %2$d δευτερόλεπτα και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_warning_tablet_second">Το tablet σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %1$s θα κλείσει αυτόματα σε %2$d δευτερόλεπτα και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_closed_title">Η εφαρμογή έκλεισε</string>
+    <string name="overheat_limit_closed">Η εφαρμογή %1$s έκλεισε. Το τηλέφωνο υπερθερμάνθηκε. Δοκιμάστε να χρησιμοποιήσετε ξανά την εφαρμογή %2$s μόλις μειωθεί η θερμοκρασία του τηλεφώνου σας.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Θα γίνει επανεκκίνηση της συσκευής.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Δεν είναι δυνατή η ενεργοποίηση του %s όσο είναι ενεργό το Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ο παροχέας υπηρεσιών δεν αποκρίνεται.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Η αποστολή αιτήματος ενεργοποίησης %s απέτυχε. Επανασύνδεση μέσω διαθέσιμων δικτύων…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Δεν είναι δυνατή η ενεργοποίηση της λειτουργίας %1$s. Η λειτουργία %2$s δεν είναι διαθέσιμη στο πακέτο Internet που διαθέτετε ή δεν λήφθηκε απάντηση από το διακομιστή %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Δεν είναι δυνατή η ενεργοποίηση του δικτύου %s. Η συσκευή υπερθερμαίνεται. Περιμένετε να πέσει η θερμοκρασία της συσκευής και δοκιμάστε ξανά.</string>
     <string name="mptcp_message_operation_disabled_overheating">Η σύνδεση %s απενεργοποιήθηκε για να αποφευχθεί η υπερθέρμανση της συσκευής. Γίνεται λήψη μέσω δικτύου κινητής τηλεφωνίας…</string>
     <string name="mptcp_message_data_usage_limit">Συμπληρώθηκε το όριο χρήσης δεδομένων. Για να αλλάξετε το όριο χρήσης δεδομένων, μεταβείτε στις Ρυθμίσεις.</string>

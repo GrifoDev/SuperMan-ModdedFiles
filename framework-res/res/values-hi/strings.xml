@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">एप बंद किया गया</string>
     <string name="batt_cooldown_mode_attentions">एप्स बंद किए गए</string>
     <string name="batt_cooldown_mode_ok">ओके</string>
+    <string name="overheat_limit_warning_title">फोन जरूरत से ज्यादा गरम हो रहा है</string>
+    <string name="overheat_limit_warning">आपका फोन जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। 1 मिनट में %s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_warning_phone_second">आपका फोन जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। %2$d सेकंड में %1$s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_warning_tablet_second">आपका टैबलेट जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। %2$d सेकंड में %1$s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_closed_title">एप बंद किया गया</string>
+    <string name="overheat_limit_closed">%1$s बंद हुआ। आपका फोन जरूरत से ज्यादा गरम हो रहा है। आपका फोन ठंडा होने के बाद फिर से %2$s का उपयोग करने का प्रयास करें।</string>
+    <string name="overheat_limit_ok">ओके</string>
     <string name="restart_confirm">डिवाइस पुन: चालू होगा।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1891,6 +1898,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct सक्षम होने पर %s को सक्षम करने में असमर्थ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">सेवा प्रदाता से कोई प्रतिक्रिया नहीं।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s सक्रियण अनुरोध भेजने में विफल। उपलब्ध नेटवर्क्स के माध्यम से पुनः कनेक्ट कर रहा है…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s सक्षम करने में असमर्थ। %2$s आपके इंटरनेट पैकेज के साथ उपलब्ध नहीं है या %3$s सर्वर से कोई प्रतिक्रिया प्राप्त नहीं हुई है।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s सक्षम करने में असमर्थ। डिवाइस जरूरत से ज्यादा गरम हो रहा है। डिवाइस के ठंडा होने तक प्रतीक्षा करें और फिर से प्रयास करें।</string>
     <string name="mptcp_message_operation_disabled_overheating">डिवाइस को जरूरत से ज्यादा गरम होने से रोकने के लिए %s अक्षम किया गया है। इसके बजाय मोबाइल नेटवर्क के माध्यम से डाउनलोड हो रहा है…</string>
     <string name="mptcp_message_data_usage_limit">डाटा उपयोग सीमा पूरी हो गई है। डाटा उपयोग सीमा बदलने के लिए, सेटिंग्स पर जाएँ।</string>

@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">ປິດແອັບແລ້ວ</string>
     <string name="batt_cooldown_mode_attentions">ປິດແອັບແລ້ວ</string>
     <string name="batt_cooldown_mode_ok">ຕົກລົງ</string>
+    <string name="overheat_limit_warning_title">ໂທລະສັບກຳລັງຮ້ອນເກີນໄປ</string>
+    <string name="overheat_limit_warning">ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ 1 ນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_warning_phone_second">ໂທລະສັບຂອງທ່ານ​ຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %1$s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ %2$d ວິນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_warning_tablet_second">ແທັບເລັດຂອງທ່ານຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %1$s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ %2$d ວິນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_closed_title">ປິດແອັບແລ້ວ</string>
+    <string name="overheat_limit_closed">ປິດ %1$s ແລ້ວ. ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ລອງໃຊ້ %2$s ອີກຄັ້ງຫຼັງຈາກໂທລະສັບຂອງທ່ານເຢັນລົງ.</string>
+    <string name="overheat_limit_ok">ຕົກລົງ</string>
     <string name="restart_confirm">ເຄື່ອງຈະປິດເປີດໃໝ່.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1886,6 +1893,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">ບໍ່ສາມາດເປີດໃຊ້ງານ %s ຂະນະທີ່ Wi-Fi Direct ເປີດໃຊ້ງານຢູ່.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ບໍ່ມີການຕອບກັບຈາກຜູ້ໃຫ້ການບໍລິການ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">ສົ່ງຄຳຮ້ອງການເປີດໃຊ້ງານ %s ບໍ່ສຳເລັດ. ກຳລັງເຊື່ອມຕໍ່ຄືນໃໝ່ຜ່ານເຄືອຂ່າຍທີ່ມີຢູ່…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">ບໍ່ສາມາດເປີດໃຊ້ງານ %1$s. %2$s ບໍ່ມີຢູ່ກັບແພັກເກດອິນເຕີເນັດຂອງທ່ານ ຫຼື ບໍ່ມີການຕອບກັບຈາກເຊີບເວີ %3$s ທີ່ໄດ້ຮັບ.</string>
     <string name="mptcp_message_setting_disabled_overheating">ບໍ່ສາມາດເປີດໃຊ້ງານ %s ໄດ້. ອຸປະກອນຮ້ອນເກີນໄປ. ລໍ​ຖ້າ​ຈົນ​ກວ່າ​ອຸ​ປະ​ກອນ​ເຢັນ​ລົງ ແລະ​ລອງ​ໃໝ່​ອີກ.</string>
     <string name="mptcp_message_operation_disabled_overheating">ປິດໃຊ້ງານ %s ແລ້ວ ເພື່ອປ້ອງກັນອຸປະກອນທີ່ຮ້ອນເກີນໄປ. ກໍາລັງດາວໂຫຼດຜ່ານເຄືອຂ່າຍມືຖືແທນ…</string>
     <string name="mptcp_message_data_usage_limit">ຂີດຈໍາການນຳໃຊ້ຂໍ້ມູນຮອດແລ້ວ. ເພື່ອປ່ຽນແປງຂີດຈຳກັດການນຳໃຊ້ຂ້ໍມູນ, ໄປທີ່ການຕັ້ງຄ່າ.</string>

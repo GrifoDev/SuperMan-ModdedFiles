@@ -1566,6 +1566,13 @@ komanda"</string>
     <string name="batt_cooldown_mode_attention">Programma ir aizvērta</string>
     <string name="batt_cooldown_mode_attentions">Programmas ir aizvērtas</string>
     <string name="batt_cooldown_mode_ok">Labi</string>
+    <string name="overheat_limit_warning_title">Tālrunis ir pārkarsis</string>
+    <string name="overheat_limit_warning">Tālrunis ir pārkarsis. Nekavējoties aizveriet šo programmu. %s pēc 1 minūtes tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_warning_phone_second">Tālrunis ir pārkarsis. Nekavējoties aizveriet šo programmu. Programma %1$s pēc %2$d sekundēm tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_warning_tablet_second">Planšetdators ir pārkarsis. Nekavējoties aizveriet šo programmu. Programma %1$s pēc %2$d sekundēm tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_closed_title">Programma ir aizvērta</string>
+    <string name="overheat_limit_closed">Programma %1$s ir aizvērta. Tālrunis ir pārkarsis. Mēģiniet atkal lietot %2$s, kad tālrunis būs atdzisis.</string>
+    <string name="overheat_limit_ok">Labi</string>
     <string name="restart_confirm">Ierīce tiks restartēta.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1892,6 +1899,7 @@ Lai atspraustu programmu, nospiediet un turiet izvēlnes taustiņu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nevar aktivizēt %s, kamēr ir aktivizēta funkcija Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nav atbildes no pakalpojumu sniedzēja.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Neizdevās nosūtīt %s aktivizācijas pieprasījumu. Veido atkārtotu savienojumu, izmantojot pieejamos tīklus…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nevar aktivizēt %1$s. Jūsu interneta komplektam nav pieejams %2$s vai netika saņemta atbilde no %3$s servera.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nevar aktivizēt %s. Ierīce sāk pārkarst. Uzgaidiet, līdz ierīce ir atdzisusi, un mēģiniet vēlreiz.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s ir deaktivizēts, lai novērstu ierīces pārkaršanu. Tā vietā tiek veikta lejupielāde, izmantojot mobilo tīklu…</string>
     <string name="mptcp_message_data_usage_limit">Sasniegts datu lietojuma ierobežojums. Lai mainītu datu lietojuma ierobežojumu, atveriet sadaļu Iestatījumi.</string>

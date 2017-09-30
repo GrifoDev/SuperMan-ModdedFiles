@@ -1561,6 +1561,13 @@ Memo"</string>
     <string name="batt_cooldown_mode_attention">已關閉應用程式</string>
     <string name="batt_cooldown_mode_attentions">已關閉應用程式</string>
     <string name="batt_cooldown_mode_ok">確定</string>
+    <string name="overheat_limit_warning_title">手機過熱</string>
+    <string name="overheat_limit_warning">您的手機過熱。請立即關閉此應用程式。%s 將於 1 分鐘後自動關閉，且任何未儲存的數據將遺失。</string>
+    <string name="overheat_limit_warning_phone_second">您的手機過熱。請立即關閉此應用程式。%1$s 將於 %2$d 秒後自動關閉，且任何未儲存的數據將遺失。</string>
+    <string name="overheat_limit_warning_tablet_second">您的平板電腦過熱。請立即關閉此應用程式。%1$s 將於 %2$d 秒後自動關閉，且任何未儲存的數據將遺失。</string>
+    <string name="overheat_limit_closed_title">已關閉應用程式</string>
+    <string name="overheat_limit_closed">已關閉 %1$s。您的手機過熱。請在您的手機降溫後再次嘗試使用 %2$s。</string>
+    <string name="overheat_limit_ok">確定</string>
     <string name="restart_confirm">裝置將重新啟動。</string>
     <string name="tw_reboot_safemode_title_vzw">以安全模式重新啟動</string>
     <string name="tw_reboot_safemode_confirm_vzw">是否要以安全模式重新啟動您的手機？在安全模式中，將暫時停用不是您手機附帶的應用程式以協助您排除手機故障。當您下一次重新啟動手機時，安全模式將關閉且您的應用程式將再次可用。</string>
@@ -1885,6 +1892,7 @@ Memo"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct 已啟用時無法啟用%s。</string>
     <string name="mptcp_message_mptcp_capability_noresponse">無來自服務供應商的回應。</string>
     <string name="mptcp_message_mptcp_capability_sendfail">發送%s啟動請求失敗。正在透過可用的網絡連接…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">無法啟用 %1$s。%2$s 無法透過您的互聯網方案使用或未收到來自 %3$s 伺服器的回應。</string>
     <string name="mptcp_message_setting_disabled_overheating">無法啟用%s。裝置過熱。請等到裝置降溫並重試。</string>
     <string name="mptcp_message_operation_disabled_overheating">%s已停用以防止裝置過熱。正在改為透過流動網絡下載…</string>
     <string name="mptcp_message_data_usage_limit">已達數據使用量上限。若要變更數據使用量上限，請前往設定。</string>

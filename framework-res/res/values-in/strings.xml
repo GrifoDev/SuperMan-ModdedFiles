@@ -1566,6 +1566,13 @@ udara"</string>
     <string name="batt_cooldown_mode_attention">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_attentions">Aplikasi ditutup</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Ponsel terlalu panas</string>
+    <string name="overheat_limit_warning">Ponsel terlalu panas. Segera tutup aplikasi ini. %s akan ditutup secara otomatis dalam 1 menit, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_warning_phone_second">Ponsel terlalu panas. Segera tutup aplikasi ini. %1$s akan ditutup secara otomatis dalam %2$d detik, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet terlalu panas. Segera tutup aplikasi ini. %1$s akan ditutup secara otomatis dalam %2$d detik, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_closed_title">Aplikasi ditutup</string>
+    <string name="overheat_limit_closed">%1$s ditutup. Ponsel terlalu panas. Coba gunakan %2$s lagi setelah ponsel mendingin.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Perangkat akan memulai ulang.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Untuk melepas sematan aplikasi, tekan dan tahan tombol menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Tak dapat mengaktifkan %s saat Wi-Fi Direct aktif.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Tak ada respons dari penyedia layanan.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Gagal mengirim permintaan aktivasi %s. Menyambung ulang lewat jaringan yang tersedia…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Tidak dapat mengaktifkan %1$s. %2$s tidak tersedia dengan paket internet Anda atau tidak ada respons dari server %3$s yang diterima.</string>
     <string name="mptcp_message_setting_disabled_overheating">Tidak dapat mengaktifkan %s. Perangkat terlalu panas. Tunggu hingga perangkat mendingin dan coba lagi.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s dinonaktifkan untuk mencegah perangkat terlalu panas. Pengunduhan akan dilakukan lewat jaringan seluler…</string>
     <string name="mptcp_message_data_usage_limit">Batas penggunaan data tercapai. Untuk mengubah batas penggunaan data, buka Pengaturan.</string>

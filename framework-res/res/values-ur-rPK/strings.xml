@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">ایپلیکشن بند ہو گئی</string>
     <string name="batt_cooldown_mode_attentions">ایپلیکیشنز بند ہو گئیں</string>
     <string name="batt_cooldown_mode_ok">ٹھیک ہے</string>
+    <string name="overheat_limit_warning_title">فون زیادہ گرم ہوگیا</string>
+    <string name="overheat_limit_warning">آپ کا فون زیادہ گرم ہورہا ہے۔ یہ ایپلیکیشن فورا بند کریں۔ 1 منٹ میں %s خودکار طورپر بند ہوجائے گا، اور کوئی بھی غیر محفوظ ڈیٹا ضائع ہوجائے گا۔</string>
+    <string name="overheat_limit_warning_phone_second">آپ کا فون ضرورت سے زیادہ گرم ہورہا ہے۔ یہ ایپلیکیشن فورا بند کریں۔ %2$d سیکنڈز میں %1$s خودکار طورپر بند ہوجائے گا، اور کوئی بھی غیر محفوظ ڈیٹا ضائع ہوجائے گا۔</string>
+    <string name="overheat_limit_warning_tablet_second">آپ کا ٹیبلیٹ ضرورت سے زیادہ گرم ہورہا ہے۔ یہ ایپلیکیشن فورا بند کریں۔ %2$d سیکنڈز میں %1$s خودکار طورپر بند ہوجائے گا، اور کوئی بھی غیر محفوظ ڈیٹا ضائع ہوجائے گا۔</string>
+    <string name="overheat_limit_closed_title">ایپلیکشن بند ہو گئی</string>
+    <string name="overheat_limit_closed">%1$s بند ہوگیا۔ آپ کا فون زیادہ گرم ہورہا ہے۔ آپ فون ٹھنڈا ہونے کے بعد %2$s کو دوبارہ استعمال کرنے کی کوشش کریں۔</string>
+    <string name="overheat_limit_ok">ٹھیک ہے</string>
     <string name="restart_confirm">آلہ دوبارہ چالو ہوجائے گا۔</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">‏Wi-Fi Direct کے اہل ہونے پر %s اہل کرنے سے قاصر۔</string>
     <string name="mptcp_message_mptcp_capability_noresponse">خدمت فراہم کنندہ کے طرف سے کوئی جواب نہیں۔</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s فعالیت کی درخواست بھیجنے میں ناکام۔ دستیاب نیٹ ورکس سے دوبارہ جڑرہا ہے…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s اہل ہونے سے قاصر۔ %2$s آپ کے انٹرنیٹ پیکیج کے ساتھ دستیاب نہیں ہے یا %3$s سرور کی جانب سے کوئی رد عمل موصول نہیں ہوئے ہیں۔</string>
     <string name="mptcp_message_setting_disabled_overheating">%s کو اہل کرنے سے قاصر۔ آلہ حد سے زیادہ گرم ہو رہا ہے۔ آلہ کے ٹھنڈے ہونے تک انتظار کریں اور دوبارہ کوشش کریں۔</string>
     <string name="mptcp_message_operation_disabled_overheating">آلہ کو حد سے زیادہ گرم ہونے سے بچانے کے لیے %s نااہل کردیا گیا ہے۔ اس کے بجائے موبائل نیٹ ورک سے ڈاؤں لوڈ کر رہے ہیں…</string>
     <string name="mptcp_message_data_usage_limit">ڈیٹا استعمال کی حد آپہنچی۔ ڈیٹا کے استعمال کی حد تبدیل کرنے کے لیے، سیٹنگز پر جائیں۔</string>

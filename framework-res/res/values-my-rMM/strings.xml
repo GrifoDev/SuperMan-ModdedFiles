@@ -1560,6 +1560,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">အက်ပ်ကို ပိတ်ပြီးပြီ</string>
     <string name="batt_cooldown_mode_attentions">အက်ပ်များကို ပိတ်ပြီးပြီ</string>
     <string name="batt_cooldown_mode_ok">အိုကေ</string>
+    <string name="overheat_limit_warning_title">ဖုန်း အပူလွန်ကဲနေသည်</string>
+    <string name="overheat_limit_warning">သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %s သည် ၁ မိနစ်အတွင်းတွင် အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
+    <string name="overheat_limit_warning_phone_second">သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %1$s သည် %2$d စက္ကန့်အတွင်း အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
+    <string name="overheat_limit_warning_tablet_second">သင့်တက်ဘလက် အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %1$s သည် %2$d စက္ကန့်အတွင်း အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
+    <string name="overheat_limit_closed_title">အက်ပ်ကို ပိတ်ပြီးပြီ</string>
+    <string name="overheat_limit_closed">%1$s ပိတ်ထားသည်။ သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ သင့်ဖုန်း အပူချိန်ကျသွားသည်နှင့် %2$s ကို ထပ်သုံးကြည့်ပါ။</string>
+    <string name="overheat_limit_ok">အိုကေ</string>
     <string name="restart_confirm">ကိရိယာ ပြန်စတင်မည်။</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1884,6 +1891,7 @@ command"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ဖွင့်ထားစဉ် %s ကိုဖွင့်၍မရနိုင်ပါ။</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ဝန်ဆောင်မှုပေးသူမှ တုန့်ပြန်မှုမရှိပါ။</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s သင်ဝင်စေမှုတောင်းဆိုချက်ပို့ရန် မအောင်မြင်ပါ။ ရနိုင်သည့်ကွန်ယက်များမှတဆင့် ပြန်လည်ချိတ်ဆက်နေဆဲ…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ကိုဖွင့်၍ မရနိုင်ပါ။ %2$s ကို သင့်အင်တာနက် ပက်ကေ့ချ်ဖြင့် သုံး၍ မရနိုင်ပါ (သို့) %3$s ဆာဗာမှ မည်သည့်တုံ့ပြန်ချက်မှ လက်ခံမရရှိထားပါ။</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ကိုဖွင့်၍မရနိုင်ပါ။ ကိရိယာ အလွန်ပူနေသည်။ ကိရိယာအေးသွားစေရန် စောင့်ပြီး ထပ်မံကြိုးစားပါ။</string>
     <string name="mptcp_message_operation_disabled_overheating">ကိရိယာ အလွန်ပူခြင်းကို တားဆီးရန် %s ကိုပိတ်ထားသည်။ မိုဘိုင်းကွန်ယက်မှတဆင့် အစားထိုးဒေါင်းလုတ်လုပ်နေဆဲ…</string>
     <string name="mptcp_message_data_usage_limit">ဒေတာအသုံးပြုမှုအကန့်အသတ်သို့ ရောက်ရှိထားသည်။ ဒေတာအသုံးပြုမှုအကန့်အသတ်ကိုပြောင်းရန်၊ သတ်မှတ်ချက်များသို့သွားပါ။</string>

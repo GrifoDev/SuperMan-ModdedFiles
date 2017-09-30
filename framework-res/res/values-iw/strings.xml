@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">היישום נסגר</string>
     <string name="batt_cooldown_mode_attentions">היישומים נסגרו</string>
     <string name="batt_cooldown_mode_ok">אישור</string>
+    <string name="overheat_limit_warning_title">התחממות יתר בטלפון</string>
+    <string name="overheat_limit_warning">התחממות יתר בטלפון. סגור את היישום מיד. %s ייסגר באופן אוטומטי בעוד דקה אחת וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_warning_phone_second">התחממות יתר בטלפון. סגור את היישום מיד. %1$s ייסגר באופן אוטומטי בעוד %2$d שניות וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_warning_tablet_second">התחממות יתר בטאבלט. סגור את היישום מיד. %1$s ייסגר באופן אוטומטי בעוד %2$d שניות וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_closed_title">היישום נסגר</string>
+    <string name="overheat_limit_closed">%1$s נסגר. התחממות יתר בטלפון. נסה שוב להשתמש ב-%2$s לאחר שהטלפון יתקרר.</string>
+    <string name="overheat_limit_ok">אישור</string>
     <string name="restart_confirm">המכשיר יופעל מחדש.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">לא ניתן להפעיל את %s כל עוד Wi-Fi Direct מופעל.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">אין תשובה מספק השירות.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">נכשלה שליחת הבקשה להפעלת %s. מתחבר מחדש דרך הרשתות הזמינות…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">לא ניתן להפעיל את %1$s. %2$s אינו זמין עם חבילת האינטרנט שלך או שאין תגובה משרת %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">לא ניתן להפעיל את %s. התחממות יתר במכשיר. המתן עד שהמכשיר יתקרר ונסה שוב.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s הושבת כדי למנוע התחממות יתר של המכשיר. מוריד באמצעות רשת סלולרית…</string>
     <string name="mptcp_message_data_usage_limit">"הגעת לגבול העליון של שימוש בנתונים. כדי לשנות את תקרת השימוש בנתונים, עבור אל 'הגדרות'."</string>

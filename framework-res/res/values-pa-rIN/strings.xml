@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">ਐਪ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ</string>
     <string name="batt_cooldown_mode_attentions">ਐਪਸ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ</string>
     <string name="batt_cooldown_mode_ok">ਓਕੇ</string>
+    <string name="overheat_limit_warning_title">ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ</string>
+    <string name="overheat_limit_warning">ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %s ਨੂੰ 1 ਮਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
+    <string name="overheat_limit_warning_phone_second">ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %1$s ਨੂੰ %2$d ਸਕਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
+    <string name="overheat_limit_warning_tablet_second">ਤੁਹਾਡਾ ਟੈਬਲੇਟ ਬਹੁਤ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %1$s ਨੂੰ %2$d ਸਕਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
+    <string name="overheat_limit_closed_title">ਐਪ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ</string>
+    <string name="overheat_limit_closed">%1$s ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਫ਼ੋਨ ਦੇ ਠੰਡਾ ਹੋਣ ਤੋਂ ਬਾਅਦ %2$s ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="overheat_limit_ok">ਓਕੇ</string>
     <string name="restart_confirm">ਡਿਵਾਈਸ ਪੁਨਰ ਅਰੰਭ ਹੋ ਜਾਵੇਗਾ।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ਦੇ ਸਮਰੱਥ ਹੋਣ ਦੌਰਾਨ %s ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਵੱਲੋਂ ਕੋਈ ਪ੍ਰਤੀਕਿਰਿਆ ਨਹੀਂ।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s ਕਿਰਿਆਸ਼ੀਲਤਾ ਬੇਨਤੀ ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ। ਉਪਲਬਧ ਨੈੱਟਵਰਕਸ ਰਾਹੀਂ ਦੁਬਾਰਾ ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ। ਤੁਹਾਡੇ ਇੰਟਰਨੈੱਟ ਪੈਕੇਜ ਦੇ ਨਾਲ %2$s ਉਪਲਬਧ ਨਹੀਂ ਹੈ ਜਾਂ %3$s ਸਰਵਰ ਤੋਂ ਕੋਈ ਪ੍ਰਤੀਕਿਰਿਆ ਨਹੀਂ ਮਿਲੀ ਹੈ।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ। ਡਿਵਾਈਸ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋ ਰਹੀ ਹੈ। ਡਿਵਾਈਸ ਠੰਡੀ ਹੋਣ ਤੱਕ ਉਡੀਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="mptcp_message_operation_disabled_overheating">ਡਿਵਾਈਸ ਨੂੰ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋਣ ਤੋਂ ਬਚਾਉਣ ਲਈ %s ਨੂੰ ਅਸਮਰੱਥ ਕੀਤਾ ਗਿਆ। ਇਸਦੀ ਬਜਾਏ ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਰਾਹੀਂ ਡਾਉਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ…</string>
     <string name="mptcp_message_data_usage_limit">ਡੈਟਾ ਉਪਯੋਗ ਸੀਮਾ ਪੂਰੀ ਹੋਈ। ਡੈਟਾ ਉਪਯੋਗ ਸੀਮਾ ਬਦਲਣ ਲਈ, ਸੈੱਟਿੰਗਸ ਤੇ ਜਾਉ।</string>

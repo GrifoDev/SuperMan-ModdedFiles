@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">Приложението е затворено</string>
     <string name="batt_cooldown_mode_attentions">Приложенията са затворени</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефонът прегрява</string>
+    <string name="overheat_limit_warning">Телефонът прегрява. Затворете това приложение незабавно. %s ще се затвори автоматично след 1 минута и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_warning_phone_second">Телефонът прегрява. Затворете това приложение незабавно. %1$s ще се затвори автоматично след %2$d секунди и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_warning_tablet_second">Таблетът прегрява. Затворете това приложение незабавно. %1$s ще се затвори автоматично след %2$d секунди и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_closed_title">Приложението е затворено</string>
+    <string name="overheat_limit_closed">%1$s се затвори. Телефонът прегрява. Опитайте да използвате %2$s отново, след като телефонът се охлади.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Устройството ще се рестартира.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Не може да се активира %s, докато Wi-Fi Direct е активирано.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Няма отговор от доставчик на услуги.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Неуспешно изпращане на искане за активиране на %s. Повторно свързване чрез налични мрежи…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Неуспешно активиране на %1$s. %2$s не е налично с вашия интернет пакет или не е получен отговор от сървъра на %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Не може да се активира %s. Устройството прегрява. Изчакайте, докато устройството се охлади, след което опитайте отново.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s е деактивирано, за да се предотврати прегряване на устройството. Изтегляне през мобилна мрежа вместо това…</string>
     <string name="mptcp_message_data_usage_limit">Лимитът за потребление на данни е достигнат. За да промените лимита за потребление на данни, отидете в „Настройки“.</string>

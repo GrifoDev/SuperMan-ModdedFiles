@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">ആപ്ലിക്കേഷൻ അടച്ചു</string>
     <string name="batt_cooldown_mode_attentions">ആപ്ലിക്കേഷനുകൾ അടച്ചു</string>
     <string name="batt_cooldown_mode_ok">ശരി</string>
+    <string name="overheat_limit_warning_title">ഫോൺ അമിതമായി ചൂടാവുന്നു</string>
+    <string name="overheat_limit_warning">നിങ്ങളുടെ ഫോൺ അമിതമായി ചൂടാവുന്നുണ്ട്. ഉടനെ ഈ ആപ്ലിക്കേഷൻ അടയ്ക്കുക. 1 മിനിറ്റ് കഴിഞ്ഞാൽ %s ഓട്ടോമാറ്റിക്കായി അടയ്ക്കുകയും സംരക്ഷിക്കാത്ത ഏതെങ്കിലും ഡാറ്റയുണ്ടെങ്കിൽ നഷ്ടപ്പെടുകയും ചെയ്യും.</string>
+    <string name="overheat_limit_warning_phone_second">നിങ്ങളുടെ ഫോൺ അമിതമായി ചൂടാവുന്നുണ്ട്. ഉടനെ ഈ ആപ്ലിക്കേഷൻ അടയ്ക്കുക. %2$d സെക്കന്‍റ് കഴിഞ്ഞാൽ %1$s ഓട്ടോമാറ്റിക്കായി അടയ്ക്കുകയും സംരക്ഷിക്കാത്ത ഏതെങ്കിലും ഡാറ്റയുണ്ടെങ്കിൽ നഷ്ടപ്പെടുകയും ചെയ്യും.</string>
+    <string name="overheat_limit_warning_tablet_second">നിങ്ങളുടെ ടാബ്‌ലറ്റ് അമിതമായി ചൂടാവുന്നുണ്ട്. ഉടനെ ഈ ആപ്ലിക്കേഷൻ അടയ്ക്കുക. %2$d സെക്കന്‍റ് കഴിഞ്ഞാൽ %1$s ഓട്ടോമാറ്റിക്കായി അടയ്ക്കുകയും സംരക്ഷിക്കാത്ത ഏതെങ്കിലും ഡാറ്റയുണ്ടെങ്കിൽ നഷ്ടപ്പെടുകയും ചെയ്യും.</string>
+    <string name="overheat_limit_closed_title">ആപ്ലിക്കേഷൻ അടച്ചു</string>
+    <string name="overheat_limit_closed">%1$s അടച്ചു. നിങ്ങളുടെ ഫോൺ അമിതമായി ചൂടാവുന്നുണ്ട്. നിങ്ങളുടെ ഫോൺ തണുത്തുകഴിഞ്ഞാൽ %2$s വീണ്ടും ഉപയോഗിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="overheat_limit_ok">ശരി</string>
     <string name="restart_confirm">ഉപകരണം പുനരാരംഭിക്കുക.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct പ്രാപ്തമാക്കിയ സമയത്ത് %s പ്രാപ്തമാക്കാനാവില്ല.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">സേവന ദാതാവിൽ നിന്നും പ്രതികരണമില്ല.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s സജീവമാക്കൽ അഭ്യർത്ഥന അയയ്ക്കുന്നത് പരാജയപ്പെട്ടു. ലഭ്യമായ നെറ്റ്‌വർക്കുകൾ വഴി വീണ്ടും ബന്ധിപ്പിക്കുന്നു…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s പ്രാപ്തമാക്കാനാവില്ല. നിങ്ങളുടെ ആന്തരിക പാക്കേജിനോടൊപ്പം %2$s ലഭ്യമല്ല അല്ലെങ്കിൽ %3$s സെർവറിൽ നിന്ന് പ്രതികരണമൊന്നും ലഭിച്ചില്ല.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s പ്രാപ്തമാക്കാനാവില്ല. ഉപകരണം അമിതമായി ചൂടാവുന്നുണ്ട്. ഉപകരണം തണുക്കുന്നതുവരെ കാത്ത് വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="mptcp_message_operation_disabled_overheating">ഉപകരണം അമിതമായി ചൂടാകുന്നത് തടയാൻ %s അപ്രാപ്തമാക്കി. പകരം മൊബൈൽ നെറ്റ്‌വർക്ക് വഴി ഡൗൺലോഡ് ചെയ്യുന്നു…</string>
     <string name="mptcp_message_data_usage_limit">ഡാറ്റാ ഉപയോഗ പരിധിയിൽ എത്തി. ഡാറ്റാ ഉപയോഗ പരിധി മാറ്റുന്നതിന്, ക്രമീകരണങ്ങളിലേക്ക് പോവുക.</string>

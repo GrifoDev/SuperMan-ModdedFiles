@@ -107,7 +107,7 @@
             <application name="sstream.app" remove="true" />
             <application name="com.sec.ims" remove="true" />
             <application name="com.sec.imsservice" remove="true" />
-            <application name="com.sec.android.app.music" />
+            <application name="com.sec.android.app.music" allow="systemAppOnly" />
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
@@ -122,7 +122,7 @@
             <application name="com.samsung.android.fingerprint.service" />
             <application name="com.android.externalstorage" />
             <application name="com.samsung.android.video" />
-            <application name="com.samsung.android.videolist" />
+            <application name="com.samsung.android.videolist" allow="systemAppOnly" />
             <application name="com.samsung.android.onlinevideo" />
             <application name="com.samsung.everglades.video" />
             <application name="com.sec.android.app.videoplayer" />
@@ -330,7 +330,7 @@
             <application name="sstream.app" remove="true" />
             <application name="com.sec.ims" remove="true" />
             <application name="com.sec.imsservice" remove="true" />
-            <application name="com.sec.android.app.music" />
+            <application name="com.sec.android.app.music" allow="systemAppOnly" />
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
@@ -345,7 +345,7 @@
             <application name="com.samsung.android.fingerprint.service" />
             <application name="com.android.externalstorage" />
             <application name="com.samsung.android.video" />
-            <application name="com.samsung.android.videolist" />
+            <application name="com.samsung.android.videolist" allow="systemAppOnly" />
             <application name="com.samsung.android.onlinevideo" />
             <application name="com.samsung.everglades.video" />
             <application name="com.sec.android.app.videoplayer" />
@@ -530,7 +530,7 @@
             <application name="com.baidu.BaiduMap" />
             <application name="com.autonavi.cmccmap" />
             <application name="com.samsung.locationhistory" />
-            <application name="com.sec.android.app.music" />
+            <application name="com.sec.android.app.music" allow="systemAppOnly" />
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
@@ -544,7 +544,7 @@
             <application name="com.samsung.android.fingerprint.service" />
             <application name="com.android.externalstorage" />
             <application name="com.samsung.android.video" />
-            <application name="com.samsung.android.videolist" />
+            <application name="com.samsung.android.videolist" allow="systemAppOnly" />
             <application name="com.samsung.android.onlinevideo" />
             <application name="com.samsung.everglades.video" />
             <application name="com.sec.android.app.videoplayer" />
@@ -715,7 +715,7 @@
             <application name="sstream.app" remove="true" />
             <application name="com.sec.ims" remove="true" />
             <application name="com.sec.imsservice" remove="true" />
-            <application name="com.sec.android.app.music" />
+            <application name="com.sec.android.app.music" allow="systemAppOnly" />
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
@@ -872,14 +872,11 @@
             <application name="com.hancom.office.editor" allow="systemAppOnly" />
             <application name="com.hancom.office.editor.hidden" allow="systemAppOnly" />
             <application name="com.infraware.polarisoffice5tablet" allow="systemAppOnly" />
-            <application name="com.microsoft.office.word" allow="systemAppOnly" />
-            <application name="com.microsoft.office.powerpoint" allow="systemAppOnly" />
-            <application name="com.microsoft.office.excel" allow="systemAppOnly" />
             <application name="com.sec.android.mimage.photoretouching" allow="systemAppOnly" />
             <application name="com.sec.android.inputmethod" />
-            <application name="com.microsoft.office.word" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt" />
-            <application name="com.microsoft.office.powerpoint" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt" />
-            <application name="com.microsoft.office.excel" allow="noblelteskt, nobleltelgt, nobleltekt, zenlteskt, zenltekt, zenltelgt, zenltekx, a8elteskt, a8eltekt, a8eltelgt, herolteskt, heroltektt, heroltelgt, hero2lteskt, hero2ltektt, hero2ltelgt, j7xelteskt, j7xeltektt, j7xeltelgt, j3ltekx, j5xnlteskt, j5xnltektt, j5xnltelgt, a7xelteskt, a7xeltektt, a7xeltelgt, a5xelteskt, a5xeltektt, a5xeltelgt" />
+            <application name="com.microsoft.office.word" />
+            <application name="com.microsoft.office.powerpoint" />
+            <application name="com.microsoft.office.excel" />
             <application name="com.gd.mobicore.pa" />
             <application name="com.android.browser.provider" />
             <application name="com.google.android.marvin.talkback" />
@@ -922,7 +919,7 @@
             <application name="sstream.app" remove="true" />
             <application name="com.sec.ims" remove="true" />
             <application name="com.sec.imsservice" remove="true" />
-            <application name="com.sec.android.app.music" />
+            <application name="com.sec.android.app.music" allow="systemAppOnly" />
             <application name="com.samsung.android.app.music.chn" />
             <application name="com.sec.android.app.soundalive" />
             <application name="com.sec.android.app.myfiles" />
@@ -937,7 +934,7 @@
             <application name="com.samsung.android.fingerprint.service" />
             <application name="com.android.externalstorage" />
             <application name="com.samsung.android.video" />
-            <application name="com.samsung.android.videolist" />
+            <application name="com.samsung.android.videolist" allow="systemAppOnly" />
             <application name="com.samsung.android.onlinevideo" />
             <application name="com.samsung.everglades.video" />
             <application name="com.sec.android.app.videoplayer" />

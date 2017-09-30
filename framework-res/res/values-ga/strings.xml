@@ -852,6 +852,13 @@ scáil."</string>
     <string name="batt_cooldown_mode_attention">Feidhmchlár dúnta</string>
     <string name="batt_cooldown_mode_attentions">Feidhmchláir dúnta</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Fón róthe</string>
+    <string name="overheat_limit_warning">"Tá d'fhón róthe. Dún an feidhmchlár seo láithreach. Dúnfar %s go huathoibríoch i gceann 1 nóiméad, agus caillfear aon sonraí neamhshábháilte."</string>
+    <string name="overheat_limit_warning_phone_second">"Tá d'fhón róthe. Dún an feidhmchlár seo láithreach. Dúnfar %1$s go huathoibríoch i gceann %2$d soicind, agus caillfear aon sonraí nach bhfuil sábháilte."</string>
+    <string name="overheat_limit_warning_tablet_second">Tá do tháibléad róthe. Dún an feidhmchlár seo láithreach. Dúnfar %1$s go huathoibríoch i gceann %2$d soicind, agus caillfear aon sonraí nach bhfuil sábháilte.</string>
+    <string name="overheat_limit_closed_title">Feidhmchlár dúnta</string>
+    <string name="overheat_limit_closed">"%1$s dúnta. Tá d'fhón róthe. Triail %2$s a úsáid arís nuair a bheidh d'fhón fuaraithe."</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Atosófar an gléas.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1176,6 +1183,7 @@ Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh an eochair Roghchlár."<
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ní féidir %s a chumasú agus Wi-Fi Direct cumasaithe.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Níl freagairt ann ón soláthraí seirbhíse.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Theip ar sheoladh an iarratais ar ghníomhachtú %s. Athnascadh trí na líonraí atá ar fáil…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ní féidir %1$s a chumasú. Níl %2$s ar fáil le do phacáiste Idirlín nó ní bhfuarthas aon fhreagra ón bhfreastalaí %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ní féidir %s a chumasú. Tá an gléas róthe. Fan go bhfuaraítear an gléas agus triail arís.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s díchumasaithe le róthéamh an ghléis a chosc. Á íoslódáil trí líonra móibíleach ina ionad sin…</string>
     <string name="mptcp_message_data_usage_limit">Teorainn ar úsáid sonraí bainte amach. Leis an teorainn ar úsáid sonraí a athrú, gabh chuig Socruithe.</string>

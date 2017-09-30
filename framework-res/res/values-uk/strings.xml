@@ -1564,6 +1564,13 @@
     <string name="batt_cooldown_mode_attention">Програму закрито</string>
     <string name="batt_cooldown_mode_attentions">Програми закрито</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Перегрів телефону</string>
+    <string name="overheat_limit_warning">Телефон перегрівається. Негайно закрийте цю програму. Через 1 хв. програму %s буде закрито автоматично, що призведе до втрати всіх незбережених даних.</string>
+    <string name="overheat_limit_warning_phone_second">Телефон перегрівається. Негайно закрийте %1$s. Цю програму буде автоматично закрито через %2$d с, що призведе до втрати всіх незбережених даних.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшет перегрівається. Негайно закрийте %1$s. Цю програму буде автоматично закрито через %2$d с, що призведе до втрати всіх незбережених даних.</string>
+    <string name="overheat_limit_closed_title">Програму закрито</string>
+    <string name="overheat_limit_closed">Телефон перегрівається. Програму %1$s закрито. Спробуйте повернутися до використання %2$s, коли телефон охолоне.</string>
+    <string name="overheat_limit_ok">ОК</string>
     <string name="restart_confirm">Пристрій буде перезапущено.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1888,6 +1895,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Неможливо увімкнути %s, увімкнено Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Віл оператора зв’язку відповіді не надійшло.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Не вдалося надіслати запит на активацію %s. Повторне підключення через доступні мережі…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Неможливо ввімкнути %1$s. Ваш інтернет-пакет не підтримує послугу %2$s, або не отримано відповідь від сервера %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Неможливо ввімкнути %s. Пристрій перегрівся. Зачекайте, доки пристрій не охолоне, та спробуйте ще раз.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s вимкнено, щоб запобігти перегріванню пристрою. Завантаження через мобільну мережу…</string>
     <string name="mptcp_message_data_usage_limit">Досягнуто ліміту використання даних. Щоб змінити цей ліміт, перейдіть у меню «Налаштування».</string>

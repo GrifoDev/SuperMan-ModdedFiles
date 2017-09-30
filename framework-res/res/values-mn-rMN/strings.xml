@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">Хэрэглүүр хаагдлаа</string>
     <string name="batt_cooldown_mode_attentions">Хэрэглүүрүүд хаагдлаа</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Утас хэт халж байна</string>
+    <string name="overheat_limit_warning">Таны утас хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаана уу. 1 минутын дараа %s автоматаар хаагдах ба хадгалагдаагүй өгөгдлүүд алга болно.</string>
+    <string name="overheat_limit_warning_phone_second">Таны утас хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаа. %1$s-г %2$d секундын дараа автоматаар хаах ба хадгалагдаагүй бүх өгөгдөл устана.</string>
+    <string name="overheat_limit_warning_tablet_second">Таны таблет хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаа. %1$s-г %2$d секундын дараа автоматаар хаах ба хадгалагдаагүй бүх өгөгдөл устана.</string>
+    <string name="overheat_limit_closed_title">Хэрэглүүр хаагдлаа</string>
+    <string name="overheat_limit_closed">%1$s хаагдсан. Таны утас хэт халж байна. Утсаа хөрсний дараа %2$s-г дахин ашиглаад үзнэ үү.</string>
+    <string name="overheat_limit_ok">ОК</string>
     <string name="restart_confirm">Төхөөрөмж дахин эхэлнэ.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct-г идэвхжүүлсэн үед %s-г идэвхжүүлэх боломжгүй.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Үйлчилгээ үзүүлэгчээс хариулт алга байна.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s идэвхжүүлэх хүсэлтийг илгээж болсонгүй. Боломжтой сүлжээгээр дахин холбогдож байна…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s-г идэвхжүүлэх боломжгүй. Таны интернетийн багцаар %2$s боломжгүй эсвэл %3$s серверээс хариулт хүлээж аваагүй.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s-г идэвхжүүлэх боломжгүй. Төхөөрөмж хэт халж байна. Төхөөрөмжийг хөргөөд дахин оролдоно уу.</string>
     <string name="mptcp_message_operation_disabled_overheating">Төхөөрөмж хэт халахаас сэргийлж %s-г идэвхгүй болгосон. Мобайл сүлжээгээр татаж авч байна…</string>
     <string name="mptcp_message_data_usage_limit">Өгөгдөл ашиглах хязгаарт хүрэв. Өгөгдөл ашиглах хязгаарыг өөрчлөхдөө Тохиргоо руу оч.</string>

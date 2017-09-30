@@ -154,6 +154,13 @@ zraku"</string>
     <string name="batt_cooldown_mode_attention">Aplikacija je zatvorena</string>
     <string name="batt_cooldown_mode_attentions">Aplikacije su zatvorene</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon se pregrijava</string>
+    <string name="overheat_limit_warning">Telefon se pregrijava. Odmah zatvorite ovu aplikaciju. %s će se automatski zatvoriti za jedan minut, a nesačuvani podaci će biti izgubljeni.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon se pregrijava. Odmah zatvorite ovu aplikaciju. %1$s će se automatski zatvoriti za %2$d sekunde/i, a nesačuvani podaci će biti izgubljeni.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet se pregrijava. Odmah zatvorite ovu aplikaciju. %1$s će se automatski zatvoriti za %2$d sekunde/i, a nesačuvani podaci će biti izgubljeni.</string>
+    <string name="overheat_limit_closed_title">Aplikacija je zatvorena</string>
+    <string name="overheat_limit_closed">Aplikacija %1$s je zatvorena. Telefon se pregrijava. Ponovno koristite %2$s nakon što se telefon ohladi.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Uređaj će se ponovno pokrenuti.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -473,6 +480,7 @@ Da biste otkačili aplikaciju, pritisnite i zadržite tipku menija."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Unable to enable %s while Wi-Fi Direct enabled.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No response from service provider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Failed to send %s activation request. Reconnecting via available networks…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nije moguće omogućiti funkciju %1$s. Funkcija %2$s nije dostupna s vašim internet paketom ili nije primljen odgovor servera %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Unable to enable %s. Device overheating. Wait until device cools down and try again.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s disabled to prevent device overheating. Downloading via mobile network instead…</string>
     <string name="mptcp_message_data_usage_limit">Data usage limit reached. To change data usage limit, go to Settings.</string>

@@ -1562,6 +1562,13 @@ susp."</string>
     <string name="batt_cooldown_mode_attention">Aplicativo fechado</string>
     <string name="batt_cooldown_mode_attentions">Aplicativos fechados</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Aquecimento do telefone</string>
+    <string name="overheat_limit_warning">Seu telefone está aquecendo. Feche este aplicativo imediatamente. %s será fechado automaticamente em 1 minuto, e os dados não salvos serão perdidos.</string>
+    <string name="overheat_limit_warning_phone_second">Seu telefone está aquecendo. Feche este aplicativo imediatamente. %1$s será fechado automaticamente em %2$d segundos, e qualquer dado não salvo será perdido.</string>
+    <string name="overheat_limit_warning_tablet_second">Seu tablet está aquecendo. Feche este aplicativo imediatamente. %1$s será fechado automaticamente em %2$d segundos, e qualquer dado não salvo será perdido.</string>
+    <string name="overheat_limit_closed_title">Aplicativo fechado</string>
+    <string name="overheat_limit_closed">O %1$s foi fechado. Seu telefone está aquecendo. Tente usar %2$s novamente depois que o telefone esfriar.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">O dispositivo será reiniciado.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1886,6 +1893,7 @@ Para desmarcar um aplicativo, mantenha pressionada a tecla de menu."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Não é possível ativar o %s com o Wi-Fi Direct ativado.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nenhuma resposta do provedor de serviço.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Falha ao enviar a solicitação de ativação de %s. Reconectando pelas redes disponíveis…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Não foi possível ativar %1$s. %2$s não está disponível com seu pacote de internet ou nenhuma resposta do servidor %3$s foi recebida.</string>
     <string name="mptcp_message_setting_disabled_overheating">Não é possível ativar %s. Aparelho superaquecido. Aguarde até o aparelho esfriar e tente novamente.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s desativado para impedir o superaquecimento do aparelho. Baixando pela rede móvel…</string>
     <string name="mptcp_message_data_usage_limit">Limite de uso de dados atingido. Para alterar o limite de uso de dados, vá para Configurações.</string>

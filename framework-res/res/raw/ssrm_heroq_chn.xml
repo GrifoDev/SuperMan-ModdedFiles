@@ -104,6 +104,8 @@
             <table_item temp="470" value="12" />
         </limiter>
         <limiter name="AppInstallStandby" type="number">
+        </limiter>
+        <limiter name="MaxVolume" type="number">
             <table_item temp="430" value="-1" />
         </limiter>
     </default_scenario>
@@ -425,6 +427,7 @@
 
         <scenario name="Navigation">
             <trigger_packages>
+                <package name="me.gfuil.bmap" />
                 <package name="com.google.android.apps.maps" />
                 <package name="com.skt.skaf.l001mtm091" />
                 <package name="kt.navi" />
@@ -575,6 +578,21 @@
                 <table_item temp="390" value="3000" />
                 <table_item temp="430" value="5000" />
                 <table_item temp="450" value="10000" />
+            </limiter>
+        </scenario>
+
+        <scenario name="OverheatComplexControl" priority="2">
+            <limiter name="CPUFreqMax" type="number">
+                <table_item temp="450" value="940800" />
+            </limiter>
+            <limiter name="GPUFreqMax" type="number">
+                <table_item temp="450" value="315000000" />
+            </limiter>
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="450" value="116" />
+            </limiter>
+            <limiter name="MaxVolume" type="number">
+                <table_item temp="450" value="13" />
             </limiter>
         </scenario>
 

@@ -1566,6 +1566,13 @@
     <string name="batt_cooldown_mode_attention">برنامه بسته شد</string>
     <string name="batt_cooldown_mode_attentions">برنامه‌ها بسته شدند</string>
     <string name="batt_cooldown_mode_ok">تأیید</string>
+    <string name="overheat_limit_warning_title">تلفن بیش از حد داغ است</string>
+    <string name="overheat_limit_warning">تلفن بیش از حد داغ شده است. این برنامه را فوری ببندید. %s به طور خودکار در عرض ۱ دقیقه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_warning_phone_second">تلفن بیش از حد داغ شده است. این برنامه را فوری ببندید. %1$s به طور خودکار در عرض %2$d ثانیه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_warning_tablet_second">تبلت شما بیش از حد داغ شده است. این برنامه را فوری ببندید. %1$s به طور خودکار در عرض %2$d ثانیه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_closed_title">برنامه بسته شد</string>
+    <string name="overheat_limit_closed">%1$s بسته شد. تلفن بیش از حد داغ شده است. پس از اینکه تلفن خنک شد، سعی کنید دوباره از %2$s استفاده کنید.</string>
+    <string name="overheat_limit_ok">تأیید</string>
     <string name="restart_confirm">دستگاه مجدداً راه‌اندازی خواهد شد.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">در حالی که Wi-Fi Direct فعال است، %s فعال نمی‌شود.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">پاسخی از ارائه دهنده سرویس دریافت نشد.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">ارسال درخواست فعال‌سازی %s ناموفق بود. در حال اتصال مجدد از طریق شبکه‌های در دسترس…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">فعال کردن %1$s ممکن نیست. %2$s با بسته اینترنت شما همراه نیست یا پاسخی از سرور %3$s دریافت نشد.</string>
     <string name="mptcp_message_setting_disabled_overheating">فعال کردن %s ممکن نیست. دستگاه بیش از حد داغ است. صبر کنید تا دستگاه خنک شود و دوباره امتحان کنید.</string>
     <string name="mptcp_message_operation_disabled_overheating">برای جلوگیری از داغ شدن بیش از حد دستگاه، %s غیرفعال شد. در حال دانلود از طریق شبکه تلفن همراه…</string>
     <string name="mptcp_message_data_usage_limit">مصرف داده به حد مجاز رسید. برای تغییر محدوده مصرف داده، به تنظیمات بروید.</string>

@@ -1566,6 +1566,13 @@ sensore"</string>
     <string name="batt_cooldown_mode_attention">Applicazione chiusa</string>
     <string name="batt_cooldown_mode_attentions">Applicazioni chiuse</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Surriscaldamento telefono</string>
+    <string name="overheat_limit_warning">Il telefono si sta surriscaldando. Chiudete subito questa applicazione. %s verrà chiusa automaticamente tra 1 minuto e i dati non salvati andranno persi.</string>
+    <string name="overheat_limit_warning_phone_second">Il telefono si sta surriscaldando. Chiudete subito questa applicazione. L’applicazione %1$s verrà chiusa automaticamente tra %2$d secondi e i dati non salvati andranno persi.</string>
+    <string name="overheat_limit_warning_tablet_second">Il tablet si sta surriscaldando. Chiudete subito questa applicazione. L’applicazione %1$s verrà chiusa automaticamente tra %2$d secondi e i dati non salvati andranno persi.</string>
+    <string name="overheat_limit_closed_title">Applicazione chiusa</string>
+    <string name="overheat_limit_closed">%1$s chiusa. Il telefono si sta surriscaldando. Provate a riutilizzare %2$s dopo che il telefono si sarà raffreddato.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Il dispositivo verrà riavviato.</string>
     <string name="tw_reboot_safemode_title_vzw">Riav. in mod. provvisoria</string>
     <string name="tw_reboot_safemode_confirm_vzw">Riavviare il telefono in modalità provvisoria? Quando in modalità provvisoria, le applicazioni non fornite in dotazione con il telefono verranno temporaneamente disattivate per aiutarvi a risolvere i problemi del telefono. Al successivo riavvio del telefono, la modalità provvisoria verrà disattivata e le applicazioni saranno nuovamente disponibili.</string>
@@ -1890,6 +1897,7 @@ Per sbloccare l'applicazione, tenete premuto il tasto Opzioni."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Impossibile abilitare %s quando Wi-Fi Direct è abilitato.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nessuna risposta dal gestore telefonico.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Invio attivazione %s non riuscito. Riconnessione con reti disponibili in corso…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Impossibile abilitare %1$s. %2$s non è disponibile con il pacchetto Internet in uso oppure il server %3$s non ha risposto.</string>
     <string name="mptcp_message_setting_disabled_overheating">Impossibile attivare %s perché il dispositivo si sta surriscaldando. Aspettate che il dispositivo si sia raffreddato e riprovate.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s disattivata per impedire il surriscaldamento del dispositivo. Download con rete mobile in corso…</string>
     <string name="mptcp_message_data_usage_limit">Avete raggiunto il limite di uso dei dati. Per modificare tale limite, andate alle Impostazioni.</string>

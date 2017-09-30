@@ -1565,6 +1565,13 @@ pe ecr."</string>
     <string name="batt_cooldown_mode_attention">Aplicație închisă</string>
     <string name="batt_cooldown_mode_attentions">Aplicații închise</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Supraîncălzire telefon</string>
+    <string name="overheat_limit_warning">Telefonul se supraîncălzește. Închideți această aplicație imediat. %s se va închide automat peste un minut și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonul se supraîncălzește. Închideți această aplicație imediat. %1$s se va închide automat peste %2$d secunde și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta se supraîncălzește. Închideți această aplicație imediat. %1$s se va închide automat peste %2$d secunde și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_closed_title">Aplicație închisă</string>
+    <string name="overheat_limit_closed">%1$s s-a închis. Telefonul dvs. se supraîncălzește. Încercați să utilizați %2$s din nou, după răcirea telefonului.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Dispozitivul va reporni.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1889,6 +1896,7 @@ Pentru a anula fixarea unei aplicații, mențineți apăsată tasta Meniu."</str
     <string name="mptcp_message_mptcp_capability_WifiDirect">Funcția %s nu se poate activa atunci când conexiunea Wi-Fi Direct este pornită.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Furnizorul serviciului nu răspunde.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Solicitarea de activare pentru %s nu a putut fi trimisă. Se realizează reconectarea prin rețelele disponibile…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nu se poate activa %1$s. %2$s nu este disponibil în cadrul pachetului dvs. de internet sau nu s-a primit niciun răspuns de la serverul %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s nu poate fi activat. Dispozitivul se supraîncălzește. Așteptați până la răcirea acestuia și încercați din nou.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s este dezactivat, pentru a preveni supraîncălzirea dispozitivului. Se descarcă, în schimb, prin rețeaua mobilă…</string>
     <string name="mptcp_message_data_usage_limit">Limita de utilizare a datelor a fost atinsă. Pentru a schimba limita de utilizare a datelor, accesați meniul Setări.</string>

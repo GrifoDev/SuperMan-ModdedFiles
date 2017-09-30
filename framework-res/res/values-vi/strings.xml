@@ -1566,6 +1566,13 @@ không chạm"</string>
     <string name="batt_cooldown_mode_attention">Ứng dụng đã đóng</string>
     <string name="batt_cooldown_mode_attentions">Các ứng dụng đã đóng</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Điện thoại quá nóng</string>
+    <string name="overheat_limit_warning">Điện thoại của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %s sẽ tự động đóng sau 1 phút và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
+    <string name="overheat_limit_warning_phone_second">Điện thoại của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %1$s sẽ tự động đóng sau %2$d giây và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
+    <string name="overheat_limit_warning_tablet_second">Máy tính bảng của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %1$s sẽ tự động đóng sau %2$d giây và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
+    <string name="overheat_limit_closed_title">Ứng dụng đã đóng</string>
+    <string name="overheat_limit_closed">%1$s đã đóng. Điện thoại của bạn đang quá nóng. Hãy thử sử dụng lại %2$s sau khi điện thoại hạ nhiệt.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Thiết bị sẽ khởi động lại.</string>
     <string name="tw_reboot_safemode_title_vzw">Khởi động lại vào chế độ An toàn</string>
     <string name="tw_reboot_safemode_confirm_vzw">Bạn có muốn khởi động lại điện thoại vào chế độ An toàn không? Khi ở chế độ An toàn, các ứng dụng không đi kèm với điện thoại của bạn sẽ tạm thời bị vô hiệu để giúp bạn khắc phục sự cố của điện thoại. Khi bạn khởi động lại điện thoại lần sau, chế độ An toàn sẽ tắt và các ứng dụng của bạn sẽ hoạt động lại bình thường.</string>
@@ -1890,6 +1897,7 @@ không chạm"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Không thể bật %s khi đang bật Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Không có phản hồi từ nhà cung cấp dịch vụ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Có lỗi khi gửi yêu cầu kích hoạt %s. Đang kết nối lại qua các mạng có sẵn…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Không thể bật %1$s. %2$s không khả dụng với gói internet của bạn hoặc không nhận được phản hồi từ server %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Không thể bật %s. Thiết bị đang quá nóng. Hãy chờ đến khi thiết bị hạ nhiệt và thử lại.</string>
     <string name="mptcp_message_operation_disabled_overheating">Đã tắt %s để thiết bị không bị quá nóng. Đang tải về qua mạng di động thay thế…</string>
     <string name="mptcp_message_data_usage_limit">Đã đạt giới hạn sử dụng dữ liệu. Để thay đổi giới hạn sử dụng dữ liệu, hãy đi đến Cài đặt.</string>

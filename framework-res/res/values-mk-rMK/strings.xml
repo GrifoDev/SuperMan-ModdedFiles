@@ -1559,6 +1559,13 @@
     <string name="batt_cooldown_mode_attention">Апликацијата се затвори</string>
     <string name="batt_cooldown_mode_attentions">Апликациите се затворија</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефонот се прегрева</string>
+    <string name="overheat_limit_warning">Телефонот се прегрева. Затворете ја оваа апликација веднаш. %s ќе се затвори автоматски за 1 минута и сите незачувани податоци ќе се изгубат.</string>
+    <string name="overheat_limit_warning_phone_second">Телефонот се прегрева. Затворете ја апликацијава веднаш. %1$s ќе се затвори автоматски за %2$d секунди и сите незачувани податоци ќе се изгубат.</string>
+    <string name="overheat_limit_warning_tablet_second">Вашиот таблет се прегрева. Затворете ја апликацијава веднаш. %1$s ќе се затвори автоматски за %2$d секунди и сите незачувани податоци ќе се изгубат.</string>
+    <string name="overheat_limit_closed_title">Апликацијата се затвори</string>
+    <string name="overheat_limit_closed">%1$s се затвори. Вашиот телефон се прегрева. Обидете се да го користите %2$s повторно откако телефонот ќе се излади.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Уредот ќе се рестартира.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1883,6 +1890,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Не може да се вклучи %s кога е вклучен Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Нема одговор од операторот.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Неуспешно испраќање на барањето за ативирање на %s. Се поврзува повторно преку достапните мрежи…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Не може да се овозможи %1$s. %2$s не е достапно со Вашиот интернет пакет или не е добиен одговор од серверот на %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Не може да се овозможи %s. Уредот се прегрева. Почекајте да се излади уредот и обидете се повторно.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s е оневозможено за да се спречи прегревање на уредот. Се презема преку мобилна мрежа…</string>
     <string name="mptcp_message_data_usage_limit">Постигнато е ограничувањето за користење податоци. За да го промените ограничувањето за користење податоци, одете во Подесувања.</string>

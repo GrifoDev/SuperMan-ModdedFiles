@@ -1565,6 +1565,13 @@ aéreo"</string>
     <string name="batt_cooldown_mode_attention">Se cerró una aplicación</string>
     <string name="batt_cooldown_mode_attentions">Se cerraron aplicaciones</string>
     <string name="batt_cooldown_mode_ok">Aceptar</string>
+    <string name="overheat_limit_warning_title">Sobrecalentamiento del teléfono</string>
+    <string name="overheat_limit_warning">Su teléfono se está sobrecalentando. Cierre esta aplicación inmediatamente. %s se cerrará automáticamente dentro de 1 minuto y los datos que no haya guardado se perderán.</string>
+    <string name="overheat_limit_warning_phone_second">Su teléfono se está sobrecalentando. Cierre esta aplicación inmediatamente. %1$s se cerrará automáticamente dentro de %2$d segundos, y los datos que no haya guardado se perderán.</string>
+    <string name="overheat_limit_warning_tablet_second">Su tableta se está sobrecalentando. Cierre esta aplicación inmediatamente. %1$s se cerrará automáticamente dentro de %2$d segundos, y los datos que no haya guardado se perderán.</string>
+    <string name="overheat_limit_closed_title">Se cerró una aplicación</string>
+    <string name="overheat_limit_closed">Se cerró %1$s. Su teléfono se está sobrecalentando. Espere a que se enfríe e intente usar %2$s.</string>
+    <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">Se reiniciará el dispositivo.</string>
     <string name="tw_reboot_safemode_title_vzw">Reiniciar en Modo seguro</string>
     <string name="tw_reboot_safemode_confirm_vzw">¿Desea reiniciar su teléfono en Modo seguro? Mientras se encuentra en Modo seguro, las aplicaciones que no vienen con su teléfono se deshabilitarán temporalmente para ayudarlo a solucionar el problema de su teléfono. Cuando reinicie su teléfono la próxima vez, el modo seguro se desactivará y las aplicaciones estarán disponibles nuevamente.</string>
@@ -1889,6 +1896,7 @@ Para desanclar una aplicación, mantenga presionada la tecla Menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">No es posible activar %s cuando está activado Wi-Fi Directo.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No hay respuesta del proveedor de servicio.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Error al enviar la solicitud de activación de %s. Reconectando vía redes disponibles…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">No es posible activar %1$s. %2$s no está disponible con su paquete de Internet, o bien no se recibió una respuesta del servidor de %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">No es posible activar %s. El dispositivo se está sobrecalentando. Espere a que el dispositivo se enfríe e inténtelo de nuevo.</string>
     <string name="mptcp_message_operation_disabled_overheating">Se desactivó %s para evitar que se sobrecaliente el dispositivo. La descarga se realizará vía la red móvil…</string>
     <string name="mptcp_message_data_usage_limit">Se alcanzó el límite de uso de datos. Vaya a Ajustes para cambiar el límite de uso de datos.</string>

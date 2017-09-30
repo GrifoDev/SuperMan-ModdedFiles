@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">ಅನ್ವಯಿಸುವಿಕೆ ಮುಚ್ಚಲಾಗಿದೆ</string>
     <string name="batt_cooldown_mode_attentions">ಅನ್ವಯಿಸುವಿಕೆಗಳನ್ನು ಮುಚ್ಚಲಾಗಿದೆ</string>
     <string name="batt_cooldown_mode_ok">ಓಕೆ</string>
+    <string name="overheat_limit_warning_title">ಫೋನ್ ತುಂಬಾ ಬಿಸಿಯಾಗುತ್ತಿದೆ</string>
+    <string name="overheat_limit_warning">ನಿಮ್ಮ ಫೋನ್ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ಕೂಡಲೇ ಈ ಅನ್ವಯಿಸುವಿಕೆ ಮುಚ್ಚಿ. ಇನ್ನೂ 1 ನಿಮಿಷದಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ %s ಮುಚ್ಚುತ್ತದೆ, ಹಾಗೂ ಯಾವುದೇ ಉಳಿಸದ ಡೇಟಾ ಕಳೆದುಹೋಗುತ್ತದೆ.</string>
+    <string name="overheat_limit_warning_phone_second">ನಿಮ್ಮ ಫೋನ್ ತುಂಬಾ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ಕೂಡಲೇ ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಮುಚ್ಚಿ. ಇನ್ನೂ %2$d ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ %1$s ಮುಚ್ಚುತ್ತದೆ ಹಾಗೂ ಯಾವುದೇ ಉಳಿಸದ ಡೇಟಾ ಕಳೆದುಹೋಗುತ್ತದೆ.</string>
+    <string name="overheat_limit_warning_tablet_second">ನಿಮ್ಮ ಟ್ಯಾಬ್ಲೆಟ್ ತುಂಬಾ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ಕೂಡಲೇ ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಮುಚ್ಚಿ. ಇನ್ನೂ %2$d ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ %1$s ಮುಚ್ಚುತ್ತದೆ ಹಾಗೂ ಯಾವುದೇ ಉಳಿಸದ ಡೇಟಾ ಕಳೆದುಹೋಗುತ್ತದೆ.</string>
+    <string name="overheat_limit_closed_title">ಅನ್ವಯಿಸುವಿಕೆ ಮುಚ್ಚಲಾಗಿದೆ</string>
+    <string name="overheat_limit_closed">%1$s ಮುಚ್ಚಲಾಗಿದೆ. ನಿಮ್ಮ ಫೋನ್ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ನಿಮ್ಮ ಫೋನ್ ತಂಪಾದ ನಂತರ ಮತ್ತೆ %2$s ಬಳಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="overheat_limit_ok">ಸರಿ</string>
     <string name="restart_confirm">ಸಾಧನವು ಮರುಪ್ರಾರಂಭಗೊಳ್ಳುತ್ತದೆ.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ಶಕ್ತಗೊಂಡಿರುವಾಗ %s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ಸೇವಾ ಪೂರೈಕೆದಾರರಿಂದ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆ ಇಲ್ಲ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ. ಲಭ್ಯ ನೆಟ್‌ವರ್ಕ್‌ಗಳ ಮೂಲಕ ಮರುಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಪ್ಯಾಕೇಜ್‍ನೊಂದಿಗೆ %2$s ಲಭ್ಯವಿಲ್ಲ ಅಥವಾ %3$s ಸರ್ವರ್‌ನಿಂದ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಸ್ವೀಕರಿಸಿಲ್ಲ.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ಶಕ್ತಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸಾಧನ ತುಂಬಾ ಬಿಸಿಯಾಗುತ್ತಿದೆ. ಸಾಧನ ತಣ್ಣಗಾಗುವವರೆಗೂ ಕಾಯಿರಿ ಹಾಗೂ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="mptcp_message_operation_disabled_overheating">ಸಾಧನ ಬಿಸಿಯಾಗದಂತೆ ತಡೆಯಲು %s ನಿಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ. ಬದಲಿಗೆ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಡೌನ್‌ಲೋಡ್ ಮಾಡುತ್ತಿದೆ…</string>
     <string name="mptcp_message_data_usage_limit">ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿ ತಲುಪಿದೆ. ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿಯನ್ನು ಬದಲಿಸಲು, ಸಂಯೋಜನೆಗಳಿಗೆ ಹೋಗಿ.</string>

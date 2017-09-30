@@ -1565,6 +1565,13 @@ ukaz"</string>
     <string name="batt_cooldown_mode_attention">Aplikacija je zaprta</string>
     <string name="batt_cooldown_mode_attentions">Aplikacije so zaprte</string>
     <string name="batt_cooldown_mode_ok">V redu</string>
+    <string name="overheat_limit_warning_title">Pregrevanje telefona</string>
+    <string name="overheat_limit_warning">Telefon se pregreva. Takoj zaprite to aplikacijo. Aplikacija %s se bo čez 1 minuto zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon se pregreva. Takoj zaprite to aplikacijo. Aplikacija %1$s se bo čez %2$d s zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablični računalnik se pregreva. Takoj zaprite to aplikacijo. Aplikacija %1$s se bo čez %2$d s zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
+    <string name="overheat_limit_closed_title">Aplikacija je zaprta</string>
+    <string name="overheat_limit_closed">Aplikacija %1$s se je zaprla. Telefon se pregreva. Poskusite znova uporabiti aplikacijo %2$s, ko se telefon ohladi.</string>
+    <string name="overheat_limit_ok">V REDU</string>
     <string name="restart_confirm">Naprava se bo znova zagnala.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1889,6 +1896,7 @@ ukaz"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Funkcije %s ni mogoče omogočiti, ko je omogočena funkcija Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ponudnik storitev se ne odziva.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Zahteve za aktiviranje storitve %s ni uspelo poslati. Vnovično povezovanje prek razpoložljivih omrežij …</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funkcije %1$s ni mogoče omogočiti. Funkcija %2$s ni na voljo z vašim internetnim paketom ali pa se strežnik %3$s ne odziva.</string>
     <string name="mptcp_message_setting_disabled_overheating">Funkcije %s ne morete omogočiti. Naprava se pregreva. Počakajte, da se naprava ohladi in poskusite znova.</string>
     <string name="mptcp_message_operation_disabled_overheating">Omrežje %s je onemogočeno, da se prepreči pregrevanje naprave. Prenos poteka prek mobilnega omrežja …</string>
     <string name="mptcp_message_data_usage_limit">Dosežena je omejitev porabe podatkov. Če želite spremeniti omejitev porabe podatkov, pojdite v meni Nastavitve.</string>

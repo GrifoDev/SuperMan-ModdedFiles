@@ -1566,6 +1566,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">"S'ha tancat l'aplicació"</string>
     <string name="batt_cooldown_mode_attentions">"S'han tancat les aplicacions"</string>
     <string name="batt_cooldown_mode_ok">Acceptar</string>
+    <string name="overheat_limit_warning_title">"El telèfon s'està sobreescalfant"</string>
+    <string name="overheat_limit_warning">"El telèfon s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %s automàticament d'aquí a 1 minut i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_warning_phone_second">"El telèfon s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %1$s automàticament d'aquí a %2$d segons i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_warning_tablet_second">"La tablet s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %1$s automàticament d'aquí a %2$d segons i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_closed_title">"S'ha tancat l'aplicació"</string>
+    <string name="overheat_limit_closed">"S'ha tancat %1$s. El telèfon s'està sobreescalfant. Intenta tornar a utilitzar %2$s després que el telèfon s'hagi refredat."</string>
+    <string name="overheat_limit_ok">ACCEPTAR</string>
     <string name="restart_confirm">El dispositiu es reiniciarà.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Per desenganxar-la, mantingui premuda la tecla de menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">No es pot activar %s mentre Wi-Fi Direct està activat.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">No hi ha resposta del proveïdor de servei.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">"S'ha produït un error en enviar la sol·licitud d'activació de %s. S'està tornant a connectar mitjançant les xarxes disponibles…"</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">"No es pot activar %1$s. %2$s no està disponible amb el paquet d'Internet o no s'ha rebut cap resposta del servidor %3$s."</string>
     <string name="mptcp_message_setting_disabled_overheating">"No es pot activar %s. El dispositiu s'està sobreescalfant. Esperi fins que es refredi i torni-ho a intentar."</string>
     <string name="mptcp_message_operation_disabled_overheating">"S'ha desactivat %s per evitar el sobreescalfament del dispositiu. S'està descarregant mitjançant la xarxa mòbil…"</string>
     <string name="mptcp_message_data_usage_limit">"S'ha assolit el límit d'ús de dades. Per canviar el límit d'ús, vagi a Ajustaments."</string>

@@ -1561,6 +1561,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Aplikazioa itxi da</string>
     <string name="batt_cooldown_mode_attentions">Aplikazioak itxi dira</string>
     <string name="batt_cooldown_mode_ok">Ados</string>
+    <string name="overheat_limit_warning_title">Telefonoa beroegi dago</string>
+    <string name="overheat_limit_warning">Telefonoa beroegi dago. Itxi aplikazio hori berehala. 1 minutu barru itxiko da automatikoki %s, eta gorde ez diren datu guztiak galduko dira.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonoa beroegi dago. Itxi aplikazio hori berehala. %2$d segundo barru itxiko da automatikoki %1$s, eta gorde ez diren datu guztiak galduko dira.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta beroegi dago. Itxi aplikazio hori berehala. %2$d segundo barru itxiko da automatikoki %1$s, eta gorde ez diren datu guztiak galduko dira.</string>
+    <string name="overheat_limit_closed_title">Aplikazioa itxi da</string>
+    <string name="overheat_limit_closed">%1$s itxi da. Telefonoa gehiegi berotzen ari da. Telefonoa hozten denean, saiatu %2$s berriz erabiltzen.</string>
+    <string name="overheat_limit_ok">ADOS</string>
     <string name="restart_confirm">Gailua berrabiaraziko da.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@ Aplikazioa desainguratzeko, sakatu eta eutsi menu tekla."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ezin da %s gaitu Wi-Fi Direct gaituta badago.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Ez dago zerbitzu hornitzailearen erantzunik.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Ezin izan da bidali %s aktibatzeko eskaera. Erabilgarri dauden sareen bidez berriro konektatzen…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ezin da gaitu %1$s. %2$s ez dago erabilgarri zure Interneteko tarifan edo ez da erantzunik jaso %3$s zerbitzaritik.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ezin da gaitu %s. Gailua gehiegi berotzen ari da. Itxaron gailua hozten den arte eta saiatu berriz.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s desgaitu da gailua gehiegi berotu ez dadin. Horren ordez, sare mugikor bidez deskargatzen…</string>
     <string name="mptcp_message_data_usage_limit">Datu erabileraren muga gainditu da. Datu erabileraren muga aldatzeko, zoaz Ezarpenak atalera.</string>

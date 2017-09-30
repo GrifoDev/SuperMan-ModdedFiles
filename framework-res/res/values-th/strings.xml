@@ -1568,6 +1568,13 @@ memo"</string>
     <string name="batt_cooldown_mode_attention">แอพถูกปิดแล้ว</string>
     <string name="batt_cooldown_mode_attentions">แอพถูกปิดแล้ว</string>
     <string name="batt_cooldown_mode_ok">ตกลง</string>
+    <string name="overheat_limit_warning_title">โทรศัพท์ร้อนเกินไป</string>
+    <string name="overheat_limit_warning">โทรศัพท์ของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %s โดยอัตโนมัติใน 1 นาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_warning_phone_second">โทรศัพท์ของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %1$s โดยอัตโนมัติใน %2$d วินาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_warning_tablet_second">แท็บเล็ตของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %1$s โดยอัตโนมัติใน %2$d วินาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_closed_title">แอพถูกปิดแล้ว</string>
+    <string name="overheat_limit_closed">ปิด %1$s แล้ว โทรศัพท์ของคุณร้อนเกินไป ลองใช้งาน %2$s ใหม่หลังจากโทรศัพท์เย็นลงแล้ว</string>
+    <string name="overheat_limit_ok">ตกลง</string>
     <string name="restart_confirm">อุปกรณ์จะเริ่มใหม่</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1894,6 +1901,8 @@ memo"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">ไม่สามารถใช้งาน %s ได้ขณะเปิดใช้งาน Wi-Fi Direct</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ไม่มีคำตอบจากผู้ให้บริการ</string>
     <string name="mptcp_message_mptcp_capability_sendfail">การส่งคำร้องขอการเปิดใช้งาน %s ล้มเหลว กำลังเชื่อมต่อใหม่ด้วยเครือข่ายที่พร้อมใช้งาน…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">ไม่สามารถเปิดใช้งาน %1$s เนื่องจากคุณไม่มีแพ็กเกจ %2$s หรือไม่ได้รับการตอบสนองจากเซิร์ฟเวอร์ %3$s</string>
+    <string name="mptcp_message_mptcp_capability_WiFiAPCompatible">กรุณาเชื่อมต่อ WiFi ของ AIS เพื่อใช้บริการ %s</string>
     <string name="mptcp_message_setting_disabled_overheating">ไม่สามารถเปิดใช้งาน %s ได้ อุปกรณ์ร้อนเกินไป รอจนกว่าอุปกรณ์เย็นลงและลองอีกครั้ง</string>
     <string name="mptcp_message_operation_disabled_overheating">ปิดใช้งาน %s เพื่อป้องกันไม่ให้อุปกรณ์ร้อนเกินไป กำลังดาวน์โหลดผ่านเครือข่ายมือถือแทน…</string>
     <string name="mptcp_message_data_usage_limit">ถึงขีดจำกัดการใช้ข้อมูลแล้ว ในการเปลี่ยนขีดจำกัดการใช้ข้อมูล ให้ไปที่การตั้งค่า</string>

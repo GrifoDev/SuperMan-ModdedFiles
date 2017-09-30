@@ -44,6 +44,9 @@
         <setting name="PST">
             <set default="10" min="6" max="14" step="4" />
         </setting>
+        <setting name="FunctionsLimitation">
+            <set ovht_pst="600" ovht_bat="470" final_pst="600" final_bat="470" />
+        </setting>
     </model_settings>
 
     <levels>
@@ -80,15 +83,6 @@
         <limiter name="LCDBrightness" type="number">
             <table_item temp="450" value="-1" />
             <table_item temp="470" value="219" />
-        </limiter>
-        <limiter name="Flash" type="bool">
-            <table_item temp="660" value="0" />
-        </limiter>
-        <limiter name="Recording" type="bool">
-            <table_item temp="700" value="0" />
-        </limiter>
-        <limiter name="CameraDisable" type="bool">
-            <table_item temp="720" value="0" />
         </limiter>
         <limiter name="HmtLevel" type="number">
             <table_item temp="410" value="0" />
@@ -418,6 +412,7 @@
 
         <scenario name="Navigation">
             <trigger_packages>
+                <package name="me.gfuil.bmap" />
                 <package name="com.google.android.apps.maps" />
                 <package name="com.skt.skaf.l001mtm091" />
                 <package name="kt.navi" />

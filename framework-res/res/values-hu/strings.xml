@@ -1565,6 +1565,13 @@ funkc."</string>
     <string name="batt_cooldown_mode_attention">Bezárult az alkalmazás</string>
     <string name="batt_cooldown_mode_attentions">Bezárultak az alkalmazások</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">A telefon túlmelegedett</string>
+    <string name="overheat_limit_warning">A telefon túlmelegedett. Haladéktalanul zárja be ezt az alkalmazást. A(z) %s 1 perc múlva automatikusan bezáródik, és az összes nem mentett adata elveszik.</string>
+    <string name="overheat_limit_warning_phone_second">A telefon túlmelegedett. Haladéktalanul zárja be ezt az alkalmazást. A(z) %1$s %2$d másodperc múlva automatikusan bezáródik, és az összes nem mentett adat elveszik.</string>
+    <string name="overheat_limit_warning_tablet_second">A táblagép túlmelegedett. Haladéktalanul zárja be ezt az alkalmazást. A(z) %1$s %2$d másodperc múlva automatikusan bezáródik, és az összes nem mentett adat elveszik.</string>
+    <string name="overheat_limit_closed_title">Bezárult az alkalmazás</string>
+    <string name="overheat_limit_closed">A(z) %1$s bezárult. A telefon túlmelegedett. A telefon lehűlése után próbálja meg újra használni a(z) %2$s alkalmazást.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Az eszköz újraindul.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1889,6 +1896,7 @@ Az alkalmazás rögzítésének feloldásához tartsa nyomva a Menü gombot."</s
     <string name="mptcp_message_mptcp_capability_WifiDirect">Bekapcsolt Wi-Fi Direct mellett nem kapcsolható be a(z) %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">A szolgáltató nem válaszol.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nem sikerült elküldeni a(z) %s aktiválására vonatkozó kérést. Újrakapcsolódás egy rendelkezésre álló hálózaton keresztül…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nem kapcsolható be a(z) %1$s. A(z) %2$s nem áll rendelkezésre az ön internetcsomagjához, vagy a(z) %3$s-szervertől nem érkezett válasz.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nem lehet bekapcsolni a %s funkciót, mert túlmelegedett az eszköz. Hagyja lehűlni, és próbálja újra.</string>
     <string name="mptcp_message_operation_disabled_overheating">Az eszköz túlmelegedésének elkerülése érdekében a rendszer kikapcsolta a %s-kapcsolatot. Letöltés a mobilhálózaton keresztül…</string>
     <string name="mptcp_message_data_usage_limit">Elérte az adathasználat korlátját. A korlátot a Beállításokban módosíthatja.</string>

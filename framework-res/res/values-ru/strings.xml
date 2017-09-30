@@ -1565,6 +1565,13 @@
     <string name="batt_cooldown_mode_attention">Приложение закрыто</string>
     <string name="batt_cooldown_mode_attentions">Приложения закрыты</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Перегрев телефона</string>
+    <string name="overheat_limit_warning">Произошел перегрев телефона. Немедленно закройте это приложение. Приложение %s будет закрыто автоматически через 1 минуту, а все несохраненные данные будут потеряны.</string>
+    <string name="overheat_limit_warning_phone_second">Телефон перегревается. Немедленно закройте %1$s. Это приложение будет автоматически закрыто через %2$d с, что приведет к потере всех несохраненных данных.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшет перегревается. Немедленно закройте %1$s. Это приложение будет автоматически закрыто через %2$d с, что приведет к потере всех несохраненных данных.</string>
+    <string name="overheat_limit_closed_title">Приложение закрыто</string>
+    <string name="overheat_limit_closed">Приложение %1$s закрыто. Произошел перегрев телефона. Попробуйте использовать %2$s после охлаждения телефона.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Устройство будет перезагружено.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1889,6 +1896,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Невозможно включить %s, когда включен Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Нет ответа от поставщика услуг.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Не удалось отправить запрос на активацию %s. Повторное подключение через доступные сети…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Невозможно включить %1$s. Ваш интернет-пакет не поддерживает услугу %2$s, или не получен ответ от сервера %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Невозможно включить %s. Перегрев устройства. Подождите, пока устройство охладится, и попробуйте снова.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s отключено из-за перегрева устройства. Загрузка через мобильную сеть…</string>
     <string name="mptcp_message_data_usage_limit">Достигнут лимит использования трафика. Чтобы изменить лимит использования трафика, перейдите в “Настройки”.</string>

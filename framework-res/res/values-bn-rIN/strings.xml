@@ -850,6 +850,13 @@
     <string name="batt_cooldown_mode_attention">অ্যাপ বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_attentions">অ্যাপগুলি বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_ok">ওকে</string>
+    <string name="overheat_limit_warning_title">ফোন অতিরিক্ত উত্তপ্ত</string>
+    <string name="overheat_limit_warning">আপনার ফোনটি অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %s স্বয়ংক্রিয়ভাবে 1 মিনিটে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
+    <string name="overheat_limit_warning_phone_second">আপনার ফোন অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %1$s স্বয়ংক্রিয়ভাবে %2$d সেকেন্ডে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
+    <string name="overheat_limit_warning_tablet_second">আপনার ট্যাবলেট অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %1$s স্বয়ংক্রিয়ভাবে %2$d সেকেন্ডে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
+    <string name="overheat_limit_closed_title">অ্যাপ বন্ধ হয়েছে</string>
+    <string name="overheat_limit_closed">%1$s বন্ধ হয়েছে। আপনার ফোনটি অতিরিক্ত উত্তপ্ত হচ্ছে। আপনার ফোনটি ঠান্ডা হওয়ার পরে %2$s আবার ব্যবহার করার চেষ্টা করুন।</string>
+    <string name="overheat_limit_ok">ওকে</string>
     <string name="restart_confirm">ডিভাইসটি পুনঃশুরু হবে।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1174,6 +1181,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct সক্ষম থাকাকালীন %s সক্ষম করতে অক্ষম।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">পরিষেবা সরবরাহকারী থেকে কোনও প্রতিক্রিয়া নেই।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s সক্রিয়করণের অনুরোধ পাঠাতে ব্যর্থ হয়েছে। সুলভ নেটওয়ার্কগুলির মাধ্যমে পুনরায় সংযোগ করা হচ্ছে…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s সক্ষম করতে অক্ষম। %2$s আপনার ইন্টারনেট প্যাকেজে সুলভ নেই বা %3$s সার্ভার থেকে কোনও প্রতিক্রিয়া পাওয়া যায়নি।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s সক্ষম করতে অক্ষম। ডিভাইস অতিরিক্ত উত্তপ্ত হচ্ছে। ডিভাইসটি ঠান্ডা হওয়া পর্যন্ত অপেক্ষা করুন ও পুনরায় চেষ্টা করুন।</string>
     <string name="mptcp_message_operation_disabled_overheating">ডিভাইস অতিরিক্ত উত্তপ্ত হওয়ার থেকে বাধা দিতে %s অক্ষম রয়েছে। পরিবর্তে মোবাইল নেটওয়ার্কের মাধ্যমে ডাউনলোড হচ্ছে…</string>
     <string name="mptcp_message_data_usage_limit">তথ্য ব্যবহারের সীমায় পৌঁছেছে। তথ্য ব্যবহারের সীমা পরিবর্তন করতে সেটিংসে যান।</string>

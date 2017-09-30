@@ -854,6 +854,13 @@
     <string name="batt_cooldown_mode_attention">යෙදුම වැසිණි</string>
     <string name="batt_cooldown_mode_attentions">යෙදුම් වැසිණි</string>
     <string name="batt_cooldown_mode_ok">හරි</string>
+    <string name="overheat_limit_warning_title">දුරකථනය අධිකව රත් වේ</string>
+    <string name="overheat_limit_warning">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %s විනාඩි 1කින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_phone_second">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_tablet_second">ඔබේ ටැබ්ලටය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_closed_title">යෙදුම වැසිණි</string>
+    <string name="overheat_limit_closed">%1$s වැසිණි. ඔබේ දුරකථනය අධිකව රත් වේ. ඔබේ දුරකථනය සිසිලනය වූ පසුව %2$s නැවත භාවිතයට උත්සාහ කරන්න.</string>
+    <string name="overheat_limit_ok">හරි</string>
     <string name="restart_confirm">උපාංගය යළි ඇරඹෙනු ඇත.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1178,6 +1185,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct සක්‍රිය අතරතුර %s සක්‍රිය කළ නොහැකිය.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">සේවා සැපයුම්කරුගෙන් කිසිදු ප්‍රතිචාරයක් නොමැත.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s සක්‍රියන ඉල්ලුම යැවීමට අසමත් විය. ඇති ජාල ඔස්සේ යළි සබැඳෙමින්…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s සක්‍රිය කළ නොහැකිය. %2$s ඔබේ අන්තර්ජාල පැකේජය සමග නොමැති හෝ %3$s සර්වරයෙන් කිසිදු ප්‍රතිචාරයක් ලැබී නැත.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s සක්‍රිය කළ නොහැකිය. උපාංගය අධිකව රත් වේ. උපාංගය සිසිල් වන තුරු රැඳී සිට නැවත උත්සාහ කරන්න.</string>
     <string name="mptcp_message_operation_disabled_overheating">උපාංගය අධිකව රත් වීම වැළැක්වීමට %s අක්‍රිය කෙරිණි. ඒ වෙනුවට ජංගම ජාලය ඔස්සේ බාගනිමින්…</string>
     <string name="mptcp_message_data_usage_limit">දත්ත පරිහරණ සීමාවට ළඟා විය. දත්ත පරිහරණ සීමාව වෙනස් කිරීමට, සැකසුම් වෙත යන්න.</string>

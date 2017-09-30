@@ -1566,6 +1566,13 @@ kom."</string>
     <string name="batt_cooldown_mode_attention">Programa uždaryta</string>
     <string name="batt_cooldown_mode_attentions">Programos uždarytos</string>
     <string name="batt_cooldown_mode_ok">Gerai</string>
+    <string name="overheat_limit_warning_title">Telefonas kaista</string>
+    <string name="overheat_limit_warning">Jūsų telefonas kaista. Nedelsdami uždarykite šią programą. %s bus uždaryta automatiškai po 1 min., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_warning_phone_second">Jūsų telefonas kaista. Nedelsdami uždarykite šią programą. %1$s bus uždaryta automatiškai po %2$d sek., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_warning_tablet_second">Jūsų planšetinis kompiuteris kaista. Nedelsdami uždarykite šią programą. %1$s bus uždaryta automatiškai po %2$d sek., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_closed_title">Programa uždaryta</string>
+    <string name="overheat_limit_closed">%1$s uždaryta. Jūsų telefonas kaista. Pabandykite pasinaudoti %2$s dar kartą, kai telefonas atvės.</string>
+    <string name="overheat_limit_ok">Gerai</string>
     <string name="restart_confirm">Įrenginys bus paleistas iš naujo.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Norėdami atsegti šią programą, paspauskite ir palaikykite meniu mygtuką."</
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kai įjungta „Wi-Fi Direct“, negalima įjungti %s.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nėra atsakymo iš paslaugų teikėjo.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nepavyko išsiųsti %s aktyvinimo užklausos. Jungiamasi iš naujo per pasiekiamus tinklus…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Neįmanoma įjungti %1$s. %2$s neveikia su jūsų interneto duomenų paketu arba negaunamas atsakymas iš %3$s serverio.</string>
     <string name="mptcp_message_setting_disabled_overheating">Negalima įjungti %s. Įrenginys kaista. Palaukite, kol įrenginys atvės, ir bandykite dar kartą.</string>
     <string name="mptcp_message_operation_disabled_overheating">Siekiant apsaugoti įrenginį nuo perkaitimo %s išjungta. Vietoje to atsisiunčiama per mobilųjį tinklą…</string>
     <string name="mptcp_message_data_usage_limit">Pasiekta duomenų naudojimo riba. Jei norite keisti duomenų naudojimo apribojimą, eikite į nustatymus.</string>

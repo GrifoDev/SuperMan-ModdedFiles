@@ -1566,6 +1566,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App lukket</string>
     <string name="batt_cooldown_mode_attentions">Apps lukket</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefonen overophedes</string>
+    <string name="overheat_limit_warning">Din telefon er ved at blive overophedet. Luk denne app med det samme. %s vil blive lukket automatisk om 1 minut, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_warning_phone_second">Din telefon er ved at blive overophedet. Luk denne app med det samme. %1$s vil blive lukket automatisk om %2$d sekunder, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_warning_tablet_second">Din tablet er ved at blive overophedet. Luk denne app med det samme. %1$s vil blive lukket automatisk om %2$d sekunder, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_closed_title">App lukket</string>
+    <string name="overheat_limit_closed">%1$s blev lukket. Din telefon er ved at blive overophedet. Prøv at bruge %2$s igen, når din telefon er kølet af.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Enheden vil genstarte.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Du kan frigøre en applikation ved at trykke og holde nede på menutasten."</str
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kan ikke aktivere %s, mens Wi-Fi Direct er aktiveret.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Intet svar fra tjenesteudbyder.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Kunne ikke sende anmodning om aktivering af %s. Opretter forbindelse igen via tilgængelige netværk …</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Kan ikke aktivere %1$s. %2$s er ikke tilgængelig med din internetpakke, eller der er ikke modtaget et svar fra %3$s-serveren.</string>
     <string name="mptcp_message_setting_disabled_overheating">Kan ikke aktivere %s. Enheden er ved at blive overophedet. Vent, til din enhed er kølet af, og prøv igen.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s er deaktiveret for at forhindre enheden i at overophede. Downloader via mobile netværk i stedet …</string>
     <string name="mptcp_message_data_usage_limit">Databrugsgrænsen er nået. Gå til Indstillinger for at ændre grænsen for databrug.</string>

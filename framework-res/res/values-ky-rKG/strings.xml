@@ -1561,6 +1561,13 @@ booker"</string>
     <string name="batt_cooldown_mode_attention">Колдонмо жабылды</string>
     <string name="batt_cooldown_mode_attentions">Колдонмолор жабылды</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
+    <string name="overheat_limit_warning_title">Телефон өтө ысып кетүүдө</string>
+    <string name="overheat_limit_warning">Телефонуңуз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %s автоматтык түрдө 1 мүнөттөн кийин жабылып, бардык сакталбаган маалыматтар жоготулат.</string>
+    <string name="overheat_limit_warning_phone_second">Телефонуңуз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %1$s %2$d секунд ичинде автоматтык түрдө жабылат, жана каалаган сактала элек маалыматтар жоголот.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшетиңиз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %1$s %2$d секунд ичинде автоматтык түрдө жабылат, жана каалаган сактала элек маалыматтар жоголот.</string>
+    <string name="overheat_limit_closed_title">Колдонмо жабылды</string>
+    <string name="overheat_limit_closed">%1$s жабылды. Телефонуңуз өтө ысып кетүүдө. Телефонуңуз муздагандан кийин, %2$s кайра колдонуп көрүңүз.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Түзмөк кайра ишетилет.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@ booker"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct иштетилип турган учурда, %s иштетүү мүмкүн эмес.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Кызмат тейлөөчүсүнөн жооп жок.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s активдештирүү суроосун жөнөтүү кыйрады. Байкалган тармактар аркылуу кайра туташууда…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s иштетүү мүмкүн эмес. %2$s интернет пакетиңиз менен байкалбайт же %3$s серверинен эч кандай жооп кабыл алынган жок.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s иштетүү мүмкүн эмес. Түзмөк ысып кетти. Түзмөгүңүз муздаганга чейин күтүңүз да, дагы аракеттениңиз.</string>
     <string name="mptcp_message_operation_disabled_overheating">Түзмөктүн ашыкча ысып кетүүсүн алдын алууга, %s иштен чыгарылат. Анын ордуна мобилдик тармак аркылуу жүктөөдө…</string>
     <string name="mptcp_message_data_usage_limit">Маалымат колдонуу чегине жетти. Маалымат колдонуу чегин өзгөртүү үчүн, Орнотууларга барыңыз.</string>

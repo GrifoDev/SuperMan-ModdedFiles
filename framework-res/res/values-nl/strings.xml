@@ -1566,6 +1566,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">App gesloten</string>
     <string name="batt_cooldown_mode_attentions">Apps gesloten</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefoon oververhit</string>
+    <string name="overheat_limit_warning">Uw telefoon is oververhit. Sluit deze app onmiddellijk. %s wordt automatisch gesloten over 1 minuut en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_warning_phone_second">Uw telefoon wordt te warm. Sluit deze app onmiddellijk. %1$s wordt automatisch gesloten over %2$d seconden en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_warning_tablet_second">Uw tablet wordt te warm. Sluit deze app onmiddellijk. %1$s wordt automatisch gesloten over %2$d seconden en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_closed_title">App gesloten</string>
+    <string name="overheat_limit_closed">%1$s gesloten. Uw telefoon is oververhit. Probeer %2$s opnieuw te gebruiken nadat uw telefoon is afgekoeld.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Het apparaat wordt opnieuw gestart.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1892,6 +1899,7 @@ Als u een applicatie wilt losmaken, houdt u de menutoets ingedrukt."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Kan %s niet inschakelen terwijl Wi-Fi Direct is ingeschakeld.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Geen reactie van serviceprovider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Kan activeringsverzoek voor %s niet verzenden. Opnieuw verbinden via beschikbare netwerken…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Kan %1$s niet inschakelen. %2$s is niet beschikbaar met uw internetpakket of er is geen antwoord van server %3$s ontvangen.</string>
     <string name="mptcp_message_setting_disabled_overheating">Kan %s niet inschakelen. Het apparaat raakt oververhit. Wacht tot het apparaat is afgekoeld en probeer het opnieuw.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s uitgeschakeld om oververhitting van apparaat te voorkomen. In plaats daarvan downloaden via mobiel netwerk…</string>
     <string name="mptcp_message_data_usage_limit">Limiet gegevensgebruik bereikt. Ga naar Instellingen om de limiet voor het gegevensgebruik te wijzigen.</string>

@@ -1562,6 +1562,13 @@ käsklus"</string>
     <string name="batt_cooldown_mode_attention">Rakendus suleti</string>
     <string name="batt_cooldown_mode_attentions">Rakendused suleti</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon kuumeneb üle</string>
+    <string name="overheat_limit_warning">Teie telefon on ülekuumenemas. Sulgege see rakendus otsekohe. %s suletakse automaatselt 1 minuti pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_warning_phone_second">Teie telefon on ülekuumenemas. Sulgege see rakendus otsekohe. %1$s suletakse automaatselt %2$d sekundi pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_warning_tablet_second">Teie tahvelseade on ülekuumenemas. Sulgege see rakendus otsekohe. %1$s suletakse automaatselt %2$d sekundi pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_closed_title">Rakendus suleti</string>
+    <string name="overheat_limit_closed">%1$s sulgus. Teie telefon on ülekuumenemas. Proovige rakendust %2$s uuesti kasutada, kui telefon on maha jahtunud.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Seade taaskäivitub.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1886,6 +1893,7 @@ Rakenduse eemaldamiseks vajutage ja hoidke menüüklahvi."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ei saa aktiveerida funktsiooni %s, kui Wi-Fi Direct on aktiveeritud.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Teenusepakkuja ei vasta.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s aktiveerimise taotluse saatmine nurjus. Ühenduse taasloomine saadaolevate võrkude kaudu…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Funktsiooni %1$s ei saa aktiveerida. %2$s ei ole saadaval teie internetipaketiga või ei saadud vastust teenuse %3$s serverist.</string>
     <string name="mptcp_message_setting_disabled_overheating">Mobiilsidestandardit %s ei saa aktiveerida. Seade on üle kuumenemas. Oodake, kuni seade jahtub, seejärel proovige uuesti.</string>
     <string name="mptcp_message_operation_disabled_overheating">Mobiilsidestandard %s inaktiveeriti, et seadme ülekuumenemist ära hoida. Laaditakse alla hoopis mobiilsidevõrgu kaudu…</string>
     <string name="mptcp_message_data_usage_limit">Andmekasutuse piirang on saavutatud. Avage andmekasutuse piirangu muutmiseks menüü Seaded.</string>

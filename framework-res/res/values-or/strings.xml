@@ -853,6 +853,13 @@
     <string name="batt_cooldown_mode_attention">ଆପ୍ଲିକେସନ୍‌ ବନ୍ଦ</string>
     <string name="batt_cooldown_mode_attentions">ଆପସ୍ ବନ୍ଦ</string>
     <string name="batt_cooldown_mode_ok">ଓକେ</string>
+    <string name="overheat_limit_warning_title">ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି</string>
+    <string name="overheat_limit_warning">ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। 1 ମିନିଟରେ %s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଏବଂ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="overheat_limit_warning_phone_second">ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। %2$d ମିନିଟରେ %1$s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଅସଞ୍ଚିତ ଯେକୌଣସି ଡାଟା ହରାଇବ।</string>
+    <string name="overheat_limit_warning_tablet_second">ଆପଣଙ୍କ ଟ୍ୟାବଲେଟ୍ ଅତ୍ୟଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। %2$d ମିନିଟରେ %1$s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଅସଞ୍ଚିତ ଯେକୌଣସି ଡାଟା ହଜିଯିବ।</string>
+    <string name="overheat_limit_closed_title">ଆପ୍ଲିକେସନ୍‌ ବନ୍ଦ</string>
+    <string name="overheat_limit_closed">%1$s ବନ୍ଦ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଥଣ୍ତା ହେବା ପରେ ପୁନଃ %2$s ବ୍ୟବହାର କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="overheat_limit_ok">ଓକେ</string>
     <string name="restart_confirm">ଏହି ଡିଭାଇସ ପୁନଃଆରମ୍ଭ ହେବ।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1177,6 +1184,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ସକ୍ଷମ ହୋଇଥିବା ବେଳେ %s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">ସେବା ପ୍ରଦାନକାରୀଙ୍କ ଠାରୁ କୌଣସି ପ୍ରତିକ୍ରିୟା ନାହିଁ।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s ସକ୍ରିୟକରଣ ଅନୁରୋଧ ପ୍ରେରଣ କରିବାକୁ ବିଫଳ ହୋଇଛି। ଉପଲବ୍ଧ ନେଟୱାର୍କଗୁଡିକ ମାଧ୍ୟମରେ ପୁନଃସଂଯୋଗ ହେଉଛି…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ। %2$s ଆପଣଙ୍କ ଇଣ୍ଟର୍ନେଟ୍ ପ୍ୟାକେଜ୍ ସହ ଉପଲବ୍ଧ ନାହିଁ କିମ୍ୱା %3$s ସର୍ଭରରୁ କୌଣସି ପ୍ରତିକ୍ରିୟା ପ୍ରାପ୍ତ ହୋଇନାହିଁ।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ସକ୍ଷମ କରିବାକୁ ଅସମର୍ଥ। ଡିଭାଇସ୍ ଅତ୍ୟଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ଡିଭାଇସ୍ ଥଣ୍ତା ନହେବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="mptcp_message_operation_disabled_overheating">ଡିଭାଇସ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହେବା ପ୍ରତିରୋଧ କରିବାକୁ %s ଅକ୍ଷମ ହୋଇଛି। ବଦଳରେ ମୋବାଇଲ୍ ନେଟୱାର୍କ୍ ମାଧ୍ୟମରେ ଡାଉନଲୋଡ୍ ହେଉଛି…</string>
     <string name="mptcp_message_data_usage_limit">ଡାଟା ବ୍ୟବହାର ସୀମାରେ ପହଞ୍ଚିଛି। ଡାଟା ବ୍ୟବହାର ସୀମା ପରିବର୍ତ୍ତନ କରିବାକୁ, ସେଟିଂସକୁ ଯାଆନ୍ତୁ।</string>

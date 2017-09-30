@@ -1560,6 +1560,13 @@ ajrore"</string>
     <string name="batt_cooldown_mode_attention">App-i u mbyll</string>
     <string name="batt_cooldown_mode_attentions">App-et u mbyllën</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefoni po mbinxehet</string>
+    <string name="overheat_limit_warning">Telefoni yt po mbinxehet. Mbylle këtë app menjëherë. %s do të mbyllet automatikisht pas 1 minute, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_warning_phone_second">Telefoni yt po mbinxehet. Mbylle këtë app menjëherë. %1$s do të mbyllet automatikisht pas %2$d sekondash, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta jote po mbinxehet. Mbylle këtë app menjëherë. %1$s do të mbyllet automatikisht pas %2$d sekondash, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_closed_title">App-i u mbyll</string>
+    <string name="overheat_limit_closed">%1$s u mbyll. Telefoni yt po mbinxehet. Provo ta përdorësh %2$s sërish, pasi të ftohet telefoni.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Pajisja do të riniset.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1884,6 +1891,7 @@ Për ta çngulitur një aplikacion, shtyp dhe mbaj tastin meny."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Nuk mund të aftësoj %s kur është aftësuar Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Nuk ka përgjigje nga ofruesi i shërbimit.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Dështova të dërgoj kërkesën e aktivizimit për %s. Po rilidhem përmes rrjeteve në dispozicion…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Nuk mund të aftësoj %1$s. %2$s nuk mund të përdoret me paketën tënde të Internetit ose nuk u mor ndonjë përgjigje nga serveri %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Nuk mund të aftësoj %s. Pajisja po mbinxehet. Prit derisa të ftohet pajisja dhe provo sërish.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s është paaftësuar për të mos lejuar mbinxehjen e pajisjes. Duke shkarkuar përmes rrjetit celular…</string>
     <string name="mptcp_message_data_usage_limit">U arrit caku i përdorimit të së dhënave. Për ta ndryshuar cakun e përdorimit të së dhënave, shko te Cilësimet.</string>

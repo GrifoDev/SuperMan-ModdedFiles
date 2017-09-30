@@ -1561,6 +1561,13 @@ buyruq"</string>
     <string name="batt_cooldown_mode_attention">Ilova yopildi</string>
     <string name="batt_cooldown_mode_attentions">Ilovalar yopildi</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon qizimoqda</string>
+    <string name="overheat_limit_warning">Telefon qizib ketmoqda. Bu ilovani darhol yoping. %s 1 daqiqadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon qizib ketmoqda. Bu ilovani darhol yoping. %1$s %2$d soniyadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_warning_tablet_second">Planshetingiz qizib ketmoqda. Bu ilovani darhol yoping. %1$s %2$d soniyadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_closed_title">Ilova yopildi</string>
+    <string name="overheat_limit_closed">%1$s yopiq. Telefon qizib ketmoqda. Telefoningiz sovigandan so‘ng %2$s’dan yana foydalanib ko‘ring.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Qurilma qayta ishga tushiriladi</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@ Ilovani olib tashlash uchun menyu tugmasini bosib turing."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct yoqilgan vaqtda %s’ni yoqib bo‘lmaydi.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Xizmat ta’minotchisidan javob yo‘q.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s faollashtirish so‘rovini yuborib bo‘lmadi. Mavjud tarmoqlar orqali ulanmoqda…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s’ni yoqib bo‘lmaydi. %2$s’dan internet paketingiz bilan foydalana olmaysiz yoki %3$s serveridan javob olinmadi.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s’ni yoqib bo‘lmaydi. Qurilma qizib ketmoqda. Qurilma soviguniga qadar kutib turing va qayta urinib ko‘ring.</string>
     <string name="mptcp_message_operation_disabled_overheating">Qurilma qizib ketmasligi uchun %s o‘chirilgan. Uning o‘rniga mobil tarmoq orqali yuklab olinmoqda…</string>
     <string name="mptcp_message_data_usage_limit">Trafik chekloviga yetildi. Trafik sarfi cheklovini o‘zgartirish uchun Parametrlarga o‘ting.</string>

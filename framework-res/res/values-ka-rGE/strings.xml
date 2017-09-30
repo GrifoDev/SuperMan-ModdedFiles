@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">აპლიკაცია დაიხურა</string>
     <string name="batt_cooldown_mode_attentions">აპლიკაციები დაიხურა</string>
     <string name="batt_cooldown_mode_ok">კი</string>
+    <string name="overheat_limit_warning_title">ტელეფონი გადახურების პირასაა</string>
+    <string name="overheat_limit_warning">ტელეფონი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %s ავტომატურად დაიხურება 1 წუთში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_warning_phone_second">ტელეფონი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %1$s ავტომატურად დაიხურება %2$d წამში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_warning_tablet_second">პლანშეტი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %1$s ავტომატურად დაიხურება %2$d წამში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_closed_title">აპლიკაცია დაიხურა</string>
+    <string name="overheat_limit_closed">%1$s დაიხურა. ტელეფონი გადახურების პირასაა. ისევ სცადეთ გამოიყენოთ %2$s, როდესაც ტელეფონი გაგრილდება.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">აპარატი გადაიტვირთება.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">%s ვერ ჩაირთვება, სანამ ჩართულია Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">მომსახურების მომწოდებლისგან პასუხი არ არის.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s-ის აქტივაციის მოთხოვნა ვერ გაიგზავნა. თავიდან მყარდება კავშირი მისაწვდომ ქსელებთან…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ვერ ჩაირთვება. %2$s მიუწვდომელია თქვენი ინტერნეტ-პაკეტით, ან %3$s სერვერიდან პასუხი არ არის მიღებული.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ვერ ჩაირთვება. მოწყობილობის გადახურების პირასაა. დაელოდეთ მოწყობილობის გაგრილებას და ისევ სცადეთ.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s გამოირთო, მოწყობილობის გადახურების ასარიდებლად. სანაცვლოდ, იტვირთება მობილური ქსელით…</string>
     <string name="mptcp_message_data_usage_limit">მიღწეულია მონაცემთა ლიმიტი. მონაცემთა გამოყენების ლიმიტის შესაცვლელად, გადადით პარამეტრებში.</string>

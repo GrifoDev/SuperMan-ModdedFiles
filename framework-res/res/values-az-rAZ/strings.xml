@@ -1562,6 +1562,13 @@ yazısı"</string>
     <string name="batt_cooldown_mode_attention">Proqram bağlandı</string>
     <string name="batt_cooldown_mode_attentions">Proqramlar bağlandı</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon həddən artıq qızır</string>
+    <string name="overheat_limit_warning">Telefonunuz həddən artıq qızır. Bu proqramı dərhal bağlayın. %s 1 dəqiqəyə avtomatik bağlanavaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon həddən artıq qızır. Bu proqramı dərhal bağlayın. %1$s %2$d saniyəyə yenidən bağlanacaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_warning_tablet_second">Tabletiniz həddən artıq qızır. Bu proqramı dərhal bağlayın. %1$s %2$d saniyəyə yenidən bağlanacaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_closed_title">Proqram bağlandı</string>
+    <string name="overheat_limit_closed">%1$s bağlandı. Telefonunuz həddən artıq qızır. Telefon soyuduqdan sonra yenidən %2$s istifadə etməyə çalışın.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Cihaz sönüb-yanacaq.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1886,6 +1893,7 @@ Proqramı çıxarmaq üçün menyu düyməsinə vurub saxlayın."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct aktiv olan zaman %s aktiv etmək olmadı.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Xidmət təminatçısından cavab yoxdur.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s aktivləşdirmə sorğusu göndərmək olmadı. Mövcud şəbəkələrlə yenidən qoşul…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s-i aktiv etmək olmadı. İnternet paketinizdə və ya %3$s serverindən cavab olmadıqda %2$s aktiv olmayacaq.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s-i aktiv etmək olmadı. Cihaz həddindən artıq qızır. Cihazın soyumasını gözləyin və yenidən cəhd edin.</string>
     <string name="mptcp_message_operation_disabled_overheating">Cihazın qızmasının qarşısını almaq üçün %s qeyri-aktiv edildi. Əvəzində mobil şəbəkə ilə yüklənir…</string>
     <string name="mptcp_message_data_usage_limit">Data istifadə limitinə çatıldı. Data istifadə limitini dəyişmək üçün Parametrlərə keçin.</string>

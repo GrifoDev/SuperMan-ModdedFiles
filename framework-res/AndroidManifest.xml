@@ -190,6 +190,7 @@
     <protected-broadcast android:name="com.samsung.bluetooth.action.GEAR_CONNECTION_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.bluetooth.device.action.MANUFACTURER_CHANGED"/>
     <protected-broadcast android:name="com.samsung.bluetooth.pan.inactivenap.ASK_CONFIRM"/>
+    <protected-broadcast android:name="com.samsung.bluetooth.pan.reverse_conn.ASK_CONFIRM"/>
     <protected-broadcast android:name="android.net.BT_TETHER_STATE_CHANGED"/>
     <protected-broadcast android:name="android.hardware.display.action.WIFI_DISPLAY_STATUS_CHANGED"/>
     <protected-broadcast android:name="com.sec.android.screensharing.DLNA_STATUS"/>
@@ -329,6 +330,22 @@
     <protected-broadcast android:name="com.samsung.action.HOTSPOT_EXEC_COMMAND"/>
     <protected-broadcast android:name="android.net.wifi.hs20.TEST_START_OSU_PROCESS_NOSIGMA"/>
     <protected-broadcast android:name="android.net.wifi.hs20.TEST_TRIGGER_INSTALL_FILE"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.EAP_TYPE_FOUND"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.INSTALL_CRED"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.INSTALL_CRED_BROWSER"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_CLEAR_DB"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_CONNECT_WITH_STATIC_IP"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_GEN_CRED_CONF_FILE"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_START_OSU_PROCESS"/>
+    <protected-broadcast android:name="android.net.wifi.hs20.TEST_TRIGGER_POLICY_UPDATE"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_DISABLED_COMPLETE_BY_CREDERROR_ACTION"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_EAP_TYPE_FOUND"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_OSU_SELECTED"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_REMEDIATION_REQUEST"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_SEC_CLOSE_BROWSER"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_SEC_LAUNCH_OPERTOR_URL"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_SEC_LAUNCH_SP_URL"/>
+    <protected-broadcast android:name="android.net.wifi.HS20_STATE_CHANGE"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_AP_STATE_CHANGED"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_CREDENTIAL_CHANGED"/>
@@ -508,6 +525,7 @@
     <protected-broadcast android:name="android.net.wifi.PASSPOINT_ICON_RECEIVED"/>
     <protected-broadcast android:name="com.android.server.notification.CountdownConditionProvider"/>
     <protected-broadcast android:name="com.android.ims.IMS_SERVICE_UP"/>
+    <protected-broadcast android:name="com.android.ims.IMS_SERVICE_DOWN"/>
     <protected-broadcast android:name="com.android.ims.IMS_INCOMING_CALL"/>
     <protected-broadcast android:name="com.android.ims.internal.uce.UCE_SERVICE_UP"/>
     <protected-broadcast android:name="com.android.intent.action.IMS_FEATURE_CHANGED"/>
@@ -786,6 +804,8 @@
     <protected-broadcast android:name="com.samsung.intent.action.START_PROVISIONING"/>
     <protected-broadcast android:name="com.samsung.android.intent.action.WIFIAP_RESET"/>
     <protected-broadcast android:name="com.samsung.settings.wifi.wifiap_power_mode_alarm"/>
+    <protected-broadcast android:name="android.net.wifi.ERROR"/>
+    <protected-broadcast android:name="com.samsung.android.net.wifi.SHOW_SCC_DIALOG"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.SEC_NETWORK_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.android.server.wifi.AutoWifiNotificationController.CANCEL_NOTI"/>
     <protected-broadcast android:name="com.samsung.android.server.wifi.AutoWifiNotificationController.SETTINGS"/>
@@ -921,11 +941,13 @@
     <protected-broadcast android:name="ACTION_REQUEST_FORCE_SPN_UPDATE"/>
     <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_LOW_CLOSE_BUTTON"/>
     <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_CLOSE_SAVER_RECOMMEND"/>
+    <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_SAVER_RECOMMEND_DISMISSED"/>
     <protected-broadcast android:name="com.samsung.Keyguard.UNLOCK_FMM_ALERT"/>
     <protected-broadcast android:name="com.sec.android.FindingLostPhonePlus.RELEASE"/>
     <protected-broadcast android:name="com.samsung.systemui.statusbar.action.FLASHLIGHT_OFF"/>
     <protected-broadcast android:name="com.samsung.systemui.statusbar.STARTED"/>
     <protected-broadcast android:name="com.samsung.keyguard.KEYGUARD_STATE_UPDATE"/>
+    <protected-broadcast android:name="com.samsung.intent.action.KSO_CLICK_OK"/>
     <protected-broadcast android:name="com.sec.android.app.dns.action.stop_internet_stream"/>
     <protected-broadcast android:name="com.sec.android.app.dns.action.pause_internet_stream"/>
     <protected-broadcast android:name="com.sec.android.app.dns.action.resume_internet_stream"/>
@@ -1503,6 +1525,7 @@
     <permission android:name="android.permission.sec.BLUETOOTH_SECUREMODE_INTERNAL" android:permissionGroup="com.sec.enterprise.permission-group.mdm" android:protectionLevel="system|signature"/>
     <permission android:name="android.permission.BLUETOOTH_MAP" android:protectionLevel="signature"/>
     <permission android:name="android.permission.BLUETOOTH_STACK" android:protectionLevel="signature"/>
+    <permission android:name="com.samsung.bluetooth.permission.BLUETOOTH_DEVICE" android:protectionLevel="signature"/>
     <permission android:description="@string/permdesc_nfc" android:label="@string/permlab_nfc" android:name="android.permission.NFC" android:protectionLevel="normal"/>
     <permission android:name="android.permission.CONNECTIVITY_INTERNAL" android:protectionLevel="system|signature"/>
     <permission android:name="android.permission.PACKET_KEEPALIVE_OFFLOAD" android:protectionLevel="system|signature"/>
@@ -1645,6 +1668,7 @@
     <permission android:name="android.permission.UPDATE_APP_OPS_STATS" android:protectionLevel="system|installer|signature"/>
     <permission android:name="android.permission.MANAGE_APP_OPS_RESTRICTIONS" android:protectionLevel="installer|signature"/>
     <permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" android:protectionLevel="installer|signature"/>
     <permission android:name="android.permission.MANAGE_APP_TOKENS" android:protectionLevel="signature"/>
     <permission android:name="android.permission.REGISTER_WINDOW_MANAGER_LISTENERS" android:protectionLevel="signature"/>
     <permission android:name="android.permission.FREEZE_SCREEN" android:protectionLevel="signature"/>
@@ -1803,7 +1827,7 @@
     <permission android:name="android.permission.QUERY_DO_NOT_ASK_CREDENTIALS_ON_BOOT" android:protectionLevel="signature"/>
     <permission android:name="android.permission.KILL_UID" android:protectionLevel="installer|signature"/>
     <permission android:name="android.permission.LOCAL_MAC_ADDRESS" android:protectionLevel="system|signature"/>
-    <permission android:name="android.permission.PEERS_MAC_ADDRESS" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.PEERS_MAC_ADDRESS" android:protectionLevel="setup|signature"/>
     <permission android:name="android.permission.DISPATCH_NFC_MESSAGE" android:protectionLevel="system|signature"/>
     <permission android:name="com.samsung.android.permission.EXTRACT_SMARTCLIP_DATA" android:protectionLevel="system|signature"/>
     <permission android:name="com.sec.android.permission.VOIP_INTERFACE" android:protectionLevel="signature"/>

@@ -1566,6 +1566,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Isinara ang app</string>
     <string name="batt_cooldown_mode_attentions">Isinara ang mga app</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Nag-o-overheat ang telepono</string>
+    <string name="overheat_limit_warning">Nag-o-overheat ang telepono mo. Isara agad ang app na ito. Awtomatikong isasara ang %s sa loob ng 1 minuto at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_warning_phone_second">Nag-o-overheat ang telepono mo. Isara agad ang app na ito. Awtomatikong isasara ang %1$s sa loob ng %2$d segundo at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_warning_tablet_second">Nag-o-overheat ang tablet mo. Isara agad ang app na ito. Awtomatikong isasara ang %1$s sa loob ng %2$d segundo at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_closed_title">Isinara ang app</string>
+    <string name="overheat_limit_closed">Nagsara ang %1$s. Nag-o-overheat ang telepono mo. Muling subukan ang %2$s pagkatapos lumamig ng telepono mo.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Magre-restart ang device.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Para mag-unpin ng application, pindutin at i-hold ang menu key."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Hindi mapagana ang %s habang gumagana ang Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Walang tugon mula sa service provider.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Nabigong ipadala ang %s na hiling na mai-activate. Muling kumokonekta gamit ang magagamit na network…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Hindi mapagana ang %1$s. Hindi magagamit ang %2$s sa internet package mo o walang natanggap na tugon mula sa %3$s server.</string>
     <string name="mptcp_message_setting_disabled_overheating">Hindi mapagana ang %s. Nag-o-overheat ang device. Hintayin na lumamig ang device at subukang muli.</string>
     <string name="mptcp_message_operation_disabled_overheating">Hindi pinagana ang %s para pigilan ang pag-overheat ng device. Sa halip ay nagda-download gamit ang mobile network…</string>
     <string name="mptcp_message_data_usage_limit">Naabot na ang limit sa data. Para baguhin ang limit sa paggamit ng data, pumunta sa Settings.</string>

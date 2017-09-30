@@ -853,6 +853,13 @@ command"</string>
     <string name="batt_cooldown_mode_attention">Se ha cerrado una aplicación</string>
     <string name="batt_cooldown_mode_attentions">Se han cerrado aplicaciones</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Sobrecalentamiento del teléfono</string>
+    <string name="overheat_limit_warning">El teléfono se está sobrecalentando. Cierra la aplicación inmediatamente. %s se cerrará automáticamente en 1 minuto y se perderán todos los datos no guardados.</string>
+    <string name="overheat_limit_warning_phone_second">El teléfono se está sobrecalentando. Cierra la aplicación inmediatamente. %1$s se cerrará automáticamente en %2$d segundos y se perderán todos los datos no guardados.</string>
+    <string name="overheat_limit_warning_tablet_second">La tableta se está sobrecalentando. Cierra la aplicación inmediatamente. %1$s se cerrará automáticamente en %2$d segundos y se perderán todos los datos no guardados.</string>
+    <string name="overheat_limit_closed_title">Se ha cerrado una aplicación</string>
+    <string name="overheat_limit_closed">Se ha cerrado %1$s. El teléfono se está sobrecalentado. Espera que el teléfono se enfríe antes de volver a intentar usar %2$s.</string>
+    <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">Se reiniciará el dispositivo.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1177,6 +1184,7 @@ Para desenganchar una aplicación, mantenga pulsada la tecla Menú."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">No se puede activar %s con Wi-Fi Direct activado.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">El proveedor de servicios no responde.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Error al enviar la solicitud de activación de %s. Conectándose de nuevo mediante las redes disponibles…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">No se puede activar %1$s. %2$s no está disponible con tu paquete de internet o no hay respuesta de recepción del servidor de %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">No se puede activar %s. El dispositivo se está sobrecalentando. Espere hasta que el dispositivo se enfríe e inténtelo de nuevo.</string>
     <string name="mptcp_message_operation_disabled_overheating">Se ha desactivado %s para evitar el sobrecalentamiento del dispositivo. Descargando a través de la red móvil en su lugar…</string>
     <string name="mptcp_message_data_usage_limit">Se ha alcanzado el límite de uso de datos. Para cambiarlo, vaya a Ajustes.</string>
@@ -1355,7 +1363,7 @@ Turn on Airplane mode?"</string>
     <string name="permlab_mdmKioskMode">Activar modo Quiosco</string>
     <string name="permdesc_mdmKioskMode">Bloquear el dispositivo para restringir el acceso únicamente a las aplicaciones aprobadas.</string>
     <string name="permlab_mdmEnterpriseSSO">Configurar los ajustes de SSO empresarial en modo Knox</string>
-    <string name="permdesc_mdmEnterpriseSSO">Permita que la aplicación configure los ajustes de SSO empresarial y elimine tokens de SSO en modo Knox.</string>
+    <string name="permdesc_mdmEnterpriseSSO">Permite que la aplicación configure los ajustes de SSO empresarial y elimine tokens de SSO en modo Knox.</string>
     <string name="permlab_mdmEnterpriseContainer">Configurar Knox Workspace</string>
     <string name="permdesc_mdmEnterpriseContainer">Crear, editar y eliminar cuentas de Knox Workspace y usuarios asociados</string>
     <string name="permlab_mdmEnterpriseISL">Políticas de servicio de integridad</string>
@@ -1511,7 +1519,7 @@ Turn on Airplane mode?"</string>
     <string name="restriction_VPN_allowUserAddProfiles">La política de seguridad restringe la creación de perfiles VPN.</string>
     <string name="restriction_ccmode_support">Este dispositivo es compatible con el CC Mode.</string>
     <string name="smartclip_restrict">La política de seguridad impide el uso de Easy clip.</string>
-    <string name="admin_device_restart">El administrador reiniciará su dispositivo.</string>
+    <string name="admin_device_restart">El administrador reiniciará tu dispositivo.</string>
     <string name="application_default_restrict">El administrador del dispositivo ha establecido otra aplicación como predeterminada.</string>
     <string name="constrained_status_bar_device_locked">Dispositivo bloqueado</string>
     <string name="restriction_msg_app_installed">Aplicación instalada</string>

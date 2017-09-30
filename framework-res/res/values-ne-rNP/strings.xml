@@ -1395,6 +1395,13 @@
     <string name="batt_cooldown_mode_attention">एपलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_attentions">एपहरूलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_ok">ठीक छ</string>
+    <string name="overheat_limit_warning_title">फोन धेरै तातो हुँदैछ</string>
+    <string name="overheat_limit_warning">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %s लाई 1 मिनटमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_phone_second">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_tablet_second">तपाईको ट्याबलेट धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_closed_title">एपलाई बन्द गरियो</string>
+    <string name="overheat_limit_closed">%1$s लाई बन्द गरियो। तपाईको फोन धेरै तातो भइरहेको छ। तपाईको फोन चिसो भएपछि %2$s फेरि प्रयोग गरी हेर्नुहोस्।</string>
+    <string name="overheat_limit_ok">ठीक छ</string>
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">लक हुँदा पावर अफ ब्लक गर्नु सक्षम भएको बेला यन्त्र पावर अफ गर्न असमर्थ। स्क्रीन अनलक गरेपछि फेरि प्रयास गर्नुहोस्।</string>
@@ -1402,6 +1409,7 @@
     <string name="wifi_notification_sns_exception_title">इन्टरनेट उपलब्ध नहुन सक्छ</string>
     <string name="wifi_notification_sns_exception_hun_detail">अर्को नेटवर्कमा जडान गर्नुहोस्।</string>
     <string name="bluetooth_china_popup_title">ब्लुटूथ</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s लाई सक्षम गर्न सकिएन। तपाईको इन्टरनेट प्याकेज मार्फत %2$s उपलब्ध छैन वा %3$s सर्भरबाट कुनै प्रतिक्रिया प्राप्त भएन।</string>
     <string name="sem_date_picker_increment_month_button_text">अर्को महिना</string>
     <string name="sem_date_picker_decrement_month_button_text">पछिल्लो महिना</string>
     <string name="sem_date_picker_switch_to_wheel_view_description">चक्राकार दृश्यमा स्विच गर्न दुई पटक ट्याप गर्नुहोस्।</string>

@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">অ্যাপ বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_attentions">অ্যাপগুলো বন্ধ হয়েছে</string>
     <string name="batt_cooldown_mode_ok">ওকে</string>
+    <string name="overheat_limit_warning_title">ফোন বেশি গরম হচ্ছে</string>
+    <string name="overheat_limit_warning">আপনার ফোন বেশি গরম হচ্ছে। এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ 1 মিনিট পর %s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_warning_phone_second">আপনার ফোন বেশি গরম হচ্ছে। এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ %2$d সেকেন্ড পর %1$s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_warning_tablet_second">আপনার ট্যাবলেট বেশি গরম হচ্ছে৷ এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ %2$d সেকেন্ড পর %1$s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_closed_title">অ্যাপ বন্ধ হয়েছে</string>
+    <string name="overheat_limit_closed">%1$s বন্ধ হয়েছে৷ আপনার ফোন বেশি গরম হচ্ছে। আপনার ফোন ঠান্ডা হওয়ার পর আবার %2$s ব্যবহারের চেষ্টা করুন৷</string>
+    <string name="overheat_limit_ok">ঠিক আছে</string>
     <string name="restart_confirm">ডিভাইসটি পুনরায় চালু হবে।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct সক্রিয় থাকাকালীন %s সক্রিয় করতে অক্ষম।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">সার্ভিস প্রোভাইডারের কাছ থেকে কোনো সাড়া পাওয়া যায়নি।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s সক্রিয়করণের অনুরোধ পাঠাতে ব্যর্থ৷ লভ্য নেটওয়ার্কের মাধ্যমে পুনরায় সংযুক্ত হচ্ছে…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s সক্রিয় করতে অক্ষম৷ আপনার ইন্টারনেট প্যাকেজের সাথে %2$s নেই অথবা %3$s সার্ভারের কাছ থেকে কোনো সাড়া পাওয়া যায়নি৷</string>
     <string name="mptcp_message_setting_disabled_overheating">%s সক্ষম করতে অক্ষম৷ ডিভাইসটি বেশি গরম হয়ে যাচ্ছে৷ ডিভাইসটি ঠাণ্ডা হওয়া পর্যন্ত অপেক্ষা করুন এবং আবার চেষ্টা করুন৷</string>
     <string name="mptcp_message_operation_disabled_overheating">ডিভাইস অতিরিক্ত গরম হওয়া প্রতিরোধ করতে %s-কে নিষ্ক্রিয় করা হয়েছে। এর পরিবর্তে মোবাইল নেটওয়ার্কের মাধ্যমে ডাউনলোড করা হচ্ছে…</string>
     <string name="mptcp_message_data_usage_limit">ডাটা ব্যবহারের নির্ধারিত সীমায় পৌঁছেছে৷ ডাটা ব্যবহারের সীমা পরিবর্তন করতে, সেটিংসে যান৷</string>

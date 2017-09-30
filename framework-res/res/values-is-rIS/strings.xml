@@ -1561,6 +1561,13 @@ skipun"</string>
     <string name="batt_cooldown_mode_attention">Forriti lokað</string>
     <string name="batt_cooldown_mode_attentions">Forritum lokað</string>
     <string name="batt_cooldown_mode_ok">Í lagi</string>
+    <string name="overheat_limit_warning_title">Síminn er að ofhitna</string>
+    <string name="overheat_limit_warning">Síminn þinn er að ofhitna. Lokaðu þessu forriti samstundis. „%s“ verður sjálfkrafa lokað eftir 1 mínútu og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_warning_phone_second">Síminn þinn er verða of heitur. Lokaðu þessu forriti samstundis. „%1$s“ verður sjálfkrafa lokað eftir %2$d sekúndur og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_warning_tablet_second">Spjaldtölvan þín er að verða of heit. Lokaðu þessu forriti samstundis. „%1$s“ verður sjálfkrafa lokað eftir %2$d sekúndur og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_closed_title">Forriti lokað</string>
+    <string name="overheat_limit_closed">„%1$s“ var lokað vegna þess að síminn er að ofhitna. Prófaðu að nota „%2$s“ aftur þegar síminn hefur kólnað.</string>
+    <string name="overheat_limit_ok">Í LAGI</string>
     <string name="restart_confirm">Tækið verður endurræst.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@ Til að losa forrit skaltu halda valmyndartakkanum inni."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Ekki er hægt að kveikja á %s þegar kveikt er á Wi-Fi Direct.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Símafyrirtækið svarar ekki.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Mistókst að senda %s virkjunarbeiðni. Tengi aftur í gegnum tiltæk net…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">Ekki er hægt að kveikja á %1$s. %2$s er ekki í boði í netpakkanum þínum eða ekkert svar barst frá netþjóni %3$s.</string>
     <string name="mptcp_message_setting_disabled_overheating">Ekki er hægt að kveikja á %s. Tækið er of heitt. Bíddu þar til tækið hefur kólnað og reyndu svo aftur.</string>
     <string name="mptcp_message_operation_disabled_overheating">Slökkt var á %s til að tækið ofhitni ekki. Sæki í gegnum farsímakerfi í staðinn…</string>
     <string name="mptcp_message_data_usage_limit">Hámarki gagnanotkunar hefur verið náð. Farðu í „Stillingar“ til að breyta hámarki gagnanotkunar.</string>

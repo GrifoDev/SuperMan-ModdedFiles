@@ -1565,6 +1565,13 @@ google.com/accounts/recovery"</string>
     <string name="batt_cooldown_mode_attention">앱 종료됨</string>
     <string name="batt_cooldown_mode_attentions">앱 종료됨</string>
     <string name="batt_cooldown_mode_ok">확인</string>
+    <string name="overheat_limit_warning_title">휴대전화 온도 상승</string>
+    <string name="overheat_limit_warning">휴대전화 온도가 높습니다. 이 앱을 지금 바로 종료하세요. 1분이 지나면 %s 앱이 자동으로 종료되며 저장하지 않은 데이터가 모두 삭제됩니다.</string>
+    <string name="overheat_limit_warning_phone_second">휴대전화 온도가 높습니다. 이 앱을 지금 바로 종료하세요. %2$d초가 지나면 %1$s 앱이 자동으로 종료되며 저장하지 않은 데이터가 모두 삭제됩니다.</string>
+    <string name="overheat_limit_warning_tablet_second">태블릿 온도가 높습니다. 지금 바로 이 앱을 종료하세요. %2$d초가 지나면 %1$s 앱이 자동으로 종료되며 저장하지 않은 데이터는 모두 삭제됩니다.</string>
+    <string name="overheat_limit_closed_title">앱 종료됨</string>
+    <string name="overheat_limit_closed">휴대전화 온도가 높아져 %1$s 앱을 종료했습니다. 휴대전화 온도가 내려간 후 %2$s 앱을 다시 사용할 수 있습니다.</string>
+    <string name="overheat_limit_ok">확인</string>
     <string name="restart_confirm">디바이스를 다시 시작합니다.</string>
     <string name="tw_reboot_safemode_title_vzw">안전 모드로 다시 시작</string>
     <string name="tw_reboot_safemode_confirm_vzw">디바이스를 안전 모드로 다시 시작할까요? 안전 모드에서는 디바이스의 문제를 확인하고 해결하기 위해 기본으로 설치되지 않은 앱을 일시 사용정지 상태로 전환합니다. 안전 모드는 디바이스를 다시 시작할 때 해제되며 모든 앱을 정상적으로 사용할 수 있습니다.</string>
@@ -1913,6 +1920,7 @@ google.com/accounts/recovery"</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi 다이렉트 실행 중에는 %s 서비스를 사용할 수 없습니다.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">서비스 공급자로부터 응답이 없습니다.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s 실행 요청을 보내지 못하였습니다. 가능한 네트워크로 다시 연결 중…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s 기능을 사용할 수 없습니다. %2$s 기능은 현재 인터넷 패키지에서 사용할 수 없거나 %3$s 서버에서 응답이 없는 상태입니다.</string>
     <string name="mptcp_message_setting_disabled_overheating">디바이스 온도가 높아져 %s를 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.</string>
     <string name="mptcp_message_operation_disabled_overheating">디바이스 온도가 높아져 %s를 해제합니다. 모바일 네트워크로 다운로드 중…</string>
     <string name="mptcp_message_data_usage_limit">데이터 사용한도에 도달하였습니다. 데이터 사용한도를 변경하려면 [설정]으로 이동하세요.</string>

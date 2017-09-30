@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">Қолданба жабылды</string>
     <string name="batt_cooldown_mode_attentions">Қолданбалар жабылды</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Телефон қызып кетті</string>
+    <string name="overheat_limit_warning">Телефоныңыз қызып кетті. Бұл қолданбаны дереу жабыңыз. %s қолданбасы 1 минуттан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_warning_phone_second">Телефоныңыз қызып кетті. Бұл қолданбаны дереу жабыңыз. %1$s қолданбасы %2$d секундтан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшетіңіз қызып кетті. Бұл қолданбаны дереу жабыңыз. %1$s қолданбасы %2$d секундтан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_closed_title">Қолданба жабылды</string>
+    <string name="overheat_limit_closed">%1$s қолданбасы жабылды. Телефоныңыз қызып кетті. %2$s қолданбасын телефоныңыз салқындағаннан кейін қайтадан пайдаланып көріңіз.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Құрылғы қайта іске қосылады.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct функциясы қосулы кезде, %s қосу мүмкін емес.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Қызмет жеткізушісінен жауап жоқ.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s іске қосу сұрауын жіберу сәтсіз болды. Қолжетімді желілер арқылы қайта қосылуда…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s функциясын қосу мүмкін болмады. %2$s сіздің Интернет пакетіңізбен қолжетімді емес немесе %3$s серверінен ешқандай жауап алынбады.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s функциясын қосу мүмкін емес. Құрылғы қызып кеткен. Құрылғының салқындағанын күтіп, әрекетті қайталаңыз.</string>
     <string name="mptcp_message_operation_disabled_overheating">Құрылғының қызып кетуіне жол бермеу мақсатында %s функциясы өшірілді. Оның орнына ұялы байланыс желісі арқылы жүктелуде…</string>
     <string name="mptcp_message_data_usage_limit">Деректерді пайдалану шегіне жетті. Деректерді пайдалану шегін өзгерту үшін, “Параметрлер” бөліміне өтіңіз.</string>

@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">એપ બંધ કરી</string>
     <string name="batt_cooldown_mode_attentions">એપ્સ બંધ કરી</string>
     <string name="batt_cooldown_mode_ok">ઓકે</string>
+    <string name="overheat_limit_warning_title">ફોન વધુ ગરમ થાય છે</string>
+    <string name="overheat_limit_warning">તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તરત જ આ એપને બંધ કરો. %s એ 1 મિનિટમાં સ્વચાલિત રીતે બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
+    <string name="overheat_limit_warning_phone_second">તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તરત જ આ એપને બંધ કરો. %2$d સેકંડ્સમાં સ્વચાલિત રીતે %1$s બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
+    <string name="overheat_limit_warning_tablet_second">તમારું ટેલ્બેટ વધુ ગરમ થઈ રહ્યું છે. તરત જ આ એપને બંધ કરો. %2$d સેકંડ્સમાં સ્વચાલિત રીતે %1$s બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
+    <string name="overheat_limit_closed_title">એપ બંધ કરી</string>
+    <string name="overheat_limit_closed">%1$s બંધ કર્યુ. તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તમારો ફોન ઠંડો થાય પછી %2$s નો ફરીથી ઉપયોગ કરવાનો પ્રયાસ કરો.</string>
+    <string name="overheat_limit_ok">ઓકે</string>
     <string name="restart_confirm">ઉપકરણને પુનઃપ્રારંભ કરવામાં આવશે.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">જ્યારે Wi-Fi Direct સક્ષમ કરેલ હોય ત્યારે %s ને સક્ષમ કરવામાં અસમર્થ.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">સેવા પ્રદાતા તરફથી કોઈ પ્રતિક્રિયા નથી.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s સક્રિયકરણની વિનંતી મોકલવામાં નિષ્ફળ થયા. ઉપલબ્ધ નેટવર્ક્સ દ્વારા ફરી જોડી રહ્યાં છે…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s ને સક્ષમ કરવામાં અસમર્થ. તમારા ઇન્ટરનેટ પેકેજ સાથે %2$s એ ઉપલબ્ધ નથી અથવા %3$s સર્વર પ્રાપ્ત થવા માટે કોઈ પ્રતિસાદ મળ્યો નથી.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s ને સક્ષમ કરવામાં અસમર્થ. ઉપકરણ વધુ ગરમ થઈ રહ્યું છે. ઉપકરણ ઠંડું થાય ત્યાં સુધી રાહ જુઓ અને ફરીથી પ્રયાસ કરો.</string>
     <string name="mptcp_message_operation_disabled_overheating">ઉપકરણને વધુ ગરમ થતું અટકાવવા માટે %s ને અક્ષમ કરેલ છે. તેને બદલે મોબાઇલ નેટવર્ક દ્વારા ડાઉનલોડ થઈ રહ્યું છે…</string>
     <string name="mptcp_message_data_usage_limit">ડેટા વપરાશ સીમા પર પહોંચ્યા. ડેટા વપરાશ સીમા બદલવા માટે, સેટિંગ્સ પર જાઓ.</string>

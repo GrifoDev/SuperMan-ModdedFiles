@@ -1566,6 +1566,13 @@ Befehl"</string>
     <string name="batt_cooldown_mode_attention">App geschlossen</string>
     <string name="batt_cooldown_mode_attentions">Apps geschlossen</string>
     <string name="batt_cooldown_mode_ok">OK</string>
+    <string name="overheat_limit_warning_title">Telefon überhitzt</string>
+    <string name="overheat_limit_warning">Ihr Telefon überhitzt. Schließen Sie diese App sofort. %s wird in 1 Minute automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_warning_phone_second">Ihr Telefon überhitzt. Schließen Sie diese App sofort. %1$s wird in %2$d Sekunden automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_warning_tablet_second">Ihr Tablet überhitzt. Schließen Sie diese App sofort. %1$s wird in %2$d Sekunden automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_closed_title">App geschlossen</string>
+    <string name="overheat_limit_closed">%1$s geschlossen. Ihr Telefon überhitzt. Versuchen Sie %2$s zu verwenden, nachdem Ihr Telefon abgekühlt ist.</string>
+    <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Das Gerät wird neu gestartet.</string>
     <string name="tw_reboot_safemode_title_vzw">Neust. im sicheren Modus</string>
     <string name="tw_reboot_safemode_confirm_vzw">Möchten Sie das Telefon im sicheren Modus neu starten? Im sicheren Modus werden Apps, die nicht zum Lieferumfang Ihres Telefons gehören, vorübergehend deaktiviert, um die Fehlersuche zu erleichtern. Wenn Sie das Telefon neu starten, ist der sichere Modus abgeschaltet und alle Apps sind wieder verfügbar.</string>
@@ -1890,6 +1897,7 @@ Um das Anheften einer Anwendung aufzuheben, halten Sie die Menü-Taste gedrückt
     <string name="mptcp_message_mptcp_capability_WifiDirect">%s kann nicht aktiviert werden, solange Wi-Fi Direct aktiviert ist.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Keine Antwort vom Dienstanbieter.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">Die Aktivierungsanfrage für %s konnte nicht gesendet werden. Verbindung über verfügbare Netzwerke wird erneut hergestellt…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s kann nicht aktiviert werden. %2$s in Ihrem Internetpaket nicht verfügbar oder keine Reaktion vom %3$s-Server.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s kann nicht aktiviert werden. Gerät überhitzt. Warten Sie, bis das Gerät abkühlt und versuchen Sie es erneut.</string>
     <string name="mptcp_message_operation_disabled_overheating">%s deaktiviert, um eine Überhitzung des Geräts zu verhindern. Der Download wird stattdessen über ein mobiles Netz durchgeführt…</string>
     <string name="mptcp_message_data_usage_limit">Maximale Datennutzung erreicht. Sie können die maximale Datennutzung unter „Einstellungen“ ändern.</string>

@@ -1397,6 +1397,13 @@
     <string name="batt_cooldown_mode_attention">යෙදුම වැසිණි</string>
     <string name="batt_cooldown_mode_attentions">යෙදුම් වැසිණි</string>
     <string name="batt_cooldown_mode_ok">හරි</string>
+    <string name="overheat_limit_warning_title">දුරකථනය අධිකව රත් වේ</string>
+    <string name="overheat_limit_warning">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %s විනාඩි 1කින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_phone_second">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_tablet_second">ඔබේ ටැබ්ලටය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_closed_title">යෙදුම වැසිණි</string>
+    <string name="overheat_limit_closed">%1$s වැසිණි. ඔබේ දුරකථනය අධිකව රත් වේ. ඔබේ දුරකථනය සිසිලනය වූ පසුව %2$s නැවත භාවිතයට උත්සාහ කරන්න.</string>
+    <string name="overheat_limit_ok">හරි</string>
     <string name="invalid_sim_notification_title_vzw">Non-Verizon SIM card inserted</string>
     <string name="network_locked_sim_notification_text_vzw">Tap here to use your phone on a different network.</string>
     <string name="globalactions_unable_power_off_msg">අගුලු දැමූ විට ක්‍රියා විරහිත කිරීම අවහිර කරන්න සක්‍රියව පවතින විට උපාංගය ක්‍රියා විරහිත කළ නොහැකිය. තිරය අගුලු හැරීමෙන් පසුව නැවත උත්සාහ කරන්න.</string>
@@ -1404,6 +1411,7 @@
     <string name="wifi_notification_sns_exception_title">අන්තර්ජා.ය ලබා ගැනී. නොහැකි විය හැක</string>
     <string name="wifi_notification_sns_exception_hun_detail">අනෙත් ජාලයට සම්බන්ධ වන්න.</string>
     <string name="bluetooth_china_popup_title">බ්ලූටූත්</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s සක්‍රිය කළ නොහැකිය. %2$s ඔබේ අන්තර්ජාල පැකේජය සමග නොමැති හෝ %3$s සර්වරයෙන් කිසිදු ප්‍රතිචාරයක් ලැබී නැත.</string>
     <string name="sem_date_picker_increment_month_button_text">ඊළඟ මාසය</string>
     <string name="sem_date_picker_decrement_month_button_text">පෙර මාසය</string>
     <string name="sem_date_picker_switch_to_wheel_view_description">චක්‍ර දසුනට මාරු වීමට දෙවරක් තට්ටු කරන්න.</string>

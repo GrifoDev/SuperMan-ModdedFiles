@@ -1561,6 +1561,13 @@
     <string name="batt_cooldown_mode_attention">అప్లికేషన్ మూసివేయబడింది</string>
     <string name="batt_cooldown_mode_attentions">అప్లికేషన్‌లు మూసివేయబడ్డాయి</string>
     <string name="batt_cooldown_mode_ok">సరే</string>
+    <string name="overheat_limit_warning_title">ఫోన్ వేడెక్కుతోంది</string>
+    <string name="overheat_limit_warning">మీ ఫోన్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. 1 నిమిషంలో %s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు ఏదైనా సేవ్ చేయని డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_warning_phone_second">మీ ఫోన్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. %2$d సెకన్లలో %1$s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు సేవ్ చేయని ఏదైనా డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_warning_tablet_second">మీ టాబ్లెట్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. %2$d సెకన్లలో %1$s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు సేవ్ చేయని ఏదైనా డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_closed_title">అప్లికేషన్ మూసివేయబడింది</string>
+    <string name="overheat_limit_closed">%1$s మూసివేయబడింది. మీ ఫోన్ చాలా వేడెక్కుతోంది. మీ ఫోన్ చల్లబడిన తర్వాత %2$sని మళ్లీ ఉపయోగించడానికి ప్రయత్నించండి.</string>
+    <string name="overheat_limit_ok">సరే</string>
     <string name="restart_confirm">పరికరం పునఃప్రారంభించబడుతుంది.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1885,6 +1892,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct ప్రారంభించబడినప్పుడు %sను ప్రారంభించడం సాధ్యం కాదు.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">సేవా ప్రదాత ప్రతిస్పందించడం లేదు.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s యాక్టివేషన్ అభ్యర్థనను పంపడం విఫలమైంది. అందుబాటులో ఉన్న నెట్‌వర్క్‌ల ద్వారా డిస్‌కనెక్ట్ చేయబడుతోంది…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$sని ప్రారంభించడం సాధ్యం కాదు. మీ ఇంటర్నెట్ ప్యాకేజీతో %2$s అందుబాటులో లేదు లేదా %3$s సర్వర్ నుండి ఎటువంటి ప్రతిస్పందన రాలేదు.</string>
     <string name="mptcp_message_setting_disabled_overheating">%sను ప్రారంభించడం సాధ్యం కాదు. పరికరం ఎక్కువ వేడెక్కింది. పరికరం చల్లబడే వరకు వేచి ఉండి, మళ్లీ ప్రయత్నించండి.</string>
     <string name="mptcp_message_operation_disabled_overheating">పరికరం వేడెక్కడాన్ని తగ్గించడానికి %s నిలిపివేయబడింది. బదులుగా మొబైల్ నెట్‌వర్క్ ద్వారా డౌన్‌లోడ్ అవుతోంది…</string>
     <string name="mptcp_message_data_usage_limit">డేటా ఉపయోగ పరిమితిని చేరుకున్నారు. డేటా ఉపయోగ పరిమితిని మార్చడం కోసం, సెట్టింగ్‌లకు వెళ్లండి.</string>

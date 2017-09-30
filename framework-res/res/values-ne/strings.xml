@@ -854,6 +854,13 @@
     <string name="batt_cooldown_mode_attention">एपलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_attentions">एपहरूलाई बन्द गरियो</string>
     <string name="batt_cooldown_mode_ok">ठीक छ</string>
+    <string name="overheat_limit_warning_title">फोन धेरै तातो हुँदैछ</string>
+    <string name="overheat_limit_warning">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %s लाई 1 मिनटमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_phone_second">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_tablet_second">तपाईको ट्याबलेट धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_closed_title">एपलाई बन्द गरियो</string>
+    <string name="overheat_limit_closed">%1$s लाई बन्द गरियो। तपाईको फोन धेरै तातो भइरहेको छ। तपाईको फोन चिसो भएपछि %2$s फेरि प्रयोग गरी हेर्नुहोस्।</string>
+    <string name="overheat_limit_ok">ठीक छ</string>
     <string name="restart_confirm">यन्त्र पुन: सुरू हुनेछ।</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1178,6 +1185,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct सक्षम गरिएको बेला %s सक्षम गर्न असमर्थ।</string>
     <string name="mptcp_message_mptcp_capability_noresponse">सेवा प्रदायकबाट कुनै प्रतिक्रिया आएन।</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s सक्रियकरण अनुरोध पठाउन असफल भयो। उपलब्ध नेटवर्कहरूमार्फत पुनः जडान गर्दै…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s लाई सक्षम गर्न सकिएन। तपाईको इन्टरनेट प्याकेज मार्फत %2$s उपलब्ध छैन वा %3$s सर्भरबाट कुनै प्रतिक्रिया प्राप्त भएन।</string>
     <string name="mptcp_message_setting_disabled_overheating">%s लाई सक्षम गर्न असमर्थ। यन्त्र धेरै तातो भइरहेको छ। यन्त्र चिसो नभएसम्म पर्खनुहोस् र फेरि प्रयास गर्नुहोस्।</string>
     <string name="mptcp_message_operation_disabled_overheating">यन्त्र धेरै तातो हुनदेखि रोक्न %s लाई असक्षम गरिएको छ। यसको सट्टामा मोबाइल नेटवर्कमार्फत डाउनलोड गर्दै…</string>
     <string name="mptcp_message_data_usage_limit">डाटा प्रयोग सीमा पूरा भयो। डाटा प्रयोग सीमा परिवर्तन गर्न, सेटिङहरूमा जानुहोस्।</string>

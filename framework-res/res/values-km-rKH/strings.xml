@@ -1562,6 +1562,13 @@
     <string name="batt_cooldown_mode_attention">បាន​បិទ​កម្មវិធី</string>
     <string name="batt_cooldown_mode_attentions">បាន​បិទ​កម្មវិធី</string>
     <string name="batt_cooldown_mode_ok">ព្រម</string>
+    <string name="overheat_limit_warning_title">ទូរសព្ទ​កំពុង​ឡើង​កម្ដៅ​ជ្រុល</string>
+    <string name="overheat_limit_warning">ទូរសព្ទ​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ បិទ​កម្មវិធី​នេះ​ភ្លាមៗ។ %s នឹង​ត្រូវ​បាន​បិទ​ដោយ​ស្វ័យប្រវត្តិ​ក្នុង​ពេល 1 នាទី ហើយ​ទិន្នន័យ​ដែល​មិន​បាន​រក្សាទុក​នានា​នឹង​បាត់បង់។</string>
+    <string name="overheat_limit_warning_phone_second">ទូរសព្ទ​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ បិទ​កម្មវិធី​នេះ​ភ្លាមៗ។ %1$s នឹង​ត្រូវ​បាន​បិទ​ដោយ​ស្វ័យប្រវត្តិ​ក្នុង​ពេល %2$d វីនាទី ហើយ​ទិន្នន័យ​ដែល​មិន​បាន​រក្សាទុក​នានា​នឹង​បាត់បង់។</string>
+    <string name="overheat_limit_warning_tablet_second">ថេប្លិត​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ បិទ​កម្មវិធី​នេះ​ភ្លាមៗ។ %1$s នឹង​ត្រូវ​បាន​បិទ​ដោយ​ស្វ័យប្រវត្តិ​ក្នុង​ពេល %2$d វីនាទី ហើយ​ទិន្នន័យ​ដែល​មិន​បាន​រក្សាទុក​នានា​នឹង​បាត់បង់។</string>
+    <string name="overheat_limit_closed_title">បាន​បិទ​កម្មវិធី</string>
+    <string name="overheat_limit_closed">បាន​បិទ %1$s។ ទូរសព្ទ​របស់​អ្នក​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ សាកល្បង​ប្រើ %2$s ម្ដងទៀត បន្ទាប់​ពី​ទូរសព្ទ​របស់​អ្នក​ចុះត្រជាក់។</string>
+    <string name="overheat_limit_ok">ព្រម</string>
     <string name="restart_confirm">ឧបករណ៍​នឹង​ចាប់ផ្ដើម​ឡើងវិញ។</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1886,6 +1893,7 @@
     <string name="mptcp_message_mptcp_capability_WifiDirect">មិន​អាច​បើកប្រើ %s ខណៈពេល​បាន​បើកប្រើ Wi-Fi ផ្ទាល់។</string>
     <string name="mptcp_message_mptcp_capability_noresponse">គ្មាន​ការឆ្លើយតប​ពី​អ្នកផ្ដល់​សេវា។</string>
     <string name="mptcp_message_mptcp_capability_sendfail">បាន​បរាជ័យ​ក្នុង​ការ​ផ្ញើ​សំណើ​បើកដំណើរការ %s។ កំពុង​ភ្ជាប់​ឡើងវិញ​តាម​បណ្ដាញ​ដែល​អាច​ប្រើ​បាន…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">មិន​អាច​បើកប្រើ %1$s។ %2$s មិន​អាច​ប្រើ​បាន​ឡើយ​ជាមួយ​កញ្ចប់​អ៊ីនធើណិត​របស់​អ្នក ឬ​ក៏​មិន​បាន​ទទួល​ការឆ្លើយតប​ពី​សឺវើ %3$s។</string>
     <string name="mptcp_message_setting_disabled_overheating">មិន​អាច​បើកប្រើ %s។ ឧបករណ៍​កំពុង​ឡើង​កម្ដៅ​ជ្រុល។ រង់ចាំ​រហូត​ដល់​ឧបករណ៍​ចុះត្រជាក់ ហើយ​សាកល្បង​ម្ដងទៀត។</string>
     <string name="mptcp_message_operation_disabled_overheating">បាន​បិទ %s ដើម្បី​បង្ការ​ការឡើង​កម្ដៅ​ឧបករណ៍​ជ្រុល។ កំពុង​ទាញយក​តាម​បណ្ដាញ​ចល័ត​ជំនួស…</string>
     <string name="mptcp_message_data_usage_limit">បាន​ដល់​ដែនកំណត់​ប្រើប្រាស់​ទិន្នន័យ។ ដើម្បី​ប្ដូរ​ដែនកំណត់​នៃ​ការប្រើប្រាស់​ទិន្នន័យ សូម​ចូលទៅ ការកំណត់។</string>

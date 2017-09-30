@@ -1566,6 +1566,13 @@ komut"</string>
     <string name="batt_cooldown_mode_attention">Uygulama kapatıldı</string>
     <string name="batt_cooldown_mode_attentions">Uygulamalar kapatıldı</string>
     <string name="batt_cooldown_mode_ok">Tamam</string>
+    <string name="overheat_limit_warning_title">Telefon aşırı ısınıyor</string>
+    <string name="overheat_limit_warning">Telefonunuz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %s, 1 dakika sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonunuz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %1$s, %2$d saniye sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_warning_tablet_second">Tabletiniz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %1$s, %2$d saniye sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_closed_title">Uygulama kapatıldı</string>
+    <string name="overheat_limit_closed">%1$s kapatıldı. Telefonunuz aşırı ısınıyor. Telefonunuz soğuduktan sonra %2$s uygulamasını tekrar kullanmayı deneyin.</string>
+    <string name="overheat_limit_ok">Tamam</string>
     <string name="restart_confirm">Cihaz yeniden başlatılacaktır.</string>
     <string name="tw_reboot_safemode_title_vzw">Restart in Safe Mode</string>
     <string name="tw_reboot_safemode_confirm_vzw">Do you want to restart your phone in Safe Mode? While in Safe Mode, apps that did not come with your phone will be temporarily disabled to help you troubleshoot your phone. When you restart your phone next time, Safe Mode will be turned off and your apps will be available again.</string>
@@ -1890,6 +1897,7 @@ Bir uygulamayı serbest bırakmak için menü tuşunu basılı tutun."</string>
     <string name="mptcp_message_mptcp_capability_WifiDirect">Wi-Fi Direct etkinken %s etkinleştirilemez.</string>
     <string name="mptcp_message_mptcp_capability_noresponse">Servis sağlayıcıdan yanıt yok.</string>
     <string name="mptcp_message_mptcp_capability_sendfail">%s etkinleştirme isteği gönderilemedi. Mevcut ağlar üzerinden yeniden bağlanılıyor…</string>
+    <string name="mptcp_message_mptcp_capability_packege_authfail">%1$s etkinleştirilemiyor. %2$s İnternet paketinizle kullanılamıyor veya %3$s sunucusundan yanıt alınmadı.</string>
     <string name="mptcp_message_setting_disabled_overheating">%s etkinleştirilemiyor. Cihaz aşırı ısınıyor. Cihaz soğuyana kadar bekleyip tekrar deneyin.</string>
     <string name="mptcp_message_operation_disabled_overheating">Cihazın aşırı ısınmasını engellemek için %s devre dışı bırakıldı. Bunun yerine mobil ağ yoluyla indiriliyor…</string>
     <string name="mptcp_message_data_usage_limit">"Veri kullanımı sınırına ulaşıldı. Veri kullanımı sınırını değiştirmek için Ayarlar'a gidin."</string>
