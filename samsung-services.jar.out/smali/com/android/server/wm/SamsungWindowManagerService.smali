@@ -21,6 +21,8 @@
 
 .field static final DEBUG_HANDLER:Z = false
 
+.field private static final MAX_APPTOKEN_WINDOWS:I = 0x32
+
 .field static final TAG:Ljava/lang/String; = "SamsungWindowManager"
 
 
@@ -4751,6 +4753,75 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public prepareAddWindowLw(Lcom/android/server/wm/WindowState;)I
+    .locals 3
+
+    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    iget-object v0, v0, Lcom/android/server/wm/AppWindowToken;->windows:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v0
+
+    const/16 v1, 0x32
+
+    if-le v0, v1, :cond_0
+
+    const-string/jumbo v0, "SamsungWindowManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "prepareAddWindowLw - exceeded windows limit 50 < "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
+
+    iget-object v2, v2, Lcom/android/server/wm/AppWindowToken;->windows:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowList;->size()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "  win="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, -0x5
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public prepareSurfaceBeforeFreezing([I)V

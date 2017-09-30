@@ -3177,7 +3177,7 @@
 
     iget-object v5, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
-    const v6, 0x10409f3
+    const v6, 0x10409fc
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -11124,7 +11124,7 @@
 
     move-object/from16 v41, v0
 
-    const v42, 0x10409ab
+    const v42, 0x10409b4
 
     invoke-virtual/range {v41 .. v42}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

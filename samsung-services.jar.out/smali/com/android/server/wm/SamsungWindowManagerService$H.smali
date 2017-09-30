@@ -107,6 +107,15 @@
 
     iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
 
+    iget-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mService:Lcom/android/server/wm/WindowManagerService;
+
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
 
     check-cast v1, Lcom/android/server/policy/PhoneWindowManager;
@@ -119,9 +128,9 @@
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 
-    iget-boolean v2, v0, Lcom/samsung/android/cover/CoverState;->switchState:Z
+    iget-boolean v3, v0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/SamsungWindowManagerService;->-wrap0(Lcom/android/server/wm/SamsungWindowManagerService;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/wm/SamsungWindowManagerService;->-wrap0(Lcom/android/server/wm/SamsungWindowManagerService;Z)Z
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 
@@ -131,9 +140,9 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v2, v1, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
+    iput-boolean v3, v1, Lcom/android/server/wm/DisplayContent;->layoutNeeded:Z
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 
@@ -145,11 +154,24 @@
 
     iget-object v1, p0, Lcom/android/server/wm/SamsungWindowManagerService$H;->this$0:Lcom/android/server/wm/SamsungWindowManagerService;
 
-    iget-boolean v2, v0, Lcom/samsung/android/cover/CoverState;->switchState:Z
+    iget-boolean v3, v0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/SamsungWindowManagerService;->-wrap1(Lcom/android/server/wm/SamsungWindowManagerService;Z)V
+    invoke-static {v1, v3}, Lcom/android/server/wm/SamsungWindowManagerService;->-wrap1(Lcom/android/server/wm/SamsungWindowManagerService;Z)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v2
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

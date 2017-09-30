@@ -2813,7 +2813,7 @@
     throw v3
 .end method
 
-.method public getMatchedSortIds(Ljava/util/ArrayList;)[I
+.method public getMatchedSortIds(Ljava/util/ArrayList;Landroid/util/SparseArray;)[I
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2821,6 +2821,10 @@
             "Ljava/util/ArrayList",
             "<",
             "Ljava/lang/Integer;",
+            ">;",
+            "Landroid/util/SparseArray",
+            "<",
+            "Ljava/lang/String;",
             ">;)[I"
         }
     .end annotation
@@ -2946,7 +2950,7 @@
 
     iget-object v4, p0, Lcom/android/server/cocktailbar/settings/CocktailOrderManager;->mCocktailOrderedList:Ljava/util/ArrayList;
 
-    invoke-direct {v3, p0, v4}, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;-><init>(Lcom/android/server/cocktailbar/settings/CocktailOrderManager;Ljava/util/ArrayList;)V
+    invoke-direct {v3, p0, v4, p2}, Lcom/android/server/cocktailbar/settings/CocktailOrderManager$CocktailOrderComparator;-><init>(Lcom/android/server/cocktailbar/settings/CocktailOrderManager;Ljava/util/ArrayList;Landroid/util/SparseArray;)V
 
     invoke-static {p1, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
