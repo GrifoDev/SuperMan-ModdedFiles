@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:id="@id/callButtons" android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="9.0" />
-    <RelativeLayout android:orientation="vertical" android:id="@id/voiceCallButtonContainer" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="11.0">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="@integer/call_card_area_height_weight" />
+    <RelativeLayout android:orientation="vertical" android:id="@id/voiceCallButtonContainer" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="@integer/call_button_area_height_weight">
         <RelativeLayout android:gravity="center_horizontal" android:id="@id/pagerIndicatorContainer" android:paddingTop="@dimen/sec_incall_pager_indicator_padding_top" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="@dimen/sec_incall_pager_indicator_height" android:layoutDirection="ltr">
             <ViewStub android:id="@id/pagerIndicatorCallPlus_stub" android:visibility="gone" android:layout="@layout/sec_pager_indicator_callplus_layout" android:layout_width="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_height="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_marginEnd="@dimen/sec_incall_pager_indicator_between_margin" />
             <RelativeLayout android:gravity="center" android:id="@id/pagerIndicatorLeft_wrapper" android:layout_width="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_height="@dimen/sec_incall_pager_indicator_diameter_wrapper" android:layout_marginEnd="@dimen/sec_incall_pager_indicator_between_margin">

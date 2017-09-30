@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <bitmap android:src="@drawable/voicecall_during_ic_mute" android:alpha="0.4" />
+    </item>
+    <item android:state_checked="true">
+        <bitmap android:src="@drawable/voicecall_during_ic_mute_on_vzw" />
+    </item>
+    <item android:state_checked="false">
+        <bitmap android:src="@drawable/voicecall_during_ic_mute" android:tint="@color/sec_incall_button_off_tint" />
+    </item>
+    <item android:drawable="@drawable/voicecall_during_ic_mute" />
+</selector>

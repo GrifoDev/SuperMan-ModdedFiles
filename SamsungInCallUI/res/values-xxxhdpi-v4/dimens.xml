@@ -39,14 +39,12 @@
     <dimen name="sec_video_vga_video_width">360.0dip</dimen>
     <dimen name="sec_primary_video_call_name_is_number_text_size">32.0dip</dimen>
     <dimen name="sec_primary_video_call_name_is_number_text_size_easy">35.0dip</dimen>
-    <dimen name="sec_primary_video_call_name_text_size">25.0dip</dimen>
     <dimen name="sec_primary_video_call_name_text_size_easy">31.0dip</dimen>
     <dimen name="sec_video_call_banner_more_button_height">43.0dip</dimen>
     <dimen name="sec_video_call_banner_more_button_side_padding">12.0dip</dimen>
     <dimen name="sec_video_call_button_container">514.0dip</dimen>
     <dimen name="sec_video_call_menu_button_view_margin_right">0.0dip</dimen>
     <dimen name="sec_video_call_menu_button_view_margin_top">0.0dip</dimen>
-    <dimen name="sec_video_call_state_layout_margin_top">9.0dip</dimen>
     <dimen name="sec_video_incall_button_with_text_text_size">14.0dip</dimen>
     <dimen name="sec_video_incoming_hideme_button_height">49.0dip</dimen>
     <dimen name="sec_video_incoming_hideme_height">295.0dip</dimen>
@@ -58,7 +56,6 @@
     <dimen name="sec_video_qcif_call_info_area_incoming_cnap_and_cdnip_height">119.0dip</dimen>
     <dimen name="sec_video_qcif_call_info_area_incoming_cnap_or_cdnip_height">103.0dip</dimen>
     <dimen name="sec_video_qcif_hideme_icon_bottom_margin">36.0dip</dimen>
-    <dimen name="sec_video_qcif_incoming_hideme_bottom_padding">5.0dip</dimen>
     <dimen name="sec_video_qcif_video_height">295.0dip</dimen>
     <dimen name="sec_video_qcif_video_resize_height">96.0dip</dimen>
     <dimen name="sec_video_qcif_video_resize_margin_left">121.0dip</dimen>
@@ -102,8 +99,7 @@
     <dimen name="sec_conference_video_call_photo_size">40.0dip</dimen>
     <dimen name="sec_menu_button_ripple_effect_height">55.0dip</dimen>
     <dimen name="sec_menu_button_ripple_effect_width">55.0dip</dimen>
-    <dimen name="sec_menu_height">42.0dip</dimen>
-    <dimen name="sec_modify_state_info_banner_text_size">14.0dip</dimen>
+    <dimen name="sec_modify_state_info_banner_text_size">13.0dip</dimen>
     <dimen name="sec_modify_state_info_banner_top_margin">197.0dip</dimen>
     <dimen name="sec_multiparty_video_button_container_right_margin">35.0dip</dimen>
     <dimen name="sec_multiparty_video_call_button_text_size">13.0dip</dimen>
@@ -179,11 +175,12 @@
     <dimen name="tutorial_popup_picker_left_margin">38.0dip</dimen>
     <dimen name="tutorial_popup_side_margin">35.0dip</dimen>
     <dimen name="tutorial_popup_top_tail_margin">10.0dip</dimen>
+    <dimen name="sec_primary_video_call_name_text_size">25.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_padding_bottom_onehand">16.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_padding_top_onehand">18.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_text_size_onehand">12.0dip</dimen>
-    <dimen name="sec_conference_call_item_padding_end">20.0dip</dimen>
     <dimen name="sec_conference_call_split_text_size">11.0dip</dimen>
+    <dimen name="sec_conference_call_item_padding_end">20.0dip</dimen>
     <dimen name="sec_modify_state_info_banner_height">24.0dip</dimen>
     <dimen name="sec_video_incall_button_height_onehand">95.0dip</dimen>
     <dimen name="sec_video_qcif_view_incoming_margin_bottom">209.0dip</dimen>

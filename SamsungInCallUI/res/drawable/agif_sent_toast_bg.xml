@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="@dimen/agif_sent_toast_stroke" android:color="@color/agif_sent_toast_stroke_color" />
+    <corners android:radius="@dimen/agif_sent_toast_radius" />
+    <solid android:color="@color/agif_sent_toast_bg_color" />
+</shape>

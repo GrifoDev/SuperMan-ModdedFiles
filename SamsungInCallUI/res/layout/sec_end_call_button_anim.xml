@@ -5,6 +5,6 @@
         <ImageView android:id="@id/greenBackground" android:background="@drawable/sec_dial_button_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
         <ImageView android:id="@id/whiteBackground" android:background="@drawable/sec_endcall_button_background_theme_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
     </RelativeLayout>
-    <ImageView android:id="@id/dialIcon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/voicecall_incoming_ic_accept" android:scaleType="center" />
+    <ImageView android:id="@id/dialIcon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/phone_keypad_ic_call" android:scaleType="center" />
     <ImageView android:id="@id/endCallIcon" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/voicecall_during_ic_endcall" android:scaleType="center" android:tint="@color/sec_end_call_icon_tint_theme_bg" />
 </FrameLayout>

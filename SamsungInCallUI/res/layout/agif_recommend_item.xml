@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/agif_recommend_item_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.incallui.agif.AgifImageView android:id="@id/agif_recommend_item_image" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:id="@id/agif_recommend_item_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/agif_recommend_item_margin_top" style="@style/AgifRecommendItemName" />
+    <TextView android:id="@id/agif_recommend_item_price" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AgifRecommendItemPrice" />
+</LinearLayout>

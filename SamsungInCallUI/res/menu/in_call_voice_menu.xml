@@ -17,4 +17,5 @@
     <item android:id="@id/bt_headset_off" android:title="@string/onscreenBluetoothTextOff" />
     <item android:id="@id/callTransfer" android:title="@string/secOnscreenMenuCallTransfer" />
     <item android:id="@id/pushSoftPhone" android:title="@string/secOnscreenMenuCallTransfer" />
+    <item android:id="@id/emergencyCall" android:title="@string/secOnscreenMenuEmergencyCall" />
 </menu>

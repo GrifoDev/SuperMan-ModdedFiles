@@ -3,8 +3,8 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:id="@id/indicator_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/indicator_area_height" />
     <LinearLayout android:id="@id/topmargin_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_below="@id/indicator_area" />
-    <view android:orientation="vertical" android:id="@id/dialer_area" android:layout_width="wrap_content" android:layout_height="wrap_content" class="com.android.incallui.fragment.DialpadFragment$HoverIgnoringLinearLayout">
+    <view android:orientation="vertical" android:id="@id/dialer_area" android:layout_width="fill_parent" android:layout_height="wrap_content" class="com.android.incallui.fragment.DialpadFragment$HoverIgnoringLinearLayout">
         <include layout="@layout/sec_video_vga_multiwindow_dialpad_view" />
     </view>
-    <View android:id="@id/bottom_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/sec_video_vga_incall_button_wrapper_height_multiwindow" android:layout_below="@id/dialer_area" />
+    <View android:id="@id/bottom_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_below="@id/dialer_area" />
 </view>

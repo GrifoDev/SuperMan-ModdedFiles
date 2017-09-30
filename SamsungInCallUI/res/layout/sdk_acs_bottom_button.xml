@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="@drawable/efsdk_tw_ab_bottom_transparent_mtrl" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_alignParentBottom="true" android:paddingStart="24.0dip" android:paddingEnd="24.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center" android:background="@drawable/ripple_bottom_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <com.samsung.android.sdk.enhancedfeatures.internal.common.ui.ShapeOnButton android:ellipsize="end" android:id="@id/button_left" android:text="@string/cancel" android:maxLines="1" style="@style/layout_bottom_button_acs" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center" android:background="@drawable/ripple_bottom_button" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <com.samsung.android.sdk.enhancedfeatures.internal.common.ui.ShapeOnButton android:ellipsize="end" android:id="@id/button_right" android:text="@string/ok" android:maxLines="1" style="@style/layout_bottom_button_acs" />
+    </RelativeLayout>
+</LinearLayout>

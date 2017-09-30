@@ -20,6 +20,7 @@
                 <TextureView android:id="@id/previewVideo" android:layout_width="fill_parent" android:layout_height="fill_parent" />
                 <View android:id="@id/near_end_switch_animation" android:background="@color/sec_video_switch_camera_animation_color" android:layout_width="fill_parent" android:layout_height="fill_parent" android:alpha="0.0" />
                 <View android:id="@id/near_capture_animation_view" android:background="@color/sec_video_capture_animation_bg_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                <View android:id="@id/previewBorder" android:background="@drawable/sec_video_border_shape" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
             </FrameLayout>
             <FrameLayout android:layout_gravity="center|top" android:id="@id/incoming_hideme_image_container" android:background="@color/sec_video_hideme_bg_color" android:visibility="gone" android:layout_width="@dimen/sec_video_qcif_video_width" android:layout_height="@dimen/sec_video_qcif_video_height">
                 <ImageView android:layout_gravity="center" android:id="@id/incoming_hideme_photo" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@null" android:scaleType="centerCrop" />

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="agif_indicator_bottom_divider">3.0px</dimen>
+    <dimen name="agif_list_bottom_divider">2.0px</dimen>
+</resources>

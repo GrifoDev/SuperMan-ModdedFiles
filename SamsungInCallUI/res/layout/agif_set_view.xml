@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.incallui.agif.AgifGridView android:id="@id/agif_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@drawable/agif_list_select_fg" android:drawSelectorOnTop="true" android:horizontalSpacing="@dimen/agif_contents_padding" android:verticalSpacing="@dimen/agif_contents_padding" android:stretchMode="columnWidth" android:numColumns="3" android:paddingStart="@dimen/agif_contents_padding" android:paddingEnd="@dimen/agif_contents_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

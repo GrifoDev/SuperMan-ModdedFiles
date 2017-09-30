@@ -20,8 +20,11 @@
     <dimen name="sec_video_vga_video_height">296.0dip</dimen>
     <dimen name="sec_video_vga_video_position_x">85.29999dip</dimen>
     <dimen name="sec_video_vga_video_width">394.65625dip</dimen>
+    <dimen name="sec_call_popup_side_padding">5.0dip</dimen>
+    <item type="dimen" name="sec_call_popup_width">@dimen/match_parent</item>
     <dimen name="sec_hwkey_videocall_dialpad_container_margin_left">148.0dip</dimen>
     <dimen name="sec_hwkey_videocall_dialpad_container_margin_right">140.0dip</dimen>
     <dimen name="sec_hwkey_videocall_dialpad_container_margin_top">0.0dip</dimen>
     <dimen name="sec_hwkey_videocall_dialpad_digits_height">296.0dip</dimen>
+    <dimen name="sec_video_incall_modify_land_two_button_size">110.0dip</dimen>
 </resources>

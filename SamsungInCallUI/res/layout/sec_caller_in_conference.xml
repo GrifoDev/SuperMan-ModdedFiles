@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layoutConferenceCaller" android:layout_width="fill_parent" android:layout_height="@dimen/sec_conference_call_item_height" android:baselineAligned="false" android:paddingStart="@dimen/sec_conference_call_item_padding_start" android:paddingEnd="@dimen/sec_conference_call_item_padding_end"
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layoutConferenceCaller" android:layout_width="fill_parent" android:layout_height="@dimen/sec_conference_call_item_height" android:baselineAligned="false" android:layout_marginStart="@dimen/sec_multiparty_call_photo_left_margin" android:layout_marginEnd="@dimen/sec_conference_call_item_padding_end"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/conferenceCallerInfo" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
         <FrameLayout android:id="@id/callerPhotoContainer" android:layout_width="@dimen/sec_multiparty_call_photo_size" android:layout_height="@dimen/sec_multiparty_call_photo_size">
@@ -20,8 +20,8 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/llayoutConferenceCallerSeparate" android:focusable="true" android:layout_width="@dimen/sec_conference_caller_button_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/sec_conference_caller_button_margin_end">
-        <com.android.incallui.widget.SecVoiceConferenceButton android:id="@id/conferenceCallerSeparate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/secConferenceCallSplit" android:drawableTop="@drawable/voicecall_multiparty_btn_hidemerge_icon" android:contentDescription="@string/secConferenceCallSplitCall" style="@style/SecMultipartyCallButton" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/llayoutConferenceCallerSeparate" android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="@dimen/sec_conference_caller_button_width" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/sec_conference_caller_button_margin_end">
+        <com.android.incallui.widget.SecVoiceConferenceButton android:id="@id/conferenceCallerSeparate" android:focusable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/secConferenceCallSplit" android:drawableTop="@drawable/voicecall_multiparty_btn_hidemerge_icon" android:contentDescription="@string/secConferenceCallSplitCall" style="@style/SecMultipartyCallButton" />
     </LinearLayout>
     <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/conferenceCallerDisconnectContainer" android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
         <com.android.incallui.widget.SecVoiceConferenceButton android:id="@id/conferenceCallerDisconnect" android:layout_width="@dimen/sec_conference_caller_button_width" android:layout_height="fill_parent" android:text="@string/secConferenceCallDrop" android:drawableTop="@drawable/voicecall_multiparty_btn_endcall" android:contentDescription="@string/secConferenceCallDrop" style="@style/SecMultipartyCallButton" />

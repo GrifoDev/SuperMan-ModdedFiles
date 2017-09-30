@@ -114,10 +114,34 @@
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Ավլցնլ պատճառ</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">Կարևոր կանչ</string>
     <string name="TS_SHARING_INVITATION_DECLINED_TPOP_VODA">Համօգտագործման հրավերը մերժվեց:</string>
+    <string name="a_verification_code_will_be_sent">Ստուգման կոդ կուղարկվի ստորև տրված համարին:</string>
+    <string name="about_open_source_licenses">Բաց սկզբնական կոդով լիցենզիաներ</string>
     <string name="accept">Ընդել</string>
     <string name="account_phone">Սարք</string>
+    <string name="acs">Ձայնականչ</string>
     <string name="active_calls">Ակտիվ զանգ</string>
     <string name="add_reminder">Ավլցնել հշցմ</string>
+    <string name="agif_button_close_description">Փակել</string>
+    <string name="agif_decline_message">Կներեք, այս պահին չեմ կարող խոսել:</string>
+    <string name="agif_decline_sticker_header">Մերժել կպչուն պիտակով</string>
+    <string name="agif_decline_text_header">Մերժել տեքստով</string>
+    <string name="agif_decline_toast">Կպչուն պիտակն ուղարկվեց %s-ին:</string>
+    <string name="agif_pickers_add_tab_description">Ավլնլ</string>
+    <string name="agif_pickers_find_more">Գտնել ավելին</string>
+    <string name="agif_pickers_item_usage_hints_description">Կրկնակի թակեք ընտրելու համար</string>
+    <string name="agif_pickers_sub_title">Կանչը պայծառացրեք կպչուն պիտակով: %s-ը պիտակը կտեսնի կանչի էկրանի վրա:</string>
+    <string name="agif_pickers_tab_not_select_description">Չի ընտրվել</string>
+    <string name="agif_pickers_tab_select_description">Ընտրված</string>
+    <string name="agif_pickers_title">Սկսել կպչուն պիտակով</string>
+    <string name="agif_pickers_title_recommended">Խորհուրդ տրվող</string>
+    <string name="agif_read_permission_description">Թույլ է տալիս, որ Հեռախոսը կարդա AGIF բովանդակությունը:</string>
+    <string name="agif_read_permission_label">Կարդալ AGIF բովանդակություն</string>
+    <string name="agif_receive_no_id">Հնարավոր չէ ցույց տալ կպչուն պիտակը: Կանչից հետո թարմացրեք %s-ը:</string>
+    <string name="agif_receive_no_id_upsupport_update">Հն. չէ ցույց տալ կպչուն պիտակը: Ավելի շատ պիտակներ մատչելի կլինեն համակարգի հաջորդ թարմացումից հետո:</string>
+    <string name="agif_sent_fail_message">Հնարավոր չէ շարժապատկերային GIF ուղարկել: Ավելի ուշ նորից փորձեք:</string>
+    <string name="agif_sent_toast">Կպչուն պիտակն ուղարկվեց:</string>
+    <string name="agif_write_permission_description">Թույլ է տալիս, որ Հեռախոսը փոփոխի AGIF բովանդակությունը:</string>
+    <string name="agif_write_permission_label">Փոփոխել AGIF բովանդակությունը</string>
     <string name="agree">Հմձայն եմ</string>
     <string name="am_cover_toggle_string">Բացեք շապիկը՝ կանչին պատասխ. կամ մերժ. հր:</string>
     <string name="am_device_memory_full_warning">Անհնար է օգտագործել Ինքնապատասխան՝ հաղորդագրությամբ: Ձեր սարքի պահոցում բավարար տեղ չկա ձայնահաղորդագրությունները պահպանելու համար: Վերացրեք որոշ տարրեր և նորից փորձեք:</string>
@@ -125,6 +149,11 @@
     <string name="answering_memo_Playing_text">Նվագարկվում է պատասխանի հաղորդագրությունը…</string>
     <string name="answering_memo_Recording_text">Գրանցվում է հաղորդագրությունը…</string>
     <string name="answering_memo_sliding_button_text">Պատասխանի հաղորդագրություն</string>
+    <string name="app_name">Կատարելագործ. հնրվրթներ</string>
+    <string name="app_update_dialog_message">Մատչելի է %s-ի նոր վարկած:</string>
+    <string name="app_update_dialog_negative">Ավելի ուշ</string>
+    <string name="app_update_dialog_positive">Թարմացնել</string>
+    <string name="app_update_dialog_title">Թարմացնե՞լ %s:</string>
     <string name="application_not_found">Ծրագիրը չի գտնվել:</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
     <string name="banner_calls_have_been_merged">Կանչերը միավորվել են:</string>
@@ -177,12 +206,27 @@
     <string name="camera_on">Խցիկը միացված է:</string>
     <string name="camera_security_enter">Անվտանգության քաղաքականությունը սահմանափակում է Խցիկի օգտագործումը:</string>
     <string name="camera_start_failed">Տեսախցիկը ձախողվեց:</string>
+    <string name="can_not_use_receiver">Հնարավոր չէ %s օգտագործել Samsung DeX-ում:</string>
     <string name="cancel">Չեղարկել</string>
     <string name="capture_failure">Չհաջողվեց էկրանը սևեռել:</string>
     <string name="captured">Նկարահանված է:</string>
     <string name="card_title_dialing_for_quick_panel">Համարհավաքում…</string>
     <string name="card_title_dialing_to_korea">Կանչ՝ Հարավային Կորեա</string>
     <string name="card_title_wifi_call_ended">Wi-Fi կանչն ավարտվեց</string>
+    <string name="carrier_matching_call_made_via">Կանչը կատարվել է %s SIM քարտի միջոցով</string>
+    <string name="carrier_matching_dialog_content_1">Այն համարի ծառայության մատակարարը, որին փորձում եք զանգել, %s է:</string>
+    <string name="carrier_matching_dialog_content_1_cannot_find">Դուք առաջին անգամ եք զանգում այս համարին: Ընտրեք օգտագործելու SIM քարտը:</string>
+    <string name="carrier_matching_dialog_content_1_cannot_find_operator">Ձեր SIM քարտերից ոչ մեկը ծառայության միևնույն մատակարարինը չէ:</string>
+    <string name="carrier_matching_dialog_content_1_default_sim">Խորհուրդ է տրվում օգտագործել Ձեր կանխադրված SIM քարտը:</string>
+    <string name="carrier_matching_dialog_content_1_find_service_state">Ձեր SIM քարտերից մեկը ծառայությանը միացված չէ:</string>
+    <string name="carrier_matching_dialog_content_1_two_sim_no_service">Ձեր SIM քարտերից ոչ մեկը ծառայությանը միացված չէ:</string>
+    <string name="carrier_matching_dialog_content_2">Խորհուրդ է տրվում օգտագործել Ձեր %s SIM քարտը:</string>
+    <string name="carrier_matching_dialog_content_2_find_history">Խորհուրդ է տրվում օգտագործել նախորդ ընտրված SIM քարտը:</string>
+    <string name="carrier_matching_dialog_content_2_find_service_state">Խորհուրդ է տրվում օգտագործել SIM քարտ, որը միացված է ծառայությանը:</string>
+    <string name="carrier_matching_dialog_content_2_two_sim_no_service">Ընտրեք օգտագործելու SIM քարտը:</string>
+    <string name="carrier_matching_dialog_title">Ընտրեք SIM քարտը</string>
+    <string name="carrier_matching_dialog_video_call">Ընտրեք SIM քարտը, որի միջոցով ցանկանում եք կատարել այս տեսականչը:</string>
+    <string name="carrier_matching_switch_to_call_by_other_sim">Փխլ SIM-ը</string>
     <string name="cdnip_service_prefix">Իմ համարը</string>
     <string name="chat">Զրույց</string>
     <string name="chat_aim">Զրուցել AIM-ի միջոցով</string>
@@ -193,6 +237,9 @@
     <string name="chat_qq">Զրուցել՝ օգտագործելով QQ</string>
     <string name="chat_skype">Զրուցել՝ օգտագործելով Skype</string>
     <string name="chat_yahoo">Զրուցել՝ օգտագործելով Yahoo! Messenger</string>
+    <string name="check_your_connection">Ստուգեք Ձեր ցանցի կարգավիճակը, հետո նորից փորձեք:</string>
+    <string name="check_your_network_status">Ստուգեք Ձեր ցանցի կարգավիճակը, հետո նորից փորձեք:</string>
+    <string name="choose_verification_method">Ընտրեք նախընտրելի ստուգման եղանակը:</string>
     <string name="chunghwa_operator_name">Chunghwa</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">Հասել է մասնակիցների առավելագույն քանակին (%d):</string>
@@ -216,6 +263,7 @@
     <string name="data_usage_limit_dialog_message_tmo">Տվյալների սահմանաչափը, որը նախադրել եք Ձեր հեռախոսում, լրացել է, և տվյալներն անջատվել են: Տեսականչը պահանջում է տվյալների միացում: Միացրեք շարժական տվյալները կամ միացեք որևէ հասանելի Wi-Fi ցանցի:</string>
     <string name="date_day">Օր</string>
     <string name="decline">Մերժել</string>
+    <string name="deregister">Գրանցումից հանել հեռախոսահամարը</string>
     <string name="description_create_message">Գրել նոր հաղորդագրություն</string>
     <string name="description_hidedial_button">Թաքցնել ստեղնախումբը</string>
     <string name="description_secOnscreenMessageText">Հաղորդագրություն</string>
@@ -224,6 +272,8 @@
     <string name="device_info_not_available">Մատչելի չէ</string>
     <string name="dial_warning">Անհնար է համարը հավաքել:</string>
     <string name="dialling_video_call">Տեսականչի կատարում</string>
+    <string name="dialog_permission_app_desc">Անհնար է բացել %s: Գնացեք ԴՐՎԱԾՔՆԵՐ > Թույլտվություններ, հետո տվեք հետևյալ թույլտվությունները և նորից փորձեք՝</string>
+    <string name="dialog_permission_function_desc">Անհնար է օգտագործել %s: Գնացեք ԴՐՎԱԾՔՆԵՐ > Թույլտվություններ, հետո տվեք հետևյալ թույլտվությունները և նորից փորձեք՝</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
     <string name="dialpad_4_sub_letters">GHI</string>
@@ -242,6 +292,8 @@
     <string name="download_application_description">"Այս գործառույթն օգտագործելու համար ներբեռնեք հետևյալ ծրագիրը՝
 
 %s"</string>
+    <string name="downloading_via_wi_fi">Ներբեռն. ֆայլեր Wi-Fi-ով</string>
+    <string name="downloading_via_wlan">Նրբռնել ֆայլերը WLAN-ով</string>
     <string name="effect_beauty">Գեղեց. դեմք</string>
     <string name="effect_mono">Գորշի սնդղկ</string>
     <string name="effect_negative">Նեգատիվ</string>
@@ -257,7 +309,12 @@
     <string name="end">Ավարտ</string>
     <string name="end_all_calls">Ավարտել բոլոր ընթացիկ կանչերը</string>
     <string name="endncall_select_sub_number">Ընտրել համարը</string>
+    <string name="enhanced_messaging">Կատարելգործ. հաղորդագրում</string>
+    <string name="enter_code">Մուտքագրել կոդը</string>
     <string name="enter_number">Մուտքագրեք թվեր:</string>
+    <string name="enter_phone_country_number">Մուտքագրեք այս հեռախոսի երկրի կոդը և հեռախոսահամարը:</string>
+    <string name="enter_your_phone_number">Մուտքագրեք երկրի կոդը և հեռախոսահամարը:</string>
+    <string name="enter_your_verification_code">Մուտքագրեք Ձեր ստուգման կոդը</string>
     <string name="eventLabelsGroup">Իրադարձություն</string>
     <string name="extra_vol_off">Ձայնի լրացուցիչ ուժգնությունը կասեցված է:</string>
     <string name="extra_vol_on">Ձայնի լրացուցիչ ուժգնությունն ընձեռված է:</string>
@@ -273,8 +330,10 @@
     <string name="held_calls">Պահված զանգ</string>
     <string name="help_text_more_info">Այլ տեղեկ.</string>
     <string name="high_quality_sound">HD</string>
+    <string name="if_your_registered_for_dnd_service">Եթե գրանցված եք DND ծառայությանը, օգտագործեք ձայնով ստուգում:</string>
     <string name="imLabelsGroup">IM հաշիվ</string>
     <string name="inCallLabel_Sec">Զանգ</string>
+    <string name="in_progress">Ընթացքում է…</string>
     <string name="incall_decline_emergency_wifi_not_allow">Wi-Fi-ով կատարվող արտակարգ իրավիճակի կանչեր չեն թույլատրվում այս վայրում:</string>
     <string name="incall_decline_other_secondary_device">Ուրիշ երկրորդական սարք է գործածվում:</string>
     <string name="incall_decline_service_not_allowed">Ծառայությունը չի թույլատրվում այս վայրում:</string>
@@ -299,6 +358,7 @@
     <string name="incoming_group_video_call">Մտից խմբական տեսականչ</string>
     <string name="incoming_video_call">Մտից տեսականչ</string>
     <string name="incoming_video_call_no_dot">Մտից վիդեո կանչ</string>
+    <string name="information">Տեղեկատվություն</string>
     <string name="interactive_tutorial_accept">Մատը սահեցրեք ձախից աջ՝ կանչին պատասխանելու համար:</string>
     <string name="interactive_tutorial_call_answer_reject_complete">Հիմա գիտեք՝ ինչպես պատասխանել կանչերին և մերժել կանչերը:</string>
     <string name="interactive_tutorial_drag_up">Մատը սահեցրեք դեպի վեր՝ կանչը հաղորդագրությամբ մերժելու համար:</string>
@@ -458,10 +518,15 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="mcidshowme_unblock_toast_2nd">Այս կոնտակտի ուղարկած մեդիա ֆայլը կստացվի, երբ նա հաջորդ անգամ զանգի Ձեզ:</string>
     <string name="meetingWith">Հանդիպում %s-ի հետ</string>
     <string name="memory_full_msg">Հիշողություն բավ. չէ</string>
+    <string name="message_content_without_auth_one_new">"Ֆայլ է համօգտագործվել Պարզ համօգտագործման միջոցով՝
+%1$s (ժամկետի ավարտը՝ %2$s)"</string>
+    <string name="message_content_without_auth_other_new">"Ֆայլեր են համօգտագործվել Պարզ համօգտագործման միջոցով՝
+%1$s (ժամկետի ավարտը՝ %2$s)"</string>
     <string name="message_greeting">Ողջույն</string>
     <string name="modify_to_video_start">Կատարվում է տեսազանգի փոխելու հարցում…</string>
     <string name="modify_to_voice_start">Փոխվում է ձայնականչի…</string>
     <string name="msg_for_video_show_never_again">Ֆայլի որոշ ձևաչափեր ապահովված չեն: Միայն ապահովվող ֆայլերը կցուցադրվեն Պատկերասրահում:</string>
+    <string name="mt_dialog_progress">Ինքնաբերաբար ստուգվում է Ձեր SMS կոդը…</string>
     <string name="mt_vt_not_possible">%s-ն այս պահին չի կարող տեսականչեր ստանալ: Հիմա կմիանաք ձայնականչի միջոցով:</string>
     <string name="nameLabelsGroup">Անուն</string>
     <string name="name_family">Ազգանուն</string>
@@ -477,8 +542,11 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="name_suffix">Անվան վերջածանց</string>
     <string name="network_message_no_answer">Պատասխան չկա</string>
     <string name="nicknameLabelsGroup">Մականուն</string>
+    <string name="no_results">Արդյունքներ չեն գտնվել</string>
     <string name="not_enable_to_video">Տեսականչերը մատչելի չեն, քանի դեռ Արտակարգ իրավիճակի ռեժիմն ընձեռված է:</string>
     <string name="not_enable_to_video_emergencymode">Անհնար է տեսականչեր կատարել կամ ստանալ, քանի դեռ Արտակարգ իրավիճակի ռեժիմն ընձեռված է:</string>
+    <string name="noti_permission_desc">%s օգտագործելու համար գնացեք ԴՐՎԱԾՔՆԵՐ > Թույլտվություններ և տվեք հետևյալ թույլտվությունները՝</string>
+    <string name="noti_permission_title">Անհնար է օգտագործել %s</string>
     <string name="notification_action_answer">Պատասխան</string>
     <string name="notification_of_sub_number_empty_body">Այլընտրանքային համարներ դիտելու համար բաժանորդագրվեք SIM քարտի բազմահամար ծառայությանը և նորից փորձեք:</string>
     <string name="notification_of_sub_number_empty_title">Անհնար է գտնել այլընտրանքային համարներ</string>
@@ -498,14 +566,21 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="outgoing_img_picture">Պատկերներ</string>
     <string name="outgoing_img_take_picture">Նկարել</string>
     <string name="outgoing_img_video">Տեսահոլովակներ</string>
+    <string name="over_storage_only_wifi_download">Ֆայլերի ընդհանուր չափը %1$d %2$s-ից ավելի է: Լրացուցիչ վճարումներից խուսափելու համար խորհուրդ ենք տալիս ներբեռնել միայն Wi-Fi-ի միջոցով:</string>
+    <string name="over_storage_only_wlan_download">Ֆայլի ընդհանուր չափը %1$d %2$s-ից ավելի է: Լրացուցիչ վճարներից խուսափելու համար խորհուրդ ենք տալիս ներբեռնել միայն WLAN-ի միջոցով:</string>
+    <string name="overlay_warning_toast">Հեռախոսից օգտվելու համար հարկավոր է Հեռախոսի դրվածքներում միացնել Ծրագրերը, որոնք կարող են հայտնվել ամենավերևում:</string>
     <string name="payphone_sbm">Հանրային հեռախոս</string>
     <string name="phoneLabelsGroup">Հեռախոս</string>
+    <string name="phone_number_verification_failed">Հեռախոսահամարի ստուգումը ձախողվեց: Ստուգեք ձեռքով:</string>
     <string name="phone_voice_recording_failed_by_secure_call">Հնարավոր չէ ապահով կանչ ձայնագրել:</string>
     <string name="phonetype_additional">Լրացուցիչ համար</string>
     <string name="photoring_block_toast">Կոնտակտին չի թույլատրվում ուղարկել ձեզ մեդիա ֆոտո րինգով:</string>
     <string name="photoring_toast_mobile_data_off">Կարող է լինել մյուս կողմի ուղարկած Photoring բովանդակություն, որը չեք կարող տեսնել, որովհետև մուտքը դեպի շարժական տվյալներ արգելափակված է:</string>
     <string name="photoring_unblock_toast">Կոնտակտին թույլատրվում է ուղարկել ձեզ մեդիա ֆոտո րինգով:</string>
     <string name="photoring_unblock_toast_2nd">Այս կոնտակտից ուղարկված մեդիան կստացվի՝ իր հաջորդ զանգի ժամանակ</string>
+    <string name="please_wait">Ստուգման կոդը ստուգվում է: Խնդրում ենք սպասել…</string>
+    <string name="popup_download_large_wificheck">Ներբեռնել միայն Wi-Fi-ի միջոցով</string>
+    <string name="popup_download_large_wlancheck">Ներբեռնել միայն WLAN-ի միջոցով</string>
     <string name="popup_start_record_during_alerting">Ձայնագրումը կսկսվի կանչի միացումից հետո:</string>
     <string name="postalLabelsGroup">Հասցե</string>
     <string name="postal_city">Քաղաք</string>
@@ -519,6 +594,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="previous_call_is_held_when_you_accept_call">Ընթացիկ զանգը կհետաձգվի, երբ նոր զանգ ընդունեք:</string>
     <string name="private_num_cdma">Արգելված է</string>
     <string name="private_num_sbm">Պահված համար</string>
+    <string name="profile_sharing">Պրոֆիլի համօգտագործում</string>
     <string name="quick_panel_title_video_call">Վիդեո կանչ</string>
     <string name="quick_panel_title_voice_call">Ձայնային զանգ</string>
     <string name="quick_panel_title_volte_call">VoLTE զանգ</string>
@@ -540,6 +616,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="rcs_share_toast_lowmemory">Հիշողություն բավ. չէ</string>
     <string name="rcs_share_toast_terminated">Ավարտվեց</string>
     <string name="rcs_share_toast_toolarge">Ֆայլը շատ մեծ է</string>
+    <string name="receiver">Ընդունիչ</string>
     <string name="recently_use_sim_for_callback">Վերջերս օգտագործված SIM</string>
     <string name="record_notification_button_text_close">Փակել</string>
     <string name="record_notification_button_text_record_list">Ձայնգրություններ</string>
@@ -553,20 +630,24 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="record_text">Ձայնագրել</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
+    <string name="regist_select_country_or_region_code">Երկիր կամ տարածաշրջան</string>
     <string name="reject">Մերժել</string>
     <string name="reject_call_with_msg">Մերժել հաղորդագրություն պարունակող կանչը</string>
-    <string name="reject_call_with_msg_content_description_close">Մատը սահեցրեք ներքև՝ ցանկը փակելու համար:</string>
-    <string name="reject_call_with_msg_content_description_open">Մատը սահեցրեք վերև՝ ցանկը բացելու համար:</string>
+    <string name="reject_call_with_msg_content_description_close">Երկու մատով քարշեք ներքև՝ արագ մերժման հաղորդագրությունները թաքցնելու համար:</string>
+    <string name="reject_call_with_msg_content_description_open">Երկու մատով քարշեք վերև՝ արագ մերժման հաղորդագրություն ընտրելու համար:</string>
     <string name="reject_call_with_msg_content_item_description">Կրկնակի թակեք՝ հաղորդագրություն ուղարկելու համար:</string>
     <string name="reject_call_with_msg_tts">Մերժել կանչը հաղորդագրությամբ</string>
     <string name="rejected_call_notification_action_reminder">Դնել հիշեցում</string>
     <string name="rejected_call_notification_title">Մերժված զանգ</string>
     <string name="relationLabelsGroup">Հարաբերություն</string>
+    <string name="request_explain_text">Եթե կոդը չեք մուտքագրել մեկ րոպեի ընթացքում, պահանջեք նոր կոդ:</string>
     <string name="requested_video_call">Զանգվող կողմն ուզում է փոխել տեսազանգի. ընդունե՞լ:</string>
+    <string name="resend">Նրց ուղրկլ</string>
     <string name="returnToInCallScreen">Փոխել լրիվ էկրանի</string>
     <string name="rich_screen_save_fail">Չհաջողվեց պահպանել զանգահարողի ID-ի պատկերը կամ տեսանյութը:</string>
     <string name="rich_screen_save_success">Զանգահարողի ID-ի պատկերը կամ տեսանյութը պահպանվեց:</string>
     <string name="save_record_msg_myfiles">Ձայնագրումը պահպանվեց Իմ Ֆայլերում:</string>
+    <string name="search">Որոնել</string>
     <string name="secConferenceCallDrop">Գցել</string>
     <string name="secConferenceCallLabel">%d հոգու հետ</string>
     <string name="secConferenceCallLabel_vzw">%d մարդ</string>
@@ -617,13 +698,14 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenMenuStartRecordText">Տեսագրել տեսանյութ</string>
     <string name="secOnscreenMenuStopRecordText">Կանգնել</string>
     <string name="secOnscreenMenuSwitchCameraText">Փոխարկել խցիկը</string>
+    <string name="secOnscreenMenuSwitchToAudioDeviceText">Փոխել ձայնասարքի</string>
     <string name="secOnscreenMenuSwitchToHeadsetText">Փոխարկել ականջակալի</string>
     <string name="secOnscreenMenuSwitchToHeadsetText_vzw">Փոխել Bluetooth-ի</string>
     <string name="secOnscreenMenuSwitchToPhoneText">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToPhoneText_att">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">Փոխարկել հեռախոսի</string>
     <string name="secOnscreenMenuSwitchToVideoCallText">Փոխարկել տեսականչի</string>
-    <string name="secOnscreenMenuSwitchToVoiceCallText">Փոխել ձայնականչի</string>
+    <string name="secOnscreenMenuSwitchToVoiceCallText">Փոխարկել ձայնային կանչի</string>
     <string name="secOnscreenMenuSwitchVideoDisplay">Փոխել տեսանյութի ցուցադրումները</string>
     <string name="secOnscreenMenuUnmuteText">Ձայնը միացնել</string>
     <string name="secOnscreenMenuVideoConfCallText">Հրավիրել նոր մասնակցի</string>
@@ -654,6 +736,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="secOnscreenUpdateContactText">Թարմացնել եղածը</string>
     <string name="secOnscreenUpdateContactText_tts">Թարմացնել գոյություն ունեցողը</string>
     <string name="secOnscreenVideoCallText">Տեսականչ</string>
+    <string name="secOnscreenVideoStopText">Կանգնեցնել</string>
     <string name="secOnscreenViewContactText">Դիտել կոնտակտը</string>
     <string name="secOnscreenVoiceCallText">Կանչ</string>
     <string name="secOnscreenVoiceCallTextExtended">Ձայնականչ</string>
@@ -669,22 +752,31 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="select_callback_sim_card">Ընտրել հետկանչի SIM քարտ</string>
     <string name="select_callback_sim_card_content">Այս համարից կամ համարին կատարված վերջին կանչը կամ հաղորդագրությունը չի օգտագործել կանչերի համար նախընտրելի SIM քարտ: Ընտրեք, թե որ SIM քարտն օգտագործվի:</string>
     <string name="select_from_gallery">Ընտրել Պատկերասրահից</string>
+    <string name="select_sim">Ընտրել SIM</string>
     <string name="select_sim_for_call">Ընտրել SIM կանչի համար</string>
+    <string name="select_your_country">Ընտրեք Ձեր երկիրը</string>
     <string name="send_file_via_filetransfer">Հմօգտ. ֆայլ ֆայլերի փխնց. մջցվ</string>
     <string name="send_msg">Ուղարկել հաղորդագրություն</string>
+    <string name="server_error_try_later">Սերվերի սխալ տեղի ունեցավ: Փորձեք ավելի ուշ</string>
+    <string name="settings">Դրվածքներ</string>
     <string name="settings_defalut_glance_reply">Հիմա չեմ կարող պատասխանել քո կանչին: Շուտով հետ կզանգեմ:</string>
     <string name="settings_glance_reply">Արագ պատասխան</string>
     <string name="settings_glance_reply_explain_text">Մերժեք մտից կանչը և նախադրված հաղորդագրություն ուղարկեք զանգահարողին՝ մատը դնելով սրտախփոցի հաճախականության տվիչի վրա և այնտեղ պահելով %d վայրկյան, երբ սարքը շրջված է:</string>
     <string name="settings_glance_reply_explain_text_vzw">Մերժեք մտից կանչը և նախադրված հաղորդագրություն ուղարկեք զանգահարողին՝ մատը դնելով սրտախփոցի հաճախականության տվիչի վրա և այնտեղ պահելով %d վայրկյան, երբ սարքը շրջված է:</string>
     <string name="settings_glance_reply_reached_maximum_text">Հասել է նիշերի առավելագույն քանակին (%d):</string>
     <string name="settings_glance_reply_text">Արագ պատասխանի հղգրթյներ</string>
+    <string name="settings_subappbar_switch_dimmed">Աղոտ</string>
     <string name="settings_subappbar_switch_off">Անջատված է</string>
     <string name="settings_subappbar_switch_on">Միացված է</string>
-    <string name="slide_left_to_reject_content_description">Մերժելու համար քաշեք ձախ:</string>
-    <string name="slide_right_to_answer_content_description">Պատասխանելու համար գցել աջ:</string>
+    <string name="simple_sharing">Հղման համօգտագործում</string>
+    <string name="skip">Բաց թողնել</string>
+    <string name="skip_verification">Կարող եք բաց թողնել հաստատումը և հեռախոսահամարը հաստատել ավելի ուշ, երբ այն պահանջվի Samsung ծառայության կողմից:</string>
+    <string name="slide_left_to_reject_content_description">Կանչը մերժելու համար երկու մատով քարշեք ձախ:</string>
+    <string name="slide_right_to_answer_content_description">Կանչին պատասխանելու համար երկու մատով քարշեք աջ:</string>
     <string name="smart_call_block_button">Արգելփակել</string>
     <string name="smart_call_block_msg">Արգլփակել համարը</string>
     <string name="smart_call_block_report_number">Արգլփակել/հաղորդել համարը</string>
+    <string name="smart_call_label">Խելացի կանչ</string>
     <string name="smart_call_probably">Հավանաբար՝</string>
     <string name="smart_call_reminder_title">%s զանգահարել է Ձեզ:</string>
     <string name="smart_call_report_button">Հաղորդել</string>
@@ -696,6 +788,9 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="smart_call_spam_level_3">Շահախարդախ. կամ խաբեութ.</string>
     <string name="smart_call_unblock_button">Արգելահանել</string>
     <string name="sms">Տեքստային հաղորդագրություն</string>
+    <string name="sms_auth_page_area_code">Տարածաշրջանային կոդ</string>
+    <string name="sms_auth_page_phone_number">Հեռախոսահամար</string>
+    <string name="sms_authentification_activity_description">Ստուգման կոդ կուղարկվի ստորև տրված հեռախոսահամարին: Մուտքագրեք երկրի կոդը և հեռախոսահամարը:</string>
     <string name="spam_call_report_dialog_advertisement">Գովազդ</string>
     <string name="spam_call_report_dialog_delivery">Առաքումներ</string>
     <string name="spam_call_report_dialog_insurance">Ապահովագրություն</string>
@@ -725,6 +820,8 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="switched_to_voip_mt_att_tmo">%s-ն անջատել է տեսականչը:</string>
     <string name="switching_camera_failed">Չհաջողվեց փոխարկել խցիկները:</string>
     <string name="switching_to_voice_call">Փոխվում է ձայնականչի…</string>
+    <string name="the_verification_has_failed">Չհաջողվեց ստուգել: Նորից փորձեք:</string>
+    <string name="toast_text_max_Length">Գրանշանների առավելագույն քանակը գերազանցվել է:</string>
     <string name="tts_hours">%d ժամ</string>
     <string name="tts_minutes">%d րոպե</string>
     <string name="tts_pager">Էջ %1$d՝ %2$d-ից</string>
@@ -733,14 +830,22 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="tutorial_incoming_call_app_answer">Թակեք՝ կանչին պատասխանելու համար:</string>
     <string name="tutorial_incoming_call_app_reject">Թակեք՝ կանչը մերժելու համար:</string>
     <string name="twmobile_operator_name">TW Mobile</string>
+    <string name="unable_to_connect_to_the_network">Անհնար է միանալ ցանցին: Ստուգեք կապի դրվածքները և նորից փորձեք:</string>
+    <string name="units_kb">ԿԲ</string>
+    <string name="units_mb">ՄԲ</string>
     <string name="unknown_cdma">Անհասանելի</string>
+    <string name="upload_using_wifi_only">Վերբեռնել միայն Wi-Fi-ի միջոցով</string>
+    <string name="upload_using_wlan_only">Վերբեռնել միայն WLAN-ով</string>
+    <string name="upload_wifi_and_mobile_nw">Վերբեռնել Wi-Fi-ի կամ շարժական կապի ցանցի միջոցով</string>
+    <string name="upload_wlan_and_mobile_nw">Վերբեռնել WLAN-ով կամ շարժական կապի ցանցով</string>
     <string name="usa_att_connected_as_voice">Կանչը միացվեց որպես միայն ձայնականչ:</string>
     <string name="usa_att_data_usage_charge_alert">Ձեր Տվյալների օգտագործումը, որը նախադրել եք սարքում, մոտենում է իր սահմանաչափին: Ձեր Տեսականչը պահանջում է տվյալներ:</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
     <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
-    <string name="usa_att_notify_wifi_to_lte_popup_text">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
+    <string name="usa_att_notify_wifi_to_lte_popup_text">Wi-Fi no longer available. Call transferring to cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_select_call_type_incoming_video_call">Թակեք ստորև՝ կանչի տեսակն ընտրելու համար:</string>
+    <string name="usa_att_weak_wifi_call_drop_toast">Կանչն ընդհատվեց Wi-Fi ծածկույթի սահմանափակման պատճառով:</string>
     <string name="usa_gsm_cannot_be_changed_during_conference">Կանչի տեսակը չի կարող փոխվել կոնֆերենց-կապի ընթացքում:</string>
     <string name="usa_gsm_modify_receive_to_video">%s-ն ուզում է փոխել տեսականչի:</string>
     <string name="usa_gsm_modify_receive_to_video_share">%s-ն ուզում է համօգտագործել տեսականչը:</string>
@@ -789,8 +894,14 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
 
 Տեսականչն այժմ կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար, եթե որոշեք շարունակել):"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi կապը կորավ: Կանչն ավարտվեց:</string>
+    <string name="use_wifi_and_mobile_nw">Օգտագործել Wi-Fi և շարժական կապի ցանցեր</string>
+    <string name="use_wlan_and_mobile_nw">Օգտագործել WLAN և շարժական կապի ցանցեր</string>
+    <string name="verify">Հաստատել</string>
+    <string name="verify_your_phone_number">Հաստատեք Ձեր հեռախոսահամարը</string>
+    <string name="verify_your_phone_number_body">Հաստատեք Ձեր հեռախոսահամարը՝ Samsung ծառայություններից օգտվող ընկերներին միանալու համար:</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">Այլևս ցույց չտալ</string>
+    <string name="video_call_not_allowed">Հնարավոր չէ տեսականչեր կատարել կամ ստանալ, քանի դեռ «Պահել մարտկոցի էներգիան» ռեժիմը միացված է:</string>
     <string name="video_calling_incoming">Տեսականչի հնարավորություն</string>
     <string name="video_calls_quality_poor_tmo">Կապի որակը ցածր է: Տեսականչը կարող է փոխվել ձայնականչի:</string>
     <string name="video_calls_temporarily_not_available">Տեսականչերը ժամանակավորապես հասանելի չեն: Կանչը փոխվել է ձայնականչի:</string>
@@ -806,6 +917,10 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="waiting_call_dialog_Merging_not_possible">Կոնֆերենց-կապ հնարավոր չէ տեսականչերի դեպքում</string>
     <string name="waiting_call_dialog_dismiss_toast">%1$sն ավարտեց կանչը: Վերսկսվում է կանչը %2$sի հետ…</string>
     <string name="waiting_call_dialog_message">Պատասխանել կանչին</string>
+    <string name="we_recommend_using_a_voice_call">Խորհուրդ ենք տալիս ձայնականչ օգտագործել, եթե չեք կարող SMS հաղորդագրություններ ստանալ:</string>
     <string name="websiteLabelsGroup">Կայքի հասցեն</string>
     <string name="yellow_pages">Դեղին էջեր</string>
+    <string name="you_have_entered_incorrect_code">Դուք սխալ ստուգման կոդ եք մուտքագրել: Նորից փորձեք:</string>
+    <string name="you_have_reached_your_daily_sms_limit">Դուք հասել եք Ձեր SMS-ների օրական սահմանաչափին: Նորից փորձեք %d ժամից:</string>
+    <string name="you_have_reached_your_daliy_voice_limit">Դուք հասել եք ձայնով ստուգման օրական սահմանաչափին: Նորից փորձեք %d ժամից:</string>
 </resources>

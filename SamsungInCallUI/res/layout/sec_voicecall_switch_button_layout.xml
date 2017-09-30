@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:gravity="center" android:id="@id/switchToVideoButton" android:background="?android:actionBarItemBackground" android:paddingTop="@dimen/sec_voice_switch_button_margin_top" android:paddingBottom="@dimen/sec_voice_switch_button_margin_top" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_during_ic_video" android:contentDescription="@string/secOnscreenMenuSwitchToVideoCallText" />
+    <com.android.incallui.widget.SecMenuImageButton android:gravity="center" android:id="@id/switchToVideoButton" android:visibility="gone" android:src="@drawable/voicecall_during_ic_video" android:contentDescription="@string/secOnscreenMenuSwitchToVideoCallText" style="@style/SecVoiceMenuImageButton" />
 </RelativeLayout>

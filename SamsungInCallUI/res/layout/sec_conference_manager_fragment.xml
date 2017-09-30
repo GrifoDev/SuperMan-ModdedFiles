@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:id="@id/manageConferencePanel" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <ScrollView android:id="@id/conferenceList" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/conference_call_manager_list_margin_top">
+            <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/conference_call_manager_list_padding_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/conference_call_manager_list_margin_top">
                 <include android:id="@id/caller0" layout="@layout/sec_caller_in_conference" />
                 <include android:id="@id/caller1" layout="@layout/sec_caller_in_conference" />
                 <include android:id="@id/caller2" layout="@layout/sec_caller_in_conference" />

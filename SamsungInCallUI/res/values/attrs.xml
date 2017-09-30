@@ -50,6 +50,16 @@
     <attr name="multiChoiceItemLayout" format="reference" />
     <attr name="singleChoiceItemLayout" format="reference" />
     <attr name="listItemLayout" format="reference" />
+    <attr name="fullDark" format="reference|color" />
+    <attr name="topDark" format="reference|color" />
+    <attr name="centerDark" format="reference|color" />
+    <attr name="bottomDark" format="reference|color" />
+    <attr name="fullBright" format="reference|color" />
+    <attr name="topBright" format="reference|color" />
+    <attr name="centerBright" format="reference|color" />
+    <attr name="bottomBright" format="reference|color" />
+    <attr name="bottomMedium" format="reference|color" />
+    <attr name="centerMedium" format="reference|color" />
     <attr name="srcCompat" format="reference" />
     <attr name="tickMark" format="reference" />
     <attr name="tickMarkTint" format="color" />
@@ -205,6 +215,7 @@
     <attr name="list_section_header_height" format="dimension" />
     <attr name="activated_background" format="reference" />
     <attr name="section_header_background" format="reference" />
+    <attr name="list_item_divider" format="reference" />
     <attr name="list_item_padding_top" format="dimension" />
     <attr name="list_item_padding_right" format="dimension" />
     <attr name="list_item_padding_bottom" format="dimension" />
@@ -216,17 +227,35 @@
     <attr name="list_item_photo_size" format="dimension" />
     <attr name="list_item_profile_photo_size" format="dimension" />
     <attr name="list_item_prefix_highlight_color" format="color" />
-    <attr name="list_item_background_color" format="color" />
     <attr name="list_item_header_text_indent" format="dimension" />
     <attr name="list_item_header_text_color" format="color" />
     <attr name="list_item_header_text_size" format="dimension" />
+    <attr name="list_item_header_text_top_padding" format="dimension" />
+    <attr name="list_item_header_divider_margin_top" format="dimension" />
+    <attr name="list_item_header_divider_margin_left" format="dimension" />
     <attr name="list_item_header_height" format="dimension" />
-    <attr name="list_item_name_text_color" format="color" />
-    <attr name="list_item_name_text_size" format="dimension" />
+    <attr name="list_item_header_underline_height" format="dimension" />
+    <attr name="list_item_header_underline_color" format="color" />
+    <attr name="list_item_contacts_count_text_color" format="color" />
     <attr name="list_item_text_indent" format="dimension" />
-    <attr name="list_item_text_offset_top" format="dimension" />
+    <attr name="list_item_contacts_count_text_size" format="dimension" />
     <attr name="list_item_data_width_weight" format="integer" />
     <attr name="list_item_label_width_weight" format="integer" />
+    <attr name="list_item_profile_photo_margin_left" format="dimension" />
+    <attr name="list_item_account_icon_size" format="dimension" />
+    <attr name="list_item_account_icon_margin_bottom" format="dimension" />
+    <attr name="list_item_account_icon_margin_right" format="dimension" />
+    <attr name="list_item_name_text_appearance" format="reference" />
+    <attr name="list_item_primary_text_size" format="dimension" />
+    <attr name="list_item_primary_text_color" format="color" />
+    <attr name="list_item_secondary_text_size" format="dimension" />
+    <attr name="tw_index_scroll_theme" format="string" />
+    <attr name="list_item_check_box_margin_left" format="dimension" />
+    <attr name="list_item_check_box_margin_right" format="dimension" />
+    <attr name="list_item_background_color" format="color" />
+    <attr name="list_item_name_text_color" format="color" />
+    <attr name="list_item_name_text_size" format="dimension" />
+    <attr name="list_item_text_offset_top" format="dimension" />
     <attr name="list_item_video_call_icon_size" format="dimension" />
     <attr name="list_item_video_call_icon_margin" format="dimension" />
     <attr name="dialpad_key_button_touch_tint" format="color" />
@@ -288,6 +317,13 @@
         <flag name="middle" value="0x00000002" />
     </attr>
     <attr name="dividerPadding" format="dimension" />
+    <attr name="imageAspectRatioAdjust">
+        <enum name="none" value="0" />
+        <enum name="adjust_height" value="2" />
+        <enum name="adjust_width" value="1" />
+    </attr>
+    <attr name="imageAspectRatio" format="float" />
+    <attr name="circleCrop" format="boolean" />
     <attr name="rippleColor" format="color" />
     <attr name="rippleDimension" format="dimension" />
     <attr name="rippleOverlay" format="boolean" />
@@ -328,6 +364,22 @@
     <attr name="suggestionRowLayout" format="reference" />
     <attr name="queryBackground" format="reference" />
     <attr name="submitBackground" format="reference" />
+    <attr name="buttonSize" format="reference">
+        <enum name="icon_only" value="2" />
+        <enum name="standard" value="0" />
+        <enum name="wide" value="1" />
+    </attr>
+    <attr name="colorScheme" format="reference">
+        <enum name="auto" value="2" />
+        <enum name="dark" value="0" />
+        <enum name="light" value="1" />
+    </attr>
+    <attr name="scopeUris" format="reference|string" />
+    <attr name="normalTextAppearance" format="reference" />
+    <attr name="selectedTextAppearance" format="reference" />
+    <attr name="pressedTextAppearance" format="reference" />
+    <attr name="focusedTextAppearance" format="reference" />
+    <attr name="disabledTextAppearance" format="reference" />
     <attr name="thumbTint" format="color" />
     <attr name="thumbTintMode">
         <enum name="add" value="16" />
@@ -353,6 +405,12 @@
     <attr name="switchPadding" format="dimension" />
     <attr name="splitTrack" format="boolean" />
     <attr name="showText" format="boolean" />
+    <attr name="stateTextViewStyle" format="reference" />
+    <attr name="clearableEditBackground" format="reference" />
+    <attr name="clearableEditTextStyle" format="reference" />
+    <attr name="ListItemTextAppearance" format="reference" />
+    <attr name="ListItemSecondaryTextAppearance" format="reference" />
+    <attr name="tipImageViewStyle" format="reference" />
     <attr name="dialpad_text_color" format="color" />
     <attr name="dialpad_text_color_primary" format="color" />
     <attr name="dialpad_text_color_secondary" format="color" />
@@ -379,6 +437,17 @@
     <attr name="logoDescription" format="string" />
     <attr name="titleTextColor" format="color" />
     <attr name="subtitleTextColor" format="color" />
+    <attr name="twIndexViewHandlePosition">
+        <enum name="left" value="0" />
+        <enum name="right" value="1" />
+    </attr>
+    <attr name="twIndexViewIndexInterval" format="integer" />
+    <attr name="twIndexViewHandleColor" format="color" />
+    <attr name="twIndexViewHandleFirstHandleGap" format="integer" />
+    <attr name="twIndexViewHandleFirstHandleGapLand" format="integer" />
+    <attr name="twIndexViewHandleTopPadding" format="integer" />
+    <attr name="twIndexViewHandleTopPaddingLand" format="integer" />
+    <attr name="twIndexViewFluidEnabled" format="boolean" />
     <attr name="paddingStart" format="dimension" />
     <attr name="paddingEnd" format="dimension" />
     <attr name="theme" format="reference" />

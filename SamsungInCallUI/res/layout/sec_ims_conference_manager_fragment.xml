@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:id="@id/conference_manage_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:id="@id/manageConferencePanel" android:background="@color/conference_call_manager_background_color" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/conference_call_manager_hight" android:layout_marginTop="@dimen/conference_call_manager_margin_top">
+    <FrameLayout android:id="@id/manageConferencePanel" android:background="@color/conference_call_manager_background_color" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/conference_call_manager_margin_top">
         <ScrollView android:id="@id/conferenceList" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true">
                 <include android:id="@id/caller0" layout="@layout/sec_caller_in_ims_conference" />

@@ -3,5 +3,6 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cp="http://schemas.android.com/apk/res-auto">
     <RelativeLayout style="@style/SecDialpadKeyInternalLayoutStyle">
         <TextView android:id="@id/dialpad_key_number" android:layout_marginTop="0.0dip" android:layout_centerVertical="true" style="@style/SecDialpadKeyNumberStyle" />
+        <TextView android:visibility="invisible" android:layout_below="@id/dialpad_key_number" style="@style/SecDialpadKeyLettersStyle" />
     </RelativeLayout>
 </com.android.phone.common.dialpad.DialpadKeyButton>

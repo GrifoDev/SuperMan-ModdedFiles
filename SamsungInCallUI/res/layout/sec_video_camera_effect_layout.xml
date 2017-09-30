@@ -32,6 +32,6 @@
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>
-        <ImageButton android:id="@id/effect_cancel" android:background="@color/sec_video_camera_effect_banner_bg" android:layout_width="@dimen/sec_video_camera_effect_cancel_button_width" android:layout_height="fill_parent" android:src="@drawable/videocall_effect_cancel_icon" />
+        <ImageButton android:id="@id/effect_cancel" android:background="@color/sec_video_black" android:layout_width="@dimen/sec_video_camera_effect_cancel_button_width" android:layout_height="fill_parent" android:src="@drawable/videocall_effect_cancel_icon" />
     </LinearLayout>
 </RelativeLayout>

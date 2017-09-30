@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:background="@drawable/sec_voicecall_mask_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:id="@id/primary_call_info_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerHorizontal="true">
-        <LinearLayout android:id="@id/primary_call_info_banner_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="9.0" android:layout_centerHorizontal="true">
-            <include layout="@layout/sec_primary_call_info" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/primary_call_info_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerHorizontal="true">
+            <LinearLayout android:id="@id/primary_call_info_banner_container" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="@integer/call_card_area_height_weight" android:layout_centerHorizontal="true">
+                <include layout="@layout/sec_primary_call_info" />
+            </LinearLayout>
+            <LinearLayout android:id="@id/primary_call_info_dummy" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="@integer/call_button_area_height_weight" />
+            <LinearLayout android:id="@id/navigation_bar_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_area_height" />
         </LinearLayout>
-        <LinearLayout android:id="@id/primary_call_info_dummy" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="11.0" />
-        <LinearLayout android:id="@id/navigation_bar_area" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_area_height" />
-    </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/agifPhotoContainer" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sec_primary_call_agif_photo_margin_top" android:maxWidth="@dimen/sec_primary_call_agif_photo_width" android:maxHeight="@dimen/sec_primary_call_agif_photo_height" android:layout_centerHorizontal="true">
+        <ImageView android:id="@id/agifPhoto" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@id/agifNoIdText" android:visibility="gone" android:layout_width="@dimen/agif_no_id_text_width" android:layout_height="@dimen/agif_no_id_text_height" style="@style/AgifNoIdText" />
+    </FrameLayout>
     <ViewStub android:id="@id/dummy_primary_call_banner_stub" android:layout="@layout/dummy_primary_call_info" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <ViewStub android:id="@id/callerInfoCardStub" android:layout="@layout/sec_caller_info_card_layout" android:layout_width="fill_parent" android:layout_height="@dimen/caller_info_card_height" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/caller_info_card_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
     <ViewStub android:id="@id/sugudenGuideStub" android:layout="@layout/sec_suguden_guide_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/suguden_guide_view_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
     <ViewStub android:id="@id/amStatusView" android:layout="@layout/sec_answering_message_status_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <ViewStub android:id="@id/epdgNotifyInfoBanner" android:layout="@layout/sec_epdg_notify_banner_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/caller_info_card_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
+    <ViewStub android:id="@id/epdgNotifyInfoBanner" android:layout="@layout/sec_epdg_notify_banner_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/caller_info_card_side_padding" android:layout_marginTop="@dimen/sec_voice_epdg_notify_banner_top_margin" android:layout_marginRight="@dimen/caller_info_card_side_padding" />
 </RelativeLayout>

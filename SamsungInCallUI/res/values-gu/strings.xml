@@ -12,6 +12,37 @@
     <string name="card_title_my_phone_number">મારો નંબર %s.</string>
     <string name="card_title_on_hold">હોલ્ડ પર છે</string>
     <string name="card_title_video_call">વિડિયો કૉલ</string>
+    <string name="common_google_play_services_api_unavailable_text">%1$s ને એક કે વધુ Google Play સેવાઓની જરૂર છે કે જે હાલમાં ઉપલબ્ધ નથી. કૃપા કરીને સહાયતા માટે વિકાસકર્તાનો સંપર્ક કરો.</string>
+    <string name="common_google_play_services_enable_button">Google Play સેવાઓ સક્ષમ કરો</string>
+    <string name="common_google_play_services_enable_text">તમે Google Play સેવાઓ સક્ષમ કરશો નહીં ત્યાં સુધી %1$s કાર્ય કરશે નહીં.</string>
+    <string name="common_google_play_services_enable_title">Google Play સેવાઓ સક્ષમ કરો</string>
+    <string name="common_google_play_services_install_button">Google Play સેવાઓ મેળવો</string>
+    <string name="common_google_play_services_install_text_phone">%1$s, Google Play સેવાઓ વગર ચાલશે નહીં, જે તમારા ફોનમાંથી ખૂટે છે.</string>
+    <string name="common_google_play_services_install_text_tablet">%1$s, Google Play સેવાઓ વગર ચાલશે નહીં, જે તમારા ટેબ્લેટમાંથી ખૂટે છે.</string>
+    <string name="common_google_play_services_install_title">Google Play સેવાઓ મેળવો</string>
+    <string name="common_google_play_services_invalid_account_text">ઉલ્લેખિત એકાઉન્ટ આ ઉપકરણ પર અસ્તિત્વમાં નથી. કૃપા કરીને એક અલગ એકાઉન્ટ પસંદ કરો.</string>
+    <string name="common_google_play_services_invalid_account_title">અમાન્ય એકાઉન્ટ</string>
+    <string name="common_google_play_services_network_error_text">ડેટા કનેક્શનને Google Play સેવાઓ સાથે કનેક્ટ થવાની જરૂર છે.</string>
+    <string name="common_google_play_services_network_error_title">નેટવર્ક ભૂલ</string>
+    <string name="common_google_play_services_notification_ticker">Google Play સેવાઓની ભૂલ</string>
+    <string name="common_google_play_services_resolution_required_text">કૃપા કરીને %1$s દ્વારા જરૂરી ક્રિયા પૂર્ણ કરો.</string>
+    <string name="common_google_play_services_resolution_required_title">Google Play સેવાઓને ક્રિયાની જરૂર છે</string>
+    <string name="common_google_play_services_restricted_profile_text">પ્રતિબંધિત પ્રોફાઇલથી એકાઉન્ટ્સને અ‍ૅક્સેસ કરવાને સમર્થન નથી.</string>
+    <string name="common_google_play_services_restricted_profile_title">પ્રતિબંધિત પ્રોફાઇલ</string>
+    <string name="common_google_play_services_sign_in_failed_text">ઉલ્લેખિત એકાઉન્ટમાં સાઇન ઇન કરવામાં ભૂલ. કૃપા કરીને એક અલગ એકાઉન્ટ પસંદ કરો.</string>
+    <string name="common_google_play_services_sign_in_failed_title">સાઇન ઇન નિષ્ફળ થયું</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ને Google Play સેવાઓમાં સમસ્યા આવી રહી છે. જો સમસ્યા યથાવત્ રહે છે, તો સહાયતા માટે કૃપા કરીને વિકાસકર્તાનો સંપર્ક કરો.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google Play સેવાઓ પર આધાર રાખે છે, જે તમારા ઉપકરણ દ્વારા સમર્થિત નથી. સહાયતા માટે નિર્માતાનો સંપર્ક કરો.</string>
+    <string name="common_google_play_services_unsupported_title">Google Play સેવાઓ</string>
+    <string name="common_google_play_services_update_button">અપડેટ કરો</string>
+    <string name="common_google_play_services_update_text">તમે Google Play સેવાઓ અપડેટ કરશો નહીં ત્યાં સુધી %1$s શરૂ થશે નહીં.</string>
+    <string name="common_google_play_services_update_title">Google Play સેવાઓ અપડેટ કરો</string>
+    <string name="common_google_play_services_updating_text">%1$s, Google Play સેવાઓ વગર શરૂ થશે નહીં, જે વર્તમાનમાં અપડેટ થઈ રહી છે.</string>
+    <string name="common_google_play_services_updating_title">Google Play સેવાઓ અપડેટ થઈ રહી છે</string>
+    <string name="common_google_play_services_wear_update_text">Google Play સેવાઓના નવા સંસ્કરણની જરૂર છે. તે ટૂંક સમયમાં પોતાને અપડેટ કરશે.</string>
+    <string name="common_open_on_phone">ફોનમાં ખોલો</string>
+    <string name="common_signin_button_text">સાઇન ઇન કરો</string>
+    <string name="common_signin_button_text_long">Google માં સાઇન ઇન કરો</string>
     <string name="contactPhoto">સંપર્ક ફોટો</string>
     <string name="custom_message_cancel">રદ કરો</string>
     <string name="custom_message_send">મોકલો</string>
@@ -90,8 +121,10 @@
     <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">સામગ્રી શેરિંગ રોક્યું છે. બેટરી ઓછી.</string>
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">કારણ ઉમેરો</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">મહત્વપૂર્ણ કૉલ</string>
+    <string name="a_verification_code_will_be_sent">નીચેના નંબર પર એક ચકાસણી કોડ મોકલવામાં આવશે.</string>
     <string name="accept">સ્વીકારો</string>
     <string name="account_phone">ઉપકરણ</string>
+    <string name="acs">અવાજ કૉલ</string>
     <string name="active_calls">સક્રિય કૉલ</string>
     <string name="agree">સંમત છે</string>
     <string name="am_cover_toggle_string">કૉલનો જવાબ આપવા અથવા અસ્વીકારવા માટે કવર ખોલો.</string>
@@ -140,6 +173,8 @@
     <string name="chat_qq">QQ વાપરીને ચેટ</string>
     <string name="chat_skype">સ્કાઇપી વાપરીને ચેટ</string>
     <string name="chat_yahoo">Yahoo! Messenger વાપરીને ચેટ</string>
+    <string name="check_your_network_status">તમારી નેટવર્ક સ્થિતિ તપાસો, ત્યારબાદ ફરીથી પ્રયાસ કરો.</string>
+    <string name="choose_verification_method">તમારી પસંદગીની ચકાસણી પદ્ધતિ પસંદ કરો.</string>
     <string name="chunghwa_operator_name">Chunghwa</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">પ્રતિભાગીઓની મહત્તમ સંખ્યાએ (%d) પહોંચ્યા</string>
@@ -203,6 +238,8 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="end_all_calls">બધા વર્તમાન કૉલ્સ સમાપ્ત કરો</string>
     <string name="endncall_select_sub_number">નંબર પસંદ કરો</string>
     <string name="enter_number">નંબરો દાખલ કરો.</string>
+    <string name="enter_your_phone_number">તમારો દેશ કોડ અને ફોન નંબર દાખલ કરો.</string>
+    <string name="enter_your_verification_code">તમારો ચકાસણી કોડ દાખલ કરો</string>
     <string name="eventLabelsGroup">ઘટના</string>
     <string name="extra_vol_off">અતિરિક્ત અવાજ નિષ્ક્રિય છે.</string>
     <string name="extra_vol_on">અતિરિક્ત અવાજ સક્રિય છે.</string>
@@ -216,8 +253,10 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="groupsLabel">સમૂહો</string>
     <string name="held_calls">હેલ્ડ કૉલ</string>
     <string name="high_quality_sound">HD</string>
+    <string name="if_your_registered_for_dnd_service">જો તમે DND માટે નોંધણી કરાવેલ હોય, ધ્વનિ ચકાસણીનો ઉપયોગ કરો.</string>
     <string name="imLabelsGroup">IM એકાઉન્ટ</string>
     <string name="inCallLabel_Sec">કૉલ</string>
+    <string name="in_progress">ચાલું છે...</string>
     <string name="incall_error_supp_service_switch">કૉલ્સ સ્વિચ કરવામાં અક્ષમ.</string>
     <string name="incall_extra_volume_disabled_BT">બ્લ્યુટુથ હેડસેટ જોડેલું હોવા પર વધારાની અવાજ શ્રેણીનો ઉપયોગ કરવામાં અસમર્થ.</string>
     <string name="incall_extra_volume_disabled_HAC">સાંભળવામાં સહાયતા સક્ષમ કરેલું હોય ત્યારે અતિરિક્ત અવાજ સક્ષમ કરવામાં અસમર્થ.</string>
@@ -234,6 +273,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incoming_group_video_call">ઇનકમિંગ સમૂહ વિડિયો કૉલ</string>
     <string name="incoming_video_call">ઇનકમિંગ વિડિયો કૉલ</string>
     <string name="incoming_video_call_no_dot">ઇનકમિંગ વિડિયો કૉલ</string>
+    <string name="information">માહિતી</string>
     <string name="interactive_tutorial_accept">કૉલનો જવાબ આપવા માટે ડાબેથી જમણે સ્વાઇપ કરો.</string>
     <string name="interactive_tutorial_call_answer_reject_complete">હવે તમે જાણો છો કે કેવી રીતે કૉલ્સનો જવાબ આપવો અને તેને નકારવો.</string>
     <string name="interactive_tutorial_drag_up">સંદેશ સાથેના કૉલનો અસ્વીકાર કરવા માટે ઉપરની તરફ સ્વાઇપ કરો.</string>
@@ -393,6 +433,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="modify_to_video_start">વિડિયો કૉલ પર સ્વિચ કરવાની વિનંતી કરી રહ્યાં છે…</string>
     <string name="modify_to_voice_start">Switching to voice call…</string>
     <string name="msg_for_video_show_never_again">કેટલીક ફાઇલ ફોર્મેટ્સને ટેકો નથી. ગેલેરીમાં ફક્ત ટેકારૂપ ફાઇલ્સ દેખાશે.</string>
+    <string name="mt_dialog_progress">તમારો SMS કોડ સ્વચાલિત રીતે ચકાસી રહ્યાં છે...</string>
     <string name="nameLabelsGroup">નામ</string>
     <string name="name_family">છેલ્લું નામ</string>
     <string name="name_given">પહેલું નામ</string>
@@ -407,7 +448,9 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">નામ સફિક્સ</string>
     <string name="network_message_no_answer">જવાબ નથી</string>
     <string name="nicknameLabelsGroup">ઉપનામ</string>
+    <string name="no_results">કોઈ પરિણામો નથી</string>
     <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="noti_permission_title">%s નો ઉપયોગ કરવામાં અસમર્થ</string>
     <string name="notification_action_answer">જવાબ આપો</string>
     <string name="notification_of_sub_number_empty_body">વૈકલ્પિક નંબરો જોવા માટે, SIM કાર્ડ મલ્ટી-નંબર સેવા પર સબ્સ્ક્રાઇબ કરો અને ફરી પ્રયાસ કરો.</string>
     <string name="notification_of_sub_number_empty_title">વૈકલ્પિક નંબરો શોધવામાં અસમર્થ</string>
@@ -428,11 +471,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">વિડિયોઝ</string>
     <string name="payphone_sbm">ચુકવણી ફોન</string>
     <string name="phoneLabelsGroup">ફોન</string>
+    <string name="phone_number_verification_failed">ફોન નંબરની ચકાસણી નિષ્ફળ. જાતે ચકાસો.</string>
     <string name="phonetype_additional">અતિરિક્ત નંબર</string>
     <string name="photoring_block_toast">સંપર્કને ફોટો રિંગ મારફતે તમને મીડિયા મોકલવાથી અવરોધિત કરેલો છે.</string>
     <string name="photoring_toast_mobile_data_off">મોબાઇલ ડેટા ઍક્સેસ અવરોધિત હોય તેના લીધે તમે જોઇ શકો નહીં તે અન્ય પક્ષ દ્વારા મોકલવામાં આવેલ ફોટોરિંગ સામગ્રી હોઇ શકે છે.</string>
     <string name="photoring_unblock_toast">સંપર્કને ફોટોરિંગ મારફતે તમને મીડિયા મોકલવાથી અનાઅવરોધિત કરેલો છે.</string>
     <string name="photoring_unblock_toast_2nd">આ સંપર્ક દ્વારા મોકલેલ મીડિયા પછીની વખતે તેઓ તમને કૉલ કરશે ત્યારે પ્રાપ્ત થશે.</string>
+    <string name="please_wait">ચકાસણી કોડ તપાસવો. કૃપયા પ્રતીક્ષા કરો...</string>
     <string name="popup_start_record_during_alerting">કૉલ જોડાયા પછી રેકોર્ડિંગ પ્રારંભ થશે.</string>
     <string name="postalLabelsGroup">સરનામું</string>
     <string name="postal_city">શહેર</string>
@@ -467,6 +512,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="record_text">રેકોર્ડ</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
+    <string name="regist_select_country_or_region_code">દેશ અથવા પ્રદેશ</string>
     <string name="reject">નકારો</string>
     <string name="reject_call_with_msg">કૉલ સંદેશ સાથે નકારો</string>
     <string name="reject_call_with_msg_content_description_close">યાદીને બંધ કરવા માટે નીચે સ્વાઇપ કરો.</string>
@@ -477,9 +523,11 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="rejected_call_notification_title">નકારેલો કૉલ</string>
     <string name="relationLabelsGroup">સંબંધ</string>
     <string name="requested_video_call">કૉલ કરેલી પાર્ટી વિડિયો કૉલ પર સ્વિચ કરવા માગે છે. સ્વીકારીએ?</string>
+    <string name="resend">ફરી મોકલો</string>
     <string name="returnToInCallScreen">પૂર્ણ સ્ક્રીન પર સ્વિચ કરો</string>
     <string name="rich_screen_save_fail">કૉલર ID છબી/વિડિયો સાચવવામાં નિષ્ફળ થયું.</string>
     <string name="rich_screen_save_success">કૉલર ID છબી/વિડિયો સાચવવામાં આવેલ છે.</string>
+    <string name="search">શોધો</string>
     <string name="secConferenceCallDrop">છોડો</string>
     <string name="secConferenceCallLabel">%d લોકો સાથે</string>
     <string name="secConferenceCallLabel_vzw">%d વ્યક્તિ</string>
@@ -575,6 +623,7 @@ Camera"</string>
     <string name="second_screen_hold_text">%d હોલ્ડ પર છે</string>
     <string name="select_from_gallery">ગેલેરીમાંથી પસંદ કરો</string>
     <string name="send_file_via_filetransfer">ફાઇલ સ્થાનાંતર દ્વારા ફાઇલ શેર કરો</string>
+    <string name="server_error_try_later">સર્વર ભૂલ થઈ છે. પછી પ્રયત્ન કરો.</string>
     <string name="settings_defalut_glance_reply">હું હમણાં તમારા કૉલનો જવાબ આપી શકું તેમ નથી. તમને ટૂંક સમયમાં મળીશ.</string>
     <string name="settings_glance_reply">ઝડપી પ્રત્યુત્તર</string>
     <string name="settings_glance_reply_explain_text">ઉપકરણને ઉલટું કરેલું હોય ત્યારે તમારી આંગળીને હૃદય દર માટેના સેન્સર પર મૂકી અને તે સ્થળમાં %d સેકંડ્સ માટે હોલ્ડ કરીને ઇનકમિંગ કૉલનો અસ્વીકાર કરો અને કૉલરને પ્રીસેટ સંદેશ મોકલો.</string>
@@ -595,6 +644,8 @@ Camera"</string>
     <string name="smart_call_spam_level_2">શંકાસ્પદ સ્પામ</string>
     <string name="smart_call_spam_level_3">સ્કેમ અથવા છેતરપીંડી</string>
     <string name="sms">ટેકસ્ટ સંદેશ</string>
+    <string name="sms_auth_page_area_code">વિસ્તાર કોડ</string>
+    <string name="sms_auth_page_phone_number">ફોન નંબર</string>
     <string name="spam_call_report_dialog_advertisement">જાહેરાતો</string>
     <string name="spam_call_report_dialog_delivery">"એક્સપ્રેસ
 વિતરણો"</string>
@@ -610,6 +661,8 @@ Camera"</string>
     <string name="swipe_left">ડાબી બાજુએ સ્વાઇપ કરો.</string>
     <string name="swipe_right">જમણે સ્વાઇપ કરો.</string>
     <string name="switching_camera_failed">કૅમેરાઓની ફેરબદલ કરવામાં નિષ્ફળ.</string>
+    <string name="the_verification_has_failed">ચકાસણી નિષ્ફળ થઈ. ફરી પ્રયત્ન કરો.</string>
+    <string name="toast_text_max_Length">મહત્તમ અક્ષર સીમા ઓળંગવામાં આવી છે.</string>
     <string name="tts_hours">%d કલાક</string>
     <string name="tts_minutes">%d મિનિટ્સ</string>
     <string name="tts_pager">%2$d નું %1$d પૃષ્ઠ</string>
@@ -618,6 +671,7 @@ Camera"</string>
     <string name="tutorial_incoming_call_app_answer">કૉલનો જવાબ આપવા માટે ટેપ કરો.</string>
     <string name="tutorial_incoming_call_app_reject">કૉલને નકારવા માટે ટેપ કરો.</string>
     <string name="twmobile_operator_name">TW મોબાઇલ</string>
+    <string name="unable_to_connect_to_the_network">નેટવર્કથી જોડાવામાં અસમર્થ. તમારા જોડાણ સેટિંગ્સ તપાસો અને ફરી પ્રયાસ કરો.</string>
     <string name="unknown_cdma">ઉપલબ્ધ નથી</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
@@ -674,7 +728,10 @@ Camera"</string>
     <string name="waiting_call_dialog_Merging_not_possible">Conference calling not available for video calls</string>
     <string name="waiting_call_dialog_dismiss_toast">%1$s દ્વારા કૉલ સમાપ્ત કરવામાં આવ્યો. %2$s સાથે ફરી કૉલ શરૂ કરી રહ્યાં છે…</string>
     <string name="waiting_call_dialog_message">કૉલનો જવાબ આપો</string>
+    <string name="we_recommend_using_a_voice_call">જો તમે SMS સંદેશા પ્રાપ્ત ના કરી શકતા હોય, તો અમે તમને અવાજ કૉલનો ઉપયોગ કરવાની ભલામણ કરીએ છીએ.</string>
     <string name="websiteLabelsGroup">વેબ સરનામું</string>
     <string name="yellow_pages">Yellow Pages</string>
+    <string name="you_have_entered_incorrect_code">તમે ખોટો ચકાસણી કોડ દાખલ કર્યો છે. ફરી પ્રયત્ન કરો.</string>
+    <string name="you_have_reached_your_daily_sms_limit">તમે તમારી રોજની SMS સીમા સુધી પહોંચી ગયા છો. %d કલાકોમાં ફરીથી પ્રયત્ન કરો</string>
     <string name="incall_no_name">નામ નથી</string>
 </resources>

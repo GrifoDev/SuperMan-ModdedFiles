@@ -12,6 +12,37 @@
     <string name="card_title_my_phone_number">Numri im është %s.</string>
     <string name="card_title_on_hold">Në pritje</string>
     <string name="card_title_video_call">Thirr. video</string>
+    <string name="common_google_play_services_api_unavailable_text">%1$s kërkon një ose më shumë shërbime të \"Luaj me Google\" që aktualisht janë të papërdorshme. Kontakto me zhvilluesin për ndihmë.</string>
+    <string name="common_google_play_services_enable_button">Aktivizo shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_enable_text">%1$s nuk do të funksionojë nëse nuk aktivizon shërbimet e \"Luaj me Google\".</string>
+    <string name="common_google_play_services_enable_title">Aktivizo shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_install_button">Merr shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_install_text_phone">%1$s nuk do të funksionojë pa shërbimet e \"Luaj me Google\", të cilat mungojnë në telefonin tënd.</string>
+    <string name="common_google_play_services_install_text_tablet">%1$s nuk do të funksionojë pa shërbimet e \"Luaj me Google\", të cilat mungojnë në tabletin tënd.</string>
+    <string name="common_google_play_services_install_title">Merr shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_invalid_account_text">Llogaria e specifikuar nuk ekziston në këtë pajisje. Zgjidh një llogari tjetër.</string>
+    <string name="common_google_play_services_invalid_account_title">Llogari e pavlefshme</string>
+    <string name="common_google_play_services_network_error_text">"Kërkohet një lidhje të dhënash për t'u lidhur me shërbimet e \"Luaj me Google\"."</string>
+    <string name="common_google_play_services_network_error_title">Gabim rrjeti</string>
+    <string name="common_google_play_services_notification_ticker">Gabim në shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_resolution_required_text">Përfundoje veprimin e kërkuar nga %1$s.</string>
+    <string name="common_google_play_services_resolution_required_title">Shërbimet e \"Luaj me Google\" kërkojnë veprim</string>
+    <string name="common_google_play_services_restricted_profile_text">Qasja në llogaritë me profil të kufizuar nuk mbështetet.</string>
+    <string name="common_google_play_services_restricted_profile_title">Profil i kufizuar</string>
+    <string name="common_google_play_services_sign_in_failed_text">Gabim gjatë identifikimit në llogarinë e specifikuar. Zgjidh një llogari tjetër.</string>
+    <string name="common_google_play_services_sign_in_failed_title">Identifikimi dështoi!</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ka probleme me shërbimet e \"Luaj me Google\". Nëse problemi vazhdon, kontakto me zhvilluesin për ndihmë.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s mbështetet në shërbimet e \"Luaj me Google\", të cilat nuk mbështeten nga pajisja jote. Kontakto me prodhuesin për ndihmë.</string>
+    <string name="common_google_play_services_unsupported_title">Shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_update_button">Përditëso</string>
+    <string name="common_google_play_services_update_text">%1$s nuk do të funksionojë nëse nuk përditëson shërbimet e \"Luaj me Google\".</string>
+    <string name="common_google_play_services_update_title">Përditëso shërbimet e \"Luaj me Google\"</string>
+    <string name="common_google_play_services_updating_text">%1$s nuk do të funksionojë pa shërbimet e \"Luaj me Google\", të cilat po përditësohen aktualisht.</string>
+    <string name="common_google_play_services_updating_title">Shërbimet e \"Luaj me Google\" po përditësohen</string>
+    <string name="common_google_play_services_wear_update_text">Nevojitet një version i ri i shërbimeve të \"Luaj me Google\". Ai do të përditësohet automatikisht së shpejti.</string>
+    <string name="common_open_on_phone">Hape në telefon</string>
+    <string name="common_signin_button_text">Identifikohu</string>
+    <string name="common_signin_button_text_long">Identifikohu me Google</string>
     <string name="contactPhoto">Fotoja e kontaktit</string>
     <string name="custom_message_cancel">Anullo</string>
     <string name="custom_message_send">Dërgo</string>
@@ -90,8 +121,10 @@
     <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">Ndarja e përmbajtjeve ndaloi. Bateria e rënë.</string>
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">Shto arsye</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">Thirrje e rëndësishme</string>
+    <string name="a_verification_code_will_be_sent">Një kod verifikimi do të dërgohet te numri më poshtë.</string>
     <string name="accept">Prano</string>
     <string name="account_phone">Pajisja</string>
+    <string name="acs">Thirrje zanore</string>
     <string name="active_calls">Telefonatë aktive</string>
     <string name="agree">Pranoj</string>
     <string name="am_cover_toggle_string">Hape mbulesën për përgjigje ose refuzim.</string>
@@ -140,6 +173,8 @@
     <string name="chat_qq">Bisedo duke përdorur QQ</string>
     <string name="chat_skype">Bisedo duke përdorur Skype</string>
     <string name="chat_yahoo">Bisedo duke përdorur Yahoo! Messenger</string>
+    <string name="check_your_network_status">Kontrollo statusin e rrjetit, pastaj provo sërish.</string>
+    <string name="choose_verification_method">Përzgjidh mënyrën tënde të preferuar për verifikim.</string>
     <string name="chunghwa_operator_name">Chunghwa</string>
     <string name="cmcc_operator_name">CMCC</string>
     <string name="conference_maximum_participants_reached">U arrit numri maksimal i pjesëmarrësve (%d).</string>
@@ -203,6 +238,8 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="end_all_calls">Mbyll gj. thirrjet e tanishme</string>
     <string name="endncall_select_sub_number">Przgj. numrin</string>
     <string name="enter_number">Fut numra.</string>
+    <string name="enter_your_phone_number">Fut prefiksin e shtetit tënd dhe numrin e telefonit.</string>
+    <string name="enter_your_verification_code">Fut kodin tënd të verifikimit</string>
     <string name="eventLabelsGroup">Ngjarje</string>
     <string name="extra_vol_off">Volumi shtesë është paaftësuar.</string>
     <string name="extra_vol_on">Volumi shtesë është aftësuar.</string>
@@ -216,8 +253,10 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="groupsLabel">Grupet</string>
     <string name="held_calls">Telefonatë në pritje</string>
     <string name="high_quality_sound">HD</string>
+    <string name="if_your_registered_for_dnd_service">Në qoftë se je regjistruar për shërbimin DND, përdor verifikimin zanor.</string>
     <string name="imLabelsGroup">Llogaria IM</string>
     <string name="inCallLabel_Sec">Telefonatë</string>
+    <string name="in_progress">Duke u kryer...</string>
     <string name="incall_error_supp_service_switch">Nuk mund te këmbej telefonatat.</string>
     <string name="incall_extra_volume_disabled_BT">Nuk mund të përdor interval shtesë të volumit sa kohë që është lidhur kufja Bluetooth.</string>
     <string name="incall_extra_volume_disabled_HAC">Nuk mund të aftësoj Volumin shtesë kur janë aftësuar Aparatet e dëgjimit.</string>
@@ -234,6 +273,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="incoming_group_video_call">Thirrje video grupi në hyrje</string>
     <string name="incoming_video_call">Thirrje video në hyrje</string>
     <string name="incoming_video_call_no_dot">Thirrje video në hyrje</string>
+    <string name="information">Informacion</string>
     <string name="interactive_tutorial_accept">"Rrëshqit nga e majta në të djathtë, për t'iu përgjigjur thirrjes."</string>
     <string name="interactive_tutorial_call_answer_reject_complete">"Tani mësove si t'u përgjigjesh thirrjeve dhe t'i refuzosh."</string>
     <string name="interactive_tutorial_drag_up">Rrëshqit nga poshtë lart, për të refuzuar thirrjen me mesazh.</string>
@@ -393,6 +433,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="modify_to_video_start">Duke kërkuar të kalohet në thirrje video…</string>
     <string name="modify_to_voice_start">Switching to voice call…</string>
     <string name="msg_for_video_show_never_again">Disa formate skedarësh nuk mbështeten. Vetëm skedarët e mbështetur do të tregohen në Galeri.</string>
+    <string name="mt_dialog_progress">Duke verifikuar kodin tënd SMS automatikisht...</string>
     <string name="nameLabelsGroup">Emri</string>
     <string name="name_family">Mbiemri</string>
     <string name="name_given">Emri</string>
@@ -407,7 +448,9 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="name_suffix">Prapashtesa e emrit</string>
     <string name="network_message_no_answer">"S'përgjigjet"</string>
     <string name="nicknameLabelsGroup">Nofka</string>
+    <string name="no_results">Asnjë rezultat</string>
     <string name="not_enable_to_video">Video calls are not available while Emergency mode is enabled.</string>
+    <string name="noti_permission_title">Nuk mund të përdor %s</string>
     <string name="notification_action_answer">Përgjigju</string>
     <string name="notification_of_sub_number_empty_body">Për të parë numra alternativë, abonohu te një shërbim me kartë SIM shumë-numërore dhe provo sërish.</string>
     <string name="notification_of_sub_number_empty_title">Nuk mund të gjej numra alternativë</string>
@@ -428,11 +471,13 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="outgoing_img_video">Videot</string>
     <string name="payphone_sbm">Telefon publik</string>
     <string name="phoneLabelsGroup">Telefon</string>
+    <string name="phone_number_verification_failed">Verifikimi i numrit të telefonit dështoi. Verifiko manualisht.</string>
     <string name="phonetype_additional">Numër shtesë</string>
     <string name="photoring_block_toast">Kontaktit iu bllokua dërgimi i mediave tek ti përmes unazës së fotove.</string>
     <string name="photoring_toast_mobile_data_off">Mund të ketë materiale Photoring të dërguara nga pala tjetër që ti nuk i sheh dot, ngaqë është bllokuar aksesi në të dhënat celulare.</string>
     <string name="photoring_unblock_toast">Kontaktit iu zhbllokua dërgimi i mediave tek ti përmes unazës së fotove.</string>
     <string name="photoring_unblock_toast_2nd">"Mediat e dërguara nga ky kontakt do t'i marrësh herën e ardhshme që ai të thërret"</string>
+    <string name="please_wait">Duke kontrolluar kodin e verifikimit. Prit pak...</string>
     <string name="popup_start_record_during_alerting">Regjistrimi do të nisë pasi të lidhet thirrja.</string>
     <string name="postalLabelsGroup">Adresa</string>
     <string name="postal_city">Qyteti</string>
@@ -467,6 +512,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="record_text">REC</string>
     <string name="record_time_call_time_divider">/</string>
     <string name="record_timer">00:00:00</string>
+    <string name="regist_select_country_or_region_code">Vendi ose krahina</string>
     <string name="reject">Refuzo</string>
     <string name="reject_call_with_msg">Refuzoje telefonatën me mesazh</string>
     <string name="reject_call_with_msg_content_description_close">Rrëshqit poshtë për ta mbyllur listën.</string>
@@ -477,9 +523,11 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="rejected_call_notification_title">Thirrje e refuzuar</string>
     <string name="relationLabelsGroup">Statusi</string>
     <string name="requested_video_call">Pala e thirrur dëshiron të kalojë në thirrje video. Të pranoj?</string>
+    <string name="resend">Ridërgo</string>
     <string name="returnToInCallScreen">Kalo në gjithë ekranin</string>
     <string name="rich_screen_save_fail">Dështova të ruaj imazhin/videon e ID-së së thirrësit.</string>
     <string name="rich_screen_save_success">Imazhi/videoja e ID-së së thirrësit u ruajt.</string>
+    <string name="search">Kërko</string>
     <string name="secConferenceCallDrop">Mos e vazhdo më</string>
     <string name="secConferenceCallLabel">Me %d persona</string>
     <string name="secConferenceCallLabel_vzw">%d vetë</string>
@@ -575,6 +623,7 @@ Camera"</string>
     <string name="second_screen_hold_text">%d në pritje</string>
     <string name="select_from_gallery">Zgjidh nga Galeria</string>
     <string name="send_file_via_filetransfer">Dërgoje me transferim skedari</string>
+    <string name="server_error_try_later">Ndodhi gabim i serverit. Provo më vonë.</string>
     <string name="settings_defalut_glance_reply">Nuk mund të përgjigjem tani. Të marr unë shumë shpejt.</string>
     <string name="settings_glance_reply">Përgjigje e shpejtë</string>
     <string name="settings_glance_reply_explain_text">Refuzo thirrjen hyrëse dhe dërgoji marrësit një mesazh të paracilësuar duke vendosur gishtin mbi sensorin e rrahjeve të zemrës dhe duke e mbajtur atje për %d sekonda kur pajisja jote është e kthyer përmbys.</string>
@@ -595,6 +644,8 @@ Camera"</string>
     <string name="smart_call_spam_level_2">Dyshuar për spam</string>
     <string name="smart_call_spam_level_3">Mashtrim ose dredhi</string>
     <string name="sms">Mesazh shkrimor</string>
+    <string name="sms_auth_page_area_code">Prefiksi i zonës</string>
+    <string name="sms_auth_page_phone_number">Numër telefoni</string>
     <string name="spam_call_report_dialog_advertisement">Reklama</string>
     <string name="spam_call_report_dialog_delivery">"Dërgesa
 ekspres"</string>
@@ -610,6 +661,8 @@ ekspres"</string>
     <string name="swipe_left">Rrëshqit majtas.</string>
     <string name="swipe_right">Rrëshqit djathtas.</string>
     <string name="switching_camera_failed">Dështova të këmbej kamerat.</string>
+    <string name="the_verification_has_failed">Verifikimi dështoi. Provo sërish.</string>
+    <string name="toast_text_max_Length">U tejkalua numri maksimal i shenjave.</string>
     <string name="tts_hours">%d orë</string>
     <string name="tts_minutes">%d minuta</string>
     <string name="tts_pager">Faqja %1$d nga %2$d</string>
@@ -618,6 +671,7 @@ ekspres"</string>
     <string name="tutorial_incoming_call_app_answer">"Trokit për t'iu përgjigjur thirrjes."</string>
     <string name="tutorial_incoming_call_app_reject">Trokit për ta refuzuar thirrjen.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
+    <string name="unable_to_connect_to_the_network">Nuk mund të lidhem me rrjetin. Kontrollo cilësimet e lidhjes dhe provo sërish.</string>
     <string name="unknown_cdma">I papërdorshëm</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
@@ -674,7 +728,10 @@ ekspres"</string>
     <string name="waiting_call_dialog_Merging_not_possible">Conference calling not available for video calls</string>
     <string name="waiting_call_dialog_dismiss_toast">Thirrja u mbyll nga %1$s. Po kthehem te thirrja me %2$s…</string>
     <string name="waiting_call_dialog_message">Përgjigju thirrjes</string>
+    <string name="we_recommend_using_a_voice_call">Rekomandojmë të përdorësh një thirrje zanore, në qoftë se nuk mund të marrësh mesazhe SMS.</string>
     <string name="websiteLabelsGroup">Adresa në Internet</string>
     <string name="yellow_pages">Yellow Pages</string>
+    <string name="you_have_entered_incorrect_code">E ke futur gabim kodin e verifikimit. Provo sërish.</string>
+    <string name="you_have_reached_your_daily_sms_limit">Ke arritur kufirin ditor të SMS-ve. Riprovo pas %d orësh.</string>
     <string name="incall_no_name">"S'ka emër"</string>
 </resources>

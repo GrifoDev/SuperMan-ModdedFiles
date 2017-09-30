@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/list_item_ripple" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/layout_common_list_item_font_size_main" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/text1" android:paddingTop="@dimen/layout_common_list_item_padding" android:paddingBottom="@dimen/layout_common_list_item_padding" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/layout_common_list_item_height" android:fontFamily="sec-roboto-light" android:paddingStart="@dimen/layout_common_list_item_padding_start" android:layout_marginStart="@dimen/layout_country_list_item_margin_left" android:layout_marginEnd="@dimen/layout_country_list_item_margin_right" style="?android:attr/textAppearanceListItem" />
+</LinearLayout>

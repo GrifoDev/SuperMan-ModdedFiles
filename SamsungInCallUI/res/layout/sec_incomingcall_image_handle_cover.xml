@@ -4,7 +4,9 @@
     <ImageView android:layout_gravity="center" android:id="@id/targetCircle" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <ImageView android:layout_gravity="center" android:id="@id/movingCircle" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <ImageView android:layout_gravity="center" android:id="@id/tabCircle" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-    <ImageView android:layout_gravity="center" android:id="@id/handleImageView" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:layout_gravity="center" android:id="@id/handleImageViewLayout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/handleImageView" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
     <ImageView android:layout_gravity="center" android:id="@id/tabCircleForAnim" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <com.android.incallui.widget.SecClearCircleImageView android:layout_gravity="center" android:id="@id/clearTargetCircle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <ImageView android:layout_gravity="center|left" android:id="@id/rightArrow" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/incoming_call_arrow_margin" />

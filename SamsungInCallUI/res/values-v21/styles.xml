@@ -120,6 +120,28 @@
     </style>
     <style name="Platform.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat" />
     <style name="Platform.ThemeOverlay.AppCompat.Light" parent="@style/Platform.ThemeOverlay.AppCompat" />
+    <style name="layout_bottom_button">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">@color/color_bottom_button</item>
+        <item name="android:background">@drawable/ripple_bottom_row</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:minWidth">0.0dip</item>
+        <item name="android:fontFamily">sec-roboto-condensed-bold</item>
+    </style>
+    <style name="layout_bottom_button_acs">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">@color/color_bottom_button</item>
+        <item name="android:background">@drawable/ripple_bottom_row</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:fontFamily">sec-roboto-condensed-bold</item>
+    </style>
     <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Large" parent="@android:style/TextAppearance.Material.Widget.PopupMenu.Large" />
     <style name="Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small" parent="@android:style/TextAppearance.Material.Widget.PopupMenu.Small" />
     <style name="Base.V21.Theme.AppCompat" parent="@style/Base.V7.Theme.AppCompat">

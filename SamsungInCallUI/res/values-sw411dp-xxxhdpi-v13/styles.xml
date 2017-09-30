@@ -5,18 +5,7 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/sec_dialpad_primary_text_color</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">47.0dip</item>
-        <item name="android:layout_marginTop">@dimen/sec_dialpad_key_number_margin_top</item>
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-    <style name="SecOnehandDialpadKeyNumberStyle">
-        <item name="android:textSize">@dimen/sec_dialpad_key_numbers_size_onehand</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/sec_dialpad_primary_text_color</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/sec_dialpad_key_number_height_onehand</item>
-        <item name="android:layout_marginTop">@dimen/sec_dialpad_key_number_margin_top_onehand</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:fontFamily">sans-serif-light</item>
     </style>

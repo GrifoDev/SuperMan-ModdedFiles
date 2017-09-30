@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/reject_call_with_message_agif" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/agif_subheader_divider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/reminder_margin_top_bottom" android:minHeight="@dimen/reject_call_with_msg_category_min_height" android:text="@string/agif_decline_sticker_header" style="?android:listSeparatorTextViewStyle" />
+    <RelativeLayout android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/agif_list_container_margin_top" android:layout_marginStart="@dimen/agif_list_container_margin_side" android:layout_marginEnd="@dimen/agif_list_container_margin_side">
+        <view android:id="@id/agif_list_page" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/agif_list_text_container" android:layout_marginStart="@dimen/agif_contents_margin_side" android:layout_marginEnd="@dimen/agif_contents_margin_side" class="com.android.incallui.agif.AgifViewPager" />
+        <View android:background="@color/agif_list_bottom_divider_color" android:layout_width="fill_parent" android:layout_height="@dimen/agif_list_bottom_divider" android:layout_below="@id/agif_list_page" android:layout_marginStart="@dimen/agif_list_container_padding_side" android:layout_marginEnd="@dimen/agif_list_container_padding_side" />
+        <com.android.incallui.agif.AgifSlidingTabLayout android:id="@id/agif_list_bottom" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="@dimen/agif_list_bottom_height" android:fillViewport="true" android:layout_below="@id/agif_list_page" android:foregroundGravity="right" android:layout_marginStart="@dimen/agif_list_bottom_margin_side" android:layout_marginEnd="@dimen/agif_list_bottom_margin_side">
+            <com.android.incallui.agif.AgifTabIndicator android:gravity="start|center" android:id="@id/agif_list_page_indicator" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </com.android.incallui.agif.AgifSlidingTabLayout>
+    </RelativeLayout>
+</LinearLayout>

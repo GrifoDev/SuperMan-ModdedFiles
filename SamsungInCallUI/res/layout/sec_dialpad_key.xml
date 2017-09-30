@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cp="http://schemas.android.com/apk/res-auto">
     <RelativeLayout style="@style/SecDialpadKeyInternalLayoutStyle">
         <TextView android:id="@id/dialpad_key_number" style="@style/SecDialpadKeyNumberStyle" />
-        <TextView android:id="@id/dialpad_key_subletters" android:paddingTop="9.0dip" android:layout_below="@id/dialpad_key_number" style="@style/SecDialpadKeySubLettersStyle" />
+        <TextView android:id="@id/dialpad_key_subletters" android:paddingTop="11.0dip" android:layout_below="@id/dialpad_key_number" style="@style/SecDialpadKeySubLettersStyle" />
         <TextView android:id="@id/dialpad_key_letters" android:layout_below="@id/dialpad_key_number" style="@style/SecDialpadKeyLettersStyle" />
     </RelativeLayout>
 </com.android.phone.common.dialpad.DialpadKeyButton>

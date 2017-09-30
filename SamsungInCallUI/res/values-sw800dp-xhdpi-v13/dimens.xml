@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="conference_call_manager_hight">336.0dip</dimen>
+    <dimen name="sec_video_dialpad_key_numbers_size">30.0dip</dimen>
     <dimen name="conference_call_manager_margin_top">166.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_buttons_padding">90.0dip</dimen>
     <dimen name="conference_call_manager_padding_bottom">13.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_icon_left_margin">100.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_text_right_margin">100.0dip</dimen>
-    <dimen name="sec_call_popup_call_state_label_margin">16.0dip</dimen>
-    <dimen name="sec_call_popup_width">608.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_text_padding">90.0dip</dimen>
-    <dimen name="sec_call_popup_button_height">58.0dip</dimen>
-    <dimen name="sec_call_popup_call_label_text_size">15.0sp</dimen>
-    <dimen name="sec_call_popup_call_state_label_height">20.0dip</dimen>
-    <dimen name="sec_call_popup_call_state_label_margin_top">17.0dip</dimen>
-    <dimen name="sec_call_popup_call_state_label_text_size">15.0dip</dimen>
-    <dimen name="sec_call_popup_photo_margin">17.0dip</dimen>
-    <dimen name="sec_call_popup_photo_margin_start">22.0dip</dimen>
-    <dimen name="sec_call_popup_photo_size">44.0dip</dimen>
-    <dimen name="sec_call_popup_primary_label_and_number_height">20.0sp</dimen>
-    <dimen name="sec_call_popup_primary_name_height">24.0sp</dimen>
-    <dimen name="sec_call_popup_primary_name_text_size">19.0sp</dimen>
-    <dimen name="sec_popup_call_bottom_padding">17.0dip</dimen>
+    <dimen name="sec_video_dialpad_key_letters_with_subtext_margin_top">-3.0dip</dimen>
 </resources>

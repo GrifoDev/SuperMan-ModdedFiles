@@ -19,6 +19,8 @@
     <item type="id" name="progress_circular" />
     <item type="id" name="progress_horizontal" />
     <item type="id" name="split_action_bar" />
+    <item type="id" name="tag_agif_data" />
+    <item type="id" name="tag_agif_viewholder" />
     <item type="id" name="tag_contact_type" />
     <item type="id" name="tag_display_name" />
     <item type="id" name="tag_identifier" />
@@ -95,24 +97,57 @@
     <item type="id" name="accessible_answer_fragment_text">false</item>
     <item type="id" name="account_filter_header_container">false</item>
     <item type="id" name="account_filter_header">false</item>
-    <item type="id" name="glow_pad_view">false</item>
+    <item type="id" name="edittext_holder">false</item>
+    <item type="id" name="editCountrySearch">false</item>
+    <item type="id" name="listRoot">false</item>
+    <item type="id" name="list">false</item>
+    <item type="id" name="country_scrollview">false</item>
+    <item type="id" name="country_list_no_search_result">false</item>
+    <item type="id" name="agif_container">false</item>
+    <item type="id" name="agif_list_container">false</item>
+    <item type="id" name="agif_pickers_container">false</item>
+    <item type="id" name="agif_indicator_bottom_divider">false</item>
+    <item type="id" name="agif_indicator_bottom_bg">false</item>
+    <item type="id" name="button_container">false</item>
+    <item type="id" name="agif_open_button">false</item>
+    <item type="id" name="agif_list_text_container">false</item>
+    <item type="id" name="close_button">false</item>
+    <item type="id" name="agif_list_text">false</item>
+    <item type="id" name="agif_list_sub_text">false</item>
+    <item type="id" name="agif_list_page">false</item>
+    <item type="id" name="agif_list_bottom">false</item>
+    <item type="id" name="agif_list_page_indicator">false</item>
+    <item type="id" name="agif_recommend_item_container">false</item>
+    <item type="id" name="agif_recommend_item_image">false</item>
+    <item type="id" name="agif_recommend_item_name">false</item>
+    <item type="id" name="agif_recommend_item_price">false</item>
+    <item type="id" name="agif_recommend_list">false</item>
+    <item type="id" name="find_more">false</item>
+    <item type="id" name="agif_list">false</item>
+    <item type="id" name="toast_layout_root">false</item>
+    <item type="id" name="toast_message">false</item>
+    <item type="id" name="agif_tray_icon_container">false</item>
+    <item type="id" name="agif_tray_shadow">false</item>
+    <item type="id" name="agif_tray_image">false</item>
     <item type="id" name="heading">false</item>
     <item type="id" name="detail">false</item>
     <item type="id" name="help_page_1">false</item>
     <item type="id" name="help_page_title_1">false</item>
+    <item type="id" name="help_page_text_1">false</item>
     <item type="id" name="help_list_item_number_1_1">false</item>
     <item type="id" name="help_list_item_1_1">false</item>
     <item type="id" name="help_list_item_number_1_2">false</item>
     <item type="id" name="help_list_item_1_2">false</item>
     <item type="id" name="tip_box_1">false</item>
     <item type="id" name="more_info_text_1">false</item>
-    <item type="id" name="title_separator_line_1">false</item>
     <item type="id" name="help_page_2">false</item>
     <item type="id" name="help_page_title_2">false</item>
+    <item type="id" name="help_page_text_2">false</item>
+    <item type="id" name="help_list_item_number_2_1">false</item>
     <item type="id" name="help_list_item_2">false</item>
-    <item type="id" name="title_separator_line_2">false</item>
     <item type="id" name="help_page_3">false</item>
     <item type="id" name="help_page_title_3">false</item>
+    <item type="id" name="help_page_text_3">false</item>
     <item type="id" name="help_list_item_number_3_1">false</item>
     <item type="id" name="help_list_item_3_1">false</item>
     <item type="id" name="help_list_item_number_3_2">false</item>
@@ -141,13 +176,6 @@
     <item type="id" name="answerFragment">false</item>
     <item type="id" name="floating_end_call_action_button_container">false</item>
     <item type="id" name="floating_end_call_action_button">false</item>
-    <item type="id" name="answer_and_dialpad_container">false</item>
-    <item type="id" name="videoCallFragment">false</item>
-    <item type="id" name="call_card_content">false</item>
-    <item type="id" name="photoLarge">false</item>
-    <item type="id" name="contact_context">false</item>
-    <item type="id" name="contactContextTitle">false</item>
-    <item type="id" name="contactContextInfo">false</item>
     <item type="id" name="call_forwarding_stub">false</item>
     <item type="id" name="callForwardingPanel">false</item>
     <item type="id" name="call_orgView_stub">false</item>
@@ -161,6 +189,17 @@
     <item type="id" name="llayoutConferenceCallerStatus">false</item>
     <item type="id" name="conferenceCallerStatus">false</item>
     <item type="id" name="conferenceCallerDisconnectTextView">false</item>
+    <item type="id" name="scrollView2">false</item>
+    <item type="id" name="calling_sim">false</item>
+    <item type="id" name="suggest_sim">false</item>
+    <item type="id" name="layoutSim1">false</item>
+    <item type="id" name="imageSim1">false</item>
+    <item type="id" name="progressBarSim1">false</item>
+    <item type="id" name="operatorSim1">false</item>
+    <item type="id" name="layoutSim2">false</item>
+    <item type="id" name="imageSim2">false</item>
+    <item type="id" name="progressBarSim2">false</item>
+    <item type="id" name="operatorSim2">false</item>
     <item type="id" name="manageConferencePanel">false</item>
     <item type="id" name="participantList">false</item>
     <item type="id" name="conferenceList">false</item>
@@ -172,6 +211,10 @@
     <item type="id" name="callerPhotoForAnim">false</item>
     <item type="id" name="videoConferenceDividerUp">false</item>
     <item type="id" name="videoConferenceDividerDown">false</item>
+    <item type="id" name="modelnumber">false</item>
+    <item type="id" name="req2facode">false</item>
+    <item type="id" name="confirm2fa">false</item>
+    <item type="id" name="refuse2fa">false</item>
     <item type="id" name="message">false</item>
     <item type="id" name="continue_button">false</item>
     <item type="id" name="speaker_off">false</item>
@@ -197,6 +240,20 @@
     <item type="id" name="popup_main_string">false</item>
     <item type="id" name="layout_root">false</item>
     <item type="id" name="video_call_incomig_checkbox">false</item>
+    <item type="id" name="debug_screen_main">false</item>
+    <item type="id" name="screen_container">false</item>
+    <item type="id" name="dummy_layout">false</item>
+    <item type="id" name="basic_button_layout">false</item>
+    <item type="id" name="show_screen">false</item>
+    <item type="id" name="test_button_layout">false</item>
+    <item type="id" name="drag_checkBox">false</item>
+    <item type="id" name="button_test_1">false</item>
+    <item type="id" name="button_test_2">false</item>
+    <item type="id" name="button_test_3">false</item>
+    <item type="id" name="clear_screen">false</item>
+    <item type="id" name="log_screen">false</item>
+    <item type="id" name="info_view">false</item>
+    <item type="id" name="log_view">false</item>
     <item type="id" name="default_account_checkbox_layout">false</item>
     <item type="id" name="default_account_checkbox_view">false</item>
     <item type="id" name="call_subject_dialog">false</item>
@@ -275,6 +332,61 @@
     <item type="id" name="twophone_text">false</item>
     <item type="id" name="kt_business">false</item>
     <item type="id" name="kt_personal">false</item>
+    <item type="id" name="full_area">false</item>
+    <item type="id" name="verification_explain_text">false</item>
+    <item type="id" name="regi_countdown">false</item>
+    <item type="id" name="phone_number">false</item>
+    <item type="id" name="acs_code">false</item>
+    <item type="id" name="resend_acs">false</item>
+    <item type="id" name="button_left">false</item>
+    <item type="id" name="button_right">false</item>
+    <item type="id" name="clearable_text1">false</item>
+    <item type="id" name="clearable_button1">false</item>
+    <item type="id" name="text1">false</item>
+    <item type="id" name="button1">false</item>
+    <item type="id" name="button2">false</item>
+    <item type="id" name="permission_dialog_Contacts">false</item>
+    <item type="id" name="permission_dialog_Contacts_icon">false</item>
+    <item type="id" name="permission_dialog_Contacts_name">false</item>
+    <item type="id" name="permission_dialog_SMS">false</item>
+    <item type="id" name="permission_dialog_SMS_icon">false</item>
+    <item type="id" name="permission_dialog_SMS_name">false</item>
+    <item type="id" name="permission_dialog_Storage">false</item>
+    <item type="id" name="permission_dialog_Storage_icon">false</item>
+    <item type="id" name="permission_dialog_Storage_name">false</item>
+    <item type="id" name="permission_dialog_Telephone">false</item>
+    <item type="id" name="permission_dialog_Telephone_icon">false</item>
+    <item type="id" name="permission_dialog_Telephone_name">false</item>
+    <item type="id" name="permission_noti_title">false</item>
+    <item type="id" name="permission_noti_description">false</item>
+    <item type="id" name="permission_Contacts">false</item>
+    <item type="id" name="permission_Contacts_icon">false</item>
+    <item type="id" name="permission_Contacts_name">false</item>
+    <item type="id" name="permission_SMS">false</item>
+    <item type="id" name="permission_SMS_icon">false</item>
+    <item type="id" name="permission_SMS_name">false</item>
+    <item type="id" name="permission_Storage">false</item>
+    <item type="id" name="permission_Storage_icon">false</item>
+    <item type="id" name="permission_Storage_name">false</item>
+    <item type="id" name="permission_Telephone">false</item>
+    <item type="id" name="permission_Telephone_icon">false</item>
+    <item type="id" name="permission_Telephone_name">false</item>
+    <item type="id" name="btn_permission_settings">false</item>
+    <item type="id" name="topArea">false</item>
+    <item type="id" name="body_area">false</item>
+    <item type="id" name="country">false</item>
+    <item type="id" name="conutry_calling_code">false</item>
+    <item type="id" name="localNoLayout">false</item>
+    <item type="id" name="localNo">false</item>
+    <item type="id" name="phoneNo2Label">false</item>
+    <item type="id" name="phoneNo2">false</item>
+    <item type="id" name="choose_verification_method">false</item>
+    <item type="id" name="radio_sms_layout">false</item>
+    <item type="id" name="radio_sms">false</item>
+    <item type="id" name="view">false</item>
+    <item type="id" name="radio_acs_layout">false</item>
+    <item type="id" name="radio_acs">false</item>
+    <item type="id" name="guide_to_acs">false</item>
     <item type="id" name="webview">false</item>
     <item type="id" name="guideLine">false</item>
     <item type="id" name="effectLine">false</item>
@@ -358,7 +470,6 @@
     <item type="id" name="popup_call_video_call">false</item>
     <item type="id" name="popup_call_message_layout">false</item>
     <item type="id" name="popup_call_message">false</item>
-    <item type="id" name="phoneNumberLocatorName">false</item>
     <item type="id" name="resume_call_popup_buttons_usa">false</item>
     <item type="id" name="popup_call_resume_layout">false</item>
     <item type="id" name="popup_call_resume">false</item>
@@ -400,7 +511,10 @@
     <item type="id" name="answering_memo_reject_stub">false</item>
     <item type="id" name="reminder_checkbox">false</item>
     <item type="id" name="reminder_divider">false</item>
+    <item type="id" name="reject_list_container">false</item>
+    <item type="id" name="text_subheader_divider">false</item>
     <item type="id" name="reject_call_with_message_item_list">false</item>
+    <item type="id" name="navigation_bar_area">false</item>
     <item type="id" name="reject_call_with_message_item_text">false</item>
     <item type="id" name="reject_call_with_message_sliding_drawer">false</item>
     <item type="id" name="reject_call_with_message_content_all">false</item>
@@ -421,9 +535,6 @@
     <item type="id" name="remote_call_quick_panel_app_name_container">false</item>
     <item type="id" name="remote_call_quick_panel_type">false</item>
     <item type="id" name="remote_call_quick_panel_app_name">false</item>
-    <item type="id" name="remote_call_quick_panel_photo_container">false</item>
-    <item type="id" name="remote_call_quick_panel_photo">false</item>
-    <item type="id" name="remote_call_quick_panel_photo_text">false</item>
     <item type="id" name="remote_call_quick_panel_buttons">false</item>
     <item type="id" name="remote_call_quick_panel_push_button">false</item>
     <item type="id" name="remote_call_quick_panel_info">false</item>
@@ -458,7 +569,9 @@
     <item type="id" name="am_status_text">false</item>
     <item type="id" name="answering_memo_sliding_button">false</item>
     <item type="id" name="answering_memo_img">false</item>
-    <item type="id" name="reject_call_with_message_content_title">false</item>
+    <item type="id" name="subheader">false</item>
+    <item type="id" name="subheader_text">false</item>
+    <item type="id" name="subheader_divider">false</item>
     <item type="id" name="am_view_layout">false</item>
     <item type="id" name="am_status_imageview">false</item>
     <item type="id" name="am_status_textview">false</item>
@@ -478,39 +591,42 @@
     <item type="id" name="sec_bluetooth_popup_name">false</item>
     <item type="id" name="ringing_call_popup_buttons">false</item>
     <item type="id" name="ringing_call_popup_accept_reject_button">false</item>
+    <item type="id" name="popup_call_reject_rtl">false</item>
+    <item type="id" name="popup_call_accept_rtl">false</item>
     <item type="id" name="ringing_call_popup_accept_reject_button_usa_stub">false</item>
     <item type="id" name="reject_with_messasge_button_container">false</item>
     <item type="id" name="reject_with_messasge_button">false</item>
     <item type="id" name="during_call_popup_buttons">false</item>
     <item type="id" name="during_call_popup_buttons_usa_stub">false</item>
+    <item type="id" name="end_call_popup_buttons_container">false</item>
     <item type="id" name="end_call_popup_buttons">false</item>
     <item type="id" name="popup_call_video_extra_stub">false</item>
+    <item type="id" name="end_call_popup_buttons_line">false</item>
     <item type="id" name="end_call_popup_buttons_usa_stub">false</item>
     <item type="id" name="resume_call_popup_buttons">false</item>
     <item type="id" name="popup_resume_call_end">false</item>
     <item type="id" name="end_resume_call_popup_buttons_usa_stub">false</item>
+    <item type="id" name="agifPhotoContainer">false</item>
+    <item type="id" name="agifPhoto">false</item>
     <item type="id" name="smartCallPhoto">false</item>
+    <item type="id" name="smartCallIconOnPicture">false</item>
     <item type="id" name="attemptingTextSPR">false</item>
     <item type="id" name="HdWifiIcon">false</item>
     <item type="id" name="simIconLabel_global">false</item>
     <item type="id" name="jansky_line_icon_container">false</item>
     <item type="id" name="jansky_line_icon">false</item>
-    <item type="id" name="periodMarkContainer">false</item>
-    <item type="id" name="periodMark1">false</item>
-    <item type="id" name="periodMark2">false</item>
-    <item type="id" name="periodMark3">false</item>
+    <item type="id" name="callTimeContainer">false</item>
     <item type="id" name="record_info_stub">false</item>
+    <item type="id" name="popup_call_full_screen">false</item>
     <item type="id" name="card_subscriber_stub">false</item>
     <item type="id" name="hold_call_text_layout">false</item>
     <item type="id" name="eriInfoText">false</item>
-    <item type="id" name="popup_call_full_screen">false</item>
     <item type="id" name="profileIcon_stub">false</item>
-    <item type="id" name="smartCallIcon">false</item>
     <item type="id" name="callPlus_importance_layout">false</item>
     <item type="id" name="kt_two_phone_stub">false</item>
     <item type="id" name="simiconlabellarge_stub">false</item>
-    <item type="id" name="phoneNumberLocatorStub_name">false</item>
     <item type="id" name="smart_call_name">false</item>
+    <item type="id" name="smartCallIcon">false</item>
     <item type="id" name="simiconlabel_stub">false</item>
     <item type="id" name="smart_call_number">false</item>
     <item type="id" name="answer_memo_view">false</item>
@@ -632,7 +748,7 @@
     <item type="id" name="endCallButtonsMiddle_layout">false</item>
     <item type="id" name="endcall_multisim_call_button_stub">false</item>
     <item type="id" name="sub_Call_Button_stub">false</item>
-    <item type="id" name="navigation_bar_area">false</item>
+    <item type="id" name="voiceCallCardDummyContainer">false</item>
     <item type="id" name="endCallButtonsMiddle">false</item>
     <item type="id" name="epdgNotifyInfoText">false</item>
     <item type="id" name="eriCallInfoVzwText">false</item>
@@ -641,6 +757,7 @@
     <item type="id" name="cover_screen">false</item>
     <item type="id" name="inner_cover_screen">false</item>
     <item type="id" name="gradient_animation_view_dummy">false</item>
+    <item type="id" name="dialButtonForAnim">false</item>
     <item type="id" name="videocall_container">false</item>
     <item type="id" name="in_call_button_container">false</item>
     <item type="id" name="conference_manager_container">false</item>
@@ -652,6 +769,7 @@
     <item type="id" name="targetCircle">false</item>
     <item type="id" name="movingCircle">false</item>
     <item type="id" name="tabCircle">false</item>
+    <item type="id" name="handleImageViewLayout">false</item>
     <item type="id" name="handleImageView">false</item>
     <item type="id" name="tabCircleForAnim">false</item>
     <item type="id" name="handleImageViewForAnim">false</item>
@@ -671,6 +789,8 @@
     <item type="id" name="device_list">false</item>
     <item type="id" name="input_radio">false</item>
     <item type="id" name="transfer_number">false</item>
+    <item type="id" name="keypad_button_stub">false</item>
+    <item type="id" name="vt_keypad_button">false</item>
     <item type="id" name="manage_stub">false</item>
     <item type="id" name="vt_conference_manage_button">false</item>
     <item type="id" name="greeting_text">false</item>
@@ -697,21 +817,26 @@
     <item type="id" name="sec_mini_controller_video_paused_info">false</item>
     <item type="id" name="sec_mini_controller_video_paused_slash">false</item>
     <item type="id" name="sec_mini_controller_video_paused_text">false</item>
-    <item type="id" name="sec_mini_controller_more_info">false</item>
-    <item type="id" name="sec_mini_controller_divider1">false</item>
-    <item type="id" name="sec_mini_controller_more_text">false</item>
     <item type="id" name="sec_mini_controller_recInfo">false</item>
     <item type="id" name="sec_mini_controller_divider2">false</item>
     <item type="id" name="sec_mini_controller_rec_icon">false</item>
     <item type="id" name="sec_mini_controller_recordText">false</item>
     <item type="id" name="sec_mini_controller_record_time">false</item>
+    <item type="id" name="sec_mini_controller_more_info">false</item>
+    <item type="id" name="sec_mini_controller_divider1">false</item>
+    <item type="id" name="sec_mini_controller_more_text">false</item>
     <item type="id" name="sec_mini_controller_photo_container">false</item>
     <item type="id" name="sec_mini_controller_photo">false</item>
     <item type="id" name="sec_mini_controller_photo_text">false</item>
     <item type="id" name="mkeyEriText">false</item>
+    <item type="id" name="modifyStateInfoTextName">false</item>
     <item type="id" name="modifyStateInfoText">false</item>
+    <item type="id" name="modifyStatePrimaryInfoText">false</item>
+    <item type="id" name="modifyStateSecondaryInfoText">false</item>
     <item type="id" name="line_icon">false</item>
     <item type="id" name="line_name">false</item>
+    <item type="id" name="primary_call_info_banner_container">false</item>
+    <item type="id" name="primary_call_info_dummy">false</item>
     <item type="id" name="volte_camera_stub">false</item>
     <item type="id" name="volte_addcall_stub">false</item>
     <item type="id" name="onholdText">false</item>
@@ -726,6 +851,7 @@
     <item type="id" name="primary_multi_line_info_stub">false</item>
     <item type="id" name="twophoneAndName">false</item>
     <item type="id" name="primaryMtConfBanner">false</item>
+    <item type="id" name="primaryModifyStateBanner">false</item>
     <item type="id" name="divideLine">false</item>
     <item type="id" name="secMultipartySecondary">false</item>
     <item type="id" name="multipartySecondaryCallInfo">false</item>
@@ -739,10 +865,14 @@
     <item type="id" name="secondaryLabel">false</item>
     <item type="id" name="multipartySecondaryCallPanel">false</item>
     <item type="id" name="secondaryMtConfBanner">false</item>
+    <item type="id" name="secondaryModifyStateBanner">false</item>
     <item type="id" name="conferenceInfoBanner">false</item>
+    <item type="id" name="conferenceInfo">false</item>
     <item type="id" name="modifyStateInfoBanner">false</item>
+    <item type="id" name="modifyStateInfo">false</item>
     <item type="id" name="below_btn_layout">false</item>
     <item type="id" name="resumecall_btn">false</item>
+    <item type="id" name="dialpad_key_center">false</item>
     <item type="id" name="nsriSecureCallView_stub">false</item>
     <item type="id" name="nsriSecureCallTitle">false</item>
     <item type="id" name="oneWayCameraButton">false</item>
@@ -751,25 +881,34 @@
     <item type="id" name="onholdLayoutText">false</item>
     <item type="id" name="pagerIndicatorCallPlus_wrapper">false</item>
     <item type="id" name="pagerIndicatorCallPlus">false</item>
+    <item type="id" name="periodMarkContainer">false</item>
+    <item type="id" name="periodMark1">false</item>
+    <item type="id" name="periodMark2">false</item>
+    <item type="id" name="periodMark3">false</item>
     <item type="id" name="multi_touch_stub">false</item>
     <item type="id" name="photoringstub">false</item>
     <item type="id" name="primary_container">false</item>
+    <item type="id" name="carrier_matching_switch_sim">false</item>
+    <item type="id" name="cdma_multiparty_button_stub">false</item>
+    <item type="id" name="onScreenMoreMenuContainer">false</item>
+    <item type="id" name="switchToVideoButtonStub">false</item>
     <item type="id" name="extraVolumeIconStub">false</item>
     <item type="id" name="elapsed_time_title_stub">false</item>
     <item type="id" name="elapsedTimeCTC">false</item>
+    <item type="id" name="holdContainer">false</item>
+    <item type="id" name="agif_name">false</item>
     <item type="id" name="intcallnoti_stub">false</item>
-    <item type="id" name="cdma_multiparty_button_stub">false</item>
     <item type="id" name="multi_line_info_stub">false</item>
-    <item type="id" name="switchToVideoButtonStub">false</item>
+    <item type="id" name="agif_dummy">false</item>
     <item type="id" name="photoContainerUpperView">false</item>
     <item type="id" name="smartcall_small_icon">false</item>
-    <item type="id" name="bizInPhoto">false</item>
-    <item type="id" name="bizOutPhoto">false</item>
+    <item type="id" name="bizInOutPhoto">false</item>
     <item type="id" name="bizPhoto">false</item>
     <item type="id" name="subiconlabel_stub">false</item>
     <item type="id" name="smart_call_name_layout">false</item>
     <item type="id" name="smart_call_searching_message">false</item>
     <item type="id" name="subiconlabel">false</item>
+    <item type="id" name="smart_call_label">false</item>
     <item type="id" name="slash">false</item>
     <item type="id" name="mk_cityid">false</item>
     <item type="id" name="carrierImage">false</item>
@@ -783,7 +922,6 @@
     <item type="id" name="shared_line_stub">false</item>
     <item type="id" name="ForthPriority_layout">false</item>
     <item type="id" name="dimPanel">false</item>
-    <item type="id" name="smap_endcall_stub">false</item>
     <item type="id" name="endcall_contact_btn">false</item>
     <item type="id" name="incomingPhoto">false</item>
     <item type="id" name="richscreenvideoviewstub">false</item>
@@ -815,11 +953,15 @@
     <item type="id" name="downgrade_button_Stub">false</item>
     <item type="id" name="multipartySecondaryCallDivider">false</item>
     <item type="id" name="secondary_elapsed_time_layout">false</item>
-    <item type="id" name="incomingDivider">false</item>
     <item type="id" name="video_banner_view_stub">false</item>
+    <item type="id" name="inviteGroupVideoButtonStub">false</item>
+    <item type="id" name="cameraEffectStub">false</item>
+    <item type="id" name="holdCallBannerStub">false</item>
     <item type="id" name="primary_line_icon">false</item>
     <item type="id" name="primary_line_name">false</item>
     <item type="id" name="recordButton">false</item>
+    <item type="id" name="reject_call_with_message_agif">false</item>
+    <item type="id" name="agif_subheader_divider">false</item>
     <item type="id" name="reject_call_with_message_create">false</item>
     <item type="id" name="reject_call_with_message_create_icon">false</item>
     <item type="id" name="reject_call_with_message_create_text">false</item>
@@ -832,13 +974,12 @@
     <item type="id" name="shared_line_ringing">false</item>
     <item type="id" name="shared_line_list">false</item>
     <item type="id" name="smartCallSmallIcon">false</item>
+    <item type="id" name="smartCallSmallIconOnPicture">false</item>
     <item type="id" name="softphone_dialog_tv_top">false</item>
     <item type="id" name="softphone_dialog_radio_group">false</item>
     <item type="id" name="spamCallPopupLayout">false</item>
     <item type="id" name="spamBar">false</item>
     <item type="id" name="spamCall">false</item>
-    <item type="id" name="spam_reject">false</item>
-    <item type="id" name="spam_report">false</item>
     <item type="id" name="suguden_guide_layout">false</item>
     <item type="id" name="suguden_guide_main_string">false</item>
     <item type="id" name="suguden_guide_checkbox">false</item>
@@ -858,6 +999,7 @@
     <item type="id" name="previewVideo">false</item>
     <item type="id" name="near_end_switch_animation">false</item>
     <item type="id" name="near_capture_animation_view">false</item>
+    <item type="id" name="previewBorder">false</item>
     <item type="id" name="incoming_hideme_image_container">false</item>
     <item type="id" name="incoming_hideme_photo">false</item>
     <item type="id" name="incoming_hideme_default_Image">false</item>
@@ -869,19 +1011,13 @@
     <item type="id" name="video_banner_info_text">false</item>
     <item type="id" name="inCallButtonContainer">false</item>
     <item type="id" name="inCallButtons">false</item>
+    <item type="id" name="buttonWrapper">false</item>
     <item type="id" name="hideShowButton">false</item>
     <item type="id" name="stopRecordingButton">false</item>
     <item type="id" name="endCallButtonArea">false</item>
     <item type="id" name="endCallButton">false</item>
     <item type="id" name="speakerButton">false</item>
-    <item type="id" name="inviteGroupVideoButtonStub">false</item>
-    <item type="id" name="cameraEffectStub">false</item>
-    <item type="id" name="btn_arrow_left">false</item>
-    <item type="id" name="inCallLeftButtons">false</item>
-    <item type="id" name="inCallMiddleButtons">false</item>
-    <item type="id" name="inCallRightButtons">false</item>
-    <item type="id" name="btn_arrow_right">false</item>
-    <item type="id" name="buttonWrapper">false</item>
+    <item type="id" name="bluetoothButton">false</item>
     <item type="id" name="hideShowMeButtonStub">false</item>
     <item type="id" name="cameraButtonStub">false</item>
     <item type="id" name="modifyCallTypeButtonStub">false</item>
@@ -890,7 +1026,6 @@
     <item type="id" name="modifyButtonGsmStub">false</item>
     <item type="id" name="modifyButtonAttStub">false</item>
     <item type="id" name="modifyButtonCdmaStub">false</item>
-    <item type="id" name="holdCallBannerStub">false</item>
     <item type="id" name="incomingHideMeLayout">false</item>
     <item type="id" name="incomingHideMe">false</item>
     <item type="id" name="cdnipNumberLayout">false</item>
@@ -918,7 +1053,6 @@
     <item type="id" name="displayBorder">false</item>
     <item type="id" name="nearEndPhoto">false</item>
     <item type="id" name="previewImage">false</item>
-    <item type="id" name="previewBorder">false</item>
     <item type="id" name="epdgNotifyBannerStub">false</item>
     <item type="id" name="cameraOnButton">false</item>
     <item type="id" name="cameraOffButton">false</item>
@@ -947,6 +1081,7 @@
     <item type="id" name="hideShowMeButton">false</item>
     <item type="id" name="holdCallBanner">false</item>
     <item type="id" name="holdCallBannerText">false</item>
+    <item type="id" name="modifyCallButtonContainer">false</item>
     <item type="id" name="inCallModifyCallButtons">false</item>
     <item type="id" name="videoCallButtonContainer">false</item>
     <item type="id" name="showMeButtonContainer">false</item>
@@ -972,11 +1107,9 @@
     <item type="id" name="changeToVideoShareButtonContainer">false</item>
     <item type="id" name="stayOnVoiceButtonContainer">false</item>
     <item type="id" name="modifyCallTypeButton">false</item>
-    <item type="id" name="center_space">false</item>
     <item type="id" name="dialer_area">false</item>
     <item type="id" name="video_type_icon">false</item>
     <item type="id" name="bottom_area">false</item>
-    <item type="id" name="sec_dialpad_container">false</item>
     <item type="id" name="callButtons">false</item>
     <item type="id" name="pagerIndicatorContainer">false</item>
     <item type="id" name="pagerIndicatorCallPlus_stub">false</item>
@@ -987,7 +1120,6 @@
     <item type="id" name="inCallButtonLayout">false</item>
     <item type="id" name="inCallButtonsPager">false</item>
     <item type="id" name="inCallButtonsPagerCallPlus">false</item>
-    <item type="id" name="endCallButtonBottom">false</item>
     <item type="id" name="pagerCallButtons">false</item>
     <item type="id" name="inCallButtonsUpper">false</item>
     <item type="id" name="cameraButton">false</item>
@@ -996,7 +1128,6 @@
     <item type="id" name="extraVolumeButton">false</item>
     <item type="id" name="rcsCallPlus_stub">false</item>
     <item type="id" name="rcsShareButton_stub">false</item>
-    <item type="id" name="bluetoothButton">false</item>
     <item type="id" name="oneWayCameraButtonStub">false</item>
     <item type="id" name="power_by_breeze_container">false</item>
     <item type="id" name="power_by_breeze">false</item>
@@ -1024,8 +1155,7 @@
     <item type="id" name="crane_popup_close_icon">false</item>
     <item type="id" name="callPlusMap_incall_popup">false</item>
     <item type="id" name="call_plus_address_popup">false</item>
-    <item type="id" name="primary_call_info_banner_container">false</item>
-    <item type="id" name="primary_call_info_dummy">false</item>
+    <item type="id" name="agifNoIdText">false</item>
     <item type="id" name="dummy_primary_call_banner_stub">false</item>
     <item type="id" name="sugudenGuideStub">false</item>
     <item type="id" name="addCallMenuText">false</item>
@@ -1043,7 +1173,6 @@
     <item type="id" name="secondaryForwardSlash">false</item>
     <item type="id" name="secondaryElapsedTimeView">false</item>
     <item type="id" name="select_sim_account_list_content">false</item>
-    <item type="id" name="list">false</item>
     <item type="id" name="simcard_name">false</item>
     <item type="id" name="network_name">false</item>
     <item type="id" name="simIconLabel">false</item>
@@ -1052,8 +1181,7 @@
     <item type="id" name="status_cp_logo">false</item>
     <item type="id" name="cp_logo">false</item>
     <item type="id" name="transfer_list_item">false</item>
-    <item type="id" name="toast_layout_root">false</item>
-    <item type="id" name="toast_message">false</item>
+    <item type="id" name="tw_search_view">false</item>
     <item type="id" name="agreement_dialog">false</item>
     <item type="id" name="popup_container">false</item>
     <item type="id" name="content">false</item>
@@ -1072,8 +1200,6 @@
     <item type="id" name="show_screen_layout">false</item>
     <item type="id" name="main_button">false</item>
     <item type="id" name="button_line1">false</item>
-    <item type="id" name="button1">false</item>
-    <item type="id" name="button2">false</item>
     <item type="id" name="button3">false</item>
     <item type="id" name="button4">false</item>
     <item type="id" name="button_line2">false</item>
@@ -1115,6 +1241,7 @@
     <item type="id" name="switchVideoDisplay">false</item>
     <item type="id" name="callTransfer">false</item>
     <item type="id" name="pushSoftPhone">false</item>
+    <item type="id" name="emergencyCall">false</item>
     <item type="id" name="extraVolumeButtonEnable">false</item>
     <item type="id" name="extraVolumeButtonDisable">false</item>
     <item type="id" name="viewContactsButton">false</item>

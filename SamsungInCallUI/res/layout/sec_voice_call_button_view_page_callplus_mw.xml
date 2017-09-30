@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/callPlusImportance_layout_incall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_marginStart="35.0dip" android:layout_marginEnd="35.0dip">
+        <ImageView android:id="@id/callPlusImportance_incall" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/vodafone_callplus_icon_importance_call" android:scaleType="center" android:layout_marginEnd="10.0dip" />
+        <TextView android:textSize="15.0sp" android:textColor="#ff000000" android:ellipsize="end" android:id="@id/callPlusImportanceText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toRightOf="@id/callPlusImportance_incall" android:layout_alignBaseline="@id/callPlusImportance_incall" android:fontFamily="sans-serif" />
+        <ImageView android:id="@id/callPlusSubjectIcon" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/voicecall_vodafone_ic_subject" android:scaleType="center" android:tint="#ff646464" android:layout_toRightOf="@id/callPlusImportanceText" android:layout_alignBaseline="@id/callPlusImportanceText" android:layout_marginEnd="8.0dip" />
+        <TextView android:textSize="15.0sp" android:textColor="#ff000000" android:ellipsize="end" android:id="@id/callPlusSubject_incall" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_toRightOf="@id/callPlusSubjectIcon" android:layout_alignBaseline="@id/callPlusSubjectIcon" android:fontFamily="sans-serif" />
+        <Switch android:id="@id/importance_call_toggle" android:layout_width="18.0dip" android:layout_height="24.0dip" android:layout_marginRight="20.0dip" android:textOn="" android:textOff="" android:layout_toRightOf="@id/callPlusSubject_incall" android:layout_alignBaseline="@id/callPlusSubject_incall" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

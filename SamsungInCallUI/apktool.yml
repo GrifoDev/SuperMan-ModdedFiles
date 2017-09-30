@@ -3,20 +3,52 @@ apkFileName: SamsungInCallUI.apk
 compressionType: false
 doNotCompress:
 - arsc
-- webp
+- qmg
+- qio
 - res/drawable-xxhdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.qmg
 - res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.qmg
-- qio
-- qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_disabled.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_disabled.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_dark_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_dark_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_dark_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_light_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_light_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_icon_light_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_dark_disabled.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_dark_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_dark_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_dark_pressed.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_light_disabled.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_light_focused.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_light_normal.9.qmg
+- res/drawable-xxhdpi-v4/common_plus_signin_btn_text_light_pressed.9.qmg
 - pio
 - res/drawable-xxhdpi-v4/rcs_popup_full_dark.9.qmg
 - res/drawable-xxhdpi-v4/tw_btn_default_mtrl.9.qmg
+- res/drawable-xxhdpi-v4/tw_fluid_scrollbar_handle_right_bg_mtrl.9.qmg
 - res/drawable-xxhdpi-v4/tw_label_toast_frame_mtrl.9.qmg
+- res/drawable-xxhdpi-v4/tw_scroll_popup_bg_holo_dark.9.qmg
+- res/drawable-xxhdpi-v4/tw_scroll_popup_bg_mtrl.9.qmg
 - res/drawable-xxhdpi-v4/tw_toast_frame_mtrl.9.qmg
-- res/drawable-xxhdpi-v4/voicecall_incoming_bg_message.9.qmg
+- webp
+- res/drawable-xxhdpi-v4/voicecall_incoming_bg_message_focus.9.qmg
 - res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.qmg
 - res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.qmg
 - res/drawable-xxxhdpi-v4/abc_switch_track_mtrl_alpha.9.qmg
+- res/drawable-xxxhdpi-v4/efsdk_tw_scroll_popup_bg_mtrl.9.qmg
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
@@ -26,6 +58,7 @@ sdkInfo:
   targetSdkVersion: '24'
 sharedLibrary: false
 unknownFiles:
+  build-data.properties: '8'
   SEC-INF/buildConfirm.crt: '8'
   SEC-INF/buildinfo.xml: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_255: '8'
@@ -59,6 +92,7 @@ unknownFiles:
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_61: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_62: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_63: '8'
+  com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_64: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_66: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_675: '8'
   com/google/i18n/phonenumbers/data/PhoneNumberAlternateFormatsProto_676: '8'
@@ -1125,11 +1159,12 @@ unknownFiles:
   com/google/i18n/phonenumbers/geocoding/data/994_en: '8'
   com/google/i18n/phonenumbers/geocoding/data/config: '8'
   com/google/i18n/phonenumbers/timezones/data/map_data: '8'
+  jsr305_annotations/Jsr305_annotations.gwt.xml: '8'
 usesFramework:
   ids:
   - 1
   tag: null
 version: 2.2.3
 versionInfo:
-  versionCode: '217101028'
-  versionName: 2.1.71.28
+  versionCode: '220116008'
+  versionName: 2.2.01.8

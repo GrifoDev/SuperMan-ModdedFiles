@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:orientation="vertical" android:id="@id/agif_tray_icon_container" android:layout_width="@dimen/agif_tray_icon_size" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/agif_tray_shadow" android:layout_width="@dimen/agif_tray_icon_shadow_width" android:layout_height="@dimen/agif_tray_icon_shadow_height" android:layout_marginTop="@dimen/agif_tray_icon_shadow_margin_top" android:src="@drawable/agif_tray_icon_shadow_bg" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_alignWithParentIfMissing="true" />
+    <ImageView android:id="@id/agif_tray_image" android:background="@drawable/agif_tray_icon_bg" android:focusable="true" android:layout_width="@dimen/agif_tray_icon_size" android:layout_height="@dimen/agif_tray_icon_size" android:layout_above="@id/agif_tray_shadow" />
+</RelativeLayout>

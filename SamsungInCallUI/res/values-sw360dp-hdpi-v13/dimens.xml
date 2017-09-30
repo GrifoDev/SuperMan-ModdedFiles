@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="conference_call_manager_hight">332.0dip</dimen>
     <dimen name="sec_call_popup_primary_name_max_width">250.0dip</dimen>
+    <dimen name="sec_dialpad_key_star_size">26.0dip</dimen>
     <dimen name="sec_dialpad_digits_margin_bottom">0.0dip</dimen>
-    <dimen name="sec_dialpad_key_numbers_size">35.0dip</dimen>
+    <dimen name="sec_dialpad_key_numbers_size">33.0dip</dimen>
     <dimen name="sec_video_endcall_upper_buttons_margin_top">246.0dip</dimen>
     <dimen name="sec_video_incall_button_text_size_onehand">12.0dip</dimen>
+    <dimen name="sec_call_popup_landscape_width">640.0dip</dimen>
 </resources>

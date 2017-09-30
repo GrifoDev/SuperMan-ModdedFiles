@@ -3,9 +3,13 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.android.incallui.widget.GradientAnimationView android:id="@id/gradient_animation_view" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <com.android.incallui.widget.GradientAnimationView android:id="@id/gradient_animation_view_dummy" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/dialButtonForAnim" android:background="@drawable/sec_dial_button_background" android:visibility="gone" android:layout_width="@dimen/sec_dial_button_diameter" android:layout_height="@dimen/sec_dial_button_diameter" android:layout_marginBottom="@dimen/sec_dial_button_margin_button" android:src="@drawable/phone_keypad_ic_call" android:scaleType="center" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
     <FrameLayout android:id="@id/videocall_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/in_call_button_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/in_call_card_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/agif_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/conference_manager_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <FrameLayout android:id="@id/dialpad_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <FrameLayout android:id="@id/answer_widget_container" android:layout_width="fill_parent" android:layout_height="fill_parent" />

@@ -13,12 +13,10 @@
     <dimen name="sec_cover_photo_margin_top">12.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_bottom">0.0dip</dimen>
     <dimen name="sec_primary_call_photo_margin_top">0.0dip</dimen>
-    <dimen name="incoming_call_tab_circle_size">69.0dip</dimen>
     <dimen name="sec_call_banner_large_sim_padding">4.0dip</dimen>
     <dimen name="sec_menu_button_text">17.0dip</dimen>
     <dimen name="reject_call_with_msg_create_text_size">22.0dip</dimen>
     <dimen name="reject_call_with_msg_list_item_text_size">22.0dip</dimen>
-    <dimen name="sec_call_popup_phone_number_locator_width">170.0dip</dimen>
     <dimen name="sec_clear_cover_banner_height">358.0dip</dimen>
     <dimen name="sec_clear_cover_call_state_label_text_size">21.0dip</dimen>
     <dimen name="sec_clear_cover_callstate_label_layout_height">29.0dip</dimen>
@@ -29,13 +27,8 @@
     <dimen name="sec_cover_popup_margin_bottom">125.0dip</dimen>
     <dimen name="sec_cover_reject_call_with_message_handle_text_size">13.0dip</dimen>
     <dimen name="sec_cover_toggle_button_text_size">14.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_icon_left_margin">44.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_icon_right_margin">4.0dip</dimen>
-    <dimen name="sec_incoming_call_popup_button_text_right_margin">44.0dip</dimen>
     <dimen name="sec_record_time_icon_diameter">9.0dip</dimen>
     <dimen name="sec_video_menu_button_text">17.0dip</dimen>
-    <dimen name="sec_call_popup_call_state_label_margin">12.0dip</dimen>
-    <dimen name="sec_call_popup_width">370.0dip</dimen>
     <dimen name="sec_clear_cover_label_number_margin_top">2.0dip</dimen>
     <dimen name="sec_cover_reject_call_with_message_handle_text_height">27.0dip</dimen>
     <dimen name="sec_cover_reject_call_with_message_handle_text_open_height">33.0dip</dimen>

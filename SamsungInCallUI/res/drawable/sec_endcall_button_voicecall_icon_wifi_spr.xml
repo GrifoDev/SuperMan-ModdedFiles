@@ -2,9 +2,9 @@
 <selector
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="false">
-        <bitmap android:src="@drawable/vowifi_callback_call_icon" android:alpha="0.4" />
+        <bitmap android:src="@drawable/voicecall_endcall_ic_vowifi_spr" android:alpha="0.4" />
     </item>
     <item>
-        <bitmap android:src="@drawable/vowifi_callback_call_icon" />
+        <bitmap android:src="@drawable/voicecall_endcall_ic_vowifi_spr" />
     </item>
 </selector>

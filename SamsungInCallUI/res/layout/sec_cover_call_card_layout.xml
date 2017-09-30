@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="fill_parent" android:layout_height="@dimen/sec_cover_banner_height_with_wave_effect"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:id="@id/sec_cover_call_card_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:id="@id/sec_cover_call_card_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <LinearLayout android:id="@id/indicator_area" android:layout_width="fill_parent" android:layout_height="@dimen/indicator_area_height" />
         <RelativeLayout android:id="@id/callStateContainer" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="@dimen/sec_cover_callstate_label_layout_height" android:layout_marginTop="@dimen/sec_cover_callstate_label_margin_top" android:layout_below="@id/indicator_area" android:layout_marginStart="@dimen/sec_cover_callstate_label_margin_start">
             <RelativeLayout android:id="@id/elapsed_time_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
@@ -12,7 +12,7 @@
             <TextView android:textSize="@dimen/sec_cover_call_state_label_text_size" android:textColor="@color/sec_cover_call_state_label" android:ellipsize="end" android:gravity="start" android:id="@id/callStateLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" android:layout_below="@id/indicator_area" android:layout_centerVertical="true" android:fontFamily="sec-roboto-light" android:layout_toEndOf="@id/onholdForwardSlash" />
             <ViewStub android:id="@id/holdCallText_Stub" android:visibility="gone" android:layout="@layout/sec_cover_hold_text_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_toEndOf="@id/elapsed_time_layout" android:layout_alignParentEnd="true" />
         </RelativeLayout>
-        <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/callInfoContainer" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/callStateContainer">
+        <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/callInfoContainer" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/callStateContainer" android:layout_marginStart="@dimen/sec_cover_callstate_label_margin_start" android:layout_marginEnd="@dimen/sec_cover_callstate_label_margin_start">
             <FrameLayout android:id="@id/photoContainer" android:background="@drawable/sec_photo_container_background_cover" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sec_cover_photo_margin_top" android:layout_marginBottom="@dimen/sec_cover_photo_margin_bottom" android:layout_below="@id/callStateContainer" android:layout_centerHorizontal="true">
                 <ImageView android:layout_gravity="center" android:id="@id/photo" android:layout_width="@dimen/sec_cover_photo_size" android:layout_height="@dimen/sec_cover_photo_size" android:scaleType="centerCrop" />
                 <ImageView android:layout_gravity="center" android:id="@id/smartCallPhoto" android:visibility="gone" android:layout_width="@dimen/sec_cover_photo_size" android:layout_height="@dimen/sec_cover_photo_size" android:scaleType="centerCrop" />
@@ -33,5 +33,5 @@
             </LinearLayout>
             <ViewStub android:id="@id/spam_call_info_stub" android:visibility="gone" android:layout="@layout/sec_cover_spam_call_info_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/labelAndNumber" android:layout_centerHorizontal="true" />
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

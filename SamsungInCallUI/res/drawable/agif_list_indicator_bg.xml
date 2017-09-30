@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape android:shape="rectangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/agif_list_indicator_color" />
+    <size android:height="@dimen/agif_indicator_select_height" android:width="@dimen/agif_indicator_width" />
+</shape>
